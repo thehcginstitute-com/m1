@@ -1,0 +1,35 @@
+/**
+ *  SignaturePad: A jQuery plugin for assisting in the creation of an HTML5 canvas
+ *  based signature pad. Records the drawn signature in JSON for later regeneration.
+ *
+ *  @project ca.thomasjbradley.applications.signaturepad
+ *  @author Thomas J Bradley <hey@thomasjbradley.ca>
+ *  @link http://thomasjbradley.ca/lab/signature-pad
+ *  @link http://github.com/thomasjbradley/signature-pad
+ *  @copyright Copyright MMXI, Thomas J Bradley
+ *  @license New BSD License
+ */
+@font-face {
+  font-family: 'Journal';
+  src: url('fonts/journal/journal.eot');
+  src: url('fonts/journal/journal.eot?#iefix') format('embedded-opentype'),
+       url('fonts/journal/journal.woff') format('woff'),
+       url('fonts/journal/journal.ttf') format('truetype'),
+       url('fonts/journal/journal.svg#JournalRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.signature{display: block; margin-top: 4px;}
+.pad {
+  position: relative;
+}
+.name {
+  height: 55px;
+  margin: 0;
+  padding: 0 5px;
+  position: absolute;
+  z-index: 90;
+  cursor: default;
+  color: #145394;
+  font: normal 1.875em/50px "Journal",Georgia,Times,serif;
+}

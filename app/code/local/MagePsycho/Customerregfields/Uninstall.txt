@@ -1,0 +1,24 @@
+==============================================================================
+| Disable the extension
+==============================================================================
+1. Change <active>true</active> to <active>false</active> in file:
+app/etc/modules/MagePsycho_Customerregfields.xml
+
+==============================================================================
+| Uninstall / Remove the extension
+==============================================================================
+1. Remove the following files:
+    - app/etc/modules/MagePsycho_Customerregfields.xml
+    - app/code/local/MagePsycho/Customerregfields/*
+    - app/locale/en_US/MagePsycho_Customerregfields.csv
+    - app/design/frontend/rwd/default/layout/magepsycho_customerregfields.xml
+    - app/design/frontend/rwd/default/template/magepsycho/customerregfields/*
+    - app/design/frontend/default/default/layout/magepsycho_customerregfields.xml
+    - app/design/frontend/default/default/template/magepsycho/customerregfields/*
+2. Remove setup script & eav attribute (mp_group_code)
+    - SQL: DELETE FROM core_resource WHERE code = 'magepsycho_customerregfields_setup'
+    - SQL: DELETE FROM eav_attribute WHERE attribute_code = 'mp_group_code';
+3. Remove system configuration data
+    - SQL: DELETE FROM core_config_data WHERE path LIKE 'magepsycho_customerregfields%';
+4. Remove table(s)
+    - NONE

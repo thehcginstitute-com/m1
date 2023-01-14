@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+	<adminhtml_sales_order_view>
+		<reference name="head">
+			 <action method="addCss"><name>signature/jquery.signaturepad.css</name></action>	
+		</reference>
+		<reference name="order_info">
+			<action method="setTemplate">
+				<template>opcsignature/sales/order/view/info.phtml</template>
+			</action>
+		</reference>
+	</adminhtml_sales_order_view>
+	<adminhtml_sales_order_invoice_view>
+		<reference name="head">
+			 <action method="addCss"><name>signature/jquery.signaturepad.css</name></action>	
+		</reference>
+		<reference name="order_info">
+			<action method="setTemplate">
+				<template>opcsignature/sales/order/view/info.phtml</template>
+			</action>
+		</reference>
+	</adminhtml_sales_order_invoice_view>
+	<adminhtml_sales_order_invoice_new>
+		<reference name="head">
+			 <action method="addCss"><name>signature/jquery.signaturepad.css</name></action>	
+		</reference>
+		<reference name="order_info">
+			<action method="setTemplate">
+				<template>opcsignature/sales/order/view/info.phtml</template>
+			</action>
+		</reference>
+	</adminhtml_sales_order_invoice_new>
+</layout>

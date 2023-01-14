@@ -1,0 +1,53 @@
+<div class="content-header" style="clear: both">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3><?php echo $this->__('Google Analytics Importer Settings') ?></h3></td>
+            <td class="a-right">
+                <button onclick="editFormSettings.submit()" class="scalable save" type="button"><span><?php echo $this->__('Update Settings') ?></span></button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="entry-edit">
+    <form id="edit_settings_form" name="edit_settings_form" method="post" action="<?php echo $this->getUrl('*/*/save') ?>">
+        <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+        <fieldset id="my-fieldset">
+            <table cellspacing="0" class="form-list">
+                <tr>
+                    <td class="label"><?php echo $this->__('Webservice Url') ?> <span class="required">*</span></td>
+                    <td class="input-ele"><input class="input-text required-entry" value="<?php echo $webserviceUrl ?>" name="gai_settings[webserviceUrl]" /></td>
+                </tr>
+
+                <tr>
+                    <td class="label"><?php echo $this->__('Account Token') ?> <span class="required">*</span></td>
+                    <td class="input-ele"><input class="input-text required-entry" value="<?php echo $accountToken?>" name="gai_settings[accountToken]" /></td>
+                </tr>
+
+             </table>
+        </fieldset>
+       
+        <fieldset id="my-fieldset-1">
+            <table cellspacing="0" class="form-list">
+             
+                <tr>
+                  <td><span><input class="input-text" type="checkbox" value="adminOrder" <?php if(in_array('adminOrder',unserialize($orderTypes))){ echo 'checked'; } ?> name="orders[]" /></span>
+                   <span class="label"><?php echo $this->__('Admin Orders') ?></span>
+                   </td> 
+                </tr>
+                 
+                <tr>
+                  <td><span class="input-ele"><input class="input-text" type="checkbox" <?php if(in_array('customerOrder',unserialize($orderTypes))) { echo 'checked'; } ?> value="customerOrder" name="orders[]" /></span>
+                    <span class="label"><?php echo $this->__('Customer Orders') ?></span>
+                    </td>  
+                </tr>
+              
+            </table>
+        </fieldset>
+     </form>
+</div>
+<script type="text/javascript">
+    var editFormSettings = new varienForm('edit_settings_form');
+</script>
+
+

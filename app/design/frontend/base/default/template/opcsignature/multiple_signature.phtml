@@ -1,0 +1,43 @@
+<?php echo Mage::app()->getLayout()->createBlock('checkout/agreements')->setTemplate('checkout/onepage/agreements.phtml')->toHtml()?>
+<?php if($this->canShow()):?>
+<!--[if lt IE 9]><script src="<?php echo mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS)?>signature/flashcanvas.js"></script><![endif]-->
+<div class="multiple_signature_wrapper col2-set">	
+	<div class="multiple signature">
+		<label for="signature_name"><?php echo $this->getTitle()?></label>
+	    <input type="text" name="signature_name" id="name" class="name">
+	    <p class="typeItDesc"><?php echo $this->__('Review your signature')?></p>
+	    <p class="drawItDesc"><?php echo $this->__('Draw your signature')?></p>
+	    <ul class="sigNav">
+	      <li class="typeIt"><a href="#type-it" class="current"><?php echo $this->__('Type It')?></a></li>
+	      <li class="drawIt"><a href="#draw-it" ><?php echo $this->__('Draw It')?></a></li>
+	      <li class="clearButton"><a href="#clear"><?php echo $this->__('Clear')?></a></li>
+	    </ul>
+	    <div class="sig sigWrapper">
+	      <div class="typed"></div>
+	      <canvas class="pad" width="285" height="55"></canvas>
+	      <input type="hidden" name="output" class="output" >
+	    </div>
+	</div>
+	<div class="clearer"></div>
+</div>
+<script type="text/javascript">
+
+	
+	if (window.jQuery) 
+	{
+		jQuery(document).ready(function () {
+			jQuery('.signature').signaturePad();
+		  	if(jQuery('div.multiple-checkout > form').size()>0)
+			{
+				jQuery('div.multiple-checkout > form').attr('onsubmit', 'return validate_multiple_signature()');
+			}	
+		});
+	
+	}
+	else
+	{
+		alert('<?php echo $this->__('Please, enable jQuery')?>');
+	}
+</script>
+<?php endif;?>
+<?php echo $this->getChildHtml('agreements'); ?>

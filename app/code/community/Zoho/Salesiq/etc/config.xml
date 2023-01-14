@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   Zoho
+ * @package    Zoho_Salesiq
+ * @author     Salesiq Team
+ * @website    http://www.zoho.com/salesiq
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Zoho_Salesiq>
+            <version>0.1.0</version>
+        </Zoho_Salesiq>
+    </modules>
+    <global>
+        <models>
+            <salesiq>
+                <class>Zoho_Salesiq_Model</class>
+            </salesiq>
+        </models>
+        <blocks>
+            <salesiq>
+                <class>Zoho_Salesiq_Block</class>
+            </salesiq>
+        </blocks>
+        <helpers>
+            <salesiq>
+                <class>Zoho_Salesiq_Helper</class>
+            </salesiq>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <salesiq>
+                <use>standard</use>
+                <args>
+                    <module>Zoho_Salesiq</module>
+                    <frontName>salesiq</frontName>
+                </args>
+            </salesiq>
+        </routers>
+		<layout>
+			<updates>
+				<salesiq>
+					<file>salesiq.xml</file>
+				</salesiq>
+			</updates>
+		</layout>
+    </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <salesiq>
+                                            <title>Zoho SalesIQ Section</title>
+                                        </salesiq>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <default>
+        <salesiq>
+            <option>
+                <active>1</active>
+        				<enable_log>1</enable_log>
+            </option>
+        </salesiq>
+    </default>
+</config>

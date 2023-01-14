@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <OX_AmexSavedCC>
+            <version>0.1.0</version>
+        </OX_AmexSavedCC>
+    </modules>
+    <global>
+        <models>
+            <amexsavedcc>
+                <class>OX_AmexSavedCC_Model</class>
+            </amexsavedcc>
+        </models>
+        <helpers>
+            <amexsavedcc>
+                <class>OX_AmexSavedCC_Helper</class>
+            </amexsavedcc>
+        </helpers>
+    </global>
+    <default>
+        <payment>
+            <amexsavedcc>
+                <active>1</active>
+                <cctypes>AE</cctypes>
+                <model>amexsavedcc/method_ccsave</model>
+                <order_status>pending</order_status>
+                <title>Credit Card (Saved - American Express)</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </amexsavedcc>
+        </payment>
+    </default>
+</config>

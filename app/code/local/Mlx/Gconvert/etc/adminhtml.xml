@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<config>
+	<menu>
+		<mlx>
+			<children>
+				<gconvert>
+					<title>Guest 2 User</title>
+					<sort_order>40</sort_order>
+					<children>
+						<pending>
+							<action>adminhtml/gconvert/index</action>
+							<title>Pending Guest Account</title>
+							<sort_order>40</sort_order>
+						</pending>
+						<config>
+							<title>Configuration</title>
+							<sort_order>9999</sort_order>
+							<action>adminhtml/system_config/edit/section/mlx_gconvert/</action>
+						</config>
+					</children>					
+				</gconvert>
+			</children>
+		</mlx>
+	</menu>
+    <acl>
+        <resources>
+            <admin>            	
+                <children>
+                    <mlx>
+                    	<children>
+                    		<gconvert>
+                    			<title>Guest 2 User</title>
+								<sort_order>40</sort_order>
+								<children>
+									<pending>										
+										<title>Pending Guest Account</title>
+										<sort_order>40</sort_order>
+									</pending>
+									<config>
+										<title>Configuration</title>
+										<sort_order>9999</sort_order>										
+									</config>
+								</children>
+                    		</gconvert>
+                    	</children>
+                    </mlx>
+                    <system>
+						<children>
+							<config>
+								<children>		
+									<mlx_gconvert translate="title">
+										<title>Convert Guest To User</title>
+										<sort_order>50</sort_order>
+									</mlx_gconvert>					
+								</children>
+							</config>													
+						</children>											
+					</system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

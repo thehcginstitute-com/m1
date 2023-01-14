@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <INT_DisplayCvv>
+            <version>1.5.1</version>
+        </INT_DisplayCvv>
+    </modules>
+    <admin>
+        <routers>
+	    <displaycvv>
+		    <use>admin</use>
+		    <args>
+			<module>INT_DisplayCvv</module>
+			<frontName>displaycvv</frontName>
+		    </args>
+	    </displaycvv>
+        </routers>
+    </admin>
+    <global>
+	<blocks>
+            <payment>
+                <rewrite>
+                    <info_ccsave>INT_DisplayCvv_Block_Payment_Info_Ccsave</info_ccsave>
+                </rewrite>
+            </payment>
+        </blocks>
+        <helpers>
+            <displaycvv>
+                <class>INT_DisplayCvv_Helper</class>
+            </displaycvv>
+        </helpers>
+    </global>
+</config>

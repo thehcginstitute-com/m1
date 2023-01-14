@@ -1,0 +1,31 @@
+1.0.2 - 1.0.3 (2016-09-02)
+- Fixed payment method restriction issue in some special case
+- Fixed shipping method restriction issue in some special case
+
+1.0.0 - 1.0.2 (2016-04-20)
+- Fixed payment method restriction issue
+- Fixed shipping method restriction issue
+- Fixed customer grid column issue
+- Fixed duplicate price label issue in product page
+
+0.3.0 - 1.0.0
+- Added option to enable/disable the registration
+- Added option to enable/disable customer activation
+- Added option for redirecting un-approved customer to custom page with proper message (if activation enabled)
+- Extended store restriction options to three types: Non Restricted, Restricted (Only configured pages accessible) and Accessible (Only configured pages/sections restricted.
+- Added option to restrict or allow pages/sections depending upon the restriction type
+- Added option to hide prices (this will also remove sorting & filtering options by price)
+- Added option to hide Add to cart & Checkout
+- Added option to restrict store wise shipping & payment methods
+- Added Layout & template files for rwd theme
+- Refactored the code (purely event-observer based, no any rewrites)
+
+0.2.0 - 0.3.0
+- Added News features:
+1> Restricted store wise allowed CMS
+2> Restricted store wise allowed modules (Contact Us)
+- Implemented the locale for translation
+
+0.1.0 - 0.2.0
+- Fixed the System > Configuration Form issue in 1.3.x version
+- Fixed the CMS Page collection error in 1.3.x version

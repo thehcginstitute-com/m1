@@ -1,0 +1,23 @@
+<?php
+/**
+ * 2019-04-11 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+ * «Make the header message editable in the Magento 1 backend via a CMS block»
+ * https://www.upwork.com/ab/f/contracts/21957154
+ */
+$b = \Mage::getModel('cms/block'); /** @var \Mage_Cms_Model_Block $b */
+$b->load('bannertop', 'identifier');
+?>
+<div
+	class="mtsnb mtsnb-shown mtsnb-top mtsnb-fixed"
+	data-mtsnb-id="1601"
+	id="df-topmost-banner"
+	style="background-color:#ae1010;color:#ffffff;"
+>
+	<div class="mtsnb-container-outer">
+		<div class="mtsnb-container mtsnb-clearfix">
+			<div class="mtsnb-button-type mtsnb-content">
+				<span class="mtsnb-text"><?= strip_tags($b['content']) ?></span>
+			</div>
+		</div>
+	</div>
+</div>

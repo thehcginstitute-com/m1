@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   MagePsycho
+ * @package    MagePsycho_Storerestrictionpro
+ * @author     magepsycho@gmail.com
+ * @website    http://www.magepsycho.com
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+	<menu>
+		<magepsycho_all module="magepsycho_storerestrictionpro">
+			<title>MagePsycho</title>
+			<sort_order>71</sort_order>
+			<children>
+				<magepsycho_storerestrictionpro module="magepsycho_storerestrictionpro">
+					<title>Store Restriction Pro</title>
+					<sort_order>20</sort_order>
+					<children>
+						<setting module="magepsycho_storerestrictionpro">
+							<title>Manage Settings</title>
+							<sort_order>10</sort_order>
+							<action>adminhtml/system_config/edit/section/magepsycho_storerestrictionpro</action>
+						</setting>
+					</children>
+				</magepsycho_storerestrictionpro>
+			</children>
+		</magepsycho_all>
+	</menu>
+    <acl>
+		<resources>
+			<admin>
+				<children>
+					<magepsycho_all module="magepsycho_storerestrictionpro">
+						<title>MagePsycho</title>
+						<children>
+							<magepsycho_storerestrictionpro module="magepsycho_storerestrictionpro">
+								<title>Store Restriction Pro</title>
+								<children>
+									<setting module="magepsycho_storerestrictionpro">
+										<title>Manage Settings</title>
+									</setting>
+								</children>
+							</magepsycho_storerestrictionpro>
+						</children>
+					</magepsycho_all>
+					<system>
+						<children>
+							<config>
+								<children>
+									<magepychoinfo>
+										<title>MagePsycho Info - Store Restriction Pro</title>
+									</magepychoinfo>
+									<magepsycho_storerestrictionpro>
+										<title>Store Restriction Pro</title>
+									</magepsycho_storerestrictionpro>
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

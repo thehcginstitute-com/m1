@@ -1,0 +1,60 @@
+<?php
+// Retrieve order
+$_order = new Mage_Sales_Model_Order();
+$orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
+$_order->loadByIncrementId($orderId);
+$shipping_address=$_order->getBillingAddress();
+
+$store=Mage::app()->getStore()->getStoreId(); 
+$base_url = Mage::getStoreConfig('web/secure/base_url');
+$success_url = Mage::getStoreConfig('web/secure/base_url') . "mygateway/payment/response";
+/* Sender Name */
+$mer_id=Mage::getStoreConfig('payment/mygateway/mer_id',$store); 
+$mer_password=Mage::getStoreConfig('payment/mygateway/mer_password',$store); 
+/* Sender Email */
+//Mage::getStoreConfig('trans_email/ident_general/email',$store);
+
+/*
+$fname = $_REQUEST['first_name'];
+$lname = $_REQUEST['last_name'];
+$company = $_REQUEST['company'];
+$email = $_REQUEST['email'];
+$phone = $_REQUEST['night_phone_a'] . $_REQUEST['night_phone_b'] . $_REQUEST['night_phone_c'];
+$address1 = $_REQUEST['address1'];
+$address2 = $_REQUEST['address2'];
+$city = $_REQUEST['city'];
+$state = $_REQUEST['state'];
+$zip = $_REQUEST['zip'];
+$mer_id = $_REQUEST['mer_id'];
+$mer_password = $_REQUEST['mer_password'];
+$ftotal = $_POST["ftotal"];
+if (!$ftotal) {
+$ftotal ="\$" .  $_REQUEST['grandtotal'];
+}
+$total = $_REQUEST['grandtotal'];
+$successurl = $_REQUEST['return'];
+
+
+*/
+?>
+<form name="mygatewayform" method="post" action="https://www.prepaidmegastore.com/evouchermag.php">
+	<input type="hidden" name="sessioninfo" value="<?php echo $orderId; ?>">
+    <input type="hidden" name="grandtotal" value="<?php echo $_order->getBaseGrandTotal(); ?>">
+    <input type="hidden" name="first_name" value="<?php echo $_order->getCustomerFirstname(); ?>">
+    <input type="hidden" name="last_name" value="<?php echo $_order->getCustomerLastname(); ?>">
+    <input type="hidden" name="address1" value="<?php echo $shipping_address->getStreet(1); ?>">
+    <input type="hidden" name="address2" value="<?php echo $shipping_address->getStreet(2); ?>">
+    <input type="hidden" name="city" value="<?php echo $shipping_address->getCity(); ?>">
+    <input type="hidden" name="company" value="<?php echo $shipping_address->getCompany(); ?>">
+    <input type="hidden" name="state" value="<?php echo $shipping_address->getRegion(); ?>">
+    <input type="hidden" name="zip" value="<?php echo $shipping_address->getPostcode(); ?>">
+    <input type="hidden" name="phone" value="<?php echo $shipping_address->getTelephone(); ?>">
+    <input type="hidden" name="email" value="<?php echo $shipping_address->getEmail(); ?>">
+    <input type="hidden" name="mer_id" value="<?php echo $mer_id; ?>">
+    <input type="hidden" name="mer_password" value="<?php echo $mer_password; ?>">
+    <input type="hidden" name="storeurl" value="<?php echo $base_url; ?>">
+    <input type="hidden" name="return" value="<?php echo $success_url; ?>">
+</form>
+<script type="text/javascript">
+document.mygatewayform.submit();
+</script>

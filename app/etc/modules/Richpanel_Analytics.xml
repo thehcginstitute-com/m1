@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<config>
+    <modules>
+        <Richpanel_Analytics>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Richpanel_Analytics>
+    </modules>
+</config>

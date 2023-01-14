@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   MagePsycho
+ * @package    MagePsycho_Storerestrictionpro
+ * @author     magepsycho@gmail.com
+ * @website    http://www.magepsycho.com
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+	<modules>
+		<MagePsycho_Storerestrictionpro>
+			<version>1.0.3</version>
+		</MagePsycho_Storerestrictionpro>
+	</modules>
+
+	<global>
+		<models>
+			<magepsycho_storerestrictionpro>
+				<class>MagePsycho_Storerestrictionpro_Model</class>
+                <resourceModel>magepsycho_storerestrictionpro_resource</resourceModel>
+			</magepsycho_storerestrictionpro>
+            <magepsycho_storerestrictionpro_resource>
+                <class>MagePsycho_Storerestrictionpro_Model_Resource</class>
+            </magepsycho_storerestrictionpro_resource>
+		</models>
+		<resources>
+			<magepsycho_storerestrictionpro_setup>
+				<setup>
+					<module>MagePsycho_Storerestrictionpro</module>
+					<class>Mage_Customer_Model_Entity_Setup</class>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</magepsycho_storerestrictionpro_setup>
+		</resources>
+		<helpers>
+			<magepsycho_storerestrictionpro>
+				<class>MagePsycho_Storerestrictionpro_Helper</class>
+			</magepsycho_storerestrictionpro>
+		</helpers>
+        <blocks>
+            <magepsycho_storerestrictionpro>
+                <class>MagePsycho_Storerestrictionpro_Block</class>
+            </magepsycho_storerestrictionpro>
+        </blocks>
+
+		<events>
+            <customer_save_before>
+                <observers>
+                    <magepsycho_storerestrictionpro_customer_save_before>
+                        <type>singleton</type>
+                        <class>magepsycho_storerestrictionpro/observer</class>
+                        <method>customerSaveBefore</method>
+                    </magepsycho_storerestrictionpro_customer_save_before>
+                </observers>
+            </customer_save_before>
+			<customer_save_after>
+				<observers>
+					<magepsycho_storerestrictionpro_customer_save_after>
+                        <type>model</type>
+						<class>magepsycho_storerestrictionpro/observer</class>
+						<method>customerSaveAfter</method>
+					</magepsycho_storerestrictionpro_customer_save_after>
+				</observers>
+			</customer_save_after>
+            <payment_method_is_active>
+                <observers>
+                    <magepsycho_storerestrictionpro_payment_method_is_active>
+                        <type>singleton</type>
+                        <class>magepsycho_storerestrictionpro/observer</class>
+                        <method>paymentMethodIsActive</method>
+                    </magepsycho_storerestrictionpro_payment_method_is_active>
+                </observers>
+            </payment_method_is_active>
+		</events>
+
+		<template>
+			<email>
+				<magepsycho_storerestrictionpro_new_account_settings_admin_notification_email_template translate="label" module="magepsycho_storerestrictionpro">
+					<label>New Account Registration Admin Notification Email Template</label>
+					<file>magepsycho/storerestrictionpro/account_registration_admin_notification_email_template.html</file>
+					<type>html</type>
+				</magepsycho_storerestrictionpro_new_account_settings_admin_notification_email_template>
+				<magepsycho_storerestrictionpro_new_account_settings_customer_notification_email_template translate="label" module="magepsycho_storerestrictionpro">
+					<label>New Account Activation Customer Notification Email Template</label>
+					<file>magepsycho/storerestrictionpro/account_activation_customer_notification_email_template.html</file>
+					<type>html</type>
+				</magepsycho_storerestrictionpro_new_account_settings_customer_notification_email_template>
+				<magepsycho_storerestrictionpro_new_account_settings_customer_deactivation_notification_email_template translate="label" module="magepsycho_storerestrictionpro">
+					<label>New Account Deactivation Customer Notification Email Template</label>
+					<file>magepsycho/storerestrictionpro/account_deactivation_customer_notification_email_template.html</file>
+					<type>html</type>
+				</magepsycho_storerestrictionpro_new_account_settings_customer_deactivation_notification_email_template>
+			</email>
+		</template>
+
+	</global>
+
+	<frontend>
+		<translate>
+			<modules>
+				<MagePsycho_Storerestrictionpro>
+					<files>
+						<default>MagePsycho_Storerestrictionpro.csv</default>
+					</files>
+				</MagePsycho_Storerestrictionpro>
+			</modules>
+		</translate>
+		<routers>
+			<magepsycho_storerestrictionpro>
+				<use>standard</use>
+				<args>
+					<module>MagePsycho_Storerestrictionpro</module>
+					<frontName>magepsycho_storerestrictionpro</frontName>
+				</args>
+			</magepsycho_storerestrictionpro>
+		</routers>
+		<layout>
+			<updates>
+				<magepsycho_storerestrictionpro>
+					<file>magepsycho_storerestrictionpro.xml</file>
+				</magepsycho_storerestrictionpro>
+			</updates>
+		</layout>
+		<events>
+            <controller_action_predispatch>
+                <observers>
+                    <magepsycho_storerestrictionpro_controller_action_predispatch>
+                        <type>singleton</type>
+                        <class>magepsycho_storerestrictionpro/observer</class>
+                        <method>controllerActionPredispatch</method>
+                    </magepsycho_storerestrictionpro_controller_action_predispatch>
+                </observers>
+            </controller_action_predispatch>
+			<customer_login>
+				<observers>
+					<magepsycho_storerestrictionpro_customer_login>
+                        <type>singleton</type>
+						<class>magepsycho_storerestrictionpro/observer</class>
+						<method>customerLogin</method>
+					</magepsycho_storerestrictionpro_customer_login>
+				</observers>
+			</customer_login>
+            <core_block_abstract_to_html_before>
+                <observers>
+                    <magepsycho_storerestrictionpro_core_block_abstract_to_html_before>
+                        <type>singleton</type>
+                        <class>magepsycho_storerestrictionpro/observer</class>
+                        <method>frontendCoreBlockAbstractToHtmlBefore</method>
+                    </magepsycho_storerestrictionpro_core_block_abstract_to_html_before>
+                </observers>
+            </core_block_abstract_to_html_before>
+            <controller_action_layout_load_before>
+                <observers>
+                    <magepsycho_storerestrictionpro_controller_action_layout_load_before>
+                        <type>singleton</type>
+                        <class>magepsycho_storerestrictionpro/observer</class>
+                        <method>frontendControllerActionLayoutLoadBefore</method>
+                    </magepsycho_storerestrictionpro_controller_action_layout_load_before>
+                </observers>
+            </controller_action_layout_load_before>
+            <core_layout_block_create_after>
+                <observers>
+                    <magepsycho_storerestrictionpro_core_layout_block_create_after>
+                        <type>singleton</type>
+                        <class>magepsycho_storerestrictionpro/observer</class>
+                        <method>frontendCoreLayoutBlockCreateAfter</method>
+                    </magepsycho_storerestrictionpro_core_layout_block_create_after>
+                </observers>
+            </core_layout_block_create_after>
+            <catalog_product_type_prepare_full_options>
+                <observers>
+                    <magepsycho_storerestrictionpro_catalog_product_type_prepare_full_options>
+                        <type>singleton</type>
+                        <class>magepsycho_storerestrictionpro/observer</class>
+                        <method>catalogProductTypePrepareFullOptions</method>
+                    </magepsycho_storerestrictionpro_catalog_product_type_prepare_full_options>
+                </observers>
+            </catalog_product_type_prepare_full_options>
+            <core_collection_abstract_load_after>
+                <observers>
+                    <magepsycho_storerestrictionpro_core_collection_abstract_load_after>
+                        <type>singleton</type>
+                        <class>magepsycho_storerestrictionpro/observer</class>
+                        <method>coreCollectionAbstractLoadAfter</method>
+                    </magepsycho_storerestrictionpro_core_collection_abstract_load_after>
+                </observers>
+            </core_collection_abstract_load_after>
+		</events>
+	</frontend>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <magepsycho_storerestrictionpro before="Mage_Adminhtml">MagePsycho_Storerestrictionpro_Adminhtml</magepsycho_storerestrictionpro>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+	<adminhtml>
+		<translate>
+			<modules>
+				<MagePsycho_Storerestrictionpro>
+					<files>
+						<default>MagePsycho_Storerestrictionpro.csv</default>
+					</files>
+				</MagePsycho_Storerestrictionpro>
+			</modules>
+		</translate>
+		<events>
+			<controller_action_predispatch>
+				<observers>
+                    <magepsycho_storerestrictionpro_controller_action_predispatch>
+                        <type>singleton</type>
+                        <class>magepsycho_storerestrictionpro/observer</class>
+                        <method>adminhtmlControllerActionPredispatch</method>
+                    </magepsycho_storerestrictionpro_controller_action_predispatch>
+				</observers>
+			</controller_action_predispatch>
+			<core_block_abstract_to_html_before>
+				<observers>
+					<magepsycho_storerestrictionpro_core_block_abstract_to_html_before>
+						<class>magepsycho_storerestrictionpro/observer</class>
+						<method>coreBlockAbstractToHtmlBefore</method>
+					</magepsycho_storerestrictionpro_core_block_abstract_to_html_before>
+				</observers>
+			</core_block_abstract_to_html_before>
+			<eav_collection_abstract_load_before>
+				<observers>
+					<magepsycho_storerestrictionpro_eav_collection_abstract_load_before>
+						<class>magepsycho_storerestrictionpro/observer</class>
+						<method>eavCollectionAbstractLoadBefore</method>
+					</magepsycho_storerestrictionpro_eav_collection_abstract_load_before>
+				</observers>
+			</eav_collection_abstract_load_before>
+		</events>
+	</adminhtml>
+
+	<default>
+		<magepsycho_storerestrictionpro>
+			<option>
+				<active>0</active>
+				<enable_log>0</enable_log>
+				<domain_type>1</domain_type>
+			</option>
+			<new_account_settings>
+				<new_acccount_registration_option>1</new_acccount_registration_option>
+				<new_acccount_registration_disabled_message>Sorry new account creation is disabled. You can contact us via email: info@store.com if you are interested.</new_acccount_registration_disabled_message>
+				<new_account_activation_required>0</new_account_activation_required>
+                <activation_required_customer_groups>-1</activation_required_customer_groups>
+                <new_account_activation_redirection_type>1</new_account_activation_redirection_type>
+                <new_account_activation_redirection_type_custom>/contacts</new_account_activation_redirection_type_custom>
+                <new_account_activation_redirection_error_message_registration>Thank you for registration. Your account requires moderation before you can login.</new_account_activation_redirection_error_message_registration>
+                <new_account_activation_redirection_error_message_login>Please wait for your account to be activated.</new_account_activation_redirection_error_message_login>
+                <new_account_activation_by_default_frontend>0</new_account_activation_by_default_frontend>
+                <new_account_activation_by_default_admin>0</new_account_activation_by_default_admin>
+                <notify_admin_on_customer_registration>1</notify_admin_on_customer_registration>
+                <notify_customer_on_account_activation>1</notify_customer_on_account_activation>
+
+				<admin_notification_email_template>magepsycho_storerestrictionpro_new_account_settings_admin_notification_email_template</admin_notification_email_template>
+				<customer_notification_email_template>magepsycho_storerestrictionpro_new_account_settings_customer_notification_email_template</customer_notification_email_template>
+				<customer_deactivation_notification_email_template>magepsycho_storerestrictionpro_new_account_settings_customer_deactivation_notification_email_template</customer_deactivation_notification_email_template>
+			</new_account_settings>
+            <restricted_settings>
+                <restriction_type>1</restriction_type>
+                <restricted_allowed_customer_groups>-1</restricted_allowed_customer_groups>
+                <restricted_redirection_type>1</restricted_redirection_type>
+                <restricted_redirection_type_cms>home</restricted_redirection_type_cms>
+                <restricted_redirection_type_custom>/contacts</restricted_redirection_type_custom>
+                <restricted_store_error_message>This is a restricted store.</restricted_store_error_message>
+                <restricted_customer_group_error_message>The customer group that you belong to is not allowed to access this store.</restricted_customer_group_error_message>
+                <restricted_allowed_module_pages>catalog/seo_sitemap/*
+paypal/*/*</restricted_allowed_module_pages>
+
+                <accessible_allowed_customer_groups>-1</accessible_allowed_customer_groups>
+                <accessible_redirection_type>1</accessible_redirection_type>
+                <accessible_redirection_type_cms>home</accessible_redirection_type_cms>
+                <accessible_redirection_type_custom>/contacts</accessible_redirection_type_custom>
+                <accessible_store_error_message>You are not allowed to view this page.</accessible_store_error_message>
+                <accessible_hide_product_price_text>Login to view price</accessible_hide_product_price_text>
+                <accessible_hide_product_price_link>/customer/account/login</accessible_hide_product_price_link>
+                <accessible_hide_add_to_cart_text>Login to Add to Cart</accessible_hide_add_to_cart_text>
+                <accessible_hide_add_to_cart_link>/customer/account/login</accessible_hide_add_to_cart_link>
+            </restricted_settings>
+		</magepsycho_storerestrictionpro>
+	</default>
+</config>

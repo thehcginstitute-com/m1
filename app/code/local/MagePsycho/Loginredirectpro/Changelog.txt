@@ -1,0 +1,48 @@
+2.0.0 - 2.0.1 (2016-04-08)
+- Added new variable {{assigned_base_url}} which gives the base url of customer assigned website.
+- Fixed redirection bug associated with {{referer}}
+
+1.5.0 - 2.0.0 (2016-03-05)
+- Refined the code & admin GUI
+- Moved all login, logout, register, subscriber etc. based redirection to event-observer
+- Added option to remove intermediate logout redirection page
+- Fixed customer group wise redirection issue for logout
+- Fixed the issue related to {{redirect_to}} variable
+- Moved customer group wise redirection, email template, success message etc. to tabular array for easier management
+- Customer registration is compatible with security patch SUPEE-6788
+- Renamed the module as 'Custom Redirection Pro'
+
+1.3.0 - 1.5.0 (2014-01-03)
+- Code Refinement
+- Added version info
+- Added locale translation
+- Added custom variable {{redirect_to}} to redirect to the url mentioned in the query string param
+- Added more variables like:
+    {{ip}}
+    {{country_code}}
+    {{user_id}}
+    {{user_group_id}}
+    {{user_name}}
+    {{user_email}}
+- Removed dependency on Mage_Adminhtml_Block_System_Config_Form
+- Added customer group wise new account/registration success message
+
+1.1.0 - 1.3.0 (2013-02-02)
+- Code Refinement
+- Added customer group selection feature during new account creation
+- Added customer group wise new account email template
+- Fixed redirection issue from onepage checkout login page
+
+0.3.0 - 1.1.0 (2011-10-29)
+- Refined the code
+- Added default custom logout url
+- Added customer group wise custom logout url
+- Added default new account redirection url
+- Added customer group wise new account redirection url
+- Added option for time delay during logout redirection
+- Added option for custom message during logout redirection
+- Added option to redirection to referer/previous page url using {{referer}} variable
+
+0.2.0 - 0.3.0 (2011-04-27)
+- Fixed the System > Configuration Form issue in 1.3.x version
+- Fixed the CMS Page collection error in 1.3.x version

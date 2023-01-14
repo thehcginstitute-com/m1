@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config>
+  <acl>
+    <resources>
+      <admin>
+        <children>
+          <system>
+            <children>
+              <config>
+                <children>
+                  <cvv>
+                    <title>Display Credit Card CVV</title>
+                    <sort_order>151</sort_order>
+                  </cvv>
+                </children>
+              </config>
+            </children>
+          </system>
+        </children>
+      </admin>
+    </resources>
+  </acl>
+</config>

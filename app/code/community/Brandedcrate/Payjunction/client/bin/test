@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+./vendor/bin/phpcs -v --standard=psr2 lib test
+
+php -S localhost:8000 -t test/echo > /dev/null 2>&1 &
+SERVER_PID=$!
+
+./vendor/bin/phpunit test/unit
+./vendor/bin/phpunit test/integration
+
+kill $SERVER_PID

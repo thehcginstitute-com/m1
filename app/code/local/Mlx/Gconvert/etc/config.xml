@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Mlx_Gconvert>
+            <version>13.06.21</version>
+        </Mlx_Gconvert>
+    </modules>
+    <global>
+        <blocks>
+            <gconvert>
+                <class>Mlx_Gconvert_Block</class>
+            </gconvert>
+        </blocks>
+        <models>
+            <gconvert>
+                <class>Mlx_Gconvert_Model</class>
+                <resourceModel>gconvert_resource</resourceModel>
+            
+            </gconvert>
+          	<gconvert_resource>
+                <class>Mlx_Gconvert_Model_Resource</class>               
+            </gconvert_resource>
+        </models>
+        <helpers>
+        	<gconvert><class>Mlx_Gconvert_Helper</class></gconvert>
+        </helpers>
+        <resources>
+            <gconvert_setup>
+                <setup>
+                    <module>Mlx_Gconvert</module>
+                </setup>
+            </gconvert_setup>
+        </resources>  
+         
+        <events>
+			<checkout_type_onepage_save_order_after>
+		        <observers>
+		            <gconvert>
+		                <type>model</type>
+		                <class>gconvert/observers</class>
+		                <method>checkout_type_onepage_save_order_after</method>
+		            </gconvert>
+		        </observers>
+		    </checkout_type_onepage_save_order_after>
+		</events> 
+
+    </global>
+    <frontend>
+        <routers>
+            <gconvert>
+                <use>standard</use>
+                <args>
+                    <module>Mlx_Gconvert</module>
+                    <frontName>gconvert</frontName>
+                </args>
+            </gconvert>
+        </routers>
+        
+        <layout>
+            <updates>
+                <gconvert module="Mlx_Gconvert">
+                    <file>Mlx/Gconvert/layout.xml</file>
+                </gconvert>
+            </updates>
+        </layout>        
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Mlx_Gconvert before="Mage_Adminhtml">Mlx_Gconvert_Adminhtml</Mlx_Gconvert>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <!--<routers>
+            <gconvert>
+                <use>admin</use>
+                <args>
+                    <module>Mlx_Gconvert</module>
+                    <frontName>gconvert</frontName>
+                </args>
+            </gconvert>
+        </routers>
+        
+        --><layout>
+            <updates>
+                <gconvert module="Mlx_Gconvert">
+                    <file>Mlx/Gconvert/layout.xml</file>
+                </gconvert>
+            </updates>
+        </layout>        
+    </adminhtml>
+    
+    <default>
+    	<mlx_gconvert>
+    		<general>
+    			<sendmail>1</sendmail>
+    			<auto>1</auto>
+    		</general>
+    	</mlx_gconvert>
+    </default>
+    
+</config>

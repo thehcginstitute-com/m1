@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+	<onepagecheckout_index_index>
+		<reference name="head">
+			<action method="addItem" ifconfig="opcsignature/general/jquery"><type>skin_js</type><name>js/signature/jquery-1.7.2.js</name></action>
+			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_css</type><name>css/signature/jquery.signaturepad.css</name></action>
+			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_js</type><name>js/signature/jquery.signaturepad.min.js</name></action>
+			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_js</type><name>js/signature/json2.min.js</name></action>
+			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_js</type><name>js/signature/signature.js</name></action>
+		</reference>
+		<reference name="checkout.onepage.review">
+			<action method="setTemplate"><template>opcsignature/onepagecheckout/review.phtml</template></action>
+		</reference>
+	</onepagecheckout_index_index>
+	<checkout_onepage_index>
+		<reference name="head">
+			<action method="addItem" ifconfig="opcsignature/general/jquery"><type>skin_js</type><name>js/signature/jquery-1.7.2.js</name></action>
+			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_css</type><name>css/signature/jquery.signaturepad.css</name></action>
+			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_js</type><name>js/signature/jquery.signaturepad.min.js</name></action>
+			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_js</type><name>js/signature/json2.min.js</name></action>
+			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_js</type><name>js/signature/signature.js</name></action>
+		</reference>
+	</checkout_onepage_index>
+	<checkout_multishipping_overview>
+		<reference name="head">
+			<action method="addItem" ifconfig="opcsignature/general/jquery"><type>skin_js</type><name>js/signature/jquery-1.7.2.js</name></action>
+			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_css</type><name>css/signature/jquery.signaturepad.css</name></action>
+			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_js</type><name>js/signature/jquery.signaturepad.min.js</name></action>
+			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_js</type><name>js/signature/json2.min.js</name></action>
+			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_js</type><name>js/signature/signature.js</name></action>
+		</reference>
+	</checkout_multishipping_overview>
+	<checkout_onepage_review>
+		<reference name="root">
+				<block type="opcsignature/signature" name="opcsignature.signature"  output="toHtml" template="opcsignature/standard_signature.phtml">
+					<action method="setChild"><name>agreements</name><block>agreements</block></action>
+				</block>
+			<action method="setChild"><name>agreements</name><block>opcsignature.signature</block></action>
+		</reference>
+	</checkout_onepage_review>
+	<checkout_multishipping_overview>
+		<reference name="checkout_overview">
+				<block type="opcsignature/signature" name="opcsignature.signature"  output="toHtml" template="opcsignature/multiple_signature.phtml">
+					<action method="setChild"><name>agreements</name><block>agreements</block></action>
+				</block>
+			<action method="setChild"><name>agreements</name><block>opcsignature.signature</block></action>
+		</reference>
+	</checkout_multishipping_overview>
+</layout>
+                                                               

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Mlx_Gconvert>
+            <active>true</active>
+            <codePool>local</codePool>
+            <name>Convert Guest 2 User</name>            
+        </Mlx_Gconvert>
+    </modules>
+</config>

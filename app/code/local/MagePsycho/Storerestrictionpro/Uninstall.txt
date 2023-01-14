@@ -1,0 +1,24 @@
+==============================================================================
+| Disable the extension
+==============================================================================
+1. Change <active>true</active> to <active>false</active> in file:
+app/etc/modules/MagePsycho_Storerestrictionpro.xml
+
+==============================================================================
+| Uninstall / Remove the extension
+==============================================================================
+1. Remove the following files:
+    - app/etc/modules/MagePsycho_Storerestrictionpro.xml
+    - app/code/local/MagePsycho/Storerestrictionpro/*
+    - app/locale/en_US/MagePsycho_Storerestrictionpro.csv
+    - app/locale/en_US/template/email/magepsycho/storerestrictionpro/*
+    - app/design/frontend/rwd/default/layout/magepsycho_storerestrictionpro.xml
+    - app/design/frontend/rwd/default/template/magepsycho/storerestrictionpro/*
+    - app/design/frontend/default/default/layout/magepsycho_storerestrictionpro.xml
+    - app/design/frontend/default/default/template/magepsycho/storerestrictionpro/*
+2. Remove setup script
+    - SQL: DELETE FROM core_resource WHERE code = 'magepsycho_storerestrictionpro_setup'
+3. Remove system configuration data
+    - SQL: DELETE FROM core_config_data WHERE path LIKE 'magepsycho_storerestrictionpro%';
+4. Remove table(s)
+    - NONE

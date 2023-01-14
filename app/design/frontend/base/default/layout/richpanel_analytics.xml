@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+
+    <default>
+        <reference name="head">
+            <block type="richpanel_analytics/head" name="richpanel.analytics" template="richpanel/head.phtml" after="-" />
+        </reference>
+    </default>
+
+</layout>

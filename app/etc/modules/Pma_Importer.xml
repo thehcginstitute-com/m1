@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+   <modules>
+	  <Pma_Importer>
+		 <active>true</active>
+		 <codePool>community</codePool>
+	  </Pma_Importer>   
+   </modules>
+</config>

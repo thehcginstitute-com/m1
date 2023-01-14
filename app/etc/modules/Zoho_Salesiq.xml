@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   Zoho
+ * @package    Zoho_Salesiq
+ * @author     SalesIQ Team
+ * @website    http://www.zoho.com/salesiq
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Zoho_Salesiq>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Zoho_Salesiq>
+    </modules>
+</config>

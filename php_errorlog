@@ -1,0 +1,347 @@
+[30-Nov-2020 17:26:16 CST6CDT] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in /home/new42951/public_html/store/app/code/core/Mage/Core/functions.php on line 60
+[03-Dec-2020 12:40:43 UTC] PHP Fatal error:  session_start(): Failed to initialize storage module: memcache (path: /home/new42951/public_html/store/var/session) in /home/new42951/public_html/store/app/code/core/Mage/Core/Model/Session/Abstract/Varien.php on line 133
+[03-Dec-2020 12:40:49 UTC] PHP Fatal error:  session_start(): Failed to initialize storage module: memcache (path: /home/new42951/public_html/store/var/session) in /home/new42951/public_html/store/app/code/core/Mage/Core/Model/Session/Abstract/Varien.php on line 133
+[03-Dec-2020 06:40:59 CST6CDT] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in /home/new42951/public_html/store/app/code/core/Mage/Core/functions.php on line 60
+[22-Dec-2020 19:19:19 CST6CDT] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in /home/new42951/public_html/store/app/code/core/Mage/Core/functions.php on line 60
+[09-Jan-2021 02:49:49 UTC] PHP Fatal error:  Uncaught Error: Call to a member function setTitle() on boolean in /home/new42951/public_html/store/app/code/core/Mage/Customer/Block/Form/Login.php:40
+Stack trace:
+#0 /home/new42951/public_html/store/app/code/core/Mage/Core/Block/Abstract.php(297): Mage_Customer_Block_Form_Login->_prepareLayout()
+#1 /home/new42951/public_html/store/app/code/core/Mage/Core/Model/Layout.php(456): Mage_Core_Block_Abstract->setLayout(Object(Mage_Core_Model_Layout))
+#2 /home/new42951/public_html/store/app/code/core/Mage/Core/Model/Layout.php(472): Mage_Core_Model_Layout->createBlock('customer/form_l...', 'customer_form_l...')
+#3 /home/new42951/public_html/store/app/code/core/Mage/Core/Model/Layout.php(239): Mage_Core_Model_Layout->addBlock('customer/form_l...', 'customer_form_l...')
+#4 /home/new42951/public_html/store/app/code/core/Mage/Core/Model/Layout.php(205): Mage_Core_Model_Layout->_generateBlock(Object(Mage_Core_Model_Layout_Element), Object(Mage_Core_Model_Layout_Element))
+#5 /home/new42951/public_html/store/app/code/core in /home/new42951/public_html/store/app/code/core/Mage/Customer/Block/Form/Login.php on line 40
+[26-Jan-2022 11:42:58 UTC] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/functions.php on line 60
+[26-Jan-2022 14:07:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('L3sV8AzjzWPAOoM...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('L3sV8AzjzWPAOoM...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('L3sV8AzjzWPAOoM...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 14:07:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('L3sV8AzjzWPAOoM...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('L3sV8AzjzWPAOoM...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('L3sV8AzjzWPAOoM...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 14:07:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('L3sV8AzjzWPAOoM...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('L3sV8AzjzWPAOoM...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('L3sV8AzjzWPAOoM...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 14:07:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 14:08:29 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 14:16:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('L3sV8AzjzWPAOoM...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('L3sV8AzjzWPAOoM...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('L3sV8AzjzWPAOoM...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 14:16:05 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 14:16:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('L3sV8AzjzWPAOoM...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('L3sV8AzjzWPAOoM...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('L3sV8AzjzWPAOoM...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 14:18:06 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 14:59:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 15:04:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('L3sV8AzjzWPAOoM...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('L3sV8AzjzWPAOoM...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('L3sV8AzjzWPAOoM...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 15:04:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('L3sV8AzjzWPAOoM...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('L3sV8AzjzWPAOoM...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('L3sV8AzjzWPAOoM...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 15:05:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('L3sV8AzjzWPAOoM...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('L3sV8AzjzWPAOoM...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('L3sV8AzjzWPAOoM...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 15:06:20 UTC] PHP Fatal error:  Declaration of Mage_Customer_Model_Customer_Attribute_Source_Website::getAllOptions() must be compatible with Mage_Eav_Model_Entity_Attribute_Source_Table::getAllOptions($withEmpty = true, $defaultValues = false) in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Customer/Model/Customer/Attribute/Source/Website.php on line 34
+[26-Jan-2022 15:06:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('KnM6kpKvZqZFKXm...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('KnM6kpKvZqZFKXm...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('KnM6kpKvZqZFKXm...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 15:08:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('hoD2k5PpQddhZ8U...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('hoD2k5PpQddhZ8U...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('hoD2k5PpQddhZ8U...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 15:10:06 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('4QCbIcpUrKVqjIc...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('4QCbIcpUrKVqjIc...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('4QCbIcpUrKVqjIc...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 15:10:25 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('hoD2k5PpQddhZ8U...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('hoD2k5PpQddhZ8U...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('hoD2k5PpQddhZ8U...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 15:10:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('hoD2k5PpQddhZ8U...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('hoD2k5PpQddhZ8U...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('hoD2k5PpQddhZ8U...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 15:19:24 UTC] PHP Fatal error:  Declaration of Mage_Customer_Model_Customer_Attribute_Source_Website::getAllOptions() must be compatible with Mage_Eav_Model_Entity_Attribute_Source_Table::getAllOptions($withEmpty = true, $defaultValues = false) in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Customer/Model/Customer/Attribute/Source/Website.php on line 34
+[26-Jan-2022 15:24:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('4QCbIcpUrKVqjIc...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('4QCbIcpUrKVqjIc...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('4QCbIcpUrKVqjIc...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 15:26:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 15:37:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('4QCbIcpUrKVqjIc...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('4QCbIcpUrKVqjIc...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('4QCbIcpUrKVqjIc...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 15:37:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('km/19sCJZET2iQz...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('km/19sCJZET2iQz...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('km/19sCJZET2iQz...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 15:51:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 15:56:57 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('4QCbIcpUrKVqjIc...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('4QCbIcpUrKVqjIc...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('4QCbIcpUrKVqjIc...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 16:03:29 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('DgFZJsDs2ye0Tog...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('DgFZJsDs2ye0Tog...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('DgFZJsDs2ye0Tog...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 16:13:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('L3sV8AzjzWPAOoM...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('L3sV8AzjzWPAOoM...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('L3sV8AzjzWPAOoM...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 16:13:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('L3sV8AzjzWPAOoM...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('L3sV8AzjzWPAOoM...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('L3sV8AzjzWPAOoM...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 16:17:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('L3sV8AzjzWPAOoM...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('L3sV8AzjzWPAOoM...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('L3sV8AzjzWPAOoM...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 16:26:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 16:26:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 16:29:45 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 16:30:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 16:32:18 UTC] PHP Fatal error:  Declaration of Mage_Customer_Model_Customer_Attribute_Source_Website::getAllOptions() must be compatible with Mage_Eav_Model_Entity_Attribute_Source_Table::getAllOptions($withEmpty = true, $defaultValues = false) in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Customer/Model/Customer/Attribute/Source/Website.php on line 34
+[26-Jan-2022 16:33:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 16:36:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 16:43:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 16:43:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/custom in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 16:46:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mcrypt_module_open() in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php:63
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt_Mcrypt->init('wg80rvgcjv3zhth...')
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('L3sV8AzjzWPAOoM...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(111): Mage_Core_Helper_Data->decrypt('L3sV8AzjzWPAOoM...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Payment/Model/Info.php(54): Mage_Payment_Model_Info->decrypt('L3sV8AzjzWPAOoM...')
+#5 /home/customer/www/thehcginstitute.com/public_html/store in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt/Mcrypt.php on line 63
+[26-Jan-2022 16:53:32 UTC] PHP Fatal error:  Uncaught Error: Class 'Varien_Crypt_Mcrypt' not found in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt.php:47
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(120): Varien_Crypt::factory()
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#5 /home/customer/www/thehcginstitute.com/public_html/st in /home/customer/www/thehcginstitute.com/public_html/store/lib/Varien/Crypt.php on line 47
+[26-Jan-2022 16:54:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Varien_Crypt::factory() in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php:120
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Store.php(500): Mage_Core_Model_Config_Data->afterLoad()
+#5 /home in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php on line 120
+[26-Jan-2022 16:55:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Varien_Crypt::factory() in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php:120
+Stack trace:
+#0 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php(144): Mage_Core_Model_Encryption->_getCrypt()
+#1 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Helper/Data.php(243): Mage_Core_Model_Encryption->decrypt('xOJLybZ6JI2ABP+...')
+#2 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Encrypted.php(44): Mage_Core_Helper_Data->decrypt('xOJLybZ6JI2ABP+...')
+#3 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Config/Data.php(78): Mage_Adminhtml_Model_System_Config_Backend_Encrypted->_afterLoad()
+#4 /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Store.php(500): Mage_Core_Model_Config_Data->afterLoad()
+#5 /home in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/Model/Encryption.php on line 120
+[26-Jan-2022 16:58:30 UTC] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/functions.php on line 60
+[26-Jan-2022 16:58:30 UTC] PHP Deprecated:  Function get_magic_quotes_gpc() is deprecated in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/functions.php on line 32
+[26-Jan-2022 16:58:32 UTC] PHP Deprecated:  Function get_magic_quotes_gpc() is deprecated in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/functions.php on line 32
+[26-Jan-2022 16:58:33 UTC] PHP Deprecated:  Function get_magic_quotes_gpc() is deprecated in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/functions.php on line 32
+[26-Jan-2022 16:58:35 UTC] PHP Deprecated:  Function get_magic_quotes_gpc() is deprecated in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/functions.php on line 32
+[26-Jan-2022 16:58:48 UTC] PHP Deprecated:  Function get_magic_quotes_gpc() is deprecated in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/functions.php on line 32
+[26-Jan-2022 16:58:51 UTC] PHP Deprecated:  Function get_magic_quotes_gpc() is deprecated in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/functions.php on line 32
+[26-Jan-2022 16:59:11 UTC] PHP Deprecated:  Function get_magic_quotes_gpc() is deprecated in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Core/functions.php on line 32
+[26-Jan-2022 17:27:38 UTC] PHP Fatal error:  Declaration of Mage_Customer_Model_Customer_Attribute_Source_Website::getAllOptions() must be compatible with Mage_Eav_Model_Entity_Attribute_Source_Table::getAllOptions($withEmpty = true, $defaultValues = false) in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Customer/Model/Customer/Attribute/Source/Website.php on line 34
+[26-Jan-2022 18:17:39 UTC] PHP Fatal error:  Declaration of Mage_Customer_Model_Customer_Attribute_Source_Website::getAllOptions() must be compatible with Mage_Eav_Model_Entity_Attribute_Source_Table::getAllOptions($withEmpty = true, $defaultValues = false) in /home/customer/www/thehcginstitute.com/public_html/store/app/code/core/Mage/Customer/Model/Customer/Attribute/Source/Website.php on line 34

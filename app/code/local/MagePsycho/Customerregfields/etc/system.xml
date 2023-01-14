@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+* @category   MagePsycho
+* @package    MagePsycho_Customerregfields
+* @author     Raj KB <magepsycho@gmail.com>
+* @website    http://www.magepsycho.com
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+	<tabs>
+		<magepychoall translate="label" module="magepsycho_customerregfields">
+			<label>MagePsycho Extensions</label>
+			<sort_order>400</sort_order>
+		</magepychoall>
+	</tabs>
+	<sections>
+		<magepychoinfo translate="label" module="magepsycho_customerregfields">
+			<label>Info</label>
+			<tab>magepychoall</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>99999999999</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<info>
+					<frontend_model>magepsycho_customerregfields/system_config_info</frontend_model>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+				</info>
+			</groups>
+		</magepychoinfo>
+
+		<magepsycho_customerregfields module="magepsycho_customerregfields">
+			<label>Customer Group Selector</label>
+			<tab>magepychoall</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>30</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<option translate="label">
+					<label>General Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+                        <version translate="label">
+                            <label>Version</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>magepsycho_customerregfields/system_config_version</frontend_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </version>
+						<active translate="label">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<domain translate="label">
+							<label>Domain</label>
+							<frontend_type>label</frontend_type>
+							<frontend_model>magepsycho_customerregfields/system_config_domain</frontend_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</domain>
+						<domain_type translate="label">
+							<label>Domain Type</label>
+							<frontend_type>select</frontend_type>
+							<source_model>magepsycho_customerregfields/system_config_source_domaintypes</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</domain_type>
+						<dev_license translate="label">
+							<label>License Key (Development)*</label>
+							<frontend_type>text</frontend_type>
+							<!--<frontend_model>magepsycho_customerregfields/system_config_license</frontend_model>-->
+							<validate>required-entry</validate>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><domain_type>2</domain_type></depends>
+							<tooltip><![CDATA[License Key is mandatory for the proper functioning of the module. <br /> Note: You need to enter the License Key as per 'Domain Type']]></tooltip>
+						</dev_license>
+						<prod_license translate="label">
+							<label>License Key (Production)*</label>
+							<frontend_type>text</frontend_type>
+							<!--<frontend_model>magepsycho_customerregfields/system_config_license</frontend_model>-->
+							<validate>required-entry</validate>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><domain_type>1</domain_type></depends>
+							<tooltip><![CDATA[License Key is mandatory for the proper functioning of the module. <br /> Note: You need to enter the License Key as per 'Domain Type']]></tooltip>
+						</prod_license>
+						<enable_log translate="label">
+							<label>Enable Log</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<tooltip><![CDATA[Useful for debugging purpose. Ref log file: var/log/magepsycho_customerregfields.log]]></tooltip>
+						</enable_log>
+					</fields>
+				</option>
+				<group translate="label">
+					<label>Group Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<customer_group_selection_type>
+							<label>Group Selector Type</label>
+							<frontend_type>select</frontend_type>
+							<source_model>magepsycho_customerregfields/system_config_source_selectortypes</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<validate>required-entry</validate>
+							<tooltip><![CDATA[Customer Group Selector Types<br /><strong>Dropdown:</strong> The customer group is shown as dropdown.<br /><strong>Group Code:</strong> The customer has to enter the group code and will be assigned to the matched customer group.]]></tooltip>
+							<comment><![CDATA[
+                        <script type="text/javascript">
+                            mpSelectorType = function() {
+                                var checkSelectorType = $('magepsycho_customerregfields_group_customer_group_selection_type').value;
+                                var dropdownWithExceptionElements  = ['row_magepsycho_customerregfields_group_dropdownheading'];
+                                var groupCodeWithExceptionElements = ['row_magepsycho_customerregfields_group_groupcodeheading','row_magepsycho_customerregfields_group_groupcode_data'];
+
+                                if (checkSelectorType == 2) {
+                                    dropdownWithExceptionElements.each(function (item) {
+                                        $(item).hide();
+                                    });
+                                    groupCodeWithExceptionElements.each(function (item) {
+                                        $(item).show();
+                                    });
+                                    $('magepsycho_customerregfields_group_code-head').up().up().show();
+                                } else {
+                                    dropdownWithExceptionElements.each(function (item) {
+                                        $(item).show();
+                                    });
+                                    groupCodeWithExceptionElements.each(function (item) {
+                                        $(item).hide();
+                                    });
+                                    $('magepsycho_customerregfields_group_code-head').up().up().hide();
+                                }
+                            };
+
+							mpTriggerGroupCode = function(event) {
+								event.preventDefault();
+								$('magepsycho_customerregfields_group_code-head').up().up().hide();
+							};
+
+
+                            Event.observe(window, 'load', function() {
+                                Event.observe('magepsycho_customerregfields_group_customer_group_selection_type', 'change', mpSelectorType);
+                                mpSelectorType();
+                            });
+
+                        </script>
+                    ]]></comment>
+						</customer_group_selection_type>
+						<dropdownheading translate="label">
+							<label>Dropdown Settings</label>
+							<frontend_model>magepsycho_customerregfields/system_config_header</frontend_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</dropdownheading>
+						<allowed_customer_groups translate="label">
+							<label>Groups Available For Selection</label>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>magepsycho_customerregfields/system_config_source_customergroups</source_model>
+							<sort_order>90</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<validate>required-entry</validate>
+							<tooltip><![CDATA[The selected customer group(s) will be shown as dropdown options.]]></tooltip>
+							<depends>
+								<customer_group_selection_type>1</customer_group_selection_type>
+							</depends>
+						</allowed_customer_groups>
+						<groupcodeheading translate="label">
+							<label>Group Code Settings</label>
+							<frontend_model>magepsycho_customerregfields/system_config_header</frontend_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</groupcodeheading>
+						<groupcode_data translate="label">
+							<label>Group Codes</label>
+							<frontend_model>magepsycho_customerregfields/system_config_groupcode</frontend_model>
+							<backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</groupcode_data>
+						<group_is_required>
+							<label>Is Required Field?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>115</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<tooltip><![CDATA[<strong>Yes</strong>: Makes group field mandatory.<br /><strong>No</strong>: Makes group field optional. If field is left empty then customer will be assigned to default group (System > Configuration > Customer Configuration > Create New Account Options > Default Group).]]></tooltip>
+							<depends>
+								<customer_group_selection_type>2</customer_group_selection_type>
+							</depends>
+						</group_is_required>
+						<group_code_error_message>
+							<label>Error Message</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<tooltip><![CDATA[This message will be displayed for invalid group code.]]></tooltip>
+							<depends>
+								<customer_group_selection_type>2</customer_group_selection_type>
+							</depends>
+						</group_code_error_message>
+						<group_selection_checkout translate="label">
+							<label>Is Enabled for Checkout?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>140</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<tooltip><![CDATA[If selected to 'Yes', group selector field will be available on checkout registration(billing address form).]]></tooltip>
+						</group_selection_checkout>
+						<group_selection_editable translate="label">
+							<label>Is Editable?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>150</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<tooltip><![CDATA[If selected to 'Yes', the customer can edit the field from: My Account > Account Information.]]></tooltip>
+						</group_selection_editable>
+						<group_selection_label translate="label">
+							<label>Frontend Label</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>160</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<tooltip><![CDATA[Frontend label for customer group field.]]></tooltip>
+						</group_selection_label>
+					</fields>
+				</group>
+			</groups>
+		</magepsycho_customerregfields>
+	</sections>
+</config>

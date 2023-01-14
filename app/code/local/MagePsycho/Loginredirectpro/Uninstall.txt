@@ -1,0 +1,22 @@
+==============================================================================
+| Disable the extension
+==============================================================================
+1. Change <active>true</active> to <active>false</active> in file:
+app/etc/modules/MagePsycho_Loginredirectpro.xml
+
+==============================================================================
+| Uninstall / Remove the extension
+==============================================================================
+1. Remove the following files:
+    - app/etc/modules/MagePsycho_Loginredirectpro.xml
+    - app/code/local/MagePsycho/Loginredirectpro/*
+    - app/locale/en_US/MagePsycho_Loginredirectpro.csv
+    - app/design/adminhtml/default/default/layout/magepsycho_loginredirectpro.xml
+    - app/design/frontend/rwd/default/layout/magepsycho_loginredirectpro.xml
+    - app/design/frontend/rwd/default/template/magepsycho/loginredirectpro/*
+    - app/design/frontend/default/default/layout/magepsycho_loginredirectpro.xml
+    - app/design/frontend/default/default/template/magepsycho/loginredirectpro/*
+2. Remove system configuration data
+    - SQL: DELETE FROM core_config_data WHERE path LIKE 'magepsycho_loginredirectpro%';
+3. Remove field(s), table(s)
+    - NONE

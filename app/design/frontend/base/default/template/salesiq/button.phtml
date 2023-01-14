@@ -1,0 +1,22 @@
+<?php
+/**
+ * @category   Zoho
+ * @package    Zoho_Salesiq
+ * @author     SalesIQ Team
+ * @website    http://www.zoho.com/salesiq
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php if ($this->isQuickChatEnabled()): ?>
+<button class="button" 
+        title="<?php echo $this->getLabel(); ?>"
+        onclick="if ($zoho) {
+                  var $zs = $zoho.salesiq || $zoho.livedesk;
+                  $zs.floatwindow.visible('show');
+                  $zs.visitor.question(<?php echo $this->getQuestion(); ?>);
+                  $zs.chat.start();
+                 }
+                 return false;">
+  <span><span><?php echo $this->getLabel(); ?></span></span>
+</button>
+<?php endif ?>

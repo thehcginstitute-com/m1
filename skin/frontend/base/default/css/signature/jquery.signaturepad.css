@@ -1,0 +1,190 @@
+/**
+ *  SignaturePad: A jQuery plugin for assisting in the creation of an HTML5 canvas
+ *  based signature pad. Records the drawn signature in JSON for later regeneration.
+ *
+ *  @project ca.thomasjbradley.applications.signaturepad
+ *  @author Thomas J Bradley <hey@thomasjbradley.ca>
+ *  @link http://thomasjbradley.ca/lab/signature-pad
+ *  @link http://github.com/thomasjbradley/signature-pad
+ *  @copyright Copyright MMXI, Thomas J Bradley
+ *  @license New BSD License
+ */
+
+@font-face {
+  font-family: 'Journal';
+  src: url('../signature/fonts/journal/journal.eot');
+  src: url('../signature/fonts/journal/journal.eot?#iefix') format('embedded-opentype'),
+       url('../signature/fonts/journal/journal.woff') format('woff'),
+       url('../signature/fonts/journal/journal.ttf') format('truetype'),
+       url('../signature/fonts/journal/journal.svg#JournalRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.signature label {
+  display: block;
+  font-weight:700;
+  padding: 0;
+  color: #666;
+}
+.multiple_signature_wrapper
+{
+	margin-bottom:10px;
+}
+.multiple_signature_wrapper .signature
+{
+	padding:0;
+	float: right;
+}
+.signature label.error {
+  color: #f33;
+}
+
+.signature input {
+  margin: 0;
+  padding: 2px;
+  width: 98%;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-radius: 2px 2px 2px 2px;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.signature input.error {
+  border-color: #f33;
+}
+.sig 
+{
+  display: none;
+}
+.sigNav {
+  display: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  max-width: 286px;
+  list-style-type: none;
+}
+.sigNav li {
+  display: inline;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.sigNav a,
+.sigNav a:link,
+.sigNav a:visited {
+  display: block;
+  margin: 0;
+  padding: 0 0.6em;
+  font-size:14px;
+  border: 0;
+	
+  
+  font-weight: bold;
+  line-height: 1.75em;
+  text-decoration: underline;
+}
+
+.sigNav a.current,
+.sigNav a.current:link,
+.sigNav a.current:visited {
+  background-color: #777;
+  -moz-border-radius-topleft: 8px;
+  -moz-border-radius-topright: 8px;
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  border-radius: 8px 8px 0 0;
+
+  color: #fff;
+  text-decoration: none;
+}
+
+.sigNav .typeIt a.current,
+.sigNav .typeIt a.current:link,
+.sigNav .typeIt a.current:visited {
+  background-color: #ccc;
+
+  color: #fff;
+}
+
+.sigNav .clearButton {
+ 
+  display: none;
+  position: absolute;
+  right: 0;
+  font-size: 0.75em;
+  line-height: 1.375;
+}
+
+.sigWrapper {
+  clear: both;
+  height: 55px;
+  border: 1px solid #ccc;
+}
+
+.sigWrapper.current {
+  border-color: #777;
+}
+
+.signed .sigWrapper {
+  border: 0;
+}
+
+.signature .pad {
+  position: relative;
+  max-width:299px;
+  /*margin: 5px 0 15px;*/
+}
+
+.current .pad {
+  /**
+   * For cross browser compatibility, this should be an absolute URL
+   * In IE the cursor is relative to the HTML document
+   * In all other browsers the cursor is relative to the CSS file
+   *
+   * http://www.useragentman.com/blog/2011/12/21/cross-browser-css-cursor-images-in-depth/
+   */
+  cursor: url("../signature/pen.cur"), crosshair;
+  /**
+   * IE will ignore this line because of the hotspot position
+   * Unfortunately we need this twice, because some browsers ignore the hotspot inside the .cur
+   */
+  cursor: url("../signature/pen.cur") 16 16, crosshair;
+}
+
+.typed {
+  height: 55px;
+  margin: 0;
+  padding: 0 5px;
+  position: absolute;
+  z-index: 90;
+  cursor: default;
+  color: #145394;
+  font: normal 1.875em/50px "Journal",Georgia,Times,serif;
+}
+
+.typeItDesc,
+.drawItDesc {
+  display: none;
+  padding: 0.515em 0 0;
+  color: #666;
+  font:  normal 1em/1.375;
+}
+
+p.error {
+  display: block;
+  margin: 0.5em 0;
+  padding: 0.4em;
+
+  background-color: #f33;
+
+  color: #fff;
+  font-weight: bold;
+}
+.onepage.signature_wrapper{border: 1px solid #D1D1D1;border-top:none;padding: 10px;}
+.onepage.signature_wrapper .signature{float: right; max-width: 287px;}
+.signature{border:none;}
+#onepagecheckout_orderform  .signature_wrapper {margin: 0 0 20px;}

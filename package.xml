@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+    <name>rich_snippets</name>
+    <version>1.1.1</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/OSL-3.0">OSL-3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Rich Snippets will allow you to integrate the information about product price, description, availability, currency etc. into search results.</summary>
+    <description>The extension is very easy-to use as there is only one option in the backend. You don't need to do markups for Google by yourself: the extension will do it automatically.&#xD;
+Without Rich Snippets, the AJAX Reviews extension will not display product rating in Google search results.</description>
+    <notes>* Worst rating isn't defined in markup.&#xD;
+</notes>
+    <authors><author><name>MagPleasure Ltd.</name><user>Magpleasure</user><email>support@magpleasure.com</email></author></authors>
+    <date>2015-04-14</date>
+    <time>08:22:00</time>
+    <contents><target name="magelocal"><dir name="Magpleasure"><dir name="Richsnippets"><dir><dir name="Block"><dir name="Catalog"><dir name="Product"><dir name="View"><file name="Markup.php" hash="2b279af4b23074ec88c0ec2bbafd1b8d"/></dir><file name="View.php" hash="d06b18f25cb36eb63afa162fdf00ae95"/></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="d019b836cb3f8ee5e3a0b85ab1edc508"/></dir><dir name="Model"><file name="Observer.php" hash="d7dc1c56a095088374ef9db6235d7bcb"/></dir><dir name="etc"><file name="config.xml" hash="70eb5db433bb63887c2cf2d90df5b42b"/><file name="system.xml" hash="465494e974bf92706e64f25a4df99ec5"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="richsnippets.xml" hash="91d53350518069c549a10942b26ba627"/></dir><dir name="template"><dir name="richsnippets"><dir><dir name="catalog"><dir name="product"><dir name="view"><file name="markup.phtml" hash="d157f8898d73cfff270af06fc839fab5"/></dir></dir></dir></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Magpleasure_Richsnippets.xml" hash="dc5195d4636c51fe9081c44f3a29bb39"/></dir></target><target name="magelocale"><dir name="en_US"><file name="Magpleasure_Richsnippets.csv" hash="c356d86fd9d1db251c8df93d5fd27ebc"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php><package><name></name><channel>connect.magentocommerce.com/core</channel><min></min><max></max></package></required></dependencies>
+</package>

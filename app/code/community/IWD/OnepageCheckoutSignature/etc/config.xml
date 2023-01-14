@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<IWD_OnepageCheckoutSignature>
+			<version>0.1.0</version>
+		</IWD_OnepageCheckoutSignature>
+	</modules>
+
+	<admin>
+		<routers>
+			<opcsignature>
+				<use>admin</use>
+				<args>
+					<module>IWD_OnepageCheckoutSignature</module>
+					<frontName>opcsignature</frontName>
+				</args>
+			</opcsignature>
+		</routers>
+	</admin>
+
+	<frontend>
+		<layout>
+			<updates>
+				<opcsignature>
+					<file>opc_signature.xml</file>
+				</opcsignature>
+			</updates>
+		</layout>
+
+		<events>
+             <checkout_submit_all_after>
+                <observers>
+                    <opcsignature>
+                        <type>model</type>
+                        <class>opcsignature/observer</class>
+                        <method>addSignature</method>
+                    </opcsignature>
+                </observers>
+            </checkout_submit_all_after>
+         </events>
+	</frontend>
+	<adminhtml>
+		<events>
+	       <controller_action_predispatch>
+	           <observers>
+	               <opcsignature_check_related>
+	                   <type>sinleton</type>
+	                   <class>opcsignature/observer</class>
+	                   <method>checkRequiredModules</method>
+	               </opcsignature_check_related>
+	           </observers>
+	       </controller_action_predispatch>
+		</events>
+		<layout>
+			<updates>
+				<opcsignature>
+					<file>opc_signature.xml</file>
+				</opcsignature>
+			</updates>
+		</layout>
+		 <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <opcsignature translate="title" module="opcsignature">
+                                            <title>OnepageChecjout Signature</title>
+                                        </opcsignature>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+	</adminhtml>
+	<global>
+		<models>
+			<opcsignature>
+				<class>IWD_OnepageCheckoutSignature_Model</class>
+				<resourceModel>opcsignature_mysql4</resourceModel>
+			</opcsignature>
+
+			<opcsignature_mysql4>
+				<class>IWD_OnepageCheckoutSignature_Model_Mysql4</class>
+				<entities>
+					<signaturer>
+						<table>iwd_opc_signature</table>
+					</signaturer>
+				</entities>
+			</opcsignature_mysql4>
+			
+            <sales>
+                <rewrite>
+                    <order_pdf_invoice>IWD_OnepageCheckoutSignature_Model_Order_Pdf_Invoice</order_pdf_invoice>
+                </rewrite>
+            </sales>
+			
+		</models>
+		
+		<resources>
+			<opcsignature_setup>
+				<setup>
+					<module>IWD_OnepageCheckoutSignature</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</opcsignature_setup>
+
+			<opcsignature_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</opcsignature_write>
+
+			<opcsignature_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</opcsignature_read>
+		</resources>
+
+		<blocks>
+			<opcsignature>
+				<class>IWD_OnepageCheckoutSignature_Block</class>
+			</opcsignature>
+			
+			<adminhtml>
+                <rewrite>
+                    <sales_order_view_info>IWD_OnepageCheckoutSignature_Block_Sales_Order_View_Info</sales_order_view_info>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+
+		<helpers>
+			<opcsignature>
+				<class>IWD_OnepageCheckoutSignature_Helper</class>
+			</opcsignature>
+		</helpers>
+	       
+	</global>
+	<default>
+		<opcsignature>
+			<general>
+				<enabled>1</enabled>
+				<enabled_front>1</enabled_front>
+				<jquery>0</jquery>
+				<title>Please Type Your Name Below</title>
+			</general>
+		</opcsignature>
+	</default>
+</config>

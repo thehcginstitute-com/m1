@@ -1,0 +1,45 @@
+<?php /** @var Mage_Page_Block_Html_Topmenu $this */
+$u = 'https://www.thehcginstitute.com/';
+if ($_menu = $this->getHtml('level-top')) { ?>
+	<div class='nav-container'>
+		<i class='hcg-mobile-menu-icon'></i>
+		<ul id='nav'>
+			<li class='level0 nav-1 level-top first parent'>
+				<a class='level-top' href='<?= $u ?>'>Home</a>
+			</li>
+			<li class='level0 nav-1 level-top parent hcg-has-children'>
+				<a class='level-top' href="<?= $u ?>hcg-diet/">About<i aria-hidden='true' class='fa fa-angle-down'></i></a>
+				<ul class='level0'>
+					<li class='level1 nav-1-2 second'>
+						<a href='<?= $u ?>hcg-diet/'>hCG Diet</a>
+					</li>
+					<li class='level1 nav-1-2 second'>
+						<a href='<?= $u ?>lipotropic-injections/'>Lipotropic Injections</a>
+					</li>
+					<li class='level1 nav-1-2 second'>
+						<a href='<?= $u ?>methylcobalamin-injections/'>Methylcobalamin Injections</a>
+					</li>
+				</ul>
+			</li>
+			<li class='level0 nav-1 level-top parent'>
+				<a href='<?= $u ?>medicalstaff' class='level-top'>Medical Staff</a>
+			</li>
+			<li class='level0 nav-1 level-top parent'>
+				<a
+					class='level-top'
+					href='<?= Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) ?>reviews'
+				>Reviews</a>
+			</li>
+			<?= $_menu ?>
+			<li class='level0 nav-1 level-top parent'>
+				<a class='level-top' href='<?= $u ?>startnow'><span>Start Now</span></a>
+			</li>
+			<li class='level0 nav-1 level-top parent'>
+				<a href='<?= $u ?>hcg-blog' class='level-top'><span>Blog</span></a>
+			</li>
+			<li class='level0 nav-1 level-top last parent'>
+				<a href='<?= $u ?>contact' class='level-top'><span>Contact Us</span></a>
+			</li>
+		</ul>
+	</div>
+<?php }

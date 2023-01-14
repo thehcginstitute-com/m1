@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout>
+     <importer_adminhtml_importer_index>
+        <reference name="content">
+            <block type="importer/adminhtml_importer" name="importer" />
+        </reference>
+    </importer_adminhtml_importer_index>
+ 
+</layout>

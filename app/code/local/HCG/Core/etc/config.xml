@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+		<HCG_Core>
+			<version>1.0.0</version>
+			<author>Dmitry Fedyuk: https://www.upwork.com/fl/mage2pro</author>
+		</HCG_Core>
+	</modules>
+	<frontend>
+		<layout>
+			<updates>
+				<hcg_core module='hcg_core'><file>hcg/core.xml</file></hcg_core>
+			</updates>
+		</layout>
+	</frontend>
+</config>

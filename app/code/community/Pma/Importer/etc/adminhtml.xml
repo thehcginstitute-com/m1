@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+    <config>
+        <menu>
+            <importer module="importer">
+                <title>PMA</title>
+                <sort_order>71</sort_order>               
+                <children>
+                    <items module="importer">
+                        <title>Google Analytics Importer</title>
+                        <sort_order>0</sort_order>
+                        <action>importer/adminhtml_importers</action>
+                    </items>
+                </children>
+            </importer>
+        </menu>
+        
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <importer module="importer">
+                            <title>PMA</title>
+                            <sort_order>71</sort_order>               
+                            <children>
+                                <items>
+                                    <title>Google Analytics Importer</title>
+                                </items>
+                            </children>
+                        </importer>
+                    </children>
+                 </admin>
+            </resources>   
+        </acl>
+        <layout>
+            <updates>
+                <importer>
+                    <file>importer.xml</file>
+                </importer>
+            </updates>
+        </layout>
+    </config>

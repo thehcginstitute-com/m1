@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+          <system>
+           <children>
+             <iwdall>
+         		 <children>
+         	 	<opcsignature translate="title" module="opcsignature">
+            		<title>Signature At Checkout</title>
+            		<sort_order>110</sort_order>
+            		<action>/system_config/edit/section/opcsignature</action>
+         		</opcsignature>
+        	 </children>
+        	 </iwdall>
+    	  </children>
+	    </system>
+    </menu>
+    <acl>
+    	<resources>
+    		<admin>
+              <children>
+               <system>
+                 <children>
+                   <iwdall>
+	         		 <children>
+	         	 		<opcsignature translate="title" module="opcsignature">
+	            			<title>Signature At Checkout</title>
+	            			<sort_order>110</sort_order>
+	         			</opcsignature>
+	        	 	</children>
+	        	 </iwdall>
+	        	</children> 
+	        </system>
+	        </children>
+	       </admin>
+    	</resources>
+    </acl>
+</config>

@@ -1,0 +1,14 @@
+<?php
+$helper				        = Mage::helper('magepsycho_customerregfields');
+$isGroupEditable	        = $helper->getConfig()->isGroupSelectionEditable();
+$isValidCustomerForEdit     = $helper->isValidCustomerForEdit();
+if ($this->getIsEditPage() && ! $isValidCustomerForEdit) return '';
+?>
+<label for="<?php echo $this->getFieldId('mp_group_code') ?>"<?php if ($this->isRequired()) echo ' class="required"' ?>><?php if ($this->isRequired()) echo '<em>*</em>' ?><?php echo $this->getGroupLabel() ?></label>
+<div class="input-box">
+	<?php if ($this->getIsEditPage() && ! $isGroupEditable) : ?>
+		<?php echo $this->getObject()->getMpGroupCode(); ?>
+	<?php else: ?>
+		<input type="text" id="<?php echo $this->getFieldId('mp_group_code') ?>" name="<?php echo $this->getFieldName('mp_group_code') ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getGroupLabel()) ?>" class="input-text <?php if ($this->isRequired()) : ?> required-entry<?php endif; ?>" value="<?php echo $this->escapeHtml($this->getObject()->getMpGroupCode()) ?>" <?php echo $this->getFieldParams() ?> />
+	<?php endif; ?>
+</div>

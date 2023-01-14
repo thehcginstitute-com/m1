@@ -1,0 +1,945 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   MagePsycho
+ * @package    MagePsycho_Storerestrictionpro
+ * @author     magepsycho@gmail.com
+ * @website    http://www.magepsycho.com
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+	<tabs>
+        <magepychoall translate="label" module="magepsycho_storerestrictionpro">
+            <label>MagePsycho Extensions</label>
+            <sort_order>400</sort_order>
+        </magepychoall>
+    </tabs>
+    <sections>
+		<magepychoinfo translate="label" module="magepsycho_storerestrictionpro">
+			<label>Info</label>
+			<tab>magepychoall</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>99999999999</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+                <info>
+                    <frontend_model>magepsycho_storerestrictionpro/system_config_info</frontend_model>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </info>
+			</groups>
+		</magepychoinfo>
+        <magepsycho_storerestrictionpro module="magepsycho_storerestrictionpro">
+            <label>Store Restriction Pro</label>
+            <tab>magepychoall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>20</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <option translate="label">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <version translate="label">
+                            <label>Version</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>magepsycho_storerestrictionpro/system_config_version</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </version>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <domain translate="label">
+                            <label>Domain</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>magepsycho_storerestrictionpro/system_config_domain</frontend_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </domain>
+						<domain_type translate="label">
+                            <label>Domain Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_storerestrictionpro/system_config_source_domaintypes</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </domain_type>
+						<dev_license translate="label">
+                            <label>License Key (Development)*</label>
+                            <frontend_type>text</frontend_type>
+                            <!--<frontend_model>magepsycho_storerestrictionpro/system_config_license</frontend_model>-->
+							<validate>required-entry</validate>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends><domain_type>2</domain_type></depends>
+                            <tooltip><![CDATA[License Key is mandatory for the proper functioning of the module. <br /> Note: You need to enter the License Key as per 'Domain Type']]></tooltip>
+                        </dev_license>
+						<prod_license translate="label">
+                            <label>License Key (Production)*</label>
+                            <frontend_type>text</frontend_type>
+                            <!--<frontend_model>magepsycho_storerestrictionpro/system_config_license</frontend_model>-->
+							<validate>required-entry</validate>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends><domain_type>1</domain_type></depends>
+                            <tooltip><![CDATA[License Key is mandatory for the proper functioning of the module. <br /> Note: You need to enter the License Key as per 'Domain Type']]></tooltip>
+                        </prod_license>
+                        <enable_log translate="label">
+                            <label>Enable Log</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <tooltip><![CDATA[Useful for debugging purpose.]]></tooltip>
+                        </enable_log>
+
+                    </fields>
+                </option>
+
+				<new_account_settings translate="label">
+                    <label>Account Registration Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>150</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<generalheading translate="label">
+                            <label>General</label>
+                            <frontend_model>magepsycho_storerestrictionpro/system_config_header</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </generalheading>
+						<new_acccount_registration_option translate="label">
+                            <label>New Account Registration</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_storerestrictionpro/system_config_source_newaccounttypes</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[<strong>Enabled:</strong> Customer can register.<br /><strong>Disabled:</strong> Customer won't be able to register.]]></tooltip>
+                            <comment><![CDATA[
+                        <script type="text/javascript">
+                            mpCheckRegistrationType = function() {
+                                var checkRegistrationOption = $('magepsycho_storerestrictionpro_new_account_settings_new_acccount_registration_option').value;
+                                if (checkRegistrationOption == 1) {
+                                    $('row_magepsycho_storerestrictionpro_new_account_settings_activationheading').show();
+
+                                    var checkActivationType = $('magepsycho_storerestrictionpro_new_account_settings_new_account_activation_required').value;
+                                    if (checkActivationType == 1) {
+                                        $('row_magepsycho_storerestrictionpro_new_account_settings_redirectionheading').show();
+                                        $('row_magepsycho_storerestrictionpro_new_account_settings_notificationheading').show();
+                                    } else {
+                                        $('row_magepsycho_storerestrictionpro_new_account_settings_redirectionheading').hide();
+                                        $('row_magepsycho_storerestrictionpro_new_account_settings_notificationheading').hide();
+                                    }
+
+                                    $('row_magepsycho_storerestrictionpro_new_account_settings_groupheading').show();
+                                    $('row_magepsycho_storerestrictionpro_new_account_settings_group_selection').show();
+                                } else {
+                                    $('row_magepsycho_storerestrictionpro_new_account_settings_activationheading').hide();
+                                    $('row_magepsycho_storerestrictionpro_new_account_settings_redirectionheading').hide();
+                                    $('row_magepsycho_storerestrictionpro_new_account_settings_notificationheading').hide();
+                                    $('row_magepsycho_storerestrictionpro_new_account_settings_groupheading').hide();
+                                    $('row_magepsycho_storerestrictionpro_new_account_settings_group_selection').hide();
+                                }
+                            }
+                            mpCheckActivationType = function() {
+                                var checkActivationType = $('magepsycho_storerestrictionpro_new_account_settings_new_account_activation_required').value;
+                                if (checkActivationType == 1) {
+                                    $('row_magepsycho_storerestrictionpro_new_account_settings_redirectionheading').show();
+                                    $('row_magepsycho_storerestrictionpro_new_account_settings_notificationheading').show();
+                                } else {
+                                    $('row_magepsycho_storerestrictionpro_new_account_settings_redirectionheading').hide();
+                                    $('row_magepsycho_storerestrictionpro_new_account_settings_notificationheading').hide();
+                                }
+                            }
+                            Event.observe(window, 'load', function() {
+                                Event.observe('magepsycho_storerestrictionpro_new_account_settings_new_acccount_registration_option', 'change', mpCheckRegistrationType);
+                                Event.observe('magepsycho_storerestrictionpro_new_account_settings_new_account_activation_required', 'change', mpCheckActivationType);
+                                mpCheckRegistrationType();
+                                mpCheckActivationType();
+                            })
+                        </script>
+                    ]]></comment>
+                        </new_acccount_registration_option>
+						<new_acccount_registration_disabled_message translate="label">
+                            <label>New Account Registration Disabled Message</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<tooltip><![CDATA[If New Account Registration = 'Disabled' then the specified custom message will be shown in Customer Login page.]]></tooltip>
+                            <depends>
+                                <new_acccount_registration_option>0</new_acccount_registration_option>
+                            </depends>
+                        </new_acccount_registration_disabled_message>
+						<activationheading translate="label">
+                            <label>Account Activation</label>
+                            <frontend_model>magepsycho_storerestrictionpro/system_config_header</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </activationheading>
+						<new_account_activation_required translate="label">
+                            <label>New Account Activation Required</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<tooltip><![CDATA[If selected to Yes then new customer cannot login unless his/her account is activated by the admin.]]></tooltip>
+                            <depends>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+                        </new_account_activation_required>
+	                    <activation_required_customer_groups translate="label">
+		                    <label>Customer Group(s) that Require Activation</label>
+		                    <frontend_type>multiselect</frontend_type>
+		                    <source_model>magepsycho_storerestrictionpro/system_config_source_customergroups</source_model>
+		                    <sort_order>60</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_website>1</show_in_website>
+		                    <show_in_store>1</show_in_store>
+		                    <tooltip><![CDATA[The customer group(s) that requires activation.<br />For multiple selection, please hold 'Ctrl' key and select.<br/><strong>Default: </strong> All Customer Groups]]></tooltip>
+                            <depends>
+                                <new_account_activation_required>1</new_account_activation_required>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+	                    </activation_required_customer_groups>
+                        <new_account_activation_by_default_frontend translate="label">
+                            <label>New Account Activation by Default (Frontend)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[If selected to 'Yes', new customer account will be automatically activated as soon as they register.]]></tooltip>
+                            <depends>
+                                <new_account_activation_required>1</new_account_activation_required>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+                        </new_account_activation_by_default_frontend>
+                        <!--new_account_activation_by_default_admin translate="label">
+                            <label>New Account Activation by Default (Admin)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>66</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[Customer account will be automatically activated if it's created via Admin interface]]></tooltip>
+                            <depends>
+                                <new_account_activation_required>1</new_account_activation_required>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+                        </new_account_activation_by_default_admin-->
+
+                        <redirectionheading translate="label">
+                            <label><![CDATA[&nbsp;]]></label>
+                            <frontend_model>magepsycho_storerestrictionpro/system_config_header</frontend_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </redirectionheading>
+                        <new_account_activation_redirection_type translate="label">
+                            <label>Redirect Non Activated Customer to</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_storerestrictionpro/system_config_source_redirectiontypes</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[Non Activated Customer will be redirected to this page after registration or if they try to login.<br /><strong>Login Page:</strong> /customer/account/login <br /><strong>CMS Page:</strong> Any CMS page configured from below <br /><strong>Custom Page:</strong> Any page configured below. Format: /route/controller/action]]></tooltip>
+                            <depends>
+                                <new_account_activation_required>1</new_account_activation_required>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+                        </new_account_activation_redirection_type>
+                        <new_account_activation_redirection_type_cms translate="label">
+                            <label>Redirect to CMS Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_storerestrictionpro/system_config_source_cmspages</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[]]></tooltip>
+                            <depends>
+                                <new_account_activation_redirection_type>2</new_account_activation_redirection_type>
+                                <new_account_activation_required>1</new_account_activation_required>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+                        </new_account_activation_redirection_type_cms>
+                        <new_account_activation_redirection_type_custom translate="label">
+                            <label>Redirect to Custom Page</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[Custom Page can be any page.<br /><strong>Format:</strong> /route/controller/action.]]></tooltip>
+                            <depends>
+                                <new_account_activation_redirection_type>3</new_account_activation_redirection_type>
+                                <new_account_activation_required>1</new_account_activation_required>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+                        </new_account_activation_redirection_type_custom>
+                        <new_account_activation_redirection_error_message_registration translate="label">
+                            <label>Error Message during Registration</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[Message to be displayed when new customer registers.]]></tooltip>
+                            <depends>
+                                <new_account_activation_required>1</new_account_activation_required>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+                        </new_account_activation_redirection_error_message_registration>
+                        <new_account_activation_redirection_error_message_login translate="label">
+                            <label>Error Message during Login</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[Message to be displayed when non activated customer attempts to log in.]]></tooltip>
+                            <depends>
+                                <new_account_activation_required>1</new_account_activation_required>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+                        </new_account_activation_redirection_error_message_login>
+
+                        <notificationheading translate="label">
+                            <label><![CDATA[&nbsp;]]></label>
+                            <frontend_model>magepsycho_storerestrictionpro/system_config_header</frontend_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </notificationheading>
+						<notify_admin_on_customer_registration translate="label">
+                            <label>Notify Admin On Customer Registration</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<tooltip><![CDATA[Whether or not to notify the admin when new customer is registered.]]></tooltip>
+                            <depends>
+                                <new_account_activation_required>1</new_account_activation_required>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+                        </notify_admin_on_customer_registration>
+						<customer_registration_notification_admin_emails translate="label">
+							<label>Admin Email Address(es) For New Account Registration Notification</label>
+							<fontend_type>text</fontend_type>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<tooltip><![CDATA[Admin Email address(es) that will receive the notification, separated by comma (,). <br /><strong>Example:</strong> info@yourstore.com,report@yourstore.com]]></tooltip>
+                            <depends>
+                                <notify_admin_on_customer_registration>1</notify_admin_on_customer_registration>
+                                <new_account_activation_required>1</new_account_activation_required>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+						</customer_registration_notification_admin_emails>
+						<admin_notification_email_template translate="label">
+                            <label>New Account Registration Admin Notification Email Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>170</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <notify_admin_on_customer_registration>1</notify_admin_on_customer_registration>
+                                <new_account_activation_required>1</new_account_activation_required>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+                        </admin_notification_email_template>
+						<notify_customer_on_account_activation translate="label">
+                            <label>Notify Customer On Account Activation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<tooltip><![CDATA[Whether or not to notify the customer when his / her account is approved.]]></tooltip>
+                            <depends>
+                                <new_account_activation_required>1</new_account_activation_required>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+                        </notify_customer_on_account_activation>
+						<customer_notification_email_template translate="label">
+                            <label>Account Activation Customer Notification Email Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <notify_customer_on_account_activation>1</notify_customer_on_account_activation>
+                                <new_account_activation_required>1</new_account_activation_required>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+                        </customer_notification_email_template>
+                        <customer_deactivation_notification_email_template translate="label">
+                            <label>Account Deactivation Customer Notification Email Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>191</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <new_account_activation_required>1</new_account_activation_required>
+                                <new_acccount_registration_option>1</new_acccount_registration_option>
+                            </depends>
+                        </customer_deactivation_notification_email_template>
+						<groupheading translate="label">
+                            <label>Group Selection</label>
+                            <frontend_model>magepsycho_storerestrictionpro/system_config_header</frontend_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </groupheading>
+						<group_selection translate="label">
+							<label>Customer Group Selector</label>
+							<frontend_model>magepsycho_storerestrictionpro/system_config_groupnotes</frontend_model>
+							<sort_order>99999</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</group_selection>
+					</fields>
+				</new_account_settings>
+
+	            <restricted_settings>
+		            <label>Store Restriction Settings</label>
+		            <frontend_type>text</frontend_type>
+		            <sort_order>200</sort_order>
+		            <show_in_default>1</show_in_default>
+		            <show_in_website>1</show_in_website>
+		            <show_in_store>1</show_in_store>
+		            <fields>
+			            <restriction_type translate="label">
+				            <label>Store Restriction Type</label>
+				            <frontend_type>select</frontend_type>
+				            <source_model>magepsycho_storerestrictionpro/system_config_source_restrictiontypes</source_model>
+				            <sort_order>10</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <tooltip><![CDATA[<strong>Non Restricted:</strong> The store is accessible without any restrictions.<br />
+                        <strong>Restricted (Only Configured Pages Accessible):</strong> The store is restricted i.e. requires login to be accessible. However you can allow guest users to access some pages(see 'Allowed Pages' section below).<br />
+                        <strong>Accessible (Only Configured Pages/Sections Restricted):</strong> The store is accessible without any login. However you can restrict some pages & sections(see 'Restricted Pages/Sections' section below).]]></tooltip>
+                            <comment><![CDATA[
+                        <script type="text/javascript">
+                            mpCheckRestrictionType = function() {
+                                var checkRestrictionType = $('magepsycho_storerestrictionpro_restricted_settings_restriction_type').value;
+                                var restrictedWithExceptionElements = ['row_magepsycho_storerestrictionpro_restricted_settings_restrictionheadingpre','row_magepsycho_storerestrictionpro_restricted_settings_restrictionheading', 'row_magepsycho_storerestrictionpro_restricted_settings_allowedpagesheading'];
+
+                                var allowedWithExceptionElements = ['row_magepsycho_storerestrictionpro_restricted_settings_restrictionheading2pre','row_magepsycho_storerestrictionpro_restricted_settings_restrictionheading2','row_magepsycho_storerestrictionpro_restricted_settings_restricted_section_heading', 'row_magepsycho_storerestrictionpro_restricted_settings_restricted_pages_heading'];
+                                if (checkRestrictionType == 2) {
+                                    restrictedWithExceptionElements.each(function (item) {
+                                        $(item).show();
+                                    });
+                                    allowedWithExceptionElements.each(function (item) {
+                                        $(item).hide();
+                                    });
+                                } else if (checkRestrictionType == 3) {
+                                    restrictedWithExceptionElements.each(function (item) {
+                                        $(item).hide();
+                                    });
+                                    allowedWithExceptionElements.each(function (item) {
+                                        $(item).show();
+                                    });
+                                } else {
+                                    restrictedWithExceptionElements.each(function (item) {
+                                        $(item).hide();
+                                    });
+                                    allowedWithExceptionElements.each(function (item) {
+                                        $(item).hide();
+                                    });
+                                }
+                            }
+
+                            Event.observe(window, 'load', function() {
+                                Event.observe('magepsycho_storerestrictionpro_restricted_settings_restriction_type', 'change', mpCheckRestrictionType);
+                                mpCheckRestrictionType();
+                            })
+                        </script>
+                    ]]></comment>
+			            </restriction_type>
+                        <restrictionheadingpre translate="label">
+                            <label>Restricted (Only Configured Pages Accessible)</label>
+                            <frontend_model>magepsycho_storerestrictionpro/system_config_header</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </restrictionheadingpre>
+                        <restrictionheading translate="label">
+                            <label>General Settings</label>
+                            <frontend_model>magepsycho_storerestrictionpro/system_config_header</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </restrictionheading>
+                        <restricted_allowed_customer_groups translate="label">
+                            <label>Allowed Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>magepsycho_storerestrictionpro/system_config_source_customergroups</source_model>
+                            <!--<validate>required-entry</validate>-->
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>2</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[The selected customer group(s) customer can only access the restricted store.<br />For multiple selection, please hold 'Ctrl' key and select.]]></tooltip>
+                        </restricted_allowed_customer_groups>
+                        <restricted_redirection_type translate="label">
+                            <label>Redirect Non Logged In User to</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_storerestrictionpro/system_config_source_redirectiontypes</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>2</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[Non logged in user will be redirected to this page if they try to browse the restricted pages.<br /><strong>Login Page:</strong> /customer/account/login <br /><strong>CMS Page:</strong> Any CMS page configured from below <br /><strong>Custom Page:</strong> Any page configured below. Format: /route/controller/action]]></tooltip>
+                        </restricted_redirection_type>
+                        <restricted_redirection_type_cms translate="label">
+                            <label>Redirect to CMS Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_storerestrictionpro/system_config_source_cmspages</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restricted_redirection_type>2</restricted_redirection_type>
+                                <restriction_type>2</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[]]></tooltip>
+                        </restricted_redirection_type_cms>
+                        <restricted_redirection_type_custom translate="label">
+                            <label>Redirect to Custom Page</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restricted_redirection_type>3</restricted_redirection_type>
+                                <restriction_type>2</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[Custom Page can be any page.<br /><strong>Format:</strong> /route/controller/action.]]></tooltip>
+                        </restricted_redirection_type_custom>
+			            <restricted_store_error_message translate="label">
+				            <label>Restricted Store Error Message</label>
+				            <frontend_type>textarea</frontend_type>
+				            <sort_order>80</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>2</restriction_type>
+                            </depends>
+				            <tooltip><![CDATA[Message to be displayed if guest user tries to access the restricted store.]]></tooltip>
+			            </restricted_store_error_message>
+			            <restricted_customer_group_error_message translate="label">
+				            <label>Restricted Customer Group Error Message</label>
+				            <frontend_type>textarea</frontend_type>
+				            <sort_order>90</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>2</restriction_type>
+                            </depends>
+				            <tooltip><![CDATA[Message to be displayed if non-allowed group customer tries to login/access the restricted store.]]></tooltip>
+			            </restricted_customer_group_error_message>
+			            <allowedpagesheading translate="label">
+				            <label>Allowed Pages For Guest Users</label>
+				            <frontend_model>magepsycho_storerestrictionpro/system_config_header</frontend_model>
+				            <sort_order>100</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+			            </allowedpagesheading>
+			            <restricted_allowed_cms_pages translate="label">
+				            <label>Allowed CMS</label>
+				            <frontend_type>multiselect</frontend_type>
+				            <source_model>magepsycho_storerestrictionpro/system_config_source_cmspages</source_model>
+				            <sort_order>110</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>2</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[Selected CMS page(s) can be accessed by the guest users.<br />For multiple selection, please hold 'Ctrl' key and select.]]></tooltip>
+			            </restricted_allowed_cms_pages>
+			            <restricted_allowed_category_pages translate="label">
+				            <label>Allowed Categories</label>
+				            <frontend_type>multiselect</frontend_type>
+				            <source_model>magepsycho_storerestrictionpro/system_config_source_categories</source_model>
+				            <sort_order>200</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>2</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[Selected Category page(s) can be accessed by the guest users. <br />For multiple selection, please hold 'Ctrl' key and select.]]></tooltip>
+			            </restricted_allowed_category_pages>
+			            <restricted_allowed_product_pages translate="label">
+				            <label>Allowed Products</label>
+				            <frontend_type>textarea</frontend_type>
+				            <sort_order>300</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>2</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[Selected Product page(s) can be accessed by the guest users.<br />Please enter the comma separated SKUs. <br />For example:sku1,sku2]]></tooltip>
+			            </restricted_allowed_product_pages>
+			            <restricted_allowed_module_pages translate="label">
+				            <label>Allowed Modules</label>
+				            <frontend_type>textarea</frontend_type>
+				            <sort_order>400</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>2</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[Pages other than category, product & CMS pages will be configured here.<br /><strong>Format:</strong> /route/controller/action, /route/controller/* & /route/*/*.<br />For example, in order to allow contacts page: /contacts/index/index or /contacts/index/* or /contacts/*/* ]]></tooltip>
+			            </restricted_allowed_module_pages>
+
+                        <restrictionheading2pre translate="label">
+                            <label>Accessible (Only Configured Pages/Sections Restricted)</label>
+                            <frontend_model>magepsycho_storerestrictionpro/system_config_header</frontend_model>
+                            <sort_order>999</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </restrictionheading2pre>
+                        <restrictionheading2 translate="label">
+                            <label>General</label>
+                            <frontend_model>magepsycho_storerestrictionpro/system_config_header</frontend_model>
+                            <sort_order>1000</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </restrictionheading2>
+                        <accessible_allowed_customer_groups translate="label">
+                            <label>Allowed Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>magepsycho_storerestrictionpro/system_config_source_customergroups</source_model>
+                            <!--<validate>required-entry</validate>-->
+                            <sort_order>1010</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[The selected customer group(s) customer can only access the restricted pages & sections.<br />For multiple selection, please hold 'Ctrl' key and select.]]></tooltip>
+                        </accessible_allowed_customer_groups>
+                        <accessible_redirection_type translate="label">
+                            <label>Redirect Restricted User to</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_storerestrictionpro/system_config_source_redirectiontypes</source_model>
+                            <sort_order>1020</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[User will be redirected to this page if they try to browse the restricted pages.<br /><strong>Login Page:</strong> /customer/account/login <br /><strong>CMS Page:</strong> Any CMS page configured from below <br /><strong>Custom Page:</strong> Any page configured below. Format: /route/controller/action]]></tooltip>
+                        </accessible_redirection_type>
+                        <accessible_redirection_type_cms translate="label">
+                            <label>Redirect to CMS Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_storerestrictionpro/system_config_source_cmspages</source_model>
+                            <sort_order>1030</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <accessible_redirection_type>2</accessible_redirection_type>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[]]></tooltip>
+                        </accessible_redirection_type_cms>
+                        <accessible_redirection_type_custom translate="label">
+                            <label>Redirect to Custom Page</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1040</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <accessible_redirection_type>3</accessible_redirection_type>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[Custom Page can be any page.<br /><strong>Format:</strong> /route/controller/action.]]></tooltip>
+                        </accessible_redirection_type_custom>
+                        <accessible_store_error_message translate="label">
+                            <label>Restricted Page Error Message</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>1050</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[Message to be displayed if user tries to access the restricted page.]]></tooltip>
+                        </accessible_store_error_message>
+
+                        <restricted_section_heading translate="label">
+                            <label>Restricted Sections</label>
+                            <frontend_model>magepsycho_storerestrictionpro/system_config_header</frontend_model>
+                            <sort_order>1060</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </restricted_section_heading>
+                        <accessible_hide_product_prices translate="label">
+                            <label>Hide Product Prices</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1070</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[If enabled selected customer group(s) customer can only see the product prices.]]></tooltip>
+                        </accessible_hide_product_prices>
+                        <accessible_hide_product_price_text translate="label">
+                            <label>Text to Display</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1080</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <accessible_hide_product_prices>1</accessible_hide_product_prices>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[This text will replace the product price. For example: Login to view price]]></tooltip>
+                        </accessible_hide_product_price_text>
+                        <accessible_hide_product_price_link translate="label">
+                            <label>Link to Text</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1090</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <accessible_hide_product_prices>1</accessible_hide_product_prices>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[This url will be linked to above text. For example: /customer/account/login<br /><strong>Note:</strong> Leave empty if you don't want to link. ]]></tooltip>
+                        </accessible_hide_product_price_link>
+                        <accessible_hide_add_to_cart translate="label">
+                            <label>Hide Add to Cart</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2000</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[If enabled selected customer group(s) customer can only be able to add to cart.]]></tooltip>
+                        </accessible_hide_add_to_cart>
+                        <accessible_hide_add_to_cart_text translate="label">
+                            <label>Text to Display</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2010</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <accessible_hide_add_to_cart>1</accessible_hide_add_to_cart>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[This text will replace the 'Add to Cart' button label. For example: Login to add to cart, Request a Quote etc.]]></tooltip>
+                        </accessible_hide_add_to_cart_text>
+                        <accessible_hide_add_to_cart_link translate="label">
+                            <label>Link to Text</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2020</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <accessible_hide_add_to_cart>1</accessible_hide_add_to_cart>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[This url will be linked to above text. For example: /customer/account/login<br /><strong>Note:</strong> Leave empty if you don't want to link. ]]></tooltip>
+                        </accessible_hide_add_to_cart_link>
+                        <accessible_hide_checkout translate="label">
+                            <label>Hide Checkout Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2030</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[If enabled selected customer group(s) customer can only be able to checkout.]]></tooltip>
+                        </accessible_hide_checkout>
+                        <accessible_restricted_shipment_methods translate="label">
+                            <label>Restricted Shipping Methods</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>magepsycho_storerestrictionpro/system_config_source_shippingmethods</source_model>
+                            <sort_order>2040</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[Selected shipping method(s) can only be accessed by allowed customer group(s) customer.<br />For multiple selection, please hold 'Ctrl' key and select.]]></tooltip>
+                        </accessible_restricted_shipment_methods>
+                        <accessible_restricted_payment_methods translate="label">
+                            <label>Restricted Payment Methods</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>magepsycho_storerestrictionpro/system_config_source_paymentmethods</source_model>
+                            <sort_order>2050</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[Selected payment method(s) can only be accessed by allowed customer group(s) customer.<br />For multiple selection, please hold 'Ctrl' key and select.]]></tooltip>
+                        </accessible_restricted_payment_methods>
+
+                        <restricted_pages_heading translate="label">
+                            <label>Restricted Pages</label>
+                            <frontend_model>magepsycho_storerestrictionpro/system_config_header</frontend_model>
+                            <sort_order>2060</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </restricted_pages_heading>
+                        <accessible_restricted_cms_pages translate="label">
+                            <label>Restricted CMS</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>magepsycho_storerestrictionpro/system_config_source_cmspages</source_model>
+                            <sort_order>2100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[Selected CMS page(s) can only be accessed by allowed customer group(s) customer.<br />For multiple selection, please hold 'Ctrl' key and select.]]></tooltip>
+                        </accessible_restricted_cms_pages>
+                        <accessible_restricted_category_pages translate="label">
+                            <label>Restricted Categories</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>magepsycho_storerestrictionpro/system_config_source_categories</source_model>
+                            <sort_order>2200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[Selected Category page(s) can only be accessed by allowed customer group(s) customer. <br />For multiple selection, please hold 'Ctrl' key and select.]]></tooltip>
+                        </accessible_restricted_category_pages>
+                        <accessible_restricted_product_pages translate="label">
+                            <label>Restricted Products</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>2300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[Selected Product page(s) can only be accessed by allowed customer group(s) customer.<br />Please enter the comma separated SKUs. <br />For example: sku1,sku2]]></tooltip>
+                        </accessible_restricted_product_pages>
+                        <accessible_restricted_module_pages translate="label">
+                            <label>Restricted Modules</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>2400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <restriction_type>3</restriction_type>
+                            </depends>
+                            <tooltip><![CDATA[Pages other than category, product & CMS pages will be configured here.<br /><strong>Format:</strong> module/controller/action, module/controller/* & module/*/* (separated by a new line). For example, in order to allow contacts page: contacts/index/index or contacts/index/* or contacts/*/* ]]></tooltip>
+                        </accessible_restricted_module_pages>
+
+		            </fields>
+	            </restricted_settings>
+            </groups>
+        </magepsycho_storerestrictionpro>
+    </sections>
+</config>

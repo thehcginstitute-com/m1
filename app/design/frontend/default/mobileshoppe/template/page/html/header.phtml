@@ -1,0 +1,31 @@
+<?php
+/**  @var Mage_Page_Block_Html_Header $this */
+if ($this->getIsHomePage()) {
+	header('Location: https://www.thehcginstitute.com/store/products/');	
+}
+$url = 'https://www.thehcginstitute.com/';
+?>
+<div class="top_block">
+	<?= $this->getChildHtml('topLinks') ?>
+	<div class="clear"></div>
+	<?= $this->getChildHtml('topContainer'); ?>
+</div>
+<div class="header-container">
+	<div class="header">
+		<?php if ($this->getIsHomePage()): ?>
+			<h1 class="logo">
+				<strong><?= $this->getLogoAlt() ?></strong>
+				<a class="logo" href="<?= $url;?>" title="<?= $this->getLogoAlt() ?>"
+				><img alt="<?= $this->getLogoAlt() ?>" src="<?= $this->getLogoSrc() ?>"/></a>
+			</h1>
+		<?php else:?>
+			<div class="logo">
+				<strong><?= $this->getLogoAlt() ?></strong>
+				<a class="logo" href="<?= $url;?>" title="<?= $this->getLogoAlt() ?>"
+				><img alt="<?= $this->getLogoAlt() ?>" src="<?= $this->getLogoSrc() ?>"/></a>
+			</div>
+		<?php endif?>
+		<?= $this->getChildHtml('topMenu') ?>
+	</div>
+</div>
+<?= $this->getChildHtml('topBar') ?>

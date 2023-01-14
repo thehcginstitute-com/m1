@@ -1,0 +1,350 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   MagePsycho
+ * @package    MagePsycho_Loginredirectpro
+ * @author     Raj KB <magepsycho@gmail.com>
+ * @website    http://www.magepsycho.com
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <tabs>
+        <magepychoall translate="label" module="magepsycho_loginredirectpro">
+            <label>MagePsycho Extensions</label>
+            <sort_order>400</sort_order>
+        </magepychoall>
+    </tabs>
+    <sections>
+        <magepychoinfo translate="label" module="magepsycho_loginredirectpro">
+			<label>Info</label>
+			<tab>magepychoall</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>99999999999</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+                <info>
+                    <frontend_model>magepsycho_loginredirectpro/system_config_info</frontend_model>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </info>
+			</groups>
+		</magepychoinfo>
+
+        <magepsycho_loginredirectpro module="magepsycho_loginredirectpro">
+            <label>Custom Redirect Pro</label>
+            <tab>magepychoall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <option translate="label">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <version translate="label">
+                            <label>Version</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>magepsycho_loginredirectpro/system_config_version</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </version>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <domain translate="label">
+                            <label>Domain</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>magepsycho_loginredirectpro/system_config_domain</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </domain>
+						<domain_type translate="label">
+                            <label>Domain Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_loginredirectpro/system_config_source_domaintypes</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </domain_type>
+						<dev_license translate="label">
+                            <label>License Key (Development)*</label>
+                            <frontend_type>text</frontend_type>
+							<validate>required-entry</validate>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<tooltip><![CDATA[License Key is mandatory in order to run the module. <br /> Note: You need to use License Key as per Domain Type]]></tooltip>
+							<depends><domain_type>2</domain_type></depends>
+                        </dev_license>
+						<prod_license translate="label">
+                            <label>License Key (Production)*</label>
+                            <frontend_type>text</frontend_type>
+							<validate>required-entry</validate>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<tooltip><![CDATA[License Key is mandatory in order to run the module. <br /> Note: You need to use License Key as per Domain Type]]></tooltip>
+							<depends><domain_type>1</domain_type></depends>
+                        </prod_license>
+						<enable_log translate="label">
+                            <label>Debug Mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<tooltip><![CDATA[This will log the redirection url and other variables, useful for debugging purposes.]]></tooltip>
+                        </enable_log>
+						<manual translate="label">
+                            <label>Manual</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>magepsycho_loginredirectpro/system_config_notes</frontend_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </manual>
+                    </fields>
+                </option>
+                <login_settings translate="label">
+                    <label>Login Redirect Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <default_login_url translate="label">
+                            <label>Default Login Redirection Url</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[If left empty then customer will be redirected to <strong>Account Dashboard</strong> page after login.<br />This value will be overridden by group wise value if configured.]]></tooltip>
+                        </default_login_url>
+                        <group_login_url translate="label">
+                            <label>Group Wise Redirection Url</label>
+                            <frontend_model>magepsycho_loginredirectpro/system_config_grouploginredirect</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[]]></tooltip>
+                        </group_login_url>
+                    </fields>
+                </login_settings>
+                <logout_settings translate="label">
+                    <label>Logout Redirect Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <default_logout_url translate="label">
+                            <label>Default Logout Redirection Url</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[If left empty then customer will be redirected to <strong>Homepage</strong> after logout.]]></tooltip>
+                        </default_logout_url>
+                        <group_logout_url translate="label">
+                            <label>Group Wise Redirection Url</label>
+                            <frontend_model>magepsycho_loginredirectpro/system_config_grouplogoutredirect</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[]]></tooltip>
+                        </group_logout_url>
+                        <remove_logout_intermediate translate="label">
+                            <label>Remove Logout Intermediate Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[If enabled, will remove the logout intermediate page that says "You have logged out and will be redirected to our homepage in 5 seconds." and redirect user directly to the configured page.]]></tooltip>
+                        </remove_logout_intermediate>
+                        <logout_custom_message translate="label">
+                            <label>Logout Custom Message</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[This custom message will be displayed during logout redirection.<br/><strong>%d</strong> will be replaced by logout delay time.]]></tooltip>
+                            <depends>
+                                <remove_logout_intermediate>0</remove_logout_intermediate>
+                            </depends>
+                        </logout_custom_message>
+                        <logout_delay_time translate="label">
+                            <label>Logout Delay Time</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_loginredirectpro/system_config_source_delays</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[This time will be used for delaying logout redirection.]]></tooltip>
+                            <depends>
+                                <remove_logout_intermediate>0</remove_logout_intermediate>
+                            </depends>
+                        </logout_delay_time>
+                    </fields>
+                </logout_settings>
+                <account_settings translate="label">
+                    <label>New Account Redirect Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <default_account_url translate="label">
+                            <label>Default New Account Redirection Url</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[If left empty then customer will be redirected to <strong>Account Dashboard</strong> after registration.]]></tooltip>
+                        </default_account_url>
+                        <group_account_url translate="label">
+                            <label>Group Wise Redirection Url</label>
+                            <frontend_model>magepsycho_loginredirectpro/system_config_groupaccountredirect</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[]]></tooltip>
+                        </group_account_url>
+                        <template_message_heading translate="label">
+                            <label>Extra Features</label>
+                            <frontend_model>magepsycho_loginredirectpro/system_config_header</frontend_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </template_message_heading>
+                        <default_account_template translate="label">
+                            <label>Default Email Template</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>magepsycho_loginredirectpro/system_config_emailnotes</frontend_model>
+                            <sort_order>29</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[]]></tooltip>
+                        </default_account_template>
+                        <group_account_template translate="label">
+                            <label>Group Wise Email Template</label>
+                            <frontend_model>magepsycho_loginredirectpro/system_config_groupaccounttemplate</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[]]></tooltip>
+                        </group_account_template>
+                        <default_account_message translate="label">
+                            <label>Default New Account Success Message</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[If left empty then system default message will be shown.<br />Note: <strong>%s</strong> will be replaced by frontend store name.]]></tooltip>
+                        </default_account_message>
+                        <group_account_message translate="label">
+                            <label>Group Wise Success Message</label>
+                            <frontend_model>magepsycho_loginredirectpro/system_config_groupaccountmessage</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[]]></tooltip>
+                        </group_account_message>
+                        <groupheading translate="label">
+                            <label>Group Selection</label>
+                            <frontend_model>magepsycho_loginredirectpro/system_config_header</frontend_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </groupheading>
+                        <group_selection translate="label">
+                            <label>Customer Group Selector</label>
+                            <frontend_model>magepsycho_loginredirectpro/system_config_groupnotes</frontend_model>
+                            <sort_order>99999</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group_selection>
+                    </fields>
+                </account_settings>
+                <misc_settings translate="label">
+                    <label>Misc Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>400</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <newsletter_url translate="label">
+                            <label>Newsletter Subscription Redirection Url</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[If left empty then user will be redirected to referrer page after newsletter subscription.]]></tooltip>
+                        </newsletter_url>
+                        <redirect_to_param translate="label">
+                            <label>Redirect To Param</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <tooltip><![CDATA[This is a query string param that holds redirection url for variable {{redirect_to}}]]></tooltip>
+                        </redirect_to_param>
+                    </fields>
+                </misc_settings>
+            </groups>
+        </magepsycho_loginredirectpro>
+    </sections>
+</config>

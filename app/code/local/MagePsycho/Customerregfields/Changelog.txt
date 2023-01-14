@@ -1,0 +1,4 @@
+0.2.3 - 0.2.5 (2016-01-15)
+- Added 'Is Required Field?' setting so that group field can be made mandatory or optional.
+- Fixed field displaying for guest checkout
+- Updated locale translation

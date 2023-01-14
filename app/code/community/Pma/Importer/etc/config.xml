@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Pma_Importer>
+            <version>1.6.0.0</version>
+        </Pma_Importer>
+    </modules>
+    
+    <global>
+       
+        <resources>
+            <importer_setup>
+                <setup>
+                    <module>Pma_Importer</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </importer_setup>
+            <importer_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </importer_write>
+            <importer_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </importer_read>
+        </resources>
+         
+        <models>
+            <importer>
+                <class>Pma_Importer_Model</class>
+                <resourceModel>importer_mysql4</resourceModel>
+            </importer>
+            <importer_mysql4>
+                <class>Pma_Importer_Model_Mysql4</class>
+                <entities>
+                     <importer>
+                        <table>importer_setting</table>
+                    </importer>
+                </entities>
+            </importer_mysql4>
+        </models>
+        
+         
+        <blocks>
+            <importer>
+                <class>Pma_Importer_Block</class>
+            </importer>
+        </blocks>
+        
+        <helpers>
+            <importer>
+                <class>Pma_Importer_Helper</class>
+            </importer>
+        </helpers>
+        
+         <events>
+            <sales_order_save_after>
+                <observers>
+                    <pma_importer_model_observer>
+                        <type>singleton</type>
+                        <class>Pma_Importer_Model_Observer</class>
+                        <method>status</method>
+                    </pma_importer_model_observer>
+                </observers>
+            </sales_order_save_after> 
+        </events>
+         
+    </global>
+
+
+    
+     <admin>
+        <routers>
+             <adminhtml>
+                 <args>
+                     <modules>
+                         <importer before="Mage_Adminhtml">Pma_Importer_Adminhtml</importer>
+                     </modules>
+                 </args>
+             </adminhtml>
+        </routers>
+    </admin>
+     
+    <adminhtml>
+        <menu>
+            <importer module="importer">
+                <title>PMA</title>
+                <sort_order>71</sort_order>               
+                <children>
+                    <items module="importer">
+                        <title>Google Analytics Importer</title>
+                        <sort_order>0</sort_order>
+                        <action>adminhtml/importers</action>
+                    </items>
+                </children>
+            </importer>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <importer>
+                            <title>Importer Module</title>
+                            <sort_order>200</sort_order>
+                        </importer>
+                    </children>
+                </admin>
+            </resources>   
+        </acl>
+        <layout>
+            <updates>
+                <importer>
+                    <file>importer.xml</file>
+                </importer>
+            </updates>
+        </layout>
+    </adminhtml> 
+   
+
+</config>
