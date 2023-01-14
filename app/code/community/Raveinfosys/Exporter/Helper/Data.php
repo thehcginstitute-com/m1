@@ -7,7 +7,14 @@ class Raveinfosys_Exporter_Helper_Data extends Mage_Core_Helper_Abstract
     public function __construct()
     {
 		$this->error_file = Mage::getBaseDir('var') .'/raveinfosys/exporter/order_exception_log.htm';
-		$handle = fopen($this->error_file, "a+");
+        # 2023-01-14 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+        # «fopen(var/raveinfosys/exporter/order_exception_log.htm): failed to open stream: No such file or directory
+        # in app/code/community/Raveinfosys/Exporter/Helper/Data.php on line 10»:
+        # https://github.com/thehcginstitute-com/m1/issues/1
+        if (!file_exists($dir = dirname($this->error_file))) {
+            mkdir($dir, 0777, true);
+        }
+		fopen($this->error_file, "a+");
 		chmod($this->error_file, 0777);
     }
    
