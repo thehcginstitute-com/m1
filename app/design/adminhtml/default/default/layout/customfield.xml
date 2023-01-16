@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--  
+/**
+ * @category   Webkul
+ * @package    Webkul_CustomField
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */ -->
+<layout version="1.0.0">
+	<adminhtml_customfield_customfield_index>
+        <reference name="content">
+            <block type="customfield/adminhtml_customfields" name="customfields"/>
+        </reference>
+    </adminhtml_customfield_customfield_index>
+    <adminhtml_customfield_customfield_edit>
+    	<reference name="content">
+            <block type="adminhtml/template" name="customfieldoptions" after='-' template="customfield/options.phtml"/>
+        </reference>
+    </adminhtml_customfield_customfield_edit>
+    <adminhtml_sales_order_view>
+        <reference name="order_info">
+            <action method="setTemplate">
+                <template>customfield/sales/order/view/info.phtml</template>
+            </action>
+        </reference>
+    </adminhtml_sales_order_view>
+    <adminhtml_sales_order_invoice_new>
+        <reference name="order_info">
+            <action method="setTemplate">
+                <template>customfield/sales/order/view/info.phtml</template>
+            </action>
+        </reference>
+    </adminhtml_sales_order_invoice_new>
+    <adminhtml_sales_order_invoice_view>
+        <reference name="order_info">
+            <action method="setTemplate">
+                <template>customfield/sales/order/view/info.phtml</template>
+            </action>
+        </reference>
+    </adminhtml_sales_order_invoice_view>
+    <adminhtml_sales_order_shipment_new>
+        <reference name="order_info">
+            <action method="setTemplate">
+                <template>customfield/sales/order/view/info.phtml</template>
+            </action>
+        </reference>
+    </adminhtml_sales_order_shipment_new>
+    <adminhtml_sales_order_shipment_view>
+        <reference name="order_info">
+            <action method="setTemplate">
+                <template>customfield/sales/order/view/info.phtml</template>
+            </action>
+        </reference>
+    </adminhtml_sales_order_shipment_view>
+    <adminhtml_sales_order_creditmemo_new>
+        <reference name="order_info">
+            <action method="setTemplate">
+                <template>customfield/sales/order/view/info.phtml</template>
+            </action>
+        </reference>
+    </adminhtml_sales_order_creditmemo_new>
+    <adminhtml_sales_order_creditmemo_view>
+        <reference name="order_info">
+            <action method="setTemplate">
+                <template>customfield/sales/order/view/info.phtml</template>
+            </action>
+        </reference>
+    </adminhtml_sales_order_creditmemo_view>
+    <adminhtml_customer_edit>
+        <reference name="customer_edit_tabs">
+            <action method="addTabAfter">
+                <name>webkul_customfield_tab</name>
+                <block>customfield/adminhtml_customer_tab</block>
+                 <after>account</after>
+            </action>
+        </reference>
+    </adminhtml_customer_edit>
+</layout>

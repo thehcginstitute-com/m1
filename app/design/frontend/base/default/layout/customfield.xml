@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--  /**
+ * @category   Webkul
+ * @package    Webkul_CustomField
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */ -->
+<layout version="1.0.0">
+	<customer_account_create>
+        <reference name="customer_form_register">
+            <!-- <block type="customfield/becomecustomer" name="customer_customfield" template="customfield/customfields.phtml" /> -->
+            <action method="setTemplate"><template>customfield/customfields.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <!-- <block type="customfield/becomecustomer" name="customer_customfield" template="customfield/customfields.phtml" after="-"/> -->
+            <block type="core/template" name="customer_term_privacy" template="customfield/termsprivacy.phtml" after="-"/>
+            <block type="core/template" name="customer_term_style" template="customfield/termstyle.phtml" before="-"/>
+        </reference>
+    </customer_account_create>
+    <checkout_onepage_index>
+        <reference name="form.additional.info">
+        <block type="customer/form_register" name="billingcustomfields" template="customfield/billing.phtml" after="-"/>
+            <!--<action method="setTemplate"><template>customfield/billing.phtml</template></action>-->
+        </reference>
+    </checkout_onepage_index>
+	<customer_account>
+		<reference name="customer_account_navigation">
+             <block type="customfield/Customfield" as="customfield_customer_link" name="customfield_customer_link">
+                <action method="addLinkToParentBlock" />
+            </block>
+	    </reference>
+	</customer_account>
+    <customfield_index_customfield>
+		<update handle="customer_account"/>
+        <reference name="head">            
+            <action method="addJs"><script>varien/product.js</script></action>
+            <action method="addJs"><script>varien/configurable.js</script></action>
+
+            <action method="addItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name><params/></action>
+            <action method="addItem"><type>js</type><name>calendar/calendar.js</name></action>
+            <action method="addItem"><type>js</type><name>calendar/calendar-setup.js</name></action>            
+        </reference>
+        <reference name="content">
+            <block type="core/html_calendar" name="html_calendar" as="html_calendar" template="page/js/calendar.phtml"/>
+		    <block type="customfield/customfield" name="wkcustomfield" template="customfield/accountadditionalinfo.phtml"/>
+        </reference>
+    </customfield_index_customfield>
+    <sales_email_order_items>
+    	<reference name="items">
+            <action method="setTemplate">
+                <template>customfield/email/order/items.phtml</template>
+            </action>
+        </reference>
+    </sales_email_order_items>
+</layout>

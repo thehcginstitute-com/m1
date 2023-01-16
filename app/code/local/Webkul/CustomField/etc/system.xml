@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * @category   Webkul
+ * @package    Webkul_CustomField
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */  -->
+<config>
+    <tabs>
+        <webkul>
+            <label>&lt;a href="http://www.webkul.com" style="background:none;" target="_blank"&gt;WEBKUL&lt;img height="10" style="margin-left: 10px;" src='http://webkul.com/blog/wp-content/uploads/2013/09/wklogo.png'/&gt;&lt;/a&gt;</label>
+            <sort_order>1</sort_order>
+        </webkul>
+    </tabs>
+    <sections>
+        <customfield>
+            <label>Customer Registration Fields</label>
+            <tab>webkul</tab>
+            <sort_order>130</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>              
+                <admin1>
+                    <label>Custom Fields</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>                    
+					<fields>
+                        <allowimages translate="label">
+							<label>Allowed extensions for images</label>	
+							<frontend_type>text</frontend_type>		
+							<sort_order>4</sort_order>				
+							<show_in_default>1</show_in_default>	
+							<show_in_website>1</show_in_website>		
+							<show_in_store>1</show_in_store>			
+							<comment>Enter file type seperated by comma(,) like jpeg,png,gif,pdf</comment>
+						</allowimages>
+						<allowfiles translate="label">
+							<label>Allowed extensions for files</label>
+							<frontend_type>text</frontend_type>		
+							<sort_order>5</sort_order>				
+							<show_in_default>1</show_in_default>	
+							<show_in_website>1</show_in_website>		
+							<show_in_store>1</show_in_store>			
+							<comment>Enter file type seperated by comma(,) like zip,rar,pdf,doc</comment>
+						</allowfiles>
+					</fields>
+				</admin1>
+                 <admin2>
+                    <label>Terms, Conditions and Privacy Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>  
+                    <fields>
+                        <enable translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable> 
+                        <privacy_heading translate="label">
+                            <label>Privacy Popup Model Heading</label>    
+                            <frontend_type>text</frontend_type>     
+                            <sort_order>2</sort_order>              
+                            <show_in_default>1</show_in_default>    
+                            <show_in_website>1</show_in_website>        
+                            <show_in_store>1</show_in_store>            
+                            <comment>Enter the pop up Heading...</comment>
+                        </privacy_heading>
+                        <term_n_condition_heading translate="label">
+                            <label>Terms and Condition Popup Model Heading</label>    
+                            <frontend_type>text</frontend_type>     
+                            <sort_order>3</sort_order>              
+                            <show_in_default>1</show_in_default>    
+                            <show_in_website>1</show_in_website>        
+                            <show_in_store>1</show_in_store>            
+                            <comment>Enter the pop up Heading...</comment>
+                        </term_n_condition_heading>
+                        <model_button_text translate="label">
+                            <label>Model Button Text</label>    
+                            <frontend_type>text</frontend_type>     
+                            <sort_order>4</sort_order>              
+                            <show_in_default>1</show_in_default>    
+                            <show_in_website>1</show_in_website>        
+                            <show_in_store>1</show_in_store>            
+                            <comment>Enter Button Text ...</comment>
+                        </model_button_text>
+                        <button_text_color translate="label">
+                            <label>Model Button Text Color</label>    
+                            <frontend_type>text</frontend_type>     
+                            <sort_order>5</sort_order>              
+                            <show_in_default>1</show_in_default>    
+                            <show_in_website>1</show_in_website>        
+                            <show_in_store>1</show_in_store>            
+                            <comment>Enter Button text Color code ...</comment>
+                        </button_text_color>
+                        <button_color translate="label">
+                            <label>Model Button Color</label>    
+                            <frontend_type>text</frontend_type>     
+                            <sort_order>6</sort_order>              
+                            <show_in_default>1</show_in_default>    
+                            <show_in_website>1</show_in_website>        
+                            <show_in_store>1</show_in_store>            
+                            <comment>Enter Button Color code ...</comment>
+                        </button_color>
+                        <header_backgroud_color translate="label">
+                            <label>Model Header background Color</label>    
+                            <frontend_type>text</frontend_type>     
+                            <sort_order>7</sort_order>              
+                            <show_in_default>1</show_in_default>    
+                            <show_in_website>1</show_in_website>        
+                            <show_in_store>1</show_in_store>            
+                            <comment>Enter Header background Color code ...</comment>
+                        </header_backgroud_color>
+                        <header_text_color translate="label">
+                            <label>Model Header Text Color</label>    
+                            <frontend_type>text</frontend_type>     
+                            <sort_order>8</sort_order>              
+                            <show_in_default>1</show_in_default>    
+                            <show_in_website>1</show_in_website>        
+                            <show_in_store>1</show_in_store>            
+                            <comment>Enter Header text Color code ...</comment>
+                        </header_text_color>
+                        <backgroud_color translate="label">
+                            <label>Model  background Color</label>    
+                            <frontend_type>text</frontend_type>     
+                            <sort_order>9</sort_order>              
+                            <show_in_default>1</show_in_default>    
+                            <show_in_website>1</show_in_website>        
+                            <show_in_store>1</show_in_store>            
+                            <comment>Enter background Color code ...</comment>
+                        </backgroud_color>
+                        <show_content_as translate="label">
+                            <label>Show Content As.</label>    
+                            <frontend_type>select</frontend_type> 
+                            <source_model>customfield/system_config_source_dropdown_values</source_model>    
+                            <sort_order>10</sort_order>              
+                            <show_in_default>1</show_in_default>    
+                            <show_in_website>1</show_in_website>        
+                            <show_in_store>1</show_in_store>            
+                            <comment>Select How you want to show Content As ...</comment>
+                        </show_content_as>
+                        <terms_n_condition translate="label">
+                            <label>Terms and Condition Content</label>    
+                            <frontend_type>textarea</frontend_type>     
+                            <sort_order>11</sort_order>              
+                            <show_in_default>1</show_in_default>    
+                            <show_in_website>1</show_in_website>        
+                            <show_in_store>1</show_in_store>            
+                            <comment>Enter terms and condition content here...</comment>
+                        </terms_n_condition>
+                        <privacy_n_cookies translate="label">
+                            <label>Privacy and Cookies Content</label>    
+                            <frontend_type>textarea</frontend_type>     
+                            <sort_order>12</sort_order>              
+                            <show_in_default>1</show_in_default>    
+                            <show_in_website>1</show_in_website>        
+                            <show_in_store>1</show_in_store>            
+                            <comment>Enter terms and condition content here...</comment>
+                        </privacy_n_cookies>
+                        <content_text_color translate="label">
+                            <label>Content Text Color</label>    
+                            <frontend_type>text</frontend_type>     
+                            <sort_order>13</sort_order>              
+                            <show_in_default>1</show_in_default>    
+                            <show_in_website>1</show_in_website>        
+                            <show_in_store>1</show_in_store>            
+                            <comment>Enter content color...</comment>
+                        </content_text_color>
+                                               
+                    </fields>
+                </admin2> 
+			</groups> 
+                               
+        </customfield>
+    </sections>
+</config>

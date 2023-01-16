@@ -1,0 +1,148 @@
+<?php 
+ /**
+ * @category   Webkul
+ * @package    Webkul_CustomField
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */
+$modeldata = Mage::registry("customfield_data")->getData();
+$var_attrs = array(); // will be used in JS
+$model = 'customer/attribute_collection';
+$type='customer';
+$editCheck = count($modeldata);
+?>
+<script type="text/javascript">
+		if (typeof jQuery == 'undefined'){
+			document.write(unescape("%3Cscript src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+		}
+	</script>
+	<script> 
+		$wk_jq=jQuery.noConflict();		
+
+		(function($wk_jq){
+			$wk_jq(function(){
+				var dataCheck = '<?php echo $editCheck; ?>';
+				dataCheck=parseInt(dataCheck);
+				if(dataCheck){
+					$wk_jq('#inputname').attr('disabled','disabled');
+					$wk_jq('#frontend_input').attr('disabled','disabled');
+					$wk_jq('#dependable_inputname').attr('disabled','disabled');
+					$wk_jq('#dependable_frontend_input').attr('disabled','disabled');
+					
+					// append hidden fields
+					$wk_jq('#edit_form').append('<input type="hidden" name="attribute_code" value="'+$wk_jq('#inputname').val()+'" />');
+					$wk_jq('#edit_form').append('<input type="hidden" name="frontend_input" value="'+$wk_jq('#frontend_input').val()+'" />');
+					$wk_jq('#edit_form').append('<input type="hidden" name="dependable_attribute_code" value="'+$wk_jq('#dependable_inputname').val()+'" />');
+					$wk_jq('#edit_form').append('<input type="hidden" name="dependable_frontend_input" value="'+$wk_jq('#dependable_frontend_input').val()+'" />');
+				}
+				if($wk_jq('#frontend_input').val()=='boolean' || $wk_jq('#frontend_input').val()=='image' || $wk_jq('#frontend_input').val()=='file' || $wk_jq('#frontend_input').val()=='dependable')	{
+						$wk_jq("#viewinforms option[value='checkout_register']").remove();
+					}
+					else{
+						if(!dataCheck){
+							$wk_jq("#viewinforms option[value='checkout_register']").remove();
+							$wk_jq("#viewinforms").append('<option value="checkout_register">Checkout Register</option>');
+						}
+					}
+				if($wk_jq('#frontend_input').val()=='text'||$wk_jq('#frontend_input').val()=='textarea')
+				{
+					$wk_jq('#frontend_class').closest("tr").show();
+				}else{
+					$wk_jq('#frontend_class').closest("tr").hide();
+				}
+				if($wk_jq('#dependable_frontend_input').val()=='text'||$wk_jq('#dependable_frontend_input').val()=='textarea')
+				{
+					$wk_jq('#dependable_frontend_class').closest("tr").show();
+				}else{
+					$wk_jq('#dependable_frontend_class').closest("tr").hide();
+				}
+				//dependable
+				if($wk_jq('#frontend_input').val() == 'dependable')
+				{
+					$wk_jq('#dependable_fieldset').show();
+					$wk_jq('#dependable_fieldset').prev(".entry-edit-head").show();	
+					$wk_jq('#dependable_fieldset .wkdependablereq').addClass('required-entry');
+				}
+				else{
+					$wk_jq('#dependable_fieldset').hide();
+					$wk_jq('#dependable_fieldset').prev(".entry-edit-head").hide();		
+					$wk_jq('#dependable_fieldset .wkdependablereq').removeClass('required-entry');
+				}
+
+				if($wk_jq('#frontend_input').val() == 'boolean')
+					$wk_jq('#customoptiondropdown').hide();
+				$wk_jq('#frontend_input').on('change', function(){	
+					if($wk_jq('#frontend_input').val()=='text'||$wk_jq('#frontend_input').val()=='textarea')
+						{
+							$wk_jq('#frontend_class').closest("tr").show();					
+						}else{
+							$wk_jq('#frontend_class').closest("tr").hide();							
+						}
+					if($wk_jq(this).val()=='boolean' || $wk_jq(this).val()=='image' || $wk_jq(this).val()=='file' || $wk_jq(this).val()=='dependable')	{
+						$wk_jq("#viewinforms option[value='checkout_register']").remove();
+					}
+					else{
+						$wk_jq("#viewinforms option[value='checkout_register']").remove();
+						$wk_jq("#viewinforms").append('<option value="checkout_register">Checkout Register</option>');
+					}
+					if($wk_jq('#frontend_input').val() == 'dependable')
+					{
+						$wk_jq('#dependable_fieldset').show();
+						$wk_jq('#dependable_fieldset').prev(".entry-edit-head").show();	
+						$wk_jq('#dependable_fieldset .wkdependablereq').addClass('required-entry');
+					}
+					else{
+						$wk_jq('#dependable_fieldset').hide();
+						$wk_jq('#dependable_fieldset').prev(".entry-edit-head").hide();		
+						$wk_jq('#dependable_fieldset .wkdependablereq').removeClass('required-entry');
+					}
+				});
+
+				//dependable on change func
+				$wk_jq('#dependable_frontend_input').on('change', function(){
+					if($wk_jq(this).val()=='text' || $wk_jq(this).val()=='textarea'){			
+						$wk_jq('#dependable_frontend_class').closest("tr").show();					
+					}
+					else{
+						$wk_jq('#dependable_frontend_class').closest("tr").hide();					
+
+					}
+				});
+
+
+				var c=0;
+				$wk_jq('.attroptions.button').on('click',function(){
+					var addOptionValue='';
+					$wk_jq('.wk_mp_headcus.wktmp').each(function(){
+							c++;
+					});
+					
+					$wk_jq.ajax({
+						url:"<?php echo $this->getUrl('adminhtml/customfield_customfield/getoption')?>?isAjax=true",
+						type:"GET",
+						data:{data:c},
+						dataType:'html',
+						success:function(content){
+							if(content)
+							$wk_jq('.wk_mp_headcus.wktmp').parent('.wk_mp_option-box').append(content);
+						}
+					});
+
+					c=0;
+
+				});
+				$wk_jq(document).on('click','.deletecusopt',function(){	
+					$wk_jq(this).parent().parent().find('input').val('');			
+					$wk_jq(this).parent().parent().hide();
+				});
+				
+				$wk_jq(document).on('change','.widthinput',function(){
+				    var validt = $wk_jq(this).val();
+				    var regex = /(<([^>]+)>)/ig;
+			        var mainvald = validt .replace(regex, "");
+			        $wk_jq(this).val(mainvald);	
+		        });
+			});
+		})($wk_jq);												
+	</script>

@@ -1,0 +1,702 @@
+<div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-edit-form fieldset-legend">Custom Registration Information</h4>
+            <div class="form-buttons"></div>
+        </div>
+        <div class="fieldset ">
+            <div class="hor-scroll">
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                       <!-- <tr>
+                            <td class="label"><label for="">Associate to Website <span class="required">*</span></label></td>
+                            <td class="value">
+                            </td>
+                        </tr>-->
+                    
+        <?php 
+        $customerid=Mage::app()->getRequest()->getParam('id') ;
+        $customer = Mage::getModel('customer/customer')->load($customerid);
+        $model = 'customer/attribute_collection';
+        $type='customer';
+        $collection = Mage::getResourceModel($model)
+                    ->setEntityTypeFilter(Mage::getModel('eav/entity')->setType($type)->getTypeId())
+                    ->addFilter('is_user_defined', 1)->setOrder('sort_order', 'ASC');
+        $collection->join(
+                        array('customfields' => "customfield/customfields"),
+                        'main_table.attribute_id=customfields.customer_attribute_id',
+                        array('status','dependable_inputname','dependent_on')
+                    )->addFilter('status', 1)
+                    ->addFieldToFilter('dependent_on',array("null" => true));
+        $store_id = Mage::app()->getStore()->getId();
+        if (count($collection)) {
+            foreach ($collection as $attribute) {
+                $attr = $attribute->toArray();
+                if($attr['dependable_inputname']!="" && $attr['frontend_input']=="select"){
+                    $attr['frontend_input']="dependable";
+                }
+                $customCollection=Mage::getModel('customfield/customfields')->getCollection()->addFieldToFilter('customer_attribute_id', $attr['attribute_id']);
+                
+                $visibleInFormCheck=0;
+                foreach ($customCollection as  $value) {
+                    $d=$value->getData();
+                    if ($d['viewinforms']) {
+                        $forms=explode(',', $d['viewinforms']);
+                        foreach ($forms as $key => $val) {
+                            if ($val=='customer_account_create'|| $val=='customer_account_edit') {
+                                $visibleInFormCheck=1;
+                            }
+                        }
+                    }
+                }
+                if ($visibleInFormCheck) {
+                    $attr['is_required']=$attr['note'];
+                    if ($attr['is_required']) {
+                        $var_attrs[] = $attr['attribute_code'];
+                    }
+
+                    $store_labels = $attribute->getStoreLabels();
+                    $label = $store_labels[$store_id] ? $store_labels[$store_id] : $attr['frontend_label'];
+                    echo '<tr>';
+                    echo '<td class="label">';
+                    echo '<label for="'. $attr['attribute_code'] .'" '. ($attr['is_required']?'class="required"><em>*</em>':'>') . $this->__($label) . '</label>';
+                    echo '</td>';
+                    switch ($attr['frontend_input']) {
+                        case 'text':
+                            echo '
+                            <td class="value">';
+                            $vall="";
+                            ?>
+                            <?php foreach ($customer as $val) {
+                                foreach ($val as $key=>$vl) {
+                                    if ($attr['attribute_code']==$key) {
+                                        $vall= $val[$key];
+                                    }
+                                }
+                                break;
+                            } ?>
+                            
+                            <input type="text" name="account[<?php echo $attr['attribute_code']; ?>]" id="<?php echo $attr['attribute_code']; ?>" value="<?php echo $vall ?>" <?php if ($attr['is_required']) {
+                                ?> class="required-entry input-text <?php echo $attr['frontend_class']; ?>" <?php 
+                            } else {
+                                ?> class="input-text <?php echo $attr['frontend_class']; ?>"  <?php 
+                            }?>/>
+                            <?php 
+                            echo'
+                            </td>';
+                            break;
+
+                        case 'radio':
+                                echo '
+                            <td class="value">';
+                            $valls="";
+                            ?>
+                            <?php foreach ($customer as $val) {
+                                foreach ($val as $key=>$vl) {
+                                    if ($attr['attribute_code']==$key) {
+                                        $valls= $val[$key];
+                                    }
+                                }
+                                break;
+                            } ?>
+                            
+                    <?php	foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
+                                ?>
+                                    <input type="radio" name="account[<?php echo $attr['attribute_code']; ?>]" class="<?php if ($attr['is_required']) {
+                                    echo 'required-entry ';
+                                } ?> "  id="<?php echo $attr['attribute_code']; ?>"  value="<?php echo $instance['value']; ?>"  <?php if ($instance['value']==$valls) {
+                                    echo 'selected';
+                                } ?> > <?php echo $instance['label']; ?></input>
+                    <?php	
+                            }
+
+                            echo '
+                            </td>';
+                            break;
+                        
+                        case 'select':
+                            echo '
+                            <td class="value">';
+                            $valls="";
+                            ?>
+                            <?php foreach ($customer as $val) {
+                                foreach ($val as $key=>$vl) {
+                                    if ($attr['attribute_code']==$key) {
+                                        $valls= $val[$key];
+                                    }
+                                }
+                                break;
+                            } ?>
+                            <select name="account[<?php echo $attr['attribute_code']; ?>]" id="<?php echo $attr['attribute_code'];?>" class="<?php if ($attr['is_required']) {
+                                echo 'required-entry ';
+                            } ?>" >
+                    <?php	foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
+                                ?>
+                                    <option value="<?php echo $instance['value']; ?>"  <?php if ($instance['value']==$valls) {
+                                    echo 'selected';
+                                } ?> > <?php echo $instance['label']; ?></option>
+                    <?php	
+                            }
+                            echo '</select>';
+
+                            echo '
+                            </td>';
+                            break;
+                            
+                        case 'multiselect':
+                            echo '
+                            <td class="value">';
+                            $vallm="";
+                            foreach ($customer as $val) {
+                                foreach ($val as $key=>$vl) {
+                                    if ($attr['attribute_code']==$key) {
+                                        $vallm= $val[$key];
+                                    }
+                                }
+                                break;
+                            }
+                                ?>
+                            <select name="account[<?php echo $attr['attribute_code'] .'[]' ; ?>]" id="<?php echo $attr['attribute_code']; ?>" multiple="multiple" class="<?php if ($attr['is_required']) {
+                                    echo 'required-entry';
+                                } ?>" >
+                            <?php 
+                            $multi_values = explode(',', $vallm);
+
+                            foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
+                                echo '<option value="'.$instance['value'].'" '.  (in_array($instance['value'], $multi_values) ? 'selected' : '') .'>' . $instance['label'] . '</option>';
+                            }
+                            echo '</select>';
+                            break;
+
+                        case 'textarea':
+                            $valla="";
+                            foreach ($customer as $val) {
+                                foreach ($val as $key=>$vl) {
+                                    if ($attr['attribute_code']==$key) {
+                                        $valla= trim($val[$key]);
+                                    }
+                                }
+                                break;
+                            }
+                            echo '
+                            <td class="value">';
+                            ?>
+                                <textarea  name="account[<?php echo $attr['attribute_code']; ?>]" id="<?php echo $attr['attribute_code']; ?>" <?php if ($attr['is_required']) {
+                                ?> class="required-entry <?php echo $attr['frontend_class'];
+                                if ($attr['default_value']==1) {
+                                    echo 'niceedits';
+                                } ?>" <?php 
+                            } else {
+                                ?> class= "<?php if ($attr['default_value']==1) {
+                                    echo 'niceedits';
+                                } else {
+                                    echo 'noedit';
+                                } ?>" <?php 
+                            }?> ><?php echo $valla ; ?></textarea>
+                            <?php 
+                            echo '
+                            </td>';
+                            break;
+                            
+                        case 'date':
+                            $valld="";
+                            foreach ($customer as $val) {
+                                foreach ($val as $key=>$vl) {
+                                    if ($attr['attribute_code']==$key) {
+                                        $dformat=str_replace('yyyy', 'Y', strtolower(Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT)));
+                                        $valld=new DateTime($val[$key]);
+                                        $valld=$valld->format($dformat) ;
+                                    }
+                                }
+                                break;
+                            }
+                            echo '
+                            <td class="value">';
+                            ?>
+                                <input type="text" name="account[<?php echo $attr['attribute_code'] ?>]" id="<?php echo $attr['attribute_code'] ?>" value="<?php echo $valld; ?>" <?php if ($attr['is_required']) {
+                                ?> class="required-entry input-text <?php echo $attr['attribute_code'] ?>" <?php 
+                            } else {
+                                ?> class="input-text <?php echo $attr['attribute_code'] ?>"  <?php 
+                            }?>   style="width:110px !important;" />
+                                <img style="cursor: pointer;display: inline;" title="<?php echo $this->__('Select Date'); ?>" id="<?php echo  $attr['attribute_code'].'_trig' ?>" <?php if ($attr['is_required']) {
+                                ?> class="required-entry v-middle" <?php 
+                            } else {
+                                ?> class="v-middle"  <?php 
+                            }?> alt="" src="<?php echo str_replace("base", "default", $this->getSkinUrl('images/grid-cal.gif', array('_area'=>'adminhtml'))); ?>" >
+                            <?php
+                            echo'
+                            </td>';
+                            echo '<script type="text/javascript">
+                                    Calendar.setup({
+                                        inputField : "'.$attr['attribute_code'].'",
+                                        ifFormat : "'.Varien_Date::convertZendToStrFtime(Mage::app()->getLocale()->getDateFormatWithLongYear(), true, false).'", 
+                                        button : "'.$attr['attribute_code'].'_trig",
+                                        showsTime: false,
+                                        align : "Bl",
+                                        singleClick : true
+                                    });
+                                </script>';
+                            break;
+
+                        case 'file':
+                            echo '
+                            <td class="value">';
+                            ?>
+                            <?php 
+                            $val_file= $customer[$attr['attribute_code']];
+                            $val_file_encode = Mage::helper('core')->urlEncode($val_file);
+                            
+                            $flag = 0;
+                            if (file_exists(Mage::getBaseDir("media")."/customer".$val_file) && $val_file != "") {
+                                ?>
+                                <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>"><img alt="Download" title="Download" src="<?php echo $this->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
+                                <a href="<?php echo $this->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>"><?php echo $this->__('Download') ?></a>
+                                <?php if (!$attr['is_required']) {
+                                    ?>
+                                <span style="color:red;margin-left:5px" title="<?php echo $this->__('For remove saved file.') ?>"><input type="checkbox" style="vertical-align: sub;" name="account[remove[<?php echo $attr['attribute_code'] ?>]]" value="1" /><?php echo $this->__('Remove') ?></span>
+                                <?php 
+                                }
+                                $flag = 1;
+                            } ?>
+                            
+                            <input type="file" name='account[<?php echo $attr['attribute_code']; ?>]' id='<?php echo $attr['attribute_code']; ?>' <?php if ($attr['is_required']) {
+                                ?> class="wk_filevalidate <?php if (!$flag) {
+                                    echo 'required-entry';
+                                } ?> input-text" <?php 
+                            } else {
+                                ?> class="wk_filevalidate input-text"  <?php 
+                            }?>/>
+                            
+                            
+                                <span class="wk_cf_hints">(<?php echo $this->__('Allowed Extensions are '). Mage::getStoreConfig('customfield/admin1/allowfiles')?>)</span>
+                            <?php 
+                            echo '
+                            <td class="clear"></td></td>';
+                            break;
+                            
+                        case 'image':
+                            echo '
+                            <td class="value">';
+                            $val_file= $customer[$attr['attribute_code']];
+                            $val_file_encode = Mage::helper('core')->urlEncode($val_file);
+                            $flag = 0;
+                            if (file_exists(Mage::getBaseDir("media")."/customer".$val_file) && $val_file != "") {
+                                $path=Mage::getBaseDir("media")."/customer".$val_file;
+                                if (is_array(getimagesize($path))) {
+                                    ?>
+                                    <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" style="display: inline-block;margin-bottom: 2px;text-decoration: none;vertical-align: middle;" target="_blank" >
+                                        <img width="22" height="22" id="_accountimgs_image" class="small-image-preview v-middle" src="<?php echo Mage::getBaseUrl()?>customfield/index/viewfile/file/<?php echo $val_file_encode  ?>" title="View Full Size" alt="View Full Size">
+                                    </a>
+                                <?php 
+                                } else {
+                                    ?>
+                                    <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" target="_blank"><img alt="Download" title="Download" src="<?php echo $this->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
+                                    <a href="<?php echo $this->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>" target="_blank"><?php echo $this->__('Download') ?></a>
+                                <?php 
+                                } ?>
+                            <?php if (!$attr['is_required']) {
+                                    ?>
+                               
+                                <?php 
+                                }
+                                $flag = 1;
+                            } ?>
+                            
+                            <input type="file" name='account[<?php echo $attr['attribute_code']; ?>]' id='<?php echo $attr['attribute_code']; ?>' <?php if ($attr['is_required']) {
+                                ?> class="wk_imagevalidate <?php if (!$flag) {
+                                    echo 'required-entry';
+                                } ?> input-text" <?php 
+                            } else {
+                                ?> class="wk_imagevalidate input-text"  <?php 
+                            }?> value="<?php echo $val_file ?>"/>
+                            
+                            <span class="wk_cf_hints">(<?php echo $this->__('Allowed Extensions are '). Mage::getStoreConfig('customfield/admin1/allowimages');?>)</span>
+
+                            <?php 
+                            echo '
+                            <td class="clear"></td></td>';
+                            break;
+                        
+                        //dependable
+                        case 'dependable':
+                            echo '
+                            <td class="value">';
+                            $valls="";
+                            ?>
+                            <?php foreach ($customer as $val) {
+                                foreach ($val as $key=>$vl) {
+                                    if ($attr['attribute_code']==$key) {
+                                        $valls= $val[$key];
+                                    }
+                                }
+                                break;
+                            } ?>
+                            <select name="account[<?php echo $attr['attribute_code']; ?>]" id="<?php echo $attr['attribute_code'];?>" class="dependable <?php if ($attr['is_required']) {
+                                echo 'required-entry ';
+                            } ?>" >
+                    <?php	foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
+                                ?>
+                                    <option value="<?php echo $instance['value']; ?>"  <?php if ($instance['value']==$valls) {
+                                    echo 'selected';
+                                } ?> > <?php echo $instance['label']; ?></option>
+                    <?php	
+                            }
+                            echo '</select>';
+
+                            echo '
+                            </td>';
+
+                            //dependable next
+                            $model = 'customer/attribute_collection';
+                            $dependentCollection = Mage::getResourceModel($model)
+                                        ->setEntityTypeFilter(Mage::getModel('eav/entity')->setType($type)->getTypeId())
+                                        ->addFilter('is_user_defined', 1)->setOrder('sort_order', 'ASC');
+                            $dependentCollection->join(
+                                            array('customfields' => "customfield/customfields"),
+                                            'main_table.attribute_id=customfields.customer_attribute_id',
+                                            array('status','dependable_inputname','dependent_on')
+                                        )->addFieldToFilter('dependent_on',array("notnull" => true));
+                            $dependentCollection->addFieldToFilter('attribute_code', $attr['dependable_inputname']);
+
+                            $attribute=$dependentCollection->getFirstItem();
+                            $attr = $attribute->toArray();
+                            // $attr['is_required']=$attr['note'];                            
+                            $store_labels = $attribute->getStoreLabels();
+                            $label = $store_labels[$store_id] ? $store_labels[$store_id] : $attr['frontend_label'];
+                            echo '</tr>';
+                            echo '<tr class="dependent">';
+                            echo '<td class="label">';
+                            echo '<label for="'. $attr['attribute_code'] .'" '. ($attr['is_required']?'class="required"><em>*</em>':'>') . $this->__($label) . '</label>';
+                            echo '</td>';
+                            
+                            switch ($attr['frontend_input']) {
+                                case 'text':
+                                    echo '
+                                    <td class="value">';
+                                    $vall="";
+                                    ?>
+                                    <?php foreach ($customer as $val) {
+                                        foreach ($val as $key=>$vl) {
+                                            if ($attr['attribute_code']==$key) {
+                                                $vall= $val[$key];
+                                            }
+                                        }
+                                        break;
+                                    } ?>
+                                    
+                                    <input type="text" name="account[<?php echo $attr['attribute_code']; ?>]" id="<?php echo $attr['attribute_code']; ?>" value="<?php echo $vall ?>" <?php if ($attr['is_required']) {
+                                        ?> class="required-entry input-text <?php echo $attr['frontend_class']; ?>" <?php 
+                                    } else {
+                                        ?> class="input-text <?php echo $attr['frontend_class']; ?>"  <?php 
+                                    }?>/>
+                                    <?php 
+                                    echo'
+                                    </td>';
+                                    break;
+
+                                case 'radio':
+                                        echo '
+                                    <td class="value">';
+                                    $valls="";
+                                    ?>
+                                    <?php foreach ($customer as $val) {
+                                        foreach ($val as $key=>$vl) {
+                                            if ($attr['attribute_code']==$key) {
+                                                $valls= $val[$key];
+                                            }
+                                        }
+                                        break;
+                                    } ?>
+                                    
+                            <?php	foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
+                                        ?>
+                                        <input type="radio" name="account[<?php echo $attr['attribute_code']; ?>]" class="<?php if ($attr['is_required']) {
+                                            echo 'required-entry ';
+                                        } ?> "  id="<?php echo $attr['attribute_code']; ?>"  value="<?php echo $instance['value']; ?>"  <?php if ($instance['value']==$valls) {
+                                            echo 'selected';
+                                        } ?> > <?php echo $instance['label']; ?></input>
+                            <?php	
+                                    }
+
+                                    echo '
+                                    </td>';
+                                    break;
+                                
+                                case 'select':
+                                    echo '
+                                    <td class="value">';
+                                    $valls="";
+                                    ?>
+                                    <?php foreach ($customer as $val) {
+                                        foreach ($val as $key=>$vl) {
+                                            if ($attr['attribute_code']==$key) {
+                                                $valls= $val[$key];
+                                            }
+                                        }
+                                        break;
+                                    } ?>
+                                    <select name="account[<?php echo $attr['attribute_code']; ?>]" id="<?php echo $attr['attribute_code'];?>" class="<?php if ($attr['is_required']) {
+                                        echo 'required-entry ';
+                                    } ?>" >
+                            <?php	foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
+                                        ?>
+                                        <option value="<?php echo $instance['value']; ?>"  <?php if ($instance['value']==$valls) {
+                                            echo 'selected';
+                                        } ?> > <?php echo $instance['label']; ?></option>
+                            <?php	
+                                    }
+                                    echo '</select>';
+
+                                    echo '
+                                    </td>';
+                                    break;
+                                    
+                                case 'multiselect':
+                                    echo '
+                                    <td class="value">';
+                                    $vallm="";
+                                    foreach ($customer as $val) {
+                                        foreach ($val as $key=>$vl) {
+                                            if ($attr['attribute_code']==$key) {
+                                                $vallm= $val[$key];
+                                            }
+                                        }
+                                        break;
+                                    }
+                                        ?>
+                                    <select name="account[<?php echo $attr['attribute_code'] .'[]' ; ?>]" id="<?php echo $attr['attribute_code']; ?>" multiple="multiple" class="<?php if ($attr['is_required']) {
+                                            echo 'required-entry';
+                                        } ?>" >
+                                <?php 
+                                    $multi_values = explode(',', $vallm);
+
+                                    foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
+                                        echo '<option value="'.$instance['value'].'" '.  (in_array($instance['value'], $multi_values) ? 'selected' : '') .'>' . $instance['label'] . '</option>';
+                                    }
+                                    echo '</select>';
+                                    break;
+
+                                case 'textarea':
+                                $valla="";
+                                foreach ($customer as $val) {
+                                    foreach ($val as $key=>$vl) {
+                                        if ($attr['attribute_code']==$key) {
+                                            $valla= trim($val[$key]);
+                                        }
+                                    }
+                                    break;
+                                }
+                                    echo '
+                                    <td class="value">';
+                                    ?>
+                                        <textarea  name="account[<?php echo $attr['attribute_code']; ?>]" id="<?php echo $attr['attribute_code']; ?>" <?php if ($attr['is_required']) {
+                                        ?> class="required-entry <?php echo $attr['frontend_class'];
+                                        if ($attr['default_value']==1) {
+                                            echo 'niceedits';
+                                        } ?>" <?php 
+                                    } else {
+                                        ?> class= "<?php if ($attr['default_value']==1) {
+                                            echo 'niceedits';
+                                        } else {
+                                            echo 'noedit';
+                                        } ?>" <?php 
+                                    }?> ><?php echo $valla ; ?></textarea>
+                                    <?php 
+                                    echo '
+                                    </td>';
+                                    break;
+                                    
+                                case 'date':
+                                    $valld="";
+                                    foreach ($customer as $val) {
+                                        foreach ($val as $key=>$vl) {
+                                            if ($attr['attribute_code']==$key) {
+                                                $dformat=str_replace('yyyy', 'Y', strtolower(Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT)));
+                                                $valld=new DateTime($val[$key]);
+                                                $valld=$valld->format($dformat) ;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    echo '
+                                    <td class="value">';
+                                    ?>
+                                        <input type="text" name="account[<?php echo $attr['attribute_code'] ?>]" id="<?php echo $attr['attribute_code'] ?>" value="<?php echo $valld; ?>" <?php if ($attr['is_required']) {
+                                        ?> class="required-entry input-text <?php echo $attr['attribute_code'] ?>" <?php 
+                                    } else {
+                                        ?> class="input-text <?php echo $attr['attribute_code'] ?>"  <?php 
+                                    }?>   style="width:110px !important;" />
+                                        <img style="cursor: pointer;display: inline;" title="<?php echo $this->__('Select Date'); ?>" id="<?php echo  $attr['attribute_code'].'_trig' ?>" <?php if ($attr['is_required']) {
+                                        ?> class="required-entry v-middle" <?php 
+                                    } else {
+                                        ?> class="v-middle"  <?php 
+                                    }?> alt="" src="<?php echo str_replace("base", "default", $this->getSkinUrl('images/grid-cal.gif', array('_area'=>'adminhtml'))); ?>" >
+                                    <?php
+                                    echo'
+                                    </td>';
+                                    echo '<script type="text/javascript">
+                                            Calendar.setup({
+                                                inputField : "'.$attr['attribute_code'].'",
+                                                ifFormat : "'.Varien_Date::convertZendToStrFtime(Mage::app()->getLocale()->getDateFormatWithLongYear(), true, false).'", 
+                                                button : "'.$attr['attribute_code'].'_trig",
+                                                showsTime: false,
+                                                align : "Bl",
+                                                singleClick : true
+                                            });
+                                        </script>';
+                                    break;
+
+                                case 'file':
+                                    echo '
+                                    <td class="value">';
+                                    ?>
+                                    <?php 
+                                    $val_file= $customer[$attr['attribute_code']];
+                                    $val_file_encode = Mage::helper('core')->urlEncode($val_file);
+                                    
+                                    $flag = 0;
+                                    if (file_exists(Mage::getBaseDir("media")."/customer".$val_file) && $val_file != "") {
+                                        ?>
+                                        <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>"><img alt="Download" title="Download" src="<?php echo $this->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
+                                        <a href="<?php echo $this->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>"><?php echo $this->__('Download') ?></a>
+                                        <?php if (!$attr['is_required']) {
+                                            ?>
+                                        <span style="color:red;margin-left:5px" title="<?php echo $this->__('For remove saved file.') ?>"><input type="checkbox" style="vertical-align: sub;" name="remove[<?php echo $attr['attribute_code'] ?>]" value="1" /><?php echo $this->__('Remove') ?></span>
+                                        <?php 
+                                        }
+                                        $flag = 1;
+                                    } ?>
+                                    
+                                    <input type="file" name='account[<?php echo $attr['attribute_code']; ?>]' id='<?php echo $attr['attribute_code']; ?>' <?php if ($attr['is_required']) {
+                                        ?> class="wk_filevalidate <?php if (!$flag) {
+                                            echo 'required-entry';
+                                        } ?> input-text" <?php 
+                                    } else {
+                                        ?> class="wk_filevalidate input-text"  <?php 
+                                    }?>/>
+                                    
+                                    
+                                    <span class="wk_cf_hints">(<?php echo $this->__('Allowed Extensions are '). Mage::getStoreConfig('customfield/admin1/allowfiles')?>)</span>
+                                    <?php 
+                                    echo '
+                                    <td class="clear"></td></td>';
+                                    break;
+                                    
+                                case 'image':
+                                echo '
+                                    <td class="value">';
+                                    $val_file= $customer[$attr['attribute_code']];
+                                    $val_file_encode = Mage::helper('core')->urlEncode($val_file);
+                                    $flag = 0;
+                                    if (file_exists(Mage::getBaseDir("media")."/customer".$val_file) && $val_file != "") {
+                                        $path=Mage::getBaseDir("media")."/customer".$val_file;
+                                        if (is_array(getimagesize($path))) {
+                                            ?>
+                                            <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" style="display: inline-block;margin-bottom: 2px;text-decoration: none;vertical-align: middle;" target="_blank" >
+                                                <img width="22" height="22" id="_accountimgs_image" class="small-image-preview v-middle" src="<?php echo Mage::getBaseUrl()?>customfield/index/viewfile/file/<?php echo $val_file_encode  ?>" title="View Full Size" alt="View Full Size">
+                                            </a>
+                                        <?php 
+                                        } else {
+                                            ?>
+                                            <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" target="_blank"><img alt="Download" title="Download" src="<?php echo $this->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
+                                            <a href="<?php echo $this->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>" target="_blank"><?php echo $this->__('Download') ?></a>
+                                        <?php 
+                                        } ?>
+                                    <?php if (!$attr['is_required']) {
+                                            ?>
+                                   
+
+                                        <?php 
+                                        }
+                                        $flag = 1;
+                                    } ?>
+                                    
+                                    <input type="file" name='account[<?php echo $attr['attribute_code']; ?>]' id='<?php echo $attr['attribute_code']; ?>' <?php if ($attr['is_required']) {
+                                        ?> class="wk_imagevalidate <?php if (!$flag) {
+                                            echo 'required-entry';
+                                        } ?> input-text" <?php 
+                                    } else {
+                                        ?> class="wk_imagevalidate input-text"  <?php 
+                                    }?> value="<?php echo $val_file ?>"/>
+                                  
+                                    <span class="wk_cf_hints">(<?php echo $this->__('Allowed Extensions are '). Mage::getStoreConfig('customfield/admin1/allowimages');?>)</span>
+
+                                    <?php 
+                                    echo '
+                                    <td class="clear"></td></td>';
+                                    break;
+                                    }
+                            //
+                            break;
+                            
+                    }
+
+                    echo '</tr>';
+                }
+            }
+        }
+        $flag=0;
+                 
+        ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    if (typeof jQuery == 'undefined'){
+        document.write(unescape("%3Cscript src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+</script>
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+<script type="text/javascript">
+	//<![CDATA[
+	$wk_jq=jQuery.noConflict();
+	
+	(function($wk_jq){
+		 var imgreq = "<?php echo Mage::getStoreConfig('customfield/admin1/allowimages'); ?>"; 
+        imgarr = imgreq.split(',');
+        var filereq = "<?php echo Mage::getStoreConfig('customfield/admin1/allowfiles'); ?>"; 
+        fileimg = filereq.split(',');
+
+        $wk_jq("body").delegate('.wk_imagevalidate',"change",function(){
+            var ext = $wk_jq(this).val().split('.').pop().toLowerCase();
+            if($wk_jq.inArray(ext, imgarr) == -1) {
+                $wk_jq(this).val('');
+                alert('<?php echo $this->__(" Invalid extension! Please upload an allowed extension file. ")?>');
+            }
+        });
+        
+        $wk_jq("body").delegate('.wk_filevalidate',"change",function(){
+            var ext = $wk_jq(this).val().split('.').pop().toLowerCase();
+            if($wk_jq.inArray(ext, fileimg) == -1) {
+                $wk_jq(this).val('');
+                alert('<?php echo $this->__(" Invalid extension! Please upload an allowed extension file. ")?>');
+            }
+        });
+        $wk_jq(".dependable").each(function(){
+            if($wk_jq(this).val()==0){
+                $wk_jq(this).closest("tr").next(".dependent").hide();
+            }else{
+                $wk_jq(this).closest("tr").next(".dependent").show();                            
+            }
+        });
+        $wk_jq(".dependable").change(function(){
+            if($wk_jq(this).val()==0){
+                $wk_jq(this).closest("tr").next(".dependent").hide();
+            }else{
+                $wk_jq(this).closest("tr").next(".dependent").show();                            
+            }
+        });
+	})($wk_jq);
+
+	bkLib.onDomLoaded(function() { 
+		 var textareas = document.getElementsByClassName("niceedits");
+         for(var i=0;i<(textareas.length);i++){
+          var myNicEditor = new nicEditor({fullPanel : true});
+          myNicEditor.panelInstance(textareas[i]);
+           
+         }
+		}); 
+	//]]>
+</script>

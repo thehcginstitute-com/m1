@@ -1,0 +1,490 @@
+<?php
+ /**
+ * @category   Webkul
+ * @package    Webkul_CustomField
+ * @author     Webkul Software Private Limited
+ * @copyright  Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license    https://store.webkul.com/license.html
+ */
+$_order = $this->getOrder() ?>
+<?php if ($_order): ?>
+<table cellspacing="0" cellpadding="0" border="0" width="650">
+    <thead>
+    <tr>
+        <th align="left" width="325" bgcolor="#EAEAEA" style="font-size:13px; padding:5px 9px 6px 9px; line-height:1em;">Additional Information:</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td valign="top" style="font-size:12px; padding:7px 9px 9px 9px; border-left:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; border-right:1px solid #EAEAEA;">
+            <table cellspacing="0" class="form-list">
+            <?php 
+        $customerid=$_order->getCustomerId();
+        $customer = Mage::getModel('customer/customer')->load($customerid);
+        $model = 'customer/attribute_collection';
+        $type='customer';
+        $collection = Mage::getResourceModel($model)
+                        ->setEntityTypeFilter(Mage::getModel('eav/entity')->setType($type)->getTypeId())
+                        // ->addVisibleFilter()
+                        ->addFilter('is_user_defined', 1)->setOrder('sort_order', 'ASC');
+        $collection->join(
+                        array('customfields' => "customfield/customfields"),
+                        'main_table.attribute_id=customfields.customer_attribute_id',
+                        array('status','is_in_semail','dependable_inputname','dependent_on')
+                    )->addFilter('status', 1)
+                    ->addFilter('is_in_semail',1);
+        $store_id = Mage::app()->getStore()->getId();
+        if (count($collection)) {
+            foreach ($collection as $attribute) {
+                $attr = $attribute->toArray();
+                $attr['is_required']=$attr['note'];
+                if ($attr['is_required']) {
+                    $var_attrs[] = $attr['attribute_code'];
+                }
+                if($attr['dependable_inputname']!="" && $attr['frontend_input']=="select"){
+                    $attr['frontend_input']="dependable";
+                }
+
+                $store_labels = $attribute->getStoreLabels();
+                $label = $store_labels[$store_id] ? $store_labels[$store_id] : $attr['frontend_label'];
+                echo '<tr>';
+
+                switch ($attr['frontend_input']) {
+                    case 'text':
+                        $vall="";
+                        ?>
+                        <?php foreach ($customer as $val) {
+                            foreach ($val as $key=>$vl) {
+                                if ($attr['attribute_code']==$key) {
+                                    $vall= $val[$key]; ?>                          
+                                <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label" class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                                <td class="value"><strong><?php echo $vall; ?></strong></td><?php
+
+                                }
+                            }
+                            break;
+                        }
+                        break;
+
+                    case 'radio':
+                        $valls="";
+                        ?>
+                        <?php foreach ($customer as $val) {
+                            foreach ($val as $key=>$vl) {
+                                if ($attr['attribute_code']==$key) {
+                                    $valls= $val[$key];
+                                }
+                            }
+                            break;
+                        } ?>
+                        
+                    <?php   foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
+                            ?>
+                    <?php 
+                    if ($instance['value']==$valls) {
+                        ?>
+                        <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label" class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                        <td class="value"><strong><?php echo $valls; ?></strong></td>                           
+                    <?php 
+                    }
+                        }
+                        break;
+                    case 'select':
+                        $valls="";
+                        ?>
+                        <?php foreach ($customer as $val) {
+                            foreach ($val as $key=>$vl) {
+                                if ($attr['attribute_code']==$key) {
+                                    $valls= $val[$key];
+                                }
+                            }
+                            break;
+                        } ?>                                                        
+
+                    <?php   foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
+                            if ($instance['value']==$valls) {
+                                ?>
+                            <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                            <td class="value"><strong><?php echo $valls; ?></strong></td>
+                            
+                    <?php 
+                            }
+                        }
+                        break;
+                        
+                    case 'multiselect':
+                        $vallm="";
+                        foreach ($customer as $val) {
+                            foreach ($val as $key=>$vl) {
+                                if ($attr['attribute_code']==$key) {
+                                    $vallm= $val[$key];
+                                }
+                            }
+                            break;
+                        }
+                            if ($vallm) {
+                                $multi_values = explode(',', $vallm); ?>                         
+                            <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label" ><label><?php echo $attr['frontend_label']; ?></label></td>
+                            <td class="value"><strong><?php echo $vallm; ?></strong></td>
+                            <?php
+
+                            }
+                        break;
+
+                    case 'textarea':
+                        $valla="";
+                        foreach ($customer as $val) {
+                            foreach ($val as $key=>$vl) {
+                                if ($attr['attribute_code']==$key) {
+                                    $valla= trim($val[$key]); ?>
+                                    <td style="font-size:12px;padding:7px 9px 9px 9px;"  class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                                    <td class="value"><strong><?php echo $valla; ?></strong></td>
+                                <?php 
+                                }
+                            }
+                            break;
+                        }
+                        
+                        break;
+                        
+                    case 'date':
+                        $valld="";
+                        foreach ($customer as $val) {
+                            foreach ($val as $key=>$vl) {
+                                if ($attr['attribute_code']==$key) {
+                                    $dformat=str_replace('yyyy', 'Y', strtolower(Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT)));
+                                    $valld=new DateTime($val[$key]);
+                                    echo $valld=$valld->format($dformat) ;
+                                }
+                            }
+                            break;
+                        }
+                            if ($valld) {
+                                ?>                              
+                            <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label" ><label><?php echo $attr['frontend_label']; ?></label></td>
+                            <td class="value"><strong><?php echo $valld; ?></strong></td>   
+                        <?php 
+                            }
+                        break;
+
+                    case 'file':
+                        echo '
+                        <div class="input-box">';
+                        ?>
+                        <?php 
+                        $val_file= $customer[$attr['attribute_code']];
+                        $val_file_encode = Mage::helper('core')->urlEncode($val_file);
+                        
+                        $flag = 0;?>
+                        <?php
+                        if (file_exists(Mage::getBaseDir("media")."/customer".$val_file) && $val_file != "") {
+                            ?>
+                        <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                            <td class="value"><strong>
+                            <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>"><img alt="Download" title="Download" src="<?php echo $this->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
+                            <a href="<?php echo $this->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>"><?php echo $this->__('Download') ?></a> 
+
+                        <?php 
+                        }
+                        echo '</strong></td>';
+                        break;
+                        
+                    case 'image':
+                        echo '
+                        <div class="input-box">';
+                        $val_file= $customer[$attr['attribute_code']];
+                        $val_file_encode = Mage::helper('core')->urlEncode($val_file);
+                        $flag = 0;
+                        if (file_exists(Mage::getBaseDir("media")."/customer".$val_file) && $val_file != "") {
+                            $path=Mage::getBaseDir("media")."/customer".$val_file;
+                            if (is_array(getimagesize($path))) {
+                                ?>
+                            <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                            <td class="value"><strong>
+                                <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" style="display: inline-block;margin-bottom: 2px;text-decoration: none;vertical-align: middle;" target="_blank" >
+                                    <img width="22" height="22" id="_accountimgs_image" class="small-image-preview v-middle" src="<?php echo Mage::getBaseUrl()?>customfield/index/viewfile/file/<?php echo $val_file_encode  ?>" title="View Full Size" alt="View Full Size">
+                                </a>
+                            <?php 
+                            } else {
+                                ?>
+                            <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                            <td class="value"><strong>
+                                <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" target="_blank"><img alt="Download" title="Download" src="<?php echo $this->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
+                                <a href="<?php echo $this->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>" target="_blank"><?php echo $this->__('Download') ?></a>
+                            <?php 
+                            }
+                        } ?>
+                        <?php 
+                        echo '</strong></td>';
+                        break;
+
+                    case 'dependable':
+                        $valls="";
+                        ?>
+                        <?php foreach ($customer as $val) {
+                            foreach ($val as $key=>$vl) {
+                                if ($attr['attribute_code']==$key) {
+                                    $valls= $val[$key];
+                                }
+                            }
+                            break;
+                        } ?>                                                        
+
+                    <?php   foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
+                            if ($instance['value']==$valls) {
+                                ?>
+                            <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                            <td class="value"><strong><?php echo $valls; ?></strong></td>
+                            
+                    <?php 
+                            }
+                        }
+                        echo'</tr>';
+
+                        //dependable next
+                        $model = 'customer/attribute_collection';
+                        $dependentCollection = Mage::getResourceModel($model)
+                                    ->setEntityTypeFilter(Mage::getModel('eav/entity')->setType($type)->getTypeId())
+                                    ->addFilter('is_user_defined', 1)->setOrder('sort_order', 'ASC');
+                        $dependentCollection->join(
+                                        array('customfields' => "customfield/customfields"),
+                                        'main_table.attribute_id=customfields.customer_attribute_id',
+                                        array('status','dependable_inputname','dependent_on')
+                                    )->addFieldToFilter('dependent_on',array("notnull" => true));
+                        $dependentCollection->addFieldToFilter('attribute_code', $attr['dependable_inputname']);
+                        
+                        $store_labels = $attribute->getStoreLabels();
+                        $label = $store_labels[$store_id] ? $store_labels[$store_id] : $attr['frontend_label'];
+                        echo '<tr>';
+
+                        switch ($attr['frontend_input']) {
+                            case 'text':
+                                $vall="";
+                                ?>
+                                <?php foreach ($customer as $val) {
+                                    foreach ($val as $key=>$vl) {
+                                        if ($attr['attribute_code']==$key) {
+                                            $vall= $val[$key]; ?>                          
+                                        <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label" class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                                        <td class="value"><strong><?php echo $vall; ?></strong></td><?php
+
+                                        }
+                                    }
+                                    break;
+                                }
+                                break;
+
+                            case 'radio':
+                                $valls="";
+                                ?>
+                                <?php foreach ($customer as $val) {
+                                    foreach ($val as $key=>$vl) {
+                                        if ($attr['attribute_code']==$key) {
+                                            $valls= $val[$key];
+                                        }
+                                    }
+                                    break;
+                                } ?>
+                                
+                            <?php   foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
+                                    ?>
+                            <?php 
+                            if ($instance['value']==$valls) {
+                                ?>
+                                <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label" class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                                <td class="value"><strong><?php echo $valls; ?></strong></td>                           
+                            <?php 
+                            }
+                                }
+                                break;
+                            case 'select':
+                                $valls="";
+                                ?>
+                                <?php foreach ($customer as $val) {
+                                    foreach ($val as $key=>$vl) {
+                                        if ($attr['attribute_code']==$key) {
+                                            $valls= $val[$key];
+                                        }
+                                    }
+                                    break;
+                                } ?>                                                        
+
+                            <?php   foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
+                                    if ($instance['value']==$valls) {
+                                        ?>
+                                    <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                                    <td class="value"><strong><?php echo $valls; ?></strong></td>
+                                    
+                            <?php 
+                                    }
+                                }
+                                break;
+                                
+                            case 'multiselect':
+                                $vallm="";
+                                foreach ($customer as $val) {
+                                    foreach ($val as $key=>$vl) {
+                                        if ($attr['attribute_code']==$key) {
+                                            $vallm= $val[$key];
+                                        }
+                                    }
+                                    break;
+                                }
+                                    if ($vallm) {
+                                        $multi_values = explode(',', $vallm); ?>                         
+                                    <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label" ><label><?php echo $attr['frontend_label']; ?></label></td>
+                                    <td class="value"><strong><?php echo $vallm; ?></strong></td>
+                                    <?php
+
+                                    }
+                                break;
+
+                            case 'textarea':
+                                $valla="";
+                                foreach ($customer as $val) {
+                                    foreach ($val as $key=>$vl) {
+                                        if ($attr['attribute_code']==$key) {
+                                            $valla= trim($val[$key]); ?>
+                                            <td style="font-size:12px;padding:7px 9px 9px 9px;"  class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                                            <td class="value"><strong><?php echo $valla; ?></strong></td>
+                                        <?php 
+                                        }
+                                    }
+                                    break;
+                                }
+                                
+                                break;
+                                
+                            case 'date':
+                                $valld="";
+                                foreach ($customer as $val) {
+                                    foreach ($val as $key=>$vl) {
+                                        if ($attr['attribute_code']==$key) {
+                                            $dformat=str_replace('yyyy', 'Y', strtolower(Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT)));
+                                            $valld=new DateTime($val[$key]);
+                                            echo $valld=$valld->format($dformat) ;
+                                        }
+                                    }
+                                    break;
+                                }
+                                    if ($valld) {
+                                        ?>                              
+                                    <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label" ><label><?php echo $attr['frontend_label']; ?></label></td>
+                                    <td class="value"><strong><?php echo $valld; ?></strong></td>   
+                                <?php 
+                                    }
+                                break;
+
+                            case 'file':
+                                echo '
+                                <div class="input-box">';
+                                ?>
+                                <?php 
+                                $val_file= $customer[$attr['attribute_code']];
+                                $val_file_encode = Mage::helper('core')->urlEncode($val_file);
+                                
+                                $flag = 0;?>
+                                <?php
+                                if (file_exists(Mage::getBaseDir("media")."/customer".$val_file) && $val_file != "") {
+                                    ?>
+                                <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                                    <td class="value"><strong>
+                                    <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>"><img alt="Download" title="Download" src="<?php echo $this->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
+                                    <a href="<?php echo $this->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>"><?php echo $this->__('Download') ?></a> 
+
+                                <?php 
+                                }
+                                echo '</strong></td>';
+                                break;
+                                
+                            case 'image':
+                                echo '
+                                <div class="input-box">';
+                                $val_file= $customer[$attr['attribute_code']];
+                                $val_file_encode = Mage::helper('core')->urlEncode($val_file);
+                                $flag = 0;
+                                if (file_exists(Mage::getBaseDir("media")."/customer".$val_file) && $val_file != "") {
+                                    $path=Mage::getBaseDir("media")."/customer".$val_file;
+                                    if (is_array(getimagesize($path))) {
+                                        ?>
+                                    <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                                    <td class="value"><strong>
+                                        <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" style="display: inline-block;margin-bottom: 2px;text-decoration: none;vertical-align: middle;" target="_blank" >
+                                            <img width="22" height="22" id="_accountimgs_image" class="small-image-preview v-middle" src="<?php echo Mage::getBaseUrl()?>customfield/index/viewfile/file/<?php echo $val_file_encode  ?>" title="View Full Size" alt="View Full Size">
+                                        </a>
+                                    <?php 
+                                    } else {
+                                        ?>
+                                    <td style="font-size:12px;padding:7px 9px 9px 9px;" class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
+                                    <td class="value"><strong>
+                                        <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" target="_blank"><img alt="Download" title="Download" src="<?php echo $this->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
+                                        <a href="<?php echo $this->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>" target="_blank"><?php echo $this->__('Download') ?></a>
+                                    <?php 
+                                    }
+                                } ?>
+                                <?php 
+                                echo '</strong></td>';
+                                break;
+                            }
+                        break;
+                    }
+            }
+            echo'</tr>';
+        }
+?>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<table cellspacing="0" cellpadding="0" border="0" width="650" style="border:1px solid #EAEAEA;">
+    <thead>
+        <tr>
+            <th align="left" bgcolor="#EAEAEA" style="font-size:13px; padding:3px 9px"><?php echo $this->__('Item') ?></th>
+            <th align="left" bgcolor="#EAEAEA" style="font-size:13px; padding:3px 9px"><?php echo $this->__('Sku') ?></th>
+            <th align="center" bgcolor="#EAEAEA" style="font-size:13px; padding:3px 9px"><?php echo $this->__('Qty') ?></th>
+            <th align="right" bgcolor="#EAEAEA" style="font-size:13px; padding:3px 9px"><?php echo $this->__('Subtotal') ?></th>
+        </tr>
+    </thead>
+
+    <?php $i=0; foreach ($_order->getAllItems() as $_item): ?>
+    <?php if ($_item->getParentItem()) {
+    continue;
+} else {
+    $i++;
+} ?>
+    <tbody<?php echo $i%2 ? ' bgcolor="#F6F6F6"' : '' ?>>
+        <?php echo $this->getItemHtml($_item) ?>
+    </tbody>
+    <?php endforeach; ?>
+
+    <tbody>
+        <?php echo $this->getChildHtml('order_totals') ?>
+    </tbody>
+</table>
+<?php if ($this->helper('giftmessage/message')->isMessagesAvailable('order', $_order, $_order->getStore()) && $_order->getGiftMessageId()): ?>
+    <?php $_giftMessage = $this->helper('giftmessage/message')->getGiftMessage($_order->getGiftMessageId()); ?>
+    <?php if ($_giftMessage): ?>
+<br />
+<table cellspacing="0" cellpadding="0" border="0" width="100%" style="border:1px solid #EAEAEA;">
+    <thead>
+        <tr>
+            <th align="left" bgcolor="#EAEAEA" style="font-size:13px; padding:3px 9px"><strong><?php echo $this->__('Gift Message for this Order') ?></strong></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr>
+            <td colspan="4" align="left" style="padding:3px 9px">
+            <strong><?php echo $this->__('From:'); ?></strong> <?php echo $this->escapeHtml($_giftMessage->getSender()) ?>
+            <br /><strong><?php echo $this->__('To:'); ?></strong> <?php echo $this->escapeHtml($_giftMessage->getRecipient()) ?>
+            <br /><strong><?php echo $this->__('Message:'); ?></strong><br /> <?php echo $this->escapeHtml($_giftMessage->getMessage()) ?>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    <?php endif; ?>
+<?php endif; ?>
+<?php endif; ?>
