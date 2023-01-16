@@ -33,7 +33,10 @@
             <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
             <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
             <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
-            <p class="form-instructions"><?php echo $this->__('Please enter the following information to create your account.') ?></p>
+<!-- 2023-01-16 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+"Make the `Webkul_CustomField` module compatible with the `MagePsycho_Customerregfields` module":
+https://github.com/thehcginstitute-com/m1/issues/8 -->
+            <h2 class="legend"><?php echo $this->__('Personal Information') ?></h2>
             <p class="required"><?php echo $this->__('* Required Fields') ?></p>
             <ul class="form-list wkform">
                 <li class="fields">
@@ -45,13 +48,12 @@
                         <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="email_address" value="<?php echo $this->escapeHtml($this->getFormData()->getEmail()) ?>" title="<?php echo $this->quoteEscape($this->__('Email Address')) ?>" class="input-text validate-email required-entry" />
                     </div>
                 </li>
-<!--
-2023-01-16 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+<!-- 2023-01-16 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
 1) "Make the `Webkul_CustomField` module compatible with the `MagePsycho_Customerregfields` module":
 https://github.com/thehcginstitute-com/m1/issues/8
 2) `MagePsycho_Customerregfields`
 2.1)
-https://github.com/thehcginstitute-com/m1/blob/2023-01-16-1/app/design/frontend/base/default/template/magepsycho/customerregfields/customer/form/register.phtml#L58-L66
+https://github.com/thehcginstitute-com/m1/blob/2023-01-16-1/app/design/frontend/default/mobileshoppe/template/magepsycho/customerregfields/customer/form/register.phtml#L58-L77
 2.2) @see MagePsycho_Customerregfields_Helper_Data::switchCustomerFormRegisterTemplateIf():
 	if (!$this->isFxnSkipped()) {
 		return 'magepsycho/customerregfields/customer/form/register.phtml';
@@ -85,6 +87,27 @@ https://github.com/thehcginstitute-com/m1/blob/2023-01-16-1/app/design/frontend/
 						->toHtml()
 				?>
 			</li>
+			<li>
+				<label for="telephone" class="required"><em>*</em><?= $this->__('Telephone') ?></label>
+				<div class="input-box">
+					<input
+						type="text"
+						name="telephone"
+						id="telephone"
+						value="<?= $this->escapeHtml($this->getFormData()->getTelephone()) ?>"
+						title="<?= Mage::helper('core')->quoteEscape($this->__('Telephone')) ?>"
+						class="input-text <?= $this->helper('customer/address')->getAttributeValidationClass('telephone') ?>"
+					/>
+				</div>
+			</li>
+			<?php if ($this->isNewsletterEnabled()): ?>
+				<li class="control">
+					<div class="input-box">
+						<input type="checkbox" name="is_subscribed" title="<?php echo $this->quoteEscape($this->__('Sign Up for Newsletter')) ?>" value="1" id="is_subscribed"<?php if ($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox" />
+					</div>
+					<label for="is_subscribed"><?php echo $this->__('Sign Up for Newsletter') ?></label>
+				</li>
+			<?php endif ?>
             <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
             <?php if ($_dob->isEnabled()): ?>
                 <li><?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?></li>
@@ -173,6 +196,15 @@ https://github.com/thehcginstitute-com/m1/blob/2023-01-16-1/app/design/frontend/
                     <input type="hidden" name="default_shipping" value="1" />
                 </li>
             <?php endif; ?>
+			</ul>
+		</div>
+<!-- 2023-01-16 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+"Make the `Webkul_CustomField` module compatible with the `MagePsycho_Customerregfields` module":
+https://github.com/thehcginstitute-com/m1/issues/8 -->
+		<div class="fieldset">
+            <h2 class="legend"><?php echo $this->__('Login Information') ?></h2>
+			<?= $this->getLayout()->createBlock('cms/block')->setBlockId('confirm_message')->toHtml() ?>
+			<ul class="form-list">
                 <li class="fields">
                     <div class="field">
                         <label for="password" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
@@ -187,15 +219,11 @@ https://github.com/thehcginstitute-com/m1/blob/2023-01-16-1/app/design/frontend/
                         </div>
                     </div>
                 </li>
+			</ul>
+		</div>
+		<div class="fieldset">
+			<ul class="form-list">
                 <?php echo $this->getChildHtml('form.additional.info'); ?>
-                <?php if ($this->isNewsletterEnabled()): ?>
-                    <li class="control">
-                        <div class="input-box">
-                            <input type="checkbox" name="is_subscribed" title="<?php echo $this->quoteEscape($this->__('Sign Up for Newsletter')) ?>" value="1" id="is_subscribed"<?php if ($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox" />
-                        </div>
-                        <label for="is_subscribed"><?php echo $this->__('Sign Up for Newsletter') ?></label>
-                    </li>
-                <?php endif ?>
                 <?php echo $this->getChildHtml('persistent.remember.me'); ?>
             </ul>
             <?php echo $this->getChildHtml('persistent.remember.me.tooltip'); ?>
