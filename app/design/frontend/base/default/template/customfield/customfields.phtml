@@ -45,6 +45,46 @@
                         <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="email_address" value="<?php echo $this->escapeHtml($this->getFormData()->getEmail()) ?>" title="<?php echo $this->quoteEscape($this->__('Email Address')) ?>" class="input-text validate-email required-entry" />
                     </div>
                 </li>
+<!--
+2023-01-16 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+1) "Make the `Webkul_CustomField` module compatible with the `MagePsycho_Customerregfields` module":
+https://github.com/thehcginstitute-com/m1/issues/8
+2) `MagePsycho_Customerregfields`
+2.1)
+https://github.com/thehcginstitute-com/m1/blob/2023-01-16-1/app/design/frontend/base/default/template/magepsycho/customerregfields/customer/form/register.phtml#L58-L66
+2.2) @see MagePsycho_Customerregfields_Helper_Data::switchCustomerFormRegisterTemplateIf():
+	if (!$this->isFxnSkipped()) {
+		return 'magepsycho/customerregfields/customer/form/register.phtml';
+	}
+	else {
+		return 'persistent/customer/form/register.phtml';
+	}
+https://github.com/thehcginstitute-com/m1/blob/2023-01-16-1/app/code/local/MagePsycho/Customerregfields/Helper/Data.php#L206-L213
+2.3)
+<customer_account_create>
+	<reference name="customer_form_register">
+		<action method="setTemplate" ifconfig="magepsycho_customerregfields/option/active">
+			<template helper="magepsycho_customerregfields/switchCustomerFormRegisterTemplateIf" />
+		</action>
+	</reference>
+</customer_account_create>
+https://github.com/thehcginstitute-com/m1/blob/2023-01-16-1/app/design/frontend/default/mobileshoppe/layout/magepsycho_customerregfields.xml#L12-L18
+3) `Webkul_CustomField`:
+	<customer_account_create>
+        <reference name="customer_form_register">
+            <action method="setTemplate"><template>customfield/customfields.phtml</template></action>
+        </reference>
+https://github.com/thehcginstitute-com/m1/blob/2023-01-16-1/app/design/frontend/base/default/layout/customfield.xml#L11-L14
+-->
+			<li>
+				<?=
+					$this->getLayout()
+						->createBlock('magepsycho_customerregfields/customer_widget_type')
+						->setObject($this->getFormData())
+						->setIsEditPage(false)
+						->toHtml()
+				?>
+			</li>
             <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
             <?php if ($_dob->isEnabled()): ?>
                 <li><?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?></li>
