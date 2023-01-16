@@ -132,13 +132,9 @@
                     <sales_order_shipment_view_form>Raveinfosys_Exporter_Block_Sales_Order_Form_Form</sales_order_shipment_view_form>
                 </rewrite>
             </adminhtml>
-			
-			<adminhtml>
-                <rewrite>
-                    <sales_order_shipment_create_items>Raveinfosys_Exporter_Block_Sales_Order_Items</sales_order_shipment_create_items>
-                </rewrite>
-            </adminhtml>
-			
+<!-- 2023-01-16 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+"Make the `IWD_OrderManager` module compatible with the `Raveinfosys_Exporter` module":
+https://github.com/thehcginstitute-com/m1/issues/10 -->
         </blocks>
         <helpers>
             <exporter>
