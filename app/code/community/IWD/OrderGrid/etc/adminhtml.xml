@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <menu>
+        <system>
+            <children>
+                <iwdall>
+                    <children>
+                        <iwd_ordergrid module="iwd_ordergrid">
+                            <title>Custom Order Grid</title>
+                            <sort_order>1</sort_order>
+                            <action>adminhtml/system_config/edit/section/iwd_ordergrid</action>
+                        </iwd_ordergrid>
+                    </children>
+                </iwdall>
+            </children>
+        </system>
+    </menu>
+    <acl>
+        <resources>
+            <all>Allow everything</all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <iwd_ordergrid translate="title" module="iwd_ordergrid">
+                                        <title>IWD Custom Order Grid</title>
+                                    </iwd_ordergrid>
+                                </children>
+                            </config>
+                            <iwdall>
+                                <children>
+                                    <iwd_ordergrid translate="title">
+                                        <title>IWD Custom Order Grid</title>
+                                    </iwd_ordergrid>
+                                </children>
+                            </iwdall>
+                        </children>
+                    </system>
+                    <iwd_ordergrid>
+                        <title>IWD Custom Order Grid</title>
+                        <children>
+                            <custom_grid><title>Custom Order Grid</title></custom_grid>
+                            <manage_massaction><title>Manage Massactions</title></manage_massaction>
+                            <order_totals><title>Order Totals</title></order_totals>
+                        </children>
+                    </iwd_ordergrid>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <iwdall>
+            <label>IWD Extensions</label>
+            <sort_order>100</sort_order>
+            <class>iwd-block</class>
+        </iwdall>
+    </tabs>
+    <sections>
+        <iwd_settlementreport translate="label" module="iwd_settlementreport">
+            <label><![CDATA[<i class="iwd-om-relation"></i>Authorize.Net Settlement Report]]></label>
+            <tab>iwdall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>292</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <version>
+                            <label>Version</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_model>iwd_settlementreport/system_config_form_fieldset_extensions</frontend_model>
+                        </version>
+                        <user_guide>
+                            <label>Documentation</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_model>iwd_settlementreport/system_config_form_fieldset_documentations</frontend_model>
+                        </user_guide>
+                    </fields>
+                </general>
+                <connection translate="label">
+                    <label>Connection</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <status>
+                            <label>Status</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>iwd_settlementreport/system_config_form_fieldset_status</frontend_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </status>
+                        <enabled>
+                            <label>Enable Settlement Report</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <config_path>iwd_settlementreport/connection/enabled</config_path>
+                        </enabled>
+                        <standard translate="label">
+                            <label>Use Standard Authorize.net</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </standard>
+                        <login translate="label">
+                            <label>API Login ID</label>
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><standard>0</standard></depends>
+                            <validate>required-entry</validate>
+                            <comment><![CDATA[]]></comment>
+                        </login>
+                        <trans_key translate="label">
+                            <label>Transaction Key</label>
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><standard>0</standard></depends>
+                            <validate>required-entry</validate>
+                            <comment><![CDATA[]]></comment>
+                        </trans_key>
+                        <test translate="label">
+                            <label>Authorize.Net Sandbox Account</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><standard>0</standard></depends>
+                            <comment><![CDATA[]]></comment>
+                        </test>
+                    </fields>
+                </connection>
+                <default translate="label">
+                    <label>Default</label>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <limit_period translate="label">
+                            <label>Limit Period</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </limit_period>
+                        <last_days translate="label">
+                            <label>Show Last "X" Days</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><limit_period>1</limit_period></depends>
+                            <validate>required-entry</validate>
+                        </last_days>
+                    </fields>
+                </default>
+                <emailing translate="label">
+                    <label>Email Reports</label>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <auto_reporting_heading translate="label">
+                            <label>Auto Reporting</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <sort_order>10</sort_order>
+                        </auto_reporting_heading>
+                        <enable>
+                            <label>Enable Auto Reporting?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                            <comment><![CDATA[Send emails with reports]]></comment>
+                        </enable>
+                        <current_time>
+                            <label>Current Server Time</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><enable>1</enable></depends>
+                            <frontend_model>iwd_settlementreport/system_config_form_fieldset_currentTime</frontend_model>
+                        </current_time>
+                        <start_time translate="label">
+                            <label>Start Time</label>
+                            <frontend_type>time</frontend_type>
+                            <sort_order>30</sort_order>
+                            <backend_model>iwd_settlementreport/system_config_backend_cron</backend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><enable>1</enable></depends>
+                            <comment><![CDATA[Send emails every day in this time]]></comment>
+                        </start_time>
+                        <last_days translate="label">
+                            <label>From Last "X" Days</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><enable>1</enable></depends>
+                            <validate>required-entry</validate>
+                            <comment><![CDATA[0 - from all period]]></comment>
+                        </last_days>
+                        <defailt_heading translate="label">
+                            <label>Default Settings</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <sort_order>50</sort_order>
+                        </defailt_heading>
+                        <transaction_email>
+                            <label>Email Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[]]></comment>
+                        </transaction_email>
+                        <from_email>
+                            <label>From Email</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </from_email>
+                        <to_emails>
+                            <label>To Email</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Default emails. Comma separated.]]></comment>
+                        </to_emails>
+                        <files translate="label">
+                            <label>Report File Type</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <source_model>iwd_settlementreport/system_config_files</source_model>
+                            <validate>required-entry</validate>
+                            <comment><![CDATA[]]></comment>
+                        </files>
+                    </fields>
+                </emailing>
+            </groups>
+        </iwd_settlementreport>
+    </sections>
+</config>

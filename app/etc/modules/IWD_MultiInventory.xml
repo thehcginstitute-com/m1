@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <IWD_MultiInventory>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Adminhtml />
+                <Mage_CatalogInventory />
+            </depends>
+        </IWD_MultiInventory>
+    </modules>
+</config>

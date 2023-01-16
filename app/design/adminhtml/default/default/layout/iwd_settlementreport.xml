@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout>
+    <iwd_settlementreport_transactions_index>
+        <reference name="head">
+            <action method="addCss"><name>iwd/settlementreport/style.css</name></action>
+        </reference>
+    </iwd_settlementreport_transactions_index>
+</layout>

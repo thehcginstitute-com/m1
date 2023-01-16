@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <font_awesome_handle>
+        <reference name="head">
+            <action method="addLinkRel"><rel>stylesheet</rel><href>//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css</href></action>
+        </reference>
+    </font_awesome_handle>
+
+    <ordergrid_order_grid_handle>
+        <reference name="head">
+            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><file>iwd/ordergrid/jquery-ui-1.10.3.min.js</file></action>
+            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><file>iwd/ordergrid/stickytableheaders.js</file></action>
+            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><file>iwd/ordergrid/jquery.sumoselect.min.js</file></action>
+            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><file>iwd/all/modal.js</file></action>
+            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><file>iwd/ordergrid/grid.js</file></action>
+            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><file>iwd/ordergrid/massaction.js</file></action>
+            <action method="addCss" ifconfig="iwd_ordermanager/grid_order/enable"><name>iwd/ordergrid/order_grid.css</name></action>
+            <action method="addCss" ifconfig="iwd_ordermanager/grid_order/enable"><name>iwd/ordergrid/sumoselect.css</name></action>
+        </reference>
+        <reference name="content">
+            <block type="iwd_ordergrid/adminhtml_sales_order_grid_init" name="grid-init" template="iwd/ordergrid/grid/init.phtml"/>
+        </reference>
+    </ordergrid_order_grid_handle>
+
+    <ordergrid_order_totals_handle>
+        <reference name="head">
+            <action method="addCss" ifconfig="iwd_ordermanager/grid_order/order_totals_enable"><name>iwd/ordergrid/totals.css</name></action>
+            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/order_totals_enable"><file>iwd/ordergrid/totals.js</file></action>
+        </reference>
+        <reference name="content">
+            <block type="iwd_ordergrid/adminhtml_sales_order_grid_totals" name="order-grid-totals" template="iwd/ordergrid/grid/totals.phtml"/>
+        </reference>
+    </ordergrid_order_totals_handle>
+
+    <!-- system -->
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addCss"><name>iwd/ordergrid/jquery-ui.css</name></action>
+            <action method="addCss"><name>iwd/ordergrid/ui.multiselect.css</name></action>
+            <action method="addCss"><name>iwd/ordergrid/system.css</name></action>
+            <action method="addJs"><script>iwd/ordergrid/jquery-ui-1.10.3.min.js</script></action>
+            <action method="addJs"><script>iwd/ordergrid/ui.multiselect.js</script></action>
+            <action method="addJs"><script>iwd/ordergrid/colpick.js</script></action>
+            <action method="addJs"><script>iwd/ordergrid/system.js</script></action>
+        </reference>
+    </adminhtml_system_config_edit>
+
+    <!-- order -->
+    <adminhtml_sales_order_grid>
+        <reference name="sales_order.grid">
+            <block type="iwd_ordergrid/adminhtml_sales_order_grid_init" name="iwd_om.order.grid.jsinit" template="iwd/ordergrid/grid/jsinit.phtml"/>
+        </reference>
+    </adminhtml_sales_order_grid>
+    <adminhtml_sales_order_index>
+        <update handle="ordergrid_order_grid_handle"/>
+        <update handle="ordergrid_order_totals_handle"/>
+    </adminhtml_sales_order_index>
+
+    <!-- archive orders -->
+    <adminhtml_sales_archive_order_index>
+        <update handle="font_awesome_handle"/>
+        <update handle="ordergrid_order_grid_handle"/>
+    </adminhtml_sales_archive_order_index>
+
+    <!-- customer orders -->
+    <adminhtml_customer_edit>
+        <update handle="font_awesome_handle"/>
+        <update handle="ordergrid_order_grid_handle"/>
+    </adminhtml_customer_edit>
+</layout>

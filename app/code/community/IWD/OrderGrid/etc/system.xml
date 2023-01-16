@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <iwdall>
+            <label>IWD Extensions</label>
+            <sort_order>210</sort_order>
+            <class>iwd-block</class>
+        </iwdall>
+    </tabs>
+    <sections>
+        <iwd_ordergrid translate="label" module="iwd_ordergrid">
+            <label><![CDATA[<i class="iwd-om-relation"></i>Custom Order Grid]]></label>
+            <tab>iwdall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>294</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <info>
+                            <label>Version</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_model>iwd_ordergrid/system_config_form_fieldset_extensions</frontend_model>
+                            <comment><![CDATA[]]></comment>
+                        </info>
+                        <user_guide>
+                            <label>Documentations</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_model>iwd_ordergrid/system_config_form_fieldset_documentations</frontend_model>
+                            <comment><![CDATA[]]></comment>
+                        </user_guide>
+                        <enable translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <config_path>iwd_ordermanager/grid_order/enable</config_path>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable>
+                    </fields>
+                </general>
+                <grid_order translate="label">
+                    <label>Order Table</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <save_grid_params>
+                            <label>Save Order Table Params</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <config_path>iwd_ordermanager/grid_order/save_grid_params</config_path>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Save parameters (filters, sorting, rows per page) of order table for next login. Separate for each admin.]]></comment>
+                        </save_grid_params>
+                        <columns translate="label">
+                            <label>Order Table Columns</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>iwd_ordergrid/system_config_gridcolumn_order</source_model>
+                            <config_path>iwd_ordermanager/grid_order/columns</config_path>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <can_be_empty>0</can_be_empty>
+                            <comment>
+                                <![CDATA[Select and arrange order of columns to display order information.<br>
+                                Options in the left column will appear on the Order Table once saved.<br>
+                                Manage table columns width in pixels (Note: width of column can be ignored in some cases).]]>
+                            </comment>
+                        </columns>
+                        <columns_width>
+                            <label> </label>
+                            <frontend_type>text</frontend_type>
+                            <config_path>iwd_ordermanager/grid_order/columns_width</config_path>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <can_be_empty>0</can_be_empty>
+                        </columns_width>
+                        <status_color>
+                            <label>Colors For Statuses</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>iwd_ordergrid/system_config_form_fieldset_color</frontend_model>
+                            <config_path>iwd_ordermanager/grid_order/status_color</config_path>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Specify colors for specific statuses]]></comment>
+                        </status_color>
+                        <fix_table_header translate="label">
+                            <label>Fix Table Header</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <config_path>iwd_ordermanager/grid_order/fix_table_header</config_path>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Anchor the header when scrolling down the page]]></comment>
+                        </fix_table_header>
+                        <order_totals_enable>
+                            <label>Enable Order Grid Totals</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <config_path>iwd_ordermanager/grid_order/order_totals_enable</config_path>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_totals_enable>
+                        <order_totals_sets>
+                            <label>Order Grid Totals</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>iwd_ordergrid/system_config_order_totals</source_model>
+                            <config_path>iwd_ordermanager/grid_order/order_totals_sets</config_path>
+                            <depends><order_totals_enable>1</order_totals_enable></depends>
+                            <validate>required-entry</validate>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_totals_sets>
+                        <notify_customer_massaction>
+                            <label>Notify Customer Massaction By Default</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <config_path>iwd_ordermanager/grid_order/notify_customer_massaction</config_path>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </notify_customer_massaction>
+                    </fields>
+                </grid_order>
+                <customer_orders translate="label">
+                    <label>Customer Order Table</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>110</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <orders_grid_columns translate="label">
+                            <label>Customer Orders Table</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>iwd_ordergrid/system_config_gridcolumn_customergrid</source_model>
+                            <config_path>iwd_ordermanager/customer_orders/orders_grid_columns</config_path>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <can_be_empty>0</can_be_empty>
+                            <comment><![CDATA[Rearrange, remove, or add columns to the orders grid that can be seen in the customers' account in Magento admin panel.]]></comment>
+                        </orders_grid_columns>
+                        <resent_orders_grid_columns translate="label">
+                            <label>Customer Recent Orders Table</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>iwd_ordergrid/system_config_gridcolumn_resent</source_model>
+                            <config_path>iwd_ordermanager/customer_orders/resent_orders_grid_columns</config_path>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <can_be_empty>0</can_be_empty>
+                            <comment><![CDATA[Rearrange, remove, or add columns to the recent orders grid that can be seen in the customers' account in Magento admin panel.]]></comment>
+                        </resent_orders_grid_columns>
+                        <resent_orders_count translate="label">
+                            <label>Recent Orders Count</label>
+                            <frontend_type>text</frontend_type>
+                            <config_path>iwd_ordermanager/customer_orders/resent_orders_count</config_path>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <can_be_empty>0</can_be_empty>
+                            <validate>required-entry</validate>
+                            <comment><![CDATA[Specify the number of recent orders to show to the customer by default]]></comment>
+                        </resent_orders_count>
+                    </fields>
+                </customer_orders>
+            </groups>
+        </iwd_ordergrid>
+    </sections>
+</config>

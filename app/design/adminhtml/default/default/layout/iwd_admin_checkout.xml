@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <adminhtml_sales_order_create_load_block_data>
+        <reference name="data">
+            <block type="iwd_admin_checkout/adminhtml_sales_order_create_top" template="iwd/admincheckout/create/top.phtml" name="top.actions">
+                <block type="iwd_admin_checkout/adminhtml_sales_order_create_store_switcher" template="iwd/admincheckout/create/store/switcher.phtml" name="store.switcher">
+                    <action method="setStoreVarName"><var_name>store_ids</var_name></action>
+                </block>
+            </block>
+        </reference>
+    </adminhtml_sales_order_create_load_block_data>
+    <adminhtml_sales_order_create_index>
+        <reference name="head">
+            <action method="addItem" ifconfig="iwd_ordermanager/crate_process/enable"><type>skin_css</type><name>iwd/admincheckout/create.css</name><params/></action>
+            <action method="addItem" ifconfig="iwd_ordermanager/crate_process/enable"><type>js</type><name>iwd/admincheckout/mage/adminhtml/sales.js</name></action>
+        </reference>
+        <reference name="form">
+            <block type="iwd_admin_checkout/adminhtml_sales_order_create_top" template="iwd/admincheckout/create/top.phtml" name="top_actions">
+                <block type="iwd_admin_checkout/adminhtml_sales_order_create_store_switcher" template="iwd/admincheckout/create/store/switcher.phtml" name="store.switcher">
+                    <action method="setStoreVarName"><var_name>store_ids</var_name></action>
+                </block>
+            </block>
+        </reference>
+    </adminhtml_sales_order_create_index>
+</layout>

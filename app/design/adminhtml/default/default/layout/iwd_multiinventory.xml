@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <multiinventory_handle>
+        <reference name="head">
+            <action method="addJs"><script>iwd/all/modal.js</script></action>
+            <action method="addJs"><file>iwd/multiinventory/jquery.nicescroll.js</file></action>
+            <action method="addJs"><file>iwd/multiinventory/stock.js</file></action>
+            <action method="addCss"><name>iwd/multiinventory/popup.css</name></action>
+            <action method="addCss"><name>iwd/multiinventory/stock.css</name></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="stock-init" template="iwd/multiinventory/cataloginventory/order/view/init.phtml"/>
+        </reference>
+    </multiinventory_handle>
+
+    <multiinventory_order_grid_handle>
+        <reference name="head">
+            <action method="addJs"><file>iwd/all/modal.js</file></action>
+            <action method="addJs"><file>iwd/multiinventory/jquery.nicescroll.js</file></action>
+            <action method="addJs"><file>iwd/multiinventory/stock.js</file></action>
+            <action method="addCss"><name>iwd/multiinventory/popup.css</name></action>
+            <action method="addCss"><name>iwd/multiinventory/stock.css</name></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="stock-init" template="iwd/multiinventory/cataloginventory/order/grid/init.phtml"/>
+        </reference>
+    </multiinventory_order_grid_handle>
+
+    <adminhtml_sales_order_grid>
+        <update handle="multiinventory_order_grid_handle" />
+    </adminhtml_sales_order_grid>
+
+    <adminhtml_sales_order_index>
+        <update handle="multiinventory_order_grid_handle" />
+
+        <reference name="order_tab_info">
+            <block type="adminhtml/sales_order_view_items" name="order_items" template="iwd/multiinventory/items/items.phtml">
+                <action method="addItemRender" ifconfig="iwd_ordermanager/multi_inventory/enable">
+                    <type>default</type>
+                    <block>adminhtml/sales_order_view_items_renderer_default</block>
+                    <template>iwd/multiinventory/items/renderer/default.phtml</template>
+                </action>
+                <action method="addItemRender" ifconfig="iwd_ordermanager/multi_inventory/enable">
+                    <type>bundle</type>
+                    <block>bundle/adminhtml_sales_order_view_items_renderer</block>
+                    <template>iwd/multiinventory/items/renderer/bundle.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </adminhtml_sales_order_index>
+
+    <adminhtml_sales_order_view>
+        <update handle="multiinventory_handle"/>
+        <reference name="order_tab_info">
+            <block type="adminhtml/sales_order_view_items" name="order_items" template="iwd/multiinventory/items/items.phtml">
+                <action method="addItemRender">
+                    <type>default</type>
+                    <block>adminhtml/sales_order_view_items_renderer_default</block>
+                    <template>iwd/multiinventory/items/renderer/default.phtml</template>
+                </action>
+                <action method="addItemRender">
+                    <type>bundle</type>
+                    <block>bundle/adminhtml_sales_order_view_items_renderer</block>
+                    <template>iwd/multiinventory/items/renderer/bundle.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </adminhtml_sales_order_view>
+
+    <adminhtml_cataloginventory_product_index>
+        <reference name="content">
+            <block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                <action method="setUseConfirm"><params>0</params></action>
+            </block>
+        </reference>
+    </adminhtml_cataloginventory_product_index>
+</layout>

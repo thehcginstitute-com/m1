@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <IWD_AdminCheckout>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Adminhtml />
+                <Mage_Sales />
+            </depends>
+        </IWD_AdminCheckout>
+    </modules>
+</config>

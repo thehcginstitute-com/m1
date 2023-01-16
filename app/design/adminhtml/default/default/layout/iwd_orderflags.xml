@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <font_awesome_handle>
+        <reference name="head">
+            <action method="addLinkRel"><rel>stylesheet</rel><href>//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css</href></action>
+        </reference>
+    </font_awesome_handle>
+
+    <orderflags_handle>
+        <reference name="head">
+            <action method="addJs"><file>iwd/orderflags/jquery.nicescroll.js</file></action>
+            <action method="addJs"><script>iwd/all/modal.js</script></action>
+            <action method="addCss"><name>iwd/orderflags/popup.css</name></action>
+            <action method="addCss"><name>iwd/orderflags/style.css</name></action>
+        </reference>
+        <reference name="js">
+            <block type="adminhtml/template" template="iwd/orderflags/jsinit.phtml" name="create-js"/>
+        </reference>
+        <reference name="order_info">
+            <action method="setTemplate">
+                <template>iwd/orderflags/order/view/info.phtml</template>
+            </action>
+        </reference>
+    </orderflags_handle>
+
+    <orderflags_order_grid_handle>
+        <reference name="head">
+            <action method="addJs"><file>iwd/orderflags/jquery.nicescroll.js</file></action>
+            <action method="addJs"><file>iwd/all/modal.js</file></action>
+            <action method="addJs"><file>iwd/orderflags/flags-order-grid.js</file></action>
+            <action method="addCss"><name>iwd/orderflags/popup.css</name></action>
+        </reference>
+        <reference name="content">
+            <block type="iwd_orderflags/adminhtml_flags_order_grid" name="flags-init" template="iwd/orderflags/flags/grid/init.phtml"/>
+        </reference>
+    </orderflags_order_grid_handle>
+
+    <!-- order -->
+    <adminhtml_sales_order_grid>
+        <reference name="sales_order.grid">
+            <block type="iwd_orderflags/adminhtml_flags_order_grid" name="iwd_om.order.grid.jsinit" template="iwd/orderflags/flags/grid/init.phtml"/>
+        </reference>
+    </adminhtml_sales_order_grid>
+    <adminhtml_sales_order_index>
+        <update handle="orderflags_edit_flags_css_handle"/>
+        <update handle="orderflags_order_grid_handle"/>
+    </adminhtml_sales_order_index>
+
+    <!-- customer orders -->
+    <adminhtml_customer_edit>
+        <update handle="font_awesome_handle"/>
+        <update handle="orderflags_order_grid_handle"/>
+        <update handle="orderflags_edit_flags_css_handle"/>
+    </adminhtml_customer_edit>
+
+    <!-- archive orders -->
+    <adminhtml_sales_archive_order_index>
+        <update handle="font_awesome_handle"/>
+        <update handle="orderflags_order_grid_handle"/>
+        <update handle="orderflags_edit_flags_css_handle"/>
+    </adminhtml_sales_archive_order_index>
+
+    <!-- flags -->
+    <orderflags_edit_flags_handle>
+        <reference name="head">
+            <action method="addCss"><name>iwd/orderflags/colpick.css</name></action>
+            <action method="addJs"><script>iwd/orderflags/colpick.js</script></action>
+            <action method="addJs"><script>iwd/orderflags/flags.js</script></action>
+        </reference>
+    </orderflags_edit_flags_handle>
+    <orderflags_edit_flags_css_handle>
+        <update handle="font_awesome_handle"/>
+        <reference name="head">
+            <action method="addCss"><name>iwd/orderflags/flags.css</name></action>
+        </reference>
+    </orderflags_edit_flags_css_handle>
+    <adminhtml_flags_flags_new>
+        <update handle="orderflags_edit_flags_css_handle"/>
+        <update handle="orderflags_edit_flags_handle"/>
+    </adminhtml_flags_flags_new>
+    <adminhtml_flags_flags_edit>
+        <update handle="orderflags_edit_flags_css_handle"/>
+        <update handle="orderflags_edit_flags_handle"/>
+    </adminhtml_flags_flags_edit>
+    <adminhtml_flags_flags_index>
+        <update handle="orderflags_edit_flags_css_handle"/>
+    </adminhtml_flags_flags_index>
+</layout>
