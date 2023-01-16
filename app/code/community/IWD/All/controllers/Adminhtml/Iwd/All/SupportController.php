@@ -1,6 +1,6 @@
 <?php
 
-class IWD_All_Adminhtml_SupportController extends Mage_Adminhtml_Controller_Action
+class IWD_All_Adminhtml_Iwd_All_SupportController extends Mage_Adminhtml_Controller_Action
 {
     public function indexAction()
     {
@@ -12,16 +12,18 @@ class IWD_All_Adminhtml_SupportController extends Mage_Adminhtml_Controller_Acti
             Mage::helper('iwdall')->__('IWD Support'),
             Mage::helper('iwdall')->__('IWD Support')
         );
+
         $this->renderLayout();
     }
 
     public function sendAction()
     {
-        $description = $this->getRequest()->getParam('description', false);
+        $description = $this->getRequest()->getParam('description', '');
         $description = nl2br($description);
-        $informaion = $this->getRequest()->getParam('informaion', false);
-        $name = $this->getRequest()->getParam('name', false);
-        $email = $this->getRequest()->getParam('email', false);
+        $informaion = $this->getRequest()->getParam('informaion', '');
+        $name = $this->getRequest()->getParam('name', '');
+        $email = $this->getRequest()->getParam('email', '');
+
         $subject = $this->getRequest()->getParam('subject', '');
         $subject = !empty($subject) ? ' - ' . $subject : '';
         $subject = $this->getRequest()->getParam('type_of_issue', 'Support') . $subject;

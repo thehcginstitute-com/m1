@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <config>
     <modules>
         <IWD_All>
-            <version>1.0.5</version>
+            <version>2.2.4</version>
         </IWD_All>
     </modules>
 
     <admin>
         <routers>
-            <iwdall>
-                <use>admin</use>
+            <adminhtml>
                 <args>
-                    <module>IWD_All</module>
-                    <frontName>iwdall</frontName>
+                    <modules>
+                        <iwdall after="Mage_Adminhtml">IWD_All_Adminhtml</iwdall>
+                    </modules>
                 </args>
-            </iwdall>
+            </adminhtml>
         </routers>
     </admin>
 
@@ -35,22 +35,26 @@
                     <file>iwdall.xml</file>
                 </iwdall>
             </updates>
-        </layout>
-
-        <events>
-            <controller_action_predispatch>
-                <observers>
-                    <iwdnotification>
-                        <class>iwdall/observer</class>
-                        <method>preDispatch</method>
-                    </iwdnotification>
-                </observers>
-            </controller_action_predispatch>
-        </events>
+        </layout>      
     </adminhtml>
 
     <global>
         <models>
+            <paygate>
+                <rewrite>
+                    <authorizenet>IWD_All_Model_Paygate_Authorizenet</authorizenet>
+                </rewrite>
+            </paygate>
+            <paypal>
+                <rewrite>
+                    <config>IWD_All_Model_Paypal_Config</config>
+                </rewrite>
+            </paypal>
+            <braintree_payments>
+                <rewrite>
+                    <paymentmethod>IWD_All_Model_Braintree_Paymentmethod</paymentmethod>
+                </rewrite>
+            </braintree_payments>
             <iwdall>
                 <class>IWD_All_Model</class>
                 <resourceModel>iwdall_mysql4</resourceModel>
@@ -59,9 +63,7 @@
             <iwdall_mysql4>
                 <class>IWD_All_Model_Mysql4</class>
                 <entities>
-                    <notification>
-                        <table>iwd_notification</table>
-                    </notification>
+                   
                 </entities>
             </iwdall_mysql4>
         </models>
@@ -107,13 +109,14 @@
                 </iwdall>
             </updates>
         </layout>
+        <routers>
+            <iwdall>
+                <use>standard</use>
+                <args>
+                    <module>IWD_All</module>
+                    <frontName>iwdextensions</frontName>
+                </args>
+            </iwdall>
+        </routers>
     </frontend>
-
-    <default>
-        <iwdall>
-            <default>
-                <jquery>1</jquery>
-            </default>
-        </iwdall>
-    </default>
 </config>

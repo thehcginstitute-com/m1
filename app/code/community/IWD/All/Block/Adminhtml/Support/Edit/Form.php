@@ -1,4 +1,5 @@
 <?php
+
 class IWD_All_Block_Adminhtml_Support_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
 {
     protected function _prepareForm()
@@ -26,33 +27,32 @@ class IWD_All_Block_Adminhtml_Support_Edit_Form extends Mage_Adminhtml_Block_Wid
         ));
 
         $fieldset->addField('type', 'select', array(
-            'name'     => 'subject',
+            'name'     => 'type_of_issue',
             'label'    => $helper->__('Type of issue'),
             'values'   => Mage::getModel('iwdall/issuetype')->toOptionArray(),
             'required' => true,
             'value' => false
         ));
+
+        $fieldset->addField('subject', 'text', array(
+            'name'     => 'subject',
+            'label'    => $helper->__('Subject'),
+            'required' => false,
+        ));
+
         $fieldset->addField('description', 'textarea', array(
             'name'     => 'description',
             'label'    => $helper->__('Describe your issue'),
             'required' => true,
         ));
 
-        $fieldset->addType('filemultiple', Mage::getConfig()
-            ->getBlockClassName('iwdall/adminhtml_support_edit_renderer_filemultiple'));
-            
-        $fieldset->addField('attachments', 'filemultiple', array(
-            'name'     => 'attachments[]',
-            'multiple' => true,
-            'label'    => Mage::helper('adminhtml')->__('Attachment files'),
-        ));    
-        
-            $fieldset->addField('email', 'text', array(
+        $fieldset->addField('email', 'text', array(
             'name'     => 'email',
             'label'    => Mage::helper('adminhtml')->__('Your e-mail'),
             'value'    => $user['email'], 
             'required' => true,
-        ));     
+        ));
+
         $fieldset->addField('name', 'text', array(
             'name'     => 'name',
             'label'    => Mage::helper('adminhtml')->__('Your name'),
@@ -70,6 +70,8 @@ class IWD_All_Block_Adminhtml_Support_Edit_Form extends Mage_Adminhtml_Block_Wid
             'class' => 'save',
             'value' => $helper->__('Send request'),
         ));
+
+        echo '<div style="display:none">' . Mage::helper("adminhtml")->getUrl("adminhtml/iwd_all_conflicts/index") . '</div>';
 
         if (Mage::registry('iwdall')) {
             $form->setValues(Mage::registry('iwdall')->getData());

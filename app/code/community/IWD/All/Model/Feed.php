@@ -4,14 +4,9 @@ class IWD_All_Model_Feed extends Mage_Core_Model_Abstract
     protected $_feedUrl = 'http://iwdextensions.com/news';
     
     protected $_frequency = 24; 
-
-    protected function _construct()
-    {
-    	
-    }
         
     public function getFeedUrl()
-    {       
+    {
         return $this->_feedUrl;
     }
 
@@ -20,7 +15,7 @@ class IWD_All_Model_Feed extends Mage_Core_Model_Abstract
         if (($this->getFrequency() + $this->getLastUpdate()) > time()) {
             return $this;
         }
-    	
+
         $feedData = array();
 
         $feedJson = $this->getFeedData();
@@ -28,7 +23,7 @@ class IWD_All_Model_Feed extends Mage_Core_Model_Abstract
         if ($feedJson && $feedJson->channel && $feedJson->channel->items) {
             foreach ($feedJson->channel->items as $item) {
                 $feedData[] = array(
-                	'out_id'      => (int)$item->entity_id,
+                    'out_id'      => (int)$item->entity_id,
                     'severity'      => (int)$item->severity,
                     'date_added'    => $this->getDate((string)$item->date_added),
                     'title'         => (string)$item->title,
@@ -37,12 +32,11 @@ class IWD_All_Model_Feed extends Mage_Core_Model_Abstract
                 );
                 
                 $feedDataDefault[] = array(
-                		
-                		'severity'      => (int)$item->severity,
-                		'date_added'    => $this->getDate((string)$item->date_added),
-                		'title'         => (string)$item->title,
-                		'description'   => (string)$item->description,
-                		'url'           => (string)$item->url,
+                    'severity'    => (int)$item->severity,
+                    'date_added'  => $this->getDate((string)$item->date_added),
+                    'title'       => (string)$item->title,
+                    'description' => (string)$item->description,
+                    'url'         => (string)$item->url,
                 );
             }
 
@@ -95,11 +89,10 @@ class IWD_All_Model_Feed extends Mage_Core_Model_Abstract
 
         try {
             $json  = json_decode($data);
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             return false;
         }
 
         return $json;
-    }   
+    }
 }

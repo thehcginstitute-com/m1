@@ -1,4 +1,5 @@
 <?php
+
 class IWD_All_Block_Adminhtml_Notification_Modal extends Mage_Core_Block_Template
 {
     private $_messages = null;
