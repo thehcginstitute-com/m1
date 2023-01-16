@@ -93,14 +93,14 @@
                 </observers>
             </controller_action_postdispatch_checkout_onepage_saveBilling>
             <checkout_type_onepage_save_order>
-                <observers>                    
-                    <magepsycho_customerregfields_checkout_type_onepage_save_order>                                                
-                        <type>singleton</type>                                                
-                        <class>magepsycho_customerregfields/observer</class>                                                
-                        <method>checkoutTypeOnepageSaveOrder</method>                                            
+                <observers>                    
+                    <magepsycho_customerregfields_checkout_type_onepage_save_order>
+                        <type>singleton</type>                                                
+                        <class>magepsycho_customerregfields/observer</class>                                                
+                        <method>checkoutTypeOnepageSaveOrder</method>                                            
                     </magepsycho_customerregfields_checkout_type_onepage_save_order>
-                </observers>
-            </checkout_type_onepage_save_order>
+                </observers>
+            </checkout_type_onepage_save_order>
             <sales_order_save_after>
                 <observers>
                     <magepsycho_customerregfields_sales_order_save_after>
