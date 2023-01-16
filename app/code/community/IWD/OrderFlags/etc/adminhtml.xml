@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <menu>
+        <system>
+            <children>
+                <iwdall>
+                    <children>
+                        <iwd_orderflags module="iwd_orderflags">
+                            <title>Order Labels</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/system_config/edit/section/iwd_orderflags</action>
+                            <children>
+                                <iwd_flags module="iwd_orderflags">
+                                    <title>Manage Labels</title>
+                                    <sort_order>10</sort_order>
+                                    <action>adminhtml/flags_flags/index</action>
+                                </iwd_flags>
+                                <iwd_flag_types module="iwd_orderflags">
+                                    <title>Manage Label Types</title>
+                                    <sort_order>20</sort_order>
+                                    <action>adminhtml/flags_types/index</action>
+                                </iwd_flag_types>
+                                <system_config module="iwd_orderflags">
+                                    <title>Extension Configuration</title>
+                                    <sort_order>30</sort_order>
+                                    <action>adminhtml/system_config/edit/section/iwd_orderflags</action>
+                                </system_config>
+                            </children>
+                        </iwd_orderflags>
+                    </children>
+                </iwdall>
+            </children>
+        </system>
+    </menu>
+    <acl>
+        <resources>
+            <all>Allow everything</all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <iwd_orderflags translate="title" module="iwd_orderflags">
+                                        <title>IWD Order Labels</title>
+                                    </iwd_orderflags>
+                                </children>
+                            </config>
+                            <iwdall>
+                                <children>
+                                    <iwd_orderflags translate="title">
+                                        <title>IWD Order Labels</title>
+                                        <children>
+                                            <iwd_flags translate="title"><title>Manage Order Labels</title></iwd_flags>
+                                            <iwd_flag_types translate="title"><title>Manage Order Types</title></iwd_flag_types>
+                                        </children>
+                                    </iwd_orderflags>
+                                </children>
+                            </iwdall>
+                        </children>
+                    </system>
+                    <iwd_orderflags>
+                        <title>IWD Order Labels</title>
+                        <children>
+                            <assign_flags translate="title"><title>Assign Labels to Order</title></assign_flags>
+                        </children>
+                    </iwd_orderflags>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

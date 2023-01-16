@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <menu>
+        <system>
+            <children>
+                <iwdall>
+                    <children>
+                        <iwd_admin_checkout module="iwd_admin_checkout">
+                            <title>Order Creation Pro</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/system_config/edit/section/iwd_admin_checkout</action>
+                        </iwd_admin_checkout>
+                    </children>
+                </iwdall>
+            </children>
+        </system>
+    </menu>
+    <acl>
+        <resources>
+            <all>Allow everything</all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <iwd_admin_checkout translate="title" module="iwd_admin_checkout">
+                                        <title>IWD Order Creation Pro</title>
+                                    </iwd_admin_checkout>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <iwd_admin_checkout>
+                        <title>IWD Order Creation Pro</title>
+                        <children>
+                            <enabled translate="title"><title>Enabled For This Role</title></enabled>
+                        </children>
+                    </iwd_admin_checkout>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

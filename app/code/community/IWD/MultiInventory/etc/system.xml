@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <iwdall>
+            <label>IWD Extensions</label>
+            <sort_order>210</sort_order>
+            <class>iwd-block</class>
+        </iwdall>
+    </tabs>
+    <sections>
+        <iwd_multiinventory translate="label" module="iwd_multiinventory">
+            <label><![CDATA[<i class="iwd-om-relation"></i>Multi Inventory]]></label>
+            <tab>iwdall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>293</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <info>
+                            <label>Version</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_model>iwd_multiinventory/system_config_form_fieldset_extensions</frontend_model>
+                        </info>
+                        <user_guide>
+                            <label>Documentations</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_model>iwd_multiinventory/system_config_form_fieldset_documentations</frontend_model>
+                        </user_guide>
+                    </fields>
+                </general>
+                <inventory translate="label">
+                    <label>Inventory</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable translate="label">
+                            <label>Enable Multi Inventory</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <config_path>iwd_ordermanager/multi_inventory/enable</config_path>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable>
+                    </fields>
+                </inventory>
+            </groups>
+        </iwd_multiinventory>
+    </sections>
+</config>

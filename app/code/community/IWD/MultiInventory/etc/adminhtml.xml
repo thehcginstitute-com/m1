@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <menu>
+        <catalog>
+            <children>
+                <iwd_multiinventory>
+                    <title>Multi Inventory</title>
+                    <sort_order>18</sort_order>
+                    <depends>
+                        <config>iwd_ordermanager/multi_inventory/enable</config>
+                    </depends>
+                    <children>
+                        <iwd_manage_werehouses module="iwd_multiinventory">
+                            <depends>
+                                <config>iwd_ordermanager/multi_inventory/enable</config>
+                            </depends>
+                            <title>Manage Sources</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/cataloginventory_stock/index</action>
+                        </iwd_manage_werehouses>
+                        <iwd_manage_stock module="iwd_multiinventory">
+                            <depends>
+                                <config>iwd_ordermanager/multi_inventory/enable</config>
+                            </depends>
+                            <title>Manage Stocks</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/cataloginventory_product/index</action>
+                        </iwd_manage_stock>
+                    </children>
+                </iwd_multiinventory>
+            </children>
+        </catalog>
+    </menu>
+    <acl>
+        <resources>
+            <all>Allow everything</all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <iwd_multiinventory translate="title" module="iwd_multiinventory">
+                                        <title>IWD Multi Inventory</title>
+                                    </iwd_multiinventory>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <catalog>
+                        <children>
+                            <iwd_multiinventory translate="title">
+                                <title>IWD Multi Inventory</title>
+                                <children>
+                                    <enabled translate="title"><title>Enabled For This Role</title></enabled>
+                                    <iwd_manage_werehouses translate="title"><title>Manage Sources</title></iwd_manage_werehouses>
+                                    <iwd_manage_stock translate="title"><title>Manage Stocks</title></iwd_manage_stock>
+                                </children>
+                            </iwd_multiinventory>
+                        </children>
+                    </catalog>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
