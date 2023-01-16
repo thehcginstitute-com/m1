@@ -95,9 +95,9 @@
         </resources>
         <blocks>
 		 <adminhtml>
-            <rewrite>
-                <sales_order_grid>Raveinfosys_Deleteorder_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
-            </rewrite>		 
+<!-- 2023-01-16 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+""Make the `IWD_OrderGrid` module compatible with the `Raveinfosys_Deleteorder` module"":
+https://github.com/thehcginstitute-com/m1/issues/11 -->
            <rewrite>
                 <sales_order_view>Raveinfosys_Deleteorder_Block_Adminhtml_Sales_Order_View</sales_order_view>
             </rewrite>
