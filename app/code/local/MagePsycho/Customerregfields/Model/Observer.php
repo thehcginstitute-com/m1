@@ -114,8 +114,7 @@ class MagePsycho_Customerregfields_Model_Observer
 		) {
 			return $this;
 		}
-
-		$helper->log(__METHOD__, true);
+		
 		$event          = $observer->getEvent();
 		$request        = $event->getControllerAction()->getRequest();
 
@@ -125,8 +124,6 @@ class MagePsycho_Customerregfields_Model_Observer
 		$groupId        = isset($billingData['group_id']) ? $billingData['group_id'] : null;
 		$groupCode      = isset($billingData['mp_group_code']) ? $billingData['mp_group_code'] : '';
 
-		$helper->log('$groupId::' . $groupId);
-		$helper->log('$groupCode::' . $groupCode);
 		Mage::getSingleton('checkout/session')->setSessMpGroupId($groupId);
 		Mage::getSingleton('checkout/session')->setSessMpGroupCode($groupCode);
 	}
