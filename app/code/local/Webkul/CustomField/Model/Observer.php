@@ -24,7 +24,11 @@ class Webkul_CustomField_Model_Observer
             $currentData = array();
             foreach ($billingData as  $v) {
                 foreach ($allAttrIds as $key => $value) {
-                    if (array_key_exists($value,$v)) {
+					# 2023-11-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# «array_key_exists() expects parameter 2 to be array, string given
+					# in app/code/local/Webkul/CustomField/Model/Observer.php on line 27»:
+					# https://github.com/thehcginstitute-com/m1/issues/23
+                    if (is_array($v) && array_key_exists($value,$v)) {
                         $currentData[$value] = $v[$value];
                     }
                 }
