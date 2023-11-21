@@ -176,6 +176,8 @@
             </modules>
         </translate>
         <events>
+<!-- 2023-11-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent `Ebizmarts_MageMonkey` from spamming Magento backend": https://github.com/thehcginstitute-com/m1/issues/20
             <controller_action_predispatch_adminhtml_dashboard_index>
                 <observers>
                     <monkey_up>
@@ -185,6 +187,7 @@
                     </monkey_up>
                 </observers>
             </controller_action_predispatch_adminhtml_dashboard_index>
+-->
             <core_block_abstract_prepare_layout_before>
                 <observers>
                     <monkey_order_addmassbutton>
