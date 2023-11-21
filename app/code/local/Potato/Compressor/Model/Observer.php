@@ -11,9 +11,13 @@ class Potato_Compressor_Model_Observer
     public function deferJs(Varien_Event_Observer $observer)
     {
         $this->_deferJs($observer);
-        if (@class_exists('Enterprise_PageCache_Model_Observer')) {
+
+		# 2023-11-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# «include(Enterprise/PageCache/Model/Observer.php): failed to open stream: No such file or directory»:
+		# https://github.com/thehcginstitute-com/m1/issues/22
+        /*if (@class_exists('Enterprise_PageCache_Model_Observer')) {
             Mage::getModel('enterprise_pagecache/observer')->cacheResponse($observer);
-        }
+        }*/
         return $this;
     }
 
