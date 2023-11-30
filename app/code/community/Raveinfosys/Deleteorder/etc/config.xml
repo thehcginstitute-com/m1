@@ -2,7 +2,10 @@
 <config>
     <modules>
         <Raveinfosys_Deleteorder>
-            <version>1.0.9</version>
+<!-- 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+1) [Sansec] «vulnerability found: `Raveinfosys_Deleteorder`»: https://github.com/thehcginstitute-com/m1/issues/26
+2) https://granö.fi/magento-1-raveinfosys-deleteorders-security-flaw -->
+            <version>2.0.0</version>
         </Raveinfosys_Deleteorder>
     </modules>
     <frontend>
