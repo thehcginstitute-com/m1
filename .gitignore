@@ -1,32 +1,51 @@
-# 2023-01-14 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
-/_my
-/*.iml
-*.ogg
+# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# http://stackoverflow.com/questions/987142
+# http://stackoverflow.com/questions/9162919
+# http://stackoverflow.com/questions/8024924#comment15884195_8025106
+*
+!*/
+!/.editorconfig
+!/.gitignore
+!/.htaccess
+# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/api.php
+!/api.php
+# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://github.com/mailchimp/mc-magento/blob/1.1.5/composer.json
+!/composer.json
+# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/cron.php
+!/cron.php
+# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/cron.sh
+!/cron.sh
+# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/get.sh
+!/get.sh
+# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://github.com/mailchimp/mc-magento/blob/1.1.5/getMailchimpResponse.php
+!/getMailchimpResponse.php
+# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/index.php
+!/index.php
+# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/install.php
+!/install.php
+# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://github.com/mailchimp/mc-magento/blob/1.1.5/m4mlogs.sh
+!/m4mlogs.sh
+# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/mage
+!/mage
+# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://github.com/mailchimp/mc-magento/blob/1.1.5/modman
+!/modman
+!/readme.md
+!/app/**/*
 /app/etc/local.xml
-/media/*
-!/media/.htaccess
-!/media/customer
-/media/customer/*
-!/media/customer/.htaccess
-!/media/dhl
-/media/dhl/*
-!/media/dhl/logo.jpg
-!/media/downloadable
-/media/downloadable/*
-!/media/downloadable/.htaccess
-!/media/xmlconnect
-/media/xmlconnect/*
-!/media/xmlconnect/custom
-/media/xmlconnect/custom/*
-!/media/xmlconnect/custom/ok.gif
-!/media/xmlconnect/original
-/media/xmlconnect/original/*
-!/media/xmlconnect/original/ok.gif
-!/media/xmlconnect/system
-/media/xmlconnect/system/*
-!/media/xmlconnect/system/ok.gif
-/var/*
-!/var/.htaccess
-!/var/package
-/var/package/*
-!/var/package/*.xml
+!/errors/**/*
+!/includes/**/*
+!/js/**/*
+!/lib/**/*
+!/shell/**/*
+!/skin/**/*
