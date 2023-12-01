@@ -6,7 +6,7 @@
 # «Class 'Raveinfosys_Deleteorder_Block_Adminhtml_Sales_Order_Grid' not found
 # in app/code/community/IWD/OrderGrid/Block/Adminhtml/Sales/Order/Grid.php on line 5»:
 # https://github.com/thehcginstitute-com/m1/issues/30
-class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
+class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Block_Sales_Order_Grid
 {
     const XPATH_GRID_SAVED_LIMIT = 'iwd_ordermanager/grid_order/saved_params';
     const XPATH_IS_SAVE_GRID_PARAMS = 'iwd_ordermanager/grid_order/save_grid_params';
