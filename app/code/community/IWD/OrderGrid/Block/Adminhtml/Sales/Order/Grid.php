@@ -2,7 +2,11 @@
 # 2023-01-16 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
 # "Make the `IWD_OrderGrid` module compatible with the `Raveinfosys_Deleteorder` module":
 # https://github.com/thehcginstitute-com/m1/issues/11
-class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid extends Raveinfosys_Deleteorder_Block_Adminhtml_Sales_Order_Grid
+# 2023-12-01
+# «Class 'Raveinfosys_Deleteorder_Block_Adminhtml_Sales_Order_Grid' not found
+# in app/code/community/IWD/OrderGrid/Block/Adminhtml/Sales/Order/Grid.php on line 5»:
+# https://github.com/thehcginstitute-com/m1/issues/30
+class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
     const XPATH_GRID_SAVED_LIMIT = 'iwd_ordermanager/grid_order/saved_params';
     const XPATH_IS_SAVE_GRID_PARAMS = 'iwd_ordermanager/grid_order/save_grid_params';
