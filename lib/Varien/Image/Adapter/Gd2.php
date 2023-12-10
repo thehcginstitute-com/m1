@@ -60,7 +60,12 @@ class Varien_Image_Adapter_Gd2 extends Varien_Image_Adapter_Abstract
         $this->_imageHandler = call_user_func($this->_getCallback('create'), $this->_fileName);
     }
 
-    /**
+ 	/**
+	 * 2023-12-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 1) "`Varien_Image_Adapter_Gd2::_isMemoryLimitReached()` incorrectly handles the `-1` value in Magento 1.9.1.0":
+	 * https://github.com/thehcginstitute-com/m1/issues/45
+	 * 2) The fix: https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/lib/Varien/Image/Adapter/Gd2.php#L77-L135
+	 *
      * Checks whether memory limit is reached.
      *
      * @return bool
@@ -68,26 +73,61 @@ class Varien_Image_Adapter_Gd2 extends Varien_Image_Adapter_Abstract
     protected function _isMemoryLimitReached()
     {
         $limit = $this->_convertToByte(ini_get('memory_limit'));
+        /**
+         * In case if memory limit was converted to 0, treat it as unlimited
+         */
+        if ($limit === 0) {
+            return false;
+        }
         $size = getimagesize($this->_fileName);
         $requiredMemory = $size[0] * $size[1] * 3;
+
         return (memory_get_usage(true) + $requiredMemory) > $limit;
     }
 
     /**
-     * Converts memory value (e.g. 64M, 129KB) to bytes.
-     * Case insensitive value might be used.
+	 * 2023-12-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 *  1) "`Varien_Image_Adapter_Gd2::_isMemoryLimitReached()` incorrectly handles the `-1` value in Magento 1.9.1.0":
+	 *  https://github.com/thehcginstitute-com/m1/issues/45
+	 *  2) The fix: https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/lib/Varien/Image/Adapter/Gd2.php#L77-L135
+	 *
+     * Convert PHP memory limit value into bytes
+     * Notation in value is supported only for PHP
+     * Shorthand byte options are case insensitive
      *
      * @param string $memoryValue
+     *
      * @return int
+     *@throws Varien_Exception
+     * @see http://php.net/manual/en/faq.using.php#faq.using.shorthandbytes
+     *
      */
     protected function _convertToByte($memoryValue)
     {
-        if (stripos($memoryValue, 'M') !== false) {
-            return (int)$memoryValue * 1024 * 1024;
-        } elseif (stripos($memoryValue, 'KB') !== false) {
-            return (int)$memoryValue * 1024;
+        $memoryValue = trim($memoryValue);
+        if (empty($memoryValue)) {
+            return 0;
         }
-        return (int)$memoryValue;
+        if (preg_match('~^([1-9][0-9]*)[\s]*(k|m|g)b?$~i', $memoryValue, $matches)) {
+            $option = strtolower($matches[2]);
+            $memoryValue = $matches[1];
+            switch ($option) {
+                case 'g':
+                    $memoryValue *= 1024;
+                    // no break
+                case 'm':
+                    $memoryValue *= 1024;
+                    // no break
+                case 'k':
+                    $memoryValue *= 1024;
+                    break;
+                default:
+                    break;
+            }
+        }
+        $memoryValue = (int)$memoryValue;
+
+        return $memoryValue > 0 ? $memoryValue : 0;
     }
 
     public function save($destination=null, $newName=null)
