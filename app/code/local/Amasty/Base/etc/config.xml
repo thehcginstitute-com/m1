@@ -111,7 +111,7 @@
                     </ambase_upds>
                 </observers>
             </controller_action_predispatch>
-<!-- 2018-09-18 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+<!-- 2018-09-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 «include(Amasty\Base\Model\Observer.php): failed to open stream: No such file or directory»
             <controller_action_layout_render_before_adminhtml_system_config_edit>
                 <observers>

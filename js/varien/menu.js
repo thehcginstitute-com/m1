@@ -6,7 +6,7 @@
 var mainNav = function() {
 	var J = jQuery;
 	var mobile = function() {return J('.hcg-mobile-menu-icon').is(':visible');};
-	// 2018-09-24 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+	// 2018-09-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	// A tablet with a wide screen does not support the `mouseenter` / `mouseleave` events.
 	// https://stackoverflow.com/a/20293441
 	var touch = function() {
@@ -38,7 +38,7 @@ var mainNav = function() {
 		},
 
 		handlNavElement: function(l) {
-			// 2018-09-23 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+			// 2018-09-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			var $l = J(l);
 			var f = function() {main.fireNavEvent(l);};
 			$l.on('click', 'i.fa', function(e) {
@@ -46,14 +46,14 @@ var mainNav = function() {
 				e.preventDefault();
 				main.fireNavEvent(l);
 			});
-			// 2018-09-26 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+			// 2018-09-26 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			// https://www.upwork.com/messages/rooms/room_83b901b4acc8f695bac43d90418f35f1/story_33428fce631cc30cf78c51e931c06eb7
 			// https://humanwhocodes.com/blog/2012/07/05/ios-has-a-hover-problem
 			if (!mobile() && !touch()) {
-				// 2018-09-23 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+				// 2018-09-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				// l.hover(f) does not work here for an unknown reason
 				l.on('mouseenter', f);
-				// 2018-09-23 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+				// 2018-09-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				// Chaining `.on().on()` does not work.
 				l.on('mouseleave', f);
 			}

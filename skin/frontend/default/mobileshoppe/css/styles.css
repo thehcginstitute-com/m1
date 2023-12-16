@@ -6340,7 +6340,7 @@ ul.crosssell-products-list {
 	color: #000 !important;
 }
 
-/* 2019-05-09 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+/* 2019-05-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 https://www.upwork.com/messages/rooms/room_ff1bc7db61a425b99a5ceaef55b77e87/story_e51908594057d790fdbe5886b8a7ed4b */
 #df-topmost-banner {
 	padding-bottom: 12px;
@@ -6352,7 +6352,7 @@ https://www.upwork.com/messages/rooms/room_ff1bc7db61a425b99a5ceaef55b77e87/stor
 	width: 100%;
 	z-index: 999;
 }
-/* 2019-05-09 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+/* 2019-05-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 https://stackoverflow.com/a/36448860 */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 	#df-topmost-banner {position: fixed;}

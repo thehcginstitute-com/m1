@@ -5,7 +5,7 @@ function markVisited(productID) {
 }
 (function() {
     var cb = function() {
-    	// 2018-09-24 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+    	// 2018-09-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
     	var p = $$('input[name^=product]').first();
     	if (p) {
 			new Ajax.Request('../index.php/ebizautoresponder/autoresponder/getVisitedProductsConfig?product_id='+p.value, { method:'get', onSuccess: function(transport){

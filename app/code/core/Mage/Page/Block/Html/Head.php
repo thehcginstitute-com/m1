@@ -252,7 +252,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template
         if ($mergeCallback && !is_callable($mergeCallback)) {
             $mergeCallback = null;
         }
-        // 2018-09-24 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+        // 2018-09-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		if (is_null($mergeCallback)) {
 			$staticItems = self::addVersionStamp($staticItems);
 		}
@@ -293,7 +293,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template
     }
 
 	/**          
-	 * 2018-09-24 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+	 * 2018-09-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by _prepareStaticAndSkinElements()
 	 * @param array $staticItems
 	 * @return array
@@ -308,7 +308,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template
 	}
 
 	/**
-	 * 2018-09-24 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro 
+	 * 2018-09-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro 
 	 * @used-by addVersionStamp()
 	 * @used-by \Mage_Core_Model_Design_Package::getSkinUrl()
 	 * @var string

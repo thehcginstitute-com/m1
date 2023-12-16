@@ -460,7 +460,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
     protected function _getPerorderPrice($cost, $handlingType, $handlingFee)
     {
 		/**
-		 * 2019-05-09 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		 * 2019-05-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		 * https://github.com/Inchoo/Inchoo_PHP7/issues/97
 		 */
     	$handlingFee = (float)$handlingFee;
