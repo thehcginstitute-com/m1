@@ -63,7 +63,11 @@
                 'Title' => $product->getName(),
                 'Type' => $product->getTypeId(),
                 'Price' => $item->getOrder()->getStore()->formatPrice($product->getPrice()),
-                'Qty' => (string)$product->getStockItem()->getQty() * 1,
+				# 2023-12-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# «A non-numeric value encountered in
+				# app/design/adminhtml/default/default/template/iwd/ordermanager/items/renderer/name.phtml on line 66»:
+				# https://github.com/thehcginstitute-com/m1/issues/53
+                'Qty' => (int)$product->getStockItem()->getQty(),
                 'Visible' => Mage_Catalog_Model_Product_Visibility::getOptionText($product->getVisibility()),
                 'In Stock' => $product->getStockItem()->getIsInStock() ? 'Yes' : 'No'
             );
