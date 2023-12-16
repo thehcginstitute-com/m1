@@ -72,7 +72,15 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
     {
         if (!$this->hasMethodInstance()) {
             if ($this->getMethod()) {
-                $instance = Mage::helper('payment')->getMethodInstance($this->getMethod());
+				$instance = Mage::helper('payment')->getMethodInstance($this->getMethod());
+				# 2023-12-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "«The requested Payment Method is not available»
+				# on viewing an order paid via a deleted payment module":
+				# https://github.com/thehcginstitute-com/m1/issues/52
+				if (!$instance) {
+					$this->setMethod('cashondelivery');
+					$instance = Mage::helper('payment')->getMethodInstance($this->getMethod());
+				}
                 if ($instance) {
                     $instance->setInfoInstance($this);
                     $this->setMethodInstance($instance);
