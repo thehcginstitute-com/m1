@@ -24,6 +24,12 @@
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
+# 2023-12-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "«The requested Payment Method is not available»
+# on viewing an order paid via a deleted payment module":
+# https://github.com/thehcginstitute-com/m1/issues/52
+use HCG_Core_Payment_Deleted as D;
+
 /**
  * Payment information model
  *
@@ -78,8 +84,10 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
 				# on viewing an order paid via a deleted payment module":
 				# https://github.com/thehcginstitute-com/m1/issues/52
 				if (!$instance) {
-					$this->setMethod('cashondelivery');
-					$instance = Mage::helper('payment')->getMethodInstance($this->getMethod());
+					$m = $this->getMethod(); /** @var string $m */
+					$this->setMethod(D::CODE);
+					$instance = Mage::helper('payment')->getMethodInstance(D::CODE); /** @var D $instance */
+					$instance->setOriginalModule($m);
 				}
                 if ($instance) {
                     $instance->setInfoInstance($this);
