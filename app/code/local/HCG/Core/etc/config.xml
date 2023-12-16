@@ -3,7 +3,7 @@
 	<modules>
 		<HCG_Core>
 			<version>1.0.0</version>
-			<author>Dmitry Fedyuk: https://www.upwork.com/fl/mage2pro</author>
+			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
 		</HCG_Core>
 	</modules>
 	<frontend>
