@@ -16,7 +16,15 @@
             </adminhtml>
         </routers>
     </admin>
-    <adminhtml>    	 
+    <adminhtml>
+<!-- 2023-12-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+1) "[MLX «Convert Guest To User»]: «Zend_XmlRpc_Client_HttpException: Not Found in lib/Zend/XmlRpc/Client.php:294»":
+https://github.com/thehcginstitute-com/m1/issues/14
+2) The error is occured because MLX has stopped to serve the `http://www.mlx-store.com/index.php/api/xmlrpc/` request.
+3) The MLX «Convert Guest To User» module's PHP code is encrypted, so I can not modify it:
+https://github.com/thehcginstitute-com/m1/issues/51#issuecomment-1858860672
+4) The module seems to be working even without a correct licence checking. -->
+		<!--
 		<events>
 			<controller_action_predispatch>
 				<observers>
@@ -37,7 +45,7 @@
 			   </observers>	
 			</admin_user_authenticate_after>		
 		</events>	
-		 		
+		 	-->
 		<layout>
 			<updates>
 				<mlx>
