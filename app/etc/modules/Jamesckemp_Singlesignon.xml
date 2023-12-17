@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-    <modules>
-        <Jamesckemp_Singlesignon>
-            <active>false</active>
-            <codePool>local</codePool>
-        </Jamesckemp_Singlesignon>
-    </modules>
-</config>
