@@ -228,13 +228,8 @@
                 <Mage_Customer/>
             </depends>
         </Mage_Log>
-        <Mage_Backup>
-            <active>false</active>
-            <codePool>core</codePool>
-            <depends>
-                <Mage_Core/>
-            </depends>
-        </Mage_Backup>
+<!-- 2023-12-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Backup` module": https://github.com/thehcginstitute-com/m1/issues/39 -->
         <Mage_Poll>
             <active>true</active>
             <codePool>core</codePool>
