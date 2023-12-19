@@ -45,13 +45,8 @@
                 <Mage_Core/>
             </depends>
         </Mage_Page>
-        <Mage_Install>
-            <active>true</active>
-            <codePool>core</codePool>
-            <depends>
-                <Mage_Core/>
-            </depends>
-        </Mage_Install>
+<!-- 2023-12-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Install` module": https://github.com/thehcginstitute-com/m1/issues/56 -->
         <Mage_Admin>
             <active>true</active>
             <codePool>core</codePool>
