@@ -9,6 +9,6 @@ final class HCG_Core_Observer {
 	 * @used-by Mage_Core_Model_App::_callObserverMethod()
 	 */
 	function controller_action_predispatch_cms_index_index(O $o):void {
-		Mage::app()->getFrontController()->getResponse()->setRedirect(Mage::getUrl('products'));
+		Mage::app()->getFrontController()->getResponse()->setRedirect(HCG_Core_Settings::urlProducts());
 	}
 }

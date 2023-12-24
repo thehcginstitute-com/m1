@@ -301,20 +301,11 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template
 	private static function addVersionStamp(array $staticItems) {
 		foreach ($staticItems as &$rows) {
 			foreach ($rows as &$name) {
-				$name .= '?v=' . self::V;
+				$name .= '?v=' . HCG_Core_StaticContent::V;
 			}
 		}
 		return $staticItems;
 	}
-
-	/**
-	 * 2018-09-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro 
-	 * @used-by addVersionStamp()
-	 * @used-by \Mage_Core_Model_Design_Package::getSkinUrl()
-	 * @var string
-	 */
-	const V = '2019-05-09-4';
-
 
     /**
      * Classify HTML head item and queue it into "lines" array

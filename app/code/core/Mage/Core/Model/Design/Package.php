@@ -502,7 +502,7 @@ class Mage_Core_Model_Design_Package
         }
         $result = $this->getSkinBaseUrl($params) . (empty($file) ? '' : $file);
         Varien_Profiler::stop(__METHOD__);
-        return $result . '?v=' . Mage_Page_Block_Html_Head::V;
+        return $result . '?v=' . HCG_Core_StaticContent::V;
     }
 
     /**

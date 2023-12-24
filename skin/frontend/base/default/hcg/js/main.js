@@ -23,7 +23,11 @@
 					$aP.siblings().hide();
 					$aP.parent().removeClass('hcg-has-children');
 					$aP.html('<span>Products</span>');
-					$aP.attr('href', 'https://www.thehcginstitute.com/store/products');
+					// 2023-12-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					// The «PRODUCTS» menu item link address should not be hardcoded":
+					// https://github.com/thehcginstitute-com/m1/issues/64
+					// @used-by skin/frontend/base/default/hcg/js/main.js
+					$aP.attr('href', window.hgc.core.url.products);
 					$nav.removeAttr('style');
 				}
 				else {

@@ -2,6 +2,14 @@
 # 2023-12-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "The main menu links addresses should not be hardcoded": https://github.com/thehcginstitute-com/m1/issues/63
 $u = HCG_WP_Settings::url(); /** @var string $u */
+?>
+<script>
+	 // 2023-12-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 // The «PRODUCTS» menu item link address should not be hardcoded": https://github.com/thehcginstitute-com/m1/issues/64
+	 // @used-by skin/frontend/base/default/hcg/js/main.js
+	window.hgc.core.url.products = '<?= HCG_Core_Settings::urlProducts() ?>';
+</script>
+<?php
 if ($_menu = $this->getHtml('level-top')) { ?>
 	<div class='nav-container'>
 		<i class='hcg-mobile-menu-icon'></i>
