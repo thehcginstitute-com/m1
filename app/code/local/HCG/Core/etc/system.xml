@@ -1,0 +1,9 @@
+<?xml version='1.0'?>
+<config>
+	<tabs>
+		<hcg>
+			<label>The HCG Institute</label>
+			<sort_order>-100</sort_order>
+		</hcg>
+	</tabs>
+</config>

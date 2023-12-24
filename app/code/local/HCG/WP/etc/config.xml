@@ -1,0 +1,17 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+		<HCG_WP>
+			<version>0.0.1</version>
+			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
+		</HCG_WP>
+	</modules>
+	<default>
+		<hcg_wp>
+			<primary>
+<!-- 2023-12-24 "The main logo link address should not be hardcoded": https://github.com/thehcginstitute-com/m1/issues/72 -->
+				<url>https://www.thehcginstitute.com</url>
+			</primary>
+		</hcg_wp>
+	</default>
+</config>

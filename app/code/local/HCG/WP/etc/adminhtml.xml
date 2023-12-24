@@ -1,0 +1,22 @@
+<?xml version='1.0'?>
+<config>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<hcg_wp>
+										<title>The HCG Institute → WordPress</title>
+									</hcg_wp>
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

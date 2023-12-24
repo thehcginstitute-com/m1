@@ -1,7 +1,8 @@
-<?php
-/**  @var Mage_Page_Block_Html_Header $this */
-$url = 'https://www.thehcginstitute.com/';
+<?php /**  @var Mage_Page_Block_Html_Header $this */
+# 2023-12-24 "The main logo link address should not be hardcoded": https://github.com/thehcginstitute-com/m1/issues/72
+$url = HCG_WP_Settings::url(); /** @var string $url */
 ?>
+
 <div class="top_block">
 	<?= $this->getChildHtml('topLinks') ?>
 	<div class="clear"></div>

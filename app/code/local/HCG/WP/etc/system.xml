@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<config>
+	<sections>
+		<hcg_wp>
+			<label>WordPress</label>
+			<tab>hcg</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>1000</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<primary>
+					<label>Primary</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1000</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+<!-- 2023-12-24 "The main logo link address should not be hardcoded": https://github.com/thehcginstitute-com/m1/issues/72 -->
+						<url>
+							<label>URL</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>1000</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</url>
+					</fields>
+				</primary>
+			</groups>
+		</hcg_wp>
+	</sections>
+</config>

@@ -5,5 +5,12 @@
 			<active>true</active>
 			<codePool>local</codePool>
 		</HCG_Core>
+		<HCG_WP>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<HCG_Core/>
+			</depends>
+		</HCG_WP>
 	</modules>
 </config>
