@@ -1,7 +1,7 @@
 <?php
 use Mage_Core_Block_Template as B;
 /**
- * 2019-04-11 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * 2019-04-11
  * «Make the header message editable in the Magento 1 backend via a CMS block»
  * https://www.upwork.com/ab/f/contracts/21957154
  */

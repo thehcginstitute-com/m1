@@ -1,5 +1,5 @@
 <?php
-# 2023-12-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 2023-12-16
 # 1) "Delete unused payment modules": https://github.com/thehcginstitute-com/m1/issues/47
 # 2) "«The requested Payment Method is not available»
 # on viewing an order paid via a deleted payment module":
