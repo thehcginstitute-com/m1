@@ -7,7 +7,7 @@
 		</HCG_Core>
 	</modules>
 	<default>
-<!-- 2023-12-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+<!-- 2023-12-16
 1) "Delete unused payment modules": https://github.com/thehcginstitute-com/m1/issues/47
 2) "«The requested Payment Method is not available»
 on viewing an order paid via a deleted payment module":
@@ -23,6 +23,19 @@ https://github.com/thehcginstitute-com/m1/issues/52 -->
 		</payment>
 	</default>
 	<frontend>
+		<events>
+<!-- 2023-12-24
+"The Magento's home page should redirect the visitor to the «Products» page":
+https://github.com/thehcginstitute-com/m1/issues/73 -->
+			<controller_action_predispatch_cms_index_index>
+				<observers>
+					<HCG_Core>
+						<class>HCG_Core_Observer</class>
+						<method>controller_action_predispatch_cms_index_index</method>
+					</HCG_Core>
+				</observers>
+			</controller_action_predispatch_cms_index_index>
+		</events>
 		<layout>
 			<updates>
 				<hcg_core module='hcg_core'><file>hcg/core.xml</file></hcg_core>
