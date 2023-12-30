@@ -20,7 +20,7 @@
  *
  * @category    design
  * @package     base_default
- * @copyright   Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright   Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
@@ -39,8 +39,6 @@
         $_imgHtml = '<p class="category-image"><img src="'.$_imgUrl.'" alt="'.$this->escapeHtml($_category->getName()).'" title="'.$this->escapeHtml($_category->getName()).'" /></p>';
         $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
     }
-	 /* Get the logged in customer's group ID */
-    $customerGroupId = Mage::getSingleton('customer/session')->getCustomerGroupId(); 
 ?>
 <div class="page-title category-title">
     <?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
@@ -54,25 +52,12 @@
 <?php if($_imgUrl): ?>
     <?php echo $_imgHtml ?>
 <?php endif; ?>
-<!--*manu custom work start -->
+
 <?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
-<?php if($customerGroupId==1): ?>
     <div class="category-description std">
-	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('patient-message')->toHtml() ?>
-	 </div> 
-	<?php elseif($customerGroupId==0): ?>
-	 <div class="category-description std">
-	 <?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?>	
-	 </div>
-	 <?php else: ?> 
-	 <div class="category-description std">
-		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('nhp-message')->toHtml() ?>		 
-   </div>
-     <?php endif; ?>
-	  <?php endif; ?>
-	
-   
-	<!--manu custom work end here -->
+        <?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?>
+    </div>
+    <?php endif; ?>
 
 <?php if($this->isContentMode()): ?>
     <?php echo $this->getCmsBlockHtml() ?>

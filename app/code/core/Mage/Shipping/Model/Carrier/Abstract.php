@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_Shipping
- * @copyright  Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright  Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -417,7 +417,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      */
     public function getFinalPriceWithHandlingFee($cost)
     {
-        $handlingFee = $this->getConfigData('handling_fee');
+        $handlingFee = (float)$this->getConfigData('handling_fee');
         $handlingType = $this->getConfigData('handling_type');
         if (!$handlingType) {
             $handlingType = self::HANDLING_TYPE_FIXED;
@@ -459,11 +459,6 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      */
     protected function _getPerorderPrice($cost, $handlingType, $handlingFee)
     {
-		/**
-		 * 2019-05-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-		 * https://github.com/Inchoo/Inchoo_PHP7/issues/97
-		 */
-    	$handlingFee = (float)$handlingFee;
         if ($handlingType == self::HANDLING_TYPE_PERCENT) {
             return ($cost * $this->_numBoxes) + ($cost * $this->_numBoxes * $handlingFee / 100);
         }

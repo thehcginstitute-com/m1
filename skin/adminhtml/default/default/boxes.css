@@ -9,16 +9,18 @@
  * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
+ * to license@magento.com so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
  * Do not edit or add to this file if you wish to upgrade Magento to newer
  * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
+ * needs please refer to http://www.magento.com for more information.
  *
- * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
- * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
 /***************** WIDGETS ******************
@@ -291,7 +293,7 @@ ul.tabs-horiz li a.active       { border-bottom:1px solid #fff; background:#fff;
 .error,
 a.error span,
 .required,
-.validation-advice { /*color:#D40707 !important; font-weight:bold !important; */}
+.validation-advice { color:#D40707 !important; font-weight:bold !important; }
 .notice { color:#ea7601}
 .messages ul { border:0 !important; }
 .messages li { min-height:23px !important; margin-bottom:11px !important; padding:8px 8px 2px 32px !important; font-size:.95em !important; font-weight:bold !important; }
@@ -331,7 +333,7 @@ table.form-edit                         { width:100%; }
 .entry-edit .entry-edit-head a          { color:#fff; font-size:1em; line-height:18px; min-height:0; font-weight:bold}
 .entry-edit .content                    { margin-left:0 !important; padding:10px 15px; }
 .entry-edit fieldset li,
-.entry-edit .fieldset li                { margin:10px 0; }
+.entry-edit .fieldset li                { margin:4px 0; }
 .entry-edit fieldset span.form_row,
 .entry-edit .fieldset span.form_row,
 .entry-edit fieldset .field-row .hint,
@@ -717,48 +719,16 @@ div.autocomplete ul li { padding:.5em .7em; min-height:32px; cursor:pointer; tex
 
 /* LOGIN
 *******************************************************************************/
-#page-login                             { text-align:center; }
-#page-login {
-  background-color: #ffffff;
-  background-image: url("images/login-bg-image.jpg");
-  background-position: left top;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height:510px; 
-}
-.login-box button,.login-box .form-button {
-    background: #2a4e24 none repeat scroll 0 0;
-    border: medium none;
-    border-radius: 3px;
-    color: #fff;
-    cursor: pointer;
-    font: bold 12px arial,helvetica,sans-serif;
-    padding: 6px 14px 7px;
-    text-align: center !important;
-    white-space: nowrap;
-} 
-.page-login                             {  }
-.login-container                        {  }
-.login-container {margin:170px auto; padding-left:32px; width:344px;}
-.login-form {padding:26px 49px 35px; text-align:left; background:#f7f7f7 none repeat scroll 0 0;}
-.login-form .input-left {padding:19px 0;}
-.login-form a{
-    color: #000;
-    text-decoration: none;
-}
-.login-form .input-right                { }
-.login-form .input-box input.input-text { background:#fbfbfb none repeat scroll 0 0;
-    border:1px solid #ddd;
-    height:26px;
-    width: 240px;}
-.login-form  input.input-text {
-    font-size: 18px;
-    padding: 1px;
-}
+#page-login                             { background:#f8f8f8; text-align:center; }
+.login-container                        { width:581px; margin:170px auto; padding-left:32px; background:url(images/login_logo.gif) no-repeat; }
+.login-form                             { padding:27px 57px 35px 57px; background:url(images/login_box_bg.jpg) no-repeat; text-align:left; }
+.login-form .input-left                 { float:left; }
+.login-form .input-right                { float:right; }
+.login-form .input-box input.input-text { width:224px; }
 .login-form h2                          { font-size:1.7em; font-weight:normal; }
 .login-form label                       { font-weight:bold; }
 .login-form .form-buttons               { margin:12px 0 0 0; clear:both; text-align:right; }
-.login-box .bottom                      { width:581px; height:5px; overflow:hidden; }
+.login-box .bottom                      { width:581px; height:5px; background:url(images/login_box_bottom.jpg) no-repeat; overflow:hidden; }
 .login-container .legal                 { margin:0; background:url(images/login_box_legal_bg.gif) no-repeat; padding:8px 8px 5px 8px; font-size:.95em; }
 .login-form .validation-advice          { margin:3px 0 0 0; }
 .login-form .forgot-link                { margin:0 17px 0 0; text-align:right; }
@@ -1624,6 +1594,7 @@ ul.super-product-attributes { padding-left:15px; }
 .wrap               { white-space:normal !important; }
 .no-float           { float:none !important; }
 .pointer            { cursor:pointer; }
+.half               { width:50%; }
 
 /* Color */
 .emph, .accent      { color:#eb5e00 !important; }

@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_Rss
- * @copyright  Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright  Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -34,22 +34,21 @@
  */
 class Mage_Rss_Helper_Data extends Mage_Core_Helper_Abstract
 {
-    /** @var Mage_Rss_Model_Session  */
-    private $_rssSession;
-
-    /** @var Mage_Admin_Model_Session  */
-    private $_adminSession;
-
-    public function __construct()
-    {
-        $this->_rssSession = Mage::getSingleton('rss/session');
-        $this->_adminSession = Mage::getSingleton('admin/session');;
-    }
-
     /**
      * Config path to RSS field
      */
     const XML_PATH_RSS_ACTIVE = 'rss/config/active';
+
+    protected $_rssSession;
+
+    protected $_adminSession;
+
+    public function __construct(array $params = array())
+    {
+        $this->_rssSession = isset($params['rss_session']) ? $params['rss_session'] : Mage::getSingleton('rss/session');
+        $this->_adminSession = isset($params['admin_session'])
+            ? $params['admin_session'] : Mage::getSingleton('admin/session');
+    }
 
     /**
      * Authenticate customer on frontend
@@ -57,15 +56,14 @@ class Mage_Rss_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function authFrontend()
     {
-        if ($this->_rssSession->isCustomerLoggedIn()) {
-            return;
-        }
-        list($username, $password) = $this->authValidate();
-        $customer = Mage::getModel('customer/customer')->authenticate($username, $password);
-        if ($customer && $customer->getId()) {
-            Mage::getSingleton('rss/session')->settCustomer($customer);
-        } else {
-            $this->authFailed();
+        if (!$this->_rssSession->isCustomerLoggedIn()) {
+            list($username, $password) = $this->authValidate();
+            $customer = Mage::getModel('customer/customer')->authenticate($username, $password);
+            if ($customer && $customer->getId()) {
+                $this->_rssSession->settCustomer($customer);
+            } else {
+                $this->authFailed();
+            }
         }
     }
 

@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_Checkout
- * @copyright  Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright  Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -85,6 +85,9 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
         if ($this->getFlag('', 'redirectLogin')) {
             return $this;
         }
+
+        // Disable flat for product collection
+        Mage::helper('catalog/product_flat')->disableFlatCollection(true);
 
         $action = strtolower($this->getRequest()->getActionName());
 
@@ -390,6 +393,29 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
      */
     public function billingAction()
     {
+        $collectTotals = false;
+        $quote = $this->_getCheckoutSession()->getQuote();
+
+        /**
+         *  Reset customer balance
+         */
+        if ($quote->getUseCustomerBalance()) {
+            $quote->setUseCustomerBalance(false);
+            $collectTotals = true;
+        }
+
+        /**
+         *  Reset reward points
+         */
+        if ($quote->getUseRewardPoints()) {
+            $quote->setUseRewardPoints(false);
+            $collectTotals = true;
+        }
+
+        if ($collectTotals) {
+            $quote->collectTotals()->save();
+        }
+
         if (!$this->_validateBilling()) {
             return;
         }

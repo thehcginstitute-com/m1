@@ -20,7 +20,7 @@
  *
  * @category    Varien
  * @package     Varien_Image
- * @copyright  Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright  Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -43,6 +43,20 @@ class Varien_Image_Adapter_Gd2 extends Varien_Image_Adapter_Abstract
      */
     protected $_resized = false;
 
+    public function __construct()
+    {
+        // Initialize shutdown function
+        register_shutdown_function(array($this, 'destruct'));
+    }
+
+    /**
+     * Destroy object image on shutdown
+     */
+    public function destruct()
+    {
+        @imagedestroy($this->_imageHandler);
+    }
+
     /**
      * Opens image file.
      *
@@ -60,12 +74,7 @@ class Varien_Image_Adapter_Gd2 extends Varien_Image_Adapter_Abstract
         $this->_imageHandler = call_user_func($this->_getCallback('create'), $this->_fileName);
     }
 
- 	/**
-	 * 2023-12-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * 1) "`Varien_Image_Adapter_Gd2::_isMemoryLimitReached()` incorrectly handles the `-1` value in Magento 1.9.1.0":
-	 * https://github.com/thehcginstitute-com/m1/issues/45
-	 * 2) The fix: https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/lib/Varien/Image/Adapter/Gd2.php#L77-L135
-	 *
+    /**
      * Checks whether memory limit is reached.
      *
      * @return bool
@@ -86,21 +95,16 @@ class Varien_Image_Adapter_Gd2 extends Varien_Image_Adapter_Abstract
     }
 
     /**
-	 * 2023-12-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 *  1) "`Varien_Image_Adapter_Gd2::_isMemoryLimitReached()` incorrectly handles the `-1` value in Magento 1.9.1.0":
-	 *  https://github.com/thehcginstitute-com/m1/issues/45
-	 *  2) The fix: https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/lib/Varien/Image/Adapter/Gd2.php#L77-L135
-	 *
      * Convert PHP memory limit value into bytes
      * Notation in value is supported only for PHP
      * Shorthand byte options are case insensitive
      *
      * @param string $memoryValue
      *
-     * @return int
-     *@throws Varien_Exception
+     * @throws Varien_Exception
      * @see http://php.net/manual/en/faq.using.php#faq.using.shorthandbytes
      *
+     * @return int
      */
     protected function _convertToByte($memoryValue)
     {
@@ -208,7 +212,7 @@ class Varien_Image_Adapter_Gd2 extends Varien_Image_Adapter_Abstract
 
     public function display()
     {
-        header("Content-type: ".$this->getMimeType());
+        header("Content-type: ".$this->getMimeTypeWithOutFileType());
         call_user_func($this->_getCallback('output'), $this->_imageHandler);
     }
 
@@ -617,10 +621,6 @@ class Varien_Image_Adapter_Gd2 extends Varien_Image_Adapter_Abstract
         $this->_imageSrcHeight = imagesy($this->_imageHandler);
     }
 
-    function __destruct()
-    {
-        @imagedestroy($this->_imageHandler);
-    }
 
     /*
      * Fixes saving PNG alpha channel
@@ -631,5 +631,15 @@ class Varien_Image_Adapter_Gd2 extends Varien_Image_Adapter_Abstract
         ImageColorTransparent($imageHandler, $background);
         imagealphablending($imageHandler, false);
         imagesavealpha($imageHandler, true);
+    }
+
+    /**
+     * Gives real mime-type with not considering file type field
+     *
+     * @return string
+     */
+    public function getMimeTypeWithOutFileType()
+    {
+        return $this->_fileMimeType;
     }
 }

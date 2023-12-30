@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_Page
- * @copyright  Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright  Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -252,10 +252,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template
         if ($mergeCallback && !is_callable($mergeCallback)) {
             $mergeCallback = null;
         }
-        // 2018-09-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-		if (is_null($mergeCallback)) {
-			$staticItems = self::addVersionStamp($staticItems);
-		}
+
         // get static files from the js folder, no need in lookups
         foreach ($staticItems as $params => $rows) {
             foreach ($rows as $name) {
@@ -291,21 +288,6 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template
         }
         return $html;
     }
-
-	/**          
-	 * 2018-09-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * @used-by _prepareStaticAndSkinElements()
-	 * @param array $staticItems
-	 * @return array
-	 */
-	private static function addVersionStamp(array $staticItems) {
-		foreach ($staticItems as &$rows) {
-			foreach ($rows as &$name) {
-				$name .= '?v=' . HCG_Core_StaticContent::V;
-			}
-		}
-		return $staticItems;
-	}
 
     /**
      * Classify HTML head item and queue it into "lines" array

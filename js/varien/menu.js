@@ -1,133 +1,132 @@
 /**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    Varien
+ * @package     js
+ * @copyright   Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
  * @classDescription simple Navigation with replacing old handlers
  * @param {String} id id of ul element with navigation lists
  * @param {Object} settings object with settings
  */
 var mainNav = function() {
-	var J = jQuery;
-	var mobile = function() {return J('.hcg-mobile-menu-icon').is(':visible');};
-	// 2018-09-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	// A tablet with a wide screen does not support the `mouseenter` / `mouseleave` events.
-	// https://stackoverflow.com/a/20293441
-	var touch = function() {
-		var r = false;
-		try {document.createEvent('TouchEvent'); r = true;} catch(e){}
-		return r;
-	};
-	var main = {
-		obj_nav:    $(arguments[0]) || $("nav"),
 
-		settings:   {
-			show_delay     :    0,
-			hide_delay     :    0,
-			_ie6           :    /MSIE 6.+Win/.test(navigator.userAgent),
-			_ie7           :    /MSIE 7.+Win/.test(navigator.userAgent)
-		},
+    var main = {
+        obj_nav :   $(arguments[0]) || $("nav"),
 
-		init: function(obj, level) {
-			obj.lists = obj.childElements();
-			obj.lists.each(function(el, ind) {
-				main.handlNavElement(el);
-				if((main.settings._ie6 || main.settings._ie7) && level) {
-					main.ieFixZIndex(el, ind, obj.lists.size());
-				}
-			});
-			if(main.settings._ie6 && !level) {
-				document.execCommand("BackgroundImageCache", false, true);
-			}
-		},
+        settings :  {
+            show_delay      :   0,
+            hide_delay      :   0,
+            _ie6            :   /MSIE 6.+Win/.test(navigator.userAgent),
+            _ie7            :   /MSIE 7.+Win/.test(navigator.userAgent)
+        },
 
-		handlNavElement: function(l) {
-			// 2018-09-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			var $l = J(l);
-			var f = function() {main.fireNavEvent(l);};
-			$l.on('click', 'i.fa', function(e) {
-				e.stopImmediatePropagation();
-				e.preventDefault();
-				main.fireNavEvent(l);
-			});
-			// 2018-09-26 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			// https://www.upwork.com/messages/rooms/room_83b901b4acc8f695bac43d90418f35f1/story_33428fce631cc30cf78c51e931c06eb7
-			// https://humanwhocodes.com/blog/2012/07/05/ios-has-a-hover-problem
-			if (!mobile() && !touch()) {
-				// 2018-09-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				// l.hover(f) does not work here for an unknown reason
-				l.on('mouseenter', f);
-				// 2018-09-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				// Chaining `.on().on()` does not work.
-				l.on('mouseleave', f);
-			}
-			if (l.down('ul')) {
-				main.init(l.down('ul'), true);
-			}
-		},
+        init :  function(obj, level) {
+            obj.lists = obj.childElements();
+            obj.lists.each(function(el,ind){
+                main.handlNavElement(el);
+                if((main.settings._ie6 || main.settings._ie7) && level){
+                    main.ieFixZIndex(el, ind, obj.lists.size());
+                }
+            });
+            if(main.settings._ie6 && !level){
+                document.execCommand("BackgroundImageCache", false, true);
+            }
+        },
 
-		fireNavEvent: function(e) {
-			var $e = J(e);
-			var c = 'open';
-			$e.toggleClass(c);
-			var open = $e.hasClass(c);
-			if (mobile()) {
-				J('i.fa', $e).toggleClass('fa-angle-down');
-			}
-			if (open) {
-				e.down('a').addClassName(c);
-				if (e.childElements()[1]) {
-					main.show(e.childElements()[1]);
-				}
-			}
-			else {
-				e.down('a').removeClassName(c);
-				if (e.childElements()[1]) {
-					main.hide(e.childElements()[1]);
-				}
-			}
-		},
+        handlNavElement :   function(list) {
+            if(list !== undefined){
+                list.onmouseover = function(){
+                    main.fireNavEvent(this,true);
+                };
+                list.onmouseout = function(){
+                    main.fireNavEvent(this,false);
+                };
+                if(list.down("ul")){
+                    main.init(list.down("ul"), true);
+                }
+            }
+        },
 
-		ieFixZIndex:  function(el, i, l) {
-			if(el.tagName.toString().toLowerCase().indexOf("iframe") == -1) {
-				el.style.zIndex = l - i;
-			} else {
-				el.onmouseover = "null";
-				el.onmouseout = "null";
-			}
-		},
+        ieFixZIndex : function(el, i, l) {
+            if(el.tagName.toString().toLowerCase().indexOf("iframe") == -1){
+                el.style.zIndex = l - i;
+            } else {
+                el.onmouseover = "null";
+                el.onmouseout = "null";
+            }
+        },
 
-		show:  function (sub_elm) {
-			if (sub_elm.hide_time_id) {
-				clearTimeout(sub_elm.hide_time_id);
-			}
-			sub_elm.show_time_id = setTimeout(function() {
-				if (!sub_elm.hasClassName("shown-sub")) {
-					sub_elm.addClassName("shown-sub");
-				}
-			}, main.settings.show_delay);
-		},
+        fireNavEvent :  function(elm,ev) {
+            if(ev){
+                elm.addClassName("over");
+                elm.down("a").addClassName("over");
+                if (elm.childElements()[1]) {
+                    main.show(elm.childElements()[1]);
+                }
+            } else {
+                elm.removeClassName("over");
+                elm.down("a").removeClassName("over");
+                if (elm.childElements()[1]) {
+                    main.hide(elm.childElements()[1]);
+                }
+            }
+        },
 
-		hide:  function (sub_elm) {
-			if (sub_elm.show_time_id) {
-				clearTimeout(sub_elm.show_time_id);
-			}
-			sub_elm.hide_time_id = setTimeout(function() {
-				if (sub_elm.hasClassName("shown-sub")) {
-					sub_elm.removeClassName("shown-sub");
-				}
-			}, main.settings.hide_delay);
-		}
+        show : function (sub_elm) {
+            if (sub_elm.hide_time_id) {
+                clearTimeout(sub_elm.hide_time_id);
+            }
+            sub_elm.show_time_id = setTimeout(function() {
+                if (!sub_elm.hasClassName("shown-sub")) {
+                    sub_elm.addClassName("shown-sub");
+                }
+            }, main.settings.show_delay);
+        },
 
-	};
-	if (arguments[1]) {
-		main.settings = Object.extend(main.settings, arguments[1]);
-	}
-	if (main.obj_nav) {
-		main.init(main.obj_nav, false);
-	}
+        hide : function (sub_elm) {
+            if (sub_elm.show_time_id) {
+                clearTimeout(sub_elm.show_time_id);
+            }
+            sub_elm.hide_time_id = setTimeout(function(){
+                if (sub_elm.hasClassName("shown-sub")) {
+                    sub_elm.removeClassName("shown-sub");
+                }
+            }, main.settings.hide_delay);
+        }
+
+    };
+    if (arguments[1]) {
+        main.settings = Object.extend(main.settings, arguments[1]);
+    }
+    if (main.obj_nav) {
+        main.init(main.obj_nav, false);
+    }
 };
 
 document.observe("dom:loaded", function() {
-	//run navigation without delays and with default id="#nav"
-	//mainNav();
+    //run navigation without delays and with default id="#nav"
+    //mainNav();
 
-	//run navigation with delays
-	mainNav("nav", {"show_delay":"100","hide_delay":"100"});
+    //run navigation with delays
+    mainNav("nav", {"show_delay":"100","hide_delay":"100"});
 });

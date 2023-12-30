@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_Customer
- * @copyright  Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright  Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -220,7 +220,6 @@ class Mage_Customer_Model_Session extends Mage_Core_Model_Session_Abstract
 
     public function setCustomerAsLoggedIn($customer)
     {
-    	//Mage::log(__METHOD__);
         $this->setCustomer($customer);
         $this->renewSession();
         Mage::getSingleton('core/session')->renewFormKey();
@@ -309,7 +308,6 @@ class Mage_Customer_Model_Session extends Mage_Core_Model_Session_Abstract
         $this->setId(null);
         $this->setCustomerGroupId(Mage_Customer_Model_Group::NOT_LOGGED_IN_ID);
         $this->getCookie()->delete($this->getSessionName());
-        //Mage::log(__METHOD__);
         Mage::getSingleton('core/session')->renewFormKey();
         return $this;
     }
