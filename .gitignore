@@ -49,3 +49,4 @@
 !/lib/**/*
 !/shell/**/*
 !/skin/**/*
+!/var/.htaccess
