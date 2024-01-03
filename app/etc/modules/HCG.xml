@@ -5,6 +5,15 @@
 			<active>true</active>
 			<codePool>local</codePool>
 		</HCG_Core>
+<!-- 2024-01-03
+"Transfer payment handling from `HCG_Core` to `HCG_Payment`": https://github.com/thehcginstitute-com/m1/issues/82 -->
+		<HCG_Payment>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<HCG_Core/>
+			</depends>
+		</HCG_Payment>
 		<HCG_WP>
 			<active>true</active>
 			<codePool>local</codePool>

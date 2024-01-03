@@ -1,0 +1,27 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+<!-- 2024-01-03
+"Transfer payment handling from `HCG_Core` to `HCG_Payment`": https://github.com/thehcginstitute-com/m1/issues/82 -->
+		<HCG_Payment>
+			<version>0.0.1</version>
+			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
+		</HCG_Payment>
+	</modules>
+	<default>
+<!-- 2023-12-16
+1) "Delete unused payment modules": https://github.com/thehcginstitute-com/m1/issues/47
+2) "«The requested Payment Method is not available»
+on viewing an order paid via a deleted payment module":
+https://github.com/thehcginstitute-com/m1/issues/52 -->
+		<payment>
+			<hcg_deleted>
+				<active>0</active>
+				<model>HCG_Payment_Deleted</model>
+				<order_status>pending</order_status>
+				<title>A deleted payment module</title>
+				<allowspecific>0</allowspecific>
+			</hcg_deleted>
+		</payment>
+	</default>
+</config>

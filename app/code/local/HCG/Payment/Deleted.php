@@ -4,7 +4,7 @@
 # 2) "«The requested Payment Method is not available»
 # on viewing an order paid via a deleted payment module":
 # https://github.com/thehcginstitute-com/m1/issues/52
-final class HCG_Core_Payment_Deleted extends Mage_Payment_Model_Method_Abstract {
+final class HCG_Payment_Deleted extends Mage_Payment_Model_Method_Abstract {
 	/**
 	 * 2023-12-16
 	 * @override
