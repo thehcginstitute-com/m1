@@ -24,4 +24,16 @@ https://github.com/thehcginstitute-com/m1/issues/52 -->
 			</hcg_deleted>
 		</payment>
 	</default>
+	<global>
+		<models>
+			<core>
+				<rewrite>
+<!-- 2024-01-03
+"Transfer `app/code/local/Mage/Payment/Model/Method/Free.php` to the `HCG_Payment` module":
+https://github.com/thehcginstitute-com/m1/issues/81 -->
+					<method_free>HCG_Payment_Backend</method_free>
+				</rewrite>
+			</core>
+		</models>
+	</global>
 </config>
