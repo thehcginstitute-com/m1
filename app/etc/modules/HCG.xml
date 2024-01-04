@@ -12,6 +12,7 @@
 			<codePool>local</codePool>
 			<depends>
 				<HCG_Core/>
+				<Mage_Payment/>
 			</depends>
 		</HCG_Payment>
 		<HCG_WP>
