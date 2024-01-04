@@ -443,7 +443,7 @@ class IWD_OnepageCheckoutSignature_Model_Order_Pdf_Invoice extends Mage_Sales_Mo
 	}
 
 	/**
-	 * 2024-01-04
+	 * 2024-01-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `app/code/local/Mage/Sales/Model/Order/Pdf` modifications":
 	 * https://github.com/thehcginstitute-com/m1/issues/84
 	 * @used-by \IWD_OnepageCheckoutSignature_Model_Order_Pdf_Invoice::insertSignature()
