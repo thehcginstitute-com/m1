@@ -15,6 +15,12 @@
 on viewing an order paid via a deleted payment module":
 https://github.com/thehcginstitute-com/m1/issues/52 -->
 		<payment>
+<!-- 2024-01-04
+1) "Restore the `ccsave` payment method (which has been deleted from Magento ≥ 1.9.4.0)":
+https://github.com/thehcginstitute-com/m1/issues/90
+2.1) https://github.com/OpenMage/magento-mirror/blob/1.9.1.0/app/code/core/Mage/Payment/etc/config.xml#L169-L177
+2.2) https://github.com/OpenMage/magento-mirror/blob/1.9.3.10/app/code/core/Mage/Payment/etc/config.xml#L169-L177
+2.3) https://github.com/OpenMage/magento-mirror/blob/1.9.4.0/app/code/core/Mage/Payment/etc/config.xml#L171-L213 -->
 			<ccsave>
 <!-- 2024-01-04
 1) "Restore the `ccsave` payment method (which has been deleted from Magento ≥ 1.9.4.0)":
@@ -26,6 +32,12 @@ $connection->delete(
 https://github.com/OpenMage/magento-mirror/blob/1.9.4.0/app/code/core/Mage/Payment/sql/payment_setup/upgrade-1.6.0.0-1.6.0.1.php#L33-L38
 -->
 				<active>1</active>
+				<allowspecific>0</allowspecific>
+				<cctypes>AE,VI,MC,DI</cctypes>
+				<group>offline</group>
+				<model>payment/method_ccsave</model>
+				<order_status>pending</order_status>
+				<title>Credit Card (saved)</title>
 			</ccsave>
 			<hcg_deleted>
 				<active>0</active>
