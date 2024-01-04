@@ -404,7 +404,7 @@ class IWD_OnepageCheckoutSignature_Model_Order_Pdf_Invoice extends Mage_Sales_Mo
 				$page->drawText($last_name, $right_margin, $top, 'UTF-8');
 				$font = $this->_setFontItalic($page, 10);
 				$page->setFillColor(new Zend_Pdf_Color_GrayScale(0));
-				$font = $this->_setFontHarlowItalic($page, 10);
+				$font = $this->setFontHarlowItalic($page, 10);
 				$page->setFillColor(new Zend_Pdf_Color_Html('#1f497d'));
 				$page->drawText(Mage::helper('sales')->__($answer['value']), 35, ($top-15), 'UTF-8');
 				$font = $this->_setFontItalic($page, 10);
@@ -441,4 +441,16 @@ class IWD_OnepageCheckoutSignature_Model_Order_Pdf_Invoice extends Mage_Sales_Mo
 
 		$translate->setTranslateInline(true);
 	}
-   }
+
+	/**
+	 * 2024-01-04
+	 * "Refactor `app/code/local/Mage/Sales/Model/Order/Pdf` modifications":
+	 * https://github.com/thehcginstitute-com/m1/issues/84
+	 * @used-by \IWD_OnepageCheckoutSignature_Model_Order_Pdf_Invoice::insertSignature()
+	 */
+	private function setFontHarlowItalic($object, $size = 7) {
+		$font = Zend_Pdf_Font::fontWithPath(Mage::getBaseDir() . '/lib/Harlow/ARBERKLEY.ttf');
+		$object->setFont($font, $size);
+		return $font;
+	}
+}
