@@ -15,6 +15,18 @@
 on viewing an order paid via a deleted payment module":
 https://github.com/thehcginstitute-com/m1/issues/52 -->
 		<payment>
+			<ccsave>
+<!-- 2024-01-04
+1) "Restore the `ccsave` payment method (which has been deleted from Magento ≥ 1.9.4.0)":
+https://github.com/thehcginstitute-com/m1/issues/90
+2) The method has been forcely disabled in Magento 1.9.4.0:
+$connection->delete(
+	$this->getTable('core_config_data'), $connection->prepareSqlCondition('path', array('like' => 'payment/ccsave/active'))
+);
+https://github.com/OpenMage/magento-mirror/blob/1.9.4.0/app/code/core/Mage/Payment/sql/payment_setup/upgrade-1.6.0.0-1.6.0.1.php#L33-L38
+-->
+				<active>1</active>
+			</ccsave>
 			<hcg_deleted>
 				<active>0</active>
 				<model>HCG_Payment_Deleted</model>
@@ -26,18 +38,18 @@ https://github.com/thehcginstitute-com/m1/issues/52 -->
 	</default>
 	<global>
 		<models>
-			<core>
+			<payment>
 				<rewrite>
 <!-- 2024-01-04
 "Refactor `app/code/community/Mage/Payment/Model/Method/Cc.php` modifications":
-ttps://github.com/thehcginstitute-com/m1/issues/89 -->
+https://github.com/thehcginstitute-com/m1/issues/89 -->
 					<method_ccsave>HCG_Payment_VisaOrMasterCard</method_ccsave>
 <!-- 2024-01-03
 "Transfer `app/code/local/Mage/Payment/Model/Method/Free.php` to the `HCG_Payment` module":
 https://github.com/thehcginstitute-com/m1/issues/81 -->
 					<method_free>HCG_Payment_Backend</method_free>
 				</rewrite>
-			</core>
+			</payment>
 		</models>
 	</global>
 </config>
