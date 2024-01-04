@@ -104,7 +104,7 @@ class IWD_OnepageCheckoutSignature_Model_Order_Pdf_Invoice extends Mage_Sales_Mo
 	 * @param  array $invoices
 	 * @return Zend_Pdf
 	 */
-	public function getPdf($invoices = array())
+	function getPdf($invoices = array())
 	{	if(Mage::getVersion()>='1.7')
 		 {   $this->_beforeGetPdf();
 			$this->_initRenderer('invoice');

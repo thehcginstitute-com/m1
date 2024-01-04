@@ -160,7 +160,7 @@ class IWD_OnepageCheckoutSignature_Helper_Data extends Mage_Core_Helper_Abstract
 	  imagefilledpolygon($img, $array, (count($array)/2), $colour);
 	}
 
-	public function ifEnabled()
+	function ifEnabled()
 	{
 		if (Mage::getStoreConfig('opcsignature/general/enabled'))
 			return true;

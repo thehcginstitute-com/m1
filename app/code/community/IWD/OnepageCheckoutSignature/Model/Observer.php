@@ -1,7 +1,7 @@
 <?php
 class IWD_OnepageCheckoutSignature_Model_Observer
 {
-	public function addSignature($observer)
+	function addSignature($observer)
 	{
 		$request = Mage::app()->getRequest();
 		$signature_name = '';
@@ -38,7 +38,7 @@ class IWD_OnepageCheckoutSignature_Model_Observer
 			Mage::log('opc signature - '.$e);
 		}
 	}
-	public function checkRequiredModules($observer){
+	function checkRequiredModules($observer){
 		$cache = Mage::app()->getCache();
 		if (Mage::getSingleton('admin/session')->isLoggedIn()) {
 			if (!Mage::getConfig()->getModuleConfig('IWD_All')->is('active', 'true')){
