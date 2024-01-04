@@ -791,7 +791,14 @@ abstract class Mage_Sales_Model_Order_Pdf_Abstract extends Varien_Object
         $object->setFont($font, $size);
         return $font;
     }
-	 protected function _setFontHarlowItalic($object, $size = 7)
+
+	/**
+	 * 2024-01-04
+	 * "Refactor `app/code/local/Mage/Sales/Model/Order/Pdf` modifications":
+	 * https://github.com/thehcginstitute-com/m1/issues/84
+	 * @used-by \IWD_OnepageCheckoutSignature_Model_Order_Pdf_Invoice::insertSignature()
+	 */
+	protected function _setFontHarlowItalic($object, $size = 7)
     {
         $font = Zend_Pdf_Font::fontWithPath(Mage::getBaseDir() . '/lib/Harlow/ARBERKLEY.ttf');
         $object->setFont($font, $size);
