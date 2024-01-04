@@ -241,11 +241,8 @@ class IWD_OnepageCheckoutSignature_Model_Order_Pdf_Invoice extends Mage_Sales_Mo
     	return $pdf;
     }
    }
-   protected function insertSignature(&$page, $order)
 
-    {
-    	
-
+   protected function insertSignature(&$page, $order) {
     	$this->y = $this->y ? $this->y : 815;
     	$answer =Mage::helper('opcsignature')->getSignature($order);
     	if($answer)
