@@ -729,7 +729,11 @@ abstract class Mage_Sales_Model_Order_Pdf_Abstract extends Varien_Object
 
     /**
      * Draw Item process
-     *
+	 * 2024-01-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 1) "Refactor `app/code/local/Mage/Sales/Model/Order/Pdf` modifications":
+	 * https://github.com/thehcginstitute-com/m1/issues/84
+	 * 2) The method's code is inherited from outdated Magento versions: e.g.: 1.4.0.1:
+	 * https://github.com/OpenMage/magento-mirror/blob/1.4.0.1/app/code/core/Mage/Sales/Model/Order/Pdf/Abstract.php#L547-L560
      * @param  Varien_Object $item
      * @param  Zend_Pdf_Page $page
      * @param  Mage_Sales_Model_Order $order
