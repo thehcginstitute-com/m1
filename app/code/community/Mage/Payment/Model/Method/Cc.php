@@ -17,10 +17,9 @@ class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract {
 	 * @used-by Mage_Sales_Model_Quote_Payment::_beforeSave()
 	 */
 	function prepareSave():self {
-		$is_enable = Mage::getStoreConfig('cvv/group_displaycvv/displaycvv_select');
 		$info = $this->getInfoInstance();
 		if ($this->_canSaveCc)  {
-			if ($is_enable == 1) {
+			if (Mage::getStoreConfig('cvv/group_displaycvv/displaycvv_select')) {
 				$info->setCcNumberEnc($info->encrypt($info->getCcNumber()));
 				$info->setCcCid_enc($info->getCcCid());
 			}
