@@ -10,7 +10,7 @@
  * @see Mage_Paypal_Model_Direct (unused)
  */
 class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract {
-	function prepareSave() {
+	function prepareSave():self {
 		$is_enable = Mage::getStoreConfig('cvv/group_displaycvv/displaycvv_select');
 		$info = $this->getInfoInstance();
 		if ($this->_canSaveCc)  {
