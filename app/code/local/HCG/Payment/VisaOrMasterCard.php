@@ -1,14 +1,17 @@
 <?php
-# 2024-01-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Refactor `app/code/community/Mage/Payment/Model/Method/Cc.php` modifications":
-# https://github.com/thehcginstitute-com/m1/issues/89
-class OX_AmexSavedCC_Model_Method_Ccsave extends HCG_Payment_BankCard {
+/**
+ * 2024-01-04
+ * 1) "Refactor `app/code/community/Mage/Payment/Model/Method/Cc.php` modifications":
+ * https://github.com/thehcginstitute-com/m1/issues/89
+ * 2) This class overrides @see Mage_Payment_Model_Method_Ccsave
+ */
+final class HCG_Payment_VisaOrMasterCard extends HCG_Payment_BankCard {
 	/**
 	 * 2024-01-04
 	 * @see Mage_Payment_Model_Method_Ccsave::$_code
 	 * @var string
 	 */
-	protected $_code = 'amexsavedcc';
+	protected $_code = 'ccsave';
 
 	/**
 	 * 2024-01-04
