@@ -1207,6 +1207,25 @@
             </old_fields_map>
             <quote>
                 <totals>
+<!-- 2019-05-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+1) «Fix the coupon code application scenario on the Magento 1 checkout page»: https://www.upwork.com/ab/f/contracts/22124875
+2) https://community.magento.com/t5/Magento-1-x-Technical-Issues/Discount-not-applied-to-Grand-Total/m-p/55262/highlight/true#M5014
+2024-01-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Port the modifications of `app/code/core/Mage/Sales/etc/config.xml` to Magento 1.9.4.5":
+https://github.com/thehcginstitute-com/m1/issues/99
+2024-01-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+1) This patch places the `discount` key before all other keys
+in the `$totalsConfig` array in the Mage_Sales_Model_Quote_Address_Total_Collector::_initModels() method:
+	$totalsConfig = Mage::getConfig()->getNode($this->_totalsConfigNode);
+https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/code/core/Mage/Sales/Model/Quote/Address/Total/Collector.php#L140
+2) We can not refactor it to a custom module. https://github.com/thehcginstitute-com/m1/issues/131 -->
+					<discount>
+<!-- 2024-01-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+The really used `discount` value:
+https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/code/core/Mage/SalesRule/etc/config.xml#L140-L144 -->
+						<class>THE VALUE IS NOT USED</class>
+						<after>THE VALUE IS NOT USED</after>
+					</discount>
                     <nominal>
                         <class>sales/quote_address_total_nominal</class>
                         <before>subtotal</before>
