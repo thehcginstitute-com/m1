@@ -52,6 +52,10 @@ https://github.com/OpenMage/magento-mirror/blob/1.9.4.0/app/code/core/Mage/Payme
 		<models>
 			<payment>
 				<rewrite>
+<!-- 2024-01-06
+"Port the modifications of `app/code/core/Mage/Payment/Model/Info.php` to Magento 1.9.4.5":
+https://github.com/thehcginstitute-com/m1/issues/98 -->
+					<info>HCG_Payment_Model_Info</info>
 <!-- 2024-01-04
 "Refactor `app/code/community/Mage/Payment/Model/Method/Cc.php` modifications":
 https://github.com/thehcginstitute-com/m1/issues/89 -->

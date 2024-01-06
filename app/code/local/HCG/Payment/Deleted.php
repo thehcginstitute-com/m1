@@ -10,18 +10,18 @@ final class HCG_Payment_Deleted extends Mage_Payment_Model_Method_Abstract {
 	 * @override
 	 * @see Mage_Payment_Model_Method_Abstract::getTitle()
 	 */
-	function getTitle():string {return "A deleted payment module: «{$this->_m}»";}
+	function getTitle():string {return "A deleted payment method: «{$this->_m}»";}
 
 	/**
 	 * 2023-12-16
-	 * @used-by Mage_Payment_Model_Info::getMethodInstance()
+	 * @used-by HCG_Payment_Model_Info::getMethodInstance()
 	 */
-	function setOriginalModule(string $m):void {$this->_m = $m;}
+	function setOriginalMethod(string $m):void {$this->_m = $m;}
 
 	/**
 	 * 2023-12-16
 	 * @used-by self::$_code
-	 * @used-by Mage_Payment_Model_Info::getMethodInstance()
+	 * @used-by HCG_Payment_Model_Info::getMethodInstance()
 	 */
 	const CODE = 'hcg_deleted';
 
@@ -49,7 +49,7 @@ final class HCG_Payment_Deleted extends Mage_Payment_Model_Method_Abstract {
 	/**
 	 * 2023-12-16
 	 * @used-by self::getTitle()
-	 * @used-by self::setOriginalModule()
+	 * @used-by self::setOriginalMethod()
 	 * @var string
 	 */
 	private $_m;
