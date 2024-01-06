@@ -5,7 +5,7 @@ use Mage_Core_Block_Template as B;
  * «Make the header message editable in the Magento 1 backend via a CMS block»
  * https://www.upwork.com/ab/f/contracts/21957154
  */
-class HCG_Core_Banner {
+final class HCG_Core_Banner {
 	/**
 	 * 2019-04-11
 	 * @return string
