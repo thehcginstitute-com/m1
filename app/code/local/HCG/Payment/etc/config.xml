@@ -4,7 +4,7 @@
 <!-- 2024-01-03
 "Transfer payment handling from `HCG_Core` to `HCG_Payment`": https://github.com/thehcginstitute-com/m1/issues/82 -->
 		<HCG_Payment>
-			<version>0.0.1</version>
+			<version>1.0.0</version>
 			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
 		</HCG_Payment>
 	</modules>
