@@ -1,0 +1,79 @@
+<?php
+use HCG_Core_StaticContent as SC;
+# 2024-01-06
+# "Port the modifications of `app/code/core/Mage/Page/Block/Html/Head.php` to Magento 1.9.4.5":
+# https://github.com/thehcginstitute-com/m1/issues/97
+class HCG_Core_Block_Html_Head extends Mage_Page_Block_Html_Head {
+	/**
+	 * 2024-01-06
+	 * @override
+	 * @see Mage_Page_Block_Html_Head::_prepareStaticAndSkinElements()
+	 * @used-by Mage_Page_Block_Html_Head::getCssJsHtml()
+	 * @param string $format - HTML element format for sprintf('<element src="%s"%s />', $src, $params)
+	 * @param array $staticItems - array of relative names of static items to be grabbed from js/ folder
+	 * @param array $skinItems - array of relative names of skin items to be found in skins according to design config
+	 * @param callback $mergeCallback
+	 */
+	protected function &_prepareStaticAndSkinElements(
+		$format, array $staticItems, array $skinItems, $mergeCallback = null
+	):string {
+		$designPackage = Mage::getDesign();
+		$baseJsUrl = Mage::getBaseUrl('js');
+		$items = [];
+		if ($mergeCallback && !is_callable($mergeCallback)) {
+			$mergeCallback = null;
+		}
+        // 2018-09-24 BEGIN OF THE PATCH
+		if (is_null($mergeCallback)) {
+			$staticItems = self::addVersionStamp($staticItems);
+		}
+		// 2018-09-24 END OF THE PATCH
+		// get static files from the js folder, no need in lookups
+		foreach ($staticItems as $params => $rows) {
+			foreach ($rows as $name) {
+				$items[$params][] = $mergeCallback ? Mage::getBaseDir() . DS . 'js' . DS . $name : $baseJsUrl . $name;
+			}
+		}
+		// lookup each file basing on current theme configuration
+		foreach ($skinItems as $params => $rows) {
+			foreach ($rows as $name) {
+				$items[$params][] = $mergeCallback ? $designPackage->getFilename($name, array('_type' => 'skin'))
+					: $designPackage->getSkinUrl($name, array());
+			}
+		}
+		$html = '';
+		foreach ($items as $params => $rows) {
+			// attempt to merge
+			$mergedUrl = false;
+			if ($mergeCallback) {
+				$mergedUrl = call_user_func($mergeCallback, $rows);
+			}
+			// render elements
+			$params = trim($params);
+			$params = $params ? ' ' . $params : '';
+			if ($mergedUrl) {
+				$html .= sprintf($format, $mergedUrl, $params);
+			} else {
+				foreach ($rows as $src) {
+					$html .= sprintf($format, $src, $params);
+				}
+			}
+		}
+		return $html;
+	}
+
+	/**
+	 * 2018-09-24
+	 * @used-by self::_prepareStaticAndSkinElements()
+	 * @param array $staticItems
+	 * @return array
+	 */
+	private static function addVersionStamp(array $staticItems) {
+		foreach ($staticItems as &$rows) {
+			foreach ($rows as &$name) {
+				$name .= '?v=' . SC::V;
+			}
+		}
+		return $staticItems;
+	}
+}
