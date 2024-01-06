@@ -27,17 +27,8 @@
 			</checkout>
 		</blocks>
 	</global>
-	
-	<frontend>
-		<layout>
-			<updates>
-				<ig_flatshipping5>
-					<file>ig_flatshipping5.xml</file>
-				</ig_flatshipping5>
-			</updates>
-		</layout>
-	</frontend>
-	
+<!-- 2024-01-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"`ig_flatshipping5.xml` is unused": https://github.com/thehcginstitute-com/m1/issues/132 -->
 	<default>
 		<carriers>
 			<flatrate>
