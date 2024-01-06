@@ -26,6 +26,17 @@ https://github.com/thehcginstitute-com/m1/issues/97 -->
 				<Mage_Payment/>
 			</depends>
 		</HCG_Payment>
+<!-- 2024-01-06
+"Port the modifications of `app/code/core/Mage/Sales/etc/config.xml` to Magento 1.9.4.5":
+https://github.com/thehcginstitute-com/m1/issues/99 -->
+		<HCG_Sales>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<HCG_Core/>
+				<Mage_Sales/>
+			</depends>
+		</HCG_Sales>
 		<HCG_WP>
 			<active>true</active>
 			<codePool>local</codePool>
