@@ -3,7 +3,7 @@ use HCG_Core_StaticContent as SC;
 # 2024-01-06
 # "Port the modifications of `app/code/core/Mage/Page/Block/Html/Head.php` to Magento 1.9.4.5":
 # https://github.com/thehcginstitute-com/m1/issues/97
-class HCG_Core_Block_Html_Head extends Mage_Page_Block_Html_Head {
+class HCG_Page_Block_Html_Head extends Mage_Page_Block_Html_Head {
 	/**
 	 * 2024-01-06
 	 * @override

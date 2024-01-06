@@ -1,0 +1,19 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+		<HCG_Page>
+			<version>1.0.0</version>
+			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
+		</HCG_Page>
+	</modules>
+	<global>
+		<blocks>
+			<page>
+<!-- 2024-01-06
+"Port the modifications of `app/code/core/Mage/Page/Block/Html/Head.php` to Magento 1.9.4.5":
+https://github.com/thehcginstitute-com/m1/issues/97 -->
+				<html_head>HCG_Page_Block_Html_Head</html_head>
+			</page>
+		</blocks>
+	</global>
+</config>
