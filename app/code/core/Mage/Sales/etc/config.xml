@@ -1224,7 +1224,6 @@ https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/code/core/Mage/Sales
 The really used `discount` value:
 https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/code/core/Mage/SalesRule/etc/config.xml#L140-L144 -->
 						<class>THE VALUE IS NOT USED</class>
-						<after>THE VALUE IS NOT USED</after>
 					</discount>
                     <nominal>
                         <class>sales/quote_address_total_nominal</class>
