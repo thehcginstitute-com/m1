@@ -5,20 +5,7 @@
 use Mage_Payment_Block_Info as B; /** @var B $this */
 ?>
 <p><strong><?php echo $this->escapeHtml($this->getMethod()->getTitle()) ?></strong></p>
-
-<?php if ($_specificInfo = $this->getSpecificInformation()):?>
-<table>
-	<tbody>
-	<?php foreach ($_specificInfo as $_label => $_value):?>
-		<tr>
-			<th><strong><?php echo $this->escapeHtml($_label)?>:</strong></th>
-		</tr>
-		<tr>
-			<td><?php echo nl2br(implode($this->getValueAsArray($_value, true), "\n"))?></td>
-		</tr>
-	<?php endforeach; ?>
-	</tbody>
-</table>
-<?php endif;?>
-
+<!-- 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ "Hide bank card credentials from its owner on order information screens":
+ https://github.com/thehcginstitute-com/m1/issues/143 -->
 <?php echo $this->getChildHtml()?>
