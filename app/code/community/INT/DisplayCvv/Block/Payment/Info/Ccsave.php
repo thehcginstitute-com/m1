@@ -1,7 +1,7 @@
 <?php
 class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_Ccsave
 {
-  public function __construct()
+  function __construct()
   {
 	$this->_controller = 'adminhtml_displaycvv';
 	$this->_blockGroup = 'displaycvv';

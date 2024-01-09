@@ -2,7 +2,7 @@
 
 class INT_DisplayCvv_Helper_Data extends Mage_Core_Helper_Abstract
 {
-    public function removeCVV($payement_quote_id)
+    function removeCVV($payement_quote_id)
     {
         $connection = Mage::getSingleton('core/resource')->getConnection('core_read');
         
