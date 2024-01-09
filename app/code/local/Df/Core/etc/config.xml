@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!-- 2023-07-10 -->
+<config>
+	<modules>
+		<Df_Core>
+			<author>Dmitrii Fediuk</author>
+			<url>https://upwork.com/fl/mage2pro</url>
+			<version>0.0.1</version>
+		</Df_Core>
+	</modules>
+	<global>
+		<events>
+			<controller_front_init_before>
+				<observers>
+					<Df_Core>
+						<class>Df\Core\Boot</class>
+						<method>controller_front_init_before</method>
+					</Df_Core>
+				</observers>
+			</controller_front_init_before>
+			<default>
+				<observers>
+					<Df_Core>
+						<class>Df\Core\Boot</class>
+						<method>_default</method>
+					</Df_Core>
+				</observers>
+			</default>
+			<resource_get_tablename>
+				<observers>
+					<Df_Core>
+						<class>Df\Core\Boot</class>
+						<method>resource_get_tablename</method>
+					</Df_Core>
+				</observers>
+			</resource_get_tablename>
+		</events>
+	</global>
+</config>
