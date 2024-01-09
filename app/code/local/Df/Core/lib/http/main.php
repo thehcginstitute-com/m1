@@ -1,5 +1,15 @@
 <?php
 /**
+ * 2024-01-09 "Port `df_request()`": https://github.com/thehcginstitute-com/m1/issues/141
+ * @param string|string[] $k [optional]
+ * @param string|null|callable $d [optional]
+ * @return string|array(string => string)
+ */
+function df_request($k = '', $d = null) {$o = df_request_o(); return df_nes($k) ? $o->getParams() : (
+	is_array($k) ? dfa($o->getParams(), $k) : df_if1(df_nes($r = $o->getParam($k)), $d, $r)
+);}
+
+/**
  * 2016-12-25
  * The @uses \Laminas\Http\Request::getHeader() method is insensitive to the argument's letter case:
  * @see \Laminas\Http\Headers::createKey()
