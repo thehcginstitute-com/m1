@@ -1,36 +1,17 @@
 <?php
-/**
- * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Open Software License (OSL 3.0)
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magento.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magento.com for more information.
- *
- * @category    Mage
- * @package     Mage_Payment
- * @copyright  Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */
-
-/**
- * Payment information model
- *
- * @category   Mage
- * @package    Mage_Payment
- * @author      Magento Core Team <core@magentocommerce.com>
- */
+# 2023-12-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "«The requested Payment Method is not available» on viewing an order paid via a deleted payment module":
+# https://github.com/thehcginstitute-com/m1/issues/52
+# 2024-01-06
+# "Port the modifications of `app/code/core/Mage/Payment/Model/Info.php` to Magento 1.9.4.5":
+# https://github.com/thehcginstitute-com/m1/issues/98
+# 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# The `Mage_Payment_Model_Info` class can not be effectively overridden
+# because some Magento core classes are inherited from it (e.g. `Magento_Sales_Model_Order_Payment`)
+# https://github.com/thehcginstitute-com/m1/issues/136
+use HCG_Payment_Deleted as D;
+use Mage_Payment_Helper_Data as H;
+use Mage_Payment_Model_Method_Abstract as M;
 class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
 {
     /**
@@ -62,28 +43,42 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
         return parent::getData($key, $index);
     }
 
-    /**
-     * Retrieve payment method model object
-     *
-     * @return Mage_Payment_Model_Method_Abstract
-     * @throws Mage_Core_Exception
-     */
-    public function getMethodInstance()
-    {
-        if (!$this->hasMethodInstance()) {
-            if ($this->getMethod()) {
-                $instance = Mage::helper('payment')->getMethodInstance($this->getMethod());
-                if ($instance) {
-                    $instance->setInfoInstance($this);
-                    $this->setMethodInstance($instance);
-                    return $instance;
-                }
-            }
-            Mage::throwException(Mage::helper('payment')->__('The requested Payment Method is not available.'));
-        }
-
-        return $this->_getData('method_instance');
-    }
+	/**
+	 * 2023-12-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "«The requested Payment Method is not available» on viewing an order paid via a deleted payment module":
+	 * https://github.com/thehcginstitute-com/m1/issues/52
+	 * 2024-01-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Port the modifications of `app/code/core/Mage/Payment/Model/Info.php` to Magento 1.9.4.5":
+	 * https://github.com/thehcginstitute-com/m1/issues/98
+	 * 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * The `Mage_Payment_Model_Info` class can not be effectively overridden
+	 * because some Magento core classes are inherited from it (e.g. `Magento_Sales_Model_Order_Payment`)
+	 * https://github.com/thehcginstitute-com/m1/issues/136
+	 */
+	function getMethodInstance():M {/** @var M $r */
+		if ($this->hasMethodInstance()) {
+			$r = $this->_getData('method_instance');
+		}
+		else {
+			$h = Mage::helper('payment'); /** @var H $h */
+			/** @var string $m */
+			if (!($m = $this->getMethod())) {
+				Mage::throwException($h->__('The requested Payment Method is not available.'));
+			}
+			;
+			# 2023-12-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "«The requested Payment Method is not available» on viewing an order paid via a deleted payment module":
+			# https://github.com/thehcginstitute-com/m1/issues/52
+			if (!($r = $h->getMethodInstance($m))) {
+				$this->setMethod(D::CODE);
+				$r = $h->getMethodInstance(D::CODE); /** @var D $r */
+				$r->setOriginalMethod($m);
+			}
+			$r->setInfoInstance($this);
+			$this->setMethodInstance($r);
+		}
+		return $r;
+	}
 
     /**
      * Encrypt data

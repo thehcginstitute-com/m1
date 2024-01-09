@@ -21,7 +21,7 @@ final class HCG_Payment_Deleted extends Mage_Payment_Model_Method_Abstract {
 	/**
 	 * 2023-12-16
 	 * @used-by self::$_code
-	 * @used-by HCG_Payment_Model_Info::getMethodInstance()
+	 * @used-by Mage_Payment_Model_Info::getMethodInstance()
 	 */
 	const CODE = 'hcg_deleted';
 
