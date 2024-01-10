@@ -55,7 +55,11 @@ function dfc($o, Closure $f, array $a = [], $unique = true, $offset = 0) {
 	 * @var mixed $r
 	 */
 	static $hasWeakMap; /** @var bool $hasWeakMap */
-	if (!($hasWeakMap = !is_null($hasWeakMap) ? $hasWeakMap : @class_exists('WeakMap'))) {
+	# 2024-01-10
+	# 1) «include(WeakMap.php): failed to open stream: No such file or directory»:
+	# https://github.com/thehcginstitute-com/m1/issues/151
+	# 2) The previous (wrong) code:	`@class_exists('WeakMap')`.
+	if (!($hasWeakMap = !is_null($hasWeakMap) ? $hasWeakMap : class_exists('WeakMap', false))) {
 		# 2017-01-12 ... works correctly here: https://3v4l.org/0shto
 		# 2022-10-17 The ternary operator works correctly here: https://3v4l.org/MutM4
 		$r = property_exists($o, $k) ? $o->$k : $o->$k = $f(...$a);
