@@ -17,6 +17,7 @@ function df_log($v, $m = null, array $d = [], string $suf = ''):void {
 
 /**
  * 2017-01-11
+ * 2024-01-10 "Port the latest version of `df_log_l` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/169
  * @used-by df_log()
  * @used-by df_log_e()
  * @used-by dfp_report()
