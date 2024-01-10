@@ -62,7 +62,13 @@
     <?php if($_cartQty && $this->isPossibleOnepageCheckout()): ?>
     <div class="actions">
         <?php echo $this->getChildHtml('extra_actions') ?>
-        <button type="button" title="<?php echo $this->__('Checkout') ?>" class="button" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><span><span><?php echo $this->__('Checkout') ?></span></span></button>
+        <button type="button" title="<?php
+			# 2024-01-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Port the 1.9.1.0 → 1.9.4.5 changes of `app/design/frontend/base/default/template/checkout/cart/sidebar.phtml`
+			# to `app/design/frontend/default/mobileshoppe/template/checkout/cart/sidebar.phtml`":
+			# https://github.com/thehcginstitute-com/m1/issues/148
+			echo Mage::helper('core')->quoteEscape($this->__('Checkout'))
+		?>" class="button" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><span><span><?php echo $this->__('Checkout') ?></span></span></button>
     </div>
     <?php endif ?>
     <?php $_items = $this->getRecentItems() ?>
