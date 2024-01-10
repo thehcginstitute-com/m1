@@ -53,3 +53,29 @@ function dfa_deep(array $a, $path = '', $d = null) {/** @var mixed|null $r */ /*
 	}
 	return is_null($r) ? $d : $r;
 }
+
+/**
+ * 2015-12-07
+ * 2024-01-10 "Port `dfa_deep_set` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/156
+ * @used-by \Df\Core\O::offsetSet()
+ * @param array(string => mixed) $array
+ * @param string|string[] $path
+ * @param mixed $value
+ * @return array(string => mixed)
+ */
+function dfa_deep_set(array &$array, $path, $value):array {
+	$pathParts = df_explode_xpath($path); /** @var string[] $pathParts */
+	$a = &$array; /** @var array(string => mixed) $a */
+	while ($pathParts) {
+		$key = array_shift($pathParts); /** @var string $key */
+		if (!isset($a[$key])) {
+			$a[$key] = [];
+		}
+		$a = &$a[$key];
+		if (!is_array($a)) {
+			$a = [];
+		}
+	}
+	$a = $value;
+	return $array;
+}
