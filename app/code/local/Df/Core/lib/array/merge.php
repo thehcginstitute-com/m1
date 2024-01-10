@@ -93,3 +93,63 @@ function dfa_merge_numeric(array $r, array $b) {
 	}
 	return $r;
 }
+
+/**
+ * 2015-02-18
+ * 1) По смыслу функция @see dfa_merge_r() аналогична методу @see \Magento\Framework\Simplexml\Element::extend()
+ * и предназначена для слияния настроечных опций,
+ * только, в отличие от @see \Magento\Framework\Simplexml\Element::extend(),
+ * @see dfa_merge_r() сливает не XML, а ассоциативные массивы.
+ * 3) Вместо @see dfa_merge_r() нельзя использовать ни
+ * @see array_replace_recursive(), ни @see array_merge_recursive(),
+ * ни тем более @see array_replace() и @see array_merge()
+ * 3.1) Нерекурсивные аналоги отметаются сразу, потому что не способны сливать вложенные структуры.
+ * 3.2) Но и стандартные рекурсивные функции тоже не подходят:
+ * 		3.2.1) array_merge_recursive(['width' => 180], ['width' => 200]) вернёт: ['width' => [180, 200]]
+ * 		https://php.net/manual/function.array-merge-recursive.php
+ * 		3.2.2) Наша функция dfa_merge_r(['width' => 180], ['width' => 200]) вернёт ['width' => 200]
+ * 		3.2.3) array_replace_recursive(['x' => ['A', 'B']], ['x' => 'C']) вернёт: ['x' => ['С', 'B']]
+ * 		https://php.net/manual/function.array-replace-recursive.php
+ * 		3.2.4) Наша функция dfa_merge_r(['x' => ['A', 'B']], ['x' => 'C']) вернёт ['x' => 'C']
+ * 2018-11-13
+ * 1) dfa_merge_r(
+ *		['TBCBank' => ['1111' => ['a' => 'b']]]
+ *		,['TBCBank' => ['2222' => ['c' => 'd']]]
+ * )
+ * is: 'TBCBank' => ['1111' => ['a' => 'b'], '2222' => ['c' => 'd']]
+ * 2) dfa_merge_r(
+ *		['TBCBank' => [1111 => ['a' => 'b']]]
+ *		,['TBCBank' => [2222 => ['c' => 'd']]]
+ * )
+ * is: 'TBCBank' => [1111 => ['a' => 'b'], 2222 => ['c' => 'd']]
+ * 2024-01-11 "Port `dfa_merge_r` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/179
+ * @used-by df_ci_add()
+ * @used-by dfa_merge_r()
+ * @used-by df_log()
+ * @used-by df_log_l()
+ * @used-by df_oi_add()
+ * @used-by df_sentry()
+ * @param array(string => mixed) $old
+ * @param array(string => mixed) $new
+ * @return array(string => mixed)
+ */
+function dfa_merge_r(array $old, array $new):array {
+	# Здесь ошибочно было бы $r = [], потому что если ключ отсутствует в $new, то тогда он не попадёт в $r.
+	$r = $old; /** @var array(string => mixed) $r */
+	foreach ($new as $k => $newV) {/** @var int|string $k */ /** @var mixed $newV */
+		if (is_null($newV))	{
+			unset($r[$k]); ## 2016-08-23
+		}
+		else {
+			/** 2023-07-29 I have removed @see dfa() to improve speed. */
+			$oldV = isset($old[$k]) ? $old[$k] : null; /** @var mixed $oldV */
+			if (is_array($oldV) && is_array($newV)) {
+				$r[$k] = dfa_merge_r($oldV, $newV);
+			}
+			else {
+				$r[$k] = $newV;
+			}
+		}
+	}
+	return $r;
+}
