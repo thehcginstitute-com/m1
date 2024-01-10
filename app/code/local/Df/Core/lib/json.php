@@ -1,4 +1,5 @@
 <?php
+use Closure as F;
 use Df\Core\Json as J;
 
 /**
