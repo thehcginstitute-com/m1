@@ -51,6 +51,15 @@ function df_eta($v) {
 function df_etn($v) {return $v ?: null;}
 
 /**
+ * 2023-07-26 "Implement `df_ets()`": https://github.com/mage2pro/core/issues/280
+ * 2024-01-10 "Port `df_ets` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/171
+ * @used-by df_log_l()
+ * @param mixed $v
+ * @return mixed|string
+ */
+function df_ets($v) {return $v ?: '';}
+
+/**
  * 2016-08-04
  * @see df_es()
  * @used-by dfa()
