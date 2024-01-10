@@ -20,9 +20,13 @@ final class Frame extends \Df\Core\O {
 	 * 2) @see \Df\Qa\Trace::__construct()
 	 * 3) «Argument 1 passed to df_path_relative() must be of the type string, null given,
 	 * called in vendor/mage2pro/core/Qa/Trace/Formatter.php on line 37»: https://github.com/mage2pro/core/issues/187
-	 * @used-by \Df\Qa\Trace\Formatter::frame()
+	 * @see df_bt_entry_file()
+	 * @used-by self::isPHTML()
+	 * @used-by self::url()
+	 * @used-by df_sentry()
+	 * @used-by \Df\Qa\Trace\Formatter::p()
 	 */
-	function filePath():string {return (string)$this['file'];}
+	function file():string {return dfc($this, function() {return !($r = (string)$this['file'])? $r : df_path_relative($r);});}
 
 	/**
 	 * 2015-04-03 Строка отсутствует при вызовах типа @see call_user_func()
