@@ -79,3 +79,37 @@ function dfa_deep_set(array &$array, $path, $value):array {
 	$a = $value;
 	return $array;
 }
+
+/**
+ * 2017-07-13
+ * 2024-01-10 "Port `dfa_deep_unset` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/157
+ * @see dfa_unset()
+ * @used-by dfa_deep_unset()
+ * @used-by \Df\Core\O::offsetUnset()
+ * @param array(string => mixed) $a
+ * @param string|string[] $path
+ */
+function dfa_deep_unset(array &$a, $path):void {
+	if (!is_array($path)) {
+		/**
+		 * 2015-02-06
+		 * Обратите внимание, что если разделитель отсутствует в строке,
+		 * то @uses explode() вернёт не строку, а массив со одим элементом — строкой.
+		 * Это вполне укладывается в наш универсальный алгоритм.
+		 */
+		$path = df_explode_xpath($path);
+	}
+	/**
+	 * 2017-07-13
+	 * @uses array_shift не выдаёт предупреждений для пустого массива.
+	 * @var string|null $first
+	 */
+	if ($first = array_shift($path)) {
+		if (!$path) {
+			unset($a[$first]);
+		}
+		else {
+			dfa_deep_unset($a[$first], $path);
+		}
+	}
+}
