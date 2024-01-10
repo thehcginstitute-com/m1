@@ -1,6 +1,16 @@
 <?php
 /**
  * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax will reject arrays: https://3v4l.org/jFdPm
+ * 2024-01-10 "Port `df_cc` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/159
+ * @see df_ccc()
+ * @used-by df_js_data()
+ * @used-by \Df\Qa\Trace\Formatter::p()
+ * @param string|string[] $a
+ */
+function df_cc(string $glue, ...$a):string {return implode($glue, dfa_flatten($a));}
+
+/**
+ * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax will reject arrays: https://3v4l.org/jFdPm
  * @used-by df_api_rr_failed()
  * @used-by df_fe_init()
  * @used-by df_kv()
