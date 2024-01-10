@@ -24,14 +24,3 @@ function df_bt($p = 0, $limit = 0) {return is_array($p) ? $p : ($p instanceof E 
  * @return E|int
  */
 function df_bt_inc($p, $o = 1) {return is_array($p) || $p instanceof E ? $p : $o + $p;}
-
-/**
- * 2019-12-16
- * $p позволяет при записи стека вызовов пропустить несколько последних вызовов функций,
- * которые и так очевидны (например, вызов данной функции, вызов df_bt_log() и т.п.)
- * @used-by df_bt_log()
- * @used-by df_log_l()
- * @param int|E|array(array(string => string|int)) $p
- * @return string
- */
-function df_bt_s($p = 0) {return Formatter::p(new Trace(df_bt(df_bt_inc($p))));}
