@@ -5,10 +5,15 @@ use Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": h
 use Varien_Object as _DO;
 
 /**
+ * 2024-01-10 "Port the latest version of `df_log` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/168
  * @param _DO|mixed[]|mixed|E $v
  * @param string|object|null $m [optional]
  */
-function df_log($v, $m = null) {df_log_l($m, $v);}
+function df_log($v, $m = null, array $d = [], string $suf = ''):void {
+	$isT = df_is_th($v); /** @var bool $isT */
+	$m = $m ? df_module_name($m) : ($isT ? df_caller_module($v) : df_caller_module());
+	df_log_l($m, ...($isT ? [$v, $d] : [!$d ? $v : (dfa_merge_r($d, is_array($v) ? $v : ['message' => $v])), $suf]));
+}
 
 /**
  * 2017-01-11
