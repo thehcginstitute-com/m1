@@ -1,6 +1,9 @@
 <?php
+use Df\Qa\Failure\Exception as QE;
 use Exception as E;
+use Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 use Varien_Object as _DO;
+
 /**
  * @param _DO|mixed[]|mixed|E $v
  * @param string|object|null $m [optional]
@@ -17,22 +20,34 @@ function df_log($v, $m = null) {df_log_l($m, $v);}
  * @param string|mixed[]|E $p3 [optional]
  * @param string|bool|null $p4 [optional]
  */
-function df_log_l($m, $p2, $p3 = [], $p4 = null) {
-	/** @var E|null $e */ /** @var array|string|mixed $d */ /** @var string|null $suf */ /** @var string|null $pref */
-	list($e, $d, $suf, $pref) = $p2 instanceof E ? [$p2, $p3, $p4, null] : [null, $p2, $p3, $p4];
-	if (!$m && $e) {
-		/** @var array(string => string) $en */
-		$en = df_caller_entry($e, function(array $e) {return ($c = dfa($e, 'class')) && df_module_enabled($c);});
-		list($m, $suf) = [dfa($en, 'class'), dfa($en, 'function', 'exception')];
+function df_log_l($m, $p2, $p3 = [], string $p4 = ''):void {
+	/** @var T|null $t */ /** @var array|string|mixed $d */ /** @var string $suf */ /** @var string $pref */
+	list($t, $d, $suf, $pref) = df_is_th($p2) ? [$p2, $p3, $p4, ''] : [null, $p2, df_ets($p3), $p4];
+	$m = $m ?: ($t ? df_caller_module($t) : df_caller_module());
+	if (!$suf) {
+		# 2023-07-26
+		# 1) "If `df_log_l()` is called from a `*.phtml`,
+		# then the `*.phtml`'s base name  should be used as the log file name suffix instead of `df_log_l`":
+		# https://github.com/mage2pro/core/issues/269
+		# 2) 2023-07-26 "Add the `$skip` optional parameter to `df_caller_entry()`": https://github.com/mage2pro/core/issues/281
+		$entry = $t ? df_caller_entry_m($t) : df_caller_entry(0, null, ['df_log']); /** @var array(string => string|int) $entry */
+		$suf = df_bt_entry_is_phtml($entry) ? basename(df_bt_entry_file($entry)) : df_bt_entry_func($entry);
 	}
-	$suf = $suf ?: df_caller_f();
-	if (is_array($d)) {
-		$d = df_extend($d, ['Mage2.PRO' => df_context()]);
-	}
-	$d = !$d ? null : (is_string($d) ? $d : df_json_encode($d));
+	$c = df_context(); /** @var array(string => mixed) $c */
 	df_report(
 		df_ccc('--', 'mage2.pro/' . df_ccc('-', df_report_prefix($m, $pref), '{date}--{time}'), $suf) .  '.log'
-		,df_cc_n($d, !$e ? null : ['EXCEPTION', QE::i($e)->report(), "\n\n"], df_bt_s(1))
+		# 2023-07-26
+		# "`df_log_l()` should use the exception's trace instead of `df_bt_s(1)` for exceptions":
+		# https://github.com/mage2pro/core/issues/261
+		,df_cc_n(
+			# 2023-07-28
+			# "`df_log_l` does not log the context if the message is not an array":
+			# https://github.com/mage2pro/core/issues/289
+			/** @uses df_dump_ds() */
+			df_map('df_dump_ds', !$d ? [$c] : (is_array($d) ? [dfa_merge_r($d, ['Mage2.PRO' => $c])] : [$d, $c]))
+			,!$t ? '' : ['EXCEPTION', QE::i($t)->report(), "\n\n"]
+			,($t ? null : "\n") . df_bt_s($t ?: 1)
+		)
 	);
 }
 
