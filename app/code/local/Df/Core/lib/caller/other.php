@@ -1,4 +1,6 @@
 <?php
+use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
+
 /**
  * 2016-08-10
  * The original (not used now) implementation: https://github.com/mage2pro/core/blob/6.7.3/Core/lib/caller.php#L109-L111
@@ -13,3 +15,21 @@
  * @return string
  */
 function df_caller_f($o = 0) {return df_caller_entry(++$o)['function'];}
+
+/**
+ * 2023-07-25
+ * 2023-07-26
+ * The previous implementation:
+ * 		return df_module_name(df_caller_c(++$o))
+ * https://github.com/mage2pro/core/blob/9.9.5/Core/lib/caller.php#L147
+ * 2024-01-10 "Port `df_caller_module` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/172
+ * @used-by df_log()
+ * @used-by df_log_l()
+ * @used-by df_sentry()
+ * @used-by df_sentry_m()
+ * @param T|int $p
+ */
+function df_caller_module($p = 0):string {return !($e = df_caller_entry_m(df_bt_inc($p))) ? 'Df_Core' : (
+	# 2023-08-05 «Module 'Monolog_Logger::addRecord' is not correctly registered»: https://github.com/mage2pro/core/issues/317
+	df_bt_entry_is_method($e) ? df_module_name(df_bt_entry_class($e)) : df_module_name_by_path(df_bt_entry_file($e))
+);}
