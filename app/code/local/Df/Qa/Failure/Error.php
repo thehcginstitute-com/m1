@@ -165,7 +165,7 @@ final class Error extends \Df\Qa\Failure {
 	 * @return int|string
 	 */
 	private static function type($asString = false) {
-		$r = df_nat0(self::info('type')); /** @var int|string $r */
+		$r = (int)self::info('type'); /** @var int|string $r */
 		return !$asString ? $r : dfa(self::map(), $r);
 	}
 
