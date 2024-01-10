@@ -22,7 +22,9 @@
 <body id="page-login" onload="document.forms.loginForm.username.focus();">
     <div class="login-container">
         <div class="login-box">
-            <form method="post" action="" id="loginForm" autocomplete="off">
+<!--  2024-01-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Autocomplete the backend login form": https://github.com/thehcginstitute-com/m1/issues/146 -->
+            <form method="post" action="" id="loginForm">
                 <div class="login-form">
 <!--  2024-01-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Port the modifications of `app/design/adminhtml/default/default/template/login.phtml` to Magento 1.9.4.5":
@@ -42,9 +44,9 @@ https://github.com/thehcginstitute-com/m1/issues/110 -->
                     <div class="input-box input-left"><label for="username"><?php echo Mage::helper('adminhtml')->__('User Name:') ?></label><br/>
                         <input type="text" id="username" name="login[username]" value="" class="required-entry input-text" /></div>
                     <div class="input-box input-right"><label for="login"><?php echo Mage::helper('adminhtml')->__('Password:') ?></label><br />
-                        <!-- This is a dummy hidden field to trick firefox from auto filling the password -->
-                        <input type="password" class="input-text no-display" name="dummy" id="dummy" />
-                        <input type="password" id="login" name="login[password]" class="required-entry input-text" value="" autocomplete="new-password" /></div>
+<!--  2024-01-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Autocomplete the backend login form": https://github.com/thehcginstitute-com/m1/issues/146 -->
+                        <input type="password" id="login" name="login[password]" class="required-entry input-text" value=""/></div>
                     <?php echo $this->getChildHtml('form.additional.info'); ?>
                     <div class="clear"></div>
                     <div class="form-buttons">
