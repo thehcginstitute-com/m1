@@ -38,3 +38,11 @@ function df_bt_entry_file(array $e):string {return
 	 */
 	dfa($e, 'file', '')
 ;}
+
+/**
+ * 2023-07-28
+ * 2024-01-11 "Port `df_bt_entry_func` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/176
+ * @see \Df\Qa\Trace\Frame::function_()
+ * @used-by df_log_l()
+ */
+function df_bt_entry_func(array $e):string {return dfa($e, 'function', '');}
