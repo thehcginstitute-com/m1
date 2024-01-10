@@ -47,6 +47,7 @@ function df_module_name($c = null, string $d = '_'):string {return dfcf(
  * 		1) a module name. E.g.: «A_B».
  * 		2) a class name. E.g.: «A\B\C».
  * 		3) an object. It will be treated as case 2 after @see get_class()
+ * 2024-01-11 "Port `df_module_name_lc` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/193
  * @see df_cts_lc_camel()
  * @used-by df_report_prefix()
  * @param string|object $c
