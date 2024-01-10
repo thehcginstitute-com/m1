@@ -39,6 +39,21 @@ function df_module_name($c = null, string $d = '_'):string {return dfcf(
 );}
 
 /**
+ * 2017-01-04
+ * 		$c could be:
+ * 		1) a module name. E.g.: «A_B».
+ * 		2) a class name. E.g.: «A\B\C».
+ * 		3) an object. It will be treated as case 2 after @see get_class()
+ * 2024-01-11 "Port `df_module_name_c` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/194
+ * @used-by df_module_name_lc()
+ * @used-by dfp_report()
+ * @used-by dfs()
+ * @used-by dfs_con()
+ * @param string|object|null $c [optional]
+ */
+function df_module_name_c($c = null):string {return df_module_name($c, '\\');}
+
+/**
  * 2016-02-16 «Dfe\CheckoutCom\Method» => «dfe_checkout_com»
  * 2016-10-20
  * Making $c optional leads to the error «get_class() called without object from outside a class»: https://3v4l.org/k6Hd5
