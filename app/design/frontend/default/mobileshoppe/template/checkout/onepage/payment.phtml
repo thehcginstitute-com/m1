@@ -12,8 +12,20 @@
 	var lastPrice;
 //]]>
 </script>
+<?php
+# 2024-01-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Port the modifications of `app/design/frontend/base/default/template/checkout/onepage/payment.phtml`
+# to Magento 1.9.4.5": https://github.com/thehcginstitute-com/m1/issues/112
+# 2) https://github.com/thehcginstitute-com/m1/blob/2023-12-24/app/design/frontend/base/default/template/checkout/onepage/payment.phtml#L35-L39
+if (4 === (int)Mage::getSingleton('customer/session')->getCustomerGroupId()) {
+	echo $this->getLayout()->createBlock('cms/block')->setBlockId('checkout-page')->toHtml();
+} ?>
 <form action="" id="co-payment-form">
-	<fieldset>
+<!-- 2024-01-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+1) "Port the modifications of `app/design/frontend/base/default/template/checkout/onepage/payment.phtml`
+to Magento 1.9.4.5": https://github.com/thehcginstitute-com/m1/issues/112
+2) https://github.com/thehcginstitute-com/m1/blob/2023-12-24/app/design/frontend/base/default/template/checkout/onepage/payment.phtml#L41 -->
+	<fieldset id='checkout-payment-method-load'>
 		<?php echo $this->getChildHtml('methods') ?>
 	</fieldset>
 	<?php echo $this->getBlockHtml('formkey') ?>
