@@ -37,3 +37,18 @@ function df_module_name($c = null, string $d = '_'):string {return dfcf(
 	function(string $c, string $d):string {return implode($d, array_slice(df_explode_class($c), 0, 2));}
 	,[$c ? df_cts($c) : 'Df\Core', $d]
 );}
+
+/**
+ * 2016-02-16 «Dfe\CheckoutCom\Method» => «dfe_checkout_com»
+ * 2016-10-20
+ * Making $c optional leads to the error «get_class() called without object from outside a class»: https://3v4l.org/k6Hd5
+ * 2017-10-03
+ * $c could be:
+ * 		1) a module name. E.g.: «A_B».
+ * 		2) a class name. E.g.: «A\B\C».
+ * 		3) an object. It will be treated as case 2 after @see get_class()
+ * @see df_cts_lc_camel()
+ * @used-by df_report_prefix()
+ * @param string|object $c
+ */
+function df_module_name_lc($c, string $d = '_'):string {return implode($d, df_explode_class_lc_camel(df_module_name_c($c)));}
