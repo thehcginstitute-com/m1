@@ -65,6 +65,7 @@ function dfc($o, Closure $f, array $a = [], $unique = true, $offset = 0) {
 		$r = property_exists($o, $k) ? $o->$k : $o->$k = $f(...$a);
 	}
 	else {
+		# 2024-01-10 @todo https://github.com/thehcginstitute-com/m1/issues/152
 		df_error('Reiplement the WeakMap usage from mage2pro/core');
 	}
 	return $r;
