@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- 2024-01-11 "Port `df_is_phtml` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/185 -->
+<config>
+	<modules>
+		<Df_Framework>
+			<author>Dmitrii Fediuk</author>
+			<url>https://upwork.com/fl/mage2pro</url>
+			<version>0.0.1</version>
+		</Df_Framework>
+	</modules>
+</config>
