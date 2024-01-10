@@ -54,8 +54,12 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
 	 * The `Mage_Payment_Model_Info` class can not be effectively overridden
 	 * because some Magento core classes are inherited from it (e.g. `Magento_Sales_Model_Order_Payment`)
 	 * https://github.com/thehcginstitute-com/m1/issues/136
+	 * 2024-01-11 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * «Declaration of Mage_Sales_Model_Quote_Payment::getMethodInstance()
+	 * must be compatible with Mage_Payment_Model_Info::getMethodInstance(): Mage_Payment_Model_Method_Abstract»:
+	 * https://github.com/thehcginstitute-com/m1/issues/149
 	 */
-	function getMethodInstance():M {/** @var M $r */
+	function getMethodInstance() {/** @var M $r */
 		if ($this->hasMethodInstance()) {
 			$r = $this->_getData('method_instance');
 		}
