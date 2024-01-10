@@ -65,8 +65,23 @@ function dfc($o, Closure $f, array $a = [], $unique = true, $offset = 0) {
 		$r = property_exists($o, $k) ? $o->$k : $o->$k = $f(...$a);
 	}
 	else {
-		# 2024-01-10 @todo https://github.com/thehcginstitute-com/m1/issues/152
-		df_error('Reiplement the WeakMap usage from mage2pro/core');
+		# 2024-01-10
+		# 1) "Reiplement the WeakMap usage from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/152
+		# 2) https://github.com/mage2pro/core/blob/10.5.3/Core/lib/cache/dfc.php#L66-L79
+		static $map; /** @var WeakMap $map */
+		$map = $map ?: new WeakMap;
+		if (!$map->offsetExists($o)) {
+			$map[$o] = [];
+		}
+		# 2022-10-17 https://3v4l.org/6cVAu
+		$map2 =& $map[$o]; /** @var array(string => mixed) $map2 */
+		/**
+		 * 2017-01-12 ... works correctly here: https://3v4l.org/0shto
+		 * 2022-10-17 The ternary operator works correctly here: https://3v4l.org/MutM4
+		 * 2022-10-27 We can not use @see isset() here: https://3v4l.org/FhAUv
+		 * 2022-10-28 @see \Df\Core\RAM::exists()
+		 */
+		$r = array_key_exists($k, $map2) ? $map2[$k] : $map2[$k] = $f(...$a);
 	}
 	return $r;
 }
