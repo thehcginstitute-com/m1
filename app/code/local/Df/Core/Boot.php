@@ -63,7 +63,8 @@ class Boot {
 	 * @return bool 
 	 */
 	private static function isCompilationFromCommandLine() {static $r; return $r ?: $r =
-		@class_exists('Mage_Shell_Compiler', false)
+		# 2024-01-10 I removed `@` by analogy with https://github.com/thehcginstitute-com/m1/commit/6815ccd0
+		class_exists('Mage_Shell_Compiler', false)
 	;}
 
 	/**
