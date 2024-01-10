@@ -46,3 +46,10 @@ function df_bt_entry_file(array $e):string {return
  * @used-by df_log_l()
  */
 function df_bt_entry_func(array $e):string {return dfa($e, 'function', '');}
+
+/**
+ * 2023-07-27 `line` is absent in @see call_user_func() calls.
+ * @see \Df\Qa\Trace\Frame::line()
+ * @used-by df_bt()
+ */
+function df_bt_entry_line(array $e):int {return dfa($e, 'line', 0);}
