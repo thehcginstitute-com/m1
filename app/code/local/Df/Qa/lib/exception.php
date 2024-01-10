@@ -19,6 +19,23 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
 function df_is_th($v):bool {return $v instanceof T;}
 
 /**
+ * Эта функция используется, как правило, при отключенном режиме разработчика.
+ * @see mageCoreErrorHandler():
+		if (Mage::getIsDeveloperMode()) {
+			throw new Exception($errorMessage);
+		}
+ 		else {
+			Mage::log($errorMessage, Zend_Log::ERR);
+		}
+ * @param bool $isOperationSuccessfull [optional]
+ */
+function df_throw_last_error($isOperationSuccessfull = false) {
+	if (!$isOperationSuccessfull) {
+		\Df\Qa\Failure\Error::throwLast();
+	}
+}
+
+/**
  * @used-by df_lx()
  * @used-by df_lxts()
  * @used-by df_message_error()
