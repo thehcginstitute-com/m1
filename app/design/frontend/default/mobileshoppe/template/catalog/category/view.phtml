@@ -31,6 +31,10 @@ use Mage_Catalog_Block_Category_View as B; /** @var B $this */
 			# 1) "Port the modifications of `app/design/frontend/base/default/template/catalog/category/view.phtml` to Magento 1.9.4.5":
 			# https://github.com/thehcginstitute-com/m1/issues/100
 			# 2) https://github.com/thehcginstitute-com/m1/blob/2023-12-24/app/design/frontend/base/default/template/catalog/category/view.phtml#L57-L75
+			# 2024-01-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# @todo "Checking for the customer group via a PHP code
+			# in `app/design/frontend/default/mobileshoppe/template/catalog/category/view.phtml` is wrong
+			# because the file is cached": https://github.com/thehcginstitute-com/m1/issues/240
 			/** @var int  $gid */
 				!($gid = (int)Mage::getSingleton('customer/session')->getCustomerGroupId())
 				? $_helper->categoryAttribute($_category, $_description, 'description')
