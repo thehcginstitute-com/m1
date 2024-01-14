@@ -26,18 +26,17 @@ use Mage_Catalog_Block_Category_View as B; /** @var B $this */
 
 <?php if ($_description=$this->getCurrentCategory()->getDescription()) { ?>
 	<div class="category-description std">
-		<?php
+		<?=
 			# 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			# 1) "Port the modifications of `app/design/frontend/base/default/template/catalog/category/view.phtml` to Magento 1.9.4.5":
 			# https://github.com/thehcginstitute-com/m1/issues/100
 			# 2) https://github.com/thehcginstitute-com/m1/blob/2023-12-24/app/design/frontend/base/default/template/catalog/category/view.phtml#L57-L75
-			if ($gid = (int)Mage::getSingleton('customer/session')->getCustomerGroupId()) { /** @var int  $gid */
-				echo $this->getLayout()->createBlock('cms/block')
+			/** @var int  $gid */
+				!($gid = (int)Mage::getSingleton('customer/session')->getCustomerGroupId())
+				? $_helper->categoryAttribute($_category, $_description, 'description')
+				: $this->getLayout()->createBlock('cms/block')
 					->setBlockId(1 === $gid ? 'patient-message' : 'nhp-message')
 					->toHtml()
-				;
-			}
-			echo $_helper->categoryAttribute($_category, $_description, 'description');
 		?>
 	</div>
 <?php } ?>
