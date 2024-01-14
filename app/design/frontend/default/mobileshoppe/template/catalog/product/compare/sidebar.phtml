@@ -28,6 +28,10 @@
 <?php 
 $_helper = $this->helper('catalog/product_compare');
 $_items = $_helper->getItemCount() > 0 ? $_helper->getItemCollection() : null;
+# 2024-01-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# @todo "Checking for the customer group via a PHP code
+# in `app/design/frontend/default/mobileshoppe/template/catalog/product/compare/sidebar.phtml` is wrong
+# because the `*.phtml` files are cached": https://github.com/thehcginstitute-com/m1/issues/239
 $customerGroupId = Mage::getSingleton('customer/session')->getCustomerGroupId(); 
 ?>
 <?php if($customerGroupId != 4) {  ?>
