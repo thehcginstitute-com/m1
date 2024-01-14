@@ -49,6 +49,10 @@ Product reviews page
         </reference>
         <reference name="head">
             <action method="addJs"><script>varien/product.js</script></action>
+<!-- 2024-01-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Port the `app/design/frontend/base/default/layout/review.xml` 1.9.1.0 → 1.9.4.5 changes
+to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/202 -->
+			<action method="addJs"><script>varien/product_options.js</script></action>
             <action method="addJs"><script>varien/configurable.js</script></action>
         </reference>
         <reference name="content">
