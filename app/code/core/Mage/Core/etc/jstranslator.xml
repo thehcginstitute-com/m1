@@ -160,11 +160,7 @@
         <message>Please use only letters (a-z or A-Z), numbers (0-9) or underscore(_) in this field, first character should be a letter.</message>
     </validate-data>
     <validate-css-length translate="message" module="core">
-<!-- 2024-01-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-1) «vsprintf(): Too few arguments in app/code/core/Mage/Core/Model/Translate.php on line 416»:
-https://github.com/thehcginstitute-com/m1/issues/243
-2) https://stackoverflow.com/a/3666749 -->
-        <message>Please input a valid CSS-length. For example 100px or 77pt or 20em or .5ex or 50%%.</message>
+        <message>Please input a valid CSS-length. For example 100px or 77pt or 20em or .5ex or 50%.</message>
     </validate-css-length>
     <validate-length translate="message" module="core">
         <message>Text length does not satisfy specified text range.</message>

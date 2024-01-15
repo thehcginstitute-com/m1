@@ -413,7 +413,11 @@ class Mage_Core_Model_Translate
         //array_unshift($args, $translated);
         //$result = @call_user_func_array('sprintf', $args);
 
-        $result = @vsprintf($translated, $args);
+		# 2024-01-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# «vsprintf(): Too few arguments in app/code/core/Mage/Core/Model/Translate.php on line 416»:
+		# https://github.com/thehcginstitute-com/m1/issues/243
+		$result = !$args ? $translated : vsprintf($translated, $args);
+
         if ($result === false) {
             $result = $translated;
         }
