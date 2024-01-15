@@ -17,6 +17,10 @@
 # 1) "Port the modifications of `app/design/frontend/base/default/template/checkout/onepage/payment.phtml`
 # to Magento 1.9.4.5": https://github.com/thehcginstitute-com/m1/issues/112
 # 2) https://github.com/thehcginstitute-com/m1/blob/2023-12-24/app/design/frontend/base/default/template/checkout/onepage/payment.phtml#L35-L39
+# 2024-01-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) The template is not cached, so we can use `Mage::getSingleton('customer/session')->getCustomerGroupId()` here.
+# 2) "Delete the `Mage::getSingleton('customer/session')->getCustomerGroupId()` call from cached `*.phtml` files":
+# https://github.com/thehcginstitute-com/m1/issues/238
 if (4 === (int)Mage::getSingleton('customer/session')->getCustomerGroupId()) {
 	echo $this->getLayout()->createBlock('cms/block')->setBlockId('checkout-page')->toHtml();
 } ?>
