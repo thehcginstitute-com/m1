@@ -32,9 +32,14 @@ use Mage_Catalog_Block_Category_View as B; /** @var B $this */
 			# https://github.com/thehcginstitute-com/m1/issues/100
 			# 2) https://github.com/thehcginstitute-com/m1/blob/2023-12-24/app/design/frontend/base/default/template/catalog/category/view.phtml#L57-L75
 			# 2024-01-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# @todo "Checking for the customer group via a PHP code
+			# 1) @todo "Checking for the customer group via a PHP code
 			# in `app/design/frontend/default/mobileshoppe/template/catalog/category/view.phtml` is wrong
 			# because the file is cached": https://github.com/thehcginstitute-com/m1/issues/240
+			# 2) @todo We need to refactor the message to a separate block
+			# and then cache the block in the current visitor's session instead of the Magento's cache,
+			# similar to:
+			# https://github.com/thehcginstitute-com/m1/issues/239#issuecomment-1891306046
+			# https://github.com/thehcginstitute-com/m1/issues/241#issuecomment-1891306208
 			/** @var int  $gid */
 			!($gid = (int)Mage::getSingleton('customer/session')->getCustomerGroupId())
 			? $_helper->categoryAttribute($_category, $_description, 'description')
