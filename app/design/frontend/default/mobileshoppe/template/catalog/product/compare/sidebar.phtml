@@ -8,7 +8,7 @@ $_items = $_helper->getItemCount() > 0 ? $_helper->getItemCollection() : null;
 # 2) https://github.com/thehcginstitute-com/m1/issues/239
 # 3) https://github.com/thehcginstitute-com/m1/issues/238
 $customerGroupId = Mage::getSingleton('customer/session')->getCustomerGroupId(); 
-if($customerGroupId != 4) {  ?>
+if ($customerGroupId != 4) {  ?>
 <div class="block block-list block-compare">
 <div class="block-title">
         <strong><span><?php echo $this->__('Compare Products') ?>
