@@ -36,11 +36,11 @@ use Mage_Catalog_Block_Category_View as B; /** @var B $this */
 			# in `app/design/frontend/default/mobileshoppe/template/catalog/category/view.phtml` is wrong
 			# because the file is cached": https://github.com/thehcginstitute-com/m1/issues/240
 			/** @var int  $gid */
-				!($gid = (int)Mage::getSingleton('customer/session')->getCustomerGroupId())
-				? $_helper->categoryAttribute($_category, $_description, 'description')
-				: $this->getLayout()->createBlock('cms/block')
-					->setBlockId(1 === $gid ? 'patient-message' : 'nhp-message')
-					->toHtml()
+			!($gid = (int)Mage::getSingleton('customer/session')->getCustomerGroupId())
+			? $_helper->categoryAttribute($_category, $_description, 'description')
+			: $this->getLayout()->createBlock('cms/block')
+				->setBlockId(1 === $gid ? 'patient-message' : 'nhp-message')
+				->toHtml()
 		?>
 	</div>
 <?php } ?>
