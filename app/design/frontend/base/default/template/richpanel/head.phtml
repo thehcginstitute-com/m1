@@ -18,7 +18,13 @@ foreach ($events as $e) { ?>
     richpanel.track(
 		"<?= $e['type']; ?>"
 		,<?= json_encode(@$e['properties']); ?>
-		,<?= json_encode(@$e['userProperties']); ?>
+		,<?= json_encode(
+			# 2024-01-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "`Richpanel_Analytics`: «Undefined index: userProperties
+			# in app/design/frontend/base/default/template/richpanel/head.phtml on line 19»":
+			# https://github.com/thehcginstitute-com/m1/issues/242
+			dfa($e, 'userProperties', [])
+		)?>
 	);
 <?php } ?>
 </script>
