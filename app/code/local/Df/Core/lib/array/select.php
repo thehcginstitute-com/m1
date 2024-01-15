@@ -1,6 +1,7 @@
 <?php
 /**
  * 2021-01-29
+ * @used-by app/design/frontend/base/default/template/richpanel/head.phtml
  * @param array(int|string => mixed) $a
  * @param string|string[]|int|null $k
  * @param mixed $d
