@@ -14,11 +14,11 @@ richpanel.load("<?php echo $helper->getApiToken($storeId); ?>");
 # I have fixed the issues:
 # 1) «Notice: Undefined index: userProperties»
 # 2) «Notice: Undefined index: properties»
-foreach ($events as $event) { ?>
+foreach ($events as $e) { ?>
     richpanel.track(
-		"<?= $event['type']; ?>"
-		,<?= json_encode(@$event['properties']); ?>
-		,<?= json_encode(@$event['userProperties']); ?>
+		"<?= $e['type']; ?>"
+		,<?= json_encode(@$e['properties']); ?>
+		,<?= json_encode(@$e['userProperties']); ?>
 	);
 <?php } ?>
 </script>
