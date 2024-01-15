@@ -1,9 +1,4 @@
-<?php
-/**
- * Shoping cart sidebar
- *
- * @see Mage_Checkout_Block_Cart_Sidebar
- */
+<?php /** @var Mage_Checkout_Block_Cart_Sidebar $this */
  $customerGroupId = Mage::getSingleton('customer/session')->getCustomerGroupId();
  if($customerGroupId != 4) {
 	 if ($this->getIsNeedToDisplaySideBar()):?>
