@@ -1,5 +1,8 @@
 <?php
-  /* Get the logged in customer's group ID */
+	# 2024-01-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# 1) The template is not cached, so we can use `Mage::getSingleton('customer/session')->getCustomerGroupId()` here.
+	# 2) "Delete the `Mage::getSingleton('customer/session')->getCustomerGroupId()` call from cached `*.phtml` files":
+	# https://github.com/thehcginstitute-com/m1/issues/238
     $customerGroupId = Mage::getSingleton('customer/session')->getCustomerGroupId();    
 ?>
 <div class="block block-account">
