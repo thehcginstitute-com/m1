@@ -4,7 +4,18 @@
     <div class="add-to-cart">
         <?php if(!$_product->isGrouped()): ?>
         <label for="qty"><?php echo $this->__('Qty:') ?></label>
-        <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+<?php # 2024-01-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Port the `app/design/frontend/base/default/template/catalog/product/view/addtocart.phtml` 1.9.1.0 → 1.9.4.5 changes
+# to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/207 --> ?>
+        <input
+			class="input-text qty"
+			id="qty"
+			maxlength="12"
+			name="qty"
+			title="<?= Mage::helper('core')->quoteEscape($this->__('Qty')) ?>"
+			type="text"
+			value="<?php echo $this->getProductDefaultQty() * 1 ?>"
+		/>
         <?php endif; ?>
         <button type="button" title="<?php echo $buttonTitle ?>" id="product-addtocart-button" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span></span></button>
         <?php echo $this->getChildHtml('', true, true) ?>
