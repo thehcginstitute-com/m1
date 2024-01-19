@@ -1,6 +1,11 @@
 <?php /** @var Mage_Catalog_Block_Product_List $this */
 $_productCollection=$this->getLoadedProductCollection();
 $_helper = $this->helper('catalog/output');
+# 2024-01-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Port the `app/design/frontend/base/default/template/catalog/product/list.phtml` 1.9.1.0 → 1.9.4.5 changes
+# to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/209
+# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/catalog/product/list.phtml#L37
+$_params = $this->escapeHtml(json_encode(['form_key' => $this->getFormKey()]));
 if(!$_productCollection->count()): ?>
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
@@ -23,8 +28,24 @@ if(!$_productCollection->count()): ?>
                     <?php echo $this->getReviewsSummaryHtml($_product) ?>
                     <?php endif; ?>
                     <?php echo $this->getPriceHtml($_product, true) ?>
-                    <?php if($_product->isSaleable()): ?>
-                        <p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('View Requirements') ?></span></span></button></p>
+                    <?php if($_product->isSaleable()):
+						# 2024-01-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+						# 1) "Port the `app/design/frontend/base/default/template/catalog/product/list.phtml`
+						# 1.9.1.0 → 1.9.4.5 changes to the `mobileshoppe` design theme":
+						# https://github.com/thehcginstitute-com/m1/issues/209
+						# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/catalog/product/list.phtml#L62-L72
+					?>
+                        <p>
+							<button
+								type="button"
+								title="<?php echo $this->quoteEscape($this->__('Add to Cart')) ?>"
+								class="button btn-cart"
+								onclick="customFormSubmit(
+									'<?= $this->getAddToCartUrlCustom($_product, [], false) ?>'
+									,'<?= $_params ?>'
+									,'post')"
+							><span><span><?php echo $this->__('View Requirements') ?></span></span></button>
+						</p>
                     <?php else: ?>
                         <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
                     <?php endif; ?>
@@ -33,12 +54,39 @@ if(!$_productCollection->count()): ?>
                         <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
                     </div>
                     <ul class="add-to-links">
-                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
-                            <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
-                        <?php endif; ?>
-                        <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
-                            <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
-                        <?php endif; ?>
+                        <?php if ($this->helper('wishlist')->isAllow()) {
+							# 2024-01-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+							# 1) "Port the `app/design/frontend/base/default/template/catalog/product/list.phtml`
+							# 1.9.1.0 → 1.9.4.5 changes to the `mobileshoppe` design theme":
+							# https://github.com/thehcginstitute-com/m1/issues/209
+							# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/catalog/product/list.phtml#L82-L91
+							$_wishlistUrl = $this->helper('wishlist')->getAddUrlWithCustomParams($_product, [], false); ?>
+							<li>
+								<a
+									class="link-wishlist"
+									data-params="<?= $_params ?>"
+									data-url="<?= $_wishlistUrl ?>"
+									href="#"
+									onclick="customFormSubmit('<?= $_wishlistUrl ?>', '<?= $_params ?>', 'post')"
+								><?= $this->__('Add to Wishlist') ?></a>
+							</li>
+                        <?php
+						}
+						# 2024-01-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+						# 1) "Port the `app/design/frontend/base/default/template/catalog/product/list.phtml`
+						# 1.9.1.0 → 1.9.4.5 changes to the `mobileshoppe` design theme":
+						# https://github.com/thehcginstitute-com/m1/issues/209
+						# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/catalog/product/list.phtml#L93-L102
+						if ($_compareUrl = $this->getAddToCompareUrlCustom($_product, false)) { ?>
+                            <li>
+                                <span class="separator">|</span>
+                                <a
+									class="link-compare"
+									href="#"
+									onclick="customFormSubmit('<?= $_compareUrl ?>', '<?= $_params ?>', 'post')"
+								><?= $this->__('Add to Compare') ?></a>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
@@ -66,18 +114,61 @@ if(!$_productCollection->count()): ?>
                 <?php echo $this->getPriceHtml($_product, true) ?>
                 </div>
                 <div class="actions">
-                    <?php if($_product->isSaleable()): ?>
-                        <button type="button" title="<?php echo $this->__('View Requirements') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('View Requirements') ?></span></span></button>
+                    <?php if($_product->isSaleable()):
+						# 2024-01-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+						# 1) "Port the `app/design/frontend/base/default/template/catalog/product/list.phtml`
+						# 1.9.1.0 → 1.9.4.5 changes to the `mobileshoppe` design theme":
+						# https://github.com/thehcginstitute-com/m1/issues/209
+						# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/catalog/product/list.phtml#L130-L138
+					?>
+                        <button
+							type="button"
+							title="<?= $this->quoteEscape($this->__('View Requirements')) ?>"
+							class="button btn-cart"
+							onclick="customFormSubmit(
+								'<?= $this->getAddToCartUrlCustom($_product, [], false) ?>'
+								,'<?= $_params ?>'
+								,'post')"
+						>
+                            <span><span><?php echo $this->__('View Requirements') ?></span></span>
+                        </button>
                     <?php else: ?>
                         <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
                     <?php endif; ?>
                     <ul class="add-to-links">
-                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
-                            <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
-                        <?php endif; ?>
-                        <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
-                            <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
-                        <?php endif; ?>
+                        <?php if ($this->helper('wishlist')->isAllow()) {
+							# 2024-01-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+							# 1) "Port the `app/design/frontend/base/default/template/catalog/product/list.phtml`
+							# 1.9.1.0 → 1.9.4.5 changes to the `mobileshoppe` design theme":
+							# https://github.com/thehcginstitute-com/m1/issues/209
+							# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/catalog/product/list.phtml#L144-L153
+							$_wishlistUrl = $this->helper('wishlist')->getAddUrlWithCustomParams($_product, [], false); ?>
+                            <li>
+                                <a
+									class="link-wishlist"
+									data-params="<?= $_params ?>"
+									data-url="<?= $_wishlistUrl ?>"
+									href="#"
+									onclick="customFormSubmit('<?= $_wishlistUrl ?>', '<?= $_params ?>', 'post')"
+								><?= $this->__('Add to Wishlist') ?></a>
+                            </li>
+                        <?php
+						}
+						# 2024-01-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+						# 1) "Port the `app/design/frontend/base/default/template/catalog/product/list.phtml`
+						# 1.9.1.0 → 1.9.4.5 changes to the `mobileshoppe` design theme":
+						# https://github.com/thehcginstitute-com/m1/issues/209
+						# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/catalog/product/list.phtml#L155-L164
+						if ($_compareUrl = $this->getAddToCompareUrlCustom($_product, false)) { ?>
+							<li>
+								<span class="separator">|</span>
+								<a
+									href="#"
+									class="link-compare"
+									onclick="customFormSubmit('<?= $_compareUrl ?>', '<?= $_params ?>', 'post')"
+								><?= $this->__('Add to Compare') ?></a>
+							</li>
+						<?php } ?>
                     </ul>
                 </div>
             </li>  
