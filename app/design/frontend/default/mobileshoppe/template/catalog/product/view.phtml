@@ -13,12 +13,21 @@
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-view">
     <div class="product-essential">
-    <form
-		action="<?php echo $this->getSubmitUrl($_product) ?>"
+<!-- 2024-01-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+1) "Port the `app/design/frontend/base/default/template/catalog/product/view.phtml` 1.9.1.0 → 1.9.4.5 changes
+to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/210
+2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/catalog/product/view.phtml#L42-L45 -->
+	<form
+		action="<?= $this->getSubmitUrlCustom($_product, ['_secure' => $this->_isSecure()], false) ?>"
 		method="post"
 		id="product_addtocart_form"
-		<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>
+		<?php if ($_product->getOptions()) { ?> enctype="multipart/form-data" <?php } ?>
 	>
+<!-- 2024-01-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+1) https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/app/design/frontend/base/default/template/catalog/product/view.phtml#L43
+2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/catalog/product/view.phtml#L46
+-->
+		<?php echo $this->getBlockHtml('formkey') ?>
         <div class="no-display">
             <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
             <input type="hidden" name="related_product" id="related-products-field" value="" />
