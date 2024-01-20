@@ -1,11 +1,27 @@
 <?php /** @var Mage_Checkout_Block_Cart_Crosssell $this */
-if($this->getItemCount()): ?>
+if($this->getItemCount()):
+# 2024-01-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Port the `app/design/frontend/base/default/template/checkout/cart/crosssell.phtml` 1.9.1.0 → 1.9.4.5 changes
+# to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/213
+# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/checkout/cart/crosssell.phtml#L35
+$_params = $this->escapeHtml(json_encode(['form_key' => $this->getFormKey()]));
+?>
 <div class="crosssell">
     <h2><?php echo $this->__('Based on your selection, you may be interested in the following items:') ?></h2>
     <ul id="crosssell-products-list">
     <?php foreach ($this->getItems() as $_item): ?>
         <li class="item">
-            <a class="product-image" href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(120); ?>" width="120" height="120" alt="<?php echo $this->escapeHtml($_item->getName()) ?>" /></a>
+            <a
+				class="product-image"
+				href="<?php echo $_item->getProductUrl() ?>"
+				title="<?php echo $this->escapeHtml($_item->getName()) ?>"
+			><img
+				alt="<?php echo $this->escapeHtml($_item->getName()) ?>"
+<?php # 2024-01-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://github.com/thehcginstitute-com/m1/blob/2024-01-15-2/app/design/frontend/default/mobileshoppe/template/checkout/cart/crosssell.phtml#L40 ?>
+				height="120" width="120"
+				src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(120); ?>"
+			/></a>
             <div class="product-details">
                 <h3 class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->escapeHtml($_item->getName()) ?></a></h3>
                 <?php echo $this->getPriceHtml($_item, true) ?>
