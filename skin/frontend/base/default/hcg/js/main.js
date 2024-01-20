@@ -27,7 +27,10 @@
 					// The «PRODUCTS» menu item link address should not be hardcoded":
 					// https://github.com/thehcginstitute-com/m1/issues/64
 					// @used-by skin/frontend/base/default/hcg/js/main.js
-					$aP.attr('href', window.hgc.core.url.products);
+					// 2024-01-20
+					// "«Cannot read properties of undefined (reading 'core')» on the `/checkout/cart/` page":
+					// https://github.com/thehcginstitute-com/m1/issues/244
+					$aP.attr('href', window.hgc_core_url_products);
 					$nav.removeAttr('style');
 				}
 				else {

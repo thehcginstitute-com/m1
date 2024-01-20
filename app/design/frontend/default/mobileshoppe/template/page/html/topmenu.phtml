@@ -4,10 +4,13 @@
 $u = HCG_WP_Settings::url(); /** @var string $u */
 ?>
 <script>
-	 // 2023-12-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 // The «PRODUCTS» menu item link address should not be hardcoded": https://github.com/thehcginstitute-com/m1/issues/64
-	 // @used-by skin/frontend/base/default/hcg/js/main.js
-	window.hgc.core.url.products = '<?= HCG_Core_Settings::urlProducts() ?>';
+	// 2023-12-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	// The «PRODUCTS» menu item link address should not be hardcoded": https://github.com/thehcginstitute-com/m1/issues/64
+	// @used-by skin/frontend/base/default/hcg/js/main.js
+	// 2024-01-20
+	// "«Cannot read properties of undefined (reading 'core')» on the `/checkout/cart/` page":
+	// https://github.com/thehcginstitute-com/m1/issues/244
+	window.hgc_core_url_products = '<?= HCG_Core_Settings::urlProducts() ?>';
 </script>
 <?php
 if ($_menu = $this->getHtml('level-top')) { ?>
