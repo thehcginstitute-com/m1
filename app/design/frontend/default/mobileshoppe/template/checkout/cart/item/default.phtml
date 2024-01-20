@@ -2,6 +2,12 @@
 $_item = $this->getItem();
 $isVisibleProduct = $_item->getProduct()->isVisibleInSiteVisibility();
 $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type::TYPE_BEFORE_ORDER_CONFIRM);
+# 2024-01-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Port the `app/design/frontend/base/default/template/checkout/cart/item/default.phtml` 1.9.1.0 → 1.9.4.5 changes
+# to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/212
+# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/checkout/cart/item/default.phtml#L31-L32
+$_params = $this->escapeHtml(json_encode(['form_key' => $this->getFormKey()]));
+$_deleteUrl = $this->getDeleteUrlCustom(false);
 ?>
 <tr>
     <td><?php if ($this->hasProductUrl()):?><a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->escapeHtml($this->getProductName()) ?>" class="product-image"><?php endif;?><img src="<?php echo $this->getProductThumbnail()->resize(75); ?>" width="75" height="75" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" /><?php if ($this->hasProductUrl()):?></a><?php endif;?></td>
@@ -43,7 +49,14 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
     </td>
     <td class="a-center edititem">
         <?php if ($isVisibleProduct): ?>
-        <a href="<?php echo $this->getConfigureUrl() ?>" title="<?php echo $this->__('Edit item parameters') ?>"><?php echo $this->__('Edit') ?></a>
+        <a
+			href="<?= $this->getConfigureUrl() ?>"
+<?php # 2024-01-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Port the `app/design/frontend/base/default/template/checkout/cart/item/default.phtml` 1.9.1.0 → 1.9.4.5 changes
+# to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/212
+# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/checkout/cart/item/default.phtml#L74 ?>
+			title="<?= Mage::helper('core')->quoteEscape($this->__('Edit item parameters')) ?>"
+		><?= $this->__('Edit') ?></a>
         <?php endif ?>
     </td>
     <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
@@ -152,7 +165,19 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
         <?php endif; ?>
     <?php endif; ?>
     <td class="a-center qtybox">
-        <input name="cart[<?php echo $_item->getId() ?>][qty]" value="<?php echo $this->getQty() ?>" size="4" title="<?php echo $this->__('Qty') ?>" class="input-text qty" maxlength="12" />
+		<input
+			class="input-text qty"
+<?php # 2024-01-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Port the `app/design/frontend/base/default/template/checkout/cart/item/default.phtml` 1.9.1.0 → 1.9.4.5 changes
+# to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/212
+# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/checkout/cart/item/default.phtml#L183-L185 ?>
+			data-cart-item-id="<?= $this->jsQuoteEscape($_item->getSku()) ?>"
+			maxlength="12"
+			name="cart[<?= $_item->getId() ?>][qty]"
+			size="4"
+			title="<?= $this->__('Qty') ?>"
+			value="<?= $this->getQty() ?>"
+		/>
     </td>
     <?php if (($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()) && !$_item->getNoSubtotal()): ?>
     <td class="a-right itemwisetotal">
@@ -247,5 +272,16 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
         <?php endif; ?>
     </td>
     <?php endif; ?>
-    <td class="a-center removeitem"><a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove btn-remove2"><?php echo $this->__('Remove item')?></a></td>
+    <td class="a-center removeitem">
+<!-- 2024-01-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Port the `app/design/frontend/base/default/template/checkout/cart/item/default.phtml` 1.9.1.0 → 1.9.4.5 changes
+# to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/212
+# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/checkout/cart/item/default.phtml#L283-L288 -->
+		<a href="#"
+			title="<?= Mage::helper('core')->quoteEscape($this->__('Remove Item')) ?>"
+			class="btn-remove btn-remove2"
+			onclick="customFormSubmit('<?= $_deleteUrl ?>', '<?= $_params ?>', 'post')">
+			<?= $this->__('Remove Item') ?>
+		</a>
+	</td>
 </tr>
