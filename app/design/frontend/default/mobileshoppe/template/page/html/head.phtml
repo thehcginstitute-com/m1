@@ -7,14 +7,10 @@
 <link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 <link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
-<!--[if lt IE 7]>
 <script type="text/javascript">
-//<![CDATA[
-    var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
-    var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
-//]]>
+	var BLANK_URL = '<?= $this->helper('core/js')->getJsUrl('blank.html') ?>';
+	var BLANK_IMG = '<?= $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
 </script>
-<![endif]-->
 <style>
 #nav iframe {
     visibility: hidden;
