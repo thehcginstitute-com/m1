@@ -37,29 +37,7 @@
             </catalog>
         </models>
     </global>
-    <adminhtml>
 <!-- 2024-01-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Prevent `Activo_Categoryurlseo` from spamming Magento backend": https://github.com/thehcginstitute-com/m1/issues/292 -->
-         <acl>
-            <resources>
-                <admin>
-                    <children>
-                        <system>
-                            <children>
-                                <config>
-                                    <children>
-                                        <activo_categoryurlseo>
-                                            <title>SEO Friendly Category</title>
-                                        </activo_categoryurlseo>
-                                    </children>
-                                </config>
-                            </children>
-                        </system>
-                   </children>
-               </admin>
-           </resources>
-        </acl>
-    </adminhtml>
-<!-- 2024-01-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The `Activo_Categoryurlseo` module does not use its settings": https://github.com/thehcginstitute-com/m1/issues/293 -->
+1) "Prevent `Activo_Categoryurlseo` from spamming Magento backend": https://github.com/thehcginstitute-com/m1/issues/292
+2) "The `Activo_Categoryurlseo` module does not use its settings": https://github.com/thehcginstitute-com/m1/issues/293 -->
 </config>
