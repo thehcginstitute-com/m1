@@ -3,7 +3,9 @@ $item = $this->getItem(); /* @var Mage_Wishlist_Model_Item $item */
 $product = $item->getProduct();
 ?>
 <!-- 2024-01-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-https://github.com/thehcginstitute-com/m1/blob/2024-01-15-2/app/design/frontend/default/mobileshoppe/template/wishlist/item/column/info.phtml#L31 -->
+1) "Port the `app/design/frontend/base/default/template/wishlist/item/column/info.phtml` 1.9.1.0 → 1.9.4.5 changes
+to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/235
+2) https://github.com/thehcginstitute-com/m1/blob/2024-01-15-2/app/design/frontend/default/mobileshoppe/template/wishlist/item/column/info.phtml#L31 -->
 <div class="productdetailscell">
 	<h3 class="product-name"><a href="<?php echo $this->getProductUrl($item) ?>" title="<?php echo $this->escapeHtml($product->getName()) ?>"><?php echo $this->escapeHtml($product->getName()) ?></a></h3>
 	<div class="description std"><div class="inner"><?php echo $this->escapeHtml($this->stripTags($product->getShortDescription()));?></div></div>
@@ -16,5 +18,7 @@ https://github.com/thehcginstitute-com/m1/blob/2024-01-15-2/app/design/frontend/
 		</div>
 	<?php endif; ?>
 <!-- 2024-01-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-https://github.com/thehcginstitute-com/m1/blob/2024-01-15-2/app/design/frontend/default/mobileshoppe/template/wishlist/item/column/info.phtml#L42 -->
+1) "Port the `app/design/frontend/base/default/template/wishlist/item/column/info.phtml` 1.9.1.0 → 1.9.4.5 changes
+to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/235
+2) https://github.com/thehcginstitute-com/m1/blob/2024-01-15-2/app/design/frontend/default/mobileshoppe/template/wishlist/item/column/info.phtml#L42 -->
 </div>
