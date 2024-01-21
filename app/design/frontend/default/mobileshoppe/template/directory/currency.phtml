@@ -8,7 +8,15 @@ if($this->getCurrencyCount()>1): ?>
     <div class="top-currency show-on-phones">
     		<label for="currency"><?php echo $this->__('Currency:') ?></label>
 
-        <select id="currency" title="<?php echo $this->__('Select Your Currency') ?>" onchange="setLocation(this.value)">
+        <select
+			id="currency"
+			onchange="setLocation(this.value)"
+<?php # 2024-01-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Port the `app/design/frontend/base/default/template/directory/currency.phtml` 1.9.1.0 → 1.9.4.5 changes
+# to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/226
+# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/directory/currency.phtml#L40 ?>
+			title="<?= Mage::helper('core')->quoteEscape($this->__('Select Your Currency')) ?>"
+		>
         <?php foreach ($this->getCurrencies() as $_code => $_name): ?>
             <option value="<?php echo $this->getSwitchCurrencyUrl($_code) ?>"<?php if($_code==$this->getCurrentCurrencyCode()): ?> selected="selected"<?php endif; ?>>
                 <?php echo $_name ?> - <?php echo $_code ?>
