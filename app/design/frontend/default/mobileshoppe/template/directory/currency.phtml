@@ -1,11 +1,5 @@
-<?php
-/**
- * Currency switcher
- *
- * @see Mage_Directory_Block_Currency
- */
-?>
-<?php if($this->getCurrencyCount()>1): ?>
+<?php /** @var Mage_Directory_Block_Currency $this */
+if($this->getCurrencyCount()>1): ?>
 <div class="block">
 	<div class="block-title">
         <strong><span><?php echo $this->__('Your Currency') ?></span></strong>
