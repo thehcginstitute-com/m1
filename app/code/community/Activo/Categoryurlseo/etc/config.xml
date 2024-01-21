@@ -38,17 +38,8 @@
         </models>
     </global>
     <adminhtml>
-        <events>
-            <controller_action_predispatch>
-                <observers>
-                    <activo_news_categoryurlseo>
-                        <type>singleton</type>
-                        <class>categoryurlseo/feed</class>
-                        <method>observe</method>
-                    </activo_news_categoryurlseo>
-                </observers>
-            </controller_action_predispatch>
-        </events>
+<!-- 2024-01-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent `Activo_Categoryurlseo` from spamming Magento backend": https://github.com/thehcginstitute-com/m1/issues/292 -->
          <acl>
             <resources>
                 <admin>
