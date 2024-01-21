@@ -21,15 +21,7 @@
     </modules>
     
     <global>
-        <helpers>
-            <categoryurlseo>
-                <class>Activo_Categoryurlseo_Helper</class>
-            </categoryurlseo>
-        </helpers>
         <models>
-            <categoryurlseo>
-                <class>Activo_Categoryurlseo_Model</class>
-            </categoryurlseo>
             <catalog>
                 <rewrite>
                     <url>Activo_Categoryurlseo_Model_Url</url>
