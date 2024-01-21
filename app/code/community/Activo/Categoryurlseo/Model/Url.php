@@ -21,6 +21,7 @@ class Activo_Categoryurlseo_Model_Url extends Mage_Catalog_Model_Url
      * 2024-01-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @override
 	 * @see Mage_Catalog_Model_Url::getCategoryRequestPath()
+	 * @used-by Mage_Catalog_Model_Url::_refreshCategoryRewrites()
      * @param Varien_Object $category
      * @param string $parentPath
      * @return string
