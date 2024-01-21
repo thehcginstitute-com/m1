@@ -32,5 +32,15 @@
 </ul>
 <?php endif;?>
 <div class="buttons-set">
-    <button type="button" class="button" title="<?php echo $this->__('Continue Shopping') ?>" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+    <button
+		class="button"
+		onclick="window.location='<?= $this->getUrl() ?>'"
+<?php # 2024-01-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Port the `app/design/frontend/base/default/template/checkout/success.phtml` 1.9.1.0 → 1.9.4.5 changes
+# to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/218
+# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/checkout/success.phtml#L63
+?>
+		title="<?= Mage::helper('core')->quoteEscape($this->__('Continue Shopping')) ?>"
+		type="button"
+	><span><span><?= $this->__('Continue Shopping') ?></span></span></button>
 </div>
