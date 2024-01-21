@@ -60,11 +60,6 @@
            </resources>
         </acl>
     </adminhtml>
-    <default>
-        <activo_categoryurlseo>
-            <global>
-                <enabled>1</enabled>
-            </global>
-        </activo_categoryurlseo>
-    </default>
+<!-- 2024-01-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The `Activo_Categoryurlseo` module does not use its settings": https://github.com/thehcginstitute-com/m1/issues/293 -->
 </config>
