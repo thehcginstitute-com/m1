@@ -76,6 +76,11 @@
                 <class>Magpleasure_Richsnippets_Block</class>
             </richsnippets>
             <catalog>
+<!-- 2024-01-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+We need this empty tag to workaround the failure
+«Call to a member function appendChild() on boolean in app/code/local/Magpleasure/Richsnippets/Model/Observer.php:25»:
+https://github.com/thehcginstitute-com/m1/issues/295 -->
+				<rewrite/>
                 <richrewrite>
                     <product_view>Magpleasure_Richsnippets_Block_Catalog_Product_View</product_view>
                 </richrewrite>
