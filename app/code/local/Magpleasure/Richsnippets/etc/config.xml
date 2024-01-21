@@ -76,7 +76,6 @@
                 <class>Magpleasure_Richsnippets_Block</class>
             </richsnippets>
             <catalog>
-                <rewrite></rewrite>
                 <richrewrite>
                     <product_view>Magpleasure_Richsnippets_Block_Catalog_Product_View</product_view>
                 </richrewrite>
