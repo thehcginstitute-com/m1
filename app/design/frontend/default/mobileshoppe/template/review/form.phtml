@@ -70,35 +70,39 @@
     <script type="text/javascript">
     //<![CDATA[
         var dataForm = new VarienForm('review-form');
-        Validation.addAllThese(
-        [
-               ['validate-rating', '<?php echo $this->__('Please select one of each of the ratings above') ?>', function(v) {
-                    var trs = $('product-review-table').select('tr');
-                    var inputs;
-                    var error = 1;
+        Validation.addAllThese([[
+		   'validate-rating'
+			<?php # 2024-01-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# 1) "Port the `app/design/frontend/base/default/template/review/form.phtml` 1.9.1.0 → 1.9.4.5 changes
+			# to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/232
+			# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/review/form.phtml#L99 ?>
+		   ,'<?= Mage::helper('core')->jsQuoteEscape($this->__('Please select one of each of the ratings above')) ?>'
+		   ,function(v) {
+				var trs = $('product-review-table').select('tr');
+				var inputs;
+				var error = 1;
 
-                    for( var j=0; j < trs.length; j++ ) {
-                        var tr = trs[j];
-                        if( j > 0 ) {
-                            inputs = tr.select('input');
+				for( var j=0; j < trs.length; j++ ) {
+					var tr = trs[j];
+					if( j > 0 ) {
+						inputs = tr.select('input');
 
-                            for( i in inputs ) {
-                                if( inputs[i].checked == true ) {
-                                    error = 0;
-                                }
-                            }
+						for( i in inputs ) {
+							if( inputs[i].checked == true ) {
+								error = 0;
+							}
+						}
 
-                            if( error == 1 ) {
-                                return false;
-                            } else {
-                                error = 1;
-                            }
-                        }
-                    }
-                    return true;
-                }]
-        ]
-        );
+						if( error == 1 ) {
+							return false;
+						} else {
+							error = 1;
+						}
+					}
+				}
+				return true;
+			}
+		]]);
     //]]>
     </script>
     <?php else: ?>
