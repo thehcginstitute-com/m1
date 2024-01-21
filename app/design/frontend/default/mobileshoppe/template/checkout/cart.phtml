@@ -12,7 +12,14 @@
         <?php endforeach; ?>
         </ul>
     <?php endif; ?>
-    <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
+    <form
+<?php # 2024-01-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Port the `app/design/frontend/base/default/template/checkout/cart.phtml` 1.9.1.0 → 1.9.4.5 changes
+# to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/217
+# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/checkout/cart.phtml#L49 ?>
+		action="<?= $this->getFormActionUrl() ?>"
+		method="post"
+	>
         <fieldset>
             <table id="shopping-cart-table" class="data-table cart-table">
                 
