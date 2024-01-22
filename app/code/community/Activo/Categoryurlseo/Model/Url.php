@@ -45,14 +45,6 @@ class Activo_Categoryurlseo_Model_Url extends Mage_Catalog_Model_Url
         }
 
         $categoryUrlSuffix = $this->getCategoryUrlSuffix($category->getStoreId());
-        if (null === $parentPath) {
-            $parentPath = $this->getResource()->getCategoryParentPath($category);
-        }
-        elseif ($parentPath == '/') {
-            $parentPath = '';
-        }
-//        $parentPath = Mage::helper('catalog/category')->getCategoryUrlPath($parentPath,
-//                                                                           true, $category->getStoreId());
         $parentPath = '';
 
         $requestPath = $parentPath . $urlKey . $categoryUrlSuffix;
