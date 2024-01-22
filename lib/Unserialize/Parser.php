@@ -47,6 +47,15 @@ class Unserialize_Parser
      */
     public function unserialize($str)
     {
+		#  2024-01-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# 1) "«Error during unserialization in lib/Unserialize/Parser.php:59» on a customer login":
+		# https://github.com/thehcginstitute-com/m1/issues/18
+		# 2) "«Error during unserialization in lib/Unserialize/Parser.php:60» on the `/admin/system_config/` page":
+		# https://github.com/thehcginstitute-com/m1/issues/298
+		# 3) On the `/admin/system_config/` a $str is an instance of `Mage_Core_Model_Config_Element`,
+		# and `(string)$str` is evaluated to «a:0:{}» (an empty array).
+		# But the Magento's built-in parser can not parse it properly.
+		$str = (string)$str;
         $reader = new Unserialize_Reader_Arr();
         $prevChar = null;
         for ($i = 0; $i < strlen($str); $i++) {
