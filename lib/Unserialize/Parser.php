@@ -55,6 +55,8 @@ class Unserialize_Parser
 		# 3) On the `/admin/system_config/` a $str is an instance of `Mage_Core_Model_Config_Element`,
 		# and `(string)$str` is evaluated to «a:0:{}» (an empty array).
 		# But the Magento's built-in parser can not parse it properly.
+		# 4) "How did I fix «Error during unserialization in lib/Unserialize/Parser.php» in Magento 1.9?":
+		# https://mage2.pro/t/6394
 		$str = (string)$str;
         $reader = new Unserialize_Reader_Arr();
         $prevChar = null;
