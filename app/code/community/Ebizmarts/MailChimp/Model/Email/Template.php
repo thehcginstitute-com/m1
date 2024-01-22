@@ -140,7 +140,13 @@ class Ebizmarts_MailChimp_Model_Email_Template extends Mage_Core_Model_Email_Tem
 
         if ($this->hasQueue() && $this->getQueue() instanceof Mage_Core_Model_Email_Queue) {
             $emailQueue = $this->getQueue();
-            $emailQueue->setMessageBody($message);
+			# 2024-01-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# 1) "Check that the `Ebizmarts_MailChimp_Model_Email_Template` rewrite of `Mage_Core_Model_Email_Template`
+			# is not broken after the upgrade from 1.9.1.0 to 1.9.4.5":
+			# https://github.com/thehcginstitute-com/m1/issues/254
+            # 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/code/core/Mage/Core/Model/Email/Template.php#L410
+			$emailQueue->clearRecipients();
+			$emailQueue->setMessageBody($message);
             $emailQueue->setMessageParameters(
                 array(
                 'subject'           => $subject,
