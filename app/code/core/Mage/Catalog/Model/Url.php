@@ -676,7 +676,11 @@ class Mage_Catalog_Model_Url
                 $match['increment'] = $lastRequestPath;
             }
             return $match['prefix']
-                . (isset($match['increment']) ? ($match['increment'] + 1) : '1')
+				# 2024-01-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "«A non-numeric value encountered in app/code/core/Mage/Catalog/Model/Url.php on line 679»
+				# on reindexing «Catalog URL Rewrites» if the `Activo_Categoryurlseo` module is disabled":
+				# https://github.com/thehcginstitute-com/m1/issues/297
+                . (isset($match['increment']) ? ((int)$match['increment'] + 1) : '1')
                 . $match['suffix'];
         }
         else {
