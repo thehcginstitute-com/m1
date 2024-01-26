@@ -4,30 +4,30 @@
 		<reference name="head">
 			 <action method="addCss"><name>signature/jquery.signaturepad.css</name></action>	
 		</reference>
-		<reference name="order_info">
-			<action method="setTemplate">
-				<template>opcsignature/sales/order/view/info.phtml</template>
-			</action>
-		</reference>
+<!-- 2024-01-26 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The template `opcsignature/sales/order/view/info.phtml` of `IWD_OnepageCheckoutSignature_Block_Sales_Order_View_Info`
+conflicts with the template `customfield/sales/order/view/info.phtml` of `Webkul_CustomField`
+because they are both override the template `sales/order/view/info.phtml`
+of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginstitute-com/m1/issues/327 -->
 	</adminhtml_sales_order_view>
 	<adminhtml_sales_order_invoice_view>
 		<reference name="head">
 			 <action method="addCss"><name>signature/jquery.signaturepad.css</name></action>	
 		</reference>
-		<reference name="order_info">
-			<action method="setTemplate">
-				<template>opcsignature/sales/order/view/info.phtml</template>
-			</action>
-		</reference>
+<!-- 2024-01-26 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The template `opcsignature/sales/order/view/info.phtml` of `IWD_OnepageCheckoutSignature_Block_Sales_Order_View_Info`
+conflicts with the template `customfield/sales/order/view/info.phtml` of `Webkul_CustomField`
+because they are both override the template `sales/order/view/info.phtml`
+of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginstitute-com/m1/issues/327 -->
 	</adminhtml_sales_order_invoice_view>
 	<adminhtml_sales_order_invoice_new>
 		<reference name="head">
 			 <action method="addCss"><name>signature/jquery.signaturepad.css</name></action>	
 		</reference>
-		<reference name="order_info">
-			<action method="setTemplate">
-				<template>opcsignature/sales/order/view/info.phtml</template>
-			</action>
-		</reference>
+<!-- 2024-01-26 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The template `opcsignature/sales/order/view/info.phtml` of `IWD_OnepageCheckoutSignature_Block_Sales_Order_View_Info`
+conflicts with the template `customfield/sales/order/view/info.phtml` of `Webkul_CustomField`
+because they are both override the template `sales/order/view/info.phtml`
+of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginstitute-com/m1/issues/327 -->
 	</adminhtml_sales_order_invoice_new>
 </layout>
