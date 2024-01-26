@@ -123,6 +123,7 @@ function df_render_l($block, $params = []):string {return df_render(df_block($bl
  * 1) не добавляет блок в макет, в отличие от @see df_block_l()
  * 2) отображает блок упрощённым методом @uses Mage_Core_Block_Abstract::toHtmlFast()
  * вместо @see Mage_Core_Block_Abstract::toHtml()
+ * 2023-01-26 @unused
  * @used-by df_render_simple_child()
  * @used-by \Df\Qa\Message::message()
  */
