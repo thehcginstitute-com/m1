@@ -20,8 +20,10 @@
     </adminhtml_customfield_customfield_edit>
 <!-- 2024-01-26 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The template `opcsignature/sales/order/view/info.phtml` of `IWD_OnepageCheckoutSignature_Block_Sales_Order_View_Info`
-conflicts with the template `customfield/sales/order/view/info.phtml` of `Webkul_CustomField`
-because they are both override the template `sales/order/view/info.phtml`
+conflicts with the template `customfield/sales/order/view/info.phtml` of `Webkul_CustomField`,
+the template `iwd/ordermanager/order/view/info.phtml` of `IWD_OrderManager`,
+and the template `iwd/orderflags/order/view/info.phtml` of `IWD_OrderFlags`,
+because they are all override the template `sales/order/view/info.phtml`
 of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginstitute-com/m1/issues/327 -->
     <adminhtml_customer_edit>
         <reference name="customer_edit_tabs">
