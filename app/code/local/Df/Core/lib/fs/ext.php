@@ -17,3 +17,15 @@ function df_file_ext($f) {return pathinfo($f, PATHINFO_EXTENSION);}
  * @return string
  */
 function df_file_ext_def($f, $ext) {return df_file_ext($f) ? $f : df_trim_right($f, '.') . ".$ext";}
+
+/**
+ * 2015-04-01
+ * Раньше алгоритм был таким: return preg_replace('#\.[^.]*$#', '', $file)
+ * Новый вроде должен работать быстрее?
+ * http://stackoverflow.com/a/22537165
+ * @used-by Df_Adminhtml_Catalog_Product_GalleryController::uploadActionDf()
+ * @used-by
+ * @param string $file
+ * @return mixed
+ */
+function df_strip_ext($file) {return pathinfo($file, PATHINFO_FILENAME);}

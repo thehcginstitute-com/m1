@@ -35,5 +35,12 @@
 				</observers>
 			</resource_get_tablename>
 		</events>
+		<models>
+			<core>
+				<rewrite>
+					<layout>Df_Core_Model_Layout</layout>
+				</rewrite>
+			</core>
+		</models>
 	</global>
 </config>
