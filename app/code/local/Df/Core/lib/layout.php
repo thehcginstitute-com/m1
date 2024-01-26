@@ -95,6 +95,7 @@ function df_render($block, $params = []):string {return df_block($block, $params
 
 /**
  * 2015-04-01
+ * 2023-01-26 @unused
  * @param Mage_Core_Block_Abstract $parent
  * @param string|Mage_Core_Block_Abstract|null $block [optional]
  * @param string|array(string => mixed) $params [optional]
