@@ -148,8 +148,8 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
 					# because they are all override the template `sales/order/view/info.phtml`
 					# of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginstitute-com/m1/issues/327
 					$p = 'hcg/sales/order/view/info/'; /** @var string $p */
-					echo df_render_simple("{$p}IWD_OnepageCheckoutSignature.phtml", ['_order' => $_order]);
-					echo df_render_simple("{$p}Webkul_CustomField.phtml", ['b' => $this]);
+					echo df_render_simple("{$p}IWD_OnepageCheckoutSignature.phtml", [], ['_order' => $_order]);
+					echo df_render_simple("{$p}Webkul_CustomField.phtml", [], ['b' => $this]);
 				?>
                 </table>
             </div>
