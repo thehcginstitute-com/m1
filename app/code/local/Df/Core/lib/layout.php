@@ -110,7 +110,7 @@ function df_render_child(Mage_Core_Block_Abstract $parent, $block, $params = [])
  * @see Mage_Core_Block_Abstract::getLayout()
  * Если блок не нужно рисовать сразу, а нужно непременно добавить в макет,
  * то используйте функцию @see df_block_l()
- * @used-by Df_Cms_Block_Admin_Hierarchy_Widget_Chooser::prepareElementHtml()
+ * 2023-01-26 @unused
  * @param string|Mage_Core_Block_Abstract|null $block [optional]
  * @param string|array(string => mixed) $params [optional]
  * @throws Exception
