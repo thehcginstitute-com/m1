@@ -145,8 +145,9 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
 					# conflicts with the template `customfield/sales/order/view/info.phtml` of `Webkul_CustomField`
 					# because they are both override the template `sales/order/view/info.phtml`
 					# of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginstitute-com/m1/issues/327
-					df_render_simple('hcg/sales/order/view/info/IWD_OnepageCheckoutSignature.phtml', ['_order' => $_order]);
-					df_render_simple('hcg/sales/order/view/info/Webkul_CustomField.phtml', ['b' => $this]);
+					$p = 'hcg/sales/order/view/info/'; /** @var string $p */
+					df_render_simple("{$p}IWD_OnepageCheckoutSignature.phtml", ['_order' => $_order]);
+					df_render_simple("{$p}Webkul_CustomField.phtml", ['b' => $this]);
 				?>
                 </table>
             </div>
