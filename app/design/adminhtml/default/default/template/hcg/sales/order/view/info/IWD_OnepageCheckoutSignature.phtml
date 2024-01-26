@@ -1,0 +1,58 @@
+<?php
+/**
+ * 2024-01-26
+ * "The template `opcsignature/sales/order/view/info.phtml` of `IWD_OnepageCheckoutSignature_Block_Sales_Order_View_Info`
+ * conflicts with the template `customfield/sales/order/view/info.phtml` of `Webkul_CustomField`
+ * because they are both override the template `sales/order/view/info.phtml` of `Mage_Adminhtml_Block_Sales_Order_View_Info`":
+ * https://github.com/thehcginstitute-com/m1/issues/327
+ * @var Mage_Core_Block_Template $this
+ * @var Mage_Sales_Model_Order $_order
+ */
+if(Mage::getStoreConfig('opcsignature/general/enabled')):?>
+<?php
+	$collection = Mage::getModel('opcsignature/signaturer')->getCollection();
+	$collection->addFieldToFilter('order_id', $_order->getId());
+	$json = "";
+	$name = "";
+	foreach( $collection as $item)
+	{
+		$name = $item['signature_name'];
+		$json = $item['signature_json'];
+	}?>
+	<?php if($json!="" || $name!=""):?>
+		<tr>
+			 <td class="label"><label><?php echo $this->__("Customer Signature"); ?></label></td>
+
+			 <td class="signature">
+
+					<?php if($json==""):?><div class="name" ><?php echo $name?></div><?php endif;?>
+				<canvas class="pad" width="285" height="55"></canvas>
+			 </td>
+	   </tr>
+		 <script type="text/javascript">
+		 var script = document.createElement("SCRIPT");
+		 if (!window.jQuery) {
+				script.src = '<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)?>frontend/base/default/js/signature/jquery-1.7.2.js';
+				script.type = 'text/javascript';
+				document.getElementsByTagName("head")[0].appendChild(script);
+			 }
+			var checkReady = function(callback) {
+				if (window.jQuery) {
+					callback(jQuery);
+				}
+				else {
+					window.setTimeout(function() { checkReady(callback); }, 100);
+				}
+			};
+			checkReady(function(jQuery){
+				jQuery(document).ready(function() {
+					jQuery.noConflict();
+					 var url = "<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN)?>frontend/base/default/js/signature/jquery.signaturepad.min.js";
+					 jQuery.getScript(url, function(){
+						 jQuery('.signature').signaturePad().regenerate(<?php echo $json?>);
+					 });
+				   });
+				});
+	</script>
+	<?php endif;?>
+<?php endif;?>

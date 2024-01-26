@@ -1,15 +1,17 @@
 <?php
- /**
- * @category   Webkul
- * @package    Webkul_CustomField
- * @author     Webkul Software Private Limited
- * @copyright  Copyright (c) Webkul Software Private Limited (https://webkul.com)
- * @license    https://store.webkul.com/license.html
+/**
+ * 2024-01-26
+ * "The template `opcsignature/sales/order/view/info.phtml` of `IWD_OnepageCheckoutSignature_Block_Sales_Order_View_Info`
+ * conflicts with the template `customfield/sales/order/view/info.phtml` of `Webkul_CustomField`
+ * because they are both override the template `sales/order/view/info.phtml` of `Mage_Adminhtml_Block_Sales_Order_View_Info`":
+ * https://github.com/thehcginstitute-com/m1/issues/327
+ * @var Mage_Core_Block_Template $this
+ * @var Mage_Adminhtml_Block_Sales_Order_View_Info $b
  */
-$_order = $this->getOrder() ?>
+$_order = $b->getOrder() ?>
 <?php
-$orderAdminDate = $this->formatDate($_order->getCreatedAtDate(), 'medium', true);
-$orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', true);
+$orderAdminDate = $b->formatDate($_order->getCreatedAtDate(), 'medium', true);
+$orderStoreDate = $b->formatDate($_order->getCreatedAtStoreDate(), 'medium', true);
 ?>
 <div class="box-left">
     <!--Order Information-->
@@ -20,10 +22,10 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
             $_email = Mage::helper('sales')->__('the order confirmation email is not sent');
         endif; ?>
         <div class="entry-edit-head">
-        <?php if ($this->getNoUseOrderLink()): ?>
+        <?php if ($b->getNoUseOrderLink()): ?>
             <h4 class="icon-head head-account"><?php echo Mage::helper('sales')->__('Order # %s', $_order->getRealOrderId()) ?> (<?php echo $_email ?>)</h4>
         <?php else: ?>
-            <a href="<?php echo $this->getViewUrl($_order->getId()) ?>"><?php echo Mage::helper('sales')->__('Order # %s', $_order->getRealOrderId()) ?></a>
+            <a href="<?php echo $b->getViewUrl($_order->getId()) ?>"><?php echo Mage::helper('sales')->__('Order # %s', $_order->getRealOrderId()) ?></a>
             <strong>(<?php echo $_email ?>)</strong>
         <?php endif; ?>
         </div>
@@ -45,12 +47,12 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
             </tr>
             <tr>
                 <td class="label"><label><?php echo Mage::helper('sales')->__('Purchased From') ?></label></td>
-                <td class="value"><strong><?php echo $this->getOrderStoreName() ?></strong></td>
+                <td class="value"><strong><?php echo $b->getOrderStoreName() ?></strong></td>
             </tr>
             <?php if ($_order->getRelationChildId()): ?>
             <tr>
                 <td class="label"><label><?php echo Mage::helper('sales')->__('Link to the New Order') ?></label></td>
-                <td class="value"><a href="<?php echo $this->getViewUrl($_order->getRelationChildId()) ?>">
+                <td class="value"><a href="<?php echo $b->getViewUrl($_order->getRelationChildId()) ?>">
                     <?php echo $_order->getRelationChildRealId() ?>
                 </a></td>
             </tr>
@@ -58,15 +60,15 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
             <?php if ($_order->getRelationParentId()): ?>
             <tr>
                 <td class="label"><label><?php echo Mage::helper('sales')->__('Link to the Previous Order') ?></label></td>
-                <td class="value"><a href="<?php echo $this->getViewUrl($_order->getRelationParentId()) ?>">
+                <td class="value"><a href="<?php echo $b->getViewUrl($_order->getRelationParentId()) ?>">
                     <?php echo $_order->getRelationParentRealId() ?>
                 </a></td>
             </tr>
             <?php endif; ?>
-            <?php if ($_order->getRemoteIp() && $this->shouldDisplayCustomerIp()): ?>
+            <?php if ($_order->getRemoteIp() && $b->shouldDisplayCustomerIp()): ?>
             <tr>
                 <td class="label"><label><?php echo Mage::helper('sales')->__('Placed from IP') ?></label></td>
-                <td class="value"><strong><?php echo $_order->getRemoteIp(); echo ($_order->getXForwardedFor())?' (' . $this->escapeHtml($_order->getXForwardedFor()) . ')':''; ?></strong></td>
+                <td class="value"><strong><?php echo $_order->getRemoteIp(); echo ($_order->getXForwardedFor())?' (' . $b->escapeHtml($_order->getXForwardedFor()) . ')':''; ?></strong></td>
             </tr>
             <?php endif; ?>
             <?php if ($_order->getGlobalCurrencyCode() != $_order->getBaseCurrencyCode()): ?>
@@ -90,7 +92,7 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
     <div class="entry-edit">
         <div class="entry-edit-head">
             <h4 class="icon-head head-account"><?php echo Mage::helper('sales')->__('Account Information') ?></h4>
-            <div class="tools"><?php echo $this->getAccountEditLink()?></div>
+            <div class="tools"><?php echo $b->getAccountEditLink()?></div>
         </div>
         <div class="fieldset">
             <div class="hor-scroll">
@@ -98,10 +100,10 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                 <tr>
                     <td class="label"><label><?php echo Mage::helper('sales')->__('Customer Name') ?></label></td>
                     <td class="value">
-                    <?php if ($_customerUrl=$this->getCustomerViewUrl()) : ?>
-                        <a href="<?php echo $_customerUrl ?>" target="_blank"><strong><?php echo $this->escapeHtml($_order->getCustomerName()) ?></strong></a>
+                    <?php if ($_customerUrl=$b->getCustomerViewUrl()) : ?>
+                        <a href="<?php echo $_customerUrl ?>" target="_blank"><strong><?php echo $b->escapeHtml($_order->getCustomerName()) ?></strong></a>
                     <?php else: ?>
-                        <strong><?php echo $this->escapeHtml($_order->getCustomerName()) ?></strong>
+                        <strong><?php echo $b->escapeHtml($_order->getCustomerName()) ?></strong>
                     <?php endif; ?>
                     </td>
                 </tr>
@@ -109,19 +111,19 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                     <td class="label"><label><?php echo Mage::helper('sales')->__('Email') ?></label></td>
                     <td class="value"><a href="mailto:<?php echo $_order->getCustomerEmail() ?>"><strong><?php echo $_order->getCustomerEmail() ?></strong></a></td>
                 </tr>
-                <?php if ($_groupName = $this->getCustomerGroupName()) : ?>
+                <?php if ($_groupName = $b->getCustomerGroupName()) : ?>
                 <tr>
                     <td class="label"><label><?php echo Mage::helper('sales')->__('Customer Group') ?></label></td>
                     <td class="value"><strong><?php echo $_groupName ?></strong></td>
                 </tr>
                 <?php endif; ?>
-                <?php foreach ($this->getCustomerAccountData() as $data):?>
+                <?php foreach ($b->getCustomerAccountData() as $data):?>
                 <tr>
                     <td class="label"><label><?php echo $data['label'] ?></label></td>
                     <td class="value"><strong><?php echo $data['value'] ?></strong></td>
                 </tr>
                 <?php endforeach;?>
-<?php 
+<?php
         $customerid=$_order->getCustomerId();
         $customer = Mage::getModel('customer/customer')->load($customerid);
         $model = 'customer/attribute_collection';
@@ -158,7 +160,7 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                         <?php foreach ($customer as $val) {
                             foreach ($val as $key=>$vl) {
                                 if ($attr['attribute_code']==$key) {
-                                    $vall= $val[$key]; ?>                          
+                                    $vall= $val[$key]; ?>
                                 <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                                 <td class="value"><strong><?php echo $vall; ?></strong></td><?php
 
@@ -179,15 +181,15 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                             }
                             break;
                         } ?>
-                        
+
                     <?php   foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
                             ?>
-                    <?php 
+                    <?php
                     if ($instance['value']==$valls) {
                         ?>
                         <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
-                        <td class="value"><strong><?php echo $instance['label']; ?></strong></td>                           
-                    <?php 
+                        <td class="value"><strong><?php echo $instance['label']; ?></strong></td>
+                    <?php
                     }
                         }
                         break;
@@ -201,19 +203,19 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                                 }
                             }
                             break;
-                        } ?>                                                        
+                        } ?>
 
                     <?php   foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
                             if ($instance['value']==$valls) {
                                 ?>
                             <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                             <td class="value"><strong><?php echo $instance['label']; ?></strong></td>
-                            
-                    <?php 
+
+                    <?php
                             }
                         }
                         break;
-                        
+
                     case 'multiselect':
                         $vallm="";
                         foreach ($customer as $val) {
@@ -225,7 +227,7 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                             break;
                         }
                             if ($vallm) {
-                                $multi_values = explode(',', $vallm); ?>                         
+                                $multi_values = explode(',', $vallm); ?>
                             <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                                 <td class="value"><strong>
                                 <?php   $multiselectval="";
@@ -233,7 +235,7 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                                             if (in_array($instance['value'],$multi_values)) {
                                                 ?>
                                             <?php $multiselectval.= $instance['label'].", "; ?>
-                                    <?php 
+                                    <?php
                                             }
                                         }
                                         $multiselectval=substr($multiselectval,0,strlen($multiselectval)-2);
@@ -252,14 +254,14 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                                     $valla= trim($val[$key]); ?>
                                     <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                                     <td class="value"><strong><?php echo $valla; ?></strong></td>
-                                <?php 
+                                <?php
                                 }
                             }
                             break;
                         }
-                        
+
                         break;
-                        
+
                     case 'date':
                         $valld="";
                         foreach ($customer as $val) {
@@ -273,10 +275,10 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                             break;
                         }
                             if ($valld) {
-                                ?>                              
+                                ?>
                             <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
-                            <td class="value"><strong><?php echo $valld; ?></strong></td>   
-                        <?php 
+                            <td class="value"><strong><?php echo $valld; ?></strong></td>
+                        <?php
                             }
                         break;
 
@@ -284,24 +286,24 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                         echo '
                         <div class="input-box">';
                         ?>
-                        <?php 
+                        <?php
                         $val_file= $customer[$attr['attribute_code']];
                         $val_file_encode = Mage::helper('core')->urlEncode($val_file);
-                        
+
                         $flag = 0;?>
                         <?php
                         if (file_exists(Mage::getBaseDir("media")."/customer".$val_file) && $val_file != "") {
                             ?>
                         <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                             <td class="value"><strong>
-                            <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>"><img alt="Download" title="Download" src="<?php echo $this->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
-                            <a href="<?php echo $this->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>"><?php echo $this->__('Download') ?></a> 
+                            <a href="<?php echo $b->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>"><img alt="Download" title="Download" src="<?php echo $b->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
+                            <a href="<?php echo $b->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>"><?php echo $b->__('Download') ?></a>
 
-                        <?php 
+                        <?php
                         }
                         echo '</strong></td>';
                         break;
-                        
+
                     case 'image':
                         echo '
                         <div class="input-box">';
@@ -314,20 +316,20 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                                 ?>
                             <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                             <td class="value"><strong>
-                                <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" style="display: inline-block;margin-bottom: 2px;text-decoration: none;vertical-align: middle;" target="_blank" >
+                                <a href="<?php echo $b->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" style="display: inline-block;margin-bottom: 2px;text-decoration: none;vertical-align: middle;" target="_blank" >
                                     <img width="22" height="22" id="_accountimgs_image" class="small-image-preview v-middle" src="<?php echo Mage::getBaseUrl()?>customfield/index/viewfile/file/<?php echo $val_file_encode  ?>" title="View Full Size" alt="View Full Size">
                                 </a>
-                            <?php 
+                            <?php
                             } else {
                                 ?>
                             <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                             <td class="value"><strong>
-                                <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" target="_blank"><img alt="Download" title="Download" src="<?php echo $this->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
-                                <a href="<?php echo $this->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>" target="_blank"><?php echo $this->__('Download') ?></a>
-                            <?php 
+                                <a href="<?php echo $b->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" target="_blank"><img alt="Download" title="Download" src="<?php echo $b->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
+                                <a href="<?php echo $b->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>" target="_blank"><?php echo $b->__('Download') ?></a>
+                            <?php
                             }
                         } ?>
-                        <?php 
+                        <?php
                         echo '</strong></td>';
                         break;
                     case 'dependable':
@@ -340,15 +342,15 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                                 }
                             }
                             break;
-                        } ?>                                                        
+                        } ?>
 
                     <?php   foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
                             if ($instance['value']==$valls) {
                                 ?>
                             <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                             <td class="value"><strong><?php echo $instance['label']; ?></strong></td>
-                            
-                    <?php 
+
+                    <?php
                             }
                         }
                         echo'</tr>';
@@ -366,7 +368,7 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
 
                         $attribute=$dependentCollection->getFirstItem();
                         $attr = $attribute->toArray();
-                                                        
+
                         $store_labels = $attribute->getStoreLabels();
                         $label = $store_labels[$store_id] ? $store_labels[$store_id] : $attr['frontend_label'];
                         echo '<tr>';
@@ -378,7 +380,7 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                                 <?php foreach ($customer as $val) {
                                     foreach ($val as $key=>$vl) {
                                         if ($attr['attribute_code']==$key) {
-                                            $vall= $val[$key]; ?>                          
+                                            $vall= $val[$key]; ?>
                                         <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                                         <td class="value"><strong><?php echo $vall; ?></strong></td><?php
 
@@ -399,15 +401,15 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                                     }
                                     break;
                                 } ?>
-                                
+
                             <?php   foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
                                     ?>
-                            <?php 
+                            <?php
                             if ($instance['value']==$valls) {
                                 ?>
                                 <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
-                                <td class="value"><strong><?php echo $instance['label']; ?></strong></td>                           
-                            <?php 
+                                <td class="value"><strong><?php echo $instance['label']; ?></strong></td>
+                            <?php
                             }
                                 }
                                 break;
@@ -421,19 +423,19 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                                         }
                                     }
                                     break;
-                                } ?>                                                        
+                                } ?>
 
                             <?php   foreach ($attribute->getSource()->getAllOptions((!$attr['is_required']), false) as $instance) {
                                     if ($instance['value']==$valls) {
                                         ?>
                                     <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                                     <td class="value"><strong><?php echo $instance['label']; ?></strong></td>
-                                    
-                            <?php 
+
+                            <?php
                                     }
                                 }
                                 break;
-                                
+
                             case 'multiselect':
                                 $vallm="";
                                 foreach ($customer as $val) {
@@ -445,7 +447,7 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                                     break;
                                 }
                                     if ($vallm) {
-                                        $multi_values = explode(',', $vallm); ?>                         
+                                        $multi_values = explode(',', $vallm); ?>
                                     <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                                         <td class="value"><strong>
                                         <?php   $multiselectval="";
@@ -453,7 +455,7 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                                             if (in_array($instance['value'], $multi_values)) {
                                                 ?>
                                                     <?php $multiselectval.= $instance['label'].", "; ?>
-                                            <?php 
+                                            <?php
                                             }
                                         }
                                         $multiselectval=substr($multiselectval, 0, strlen($multiselectval)-2);
@@ -472,14 +474,14 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                                             $valla= trim($val[$key]); ?>
                                             <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                                             <td class="value"><strong><?php echo $valla; ?></strong></td>
-                                        <?php 
+                                        <?php
                                         }
                                     }
                                     break;
                                 }
-                                
+
                                 break;
-                                
+
                             case 'date':
                                 $valld="";
                                 foreach ($customer as $val) {
@@ -493,10 +495,10 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                                     break;
                                 }
                                     if ($valld) {
-                                        ?>                              
+                                        ?>
                                     <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
-                                    <td class="value"><strong><?php echo $valld; ?></strong></td>   
-                                <?php 
+                                    <td class="value"><strong><?php echo $valld; ?></strong></td>
+                                <?php
                                     }
                                 break;
 
@@ -504,24 +506,24 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                                 echo '
                                 <div class="input-box">';
                                 ?>
-                                <?php 
+                                <?php
                                 $val_file= $customer[$attr['attribute_code']];
                                 $val_file_encode = Mage::helper('core')->urlEncode($val_file);
-                                
+
                                 $flag = 0;?>
                                 <?php
                                 if (file_exists(Mage::getBaseDir("media")."/customer".$val_file) && $val_file != "") {
                                     ?>
                                 <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                                     <td class="value"><strong>
-                                    <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>"><img alt="Download" title="Download" src="<?php echo $this->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
-                                    <a href="<?php echo $this->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>"><?php echo $this->__('Download') ?></a> 
+                                    <a href="<?php echo $b->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>"><img alt="Download" title="Download" src="<?php echo $b->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
+                                    <a href="<?php echo $b->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>"><?php echo $b->__('Download') ?></a>
 
-                                <?php 
+                                <?php
                                 }
                                 echo '</strong></td>';
                                 break;
-                                
+
                             case 'image':
                                 echo '
                                 <div class="input-box">';
@@ -534,20 +536,20 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
                                         ?>
                                     <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                                     <td class="value"><strong>
-                                        <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" style="display: inline-block;margin-bottom: 2px;text-decoration: none;vertical-align: middle;" target="_blank" >
+                                        <a href="<?php echo $b->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" style="display: inline-block;margin-bottom: 2px;text-decoration: none;vertical-align: middle;" target="_blank" >
                                             <img width="22" height="22" id="_accountimgs_image" class="small-image-preview v-middle" src="<?php echo Mage::getBaseUrl()?>customfield/index/viewfile/file/<?php echo $val_file_encode  ?>" title="View Full Size" alt="View Full Size">
                                         </a>
-                                    <?php 
+                                    <?php
                                     } else {
                                         ?>
                                     <td class="label"><label><?php echo $attr['frontend_label']; ?></label></td>
                                     <td class="value"><strong>
-                                        <a href="<?php echo $this->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" target="_blank"><img alt="Download" title="Download" src="<?php echo $this->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
-                                        <a href="<?php echo $this->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>" target="_blank"><?php echo $this->__('Download') ?></a>
-                                    <?php 
+                                        <a href="<?php echo $b->getUrl('customfield/index/viewfile', array('file'=>$val_file_encode)) ?>" target="_blank"><img alt="Download" title="Download" src="<?php echo $b->getSkinUrl('images/customfield/fam_bullet_disk.gif')?>" class="v-middle wk_download_link" style="float: left;width: 22px;"></a>
+                                        <a href="<?php echo $b->getUrl('customfield/index/viewfile/', array('file'=>$val_file_encode))?>" target="_blank"><?php echo $b->__('Download') ?></a>
+                                    <?php
                                     }
                                 } ?>
-                                <?php 
+                                <?php
                                 echo '</strong></td>';
                                 break;
                             }
@@ -569,20 +571,20 @@ $orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', 
     <div class="entry-edit">
         <div class="entry-edit-head">
             <h4 class="icon-head head-billing-address"><?php echo Mage::helper('sales')->__('Billing Address') ?></h4>
-            <div class="tools"><?php echo $this->getAddressEditLink($_order->getBillingAddress())?></div>
+            <div class="tools"><?php echo $b->getAddressEditLink($_order->getBillingAddress())?></div>
         </div>
         <fieldset>
             <address><?php echo $_order->getBillingAddress()->getFormated(true) ?></address>
         </fieldset>
     </div>
 </div>
-<?php if (!$this->getOrder()->getIsVirtual()): ?>
+<?php if (!$b->getOrder()->getIsVirtual()): ?>
 <div class="box-right">
     <!--Shipping Address-->
     <div class="entry-edit">
         <div class="entry-edit-head">
             <h4 class="icon-head head-shipping-address"><?php echo Mage::helper('sales')->__('Shipping Address') ?></h4>
-            <div class="tools"><?php echo $this->getAddressEditLink($_order->getShippingAddress())?></div>
+            <div class="tools"><?php echo $b->getAddressEditLink($_order->getShippingAddress())?></div>
         </div>
         <fieldset>
             <address><?php echo $_order->getShippingAddress()->getFormated(true) ?></address>

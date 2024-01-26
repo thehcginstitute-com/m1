@@ -125,7 +125,7 @@ function df_render_l($block, $params = []):string {return df_render(df_block($bl
  * 2) отображает блок упрощённым методом @uses Mage_Core_Block_Abstract::toHtmlFast()
  * вместо @see Mage_Core_Block_Abstract::toHtml()
  * @used-by df_render_simple_child()
- * @used-by \Df\Qa\Message::message()
+ * @used-by app/design/adminhtml/default/default/template/sales/order/view/info.phtml
  */
 function df_render_simple(string $t, array $params = []):string {return df_render(null, ['template' => $t] + $params);}
 
