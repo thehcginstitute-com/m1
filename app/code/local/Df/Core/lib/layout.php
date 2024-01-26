@@ -130,6 +130,7 @@ function df_render_simple(string $t, array $params = []):string {return df_rende
 
 /**
  * 2015-04-01
+ * 2023-01-26 @unused
  * @param string|array(string => mixed) $params [optional]
  */
 function df_render_simple_child(Mage_Core_Block_Template $parent, string $templateShort, $params = []):string {
