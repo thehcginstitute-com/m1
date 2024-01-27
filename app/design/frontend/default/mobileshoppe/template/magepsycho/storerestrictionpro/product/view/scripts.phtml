@@ -1,7 +1,7 @@
 <?php
 $helper               = Mage::helper('magepsycho_storerestrictionpro');
-$hideAddToCartText    = $helper->getConfig()->getAccessibleHideAddToCartText();
-$hideAddToCartLink    = $helper->getConfig()->getAccessibleHideAddToCartLink();
+$hideAddToCartText    = $helper->cfgH()->getAccessibleHideAddToCartText();
+$hideAddToCartLink    = $helper->cfgH()->getAccessibleHideAddToCartLink();
 $onclickAction        = 'javascript:void(0)';
 if (!empty($hideAddToCartLink)) {
     $hideAddToCartLink       = $this->getUrl(trim($hideAddToCartLink, '/'));

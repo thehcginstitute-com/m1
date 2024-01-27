@@ -2,7 +2,7 @@
 <div class="input-box">
 	<?php
 	$helper				        = Mage::helper('magepsycho_customerregfields');
-	$isGroupEditable	        = $helper->getConfig()->isGroupSelectionEditable();
+	$isGroupEditable	        = $helper->cfgH()->isGroupSelectionEditable();
 	$isValidCustomerForEdit     = $helper->isValidCustomerForEdit();
 	?>
 	<?php if ( ($this->getIsEditPage() && ! $isGroupEditable) || ($this->getIsEditPage() && ! $isValidCustomerForEdit) ) : ?>

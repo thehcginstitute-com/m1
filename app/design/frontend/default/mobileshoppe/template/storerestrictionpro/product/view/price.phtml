@@ -1,7 +1,7 @@
 <?php
 $helper           = Mage::helper('magepsycho_storerestrictionpro');
-$hidePriceText    = $helper->getConfig()->getAccessibleHideProductPriceText();
-$hidePriceLink    = $helper->getConfig()->getAccessibleHideProductPriceLink();
+$hidePriceText    = $helper->cfgH()->getAccessibleHideProductPriceText();
+$hidePriceLink    = $helper->cfgH()->getAccessibleHideProductPriceLink();
 $displayPriceHtml = $hidePriceText;
 if (!empty($hidePriceLink)) {
     $redirectUrl      = $this->getUrl(trim($hidePriceLink, '/'));
