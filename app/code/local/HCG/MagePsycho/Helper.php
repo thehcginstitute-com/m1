@@ -98,6 +98,31 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 
 	/**
 	 * 2024-01-27
+	 * @used-by \MagePsycho_Customerregfields_Block_Customer_Widget_Type::_toHtml()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Data::switchCustomerFormRegisterTemplateIf()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Data::switchCustomerAccountEditTemplateIf()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Data::switchCheckoutOnepageBillingTemplateIf()
+	 * @used-by \MagePsycho_Customerregfields_Model_Observer::controllerActionPostdispatchCheckoutOnepageSaveBilling()
+	 * @used-by \MagePsycho_Customerregfields_Model_Observer::checkoutTypeOnepageSaveOrder()
+	 * @used-by \MagePsycho_Customerregfields_Model_Observer::salesOrderSaveAfter()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::unsetCustomerLogoutChildIf()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::switchCustomerLogoutTemplateIf()
+	 * @used-by \MagePsycho_Loginredirectpro_Model_Observer::controllerActionPredispatch()
+	 * @used-by \MagePsycho_Loginredirectpro_Model_Observer_Customer::customerRegisterSuccess()
+	 * @used-by \MagePsycho_Loginredirectpro_Model_Observer_Customer::controllerActionPostdispatchCustomerAccountCreatePost()
+	 * @used-by \MagePsycho_Loginredirectpro_Model_Observer_Customer::customerLogin()
+	 * @used-by \MagePsycho_Loginredirectpro_Model_Observer_Customer::controllerActionPostdispatchCustomerAccountLogout()
+	 * @used-by \MagePsycho_Loginredirectpro_Model_Observer_Customer::controllerFrontInitBefore()
+	 * @used-by \MagePsycho_Loginredirectpro_Model_Observer_Newsletter::controllerActionPostdispatchNewsletterSubscriber()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::skipRestrictionByDefault()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::switchAccountLoginTemplateIf()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::switchCheckoutLoginTemplateIf()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::skipAccountActivationFxn()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isPriceSectionRestricted()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isAddToCartSectionRestricted()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isAccessibleCheckoutPageRestricted()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::skipPaymentMethodRestriction()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::skipShippingMethodRestriction()
 	 */
 	final function isFxnSkipped():bool {return !$this->isActive();}
 
