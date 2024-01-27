@@ -92,11 +92,6 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by app/design/frontend/default/mobileshoppe/template/magepsycho/storerestrictionpro/product/view/addtocart.phtml
 	 * @used-by app/design/frontend/default/mobileshoppe/template/magepsycho/storerestrictionpro/product/view/price.phtml
 	 * @used-by app/design/frontend/default/mobileshoppe/template/magepsycho/storerestrictionpro/product/view/scripts.phtml
-	 * @used-by app/design/frontend/default/mobileshoppe/template/storerestrictionpro/checkout/onepage/login.phtml
-	 * @used-by app/design/frontend/default/mobileshoppe/template/storerestrictionpro/customer/form/login.phtml
-	 * @used-by app/design/frontend/default/mobileshoppe/template/storerestrictionpro/product/view/addtocart.phtml
-	 * @used-by app/design/frontend/default/mobileshoppe/template/storerestrictionpro/product/view/price.phtml
-	 * @used-by app/design/frontend/default/mobileshoppe/template/storerestrictionpro/product/view/scripts.phtml
 	 * @return CfgC|CfgL|CfgS
 	 */
 	final function cfgH() {return \Mage::helper("{$this->moduleMf()}/config");}
