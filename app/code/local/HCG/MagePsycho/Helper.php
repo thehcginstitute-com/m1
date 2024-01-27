@@ -22,11 +22,8 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	/**
 	 * 2024-01-27
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::isFxnSkipped()
-	 * @used-by \MagePsycho_Customerregfields_Model_Observer::adminhtmlControllerActionPredispatch()
 	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::isFxnSkipped()
-	 * @used-by \MagePsycho_Loginredirectpro_Model_Observer::adminhtmlPreDispatchCheck()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isFxnSkipped()
-	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::adminhtmlControllerActionPredispatch()
 	 */
 	final function isValid():bool {return true;}
 
