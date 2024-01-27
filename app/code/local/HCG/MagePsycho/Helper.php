@@ -124,6 +124,17 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getDefaultLoginUrl()
 	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getGroupLoginUrl()
 	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getDefaultLogoutUrl()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getGroupLogoutUrl()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getRemoveLogoutIntermediate()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getLogoutMessage()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getLogoutDelay()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getDefaultAccountUrl()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getGroupAccountUrl()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getGroupAccountTemplate()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getDefaultAccountMessage()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getGroupAccountMessage()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getNewsletterUrl()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getRedirectToParam()
 	 */
     final protected function cfg(string $p, $s = null) {return \Mage::getStoreConfig("{$this->moduleMf()}/$p", $s);}
 
