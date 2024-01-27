@@ -12,16 +12,6 @@
 class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 {
 	/**
-	 * Helper Config
-	 *
-	 * @return MagePsycho_Loginredirectpro_Helper_Config
-	 */
-	function getConfig()
-	{
-		return Mage::helper('magepsycho_loginredirectpro/config');
-	}
-
-	/**
 	 * Module Logging function
 	 *
 	 * @param $data
@@ -29,7 +19,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 	 */
 	function log($data, $includeSep = false)
 	{
-		if ( !$this->getConfig()->isLogEnabled()) {
+		if ( !$this->cfgH()->isLogEnabled()) {
 			return;
 		}
 
@@ -63,19 +53,6 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 	{
 		$customer = $this->_getCustomerSession()->getCustomer();
 		return $customer->getGroupId();
-	}
-
-	function isActive()
-	{
-		return (bool)$this->getConfig()->isActive();
-	}
-
-	function isFxnSkipped()
-	{
-		if (($this->isActive() && !$this->isValid()) || !$this->isActive()) {
-			return true;
-		}
-		return false;
 	}
 
 	/**
@@ -171,7 +148,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 	function getRedirectToParamUrl()
 	{
 		$redirectToParamUrl = '';
-		if ($redirectToParam = $this->getConfig()->getRedirectToParam()) {
+		if ($redirectToParam = $this->cfgH()->getRedirectToParam()) {
 			$redirectToParamUrl = $this->_getRequest()->getParam($redirectToParam);
 		}
 		return $redirectToParamUrl;
@@ -209,7 +186,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 
 	function getLoginUrlByGroup($groupId)
 	{
-		$groupToLoginData   = $this->getConfig()->getGroupLoginUrl();
+		$groupToLoginData   = $this->cfgH()->getGroupLoginUrl();
 		$groupToLoginUrls   = $this->_prepareGroupWiseData($groupToLoginData, 'login_redirect');
 		$redirectUrl        = isset($groupToLoginUrls[$groupId]) ? $groupToLoginUrls[$groupId] : '';
 		return $redirectUrl;
@@ -217,7 +194,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 
 	function getLogoutUrlByGroup($groupId)
 	{
-		$groupToLogoutData   = $this->getConfig()->getGroupLogoutUrl();
+		$groupToLogoutData   = $this->cfgH()->getGroupLogoutUrl();
 		$groupToLogoutUrls   = $this->_prepareGroupWiseData($groupToLogoutData, 'logout_redirect');
 		$redirectUrl        = isset($groupToLogoutUrls[$groupId]) ? $groupToLogoutUrls[$groupId] : '';
 		return $redirectUrl;
@@ -225,7 +202,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 
 	function getAccountUrlByGroup($groupId)
 	{
-		$groupToAccountData   = $this->getConfig()->getGroupAccountUrl();
+		$groupToAccountData   = $this->cfgH()->getGroupAccountUrl();
 		$groupToAccountUrls   = $this->_prepareGroupWiseData($groupToAccountData, 'account_redirect');
 		$redirectUrl          = isset($groupToAccountUrls[$groupId]) ? $groupToAccountUrls[$groupId] : '';
 		return $redirectUrl;
@@ -233,7 +210,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 
 	function getAccountMessageByGroup($groupId)
 	{
-		$groupToAccountData         = $this->getConfig()->getGroupAccountMessage();
+		$groupToAccountData         = $this->cfgH()->getGroupAccountMessage();
 		$groupToAccountMessages     = $this->_prepareGroupWiseData($groupToAccountData, 'account_message');
 		$message                    = isset($groupToAccountMessages[$groupId]) ? $groupToAccountMessages[$groupId] : '';
 		return $message;
@@ -241,7 +218,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 
 	function getAccountTemplateByGroup($groupId)
 	{
-		$groupToTemplateData        = $this->getConfig()->getGroupAccountTemplate();
+		$groupToTemplateData        = $this->cfgH()->getGroupAccountTemplate();
 		$groupToAccountTemplate     = $this->_prepareGroupWiseData($groupToTemplateData, 'account_template');
 		$template                   = isset($groupToAccountTemplate[$groupId]) ? $groupToAccountTemplate[$groupId] : '';
 		return $template;
@@ -255,7 +232,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 
 		$redirectionUrl = $this->getLoginUrlByGroup($groupId);
 		if (empty($redirectionUrl)) {
-			$redirectionUrl = $this->getConfig()->getDefaultLoginUrl();
+			$redirectionUrl = $this->cfgH()->getDefaultLoginUrl();
 		}
 		$this->log('getLoginRedirectionUrl()::raw::' . $redirectionUrl);
 
@@ -279,7 +256,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 
 		$redirectionUrl = $this->getLogoutUrlByGroup($groupId);
 		if (empty($redirectionUrl)) {
-			$redirectionUrl = $this->getConfig()->getDefaultLogoutUrl();
+			$redirectionUrl = $this->cfgH()->getDefaultLogoutUrl();
 		}
 		$this->log('getLogoutRedirectionUrl()::raw::' . $redirectionUrl);
 
@@ -303,7 +280,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 
 		$redirectionUrl = $this->getAccountUrlByGroup($groupId);
 		if (empty($redirectionUrl)) {
-			$redirectionUrl = $this->getConfig()->getDefaultAccountUrl();
+			$redirectionUrl = $this->cfgH()->getDefaultAccountUrl();
 		}
 		$this->log('getAccountRedirectionUrl()::raw::' . $redirectionUrl);
 
@@ -327,7 +304,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 
 		$successMessage = $this->getAccountMessageByGroup($groupId);
 		if (empty($successMessage)) {
-			$successMessage = $this->getConfig()->getDefaultAccountMessage();
+			$successMessage = $this->cfgH()->getDefaultAccountMessage();
 		}
 		$this->log('getAccountSuccessMessage()::' . $successMessage);
 		return $successMessage;
@@ -346,7 +323,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 
 	function isAccountGroupTemplateEmpty()
 	{
-		$groupToTemplateData = $this->getConfig()->getGroupAccountTemplate();
+		$groupToTemplateData = $this->cfgH()->getGroupAccountTemplate();
 		if (empty($groupToTemplateData) || $groupToTemplateData == 'a:0:{}') {
 			return true;
 		}
@@ -355,7 +332,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 
 	function getNewsletterRedirectionUrl()
 	{
-		$redirectionUrl = $this->getConfig()->getNewsletterUrl();
+		$redirectionUrl = $this->cfgH()->getNewsletterUrl();
 		$this->log('getNewsletterRedirectionUrl()::raw::' . $redirectionUrl);
 
 		if ( !empty($redirectionUrl)) {
@@ -386,7 +363,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 
 	function unsetCustomerLogoutChildIf()
 	{
-		if ( !$this->isFxnSkipped() && !$this->getConfig()->getRemoveLogoutIntermediate()) {
+		if ( !$this->isFxnSkipped() && !$this->cfgH()->getRemoveLogoutIntermediate()) {
 			return 'customer_logout';
 		} else {
 			return 'customer_logout';
@@ -395,7 +372,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 
 	function switchCustomerLogoutTemplateIf()
 	{
-		if ( !$this->isFxnSkipped() && !$this->getConfig()->getRemoveLogoutIntermediate()) {
+		if ( !$this->isFxnSkipped() && !$this->cfgH()->getRemoveLogoutIntermediate()) {
 			return 'magepsycho/loginredirectpro/customer/logout.phtml';
 		} else {
 			return 'customer/logout.phtml';

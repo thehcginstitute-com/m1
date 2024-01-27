@@ -12,16 +12,6 @@
 class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 {
 	/**
-	 * Helper Config
-	 *
-	 * @return MagePsycho_Customerregfields_Helper_Config
-	 */
-	function getConfig()
-	{
-		return Mage::helper('magepsycho_customerregfields/config');
-	}
-
-	/**
 	 * Module Logging function
 	 *
 	 * @param $data
@@ -29,7 +19,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 	 */
 	function log($data, $includeSep = false)
 	{
-		if (!$this->getConfig()->isLogEnabled()) {
+		if (!$this->cfgH()->isLogEnabled()) {
 			return;
 		}
 		if ($includeSep) {
@@ -81,19 +71,6 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 			}
 		}
 		return $domain;
-	}
-
-	function isActive()
-	{
-		return (bool)$this->getConfig()->isActive();
-	}
-
-	function isFxnSkipped()
-	{
-		if (($this->isActive() && !$this->isValid()) || !$this->isActive()) {
-			return true;
-		}
-		return false;
 	}
 
 	/**
@@ -172,7 +149,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 	function switchCheckoutOnepageBillingTemplateIf()
 	{
 		if ( ! $this->isFxnSkipped() &&
-			 $this->getConfig()->isEnabledForCheckout() &&
+			 $this->cfgH()->isEnabledForCheckout() &&
 			 ! Mage::getSingleton('customer/session')->isLoggedIn()
 		) {
 			return 'magepsycho/customerregfields/checkout/onepage/billing.phtml';
@@ -188,8 +165,8 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 	 */
 	function skipGroupCodeSelectorFxn()
 	{
-		return !$this->getConfig()->isActive()
-			   || $this->getConfig()->getGroupSelectionType() != MagePsycho_Customerregfields_Model_System_Config_Source_Selectortypes::SELECTOR_TYPE_GROUP_CODE
+		return !$this->cfgH()->isActive()
+			   || $this->cfgH()->getGroupSelectionType() != MagePsycho_Customerregfields_Model_System_Config_Source_Selectortypes::SELECTOR_TYPE_GROUP_CODE
 			   || $this->isAdminArea()
 			   || $this->isApiRequest();
 	}
@@ -216,7 +193,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 	 */
 	protected function _getDbGroupCodes()
 	{
-		$groupCodeData = $this->getConfig()->getGroupCodeData();
+		$groupCodeData = $this->cfgH()->getGroupCodeData();
 		$groupCodes    = array();
 		if ( !empty($groupCodeData)) {
 			$groupCodesArray = unserialize($groupCodeData);
@@ -302,7 +279,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 		$allowEdit            = false;
 		$loggedInCustomer = Mage::helper('customer')->getCustomer();
 		if ($loggedInCustomer) {
-			$groupSelectorType          = $this->getConfig()->getGroupSelectionType();
+			$groupSelectorType          = $this->cfgH()->getGroupSelectionType();
 			$loggedInCustomerGroupId    = $loggedInCustomer->getGroupId();
 			if ($groupSelectorType == MagePsycho_Customerregfields_Model_System_Config_Source_Selectortypes::SELECTOR_TYPE_GROUP_CODE) {
 				$groupCodes             = $this->getGroupCodes(true);
@@ -311,7 +288,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 					$allowEdit = true;
 				}
 			} elseif ($groupSelectorType == MagePsycho_Customerregfields_Model_System_Config_Source_Selectortypes::SELECTOR_TYPE_DROPDOWN) {
-				$allowedCustomerGroup = $this->getConfig()->getAllowedCustomerGroups();
+				$allowedCustomerGroup = $this->cfgH()->getAllowedCustomerGroups();
 				$dbGroups             = explode(',', $allowedCustomerGroup);
 				if (in_array('-1', $dbGroups) || in_array($loggedInCustomerGroupId, $dbGroups)) {
 					$allowEdit = true;

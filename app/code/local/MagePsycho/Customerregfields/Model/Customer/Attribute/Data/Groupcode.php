@@ -22,7 +22,7 @@ class MagePsycho_Customerregfields_Model_Customer_Attribute_Data_Groupcode exten
 		$helper     = Mage::helper('magepsycho_customerregfields');
 		if ( ! $helper->skipGroupCodeSelectorFxn() && ! empty($value) && ! $helper->checkIfGroupCodeIsValid($value)) {
 			return array(
-				$helper->getConfig()->getGroupCodeErrorMessage()
+				$helper->cfgH()->getGroupCodeErrorMessage()
 			);
 		}
 		return  true;

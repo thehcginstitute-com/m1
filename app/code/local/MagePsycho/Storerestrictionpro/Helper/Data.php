@@ -11,11 +11,6 @@
 # "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
 class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 {
-	function getConfig()
-	{
-		return Mage::helper('magepsycho_storerestrictionpro/config');
-	}
-
 	function log($data, $includeSep = false)
 	{
 		if ( !$this->getConfig()->isLogEnabled() || !$this->isActive()) {
@@ -52,19 +47,6 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 	{
 		$moduleCode = 'MagePsycho_Storerestrictionpro';
 		return (string)$currentVer = Mage::getConfig()->getModuleConfig($moduleCode)->version;
-	}
-
-	function isActive()
-	{
-		return (bool)$this->getConfig()->isActive();
-	}
-
-	function isFxnSkipped()
-	{
-		if (($this->isActive() && !$this->isValid()) || !$this->isActive()) {
-			return true;
-		}
-		return false;
 	}
 
 	function skipRestrictionByDefault()

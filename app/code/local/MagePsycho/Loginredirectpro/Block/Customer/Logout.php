@@ -23,7 +23,7 @@ class MagePsycho_Loginredirectpro_Block_Customer_Logout extends Mage_Core_Block_
 	{
 		$redirectionUrl = $this->_getCoreSession()->getAfterLogoutUrlClrp();
 		if (empty($redirectionUrl)) {
-			$redirectionUrl = $this->_getHelper()->getConfig()->getDefaultLogoutUrl();
+			$redirectionUrl = $this->_getHelper()->cfgH()->getDefaultLogoutUrl();
 		}
 
 		return $redirectionUrl;
@@ -31,7 +31,7 @@ class MagePsycho_Loginredirectpro_Block_Customer_Logout extends Mage_Core_Block_
 
 	function getDelayTime($convert = false)
 	{
-		$delayTime = $this->_getHelper()->getConfig()->getLogoutDelay();
+		$delayTime = $this->_getHelper()->cfgH()->getLogoutDelay();
 		if ($convert) {
 			$delayTime = (int) $delayTime * 1000;;
 		}
@@ -40,6 +40,6 @@ class MagePsycho_Loginredirectpro_Block_Customer_Logout extends Mage_Core_Block_
 
 	function getCustomMessage()
 	{
-		return $this->_getHelper()->getConfig()->getLogoutMessage();
+		return $this->_getHelper()->cfgH()->getLogoutMessage();
 	}
 }
