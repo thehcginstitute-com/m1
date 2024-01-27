@@ -98,6 +98,14 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 
 	/**
 	 * 2024-01-27
+	 * @used-by self::isFxnSkipped()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::log()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Data::skipGroupCodeSelectorFxn()
+	 */
+    final protected function enabled():bool {return (bool)$this->cfg('option/active');}
+
+	/**
+	 * 2024-01-27
 	 * @used-by \MagePsycho_Customerregfields_Block_Customer_Widget_Type::_toHtml()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::switchCheckoutOnepageBillingTemplateIf()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::switchCustomerAccountEditTemplateIf()
@@ -126,12 +134,12 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::customerLogin()
 	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::customerSaveBefore()
 	 */
-	final function isFxnSkipped():bool {return !$this->isActive();}
+	final function isFxnSkipped():bool {return !$this->enabled();}
 
 	/**
 	 * 2024-01-27
 	 * @used-by self::__construct()
-	 * @used-by self::isActive()
+	 * @used-by self::enabled()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Config::getAllowedCustomerGroups()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Config::getGroupCodeData()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Config::getGroupCodeErrorMessage()
@@ -207,12 +215,4 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::_getEmails()
 	 */
     final protected function cfg(string $p, $s = null) {return \Mage::getStoreConfig("{$this->moduleMf()}/$p", $s);}
-
-	/**
-	 * 2024-01-27
-	 * @used-by self::isFxnSkipped()
-	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::log()
-	 * @used-by \MagePsycho_Customerregfields_Helper_Data::skipGroupCodeSelectorFxn()
-	 */
-    final protected function isActive():bool {return (bool)$this->cfg('option/active');}
 }

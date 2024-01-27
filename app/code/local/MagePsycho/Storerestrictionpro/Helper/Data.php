@@ -16,7 +16,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 {
 	function log($data, $includeSep = false)
 	{
-		if ( !$this->cfgH()->isLogEnabled() || !$this->isActive()) {
+		if ( !$this->cfgH()->isLogEnabled() || !$this->enabled()) {
 			return;
 		}
 		if ($includeSep) {

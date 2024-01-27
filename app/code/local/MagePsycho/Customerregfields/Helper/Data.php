@@ -168,7 +168,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 	 */
 	function skipGroupCodeSelectorFxn()
 	{
-		return !$this->cfgH()->isActive()
+		return !$this->cfgH()->enabled()
 			   || $this->cfgH()->getGroupSelectionType() != MagePsycho_Customerregfields_Model_System_Config_Source_Selectortypes::SELECTOR_TYPE_GROUP_CODE
 			   || $this->isAdminArea()
 			   || $this->isApiRequest();
