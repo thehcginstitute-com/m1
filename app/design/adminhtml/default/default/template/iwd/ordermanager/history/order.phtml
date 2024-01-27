@@ -89,7 +89,12 @@
     </ul>
     <script type="text/javascript">
         if ($("order_status")){
-            $("order_status").update("<?php echo $this->getOrder()->getStatusLabel() ?>");
+			<?php # 2024-01-27 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# 1) Port the `Mage_Adminhtml_Block_Sales_Order_View_History`'s `sales/order/view/history.phtml` template
+			# 1.9.1.0 → 1.9.4.5 changes to `iwd/ordermanager/history/order.phtml`:
+			# https://github.com/thehcginstitute-com/m1/issues/313
+			# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/adminhtml/default/default/template/sales/order/view/history.phtml#L78 ?>
+            $("order_status").update("<?= $this->jsQuoteEscape($this->getOrder()->getStatusLabel()) ?>");
         }
         if(typeof(jQueryIWD) == "undefined"){if(typeof(jQuery) != "undefined") {jQueryIWD = jQuery;}} $ji = jQueryIWD;
         $ji(document).ready(function () {
