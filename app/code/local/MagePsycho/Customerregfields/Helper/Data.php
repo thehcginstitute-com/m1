@@ -90,13 +90,6 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 		return $message;
 	}
 
-	/**
-	 * 2024-01-27
-	 * @override
-	 * @see \HCG\MagePsycho\Helper::isValid()
-	 */
-	function isValid():bool {return parent::isValid() || $this->hasBundleExtensions();}
-
 	function isActive()
 	{
 		return (bool)$this->getConfig()->isActive();
@@ -112,7 +105,6 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 
 	/**
 	 * Checks if the extension is bundled with others
-	 * @used-by \MagePsycho_Customerregfields_Helper_Data::isValid()
 	 * @used-by \MagePsycho_Customerregfields_Model_Observer::adminhtmlInitSystemConfig()
 	 * @return bool
 	 */
@@ -362,14 +354,6 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 		array_unshift($groupOptions, array('label' => '', 'value' => ''));
 		return $groupOptions;
 	}
-
-	/**
-	 * 2024-01-27 "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
-	 * @override
-	 * @see HCG\MagePsycho\Helper::moduleL()
-	 * @used-by HCG\MagePsycho\Helper::checkEntry()
-	 */
-	final protected function moduleL():string {return 'groupselector';}
 
 	/**
 	 * 2024-01-27 "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331

@@ -15,19 +15,8 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 */
 	abstract protected function moduleMf():string;
 
-	/** 2024-01-27 */
-	final function __construct() {
-		list($k, $this->_mode) = $this->cfg('option/domain_type')
-			? ['prod_license', 'production']
-			: ['dev_license', 'development']
-		;
-		$this->_temp = $this->cfg('option/' . $k);
-	}
-
 	/**
 	 * 2024-01-27
-	 * @see \MagePsycho_Customerregfields_Helper_Data::isValid()
-	 * @used-by \MagePsycho_Customerregfields_Helper_Data::isValid()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::isFxnSkipped()
 	 * @used-by \MagePsycho_Customerregfields_Model_Observer::adminhtmlControllerActionPredispatch()
 	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::isFxnSkipped()
@@ -35,7 +24,7 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isFxnSkipped()
 	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::adminhtmlControllerActionPredispatch()
 	 */
-	function isValid():bool {return $this->checkEntry($this->domain(), $this->_temp);}
+	final function isValid():bool {return true;}
 
 	/**
 	 * 2024-01-27
@@ -47,21 +36,6 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 
 	/**
 	 * 2024-01-27
-	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isValid()
-	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::isValid()
-	 * @used-by \MagePsycho_Customerregfields_Helper_Data::isValid()
-	 */
-	final protected function checkEntry(string $domain, string $serial):bool {
-		$salt = sha1($this->moduleL());
-		if (sha1($salt . $domain . $this->_mode) == $serial) {
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * 2024-01-27
-	 * @used-by self::isValid()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::getMessage()
 	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::getMessage()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::getMessage()
@@ -69,27 +43,4 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	final protected function domain():string {return strtolower(
 		\Mage::helper("{$this->moduleMf()}/url")->getBaseDomain(\Mage::getBaseUrl())
 	);}
-
-	/**
-	 * 2024-01-27
-	 * @used-by self::checkEntry()
-	 * @see \MagePsycho_Customerregfields_Helper_Data::moduleL()
-	 */
-	protected function moduleL():string {return df_last(explode('_', $this->moduleMf()));}
-
-	/**
-	 * 2024-01-27
-	 * @used-by self::__construct()
-	 * @used-by self::checkEntry()
-	 * @var string
-	 */
-	private $_mode;
-
-	/**
-	 * 2024-01-27
-	 * @used-by self::__construct()
-	 * @used-by self::isValid()
-	 * @var string
-	 */
-	private $_temp;
 }

@@ -48,7 +48,6 @@ function df_ita($t) {return is_array($t) ? $t : iterator_to_array($t);}
  * потому что если @uses end() вернуло false, это не всегда означает сбой метода:
  * ведь последний элемент массива может быть равен false.
  * http://www.php.net/manual/en/function.end.php#107733
- * @used-by \HCG\MagePsycho\Helper::moduleL()
  * @param mixed[] $array
  * @return mixed|null
  */
