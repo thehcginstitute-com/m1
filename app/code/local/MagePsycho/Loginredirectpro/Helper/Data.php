@@ -364,18 +364,14 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 		return Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB, true) . ltrim($relUrl, '/');
 	}
 
-	function unsetCustomerLogoutChildIf()
-	{
-		if ( !$this->isFxnSkipped() && !$this->cfgH()->getRemoveLogoutIntermediate()) {
-			return 'customer_logout';
-		} else {
-			return 'customer_logout';
-		}
-	}
+	/**
+	 * 2024-01-27 "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
+	 */
+	function unsetCustomerLogoutChildIf():string {return 'customer_logout';}
 
 	function switchCustomerLogoutTemplateIf()
 	{
-		if ( !$this->isFxnSkipped() && !$this->cfgH()->getRemoveLogoutIntermediate()) {
+		if ($this->enabled() && !$this->cfgH()->getRemoveLogoutIntermediate()) {
 			return 'magepsycho/loginredirectpro/customer/logout.phtml';
 		} else {
 			return 'customer/logout.phtml';

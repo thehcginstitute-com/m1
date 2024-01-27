@@ -55,7 +55,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 	function skipRestrictionByDefault()
 	{
 		$isCustomerNonLoggedInIndexPage = (!Mage::getSingleton('customer/session')->isLoggedIn() && $this->checkPageUrl('customer', 'account', 'index')) ? true : false; //@tweak for forgotpassword;
-		if ($this->isFxnSkipped() || $isCustomerNonLoggedInIndexPage || $this->isLoginPage() || $this->isLogoutPage() || $this->isForgotPasswordPage() || $this->isAccountCreatePage() || $this->is404ErrorPage() || $this->isCookiePage() || $this->isApiRequest()) {
+		if (!$this->enabled() || $isCustomerNonLoggedInIndexPage || $this->isLoginPage() || $this->isLogoutPage() || $this->isForgotPasswordPage() || $this->isAccountCreatePage() || $this->is404ErrorPage() || $this->isCookiePage() || $this->isApiRequest()) {
 			return true;
 		}
 		return false;
@@ -85,7 +85,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 
 	function switchAccountLoginTemplateIf()
 	{
-		if ( ! $this->isFxnSkipped() && $this->cfgH()->getNewAccountRegistrationOption() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED) {
+		if ($this->enabled() && $this->cfgH()->getNewAccountRegistrationOption() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED) {
 			return 'magepsycho/storerestrictionpro/customer/form/login.phtml';
 		} else {
 			return 'persistent/customer/form/login.phtml';
@@ -94,7 +94,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 
 	function switchCheckoutLoginTemplateIf()
 	{
-		if ( ! $this->isFxnSkipped() && $this->cfgH()->getNewAccountRegistrationOption() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED) {
+		if ($this->enabled() && $this->cfgH()->getNewAccountRegistrationOption() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED) {
 			return 'magepsycho/storerestrictionpro/checkout/onepage/login.phtml';
 		} else {
 			return 'persistent/checkout/onepage/login.phtml';
@@ -142,7 +142,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 	function skipAccountActivationFxn()
 	{
 		//skip if account registration is disabled || account activation is not required
-		$skipCheck = $this->isFxnSkipped() || !$this->isNewAccountActivationEnabled() || $this->isAccountRegistrationDisabled();
+		$skipCheck = !$this->enabled() || !$this->isNewAccountActivationEnabled() || $this->isAccountRegistrationDisabled();
 		return $skipCheck;
 	}
 
@@ -616,7 +616,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 	{
 		//check settings if enabled, check if current customer group is allowed or not
 		$shouldHide = false;
-		if ( !$this->isFxnSkipped() && $this->isRestrictionTypeAccessibleRestricted() && $this->cfgH()->getAccessibleHideProductPrices() && !$this->isCustomerGroupAllowedForRestrictedArea()) {
+		if ($this->enabled() && $this->isRestrictionTypeAccessibleRestricted() && $this->cfgH()->getAccessibleHideProductPrices() && !$this->isCustomerGroupAllowedForRestrictedArea()) {
 			$shouldHide = true;
 		}
 		return $shouldHide;
@@ -626,7 +626,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 	{
 		//check settings if enabled, check if current customer group is allowed or not
 		$shouldHide = false;
-		if ( !$this->isFxnSkipped() && $this->isRestrictionTypeAccessibleRestricted() && $this->cfgH()->getAccessibleHideAddToCart() && !$this->isCustomerGroupAllowedForRestrictedArea()) {
+		if ($this->enabled() && $this->isRestrictionTypeAccessibleRestricted() && $this->cfgH()->getAccessibleHideAddToCart() && !$this->isCustomerGroupAllowedForRestrictedArea()) {
 			$shouldHide = true;
 		}
 		return $shouldHide;
@@ -636,7 +636,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 	{
 		//check settings if enabled, check if current customer group is allowed or not
 		$shouldRestrict = false;
-		if ( !$this->isFxnSkipped() && $this->isRestrictionTypeAccessibleRestricted() && $this->cfgH()->getAccessibleHideCheckout() && !$this->isCustomerGroupAllowedForRestrictedArea()) {
+		if ($this->enabled() && $this->isRestrictionTypeAccessibleRestricted() && $this->cfgH()->getAccessibleHideCheckout() && !$this->isCustomerGroupAllowedForRestrictedArea()) {
 			$shouldRestrict = true;
 		}
 		return $shouldRestrict;
@@ -644,7 +644,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 
 	function skipPaymentMethodRestriction()
 	{
-		return $this->isFxnSkipped()
+		return !$this->enabled()
 			|| !$this->isRestrictionTypeAccessibleRestricted()
 			|| $this->isAdminArea()
 			|| !$this->hasRestrictedPaymentMethods()
@@ -675,7 +675,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 
 	function skipShippingMethodRestriction()
 	{
-		return $this->isFxnSkipped()
+		return !$this->enabled()
 			   || !$this->isRestrictionTypeAccessibleRestricted()
 			   || $this->isAdminArea()
 			   || !$this->hasRestrictedShippingMethods()

@@ -33,7 +33,7 @@ class MagePsycho_Loginredirectpro_Model_Observer
 
 	function controllerActionPredispatch(Varien_Event_Observer $observer)
 	{
-		if ($this->_helper->isFxnSkipped() ||
+		if (!$this->_helper->enabled() ||
 			$this->_helper->isAdminArea() ||
 		    $this->_helper->isApiRequest()
 		) {

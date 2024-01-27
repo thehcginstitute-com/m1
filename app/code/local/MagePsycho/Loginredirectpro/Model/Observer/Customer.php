@@ -41,7 +41,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Customer
 	 */
 	function customerRegisterSuccess(Varien_Event_Observer $observer)
 	{
-		if ($this->_helper->isFxnSkipped()) {
+		if (!$this->_helper->enabled()) {
 			return;
 		}
 
@@ -60,7 +60,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Customer
 	 */
 	function controllerActionPostdispatchCustomerAccountCreatePost(Varien_Event_Observer $observer)
 	{
-		if ($this->_helper->isFxnSkipped()) {
+		if (!$this->_helper->enabled()) {
 			return;
 		}
 
@@ -81,7 +81,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Customer
 	 */
 	function customerLogin(Varien_Event_Observer $observer)
 	{
-		if ($this->_helper->isFxnSkipped()) {
+		if (!$this->_helper->enabled()) {
 			return;
 		}
 
@@ -108,7 +108,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Customer
 	 */
 	function controllerActionPostdispatchCustomerAccountLogout(Varien_Event_Observer $observer)
 	{
-		if ($this->_helper->isFxnSkipped() || !$this->_helper->cfgH()->getRemoveLogoutIntermediate()) {
+		if (!$this->_helper->enabled() || !$this->_helper->cfgH()->getRemoveLogoutIntermediate()) {
 			return;
 		}
 
@@ -134,7 +134,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Customer
 	 */
 	function controllerFrontInitBefore(Varien_Event_Observer $observer)
 	{
-		if ($this->_helper->isFxnSkipped() || $this->_helper->isAccountGroupTemplateEmpty()) {
+		if (!$this->_helper->enabled() || $this->_helper->isAccountGroupTemplateEmpty()) {
 			return;
 		}
 

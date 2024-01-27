@@ -93,9 +93,7 @@ class MagePsycho_Customerregfields_Model_Observer
 	function controllerActionPostdispatchCheckoutOnepageSaveBilling(Varien_Event_Observer $observer)
 	{
 		$helper     = Mage::helper('magepsycho_customerregfields');
-		if ( $helper->isFxnSkipped() ||
-		     Mage::getSingleton('customer/session')->isLoggedIn()
-		) {
+		if (!$helper->enabled() || Mage::getSingleton('customer/session')->isLoggedIn()) {
 			return $this;
 		}
 		
@@ -128,7 +126,7 @@ class MagePsycho_Customerregfields_Model_Observer
 		$quote      = $event->getQuote();
 		$order      = $event->getOrder();
 
-		if ( $helper->isFxnSkipped()
+		if (!$helper->enabled()
 		     || Mage::getSingleton('customer/session')->isLoggedIn()
 			 || $quote->getData('checkout_method') != Mage_Checkout_Model_Type_Onepage::METHOD_REGISTER
 		) {
@@ -162,9 +160,7 @@ class MagePsycho_Customerregfields_Model_Observer
 		$event      = $observer->getEvent();
 		$order      = $event->getOrder();
 
-		if ( $helper->isFxnSkipped()
-		     || Mage::getSingleton('customer/session')->isLoggedIn()
-		) {
+		if (!$helper->enabled() || Mage::getSingleton('customer/session')->isLoggedIn()) {
 			return $this;
 		}
 

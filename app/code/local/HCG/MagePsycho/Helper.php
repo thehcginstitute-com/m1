@@ -51,7 +51,6 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::isAccountGroupTemplateEmpty()
 	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::log()
 	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::switchCustomerLogoutTemplateIf()
-	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::unsetCustomerLogoutChildIf()
 	 * @used-by \MagePsycho_Loginredirectpro_Model_Observer_Customer::controllerActionPostdispatchCustomerAccountLogout()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::getAccessibleLandingPage()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::getAccountActivationDefaultStatus()
@@ -95,18 +94,11 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @return CfgC|CfgL|CfgS
 	 */
 	final function cfgH() {return \Mage::helper("{$this->moduleMf()}/config");}
-
-	/**
-	 * 2024-01-27
-	 * @used-by self::isFxnSkipped()
-	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::log()
-	 * @used-by \MagePsycho_Customerregfields_Helper_Data::skipGroupCodeSelectorFxn()
-	 */
-    final protected function enabled():bool {return (bool)$this->cfg('option/active');}
-
+	
 	/**
 	 * 2024-01-27
 	 * @used-by \MagePsycho_Customerregfields_Block_Customer_Widget_Type::_toHtml()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Data::skipGroupCodeSelectorFxn()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::switchCheckoutOnepageBillingTemplateIf()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::switchCustomerAccountEditTemplateIf()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::switchCustomerFormRegisterTemplateIf()
@@ -114,7 +106,6 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Customerregfields_Model_Observer::controllerActionPostdispatchCheckoutOnepageSaveBilling()
 	 * @used-by \MagePsycho_Customerregfields_Model_Observer::salesOrderSaveAfter()
 	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::switchCustomerLogoutTemplateIf()
-	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::unsetCustomerLogoutChildIf()
 	 * @used-by \MagePsycho_Loginredirectpro_Model_Observer::controllerActionPredispatch()
 	 * @used-by \MagePsycho_Loginredirectpro_Model_Observer_Customer::controllerActionPostdispatchCustomerAccountCreatePost()
 	 * @used-by \MagePsycho_Loginredirectpro_Model_Observer_Customer::controllerActionPostdispatchCustomerAccountLogout()
@@ -125,6 +116,7 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isAccessibleCheckoutPageRestricted()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isAddToCartSectionRestricted()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isPriceSectionRestricted()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::log()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::skipAccountActivationFxn()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::skipPaymentMethodRestriction()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::skipRestrictionByDefault()
@@ -134,7 +126,7 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::customerLogin()
 	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::customerSaveBefore()
 	 */
-	final function isFxnSkipped():bool {return !$this->enabled();}
+    final function enabled():bool {return (bool)$this->cfg('option/active');}
 
 	/**
 	 * 2024-01-27

@@ -41,7 +41,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
 
         $customer       = $observer->getEvent()->getCustomer();
         $session        = Mage::getSingleton('customer/session');
-        $helper->log('isFxnSkipped()::' . (int)$helper->isFxnSkipped() . ', getAccountActivated()::' . $customer->getAccountActivated());
+        $helper->log('enabled()::' . (int)$helper->enabled() . ', getAccountActivated()::' . $customer->getAccountActivated());
         if ( ! $customer->getAccountActivated()) {
             $session->setCustomer(Mage::getModel('customer/customer'))
                 ->setId(null)
@@ -83,7 +83,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
         $helper->log(__METHOD__, true);
 
         if ($helper->skipAccountActivationFxn()) {
-            $helper->log('isFxnSkipped()::', $helper->skipAccountActivationFxn());
+            $helper->log('enabled()::', !$helper->skipAccountActivationFxn());
             return;
         }
 

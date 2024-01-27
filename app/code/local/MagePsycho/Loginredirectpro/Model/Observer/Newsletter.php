@@ -23,7 +23,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Newsletter
 	 */
 	function controllerActionPostdispatchNewsletterSubscriber(Varien_Event_Observer $observer)
 	{
-		if ($this->_helper->isFxnSkipped()) {
+		if (!$this->_helper->enabled()) {
 			return;
 		}
 

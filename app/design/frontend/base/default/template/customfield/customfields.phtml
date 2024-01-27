@@ -55,7 +55,7 @@ https://github.com/thehcginstitute-com/m1/issues/8
 2.1)
 https://github.com/thehcginstitute-com/m1/blob/2023-01-16-1/app/design/frontend/default/mobileshoppe/template/magepsycho/customerregfields/customer/form/register.phtml#L58-L77
 2.2) @see MagePsycho_Customerregfields_Helper_Data::switchCustomerFormRegisterTemplateIf():
-	if (!$this->isFxnSkipped()) {
+	if ($this->enabled()) {
 		return 'magepsycho/customerregfields/customer/form/register.phtml';
 	}
 	else {

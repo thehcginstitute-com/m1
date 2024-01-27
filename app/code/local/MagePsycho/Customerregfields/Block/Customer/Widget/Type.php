@@ -11,7 +11,7 @@ class MagePsycho_Customerregfields_Block_Customer_Widget_Type extends MagePsycho
 {
 	function _toHtml()
 	{
-		if ($this->helper('magepsycho_customerregfields')->isFxnSkipped()) {
+		if (!$this->helper('magepsycho_customerregfields')->enabled()) {
 			return '';
 		}
 		$groupSelectorType  = $this->getConfig()->getGroupSelectionType();
