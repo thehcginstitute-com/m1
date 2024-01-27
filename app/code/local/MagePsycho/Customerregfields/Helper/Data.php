@@ -98,19 +98,6 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
         return $domain;
     }
 
-    function __construct()
-    {
-        $field = base64_decode('ZG9tYWluX3R5cGU=');
-        if ($this->getConfigValue('option/' . $field) == 1) {
-            $key        = base64_decode('cHJvZF9saWNlbnNl');
-            $this->mode = base64_decode('cHJvZHVjdGlvbg==');
-        } else {
-            $key        = base64_decode('ZGV2X2xpY2Vuc2U=');
-            $this->mode = base64_decode('ZGV2ZWxvcG1lbnQ=');
-        }
-        $this->temp = $this->getConfigValue('option/' . $key);
-    }
-
     public function getMessage()
     {
         $message = base64_decode('WW91IGFyZSB1c2luZyB1bmxpY2Vuc2VkIHZlcnNpb24gb2YgJ0N1c3RvbWVyIEdyb3VwIFNlbGVjdG9yJyBFeHRlbnNpb24gZm9yIGRvbWFpbjoge3tET01BSU59fS4gUGxlYXNlIGVudGVyIGEgdmFsaWQgTGljZW5zZSBLZXkgZnJvbSBTeXN0ZW0gJnJhcXVvOyBDb25maWd1cmF0aW9uICZyYXF1bzsgTWFnZVBzeWNobyBFeHRlbnNpb25zICZyYXF1bzsgQ3VzdG9tZXIgR3JvdXAgU2VsZWN0b3IgJnJhcXVvOyBMaWNlbnNlIEtleS4gSWYgeW91IGRvbid0IGhhdmUgb25lLCBwbGVhc2UgcHVyY2hhc2UgYSB2YWxpZCBsaWNlbnNlIGZyb20gPGEgaHJlZj0iaHR0cDovL3d3dy5tYWdlcHN5Y2hvLmNvbS9jb250YWN0cyIgdGFyZ2V0PSJfYmxhbmsiPnd3dy5tYWdlcHN5Y2hvLmNvbTwvYT4gb3IgeW91IGNhbiBkaXJlY3RseSBlbWFpbCB0byA8YSBocmVmPSJtYWlsdG86aW5mb0BtYWdlcHN5Y2hvLmNvbSI+aW5mb0BtYWdlcHN5Y2hvLmNvbTwvYT4=');
@@ -128,7 +115,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
     public function checkEntry($domain, $serial)
     {
         $salt = sha1(base64_decode('Z3JvdXBzZWxlY3Rvcg=='));
-        if (sha1($salt . $domain . $this->mode) == $serial) {
+        if (sha1($salt . $domain . $this->mode()) == $serial) {
             return true;
         }
         return false;
@@ -136,7 +123,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 
     public function isValid()
     {
-        $temp = $this->temp;
+        $temp = $this->temp();
         if ($this->checkEntry($this->getDomain(), $temp)) {
             return true;
         } else {

@@ -61,19 +61,6 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return (string)$currentVer = Mage::getConfig()->getModuleConfig($moduleCode)->version;
     }
 
-	function __construct()
-	{
-        $field = base64_decode('ZG9tYWluX3R5cGU=');
-        if ($this->getConfigValue('option/' . $field) == 1) {
-            $key        = base64_decode('cHJvZF9saWNlbnNl');
-            $this->mode = base64_decode('cHJvZHVjdGlvbg==');
-        } else {
-            $key        = base64_decode('ZGV2X2xpY2Vuc2U=');
-            $this->mode = base64_decode('ZGV2ZWxvcG1lbnQ=');
-        }
-        $this->temp = $this->getConfigValue('option/' . $key);
-	}
-
 	public function getMessage()
 	{
 		$message = base64_decode(
@@ -95,7 +82,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
     public function checkEntry($domain, $serial)
     {
         $salt = sha1(base64_decode('c3RvcmVyZXN0cmljdGlvbnBybw=='));
-        if(sha1($salt . $domain . $this->mode) == $serial) {
+        if(sha1($salt . $domain . $this->mode()) == $serial) {
             return true;
         }
 
@@ -104,7 +91,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 
 	public function isValid()
 	{
-		$temp = $this->temp;
+		$temp = $this->temp();
 		if (!$this->checkEntry($this->getDomain(), $temp)) {
 			return false;
 		}

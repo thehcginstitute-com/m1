@@ -80,19 +80,6 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 		return $customer->getGroupId();
 	}
 
-	function __construct()
-	{
-        $field	= base64_decode('ZG9tYWluX3R5cGU=');
-        if($this->getConfigValue('option/' . $field) == 1){
-            $key		= base64_decode('cHJvZF9saWNlbnNl');
-            $this->mode	= base64_decode('cHJvZHVjdGlvbg==');
-        }else{
-            $key		= base64_decode('ZGV2X2xpY2Vuc2U=');
-            $this->mode	= base64_decode('ZGV2ZWxvcG1lbnQ=');
-        }
-        $this->temp = $this->getConfigValue('option/' . $key);
-    }
-
 	public function getMessage()
 	{
 		$message = base64_decode('WW91IGFyZSB1c2luZyB1bmxpY2Vuc2VkIHZlcnNpb24gb2YgJ0N1c3RvbSBSZWRpcmVjdCBQcm8nIEV4dGVuc2lvbiBmb3IgZG9tYWluOiB7e0RPTUFJTn19LiBQbGVhc2UgZW50ZXIgYSB2YWxpZCBMaWNlbnNlIEtleSBmcm9tIFN5c3RlbSAmcmFxdW87IENvbmZpZ3VyYXRpb24gJnJhcXVvOyBNYWdlUHN5Y2hvIEV4dGVuc2lvbnMgJnJhcXVvOyBDdXN0b20gUmVkaXJlY3QgUHJvICZyYXF1bzsgR2VuZXJhbCBTZXR0aW5ncyAmcmFxdW87IExpY2Vuc2UgS2V5LiBJZiB5b3UgZG9uJ3QgaGF2ZSBvbmUsIHBsZWFzZSBwdXJjaGFzZSBhIHZhbGlkIGxpY2Vuc2UgZnJvbSA8YSBocmVmPSJodHRwOi8vd3d3Lm1hZ2Vwc3ljaG8uY29tL2NvbnRhY3RzIiB0YXJnZXQ9Il9ibGFuayI+d3d3Lm1hZ2Vwc3ljaG8uY29tPC9hPiBvciB5b3UgY2FuIGRpcmVjdGx5IGVtYWlsIHRvIDxhIGhyZWY9Im1haWx0bzppbmZvQG1hZ2Vwc3ljaG8uY29tIj5pbmZvQG1hZ2Vwc3ljaG8uY29tPC9hPg==');
@@ -111,7 +98,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
     public function checkEntry($domain, $serial)
 	{
         $salt = sha1(base64_decode('bG9naW5yZWRpcmVjdHBybw=='));
-        if (sha1($salt . $domain . $this->mode) == $serial) {
+        if (sha1($salt . $domain . $this->mode()) == $serial) {
             return true;
         }
 
@@ -120,7 +107,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 
     public function isValid()
 	{
-        $temp = $this->temp;
+        $temp = $this->temp();
         if (!$this->checkEntry($this->getDomain(), $temp)) {
             return false;
         }
