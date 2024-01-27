@@ -9,22 +9,6 @@
  */
 class MagePsycho_Customerregfields_Model_Observer
 {
-	function adminhtmlControllerActionPredispatch(Varien_Event_Observer $observer)
-	{
-		$helper           = Mage::helper('magepsycho_customerregfields');
-		$isValid          = $helper->isValid();
-		$isActive         = $helper->isActive();
-		$adminhtmlSession = Mage::getSingleton('adminhtml/session');
-		$fullActionName   = $observer->getEvent()->getControllerAction()->getFullActionName();
-		if ($isActive && !$isValid && 'adminhtml_system_config_edit' == $fullActionName) {
-			$adminhtmlSession->getMessages(true);
-			$adminhtmlSession->addError($helper->getMessage());
-			return $this;
-		}
-
-		return $this;
-	}
-
 	/**
 	 * Hide License key fields if the extension comes in a bundle
 	 *

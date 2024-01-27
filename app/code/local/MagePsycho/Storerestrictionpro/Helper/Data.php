@@ -54,16 +54,6 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 		return (string)$currentVer = Mage::getConfig()->getModuleConfig($moduleCode)->version;
 	}
 
-	function getMessage()
-	{
-		$message = base64_decode(
-			'WW91IGFyZSB1c2luZyB1bmxpY2Vuc2VkIHZlcnNpb24gb2YgJ1N0b3JlIFJlc3RyaWN0aW9uIFBybycgRXh0ZW5zaW9uIGZvciBkb21haW46IHt7RE9NQUlOfX0uIFBsZWFzZSBlbnRlciBhIHZhbGlkIExpY2Vuc2UgS2V5IGZyb20gU3lzdGVtICZyYXF1bzsgQ29uZmlndXJhdGlvbiAmcmFxdW87IE1hZ2VQc3ljaG8gRXh0ZW5zaW9ucyAmcmFxdW87IFN0b3JlIFJlc3RyaWN0aW9uIFBybyAmcmFxdW87IExpY2Vuc2UgS2V5LiBJZiB5b3UgZG9uJ3QgaGF2ZSBvbmUsIHBsZWFzZSBwdXJjaGFzZSBhIHZhbGlkIGxpY2Vuc2UgZnJvbSA8YSBocmVmPSJodHRwOi8vd3d3Lm1hZ2Vwc3ljaG8uY29tL2NvbnRhY3RzIiB0YXJnZXQ9Il9ibGFuayI+d3d3Lm1hZ2Vwc3ljaG8uY29tPC9hPiBvciB5b3UgY2FuIGRpcmVjdGx5IGVtYWlsIHRvIDxhIGhyZWY9Im1haWx0bzppbmZvQG1hZ2Vwc3ljaG8uY29tIj5pbmZvQG1hZ2Vwc3ljaG8uY29tPC9hPg=='
-		);
-		$message = str_replace('{{DOMAIN}}', $this->domain(), $message);
-
-		return $message;
-	}
-
 	function isActive()
 	{
 		return (bool)$this->getConfig()->isActive();
@@ -828,7 +818,6 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 	 * @override 
 	 * @see HCG\MagePsycho\Helper::moduleMf()
 	 * @used-by HCG\MagePsycho\Helper::cfg()
-	 * @used-by HCG\MagePsycho\Helper::domain()
 	 * @used-by self::log()
 	 */
 	final protected function moduleMf():string {return 'magepsycho_storerestrictionpro';}

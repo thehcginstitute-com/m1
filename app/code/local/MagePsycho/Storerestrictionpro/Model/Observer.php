@@ -20,29 +20,6 @@ class MagePsycho_Storerestrictionpro_Model_Observer
         exit();
     }
 
-    /**
-     * Redirect from observer
-     *
-     * @author      Raj KB <magepsycho@gmail.com>
-     * @param       Varien_Event_Observer $observer
-     * @return      $this
-     */
-    function adminhtmlControllerActionPredispatch(Varien_Event_Observer $observer)
-    {
-        $helper           = Mage::helper('magepsycho_storerestrictionpro');
-        $isValid          = $helper->isValid();
-        $isActive         = $helper->isActive();
-        $adminhtmlSession = Mage::getSingleton('adminhtml/session');
-        $fullActionName   = $observer->getEvent()->getControllerAction()->getFullActionName();
-        if ($isActive && !$isValid && 'adminhtml_system_config_edit' == $fullActionName) {
-            $adminhtmlSession->getMessages(true);
-            $adminhtmlSession->addError($helper->getMessage());
-            return $this;
-        }
-
-        return $this;
-    }
-
     /****************************************************************************************
      * REGISTRATION / ACTIVATION
      *****************************************************************************************/

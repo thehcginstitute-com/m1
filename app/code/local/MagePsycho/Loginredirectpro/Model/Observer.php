@@ -63,18 +63,4 @@ class MagePsycho_Loginredirectpro_Model_Observer
 
         return $this;
 	}
-
-    function adminhtmlPreDispatchCheck(Varien_Event_Observer $observer)
-    {
-        $fullActionName		= $observer->getEvent()->getControllerAction()->getFullActionName();
-        if ($this->_helper->isActive() &&
-            !$this->_helper->isValid() &&
-            'adminhtml_system_config_edit' == $fullActionName
-        ) {
-            $this->_getAdminSession()->getMessages(true);
-            $this->_getAdminSession()->addError($this->_helper->getMessage());
-            return;
-        }
-        return $this;
-    }
 }
