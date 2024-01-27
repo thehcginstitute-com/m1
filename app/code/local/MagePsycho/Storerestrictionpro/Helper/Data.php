@@ -11,12 +11,11 @@
 # "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
 class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 {
+	/**
+	 * 2024-01-27 "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
+	 * @used-by self::moduleMf()
+	 */
     const MODULE_NAMESPACE_ALIAS = 'magepsycho_storerestrictionpro';
-
-    public function getConfigValue($xmlPath, $storeId = null)
-    {
-        return Mage::getStoreConfig(self::MODULE_NAMESPACE_ALIAS . '/' . $xmlPath, $storeId);
-    }
 
     public function getConfig()
     {
@@ -374,7 +373,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 
     public function _getEmails($configPath)
     {
-        $data = $this->getConfigValue($configPath);
+        $data = $this->cfg($configPath);
         if (!empty($data)) {
             return explode(',', $data);
         }
@@ -857,4 +856,12 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 
         return $isRestricted;
     }
+	
+	/**
+	 * 2024-01-27 "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
+	 * @override 
+	 * @see HCG\MagePsycho\Helper::moduleMf()
+	 * @used-by HCG\MagePsycho\Helper::cfg()
+	 */
+	final protected function moduleMf():string {return self::MODULE_NAMESPACE_ALIAS;}	
 }

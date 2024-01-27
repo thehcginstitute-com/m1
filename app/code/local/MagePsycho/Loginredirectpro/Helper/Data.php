@@ -11,20 +11,11 @@
 # "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
 class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 {
+	/**
+	 * 2024-01-27 "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
+	 * @used-by self::moduleMf()
+	 */
     const MODULE_NAMESPACE_ALIAS = 'magepsycho_loginredirectpro';
-
-    /**
-     * Get config value
-     *
-     * @param $xmlPath
-     * @param null $storeId
-     *
-     * @return mixed
-     */
-    public function getConfigValue($xmlPath, $storeId = null)
-    {
-        return Mage::getStoreConfig(self::MODULE_NAMESPACE_ALIAS . '/' . $xmlPath, $storeId);
-    }
 
     /**
      * Helper Config
@@ -566,4 +557,12 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         }
         return false;
     }
+
+	/**
+	 * 2024-01-27 "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
+	 * @override
+	 * @see HCG\MagePsycho\Helper::moduleMf()
+	 * @used-by HCG\MagePsycho\Helper::cfg()
+	 */
+	final protected function moduleMf():string {return self::MODULE_NAMESPACE_ALIAS;}
 }

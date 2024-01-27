@@ -42,12 +42,12 @@ class MagePsycho_Loginredirectpro_Helper_Config extends MagePsycho_Loginredirect
      *****************************************************************************************/
     public function isActive($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_ACTIVE, $storeId);
+        return $this->cfg(self::XML_PATH_ACTIVE, $storeId);
     }
 
     public function isLogEnabled($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_ENABLE_LOG, $storeId);
+        return $this->cfg(self::XML_PATH_ENABLE_LOG, $storeId);
     }
 
     /****************************************************************************************
@@ -55,12 +55,12 @@ class MagePsycho_Loginredirectpro_Helper_Config extends MagePsycho_Loginredirect
      *****************************************************************************************/
     public function getDefaultLoginUrl($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_DEFAULT_LOGIN_URL, $storeId);
+        return $this->cfg(self::XML_PATH_DEFAULT_LOGIN_URL, $storeId);
     }
 
     public function getGroupLoginUrl($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_GROUP_LOGIN_URL, $storeId);
+        return $this->cfg(self::XML_PATH_GROUP_LOGIN_URL, $storeId);
     }
 
 
@@ -69,27 +69,27 @@ class MagePsycho_Loginredirectpro_Helper_Config extends MagePsycho_Loginredirect
      *****************************************************************************************/
     public function getDefaultLogoutUrl($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_DEFAULT_LOGOUT_URL, $storeId);
+        return $this->cfg(self::XML_PATH_DEFAULT_LOGOUT_URL, $storeId);
     }
 
     public function getGroupLogoutUrl($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_GROUP_LOGOUT_URL, $storeId);
+        return $this->cfg(self::XML_PATH_GROUP_LOGOUT_URL, $storeId);
     }
 
     public function getRemoveLogoutIntermediate($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_LOGOUT_REMOVE_INTER, $storeId);
+        return $this->cfg(self::XML_PATH_LOGOUT_REMOVE_INTER, $storeId);
     }
 
     public function getLogoutMessage($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_LOGOUT_MESSAGE, $storeId);
+        return $this->cfg(self::XML_PATH_LOGOUT_MESSAGE, $storeId);
     }
 
     public function getLogoutDelay($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_LOGOUT_DELAY, $storeId);
+        return $this->cfg(self::XML_PATH_LOGOUT_DELAY, $storeId);
     }
 
     /****************************************************************************************
@@ -97,27 +97,27 @@ class MagePsycho_Loginredirectpro_Helper_Config extends MagePsycho_Loginredirect
      *****************************************************************************************/
     public function getDefaultAccountUrl($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_DEFAULT_ACCOUNT_URL, $storeId);
+        return $this->cfg(self::XML_PATH_DEFAULT_ACCOUNT_URL, $storeId);
     }
 
     public function getGroupAccountUrl($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_GROUP_ACCOUNT_URL, $storeId);
+        return $this->cfg(self::XML_PATH_GROUP_ACCOUNT_URL, $storeId);
     }
 
     public function getGroupAccountTemplate($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_GROUP_ACCOUNT_TEMPLATE, $storeId);
+        return $this->cfg(self::XML_PATH_GROUP_ACCOUNT_TEMPLATE, $storeId);
     }
 
     public function getDefaultAccountMessage($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_DEFAULT_ACCOUNT_MESSAGE, $storeId);
+        return $this->cfg(self::XML_PATH_DEFAULT_ACCOUNT_MESSAGE, $storeId);
     }
 
     public function getGroupAccountMessage($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_GROUP_ACCOUNT_MESSAGE, $storeId);
+        return $this->cfg(self::XML_PATH_GROUP_ACCOUNT_MESSAGE, $storeId);
     }
 
     /****************************************************************************************
@@ -125,12 +125,12 @@ class MagePsycho_Loginredirectpro_Helper_Config extends MagePsycho_Loginredirect
      *****************************************************************************************/
     public function getNewsletterUrl($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_NEWSLETTER_URL, $storeId);
+        return $this->cfg(self::XML_PATH_NEWSLETTER_URL, $storeId);
     }
 
     public function getRedirectToParam($storeId = null)
     {
-        return $this->getConfigValue(self::XML_PATH_REDIRECT_TO_PARAM, $storeId);
+        return $this->cfg(self::XML_PATH_REDIRECT_TO_PARAM, $storeId);
     }
 
 }
