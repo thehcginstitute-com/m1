@@ -8,7 +8,7 @@
  */
 class MagePsycho_Easypathhints_Model_Observer {
 
-	public function setTemplatePathHints(Varien_Event_Observer $observer) {
+	function setTemplatePathHints(Varien_Event_Observer $observer) {
 		$helper				= Mage::helper('easypathhints');
 		$isActive			= $helper->isActive();
 		$tp					= Mage::app()->getRequest()->getParam('tp');

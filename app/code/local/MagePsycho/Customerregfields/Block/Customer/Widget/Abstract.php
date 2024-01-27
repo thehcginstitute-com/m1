@@ -9,12 +9,12 @@
  */
 class MagePsycho_Customerregfields_Block_Customer_Widget_Abstract extends Mage_Core_Block_Template
 {
-    public function getConfig()
+    function getConfig()
     {
         return $this->helper('magepsycho_customerregfields')->getConfig();
     }
 
-    public function getFieldIdFormat()
+    function getFieldIdFormat()
     {
         if (!$this->hasData('field_id_format')) {
             $this->setData('field_id_format', '%s');
@@ -22,7 +22,7 @@ class MagePsycho_Customerregfields_Block_Customer_Widget_Abstract extends Mage_C
         return $this->getData('field_id_format');
     }
 
-    public function getFieldNameFormat()
+    function getFieldNameFormat()
     {
         if (!$this->hasData('field_name_format')) {
             $this->setData('field_name_format', '%s');
@@ -30,12 +30,12 @@ class MagePsycho_Customerregfields_Block_Customer_Widget_Abstract extends Mage_C
         return $this->getData('field_name_format');
     }
 
-    public function getFieldId($field)
+    function getFieldId($field)
     {
         return sprintf($this->getFieldIdFormat(), $field);
     }
 
-    public function getFieldName($field)
+    function getFieldName($field)
     {
         return sprintf($this->getFieldNameFormat(), $field);
     }
@@ -56,12 +56,12 @@ class MagePsycho_Customerregfields_Block_Customer_Widget_Abstract extends Mage_C
      *
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         return Mage::getSingleton('customer/session')->getCustomer();
     }
 
-    public function getGroupLabel()
+    function getGroupLabel()
     {
         return $this->getConfig()->getGroupSelectionLabel();
     }
@@ -71,7 +71,7 @@ class MagePsycho_Customerregfields_Block_Customer_Widget_Abstract extends Mage_C
      *
      * @return bool
      */
-    public function isRequired()
+    function isRequired()
     {
         return (bool)$this->getConfig()->isGroupFieldRequired();
     }

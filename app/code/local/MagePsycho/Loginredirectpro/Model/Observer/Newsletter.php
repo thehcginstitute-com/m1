@@ -11,7 +11,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Newsletter
 {
 	protected $_helper;
 
-	public function __construct()
+	function __construct()
 	{
 		$this->_helper = Mage::helper('magepsycho_loginredirectpro');
 	}
@@ -21,7 +21,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Newsletter
 	 *
 	 * @param Varien_Event_Observer $observer
 	 */
-	public function controllerActionPostdispatchNewsletterSubscriber(Varien_Event_Observer $observer)
+	function controllerActionPostdispatchNewsletterSubscriber(Varien_Event_Observer $observer)
 	{
 		if ($this->_helper->isFxnSkipped()) {
 			return;

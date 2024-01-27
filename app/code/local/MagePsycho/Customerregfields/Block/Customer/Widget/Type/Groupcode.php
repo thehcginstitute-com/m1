@@ -16,7 +16,7 @@ class MagePsycho_Customerregfields_Block_Customer_Widget_Type_Groupcode extends 
     /**
      * Initialize block
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->setTemplate('magepsycho/customerregfields/customer/widget/type/group_code.phtml');
@@ -27,7 +27,7 @@ class MagePsycho_Customerregfields_Block_Customer_Widget_Type_Groupcode extends 
      *
      * @return bool
      */
-    public function isEnabled()
+    function isEnabled()
     {
         return (bool)$this->_getAttribute(self::ATTRIBUTE_GROUP_CODE)->getIsVisible();
     }

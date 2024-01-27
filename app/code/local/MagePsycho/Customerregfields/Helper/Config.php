@@ -24,52 +24,52 @@ class MagePsycho_Customerregfields_Helper_Config extends MagePsycho_Customerregf
     const XML_PATH_GROUP_CODE_DATA              = 'group/groupcode_data';
     const XML_PATH_GROUP_CODE_ERROR_MESSAGE     = 'group/group_code_error_message';
 
-    public function isActive($storeId = null)
+    function isActive($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACTIVE, $storeId);
     }
 
-    public function isLogEnabled($storeId = null)
+    function isLogEnabled($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ENABLE_LOG, $storeId);
     }
 
-    public function getGroupSelectionType($storeId = null)
+    function getGroupSelectionType($storeId = null)
     {
         return $this->cfg(self::XML_PATH_GROUP_SELECTION_TYPE, $storeId);
     }
 
-    public function getAllowedCustomerGroups($storeId = null)
+    function getAllowedCustomerGroups($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ALLOWED_CUSTOMER_GROUPS, $storeId);
     }
 
-    public function isGroupFieldRequired($storeId = null)
+    function isGroupFieldRequired($storeId = null)
     {
         return $this->cfg(self::XML_PATH_GROUP_IS_REQUIRED, $storeId);
     }
 
-    public function isGroupSelectionEditable($storeId = null)
+    function isGroupSelectionEditable($storeId = null)
     {
         return $this->cfg(self::XML_PATH_GROUP_SELECTION_EDITABLE, $storeId);
     }
 
-    public function isEnabledForCheckout($storeId = null)
+    function isEnabledForCheckout($storeId = null)
     {
         return $this->cfg(self::XML_PATH_GROUP_AVAILABLE_CHECKOUT, $storeId);
     }
 
-    public function getGroupSelectionLabel($storeId = null)
+    function getGroupSelectionLabel($storeId = null)
     {
         return $this->cfg(self::XML_PATH_GROUP_SELECTION_LABEL, $storeId);
     }
 
-    public function getGroupCodeData($storeId = null)
+    function getGroupCodeData($storeId = null)
     {
         return $this->cfg(self::XML_PATH_GROUP_CODE_DATA, $storeId);
     }
 
-    public function getGroupCodeErrorMessage($storeId = null)
+    function getGroupCodeErrorMessage($storeId = null)
     {
         return $this->cfg(self::XML_PATH_GROUP_CODE_ERROR_MESSAGE, $storeId);
     }

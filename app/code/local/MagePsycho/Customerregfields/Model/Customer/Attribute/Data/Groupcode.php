@@ -17,7 +17,7 @@ class MagePsycho_Customerregfields_Model_Customer_Attribute_Data_Groupcode exten
 	 *
 	 * @return array|bool
 	 */
-	public function validateValue($value)
+	function validateValue($value)
 	{
 		$helper     = Mage::helper('magepsycho_customerregfields');
 		if ( ! $helper->skipGroupCodeSelectorFxn() && ! empty($value) && ! $helper->checkIfGroupCodeIsValid($value)) {

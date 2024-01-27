@@ -9,7 +9,7 @@
  */
 class MagePsycho_Customerregfields_Helper_Url extends Mage_Core_Helper_Abstract
 {
-	public function getUrlDomain($url)
+	function getUrlDomain($url)
 	{
 		$_URL   = parse_url($url);
 		// sanity check
@@ -22,7 +22,7 @@ class MagePsycho_Customerregfields_Helper_Url extends Mage_Core_Helper_Abstract
 		return $domain;
 	}
 
-	public function getBaseDomain($url)
+	function getBaseDomain($url)
 	{
 		$debug       = 0;
 		$base_domain = '';

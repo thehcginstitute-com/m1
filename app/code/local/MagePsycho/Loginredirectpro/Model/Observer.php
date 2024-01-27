@@ -11,7 +11,7 @@ class MagePsycho_Loginredirectpro_Model_Observer
 {
 	protected $_helper;
 
-	public function __construct()
+	function __construct()
 	{
 		$this->_helper = Mage::helper('magepsycho_loginredirectpro');
 	}
@@ -31,7 +31,7 @@ class MagePsycho_Loginredirectpro_Model_Observer
 		return Mage::app()->getRequest();
 	}
 
-	public function controllerActionPredispatch(Varien_Event_Observer $observer)
+	function controllerActionPredispatch(Varien_Event_Observer $observer)
 	{
 		if ($this->_helper->isFxnSkipped() ||
 			$this->_helper->isAdminArea() ||
@@ -64,7 +64,7 @@ class MagePsycho_Loginredirectpro_Model_Observer
         return $this;
 	}
 
-    public function adminhtmlPreDispatchCheck(Varien_Event_Observer $observer)
+    function adminhtmlPreDispatchCheck(Varien_Event_Observer $observer)
     {
         $fullActionName		= $observer->getEvent()->getControllerAction()->getFullActionName();
         if ($this->_helper->isActive() &&

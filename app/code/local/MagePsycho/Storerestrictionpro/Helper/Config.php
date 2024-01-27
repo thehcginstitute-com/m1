@@ -71,17 +71,17 @@ class MagePsycho_Storerestrictionpro_Helper_Config extends MagePsycho_Storerestr
     /****************************************************************************************
      * GENERIC
      *****************************************************************************************/
-    public function isActive($storeId = null)
+    function isActive($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACTIVE, $storeId);
     }
 
-    public function isLogEnabled($storeId = null)
+    function isLogEnabled($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ENABLE_LOG, $storeId);
     }
 
-    public function getDomainType($storeId = null)
+    function getDomainType($storeId = null)
     {
         return $this->cfg(self::XML_PATH_DOMAIN_TYPE, $storeId);
     }
@@ -89,151 +89,151 @@ class MagePsycho_Storerestrictionpro_Helper_Config extends MagePsycho_Storerestr
     /****************************************************************************************
      * REGISTRATION / ACTIVATION
      *****************************************************************************************/
-    public function getNewAccountRegistrationOption($storeId = null)
+    function getNewAccountRegistrationOption($storeId = null)
     {
         return $this->cfg(self::XML_PATH_NEW_ACCCOUNT_REGISTRATION_OPTION, $storeId);
     }
 
-    public function getNewAcccountRegistrationDisabledMessage($storeId = null)
+    function getNewAcccountRegistrationDisabledMessage($storeId = null)
     {
         return $this->cfg(self::XML_PATH_NEW_ACCCOUNT_REGISTRATION_DISABLED_MESSAGE, $storeId);
     }
 
-    public function getNewAccountActivationRequired($storeId = null)
+    function getNewAccountActivationRequired($storeId = null)
     {
         return $this->cfg(self::XML_PATH_NEW_ACCOUNT_ACTIVATION_REQUIRED, $storeId);
     }
 
-    public function getNewAccountActivationByDefaultFrontend($storeId = null)
+    function getNewAccountActivationByDefaultFrontend($storeId = null)
     {
         return $this->cfg(self::XML_PATH_NEW_ACCOUNT_ACTIVATION_BY_DEFAULT_FRONTEND, $storeId);
     }
 
-    public function getActivationRequiredCustomerGroups($storeId = null)
+    function getActivationRequiredCustomerGroups($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACTIVATION_REQUIRED_CUSTOMER_GROUPS, $storeId);
     }
 
-    public function getNotifyAdminOnCustomerRegistration($storeId = null)
+    function getNotifyAdminOnCustomerRegistration($storeId = null)
     {
         return $this->cfg(self::XML_PATH_NOTIFY_ADMIN_ON_CUSTOMER_REGISTRATION, $storeId);
     }
 
-    public function getCustomerRegistrationNotificationAdminEmails($storeId = null)
+    function getCustomerRegistrationNotificationAdminEmails($storeId = null)
     {
         return $this->cfg(self::XML_PATH_CUSTOMER_REGISTRATION_NOTIFICATION_ADMIN_EMAILS, $storeId);
     }
 
-    public function getNotifyCustomerOnAccountActivation($storeId = null)
+    function getNotifyCustomerOnAccountActivation($storeId = null)
     {
         return $this->cfg(self::XML_PATH_NOTIFY_CUSTOMER_ON_ACCOUNT_ACTIVATION, $storeId);
     }
 
-    public function getNewAccountActivationRedirectionErrorMessageRegistration($storeId = null)
+    function getNewAccountActivationRedirectionErrorMessageRegistration($storeId = null)
     {
         return $this->cfg(self::XML_PATH_NEW_ACCOUNT_ACTIVATION_REDIRECTION_ERROR_MESSAGE_REGISTRATION, $storeId);
     }
 
-    public function getNewAccountActivationRedirectionErrorMessageLogin($storeId = null)
+    function getNewAccountActivationRedirectionErrorMessageLogin($storeId = null)
     {
         return $this->cfg(self::XML_PATH_NEW_ACCOUNT_ACTIVATION_REDIRECTION_ERROR_MESSAGE_LOGIN, $storeId);
     }
 
-    public function getNewAccountActivationRedirectionType($storeId = null)
+    function getNewAccountActivationRedirectionType($storeId = null)
     {
         return $this->cfg(self::XML_PATH_NEW_ACCOUNT_ACTIVATION_REDIRECTION_TYPE, $storeId);
     }
 
-    public function getNewAccountActivationRedirectionTypeCms($storeId = null)
+    function getNewAccountActivationRedirectionTypeCms($storeId = null)
     {
         return $this->cfg(self::XML_PATH_NEW_ACCOUNT_ACTIVATION_REDIRECTION_TYPE_CMS, $storeId);
     }
 
-    public function getNewAccountActivationRedirectionTypeCustom($storeId = null)
+    function getNewAccountActivationRedirectionTypeCustom($storeId = null)
     {
         return $this->cfg(self::XML_PATH_NEW_ACCOUNT_ACTIVATION_REDIRECTION_TYPE_CUSTOM, $storeId);
     }
 
-    public function getAdminNotificationEmailTemplate($storeId = null)
+    function getAdminNotificationEmailTemplate($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ADMIN_NOTIFICATION_EMAIL_TEMPLATE, $storeId);
     }
 
-    public function getCustomerNotificationEmailTemplate($storeId = null)
+    function getCustomerNotificationEmailTemplate($storeId = null)
     {
         return $this->cfg(self::XML_PATH_CUSTOMER_NOTIFICATION_EMAIL_TEMPLATE, $storeId);
     }
 
-    public function getNotifyCustomerOnAccountDeActivation($storeId = null)
+    function getNotifyCustomerOnAccountDeActivation($storeId = null)
     {
         return true; //@todo move it to system settings based
     }
 
-    public function getCustomerDeActivationNotificationEmailTemplate($storeId = null)
+    function getCustomerDeActivationNotificationEmailTemplate($storeId = null)
     {
         return $this->cfg(self::XML_PATH_CUSTOMER_DEACTIVATION_NOTIFICATION_EMAIL_TEMPLATE, $storeId);
     }
     /****************************************************************************************
      * RESTRICTED / ACCESSIBLE
      *****************************************************************************************/
-    public function getRestrictionType($storeId = null)
+    function getRestrictionType($storeId = null)
     {
         return $this->cfg(self::XML_PATH_RESTRICTION_TYPE, $storeId);
     }
 
-    public function getRestrictedAllowedCustomerGroups($storeId = null)
+    function getRestrictedAllowedCustomerGroups($storeId = null)
     {
         $value = $this->cfg(self::XML_PATH_RESTRICTED_ALLOWED_CUSTOMER_GROUPS, $storeId);
         return explode(',', $value);
     }
 
-    public function getRestrictedRedirectionType($storeId = null)
+    function getRestrictedRedirectionType($storeId = null)
     {
         return $this->cfg(self::XML_PATH_RESTRICTED_REDIRECTION_TYPE, $storeId);
     }
 
-    public function getRestrictedRedirectionTypeCms($storeId = null)
+    function getRestrictedRedirectionTypeCms($storeId = null)
     {
         return $this->cfg(self::XML_PATH_RESTRICTED_REDIRECTION_TYPE_CMS, $storeId);
     }
 
-    public function getRestrictedRedirectionTypeCustom($storeId = null)
+    function getRestrictedRedirectionTypeCustom($storeId = null)
     {
         return $this->cfg(self::XML_PATH_RESTRICTED_REDIRECTION_TYPE_CUSTOM, $storeId);
     }
 
-    public function getRestrictedStoreErrorMessage($storeId = null)
+    function getRestrictedStoreErrorMessage($storeId = null)
     {
         return $this->cfg(self::XML_PATH_RESTRICTED_STORE_ERROR_MESSAGE, $storeId);
     }
 
-    public function getRestrictedCustomerGroupErrorMessage($storeId = null)
+    function getRestrictedCustomerGroupErrorMessage($storeId = null)
     {
         return $this->cfg(self::XML_PATH_RESTRICTED_CUSTOMER_GROUP_ERROR_MESSAGE, $storeId);
     }
 
-    public function getRestrictedAllowedCmsPages($storeId = null)
+    function getRestrictedAllowedCmsPages($storeId = null)
     {
         $value = $this->cfg(self::XML_PATH_RESTRICTED_ALLOWED_CMS_PAGES, $storeId);
         $value = preg_replace('/\s+/', '', $value);
         return explode(',', $value);
     }
 
-    public function getRestrictedAllowedCategoryPages($storeId = null)
+    function getRestrictedAllowedCategoryPages($storeId = null)
     {
         $value = $this->cfg(self::XML_PATH_RESTRICTED_ALLOWED_CATEGORY_PAGES, $storeId);
         $value = preg_replace('/\s+/', '', $value);
         return explode(',', $value);
     }
 
-    public function getRestrictedAllowedProductPages($storeId = null)
+    function getRestrictedAllowedProductPages($storeId = null)
     {
         $value = $this->cfg(self::XML_PATH_RESTRICTED_ALLOWED_PRODUCT_PAGES, $storeId);
         $value = preg_replace('/\s+/', '', $value);
         return explode(',', $value);
     }
 
-    public function getRestrictedAllowedModulePages($storeId = null)
+    function getRestrictedAllowedModulePages($storeId = null)
     {
         $value = $this->cfg(self::XML_PATH_RESTRICTED_ALLOWED_MODULE_PAGES, $storeId);
         return explode("\n", $value);
@@ -242,99 +242,99 @@ class MagePsycho_Storerestrictionpro_Helper_Config extends MagePsycho_Storerestr
     /****************************************************************************************
      * ACCESSIBLE / RESTRICTED
      *****************************************************************************************/
-    public function getAccessibleAllowedCustomerGroups($storeId = null)
+    function getAccessibleAllowedCustomerGroups($storeId = null)
     {
         $value = $this->cfg(self::XML_PATH_ACCESSIBLE_ALLOWED_CUSTOMER_GROUPS, $storeId);
         return explode(",", $value);
     }
 
-    public function getAccessibleRedirectionType($storeId = null)
+    function getAccessibleRedirectionType($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACCESSIBLE_REDIRECTION_TYPE, $storeId);
     }
 
-    public function getAccessibleRedirectionTypeCms($storeId = null)
+    function getAccessibleRedirectionTypeCms($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACCESSIBLE_REDIRECTION_TYPE_CMS, $storeId);
     }
 
-    public function getAccessibleRedirectionTypeCustom($storeId = null)
+    function getAccessibleRedirectionTypeCustom($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACCESSIBLE_REDIRECTION_TYPE_CUSTOM, $storeId);
     }
 
-    public function getAccessibleStoreErrorMessage($storeId = null)
+    function getAccessibleStoreErrorMessage($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACCESSIBLE_STORE_ERROR_MESSAGE, $storeId);
     }
 
-    public function getAccessibleHideProductPrices($storeId = null)
+    function getAccessibleHideProductPrices($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACCESSIBLE_HIDE_PRODUCT_PRICES, $storeId);
     }
 
-    public function getAccessibleHideProductPriceText($storeId = null)
+    function getAccessibleHideProductPriceText($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACCESSIBLE_HIDE_PRODUCT_PRICE_TEXT, $storeId);
     }
 
-    public function getAccessibleHideProductPriceLink($storeId = null)
+    function getAccessibleHideProductPriceLink($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACCESSIBLE_HIDE_PRODUCT_PRICE_LINK, $storeId);
     }
 
-    public function getAccessibleHideAddToCart($storeId = null)
+    function getAccessibleHideAddToCart($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACCESSIBLE_HIDE_ADD_TO_CART, $storeId);
     }
 
-    public function getAccessibleHideAddToCartText($storeId = null)
+    function getAccessibleHideAddToCartText($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACCESSIBLE_HIDE_ADD_TO_CART_TEXT, $storeId);
     }
 
-    public function getAccessibleHideAddToCartLink($storeId = null)
+    function getAccessibleHideAddToCartLink($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACCESSIBLE_HIDE_ADD_TO_CART_LINK, $storeId);
     }
 
-    public function getAccessibleHideCheckout($storeId = null)
+    function getAccessibleHideCheckout($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACCESSIBLE_HIDE_CHECKOUT, $storeId);
     }
 
-    public function getAccessibleRestrictedShipmentMethods($storeId = null)
+    function getAccessibleRestrictedShipmentMethods($storeId = null)
     {
         $value = $this->cfg(self::XML_PATH_ACCESSIBLE_RESTRICTED_SHIPMENT_METHODS, $storeId);
         return explode(",", $value);
     }
 
-    public function getAccessibleRestrictedPaymentMethods($storeId = null)
+    function getAccessibleRestrictedPaymentMethods($storeId = null)
     {
         $value = $this->cfg(self::XML_PATH_ACCESSIBLE_RESTRICTED_PAYMENT_METHODS, $storeId);
         return explode(",", $value);
     }
 
-    public function getAccessibleRestrictedCmsPages($storeId = null)
+    function getAccessibleRestrictedCmsPages($storeId = null)
     {
         $value = $this->cfg(self::XML_PATH_ACCESSIBLE_RESTRICTED_CMS_PAGES, $storeId);
         return explode(',', $value);
     }
 
-    public function getAccessibleRestrictedCategoryPages($storeId = null)
+    function getAccessibleRestrictedCategoryPages($storeId = null)
     {
         $value = $this->cfg(self::XML_PATH_ACCESSIBLE_RESTRICTED_CATEGORY_PAGES, $storeId);
         return explode(',', $value);
     }
 
-    public function getAccessibleRestrictedProductPages($storeId = null)
+    function getAccessibleRestrictedProductPages($storeId = null)
     {
         $value = $this->cfg(self::XML_PATH_ACCESSIBLE_RESTRICTED_PRODUCT_PAGES, $storeId);
         $value = preg_replace('/\s+/', '', $value);
         return explode(',', $value);
     }
 
-    public function getAccessibleRestrictedModulePages($storeId = null)
+    function getAccessibleRestrictedModulePages($storeId = null)
     {
         $value = $this->cfg(self::XML_PATH_ACCESSIBLE_RESTRICTED_MODULE_PAGES, $storeId);
         return explode("\n", $value);

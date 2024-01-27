@@ -11,7 +11,7 @@ class MagePsycho_Storerestrictionpro_Model_System_Config_Source_Paymentmethods
 {
     protected $_options;
 
-    public function getAllOptions($withEmpty = false)
+    function getAllOptions($withEmpty = false)
     {
         if (is_null($this->_options)) {
             $payments = Mage::getSingleton('payment/config')->getActiveMethods();
@@ -28,7 +28,7 @@ class MagePsycho_Storerestrictionpro_Model_System_Config_Source_Paymentmethods
         return $options;
     }
 
-    public function getOptionsArray($withEmpty = true)
+    function getOptionsArray($withEmpty = true)
     {
         $options = array();
         foreach ($this->getAllOptions($withEmpty) as $option) {
@@ -37,7 +37,7 @@ class MagePsycho_Storerestrictionpro_Model_System_Config_Source_Paymentmethods
         return $options;
     }
 
-    public function getOptionText($value)
+    function getOptionText($value)
     {
         $options = $this->getAllOptions(false);
         foreach ($options as $item) {
@@ -48,7 +48,7 @@ class MagePsycho_Storerestrictionpro_Model_System_Config_Source_Paymentmethods
         return false;
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->getAllOptions();
     }

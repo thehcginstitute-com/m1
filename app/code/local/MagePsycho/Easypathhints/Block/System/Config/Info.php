@@ -17,7 +17,7 @@ class MagePsycho_Easypathhints_Block_System_Config_Info
      * @param Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
          $html = '<div style="background:url(\'http://www.magepsycho.com/_logo.png\') no-repeat scroll 15px center #EAF0EE;border:1px solid #CCCCCC;margin-bottom:10px;padding:10px 5px 5px 200px;">
                     <h4>About MagePsycho</h4>

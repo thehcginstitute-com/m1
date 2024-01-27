@@ -11,7 +11,7 @@ class MagePsycho_Customerregfields_Model_System_Config_Source_Customergroups
 {
     protected $_options;
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         if (is_null($this->_options)) {
             $this->_options       = array();

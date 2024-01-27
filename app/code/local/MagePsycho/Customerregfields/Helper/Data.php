@@ -22,7 +22,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return MagePsycho_Customerregfields_Helper_Config
      */
-    public function getConfig()
+    function getConfig()
     {
         return Mage::helper('magepsycho_customerregfields/config');
     }
@@ -33,7 +33,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      * @param $data
      * @param bool|false $includeSep
      */
-    public function log($data, $includeSep = false)
+    function log($data, $includeSep = false)
     {
         if (!$this->getConfig()->isLogEnabled()) {
             return;
@@ -53,7 +53,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return mixed
      */
-    public function checkVersion($version, $operator = '>=')
+    function checkVersion($version, $operator = '>=')
     {
         return version_compare(Mage::getVersion(), $version, $operator);
     }
@@ -63,7 +63,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return string
      */
-    public function getExtensionVersion()
+    function getExtensionVersion()
     {
         $moduleCode = 'MagePsycho_Customerregfields';
         return (string)$currentVer = Mage::getConfig()->getModuleConfig($moduleCode)->version;
@@ -74,7 +74,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return string
      */
-    public function getDomainFromSystemConfig()
+    function getDomainFromSystemConfig()
     {
         $websiteCode = Mage::app()->getRequest()->getParam('website');
         $storeCode   = Mage::app()->getRequest()->getParam('store');
@@ -89,21 +89,21 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
         return $domain;
     }
 
-    public function getMessage()
+    function getMessage()
     {
         $message = base64_decode('WW91IGFyZSB1c2luZyB1bmxpY2Vuc2VkIHZlcnNpb24gb2YgJ0N1c3RvbWVyIEdyb3VwIFNlbGVjdG9yJyBFeHRlbnNpb24gZm9yIGRvbWFpbjoge3tET01BSU59fS4gUGxlYXNlIGVudGVyIGEgdmFsaWQgTGljZW5zZSBLZXkgZnJvbSBTeXN0ZW0gJnJhcXVvOyBDb25maWd1cmF0aW9uICZyYXF1bzsgTWFnZVBzeWNobyBFeHRlbnNpb25zICZyYXF1bzsgQ3VzdG9tZXIgR3JvdXAgU2VsZWN0b3IgJnJhcXVvOyBMaWNlbnNlIEtleS4gSWYgeW91IGRvbid0IGhhdmUgb25lLCBwbGVhc2UgcHVyY2hhc2UgYSB2YWxpZCBsaWNlbnNlIGZyb20gPGEgaHJlZj0iaHR0cDovL3d3dy5tYWdlcHN5Y2hvLmNvbS9jb250YWN0cyIgdGFyZ2V0PSJfYmxhbmsiPnd3dy5tYWdlcHN5Y2hvLmNvbTwvYT4gb3IgeW91IGNhbiBkaXJlY3RseSBlbWFpbCB0byA8YSBocmVmPSJtYWlsdG86aW5mb0BtYWdlcHN5Y2hvLmNvbSI+aW5mb0BtYWdlcHN5Y2hvLmNvbTwvYT4=');
         $message = str_replace('{{DOMAIN}}', $this->getDomain(), $message);
         return $message;
     }
 
-    public function getDomain()
+    function getDomain()
     {
         $domain     = Mage::getBaseUrl();
         $baseDomain = Mage::helper('magepsycho_customerregfields/url')->getBaseDomain($domain);
         return strtolower($baseDomain);
     }
 
-    public function checkEntry($domain, $serial)
+    function checkEntry($domain, $serial)
     {
         $salt = sha1(base64_decode('Z3JvdXBzZWxlY3Rvcg=='));
         if (sha1($salt . $domain . $this->mode()) == $serial) {
@@ -112,7 +112,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
         return false;
     }
 
-    public function isValid()
+    function isValid()
     {
         $temp = $this->temp();
         if ($this->checkEntry($this->getDomain(), $temp)) {
@@ -125,12 +125,12 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
         }
     }
 
-    public function isActive()
+    function isActive()
     {
         return (bool)$this->getConfig()->isActive();
     }
 
-    public function isFxnSkipped()
+    function isFxnSkipped()
     {
         if (($this->isActive() && !$this->isValid()) || !$this->isActive()) {
             return true;
@@ -143,7 +143,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return bool
      */
-    public function hasBundleExtensions()
+    function hasBundleExtensions()
     {
         if (Mage::helper('core')->isModuleEnabled('MagePsycho_Loginredirectpro') ||
         Mage::helper('core')->isModuleEnabled('MagePsycho_Storerestrictionpro')) {
@@ -157,7 +157,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return bool
      */
-    public function isApiRequest()
+    function isApiRequest()
     {
         $request = Mage::app()->getRequest();
         $isApiRequest = ($request->getModuleName() === 'api' || $request->getModuleName() === 'oauth') ? true : false;
@@ -169,7 +169,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return bool
      */
-    public function isAdminArea()
+    function isAdminArea()
     {
         if (Mage::app()->getStore()->isAdmin() || Mage::getDesign()->getArea() == 'adminhtml') {
             return true;
@@ -183,7 +183,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return string
      */
-    public function switchCustomerFormRegisterTemplateIf()
+    function switchCustomerFormRegisterTemplateIf()
     {
         if ( ! $this->isFxnSkipped()) {
             return 'magepsycho/customerregfields/customer/form/register.phtml';
@@ -197,7 +197,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return string
      */
-    public function switchCustomerAccountEditTemplateIf()
+    function switchCustomerAccountEditTemplateIf()
     {
         if ( ! $this->isFxnSkipped() /*&& $this->getConfig()->isGroupSelectionEditable()*/) {
             return 'magepsycho/customerregfields/customer/form/edit.phtml';
@@ -211,7 +211,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return string
      */
-    public function switchCheckoutOnepageBillingTemplateIf()
+    function switchCheckoutOnepageBillingTemplateIf()
     {
         if ( ! $this->isFxnSkipped() &&
              $this->getConfig()->isEnabledForCheckout() &&
@@ -228,7 +228,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return bool
      */
-    public function skipGroupCodeSelectorFxn()
+    function skipGroupCodeSelectorFxn()
     {
         return !$this->getConfig()->isActive()
                || $this->getConfig()->getGroupSelectionType() != MagePsycho_Customerregfields_Model_System_Config_Source_Selectortypes::SELECTOR_TYPE_GROUP_CODE
@@ -241,7 +241,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return mixed
      */
-    public function getCustomerGroups()
+    function getCustomerGroups()
     {
         $customerGroups = Mage::getResourceModel('customer/group_collection')
             ->setOrder('customer_group_code', Varien_Data_Collection::SORT_ORDER_ASC)
@@ -282,7 +282,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return array
      */
-    public function getGroupCodes($onlyNonEmpty = false)
+    function getGroupCodes($onlyNonEmpty = false)
     {
         $groups         = $this->getCustomerGroups();
         $groupCodes     = array();
@@ -316,7 +316,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return mixed
      */
-    public function checkIfGroupCodeIsValid($groupCode)
+    function checkIfGroupCodeIsValid($groupCode)
     {
         $groupCodesArray    = $this->getGroupCodes();
         $matchedGroupId     = false;
@@ -339,7 +339,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return bool
      */
-    public function isValidCustomerForEdit()
+    function isValidCustomerForEdit()
     {
         $allowEdit            = false;
         $loggedInCustomer = Mage::helper('customer')->getCustomer();
@@ -369,7 +369,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return array|mixed
      */
-    public function getGroupSelectOptions()
+    function getGroupSelectOptions()
     {
         $allowedCustomerGroup = $this->getConfig()->getAllowedCustomerGroups();
         $dbGroups             = explode(',', $allowedCustomerGroup);

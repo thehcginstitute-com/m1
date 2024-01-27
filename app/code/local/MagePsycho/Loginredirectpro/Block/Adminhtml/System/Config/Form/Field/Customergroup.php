@@ -46,7 +46,7 @@ class MagePsycho_Loginredirectpro_Block_Adminhtml_System_Config_Form_Field_Custo
         return $this->_customerGroups;
     }
 
-    public function setInputName($value)
+    function setInputName($value)
     {
         return $this->setName($value);
     }
@@ -56,7 +56,7 @@ class MagePsycho_Loginredirectpro_Block_Adminhtml_System_Config_Form_Field_Custo
      *
      * @return string
      */
-    public function _toHtml()
+    function _toHtml()
     {
         if (!$this->getOptions()) {
             if ($this->_addGroupAllOption) {

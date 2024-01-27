@@ -39,7 +39,7 @@ class MagePsycho_Loginredirectpro_Block_Adminhtml_System_Config_Form_Field_Email
 		return $this->_emailTemplates;
 	}
 
-	public function setInputName($value)
+	function setInputName($value)
 	{
 		return $this->setName($value);
 	}
@@ -49,7 +49,7 @@ class MagePsycho_Loginredirectpro_Block_Adminhtml_System_Config_Form_Field_Email
 	 *
 	 * @return string
 	 */
-	public function _toHtml()
+	function _toHtml()
 	{
 		if ( !$this->getOptions()) {
 			foreach ($this->_getEmailTemplates() as $id => $label) {

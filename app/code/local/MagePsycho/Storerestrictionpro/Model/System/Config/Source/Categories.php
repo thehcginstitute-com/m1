@@ -13,7 +13,7 @@ class MagePsycho_Storerestrictionpro_Model_System_Config_Source_Categories
     private $options    = array();
     private $categories = array();
 
-    public function getAllCategories($catId)
+    function getAllCategories($catId)
     {
         $childCategories = Mage::getModel('catalog/category')
                                ->getCollection()
@@ -33,7 +33,7 @@ class MagePsycho_Storerestrictionpro_Model_System_Config_Source_Categories
         return $this->categories;
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         $storeId        = 1;
         $storeGroupId   = Mage::getModel('core/store')->load($storeId)->getGroupId();

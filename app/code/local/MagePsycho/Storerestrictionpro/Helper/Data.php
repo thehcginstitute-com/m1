@@ -17,12 +17,12 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 	 */
     const MODULE_NAMESPACE_ALIAS = 'magepsycho_storerestrictionpro';
 
-    public function getConfig()
+    function getConfig()
     {
         return Mage::helper('magepsycho_storerestrictionpro/config');
     }
 
-    public function log($data, $includeSep = false)
+    function log($data, $includeSep = false)
     {
         if ( !$this->getConfig()->isLogEnabled() || !$this->isActive()) {
             return;
@@ -34,14 +34,14 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         Mage::log($data, null, self::MODULE_NAMESPACE_ALIAS . '.log', true);
     }
 
-	public function isApiRequest()
+	function isApiRequest()
 	{
 		$request = Mage::app()->getRequest();
         $isApiRequest = ($request->getModuleName() === 'api' || $request->getModuleName() === 'oauth') ? true : false;
 		return $isApiRequest;
 	}
 
-    public function isAdminArea()
+    function isAdminArea()
     {
         if (Mage::app()->getStore()->isAdmin() || Mage::getDesign()->getArea() == 'adminhtml') {
             return true;
@@ -49,18 +49,18 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return false;
     }
 
-	public function checkVersion($version, $operator = '>=')
+	function checkVersion($version, $operator = '>=')
 	{
 		return version_compare(Mage::getVersion(), $version, $operator);
 	}
 
-    public function getExtensionVersion()
+    function getExtensionVersion()
     {
         $moduleCode = 'MagePsycho_Storerestrictionpro';
         return (string)$currentVer = Mage::getConfig()->getModuleConfig($moduleCode)->version;
     }
 
-	public function getMessage()
+	function getMessage()
 	{
 		$message = base64_decode(
 			'WW91IGFyZSB1c2luZyB1bmxpY2Vuc2VkIHZlcnNpb24gb2YgJ1N0b3JlIFJlc3RyaWN0aW9uIFBybycgRXh0ZW5zaW9uIGZvciBkb21haW46IHt7RE9NQUlOfX0uIFBsZWFzZSBlbnRlciBhIHZhbGlkIExpY2Vuc2UgS2V5IGZyb20gU3lzdGVtICZyYXF1bzsgQ29uZmlndXJhdGlvbiAmcmFxdW87IE1hZ2VQc3ljaG8gRXh0ZW5zaW9ucyAmcmFxdW87IFN0b3JlIFJlc3RyaWN0aW9uIFBybyAmcmFxdW87IExpY2Vuc2UgS2V5LiBJZiB5b3UgZG9uJ3QgaGF2ZSBvbmUsIHBsZWFzZSBwdXJjaGFzZSBhIHZhbGlkIGxpY2Vuc2UgZnJvbSA8YSBocmVmPSJodHRwOi8vd3d3Lm1hZ2Vwc3ljaG8uY29tL2NvbnRhY3RzIiB0YXJnZXQ9Il9ibGFuayI+d3d3Lm1hZ2Vwc3ljaG8uY29tPC9hPiBvciB5b3UgY2FuIGRpcmVjdGx5IGVtYWlsIHRvIDxhIGhyZWY9Im1haWx0bzppbmZvQG1hZ2Vwc3ljaG8uY29tIj5pbmZvQG1hZ2Vwc3ljaG8uY29tPC9hPg=='
@@ -70,7 +70,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 		return $message;
 	}
 
-	public function getDomain()
+	function getDomain()
 	{
 		$domain     = Mage::getBaseUrl();
 		$baseDomain = Mage::helper('magepsycho_storerestrictionpro/url')->getBaseDomain($domain);
@@ -78,7 +78,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return strtolower($baseDomain);
 	}
 
-    public function checkEntry($domain, $serial)
+    function checkEntry($domain, $serial)
     {
         $salt = sha1(base64_decode('c3RvcmVyZXN0cmljdGlvbnBybw=='));
         if(sha1($salt . $domain . $this->mode()) == $serial) {
@@ -88,7 +88,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return false;
     }
 
-	public function isValid()
+	function isValid()
 	{
 		$temp = $this->temp();
 		if (!$this->checkEntry($this->getDomain(), $temp)) {
@@ -98,12 +98,12 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 		return true;
 	}
 
-	public function isActive()
+	function isActive()
 	{
 		return (bool)$this->getConfig()->isActive();
 	}
 
-    public function isFxnSkipped()
+    function isFxnSkipped()
     {
         if (($this->isActive() && !$this->isValid()) || !$this->isActive()) {
             return true;
@@ -111,7 +111,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return false;
     }
 
-    public function skipRestrictionByDefault()
+    function skipRestrictionByDefault()
     {
         $isCustomerNonLoggedInIndexPage = (!Mage::getSingleton('customer/session')->isLoggedIn() && $this->checkPageUrl('customer', 'account', 'index')) ? true : false; //@tweak for forgotpassword;
         if ($this->isFxnSkipped() || $isCustomerNonLoggedInIndexPage || $this->isLoginPage() || $this->isLogoutPage() || $this->isForgotPasswordPage() || $this->isAccountCreatePage() || $this->is404ErrorPage() || $this->isCookiePage() || $this->isApiRequest()) {
@@ -120,7 +120,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return false;
     }
 
-    public function checkPageUrl($moduleName, $controllerName, $actionName)
+    function checkPageUrl($moduleName, $controllerName, $actionName)
     {
         $request         = Mage::app()->getRequest();
         $_moduleName     = strtolower($request->getModuleName());
@@ -136,13 +136,13 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         }
     }
 
-    public function _checkControllerAction($controller, $action)
+    function _checkControllerAction($controller, $action)
     {
         $request = Mage::app()->getRequest();
         return $this->checkPageUrl($request->getModuleName(), $controller, $action);
     }
 
-    public function switchAccountLoginTemplateIf()
+    function switchAccountLoginTemplateIf()
     {
         if ( ! $this->isFxnSkipped() && $this->getConfig()->getNewAccountRegistrationOption() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED) {
             return 'magepsycho/storerestrictionpro/customer/form/login.phtml';
@@ -151,7 +151,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         }
     }
 
-    public function switchCheckoutLoginTemplateIf()
+    function switchCheckoutLoginTemplateIf()
     {
         if ( ! $this->isFxnSkipped() && $this->getConfig()->getNewAccountRegistrationOption() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED) {
             return 'magepsycho/storerestrictionpro/checkout/onepage/login.phtml';
@@ -160,7 +160,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         }
     }
 
-    public function getDomainFromSystemConfig()
+    function getDomainFromSystemConfig()
     {
         $websiteCode = Mage::app()->getRequest()->getParam('website');
         $storeCode   = Mage::app()->getRequest()->getParam('store');
@@ -179,7 +179,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
      * REGISTRATION / ACTIVATION
      *****************************************************************************************************/
 
-	public function isNewAccountActivationEnabled()
+	function isNewAccountActivationEnabled()
 	{
 		if ($this->getConfig()->getNewAccountActivationRequired()) {
 			return true;
@@ -188,7 +188,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 		}
 	}
 
-    public function isAccountRegistrationDisabled()
+    function isAccountRegistrationDisabled()
     {
         $registrationType = $this->getConfig()->getNewAccountRegistrationOption();
         if ($registrationType == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED) {
@@ -198,14 +198,14 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         }
     }
 
-    public function skipAccountActivationFxn()
+    function skipAccountActivationFxn()
     {
         //skip if account registration is disabled || account activation is not required
         $skipCheck = $this->isFxnSkipped() || !$this->isNewAccountActivationEnabled() || $this->isAccountRegistrationDisabled();
         return $skipCheck;
     }
 
-    public function isAccountRegistrationPage()
+    function isAccountRegistrationPage()
     {
         $accountCreate = $this->checkPageUrl('customer', 'account', 'create');
         $accountCreatepost = $this->checkPageUrl('customer', 'account', 'createpost');
@@ -216,7 +216,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         }
     }
 
-    public function getNonActivatedLandingPage()
+    function getNonActivatedLandingPage()
     {
         $redirectionType = $this->getConfig()->getNewAccountActivationRedirectionType();
         switch ($redirectionType) {
@@ -236,7 +236,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $landingUrl;
     }
 
-    public function getAccountActivationDefaultStatus($groupId, $storeId)
+    function getAccountActivationDefaultStatus($groupId, $storeId)
     {
         $isDefaultActive = $this->getConfig()->getNewAccountActivationByDefaultFrontend($storeId);
         if (!$isDefaultActive) {
@@ -250,7 +250,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $isActive;
     }
 
-    public function getCustomerStoreId(Mage_Customer_Model_Customer $customer)
+    function getCustomerStoreId(Mage_Customer_Model_Customer $customer)
     {
         if (!($storeId = $customer->getSendemailStoreId())) {
             $storeId = $customer->getStoreId();
@@ -264,7 +264,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $storeId;
     }
 
-    public function sendAdminNotificationEmail(Mage_Customer_Model_Customer $customer)
+    function sendAdminNotificationEmail(Mage_Customer_Model_Customer $customer)
     {
         $storeId = $this->getCustomerStoreId($customer);
         $notifyAdminOnRegistration = (bool)$this->getConfig()->getNotifyAdminOnCustomerRegistration($storeId);
@@ -284,7 +284,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $this;
     }
 
-    public function sendCustomerNotificationEmail(Mage_Customer_Model_Customer $customer)
+    function sendCustomerNotificationEmail(Mage_Customer_Model_Customer $customer)
     {
         $storeId =  $this->getCustomerStoreId($customer);
         $notifyCustomerOnActivation = (bool)$this->getConfig()->getNotifyCustomerOnAccountActivation($storeId);
@@ -303,7 +303,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $this;
     }
 
-    public function sendCustomerDeActivationNotificationEmail(Mage_Customer_Model_Customer $customer)
+    function sendCustomerDeActivationNotificationEmail(Mage_Customer_Model_Customer $customer)
     {
         $storeId =  $this->getCustomerStoreId($customer);
         $notifyCustomerOnDeActivation = (bool)$this->getConfig()->getNotifyCustomerOnAccountDeActivation($storeId);
@@ -371,7 +371,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $this;
     }
 
-    public function _getEmails($configPath)
+    function _getEmails($configPath)
     {
         $data = $this->cfg($configPath);
         if (!empty($data)) {
@@ -384,7 +384,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
     /******************************************************************************************************
      * STORE RESTRICTION - RESTRICTED / ACCESSIBLE
      *****************************************************************************************************/
-    public function getCustomerGroups()
+    function getCustomerGroups()
     {
         $customerGroups = Mage::getResourceModel('customer/group_collection')
             ->setRealGroupsFilter()
@@ -394,7 +394,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $customerGroups;
     }
 
-    public function getRestrictedLandingPage()
+    function getRestrictedLandingPage()
     {
         $redirectionType = $this->getConfig()->getRestrictedRedirectionType();
         switch ($redirectionType) {
@@ -432,7 +432,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return Mage::getStoreConfig('web/default/cms_home_page');
     }
 
-    public function isRestrictedCmsPageAccessible()
+    function isRestrictedCmsPageAccessible()
     {
         $canAccess = false;
         $currentIdentifier = '';
@@ -462,7 +462,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $canAccess;
     }
 
-    public function isRestrictedCategoryPageAccessible()
+    function isRestrictedCategoryPageAccessible()
     {
         $canAccess = false;
         $request = Mage::app()->getRequest();
@@ -476,7 +476,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $canAccess;
     }
 
-    public function isRestrictedProductPageAccessible()
+    function isRestrictedProductPageAccessible()
     {
         $canAccess          = false;
         $request            = Mage::app()->getRequest();
@@ -491,7 +491,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $canAccess;
     }
 
-    public function isRestrictedModulePageAccessible()
+    function isRestrictedModulePageAccessible()
     {
         $canAccess          = false;
         $request               = Mage::app()->getRequest();
@@ -523,7 +523,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $canAccess;
     }
 
-    public function isCustomerGroupAllowedForRestrictedStore()
+    function isCustomerGroupAllowedForRestrictedStore()
     {
         $currentCustomerGroupId = $this->getCurrentCustomerGroupId();
         $allowedCustomerGroups  = $this->getConfig()->getRestrictedAllowedCustomerGroups();
@@ -535,7 +535,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         }
     }
 
-    public function getCurrentCustomerGroupId()
+    function getCurrentCustomerGroupId()
     {
         if (!Mage::helper('customer')->isLoggedIn()) {
             return 0;
@@ -545,7 +545,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $customerGroup;
     }
 
-    public function isLoginPage()
+    function isLoginPage()
     {
         $loginPage     = $this->checkPageUrl('customer', 'account', 'login');
         $loginPostPage = $this->checkPageUrl('customer', 'account', 'loginPost');
@@ -556,7 +556,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         }
     }
 
-    public function isLogoutPage()
+    function isLogoutPage()
     {
         $logoutPage     = $this->checkPageUrl('customer', 'account', 'logout');
         $logoutPostPage = $this->checkPageUrl('customer', 'account', 'logoutSuccess');
@@ -567,7 +567,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         }
     }
 
-    public function isAccountCreatePage()
+    function isAccountCreatePage()
     {
         $createPage       = $this->checkPageUrl('customer', 'account', 'create');
         $createPostPage   = $this->checkPageUrl('customer', 'account', 'createpost');
@@ -585,7 +585,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         }
     }
 
-    public function isForgotPasswordPage()
+    function isForgotPasswordPage()
     {
         $forgotPage            = $this->checkPageUrl('customer', 'account', 'forgotpassword');
         $forgotPostPage        = $this->checkPageUrl('customer', 'account', 'forgotpasswordpost');
@@ -600,7 +600,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         }
     }
 
-    public function is404ErrorPage()
+    function is404ErrorPage()
     {
         $cmsIndexNoRoute            = $this->checkPageUrl('cms', 'index', 'noRoute');
         $cmsIndexDefaultNoRoute     = $this->checkPageUrl('cms', 'index', 'defaultNoRoute');
@@ -611,7 +611,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         }
     }
 
-    public function isCookiePage()
+    function isCookiePage()
     {
         if ($this->checkPageUrl('core', 'index', 'noCookies')) {
             return true;
@@ -623,12 +623,12 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
     /******************************************************************************************************
      * STORE RESTRICTION - ACCESSIBLE / RESTRICTED
      *****************************************************************************************************/
-    public function isRestrictionTypeAccessibleRestricted()
+    function isRestrictionTypeAccessibleRestricted()
     {
         return $this->getConfig()->getRestrictionType() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Restrictiontypes::RESTRICTION_TYPE_ACCESSIBLE_RESTRICTED;
     }
 
-    public function getAccessibleLandingPage()
+    function getAccessibleLandingPage()
     {
         $redirectionType = $this->getConfig()->getAccessibleRedirectionType();
         switch ($redirectionType) {
@@ -652,7 +652,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $landingUrl;
     }
 
-    public function getAllPriceBlocks()
+    function getAllPriceBlocks()
     {
         return array(
             'Mage_Catalog_Block_Product_Price',
@@ -660,7 +660,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         );
     }
 
-    public function isCustomerGroupAllowedForRestrictedArea()
+    function isCustomerGroupAllowedForRestrictedArea()
     {
         $currentCustomerGroupId = $this->getCurrentCustomerGroupId();
         $allowedCustomerGroups  = $this->getConfig()->getAccessibleAllowedCustomerGroups();
@@ -671,7 +671,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         }
     }
 
-    public function isPriceSectionRestricted()
+    function isPriceSectionRestricted()
     {
         //check settings if enabled, check if current customer group is allowed or not
         $shouldHide = false;
@@ -681,7 +681,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $shouldHide;
     }
 
-    public function isAddToCartSectionRestricted()
+    function isAddToCartSectionRestricted()
     {
         //check settings if enabled, check if current customer group is allowed or not
         $shouldHide = false;
@@ -691,7 +691,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $shouldHide;
     }
 
-    public function isAccessibleCheckoutPageRestricted()
+    function isAccessibleCheckoutPageRestricted()
     {
         //check settings if enabled, check if current customer group is allowed or not
         $shouldRestrict = false;
@@ -701,7 +701,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $shouldRestrict;
     }
 
-    public function skipPaymentMethodRestriction()
+    function skipPaymentMethodRestriction()
     {
         return $this->isFxnSkipped()
             || !$this->isRestrictionTypeAccessibleRestricted()
@@ -710,7 +710,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
             ;
     }
 
-    public function hasRestrictedPaymentMethods()
+    function hasRestrictedPaymentMethods()
     {
         $restrictedPaymentMethods    = $this->getConfig()->getAccessibleRestrictedPaymentMethods();
         $hasRestrictedPaymentMethods = true;
@@ -723,7 +723,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $hasRestrictedPaymentMethods;
     }
 
-    public function isPaymentMethodSectionRestricted($paymentCode)
+    function isPaymentMethodSectionRestricted($paymentCode)
     {
         $shouldRestrict = false;
         if (in_array($paymentCode, $this->getConfig()->getAccessibleRestrictedPaymentMethods()) && !$this->isCustomerGroupAllowedForRestrictedArea()) {
@@ -732,7 +732,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $shouldRestrict;
     }
 
-    public function skipShippingMethodRestriction()
+    function skipShippingMethodRestriction()
     {
         return $this->isFxnSkipped()
                || !$this->isRestrictionTypeAccessibleRestricted()
@@ -741,7 +741,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
             ;
     }
 
-    public function hasRestrictedShippingMethods()
+    function hasRestrictedShippingMethods()
     {
         $restrictedShippingMethods    = $this->getConfig()->getAccessibleRestrictedShipmentMethods();
         $hasRestrictedShippingMethods = true;
@@ -754,7 +754,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $hasRestrictedShippingMethods;
     }
 
-    public function isShippingMethodSectionRestricted($shippingCode)
+    function isShippingMethodSectionRestricted($shippingCode)
     {
         $shouldRestrict = false;
         if (in_array($shippingCode, $this->getConfig()->getAccessibleRestrictedShipmentMethods()) && !$this->isCustomerGroupAllowedForRestrictedArea()) {
@@ -764,7 +764,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $shouldRestrict;
     }
 
-    public function isAccessibleCmsPageRestricted()
+    function isAccessibleCmsPageRestricted()
     {
         $isRestricted = false;
         $currentIdentifier = '';
@@ -796,7 +796,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $isRestricted;
     }
 
-    public function isAccessibleCategoryPageRestricted()
+    function isAccessibleCategoryPageRestricted()
     {
         $isRestricted   = false;
         $request        = Mage::app()->getRequest();
@@ -810,7 +810,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $isRestricted;
     }
 
-    public function isAccessibleProductPageRestricted()
+    function isAccessibleProductPageRestricted()
     {
         $isRestricted       = false;
         $request            = Mage::app()->getRequest();
@@ -825,7 +825,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         return $isRestricted;
     }
 
-    public function isAccessibleModulePageRestricted()
+    function isAccessibleModulePageRestricted()
     {
         $isRestricted          = false;
         $request               = Mage::app()->getRequest();

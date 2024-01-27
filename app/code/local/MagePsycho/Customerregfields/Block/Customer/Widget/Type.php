@@ -9,7 +9,7 @@
  */
 class MagePsycho_Customerregfields_Block_Customer_Widget_Type extends MagePsycho_Customerregfields_Block_Customer_Widget_Abstract
 {
-	public function _toHtml()
+	function _toHtml()
 	{
 		if ($this->helper('magepsycho_customerregfields')->isFxnSkipped()) {
 			return '';

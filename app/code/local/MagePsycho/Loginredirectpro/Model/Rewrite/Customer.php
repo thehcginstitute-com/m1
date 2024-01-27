@@ -19,7 +19,7 @@ class MagePsycho_Loginredirectpro_Model_Rewrite_Customer extends Mage_Customer_M
      * @throws Mage_Core_Exception
      * @return Mage_Customer_Model_Customer
      */
-    public function sendNewAccountEmail($type = 'registered', $backUrl = '', $storeId = '0')
+    function sendNewAccountEmail($type = 'registered', $backUrl = '', $storeId = '0')
     {
         $helper	= Mage::helper('magepsycho_loginredirectpro');
 

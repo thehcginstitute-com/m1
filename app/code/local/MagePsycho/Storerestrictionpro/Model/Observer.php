@@ -27,7 +27,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
      * @param       Varien_Event_Observer $observer
      * @return      $this
      */
-    public function adminhtmlControllerActionPredispatch(Varien_Event_Observer $observer)
+    function adminhtmlControllerActionPredispatch(Varien_Event_Observer $observer)
     {
         $helper           = Mage::helper('magepsycho_storerestrictionpro');
         $isValid          = $helper->isValid();
@@ -54,7 +54,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
      * @author      Raj KB <magepsycho@gmail.com>
      * @param       Varien_Event_Observer $observer
      */
-    public function customerLogin(Varien_Event_Observer $observer)
+    function customerLogin(Varien_Event_Observer $observer)
     {
         $helper = Mage::helper('magepsycho_storerestrictionpro');
         $helper->log(__METHOD__, true);
@@ -100,7 +100,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
      * @author      Raj KB <magepsycho@gmail.com>
      * @param       Varien_Event_Observer $observer
      */
-    public function customerSaveBefore(Varien_Event_Observer $observer)
+    function customerSaveBefore(Varien_Event_Observer $observer)
     {
         $helper = Mage::helper('magepsycho_storerestrictionpro');
         $helper->log(__METHOD__, true);
@@ -134,7 +134,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
      * @author      Raj KB <magepsycho@gmail.com>
      * @param       Varien_Event_Observer $observer
      */
-    public function customerSaveAfter(Varien_Event_Observer $observer)
+    function customerSaveAfter(Varien_Event_Observer $observer)
     {
         $helper = Mage::helper('magepsycho_storerestrictionpro');
         $helper->log(__METHOD__, true);
@@ -183,7 +183,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
      * @author      Raj KB <magepsycho@gmail.com>
      * @param       Varien_Event_Observer $observer
      */
-    public function coreBlockAbstractToHtmlBefore(Varien_Event_Observer $observer)
+    function coreBlockAbstractToHtmlBefore(Varien_Event_Observer $observer)
     {
         $helper = Mage::helper('magepsycho_storerestrictionpro');
 
@@ -248,7 +248,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
      * @author      Raj KB <magepsycho@gmail.com>
      * @param       Varien_Event_Observer $observer
      */
-    public function eavCollectionAbstractLoadBefore(Varien_Event_Observer $observer)
+    function eavCollectionAbstractLoadBefore(Varien_Event_Observer $observer)
     {
         $helper = Mage::helper('magepsycho_storerestrictionpro');
         if (/*$helper->skipAccountActivationFxn() ||*/ Mage::app()->getRequest()->getControllerName() !== 'customer'
@@ -277,7 +277,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
      * @author      Raj KB <magepsycho@gmail.com>
      * @param       Varien_Event_Observer $observer
      */
-    public function controllerActionPredispatch(Varien_Event_Observer $observer)
+    function controllerActionPredispatch(Varien_Event_Observer $observer)
     {
         $helper   = Mage::helper('magepsycho_storerestrictionpro');
         $fullActionName = $observer->getControllerAction()->getFullActionName();
@@ -416,7 +416,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
      * @param       Varien_Event_Observer $observer
      * @return      null
      */
-    public function frontendCoreBlockAbstractToHtmlBefore(Varien_Event_Observer $observer)
+    function frontendCoreBlockAbstractToHtmlBefore(Varien_Event_Observer $observer)
     {
         $helper   = Mage::helper('magepsycho_storerestrictionpro');
         if (!$helper->isPriceSectionRestricted()) {
@@ -445,7 +445,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
      * @param       Varien_Event_Observer $observer
      * @return      null
      */
-    public function frontendControllerActionLayoutLoadBefore(Varien_Event_Observer $observer)
+    function frontendControllerActionLayoutLoadBefore(Varien_Event_Observer $observer)
     {
         $helper     = Mage::helper('magepsycho_storerestrictionpro');
         /** @var $layout Mage_Core_Model_Layout */
@@ -469,7 +469,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
      * @param       Varien_Event_Observer $observer
      * @return      null
      */
-    public function frontendCoreLayoutBlockCreateAfter(Varien_Event_Observer $observer)
+    function frontendCoreLayoutBlockCreateAfter(Varien_Event_Observer $observer)
     {
         $helper   = Mage::helper('magepsycho_storerestrictionpro');
         if (!$helper->isPriceSectionRestricted()) {
@@ -499,7 +499,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
      * @throws      Mage_Catalog_Exception
      * @return      null
      */
-    public function catalogProductTypePrepareFullOptions(Varien_Event_Observer $observer)
+    function catalogProductTypePrepareFullOptions(Varien_Event_Observer $observer)
     {
         $helper   = Mage::helper('magepsycho_storerestrictionpro');
         if (!$helper->isAddToCartSectionRestricted()) {
@@ -514,7 +514,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
      * @author      Raj KB <magepsycho@gmail.com>
      * @param       Varien_Event_Observer $observer
      */
-    public function paymentMethodIsActive(Varien_Event_Observer $observer)
+    function paymentMethodIsActive(Varien_Event_Observer $observer)
     {
         $helper			 = Mage::helper('magepsycho_storerestrictionpro');
         if ($helper->skipPaymentMethodRestriction()) {
@@ -535,7 +535,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
      * @author      Raj KB <magepsycho@gmail.com>
      * @param       Varien_Event_Observer $observer
      */
-    public function coreCollectionAbstractLoadAfter(Varien_Event_Observer $observer)
+    function coreCollectionAbstractLoadAfter(Varien_Event_Observer $observer)
     {
         $helper			 = Mage::helper('magepsycho_storerestrictionpro');
         if ($helper->skipShippingMethodRestriction()) {

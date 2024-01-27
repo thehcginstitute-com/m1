@@ -29,7 +29,7 @@ class MagePsycho_Storerestrictionpro_Model_Resource_Customer extends Mage_Eav_Mo
      * @param int $value
      * @return $this
      */
-    public function massSetActivationStatus(array $customerIds, $value)
+    function massSetActivationStatus(array $customerIds, $value)
     {
         $customerIds = $this->_getValidCustomerIds($customerIds);
         $changeIds = array();

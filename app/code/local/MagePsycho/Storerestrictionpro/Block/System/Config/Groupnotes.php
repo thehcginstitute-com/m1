@@ -9,7 +9,7 @@
  */
 class MagePsycho_Storerestrictionpro_Block_System_Config_Groupnotes extends Mage_Adminhtml_Block_Abstract implements Varien_Data_Form_Element_Renderer_Interface
 {
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         $isGroupSelectorModuleActive = Mage::getConfig()->getModuleConfig('MagePsycho_Customerregfields')->is('active', 'true');
         if (!$isGroupSelectorModuleActive) {

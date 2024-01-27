@@ -15,7 +15,7 @@ class MagePsycho_Customerregfields_Block_System_Config_Header extends Mage_Admin
      * @param Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         return sprintf('<tr class="system-fieldset-sub-head" id="row_%s"><td colspan="5"><h4>%s</h4></td></tr>',
             $element->getHtmlId(), $element->getLabel()

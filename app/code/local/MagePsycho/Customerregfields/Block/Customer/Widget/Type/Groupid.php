@@ -13,28 +13,28 @@ class MagePsycho_Customerregfields_Block_Customer_Widget_Type_Groupid extends Ma
 {
     const ATTRIBUTE_GROUP_ID = 'group_id';
 
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->setTemplate('magepsycho/customerregfields/customer/widget/type/group_id.phtml');
     }
 
-    public function isEnabled()
+    function isEnabled()
     {
         return (bool)$this->_getAttribute(self::ATTRIBUTE_GROUP_ID)->getIsVisible();
     }
 
-    public function isRequired()
+    function isRequired()
     {
         return (bool)$this->_getAttribute(self::ATTRIBUTE_GROUP_ID)->getIsRequired();
     }
 
-    public function getGroupSelectOptions()
+    function getGroupSelectOptions()
     {
         return $this->helper('magepsycho_customerregfields')->getGroupSelectOptions();
     }
 
-    public function getGroupSelectHtml($name, $selectedValue = '', $class = '')
+    function getGroupSelectHtml($name, $selectedValue = '', $class = '')
     {
         $groupOptions   = $this->getGroupSelectOptions();
         $fieldName      = $this->getFieldName($name);

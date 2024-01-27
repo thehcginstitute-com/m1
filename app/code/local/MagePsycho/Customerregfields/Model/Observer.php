@@ -9,7 +9,7 @@
  */
 class MagePsycho_Customerregfields_Model_Observer
 {
-	public function adminhtmlControllerActionPredispatch(Varien_Event_Observer $observer)
+	function adminhtmlControllerActionPredispatch(Varien_Event_Observer $observer)
 	{
 		$helper           = Mage::helper('magepsycho_customerregfields');
 		$isValid          = $helper->isValid();
@@ -30,7 +30,7 @@ class MagePsycho_Customerregfields_Model_Observer
 	 *
 	 * @param Varien_Event_Observer $observer
 	 */
-	public function adminhtmlInitSystemConfig(Varien_Event_Observer $observer)
+	function adminhtmlInitSystemConfig(Varien_Event_Observer $observer)
 	{
 		$helper             = Mage::helper('magepsycho_customerregfields');
 		$config             = $observer->getEvent()->getConfig();
@@ -66,7 +66,7 @@ class MagePsycho_Customerregfields_Model_Observer
 	 *
 	 * @return $this
 	 */
-	public function customerSaveBefore(Varien_Event_Observer $observer)
+	function customerSaveBefore(Varien_Event_Observer $observer)
 	{
 		$helper     = Mage::helper('magepsycho_customerregfields');
 		$helper->log(__METHOD__, true);
@@ -106,7 +106,7 @@ class MagePsycho_Customerregfields_Model_Observer
 	 *
 	 * @return $this
 	 */
-	public function controllerActionPostdispatchCheckoutOnepageSaveBilling(Varien_Event_Observer $observer)
+	function controllerActionPostdispatchCheckoutOnepageSaveBilling(Varien_Event_Observer $observer)
 	{
 		$helper     = Mage::helper('magepsycho_customerregfields');
 		if ( $helper->isFxnSkipped() ||
@@ -137,7 +137,7 @@ class MagePsycho_Customerregfields_Model_Observer
 	 *
 	 * @return $this
 	 */
-	public function checkoutTypeOnepageSaveOrder(Varien_Event_Observer $observer)
+	function checkoutTypeOnepageSaveOrder(Varien_Event_Observer $observer)
 	{
 		$helper     = Mage::helper('magepsycho_customerregfields');
 		$event      = $observer->getEvent();
@@ -172,7 +172,7 @@ class MagePsycho_Customerregfields_Model_Observer
 	 *
 	 * @return $this
 	 */
-	public function salesOrderSaveAfter(Varien_Event_Observer $observer)
+	function salesOrderSaveAfter(Varien_Event_Observer $observer)
 	{
 		$helper     = Mage::helper('magepsycho_customerregfields');
 		$event      = $observer->getEvent();

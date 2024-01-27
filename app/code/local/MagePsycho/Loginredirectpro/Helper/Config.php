@@ -40,12 +40,12 @@ class MagePsycho_Loginredirectpro_Helper_Config extends MagePsycho_Loginredirect
     /****************************************************************************************
      * GENERIC
      *****************************************************************************************/
-    public function isActive($storeId = null)
+    function isActive($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ACTIVE, $storeId);
     }
 
-    public function isLogEnabled($storeId = null)
+    function isLogEnabled($storeId = null)
     {
         return $this->cfg(self::XML_PATH_ENABLE_LOG, $storeId);
     }
@@ -53,12 +53,12 @@ class MagePsycho_Loginredirectpro_Helper_Config extends MagePsycho_Loginredirect
     /****************************************************************************************
      * LOGIN
      *****************************************************************************************/
-    public function getDefaultLoginUrl($storeId = null)
+    function getDefaultLoginUrl($storeId = null)
     {
         return $this->cfg(self::XML_PATH_DEFAULT_LOGIN_URL, $storeId);
     }
 
-    public function getGroupLoginUrl($storeId = null)
+    function getGroupLoginUrl($storeId = null)
     {
         return $this->cfg(self::XML_PATH_GROUP_LOGIN_URL, $storeId);
     }
@@ -67,27 +67,27 @@ class MagePsycho_Loginredirectpro_Helper_Config extends MagePsycho_Loginredirect
     /****************************************************************************************
      * LOGOUT
      *****************************************************************************************/
-    public function getDefaultLogoutUrl($storeId = null)
+    function getDefaultLogoutUrl($storeId = null)
     {
         return $this->cfg(self::XML_PATH_DEFAULT_LOGOUT_URL, $storeId);
     }
 
-    public function getGroupLogoutUrl($storeId = null)
+    function getGroupLogoutUrl($storeId = null)
     {
         return $this->cfg(self::XML_PATH_GROUP_LOGOUT_URL, $storeId);
     }
 
-    public function getRemoveLogoutIntermediate($storeId = null)
+    function getRemoveLogoutIntermediate($storeId = null)
     {
         return $this->cfg(self::XML_PATH_LOGOUT_REMOVE_INTER, $storeId);
     }
 
-    public function getLogoutMessage($storeId = null)
+    function getLogoutMessage($storeId = null)
     {
         return $this->cfg(self::XML_PATH_LOGOUT_MESSAGE, $storeId);
     }
 
-    public function getLogoutDelay($storeId = null)
+    function getLogoutDelay($storeId = null)
     {
         return $this->cfg(self::XML_PATH_LOGOUT_DELAY, $storeId);
     }
@@ -95,27 +95,27 @@ class MagePsycho_Loginredirectpro_Helper_Config extends MagePsycho_Loginredirect
     /****************************************************************************************
      * NEW ACCOUNT
      *****************************************************************************************/
-    public function getDefaultAccountUrl($storeId = null)
+    function getDefaultAccountUrl($storeId = null)
     {
         return $this->cfg(self::XML_PATH_DEFAULT_ACCOUNT_URL, $storeId);
     }
 
-    public function getGroupAccountUrl($storeId = null)
+    function getGroupAccountUrl($storeId = null)
     {
         return $this->cfg(self::XML_PATH_GROUP_ACCOUNT_URL, $storeId);
     }
 
-    public function getGroupAccountTemplate($storeId = null)
+    function getGroupAccountTemplate($storeId = null)
     {
         return $this->cfg(self::XML_PATH_GROUP_ACCOUNT_TEMPLATE, $storeId);
     }
 
-    public function getDefaultAccountMessage($storeId = null)
+    function getDefaultAccountMessage($storeId = null)
     {
         return $this->cfg(self::XML_PATH_DEFAULT_ACCOUNT_MESSAGE, $storeId);
     }
 
-    public function getGroupAccountMessage($storeId = null)
+    function getGroupAccountMessage($storeId = null)
     {
         return $this->cfg(self::XML_PATH_GROUP_ACCOUNT_MESSAGE, $storeId);
     }
@@ -123,12 +123,12 @@ class MagePsycho_Loginredirectpro_Helper_Config extends MagePsycho_Loginredirect
     /****************************************************************************************
      * MISC
      *****************************************************************************************/
-    public function getNewsletterUrl($storeId = null)
+    function getNewsletterUrl($storeId = null)
     {
         return $this->cfg(self::XML_PATH_NEWSLETTER_URL, $storeId);
     }
 
-    public function getRedirectToParam($storeId = null)
+    function getRedirectToParam($storeId = null)
     {
         return $this->cfg(self::XML_PATH_REDIRECT_TO_PARAM, $storeId);
     }

@@ -11,7 +11,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Customer
 {
 	protected $_helper;
 
-	public function __construct()
+	function __construct()
 	{
 		$this->_helper = Mage::helper('magepsycho_loginredirectpro');
 	}
@@ -39,7 +39,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Customer
 	 *
 	 * @param Varien_Event_Observer $observer
 	 */
-	public function customerRegisterSuccess(Varien_Event_Observer $observer)
+	function customerRegisterSuccess(Varien_Event_Observer $observer)
 	{
 		if ($this->_helper->isFxnSkipped()) {
 			return;
@@ -58,7 +58,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Customer
 	 *
 	 * @param Varien_Event_Observer $observer
 	 */
-	public function controllerActionPostdispatchCustomerAccountCreatePost(Varien_Event_Observer $observer)
+	function controllerActionPostdispatchCustomerAccountCreatePost(Varien_Event_Observer $observer)
 	{
 		if ($this->_helper->isFxnSkipped()) {
 			return;
@@ -79,7 +79,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Customer
 	 *
 	 * @param Varien_Event_Observer $observer
 	 */
-	public function customerLogin(Varien_Event_Observer $observer)
+	function customerLogin(Varien_Event_Observer $observer)
 	{
 		if ($this->_helper->isFxnSkipped()) {
 			return;
@@ -106,7 +106,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Customer
 	 *
 	 * @param Varien_Event_Observer $observer
 	 */
-	public function controllerActionPostdispatchCustomerAccountLogout(Varien_Event_Observer $observer)
+	function controllerActionPostdispatchCustomerAccountLogout(Varien_Event_Observer $observer)
 	{
 		if ($this->_helper->isFxnSkipped() || !$this->_helper->getConfig()->getRemoveLogoutIntermediate()) {
 			return;
@@ -132,7 +132,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Customer
 	 *
 	 * @param Varien_Event_Observer $observer
 	 */
-	public function controllerFrontInitBefore(Varien_Event_Observer $observer)
+	function controllerFrontInitBefore(Varien_Event_Observer $observer)
 	{
 		if ($this->_helper->isFxnSkipped() || $this->_helper->isAccountGroupTemplateEmpty()) {
 			return;

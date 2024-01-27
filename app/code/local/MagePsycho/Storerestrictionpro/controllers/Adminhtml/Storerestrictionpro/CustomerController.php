@@ -9,7 +9,7 @@
  */
 class MagePsycho_Storerestrictionpro_Adminhtml_Storerestrictionpro_CustomerController extends Mage_Adminhtml_Controller_Action
 {
-    public function massActivationAction()
+    function massActivationAction()
     {
         $customerIds = $this->getRequest()->getParam('customer');
         if (!is_array($customerIds)) {

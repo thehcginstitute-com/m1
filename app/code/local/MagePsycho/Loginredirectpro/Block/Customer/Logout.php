@@ -19,7 +19,7 @@ class MagePsycho_Loginredirectpro_Block_Customer_Logout extends Mage_Core_Block_
 		return Mage::getSingleton('core/session');
 	}
 
-	public function getRedirectionUrl()
+	function getRedirectionUrl()
 	{
 		$redirectionUrl = $this->_getCoreSession()->getAfterLogoutUrlClrp();
 		if (empty($redirectionUrl)) {
@@ -29,7 +29,7 @@ class MagePsycho_Loginredirectpro_Block_Customer_Logout extends Mage_Core_Block_
 		return $redirectionUrl;
 	}
 
-	public function getDelayTime($convert = false)
+	function getDelayTime($convert = false)
 	{
 		$delayTime = $this->_getHelper()->getConfig()->getLogoutDelay();
 		if ($convert) {
@@ -38,7 +38,7 @@ class MagePsycho_Loginredirectpro_Block_Customer_Logout extends Mage_Core_Block_
 		return $delayTime;
 	}
 
-	public function getCustomMessage()
+	function getCustomMessage()
 	{
 		return $this->_getHelper()->getConfig()->getLogoutMessage();
 	}

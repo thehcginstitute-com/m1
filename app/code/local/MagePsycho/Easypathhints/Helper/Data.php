@@ -8,7 +8,7 @@
  */
 class MagePsycho_Easypathhints_Helper_Data extends Mage_Core_Helper_Abstract
 {
-    public function getConfig($field, $default = null){
+    function getConfig($field, $default = null){
         $value = Mage::getStoreConfig('easypathhints/option/'.$field);
         if(!isset($value) or trim($value) == ''){
             return $default;
@@ -17,14 +17,14 @@ class MagePsycho_Easypathhints_Helper_Data extends Mage_Core_Helper_Abstract
         }
 	}
 
-    public function log($data){
+    function log($data){
         if(is_array($data) || is_object($data)){
             $data = print_r($data, true);
         }
         Mage::log($data, null, 'easypathhints.log');
 	}
 
-	public function isActive(){
+	function isActive(){
 		return $this->getConfig('active');
 	}
 }

@@ -22,7 +22,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return MagePsycho_Loginredirectpro_Helper_Config
      */
-    public function getConfig()
+    function getConfig()
     {
         return Mage::helper('magepsycho_loginredirectpro/config');
     }
@@ -33,7 +33,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
      * @param $data
      * @param bool|false $includeSep
      */
-    public function log($data, $includeSep = false)
+    function log($data, $includeSep = false)
     {
         if ( !$this->getConfig()->isLogEnabled()) {
             return;
@@ -55,7 +55,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return mixed
      */
-    public function getCustomerGroups()
+    function getCustomerGroups()
     {
         $customerGroups = Mage::getResourceModel('customer/group_collection')
                               ->setOrder('customer_group_code', Varien_Data_Collection::SORT_ORDER_ASC)
@@ -65,20 +65,20 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $customerGroups;
     }
 
-	public function getCurrentGroupId()
+	function getCurrentGroupId()
 	{
 		$customer = $this->_getCustomerSession()->getCustomer();
 		return $customer->getGroupId();
 	}
 
-	public function getMessage()
+	function getMessage()
 	{
 		$message = base64_decode('WW91IGFyZSB1c2luZyB1bmxpY2Vuc2VkIHZlcnNpb24gb2YgJ0N1c3RvbSBSZWRpcmVjdCBQcm8nIEV4dGVuc2lvbiBmb3IgZG9tYWluOiB7e0RPTUFJTn19LiBQbGVhc2UgZW50ZXIgYSB2YWxpZCBMaWNlbnNlIEtleSBmcm9tIFN5c3RlbSAmcmFxdW87IENvbmZpZ3VyYXRpb24gJnJhcXVvOyBNYWdlUHN5Y2hvIEV4dGVuc2lvbnMgJnJhcXVvOyBDdXN0b20gUmVkaXJlY3QgUHJvICZyYXF1bzsgR2VuZXJhbCBTZXR0aW5ncyAmcmFxdW87IExpY2Vuc2UgS2V5LiBJZiB5b3UgZG9uJ3QgaGF2ZSBvbmUsIHBsZWFzZSBwdXJjaGFzZSBhIHZhbGlkIGxpY2Vuc2UgZnJvbSA8YSBocmVmPSJodHRwOi8vd3d3Lm1hZ2Vwc3ljaG8uY29tL2NvbnRhY3RzIiB0YXJnZXQ9Il9ibGFuayI+d3d3Lm1hZ2Vwc3ljaG8uY29tPC9hPiBvciB5b3UgY2FuIGRpcmVjdGx5IGVtYWlsIHRvIDxhIGhyZWY9Im1haWx0bzppbmZvQG1hZ2Vwc3ljaG8uY29tIj5pbmZvQG1hZ2Vwc3ljaG8uY29tPC9hPg==');
 		$message = str_replace('{{DOMAIN}}', $this->getDomain(), $message);
 		return $message;
 	}
 
-	public function getDomain()
+	function getDomain()
 	{
         $domain		= Mage::getBaseUrl();
         $baseDomain = Mage::helper('magepsycho_loginredirectpro/url')->getBaseDomain($domain);
@@ -86,7 +86,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 		return strtolower($baseDomain);
     }
 
-    public function checkEntry($domain, $serial)
+    function checkEntry($domain, $serial)
 	{
         $salt = sha1(base64_decode('bG9naW5yZWRpcmVjdHBybw=='));
         if (sha1($salt . $domain . $this->mode()) == $serial) {
@@ -96,7 +96,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return false;
     }
 
-    public function isValid()
+    function isValid()
 	{
         $temp = $this->temp();
         if (!$this->checkEntry($this->getDomain(), $temp)) {
@@ -106,12 +106,12 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return true;
     }
 
-	public function isActive()
+	function isActive()
 	{
         return (bool)$this->getConfig()->isActive();
 	}
 
-    public function isFxnSkipped()
+    function isFxnSkipped()
     {
         if (($this->isActive() && !$this->isValid()) || !$this->isActive()) {
             return true;
@@ -124,7 +124,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return bool
      */
-    public function isApiRequest()
+    function isApiRequest()
     {
         $isApiRequest = ($this->_getRequest()->getModuleName() === 'api' || $this->_getRequest()->getModuleName() === 'oauth')
             ? true
@@ -137,7 +137,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return bool
      */
-    public function isAdminArea()
+    function isAdminArea()
     {
         if (Mage::app()->getStore()->isAdmin() || Mage::getDesign()->getArea() == 'adminhtml') {
             return true;
@@ -146,12 +146,12 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return false;
     }
 
-    public function checkVersion($version, $operator = '>=')
+    function checkVersion($version, $operator = '>=')
     {
         return version_compare(Mage::getVersion(), $version, $operator);
     }
 
-    public function getExtensionVersion()
+    function getExtensionVersion()
     {
         $moduleCode = 'MagePsycho_Loginredirectpro';
         return (string) $currentVer = Mage::getConfig()->getModuleConfig($moduleCode)->version;
@@ -162,7 +162,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return string
      */
-    public function getDomainFromSystemConfig()
+    function getDomainFromSystemConfig()
     {
         $websiteCode = $this->_getRequest()->getParam('website');
         $storeCode   = $this->_getRequest()->getParam('store');
@@ -182,7 +182,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
      *
      * @return GeoIP
      */
-    public function loadGeoIp()
+    function loadGeoIp()
     {
         //REF: http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
         include_once(Mage::getModuleDir('', 'MagePsycho_Loginredirectpro') . DS . 'Model' . DS . 'Api' . DS . 'GeoIP' . DS . 'GeoIP.inc');
@@ -193,13 +193,13 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $geoIp;
     }
 
-    public function getIpAddress()
+    function getIpAddress()
     {
         $ip	 = Mage::helper('core/http')->getRemoteAddr();
         return $ip;
     }
 
-    public function getCurrencyCode()
+    function getCurrencyCode()
     {
         $geoIp     = $this->loadGeoIp();
         $ipAddress = $this->getIpAddress();
@@ -209,7 +209,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $countryCode;
     }
 
-    public function getRedirectToParamUrl()
+    function getRedirectToParamUrl()
     {
         $redirectToParamUrl = '';
         if ($redirectToParam = $this->getConfig()->getRedirectToParam()) {
@@ -248,7 +248,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $preparedData;
     }
 
-    public function getLoginUrlByGroup($groupId)
+    function getLoginUrlByGroup($groupId)
     {
         $groupToLoginData   = $this->getConfig()->getGroupLoginUrl();
         $groupToLoginUrls   = $this->_prepareGroupWiseData($groupToLoginData, 'login_redirect');
@@ -256,7 +256,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $redirectUrl;
     }
 
-    public function getLogoutUrlByGroup($groupId)
+    function getLogoutUrlByGroup($groupId)
     {
         $groupToLogoutData   = $this->getConfig()->getGroupLogoutUrl();
         $groupToLogoutUrls   = $this->_prepareGroupWiseData($groupToLogoutData, 'logout_redirect');
@@ -264,7 +264,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $redirectUrl;
     }
 
-    public function getAccountUrlByGroup($groupId)
+    function getAccountUrlByGroup($groupId)
     {
         $groupToAccountData   = $this->getConfig()->getGroupAccountUrl();
         $groupToAccountUrls   = $this->_prepareGroupWiseData($groupToAccountData, 'account_redirect');
@@ -272,7 +272,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $redirectUrl;
     }
 
-    public function getAccountMessageByGroup($groupId)
+    function getAccountMessageByGroup($groupId)
     {
         $groupToAccountData         = $this->getConfig()->getGroupAccountMessage();
         $groupToAccountMessages     = $this->_prepareGroupWiseData($groupToAccountData, 'account_message');
@@ -280,7 +280,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $message;
     }
 
-    public function getAccountTemplateByGroup($groupId)
+    function getAccountTemplateByGroup($groupId)
     {
         $groupToTemplateData        = $this->getConfig()->getGroupAccountTemplate();
         $groupToAccountTemplate     = $this->_prepareGroupWiseData($groupToTemplateData, 'account_template');
@@ -288,7 +288,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $template;
     }
 
-    public function getLoginRedirectionUrl($groupId = null)
+    function getLoginRedirectionUrl($groupId = null)
     {
         if ( empty($groupId)) {
             $groupId = $this->getCurrentGroupId();
@@ -312,7 +312,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $redirectionUrl;
     }
 
-    public function getLogoutRedirectionUrl($groupId = null)
+    function getLogoutRedirectionUrl($groupId = null)
     {
         if ( empty($groupId)) {
             $groupId = $this->getCurrentGroupId();
@@ -336,7 +336,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $redirectionUrl;
     }
 
-    public function getAccountRedirectionUrl($groupId = null)
+    function getAccountRedirectionUrl($groupId = null)
     {
         if ( empty($groupId)) {
             $groupId = $this->getCurrentGroupId();
@@ -360,7 +360,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $redirectionUrl;
     }
 
-    public function getAccountSuccessMessage($groupId = null)
+    function getAccountSuccessMessage($groupId = null)
     {
         if ( empty($groupId)) {
             $groupId = $this->getCurrentGroupId();
@@ -374,7 +374,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $successMessage;
     }
 
-    public function getAccountTemplate($groupId = null)
+    function getAccountTemplate($groupId = null)
     {
         if ( empty($groupId)) {
             $groupId = $this->getCurrentGroupId();
@@ -385,7 +385,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $template;
     }
 
-    public function isAccountGroupTemplateEmpty()
+    function isAccountGroupTemplateEmpty()
     {
         $groupToTemplateData = $this->getConfig()->getGroupAccountTemplate();
         if (empty($groupToTemplateData) || $groupToTemplateData == 'a:0:{}') {
@@ -394,7 +394,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return false;
     }
 
-    public function getNewsletterRedirectionUrl()
+    function getNewsletterRedirectionUrl()
     {
         $redirectionUrl = $this->getConfig()->getNewsletterUrl();
         $this->log('getNewsletterRedirectionUrl()::raw::' . $redirectionUrl);
@@ -412,12 +412,12 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return $redirectionUrl;
     }
 
-    public function isAbsoluteUrl($url)
+    function isAbsoluteUrl($url)
     {
         return stripos($url, 'http://') !== false || stripos($url, 'https://') !== false;
     }
 
-    public function convertRelToAbsoulteUrl($relUrl)
+    function convertRelToAbsoulteUrl($relUrl)
     {
         if ($this->isAbsoluteUrl($relUrl)) {
             return $relUrl;
@@ -425,7 +425,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         return Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB, true) . ltrim($relUrl, '/');
     }
 
-    public function unsetCustomerLogoutChildIf()
+    function unsetCustomerLogoutChildIf()
     {
         if ( !$this->isFxnSkipped() && !$this->getConfig()->getRemoveLogoutIntermediate()) {
             return 'customer_logout';
@@ -434,7 +434,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
         }
     }
 
-    public function switchCustomerLogoutTemplateIf()
+    function switchCustomerLogoutTemplateIf()
     {
         if ( !$this->isFxnSkipped() && !$this->getConfig()->getRemoveLogoutIntermediate()) {
             return 'magepsycho/loginredirectpro/customer/logout.phtml';
@@ -500,7 +500,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
      * @return string
      * @throws Mage_Core_Exception
      */
-    public function getAssignedBaseUrl()
+    function getAssignedBaseUrl()
     {
         $assignedBaseUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB, true);
         if ($this->_getCustomerSession()->isLoggedIn()) {
@@ -517,7 +517,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
      * @see Mage_Core_Controller_Varien_Action::_getRefererUrl()
      * @return string
      */
-    public function getRefererUrl()
+    function getRefererUrl()
     {
         $refererUrl = $this->_getRequest()->getServer('HTTP_REFERER');
         if ($url = $this->_getRequest()->getParam(Mage_Core_Controller_Varien_Action::PARAM_NAME_REFERER_URL)) {

@@ -15,7 +15,7 @@ class MagePsycho_Storerestrictionpro_Model_System_Config_Source_Redirectiontypes
 
     protected $_options;
 
-    public function getAllOptions($withEmpty = false)
+    function getAllOptions($withEmpty = false)
     {
         if (is_null($this->_options)) {
             $this->_options = array(
@@ -41,7 +41,7 @@ class MagePsycho_Storerestrictionpro_Model_System_Config_Source_Redirectiontypes
         return $options;
     }
 
-    public function getOptionsArray($withEmpty = true)
+    function getOptionsArray($withEmpty = true)
     {
         $options = array();
         foreach ($this->getAllOptions($withEmpty) as $option) {
@@ -50,7 +50,7 @@ class MagePsycho_Storerestrictionpro_Model_System_Config_Source_Redirectiontypes
         return $options;
     }
 
-    public function getOptionText($value)
+    function getOptionText($value)
     {
         $options = $this->getAllOptions(false);
         foreach ($options as $item) {
@@ -61,7 +61,7 @@ class MagePsycho_Storerestrictionpro_Model_System_Config_Source_Redirectiontypes
         return false;
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->getAllOptions();
     }

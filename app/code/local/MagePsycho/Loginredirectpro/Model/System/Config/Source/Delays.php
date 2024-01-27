@@ -9,7 +9,7 @@
  */
 class MagePsycho_Loginredirectpro_Model_System_Config_Source_Delays
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         $options = array();
 		for($i = 1; $i <= 5; $i++){

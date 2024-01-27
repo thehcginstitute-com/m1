@@ -18,7 +18,7 @@ class MagePsycho_Loginredirectpro_Block_System_Config_Info
      * @param Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         $html = '<div style="background-color: #EAF0EE;border:1px solid #CCCCCC;margin:20px;padding:20px ;">
                   <p>

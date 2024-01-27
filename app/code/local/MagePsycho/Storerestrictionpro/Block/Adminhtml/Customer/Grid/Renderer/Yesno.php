@@ -9,7 +9,7 @@
  */
 class MagePsycho_Storerestrictionpro_Block_Adminhtml_Customer_Grid_Renderer_Yesno extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
 {
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $helper             = Mage::helper('magepsycho_storerestrictionpro');
         $isAccountActivated = ((bool)$row->getAccountActivated()) ? 'Yes' : 'No';
