@@ -80,16 +80,6 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 		return strtolower($baseDomain);
 	}
 
-	function checkEntry($domain, $serial)
-	{
-		$salt = sha1(base64_decode('bG9naW5yZWRpcmVjdHBybw=='));
-		if (sha1($salt . $domain . $this->mode()) == $serial) {
-			return true;
-		}
-
-		return false;
-	}
-
 	function isValid()
 	{
 		$temp = $this->temp();

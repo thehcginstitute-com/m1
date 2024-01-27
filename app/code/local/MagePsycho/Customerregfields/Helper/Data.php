@@ -97,15 +97,6 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 		return strtolower($baseDomain);
 	}
 
-	function checkEntry($domain, $serial)
-	{
-		$salt = sha1(base64_decode('Z3JvdXBzZWxlY3Rvcg=='));
-		if (sha1($salt . $domain . $this->mode()) == $serial) {
-			return true;
-		}
-		return false;
-	}
-
 	function isValid()
 	{
 		$temp = $this->temp();
@@ -383,6 +374,14 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 		array_unshift($groupOptions, array('label' => '', 'value' => ''));
 		return $groupOptions;
 	}
+
+	/**
+	 * 2024-01-27 "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
+	 * @override
+	 * @see HCG\MagePsycho\Helper::moduleL()
+	 * @used-by HCG\MagePsycho\Helper::checkEntry()
+	 */
+	final protected function moduleL():string {return 'groupselector';}
 
 	/**
 	 * 2024-01-27 "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331

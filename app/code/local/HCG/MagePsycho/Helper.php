@@ -16,14 +16,11 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 
 	/** 2024-01-27 */
 	final function __construct() {
-		if ($this->cfg('option/domain_type') == 1) {
-			$key        = base64_decode('cHJvZF9saWNlbnNl');
-			$this->_mode = base64_decode('cHJvZHVjdGlvbg==');
-		} else {
-			$key        = base64_decode('ZGV2X2xpY2Vuc2U=');
-			$this->_mode = base64_decode('ZGV2ZWxvcG1lbnQ=');
-		}
-		$this->_temp = $this->cfg('option/' . $key);
+		list($k, $this->_mode) = $this->cfg('option/domain_type')
+			? ['prod_license', 'production']
+			: ['dev_license', 'development']
+		;
+		$this->_temp = $this->cfg('option/' . $k);
 	}
 
 	/**
@@ -36,11 +33,33 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 
 	/**
 	 * 2024-01-27
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isValid()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::isValid()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Data::isValid()
+	 */
+	final protected function checkEntry(string $domain, string $serial):bool {
+		$salt = sha1($this->moduleL());
+		if(sha1($salt . $domain . $this->mode()) == $serial) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * 2024-01-27
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::checkEntry()
 	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::checkEntry()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::checkEntry()
 	 */
 	final protected function mode():string {return $this->_mode;}
+
+	/**
+	 * 2024-01-27
+	 * @used-by self::checkEntry()
+	 * @see \MagePsycho_Customerregfields_Helper_Data::moduleL()
+	 */
+	protected function moduleL():string {return df_last(explode('_', $this->moduleMf()));}
 
 	/**
 	 * 2024-01-27

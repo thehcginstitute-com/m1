@@ -72,16 +72,6 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 		return strtolower($baseDomain);
 	}
 
-	function checkEntry($domain, $serial)
-	{
-		$salt = sha1(base64_decode('c3RvcmVyZXN0cmljdGlvbnBybw=='));
-		if(sha1($salt . $domain . $this->mode()) == $serial) {
-			return true;
-		}
-
-		return false;
-	}
-
 	function isValid()
 	{
 		$temp = $this->temp();
