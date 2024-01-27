@@ -68,26 +68,8 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 	function getMessage()
 	{
 		$message = base64_decode('WW91IGFyZSB1c2luZyB1bmxpY2Vuc2VkIHZlcnNpb24gb2YgJ0N1c3RvbSBSZWRpcmVjdCBQcm8nIEV4dGVuc2lvbiBmb3IgZG9tYWluOiB7e0RPTUFJTn19LiBQbGVhc2UgZW50ZXIgYSB2YWxpZCBMaWNlbnNlIEtleSBmcm9tIFN5c3RlbSAmcmFxdW87IENvbmZpZ3VyYXRpb24gJnJhcXVvOyBNYWdlUHN5Y2hvIEV4dGVuc2lvbnMgJnJhcXVvOyBDdXN0b20gUmVkaXJlY3QgUHJvICZyYXF1bzsgR2VuZXJhbCBTZXR0aW5ncyAmcmFxdW87IExpY2Vuc2UgS2V5LiBJZiB5b3UgZG9uJ3QgaGF2ZSBvbmUsIHBsZWFzZSBwdXJjaGFzZSBhIHZhbGlkIGxpY2Vuc2UgZnJvbSA8YSBocmVmPSJodHRwOi8vd3d3Lm1hZ2Vwc3ljaG8uY29tL2NvbnRhY3RzIiB0YXJnZXQ9Il9ibGFuayI+d3d3Lm1hZ2Vwc3ljaG8uY29tPC9hPiBvciB5b3UgY2FuIGRpcmVjdGx5IGVtYWlsIHRvIDxhIGhyZWY9Im1haWx0bzppbmZvQG1hZ2Vwc3ljaG8uY29tIj5pbmZvQG1hZ2Vwc3ljaG8uY29tPC9hPg==');
-		$message = str_replace('{{DOMAIN}}', $this->getDomain(), $message);
+		$message = str_replace('{{DOMAIN}}', $this->domain(), $message);
 		return $message;
-	}
-
-	function getDomain()
-	{
-		$domain		= Mage::getBaseUrl();
-		$baseDomain = Mage::helper('magepsycho_loginredirectpro/url')->getBaseDomain($domain);
-
-		return strtolower($baseDomain);
-	}
-
-	function isValid()
-	{
-		$temp = $this->temp();
-		if (!$this->checkEntry($this->getDomain(), $temp)) {
-			return false;
-		}
-
-		return true;
 	}
 
 	function isActive()
@@ -547,6 +529,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 	 * @override
 	 * @see HCG\MagePsycho\Helper::moduleMf()
 	 * @used-by HCG\MagePsycho\Helper::cfg()
+	 * @used-by HCG\MagePsycho\Helper::domain()
 	 * @used-by self::log()
 	 */
 	final protected function moduleMf():string {return 'magepsycho_loginredirectpro';}

@@ -5,6 +5,7 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	/**
 	 * 2024-01-27
 	 * @used-by self::cfg()
+	 * @used-by self::domain()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::log()
 	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::log()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::log()
@@ -25,6 +26,12 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 
 	/**
 	 * 2024-01-27
+	 * @see \MagePsycho_Customerregfields_Helper_Data::isValid()
+	 */
+	function isValid():bool {return $this->checkEntry($this->domain(), $this->_temp);}
+
+	/**
+	 * 2024-01-27
 	 * @used-by self::__construct()
 	 */
     final protected function cfg(string $xmlPath, $storeId = null) {return \Mage::getStoreConfig(
@@ -39,12 +46,22 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 */
 	final protected function checkEntry(string $domain, string $serial):bool {
 		$salt = sha1($this->moduleL());
-		if(sha1($salt . $domain . $this->_mode) == $serial) {
+		if (sha1($salt . $domain . $this->_mode) == $serial) {
 			return true;
 		}
-
 		return false;
 	}
+
+	/**
+	 * 2024-01-27
+	 * @used-by self::isValid()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Data::getMessage()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::getMessage()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::getMessage()
+	 */
+	final protected function domain():string {return strtolower(
+		\Mage::helper("{$this->moduleMf()}/url")->getBaseDomain(\Mage::getBaseUrl())
+	);}
 
 	/**
 	 * 2024-01-27
@@ -52,14 +69,6 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @see \MagePsycho_Customerregfields_Helper_Data::moduleL()
 	 */
 	protected function moduleL():string {return df_last(explode('_', $this->moduleMf()));}
-
-	/**
-	 * 2024-01-27
-	 * @used-by \MagePsycho_Customerregfields_Helper_Data::isValid()
-	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::isValid()
-	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isValid()
-	 */
-	final protected function temp():string {return $this->_temp;}
 
 	/**
 	 * 2024-01-27
@@ -72,7 +81,7 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	/**
 	 * 2024-01-27
 	 * @used-by self::__construct()
-	 * @used-by self::temp()
+	 * @used-by self::isValid()
 	 * @var string
 	 */
 	private $_temp;
