@@ -39,20 +39,12 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 */
 	final protected function checkEntry(string $domain, string $serial):bool {
 		$salt = sha1($this->moduleL());
-		if(sha1($salt . $domain . $this->mode()) == $serial) {
+		if(sha1($salt . $domain . $this->_mode) == $serial) {
 			return true;
 		}
 
 		return false;
 	}
-
-	/**
-	 * 2024-01-27
-	 * @used-by \MagePsycho_Customerregfields_Helper_Data::checkEntry()
-	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::checkEntry()
-	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::checkEntry()
-	 */
-	final protected function mode():string {return $this->_mode;}
 
 	/**
 	 * 2024-01-27
@@ -72,7 +64,7 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	/**
 	 * 2024-01-27
 	 * @used-by self::__construct()
-	 * @used-by self::mode()
+	 * @used-by self::checkEntry()
 	 * @var string
 	 */
 	private $_mode;
