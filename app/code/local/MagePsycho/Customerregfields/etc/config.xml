@@ -123,15 +123,8 @@
 			</modules>
 		</translate>
         <events>
-            <controller_action_predispatch>
-                <observers>
-                    <magepsycho_customerregfields_controller_action_predispatch>
-                        <type>singleton</type>
-                        <class>magepsycho_customerregfields/observer</class>
-                        <method>adminhtmlControllerActionPredispatch</method>
-                    </magepsycho_customerregfields_controller_action_predispatch>
-                </observers>
-            </controller_action_predispatch>
+<!-- 2024-01-27 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331 -->
             <adminhtml_init_system_config>
                 <observers>
                     <magepsycho_customerregfields_adminhtml_init_system_config>
