@@ -9,7 +9,6 @@
  */
 class MagePsycho_Customerregfields_Helper_Config extends MagePsycho_Customerregfields_Helper_Data
 {
-    const XML_PATH_ACTIVE                       = 'option/active';
     const XML_PATH_ENABLE_LOG                   = 'option/enable_log';
     const XML_PATH_DOMAIN_TYPE                  = 'option/domain_type';
 
@@ -23,11 +22,6 @@ class MagePsycho_Customerregfields_Helper_Config extends MagePsycho_Customerregf
 
     const XML_PATH_GROUP_CODE_DATA              = 'group/groupcode_data';
     const XML_PATH_GROUP_CODE_ERROR_MESSAGE     = 'group/group_code_error_message';
-
-    function isActive($storeId = null)
-    {
-        return $this->cfg(self::XML_PATH_ACTIVE, $storeId);
-    }
 
     function isLogEnabled($storeId = null)
     {

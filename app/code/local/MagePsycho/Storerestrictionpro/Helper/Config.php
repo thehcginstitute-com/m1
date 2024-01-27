@@ -10,7 +10,6 @@
 class MagePsycho_Storerestrictionpro_Helper_Config extends MagePsycho_Storerestrictionpro_Helper_Data
 {
     /* General */
-    const XML_PATH_ACTIVE       = 'option/active';
     const XML_PATH_ENABLE_LOG   = 'option/enable_log';
     const XML_PATH_DOMAIN_TYPE  = 'option/domain_type';
 
@@ -71,10 +70,6 @@ class MagePsycho_Storerestrictionpro_Helper_Config extends MagePsycho_Storerestr
     /****************************************************************************************
      * GENERIC
      *****************************************************************************************/
-    function isActive($storeId = null)
-    {
-        return $this->cfg(self::XML_PATH_ACTIVE, $storeId);
-    }
 
     function isLogEnabled($storeId = null)
     {

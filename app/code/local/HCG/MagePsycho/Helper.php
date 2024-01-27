@@ -109,15 +109,29 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	/**
 	 * 2024-01-27
 	 * @used-by self::__construct()
+	 * @used-by self::isActive()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Config::isLogEnabled()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Config::getGroupSelectionType()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Config::getAllowedCustomerGroups()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Config::isGroupFieldRequired()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Config::isGroupSelectionEditable()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Config::isEnabledForCheckout()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Config::getGroupSelectionLabel()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Config::getGroupCodeData()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Config::getGroupCodeErrorMessage()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::_getEmails()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::isLogEnabled()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getDefaultLoginUrl()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getGroupLoginUrl()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Config::getDefaultLogoutUrl()
 	 */
-    final protected function cfg(string $xmlPath, $storeId = null) {return \Mage::getStoreConfig(
-		$this->moduleMf() . '/' . $xmlPath, $storeId
-	);}
+    final protected function cfg(string $p, $s = null) {return \Mage::getStoreConfig("{$this->moduleMf()}/$p", $s);}
 
 	/**
 	 * 2024-01-27
 	 * @used-by self::isFxnSkipped()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::log()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Data::skipGroupCodeSelectorFxn()
 	 */
-    final protected function isActive():bool {return (bool)$this->cfgH()->isActive();}
+    final protected function isActive($storeId = null):bool {return (bool)$this->cfg('option/active', $storeId);}
 }

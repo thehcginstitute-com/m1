@@ -7,8 +7,11 @@
  * @website    http://www.magepsycho.com
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-# 2024-01-27 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
+/**
+ * 2024-01-27 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
+ * @see MagePsycho_Customerregfields_Helper_Config
+ */
 class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 {
 	/**
