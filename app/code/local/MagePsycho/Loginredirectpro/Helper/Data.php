@@ -499,6 +499,7 @@ class MagePsycho_Loginredirectpro_Helper_Data extends HCG\MagePsycho\Helper
 	 * @override
 	 * @see HCG\MagePsycho\Helper::moduleMf()
 	 * @used-by HCG\MagePsycho\Helper::cfg()
+	 * @used-by HCG\MagePsycho\Helper::cfgH()
 	 * @used-by self::log()
 	 */
 	final protected function moduleMf():string {return 'magepsycho_loginredirectpro';}

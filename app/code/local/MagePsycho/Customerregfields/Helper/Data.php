@@ -134,7 +134,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 	 */
 	function switchCustomerAccountEditTemplateIf()
 	{
-		if ( ! $this->isFxnSkipped() /*&& $this->getConfig()->isGroupSelectionEditable()*/) {
+		if ( ! $this->isFxnSkipped() /*&& $this->cfgH()->isGroupSelectionEditable()*/) {
 			return 'magepsycho/customerregfields/customer/form/edit.phtml';
 		} else {
 			return 'customer/form/edit.phtml';
@@ -330,6 +330,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 	 * @override
 	 * @see HCG\MagePsycho\Helper::moduleMf()
 	 * @used-by HCG\MagePsycho\Helper::cfg()
+	 * @used-by HCG\MagePsycho\Helper::cfgH()
 	 * @used-by self::log()
 	 */
 	final protected function moduleMf():string {return 'magepsycho_customerregfields';}

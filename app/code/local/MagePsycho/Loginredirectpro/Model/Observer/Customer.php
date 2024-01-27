@@ -108,7 +108,7 @@ class MagePsycho_Loginredirectpro_Model_Observer_Customer
 	 */
 	function controllerActionPostdispatchCustomerAccountLogout(Varien_Event_Observer $observer)
 	{
-		if ($this->_helper->isFxnSkipped() || !$this->_helper->getConfig()->getRemoveLogoutIntermediate()) {
+		if ($this->_helper->isFxnSkipped() || !$this->_helper->cfgH()->getRemoveLogoutIntermediate()) {
 			return;
 		}
 

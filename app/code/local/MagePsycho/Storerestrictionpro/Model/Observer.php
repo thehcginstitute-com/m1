@@ -51,7 +51,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
             $helper->log('$isRegistrationRequest::' . $isRegistrationRequest);
             if ($isRegistrationRequest) { //@todo fix this
                 //regular registration
-                $nonActivationRegistrationMessage = $helper->getConfig()->getNewAccountActivationRedirectionErrorMessageRegistration();
+                $nonActivationRegistrationMessage = $helper->cfgH()->getNewAccountActivationRedirectionErrorMessageRegistration();
                 $helper->log('NON-ACTIVATED::REGISTRATION::MESSAGE::' . $nonActivationRegistrationMessage);
                 $session->addSuccess($nonActivationRegistrationMessage);
                 $redirectUrl = $helper->getNonActivatedLandingPage();
@@ -59,7 +59,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
                 $this->_redirect($redirectUrl);
             } else {
                 //other types of login
-                $nonActivationLoginMessage = $helper->getConfig()->getNewAccountActivationRedirectionErrorMessageLogin();
+                $nonActivationLoginMessage = $helper->cfgH()->getNewAccountActivationRedirectionErrorMessageLogin();
                 $helper->log('NON-ACTIVATED::LOGIN::MESSAGE::' . $nonActivationLoginMessage);
                 #Mage::throwException($helper->__($nonActivationLoginMessage));
                 $session->addError($nonActivationLoginMessage);
@@ -276,7 +276,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
         }
 
         // handle for two types of restriction
-        if ($helper->getConfig()->getRestrictionType() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Restrictiontypes::RESTRICTION_TYPE_RESTRICTED_ACCESSIBLE) { //Restricted (Only Configured Pages Accessible)
+        if ($helper->cfgH()->getRestrictionType() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Restrictiontypes::RESTRICTION_TYPE_RESTRICTED_ACCESSIBLE) { //Restricted (Only Configured Pages Accessible)
 
             if (Mage::getSingleton('customer/session')->isLoggedIn()) {
                 if (!$helper->isCustomerGroupAllowedForRestrictedStore()) {
@@ -285,7 +285,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
                         ->setCustomer(Mage::getModel('customer/customer'))
                         ->setId(null)
                         ->setCustomerGroupId(Mage_Customer_Model_Group::NOT_LOGGED_IN_ID);
-                    $customerGroupErrorMessage = $helper->getConfig()->getRestrictedCustomerGroupErrorMessage();
+                    $customerGroupErrorMessage = $helper->cfgH()->getRestrictedCustomerGroupErrorMessage();
                     if (!empty($customerGroupErrorMessage)) {
                         Mage::getSingleton('core/session')->addError($customerGroupErrorMessage);
                     }
@@ -324,7 +324,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
                 if ($isCurrentPageRestricted) {
                     //check if the current page is restricted, yes? then add the error message to session, get landing page and redirect
                     Mage::getSingleton('core/session')->getMessages(true);
-                    $storeErrorMessage = $helper->getConfig()->getRestrictedStoreErrorMessage();
+                    $storeErrorMessage = $helper->cfgH()->getRestrictedStoreErrorMessage();
                     if (!empty($storeErrorMessage)) {
                         Mage::getSingleton('core/session')->addError($storeErrorMessage);
                     }
@@ -334,7 +334,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
                 }
             }
 
-        } else if ($helper->getConfig()->getRestrictionType() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Restrictiontypes::RESTRICTION_TYPE_ACCESSIBLE_RESTRICTED) {
+        } else if ($helper->cfgH()->getRestrictionType() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Restrictiontypes::RESTRICTION_TYPE_ACCESSIBLE_RESTRICTED) {
             $helper->log('::Accessible(Only Configured Pages/Sections Restricted)::', true);
             $isCurrentPageRestricted = false;
 
@@ -371,7 +371,7 @@ class MagePsycho_Storerestrictionpro_Model_Observer
             if ($isCurrentPageRestricted) {
                 //check if the current page is restricted, yes? then add the error message to session, get landing page and redirect
                 Mage::getSingleton('core/session')->getMessages(true);
-                $storeErrorMessage = $helper->getConfig()->getAccessibleStoreErrorMessage();
+                $storeErrorMessage = $helper->cfgH()->getAccessibleStoreErrorMessage();
                 if (!empty($storeErrorMessage)) {
                     Mage::getSingleton('core/session')->addError($storeErrorMessage);
                 }
