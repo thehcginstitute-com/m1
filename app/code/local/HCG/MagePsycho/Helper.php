@@ -27,6 +27,13 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	/**
 	 * 2024-01-27
 	 * @see \MagePsycho_Customerregfields_Helper_Data::isValid()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Data::isValid()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Data::isFxnSkipped()
+	 * @used-by \MagePsycho_Customerregfields_Model_Observer::adminhtmlControllerActionPredispatch()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::isFxnSkipped()
+	 * @used-by \MagePsycho_Loginredirectpro_Model_Observer::adminhtmlPreDispatchCheck()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isFxnSkipped()
+	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::adminhtmlControllerActionPredispatch()
 	 */
 	function isValid():bool {return $this->checkEntry($this->domain(), $this->_temp);}
 
