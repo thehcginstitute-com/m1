@@ -214,5 +214,5 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::log()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::skipGroupCodeSelectorFxn()
 	 */
-    final protected function isActive($storeId = null):bool {return (bool)$this->cfg('option/active', $storeId);}
+    final protected function isActive():bool {return (bool)$this->cfg('option/active');}
 }
