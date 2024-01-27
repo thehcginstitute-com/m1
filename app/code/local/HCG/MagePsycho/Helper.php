@@ -5,6 +5,9 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	/**
 	 * 2024-01-27
 	 * @used-by self::cfg()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Data::log()
+	 * @used-by \MagePsycho_Loginredirectpro_Helper_Data::log()
+	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::log()
 	 * @see \MagePsycho_Customerregfields_Helper_Data::moduleMf()
 	 * @see \MagePsycho_Loginredirectpro_Helper_Data::moduleMf()
 	 * @see \MagePsycho_Storerestrictionpro_Helper_Data::moduleMf()

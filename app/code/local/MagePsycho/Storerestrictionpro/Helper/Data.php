@@ -11,12 +11,6 @@
 # "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
 class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 {
-	/**
-	 * 2024-01-27 "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
-	 * @used-by self::moduleMf()
-	 */
-    const MODULE_NAMESPACE_ALIAS = 'magepsycho_storerestrictionpro';
-
     function getConfig()
     {
         return Mage::helper('magepsycho_storerestrictionpro/config');
@@ -29,9 +23,9 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
         }
         if ($includeSep) {
             $separator = '==========================================================================';
-            Mage::log($separator, null, self::MODULE_NAMESPACE_ALIAS . '.log', true);
+            Mage::log($separator, null, $this->moduleMf() . '.log', true);
         }
-        Mage::log($data, null, self::MODULE_NAMESPACE_ALIAS . '.log', true);
+        Mage::log($data, null, $this->moduleMf() . '.log', true);
     }
 
 	function isApiRequest()
@@ -862,6 +856,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 	 * @override 
 	 * @see HCG\MagePsycho\Helper::moduleMf()
 	 * @used-by HCG\MagePsycho\Helper::cfg()
+	 * @used-by self::log()
 	 */
-	final protected function moduleMf():string {return self::MODULE_NAMESPACE_ALIAS;}	
+	final protected function moduleMf():string {return 'magepsycho_storerestrictionpro';}
 }
