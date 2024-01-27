@@ -387,7 +387,7 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 
     public function _getEmails($configPath)
     {
-        $data = $this->getConfigValue($configPath, $storeId);
+        $data = $this->getConfigValue($configPath);
         if (!empty($data)) {
             return explode(',', $data);
         }
