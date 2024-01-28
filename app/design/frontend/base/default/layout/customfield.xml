@@ -9,11 +9,9 @@
 <layout version="1.0.0">
 	<customer_account_create>
         <reference name="customer_form_register">
-            <!-- <block type="customfield/becomecustomer" name="customer_customfield" template="customfield/customfields.phtml" /> -->
             <action method="setTemplate"><template>customfield/customfields.phtml</template></action>
         </reference>
         <reference name="content">
-            <!-- <block type="customfield/becomecustomer" name="customer_customfield" template="customfield/customfields.phtml" after="-"/> -->
             <block type="core/template" name="customer_term_privacy" template="customfield/termsprivacy.phtml" after="-"/>
             <block type="core/template" name="customer_term_style" template="customfield/termstyle.phtml" before="-"/>
         </reference>
@@ -21,7 +19,6 @@
     <checkout_onepage_index>
         <reference name="form.additional.info">
         <block type="customer/form_register" name="billingcustomfields" template="customfield/billing.phtml" after="-"/>
-            <!--<action method="setTemplate"><template>customfield/billing.phtml</template></action>-->
         </reference>
     </checkout_onepage_index>
 	<customer_account>
