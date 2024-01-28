@@ -1,7 +1,6 @@
 <?php
 namespace HCG\MagePsycho;
 use \MagePsycho_Customerregfields_Helper_Config as CfgC;
-use \MagePsycho_Customerregfields_Helper_Data as hC;
 use \MagePsycho_Loginredirectpro_Helper_Config as CfgL;
 use \MagePsycho_Storerestrictionpro_Helper_Config as CfgS;
 /**
@@ -209,9 +208,4 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::_getEmails()
 	 */
     final protected function cfg(string $p, $s = null) {return \Mage::getStoreConfig("{$this->moduleMf()}/$p", $s);}
-
-	/**
-	 * 2024-01-28
-	 */
-	final static function hC():hC {return \Mage::helper('magepsycho_customerregfields');}
 }
