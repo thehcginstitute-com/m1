@@ -75,7 +75,7 @@ class Boot {
 		# 2017-11-13
 		# Today I have added the subdirectories support inside the `lib` folders,
 		# because some lib/*.php files became too big, and I want to split them.
-		$requireFiles = function($libDir) use(&$requireFiles) {
+		$requireFiles = function(string $libDir) use(&$requireFiles):void {
 			# 2015-02-06
 			# array_slice removes «.» and «..».
 			# https://php.net/manual/function.scandir.php#107215
@@ -83,19 +83,26 @@ class Boot {
 				is_dir($resource = "{$libDir}/{$c}") ? $requireFiles($resource) : require_once "{$libDir}/{$c}";
 			}
 		};
-		# 2017-06-18 The strange array_diff / array_merge combination makes the Df_Core module to be loaded first.
-		/** @var string $base */
-		foreach (array_merge(['Core'], array_diff(scandir($base = dirname(dirname(__FILE__)) . '/'), ['Core'])) as $m) {
-			# 2016-11-23
-			# It gets rid of the ['..', '.'] and the root files (non-directories).
-			/** @var string $baseM */
-			if (ctype_upper($m[0]) && is_dir($baseM = $base . $m)) {
-				/** @var string $libDir */
-				if (is_dir($libDir = "{$baseM}/lib")) {
-					$requireFiles($libDir);
+		$iterate = function(string $base, array $mm) use($requireFiles):void  {
+			foreach ($mm as $m) {/** @var string $m */
+				# 2016-11-23
+				# It gets rid of the ['..', '.'] and the root files (non-directories).
+				/** @var string $baseM */
+				if (ctype_upper($m[0]) && is_dir($baseM = $base . $m)) {
+					/** @var string $libDir */
+					if (is_dir($libDir = "{$baseM}/lib")) {
+						$requireFiles($libDir);
+					}
 				}
 			}
-		}
+		};
+		# 2017-06-18 The strange array_diff / array_merge combination makes the Df_Core module to be loaded first.
+		/** @var string $p */
+		$iterate($p = dirname(dirname(__FILE__)) . '/', array_merge(['Core'], array_diff(scandir($p), ['Core'])));
+		# 2024-01-28
+		# "Support the `lib` functions autoloading for the `HCG_*` modules":
+		# https://github.com/thehcginstitute-com/m1/issues/334
+		$iterate($p = dirname(dirname(dirname(__FILE__))) . '/HCG/', scandir($p));
 	}
 
 	/**
