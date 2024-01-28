@@ -203,7 +203,20 @@ https://github.com/thehcginstitute-com/m1/issues/8 -->
                     <div class="field">
                         <label for="password" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
                         <div class="input-box">
-                            <input type="password" name="password" id="password" title="<?php echo $this->quoteEscape($this->__('Password')) ?>" class="input-text required-entry validate-password" />
+							<?php # 2024-01-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+							# 1) "Port the `Mage_Customer_Block_Form_Register`'s
+							# `persistent/customer/form/register.phtml` template 1.9.1.0 → 1.9.4.5 changes
+							# to `customfield/customfields.phtml`": https://github.com/thehcginstitute-com/m1/issues/315
+							# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/persistent/customer/form/register.phtml#L161-L169 ?>
+                            <?php $minPasswordLength = $this->getMinPasswordLength(); ?>
+                            <input
+								type="password"
+								name="password"
+								id="password"
+								title="<?= $this->quoteEscape($this->__('Password')) ?>"
+								class="input-text required-entry validate-password min-pass-length-<?= $minPasswordLength ?>"
+							/>
+                            <p class="form-instructions"><?= Mage::helper('customer')->__('The minimum password length is %s', $minPasswordLength) ?></p>
                         </div>
                     </div>
                     <div class="field">
