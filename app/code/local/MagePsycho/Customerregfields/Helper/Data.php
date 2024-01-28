@@ -309,7 +309,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 	 */
 	function getGroupSelectOptions()
 	{
-		$allowedCustomerGroup = $this->getConfig()->getAllowedCustomerGroups();
+		$allowedCustomerGroup = $this->cfgH()->getAllowedCustomerGroups();
 		$dbGroups             = explode(',', $allowedCustomerGroup);
 		if (in_array('-1', $dbGroups)) {
 			$groupOptions = $this->getCustomerGroups();

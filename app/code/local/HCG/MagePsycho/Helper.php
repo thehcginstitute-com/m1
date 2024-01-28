@@ -29,6 +29,7 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Customerregfields_Block_Customer_Widget_Abstract::getConfig()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::_getDbGroupCodes()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::getGroupSelectOptions()
+	 * @used-by \MagePsycho_Customerregfields_Helper_Data::getGroupSelectOptions()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::isValidCustomerForEdit()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::log()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::skipGroupCodeSelectorFxn()
