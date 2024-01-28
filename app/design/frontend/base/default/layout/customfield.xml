@@ -8,9 +8,9 @@
  */ -->
 <layout version="1.0.0">
 	<customer_account_create>
-        <reference name="customer_form_register">
-            <action method="setTemplate"><template>customfield/customfields.phtml</template></action>
-        </reference>
+<!-- 2024-01-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Port the `Mage_Customer_Block_Form_Register`'s `persistent/customer/form/register.phtml` template
+1.9.1.0 → 1.9.4.5 changes to `customfield/customfields.phtml`": https://github.com/thehcginstitute-com/m1/issues/315 -->
         <reference name="content">
             <block type="core/template" name="customer_term_privacy" template="customfield/termsprivacy.phtml" after="-"/>
             <block type="core/template" name="customer_term_style" template="customfield/termstyle.phtml" before="-"/>
