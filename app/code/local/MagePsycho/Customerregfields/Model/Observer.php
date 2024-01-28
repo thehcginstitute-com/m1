@@ -16,7 +16,7 @@ class MagePsycho_Customerregfields_Model_Observer
 	 */
 	function adminhtmlInitSystemConfig(Varien_Event_Observer $observer)
 	{
-		$helper             = Mage::helper('magepsycho_customerregfields');
+		$helper             = hcg_mp_hc();
 		$config             = $observer->getEvent()->getConfig();
 		$fields             = $config->getNode('sections/magepsycho_customerregfields/groups/option/fields');
 		if (!empty($fields) && $helper->hasBundleExtensions()) {
@@ -52,7 +52,7 @@ class MagePsycho_Customerregfields_Model_Observer
 	 */
 	function customerSaveBefore(Varien_Event_Observer $observer)
 	{
-		$helper     = Mage::helper('magepsycho_customerregfields');
+		$helper     = hcg_mp_hc();
 		$helper->log(__METHOD__, true);
 		if ($helper->skipGroupCodeSelectorFxn()) {
 			$helper->log('SKIPPED::NotValidRequestForGroupCode');
@@ -92,7 +92,7 @@ class MagePsycho_Customerregfields_Model_Observer
 	 */
 	function controllerActionPostdispatchCheckoutOnepageSaveBilling(Varien_Event_Observer $observer)
 	{
-		$helper     = Mage::helper('magepsycho_customerregfields');
+		$helper     = hcg_mp_hc();
 		if (!$helper->enabled() || Mage::getSingleton('customer/session')->isLoggedIn()) {
 			return $this;
 		}
@@ -121,7 +121,7 @@ class MagePsycho_Customerregfields_Model_Observer
 	 */
 	function checkoutTypeOnepageSaveOrder(Varien_Event_Observer $observer)
 	{
-		$helper     = Mage::helper('magepsycho_customerregfields');
+		$helper     = hcg_mp_hc();
 		$event      = $observer->getEvent();
 		$quote      = $event->getQuote();
 		$order      = $event->getOrder();
@@ -156,7 +156,7 @@ class MagePsycho_Customerregfields_Model_Observer
 	 */
 	function salesOrderSaveAfter(Varien_Event_Observer $observer)
 	{
-		$helper     = Mage::helper('magepsycho_customerregfields');
+		$helper     = hcg_mp_hc();
 		$event      = $observer->getEvent();
 		$order      = $event->getOrder();
 

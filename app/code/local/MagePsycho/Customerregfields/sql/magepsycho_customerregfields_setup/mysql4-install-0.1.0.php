@@ -1,7 +1,7 @@
 <?php
 $installer = $this;
 $installer->startSetup();
-$helper = Mage::helper('magepsycho_customerregfields');
+$helper = hcg_mp_hc();
 
 if ($helper->checkVersion('1.4.2', '>=')) {
     Mage::getSingleton('eav/config')

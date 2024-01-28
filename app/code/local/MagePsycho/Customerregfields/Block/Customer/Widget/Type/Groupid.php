@@ -31,7 +31,7 @@ class MagePsycho_Customerregfields_Block_Customer_Widget_Type_Groupid extends Ma
 
     function getGroupSelectOptions()
     {
-        return $this->helper('magepsycho_customerregfields')->getGroupSelectOptions();
+        return hcg_mp_hc()->getGroupSelectOptions();
     }
 
     function getGroupSelectHtml($name, $selectedValue = '', $class = '')

@@ -11,6 +11,6 @@ class MagePsycho_Customerregfields_Block_System_Config_Domain extends Mage_Admin
 {
 	protected function _getElementHtml(Varien_Data_Form_Element_Abstract $element)
 	{
-		return Mage::helper('magepsycho_customerregfields')->getDomainFromSystemConfig();
+		return hcg_mp_hc()->getDomainFromSystemConfig();
 	}
 }

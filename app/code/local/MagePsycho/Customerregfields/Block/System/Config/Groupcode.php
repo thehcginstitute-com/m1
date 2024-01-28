@@ -38,15 +38,15 @@ class MagePsycho_Customerregfields_Block_System_Config_Groupcode extends Mage_Ad
 	protected function _prepareToRender()
 	{
 		$this->addColumn('customer_group_id', array(
-			'label' => Mage::helper('magepsycho_customerregfields')->__('Customer Group'),
+			'label' => hcg_mp_hc()->__('Customer Group'),
 			'renderer' => $this->_getGroupRenderer(),
 		));
 		$this->addColumn('group_code', array(
-			'label' => Mage::helper('magepsycho_customerregfields')->__('Code'),
+			'label' => hcg_mp_hc()->__('Code'),
 			'style' => 'width:100px',
 		));
 		$this->_addAfter = false;
-		$this->_addButtonLabel = Mage::helper('magepsycho_customerregfields')->__('Add Group Code');
+		$this->_addButtonLabel = hcg_mp_hc()->__('Add Group Code');
 	}
 
 	/**

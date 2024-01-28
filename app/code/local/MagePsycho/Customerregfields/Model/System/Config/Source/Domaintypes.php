@@ -20,12 +20,12 @@ class MagePsycho_Customerregfields_Model_System_Config_Source_Domaintypes
             $this->_options = array(
                 array(
                     'value' => self::DOMAIN_TYPE_PRODUCTION,
-                    'label' => Mage::helper('magepsycho_customerregfields')->__('Production'),
+                    'label' => hcg_mp_hc()->__('Production'),
                 ),
 
                 array(
                     'value' => self::DOMAIN_TYPE_DEVELOPMENT,
-                    'label' => Mage::helper('magepsycho_customerregfields')->__('Development'),
+                    'label' => hcg_mp_hc()->__('Development'),
                 ),
             );
 

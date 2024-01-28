@@ -1,7 +1,7 @@
 <label for="<?php echo $this->getFieldId('group_id')?>"<?php if ($this->isRequired()) echo ' class="required"' ?>><?php if ($this->isRequired()) echo '<em>*</em>' ?><?php echo $this->getGroupLabel() ?></label>
 <div class="input-box">
 	<?php
-	$helper				        = Mage::helper('magepsycho_customerregfields');
+	$helper				        = hcg_mp_hc();
 	$isGroupEditable	        = $helper->cfgH()->isGroupSelectionEditable();
 	$isValidCustomerForEdit     = $helper->isValidCustomerForEdit();
 	?>

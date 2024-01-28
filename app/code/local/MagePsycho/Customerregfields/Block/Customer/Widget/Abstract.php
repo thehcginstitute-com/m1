@@ -11,7 +11,7 @@ class MagePsycho_Customerregfields_Block_Customer_Widget_Abstract extends Mage_C
 {
     function getConfig()
     {
-        return $this->helper('magepsycho_customerregfields')->cfgH();
+        return hcg_mp_hc()->cfgH();
     }
 
     function getFieldIdFormat()

@@ -16,11 +16,11 @@ class MagePsycho_Customerregfields_Model_System_Config_Source_Customergroups
         if (is_null($this->_options)) {
             $this->_options       = array();
             $this->_options[]     = array(
-                'label' => Mage::helper('magepsycho_customerregfields')->__('All Customer Groups'),
+                'label' => hcg_mp_hc()->__('All Customer Groups'),
                 'value' => -1
             );
             $this->_options[]     = array(
-                'label' => Mage::helper('magepsycho_customerregfields')->__('Customer Group'),
+                'label' => hcg_mp_hc()->__('Customer Group'),
                 'value' => array()
             );
             $nonEscapableNbspChar = html_entity_decode('&#160;', ENT_NOQUOTES, 'UTF-8');

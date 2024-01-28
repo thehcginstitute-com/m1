@@ -20,12 +20,12 @@ class MagePsycho_Customerregfields_Model_System_Config_Source_Selectortypes
 			$this->_options = array(
 				array(
 					'value' => self::SELECTOR_TYPE_DROPDOWN,
-					'label' => Mage::helper('magepsycho_customerregfields')->__('Dropdown'),
+					'label' => hcg_mp_hc()->__('Dropdown'),
 				),
 
 				array(
 					'value' => self::SELECTOR_TYPE_GROUP_CODE,
-					'label' => Mage::helper('magepsycho_customerregfields')->__('Group Code'),
+					'label' => hcg_mp_hc()->__('Group Code'),
 				),
 			);
 

@@ -12,6 +12,6 @@ class MagePsycho_Customerregfields_Block_System_Config_Version extends Mage_Admi
     const EXTENSION_URL = 'http://www.magepsycho.com/customer-group-selector-switcher.html';
     protected function _getElementHtml(Varien_Data_Form_Element_Abstract $element)
     {
-        return sprintf('<a href="%s" target="_blank" title="Customer Group Selector">%s</a>', self::EXTENSION_URL, Mage::helper('magepsycho_customerregfields')->getExtensionVersion());
+        return sprintf('<a href="%s" target="_blank" title="Customer Group Selector">%s</a>', self::EXTENSION_URL, hcg_mp_hc()->getExtensionVersion());
     }
 }

@@ -19,7 +19,7 @@ class MagePsycho_Customerregfields_Model_Customer_Attribute_Data_Groupcode exten
 	 */
 	function validateValue($value)
 	{
-		$helper     = Mage::helper('magepsycho_customerregfields');
+		$helper     = hcg_mp_hc();
 		if ( ! $helper->skipGroupCodeSelectorFxn() && ! empty($value) && ! $helper->checkIfGroupCodeIsValid($value)) {
 			return array(
 				$helper->cfgH()->getGroupCodeErrorMessage()

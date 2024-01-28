@@ -1,7 +1,7 @@
 <?php
 $installer = $this;
 $installer->startSetup();
-$helper = Mage::helper('magepsycho_customerregfields');
+$helper = hcg_mp_hc();
 
 $setup = Mage::getModel('customer/entity_setup', 'core_setup');
 $setup->addAttribute('customer', 'mp_group_code', array(

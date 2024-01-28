@@ -1,5 +1,5 @@
 <?php
-$helper				        = Mage::helper('magepsycho_customerregfields');
+$helper				        = hcg_mp_hc();
 $isGroupEditable	        = $helper->cfgH()->isGroupSelectionEditable();
 $isValidCustomerForEdit     = $helper->isValidCustomerForEdit();
 if ($this->getIsEditPage() && ! $isValidCustomerForEdit) return '';
