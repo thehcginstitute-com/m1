@@ -9,13 +9,10 @@
  */
  -->
 <layout version="0.1.0">
-	<customer_account_create>
-		<reference name="customer_form_register">
-			<action method="setTemplate" ifconfig="magepsycho_customerregfields/option/active">
-				<template helper="magepsycho_customerregfields/switchCustomerFormRegisterTemplateIf" />
-			</action>
-		</reference>
-	</customer_account_create>
+<!-- 2024-01-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The template `customfield/customfields.phtml` of `Webkul_CustomField`
+conflicts with the template `magepsycho/customerregfields/customer/form/register.phtml` of `MagePsycho_Customerregfields`":
+https://github.com/thehcginstitute-com/m1/issues/333 -->
 	<customer_account_edit>
 		<reference name="customer_edit">
 			<action method="setTemplate" ifconfig="magepsycho_customerregfields/option/active">

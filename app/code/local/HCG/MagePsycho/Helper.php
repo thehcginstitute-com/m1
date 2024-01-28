@@ -102,7 +102,6 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::skipGroupCodeSelectorFxn()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::switchCheckoutOnepageBillingTemplateIf()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::switchCustomerAccountEditTemplateIf()
-	 * @used-by \MagePsycho_Customerregfields_Helper_Data::switchCustomerFormRegisterTemplateIf()
 	 * @used-by \MagePsycho_Customerregfields_Model_Observer::checkoutTypeOnepageSaveOrder()
 	 * @used-by \MagePsycho_Customerregfields_Model_Observer::controllerActionPostdispatchCheckoutOnepageSaveBilling()
 	 * @used-by \MagePsycho_Customerregfields_Model_Observer::salesOrderSaveAfter()

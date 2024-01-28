@@ -117,20 +117,6 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 	}
 
 	/**
-	 * Switch customer registration template
-	 *
-	 * @return string
-	 */
-	function switchCustomerFormRegisterTemplateIf()
-	{
-		if ($this->enabled()) {
-			return 'magepsycho/customerregfields/customer/form/register.phtml';
-		} else {
-			return 'persistent/customer/form/register.phtml';
-		}
-	}
-
-	/**
 	 * Switch customer edit template
 	 *
 	 * @return string
