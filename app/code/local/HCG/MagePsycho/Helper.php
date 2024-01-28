@@ -126,6 +126,7 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::switchCheckoutLoginTemplateIf()
 	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::customerLogin()
 	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::customerSaveBefore()
+	 * @used-by app/design/frontend/base/default/template/customfield/customfields.phtml
 	 */
     final function enabled():bool {return (bool)$this->cfg('option/active');}
 

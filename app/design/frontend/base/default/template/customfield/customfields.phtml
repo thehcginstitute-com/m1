@@ -77,29 +77,34 @@ https://github.com/thehcginstitute-com/m1/blob/2023-01-16-1/app/design/frontend/
             <action method="setTemplate"><template>customfield/customfields.phtml</template></action>
         </reference>
 https://github.com/thehcginstitute-com/m1/blob/2023-01-16-1/app/design/frontend/base/default/layout/customfield.xml#L11-L14
--->
-			<li>
-				<?=
-					$this->getLayout()
-						->createBlock('magepsycho_customerregfields/customer_widget_type')
-						->setObject($this->getFormData())
-						->setIsEditPage(false)
-						->toHtml()
-				?>
-			</li>
-			<li>
-				<label for="telephone" class="required"><em>*</em><?= $this->__('Telephone') ?></label>
-				<div class="input-box">
-					<input
-						type="text"
-						name="telephone"
-						id="telephone"
-						value="<?= $this->escapeHtml($this->getFormData()->getTelephone()) ?>"
-						title="<?= Mage::helper('core')->quoteEscape($this->__('Telephone')) ?>"
-						class="input-text <?= $this->helper('customer/address')->getAttributeValidationClass('telephone') ?>"
-					/>
-				</div>
-			</li>
+2024-01-28
+"The template `customfield/customfields.phtml` of `Webkul_CustomField`
+conflicts with the template `magepsycho/customerregfields/customer/form/register.phtml` of `MagePsycho_Customerregfields`":
+https://github.com/thehcginstitute-com/m1/issues/333 -->
+			<?php if(hcg_mp_hc()->enabled()) { ?>
+				<li>
+					<?=
+						$this->getLayout()
+							->createBlock('magepsycho_customerregfields/customer_widget_type')
+							->setObject($this->getFormData())
+							->setIsEditPage(false)
+							->toHtml()
+					?>
+				</li>
+				<li>
+					<label for="telephone" class="required"><em>*</em><?= $this->__('Telephone') ?></label>
+					<div class="input-box">
+						<input
+							type="text"
+							name="telephone"
+							id="telephone"
+							value="<?= $this->escapeHtml($this->getFormData()->getTelephone()) ?>"
+							title="<?= Mage::helper('core')->quoteEscape($this->__('Telephone')) ?>"
+							class="input-text <?= $this->helper('customer/address')->getAttributeValidationClass('telephone') ?>"
+						/>
+					</div>
+				</li>
+			<?php } ?>
 			<?php if ($this->isNewsletterEnabled()): ?>
 				<li class="control">
 					<div class="input-box">
