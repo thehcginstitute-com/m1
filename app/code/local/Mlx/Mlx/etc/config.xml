@@ -54,16 +54,8 @@ https://github.com/thehcginstitute-com/m1/issues/51#issuecomment-1858860672
 			</updates>
 		</layout>        
     </adminhtml>   
-    <frontend>
-        
-        <layout>
-            <updates>
-                <mlx module="Mlx_Mlx">
-                    <file>Mlx/Mlx/layout.xml</file>
-                </mlx>
-            </updates>
-        </layout>   
-    </frontend>
+<!-- 2024-01-29 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete `Mlx/Mlx/page/html/notices.phtml` because it is unused": https://github.com/thehcginstitute-com/m1/issues/337 -->
     <global>
         <models>
             <mlx>
