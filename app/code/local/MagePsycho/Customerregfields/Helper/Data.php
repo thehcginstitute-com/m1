@@ -123,10 +123,7 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 	 */
 	function switchCheckoutOnepageBillingTemplateIf()
 	{
-		if ($this->enabled() &&
-			 $this->cfgH()->isEnabledForCheckout() &&
-			 ! Mage::getSingleton('customer/session')->isLoggedIn()
-		) {
+		if ($this->enabled() && $this->cfgH()->isEnabledForCheckout() && !Mage::getSingleton('customer/session')->isLoggedIn()) {
 			return 'magepsycho/customerregfields/checkout/onepage/billing.phtml';
 		} else {
 			return 'checkout/onepage/billing.phtml';
