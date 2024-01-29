@@ -95,7 +95,12 @@ $isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusFo
 									href="#"
 									id="linkId"
 									onclick="popWin('<?= $this->helper('shipping')->getTrackingPopupUrlBySalesModel($order) ?>','trackorder','width=800,height=600,resizable=yes,scrollbars=yes')"
-									title="<?= $this->__('Track Order') ?>"
+									<?php # 2024-01-29 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+									# "Port the `Mage_Adminhtml_Block_Sales_Order_View_Tab_Info`'s
+									# `sales/order/view/tab/info.phtml` template 1.9.1.0 → 1.9.4.5 changes
+									# to `iwd/ordermanager/order/view/tab/info.phtml`":
+									# https://github.com/thehcginstitute-com/m1/issues/317 ?>
+									title="<?= $this->quoteEscape($this->__('Track Order')) ?>"
 								><?= $this->__('Track Order') ?></a>
                                 <br/>
                             <?php endif; ?>
