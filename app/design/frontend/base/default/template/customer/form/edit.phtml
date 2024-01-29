@@ -43,11 +43,15 @@ to `magepsycho/customerregfields/customer/form/edit.phtml`
 (`magepsycho_customerregfields/switchCustomerAccountEditTemplateIf`)":
 https://github.com/thehcginstitute-com/m1/issues/320
 2) https://github.com/thehcginstitute-com/m1/blob/2024-01-29/app/design/frontend/base/default/template/magepsycho/customerregfields/customer/form/edit.phtml#L40-L50 -->
-				<?= $this->getLayout()
-					->createBlock('magepsycho_customerregfields/customer_widget_type')
-					->setObject($this->getCustomer())
-					->setIsEditPage(true)
-					->toHtml()
+				<?php
+					if (hcg_mp_hc()->enabled()) {
+						echo $this->getLayout()
+							->createBlock('magepsycho_customerregfields/customer_widget_type')
+							->setObject($this->getCustomer())
+							->setIsEditPage(true)
+							->toHtml()
+						;
+					}
 				?>
             </li>
         <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
