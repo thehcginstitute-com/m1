@@ -117,20 +117,6 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 	}
 
 	/**
-	 * Switch customer edit template
-	 *
-	 * @return string
-	 */
-	function switchCustomerAccountEditTemplateIf()
-	{
-		if ($this->enabled() /*&& $this->cfgH()->isGroupSelectionEditable()*/) {
-			return 'magepsycho/customerregfields/customer/form/edit.phtml';
-		} else {
-			return 'customer/form/edit.phtml';
-		}
-	}
-
-	/**
 	 * Switch checkout onepage billing form template
 	 *
 	 * @return string

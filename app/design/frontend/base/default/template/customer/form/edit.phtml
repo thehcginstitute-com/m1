@@ -37,10 +37,18 @@
                 <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getCustomer())->toHtml() ?>
             </li>
             <li>
-                <label for="email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
-                <div class="input-box">
-                    <input type="text" name="email" id="email" value="<?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Email Address')) ?>" class="input-text required-entry validate-email" />
-                </div>
+<!-- 2024-01-29 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+1) "Port the `Mage_Customer_Block_Form_Edit`'s `customer/form/edit.phtml` template 1.9.1.0 → 1.9.4.5 changes
+to `magepsycho/customerregfields/customer/form/edit.phtml`
+(`magepsycho_customerregfields/switchCustomerAccountEditTemplateIf`)":
+https://github.com/thehcginstitute-com/m1/issues/320
+2) https://github.com/thehcginstitute-com/m1/blob/2024-01-29/app/design/frontend/base/default/template/magepsycho/customerregfields/customer/form/edit.phtml#L40-L50 -->
+				<?= $this->getLayout()
+					->createBlock('magepsycho_customerregfields/customer_widget_type')
+					->setObject($this->getCustomer())
+					->setIsEditPage(true)
+					->toHtml()
+				?>
             </li>
         <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
         <?php if ($_dob->isEnabled()): ?>
