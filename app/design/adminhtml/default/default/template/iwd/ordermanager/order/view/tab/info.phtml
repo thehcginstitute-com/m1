@@ -91,9 +91,12 @@ $isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusFo
                     <div class="hor-scroll">
                         <fieldset id="order_shipping">
                             <?php if ($order->getTracksCollection()->count()) : ?>
-                                <a href="#" id="linkId"
-                                   onclick="popWin('<?php echo $this->helper('shipping')->getTrackingPopupUrlBySalesModel($order) ?>','trackorder','width=800,height=600,resizable=yes,scrollbars=yes')"
-                                   title="<?php echo $this->__('Track Order') ?>"><?php echo $this->__('Track Order') ?></a>
+                                <a
+									href="#"
+									id="linkId"
+									onclick="popWin('<?= $this->helper('shipping')->getTrackingPopupUrlBySalesModel($order) ?>','trackorder','width=800,height=600,resizable=yes,scrollbars=yes')"
+									title="<?= $this->__('Track Order') ?>"
+								><?= $this->__('Track Order') ?></a>
                                 <br/>
                             <?php endif; ?>
                             <?php if ($order->getShippingDescription()): ?>
