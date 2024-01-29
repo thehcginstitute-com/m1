@@ -66,13 +66,21 @@
         </events>
     </global>
     <frontend>
-        <layout>
-            <updates>
-                <magepsycho_customerregfields>
-                    <file>magepsycho_customerregfields.xml</file>
-                </magepsycho_customerregfields>
-            </updates>
-        </layout>
+<!-- 2024-01-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The template `customfield/customfields.phtml` of `Webkul_CustomField`
+conflicts with the template `magepsycho/customerregfields/customer/form/register.phtml` of `MagePsycho_Customerregfields`":
+https://github.com/thehcginstitute-com/m1/issues/333
+2024-01-29 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+1.1) "Port the `Mage_Customer_Block_Form_Edit`'s `customer/form/edit.phtml` template 1.9.1.0 → 1.9.4.5 changes
+to `magepsycho/customerregfields/customer/form/edit.phtml`
+(`magepsycho_customerregfields/switchCustomerAccountEditTemplateIf`)":
+https://github.com/thehcginstitute-com/m1/issues/320
+1.2) https://github.com/thehcginstitute-com/m1/blob/2024-01-29/app/design/frontend/base/default/layout/magepsycho_customerregfields.xml#L16-L22
+2.1) "Port the `Mage_Checkout_Block_Onepage_Billing`'s `checkout/onepage/billing.phtml` template
+1.9.1.0 → 1.9.4.5 changes to `magepsycho/customerregfields/checkout/onepage/billing.phtml
+` (`magepsycho_customerregfields/switchCheckoutOnepageBillingTemplateIf`)":
+https://github.com/thehcginstitute-com/m1/issues/321
+2.2) https://github.com/thehcginstitute-com/m1/blob/2024-01-29-2/app/design/frontend/base/default/layout/magepsycho_customerregfields.xml#L22-L28 -->
         <translate>
             <modules>
                 <MagePsycho_Customerregfields>

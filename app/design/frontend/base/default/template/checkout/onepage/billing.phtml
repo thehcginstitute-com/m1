@@ -176,6 +176,30 @@
                             <input type="password" name="billing[confirm_password]" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Confirm Password')) ?>" id="billing:confirm_password" class="input-text required-entry validate-cpassword" />
                         </div>
                     </div>
+					<!-- 2024-01-29 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					1) "Port the `Mage_Checkout_Block_Onepage_Billing`'s `checkout/onepage/billing.phtml` template
+					1.9.1.0 → 1.9.4.5 changes to `magepsycho/customerregfields/checkout/onepage/billing.phtml`
+					(`magepsycho_customerregfields/switchCheckoutOnepageBillingTemplateIf`)":
+					https://github.com/thehcginstitute-com/m1/issues/321
+					2) 	https://github.com/thehcginstitute-com/m1/blob/2024-01-29/app/design/frontend/base/default/template/magepsycho/customerregfields/checkout/onepage/billing.phtml#L172-L184 -->
+					<?php
+						if (
+							hcg_mp_hc()->enabled()
+							&& hcg_mp_hc()->cfgH()->isEnabledForCheckout()
+							&& !Mage::getSingleton('customer/session')->isLoggedIn()
+						) {
+					?>
+						<div class="field">
+							<?= $this->getLayout()
+								->createBlock('magepsycho_customerregfields/customer_widget_type')
+								->setObject($this->getQuote())
+								->setIsEditPage(false)
+								->setFieldIdFormat('billing:%s')
+								->setFieldNameFormat('billing[%s]')
+								->toHtml();
+							?>
+						</div>
+					<?php } ?>
                 </li>
                 <?php endif; ?>
                 <?php if ($this->isCustomerLoggedIn() && $this->customerHasAddresses()):?>

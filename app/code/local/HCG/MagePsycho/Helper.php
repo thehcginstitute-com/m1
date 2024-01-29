@@ -33,7 +33,6 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::isValidCustomerForEdit()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::log()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::skipGroupCodeSelectorFxn()
-	 * @used-by \MagePsycho_Customerregfields_Helper_Data::switchCheckoutOnepageBillingTemplateIf()
 	 * @used-by \MagePsycho_Customerregfields_Model_Customer_Attribute_Data_Groupcode::validateValue()
 	 * @used-by \MagePsycho_Loginredirectpro_Block_Customer_Logout::getCustomMessage()
 	 * @used-by \MagePsycho_Loginredirectpro_Block_Customer_Logout::getDelayTime()
@@ -85,6 +84,7 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::switchCheckoutLoginTemplateIf()
 	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::controllerActionPredispatch()
 	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::customerLogin()
+	 * @used-by app/design/frontend/base/default/template/checkout/onepage/billing.phtml
 	 * @used-by app/design/frontend/base/default/template/magepsycho/customerregfields/customer/widget/type/group_code.phtml
 	 * @used-by app/design/frontend/base/default/template/magepsycho/customerregfields/customer/widget/type/group_id.phtml
 	 * @used-by app/design/frontend/default/mobileshoppe/template/magepsycho/storerestrictionpro/checkout/onepage/login.phtml
@@ -100,7 +100,6 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * 2024-01-27
 	 * @used-by \MagePsycho_Customerregfields_Block_Customer_Widget_Type::_toHtml()
 	 * @used-by \MagePsycho_Customerregfields_Helper_Data::skipGroupCodeSelectorFxn()
-	 * @used-by \MagePsycho_Customerregfields_Helper_Data::switchCheckoutOnepageBillingTemplateIf()
 	 * @used-by \MagePsycho_Customerregfields_Model_Observer::checkoutTypeOnepageSaveOrder()
 	 * @used-by \MagePsycho_Customerregfields_Model_Observer::controllerActionPostdispatchCheckoutOnepageSaveBilling()
 	 * @used-by \MagePsycho_Customerregfields_Model_Observer::salesOrderSaveAfter()
