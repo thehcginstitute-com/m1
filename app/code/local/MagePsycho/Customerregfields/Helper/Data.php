@@ -116,16 +116,12 @@ class MagePsycho_Customerregfields_Helper_Data extends HCG\MagePsycho\Helper
 		return false;
 	}
 
-	/**
-	 * Switch checkout onepage billing form template
-	 *
-	 * @return string
-	 */
-	function switchCheckoutOnepageBillingTemplateIf()
-	{
+	/** Switch checkout onepage billing form template */
+	function switchCheckoutOnepageBillingTemplateIf():string {
 		if ($this->enabled() && $this->cfgH()->isEnabledForCheckout() && !Mage::getSingleton('customer/session')->isLoggedIn()) {
 			return 'magepsycho/customerregfields/checkout/onepage/billing.phtml';
-		} else {
+		}
+		else {
 			return 'checkout/onepage/billing.phtml';
 		}
 	}
