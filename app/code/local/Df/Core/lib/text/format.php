@@ -62,6 +62,44 @@ function df_sprintf($s):string {/** @var string $r */ /** @var mixed[] $args */
 }
 
 /**
+ * 2024-02-03 "Port `df_sprintf_strict()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/350
+ * @used-by df_sprintf()
+ * @param string|mixed[] $s
+ * @throws Th
+ */
+function df_sprintf_strict($s):string {/** @var string $r */ /** @var mixed[] $args */
+	# 2020-03-02, 2022-10-31
+	# 1) Symmetric array destructuring requires PHP ≥ 7.1:
+	#		[$a, $b] = [1, 2];
+	# https://github.com/mage2pro/core/issues/96#issuecomment-593392100
+	# We should support PHP 7.0.
+	# https://3v4l.org/3O92j
+	# https://php.net/manual/migration71.new-features.php#migration71.new-features.symmetric-array-destructuring
+	# https://stackoverflow.com/a/28233499
+	list($s, $args) = is_array($s) ? [df_first($s), $s] : [$s, func_get_args()];
+	if (1 === count($args)) {
+		$r = $s;
+	}
+	else {
+		try {$r = vsprintf($s, df_tail($args));}
+		# 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
+		catch (Th $th) {
+			static $inProcess = false; /** @var bool $inProcess */
+			if (!$inProcess) {
+				$inProcess = true;
+				df_error(
+					'df_sprintf_strict failed: «{message}».'
+					. "\nPattern: {$s}."
+					. "\nParameters:\n{params}."
+					,['{message}' => df_xts($th), '{params}' => print_r(df_tail($args), true)]
+				);
+			}
+		}
+	}
+	return $r;
+}
+
+/**
  * 2016-03-09 Замещает переменные в тексте.
  * 2016-08-07 Сегодня разработал аналогичные функции для JavaScript: df.string.template() и df.t().
  * @used-by df_file_name()
