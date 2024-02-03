@@ -19,6 +19,15 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
 function df_is_th($v):bool {return $v instanceof T;}
 
 /**
+ * 2023-08-02
+ * 2024-02-03 "Port `df_is_x()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/347
+ * @see df_is_th()
+ * @used-by df_lxts()
+ * @used-by df_th2x()
+ */
+function df_is_x($v):bool {return $v instanceof X;}
+
+/**
  * Эта функция используется, как правило, при отключенном режиме разработчика.
  * @see mageCoreErrorHandler():
 		if (Mage::getIsDeveloperMode()) {
