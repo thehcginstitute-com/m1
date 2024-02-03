@@ -1,5 +1,30 @@
 <?php
 /**
+ * 2024-02-03 "Port `df_format()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/346
+ * @used-by df_error_create()
+ * @used-by \Df\Core\Exception::comment()
+ * @param mixed ...$a
+ */
+function df_format(...$a):string { /** @var string $r */
+	$a = df_args($a);
+	$r = null;
+	switch (count($a)) {
+		case 0:
+			$r = '';
+			break;
+		case 1:
+			$r = $a[0];
+			break;
+		case 2:
+			if (is_array($a[1])) {
+				$r = strtr($a[0], $a[1]);
+			}
+			break;
+	}
+	return !is_null($r) ? $r : df_sprintf($a);
+}
+
+/**
  * 2017-07-09
  * @used-by \Df\Qa\Failure\Error::preface()
  * @used-by \Df\Qa\Trace\Formatter::frame()
