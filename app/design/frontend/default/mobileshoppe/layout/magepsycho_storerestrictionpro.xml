@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout version="0.1.0">
-    <customer_account_login>
-        <reference name="customer_form_login">
-            <action method="setTemplate" ifconfig="magepsycho_storerestrictionpro/option/active">
-                <template helper="magepsycho_storerestrictionpro/switchAccountLoginTemplateIf" />
-            </action>
-        </reference>
-    </customer_account_login>
+<!-- 2024-02-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Remove the
+`MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED` feature
+ because it is unused": https://github.com/thehcginstitute-com/m1/issues/339 -->
     <checkout_onepage_index>
         <reference name="checkout.onepage.login">
-            <action method="setTemplate" ifconfig="magepsycho_storerestrictionpro/option/active">
-                <template helper="magepsycho_storerestrictionpro/switchCheckoutLoginTemplateIf" />
-            </action>
+<!-- 2024-02-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Remove the
+`MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED` feature
+ because it is unused": https://github.com/thehcginstitute-com/m1/issues/339 -->
             <block type="persistent/form_remember" name="persistent.remember.me" template="persistent/remember_me.phtml" />
         </reference>
     </checkout_onepage_index>

@@ -83,24 +83,6 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 		return $this->checkPageUrl($request->getModuleName(), $controller, $action);
 	}
 
-	function switchAccountLoginTemplateIf()
-	{
-		if ($this->enabled() && $this->cfgH()->getNewAccountRegistrationOption() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED) {
-			return 'magepsycho/storerestrictionpro/customer/form/login.phtml';
-		} else {
-			return 'persistent/customer/form/login.phtml';
-		}
-	}
-
-	function switchCheckoutLoginTemplateIf()
-	{
-		if ($this->enabled() && $this->cfgH()->getNewAccountRegistrationOption() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED) {
-			return 'magepsycho/storerestrictionpro/checkout/onepage/login.phtml';
-		} else {
-			return 'persistent/checkout/onepage/login.phtml';
-		}
-	}
-
 	function getDomainFromSystemConfig()
 	{
 		$websiteCode = Mage::app()->getRequest()->getParam('website');
@@ -129,20 +111,10 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 		}
 	}
 
-	function isAccountRegistrationDisabled()
-	{
-		$registrationType = $this->cfgH()->getNewAccountRegistrationOption();
-		if ($registrationType == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
 	function skipAccountActivationFxn()
 	{
 		//skip if account registration is disabled || account activation is not required
-		$skipCheck = !$this->enabled() || !$this->isNewAccountActivationEnabled() || $this->isAccountRegistrationDisabled();
+		$skipCheck = !$this->enabled() || !$this->isNewAccountActivationEnabled();
 		return $skipCheck;
 	}
 
@@ -515,11 +487,6 @@ class MagePsycho_Storerestrictionpro_Helper_Data extends HCG\MagePsycho\Helper
 		$confirmPage      = $this->checkPageUrl('customer', 'account', 'confirm');
 		$confirmationPage = $this->checkPageUrl('customer', 'account', 'confirmation');
 		if ($createPage || $createPostPage || $confirmPage || $confirmationPage) {
-			// Tweak: if new account registration is disabled
-			if ($this->isAccountRegistrationDisabled()) {
-				return false;
-			}
-
 			return true;
 		} else {
 			return false;

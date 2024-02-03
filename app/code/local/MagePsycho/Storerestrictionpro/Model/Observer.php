@@ -266,15 +266,6 @@ class MagePsycho_Storerestrictionpro_Model_Observer
             return;
         }
 
-        // if new account creation is disabled and if the current request is registration page, if yes redirect to login page
-        // also check for restriction type
-        if ($helper->isAccountRegistrationPage() && $helper->isAccountRegistrationDisabled()) {
-            Mage::getSingleton('core/session')->getMessages(true);
-            $landingPage = Mage::getUrl('customer/account/login');
-            $this->_redirect($landingPage);
-            return;
-        }
-
         // handle for two types of restriction
         if ($helper->cfgH()->getRestrictionType() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Restrictiontypes::RESTRICTION_TYPE_RESTRICTED_ACCESSIBLE) { //Restricted (Only Configured Pages Accessible)
 

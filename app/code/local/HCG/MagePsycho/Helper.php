@@ -63,7 +63,6 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isAccessibleCmsPageRestricted()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isAccessibleModulePageRestricted()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isAccessibleProductPageRestricted()
-	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isAccountRegistrationDisabled()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isAddToCartSectionRestricted()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isCustomerGroupAllowedForRestrictedArea()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::isCustomerGroupAllowedForRestrictedStore()
@@ -80,8 +79,6 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::sendAdminNotificationEmail()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::sendCustomerDeActivationNotificationEmail()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::sendCustomerNotificationEmail()
-	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::switchAccountLoginTemplateIf()
-	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::switchCheckoutLoginTemplateIf()
 	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::controllerActionPredispatch()
 	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::customerLogin()
 	 * @used-by app/design/frontend/base/default/template/checkout/onepage/billing.phtml
@@ -119,8 +116,6 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::skipPaymentMethodRestriction()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::skipRestrictionByDefault()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::skipShippingMethodRestriction()
-	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::switchAccountLoginTemplateIf()
-	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::switchCheckoutLoginTemplateIf()
 	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::customerLogin()
 	 * @used-by \MagePsycho_Storerestrictionpro_Model_Observer::customerSaveBefore()
 	 * @used-by app/design/frontend/base/default/template/checkout/onepage/billing.phtml
