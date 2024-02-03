@@ -46,7 +46,7 @@ class Exception extends E implements \ArrayAccess {
 				df_bt_log();
 			}
 		}
-		parent::__construct($m, $prev);
+		parent::__construct($m, 0, $prev);
 	}
 
 	/**
