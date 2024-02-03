@@ -1,4 +1,6 @@
 <?php
+use Throwable as Th; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
+
 /**
  * 2024-02-03 "Port `df_format()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/346
  * @used-by df_error_create()
@@ -36,6 +38,28 @@ function df_kv(array $a, $pad = 0) {return df_cc_n(df_map_k(df_clean($a), functi
 	(!$pad ? "$k: " : df_pad("$k:", $pad))
 	.(is_array($v) || (is_object($v) && !method_exists($v, '__toString')) ? "\n" . df_json_encode($v) : $v)
 ;}));}
+
+/**
+ * 2024-02-03 "Port `df_sprintf()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/349
+ * @used-by df_format()
+ * @param string|mixed[] $s
+ * @throws Th
+ */
+function df_sprintf($s):string {/** @var string $r */ /** @var mixed[] $args */
+	# 2020-03-02, 2022-10-31
+	# 1) Symmetric array destructuring requires PHP ≥ 7.1:
+	#		[$a, $b] = [1, 2];
+	# https://github.com/mage2pro/core/issues/96#issuecomment-593392100
+	# We should support PHP 7.0.
+	# https://3v4l.org/3O92j
+	# https://php.net/manual/migration71.new-features.php#migration71.new-features.symmetric-array-destructuring
+	# https://stackoverflow.com/a/28233499
+	list($s, $args) = is_array($s) ? [df_first($s), $s] : [$s, func_get_args()];
+	try {$r = df_sprintf_strict($args);}
+	# 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
+	catch (Th $th) {$r = $s;}
+	return $r;
+}
 
 /**
  * 2016-03-09 Замещает переменные в тексте.
