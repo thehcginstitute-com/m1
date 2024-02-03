@@ -36,6 +36,13 @@ function df_throw_last_error($isOperationSuccessfull = false) {
 }
 
 /**
+ * 2016-07-18
+ * 2024-02-03 "Port `df_xf()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/343
+ * @used-by \Df\Qa\Failure\Exception::trace()
+ */
+function df_xf(T $t):T {while ($t->getPrevious()) {$t = $t->getPrevious();} return $t;}
+
+/**
  * @used-by df_lx()
  * @used-by df_lxts()
  * @used-by df_message_error()
