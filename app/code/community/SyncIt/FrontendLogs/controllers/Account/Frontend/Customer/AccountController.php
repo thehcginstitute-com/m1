@@ -42,15 +42,6 @@ class SyncIt_FrontendLogs_Account_Frontend_Customer_AccountController extends Ma
      * Login post action
      */
     public function loginPostAction() {
-    	Mage::log(__METHOD__ . ' BEGIN');
-        //if (!$this->_validateFormKey()) {
-        //	Mage::log('_validateFormKey failed');
-        //	Mage::log('form key from request: ' . $this->getRequest()->getParam('form_key', null));
-        // 	Mage::log('form key from session: ' . Mage::getSingleton('core/session')->getFormKey());
-        //    $this->_redirect('*/*/');
-        //    return;
-        //}
-
         if ($this->_getSession()->isLoggedIn()) {
         	//Mage::log('isLoggedIn');
             $this->_redirect('*/*/');
@@ -148,7 +139,6 @@ class SyncIt_FrontendLogs_Account_Frontend_Customer_AccountController extends Ma
             }
         }
         $this->_loginPostRedirect();
-        //Mage::log(__METHOD__ . ' END');
     }
 
     /**
