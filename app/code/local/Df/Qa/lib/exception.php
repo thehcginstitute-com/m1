@@ -36,6 +36,14 @@ function df_throw_last_error($isOperationSuccessfull = false) {
 }
 
 /**
+ * 2023-08-03
+ * 2024-02-03 "Port `df_xf()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/344
+ * @used-by df_lx()
+ * @used-by \Df\Core\Exception::__construct()
+ */
+function df_th2x(T $t):X {return df_is_x($t) ? $t : new X(df_xts($t), $t->getCode(), $t);}
+
+/**
  * 2016-07-18
  * 2024-02-03 "Port `df_xf()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/343
  * @used-by \Df\Qa\Failure\Exception::trace()
