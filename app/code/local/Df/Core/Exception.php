@@ -7,7 +7,7 @@ class Exception extends E implements \ArrayAccess {
 	 * Обратите внимание, что PHP разрешает сигнатуре конструктора класса-потомка
 	 * отличаться от сигнатуры конструктора класса родителя:
 	 * http://3v4l.org/qQdJ3
-	 * @used-by df_error_create()
+	 * @used-by self::wrap()
 	 * @param mixed ...$args
 	 */
 	function __construct(...$args) {
