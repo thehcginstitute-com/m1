@@ -8,10 +8,7 @@ final class Exception extends \Df\Qa\Failure {
 	 * @see \Df\Qa\Failure::main()
 	 * @used-by \Df\Qa\Failure::report()
 	 */
-	protected function main():string {
-		$r = $this->_e->messageD(); /** @var string $r */
-		return !$this->_e->isMessageHtml() ? $r : strip_tags($r);
-	}
+	protected function main():string {return $this->_e->messageD();}
 
 	/**
 	 * 2023-01-28
