@@ -1,5 +1,6 @@
 <?php
-use \MagePsycho_Customerregfields_Helper_Data as hC;
+use MagePsycho_Customerregfields_Helper_Data as hC;
+use MagePsycho_Storerestrictionpro_Helper_Data as hS;
 /**
  * 2024-01-28 "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
  * @used-by \MagePsycho_Customerregfields_Block_Customer_Widget_Abstract::getConfig()
@@ -26,3 +27,9 @@ use \MagePsycho_Customerregfields_Helper_Data as hC;
  * @used-by app/design/frontend/base/default/template/magepsycho/customerregfields/customer/widget/type/group_id.phtml
  */
 function hcg_mp_hc():hC {return \Mage::helper('magepsycho_customerregfields');}
+
+/**
+ * 2024-02-03 "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331
+ * @unused
+ */
+function hcg_mp_hs():hS {return \Mage::helper('magepsycho_storerestrictionpro');}
