@@ -17,16 +17,26 @@
 $installer = $this;
 $installer->startSetup();
 
-//Increase password field length
-$installer->getConnection()->changeColumn(
-    $installer->getTable('admin/user'),
-    'password',
-    'password',
-    [
-        'type' => Varien_Db_Ddl_Table::TYPE_TEXT,
-        'length' => 255,
-        'comment' => 'User Password',
-    ]
+$obsoleteAcl = [
+    'admin/page_cache',
+    'admin/system/config/moneybookers',
+    'admin/system/extensions',
+    'admin/system/extensions/local',
+    'admin/system/extensions/custom',
+    'admin/system/tools/backup',
+    'admin/system/tools/backup/rollback',
+    'admin/system/tools/compiler',
+    'admin/xmlconnect',
+    'admin/xmlconnect/mobile',
+    'admin/xmlconnect/admin_connect',
+    'admin/xmlconnect/queue',
+    'admin/xmlconnect/history',
+    'admin/xmlconnect/templates'
+];
+
+$installer->getConnection()->delete(
+    $installer->getTable('admin/rule'),
+    ['resource_id IN (?)' => $obsoleteAcl]
 );
 
 $installer->endSetup();
