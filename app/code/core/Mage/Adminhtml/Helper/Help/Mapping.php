@@ -80,7 +80,8 @@ abstract class Mage_Adminhtml_Helper_Help_Mapping extends Mage_Core_Helper_Abstr
             /* CMS */
             'cms_page' => 'cms/pages.html',
             'cms_block' => 'cms/blocks.html',
-            'poll' => 'marketing/polls.html',
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367
             /* Reports → Sales */
             'report_sales/sales' => 'store-operations/reports-generating.html',
             'report_sales/tax' => 'store-operations/reports-available.html',

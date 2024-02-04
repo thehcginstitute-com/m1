@@ -199,15 +199,9 @@
             </depends>
         </Mage_Log>
 <!-- 2023-12-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Backup` module": https://github.com/thehcginstitute-com/m1/issues/39 -->
-        <Mage_Poll>
-            <active>true</active>
-            <codePool>core</codePool>
-            <depends>
-                <Mage_Core/>
-                <Mage_Cms/>
-            </depends>
-        </Mage_Poll>
+"Delete the unused `Mage_Backup` module": https://github.com/thehcginstitute-com/m1/issues/39
+2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367 -->
         <Mage_Rating>
             <active>true</active>
             <codePool>core</codePool>

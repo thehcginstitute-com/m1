@@ -2180,41 +2180,8 @@ input.input-text, select, textarea {
 .block-compared {
 }
 
-.block-poll .block-subtitle {
-	font-size: 12px;
-}
-
-.block-poll label {
-	color: #777;
-	font-weight: bold;
-}
-
-.block-poll input.radio {
-	float: left;
-	margin: 1px -18px 0 0;
-}
-
-.block-poll .label {
-	display: block;
-	margin-left: 18px;
-}
-
-.block-poll li {
-	padding: 3px 9px;
-}
-
-.block-poll .actions {
-	margin: 5px 0 0;
-}
-
-.block-poll .answer {
-	font-weight: bold;
-}
-
-.block-poll .votes {
-	float: right;
-	margin-left: 10px;
-}
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367 */
 
 .block-tags .block-content .tags-list {
 	border: 0;
@@ -6203,7 +6170,6 @@ ul.crosssell-products-list {
 .block .block-content:after,
 .block .actions:after,
 .block li.item:after,
-.block-poll li:after,
 .block-layered-nav .currently li:after,
 .page-title:after,
 .products-grid:after,
@@ -7332,8 +7298,9 @@ https://stackoverflow.com/a/36448860 */
 	height: 200px;
 }
 
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367 */
 .lt-ie7 .block li.item,
-.lt-ie7 .block-poll li,
 .lt-ie7 .opc li.section {
 	vertical-align: top;
 }
@@ -7439,6 +7406,8 @@ https://stackoverflow.com/a/36448860 */
 	overflow: hidden;
 }
 
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367 */
 .lt-ie8 .header-container,
 .lt-ie8 .header-container .top-container,
 .lt-ie8 .header,
@@ -7460,8 +7429,6 @@ https://stackoverflow.com/a/36448860 */
 .lt-ie8 .block .block-content,
 .lt-ie8 .block .actions,
 .lt-ie8 .block li.item,
-.lt-ie8 .block-poll li,
-.lt-ie8 .block-poll .label,
 .lt-ie8 .block-layered-nav .currently li,
 .lt-ie8 .block-account .block-content li a,
 .lt-ie8 .mini-products-list .product-details,

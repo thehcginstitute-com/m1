@@ -245,6 +245,8 @@ messages,
 global_notices,
 global_cookie_notice,
 right.reports.product.viewed]]></dynamic_blocks>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367 -->
                 <refresh_actions><![CDATA[checkout_cart_add,
 checkout_cart_delete,
 checkout_cart_updatePost,
@@ -260,16 +262,16 @@ wishlist_index_update,
 wishlist_index_allcart,
 wishlist_index_configure,
 checkout_onepage_success,
-customer_account_login,
-poll_vote_add]]></refresh_actions>
+customer_account_login]]></refresh_actions>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367 -->
                 <lazy_blocks><![CDATA[top.links,
 cart_sidebar,
 catalog.compare.sidebar,
 right.reports.product.compared,
 wishlist_sidebar,
 welcome,
-minicart_head,
-right.poll]]></lazy_blocks>
+minicart_head]]></lazy_blocks>
                 <uri_params><![CDATA[id,
 category,
 cat,

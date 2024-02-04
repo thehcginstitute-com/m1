@@ -56,7 +56,8 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
 # 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Delete the unused `Mage_GoogleCheckout` module": https://github.com/thehcginstitute-com/m1/issues/365
         'Mage_Log' => 30,
-        'Mage_Poll' => 31,
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367
         'Mage_Review' => 32,
         'Mage_Rating' => 33,
         'Mage_Tag' => 34,

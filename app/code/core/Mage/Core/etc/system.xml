@@ -1516,13 +1516,8 @@
                         </no_route>
                     </fields>
                 </default>
-                <polls translate="label">
-                    <label>Polls</label>
-                    <sort_order>40</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                </polls>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367 -->
                 <cookie translate="label">
                     <label>Session Cookie Management</label>
                     <sort_order>50</sort_order>
