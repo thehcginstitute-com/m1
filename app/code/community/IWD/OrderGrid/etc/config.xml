@@ -108,7 +108,9 @@
                 <save_grid_params>1</save_grid_params>
                 <columns>real_order_id,ordered_products,inventory,store_id,created_at,billing_name,shipping_name,base_grand_total,grand_total,status,action</columns>
                 <fix_table_header>1</fix_table_header>
-                <status_color>canceled:f3c7c7;complete:7edcab;holded:ede185;closed:d5e8c3;processing:b5c4f5;pending:aaeb6a;pending_payment:aaeb6a;pending_paypal:aaeb6a;fraud:ff7f7f;payment_review:79d1c7</status_color>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 -->
+                <status_color>canceled:f3c7c7;complete:7edcab;holded:ede185;closed:d5e8c3;processing:b5c4f5;pending:aaeb6a;pending_payment:aaeb6a;fraud:ff7f7f;payment_review:79d1c7</status_color>
                 <order_totals_enable>1</order_totals_enable>
                 <order_totals_sets>tax,invoiced,shipped,refunded,discount</order_totals_sets>
                 <notify_customer_massaction>0</notify_customer_massaction>

@@ -60,7 +60,8 @@ ul.tabs li a,
 .uploader .file-row,
 .grid tr.filter .range .range-line,
 .centinel .authentication,
-.paypal-payment-notice,
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 */
 .product-options .options-list li,
 .store-scope { zoom:1; }
 

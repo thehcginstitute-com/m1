@@ -197,26 +197,6 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param $order
-     * @return bool
-     */
-    public function isPaymentAllowedForReauthorize($order)
-    {
-        $payment = $order->getPayment();
-        $orderMethod = $payment->getMethod();
-
-        return in_array(
-            $orderMethod,
-            array(
-                'authnetcim',
-                'iwd_authorizecim',
-                'iwd_authorizecim_echeck',
-                Mage_Paypal_Model_Config::METHOD_PAYFLOWPRO
-            )
-        );
-    }
-
-    /**
      * @param $orderId
      * @param $oldOrder
      * @return int
@@ -257,11 +237,8 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
 				# 2) "Delete the unused `Mage_Authorizenet` module":
 				#  https://github.com/thehcginstitute-com/m1/issues/352
 
-                /**
-                 * Magento PayPal Payflow Pro
-                 */
-                case Mage_Paypal_Model_Config::METHOD_PAYFLOWPRO:
-                    return $this->reauthorizePayPalPayflowPro($order);
+				# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
 
 				# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				# 1) "Delete the unused `Mage_Paygate` module":
@@ -300,29 +277,8 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
 	# 1) "Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354
 	# 2) "Delete the unused `Mage_Authorizenet` module": https://github.com/thehcginstitute-com/m1/issues/352
 
-    /* * * * PayPal Payflow Pro Gateway * * * */
-    /**
-     * @param $order
-     * @return int
-     */
-    protected function reauthorizePayPalPayflowPro($order)
-    {
-        $payment = $order->getPayment();
-        $amount = $order->getGrandTotal();
-
-        /** @var $method IWD_OrderManager_Model_Payment_Paypal_Payflowpro */
-        $method = $payment->getMethodInstance()->setStore($order->getStoreId());
-
-        if (!$method->reauthorize($payment, $amount)) {
-            Mage::getSingleton('adminhtml/session')->addError(
-                Mage::helper('iwd_ordermanager')->__("Error in re-authorizing payment.")
-            );
-            return -1;
-        }
-
-        $this->savePayment($payment);
-        return 1;
-    }
+	# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
 
 
     /**

@@ -22,12 +22,10 @@ class IWD_OrderManager_Model_Observer_Sales
         $backupId = $order->getIwdBackupId();
         $autoReAuthorization = Mage::helper('iwd_ordermanager')->isAutoReAuthorization();
 
-        if (empty($backupId) && !$autoReAuthorization) {
-            $allowedForReauthorize = Mage::getModel('iwd_ordermanager/payment_payment')->isPaymentAllowedForReauthorize($order);
-            if ($allowedForReauthorize) {
-                $order->setData('iwd_backup_id', $backup->getId())->save();
-            }
-        }
+		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# 1) "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
+		# 2) "Delete the `IWD_OrderManager_Model_Payment_Payment` class":
+		# https://github.com/thehcginstitute-com/m1/issues/361
     }
 
     /**

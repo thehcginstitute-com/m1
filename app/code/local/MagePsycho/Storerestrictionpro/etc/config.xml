@@ -269,8 +269,9 @@
                 <restricted_redirection_type_custom>/contacts</restricted_redirection_type_custom>
                 <restricted_store_error_message>This is a restricted store.</restricted_store_error_message>
                 <restricted_customer_group_error_message>The customer group that you belong to is not allowed to access this store.</restricted_customer_group_error_message>
-                <restricted_allowed_module_pages>catalog/seo_sitemap/*
-paypal/*/*</restricted_allowed_module_pages>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 -->
+                <restricted_allowed_module_pages>catalog/seo_sitemap/*</restricted_allowed_module_pages>
 
                 <accessible_allowed_customer_groups>-1</accessible_allowed_customer_groups>
                 <accessible_redirection_type>1</accessible_redirection_type>

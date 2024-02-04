@@ -87,16 +87,8 @@
         </reference>
     </checkout_multishipping_success>
 
-    <paypal_express_review>
-        <reference name="paypal.express.review.details">
-            <action method="addItemRender"><type>downloadable</type><block>downloadable/checkout_cart_item_renderer</block><template>downloadable/checkout/onepage/review/item.phtml</template></action>
-        </reference>
-    </paypal_express_review>
-    <paypal_express_review_details>
-        <reference name="root">
-            <action method="addItemRender"><type>downloadable</type><block>downloadable/checkout_cart_item_renderer</block><template>downloadable/checkout/onepage/review/item.phtml</template></action>
-        </reference>
-    </paypal_express_review_details>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 -->
 
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_PaypalUk` module": https://github.com/thehcginstitute-com/m1/issues/357 -->

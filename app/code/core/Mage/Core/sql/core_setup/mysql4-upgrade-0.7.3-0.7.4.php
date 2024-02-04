@@ -29,11 +29,12 @@ $installer = $this;
 
 $installer->startSetup();
 
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
 $rows = $installer->_conn->fetchAll(
     "select * from {$this->getTable('core_config_data')} where
     path in (
-    'paypal/wpp/api_password', 'paypal/wpp/api_signature', 'paypal/wpp/api_username',
-    'paypal/wps/business_account', 'paypal/wpuk/user', 'paypal/wpuk/pwd', 'carriers/dhl/id',
+    'carriers/dhl/id',
     'carriers/dhl/password', 'carriers/dhl/shipping_key', 'carriers/dhl/shipping_intlkey',
     'carriers/fedex/account', 'carriers/ups/account_license_number', 'carriers/ups/username',
     'carriers/usps/userid', 'payment/authorizenet/login', 'payment/authorizenet/trans_key',

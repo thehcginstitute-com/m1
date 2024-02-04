@@ -127,9 +127,8 @@ Catalog.Map = {
         if (helpBox.parentNode != bodyNode) {
             helpBox.remove();
             bodyNode.insert(helpBox);
-            // Fix for FF4-FF5 bug with missing alt text after DOM manipulations
-            var paypalImg = helpBox.select('.paypal-logo > a > img')[0];
-            if (paypalImg) paypalImg.src = paypalImg.src;
+			// 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			// "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
         }
 
         if (this != Catalog.Map && Catalog.Map.active != this.link) {

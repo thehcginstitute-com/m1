@@ -73,11 +73,8 @@
                     </transactions>
                 </entities>
             </iwd_ordermanager_mysql4>
-            <paypal>
-                <rewrite>
-                    <payflowpro>IWD_OrderManager_Model_Payment_Paypal_Payflowpro</payflowpro>
-                </rewrite>
-            </paypal>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 -->
             <sales>
                 <rewrite>
                     <order_creditmemo>IWD_OrderManager_Model_Creditmemo</order_creditmemo>

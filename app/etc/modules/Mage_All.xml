@@ -187,16 +187,8 @@
         </Mage_Usa>
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354 -->
-        <Mage_Paypal>
-            <active>true</active>
-            <codePool>core</codePool>
-            <depends>
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354 -->
-                <Mage_Checkout/>
-                <Mage_Sales/>
-            </depends>
-        </Mage_Paypal>
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 -->
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_PaypalUk` module": https://github.com/thehcginstitute-com/m1/issues/357 -->
         <Mage_GoogleCheckout>

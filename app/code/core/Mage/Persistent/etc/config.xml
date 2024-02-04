@@ -223,22 +223,8 @@
                     </persistent>
                 </observers>
             </customer_register_success>
-            <controller_action_predispatch_paypal_express_start>
-                <observers>
-                    <persistent>
-                        <class>persistent/observer</class>
-                        <method>preventExpressCheckout</method>
-                    </persistent>
-                </observers>
-            </controller_action_predispatch_paypal_express_start>
-            <controller_action_predispatch_paypaluk_express_start>
-                <observers>
-                    <persistent>
-                        <class>persistent/observer</class>
-                        <method>preventExpressCheckout</method>
-                    </persistent>
-                </observers>
-            </controller_action_predispatch_paypaluk_express_start>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 -->
             <controller_action_predispatch_checkout_multishipping_index>
                 <observers>
                     <persistent>

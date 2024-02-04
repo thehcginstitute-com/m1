@@ -182,9 +182,8 @@ abstract class Mage_Adminhtml_Helper_Help_Mapping extends Mage_Core_Helper_Abstr
         'Mage_Widget_Adminhtml' => [
             'widget_instance' => 'cms/widgets.html',
         ],
-        'Mage_Paypal_Adminhtml' => [
-            'paypal_reports' => 'store-operations/reports-available.html',
-        ],
+		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
         'Mage_Api2_Adminhtml' => [
             'api2_attribute' => 'system-operations/web-services.html',
         ],

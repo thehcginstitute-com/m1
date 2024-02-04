@@ -802,7 +802,10 @@ input {
 }
 
 #checkout-step-login .form-list li, #checkout-step-billing .form-list li, #checkout-step-shipping .form-list li, #checkout-opc-payment .form-list li,
-.customer-account-login .form-list li, .shipping .form-list li, .checkout-multishipping-login .form-list li, .paypal-review-order .form-list li {
+.customer-account-login .form-list li, .shipping .form-list li, .checkout-multishipping-login .form-list li
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 */
+{
 	width: 100%;
 }
 
@@ -2060,11 +2063,8 @@ input.input-text, select, textarea {
 	display: none !important;
 }
 
-.block-cart .actions .paypal-logo {
-	float: left;
-	width: 100%;
-	text-align: right;
-}
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 */
 
 .block-wishlist .actions {
 	text-align: right;
@@ -2278,15 +2278,8 @@ input.input-text, select, textarea {
 	margin: 3px 0 0;
 }
 
-.sidebar .paypal-logo {
-	display: block;
-	margin: 10px 0;
-	text-align: center;
-}
-
-.sidebar .paypal-logo a {
-	float: none;
-}
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 */
 
 .category-title {
 }
@@ -3106,17 +3099,8 @@ f
 	margin: 0;
 }
 
-.add-to-cart .paypal-logo {
-	clear: left;
-	margin: 0;
-	text-align: right;
-}
-
-.add-to-cart .paypal-logo .paypal-or {
-	clear: both;
-	display: block;
-	margin: 5px 60px 5px 0;
-}
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 */
 
 .add-to-box {
 	margin: 10px 0;
@@ -3130,9 +3114,8 @@ f
 	text-align: right;
 }
 
-.add-to-box .add-to-cart .paypal-logo {
-	float: right;
-}
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 */
 
 .add-to-box .or {
 	display: none !important;
@@ -3347,10 +3330,8 @@ f
 	display: none !important;
 }
 
-.product-view .product-shop .product-options-bottom .paypal-logo {
-	float: left;
-}
-
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 */
 .product-options {
 	margin: 18px 0 0;
 	padding: 0 15px 10px;
@@ -3968,18 +3949,8 @@ ul.product-tabs {
 	display: none !important;
 }
 
-.cart .checkout-types .paypal-or {
-	margin: 0 8px;
-	line-height: 2.3;
-}
-
-.cart .totals .checkout-types .paypal-or {
-	clear: both;
-	display: block;
-	padding: 8px 55px 0 0;
-	line-height: 1.0;
-	font-size: 11px;
-}
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 */
 
 .cart-table-wrap {
 	overflow: auto;
@@ -5808,9 +5779,8 @@ ul.crosssell-products-list {
 	padding-right: 30px;
 }
 
-.map-popup-checkout .paypal-logo {
-	margin: 0 0 5px;
-}
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 */
 
 .map-popup-price .price-box,
 .map-popup-price .price-box .special-price {
