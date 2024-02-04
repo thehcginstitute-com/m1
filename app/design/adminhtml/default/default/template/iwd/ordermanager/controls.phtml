@@ -7,7 +7,8 @@
     $buttonOnclickCancel = $this->getData('button_onclick_cancel');
     $block = $this->getData('block');
     $recalculate = $this->getData('recalculate');
-    $reauthorize = false;//$this->getData('reauthorize');
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Reauthorize» feature from IWD Order Manager": https://github.com/thehcginstitute-com/m1/issues/362
 ?>
 
 <div class="iwd_om_control">
@@ -56,15 +57,9 @@
                 </span>
             </label>
         <?php endif; ?>
-
-        <?php if($reauthorize): ?>
-            <label class="iwd_om_reauthorize">
-                <input type="checkbox" name="reauthorize_amount" <?php echo $helper->isRecalculateOrderAmountChecked(); ?>/>
-                <span class="iwd_om_tooltip" title="<?php echo $helper->__('Select this option to reauthorize the order\'s total amount.'); ?>">
-                    <span title=""><?php echo $helper->__('Re-authorize'); ?></span>
-                </span>
-            </label>
-        <?php endif; ?>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Reauthorize» feature from IWD Order Manager":
+https://github.com/thehcginstitute-com/m1/issues/362 -->
 
         <div class="clear"></div>
     </div>
