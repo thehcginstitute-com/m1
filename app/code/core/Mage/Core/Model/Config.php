@@ -66,7 +66,8 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
         'Mage_Tax' => 38,
         'Mage_Wishlist' => 39,
         'Mage_Media' => 40,
-        'Mage_PaypalUk' => 41,
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_PaypalUk` module": https://github.com/thehcginstitute-com/m1/issues/357
         'Mage_Contacts' => 42,
         'Mage_GiftMessage' => 43,
         'Mage_Sendfriend' => 44,
