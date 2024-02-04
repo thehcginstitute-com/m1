@@ -49,8 +49,8 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
         'Mage_SalesRule' => 23,
         'Mage_Usa' => 24,
 # 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354
-        'Mage_Backup' => 26, # removed
+# 1) "Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354
+# 1) "Delete the unused `Mage_Backup` module": https://github.com/thehcginstitute-com/m1/issues/39
         'Mage_Checkout' => 27,
         'Mage_Paypal' => 28,
 # 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
