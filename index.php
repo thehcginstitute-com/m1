@@ -46,10 +46,8 @@ ini_set('display_errors', 1);
  */
 define('MAGENTO_ROOT', getcwd());
 
-$compilerConfig = MAGENTO_ROOT . '/includes/config.php';
-if (file_exists($compilerConfig)) {
-    include $compilerConfig;
-}
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Compiler` module": https://github.com/thehcginstitute-com/m1/issues/363
 
 $mageFilename = MAGENTO_ROOT . '/app/Mage.php';
 $maintenanceFile = 'maintenance.flag';

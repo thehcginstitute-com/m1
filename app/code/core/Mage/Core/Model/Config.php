@@ -394,7 +394,9 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
             $disableLocalModules = false;
         }
 
-        if ($disableLocalModules && !defined('COMPILER_INCLUDE_PATH')) {
+		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Compiler` module": https://github.com/thehcginstitute-com/m1/issues/363
+        if ($disableLocalModules) {
             set_include_path(
                 // excluded '/app/code/local'
                 BP . DS . 'app' . DS . 'code' . DS . 'community' . PS .

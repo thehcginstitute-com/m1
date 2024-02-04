@@ -34,16 +34,11 @@ class Amasty_Base_Block_Adminhtml_Debug_General extends Amasty_Base_Block_Adminh
     }
     
     function isCompilationEnabled() {
-        $ret = FALSE;
-        
-        $configFile = BP . DS . 'includes' . DS . 'config.php';
-        if (file_exists($configFile)){
-            $config = file_get_contents($configFile);
-            $ret = strpos($config, "#define('COMPILER_INCLUDE_PATH', dirname(__FILE__).DIRECTORY_SEPARATOR.'src')") === FALSE;
-        }
-        
-        return $ret;
-    }
+		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Compiler` module": https://github.com/thehcginstitute-com/m1/issues/363
+		return false;
+	}
+
     
     function getCrontabConfig() {
 

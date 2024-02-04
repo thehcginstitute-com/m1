@@ -74,12 +74,10 @@ class IWD_All_Helper_Data extends Mage_Core_Helper_Abstract
 
         $this->AddRowTable('Magento version', Mage::getVersion());
 
-        $compilerConfig = '../includes/config.php';
-        if (file_exists($compilerConfig)) {
-            include $compilerConfig;
-        }
+		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Compiler` module": https://github.com/thehcginstitute-com/m1/issues/363
 
-        $this->AddRowTable('Compilation', defined('COMPILER_INCLUDE_PATH') ? 'Enabled' : 'Disabled');
+        $this->AddRowTable('Compilation', 'Disabled');
 
         $this->AddRowTable('Domain', $_SERVER ["HTTP_HOST"]);
     }

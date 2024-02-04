@@ -45,11 +45,9 @@ class Varien_Autoload
     public function __construct()
     {
         register_shutdown_function(array($this, 'destroy'));
-        $this->_isIncludePathDefined = defined('COMPILER_INCLUDE_PATH');
-        if (defined('COMPILER_COLLECT_PATH')) {
-            $this->_collectClasses  = true;
-            $this->_collectPath     = COMPILER_COLLECT_PATH;
-        }
+		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Compiler` module": https://github.com/thehcginstitute-com/m1/issues/363
+        $this->_isIncludePathDefined = false;
         self::registerScope(self::$_scope);
     }
 
@@ -83,19 +81,17 @@ class Varien_Autoload
     {
         if ($this->_collectClasses) {
             $this->_arrLoadedClasses[self::$_scope][] = $class;
-        }
-        if ($this->_isIncludePathDefined) {
-            $classFile =  COMPILER_INCLUDE_PATH . DIRECTORY_SEPARATOR . $class;
-        } else {
-            $classFile = str_replace(' ', DIRECTORY_SEPARATOR, ucwords(str_replace('_', ' ',
-				# 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				# 1) «Support PHP namespaces»: https://github.com/thehcginstitute-com/m1/issues/139
-				# 2) I ported it from
-				# https://github.com/trackspecmotorsports/site/blob/2023-07-10/lib/Varien/Autoload.php#L89-L94
-				# 3) I also used the same solution in in https://github.com/itsapiece
-				str_replace('\\', '/', $class)
-			)));
-        }
+		}
+		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Compiler` module": https://github.com/thehcginstitute-com/m1/issues/363
+		$classFile = str_replace(' ', DIRECTORY_SEPARATOR, ucwords(str_replace('_', ' ',
+			# 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# 1) «Support PHP namespaces»: https://github.com/thehcginstitute-com/m1/issues/139
+			# 2) I ported it from
+			# https://github.com/trackspecmotorsports/site/blob/2023-07-10/lib/Varien/Autoload.php#L89-L94
+			# 3) I also used the same solution in in https://github.com/itsapiece
+			str_replace('\\', '/', $class)
+		)));
         $classFile.= '.php';
         //echo $classFile;die();
         return @include $classFile;
@@ -111,9 +107,8 @@ class Varien_Autoload
     static public function registerScope($code)
     {
         self::$_scope = $code;
-        if (defined('COMPILER_INCLUDE_PATH')) {
-            @include_once COMPILER_INCLUDE_PATH . DIRECTORY_SEPARATOR . self::SCOPE_FILE_PREFIX.$code.'.php';
-        }
+	# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Compiler` module": https://github.com/thehcginstitute-com/m1/issues/363
     }
 
     /**
