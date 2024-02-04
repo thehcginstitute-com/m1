@@ -89,7 +89,8 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
         'Mage_Downloadable' => 56,
         'Mage_ImportExport' => 57,
         'Mage_Api2' => 58,
-        'Mage_PageCache' => 59,
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_PageCache` module": https://github.com/thehcginstitute-com/m1/issues/366
         'Mage_Persistent' => 60,
         'Mage_Weee' => 61,
         'Mage_CurrencySymbol' => 62
