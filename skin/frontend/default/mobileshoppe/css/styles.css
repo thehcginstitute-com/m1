@@ -4841,7 +4841,7 @@ ul.crosssell-products-list {
 }
 
 #opc-review .buttons-set {
-	border: 1px solid # #e0dcc9;
+	border: 1px solid;
 	padding: 9px;
 }
 
