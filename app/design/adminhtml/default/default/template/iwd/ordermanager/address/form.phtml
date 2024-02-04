@@ -19,7 +19,8 @@
         $onclick_update = "IWD.OrderManager.Address.editAddressSubmit({$this->getAddressId()})";
         $onclick_cancel = "IWD.OrderManager.Address.editAddressCancel({$this->getAddressId()})";
         $recalculate = $this->isShippingAddress() ? true : false;
-        $reauthorize = $this->isShippingAddress() ? true : false;
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Reauthorize» feature from IWD Order Manager": https://github.com/thehcginstitute-com/m1/issues/362
         $block = $this->isShippingAddress() ? "address_ship" : "address_bill";
 
         echo Mage::app()->getLayout()->createBlock('adminhtml/template')
@@ -27,7 +28,8 @@
             ->setData("button_onclick_update", $onclick_update)
             ->setData("button_onclick_cancel", $onclick_cancel)
             ->setData('recalculate', $recalculate)
-            ->setData('reauthorize', $reauthorize)
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Reauthorize» feature from IWD Order Manager": https://github.com/thehcginstitute-com/m1/issues/362
             ->setData('block', $block)
             ->setData('order_id', $this->getOrder()->getEntityId())
             ->toHtml();
