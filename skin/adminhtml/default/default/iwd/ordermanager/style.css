@@ -79,7 +79,10 @@
 .iwd_om_control .notify_customize {color:#F8801A; cursor:pointer;}
 .iwd_om_control .notify_customize:hover {text-decoration:underline;}
 .iwd_om_control .iwd_om_confirm,
-.iwd_om_control .iwd_om_notify, .iwd_om_control .iwd_om_recalculate, .iwd_om_control .iwd_om_reauthorize {float:right; margin:0 15px 0 0;}
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Reauthorize» feature from IWD Order Manager":
+https://github.com/thehcginstitute-com/m1/issues/362 */
+.iwd_om_control .iwd_om_notify, .iwd_om_control .iwd_om_recalculate {float:right; margin:0 15px 0 0;}
 .iwd_om_control .control_checkboxes div.clear {display:none;}
 
 #ordered_items_edit_table .iwd_om_control {margin:0; height:20px;}
