@@ -436,7 +436,7 @@ ul, ol, dl, dt, dd {
 	position: relative;
 	margin: 0 auto;
 	border-top: 4px solid #fff;
-	border-top: 0
+	border-top: 0;
 }
 
 .page > .row {
@@ -825,7 +825,7 @@ label.required em {
 	display: inline-block;
 	background: #f7f5ee;
 	border: 1px solid #ccc;
-	width: 100%
+	width: 100%;
 }
 
 .sidebar #newsletter-validate-detail .button {
@@ -1152,7 +1152,7 @@ div.pages > strong {
 }
 
 .data-table tr.odd {
-	background: #fff
+	background: #fff;
 }
 
 .data-table tr.even {
@@ -1689,7 +1689,7 @@ input.input-text, select, textarea {
 }
 
 .nav-container select {
-	width: 100%
+	width: 100%;
 }
 
 #nav {
@@ -1723,7 +1723,7 @@ input.input-text, select, textarea {
 }
 
 #nav li .fa.fa-angle-down {
-	margin-left: 6px
+	margin-left: 6px;
 }
 
 #nav li.active a {
@@ -1750,14 +1750,14 @@ input.input-text, select, textarea {
 	margin: 0;
 	padding: 10px;
 	text-transform: none;
-	border-bottom: 1px solid #ccc
+	border-bottom: 1px solid #ccc;
 }
 
 #nav ul li.parent {
 }
 
 #nav ul li.last {
-	border-bottom: 0
+	border-bottom: 0;
 }
 
 #nav ul li.active {
@@ -2052,7 +2052,7 @@ input.input-text, select, textarea {
 }
 
 .block-cart .subtotal {
-	margin: 9px
+	margin: 9px;
 }
 
 .block-cart .subtotal .price {
@@ -2763,7 +2763,7 @@ ul.products-grid {
 	background: url("../images/map.png") no-repeat scroll center center #222;
 	margin: 0 auto;
 	text-align: left !important;
-	background-image: 100% 100%
+	background-image: 100% 100%;
 }
 
 .footer ul {
@@ -2785,7 +2785,7 @@ ul.products-grid {
 
 .footer a {
 	color: #999 !important;
-	text-decoration: none
+	text-decoration: none;
 }
 
 .f-gray-links1 {
@@ -2794,7 +2794,7 @@ ul.products-grid {
 }
 
 .f-gray-links1 li {
-	list-style: none
+	list-style: none;
 }
 
 .f-gray-links1 a {
@@ -2832,7 +2832,7 @@ ul.products-grid {
 .price-box .price {
 	font-size: 11px;
 	font-weight: bold;
-	line-height: 1.63636363636
+	line-height: 1.63636363636;
 }
 
 .regular-price {
@@ -3239,7 +3239,7 @@ f
 }
 
 .product-view .product-img-box .more-views ul {
-	margin-left: -10px
+	margin-left: -10px;
 }
 
 .product-view .product-img-box .more-views li {
@@ -3975,7 +3975,7 @@ ul.product-tabs {
 	font-size: 11px;
 	font-weight: bold;
 	color: #df280a;
-	line-height: 1.6363636363
+	line-height: 1.6363636363;
 }
 
 .cart-table tfoot td {
@@ -5892,7 +5892,7 @@ ul.crosssell-products-list {
 .footer li {
 	list-style-position: inside;
 	color: rgba(255, 255, 255, 0.55);
-	margin-bottom: 5px
+	margin-bottom: 5px;
 }
 
 .footer .links li.last {
@@ -6008,7 +6008,7 @@ ul.crosssell-products-list {
 }
 
 .home-callout img {
-	display: block
+	display: block;
 }
 
 .best-selling h3 {
@@ -6698,7 +6698,7 @@ https://stackoverflow.com/a/36448860 */
 	}
 
 	.products-grid li.item {
-		width: 140px
+		width: 140px;
 	}
 
 	.cart .discount .discount-form, .cart .shipping .shipping-form {
@@ -6842,7 +6842,7 @@ https://stackoverflow.com/a/36448860 */
 	}
 
 	.a-center.removeitem {
-		display: block !important
+		display: block !important;
 	}
 
 	.checkout-progress {
@@ -7674,19 +7674,19 @@ https://stackoverflow.com/a/36448860 */
 }
 
 .header-container.is-fixed .quick-access {
-	display: none
+	display: none;
 }
 
 .header-container.is-fixed a.logo img {
 }
 
 .header-container.is-fixed .clear {
-	display: none
+	display: none;
 }
 
 .header-container.is-fixed .header {
 	max-width: 1200px;
-	margin: auto
+	margin: auto;
 }
 
 .page > .row .top_block {
@@ -7705,7 +7705,7 @@ https://stackoverflow.com/a/36448860 */
 	line-height: 30px;
 	border-left: 1px solid #e8e8e8;
 	float: left;
-	padding: 6px 20px 5px !important
+	padding: 6px 20px 5px !important;
 }
 
 .page > .row .top_block ul li a {
@@ -7725,11 +7725,11 @@ https://stackoverflow.com/a/36448860 */
 }
 
 ul#nav li ul li:hover {
-	background: #4a7c59
+	background: #4a7c59;
 }
 
 ul#nav li ul li:hover a {
-	color: #fff !important
+	color: #fff !important;
 }
 
 .header .logo img {
@@ -7741,7 +7741,7 @@ ul#nav li ul li:hover a {
 
 @media (max-width: 1037px) {
 	.header-container.is-fixed {
-		display: none
+		display: none;
 	}
 
 	.level-top {
@@ -7752,11 +7752,11 @@ ul#nav li ul li:hover a {
 
 @media (max-width: 750px) {
 	.header-container.is-fixed {
-		display: none
+		display: none;
 	}
 
 	.page > .row .top_block ul li a {
-		font-size: 11px
+		font-size: 11px;
 	}
 }
 
