@@ -47,14 +47,16 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
         'Mage_CatalogInventory' => 21,
         'Mage_Shipping' => 22,
         'Mage_SalesRule' => 23,
-        'Mage_Usa' => 24,
 # 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # 1) "Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354
 # 1) "Delete the unused `Mage_Backup` module": https://github.com/thehcginstitute-com/m1/issues/39
+# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Usa` module": https://github.com/thehcginstitute-com/m1/issues/374
         'Mage_Checkout' => 27,
-        'Mage_Paypal' => 28,
 # 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Delete the unused `Mage_GoogleCheckout` module": https://github.com/thehcginstitute-com/m1/issues/365
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
         'Mage_Log' => 30,
 # 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367

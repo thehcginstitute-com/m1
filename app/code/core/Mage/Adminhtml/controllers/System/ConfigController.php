@@ -107,11 +107,8 @@ class Mage_Adminhtml_System_ConfigController extends Mage_Adminhtml_Controller_A
             $block = $this->getLayout()->createBlock('adminhtml/system_config_edit');
             $this->_addContent($block->initForm());
 
-            if (($current == 'carriers') && Mage::helper('core')->isModuleEnabled('Mage_Usa')) {
-                $this->_addJs($this->getLayout()
-                     ->createBlock('adminhtml/template')
-                     ->setTemplate('system/shipping/ups.phtml'));
-            }
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Usa` module": https://github.com/thehcginstitute-com/m1/issues/374
 
             $this->_addJs($this->getLayout()
                 ->createBlock('adminhtml/template')
