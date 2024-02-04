@@ -65,27 +65,9 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
                 if (!empty($order) && $order->getEntityId()) {
                     $oldPayment = $order->getPayment()->getMethodInstance()->getTitle();
 
-                    if ($order->getPayment()->getMethod() == "iwd_authorizecim") {
-                        $transactions = Mage::getModel('sales/order_payment_transaction')->getCollection()
-                            ->addAttributeToFilter('order_id', array('eq' => $order->getEntityId()))
-                            ->addAttributeToFilter('txn_type', array('eq' => Mage_Sales_Model_Order_Payment_Transaction::TYPE_AUTH));
-
-                        $cardId = $order->getPayment()->getIwdAuthorizecimCardId();
-                        $method = $order->getPayment()->getMethodInstance();
-                        $card = $method->loadCard($cardId);
-                        $gateway = $method->gateway();
-                        $gateway->setCard($card);
-
-                        foreach ($transactions as $transaction) {
-                            $txnId = $transaction->getTxnId();
-                            $delimiter = strpos($txnId, "-");
-                            $txnId = $delimiter ? substr($txnId, 0, $delimiter) : $txnId;
-
-                            $gateway->void($order->getPayment(), $txnId);
-                            $transaction->setOrderPaymentObject($order->getPayment());
-                            $transaction->close(false)->setTxnType(Mage_Sales_Model_Order_Payment_Transaction::TYPE_VOID)->save();
-                        }
-                    }
+					# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "Delete the unused `Mage_Authorizenet` module":
+					# https://github.com/thehcginstitute-com/m1/issues/352
 
                     $payment = $order->getPayment();
                     $payment->addData($paymentData)->save();
@@ -108,14 +90,10 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
 					# "Delete the Braintree support from IWD modules":
 					# https://github.com/thehcginstitute-com/m1/issues/360
                     $method->prepareSave()->assignData($paymentData);
-
-                    if ($order->getPayment()->getMethod() == "iwd_authorizecim") {
-                        $cardId = $order->getPayment()->getIwdAuthorizecimCardId();
-                        $order->place();
-                        $order->getPayment()->setIwdAuthorizecimCardId($cardId);
-                    } else {
-                        $order->place();
-                    }
+					# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "Delete the unused `Mage_Authorizenet` module":
+					# https://github.com/thehcginstitute-com/m1/issues/352
+                    $order->place();
 
                     $order->getPayment()->save();
                     $order->getPayment()->getOrder()->save();
