@@ -76,7 +76,8 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
         'Mage_ProductAlert' => 47,
         'Mage_Api' => 48,
         'Mage_Oauth' => 49,
-        'Mage_Authorizenet' => 50,
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Authorizenet` module": https://github.com/thehcginstitute-com/m1/issues/352
         'Mage_Bundle' => 51,
         'Mage_Captcha' => 52,
         'Mage_Centinel' => 53,
