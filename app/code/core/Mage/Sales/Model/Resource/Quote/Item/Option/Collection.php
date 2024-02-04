@@ -1,36 +1,24 @@
 <?php
 /**
- * Magento
- *
- * NOTICE OF LICENSE
+ * OpenMage
  *
  * This source file is subject to the Open Software License (OSL 3.0)
  * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magento.com so we can send you a copy immediately.
+ * It is also available at https://opensource.org/license/osl-3-0-php
  *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magento.com for more information.
- *
- * @category    Mage
- * @package     Mage_Sales
- * @copyright  Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @category   Mage
+ * @package    Mage_Sales
+ * @copyright  Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright  Copyright (c) 2019-2022 The OpenMage Contributors (https://www.openmage.org)
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-
 
 /**
  * Item option collection
  *
- * @category    Mage
- * @package     Mage_Sales
- * @author      Magento Core Team <core@magentocommerce.com>
+ * @category   Mage
+ * @package    Mage_Sales
+ * @author     Magento Core Team <core@magentocommerce.com>
  */
 class Mage_Sales_Model_Resource_Quote_Item_Option_Collection extends Mage_Core_Model_Resource_Db_Collection_Abstract
 {
@@ -39,14 +27,14 @@ class Mage_Sales_Model_Resource_Quote_Item_Option_Collection extends Mage_Core_M
      *
      * @var array
      */
-    protected $_optionsByItem        = array();
+    protected $_optionsByItem        = [];
 
     /**
      * Array of option ids grouped by product id
      *
      * @var array
      */
-    protected $_optionsByProduct     = array();
+    protected $_optionsByProduct     = [];
 
     /**
      * Define resource model for collection
@@ -60,7 +48,7 @@ class Mage_Sales_Model_Resource_Quote_Item_Option_Collection extends Mage_Core_M
     /**
      * Fill array of options by item and product
      *
-     * @return Mage_Sales_Model_Resource_Quote_Item_Option_Collection
+     * @return $this
      */
     protected function _afterLoad()
     {
@@ -73,12 +61,12 @@ class Mage_Sales_Model_Resource_Quote_Item_Option_Collection extends Mage_Core_M
             if (isset($this->_optionsByItem[$itemId])) {
                 $this->_optionsByItem[$itemId][] = $optionId;
             } else {
-                $this->_optionsByItem[$itemId] = array($optionId);
+                $this->_optionsByItem[$itemId] = [$optionId];
             }
             if (isset($this->_optionsByProduct[$productId])) {
                 $this->_optionsByProduct[$productId][] = $optionId;
             } else {
-                $this->_optionsByProduct[$productId] = array($optionId);
+                $this->_optionsByProduct[$productId] = [$optionId];
             }
         }
 
@@ -89,16 +77,16 @@ class Mage_Sales_Model_Resource_Quote_Item_Option_Collection extends Mage_Core_M
      * Apply quote item(s) filter to collection
      *
      * @param int | array $item
-     * @return Mage_Sales_Model_Resource_Quote_Item_Option_Collection
+     * @return $this
      */
     public function addItemFilter($item)
     {
         if (empty($item)) {
             $this->_totalRecords = 0;
             $this->_setIsLoaded(true);
-            //$this->addFieldToFilter('item_id', '');
+        //$this->addFieldToFilter('item_id', '');
         } elseif (is_array($item)) {
-            $this->addFieldToFilter('item_id', array('in' => $item));
+            $this->addFieldToFilter('item_id', ['in' => $item]);
         } elseif ($item instanceof Mage_Sales_Model_Quote_Item) {
             $this->addFieldToFilter('item_id', $item->getId());
         } else {
@@ -116,7 +104,7 @@ class Mage_Sales_Model_Resource_Quote_Item_Option_Collection extends Mage_Core_M
     public function getProductIds()
     {
         $this->load();
-        
+
         return array_keys($this->_optionsByProduct);
     }
 
@@ -136,7 +124,7 @@ class Mage_Sales_Model_Resource_Quote_Item_Option_Collection extends Mage_Core_M
 
         $this->load();
 
-        $options = array();
+        $options = [];
         if (isset($this->_optionsByItem[$itemId])) {
             foreach ($this->_optionsByItem[$itemId] as $optionId) {
                 $options[] = $this->_items[$optionId];
@@ -162,7 +150,7 @@ class Mage_Sales_Model_Resource_Quote_Item_Option_Collection extends Mage_Core_M
 
         $this->load();
 
-        $options = array();
+        $options = [];
         if (isset($this->_optionsByProduct[$productId])) {
             foreach ($this->_optionsByProduct[$productId] as $optionId) {
                 $options[] = $this->_items[$optionId];
