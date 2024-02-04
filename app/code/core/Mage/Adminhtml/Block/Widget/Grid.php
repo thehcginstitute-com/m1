@@ -988,24 +988,6 @@ class Mage_Adminhtml_Block_Widget_Grid extends Mage_Adminhtml_Block_Widget
         return empty($this->_rssLists) ? false : $this->_rssLists;
     }
 
-    /**
-     * Returns url for RSS
-     * Can be overloaded in descendant classes to perform custom changes to url passed to addRssList()
-     *
-     * @param string $url
-     * @return string
-     * @throws Mage_Core_Model_Store_Exception
-     */
-    protected function _getRssUrl($url)
-    {
-        $urlModel = Mage::getModel('core/url');
-        if (Mage::app()->getStore()->getStoreInUrl()) {
-            // Url in 'admin' store view won't be accessible, so form it in default store view frontend
-            $urlModel->setStore(Mage::app()->getDefaultStoreView());
-        }
-        return $urlModel->getUrl($url);
-    }
-
 	# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	# "Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368
 
