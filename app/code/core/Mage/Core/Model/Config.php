@@ -61,7 +61,9 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
         'Mage_Rating' => 33,
         'Mage_Tag' => 34,
         'Mage_Reports' => 35,
-        'Mage_GoogleAnalytics' => 36,
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the `Mage_GoogleAnalytics` module because it is unused (the `Tatvic_Uaee` module is used instead)":
+# https://github.com/thehcginstitute-com/m1/issues/135
         'Mage_Widget' => 37,
         'Mage_Tax' => 38,
         'Mage_Wishlist' => 39,
