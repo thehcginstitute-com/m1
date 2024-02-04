@@ -1,1 +1,1 @@
-[thehcginstitute.com/store](https://thehcginstitute.com/store) (Magento 1.9.4.5).
+[thehcginstitute.com/store](https://thehcginstitute.com/store) (OpenMage LTS 19.5.2).
