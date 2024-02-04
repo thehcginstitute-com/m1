@@ -40,7 +40,8 @@ abstract class Mage_Adminhtml_Helper_Help_Mapping extends Mage_Core_Helper_Abstr
             'sales_creditmemo' => 'order-processing/credit-refunds.html',
             'sales_transactions' => 'order-processing/sales-transactions.html',
             'sales_recurring_profile' => 'catalog/product-recurring-profile.html',
-            'sales_billing_agreement' => 'payment/paypal-billing-agreements.html',
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
             'checkout_agreement' => 'order-processing/terms-conditions.html',
             /* Sales → Tax */
             'tax_rule' => 'tax/tax-rules.html',
