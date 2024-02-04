@@ -185,7 +185,8 @@
             ->setData("button_onclick_update", "IWD.OrderManager.Shipping.editShippingSubmit()")
             ->setData("button_onclick_cancel", "IWD.OrderManager.Shipping.editShippingCancel()")
             ->setData('recalculate', false)
-            ->setData('reauthorize', true)
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Reauthorize» feature from IWD Order Manager": https://github.com/thehcginstitute-com/m1/issues/362
             ->setData('block', 'shipping')
             ->toHtml();
         ?>

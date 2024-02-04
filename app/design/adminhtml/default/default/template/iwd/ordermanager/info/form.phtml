@@ -235,7 +235,8 @@
         ->setData("button_onclick_update", "IWD.OrderManager.OrderInfo.editOrderInformationSubmit()")
         ->setData("button_onclick_cancel", "IWD.OrderManager.OrderInfo.editOrderInformationCancel()")
         ->setData('recalculate', false)
-        ->setData('reauthorize', false)
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Reauthorize» feature from IWD Order Manager": https://github.com/thehcginstitute-com/m1/issues/362
         ->setData('block', 'info')
         ->toHtml();
     ?>
