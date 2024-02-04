@@ -334,13 +334,8 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template
         $params = $itemParams ? ' ' . $itemParams : '';
         $href   = $itemName;
         switch ($itemType) {
-            case 'rss':
-                $lines[$itemIf]['other'][] = sprintf(
-                    '<link href="%s"%s rel="alternate" type="application/rss+xml">',
-                    $href,
-                    $params
-                );
-                break;
+			# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368
             case 'link_rel':
                 $lines[$itemIf]['other'][] = sprintf('<link%s href="%s">', $params, $href);
                 break;

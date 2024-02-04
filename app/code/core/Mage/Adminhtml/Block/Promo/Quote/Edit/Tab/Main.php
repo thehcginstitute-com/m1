@@ -217,15 +217,8 @@ class Mage_Adminhtml_Block_Promo_Quote_Edit_Tab_Main extends Mage_Adminhtml_Bloc
             'label' => Mage::helper('salesrule')->__('Priority'),
         ]);
 
-        $fieldset->addField('is_rss', 'select', [
-            'label'     => Mage::helper('salesrule')->__('Public In RSS Feed'),
-            'title'     => Mage::helper('salesrule')->__('Public In RSS Feed'),
-            'name'      => 'is_rss',
-            'options'   => [
-                '1' => Mage::helper('salesrule')->__('Yes'),
-                '0' => Mage::helper('salesrule')->__('No'),
-            ],
-        ]);
+		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368
 
         if (!$model->getId()) {
             //set the default value for is_rss feed to yes for new promotion

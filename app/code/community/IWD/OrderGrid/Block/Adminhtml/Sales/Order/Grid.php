@@ -191,7 +191,8 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Bloc
         $grid = Mage::getModel('iwd_ordergrid/order_grid')->prepareColumns($this, $selectedColumns);
         $grid = Mage::getModel('iwd_ordergrid/order_grid')->addHiddenColumnWithStatus($grid);
 
-        $grid->addRssList('rss/order/new', $helper->__('New Order RSS'));
+		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368
         $grid->addExportType('*/*/exportCsv', $helper->__('CSV'));
         $grid->addExportType('*/*/exportExcel', $helper->__('Excel XML'));
         $grid->sortColumnsByOrder();

@@ -141,7 +141,8 @@ class Mage_Adminhtml_Block_Sales_Order_Grid extends Mage_Adminhtml_Block_Widget_
                 ]
             );
         }
-        $this->addRssList('rss/order/new', Mage::helper('sales')->__('New Order RSS'));
+		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368
 
         $this->addExportType('*/*/exportCsv', Mage::helper('sales')->__('CSV'));
         $this->addExportType('*/*/exportExcel', Mage::helper('sales')->__('Excel XML'));

@@ -12,9 +12,8 @@ use Mage_Catalog_Block_Category_View as B; /** @var B $this */
 	}
 ?>
 <div class="page-title category-title">
-	<?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
-		<a href="<?php echo $this->getRssLink() ?>" class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
-	<?php endif; ?>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 -->
 	<h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
 </div>
 

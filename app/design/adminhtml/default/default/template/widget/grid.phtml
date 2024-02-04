@@ -88,11 +88,8 @@ $numColumns = sizeof($this->getColumns());
             <?php echo $this->__('per page') ?><span class="separator">|</span>
             <?php echo $this->__('Total %d records found', $this->getCollection()->getSize()) ?>
             <span id="<?php echo $this->getHtmlId() ?>-total-count" class="no-display"><?php echo $this->getCollection()->getSize() ?></span>
-            <?php if($this->getRssLists()): ?>
-                <?php foreach ($this->getRssLists() as $_rss): ?>
-                <span class="separator">|</span><a href="<?php echo $_rss->getUrl() ?>" class="link-feed"><?php echo $_rss->getLabel() ?></a>
-                <?php endforeach ?>
-            <?php endif; ?>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 -->
         </td>
     <?php endif ?>
     <?php if($this->getExportTypes()): ?>

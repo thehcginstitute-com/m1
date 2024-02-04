@@ -51,25 +51,15 @@ class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
             if ($helper->canUseCanonicalTag()) {
                 $headBlock->addLinkRel('canonical', $category->getUrl());
             }
-            /*
-            want to show rss feed in the url
-            */
-            if ($this->isRssCatalogEnable() && $this->isTopCategory()) {
-                $title = $this->helper('rss')->__('%s RSS Feed', $this->getCurrentCategory()->getName());
-                $headBlock->addItem('rss', $this->getRssLink(), 'title="' . $title . '"');
-            }
+			# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368
         }
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function isRssCatalogEnable()
-    {
-        return Mage::getStoreConfig('rss/catalog/category');
-    }
+	# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368
 
     /**
      * @return bool
@@ -79,20 +69,8 @@ class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
         return $this->getCurrentCategory()->getLevel() == 2;
     }
 
-    /**
-     * @return string
-     * @throws Mage_Core_Model_Store_Exception
-     */
-    public function getRssLink()
-    {
-        return Mage::getUrl(
-            'rss/catalog/category',
-            [
-                'cid' => $this->getCurrentCategory()->getId(),
-                'store_id' => Mage::app()->getStore()->getId()
-            ]
-        );
-    }
+	# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368
 
     /**
      * @return string

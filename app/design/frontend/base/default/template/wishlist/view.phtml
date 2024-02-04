@@ -28,9 +28,8 @@
 <?php if ($this->helper('wishlist')->isAllow()) : ?>
     <div class="my-wishlist">
         <div class="page-title title-buttons">
-            <?php if ($this->helper('wishlist')->isRssAllow() && $this->hasWishlistItems()): ?>
-                <a href="<?php echo $this->helper('wishlist')->getRssUrl($this->getWishlistInstance()->getId()); ?>" class="link-rss"><?php echo $this->__('RSS Feed') ?></a>
-            <?php endif; ?>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 -->
             <h1><?php echo $this->getTitle(); ?></h1>
         </div>
         <?php echo $this->getMessagesBlock()->toHtml() ?>

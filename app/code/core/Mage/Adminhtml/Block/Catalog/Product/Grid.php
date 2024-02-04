@@ -291,9 +291,8 @@ class Mage_Adminhtml_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_Wid
             ]
         );
 
-        if (Mage::helper('catalog')->isModuleEnabled('Mage_Rss')) {
-            $this->addRssList('rss/catalog/notifystock', Mage::helper('catalog')->__('Notify Low Stock RSS'));
-        }
+		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368
 
         return parent::_prepareColumns();
     }

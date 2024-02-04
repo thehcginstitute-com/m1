@@ -1020,9 +1020,8 @@ p.required {
 .page-title .separator {
 }
 
-.page-title .link-rss {
-	float: right;
-}
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 */
 
 .title-buttons {
 	text-align: right;
@@ -1377,12 +1376,8 @@ tr.summary-details-excluded {
 .link-print {
 }
 
-.link-rss {
-	background: url(../images/i_rss.gif) 0 1px no-repeat;
-	padding-left: 18px;
-	line-height: 14px;
-	white-space: nowrap;
-}
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 */
 
 .btn-remove {
 	display: block;
@@ -3888,16 +3883,8 @@ ul.product-tabs {
 	color: #4f8100;
 }
 
-.rss-title h1 {
-	background: url(../images/i_rss-big.png) 0 3px no-repeat;
-	padding-left: 27px;
-}
-
-.rss-table .link-rss {
-	display: block;
-	line-height: 1.55;
-	background-position: 0 4px;
-}
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 */
 
 .cart .page-title {
 }
@@ -5100,10 +5087,8 @@ ul.crosssell-products-list {
 	padding: 0 15px 0 9px;
 }
 
-.my-account .title-buttons .link-rss {
-	float: none;
-	margin: 0;
-}
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 */
 
 .dashboard .welcome-msg {
 	margin: 0 8em 1.5em 0;
@@ -7433,7 +7418,8 @@ https://stackoverflow.com/a/36448860 */
 .lt-ie8 .block-account .block-content li a,
 .lt-ie8 .mini-products-list .product-details,
 .lt-ie8 .page-title,
-.lt-ie8 .rss-title h1,
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 */
 .lt-ie8 .products-grid,
 .lt-ie8 .products-list li.item,
 .lt-ie8 .box-account .box-head,

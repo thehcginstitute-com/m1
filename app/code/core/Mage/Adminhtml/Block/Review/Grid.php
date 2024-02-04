@@ -198,7 +198,8 @@ class Mage_Adminhtml_Block_Review_Grid extends Mage_Adminhtml_Block_Widget_Grid
             ]
         );
 
-        $this->addRssList('rss/catalog/review', Mage::helper('catalog')->__('Pending Reviews RSS'));
+		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368
 
         return parent::_prepareColumns();
     }

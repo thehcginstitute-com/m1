@@ -1719,8 +1719,9 @@ html.wp-toolbar {
 	position: relative;
 }
 
-.postbox .inside > p:last-child,
-.rss-widget ul li:last-child {
+/* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 */
+.postbox .inside > p:last-child {
 	margin-bottom: 1px !important;
 }
 

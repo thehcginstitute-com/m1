@@ -321,17 +321,8 @@ https://github.com/thehcginstitute-com/m1/issues/135 -->
                 <Mage_Core/>
             </depends>
         </Mage_Dataflow>
-        <Mage_Rss>
-            <active>true</active>
-            <codePool>core</codePool>
-             <depends>
-                <Mage_Catalog/>
-                <Mage_CatalogInventory/>
-                <Mage_Sales/>
-                <Mage_SalesRule/>
-                <Mage_Wishlist/>
-             </depends>
-        </Mage_Rss>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 -->
         <Mage_ProductAlert>
             <active>true</active>
             <codePool>core</codePool>

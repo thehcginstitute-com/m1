@@ -31,7 +31,8 @@
     <h1><?php echo $this->__('Order #%s - %s', $_order->getRealOrderId(), $_order->getStatusLabel()) ?></h1>
     <?php echo $this->getChildHtml('buttons') ?>
 </div>
-<?php echo $this->getStatusHistoryRssUrl($_order) ?>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 -->
 <dl class="order-info">
     <dt><?php echo $this->__('About This Order:') ?></dt>
     <dd>

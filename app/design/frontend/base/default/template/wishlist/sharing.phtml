@@ -45,14 +45,8 @@
                     <textarea id="message" name="message" cols="60" rows="3"><?php echo $this->getEnteredData('message') ?></textarea>
                 </div>
             </li>
-            <?php if($this->helper('wishlist')->isRssAllow()): ?>
-            <li class="control">
-                <div class="input-box">
-                    <input type="checkbox" name="rss_url" id="rss_url" value="1" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Check this checkbox if you want to add a link to an rss feed to your wishlist.')) ?>" class="checkbox" />
-                </div>
-                <label for="rss_url"><?php echo $this->__('Check this checkbox if you want to add a link to an rss feed to your wishlist.') ?></label>
-            </li>
-            <?php endif; ?>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 -->
             <?php echo $this->getChildHtml('wishlist.sharing.form.additional.info'); ?>
         </ul>
     </div>

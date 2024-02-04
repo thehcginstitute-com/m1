@@ -75,7 +75,8 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
         'Mage_GiftMessage' => 43,
         'Mage_Sendfriend' => 44,
         'Mage_Sitemap' => 45,
-        'Mage_Rss' => 46,
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368
         'Mage_ProductAlert' => 47,
         'Mage_Api' => 48,
         'Mage_Oauth' => 49,

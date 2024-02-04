@@ -671,14 +671,8 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
         try {
             $customer = Mage::getSingleton('customer/session')->getCustomer();
 
-            /*if share rss added rss feed to email template*/
-            if ($this->getRequest()->getParam('rss_url')) {
-                $rss_url = $this->getLayout()
-                    ->createBlock('wishlist/share_email_rss')
-                    ->setWishlistId($wishlist->getId())
-                    ->toHtml();
-                $message .= $rss_url;
-            }
+			# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368
             $wishlistBlock = $this->getLayout()->createBlock('wishlist/share_email_items')->toHtml();
 
             $emails = array_unique($emails);
