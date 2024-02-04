@@ -185,18 +185,14 @@
                 <Mage_Shipping/>
             </depends>
         </Mage_Usa>
-        <Mage_Paygate>
-            <active>true</active>
-            <codePool>core</codePool>
-            <depends>
-                <Mage_Payment/>
-            </depends>
-        </Mage_Paygate>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354 -->
         <Mage_Paypal>
             <active>true</active>
             <codePool>core</codePool>
             <depends>
-                <Mage_Paygate/>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354 -->
                 <Mage_Checkout/>
                 <Mage_Sales/>
             </depends>
@@ -205,7 +201,8 @@
             <active>true</active>
             <codePool>core</codePool>
             <depends>
-                <Mage_Paygate/>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354 -->
                 <Mage_Checkout/>
                 <Mage_Sales/>
                 <Mage_Paypal/>

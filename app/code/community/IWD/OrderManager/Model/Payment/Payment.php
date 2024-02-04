@@ -251,21 +251,11 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
                 case 'purchaseorder':
                     return 1;
 
-                /**
-                 * Magento Authorize.net
-                 *
-                 * Please, use IWD Authorize.net CIM for re-authorization instead of this method
-                 * IWD Authorize.net CIM is PCI compliance
-                 */
-                case 'authorizenet':
-                    return 1;
-
-                /**
-                 * IWD Authorize.net CIM and eCheck
-                 */
-                case 'iwd_authorizecim':
-                case 'iwd_authorizecim_echeck':
-                    return $this->reauthorizeIWDAuthorizeNetCIM($order, $oldOrder);
+				# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# 1) "Delete the unused `Mage_Paygate` module":
+				#  https://github.com/thehcginstitute-com/m1/issues/354
+				# 2) "Delete the unused `Mage_Authorizenet` module":
+				#  https://github.com/thehcginstitute-com/m1/issues/352
 
                 /**
                  * Magento PayPal Payflow Pro
@@ -273,15 +263,11 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
                 case Mage_Paypal_Model_Config::METHOD_PAYFLOWPRO:
                     return $this->reauthorizePayPalPayflowPro($order);
 
-                /**
-                 * Paradox Labs Authorize.net CIM
-                 *
-                 * Maybe need some changes in Paradox Labs Authorize.net CIM extension
-                 * for correct work with Order Manager. Please, do not enable it without tests.
-                 * The algorithm can be invalid for some versions of Authorize.net CIM extension
-                 */
-                case 'authnetcim':
-                    return $this->reauthorizeParadoxAuthorizeNetCIM($order, $oldOrder);
+				# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# 1) "Delete the unused `Mage_Paygate` module":
+				#  https://github.com/thehcginstitute-com/m1/issues/354
+				# 2) "Delete the unused `Mage_Authorizenet` module":
+				#  https://github.com/thehcginstitute-com/m1/issues/352
 
                 /**
                  * Another payments
@@ -296,51 +282,9 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
         }
     }
 
-    /* * * * IWD Authorize.net CIM * * * */
-    /**
-     * @param $order Mage_Sales_Model_Order
-     * @param $oldOrder Mage_Sales_Model_Order
-     * @return int
-     */
-    protected function reauthorizeIWDAuthorizeNetCIM($order, $oldOrder)
-    {
-        $amount = $order->getGrandTotal();
-        $payment = $order->getPayment();
-        Mage::register('edited_order_id', $order->getId());
-        $authorized = $payment->getBaseAmountAuthorized();
-
-        /** @var $paymentAuthorizenet IWD_AuthorizeCIM_Model_Method */
-        $paymentAuthorizenet = $payment->getMethodInstance();
-        $newTotal = $order->getGrandTotal() - $order->getBaseTotalRefunded();
-        $oldTotal = $oldOrder->getGrandTotal() - $oldOrder->getBaseTotalRefunded();
-
-        // authorized (but do not captured) more then we need now (authorized $100, need $80)
-        if (!$order->hasInvoices() && $authorized < $amount) {
-            $additionalAmount = $newTotal - $oldTotal;
-            if (!$paymentAuthorizenet->authorize($payment, $additionalAmount)) {
-                Mage::getSingleton('adminhtml/session')->addError(
-                    Mage::helper('iwd_ordermanager')->__("Error in re-authorizing payment.")
-                );
-                return 0;
-            }
-
-            $this->savePayment($payment);
-            return 1;
-        }
-
-        if ($oldTotal > $newTotal) {
-            // amount was decreased (-)
-            $refundAmount = $oldTotal - $newTotal;
-            return $this->refundAuthorizenetNetCIMLogic($order, $refundAmount);
-        } else {
-            // amount was increased (+)
-            Mage::register('iwd_order_manager_authorize', true);
-            $additionalAmount = $newTotal - $oldTotal;
-            $paymentAuthorizenet->capture($payment, $additionalAmount, true);
-            $this->savePayment($payment);
-            return 1;
-        }
-    }
+	# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# 1) "Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354
+	# 2) "Delete the unused `Mage_Authorizenet` module": https://github.com/thehcginstitute-com/m1/issues/352
 
     /**
      * @param $payment
@@ -352,129 +296,9 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
         $payment->save();
     }
 
-
-    /**
-     * @param $order
-     * @param $refundAmount
-     * @return int
-     */
-    protected function refundAuthorizenetNetCIMLogic($order, $refundAmount)
-    {
-        $transactions = $this->preparePaymentNetCIMTransactions($order);
-        $payment = $order->getPayment();
-        $paymentAuthorizenet = $payment->getMethodInstance();
-
-        $captured = array_sum($transactions['captured']);
-        $settled = array_sum($transactions['settled']);
-
-        if ($captured > $refundAmount) {
-            foreach ($transactions['captured'] as $trxId => $trxAmount) {
-                $paymentAuthorizenet->void($payment, $trxId);
-
-                $refundAmount -= $trxAmount;
-                if ($refundAmount == 0) {
-                    $this->savePayment($payment);
-                    return 1;
-                }
-
-                if ($refundAmount < 0) {
-                    $captureAmount = abs($refundAmount);
-                    $paymentAuthorizenet->capture($payment, $captureAmount, true);
-                    $this->savePayment($payment);
-                    return 1;
-                }
-            }
-
-            Mage::throwException("We can not refund more than captured");
-        } else {
-            if ($captured + $settled > $refundAmount) {
-                // VOID ALL CAPTURED TRANSACTIONS
-                foreach ($transactions['captured'] as $trxId => $trxAmount) {
-                    if ($refundAmount == 0) {
-                        return 1;
-                    }
-
-                    $paymentAuthorizenet->void($payment, $trxId);
-                    $refundAmount -= $trxAmount;
-                }
-
-                // REFUND SETTLED TRANSACTIONS
-                foreach ($transactions['settled'] as $trxId => $trxAmount) {
-                    if ($refundAmount == 0) {
-                        $this->savePayment($payment);
-                        return 1;
-                    }
-
-                    if ($refundAmount < $trxAmount) {
-                        $refund = $refundAmount;
-                        $refundAmount = 0;
-                    } else {
-                        $refund = $trxAmount;
-                        $refundAmount -= $trxAmount;
-                    }
-
-                    $result = $paymentAuthorizenet->refund($payment, $refund, $trxId);
-                    if (is_string($result)) {
-                        Mage::getSingleton('adminhtml/session')->addError($result);
-                    }
-                }
-
-                $this->savePayment($payment);
-                return 1;
-            } else {
-                Mage::throwException("We can not refund more than captured");
-            }
-        }
-
-        return 0;
-    }
-
-    /**
-     * @param $order
-     * @return array
-     */
-    protected function preparePaymentNetCIMTransactions($order)
-    {
-        $payment = $order->getPayment();
-
-        $transactions = Mage::getModel('sales/order_payment_transaction')->getCollection()
-            ->addFieldToFilter('order_id', $order->getId());
-
-        /** @var $paymentAuthorizenet IWD_OrderManager_Model_Payment_Authorizenet */
-        $paymentAuthorizenet = $payment->getMethodInstance()->gateway();
-
-        $transactionsCaptured = array();
-        $transactionsSettled = array();
-        foreach ($transactions as $transaction) {
-            $txnId = $transaction->getTxnId();
-            $delimiter = strpos($txnId, "-");
-            $txnId = $delimiter ? substr($txnId, 0, $delimiter) : $txnId;
-
-            $trxInfo = $paymentAuthorizenet
-                ->setParameter('transId', $txnId)
-                ->getTransactionDetails();
-
-            $id = $trxInfo['transaction']['transId'];
-
-            $status = false;
-            if (isset($trxInfo['transaction']["transactionStatus"])) {
-                $status = $trxInfo['transaction']["transactionStatus"];
-            }
-
-            if ($status == "capturedPendingSettlement") {
-                $transactionsCaptured[$id] = $trxInfo['transaction']["authAmount"];
-            }
-
-            if ($status == "settledSuccessfully" && $transaction->getTxnType() == 'capture') {
-                $transactionsSettled[$id] = $trxInfo['transaction']["settleAmount"];
-            }
-        }
-
-        return array(
-            'captured' => $transactionsCaptured,
-            'settled' => $transactionsSettled,
-        );
-    }
+	# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# 1) "Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354
+	# 2) "Delete the unused `Mage_Authorizenet` module": https://github.com/thehcginstitute-com/m1/issues/352
 
     /* * * * PayPal Payflow Pro Gateway * * * */
     /**
@@ -607,106 +431,7 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
         $log->addCommentToOrderHistory($orderId, 'wait');
     }
 
-    /**
-     * Paradox Lab Authorize.net CIM
-     * Maybe need some changes in Paradox Labs Authorize.net CIM extension
-     * for correct work with Order Manager. Please, do not enable it without tests.
-     * The algorithm can be invalid for some versions of Authorize.net CIM extension
-     *
-     * @param $order
-     * @param $oldOrder
-     * @return int
-     */
-    protected function reauthorizeParadoxAuthorizeNetCIM($order, $oldOrder)
-    {
-        /**
-         * Remove this if and test how it works before push live.
-         */
-        if (true) {
-            return 1;
-        }
-
-        $payment = $order->getPayment();
-
-        $taxAmount = $order->getTaxAmount();
-        $baseTaxAmount = $order->getBaseTaxAmount();
-
-        $totalDue = $order->getGrandTotal() - $order->getTotalRefunded() - $payment->getAmountAuthorized();
-        $baseTotalDue = $order->getBaseGrandTotal() - $order->getBaseTotalRefunded() - $payment->getBaseAmountAuthorized();
-
-        $newTaxAmount = $order->getTaxAmount() - $oldOrder->getTaxAmount();
-        $newBaseTaxAmount = $order->getBaseTaxAmount() - $oldOrder->getBaseTaxAmount();
-
-        $newShippingAmount = $order->getShippingAmount() - $oldOrder->getShippingAmount();
-        $newBaseShippingAmount = $order->getBaseShippingAmount() - $oldOrder->getBaseShippingAmount();
-
-        $oldAmountAuthorize = $payment->getAmountAuthorized();
-        $oldBaseAmountAuthorize = $payment->getBaseAmountAuthorized();
-
-        $oldAmountPaid = $payment->getAmountPaid();
-        $oldBaseAmountPaid = $payment->getBaseAmountPaid();
-
-
-        if (isset($oldAmountPaid) && !empty($oldAmountPaid)) {
-            $totalDue = $order->getGrandTotal() - $order->getTotalRefunded() - $payment->getAmountPaid();
-            $baseTotalDue = $order->getBaseGrandTotal() - $order->getBaseTotalRefunded() - $payment->getBaseAmountPaid();
-        }
-
-        if ($baseTotalDue > 0) {
-            // capture
-            $newTaxAmount = $newTaxAmount > 0 ? $newTaxAmount : 0;
-            $payment->getOrder()->setTaxAmount($newTaxAmount);
-
-            $newTaxAmount = $newBaseTaxAmount > 0 ? $newBaseTaxAmount : 0;
-            $payment->getOrder()->setBaseTaxAmount($newTaxAmount);
-
-            $newShippingAmount = $newShippingAmount > 0 ? $newShippingAmount : 0;
-            $payment->setShippingAmount($newShippingAmount);
-
-            $newBaseShippingAmount = $newBaseShippingAmount > 0 ? $newBaseShippingAmount : 0;
-            $payment->setBaseShippingAmount($newBaseShippingAmount);
-
-            $payment->setAmountPaid($oldAmountAuthorize);
-            $payment->setBaseAmountPaid($oldAmountAuthorize);
-
-            Mage::register('iwd_order_manager_authorize', true);
-
-            if (!$payment->authorize(1, $baseTotalDue)) {
-                Mage::getSingleton('adminhtml/session')->addError(
-                    Mage::helper('iwd_ordermanager')->__("Error in re-authorizing payment.")
-                );
-                return -1;
-            }
-
-            if (empty($oldAmountPaid)) {
-                $payment->setAmountPaid($oldAmountPaid);
-                $payment->setBaseAmountPaid($oldBaseAmountPaid);
-            }
-
-            if ($payment->getAmountAuthorized() < $payment->getAmountPaid()) {
-                $payment->setAmountAuthorized($payment->getAmountPaid());
-                $payment->setBaseAmountAuthorized($payment->getBaseAmountPaid());
-            } else {
-                $payment->setAmountAuthorized($oldAmountAuthorize + $totalDue);
-                $payment->setBaseAmountAuthorized($oldBaseAmountAuthorize + $baseTotalDue);
-            }
-        } else if ($baseTotalDue < 0 && $payment->getOrder()->getBaseTotalPaid() > 0) {
-            // refund
-            Mage::register('iwd_order_manager_authorize', true);
-            $refund = abs($baseTotalDue);
-            $payment->getMethodInstance()->refund($payment, $refund);
-        }
-
-        $payment->setAmountOrdered($payment->getAmountOrdered() + $totalDue);
-        $payment->setBaseAmountOrdered($payment->getBaseAmountOrdered() + $baseTotalDue);
-
-        $payment->setShippingAmount($order->getShippingAmount());
-        $payment->setBaseShippingAmount($order->getBaseShippingAmount());
-
-        $payment->save();
-
-        $order->setBaseTaxAmount($baseTaxAmount)->setTaxAmount($taxAmount)->save();
-
-        return 1;
-    }
+	# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# 1) "Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354
+	# 2) "Delete the unused `Mage_Authorizenet` module": https://github.com/thehcginstitute-com/m1/issues/352
 }

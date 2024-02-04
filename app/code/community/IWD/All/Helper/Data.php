@@ -174,13 +174,9 @@ class IWD_All_Helper_Data extends Mage_Core_Helper_Abstract
         }
     }
 
-    public function getAuthorizenetTrackingCode()
-    {
-        if (Mage::helper('core')->isModuleEnabled('IWD_POS')) {
-            return 'A1000128';
-        }
-        return 'A1000127';
-    }
+	# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# 1) "Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354
+	# 2) "Delete the unused `Mage_Authorizenet` module": https://github.com/thehcginstitute-com/m1/issues/352
 
     public function isEnterprise()
     {
