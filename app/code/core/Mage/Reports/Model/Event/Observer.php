@@ -1,29 +1,17 @@
 <?php
 /**
- * Magento
- *
- * NOTICE OF LICENSE
+ * OpenMage
  *
  * This source file is subject to the Open Software License (OSL 3.0)
  * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magento.com so we can send you a copy immediately.
+ * It is also available at https://opensource.org/license/osl-3-0-php
  *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magento.com for more information.
- *
- * @category    Mage
- * @package     Mage_Reports
- * @copyright  Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @category   Mage
+ * @package    Mage_Reports
+ * @copyright  Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright  Copyright (c) 2019-2022 The OpenMage Contributors (https://www.openmage.org)
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-
 
 /**
  * Reports Event observer model
@@ -53,7 +41,7 @@ class Mage_Reports_Model_Event_Observer
      * @param int $objectId
      * @param int $subjectId
      * @param int $subtype
-     * @return Mage_Reports_Model_Event_Observer
+     * @return $this
      */
     protected function _event($eventTypeId, $objectId, $subjectId = null, $subtype = 0)
     {
@@ -61,8 +49,7 @@ class Mage_Reports_Model_Event_Observer
             if (Mage::getSingleton('customer/session')->isLoggedIn()) {
                 $customer = Mage::getSingleton('customer/session')->getCustomer();
                 $subjectId = $customer->getId();
-            }
-            else {
+            } else {
                 $subjectId = Mage::getSingleton('log/visitor')->getId();
                 $subtype = 1;
             }
@@ -85,7 +72,7 @@ class Mage_Reports_Model_Event_Observer
      * Customer login action
      *
      * @param Varien_Event_Observer $observer
-     * @return Mage_Reports_Model_Event_Observer
+     * @return $this
      */
     public function customerLogin(Varien_Event_Observer $observer)
     {
@@ -112,7 +99,7 @@ class Mage_Reports_Model_Event_Observer
      * Customer logout processing
      *
      * @param Varien_Event_Observer $observer
-     * @return Mage_Reports_Model_Event_Observer
+     * @return $this
      */
     public function customerLogout(Varien_Event_Observer $observer)
     {
@@ -132,7 +119,7 @@ class Mage_Reports_Model_Event_Observer
      * View Catalog Product action
      *
      * @param Varien_Event_Observer $observer
-     * @return Mage_Reports_Model_Event_Observer
+     * @return $this
      */
     public function catalogProductView(Varien_Event_Observer $observer)
     {
@@ -154,7 +141,7 @@ class Mage_Reports_Model_Event_Observer
      * Send Product link to friends action
      *
      * @param Varien_Event_Observer $observer
-     * @return Mage_Reports_Model_Event_Observer
+     * @return $this
      */
     public function sendfriendProduct(Varien_Event_Observer $observer)
     {
@@ -162,7 +149,8 @@ class Mage_Reports_Model_Event_Observer
             return $this;
         }
 
-        return $this->_event(Mage_Reports_Model_Event::EVENT_PRODUCT_SEND,
+        return $this->_event(
+            Mage_Reports_Model_Event::EVENT_PRODUCT_SEND,
             $observer->getEvent()->getProduct()->getId()
         );
     }
@@ -173,7 +161,7 @@ class Mage_Reports_Model_Event_Observer
      * Reset count of compared products cache
      *
      * @param Varien_Event_Observer $observer
-     * @return Mage_Reports_Model_Event_Observer
+     * @return $this
      */
     public function catalogProductCompareRemoveProduct(Varien_Event_Observer $observer)
     {
@@ -190,7 +178,7 @@ class Mage_Reports_Model_Event_Observer
      * Reset count of compared products cache
      *
      * @param Varien_Event_Observer $observer
-     * @return Mage_Reports_Model_Event_Observer
+     * @return $this
      */
     public function catalogProductCompareClear(Varien_Event_Observer $observer)
     {
@@ -207,7 +195,7 @@ class Mage_Reports_Model_Event_Observer
      * Reset count of compared products cache
      *
      * @param Varien_Event_Observer $observer
-     * @return unknown
+     * @return $this
      */
     public function catalogProductCompareAddProduct(Varien_Event_Observer $observer)
     {
@@ -229,11 +217,12 @@ class Mage_Reports_Model_Event_Observer
      * Add product to shopping cart action
      *
      * @param Varien_Event_Observer $observer
-     * @return Mage_Reports_Model_Event_Observer
+     * @return $this
      */
     public function checkoutCartAddProduct(Varien_Event_Observer $observer)
     {
         if ($this->_enabledReports) {
+            /** @var Mage_Sales_Model_Quote_Item $quoteItem */
             $quoteItem = $observer->getEvent()->getItem();
             if (!$quoteItem->getId() && !$quoteItem->getParentItem()) {
                 $productId = $quoteItem->getProductId();
@@ -248,7 +237,7 @@ class Mage_Reports_Model_Event_Observer
      * Add product to wishlist action
      *
      * @param Varien_Event_Observer $observer
-     * @return Mage_Reports_Model_Event_Observer
+     * @return $this
      */
     public function wishlistAddProduct(Varien_Event_Observer $observer)
     {
@@ -256,7 +245,8 @@ class Mage_Reports_Model_Event_Observer
             return $this;
         }
 
-        return $this->_event(Mage_Reports_Model_Event::EVENT_PRODUCT_TO_WISHLIST,
+        return $this->_event(
+            Mage_Reports_Model_Event::EVENT_PRODUCT_TO_WISHLIST,
             $observer->getEvent()->getProduct()->getId()
         );
     }
@@ -265,7 +255,7 @@ class Mage_Reports_Model_Event_Observer
      * Share customer wishlist action
      *
      * @param Varien_Event_Observer $observer
-     * @return Mage_Reports_Model_Event_Observer
+     * @return $this
      */
     public function wishlistShare(Varien_Event_Observer $observer)
     {
@@ -273,7 +263,8 @@ class Mage_Reports_Model_Event_Observer
             return $this;
         }
 
-        return $this->_event(Mage_Reports_Model_Event::EVENT_WISHLIST_SHARE,
+        return $this->_event(
+            Mage_Reports_Model_Event::EVENT_WISHLIST_SHARE,
             $observer->getEvent()->getWishlist()->getId()
         );
     }
@@ -284,11 +275,11 @@ class Mage_Reports_Model_Event_Observer
      * @see Global Log Clean Settings
      *
      * @param Varien_Event_Observer $observer
-     * @return Mage_Reports_Model_Event_Observer
+     * @return $this
      */
     public function eventClean(Varien_Event_Observer $observer)
     {
-        /* @var $event Mage_Reports_Model_Event */
+        /** @var Mage_Reports_Model_Event $event */
         $event = Mage::getModel('reports/event');
         $event->clean();
 
