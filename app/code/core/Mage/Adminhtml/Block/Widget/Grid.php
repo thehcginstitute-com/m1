@@ -1006,24 +1006,8 @@ class Mage_Adminhtml_Block_Widget_Grid extends Mage_Adminhtml_Block_Widget
         return $urlModel->getUrl($url);
     }
 
-    /**
-     * Add new rss list to grid
-     *
-     * @param string $url
-     * @param string $label
-     * @return  Mage_Adminhtml_Block_Widget_Grid
-     * @throws Mage_Core_Model_Store_Exception
-     */
-    public function addRssList($url, $label)
-    {
-        $this->_rssLists[] = new Varien_Object(
-            [
-                'url'   => $this->_getRssUrl($url),
-                'label' => $label
-            ]
-        );
-        return $this;
-    }
+	# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368
 
     /**
      * Retrieve grid HTML
