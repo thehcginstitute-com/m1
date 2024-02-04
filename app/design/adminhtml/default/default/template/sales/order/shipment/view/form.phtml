@@ -66,17 +66,8 @@
                     (<?php echo $this->__('Incl. Tax'); ?> <?php echo $_incl; ?>)
                 <?php endif; ?>
             </div>
-            <?php if ($this->canCreateShippingLabel()): ?>
-            <div style="text-align: center; margin: 10px 0;">
-                <?php echo $this->getCreateLabelButton()?>
-                <?php if ($this->getShipment()->getShippingLabel()): ?>
-                    <?php echo $this->getPrintLabelButton() ?>
-                <?php endif ?>
-                <?php if ($this->getShipment()->getPackages()): ?>
-                    <?php echo $this->getShowPackagesButton() ?>
-                <?php endif ?>
-            </div>
-            <?php endif ?>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375 -->
             <div><?php echo $this->getChildHtml('shipment_tracking') ?></div>
         </fieldset>
     <?php echo $this->getChildHtml('shipment_packaging') ?>
