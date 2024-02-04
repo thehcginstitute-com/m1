@@ -80,7 +80,8 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
 # "Delete the unused `Mage_Authorizenet` module": https://github.com/thehcginstitute-com/m1/issues/352
         'Mage_Bundle' => 51,
         'Mage_Captcha' => 52,
-        'Mage_Centinel' => 53,
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Centinel` module": https://github.com/thehcginstitute-com/m1/issues/353
         'Mage_ConfigurableSwatches' => 54,
         'Mage_Newsletter' => 55,
         'Mage_Downloadable' => 56,
