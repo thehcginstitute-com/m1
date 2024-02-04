@@ -2,5 +2,4 @@
 .grid tr.headings_colspan td {text-align:center; text-transform:uppercase; font-weight:bold; border-width:1px; border-color:#f9f9f9 #d1cfcf #f9f9f9 #f9f9f9; border-style:solid; border-bottom:none; padding-top:1px; padding-bottom:0; font-size:13px;}
 .grid tr.headings_colspan td.last {border-right:0;}
 .head-adminhtml-transactions {background:url("../../images/fam_folder_table.gif") no-repeat;}
-#iwd_settlementreport_transactions_grid #emails {height:17px;}
 tr#send_email_with_report span {vertical-align:middle; text-align:center;}
