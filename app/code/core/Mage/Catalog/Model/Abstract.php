@@ -1,27 +1,16 @@
 <?php
 /**
- * Magento
- *
- * NOTICE OF LICENSE
+ * OpenMage
  *
  * This source file is subject to the Open Software License (OSL 3.0)
  * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magento.com so we can send you a copy immediately.
+ * It is also available at https://opensource.org/license/osl-3-0-php
  *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magento.com for more information.
- *
- * @category    Mage
- * @package     Mage_Catalog
- * @copyright  Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @category   Mage
+ * @package    Mage_Catalog
+ * @copyright  Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright  Copyright (c) 2020-2022 The OpenMage Contributors (https://www.openmage.org)
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 /**
@@ -29,15 +18,17 @@
  *
  * @category   Mage
  * @package    Mage_Catalog
- * @author      Magento Core Team <core@magentocommerce.com>
+ * @author     Magento Core Team <core@magentocommerce.com>
+ *
+ * @method int getStoreId()
  */
 abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
 {
     /**
-     * Identifuer of default store
+     * Identifier of default store
      * used for loading default data for entity
      */
-    const DEFAULT_STORE_ID = 0;
+    public const DEFAULT_STORE_ID = 0;
 
     /**
      * Attribute default values
@@ -47,42 +38,41 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @var array
      */
-    protected $_defaultValues = array();
+    protected $_defaultValues = [];
 
     /**
      * This array contains codes of attributes which have value in current store
      *
      * @var array
      */
-    protected $_storeValuesFlags = array();
+    protected $_storeValuesFlags = [];
 
     /**
      * Locked attributes
      *
      * @var array
      */
-    protected $_lockedAttributes = array();
+    protected $_lockedAttributes = [];
 
     /**
-     * Is model deleteable
+     * Is model deletable
      *
-     * @var boolean
+     * @var bool
      */
     protected $_isDeleteable = true;
 
     /**
      * Is model readonly
      *
-     * @var boolean
+     * @var bool
      */
     protected $_isReadonly = false;
-
 
     /**
      * Lock attribute
      *
      * @param string $attributeCode
-     * @return Mage_Catalog_Model_Abstract
+     * @return $this
      */
     public function lockAttribute($attributeCode)
     {
@@ -94,7 +84,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      * Unlock attribute
      *
      * @param string $attributeCode
-     * @return Mage_Catalog_Model_Abstract
+     * @return $this
      */
     public function unlockAttribute($attributeCode)
     {
@@ -108,11 +98,11 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
     /**
      * Unlock all attributes
      *
-     * @return Mage_Catalog_Model_Abstract
+     * @return $this
      */
     public function unlockAttributes()
     {
-        $this->_lockedAttributes = array();
+        $this->_lockedAttributes = [];
         return $this;
     }
 
@@ -129,7 +119,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
     /**
      * Checks that model have locked attributes
      *
-     * @return boolean
+     * @return bool
      */
     public function hasLockedAttributes()
     {
@@ -139,7 +129,8 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
     /**
      * Retrieve locked attributes
      *
-     * @return boolean
+     * @param string $attributeCode
+     * @return bool
      */
     public function isLockedAttribute($attributeCode)
     {
@@ -156,20 +147,17 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * $isChanged will specify if the object needs to be saved after an update.
      *
-     * @param string|array $key
-     * @param mixed $value
-     * @param boolean $isChanged
-     * @return Varien_Object
+     * @inheritDoc
      */
     public function setData($key, $value = null)
     {
         if ($this->hasLockedAttributes()) {
             if (is_array($key)) {
-                 foreach ($this->getLockedAttributes() as $attribute) {
-                     if (isset($key[$attribute])) {
-                         unset($key[$attribute]);
-                     }
-                 }
+                foreach ($this->getLockedAttributes() as $attribute) {
+                    if (isset($key[$attribute])) {
+                        unset($key[$attribute]);
+                    }
+                }
             } elseif ($this->isLockedAttribute($key)) {
                 return $this;
             }
@@ -187,14 +175,13 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * $isChanged will specify if the object needs to be saved after an update.
      *
-     * @param string $key
-     * @param boolean $isChanged
-     * @return Mage_Catalog_Model_Abstract
+     * @inheritDoc
      */
     public function unsetData($key = null)
     {
         if ((!is_null($key) && $this->isLockedAttribute($key)) ||
-            $this->isReadonly()) {
+            $this->isReadonly()
+        ) {
             return $this;
         }
 
@@ -208,9 +195,8 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      */
     public function getResourceCollection()
     {
-        $collection = parent::getResourceCollection()
+        return parent::getResourceCollection()
             ->setStoreId($this->getStoreId());
-        return $collection;
     }
 
     /**
@@ -219,14 +205,14 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      * @param Mage_Eav_Model_Entity_Attribute_Interface|integer|string|array $attribute
      * @param null|string|array $value
      * @param string $additionalAttributes
-     * @return bool|Mage_Catalog_Model_Abstract
+     * @return false|$this
      */
     public function loadByAttribute($attribute, $value, $additionalAttributes = '*')
     {
         $collection = $this->getResourceCollection()
             ->addAttributeToSelect($additionalAttributes)
             ->addAttributeToFilter($attribute, $value)
-            ->setPage(1,1);
+            ->setPage(1, 1);
 
         foreach ($collection as $object) {
             return $object;
@@ -259,9 +245,9 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * Default value existing is flag for using store value in data
      *
-     * @param   string $attributeCode
-     * @value   mixed  $value
-     * @return  Mage_Catalog_Model_Abstract
+     * @param string $attributeCode
+     * @param string $value
+     * @return  $this
      */
     public function setAttributeDefaultValue($attributeCode, $value)
     {
@@ -273,7 +259,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      * Retrieve default value for attribute code
      *
      * @param   string $attributeCode
-     * @return  array|boolean
+     * @return  array|false
      */
     public function getAttributeDefaultValue($attributeCode)
     {
@@ -285,7 +271,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      * value of default store as value
      *
      * @param   string $attributeCode
-     * @return  Mage_Catalog_Model_Abstract
+     * @return  $this
      */
     public function setExistsStoreValueFlag($attributeCode)
     {
@@ -307,7 +293,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
     /**
      * Before save unlock attributes
      *
-     * @return Mage_Catalog_Model_Abstract
+     * @inheritDoc
      */
     protected function _beforeSave()
     {
@@ -318,7 +304,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
     /**
      * Checks model is deletable
      *
-     * @return boolean
+     * @return bool
      */
     public function isDeleteable()
     {
@@ -328,8 +314,8 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
     /**
      * Set is deletable flag
      *
-     * @param boolean $value
-     * @return Mage_Catalog_Model_Abstract
+     * @param bool $value
+     * @return $this
      */
     public function setIsDeleteable($value)
     {
@@ -340,7 +326,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
     /**
      * Checks model is deletable
      *
-     * @return boolean
+     * @return bool
      */
     public function isReadonly()
     {
@@ -350,13 +336,12 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
     /**
      * Set is deletable flag
      *
-     * @param boolean $value
-     * @return Mage_Catalog_Model_Abstract
+     * @param bool $value
+     * @return $this
      */
     public function setIsReadonly($value)
     {
         $this->_isReadonly = (bool)$value;
         return $this;
     }
-
 }
