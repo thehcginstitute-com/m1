@@ -1,27 +1,16 @@
 <?php
 /**
- * Magento
- *
- * NOTICE OF LICENSE
+ * OpenMage
  *
  * This source file is subject to the Open Software License (OSL 3.0)
  * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magento.com so we can send you a copy immediately.
+ * It is also available at https://opensource.org/license/osl-3-0-php
  *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magento.com for more information.
- *
- * @category    Mage
- * @package     Mage_Oauth
- * @copyright  Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @category   Mage
+ * @package    Mage_Oauth
+ * @copyright  Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright  Copyright (c) 2019-2023 The OpenMage Contributors (https://www.openmage.org)
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 /**
@@ -29,9 +18,9 @@
  *
  * Tab "My Applications" in the Customer Account
  *
- * @category    Mage
- * @package     Mage_Oauth
- * @author      Magento Core Team <core@magentocommerce.com>
+ * @category   Mage
+ * @package    Mage_Oauth
+ * @author     Magento Core Team <core@magentocommerce.com>
  */
 class Mage_Oauth_Customer_TokenController extends Mage_Core_Controller_Front_Action
 {
@@ -45,7 +34,7 @@ class Mage_Oauth_Customer_TokenController extends Mage_Core_Controller_Front_Act
     /**
      * Customer session model
      *
-     * @var Mage_Customer_Model_Session
+     * @var string
      */
     protected $_sessionName = 'customer/session';
 
@@ -57,11 +46,13 @@ class Mage_Oauth_Customer_TokenController extends Mage_Core_Controller_Front_Act
     public function preDispatch()
     {
         parent::preDispatch();
-        $this->_session = Mage::getSingleton($this->_sessionName);
+        /** @var Mage_Customer_Model_Session $classInstance */
+        $classInstance = Mage::getSingleton($this->_sessionName);
+        $this->_session = $classInstance;
         if (!$this->_session->authenticate($this)) {
             $this->setFlag('', self::FLAG_NO_DISPATCH, true);
         }
-
+        return $this;
     }
 
     /**
@@ -77,7 +68,7 @@ class Mage_Oauth_Customer_TokenController extends Mage_Core_Controller_Front_Act
     /**
      * Redirect to referrer URL or otherwise to index page without params
      *
-     * @return Mage_Oauth_Customer_TokenController
+     * @return $this
      */
     protected function _redirectBack()
     {
@@ -97,14 +88,14 @@ class Mage_Oauth_Customer_TokenController extends Mage_Core_Controller_Front_Act
         $id = $this->getRequest()->getParam('id');
         $status = $this->getRequest()->getParam('status');
 
-        if (0 === (int) $id) {
+        if ((int) $id === 0) {
             // No ID
             $this->_session->addError($this->__('Invalid entry ID.'));
             $this->_redirectBack();
             return;
         }
 
-        if (null === $status) {
+        if ($status === null) {
             // No status selected
             $this->_session->addError($this->__('Invalid revoke status.'));
             $this->_redirectBack();
@@ -112,7 +103,7 @@ class Mage_Oauth_Customer_TokenController extends Mage_Core_Controller_Front_Act
         }
 
         try {
-            /** @var $collection Mage_Oauth_Model_Resource_Token_Collection */
+            /** @var Mage_Oauth_Model_Resource_Token_Collection $collection */
             $collection = Mage::getModel('oauth/token')->getCollection();
             $collection->joinConsumerAsApplication()
                     ->addFilterByCustomerId($this->_session->getCustomerId())
@@ -121,7 +112,7 @@ class Mage_Oauth_Customer_TokenController extends Mage_Core_Controller_Front_Act
                     ->addFilterByRevoked(!$status);
             //here is can be load from model, but used from collection for get consumer name
 
-            /** @var $model Mage_Oauth_Model_Token */
+            /** @var Mage_Oauth_Model_Token $model */
             $model = $collection->getFirstItem();
             if ($model->getId()) {
                 $name = $model->getName();
@@ -152,7 +143,7 @@ class Mage_Oauth_Customer_TokenController extends Mage_Core_Controller_Front_Act
     {
         $id = $this->getRequest()->getParam('id');
 
-        if (0 === (int) $id) {
+        if ((int) $id === 0) {
             // No ID
             $this->_session->addError($this->__('Invalid entry ID.'));
             $this->_redirectBack();
@@ -160,20 +151,21 @@ class Mage_Oauth_Customer_TokenController extends Mage_Core_Controller_Front_Act
         }
 
         try {
-            /** @var $collection Mage_Oauth_Model_Resource_Token_Collection */
+            /** @var Mage_Oauth_Model_Resource_Token_Collection $collection */
             $collection = Mage::getModel('oauth/token')->getCollection();
             $collection->joinConsumerAsApplication()
                     ->addFilterByCustomerId($this->_session->getCustomerId())
                     ->addFilterByType(Mage_Oauth_Model_Token::TYPE_ACCESS)
                     ->addFilterById($id);
 
-            /** @var $model Mage_Oauth_Model_Token */
+            /** @var Mage_Oauth_Model_Token $model */
             $model = $collection->getFirstItem();
             if ($model->getId()) {
                 $name = $model->getName();
                 $model->delete();
                 $this->_session->addSuccess(
-                    $this->__('Application "%s" has been deleted.', $name));
+                    $this->__('Application "%s" has been deleted.', $name)
+                );
             } else {
                 $this->_session->addError($this->__('Application not found.'));
             }
