@@ -105,7 +105,9 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
     {
         $backupId = $this->loadOrder($orderId)->getIwdBackupId();
         if (empty($backupId)) {
-            return $this->reauthorizeOrderPayment($orderId, $oldOrder);
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Reauthorize» feature from IWD Order Manager": https://github.com/thehcginstitute-com/m1/issues/362
+            return 1;
         }
 
         Mage::getSingleton('adminhtml/session')->addNotice(
@@ -115,28 +117,6 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
         );
 
         return 0;
-    }
-
-    public function reauthorizeOrderPayment($orderId, $oldOrder)
-    {
-        try {
-            /** @var $newOrder Mage_Sales_Model_Order */
-            /** @var $oldOrder Mage_Sales_Model_Order */
-            $newOrder = $this->loadOrder($orderId);
-
-            $oldTotal = $oldOrder->getGrandTotal() - $oldOrder->getTotalRefunded();
-            $newTotal = $newOrder->getGrandTotal() - $newOrder->getTotalRefunded();
-
-            if ($oldTotal != $newTotal) {
-                $this->updateCreditMemos($orderId);
-                $this->updateInvoice($orderId);
-                $this->reauthorizePayment($orderId, $oldOrder);
-            }
-        } catch (Exception $e) {
-            return -1;
-        }
-
-        return 1;
     }
 
     public function updateCreditMemos($orderId)
@@ -176,21 +156,6 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
         }
 
         return true;
-    }
-
-    protected function reauthorizePayment($orderId, $oldOrder)
-    {
-        /** @var $payment IWD_OrderManager_Model_Payment_Payment */
-        $payment = Mage::getModel('iwd_ordermanager/payment_payment');
-
-        if ($payment->reauthorizePayment($orderId, $oldOrder) === -1) {
-            $order = $this->loadOrder($orderId);
-            Mage::dispatchEvent(
-                'iwd_ordermanager_sales_order_reauthorize_payment_fail',
-                array('order' => $order, 'payment' => $payment)
-            );
-            throw new Exception('IWD Order Manager re-authorization failed');
-        }
     }
 
     protected function checkItemData($item)

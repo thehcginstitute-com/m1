@@ -52,7 +52,6 @@ class IWD_OrderManager_Model_Observer
         $block = $observer->getEvent()->getBlock();
 
         if ($this->_orderPrint($block)
-            | $this->_orderReauthorize($block)
             | $this->_orderArchive($block)
             | $this->_orderDelete($block)
             | $this->_orderShowHide($block)
@@ -320,34 +319,8 @@ class IWD_OrderManager_Model_Observer
     }
     /********************************************************** end ARCHIVE **/
 
-
-    /****************************** RE-AUTHORIZE BUTTON **********************/
-    /**
-     * @param $block
-     * @return bool
-     */
-    private function _orderReauthorize($block)
-    {
-        if (get_class($block) == 'Mage_Adminhtml_Block_Sales_Order_View') {
-            $helper = Mage::helper('adminhtml');
-            $orderId = $block->getRequest()->getParam('order_id');
-            if (Mage::getModel('iwd_ordermanager/order')->load($orderId)->getIwdBackupId()) {
-                $block->addButton('reauthorize', array(
-                    'label' => $helper->__('Re-Authorize'),
-                    'class' => 'add',
-                    'onclick' =>
-                        'confirmSetLocation(\'' . $helper->__('Are you sure to re-authorize payment.') . '\', \'' .
-                        $helper->getUrl('*/sales_reauthorize/reauthorize', array('order_id' => $orderId)) . '\')'
-                ), -1, 114);
-            }
-
-            return true;
-        }
-
-        return false;
-    }
-    /********************************************************** end ARCHIVE **/
-
+# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Reauthorize» feature from IWD Order Manager": https://github.com/thehcginstitute-com/m1/issues/362
 
     /****************************** PRINT BUTTON *****************************/
     /**

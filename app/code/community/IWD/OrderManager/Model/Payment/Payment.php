@@ -168,69 +168,6 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
         return Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/actions/edit_payment');
     }
 
-    /**
-     * @param $orderId
-     * @param $oldOrder
-     * @return int
-     */
-    public function reauthorizePayment($orderId, $oldOrder)
-    {
-        if (self::IS_REAUTHORIZATION_ENABLED == false) {
-            return 1;
-        }
-
-        try {
-            $order = Mage::getModel('sales/order')->load($orderId);
-            $payment = $order->getPayment();
-            $orderMethod = $payment->getMethod();
-
-            $oldAmountAuthorize = $payment->getBaseAmountAuthorized();
-            $amount = $order->getBaseGrandTotal();
-
-            /**
-             * Authorized (but do not captured) more then we need now (authorized $100, need $80)
-             */
-            if (!$order->hasInvoices() && $oldAmountAuthorize >= $amount) {
-                return 1;
-            }
-
-            switch ($orderMethod) {
-                /**
-                 * Offline payment methods
-                 */
-                case 'free':
-                case 'checkmo':
-                case 'purchaseorder':
-                    return 1;
-
-				# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				# 1) "Delete the unused `Mage_Paygate` module":
-				#  https://github.com/thehcginstitute-com/m1/issues/354
-				# 2) "Delete the unused `Mage_Authorizenet` module":
-				#  https://github.com/thehcginstitute-com/m1/issues/352
-
-				# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				# "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
-
-				# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				# 1) "Delete the unused `Mage_Paygate` module":
-				#  https://github.com/thehcginstitute-com/m1/issues/354
-				# 2) "Delete the unused `Mage_Authorizenet` module":
-				#  https://github.com/thehcginstitute-com/m1/issues/352
-
-                /**
-                 * Another payments
-                 */
-                default:
-                    return 1;
-            }
-        } catch (Exception $e) {
-            Mage::getSingleton('adminhtml/session')->addError(Mage::helper('iwd_ordermanager')->__($e->getMessage()));
-            IWD_OrderManager_Model_Logger::log($e->getMessage(), true);
-            return -1;
-        }
-    }
-
 	# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	# 1) "Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354
 	# 2) "Delete the unused `Mage_Authorizenet` module": https://github.com/thehcginstitute-com/m1/issues/352
