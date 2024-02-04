@@ -196,10 +196,9 @@ abstract class Mage_Adminhtml_Helper_Help_Mapping extends Mage_Core_Helper_Abstr
         'Mage_ImportExport_Adminhtml' => [
             'import' => 'store-operations/data-import.html',
             'export' => 'store-operations/data-export.html',
-        ],
-        'Mage_Connect_Adminhtml' => [
-            'extension_custom/edit' => 'magento/magento-connect.html'
-        ],
+		],
+		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Connect` module": https://github.com/thehcginstitute-com/m1/issues/57
         'Mage_Index_Adminhtml' => [
             'process/list' => 'system-operations/index-management.html'
         ],
