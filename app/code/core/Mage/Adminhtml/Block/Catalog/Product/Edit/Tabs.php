@@ -140,21 +140,8 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tabs extends Mage_Adminhtml_Bloc
                         ]);
                     }
                 }
-                if (Mage::helper('catalog')->isModuleEnabled('Mage_Tag')) {
-                    if (Mage::getSingleton('admin/session')->isAllowed('admin/catalog/tag')) {
-                        $this->addTab('tags', [
-                         'label'     => Mage::helper('catalog')->__('Product Tags'),
-                         'url'   => $this->getUrl('*/*/tagGrid', ['_current' => true]),
-                         'class' => 'ajax',
-                        ]);
-
-                        $this->addTab('customers_tags', [
-                            'label'     => Mage::helper('catalog')->__('Customers Tagged Product'),
-                            'url'   => $this->getUrl('*/*/tagCustomerGrid', ['_current' => true]),
-                            'class' => 'ajax',
-                        ]);
-                    }
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
             }
 
             /**

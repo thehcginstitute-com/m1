@@ -94,17 +94,8 @@
         </block>
     </adminhtml_customer_productreviews>
 
-    <adminhtml_customer_producttags>
-        <block type="core/text_list" name="root" output="toHtml">
-            <block type="adminhtml/customer_edit_tab_tag" name="admin.customer.tags"/>
-        </block>
-    </adminhtml_customer_producttags>
-
-    <adminhtml_customer_taggrid>
-        <block type="core/text_list" name="root" output="toHtml">
-            <block type="adminhtml/customer_edit_tab_tag" name="admin.customer.tags"/>
-        </block>
-    </adminhtml_customer_taggrid>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
 
     <adminhtml_customer_newsletter>
         <block type="core/text_list" name="root" output="toHtml">

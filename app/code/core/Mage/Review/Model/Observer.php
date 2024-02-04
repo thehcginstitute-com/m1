@@ -22,21 +22,8 @@
  */
 class Mage_Review_Model_Observer
 {
-    /**
-     * Add review summary info for tagged product collection
-     *
-     * @param Varien_Event_Observer $observer
-     * @return $this
-     */
-    public function tagProductCollectionLoadAfter(Varien_Event_Observer $observer)
-    {
-        /** @var Mage_Tag_Model_Resource_Product_Collection $collection */
-        $collection = $observer->getEvent()->getCollection();
-        Mage::getSingleton('review/review')
-            ->appendSummary($collection);
-
-        return $this;
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
 
     /**
      * Cleanup product reviews after product delete

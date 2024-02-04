@@ -139,7 +139,9 @@ class Mage_Catalog_Helper_Product_View extends Mage_Core_Helper_Abstract
 
         $this->initProductLayout($product, $controller);
 
-        $controller->initLayoutMessages(['catalog/session', 'tag/session', 'checkout/session'])
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
+        $controller->initLayoutMessages(['catalog/session', 'checkout/session'])
             ->renderLayout();
 
         return $this;

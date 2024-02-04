@@ -114,15 +114,8 @@
             </updates>
         </layout>
         <events>
-            <tag_tag_product_collection_load_after>
-                <observers>
-                    <review>
-                        <type>model</type>
-                        <class>review/observer</class>
-                        <method>tagProductCollectionLoadAfter</method>
-                    </review>
-                </observers>
-            </tag_tag_product_collection_load_after>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
             <catalog_block_product_list_collection>
                 <observers>
                     <review>

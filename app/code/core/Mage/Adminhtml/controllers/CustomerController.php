@@ -572,29 +572,8 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
         $this->renderLayout();
     }
 
-    /**
-     * Get customer's tags list
-     */
-    public function productTagsAction()
-    {
-        $this->_initCustomer();
-        $this->loadLayout()
-            ->getLayout()
-            ->getBlock('admin.customer.tags')
-            ->setCustomerId(Mage::registry('current_customer')->getId())
-            ->setUseAjax(true);
-        $this->renderLayout();
-    }
-
-    public function tagGridAction()
-    {
-        $this->_initCustomer();
-        $this->loadLayout();
-        $this->getLayout()->getBlock('admin.customer.tags')->setCustomerId(
-            Mage::registry('current_customer')
-        );
-        $this->renderLayout();
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
 
     public function validateAction()
     {

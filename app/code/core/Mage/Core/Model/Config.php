@@ -60,7 +60,8 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
 # "Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367
         'Mage_Review' => 32,
         'Mage_Rating' => 33,
-        'Mage_Tag' => 34,
+# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
         'Mage_Reports' => 35,
 # 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Delete the `Mage_GoogleAnalytics` module because it is unused (the `Tatvic_Uaee` module is used instead)":

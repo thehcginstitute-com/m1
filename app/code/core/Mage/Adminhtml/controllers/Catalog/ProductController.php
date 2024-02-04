@@ -856,16 +856,8 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
             ->setRedirect($this->getUrl('*/*/', ['store' => $this->getRequest()->getParam('store')]));
     }
 
-    /**
-     * Get tag grid
-     */
-    public function tagGridAction()
-    {
-        $this->loadLayout();
-        $this->getLayout()->getBlock('admin.product.tags')
-            ->setProductId($this->getRequest()->getParam('id'));
-        $this->renderLayout();
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
 
     /**
      * Get alerts price grid
@@ -990,17 +982,8 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
         }
     }
 
-    /**
-     * Get tag customer grid
-     *
-     */
-    public function tagCustomerGridAction()
-    {
-        $this->loadLayout();
-        $this->getLayout()->getBlock('admin.product.tags.customers')
-                ->setProductId($this->getRequest()->getParam('id'));
-        $this->renderLayout();
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
 
     public function quickCreateAction()
     {

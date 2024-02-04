@@ -70,12 +70,8 @@ Default layout, loads most of the pages
     <catalogsearch_advanced_result>
         <update handle="MAP_popup" />
     </catalogsearch_advanced_result>
-    <tag_product_list>
-        <update handle="MAP_popup" />
-    </tag_product_list>
-    <tag_customer_view>
-        <update handle="MAP_popup" />
-    </tag_customer_view>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
 
     <MAP_popup>
         <reference name="head">

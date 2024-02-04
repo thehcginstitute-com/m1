@@ -169,7 +169,6 @@
  * @method int getProductId()
  * @method array getProductOptions()
  * @method $this setProductOptions(array $value)
- * @method $this setProductTags(Mage_Tag_Model_Resource_Tag_Collection $value)
  * @method $this setProductUrl(string $value)
  *
  * @method $this setQuoteItemPrice(float $value)

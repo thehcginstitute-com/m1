@@ -91,13 +91,8 @@ class Mage_Adminhtml_Block_Customer_Edit_Tabs extends Mage_Adminhtml_Block_Widge
                 ]);
             }
 
-            if (Mage::getSingleton('admin/session')->isAllowed('catalog/tag')) {
-                $this->addTab('tags', [
-                    'label'     => Mage::helper('customer')->__('Product Tags'),
-                    'class'     => 'ajax',
-                    'url'       => $this->getUrl('*/*/productTags', ['_current' => true]),
-                ]);
-            }
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
         }
 
         $this->_updateActiveTab();

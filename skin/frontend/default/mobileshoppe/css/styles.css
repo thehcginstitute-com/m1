@@ -2178,23 +2178,8 @@ input.input-text, select, textarea {
 /* 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367 */
 
-.block-tags .block-content .tags-list {
-	border: 0;
-	background: none;
-	padding: 0;
-}
-
-.block-tags .block-content li a {
-	color: #444;
-}
-
-.block-tags .actions {
-	text-align: right;
-}
-
-.block-tags .actions a {
-	float: none;
-}
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 
 .block-reorder input.checkbox {
 	float: left;
@@ -3613,64 +3598,8 @@ ul.product-tabs {
 	display: block;
 }
 
-.product-view .box-tags {
-	margin: 0;
-}
-
-.product-view .box-tags h3 {
-	font-size: 12px;
-}
-
-.product-view .box-tags .product-tags {
-	display: block;
-	margin: 0 0 15px;
-}
-
-.product-view .box-tags .product-tags li {
-	display: inline;
-	background: url(../images/bkg_pipe3.gif) 100% 4px no-repeat;
-	padding: 0 7px 0 4px;
-}
-
-.product-view .box-tags .product-tags li.first {
-	padding-left: 0;
-}
-
-.product-view .box-tags .product-tags li.last {
-	background: none;
-	padding-right: 0;
-}
-
-.product-view .box-tags .form-add label {
-	display: block;
-	font-size: 12px;
-	font-weight: bold;
-	margin: 0 0 3px;
-}
-
-.product-view .box-tags .form-add .input-box {
-	margin: 9px 0;
-	width: 460px;
-}
-
-.product-view .box-tags .form-add {
-	width: 100%;
-}
-
-.product-view .box-tags .form-add input.input-text {
-}
-
-.product-view .box-tags .form-add button.button {
-	clear: both;
-}
-
-.product-view .box-tags .form-add button.button span {
-}
-
-.product-view .box-tags .note {
-	margin: 2px 0 0;
-	font-size: 10px;
-}
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 
 .product-view .box-reviews dl {
 	margin: 18px 0;
@@ -3746,22 +3675,8 @@ ul.product-tabs {
 	line-height: 1.5;
 }
 
-.tags-list {
-	display: block;
-	font-size: 13px;
-	border: 1px solid #ddd;
-	background: #f6f6f6;
-	padding: 10px;
-}
-
-.tags-list li {
-	display: inline !important;
-	margin: 0 4px 0 0;
-}
-
-.tags-list li a {
-	color: #1b2d3b;
-}
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 
 .advanced-search .form-list label {
 }
@@ -5201,48 +5116,8 @@ ul.crosssell-products-list {
 	margin: 7px 0 0;
 }
 
-.dashboard .box-tags .box-head {
-	background: #f1f1f1;
-	padding: 2px 10px;
-	margin: 0 0 12px;
-}
-
-.dashboard .box-tags .box-head h2 {
-	font-size: 12px;
-	font-weight: bold;
-	line-height: 1.35;
-	color: #444;
-}
-
-.dashboard .box-tags .number {
-	display: none;
-	float: left;
-	font-size: 10px;
-	font-weight: bold;
-	line-height: 1;
-	color: #fff;
-	margin: 3px -20px 0 0;
-	padding: 2px 3px;
-	background: #0a263c;
-}
-
-.dashboard .box-tags .details {
-	padding: 0 10px;
-}
-
-.dashboard .box-tags li.item {
-	margin: 0 0 7px;
-}
-
-.dashboard .box-tags li.item.last {
-	margin: 0;
-}
-
-.dashboard .box-tags .tags strong,
-.dashboard .box-tags .tags ul,
-.dashboard .box-tags .tags ul li {
-	display: inline;
-}
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 
 .addresses-list h2 {
 	background: #f1f1f1;
@@ -5540,27 +5415,8 @@ ul.crosssell-products-list {
 	white-space: nowrap;
 }
 
-.my-tag-edit {
-	float: left;
-	margin: 0 0 10px;
-}
-
-.my-tag-edit .btn-remove {
-	float: right;
-	margin: 4px 0 0 5px;
-}
-
-#my-tags-table {
-	clear: both;
-}
-
-#my-tags-table td {
-	padding: 10px;
-}
-
-#my-tags-table .add-to-links {
-	white-space: nowrap;
-}
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 
 #my-reviews-table td {
 	padding: 10px;
@@ -6163,7 +6019,8 @@ ul.crosssell-products-list {
 .dashboard .box .box-title:after,
 .order-info ul:after,
 .box-reviews li.item:after,
-.box-tags li.item:after,
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 .pager:after,
 .sorter:after,
 .ratings:after,
@@ -6173,7 +6030,8 @@ ul.crosssell-products-list {
 .product-collateral:after,
 .product-tabs:after,
 .product-view .product-img-box .more-views ul:after,
-.product-view .box-tags .form-add:after,
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 .product-view .product-shop .short-description:after,
 .product-view .box-description:after,
 .product-options .options-list li:after,
@@ -6972,9 +6830,8 @@ https://stackoverflow.com/a/36448860 */
 		float: none;
 	}
 
-	.product-view .box-tags .form-add .input-box {
-		width: 100%;
-	}
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 
 	.cart-table .btn-continue {
 		float: left;
@@ -7296,7 +7153,8 @@ https://stackoverflow.com/a/36448860 */
 
 .lt-ie7 .form-search button.button span,
 .lt-ie7 .block button.button span,
-.lt-ie7 .product-view .box-tags .form-add button.button span,
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 .lt-ie7 .footer .form-subscribe button.button span {
 	background-image: url(../images/bkg_btn-small.gif);
 }
@@ -7307,7 +7165,8 @@ https://stackoverflow.com/a/36448860 */
 }
 
 .lt-ie8 .product-view .product-img-box .more-views li,
-.lt-ie8 .product-view .box-tags .form-add .input-box,
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 .lt-ie8 .sp-methods select.month,
 .lt-ie8 .footer .form-subscribe .input-box {
 	display: inline;
@@ -7366,9 +7225,8 @@ https://stackoverflow.com/a/36448860 */
 	margin: 0;
 }
 
-.lt-ie8 .product-view .box-tags .product-tags li {
-	padding: 0 4px 0 7px;
-}
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 
 .lt-ie8 .footer li {
 	padding-right: 2px;
@@ -7426,7 +7284,8 @@ https://stackoverflow.com/a/36448860 */
 .lt-ie8 .dashboard .box .box-title,
 .lt-ie8 .order-info ul,
 .lt-ie8 .box-reviews li.item,
-.lt-ie8 .box-tags li.item,
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 .lt-ie8 .pager,
 .lt-ie8 .sorter,
 .lt-ie8 .ratings,
@@ -7436,7 +7295,8 @@ https://stackoverflow.com/a/36448860 */
 .lt-ie8 .product-collateral,
 .lt-ie8 .product-tabs,
 .lt-ie8 .product-view .product-img-box .more-views ul,
-.lt-ie8 .product-view .box-tags .form-add,
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 .lt-ie8 .product-view .product-shop .short-description,
 .lt-ie8 .product-view .box-description,
 .lt-ie8 .product-options .options-list li,

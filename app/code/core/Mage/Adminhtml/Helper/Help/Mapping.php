@@ -62,9 +62,8 @@ abstract class Mage_Adminhtml_Helper_Help_Mapping extends Mage_Core_Helper_Abstr
             'catalog_product_review/pending' => 'marketing/product-reviews.html',
             'catalog_product_review' => 'marketing/product-reviews.html',
             'rating' => 'marketing/product-reviews-ratings.html',
-            /* Catalog → Tags */
-            'tag' => 'marketing/tags.html',
-            'tag/pending' => 'marketing/tags-moderate.html',
+# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
             /* Customers */
             'customer' => 'customers/customer-account-create.html',
             'customer_group' => 'customers/customer-group-create.html',
@@ -102,10 +101,8 @@ abstract class Mage_Adminhtml_Helper_Help_Mapping extends Mage_Core_Helper_Abstr
             'report_customer/accounts' => 'store-operations/reports-available.html',
             'report_customer/totals' => 'store-operations/reports-available.html',
             'report_customer/orders' => 'store-operations/reports-available.html',
-            /* Reports → Tags */
-            'report_tag/customer' => 'store-operations/reports-available.html',
-            'report_tag/product' => 'store-operations/reports-available.html',
-            'report_tag/popular' => 'store-operations/reports-available.html',
+# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
             /* Reports → Reviews */
             'report_review/customer' => 'store-operations/reports-available.html',
             'report_review/product' => 'store-operations/reports-available.html',

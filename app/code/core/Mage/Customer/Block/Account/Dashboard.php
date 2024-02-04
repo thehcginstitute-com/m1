@@ -84,12 +84,8 @@ class Mage_Customer_Block_Account_Dashboard extends Mage_Core_Block_Template
         return Mage::getUrl('customer/wishlist/index', ['_secure' => true]);
     }
 
-    /**
-     * @todo LTS add tags URL
-     */
-    public function getTagsUrl()
-    {
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
 
     /**
      * @return Mage_Newsletter_Model_Subscriber

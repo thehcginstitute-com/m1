@@ -172,10 +172,10 @@
 .manage-menus,
 table.widefat,
 .stuffbox,
-p.popular-tags,
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 .widgets-holder-wrap,
 .wp-editor-container,
-.popular-tags,
 .feature-filter,
 .imgedit-group {
 	border: 1px solid #e5e5e5;
@@ -186,9 +186,11 @@ p.popular-tags,
 table.widefat,
 .wp-editor-container,
 .stuffbox,
-p.popular-tags,
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 .widgets-holder-wrap,
-.popular-tags,
+/* 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 */
 .feature-filter,
 .imgedit-group {
 	background: #fff;
@@ -736,7 +738,6 @@ td.help {
 	border-bottom: 1px solid #eee;
 }
 
-.quicktags,
 .search {
 	background-color: #ccc;
 	color: #000;

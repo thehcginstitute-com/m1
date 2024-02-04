@@ -307,7 +307,6 @@
 "Product ID","Product ID"
 "Product Name","Product Name"
 "Product Reviews","Product Reviews"
-"Product Tags","Product Tags"
 "Purchase On","Purchase On"
 "Purchased On","Purchased On"
 "Qty","Qty"
@@ -382,8 +381,7 @@
 "Submit","Submit"
 "Subscribe to Newsletter","Subscribe to Newsletter"
 "Subscribed to Newsletter?","Subscribed to Newsletter?"
-"Suffix Dropdown Options","Suffix Dropdown Options"
-"Tag Name","Tag Name"
+"Suffix Dropdown Options","Suffix Dropdown Options".
 "Tax Calculation Based On","Tax Calculation Based On"
 "Tax Class","Tax Class"
 "Tax/VAT number","Tax/VAT number"

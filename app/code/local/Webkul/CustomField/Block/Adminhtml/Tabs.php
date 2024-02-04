@@ -57,14 +57,8 @@ class Webkul_CustomField_Block_Adminhtml_Tabs extends Mage_Adminhtml_Block_Templ
             return false;
         }
 
-         /**
-         * Defines after which tab, this tab should be rendered
-         *
-         * @return string
-         */
-        public function getAfter() {
-            return 'tags';
-        }
+# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
 
     }
 

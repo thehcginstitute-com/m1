@@ -84,17 +84,8 @@
         </block>
     </adminhtml_catalog_product_reviews>
 
-    <adminhtml_catalog_product_taggrid>
-        <block type="core/text_list" name="root" output="toHtml">
-            <block type="adminhtml/catalog_product_edit_tab_tag" name="admin.product.tags"/>
-        </block>
-    </adminhtml_catalog_product_taggrid>
-
-    <adminhtml_catalog_product_tagcustomergrid>
-        <block type="core/text_list" name="root" output="toHtml">
-            <block type="adminhtml/catalog_product_edit_tab_tag_customer" name="admin.product.tags.customers"/>
-        </block>
-    </adminhtml_catalog_product_tagcustomergrid>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
 
     <adminhtml_catalog_product_options>
         <block type="core/text_list" name="root" output="toHtml">
