@@ -12,30 +12,69 @@
 use HCG_Payment_Deleted as D;
 use Mage_Payment_Helper_Data as H;
 use Mage_Payment_Model_Method_Abstract as M;
+
+/**
+ * Payment information model
+ *
+ * @category   Mage
+ * @package    Mage_Payment
+ * @author     Magento Core Team <core@magentocommerce.com>
+ *
+ * @method Mage_Sales_Model_Order getOrder()
+ * @method Mage_Sales_Model_Quote getQuote()
+ *
+ * @method string getAdditionalData()
+ * @method $this setAdditionalData(string $value)
+ * @method string getCcCid()
+ * @method $this setCcCid(string $value)
+ * @method string getCcCidEnc()
+ * @method string getCcExpMonth()
+ * @method $this setCcExpMonth(string $value)
+ * @method string getCcExpYear()
+ * @method $this setCcExpYear(string $value)
+ * @method string getCcLast4()
+ * @method $this setCcLast4(string $value)
+ * @method string getCcNumber()
+ * @method $this setCcNumber(string $value)
+ * @method string getCcNumberEnc()
+ * @method $this setCcNumberEnc(string $value)
+ * @method string getCcOwner()
+ * @method $this setCcOwner(string $value)
+ * @method string getCcSsIssue()
+ * @method $this setCcSsIssue(string $value)
+ * @method string getCcSsStartMonth()
+ * @method $this setCcSsStartMonth(string $value)
+ * @method string getCcSsStartYear()
+ * @method $this setCcSsStartYear(string $value)
+ * @method string getCcType()
+ * @method $this setCcType(string $value)
+ * @method string getMethod()
+ * @method bool hasMethodInstance()
+ * @method $this setMethodInstance(false|Mage_Payment_Model_Method_Abstract $value)
+ * @method $this setPoNumber(string $value)
+ */
 class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
 {
     /**
      * Additional information container
      *
-     * @var array
+     * @var array|int
      */
     protected $_additionalInformation = -1;
 
     /**
      * Retrieve data
      *
-     * @param   string $key
-     * @param   mixed $index
-     * @return unknown
+     * @inheritDoc
      */
-    public function getData($key='', $index=null)
+    public function getData($key = '', $index = null)
     {
-        if ('cc_number'===$key) {
+        if ($key === 'cc_number') {
             if (empty($this->_data['cc_number']) && !empty($this->_data['cc_number_enc'])) {
                 $this->_data['cc_number'] = $this->decrypt($this->getCcNumberEnc());
             }
         }
-        if ('cc_cid'===$key) {
+        if ($key === 'cc_cid') {
             if (empty($this->_data['cc_cid']) && !empty($this->_data['cc_cid_enc'])) {
                 $this->_data['cc_cid'] = $this->decrypt($this->getCcCidEnc());
             }
@@ -119,7 +158,7 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
      *
      * @param string|array $key
      * @param mixed $value
-     * @return Mage_Payment_Model_Info
+     * @return $this
      * @throws Mage_Core_Exception
      */
     public function setAdditionalInformation($key, $value = null)
@@ -145,17 +184,17 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
     public function getAdditionalInformation($key = null)
     {
         $this->_initAdditionalInformation();
-        if (null === $key) {
+        if ($key === null) {
             return $this->_additionalInformation;
         }
-        return isset($this->_additionalInformation[$key]) ? $this->_additionalInformation[$key] : null;
+        return $this->_additionalInformation[$key] ?? null;
     }
 
     /**
      * Unsetter for entire additional_information value or one of its element by key
      *
      * @param string $key
-     * @return Mage_Payment_Model_Info
+     * @return $this
      */
     public function unsAdditionalInformation($key = null)
     {
@@ -170,13 +209,13 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
     /**
      * Check whether there is additional information by specified key
      *
-     * @param $key
+     * @param string $key
      * @return bool
      */
     public function hasAdditionalInformation($key = null)
     {
         $this->_initAdditionalInformation();
-        return null === $key
+        return $key === null
             ? !empty($this->_additionalInformation)
             : array_key_exists($key, $this->_additionalInformation);
     }
@@ -186,11 +225,11 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
      */
     protected function _initAdditionalInformation()
     {
-        if (-1 === $this->_additionalInformation) {
+        if ($this->_additionalInformation === -1) {
             $this->_additionalInformation = $this->_getData('additional_information');
         }
-        if (null === $this->_additionalInformation) {
-            $this->_additionalInformation = array();
+        if ($this->_additionalInformation === null) {
+            $this->_additionalInformation = [];
         }
     }
 }
