@@ -90,13 +90,10 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
                     $payment = $order->getPayment();
                     $payment->addData($paymentData)->save();
                     $method = $payment->getMethodInstance();
-                    if ($order->getPayment()->getMethod() == 'braintree') {
-                        $objData = new Varien_Object();
-                        $objData->setData($paymentData);
-                        $method->prepareSave()->assignData($objData);
-                    } else {
-                        $method->prepareSave()->assignData($paymentData);
-                    }
+					# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "Delete the Braintree support from IWD modules":
+					# https://github.com/thehcginstitute-com/m1/issues/360
+                    $method->prepareSave()->assignData($paymentData);
 
 
                     $order->getPayment()->save();
@@ -107,13 +104,10 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
                     $payment->addData($paymentData)->save();
                     $payment->unsMethodInstance();
                     $method = $payment->getMethodInstance();
-                    if ($order->getPayment()->getMethod() == 'braintree') {
-                        $objData = new Varien_Object();
-                        $objData->setData($paymentData);
-                        $method->prepareSave()->assignData($objData);
-                    } else {
-                        $method->prepareSave()->assignData($paymentData);
-                    }
+					# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "Delete the Braintree support from IWD modules":
+					# https://github.com/thehcginstitute-com/m1/issues/360
+                    $method->prepareSave()->assignData($paymentData);
 
                     if ($order->getPayment()->getMethod() == "iwd_authorizecim") {
                         $cardId = $order->getPayment()->getIwdAuthorizecimCardId();

@@ -27,11 +27,8 @@
                     <order_view>IWD_OrderManager_Block_Frontend_Sales_Order_View</order_view>
                 </rewrite>
             </sales>
-            <braintree_payments>
-                <rewrite>
-                    <creditcard_form>IWD_OrderManager_Block_Braintree_Creditcard_Form</creditcard_form>
-                </rewrite>
-            </braintree_payments>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the Braintree support from IWD modules": https://github.com/thehcginstitute-com/m1/issues/360 -->
         </blocks>
         <helpers>
             <iwd_ordermanager>
@@ -315,13 +312,8 @@
     </frontend>
 
     <adminhtml>
-        <blocks>
-            <braintree_payments>
-                <rewrite>
-                    <creditcard_form>IWD_OrderManager_Block_Braintree_Creditcard_Form</creditcard_form>
-                </rewrite>
-            </braintree_payments>
-        </blocks>
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the Braintree support from IWD modules": https://github.com/thehcginstitute-com/m1/issues/360 -->
         <translate>
             <modules>
                 <translations>

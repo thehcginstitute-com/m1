@@ -20,10 +20,8 @@
             <action method="addCss"><name>iwd/ordermanager/jquery.datetimepicker.css</name></action>
             <action method="addCss"><name>iwd/ordermanager/style.css</name></action>
             <action method="addCss"><name>iwd/ordermanager/fee.css</name></action>
-            <!-- START: iwd braintree integration -->
-            <action method="addItem" ifconfig="payment/braintree/paypal_active"><type>js</type><name>iwd/braintree/braintree.js</name></action>
-            <action method="addItem" ifconfig="payment/braintree/paypal_active"><type>js</type><name>iwd/braintree/braintree-utils.js</name></action>
-            <!-- END: iwd braintree integration -->
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the Braintree support from IWD modules": https://github.com/thehcginstitute-com/m1/issues/360 -->
         </reference>
         <reference name="js">
             <block type="adminhtml/template" template="iwd/ordermanager/jsinit.phtml" name="create-js"/>
