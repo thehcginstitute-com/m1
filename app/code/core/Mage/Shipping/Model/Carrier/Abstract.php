@@ -329,15 +329,8 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
         return false;
     }
 
-    /**
-     * Check if carrier has shipping label option available
-     *
-     * @return bool
-     */
-    public function isShippingLabelsAvailable()
-    {
-        return false;
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375
 
     /**
      *  Retrieve sort order of current carrier
