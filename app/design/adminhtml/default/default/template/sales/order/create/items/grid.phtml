@@ -169,15 +169,10 @@ if (empty($_items)): ?>
         <?php else: ?>
             <?php $_rowTotalLessDiscount = $_item->getRowTotal() - $_item->getDiscountAmount() ?>
         <?php endif; ?>
-
         <?php if ($this->helper('tax')->displayCartBothPrices($this->getStore())): ?>
             <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
         <?php endif; ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
 		<?php echo $this->formatPrice(max(0, $_rowTotalLessDiscount)) ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
     <?php endif; ?>
 
 
