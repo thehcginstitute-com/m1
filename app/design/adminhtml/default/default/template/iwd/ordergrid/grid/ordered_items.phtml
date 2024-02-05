@@ -146,13 +146,22 @@
                         <td class="a-right">
                             <?php if ($this->canShowPriceInfo($_item)): ?>
                                 <span class="price">
-                                   <?php echo $helper->currency(
-                                       $_item->getBaseRowTotal() + $_item->getBaseTaxAmount() + $_item->getBaseHiddenTaxAmount() + $_item->getBaseWeeeTaxAppliedRowAmount() - $_item->getBaseDiscountAmount(),
-                                       $_item->getRowTotal() + $_item->getTaxAmount() + $_item->getHiddenTaxAmount() + $_item->getWeeeTaxAppliedRowAmount() - $_item->getDiscountAmount()
-                                   );?>
+                                   <?=
+									# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+									# "Delete the unused `Mage_Weee` module":
+									# https://github.com/thehcginstitute-com/m1/issues/377
+									$helper->currency(
+											$_item->getBaseRowTotal()
+											+ $_item->getBaseTaxAmount() 
+											+ $_item->getBaseHiddenTaxAmount()
+											- $_item->getBaseDiscountAmount()
+										,
+											$_item->getRowTotal()
+											+ $_item->getTaxAmount()
+											+ $_item->getHiddenTaxAmount()
+											- $_item->getDiscountAmount()
+									);?>
                                 </span>
-                            <?php else: ?>
-                                &nbsp;
                             <?php endif; ?>
                         </td>
                     </tr>
