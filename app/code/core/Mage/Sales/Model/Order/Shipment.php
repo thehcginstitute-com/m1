@@ -668,18 +668,4 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
 
 	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	# "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375
-
-    /**
-     * Get shipping label and decode by db adapter
-     *
-     * @return string
-     */
-    public function getShippingLabel()
-    {
-        $label = $this->getData('shipping_label');
-        if ($label) {
-            return $this->getResource()->getReadConnection()->decodeVarbinary($label);
-        }
-        return $label;
-    }
 }
