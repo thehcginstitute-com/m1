@@ -2924,16 +2924,8 @@ ul.products-grid {
 	font-weight: normal;
 }
 
-.weee {
-	display: block;
-	font-size: 11px;
-	color: #444;
-}
-
-.weee .price {
-	font-size: 11px;
-	font-weight: normal;
-}
+/* 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 */
 
 .price-from {
 	margin: 0;
