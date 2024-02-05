@@ -44,34 +44,6 @@ class Mage_Tax_Block_Checkout_Tax extends Mage_Checkout_Block_Total_Default
         $this->_factory = !empty($args['factory']) ? $args['factory'] : Mage::getSingleton('core/factory');
     }
 
-    /**
-     * Get all FPTs
-     *
-     * @return array
-     */
-    public function getAllWeee()
-    {
-        $allWeee = [];
-        $store = $this->getTotal()->getAddress()->getQuote()->getStore();
-        /** @var Mage_Weee_Helper_Data $helper */
-        $helper = $this->_factory->getHelper('weee');
-
-        if (!$helper->includeInSubtotal($store)) {
-            foreach ($this->getTotal()->getAddress()->getCachedItemsAll() as $item) {
-                foreach ($helper->getApplied($item) as $tax) {
-                    $weeeDiscount = $tax['weee_discount'] ?? 0;
-                    $title = $tax['title'];
-                    $rowAmount = $tax['row_amount'] ?? 0;
-                    $rowAmountInclTax = $tax['row_amount_incl_tax'] ?? 0;
-                    $amountDisplayed = ($helper->isTaxIncluded()) ? $rowAmountInclTax : $rowAmount;
-                    if (array_key_exists($title, $allWeee)) {
-                        $allWeee[$title] = $allWeee[$title] + $amountDisplayed - $weeeDiscount;
-                    } else {
-                        $allWeee[$title] = $amountDisplayed - $weeeDiscount;
-                    }
-                }
-            }
-        }
-        return $allWeee;
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 }
