@@ -7,10 +7,13 @@ if ($this->getParent()->getPriceType() != Mage_Bundle_Model_Product_Price::PRICE
 }
 $_finalPriceInclTax = $this->helper('tax')->getPrice($_product, $_product->getFinalPrice(), true);
 $_catalogHelper = Mage::helper('catalog'); /** @var $_catalogHelper Mage_Catalog_Helper_Data */
-# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
-if (isset($_tierPrices) && count($_tierPrices) > 0) { ?>
-    <ul class="<?= ($this->getInGrouped() ? 'tier-prices-grouped product-pricing-grouped' : 'tier-prices product-pricing'); ?>">
+if (isset($_tierPrices) && count($_tierPrices) > 0) {
+	?>
+		<ul class="<?= (
+			$this->getInGrouped()
+				? 'tier-prices-grouped product-pricing-grouped'
+				: 'tier-prices product-pricing'
+		) ?>">
     <?php if ($this->getInGrouped()) { ?>
         <?php $_tierPrices = $this->getTierPrices($_product); ?>
     <?php } ?>
