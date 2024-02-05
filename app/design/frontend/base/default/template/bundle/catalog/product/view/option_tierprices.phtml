@@ -65,7 +65,7 @@ if (isset($_tierPrices) && count($_tierPrices) > 0) { ?>
                         <?php $separator = ''; foreach ($_weeeTaxAttributes as $_attribute) { ?>
                             <?= $separator; ?>
                             <?= $_attribute->getName(); ?>: <?= Mage::helper('core')->currency($_attribute->getAmount()+$_attribute->getTaxAmount()); ?>
-                        <?php $separator = ' + '; endforeach; ?>
+                        <?php $separator = ' + '; } ?>
                         </small>)
                         <?php } ?>
                         <?= $this->__('each') ?>
@@ -75,7 +75,7 @@ if (isset($_tierPrices) && count($_tierPrices) > 0) { ?>
                         (<small>
                         <?php foreach ($_weeeTaxAttributes as $_attribute) { ?>
                             <?= $_attribute->getName(); ?>: <?= Mage::helper('core')->currency($_attribute->getAmount()); ?>
-                        <?php endforeach; ?>
+                        <?php } ?>
                         <?= $this->__('Total incl. Tax: %1$s', $_price['formated_price_incl_weee_only']); ?>
                         </small>)
                         <?php } ?>
@@ -108,12 +108,12 @@ if (isset($_tierPrices) && count($_tierPrices) > 0) { ?>
                 var newLink = {
                     url: "<?= $addToCartUrl; ?>",
                     qty: "<?= $_price['price_qty']?>"
-                };
+                }
             <?php } else { ?>
                 var newLink = {
                     url: "<?= $addToCartUrl; ?>",
                     notUseForm: true
-                };
+                }
             <?php endif ?>
                 Catalog.Map.addHelpLink(
                     $('<?= $popupId ?>'),
@@ -132,6 +132,6 @@ if (isset($_tierPrices) && count($_tierPrices) > 0) { ?>
 
         </li>
 
-    <?php endforeach ?>
+    <?php } ?>
     </ul>
 <?php }?>
