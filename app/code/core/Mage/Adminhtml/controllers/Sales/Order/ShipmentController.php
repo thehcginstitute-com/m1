@@ -565,41 +565,5 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
     }
 
 	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375
-
-	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# "Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376
-
-	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/37
-
-    /**
-     * Create Zend_Pdf_Page instance with image from $imageString. Supports JPEG, PNG, GIF, WBMP, and GD2 formats.
-     *
-     * @param string $imageString
-     * @return Zend_Pdf_Page|bool
-     */
-    protected function _createPdfPageFromImageString($imageString)
-    {
-        $image = imagecreatefromstring($imageString);
-        if (!$image) {
-            return false;
-        }
-
-        $xSize = imagesx($image);
-        $ySize = imagesy($image);
-        $page = new Zend_Pdf_Page($xSize, $ySize);
-
-        imageinterlace($image, 0);
-        $tmpFileName = sys_get_temp_dir() . DS . 'shipping_labels_'
-                     . uniqid(mt_rand()) . time() . '.png';
-        imagepng($image, $tmpFileName);
-        $pdfImage = Zend_Pdf_Image::imageWithPath($tmpFileName);
-        $page->drawImage($pdfImage, 0, 0, $xSize, $ySize);
-        unlink($tmpFileName);
-        return $page;
-    }
-
-	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	# "Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376
 }
