@@ -571,32 +571,7 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
 	# "Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376
 
 	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375
-
-    /**
-     * Combine array of labels as instance PDF
-     *
-     * @param array $labelsContent
-     * @return Zend_Pdf
-     */
-    protected function _combineLabelsPdf(array $labelsContent)
-    {
-        $outputPdf = new Zend_Pdf();
-        foreach ($labelsContent as $content) {
-            if (stripos($content, '%PDF-') !== false) {
-                $pdfLabel = Zend_Pdf::parse($content);
-                foreach ($pdfLabel->pages as $page) {
-                    $outputPdf->pages[] = clone $page;
-                }
-            } else {
-                $page = $this->_createPdfPageFromImageString($content);
-                if ($page) {
-                    $outputPdf->pages[] = $page;
-                }
-            }
-        }
-        return $outputPdf;
-    }
+	# "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/37
 
     /**
      * Create Zend_Pdf_Page instance with image from $imageString. Supports JPEG, PNG, GIF, WBMP, and GD2 formats.
