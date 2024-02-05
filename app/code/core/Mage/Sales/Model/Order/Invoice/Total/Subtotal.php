@@ -44,8 +44,10 @@ class Mage_Sales_Model_Order_Invoice_Total_Subtotal extends Mage_Sales_Model_Ord
 
             $subtotal            += $item->getRowTotal();
             $baseSubtotal        += $item->getBaseRowTotal();
-            $subtotalInclTax     += $item->getRowTotalInclTax() + $item->getWeeeTaxAppliedRowAmount();
-            $baseSubtotalInclTax += $item->getBaseRowTotalInclTax() + $item->getBaseWeeeTaxAppliedRowAmount();
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+            $subtotalInclTax     += $item->getRowTotalInclTax();
+            $baseSubtotalInclTax += $item->getBaseRowTotalInclTax();
         }
 
         $allowedSubtotal = $order->getSubtotal() - $order->getSubtotalInvoiced();
