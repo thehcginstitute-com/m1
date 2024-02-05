@@ -41,7 +41,7 @@ $_item = $this->getItem()?>
             <?php if ($this->helper('tax')->displayCartPriceInclTax()): ?>
                 <?php $_incl = $this->helper('checkout')->getPriceInclTax($_item); ?>
 				<span class="cart-price">
-					<?php echo $this->helper('checkout')->formatPrice($_incl-$_item->getWeeeTaxDisposition()) ?>
+					<?php echo $this->helper('checkout')->formatPrice($_incl) ?>
                 </span>
             <?php endif; ?>
         </td>
