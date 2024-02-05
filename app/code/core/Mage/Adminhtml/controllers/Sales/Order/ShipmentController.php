@@ -600,19 +600,6 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
         return $page;
     }
 
-    /**
-     * Return grid with shipping items for Ajax request
-     *
-     * @return Mage_Core_Controller_Response_Http
-     */
-    public function getShippingItemsGridAction()
-    {
-        $this->_initShipment();
-        return $this->getResponse()->setBody(
-            $this->getLayout()
-                ->createBlock('adminhtml/sales_order_shipment_packaging_grid')
-                ->setIndex($this->getRequest()->getParam('index'))
-                ->toHtml()
-        );
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376
 }
