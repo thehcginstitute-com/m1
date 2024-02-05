@@ -179,10 +179,7 @@ if($this->getOrderOptions() || $_item->getDescription() || $this->canDisplayGift
         </td>
         <td class="a-right last">
             <?php if ($this->canShowPriceInfo($_item)): ?>
-                <?php
-# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
-				echo $this->displayPrices(
+                <?= $this->displayPrices(
                     max(0, $_item->getBaseRowTotal() - $_item->getBaseDiscountAmount() + $_item->getBaseTaxAmount() + $_item->getBaseHiddenTaxAmount()),
                     max(0, $_item->getRowTotal() - $_item->getDiscountAmount() + $_item->getTaxAmount() + $_item->getHiddenTaxAmount())
                 ); ?>
