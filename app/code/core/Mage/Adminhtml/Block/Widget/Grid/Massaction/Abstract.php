@@ -47,7 +47,8 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
     public const PDF_DOCS_ORDER            = 'pdfdocs_order';
     public const PDF_INVOICE_ORDER         = 'pdfinvoices_order';
     public const PDF_SHIPMENTS_ORDER       = 'pdfshipments_order';
-    public const PRINT_SHIPMENT_LABEL      = 'print_shipping_label';
+# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375
     public const REFRESH                   = 'refresh';
     public const REFRESH_LIFETIME          = 'refresh_lifetime';
     public const REFRESH_RECENT            = 'refresh_recent';
