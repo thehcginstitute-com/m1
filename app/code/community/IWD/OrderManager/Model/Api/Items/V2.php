@@ -267,11 +267,13 @@ class IWD_OrderManager_Model_Api_Items_v2 extends IWD_OrderManager_Model_Api_Abs
         if ($item->getProductType() == Mage_Catalog_Model_Product_Type::TYPE_BUNDLE) {
             $this->item['tax_amount'] = number_format($item->getBaseTaxAmount(), 2, '.', '');
             $this->item['hidden_tax_amount'] = number_format($item->getBaseHiddenTaxAmount(), 2, '.', '');
-            $this->item['weee_tax_applied_row_amount'] = number_format($item->getBaseWeeeTaxAppliedRowAmount(), 2, '.', '');
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
         } else {
             $this->item['tax_amount'] = number_format($item->getTaxAmount(), 2, '.', '');
             $this->item['hidden_tax_amount'] = number_format($item->getHiddenTaxAmount(), 2, '.', '');
-            $this->item['weee_tax_applied_row_amount'] = number_format($item->getWeeeTaxAppliedRowAmount(), 2, '.', '');
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
         }
 
         $this->item['product_id'] = $item->getProductId();
