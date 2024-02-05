@@ -157,10 +157,9 @@ class Mage_Adminhtml_Block_Sales_Shipment_Grid extends Mage_Adminhtml_Block_Widg
              'url'  => $this->getUrl('*/sales_shipment/pdfshipments'),
         ]);
 
-        $this->getMassactionBlock()->addItem(MassAction::PRINT_SHIPMENT_LABEL, [
-             'label' => Mage::helper('sales')->__('Print Shipping Labels'),
-             'url'  => $this->getUrl('*/sales_order_shipment/massPrintShippingLabel'),
-        ]);
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the shipping labels feature because it is unused":
+		# https://github.com/thehcginstitute-com/m1/issues/375
 
         return $this;
     }
