@@ -118,7 +118,7 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
                 <?php if ($canApplyMsrp): ?>
                     <span class="cart-msrp-subtotal">--</span>
                 <?php else: ?>
-					<?php echo $this->helper('checkout')->formatPrice($_incl - $_item->getWeeeTaxRowDisposition()) ?>
+					<?php echo $this->helper('checkout')->formatPrice($_incl) ?>
                 <?php endif; ?>
 
             </div>
