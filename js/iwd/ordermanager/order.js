@@ -1576,9 +1576,9 @@ IWD.OrderManager.TaxCalculation = {
         var discount_amount = parseFloat(input.discount_amount.val());
         var tax_amount = parseFloat(input.tax_amount.val());
         var hidden_tax_amount = parseFloat(input.hidden_tax_amount.val());
-        var weee_tax_applied_row_amount = parseFloat(input.weee_tax_applied_row_amount.val());
-
-        var row_total = subtotal + tax_amount + hidden_tax_amount + weee_tax_applied_row_amount - discount_amount;
+		// 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		// "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+        var row_total = subtotal + tax_amount + hidden_tax_amount - discount_amount;
 
         input.row_total.val(row_total.toFixed(2));
         return row_total;
