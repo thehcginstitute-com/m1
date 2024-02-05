@@ -81,13 +81,16 @@
     <td class="a-right"><?php echo $this->displayTaxPercent($item) ?></td>
     <td class="a-right"><?php echo $this->displayPriceAttribute('discount_amount') ?></td>
     <td class="a-right">
-        <?php
-			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
-			echo $this->displayPrices(
-            $item->getBaseRowTotal() + $item->getBaseTaxAmount() + $item->getBaseHiddenTaxAmount()
-			- $item->getBaseDiscountAmount(),
-            $item->getRowTotal() + $item->getTaxAmount() + $item->getHiddenTaxAmount() - $item->getDiscountAmount()
+        <?= $this->displayPrices(
+            	$item->getBaseRowTotal()
+				+ $item->getBaseTaxAmount()
+				+ $item->getBaseHiddenTaxAmount()
+				- $item->getBaseDiscountAmount()
+			,
+            	$item->getRowTotal()
+				+ $item->getTaxAmount()
+				+ $item->getHiddenTaxAmount()
+				- $item->getDiscountAmount()
         ); ?>
     </td>
 
