@@ -812,47 +812,6 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
         return $this->getData('product');
     }
 
-    /**
-     * Get the discount amount applied on weee in base
-     *
-     * @return float
-     */
-    public function getBaseDiscountAppliedForWeeeTax()
-    {
-        $weeeTaxAppliedAmounts = unserialize($this->getWeeeTaxApplied(), ['allowed_classes' => false]);
-        $totalDiscount = 0;
-        if (!is_array($weeeTaxAppliedAmounts)) {
-            return $totalDiscount;
-        }
-        foreach ($weeeTaxAppliedAmounts as $weeeTaxAppliedAmount) {
-            if (isset($weeeTaxAppliedAmount['total_base_weee_discount'])) {
-                return $weeeTaxAppliedAmount['total_base_weee_discount'];
-            } else {
-                $totalDiscount += $weeeTaxAppliedAmount['base_weee_discount'] ?? 0;
-            }
-        }
-        return $totalDiscount;
-    }
-
-    /**
-     * Get the discount amount applied on Weee
-     *
-     * @return float
-     */
-    public function getDiscountAppliedForWeeeTax()
-    {
-        $weeeTaxAppliedAmounts = unserialize($this->getWeeeTaxApplied(), ['allowed_classes' => false]);
-        $totalDiscount = 0;
-        if (!is_array($weeeTaxAppliedAmounts)) {
-            return $totalDiscount;
-        }
-        foreach ($weeeTaxAppliedAmounts as $weeeTaxAppliedAmount) {
-            if (isset($weeeTaxAppliedAmount['total_weee_discount'])) {
-                return $weeeTaxAppliedAmount['total_weee_discount'];
-            } else {
-                $totalDiscount += $weeeTaxAppliedAmount['weee_discount'] ?? 0;
-            }
-        }
-        return $totalDiscount;
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 }
