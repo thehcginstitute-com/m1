@@ -91,7 +91,7 @@ $_order = $this->getItem()->getOrderItem()->getOrder(); ?>
                 <?php endif; ?>
             <?php $_incl = $this->helper('checkout')->getSubtotalInclTax($this->getItem()); ?>
 			<span class="cart-price">
-				<?php echo $this->getOrder()->formatPrice($_incl - $this->getItem()->getWeeeTaxRowDisposition()) ?>
+				<?php echo $this->getOrder()->formatPrice($_incl) ?>
 			</span>
         </span>
             <?php endif; ?>
