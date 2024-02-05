@@ -696,7 +696,8 @@
                     <element name="base_weee_tax_disposition" type="xsd:string" minOccurs="0" />
                     <element name="price_incl_tax" type="xsd:string" minOccurs="0" />
                     <element name="base_tax_amount" type="xsd:string" minOccurs="0" />
-                    <element name="weee_tax_disposition" type="xsd:string" minOccurs="0" />
+<!-- 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     <element name="base_price_incl_tax" type="xsd:string" minOccurs="0" />
                     <element name="qty" type="xsd:string" minOccurs="0" />
                     <element name="base_cost" type="xsd:string" minOccurs="0" />
