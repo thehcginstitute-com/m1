@@ -72,12 +72,8 @@
 <div class="box-right entry-edit">
     <div class="order-totals">
         <div class="order-totals-bottom">
-          <?php if ($this->canCreateShippingLabel()): ?>
-          <p>
-              <label class="normal" for="create_shipping_label"><?php echo Mage::helper('sales')->__('Create Shipping Label') ?></label>
-              <input id="create_shipping_label" name="shipment[create_shipping_label]" value="1" type="checkbox"  onclick="toggleCreateLabelCheckbox();" />
-          </p>
-          <?php endif ?>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375 -->
           <p>
               <label class="normal" for="notify_customer"><?php echo Mage::helper('sales')->__('Append Comments') ?></label>
               <input id="notify_customer" name="shipment[comment_customer_notify]" value="1" type="checkbox" />
