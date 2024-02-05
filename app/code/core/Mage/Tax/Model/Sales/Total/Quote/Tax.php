@@ -1047,8 +1047,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
         if (!isset($taxGroups[$rateKey]['totals'])) {
             $taxGroups[$rateKey]['totals'] = [];
             $taxGroups[$rateKey]['base_totals'] = [];
-            $taxGroups[$rateKey]['weee_tax'] = [];
-            $taxGroups[$rateKey]['base_weee_tax'] = [];
+			# 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
         }
 
 		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
