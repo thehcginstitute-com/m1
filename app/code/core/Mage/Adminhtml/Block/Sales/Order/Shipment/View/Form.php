@@ -56,21 +56,8 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View_Form extends Mage_Adminhtml
 	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	# "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375
 
-    /**
-     * Show packages button html
-     *
-     * @return string
-     */
-    public function getShowPackagesButton()
-    {
-        return $this->getLayout()
-            ->createBlock('adminhtml/widget_button')
-            ->setData([
-                'label'   => Mage::helper('sales')->__('Show Packages'),
-                'onclick' => 'showPackedWindow();'
-            ])
-            ->toHtml();
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376
 
     /**
      * Check is carrier has functionality of creation shipping labels
