@@ -39,14 +39,17 @@ foreach ($_tierPrices as $_index => $_price) {
 		else {
 			echo $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price']);
 		}
-		if (!$this->getInGrouped()) { ?>
-            <?php if(($_product->getPrice() == $_product->getFinalPrice() && $_product->getPrice() > $_price['price'])
-            || ($_product->getPrice() != $_product->getFinalPrice() &&  $_product->getFinalPrice() > $_price['price'])) { ?>
-                <?= $this->__('and') ?>&nbsp;<strong class="benefit"><?= $this->__('save')?>&nbsp;<span class="percent tier-fixed"><?= $_price['savePercent']?></span>%
-            <?php } ?></strong>
-        <?php } ?>
-
-        <?php if ($_catalogHelper->isShowPriceOnGesture($_product)) {?>
+		if (!$this->getInGrouped()) {
+			if (
+				($_product->getPrice() == $_product->getFinalPrice() && $_product->getPrice() > $_price['price'])
+				|| ($_product->getPrice() != $_product->getFinalPrice() &&  $_product->getFinalPrice() > $_price['price'])
+			) {
+				echo $this->__('and');
+				?>&nbsp;<strong
+					class="benefit"
+				><?= $this->__('save')?>&nbsp;<span class="percent tier-fixed"><?= $_price['savePercent']?></span>%
+            <?php } ?></strong><?php }
+		if ($_catalogHelper->isShowPriceOnGesture($_product)) {?>
             <?php $popupId = 'msrp-popup-' . $_product->getId() . $this->helper('core')->getRandomString(20); ?>
             <a href="#" id="<?=($popupId);?>"><?= $this->__('Click for price'); ?></a>
             <script type="text/javascript">
