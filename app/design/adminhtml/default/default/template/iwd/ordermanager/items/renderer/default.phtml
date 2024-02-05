@@ -56,43 +56,11 @@
                 <?php endif; ?>
                 <?php $_incl = $this->helper('checkout')->getPriceInclTax($item); ?>
                 <?php $_baseIncl = $this->helper('checkout')->getBasePriceInclTax($item); ?>
-
-                <?php if (Mage::helper('weee')->typeOfDisplay($item, array(0, 1, 4), 'sales', $item->getStoreId())): ?>
-                    <?php echo $this->displayPrices($_baseIncl + $item->getBaseWeeeTaxAppliedAmount(), $_incl + $item->getWeeeTaxAppliedAmount()); ?>
-                <?php else: ?>
-                    <?php echo $this->displayPrices($_baseIncl - $item->getBaseWeeeTaxDisposition(), $_incl - $item->getWeeeTaxDisposition()) ?>
-                <?php endif; ?>
-
-                <?php if (Mage::helper('weee')->getApplied($item)): ?>
-                    <br/>
-                    <?php if (Mage::helper('weee')->typeOfDisplay($item, 1, 'sales', $item->getStoreId())): ?>
-                        <small>
-                            <?php foreach (Mage::helper('weee')->getApplied($item) as $tax): ?>
-                                <span class="nobr"><?php echo $tax['title']; ?>
-                                    : <?php echo $this->displayPrices($tax['base_amount'], $tax['amount']); ?></span>
-                            <?php endforeach; ?>
-                        </small>
-                    <?php elseif (Mage::helper('weee')->typeOfDisplay($item, 2, 'sales', $item->getStoreId())): ?>
-                        <?php foreach (Mage::helper('weee')->getApplied($item) as $tax): ?>
-                            <span class="nobr"><small><?php echo $tax['title']; ?>
-                                    : <?php echo $this->displayPrices($tax['base_amount_incl_tax'], $tax['amount_incl_tax']); ?></small></span>
-                        <?php endforeach; ?>
-                        <?php
-                    elseif (Mage::helper('weee')->typeOfDisplay($item, 4, 'sales', $item->getStoreId())): ?>
-                        <small>
-                            <?php foreach (Mage::helper('weee')->getApplied($item) as $tax): ?>
-                                <span class="nobr"><?php echo $tax['title']; ?>
-                                    : <?php echo $this->displayPrices($tax['base_amount_incl_tax'], $tax['amount_incl_tax']); ?></span>
-                            <?php endforeach; ?>
-                        </small>
-                    <?php endif; ?>
-
-                    <?php if (Mage::helper('weee')->typeOfDisplay($item, 2, 'sales', $item->getStoreId())): ?>
-                        <br/>
-                        <span class="nobr"><?php echo Mage::helper('weee')->__('Total'); ?>
-                            :<br/> <?php echo $this->displayPrices($_baseIncl + $item->getBaseWeeeTaxAppliedAmount(), $_incl + $item->getWeeeTaxAppliedAmount()); ?></span>
-                    <?php endif; ?>
-                <?php endif; ?>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
+				<?php echo $this->displayPrices($_baseIncl, $_incl) ?>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
             </span>
         <?php endif; ?>
 
