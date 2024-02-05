@@ -50,11 +50,7 @@
                 <?php endif; ?>
                 <?php $_incl = $this->helper('checkout')->getPriceInclTax($item); ?>
                 <?php $_baseIncl = $this->helper('checkout')->getBasePriceInclTax($item); ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
 				<?php echo $this->displayPrices($_baseIncl, $_incl) ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
             </span>
         <?php endif; ?>
 
