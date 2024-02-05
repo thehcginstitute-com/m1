@@ -17,7 +17,6 @@ $this->setPriceDataObject($_item) ?>
 <td class="a-center"><?php echo $_item->getStatus() ?></td>
 <td class="a-right"><?php echo $this->displayPriceAttribute('original_price') ?></td>
 <td class="a-right">
-
     <?php if ($this->helper('tax')->displaySalesBothPrices() || $this->helper('tax')->displaySalesPriceExclTax()): ?>
         <span class="price-excl-tax">
 			<?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
@@ -27,7 +26,6 @@ $this->setPriceDataObject($_item) ?>
 		</span>
         <br/>
     <?php endif; ?>
-
     <?php if ($this->helper('tax')->displaySalesPriceInclTax() || $this->helper('tax')->displaySalesBothPrices()): ?>
         <span class="price-incl-tax">
                 <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
