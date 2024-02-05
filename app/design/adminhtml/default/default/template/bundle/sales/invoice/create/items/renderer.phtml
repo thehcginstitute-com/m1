@@ -48,11 +48,7 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
                         <?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
                             <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
                         <?php endif; ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
 						<?php echo $this->displayPrices($_item->getBasePrice(), $_item->getPrice()) ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     </span>
                     <br />
                 <?php endif; ?>
@@ -63,11 +59,7 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
                         <?php endif; ?>
                         <?php $_incl = $this->helper('checkout')->getPriceInclTax($_item); ?>
                         <?php $_baseIncl = $this->helper('checkout')->getBasePriceInclTax($_item); ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
 						<?php echo $this->displayPrices($_baseIncl, $_incl) ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     </span>
                 <?php endif; ?>
             <?php else: ?>
@@ -141,11 +133,7 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
                         <?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
                             <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
                         <?php endif; ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
 						<?php echo $this->displayPrices($_item->getBaseRowTotal(), $_item->getRowTotal()) ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     </span>
                     <br />
                 <?php endif; ?>
@@ -156,11 +144,7 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
                         <?php endif; ?>
                         <?php $_incl = $this->helper('checkout')->getSubtotalInclTax($_item); ?>
                         <?php $_baseIncl = $this->helper('checkout')->getBaseSubtotalInclTax($_item); ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
 						<?php echo $this->displayPrices($_baseIncl, $_incl) ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     </span>
                 <?php endif; ?>
             <?php else: ?>
@@ -183,10 +167,7 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
         </td>
         <td class="a-right last">
             <?php if ($this->canShowPriceInfo($_item)): ?>
-                <?php
-# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
-				echo $this->displayPrices(
+                <?= $this->displayPrices(
                     $_item->getBaseRowTotal() + $_item->getBaseTaxAmount() - $_item->getBaseDiscountAmount() + $_item->getBaseHiddenTaxAmount(),
                     $_item->getRowTotal() + $_item->getTaxAmount() - $_item->getDiscountAmount() + $_item->getHiddenTaxAmount()
                 ) ?>
