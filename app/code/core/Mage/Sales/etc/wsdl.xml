@@ -691,7 +691,8 @@
                     <element name="base_row_total" type="xsd:string" minOccurs="0" />
                     <element name="discount_amount" type="xsd:string" minOccurs="0" />
                     <element name="row_total" type="xsd:string" minOccurs="0" />
-                    <element name="weee_tax_applied_amount" type="xsd:string" minOccurs="0" />
+<!-- 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     <element name="base_discount_amount" type="xsd:string" minOccurs="0" />
 <!-- 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
