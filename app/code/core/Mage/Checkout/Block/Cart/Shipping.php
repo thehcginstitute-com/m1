@@ -140,16 +140,8 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
         return $this->getAddress()->getRegion();
     }
 
-    /**
-     * Show City in Shipping Estimation
-     *
-     * @return bool
-     */
-    public function getCityActive() {
-		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-		# "Delete the unused `Mage_Usa` module": https://github.com/thehcginstitute-com/m1/issues/374
-        return false;
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Usa` module": https://github.com/thehcginstitute-com/m1/issues/374
 
     /**
      * Show State in Shipping Estimation
