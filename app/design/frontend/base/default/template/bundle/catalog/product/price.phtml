@@ -58,21 +58,8 @@ list($_minimalPriceInclTax, $_maximalPriceInclTax) = $_priceModel->getTotalPrice
                         <span class="label"><?php echo $_taxHelper->__('Excl. Tax:') ?></span>
                         <?php echo $_coreHelper->currency($_minimalPriceTax) ?>
                     </span>
-                    <?php if ($_weeeTaxAmount && $_product->getPriceType() == 1 && $_weeeHelper->typeOfDisplay($_product, array(2, 1, 4))): ?>
-                        <span class="weee">(<small>
-                            <?php $_weeeSeparator = ''; foreach ($_weeeTaxAttributes as $_weeeTaxAttribute): ?>
-                                <?php if ($_weeeHelper->typeOfDisplay($_product, array(2, 4))): ?>
-                                    <?php $amount = $_weeeTaxAttribute->getAmount()+$_weeeTaxAttribute->getTaxAmount(); ?>
-                                <?php else: ?>
-                                    <?php $amount = $_weeeTaxAttribute->getAmount(); ?>
-                                <?php endif; ?>
-
-                                <?php echo $_weeeSeparator; ?>
-                                <?php echo $_weeeTaxAttribute->getName(); ?>: <?php echo $_coreHelper->currency($amount, true, true); ?>
-                                <?php $_weeeSeparator = ' + '; ?>
-                            <?php endforeach; ?>
-                        </small>)</span>
-                    <?php endif; ?>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     <span class="price-including-tax">
                         <span class="label"><?php echo $_taxHelper->__('Incl. Tax:') ?></span>
                         <?php echo $_coreHelper->currency($_minimalPriceInclTax) ?>
