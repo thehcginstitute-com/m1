@@ -117,10 +117,8 @@
                                 </small>
                             <?php endif; ?>
 
-                            <?php if (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales')): ?>
-                                <br />
-                                <span class="nobr"><?php echo Mage::helper('weee')->__('Total'); ?>:<br /> <?php echo $this->displayPrices($_baseIncl + Mage::helper('weee')->getBaseWeeeTaxInclTax($_item), $_incl + Mage::helper('weee')->getWeeeTaxInclTax($_item)); ?></span>
-                            <?php endif; ?>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                         <?php endif; ?>
                     </span>
                 <?php endif; ?>
