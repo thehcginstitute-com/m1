@@ -1,12 +1,9 @@
 <?php # 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 /** @var Mage_Tax_Block_Checkout_Tax $this */
-?>
-<?php
-    $_value = $this->getTotal()->getValue();
-    $_style = $this->getTotal()->getStyle();
-?>
-<?php global $taxIter; $taxIter++; ?>
+$_value = $this->getTotal()->getValue();
+$_style = $this->getTotal()->getStyle();
+global $taxIter; $taxIter++; ?>
 <?php if ($this->helper('tax')->displayFullSummary() && $_value!=0): ?>
 <?php $isTop = 1; ?>
     <?php foreach ($this->getTotal()->getFullInfo() as $info): ?>
