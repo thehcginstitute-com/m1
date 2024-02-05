@@ -558,14 +558,8 @@
                     <element name="base_price" type="xsd:string" minOccurs="0" />
                     <element name="base_tax_amount" type="xsd:string" minOccurs="0" />
                     <element name="base_row_total" type="xsd:string" minOccurs="0" />
-                    <element name="base_weee_tax_applied_amount" type="xsd:string" minOccurs="0" />
-                    <element name="base_weee_tax_applied_row_amount" type="xsd:string" minOccurs="0" />
-                    <element name="weee_tax_applied_amount" type="xsd:string" minOccurs="0" />
-                    <element name="weee_tax_applied_row_amount" type="xsd:string" minOccurs="0" />
-                    <element name="weee_tax_disposition" type="xsd:string" minOccurs="0" />
-                    <element name="weee_tax_row_disposition" type="xsd:string" minOccurs="0" />
-                    <element name="base_weee_tax_disposition" type="xsd:string" minOccurs="0" />
-                    <element name="base_weee_tax_row_disposition" type="xsd:string" minOccurs="0" />
+<!-- 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     <element name="sku" type="xsd:string" minOccurs="0" />
                     <element name="name" type="xsd:string" minOccurs="0" />
                     <element name="order_item_id" type="xsd:string" minOccurs="0" />
