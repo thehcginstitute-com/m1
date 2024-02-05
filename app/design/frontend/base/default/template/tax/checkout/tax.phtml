@@ -3,8 +3,8 @@
 /** @var Mage_Tax_Block_Checkout_Tax $this */
 $_value = $this->getTotal()->getValue();
 $_style = $this->getTotal()->getStyle();
-global $taxIter; $taxIter++; ?>
-<?php if ($this->helper('tax')->displayFullSummary() && $_value!=0): ?>
+global $taxIter; $taxIter++;
+if ($this->helper('tax')->displayFullSummary() && $_value!=0): ?>
 <?php $isTop = 1; ?>
     <?php foreach ($this->getTotal()->getFullInfo() as $info): ?>
         <?php if (isset($info['hidden']) && $info['hidden']) continue; ?>
