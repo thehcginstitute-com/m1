@@ -1,5 +1,7 @@
-<?php $_item = $this->getItem() ?>
-<?php $_quote = $this->getItem()->getQuote() ?>
+<?php # 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+$_item = $this->getItem();
+$_quote = $this->getItem()->getQuote(); ?>
 <tr>
     <td align="left" valign="top" style="font-size:11px; padding:3px 9px; border-bottom:1px dotted #CCCCCC;">
         <strong style="font-size:11px;"><?php echo $this->htmlEscape($_item->getName()) ?></strong>
