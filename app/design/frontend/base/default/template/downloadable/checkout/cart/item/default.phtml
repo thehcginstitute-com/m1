@@ -87,7 +87,7 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
         <td>
             <?php $_incl = $this->helper('checkout')->getPriceInclTax($_item); ?>
 			<div class="cart-price">
-				<?php echo $this->helper('checkout')->formatPrice($_incl - $_item->getWeeeTaxDisposition()) ?>
+				<?php echo $this->helper('checkout')->formatPrice($_incl) ?>
 			</div>
         </td>
     <?php endif; ?>
