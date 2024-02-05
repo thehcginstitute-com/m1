@@ -1,10 +1,8 @@
-<?php
-/**
- * @var $this Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default
- */
-?>
-<?php $item = $this->getItem() ?>
-<?php $this->setPriceDataObject($item) ?>
+<?php # 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+/** @var Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default $this */
+ $item = $this->getItem();
+ $this->setPriceDataObject($item); ?>
 <tr <?php if (!$this->canDisplayGiftmessage()): ?> class="border"<?php endif; ?>>
     <td>
         <?php
