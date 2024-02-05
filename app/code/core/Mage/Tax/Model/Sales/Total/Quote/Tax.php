@@ -120,7 +120,9 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
          * The grand total calculated from the rounded value is 47.95
          * If we simply round each value and add them up, the result is 47.94, which is one penny off
          */
-        $totalCodes = ['tax', 'hidden_tax', 'shipping_hidden_tax', 'shipping', 'subtotal', 'weee', 'discount'];
+		# 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+        $totalCodes = ['tax', 'hidden_tax', 'shipping_hidden_tax', 'shipping', 'subtotal', 'discount'];
         foreach ($totalCodes as $totalCode) {
             $exactAmount = $address->getTotalAmount($totalCode);
             $baseExactAmount = $address->getBaseTotalAmount($totalCode);
