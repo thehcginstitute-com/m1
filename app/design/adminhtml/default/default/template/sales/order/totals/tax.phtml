@@ -30,7 +30,8 @@
 $_source = $this->getSource();
 $_order = $this->getOrder();
 $_fullInfo = $this->getFullTaxInfo();
-$_weees = $this->helper('tax')->getAllWeee($_order);
+# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 global $taxIter;
 $taxIter++;
 ?>
@@ -92,18 +93,8 @@ $taxIter++;
             ?>
         <?php endforeach; ?>
     <?php endif; ?>
-    <?php foreach ($_weees as $weeeTitle => $weeeAmount): ?>
-        <tr class="summary-details-<?php echo $taxIter; ?> summary-details<?php if ($isTop): echo ' summary-details-first'; endif; ?>"
-            style="display:none;">
-            <td class="a-right" colspan="1">
-                <?php echo $this->escapeHtml($weeeTitle); ?>
-                <br/>
-            </td>
-            <td class="a-right" rowspan="1">
-                <?php echo $this->helper('checkout')->formatPrice($weeeAmount); ?>
-            </td>
-        </tr>
-    <?php endforeach; ?>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
 <?php endif; ?>
 <?php if ($this->displayFullSummary() && ($_fullInfo || $_weees)): ?>
 <tr class="summary-total" onclick="expandDetails(this, '.summary-details')">
