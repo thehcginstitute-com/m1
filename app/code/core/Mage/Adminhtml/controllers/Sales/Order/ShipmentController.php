@@ -490,53 +490,8 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
         return false;
     }
 
-    /**
-     * Create shipping label for specific shipment with validation.
-     *
-     * @param Mage_Sales_Model_Order_Shipment $shipment
-     * @return bool
-     */
-    protected function _createShippingLabel(Mage_Sales_Model_Order_Shipment $shipment)
-    {
-        if (!$shipment) {
-            return false;
-        }
-        $carrier = $shipment->getOrder()->getShippingCarrier();
-        if (!$carrier->isShippingLabelsAvailable()) {
-            return false;
-        }
-        $shipment->setPackages($this->getRequest()->getParam('packages'));
-        $response = Mage::getModel('shipping/shipping')->requestToShipment($shipment);
-        if ($response->hasErrors()) {
-            Mage::throwException($response->getErrors());
-        }
-        if (!$response->hasInfo()) {
-            return false;
-        }
-        $labelsContent = [];
-        $trackingNumbers = [];
-        $info = $response->getInfo();
-        foreach ($info as $inf) {
-            if (!empty($inf['tracking_number']) && !empty($inf['label_content'])) {
-                $labelsContent[] = $inf['label_content'];
-                $trackingNumbers[] = $inf['tracking_number'];
-            }
-        }
-        $outputPdf = $this->_combineLabelsPdf($labelsContent);
-        $shipment->setShippingLabel($outputPdf->render());
-        $carrierCode = $carrier->getCarrierCode();
-        $carrierTitle = Mage::getStoreConfig('carriers/' . $carrierCode . '/title', $shipment->getStoreId());
-        if ($trackingNumbers) {
-            foreach ($trackingNumbers as $trackingNumber) {
-                $track = Mage::getModel('sales/order_shipment_track')
-                        ->setNumber($trackingNumber)
-                        ->setCarrierCode($carrierCode)
-                        ->setTitle($carrierTitle);
-                $shipment->addTrack($track);
-            }
-        }
-        return true;
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375
 
 	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	# "Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376
