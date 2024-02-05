@@ -242,9 +242,12 @@
         </td>
         <td class="a-right">
             <?php if ($this->canShowPriceInfo($_item)): ?>
-                <?php echo $this->displayPrices(
-                    $_item->getBaseRowTotal() - $_item->getBaseDiscountAmount() + $_item->getBaseTaxAmount() + $_item->getBaseWeeeTaxAppliedRowAmount(),
-                    $_item->getRowTotal() - $_item->getDiscountAmount() + $_item->getTaxAmount() + $_item->getWeeeTaxAppliedRowAmount()
+                <?php
+# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+				echo $this->displayPrices(
+                    $_item->getBaseRowTotal() - $_item->getBaseDiscountAmount() + $_item->getBaseTaxAmount(),
+                    $_item->getRowTotal() - $_item->getDiscountAmount() + $_item->getTaxAmount()
                 ); ?>
             <?php else: ?>
                 &nbsp;
