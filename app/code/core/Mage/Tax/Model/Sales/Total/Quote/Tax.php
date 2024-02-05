@@ -77,12 +77,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
      */
     protected $_hiddenTaxes = [];
 
-    /**
-     * Weee helper class
-     *
-     * @var Mage_Weee_Helper_Data
-     */
-    protected $_weeeHelper;
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
     /**
      * Class constructor
@@ -93,7 +89,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
         $this->_helper = Mage::helper('tax');
         $this->_calculator = Mage::getSingleton('tax/calculation');
         $this->_config = Mage::getSingleton('tax/config');
-        $this->_weeeHelper = Mage::helper('weee');
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
     }
 
     /**
@@ -504,12 +501,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                     $taxRate
                 );
             }
-            //We need to calculate weeeAmountInclTax using multiple tax rate here
-            //because the _calculateWeeeTax and _calculateRowWeeeTax only take one tax rate
-            if ($this->_weeeHelper->isEnabled() && $this->_weeeHelper->isTaxable()) {
-                $this->_calculateWeeeAmountInclTax($item, $appliedRates, false);
-                $this->_calculateWeeeAmountInclTax($item, $appliedRates, true);
-            }
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
         }
         if ($rate > 0) {
             $itemTaxGroups[$item->getId()] = $appliedRates;
