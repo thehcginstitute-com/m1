@@ -47,11 +47,7 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
                         <?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
                             <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
                         <?php endif; ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
 						<?php echo $this->displayPrices($_item->getBasePrice(), $_item->getPrice()) ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     </span>
                     <br />
                 <?php endif; ?>
