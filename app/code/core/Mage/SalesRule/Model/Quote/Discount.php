@@ -98,12 +98,8 @@ class Mage_SalesRule_Model_Quote_Discount extends Mage_Sales_Model_Quote_Address
             }
         }
 
-        /**
-         * process weee amount
-         */
-        if (Mage::helper('weee')->isEnabled() && Mage::helper('weee')->isDiscounted($store)) {
-            $this->_calculator->processWeeeAmount($address, $items);
-        }
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
         /**
          * Process shipping amount discount
