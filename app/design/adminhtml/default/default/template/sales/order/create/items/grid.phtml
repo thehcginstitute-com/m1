@@ -164,7 +164,7 @@ if (empty($_items)): ?>
 			$_rowTotalLessDiscount = $_item->getRowTotalInclTax() - $_item->getDiscountAmount() - $_item->getTaxAmount();
 		}
 		else {
-			$_rowTotalLessDiscount = $_item->getRowTotal() - $_item->getDiscountAmount()
+			$_rowTotalLessDiscount = $_item->getRowTotal() - $_item->getDiscountAmount();
 		}
 		if ($this->helper('tax')->displayCartBothPrices($this->getStore())): ?>
             <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
