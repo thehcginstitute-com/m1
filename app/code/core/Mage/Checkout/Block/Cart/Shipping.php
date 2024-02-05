@@ -145,10 +145,10 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return bool
      */
-    public function getCityActive()
-    {
-        return Mage::getStoreConfigFlag('carriers/dhl/active')
-            || Mage::getStoreConfigFlag('carriers/dhlint/active');
+    public function getCityActive() {
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Usa` module": https://github.com/thehcginstitute-com/m1/issues/374
+        return false;
     }
 
     /**
@@ -156,11 +156,10 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return bool
      */
-    public function getStateActive()
-    {
-        return Mage::getStoreConfigFlag('carriers/dhl/active')
-            || Mage::getStoreConfigFlag('carriers/tablerate/active')
-            || Mage::getStoreConfigFlag('carriers/dhlint/active');
+    public function getStateActive() {
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Usa` module": https://github.com/thehcginstitute-com/m1/issues/374
+        return Mage::getStoreConfigFlag('carriers/tablerate/active');
     }
 
     /**
