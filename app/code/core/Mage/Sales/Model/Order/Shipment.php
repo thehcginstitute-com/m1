@@ -666,17 +666,8 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
         return $this->getOrder()->getStore();
     }
 
-    /**
-     * Set shipping label
-     *
-     * @param string $label   label representation (image or pdf file)
-     * @return $this
-     */
-    public function setShippingLabel($label)
-    {
-        $this->setData('shipping_label', $label);
-        return $this;
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375
 
     /**
      * Get shipping label and decode by db adapter
