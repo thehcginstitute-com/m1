@@ -138,13 +138,6 @@ list($_minimalPriceInclTax, $_maximalPriceInclTax) = $_priceModel->getTotalPrice
                     <?php echo $_coreHelper->currency($_minimalPriceTax) ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
-                    <?php if ($_weeeHelper->typeOfDisplay($_product, 2) && $_weeeTaxAmount): ?>
-                        <?php if ($_taxHelper->displayPriceIncludingTax()) : ?>
-                            <?php echo $_coreHelper->currency($_minimalPriceInclTax) ?>
-                        <?php else: ?>
-                            <?php echo $_coreHelper->currency($_minimalPriceTax + $_weeeTaxAmount) ?>
-                        <?php endif; ?>
-                    <?php endif; ?>
                 <?php endif; ?>
             <?php endif; ?>
         <?php endif; ?>
