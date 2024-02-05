@@ -210,8 +210,11 @@
 
     <?php if ($this->helper('tax')->displayCartPriceExclTax($this->getStore()) || $this->helper('tax')->displayCartBothPrices($this->getStore())): ?>
         <?php if ($_item->getIsPriceInclTax()): ?>
-            <?php $_rowTotalLessDiscount = $_item->getRowTotalInclTax() - $_item->getDiscountAmount()
-                                    - ($_item->getTaxAmount() - Mage::helper('weee')->getTotalRowTaxAppliedForWeeeTax($_item)) ?>
+            <?php
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+			$_rowTotalLessDiscount = $_item->getRowTotalInclTax() - $_item->getDiscountAmount()
+                                    - ($_item->getTaxAmount()) ?>
         <?php else: ?>
             <?php $_rowTotalLessDiscount = $_item->getRowTotal() - $_item->getDiscountAmount() ?>
         <?php endif; ?>
