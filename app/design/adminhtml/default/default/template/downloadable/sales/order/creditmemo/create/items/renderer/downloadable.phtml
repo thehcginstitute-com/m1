@@ -1,7 +1,7 @@
 <?php # 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
-$_item = $this->getItem() ?>
-<?php $this->setPriceDataObject($_item); ?>
+$_item = $this->getItem();
+$this->setPriceDataObject($_item); ?>
 <tr class="border">
 <td><?php echo $this->getColumnHtml($_item, 'downloadable') ?></td>
 <td class="a-right">
