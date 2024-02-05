@@ -88,14 +88,8 @@ if (isset($_tierPrices) && count($_tierPrices) > 0): ?>
                         <?php echo $this->__('each') ?>
                 <?php elseif(Mage::helper('weee')->typeOfDisplay($_product, 4)): ?>
                         <?php echo $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_weee']); ?>
-                        <?php if ($_weeeTaxAttributes): ?>
-                        (<small>
-                        <?php $separator = ''; foreach ($_weeeTaxAttributes as $_attribute): ?>
-                            <?php echo $separator; ?>
-                            <?php echo $_attribute->getName(); ?>: <?php echo Mage::helper('core')->currency($_attribute->getAmount()+$_attribute->getTaxAmount()); ?>
-                        <?php $separator = ' + '; endforeach; ?>
-                        </small>)
-                        <?php endif; ?>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                         <?php echo $this->__('each') ?>
                 <?php elseif(Mage::helper('weee')->typeOfDisplay($_product, 2)): ?>
                         <?php echo $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_tax']); ?>
