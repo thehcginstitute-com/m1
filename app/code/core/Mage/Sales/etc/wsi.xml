@@ -662,7 +662,8 @@
 <!-- 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     <xsd:element name="base_price" type="xsd:string" minOccurs="0" maxOccurs="1" />
-                    <xsd:element name="base_weee_tax_row_disposition" type="xsd:string" minOccurs="0" maxOccurs="1" />
+<!-- 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     <xsd:element name="tax_amount" type="xsd:string" minOccurs="0" maxOccurs="1" />
                     <xsd:element name="base_weee_tax_applied_amount" type="xsd:string" minOccurs="0" maxOccurs="1" />
                     <xsd:element name="weee_tax_row_disposition" type="xsd:string" minOccurs="0" maxOccurs="1" />
