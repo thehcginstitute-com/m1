@@ -249,8 +249,6 @@
                     $_item->getBaseRowTotal() - $_item->getBaseDiscountAmount() + $_item->getBaseTaxAmount(),
                     $_item->getRowTotal() - $_item->getDiscountAmount() + $_item->getTaxAmount()
                 ); ?>
-            <?php else: ?>
-                &nbsp;
             <?php endif; ?>
         </td>
         <?php if(Mage::getConfig()->getModuleConfig('IWD_Downloadable')->is('active', 'true')): ?>
