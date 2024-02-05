@@ -46,25 +46,13 @@ $this->setPriceDataObject($_item) ?>
 		</span>
         <br/>
     <?php endif; ?>
-
     <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
         <span class="price-incl-tax">
-
-                <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
-                    <span class="label"><?php echo $this->helper('tax')->__('Incl. Tax'); ?>:</span>
-                <?php endif; ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
-				<?php echo $this->displaySubtotalInclTax($_item); ?>
-
-            <!--
-
-                 <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
-                      <span class="label"><?php echo $this->helper('tax')->__('Incl. Tax'); ?>:</span>
-                 <?php endif; ?>
-                 <?php echo $this->displaySubtotalInclTax($_item); ?>
-    -->
-            </span>
+			<?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+				<span class="label"><?php echo $this->helper('tax')->__('Incl. Tax'); ?>:</span>
+			<?php endif; ?>
+			<?php echo $this->displaySubtotalInclTax($_item); ?>
+		</span>
     <?php endif; ?>
 </td>
 <td class="a-right"><?php echo $this->displayPriceAttribute('tax_amount') ?></td>
