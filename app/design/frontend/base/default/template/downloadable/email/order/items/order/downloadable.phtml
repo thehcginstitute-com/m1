@@ -48,7 +48,7 @@ $_order = $this->getItem()->getOrder(); ?>
                 <br/><span class="label"><?php echo Mage::helper('tax')->__('Incl. Tax'); ?>:</span>
             <?php endif; ?>
             <?php $_incl = $this->helper('checkout')->getSubtotalInclTax($_item); ?>
-			<?php echo $_order->formatPrice($_incl - $_item->getWeeeTaxRowDisposition()) ?>
+			<?php echo $_order->formatPrice($_incl) ?>
         <?php endif; ?>
     </td>
 </tr>
