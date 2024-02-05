@@ -1,18 +1,15 @@
-<?php
-/**
- * @see Mage_Bundle_Block_Adminhtml_Sales_Order_View_Items_Renderer
- */
-?>
-<?php $imageHelper = Mage::helper('iwd_ordermanager/image'); ?>
-<?php $_item = $this->getItem() ?>
-<?php $items = array_merge(array($_item), $_item->getChildrenItems()); ?>
-<?php $_count = count($items) ?>
-<?php $_index = 0 ?>
-<?php $_prevOptionId = '' ?>
-<?php $_showlastRow = ($this->getOrderOptions() || $_item->getDescription() || $this->canDisplayGiftmessage()); ?>
-
-<?php $params = array(); ?>
-<?php foreach ($items as $_item): ?>
+<?php # 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+/** @var Mage_Bundle_Block_Adminhtml_Sales_Order_View_Items_Renderer $this */
+$imageHelper = Mage::helper('iwd_ordermanager/image');
+$_item = $this->getItem();
+$items = array_merge(array($_item), $_item->getChildrenItems());
+$_count = count($items);
+$_index = 0;
+$_prevOptionId = '';
+$_showlastRow = ($this->getOrderOptions() || $_item->getDescription() || $this->canDisplayGiftmessage());
+$params = array();
+foreach ($items as $_item): ?>
     <?php $this->setPriceDataObject($_item) ?>
     <?php $attributes = $this->getSelectionAttributes($_item) ?>
     <?php if ($_item->getParentItem()): ?>
