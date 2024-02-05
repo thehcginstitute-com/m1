@@ -65,17 +65,9 @@
                 <?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
                     <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
                 <?php endif; ?>
-
-            <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(0, 1, 4), 'sales')): ?>
-                <?php
-                echo $this->displayPrices(
-                    $_item->getBaseRowTotal() + $_item->getBaseWeeeTaxAppliedRowAmount() + $_item->getBaseWeeeTaxRowDisposition(),
-                    $_item->getRowTotal() + $_item->getWeeeTaxAppliedRowAmount() + $_item->getWeeeTaxRowDisposition()
-                );
-                ?>
-            <?php else: ?>
-                <?php echo $this->displayPrices($_item->getBaseRowTotal(), $_item->getRowTotal()) ?>
-            <?php endif; ?>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
+			<?php echo $this->displayPrices($_item->getBaseRowTotal(), $_item->getRowTotal()) ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
             </span>
