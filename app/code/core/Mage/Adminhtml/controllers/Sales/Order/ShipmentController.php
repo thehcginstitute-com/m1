@@ -217,36 +217,29 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
             $shipment->sendEmail(!empty($data['send_email']), $comment);
 
             $shipmentCreatedMessage = $this->__('The shipment has been created.');
-            $labelCreatedMessage    = $this->__('The shipping label has been created.');
-
-            $this->_getSession()->addSuccess($isNeedCreateLabel ? $shipmentCreatedMessage . ' ' . $labelCreatedMessage
-                : $shipmentCreatedMessage);
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the shipping labels feature because it is unused":
+			# https://github.com/thehcginstitute-com/m1/issues/375
+            $this->_getSession()->addSuccess($shipmentCreatedMessage);
             Mage::getSingleton('adminhtml/session')->getCommentText(true);
         } catch (Mage_Core_Exception $e) {
-            if ($isNeedCreateLabel) {
-                $responseAjax->setError(true);
-                $responseAjax->setMessage($e->getMessage());
-            } else {
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the shipping labels feature because it is unused":
+				# https://github.com/thehcginstitute-com/m1/issues/375
                 $this->_getSession()->addError($e->getMessage());
                 $this->_redirect('*/*/new', ['order_id' => $this->getRequest()->getParam('order_id')]);
-            }
         } catch (Exception $e) {
             Mage::logException($e);
-            if ($isNeedCreateLabel) {
-                $responseAjax->setError(true);
-                $responseAjax->setMessage(
-                    Mage::helper('sales')->__('An error occurred while creating shipping label.')
-                );
-            } else {
-                $this->_getSession()->addError($this->__('Cannot save shipment.'));
-                $this->_redirect('*/*/new', ['order_id' => $this->getRequest()->getParam('order_id')]);
-            }
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the shipping labels feature because it is unused":
+			# https://github.com/thehcginstitute-com/m1/issues/375
+			$this->_getSession()->addError($this->__('Cannot save shipment.'));
+			$this->_redirect('*/*/new', ['order_id' => $this->getRequest()->getParam('order_id')]);
         }
-        if ($isNeedCreateLabel) {
-            $this->getResponse()->setBody($responseAjax->toJson());
-        } else {
-            $this->_redirect('*/sales_order/view', ['order_id' => $shipment->getOrderId()]);
-        }
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the shipping labels feature because it is unused":
+		# https://github.com/thehcginstitute-com/m1/issues/375
+        $this->_redirect('*/sales_order/view', ['order_id' => $shipment->getOrderId()]);
     }
 
     /**
