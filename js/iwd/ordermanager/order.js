@@ -1202,7 +1202,8 @@ IWD.OrderManager.TaxCalculation = {
             subtotal_incl_tax: $ji("input[name='items[" + id + "][subtotal_incl_tax]']"),
             tax_amount: $ji("input[name='items[" + id + "][tax_amount]']"),
             hidden_tax_amount: $ji("input[name='items[" + id + "][hidden_tax_amount]']"),
-            weee_tax_applied_row_amount: $ji("input[name='items[" + id + "][weee_tax_applied_row_amount]']"),
+			// 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			// "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
             tax_percent: $ji("input[name='items[" + id + "][tax_percent]']"),
             discount_amount: $ji("input[name='items[" + id + "][discount_amount]']"),
             discount_percent: $ji("input[name='items[" + id + "][discount_percent]']"),
