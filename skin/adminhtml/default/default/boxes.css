@@ -1461,8 +1461,8 @@ ul.super-product-attributes { padding-left:15px; }
 .tier .data select      { width:99%; }
 .tier .data input.qty   { width:20px !important; }
 
-.weee .data             { width:465px; }
-.weee .data select      { width:99%; }
+/* 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 */
 
 .giftcard-amounts .data { width:465px; }
 .giftcard-amounts .data select { width:99%; }
