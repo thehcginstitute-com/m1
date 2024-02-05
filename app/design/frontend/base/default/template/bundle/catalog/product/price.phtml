@@ -48,30 +48,7 @@ list($_minimalPriceTax, $_maximalPriceTax) = $_priceModel->getTotalPrices($_prod
 list($_minimalPriceInclTax, $_maximalPriceInclTax) = $_priceModel->getTotalPrices($_product, null, true, false);
 # 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
-if ($_product->getPriceType() == 1) {
-    $_weeeTaxAmount = $_weeeHelper->getAmountForDisplay($_product);
-    $_weeeTaxAmountInclTaxes = $_weeeTaxAmount;
-    if ($_weeeHelper->isTaxable()) {
-        $_attributes = $_weeeHelper->getProductWeeeAttributesForRenderer($_product, null, null, null, true);
-        $_weeeTaxAmountInclTaxes = $_weeeHelper->getAmountInclTaxes($_attributes);
-    }
-    if ($_weeeTaxAmount && $_weeeHelper->typeOfDisplay($_product, array(0, 1, 4))) {
-        $_minimalPriceTax     += $_weeeTaxAmount;
-        $_minimalPriceInclTax += $_weeeTaxAmountInclTaxes;
-        $_maximalPriceTax     += $_weeeTaxAmount;
-        $_maximalPriceInclTax += $_weeeTaxAmountInclTaxes;
-    }
-    if ($_weeeTaxAmount && $_weeeHelper->typeOfDisplay($_product, 2)) {
-        $_minimalPriceInclTax += $_weeeTaxAmountInclTaxes;
-        $_maximalPriceInclTax += $_weeeTaxAmountInclTaxes;
-    }
-
-    if ($_weeeHelper->typeOfDisplay($_product, array(1, 2, 4))) {
-        $_weeeTaxAttributes = $_weeeHelper->getProductWeeeAttributesForRenderer($_product, null, null, null, true);
-    }
-}
 ?>
-
 <div class="price-box">
         <?php if ($_product->getPriceView()): ?>
             <p class="minimal-price">
