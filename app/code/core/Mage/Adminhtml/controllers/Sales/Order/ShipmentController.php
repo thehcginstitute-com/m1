@@ -570,61 +570,8 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
 	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	# "Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376
 
-    /**
-     * Batch print shipping labels for whole shipments.
-     * Push pdf document with shipping labels to user browser
-     */
-    public function massPrintShippingLabelAction()
-    {
-        $request = $this->getRequest();
-        $ids = $request->getParam('order_ids');
-        $createdFromOrders = !empty($ids);
-        $shipments = null;
-        $labelsContent = [];
-        switch ($request->getParam('massaction_prepare_key')) {
-            case 'shipment_ids':
-                $ids = $request->getParam('shipment_ids');
-                array_filter($ids, '\intval');
-                if (!empty($ids)) {
-                    $shipments = Mage::getResourceModel('sales/order_shipment_collection')
-                        ->addFieldToFilter('entity_id', ['in' => $ids]);
-                }
-                break;
-            case 'order_ids':
-                $ids = $request->getParam('order_ids');
-                array_filter($ids, '\intval');
-                if (!empty($ids)) {
-                    $shipments = Mage::getResourceModel('sales/order_shipment_collection')
-                        ->setOrderFilter(['in' => $ids]);
-                }
-                break;
-        }
-
-        if ($shipments && $shipments->getSize()) {
-            foreach ($shipments as $shipment) {
-                $labelContent = $shipment->getShippingLabel();
-                if ($labelContent) {
-                    $labelsContent[] = $labelContent;
-                }
-            }
-        }
-
-        if (!empty($labelsContent)) {
-            $outputPdf = $this->_combineLabelsPdf($labelsContent);
-            $this->_prepareDownloadResponse('ShippingLabels.pdf', $outputPdf->render(), 'application/pdf');
-            return;
-        }
-
-        if ($createdFromOrders) {
-            $this->_getSession()
-                ->addError(Mage::helper('sales')->__('There are no shipping labels related to selected orders.'));
-            $this->_redirect('*/sales_order/index');
-        } else {
-            $this->_getSession()
-                ->addError(Mage::helper('sales')->__('There are no shipping labels related to selected shipments.'));
-            $this->_redirect('*/sales_order_shipment/index');
-        }
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375
 
     /**
      * Combine array of labels as instance PDF
