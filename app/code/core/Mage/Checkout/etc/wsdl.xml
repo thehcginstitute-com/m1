@@ -82,15 +82,8 @@
                     <element name="gift_message_id" type="xsd:string" minOccurs="0"/>
                     <element name="gift_message" type="xsd:string" minOccurs="0"/>
                     <element name="gift_message_available" type="xsd:string" minOccurs="0"/>
-                    <element name="weee_tax_applied" type="xsd:double" minOccurs="0"/>
-                    <element name="weee_tax_applied_amount" type="xsd:double" minOccurs="0"/>
-                    <element name="weee_tax_applied_row_amount" type="xsd:double" minOccurs="0"/>
-                    <element name="base_weee_tax_applied_amount" type="xsd:double" minOccurs="0"/>
-                    <element name="base_weee_tax_applied_row_amount" type="xsd:double" minOccurs="0"/>
-                    <element name="weee_tax_disposition" type="xsd:double" minOccurs="0"/>
-                    <element name="weee_tax_row_disposition" type="xsd:double" minOccurs="0"/>
-                    <element name="base_weee_tax_disposition" type="xsd:double" minOccurs="0"/>
-                    <element name="base_weee_tax_row_disposition" type="xsd:double" minOccurs="0"/>
+<!-- 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     <element name="tax_class_id" type="xsd:string" minOccurs="0"/>
                 </all>
             </complexType>
