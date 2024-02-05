@@ -60,7 +60,8 @@ class IWD_OrderManager_Model_Api_Items_v2 extends IWD_OrderManager_Model_Api_Abs
         $this->item['row_total'] = $this->item['subtotal']
             + $this->item['tax_amount']
             + $this->item['hidden_tax_amount']
-            + $this->item['weee_tax_applied_row_amount']
+			# 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
             - $this->item['discount_amount'];
     }
 
