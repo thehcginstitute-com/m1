@@ -28,12 +28,7 @@ $_quote = $this->getItem()->getQuote(); ?>
         <?php if ($this->helper('tax')->displaySalesBothPrices($_quote->getStoreId())): ?>
             <span class="label"><?php echo Mage::helper('tax')->__('Excl. Tax'); ?>:</span>
             <?php endif; ?>
-        <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(0, 1, 4), 'email', $_quote->getStore())): ?>
-            <?php echo Mage::app()->getLocale()->currency($_quote->getQuoteCurrencyCode())->toCurrency($_item->getRowTotal()+$_item->getWeeeTaxAppliedRowAmount()+$_item->getWeeeTaxRowDisposition()); ?>
-            <?php //echo $_quote->formatPrice($_item->getRowTotal()+$_item->getWeeeTaxAppliedRowAmount()+$_item->getWeeeTaxRowDisposition()); ?>
-            <?php else: ?>
-            <?php echo Mage::app()->getLocale()->currency($_quote->getQuoteCurrencyCode())->toCurrency($_item->getRowTotal()) ?>
-            <?php endif; ?>
+			<?php echo Mage::app()->getLocale()->currency($_quote->getQuoteCurrencyCode())->toCurrency($_item->getRowTotal()) ?>
 
 
         <?php if (Mage::helper('weee')->getApplied($_item)): ?>
