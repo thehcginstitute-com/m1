@@ -303,7 +303,8 @@
                         <action method="addColumnRender"><column>name</column><block>adminhtml/sales_items_column_name</block><template>sales/items/column/name.phtml</template></action>
                         <block type="core/text_list" name="order_item_extra_info"></block>
                     </block>
-                    <block type="adminhtml/sales_order_shipment_packaging" name="shipment_packaging" template="sales/order/shipment/packaging/popup.phtml" />
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
                 </block>
             </block>
         </reference>
