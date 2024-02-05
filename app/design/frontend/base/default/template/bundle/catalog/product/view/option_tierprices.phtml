@@ -14,78 +14,75 @@ if (isset($_tierPrices) && count($_tierPrices) > 0) {
 	if ($this->getInGrouped()) {
 		$_tierPrices = $this->getTierPrices($_product);
 	}
-}
-foreach ($_tierPrices as $_index => $_price) {
-	?><li class="tier-price tier-<?= $_index; ?>"><?php
-		if ($_catalogHelper->canApplyMsrp($_product)) {
-			if ($this->getInGrouped()) {
-				echo $this->__('Buy %1$s for', $_price['price_qty']) ?>:<?php
+	foreach ($_tierPrices as $_index => $_price) {
+		?><li class="tier-price tier-<?= $_index; ?>"><?php
+			if ($_catalogHelper->canApplyMsrp($_product)) {
+				if ($this->getInGrouped()) {
+					echo $this->__('Buy %1$s for', $_price['price_qty']) ?>:<?php
+				}
+				else {
+					echo $this->__('Buy %1$s', $_price['price_qty']);
+				}
+			}
+			elseif ($this->helper('tax')->displayBothPrices()) {
+				echo $this->__(
+					'Buy %1$s for %2$s (%3$s incl. tax) each'
+					, $_price['price_qty']
+					, $_price['formated_price']
+					, $_price['formated_price_incl_tax']
+				);
+			}
+			elseif ($this->helper('tax')->displayPriceIncludingTax()) {
+				echo $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price_incl_tax']);
 			}
 			else {
-				echo $this->__('Buy %1$s', $_price['price_qty']);
+				echo $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price']);
 			}
-		}
-		elseif ($this->helper('tax')->displayBothPrices()) {
-			echo $this->__(
-				'Buy %1$s for %2$s (%3$s incl. tax) each'
-				, $_price['price_qty']
-				, $_price['formated_price']
-				, $_price['formated_price_incl_tax']
-			);
-		}
-		elseif ($this->helper('tax')->displayPriceIncludingTax()) {
-			echo $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price_incl_tax']);
-		}
-		else {
-			echo $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price']);
-		}
-		if (!$this->getInGrouped()) {
-			if (
-				($_product->getPrice() == $_product->getFinalPrice() && $_product->getPrice() > $_price['price'])
-				|| ($_product->getPrice() != $_product->getFinalPrice() &&  $_product->getFinalPrice() > $_price['price'])
-			) {
-				echo $this->__('and');
-				?>&nbsp;<strong
-					class="benefit"
-				><?= $this->__('save')?>&nbsp;<span class="percent tier-fixed"><?= $_price['savePercent']?></span>%
-            <?php } ?></strong><?php }
-		if ($_catalogHelper->isShowPriceOnGesture($_product)) {?>
-            <?php $popupId = 'msrp-popup-' . $_product->getId() . $this->helper('core')->getRandomString(20); ?>
-            <a href="#" id="<?=($popupId);?>"><?= $this->__('Click for price'); ?></a>
-            <script type="text/javascript">
-            <?php
-                $addToCartUrl = $this->getProduct()->isSalable()
-                    ? $this->getAddToCartUrlCustom($_product, array('qty' => $_price['price_qty']), false)
-                    : '';
-            ?>
-            <?php if (!$this->getInGrouped()) { ?>
-                var newLink = {
-                    url: "<?= $addToCartUrl; ?>",
-                    qty: "<?= $_price['price_qty']?>"
-                }
-            <?php } else { ?>
-                var newLink = {
-                    url: "<?= $addToCartUrl; ?>",
-                    notUseForm: true
-                }
-            <?php } ?>
-                Catalog.Map.addHelpLink(
-                    $('<?= $popupId ?>'),
-                    "<?= $_product->getName() ?>",
-                    <?= json_encode($_price['real_price_html']) ?>,
-                    "<?= $this->helper('core')->currency($_product->getMsrp(),true,false) ?>",
-                    newLink
-                );
-            </script>
-        <?php } else { ?>
-            <span class="msrp-price-hide-message">
-                <?= $_catalogHelper->getMsrpPriceMessage($_product) ?>
-            </span>
-        <?php } ?>
-
-
-        </li>
-
-    <?php } ?>
+			if (!$this->getInGrouped()) {
+				if (
+					($_product->getPrice() == $_product->getFinalPrice() && $_product->getPrice() > $_price['price'])
+					|| ($_product->getPrice() != $_product->getFinalPrice() &&  $_product->getFinalPrice() > $_price['price'])
+				) {
+					echo $this->__('and');
+					?>&nbsp;<strong
+						class="benefit"
+					><?= $this->__('save')?>&nbsp;<span class="percent tier-fixed"><?= $_price['savePercent']?></span>%
+				<?php } ?></strong><?php }
+			if ($_catalogHelper->isShowPriceOnGesture($_product)) {
+				$popupId = 'msrp-popup-' . $_product->getId() . $this->helper('core')->getRandomString(20);
+				?>
+					<a href="#" id="<?=($popupId);?>"><?= $this->__('Click for price'); ?></a>
+					<script type="text/javascript">
+					<?php
+						$addToCartUrl = $this->getProduct()->isSalable()
+							? $this->getAddToCartUrlCustom($_product, array('qty' => $_price['price_qty']), false)
+							: '';
+					?>
+					<?php if (!$this->getInGrouped()) { ?>
+						var newLink = {
+							url: "<?= $addToCartUrl; ?>",
+							qty: "<?= $_price['price_qty']?>"
+						};
+					<?php } else { ?>
+						var newLink = {
+							url: "<?= $addToCartUrl; ?>",
+							notUseForm: true
+						};
+					<?php } ?>
+						Catalog.Map.addHelpLink(
+							$('<?= $popupId ?>'),
+							"<?= $_product->getName() ?>",
+							<?= json_encode($_price['real_price_html']) ?>,
+							"<?= $this->helper('core')->currency($_product->getMsrp(),true,false) ?>",
+							newLink
+						);
+				</script>
+			<?php } else { ?>
+				<span class="msrp-price-hide-message">
+					<?= $_catalogHelper->getMsrpPriceMessage($_product) ?>
+				</span>
+			<?php } ?>
+			</li>
+		<?php } ?>
     </ul>
-<?php }?>
+<?php }
