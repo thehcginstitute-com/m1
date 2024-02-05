@@ -69,13 +69,7 @@ $_order = $this->getItem()->getOrderItem()->getOrder() ?>
                     <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
                 <?php endif; ?>
 				<span class="cart-price">
-
-                <?php if (Mage::helper('weee')->typeOfDisplay($this->getItem(), array(0, 1, 4), 'sales') && (float)$this->getItem()->getWeeeTaxAppliedAmount()): ?>
-                    <?php echo $this->getOrder()->formatPrice($this->getItem()->getRowTotal() + $this->getItem()->getWeeeTaxAppliedRowAmount() + $this->getItem()->getWeeeTaxRowDisposition()); ?>
-                <?php else: ?>
-                    <?php echo $this->getOrder()->formatPrice($this->getItem()->getRowTotal()) ?>
-                <?php endif; ?>
-
+					<?php echo $this->getOrder()->formatPrice($this->getItem()->getRowTotal()) ?>
                 </span>
 
 
