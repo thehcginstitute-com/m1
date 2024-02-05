@@ -97,7 +97,8 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
 # 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Delete the unused `Mage_PageCache` module": https://github.com/thehcginstitute-com/m1/issues/366
         'Mage_Persistent' => 60,
-        'Mage_Weee' => 61,
+# 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
         'Mage_CurrencySymbol' => 62
     ];
 
