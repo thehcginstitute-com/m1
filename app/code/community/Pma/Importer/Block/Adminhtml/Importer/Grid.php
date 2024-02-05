@@ -133,10 +133,9 @@
                  'url'  => $this->getUrl('*/sales_order/pdfdocs'),
             ));
     
-            $this->getMassactionBlock()->addItem('print_shipping_label', array(
-                 'label'=> Mage::helper('sales')->__('Print Shipping Labels'),
-                 'url'  => $this->getUrl('*/sales_order_shipment/massPrintShippingLabel'),
-            ));
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the shipping labels feature because it is unused":
+			# https://github.com/thehcginstitute-com/m1/issues/375
     
             return $this;
         }
