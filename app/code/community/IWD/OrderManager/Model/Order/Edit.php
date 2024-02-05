@@ -1303,7 +1303,8 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
         $baseTaxAmount = 0;
         $baseHiddenTaxAmount = 0;
         $baseDiscountAmount = 0;
-        $baseTotalWeeeDiscount = 0;
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
         $baseSubtotal = 0;
         $baseSubtotalInclTax = 0;
 
@@ -1324,7 +1325,8 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
             $weight += $orderItem->getRowWeight();
             $baseSubtotal += $orderItem->getBaseRowTotal(); /* RowTotal for item is a subtotal */
             $baseSubtotalInclTax += $orderItem->getBaseRowTotalInclTax();
-            $baseTotalWeeeDiscount += $orderItem->getBaseDiscountAppliedForWeeeTax();
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
         }
 
         //$baseSubtotalInclTax = $baseSubtotal + $baseHiddenTaxAmount + $baseTotalWeeeDiscount + $baseTaxAmount;
