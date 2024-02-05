@@ -157,8 +157,9 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function getBaseSubtotalInclTax($item)
     {
-        $tax = $item->getBaseTaxAmount() + $item->getBaseDiscountTaxCompensation()
-            - $this->_getWeeeHelper()->getBaseTotalRowTaxAppliedForWeeeTax($item);
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+        $tax = $item->getBaseTaxAmount() + $item->getBaseDiscountTaxCompensation();
         return $item->getBaseRowTotal() + $tax;
     }
 
