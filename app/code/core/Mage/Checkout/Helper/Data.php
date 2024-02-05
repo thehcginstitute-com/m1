@@ -133,15 +133,8 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
         return $item->getRowTotal() + $tax;
     }
 
-    /**
-     * Returns the helper for weee
-     *
-     * @return Mage_Weee_Helper_Data
-     */
-    protected function _getWeeeHelper()
-    {
-        return Mage::helper('weee');
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
     /**
      * Get the base price of the item including tax , excluding weee
