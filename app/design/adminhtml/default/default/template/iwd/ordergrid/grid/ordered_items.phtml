@@ -152,7 +152,7 @@
 									# https://github.com/thehcginstitute-com/m1/issues/377
 									$helper->currency(
 											$_item->getBaseRowTotal()
-											+ $_item->getBaseTaxAmount() 
+											+ $_item->getBaseTaxAmount()
 											+ $_item->getBaseHiddenTaxAmount()
 											- $_item->getBaseDiscountAmount()
 										,
@@ -196,9 +196,14 @@
                     </td>
                     <td class="a-right last">
                         <span class="price">
-                           <?php echo $helper->currency(
-                               $item->getBaseRowTotal() + $item->getBaseTaxAmount() + $item->getBaseHiddenTaxAmount() + $item->getBaseWeeeTaxAppliedRowAmount() - $item->getBaseDiscountAmount(),
-                               $item->getRowTotal() + $item->getTaxAmount() + $item->getHiddenTaxAmount() + $item->getWeeeTaxAppliedRowAmount() - $item->getDiscountAmount()
+                           <?php
+# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+						   echo $helper->currency(
+                               $item->getBaseRowTotal() + $item->getBaseTaxAmount() + $item->getBaseHiddenTaxAmount()
+							   - $item->getBaseDiscountAmount(),
+                               $item->getRowTotal() + $item->getTaxAmount() + $item->getHiddenTaxAmount()
+							   - $item->getDiscountAmount()
                            );?>
                         </span></td>
                 </tr>
