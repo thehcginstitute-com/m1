@@ -207,9 +207,8 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
 
             $shipment->getOrder()->setCustomerNoteNotify(!empty($data['send_email']));
 
-            if ($isNeedCreateLabel && $this->_createShippingLabel($shipment)) {
-                $responseAjax->setOk(true);
-            }
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375
 
             $this->_saveShipment($shipment);
 
