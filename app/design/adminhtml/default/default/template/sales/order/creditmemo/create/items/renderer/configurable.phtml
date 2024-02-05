@@ -107,9 +107,12 @@
 <td class="a-right"><?php echo $this->displayPriceAttribute('tax_amount') ?></td>
 <td class="a-right"><?php echo $this->displayPriceAttribute('discount_amount') ?></td>
 <td class="a-right last">
-    <?php echo $this->displayPrices(
-        $_item->getBaseRowTotal() + $_item->getBaseTaxAmount() - $_item->getBaseDiscountAmount() + $_item->getBaseWeeeTaxAppliedRowAmount(),
-        $_item->getRowTotal() + $_item->getTaxAmount() - $_item->getDiscountAmount() + $_item->getWeeeTaxAppliedRowAmount()
+    <?php
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+	echo $this->displayPrices(
+        $_item->getBaseRowTotal() + $_item->getBaseTaxAmount() - $_item->getBaseDiscountAmount(),
+        $_item->getRowTotal() + $_item->getTaxAmount() - $_item->getDiscountAmount()
     ) ?>
 </td>
 </tr>
