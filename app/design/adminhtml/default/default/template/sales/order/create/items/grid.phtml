@@ -227,32 +227,8 @@
         <?php else: ?>
             <?php echo $this->formatPrice(max(0, $_rowTotalLessDiscount)) ?>
         <?php endif; ?>
-
-        <?php if (Mage::helper('weee')->getApplied($_item)): ?>
-            <br />
-            <?php if (Mage::helper('weee')->typeOfDisplay($_item, 1, 'sales')): ?>
-                <small>
-                <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-                    <span class="nobr"><?php echo $tax['title']; ?>: <?php echo $this->formatPrice($tax['row_amount'],true,true); ?></span><br />
-                <?php endforeach; ?>
-                </small>
-            <?php elseif (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales')): ?>
-                <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-                    <span class="nobr"><small><?php echo $tax['title']; ?>: <?php echo $this->formatPrice($tax['row_amount_incl_tax'],true,true); ?></small></span><br />
-                <?php endforeach; ?>
-            <?php elseif (Mage::helper('weee')->typeOfDisplay($_item, 4, 'sales')): ?>
-                <small>
-                <?php foreach (Mage::helper('weee')->getApplied($_item) as $tax): ?>
-                    <span class="nobr"><?php echo $tax['title']; ?>: <?php echo $this->formatPrice($tax['row_amount_incl_tax'],true,true); ?></span><br />
-                <?php endforeach; ?>
-                </small>
-            <?php endif; ?>
-
-            <?php if (Mage::helper('weee')->typeOfDisplay($_item, 2, 'sales')): ?>
-                <br />
-                <span class="nobr"><?php echo Mage::helper('weee')->__('Total'); ?>:<br /> <?php echo $this->formatPrice($_item->getCalculationPrice()+$_item->getWeeeTaxAppliedRowAmount()+$_item->getWeeeTaxRowDisposition()); ?></span>
-            <?php endif; ?>
-        <?php endif; ?>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
     <?php endif; ?>
 
 
