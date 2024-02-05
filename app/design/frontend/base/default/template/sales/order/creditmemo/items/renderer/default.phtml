@@ -88,6 +88,6 @@ $_order = $this->getItem()->getOrderItem()->getOrder() ?>
 </td>
 <td class="a-right"><?php echo $_order->formatPrice(-$_item->getDiscountAmount()) ?></td>
 <td class="last a-right">
-    <?php echo $_order->formatPrice($_item->getRowTotal() - $_item->getDiscountAmount() + $_item->getTaxAmount() + $_item->getWeeeTaxAppliedRowAmount()) ?>
+    <?php echo $_order->formatPrice($_item->getRowTotal() - $_item->getDiscountAmount() + $_item->getTaxAmount()) ?>
 </td>
 </tr>
