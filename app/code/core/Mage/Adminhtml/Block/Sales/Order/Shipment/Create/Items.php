@@ -110,14 +110,6 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_Create_Items extends Mage_Adminh
         return Mage::helper('sales')->canSendNewShipmentEmail($this->getOrder()->getStore()->getId());
     }
 
-    /**
-     * Checks the possibility of creating shipping label by current carrier
-     *
-     * @return bool
-     */
-    public function canCreateShippingLabel()
-    {
-        $shippingCarrier = $this->getOrder()->getShippingCarrier();
-        return $shippingCarrier && $shippingCarrier->isShippingLabelsAvailable();
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375
 }
