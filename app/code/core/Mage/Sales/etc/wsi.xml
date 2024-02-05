@@ -533,7 +533,8 @@
                     <xsd:element name="created_at" type="xsd:string" minOccurs="0" />
                     <xsd:element name="updated_at" type="xsd:string" minOccurs="0" />
                     <xsd:element name="is_active" type="xsd:string" minOccurs="0" />
-                    <xsd:element name="weee_tax_applied" type="xsd:string" minOccurs="0" />
+<!-- 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     <xsd:element name="qty" type="xsd:string" minOccurs="0" />
                     <xsd:element name="cost" type="xsd:string" minOccurs="0" />
                     <xsd:element name="price" type="xsd:string" minOccurs="0" />
