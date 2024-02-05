@@ -32,17 +32,17 @@ if (isset($_tierPrices) && count($_tierPrices) > 0) { ?>
         <?php if ($this->helper('tax')->displayBothPrices()) { ?>
             <?php if (Mage::helper('weee')->typeOfDisplay($_product, 0)) { ?>
                 <?php echo $this->__('Buy %1$s for %2$s (%3$s incl. tax) each', $_price['price_qty'], $_price['formated_price_incl_weee_only'], $_price['formated_price_incl_weee']) ?>
-            <?php elseif(Mage::helper('weee')->typeOfDisplay($_product, 1)) { ?>
+            <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 1)) { ?>
                     <?php echo $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_weee_only']); ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     <?php echo $this->__('each') ?>
-            <?php elseif(Mage::helper('weee')->typeOfDisplay($_product, 4)) { ?>
+            <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 4)) { ?>
                     <?php echo $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_weee_only']); ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                     <?php echo $this->__('each') ?>
-            <?php elseif(Mage::helper('weee')->typeOfDisplay($_product, 2)) { ?>
+            <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 2)) { ?>
                     <?php echo $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price']); ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
@@ -54,17 +54,17 @@ if (isset($_tierPrices) && count($_tierPrices) > 0) { ?>
             <?php if ($this->helper('tax')->displayPriceIncludingTax()) { ?>
                 <?php if (Mage::helper('weee')->typeOfDisplay($_product, 0)) { ?>
                         <?php echo $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price_incl_weee']) ?>
-                <?php elseif(Mage::helper('weee')->typeOfDisplay($_product, 1)) { ?>
+                <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 1)) { ?>
                         <?php echo $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_weee']); ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                         <?php echo $this->__('each') ?>
-                <?php elseif(Mage::helper('weee')->typeOfDisplay($_product, 4)) { ?>
+                <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 4)) { ?>
                         <?php echo $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_weee']); ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                         <?php echo $this->__('each') ?>
-                <?php elseif(Mage::helper('weee')->typeOfDisplay($_product, 2)) { ?>
+                <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 2)) { ?>
                         <?php echo $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_tax']); ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
@@ -75,12 +75,12 @@ if (isset($_tierPrices) && count($_tierPrices) > 0) { ?>
             <?php } else { ?>
                 <?php if (Mage::helper('weee')->typeOfDisplay($_product, 0)) { ?>
                         <?php echo $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price_incl_weee_only']) ?>
-                <?php elseif(Mage::helper('weee')->typeOfDisplay($_product, 1)) { ?>
+                <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 1)) { ?>
                         <?php echo $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_weee_only']); ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                         <?php echo $this->__('each') ?>
-                <?php elseif(Mage::helper('weee')->typeOfDisplay($_product, 4)) { ?>
+                <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 4)) { ?>
                         <?php echo $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_weee_only']); ?>
                         <?php if ($_weeeTaxAttributes) { ?>
                         (<small>
@@ -91,7 +91,7 @@ if (isset($_tierPrices) && count($_tierPrices) > 0) { ?>
                         </small>)
                         <?php } ?>
                         <?php echo $this->__('each') ?>
-                <?php elseif(Mage::helper('weee')->typeOfDisplay($_product, 2)) { ?>
+                <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 2)) { ?>
                         <?php echo $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price']); ?>
                         <?php if ($_weeeTaxAttributes) { ?>
                         (<small>
