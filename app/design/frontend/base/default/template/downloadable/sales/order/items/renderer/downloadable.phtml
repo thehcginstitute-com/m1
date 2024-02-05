@@ -62,9 +62,6 @@ $_item = $this->getItem(); ?>
         <?php if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceInclTax()): ?>
         <span class="price-incl-tax">
             <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
-                <?php if (!Mage::helper('weee')->typeOfDisplay($this->getItem(), array(1, 4), 'sales') && (float)$this->getItem()->getWeeeTaxAppliedAmount()): ?>
-                    <span class="cart-price">
-                <?php endif; ?>
                 <span class="label"><?php echo $this->__('Incl. Tax'); ?>:</span>
                 <?php if (!Mage::helper('weee')->typeOfDisplay($this->getItem(), array(1, 4), 'sales') && (float)$this->getItem()->getWeeeTaxAppliedAmount()): ?>
                     </span>
