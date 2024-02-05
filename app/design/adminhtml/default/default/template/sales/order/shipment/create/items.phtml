@@ -110,15 +110,10 @@ function bindSendEmail() {
         //shipmentCommentText.disabled = true;
     }
 }
-function toggleCreateLabelCheckbox() {
-    var checkbox = $('create_shipping_label');
-    var submitButton = checkbox.up('.order-totals').select('.submit-button span')[0];
-    if (checkbox.checked) {
-        submitButton.innerText += '...';
-    } else {
-        submitButton.innerText = submitButton.innerText.replace(/\.\.\.$/, '');
-    }
-}
+
+// 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+// "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375
+
 function submitShipment(btn) {
 	// 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	// "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375
