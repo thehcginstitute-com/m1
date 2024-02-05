@@ -538,32 +538,6 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
         return true;
     }
 
-    /**
-     * Create shipping label action for specific shipment
-     *
-     */
-    public function createLabelAction()
-    {
-        $response = new Varien_Object();
-        try {
-            $shipment = $this->_initShipment();
-            if ($this->_createShippingLabel($shipment)) {
-                $shipment->save();
-                $this->_getSession()->addSuccess(Mage::helper('sales')->__('The shipping label has been created.'));
-                $response->setOk(true);
-            }
-        } catch (Mage_Core_Exception $e) {
-            $response->setError(true);
-            $response->setMessage($e->getMessage());
-        } catch (Exception $e) {
-            Mage::logException($e);
-            $response->setError(true);
-            $response->setMessage(Mage::helper('sales')->__('An error occurred while creating shipping label.'));
-        }
-
-        $this->getResponse()->setBody($response->toJson());
-    }
-
 	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	# "Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376
 }
