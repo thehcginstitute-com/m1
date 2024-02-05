@@ -534,17 +534,19 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
         $basePrice = $item->getBaseTaxableAmount();
         $rateKey = ($taxId == null) ? (string)$rate : $taxId;
 
-        $isWeeeEnabled = $this->_weeeHelper->isEnabled();
-        $isWeeeTaxable = $this->_weeeHelper->isTaxable();
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
         $hiddenTax = null;
         $baseHiddenTax = null;
-        $weeeTax = null;
-        $baseWeeeTax = null;
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
         $unitTaxBeforeDiscount = null;
-        $weeeTaxBeforeDiscount = null;
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
         $baseUnitTaxBeforeDiscount = null;
-        $baseWeeeTaxBeforeDiscount = null;
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
         switch ($this->_config->getCalculationSequence($this->_store)) {
             case Mage_Tax_Model_Calculation::CALC_TAX_BEFORE_DISCOUNT_ON_EXCL:
@@ -552,12 +554,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                 $unitTaxBeforeDiscount = $this->_calculator->calcTaxAmount($price, $rate, $inclTax, false);
                 $baseUnitTaxBeforeDiscount = $this->_calculator->calcTaxAmount($basePrice, $rate, $inclTax, false);
 
-                if ($isWeeeEnabled && $isWeeeTaxable) {
-                    $weeeTaxBeforeDiscount = $this->_calculateWeeeTax(0, $item, $rate, false);
-                    $unitTaxBeforeDiscount += $weeeTaxBeforeDiscount;
-                    $baseWeeeTaxBeforeDiscount = $this->_calculateWeeeTax(0, $item, $rate);
-                    $baseUnitTaxBeforeDiscount += $baseWeeeTaxBeforeDiscount;
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
                 $unitTaxBeforeDiscount = $unitTax = $this->_calculator->round($unitTaxBeforeDiscount);
                 $baseUnitTaxBeforeDiscount = $baseUnitTax = $this->_calculator->round($baseUnitTaxBeforeDiscount);
                 break;
@@ -566,11 +564,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                 $discountAmount = $item->getDiscountAmount() / $qty;
                 $baseDiscountAmount = $item->getBaseDiscountAmount() / $qty;
 
-                //We want to remove weee
-                if ($isWeeeEnabled && $this->_weeeHelper->includeInSubtotal()) {
-                    $discountAmount = $discountAmount - $item->getWeeeDiscount() / $qty;
-                    $baseDiscountAmount = $baseDiscountAmount - $item->getBaseWeeeDiscount() / $qty;
-                }
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
                 $unitTaxBeforeDiscount = $this->_calculator->calcTaxAmount($price, $rate, $inclTax, false);
                 $unitTaxDiscount = $this->_calculator->calcTaxAmount($discountAmount, $rate, $inclTax, false);
@@ -580,28 +575,14 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                 $baseUnitTaxDiscount = $this->_calculator->calcTaxAmount($baseDiscountAmount, $rate, $inclTax, false);
                 $baseUnitTax = $this->_calculator->round(max($baseUnitTaxBeforeDiscount - $baseUnitTaxDiscount, 0));
 
-                if ($isWeeeEnabled && $this->_weeeHelper->isTaxable()) {
-                    $weeeTax = $this->_calculateRowWeeeTax($item->getWeeeDiscount(), $item, $rate, false);
-                    $weeeTax = $weeeTax / $qty;
-                    $unitTax += $weeeTax;
-                    $baseWeeeTax = $this->_calculateRowWeeeTax($item->getBaseWeeeDiscount(), $item, $rate);
-                    $baseWeeeTax = $baseWeeeTax / $qty;
-                    $baseUnitTax += $baseWeeeTax;
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
                 $unitTax = $this->_calculator->round($unitTax);
                 $baseUnitTax = $this->_calculator->round($baseUnitTax);
 
-                //Calculate the weee taxes before discount
-                $weeeTaxBeforeDiscount = 0;
-                $baseWeeeTaxBeforeDiscount = 0;
-
-                if ($isWeeeTaxable) {
-                    $weeeTaxBeforeDiscount = $this->_calculateWeeeTax(0, $item, $rate, false);
-                    $unitTaxBeforeDiscount += $weeeTaxBeforeDiscount;
-                    $baseWeeeTaxBeforeDiscount = $this->_calculateWeeeTax(0, $item, $rate);
-                    $baseUnitTaxBeforeDiscount += $baseWeeeTaxBeforeDiscount;
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
                 $unitTaxBeforeDiscount = max(0, $this->_calculator->round($unitTaxBeforeDiscount));
                 $baseUnitTaxBeforeDiscount = max(0, $this->_calculator->round($baseUnitTaxBeforeDiscount));
@@ -629,13 +610,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                         'incl_tax' => $inclTax,
                     ];
                 }
-                // calculate discount compensation
-                // We need the discount compensation when dont calculate the hidden taxes
-                // (when product does not include taxes)
-                if (!$item->getNoDiscount() && $item->getWeeeTaxApplied()) {
-                    $item->setDiscountTaxCompensation($item->getDiscountTaxCompensation() +
-                    $unitTaxBeforeDiscount * $qty - max(0, $unitTax) * $qty);
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
                 break;
         }
 
@@ -655,11 +631,15 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                 $item->setBaseRowTotalInclTax($basePrice * $qty);
             } else {
                 $item->setRowTotalInclTax(
-                    $item->getRowTotalInclTax() + ($unitTaxBeforeDiscount - $weeeTaxBeforeDiscount) * $qty
+					# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+                    $item->getRowTotalInclTax() + ($unitTaxBeforeDiscount) * $qty
                 );
                 $item->setBaseRowTotalInclTax(
                     $item->getBaseRowTotalInclTax() +
-                    ($baseUnitTaxBeforeDiscount - $baseWeeeTaxBeforeDiscount) * $qty
+					# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+                    ($baseUnitTaxBeforeDiscount) * $qty
                 );
             }
         }
@@ -767,12 +747,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                     $taxRate
                 );
             }
-            //We need to calculate weeeAmountInclTax using multiple tax rate here
-            //because the _calculateWeeeTax and _calculateRowWeeeTax only take one tax rate
-            if ($this->_weeeHelper->isEnabled() && $this->_weeeHelper->isTaxable()) {
-                $this->_calculateWeeeAmountInclTax($item, $appliedRates, false);
-                $this->_calculateWeeeAmountInclTax($item, $appliedRates, true);
-            }
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
         }
         if ($rate > 0) {
             $itemTaxGroups[$item->getId()] = $appliedRates;
@@ -803,17 +779,12 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
         $baseSubtotal = $baseTaxSubtotal = $item->getBaseTaxableAmount();
         $rateKey = ($taxId == null) ? (string)$rate : $taxId;
 
-        $isWeeeEnabled = $this->_weeeHelper->isEnabled();
-        $isWeeeTaxable = $this->_weeeHelper->isTaxable();
-
-        $hiddenTax = null;
-        $baseHiddenTax = null;
-        $weeeTax = null;
-        $baseWeeeTax = null;
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
         $rowTaxBeforeDiscount = null;
         $baseRowTaxBeforeDiscount = null;
-        $weeeRowTaxBeforeDiscount = null;
-        $baseWeeeRowTaxBeforeDiscount = null;
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
         switch ($this->_helper->getCalculationSequence($this->_store)) {
             case Mage_Tax_Model_Calculation::CALC_TAX_BEFORE_DISCOUNT_ON_EXCL:
@@ -821,12 +792,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                 $rowTaxBeforeDiscount = $this->_calculator->calcTaxAmount($subtotal, $rate, $inclTax, false);
                 $baseRowTaxBeforeDiscount = $this->_calculator->calcTaxAmount($baseSubtotal, $rate, $inclTax, false);
 
-                if ($isWeeeEnabled && $isWeeeTaxable) {
-                    $weeeRowTaxBeforeDiscount = $this->_calculateRowWeeeTax(0, $item, $rate, false);
-                    $rowTaxBeforeDiscount += $weeeRowTaxBeforeDiscount;
-                    $baseWeeeRowTaxBeforeDiscount = $this->_calculateRowWeeeTax(0, $item, $rate);
-                    $baseRowTaxBeforeDiscount += $baseWeeeRowTaxBeforeDiscount;
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
                 $rowTaxBeforeDiscount = $rowTax = $this->_calculator->round($rowTaxBeforeDiscount);
                 $baseRowTaxBeforeDiscount = $baseRowTax = $this->_calculator->round($baseRowTaxBeforeDiscount);
                 break;
@@ -835,10 +802,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                 $discountAmount = $item->getDiscountAmount();
                 $baseDiscountAmount = $item->getBaseDiscountAmount();
 
-                if ($isWeeeEnabled && $this->_weeeHelper->includeInSubtotal()) {
-                    $discountAmount = $discountAmount - $item->getWeeeDiscount();
-                    $baseDiscountAmount = $baseDiscountAmount - $item->getBaseWeeeDiscount();
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
                 $rowTax = $this->_calculator->calcTaxAmount(
                     max($subtotal - $discountAmount, 0),
@@ -851,12 +816,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                     $inclTax
                 );
 
-                if ($isWeeeEnabled && $this->_weeeHelper->isTaxable()) {
-                    $weeeTax = $this->_calculateRowWeeeTax($item->getWeeeDiscount(), $item, $rate, false);
-                    $rowTax += $weeeTax;
-                    $baseWeeeTax = $this->_calculateRowWeeeTax($item->getBaseWeeeDiscount(), $item, $rate);
-                    $baseRowTax += $baseWeeeTax;
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
                 $rowTax = $this->_calculator->round($rowTax);
                 $baseRowTax = $this->_calculator->round($baseRowTax);
@@ -875,15 +836,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                     false
                 );
 
-                //Calculate the Weee taxes before discount
-                $weeeRowTaxBeforeDiscount = 0;
-                $baseWeeeRowTaxBeforeDiscount = 0;
-                if ($isWeeeTaxable) {
-                    $weeeRowTaxBeforeDiscount = $this->_calculateRowWeeeTax(0, $item, $rate, false);
-                    $rowTaxBeforeDiscount += $weeeRowTaxBeforeDiscount;
-                    $baseWeeeRowTaxBeforeDiscount = $this->_calculateRowWeeeTax(0, $item, $rate);
-                    $baseRowTaxBeforeDiscount += $baseWeeeRowTaxBeforeDiscount;
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
                 $rowTaxBeforeDiscount = max(0, $this->_calculator->round($rowTaxBeforeDiscount));
                 $baseRowTaxBeforeDiscount = max(0, $this->_calculator->round($baseRowTaxBeforeDiscount));
@@ -911,11 +865,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                         'incl_tax' => $inclTax,
                     ];
                 }
-                // calculate discount compensation
-                if (!$item->getNoDiscount() && $item->getWeeeTaxApplied()) {
-                    $item->setDiscountTaxCompensation($item->getDiscountTaxCompensation() +
-                    $rowTaxBeforeDiscount - max(0, $rowTax));
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
                 break;
         }
         $item->setTaxAmount($item->getTaxAmount() + max(0, $rowTax));
@@ -932,10 +883,13 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                 $item->setBaseRowTotalInclTax($baseSubtotal);
             } else {
                 $item->setRowTotalInclTax(
-                    $item->getRowTotalInclTax() + $rowTaxBeforeDiscount - $weeeRowTaxBeforeDiscount
+					# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+                    $item->getRowTotalInclTax() + $rowTaxBeforeDiscount
                 );
-                $item->setBaseRowTotalInclTax($item->getBaseRowTotalInclTax() +
-                $baseRowTaxBeforeDiscount - $baseWeeeRowTaxBeforeDiscount);
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+                $item->setBaseRowTotalInclTax($item->getBaseRowTotalInclTax() + $baseRowTaxBeforeDiscount);
             }
         }
         return $this;
@@ -1055,12 +1009,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                 $this->_aggregateTaxPerRate($item, $taxRate, $taxGroups, $taxId, $recalculateRowTotalInclTax);
             }
 
-            //We need to calculate weeeAmountInclTax using multiple tax rate here
-            //because the _calculateWeeeTax and _calculateRowWeeeTax only take one tax rate
-            if ($this->_weeeHelper->isEnabled() && $this->_weeeHelper->isTaxable()) {
-                $this->_calculateWeeeAmountInclTax($item, $appliedRates, false);
-                $this->_calculateWeeeAmountInclTax($item, $appliedRates, true);
-            }
+			# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
         }
         if ($rate > 0) {
             $itemTaxGroups[$item->getId()] = $appliedRates;
@@ -1089,8 +1039,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
         $taxSubtotal = $subtotal = $item->getTaxableAmount();
         $baseTaxSubtotal = $baseSubtotal = $item->getBaseTaxableAmount();
 
-        $isWeeeEnabled = $this->_weeeHelper->isEnabled();
-        $isWeeeTaxable = $this->_weeeHelper->isTaxable();
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
         if (!isset($taxGroups[$rateKey]['totals'])) {
             $taxGroups[$rateKey]['totals'] = [];
@@ -1099,15 +1049,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
             $taxGroups[$rateKey]['base_weee_tax'] = [];
         }
 
-        $hiddenTax = null;
-        $baseHiddenTax = null;
-        $weeeTax = null;
-        $baseWeeeTax = null;
-        $discount = 0;
-        $rowTaxBeforeDiscount = 0;
-        $baseRowTaxBeforeDiscount = 0;
-        $weeeRowTaxBeforeDiscount = 0;
-        $baseWeeeRowTaxBeforeDiscount = 0;
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
         switch ($this->_helper->getCalculationSequence($this->_store)) {
             case Mage_Tax_Model_Calculation::CALC_TAX_BEFORE_DISCOUNT_ON_EXCL:
@@ -1115,22 +1058,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                 $rowTaxBeforeDiscount = $this->_calculator->calcTaxAmount($subtotal, $rate, $inclTax, false);
                 $baseRowTaxBeforeDiscount = $this->_calculator->calcTaxAmount($baseSubtotal, $rate, $inclTax, false);
 
-                if ($isWeeeEnabled && $isWeeeTaxable) {
-                    $weeeRowTaxBeforeDiscount = $this->_calculateRowWeeeTax(0, $item, $rate, false);
-                    $baseWeeeRowTaxBeforeDiscount = $this->_calculateRowWeeeTax(0, $item, $rate);
-                    $rowTaxBeforeDiscount += $weeeRowTaxBeforeDiscount;
-                    $baseRowTaxBeforeDiscount += $baseWeeeRowTaxBeforeDiscount;
-                    $taxGroups[$rateKey]['weee_tax'][] = $this->_deltaRound(
-                        $weeeRowTaxBeforeDiscount,
-                        $rateKey,
-                        $inclTax
-                    );
-                    $taxGroups[$rateKey]['base_weee_tax'][] = $this->_deltaRound(
-                        $baseWeeeRowTaxBeforeDiscount,
-                        $rateKey,
-                        $inclTax
-                    );
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
                 $taxBeforeDiscountRounded = $rowTax = $this->_deltaRound($rowTaxBeforeDiscount, $rateKey, $inclTax);
                 $baseTaxBeforeDiscountRounded = $baseRowTax = $this->_deltaRound(
                     $baseRowTaxBeforeDiscount,
@@ -1151,25 +1080,16 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                     $baseDiscount = $item->getBaseDiscountAmount();
                 }
 
-                //We remove weee discount from discount if weee is not taxed
-                if ($isWeeeEnabled && $this->_weeeHelper->includeInSubtotal()) {
-                    $discount = $discount - $item->getWeeeDiscount();
-                    $baseDiscount = $baseDiscount - $item->getBaseWeeeDiscount();
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
                 $taxSubtotal = max($subtotal - $discount, 0);
                 $baseTaxSubtotal = max($baseSubtotal - $baseDiscount, 0);
 
                 $rowTax = $this->_calculator->calcTaxAmount($taxSubtotal, $rate, $inclTax, false);
                 $baseRowTax = $this->_calculator->calcTaxAmount($baseTaxSubtotal, $rate, $inclTax, false);
 
-                if ($isWeeeEnabled && $this->_weeeHelper->isTaxable()) {
-                    $weeeTax = $this->_calculateRowWeeeTax($item->getWeeeDiscount(), $item, $rate, false);
-                    $rowTax += $weeeTax;
-                    $baseWeeeTax = $this->_calculateRowWeeeTax($item->getBaseWeeeDiscount(), $item, $rate);
-                    $baseRowTax += $baseWeeeTax;
-                    $taxGroups[$rateKey]['weee_tax'][] = $weeeTax;
-                    $taxGroups[$rateKey]['base_weee_tax'][] = $baseWeeeTax;
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
                 $rowTax = $this->_deltaRound($rowTax, $rateKey, $inclTax);
                 $baseRowTax = $this->_deltaRound($baseRowTax, $rateKey, $inclTax, 'base');
@@ -1191,12 +1111,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                     false
                 );
 
-                if ($isWeeeTaxable) {
-                    $weeeRowTaxBeforeDiscount = $this->_calculateRowWeeeTax(0, $item, $rate, false);
-                    $rowTaxBeforeDiscount += $weeeRowTaxBeforeDiscount;
-                    $baseWeeeRowTaxBeforeDiscount = $this->_calculateRowWeeeTax(0, $item, $rate);
-                    $baseRowTaxBeforeDiscount += $baseWeeeRowTaxBeforeDiscount;
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
                 $taxBeforeDiscountRounded = max(
                     0,
@@ -1207,12 +1123,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                     $this->_deltaRound($baseRowTaxBeforeDiscount, $rateKey, $inclTax, 'tax_before_discount_base')
                 );
 
-                if (!$item->getNoDiscount()) {
-                    if ($item->getWeeeTaxApplied()) {
-                        $item->setDiscountTaxCompensation($item->getDiscountTaxCompensation() +
-                        $taxBeforeDiscountRounded - max(0, $rowTax));
-                    }
-                }
+				# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
                 if ($inclTax && $discount > 0) {
                     $roundedHiddenTax = $taxBeforeDiscountRounded - max(0, $rowTax);
@@ -1236,12 +1148,14 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
                 $item->setBaseRowTotalInclTax($baseSubtotal);
             } else {
                 $item->setRowTotalInclTax(
-                    $item->getRowTotalInclTax() + $taxBeforeDiscountRounded - $weeeRowTaxBeforeDiscount
+					# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+                    $item->getRowTotalInclTax() + $taxBeforeDiscountRounded
                 );
                 $item->setBaseRowTotalInclTax(
-                    $item->getBaseRowTotalInclTax()
-                    + $baseTaxBeforeDiscountRounded
-                    - $baseWeeeRowTaxBeforeDiscount
+					# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+                    $item->getBaseRowTotalInclTax() + $baseTaxBeforeDiscountRounded
                 );
             }
         }
@@ -1253,215 +1167,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
         return $this;
     }
 
-    /**
-     * Calculates the weeeAmountInclTax for display purpose
-     *
-     * @param Mage_Sales_Model_Quote_Item_Abstract $item
-     * @param array $appliedRates
-     * @param bool $base
-     */
-    protected function _calculateWeeeAmountInclTax($item, $appliedRates, $base = true)
-    {
-        foreach ($this->_weeeHelper->getApplied($item) as $tax) {
-            $weeeAmountInclTax = 0;
-            $weeeAmountExclTax = 0;
-
-            if ($base) {
-                $weeeAmountInclTax = $tax['base_amount_incl_tax'] ?? 0;
-                $weeeAmountExclTax = $tax['base_amount'] ?? 0;
-                $weeeRowAmountInclTax = $tax['base_row_amount_incl_tax'] ?? 0;
-                $weeeRowAmountExclTax = $tax['base_row_amount'] ?? 0;
-            } else {
-                $weeeAmountInclTax = $tax['amount_incl_tax'] ?? 0;
-                $weeeAmountExclTax = $tax['amount'] ?? 0;
-                $weeeRowAmountInclTax = $tax['row_amount_incl_tax'] ?? 0;
-                $weeeRowAmountExclTax = $tax['row_amount'] ?? 0;
-            }
-
-            $weeeTax = [];
-            $weeeRowTax = [];
-            foreach ($appliedRates as $appliedRate) {
-                $rate = $appliedRate['percent'];
-                $weeeTax[] = $this->_getWeeeTax($rate, $item, 0, $weeeAmountInclTax, $weeeAmountExclTax);
-                $weeeRowTax[] = $this->_getWeeeTax($rate, $item, 0, $weeeRowAmountInclTax, $weeeRowAmountExclTax);
-            }
-
-            //We want to update the tax calculated on Weee to the Item with out discount for display purpose
-            $weeeAmountInclTax = array_sum($weeeTax) + $weeeAmountExclTax;
-            $weeeRowAmountInclTax = array_sum($weeeRowTax) + $weeeRowAmountExclTax;
-            $calculationMethod = $this->_config->getAlgorithm($this->_store);
-            if ($calculationMethod == Mage_Tax_Model_Calculation::CALC_UNIT_BASE) {
-                $weeeRowAmountInclTax = $this->_calculator->round($weeeAmountInclTax * $item->getQty());
-            } else {
-                $weeeAmountInclTax = $this->_calculator->round($weeeRowAmountInclTax / $item->getQty());
-            }
-            if ($base) {
-                $this->_weeeHelper->setWeeeTaxesAppliedProperty(
-                    $item,
-                    $tax['title'],
-                    'base_amount_incl_tax',
-                    $weeeAmountInclTax
-                );
-                $this->_weeeHelper->setWeeeTaxesAppliedProperty(
-                    $item,
-                    $tax['title'],
-                    'base_row_amount_incl_tax',
-                    $weeeRowAmountInclTax
-                );
-            } else {
-                $this->_weeeHelper->setWeeeTaxesAppliedProperty(
-                    $item,
-                    $tax['title'],
-                    'amount_incl_tax',
-                    $weeeAmountInclTax
-                );
-                $this->_weeeHelper->setWeeeTaxesAppliedProperty(
-                    $item,
-                    $tax['title'],
-                    'row_amount_incl_tax',
-                    $weeeRowAmountInclTax
-                );
-            }
-        }
-    }
-
-    /**
-     * Calculates the weee tax based on the customer tax rate and discount
-     *
-     * @param float $discountAmount
-     * @param Mage_Sales_Model_Quote_Item_Abstract $item
-     * @param float $rate
-     * @param bool $base
-     * @return float
-     */
-    protected function _calculateWeeeTax($discountAmount, $item, $rate, $base = true)
-    {
-        $totalWeeeAmountInclTax = 0;
-        $totalWeeeAmountExclTax = 0;
-
-        foreach ($this->_weeeHelper->getApplied($item) as $tax) {
-            $weeeAmountInclTax = 0;
-            $weeeAmountExclTax = 0;
-
-            if ($base) {
-                $weeeAmountInclTax = $tax['base_amount_incl_tax'] ?? 0;
-                $weeeAmountExclTax = $tax['base_amount'] ?? 0;
-            } else {
-                $weeeAmountInclTax = $tax['amount_incl_tax'] ?? 0;
-                $weeeAmountExclTax = $tax['amount'] ?? 0;
-            }
-
-            $weeeTaxWithOutDiscount = $this->_getWeeeTax($rate, $item, 0, $weeeAmountInclTax, $weeeAmountExclTax);
-
-            //We want to update the tax calculated on Weee to the Item with out discount for display purpose
-            $weeeAmountInclTax = $weeeTaxWithOutDiscount + $weeeAmountExclTax;
-            if ($base) {
-                $this->_weeeHelper->setWeeeTaxesAppliedProperty(
-                    $item,
-                    $tax['title'],
-                    'base_amount_incl_tax',
-                    $weeeAmountInclTax
-                );
-            } else {
-                $this->_weeeHelper->setWeeeTaxesAppliedProperty(
-                    $item,
-                    $tax['title'],
-                    'amount_incl_tax',
-                    $weeeAmountInclTax
-                );
-            }
-
-            $totalWeeeAmountInclTax += $weeeAmountInclTax;
-            $totalWeeeAmountExclTax += $weeeAmountExclTax;
-        }
-        return $this->_getWeeeTax($rate, $item, $discountAmount, $totalWeeeAmountInclTax, $totalWeeeAmountExclTax);
-    }
-
-    /**
-     * Calculates and updates the wee tax based on the customer tax rate and discount for Row
-     *
-     * @param float $discountAmount
-     * @param Mage_Sales_Model_Quote_Item_Abstract $item
-     * @param float $rate
-     * @param bool $base
-     * @return int
-     */
-    protected function _calculateRowWeeeTax($discountAmount, $item, $rate, $base = true)
-    {
-        //We want to update the weee tax for the unit too. discount amount set on the item is by row
-        $discountAmountByUnit = $discountAmount / ($item->getTotalQty() ? $item->getTotalQty() : 1);
-        $this->_calculateWeeeTax($discountAmountByUnit, $item, $rate, $base);
-
-        $totalWeeeAmountInclTax = 0;
-        $totalWeeeAmountExclTax = 0;
-
-        foreach ($this->_weeeHelper->getApplied($item) as $tax) {
-            $weeeAmountInclTax = 0;
-            $weeeAmountExclTax = 0;
-
-            if ($base) {
-                $weeeAmountInclTax = $tax['base_row_amount_incl_tax'] ?? 0;
-                $weeeAmountExclTax = $tax['base_row_amount'] ?? 0;
-            } else {
-                $weeeAmountInclTax = $tax['row_amount_incl_tax'] ?? 0;
-                $weeeAmountExclTax = $tax['row_amount'] ?? 0;
-            }
-
-            $weeeTaxWithOutDiscount = $this->_getWeeeTax($rate, $item, 0, $weeeAmountInclTax, $weeeAmountExclTax);
-
-            //We want to update the tax calculated on Weee to the Item without discount.
-            //We do not show the discount to the user.
-            $weeeAmountIncludingTax = $weeeTaxWithOutDiscount + $weeeAmountExclTax;
-            if ($base) {
-                $this->_weeeHelper->setWeeeTaxesAppliedProperty(
-                    $item,
-                    $tax['title'],
-                    'base_row_amount_incl_tax',
-                    $weeeAmountIncludingTax
-                );
-            } else {
-                $this->_weeeHelper->setWeeeTaxesAppliedProperty(
-                    $item,
-                    $tax['title'],
-                    'row_amount_incl_tax',
-                    $weeeAmountIncludingTax
-                );
-            }
-            $totalWeeeAmountInclTax += $weeeAmountInclTax;
-            $totalWeeeAmountExclTax += $weeeAmountExclTax;
-        }
-        return $this->_getWeeeTax($rate, $item, $discountAmount, $totalWeeeAmountInclTax, $totalWeeeAmountExclTax);
-    }
-
-    /**
-     * Calculate the Weee tax based on the discount and rate
-     *
-     * @param float $rate
-     * @param Mage_Sales_Model_Quote_Item_Abstract $item
-     * @param float $discountAmount
-     * @param float $weeeAmountIncludingTax
-     * @param float $weeeAmountExclTax
-     * @return mixed
-     */
-    private function _getWeeeTax($rate, $item, $discountAmount, $weeeAmountIncludingTax, $weeeAmountExclTax)
-    {
-        $isWeeeTaxAlreadyIncluded = $this->_weeeHelper->isTaxIncluded($this->_store);
-
-        $sameRateAsStore = $this->_helper->isCrossBorderTradeEnabled($this->_store) ||
-                ($rate == $this->_calculator->getStoreRateForItem($item));
-        if ($sameRateAsStore && $isWeeeTaxAlreadyIncluded) {
-            if (!$discountAmount || $discountAmount <= 0) {
-                //We want to skip the re calculation and return the difference
-                return max($weeeAmountIncludingTax - $weeeAmountExclTax, 0);
-            } else {
-                return $this->_calculator->calcTaxAmount($weeeAmountIncludingTax - $discountAmount, $rate, true, true);
-            }
-        }
-        $discountAmount = !$discountAmount ? 0 : $discountAmount;
-
-        ///Regular case where weee does not have the tax and we want to calculate the tax
-        return $this->_calculator->calcTaxAmount($weeeAmountExclTax - $discountAmount, $rate, false, true);
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
     /**
      * Round price based on previous rounding operation delta
@@ -1578,14 +1285,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
             $discountTaxCompensation += $item->getDiscountTaxCompensation();
         }
         $taxAmount = $amount + $discountTaxCompensation;
-        /*
-         * when weee discount is not included in extraTaxAmount, we need to add it to the total tax
-         */
-        if ($this->_weeeHelper->isEnabled()) {
-            if (!$this->_weeeHelper->includeInSubtotal()) {
-                $taxAmount += $address->getWeeeDiscount();
-            }
-        }
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
         $area = null;
         if ($this->_config->displayCartTaxWithGrandTotal($store) && $address->getGrandTotal()) {
