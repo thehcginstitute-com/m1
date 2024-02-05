@@ -3,7 +3,6 @@
 $_order  = $this->getOrder();
 $_source = $this->getSource();
 $_fullInfo = $_order->getFullTaxInfo();
-$_weees = $this->helper('tax')->getAllWeee($_order);
 global $taxIter; $taxIter++;
 $hasItemsInTaxSection = 0;
 if ($this->displayFullSummary()): ?>
@@ -36,20 +35,6 @@ if ($this->displayFullSummary()): ?>
         <?php $hasItemsInTaxSection = 1 ?>
         <?php endforeach; ?>
     <?php endforeach; ?>
-
-    <?php foreach ($_weees as $weeeTitle => $weeeAmount): ?>
-        <tr class="summary-details-<?php echo $taxIter; ?> summary-details<?php if ($isTop): echo ' summary-details-first'; endif; ?>"<?php if (!$this->getIsPlaneMode()):?> style="display:none;"<?php endif;?>>
-            <td <?php echo $this->getLabelProperties()?>>
-                <?php echo $this->escapeHtml($weeeTitle); ?>
-                <br/>
-            </td>
-            <td <?php echo $this->getValueProperties()?> rowspan="1">
-                <?php echo $_order->formatPrice($weeeAmount); ?>
-            </td>
-        </tr>
-        <?php $hasItemsInTaxSection = 1 ?>
-    <?php endforeach; ?>
-
 <?php endif;?>
 
 <?php if ($this->displayFullSummary() && $hasItemsInTaxSection && !$this->getIsPlaneMode()): ?>
