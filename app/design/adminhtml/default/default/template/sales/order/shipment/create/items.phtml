@@ -124,15 +124,15 @@ function toggleCreateLabelCheckbox() {
     }
 }
 function submitShipment(btn) {
-    var checkbox = $(btn).up('.order-totals').select('#create_shipping_label')[0];
+	// 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	// "Delete the shipping labels feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/375
 
     if (!validQtyItems()) {
         return;
     }
-
-    if (checkbox && checkbox.checked) {
-        packaging.showWindow();
-    } else if(editForm.submit()) {
+	// 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	// "Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376
+	if(editForm.submit()) {
         disableElements('submit-button');
     }
 }
