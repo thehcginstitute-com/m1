@@ -86,11 +86,9 @@
                 <?php endif; ?>
                 <?php $_incl = $this->helper('checkout')->getSubtotalInclTax($item); ?>
                 <?php $_baseIncl = $this->helper('checkout')->getBaseSubtotalInclTax($item); ?>
-                <?php if (Mage::helper('weee')->typeOfDisplay($item, array(0, 1, 4), 'sales', $item->getStoreId())): ?>
-                    <?php echo $this->displayPrices($_baseIncl + $item->getBaseWeeeTaxAppliedRowAmount(), $_incl + $item->getWeeeTaxAppliedRowAmount()); ?>
-                <?php else: ?>
-                    <?php echo $this->displayPrices($_baseIncl - $item->getBaseWeeeTaxRowDisposition(), $_incl - $item->getWeeeTaxRowDisposition()) ?>
-                <?php endif; ?>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
+				<?php echo $this->displayPrices($_baseIncl , $_incl) ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
             </span>
