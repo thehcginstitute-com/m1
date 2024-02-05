@@ -8,87 +8,38 @@ if ($this->getParent()->getPriceType() != Mage_Bundle_Model_Product_Price::PRICE
 $_finalPriceInclTax = $this->helper('tax')->getPrice($_product, $_product->getFinalPrice(), true);
 $_catalogHelper = Mage::helper('catalog'); /** @var $_catalogHelper Mage_Catalog_Helper_Data */
 if (isset($_tierPrices) && count($_tierPrices) > 0) {
-	?>
-		<ul class="<?= (
-			$this->getInGrouped()
-				? 'tier-prices-grouped product-pricing-grouped'
-				: 'tier-prices product-pricing'
-		) ?>">
-    <?php if ($this->getInGrouped()) { ?>
-        <?php $_tierPrices = $this->getTierPrices($_product); ?>
-    <?php } ?>
-    <?php # 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 ?>
-    <?php foreach ($_tierPrices as $_index => $_price) { ?>
-        <li class="tier-price tier-<?= $_index; ?>">
-        <?php if ($_catalogHelper->canApplyMsrp($_product)) { ?>
-            <?php if ($this->getInGrouped()) { ?>
-                <?= $this->__('Buy %1$s for', $_price['price_qty']) ?>:
-            <?php } else { ?>
-                <?= $this->__('Buy %1$s', $_price['price_qty']);
-			} } else { if ($this->helper('tax')->displayBothPrices()) { 
-			echo $this->__('Buy %1$s for %2$s (%3$s incl. tax) each', $_price['price_qty'], $_price['formated_price'], $_price['formated_price_incl_tax']);
-        } else { ?>
-            <?php if ($this->helper('tax')->displayPriceIncludingTax()) { ?>
-                <?php if (Mage::helper('weee')->typeOfDisplay($_product, 0)) { ?>
-                        <?= $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price_incl_weee']) ?>
-                <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 1)) { ?>
-                        <?= $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_weee']); ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
-                        <?= $this->__('each') ?>
-                <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 4)) { ?>
-                        <?= $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_weee']); ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
-                        <?= $this->__('each') ?>
-                <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 2)) { ?>
-                        <?= $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_tax']); ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
-                        <?= $this->__('each') ?>
-                <?php } else { ?>
-                        <?= $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price_incl_tax']) ?>
-                <?php } ?>
-            <?php } else { ?>
-                <?php if (Mage::helper('weee')->typeOfDisplay($_product, 0)) { ?>
-                        <?= $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price_incl_weee_only']) ?>
-                <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 1)) { ?>
-                        <?= $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_weee_only']); ?>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
-                        <?= $this->__('each') ?>
-                <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 4)) { ?>
-                        <?= $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price_incl_weee_only']); ?>
-                        <?php if ($_weeeTaxAttributes) { ?>
-                        (<small>
-                        <?php $separator = ''; foreach ($_weeeTaxAttributes as $_attribute) { ?>
-                            <?= $separator; ?>
-                            <?= $_attribute->getName(); ?>: <?= Mage::helper('core')->currency($_attribute->getAmount()+$_attribute->getTaxAmount()); ?>
-                        <?php $separator = ' + '; } ?>
-                        </small>)
-                        <?php } ?>
-                        <?= $this->__('each') ?>
-                <?php } elseif(Mage::helper('weee')->typeOfDisplay($_product, 2)) { ?>
-                        <?= $this->__('Buy %1$s for %2$s', $_price['price_qty'], $_price['formated_price']); ?>
-                        <?php if ($_weeeTaxAttributes) { ?>
-                        (<small>
-                        <?php foreach ($_weeeTaxAttributes as $_attribute) { ?>
-                            <?= $_attribute->getName(); ?>: <?= Mage::helper('core')->currency($_attribute->getAmount()); ?>
-                        <?php } ?>
-                        <?= $this->__('Total incl. Tax: %1$s', $_price['formated_price_incl_weee_only']); ?>
-                        </small>)
-                        <?php } ?>
-                        <?= $this->__('each') ?>
-                <?php } else { ?>
-                        <?= $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price']) ?>
-                <?php } ?>
-            <?php } ?>
-        <?php } ?>
-
-        <?php } // Can apply MSRP ?>
-
-        <?php if (!$this->getInGrouped()) { ?>
+	?><ul class="<?= (
+		$this->getInGrouped() ? 'tier-prices-grouped product-pricing-grouped' : 'tier-prices product-pricing'
+	) ?>"><?php
+	if ($this->getInGrouped()) {
+		$_tierPrices = $this->getTierPrices($_product);
+	}
+}
+foreach ($_tierPrices as $_index => $_price) {
+	?><li class="tier-price tier-<?= $_index; ?>"><?php
+		if ($_catalogHelper->canApplyMsrp($_product)) {
+			if ($this->getInGrouped()) {
+				echo $this->__('Buy %1$s for', $_price['price_qty']) ?>:<?php
+			}
+			else {
+				echo $this->__('Buy %1$s', $_price['price_qty']);
+			}
+		}
+		elseif ($this->helper('tax')->displayBothPrices()) {
+			echo $this->__(
+				'Buy %1$s for %2$s (%3$s incl. tax) each'
+				, $_price['price_qty']
+				, $_price['formated_price']
+				, $_price['formated_price_incl_tax']
+			);
+		}
+		elseif ($this->helper('tax')->displayPriceIncludingTax()) {
+			echo $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price_incl_tax']);
+		}
+		else {
+			echo $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price']);
+		}
+		if (!$this->getInGrouped()) { ?>
             <?php if(($_product->getPrice() == $_product->getFinalPrice() && $_product->getPrice() > $_price['price'])
             || ($_product->getPrice() != $_product->getFinalPrice() &&  $_product->getFinalPrice() > $_price['price'])) { ?>
                 <?= $this->__('and') ?>&nbsp;<strong class="benefit"><?= $this->__('save')?>&nbsp;<span class="percent tier-fixed"><?= $_price['savePercent']?></span>%
