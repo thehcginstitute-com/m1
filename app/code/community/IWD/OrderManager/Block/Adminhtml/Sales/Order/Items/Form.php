@@ -84,7 +84,9 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Items_Form extends Mage_Admin
 
     public function getRowTotal($item)
     {
-        return $item->getRowTotal() + $item->getTaxAmount() + $item->getHiddenTaxAmount() + $item->getWeeeTaxAppliedRowAmount() - $item->getDiscountAmount();
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+        return $item->getRowTotal() + $item->getTaxAmount() + $item->getHiddenTaxAmount() - $item->getDiscountAmount();
     }
 
     public function getOrder()
