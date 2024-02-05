@@ -530,7 +530,8 @@ class IWD_OrderManager_Model_Api_Items_v2 extends IWD_OrderManager_Model_Api_Abs
                         $items[$quotItem->getId()]['tax_percent'] = number_format($quotItem->getTaxPercent(), 2, '.', '');
                         $items[$quotItem->getId()]['tax_amount'] = number_format($quotItem->getBaseTaxAmount(), 2, '.', '');
                         $items[$quotItem->getId()]['hidden_tax_amount'] = number_format($quotItem->getBaseHiddenTaxAmount(), 2, '.', '');
-                        $items[$quotItem->getId()]['weee_tax_applied_row_amount'] = number_format($quotItem->getBaseWeeeTaxAppliedRowAmount(), 2, '.', '');
+						# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+						# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
                         $items[$quotItem->getId()]['product_id'] = $quotItem->getProductId();
                         $items[$quotItem->getId()]['quote_item'] = $quotItem->getId();
                     }
