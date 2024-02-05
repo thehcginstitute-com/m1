@@ -126,9 +126,9 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
         if ($item->getRowTotalInclTax()) {
             return $item->getRowTotalInclTax();
         }
-        //Since tax amount contains weee tax
-        $tax = $item->getTaxAmount() + $item->getDiscountTaxCompensation()
-            - $this->_getWeeeHelper()->getTotalRowTaxAppliedForWeeeTax($item);
+		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
+        $tax = $item->getTaxAmount() + $item->getDiscountTaxCompensation();
 
         return $item->getRowTotal() + $tax;
     }
