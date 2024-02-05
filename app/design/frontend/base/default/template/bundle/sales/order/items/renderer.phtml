@@ -56,13 +56,7 @@ $parentItem = $this->getItem() ?>
                 <?php endif; ?>
                 <?php $_incl = $this->helper('checkout')->getPriceInclTax($this->getItem()); ?>
 				<span class="cart-price">
-
-                    <?php if (Mage::helper('weee')->typeOfDisplay($this->getItem(), array(0, 1, 4), 'sales') && (float)$this->getItem()->getWeeeTaxAppliedAmount()): ?>
-                        <?php echo $this->getOrder()->formatPrice($_incl + Mage::helper('weee')->getWeeeTaxInclTax($_item)); ?>
-                    <?php else: ?>
-                        <?php echo $this->getOrder()->formatPrice($_incl-$this->getItem()->getWeeeTaxDisposition()) ?>
-                    <?php endif; ?>
-
+					<?php echo $this->getOrder()->formatPrice($_incl) ?>
                 </span>
 
 
