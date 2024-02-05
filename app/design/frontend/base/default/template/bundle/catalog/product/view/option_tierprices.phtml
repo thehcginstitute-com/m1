@@ -43,7 +43,7 @@ foreach ($_tierPrices as $_index => $_price) {
             <?php if(($_product->getPrice() == $_product->getFinalPrice() && $_product->getPrice() > $_price['price'])
             || ($_product->getPrice() != $_product->getFinalPrice() &&  $_product->getFinalPrice() > $_price['price'])) { ?>
                 <?= $this->__('and') ?>&nbsp;<strong class="benefit"><?= $this->__('save')?>&nbsp;<span class="percent tier-fixed"><?= $_price['savePercent']?></span>%
-            <?php endif ?></strong>
+            <?php } ?></strong>
         <?php } ?>
 
         <?php if ($_catalogHelper->isShowPriceOnGesture($_product)) {?>
@@ -65,7 +65,7 @@ foreach ($_tierPrices as $_index => $_price) {
                     url: "<?= $addToCartUrl; ?>",
                     notUseForm: true
                 }
-            <?php endif ?>
+            <?php } ?>
                 Catalog.Map.addHelpLink(
                     $('<?= $popupId ?>'),
                     "<?= $_product->getName() ?>",
