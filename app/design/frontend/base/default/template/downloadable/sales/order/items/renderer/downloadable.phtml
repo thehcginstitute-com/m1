@@ -54,13 +54,8 @@ $_item = $this->getItem(); ?>
                 <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
             <?php endif; ?>
 			<span class="cart-price">
-
-            <?php if (Mage::helper('weee')->typeOfDisplay($this->getItem(), array(0, 1, 4), 'sales') && (float)$this->getItem()->getWeeeTaxAppliedAmount()): ?>
-                <?php echo $this->getOrder()->formatPrice($this->getItem()->getPrice() + $this->getItem()->getWeeeTaxAppliedAmount() + $this->getItem()->getWeeeTaxDisposition()); ?>
-            <?php else: ?>
-                <?php echo $this->getOrder()->formatPrice($this->getItem()->getPrice()) ?>
-            <?php endif; ?>
-                </span>
+				<?php echo $this->getOrder()->formatPrice($this->getItem()->getPrice()) ?>
+			</span>
 
             <?php if (Mage::helper('weee')->getApplied($this->getItem())): ?>
 
