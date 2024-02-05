@@ -77,12 +77,7 @@ $_order = $this->getItem()->getOrderItem()->getOrder(); ?>
             <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
                 <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
             <?php endif; ?>
-        <?php if (Mage::helper('weee')->typeOfDisplay($this->getItem(), array(1, 4), 'sales') && (float)$this->getItem()->getWeeeTaxAppliedAmount()): ?>
-        <span class="cart-tax-total"
-              onclick="taxToggle('esubtotal-item-tax-details<?php echo $this->getItem()->getId(); ?>', this, 'cart-tax-total-expanded');">
-            <?php else: ?>
-            <span class="cart-price">
-            <?php endif; ?>
+			<span class="cart-price">
 
             <?php if (Mage::helper('weee')->typeOfDisplay($this->getItem(), array(0, 1, 4), 'sales') && (float)$this->getItem()->getWeeeTaxAppliedAmount()): ?>
                 <?php echo $this->getOrder()->formatPrice($this->getItem()->getRowTotal() + $this->getItem()->getWeeeTaxAppliedRowAmount() + $this->getItem()->getWeeeTaxRowDisposition()); ?>
