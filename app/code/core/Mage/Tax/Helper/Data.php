@@ -1124,48 +1124,8 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
         return $taxClassAmount;
     }
 
-    /**
-     * Get all FPTs
-     *
-     * @param mixed|null $source
-     * @return array
-     * @throws Mage_Core_Model_Store_Exception
-     */
-    public function getAllWeee($source = null)
-    {
-        $allWeee = [];
-        $store = $this->_app->getStore();
-
-        if (Mage::registry('current_invoice')) {
-            $source = Mage::registry('current_invoice');
-        } elseif (Mage::registry('current_creditmemo')) {
-            $source = Mage::registry('current_creditmemo');
-        } elseif ($source == null) {
-            $source = $this->_app->getOrder();
-        }
-
-        $helper = Mage::helper('weee');
-        if (!$helper->includeInSubtotal($store)) {
-            foreach ($source->getAllItems() as $item) {
-                foreach ($helper->getApplied($item) as $tax) {
-                    $weeeDiscount = $tax['weee_discount'] ?? 0;
-                    $title = $tax['title'];
-
-                    $rowAmount = $tax['row_amount'] ?? 0;
-                    $rowAmountInclTax = $tax['row_amount_incl_tax'] ?? 0;
-                    $amountDisplayed = ($helper->isTaxIncluded()) ? $rowAmountInclTax : $rowAmount;
-
-                    if (array_key_exists($title, $allWeee)) {
-                        $allWeee[$title] = $allWeee[$title] + $amountDisplayed - $weeeDiscount;
-                    } else {
-                        $allWeee[$title] = $amountDisplayed - $weeeDiscount;
-                    }
-                }
-            }
-        }
-
-        return $allWeee;
-    }
+	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
     /**
      * Check if do not show notification about wrong display settings
