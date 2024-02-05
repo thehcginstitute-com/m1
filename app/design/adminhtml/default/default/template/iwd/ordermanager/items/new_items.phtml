@@ -152,9 +152,8 @@ $validate_inventory = $helper->isValidateInventory();
                 <input type="hidden" class="edit_order_item required-entry validate-number"
                        value="<?php echo number_format($item->getBaseHiddenTaxAmount(), 2, '.', ''); ?>"
                        name="items[<?php echo $item->getId(); ?>][hidden_tax_amount]"/>
-                <input type="hidden" class="edit_order_item required-entry validate-number"
-                       value="<?php echo number_format($item->getBaseWeeeTaxAppliedRowAmount(), 2, '.', ''); ?>"
-                       name="items[<?php echo $item->getId(); ?>][weee_tax_applied_row_amount]"/>
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
             </td>
 
             <?php /* bundle product: TAX PERCENT */ ?>
