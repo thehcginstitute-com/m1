@@ -22,12 +22,6 @@
 # 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/index.php
 !/index.php
-# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/install.php
-!/install.php
-# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/mage
-!/mage
 !/readme.md
 !/app/**/*
 /app/etc/local.xml
