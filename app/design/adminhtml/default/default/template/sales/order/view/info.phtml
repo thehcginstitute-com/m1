@@ -281,7 +281,7 @@ $helper = Mage::helper('iwd_ordermanager');
                     </div>
                 </div>
                 <fieldset>
-                    <address id="order_address_<?php echo $_order->getShippingAddress()->getId() ?>"><?php echo $_order->getShippingAddress()->getFormated(true) ?></address>
+                    <address id="order_address_<?php echo $_order->getShippingAddress()->getId() ?>"><?php echo $this->maliciousCodeFilter($_order->getShippingAddress()->getFormated(true)) ?></address>
                 </fieldset>
             </div>
         </div>
