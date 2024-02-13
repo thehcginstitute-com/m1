@@ -1148,17 +1148,6 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * Check if warning about conflicting FPT configuration should be shown
-     *
-     * @return bool
-     */
-    public function isConflictingFptTaxConfigurationSettingsIgnored()
-    {
-        return (bool) $this->_app->getStore()
-            ->getConfig(Mage_Tax_Model_Config::XML_PATH_TAX_NOTIFICATION_FPT_CONFIGURATION);
-    }
-
-    /**
      * Return whether cross border trade is enabled or not
      *
      * @param  null|string|bool|int|Mage_Core_Model_Store $store
