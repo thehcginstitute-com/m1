@@ -1,32 +1,22 @@
 <?php
 /**
- * Magento
- *
- * NOTICE OF LICENSE
+ * OpenMage
  *
  * This source file is subject to the Academic Free License (AFL 3.0)
  * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magento.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magento.com for more information.
+ * It is also available at https://opensource.org/license/afl-3-0-php
  *
  * @category    design
  * @package     default_default
- * @copyright   Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright   Copyright (c) 2021-2022 The OpenMage Contributors (https://www.openmage.org)
+ * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
 <?php
 /**
  * Template for Mage_Adminhtml_Block_Widget_Grid
+ * @var Mage_Adminhtml_Block_Widget_Grid $this
  *
  *  getId()
  *  getCollection()
@@ -34,7 +24,7 @@
  *  getPagerVisibility()
  *  getVarNamePage()
  */
-$numColumns = sizeof($this->getColumns());
+$numColumns = count($this->getColumns());
 ?>
 <?php if($this->getCollection()): ?>
     <?php if($this->canDisplayContainer()): ?>
@@ -79,17 +69,18 @@ $numColumns = sizeof($this->getColumns());
             <span class="separator">|</span>
             <?php echo $this->__('View') ?>
             <select name="<?php echo $this->getVarNameLimit() ?>" onchange="<?php echo $this->getJsObjectName() ?>.loadByElement(this)">
-                <option value="20"<?php if($this->getCollection()->getPageSize()==20): ?> selected="selected"<?php endif ?>>20</option>
-                <option value="30"<?php if($this->getCollection()->getPageSize()==30): ?> selected="selected"<?php endif ?>>30</option>
-                <option value="50"<?php if($this->getCollection()->getPageSize()==50): ?> selected="selected"<?php endif ?>>50</option>
-                <option value="100"<?php if($this->getCollection()->getPageSize()==100): ?> selected="selected"<?php endif ?>>100</option>
-                <option value="200"<?php if($this->getCollection()->getPageSize()==200): ?> selected="selected"<?php endif ?>>200</option>
+                <?php foreach ($this->getLimitOptions() as $pageSize): ?>
+                    <option value="<?php echo $pageSize; ?>"<?php if($this->getCollection()->getPageSize() == $pageSize): ?> selected="selected"<?php endif ?>><?php echo $pageSize; ?></option>
+                <?php endforeach ?>
             </select>
             <?php echo $this->__('per page') ?><span class="separator">|</span>
             <?php echo $this->__('Total %d records found', $this->getCollection()->getSize()) ?>
             <span id="<?php echo $this->getHtmlId() ?>-total-count" class="no-display"><?php echo $this->getCollection()->getSize() ?></span>
-<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 -->
+            <?php if($this->getRssLists()): ?>
+                <?php foreach ($this->getRssLists() as $_rss): ?>
+                <span class="separator">|</span><a href="<?php echo $_rss->getUrl() ?>" class="link-feed"><?php echo $_rss->getLabel() ?></a>
+                <?php endforeach ?>
+            <?php endif ?>
         </td>
     <?php endif ?>
     <?php if($this->getExportTypes()): ?>
@@ -140,7 +131,11 @@ $numColumns = sizeof($this->getColumns());
             <tfoot>
                 <tr class="totals">
                 <?php foreach ($this->getColumns() as $_column): ?>
-                    <th class="<?php echo $_column->getCssProperty() ?>"><?php echo ($_column->hasTotalsLabel()) ? $_column->getTotalsLabel() : $_column->getRowField($_column->getGrid()->getTotals()) ?>&nbsp;</th>
+                    <th class="<?php echo $_column->getCssProperty() ?>">
+                        <?php if (($_column->getType() != 'action') && ($_column->getType() != 'massaction')): ?>
+                            <?php echo $_column->hasTotalsLabel() ? $_column->getTotalsLabel() : $_column->getRowField($_column->getGrid()->getTotals()) ?>&nbsp;
+                        <?php endif ?>
+                    </th>
                 <?php endforeach ?>
                 </tr>
             </tfoot>
@@ -149,23 +144,23 @@ $numColumns = sizeof($this->getColumns());
         <tbody>
         <?php if (($this->getCollection()->getSize()>0) && (!$this->getIsCollapsed())): ?>
         <?php foreach ($this->getCollection() as $_index=>$_item): ?>
-            <tr title="<?php echo $this->getRowUrl($_item) ?>"<?php if ($_class = $this->getRowClass($_item)): ?> class="<?php echo $_class; ?>"<?php endif ?> >
+            <tr title="<?php echo $this->getRowUrl($_item) ?>"<?php if ($_class = $this->getRowClass($_item)):?> class="<?php echo $_class; ?>"<?php endif ?> >
             <?php $i=0;foreach ($this->getColumns() as $_column): ?>
 
-                <?php if ($this->shouldRenderCell($_item, $_column)): ?>
+                <?php if ($this->shouldRenderCell($_item, $_column)):?>
                     <?php $_rowspan = $this->getRowspan($_item, $_column);?>
                     <td <?php echo ($_rowspan ? 'rowspan="' . $_rowspan . '" ' : '') ?>class="<?php echo $_column->getCssProperty() ?> <?php echo ++$i==$numColumns?'last':'' ?>">
                         <?php echo (($_html = $_column->getRowField($_item)) != '' ? $_html : '&nbsp;') ?>
                     </td>
-                    <?php if ($this->shouldRenderEmptyCell($_item, $_column)): ?>
+                    <?php if ($this->shouldRenderEmptyCell($_item, $_column)):?>
                         <td colspan="<?php echo $this->getEmptyCellColspan($_item)?>" class="last"><?php echo $this->getEmptyCellLabel()?></td>
                     <?php endif ?>
                 <?php endif ?>
 
             <?php endforeach ?>
             </tr>
-            <?php if ($_multipleRows = $this->getMultipleRows($_item)): ?>
-                <?php foreach ($_multipleRows as $_i): ?>
+            <?php if ($_multipleRows = $this->getMultipleRows($_item)):?>
+                <?php foreach ($_multipleRows as $_i):?>
                 <tr>
                     <?php $i=0;foreach ($this->getMultipleRowColumns($_i) as $_column): ?>
                         <td class="<?php echo $_column->getCssProperty() ?> <?php echo ++$i==$numColumns-1?'last':'' ?>">
