@@ -3,14 +3,6 @@
     <modules>
 <!-- 2023-12-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Install` module": https://github.com/thehcginstitute-com/m1/issues/56 -->
-        <Mage_Payment>
-            <active>true</active>
-            <codePool>core</codePool>
-            <depends>
-                <Mage_Core/>
-                <Mage_Catalog/>
-            </depends>
-        </Mage_Payment>
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 1) "Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354
 2) "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
