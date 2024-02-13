@@ -28,7 +28,7 @@
  * @see Mage_Tax_Block_Checkout_Grandtotal
  */
 ?>
-<?php if ($this->includeTax() && $this->getTotalExclTax()>=0):?>
+<?php if ($this->includeTax() && $this->getTotalExclTax()>=0): ?>
 <tr>
     <td style="<?php echo $this->getStyle() ?>" class="a-right" colspan="<?php echo $this->getColspan(); ?>">
         <strong><?php echo $this->helper('tax')->__('Grand Total Excl. Tax')?></strong>

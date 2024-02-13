@@ -27,7 +27,7 @@
 <?php /* @var $this Mage_Downloadable_Block_Adminhtml_Catalog_Product_Composite_Fieldset_Downloadable */ ?>
 <?php $_linksPurchasedSeparately = $this->getLinksPurchasedSeparately(); ?>
 <?php $_skipSaleableCheck = Mage::helper('catalog/product')->getSkipSaleableCheck(); ?>
-<?php if (($this->getProduct()->isSaleable() || $_skipSaleableCheck) && $this->hasLinks()):?>
+<?php if (($this->getProduct()->isSaleable() || $_skipSaleableCheck) && $this->hasLinks()): ?>
 
 <div id="catalog_product_composite_configure_fields_downloadable" class="<?php echo $this->getIsLastFieldset() ? 'last-fieldset' : '' ?>">
     <h4><?php echo Mage::helper('catalog')->__('Downloadable Information') ?></h4>
@@ -41,7 +41,7 @@
                 <?php foreach ($_links as $_link): ?>
                     <li>
                     <?php if ($_linksPurchasedSeparately): ?>
-                        <input type="checkbox" class="checkbox<?php if ($_isRequired):?> validate-one-required-by-name<?php endif ?> product-downloadable-link" name="links[]" id="links_<?php echo $_link->getId() ?>" value="<?php echo $_link->getId(); ?>" <?php echo $this->getLinkCheckedValue($_link); ?> price="<?php echo $this->getCurrencyPrice($_link->getPrice()); ?>"/>
+                        <input type="checkbox" class="checkbox<?php if ($_isRequired): ?> validate-one-required-by-name<?php endif ?> product-downloadable-link" name="links[]" id="links_<?php echo $_link->getId() ?>" value="<?php echo $_link->getId(); ?>" <?php echo $this->getLinkCheckedValue($_link); ?> price="<?php echo $this->getCurrencyPrice($_link->getPrice()); ?>"/>
                         <?php endif ?>
                         <span class="label">
                         <label for="links_<?php echo $_link->getId() ?>">

@@ -1,7 +1,7 @@
 <!-- Modal -->
 
 <?php $collection = $this->getNotification();?>
-<?php if ($collection->getSize()>0):?>
+<?php if ($collection->getSize()>0): ?>
 <div class="modal fade" id="iwd-modal" tabindex="-1" role="dialog" aria-hidden="false">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -11,7 +11,7 @@
 			</div>
 			
 			<div class="modal-body">
-				<?php foreach($collection as $message):?>
+				<?php foreach($collection as $message): ?>
 				<?php $this->helper('iwdall/message')->updateStatusInternal($message, 'view', true)?>
 				<div class="item-message">
 					<h3><?php echo $message->getTitle();?></h3>	

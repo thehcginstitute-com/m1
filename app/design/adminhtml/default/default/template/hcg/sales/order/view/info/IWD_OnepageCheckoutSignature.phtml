@@ -10,7 +10,7 @@
  * @var Mage_Core_Block_Template $this
  * @var Mage_Sales_Model_Order $_order
  */
-if(Mage::getStoreConfig('opcsignature/general/enabled')):?>
+if(Mage::getStoreConfig('opcsignature/general/enabled')): ?>
 <?php
 	$collection = Mage::getModel('opcsignature/signaturer')->getCollection();
 	$collection->addFieldToFilter('order_id', $_order->getId());
@@ -21,13 +21,13 @@ if(Mage::getStoreConfig('opcsignature/general/enabled')):?>
 		$name = $item['signature_name'];
 		$json = $item['signature_json'];
 	}?>
-	<?php if($json!="" || $name!=""):?>
+	<?php if($json!="" || $name!=""): ?>
 		<tr>
 			 <td class="label"><label><?php echo $this->__("Customer Signature"); ?></label></td>
 
 			 <td class="signature">
 
-					<?php if($json==""):?><div class="name" ><?php echo $name?></div><?php endif ?>
+					<?php if($json==""): ?><div class="name" ><?php echo $name?></div><?php endif ?>
 				<canvas class="pad" width="285" height="55"></canvas>
 			 </td>
 	   </tr>

@@ -7,7 +7,7 @@
 # 3) https://github.com/thehcginstitute-com/m1/issues/238
  $customerGroupId = Mage::getSingleton('customer/session')->getCustomerGroupId();
  if($customerGroupId != 4) {
-	 if ($this->getIsNeedToDisplaySideBar()):?>
+	 if ($this->getIsNeedToDisplaySideBar()): ?>
 <div class="block block-cart">
     <?php $_cartQty = $this->getSummaryCount() ?>
     <div class="block-title">

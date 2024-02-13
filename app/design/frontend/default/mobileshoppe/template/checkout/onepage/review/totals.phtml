@@ -33,7 +33,7 @@
     <?php $_colspan = 0; ?>
     <?php echo $this->renderTotals(null, $_colspan); ?>
     <?php echo $this->renderTotals('footer', $_colspan); ?>
-    <?php if ($this->needDisplayBaseGrandtotal()):?>
+    <?php if ($this->needDisplayBaseGrandtotal()): ?>
     <tr>
         <td class="a-right" colspan="<?php echo $_colspan; ?>">
             <small><?php echo $this->helper('sales')->__('Your credit card will be charged for') ?></small>

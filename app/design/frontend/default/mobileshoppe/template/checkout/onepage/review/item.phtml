@@ -6,7 +6,7 @@ $_item = $this->getItem()?>
         <td colspan="2">
             <h3 class="product-name"><?php echo $this->escapeHtml($this->getProductName()) ?></h3>
 
-            <?php if ($_options = $this->getOptionList()):?>
+            <?php if ($_options = $this->getOptionList()): ?>
                 <dl class="item-options">
                     <?php foreach ($_options as $_option) : ?>
                     <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
@@ -25,7 +25,7 @@ $_item = $this->getItem()?>
                 </dl>
             <?php endif ?>
 
-            <?php if ($addtInfoBlock = $this->getProductAdditionalInformationBlock()):?>
+            <?php if ($addtInfoBlock = $this->getProductAdditionalInformationBlock()): ?>
                 <?php echo $addtInfoBlock->setItem($_item)->toHtml() ?>
             <?php endif ?>
 

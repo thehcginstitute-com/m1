@@ -1010,7 +1010,7 @@
 	<script type="text/javascript">
 		(function(jQuery) {
 		jQuery(document).ready(function() {
-			<?php if(!empty($jsonLayers)):?>
+			<?php if(!empty($jsonLayers)): ?>
 				//set init layers object
 				UniteLayersRev.setInitLayersJson(<?php echo $jsonLayers?>);
 			<?php endif?>
@@ -1032,19 +1032,19 @@
 				UniteLayersRev.setInitDemoSettingsJson(<?php echo $jsonDemoSettings?>);
 			<?php } ?>
 
-			<?php if(!empty($jsonCaptions)):?>
+			<?php if(!empty($jsonCaptions)): ?>
 			UniteLayersRev.setInitCaptionClasses(<?php echo $jsonCaptions?>);
 			<?php endif?>
 
-			<?php if(!empty($arrCustomAnim)):?>
+			<?php if(!empty($arrCustomAnim)): ?>
 			UniteLayersRev.setInitLayerAnim(<?php echo $arrCustomAnim?>);
 			<?php endif?>
 
-			<?php if(!empty($jsonFontFamilys)):?>
+			<?php if(!empty($jsonFontFamilys)): ?>
 			UniteLayersRev.setInitFontTypes(<?php echo $jsonFontFamilys?>);
 			<?php endif?>
 
-			<?php if(!empty($arrCssStyles)):?>
+			<?php if(!empty($arrCssStyles)): ?>
 			UniteCssEditorRev.setInitCssStyles(<?php echo $arrCssStyles?>);
 			<?php endif?>
 

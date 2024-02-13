@@ -53,7 +53,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
             <?php echo $this->getTierPriceHtml() ?>
             <?php echo $this->getChildHtml('extrahint') ?>
 
-            <?php if (!$this->hasOptions()):?>
+            <?php if (!$this->hasOptions()): ?>
                 <div class="add-to-box">
                     <?php if($_product->isSaleable()): ?>
                         <?php echo $this->getChildHtml('addtocart') ?>
@@ -65,7 +65,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
                 </div>
             <?php endif ?>
 
-            <?php if ($_product->getShortDescription()):?>
+            <?php if ($_product->getShortDescription()): ?>
                 <div class="short-description">
                     <h2><?php echo $this->__('Quick Overview') ?></h2>
                     <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
@@ -73,14 +73,14 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
             <?php endif ?>
 
             <?php echo $this->getChildHtml('other');?>
-            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+            <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
                 <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
             <?php endif ?>
 
         </div>
 
         <div class="clearer"></div>
-        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+        <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
             <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
         <?php endif ?>
     </form>

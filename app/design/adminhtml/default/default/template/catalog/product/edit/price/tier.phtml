@@ -111,7 +111,7 @@ var tierPriceControl = {
         $('tier_price_row_' + data.index + '_cust_group').value = data.group;
         $('tier_price_row_' + data.index + '_website').value    = data.website_id;
 
-        <?php if ($this->isShowWebsiteColumn() && !$this->isAllowChangeWebsite()):?>
+        <?php if ($this->isShowWebsiteColumn() && !$this->isAllowChangeWebsite()): ?>
         var wss = $('tier_price_row_' + data.index + '_website');
         var txt = wss.options[wss.selectedIndex].text;
 

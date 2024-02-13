@@ -123,7 +123,7 @@ Downloadable.FileUploader.prototype = {
         this.idName = idName;
         this.config = config;
         uploaderTemplate = new Template(this.uploaderText, this.uploaderSyntax);
-        <?php if (!$this->isReadonly()):?>
+        <?php if (!$this->isReadonly()): ?>
         Element.insert(
             elmContainer,
             {'top' : uploaderTemplate.evaluate({

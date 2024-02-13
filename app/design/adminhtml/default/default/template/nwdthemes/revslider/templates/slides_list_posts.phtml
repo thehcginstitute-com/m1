@@ -17,7 +17,7 @@
 			<span id="saving_indicator" class='slideslist-loading'><?php echo $this->__("Saving Order")?>...</span>
 		</h3>
 		<div class="inside">
-			<?php if(empty($arrSlides)):?>
+			<?php if(empty($arrSlides)): ?>
 				<?php echo $this->__("No Slides Found")?>
 			<?php endif?>
 			<ul id="list_slides" class="list_slides ui-sortable">
@@ -70,7 +70,7 @@
 							<a class='button-primary revgreen' href='<?php echo $urlEditSlide?>'><i class="revicon-pencil-1"></i><?php echo $this->__("Edit Product")?></a>
 						</span>
 						<span class="slide-col col-image">
-							<?php if(!empty($urlImageForView)):?>
+							<?php if(!empty($urlImageForView)): ?>
 								<div id="slide_image_<?php echo $postID?>" class="slide_image disabled_control" alt="<?php echo $imageAlt?>" style="background-image:url('<?php echo $urlImageForView?>');<?php echo $bgStyle; ?>"></div>
 							<?php else:?>
 								no image

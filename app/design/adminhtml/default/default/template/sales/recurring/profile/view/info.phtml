@@ -25,9 +25,9 @@
  */
 ?>
 <?php /* @var $this Mage_Sales_Block_Recurring_Profile_View */?>
-<?php if ($this->getIsAddress()):?>
+<?php if ($this->getIsAddress()): ?>
 
-<?php foreach ($this->getRenderedInfo() as $row):?>
+<?php foreach ($this->getRenderedInfo() as $row): ?>
 <address><?php echo nl2br($this->escapeHtml($this->getObjectData($row, 'value')))?></address>
 <?php endforeach ?>
 
@@ -35,7 +35,7 @@
 
 <table cellspacing="0" class="form-list">
 <tbody>
-<?php foreach ($this->getRenderedInfo() as $row):?>
+<?php foreach ($this->getRenderedInfo() as $row): ?>
 <?php $isAmount = $this->getObjectData($row, 'is_amount');?>
     <tr>
     <td class="label"><label><?php echo $this->escapeHtml($this->getObjectData($row, 'label'))?></label></td>

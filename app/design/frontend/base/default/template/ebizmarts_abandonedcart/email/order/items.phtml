@@ -9,7 +9,7 @@
     </tr>
     </thead>
 <?php if (is_object($_quote)) :?>
-    <?php $i=0; foreach ($_quote->getAllItems() as $_item):?>
+    <?php $i=0; foreach ($_quote->getAllItems() as $_item): ?>
         <?php if($_item->getParentItemId()) continue; else $i++; ?>
         <?php if($_item->getProductType() == 'configurable' || $_item->getProductType() == 'bundle') :
             $finalResult = array();

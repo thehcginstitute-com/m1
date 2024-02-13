@@ -1,5 +1,5 @@
 <?php echo Mage::app()->getLayout()->createBlock('checkout/agreements')->setTemplate('checkout/onepage/agreements.phtml')->toHtml()?>
-<?php if($this->canShow()):?>
+<?php if($this->canShow()): ?>
 <!--[if lt IE 9]><script src="<?php echo mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS)?>signature/flashcanvas.js"></script><![endif]-->
 <div class="multiple_signature_wrapper col2-set">	
 	<div class="multiple signature">

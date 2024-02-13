@@ -26,13 +26,13 @@
 ?>
 <?php /* @var $this Mage_Sales_Block_Adminhtml_Recurring_Profile_View_Tab_Info */ ?>
 
-<?php for ($i = 1; $i <= 5; $i++):?>
+<?php for ($i = 1; $i <= 5; $i++): ?>
     <?php $infoBlocks = $this->getChildGroup("info_blocks_row_{$i}"); ?>
-    <?php if ($infoBlocks):?>
+    <?php if ($infoBlocks): ?>
 <div>
-        <?php for ($j = 1; $j <= 2; $j++):?>
-            <?php foreach ($infoBlocks as $alias => $block):?>
-<?php if ($j == $this->getObjectData($block, 'view_column')):?>
+        <?php for ($j = 1; $j <= 2; $j++): ?>
+            <?php foreach ($infoBlocks as $alias => $block): ?>
+<?php if ($j == $this->getObjectData($block, 'view_column')): ?>
     <div class="box-<?php echo $j == 1 ? 'left' : 'right'?>">
         <div class="entry-edit">
             <div class="entry-edit-head">

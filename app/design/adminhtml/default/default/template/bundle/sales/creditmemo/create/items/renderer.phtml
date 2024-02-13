@@ -120,7 +120,7 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
         <td class="a-center">
             <?php if ($this->canShowPriceInfo($_item)): ?>
                 <?php if ($this->canReturnItemToStock($_item)) : ?>
-                    <input type="checkbox" name="creditmemo[items][<?php echo $_item->getOrderItemId() ?>][back_to_stock]" value="1"<?php if ($_item->getBackToStock()):?> checked="checked"<?php endif ?> />
+                    <input type="checkbox" name="creditmemo[items][<?php echo $_item->getOrderItemId() ?>][back_to_stock]" value="1"<?php if ($_item->getBackToStock()): ?> checked="checked"<?php endif ?> />
                 <?php endif ?>
             <?php else: ?>
                 &nbsp;
@@ -201,7 +201,7 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
                         <?php echo $option['value'];?>
                     <?php else: ?>
                         <?php echo Mage::helper('core/string')->truncate($option['value'], 55, '', $_remainder);?>
-                        <?php if ($_remainder):?>
+                        <?php if ($_remainder): ?>
                             ... <span id="<?php echo $_id = 'id' . uniqid()?>"><?php echo $_remainder ?></span>
                             <script type="text/javascript">
                             $('<?php echo $_id ?>').hide();

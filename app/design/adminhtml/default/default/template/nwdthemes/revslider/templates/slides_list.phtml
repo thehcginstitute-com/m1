@@ -17,7 +17,7 @@
 			<span id="saving_indicator" class='slideslist-loading'><?php echo $this->__("Saving Order")?>...</span>
 		</h3>
 		<div class="inside">
-			<?php if(empty($arrSlides)):?>
+			<?php if(empty($arrSlides)): ?>
 			<?php echo $this->__("No Slides Found")?>
 			<?php endif?>
 
@@ -81,7 +81,7 @@
 						<span class="slide-col col-order">
 							<span class="order-text"><?php echo $counter?></span>
 							<div class="state_loader" style="display:none;"></div>
-							<?php if($state == "published"):?>
+							<?php if($state == "published"): ?>
 							<div class="icon_state state_published" data-slideid="<?php echo $slideid?>" title="<?php echo $this->__("Unpublish Slide")?>"></div>
 							<?php else:?>
 							<div class="icon_state state_unpublished" data-slideid="<?php echo $slideid?>" title="<?php echo $this->__("Publish Slide")?>"></div>

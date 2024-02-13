@@ -27,7 +27,7 @@
 <div id="<?php echo $this->getHtmlId() ?>">
 <table cellspacing="0" cellpadding="0" class="massaction">
 <tr>
-    <td><?php if ($this->getUseSelectAll()):?>
+    <td><?php if ($this->getUseSelectAll()): ?>
         <a href="#" onclick="return <?php echo $this->getJsObjectName() ?>.selectAll()"><?php echo $this->__('Select All') ?></a>
         <span class="separator">|</span>
         <a href="#" onclick="return <?php echo $this->getJsObjectName() ?>.unselectAll()"><?php echo $this->__('Unselect All') ?></a>
@@ -42,7 +42,7 @@
     <td>
         <div class="right">
             <div class="entry-edit">
-                <?php if ($this->getHideFormElement() !== true):?>
+                <?php if ($this->getHideFormElement() !== true): ?>
                 <form action="" id="<?php echo $this->getHtmlId() ?>-form" method="post">
                 <?php endif ?>
                     <?php echo $this->getBlockHtml('formkey')?>
@@ -62,7 +62,7 @@
                             <?php echo $this->getApplyButtonHtml() ?>
                         </span>
                     </fieldset>
-                <?php if ($this->getHideFormElement() !== true):?>
+                <?php if ($this->getHideFormElement() !== true): ?>
                 </form>
                 <?php endif ?>
             </div>

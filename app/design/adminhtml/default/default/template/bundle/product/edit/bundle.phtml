@@ -52,7 +52,7 @@ if(typeof Bundle=='undefined') {
 <script type="text/javascript">
 // re-bind form elements onchange
 varienWindowOnload(true);
-<?php if ($this->isReadonly()):?>
+<?php if ($this->isReadonly()): ?>
 $('product_bundle_container').select('input', 'select', 'textarea', 'button').each(function(input){
     input.disabled = true;
     if (input.tagName.toLowerCase() == 'button') {

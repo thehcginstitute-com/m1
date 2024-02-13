@@ -25,7 +25,7 @@
  */
 ?>
 <h3 class="product-name"><a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->escapeHtml($this->getProductName()) ?></a></h3>
-<?php if ($_options = $this->getOptionList()):?>
+<?php if ($_options = $this->getOptionList()): ?>
 <dl class="item-options">
     <?php foreach ($_options as $_option) : ?>
     <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>

@@ -32,7 +32,7 @@
                         </select>
                     <?php else: ?>
                         <input id="<?php echo $key ?>_<?php echo $this->order_id ?>"
-                               class="input-text <?php if($key=='customer_email'):?> validate-email required-entry validate-email<?php endif; if($val['required']):?> required-entry<?php endif ?>"
+                               class="input-text <?php if($key=='customer_email'): ?> validate-email required-entry validate-email<?php endif; if($val['required']): ?> required-entry<?php endif ?>"
                                type="text" value="<?php echo $val['value']; ?>" name="<?php echo $key ?>">
                     <?php endif ?>
                 </td>

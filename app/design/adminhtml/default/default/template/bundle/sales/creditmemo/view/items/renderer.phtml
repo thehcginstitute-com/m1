@@ -133,7 +133,7 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
                         <?php echo $option['value'];?>
                     <?php else: ?>
                         <?php echo Mage::helper('core/string')->truncate($option['value'], 55, '', $_remainder);?>
-                        <?php if ($_remainder):?>
+                        <?php if ($_remainder): ?>
                             ... <span id="<?php echo $_id = 'id' . uniqid()?>"><?php echo $_remainder ?></span>
                             <script type="text/javascript">
                             $('<?php echo $_id ?>').hide();
