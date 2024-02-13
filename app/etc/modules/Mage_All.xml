@@ -16,16 +16,6 @@
 "Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367 -->
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
-        <Mage_Newsletter>
-            <active>true</active>
-            <codePool>core</codePool>
-            <depends>
-                <Mage_Core/>
-                <Mage_Customer/>
-                <Mage_Eav/>
-                <Mage_Widget/>
-            </depends>
-        </Mage_Newsletter>
         <Mage_Tax>
             <active>true</active>
             <codePool>core</codePool>
