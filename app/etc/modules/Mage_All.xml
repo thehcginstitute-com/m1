@@ -10,34 +10,10 @@
 4) "Delete the unused `Mage_GoogleCheckout` module": https://github.com/thehcginstitute-com/m1/issues/365
 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Usa` module": https://github.com/thehcginstitute-com/m1/issues/374 -->
-        <Mage_Log>
-            <active>true</active>
-            <codePool>core</codePool>
-            <depends>
-                <Mage_Core/>
-                <Mage_Customer/>
-            </depends>
-        </Mage_Log>
 <!-- 2023-12-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Backup` module": https://github.com/thehcginstitute-com/m1/issues/39
 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367 -->
-        <Mage_Rating>
-            <active>true</active>
-            <codePool>core</codePool>
-            <depends>
-                <Mage_Core/>
-        <Mage_Review/>
-            </depends>
-        </Mage_Rating>
-        <Mage_Review>
-            <active>true</active>
-            <codePool>core</codePool>
-            <depends>
-                <Mage_Catalog/>
-                <Mage_Core/>
-            </depends>
-        </Mage_Review>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
         <Mage_Cms>
