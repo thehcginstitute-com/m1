@@ -3,15 +3,6 @@
     <modules>
 <!-- 2023-12-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Install` module": https://github.com/thehcginstitute-com/m1/issues/56 -->
-        <Mage_CatalogIndex>
-            <active>true</active>
-            <codePool>core</codePool>
-            <depends>
-                <Mage_Catalog/>
-                <Mage_Eav/>
-                <Mage_CatalogRule/>
-            </depends>
-        </Mage_CatalogIndex>
         <Mage_CatalogSearch>
             <active>true</active>
             <codePool>core</codePool>
