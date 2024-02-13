@@ -22,13 +22,10 @@
         "ext-simplexml": "*",
         "ext-soap": "*",
         "ext-zlib": "*",
-        "colinmollenhour/cache-backend-redis": "^1.14",
-        "colinmollenhour/magento-redis-session": "^3.0",
+        "aydin-hassan/magento-core-composer-installer": "~2.0.0",
         "cweagans/composer-patches": "^1.7",
         "magento-hackathon/magento-composer-installer": "^3.1 || ^2.1 || ^4.0",
         "openmage/legacy-frontend-themes": "^1.0",
-        "openmage/module-mage-backup": "^1.0",
-        "openmage/module-mage-pagecache": "^1.0",
         "pelago/emogrifier": "^7.0",
         "phpseclib/mcrypt_compat": "^2.0.3",
         "phpseclib/phpseclib": "^3.0.14",
@@ -111,13 +108,16 @@
                 "OM-2050 - Prevent checking known date codes": "https://raw.githubusercontent.com/OpenMage/composer-patches/74862e7a9fa29dd62c5c02d585d931ce9e3c5815/patches/OM-2050.patch",
                 "OM-ZF1F-344 - Emails are displayed incorrectly in PHP 8.1+": "https://raw.githubusercontent.com/OpenMage/composer-patches/52f16eda0dc78ba95945ccab8e47f4c642584333/patches/OM-ZF1F-344.patch"
             }
-        }
+        },
+        "enable-patching": true,
+        "magento-core-package-type": "magento-source"
     },
     "config": {
         "allow-plugins": {
             "magento-hackathon/magento-composer-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "cweagans/composer-patches": true
+            "cweagans/composer-patches": true,
+            "aydin-hassan/magento-core-composer-installer": true
         },
         "platform": {
             "php": "7.4"
