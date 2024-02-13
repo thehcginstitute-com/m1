@@ -21,13 +21,6 @@
 https://github.com/thehcginstitute-com/m1/issues/135 -->
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 -->
-        <Mage_Index>
-            <active>true</active>
-            <codePool>core</codePool>
-            <depends>
-                <Mage_Core/>
-            </depends>
-        </Mage_Index>
         <Mage_Uploader>
             <active>true</active>
             <codePool>core</codePool>
