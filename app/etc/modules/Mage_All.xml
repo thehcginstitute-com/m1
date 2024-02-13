@@ -19,13 +19,6 @@
 <!-- 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the `Mage_GoogleAnalytics` module because it is unused (the `Tatvic_Uaee` module is used instead)":
 https://github.com/thehcginstitute-com/m1/issues/135 -->
-        <Mage_Contacts>
-            <active>true</active>
-            <codePool>core</codePool>
-            <depends>
-                <Mage_Core/>
-            </depends>
-        </Mage_Contacts>
         <Mage_Dataflow>
             <active>true</active>
             <codePool>core</codePool>
