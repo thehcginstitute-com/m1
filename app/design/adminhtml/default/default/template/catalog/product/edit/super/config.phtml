@@ -13,7 +13,7 @@
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<?php if (!$this->isReadonly()): ?>
+<?php if (!$this->isReadonly()):?>
 <div class="entry-edit">
     <div id="assign_product_warrning" style="display: none;">
         <ul class="messages">
@@ -56,7 +56,7 @@
     </fieldset>
 </div>
 <div class="no-display" id="<?php echo $this->getHtmlId() ?>_attribute_template">
-    <div class="<?php if (!$this->isReadonly()): ?>attribute-name-container <?php endif ?>left">
+    <div class="<?php if (!$this->isReadonly()):?>attribute-name-container <?php endif ?>left">
         '{{frontend_label}}'
     </div>
     <div class="values-container right">
@@ -84,7 +84,7 @@
         <option value="1"><?php echo Mage::helper('catalog')->__('Percentage') ?></option>
     </select>
 </div>
-<?php if ($this->getShowUseDefaultPrice()): ?>
+<?php if ($this->getShowUseDefaultPrice()):?>
 <div class="attribute-values-container">
     &nbsp;<input id="__id___default" type="checkbox" <?php if ($this->isAttributesPricesReadonly() || $this->getCanEditPrice() === false): ?> disabled="disabled" <?php endif ?> class="attribute-use-default-value"> <label for="__id___default" class="normal"><?php echo Mage::helper('catalog')->__('Use Default Value') ?></label>
 </div>
@@ -99,7 +99,7 @@
 </div>
 <?php if ($this->getShowUseDefaultPrice()) : ?>
 <div class="attribute-values-container no-display">
-    <input id="__id___default" type="checkbox" <?php if ($this->isReadonly() || $this->getCanEditPrice() === false): ?> disabled="disabled" <?php endif ?> class="attribute-use-default-value">
+    <input id="__id___default" type="checkbox" <?php if ($this->isReadonly() || $this->getCanEditPrice() === false):?> disabled="disabled" <?php endif ?> class="attribute-use-default-value">
 </div>
 <?php endif ?>
 <?php endif ?>

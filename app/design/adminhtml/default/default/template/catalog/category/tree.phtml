@@ -250,7 +250,7 @@ function _renderNewTree(config, storeParam)
     if (storeParam) {
         url = url + storeParam;
     }
-    <?php if ($this->isClearEdit()): ?>
+    <?php if ($this->isClearEdit()):?>
     if (selectedNode) {
         url = url + 'id/' + config.parameters.category_id;
     }

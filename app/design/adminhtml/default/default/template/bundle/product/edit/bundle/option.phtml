@@ -201,7 +201,7 @@ bOption = new Bundle.Option(optionTemplate);
     <?php $_option->setDefaultTitle($this->escapeHtml($_option->getDefaultTitle())); ?>
     <?php $_option->setTitle($this->escapeHtml($_option->getTitle())); ?>
     optionIndex = bOption.add(<?php echo $_option->toJson() ?>);
-    <?php if ($_option->getSelections()): ?>
+    <?php if ($_option->getSelections()):?>
         <?php foreach ($_option->getSelections() as $_selection): ?>
         <?php $_selection->setName($this->escapeHtml($_selection->getName())); ?>
         <?php $_selection->setSku($this->escapeHtml($_selection->getSku())); ?>
