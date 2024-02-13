@@ -1146,7 +1146,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return (bool)$this->_app->getStore()->getConfig(Mage_Tax_Model_Config::XML_PATH_TAX_NOTIFICATION_DISCOUNT);
     }
-	
+
 	# 2024-02-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 

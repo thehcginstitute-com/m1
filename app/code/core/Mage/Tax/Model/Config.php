@@ -102,13 +102,8 @@ class Mage_Tax_Model_Config
     public const DISPLAY_TYPE_BOTH = 3;
     /**#@-*/
 
-    /**#@+
-     * Indexes for FPT Configuration Types
-     */
-    public const FPT_NOT_TAXED = 0;
-    public const FPT_TAXED = 1;
-    public const FPT_LOADED_DISPLAY_WITH_TAX = 2;
-    /**#@-*/
+	# 2024-02-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 
     /**#@+
      * @deprecated
