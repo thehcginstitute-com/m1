@@ -20,26 +20,14 @@
 # https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/cron.sh
 !/cron.sh
 # 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/get.sh
-!/get.sh
-# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# https://github.com/mailchimp/mc-magento/blob/1.1.5/getMailchimpResponse.php
-!/getMailchimpResponse.php
-# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/index.php
 !/index.php
 # 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/install.php
 !/install.php
 # 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# https://github.com/mailchimp/mc-magento/blob/1.1.5/m4mlogs.sh
-!/m4mlogs.sh
-# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/mage
 !/mage
-# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# https://github.com/mailchimp/mc-magento/blob/1.1.5/modman
-!/modman
 !/readme.md
 !/app/**/*
 /app/etc/local.xml
