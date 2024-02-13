@@ -16,14 +16,6 @@
 "Delete the unused `Mage_Poll` module": https://github.com/thehcginstitute-com/m1/issues/367 -->
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
-        <Mage_Wishlist>
-            <active>true</active>
-            <codePool>core</codePool>
-            <depends>
-                <Mage_Customer/>
-                <Mage_Catalog/>
-            </depends>
-        </Mage_Wishlist>
 <!-- 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the `Mage_GoogleAnalytics` module because it is unused (the `Tatvic_Uaee` module is used instead)":
 https://github.com/thehcginstitute-com/m1/issues/135 -->
