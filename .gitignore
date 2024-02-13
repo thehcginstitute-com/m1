@@ -10,8 +10,8 @@
 # 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/api.php
 !/api.php
-# 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# https://github.com/mailchimp/mc-magento/blob/1.1.5/composer.json
+# 2024-02-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://github.com/OpenMage/magento-lts/blob/v19.5.2/composer.json
 !/composer.json
 # 2023-11-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # https://github.com/OpenMage/magento-mirror/blob/1.9.1.1/cron.php
