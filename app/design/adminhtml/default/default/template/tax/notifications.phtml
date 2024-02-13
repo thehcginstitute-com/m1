@@ -43,21 +43,5 @@
 </div>
 <?php endif ?>
 
-<?php $storesWithConflictingFptTaxConfigurationSettings = $this->getStoresWithConflictingFptTaxConfigurationSettings() ?>
-<?php $isDefaultStoreConflictingFptTaxConfigurationSettings = $this->isDefaultStoreWithConflictingFptTaxConfigurationSettings() ?>
-
-<?php if (!Mage::helper('tax')->isConflictingFptTaxConfigurationSettingsIgnored() &&
-    ($isDefaultStoreConflictingFptTaxConfigurationSettings || $storesWithConflictingFptTaxConfigurationSettings)
-): ?>
-<div class="notification-global">
-    <strong><?php echo $this->helper('tax')->__('Warning tax configuration can result in unexpected FPT prices on applicable devices') ?></strong>
-    <!--        If the default store is fine, but the others aren't, list the ones that have conflicting settings-->
-    <?php if (empty($storesWithConflictingFptTaxConfigurationSettings) && !$isDefaultStoreConflictingFptTaxConfigurationSettings): ?>
-    <strong><?php echo $this->helper('tax')->__('for store(s)') ?>
-        : </strong><?php echo implode(', ', $storesWithConflictingFptTaxConfigurationSettings) ?><?php endif ?>.
-        <span class="f-right">
-        <a href="<?php echo $this->getIgnoreTaxNotificationUrl('fpt_configuration') ?>"><?php echo $this->helper('tax')->__('Ignore this notification') ?></a>
-    </span>
-</div>
-<?php endif ?>
-
+<!-- 2024-02-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
