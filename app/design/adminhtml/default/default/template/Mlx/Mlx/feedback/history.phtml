@@ -15,8 +15,8 @@
 						<?php echo $this->__('Resend')?>
 					</a>
 				</td></tr></table>			
-			<?php endif; ?>
-		<?php endif; ?>
+			<?php endif ?>
+		<?php endif ?>
 		<?php echo $this->getMessageTitle($message) ?>
 		<br/>
 		<pre><?php echo $message->getMessage() ?></pre>
@@ -24,8 +24,8 @@
 		<?php if($attachedfiles = $message->getAttachedFile()): ?>
 			<b><?php echo $this->__('Attached Files')?></b>
 			<?php echo $attachedfiles ?>
-		<?php endif; ?>
+		<?php endif ?>
 		<br/>
 		<hr style="border: 1px dashed rgb(204, 204, 204);"/>
-	<?php endforeach; ?>
-<?php endif; ?>
+	<?php endforeach ?>
+<?php endif ?>

@@ -31,7 +31,7 @@
                     <col width="1"/>
                     <?php if ($isIwdDownloadable): ?>
                         <col width="1"/>
-                    <?php endif; ?>
+                    <?php endif ?>
 
                     <thead>
                     <tr class="headings">
@@ -48,7 +48,7 @@
                         <th><span class="nobr"><?php echo $helper->__('Row Total') ?></span></th>
                         <?php if ($isIwdDownloadable): ?>
                             <th><span class="nobr"><?php echo $helper->__('Support At') ?></span></th>
-                        <?php endif; ?>
+                        <?php endif ?>
                         <th class="last"><span class="nobr"><?php echo $helper->__('Remove') ?></span></th>
                     </tr>
                     </thead>
@@ -122,14 +122,14 @@
                                 <td><?php echo $helper->__("Excl.Tax") ?>:&nbsp;<b><?php echo $order->formatBasePrice($item->getBasePrice()); ?></b><br>
                                     <input
                                         type="text"
-                                        <?php if ($canShowPriceInfo || $item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                        <?php if ($canShowPriceInfo || $item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                         class="edit_order_item required-entry validate-number"
                                         value="<?php echo number_format($item->getBasePrice(), 2, '.', ''); ?>"
                                         name="items[<?php echo $item->getId(); ?>][price]"/>
 
                                     </br><?php echo $helper->__("Incl.Tax") ?>:&nbsp;<b><?php echo $order->formatBasePrice($item->getBasePriceInclTax()); ?></b><br>
                                     <input type="text"
-                                           <?php if ($canShowPriceInfo || $item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                           <?php if ($canShowPriceInfo || $item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                            class="edit_order_item required-entry validate-number"
                                            value="<?php echo number_format($item->getBasePriceInclTax(), 2, '.', ''); ?>"
                                            name="items[<?php echo $item->getId(); ?>][price_incl_tax]"/>
@@ -151,19 +151,19 @@
                                                 <td><?php echo $helper->__("Refunded") ?></td>
                                                 <td><?php echo $item->getQtyRefunded() * 1; ?></td>
                                             </tr>
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                         <?php if ($item->getQtyShipped() > 0): ?>
                                             <tr>
                                                 <td><?php echo $helper->__("Shipped") ?></td>
                                                 <td><?php echo $item->getQtyShipped() * 1; ?></td>
                                             </tr>
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                         <?php if ($item->getQtyCancelled() > 0): ?>
                                             <tr>
                                                 <td><?php echo $helper->__("Cancelled") ?></td>
                                                 <td><?php echo $item->getQtyCancelled() * 1; ?></td>
                                             </tr>
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                         <tr>
                                             <td><b><?php echo $helper->__("New&nbsp;qty"); ?></b></td>
                                             <td>
@@ -181,7 +181,7 @@
                                                        data-qty-refunded="<?php echo $item->getQtyRefunded(); ?>"
                                                     <?php if ($stock_qtyIncrements): ?>
                                                         title="<?php echo $helper->__('Qty increments x%s', $stock_qtyIncrements); ?>"
-                                                    <?php endif; ?>
+                                                    <?php endif ?>
                                                 />
                                             </td>
                                         </tr>
@@ -222,11 +222,11 @@
                                     <?php else: ?>
                                         <?php echo number_format($item->getTaxPercent(), 2); ?>%<br>
                                         <input type="text"
-                                               <?php if ($canShowPriceInfo || $item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                               <?php if ($canShowPriceInfo || $item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                                class="edit_order_item required-entry validate-number"
                                                value="<?php echo number_format($item->getTaxPercent(), 2, '.', ''); ?>"
                                                name="items[<?php echo $item->getId(); ?>][tax_percent]"/>
-                                    <?php endif; ?>
+                                    <?php endif ?>
                                 </td>
 
                                 <?php /* bundle product: DISCOUNT AMOUNT */ ?>
@@ -240,7 +240,7 @@
                                                class="edit_order_item required-entry validate-number"
                                                value="<?php echo number_format($item->getBaseDiscountAmount(), 2, '.', ''); ?>"
                                                name="items[<?php echo $item->getId(); ?>][discount_amount]"/>
-                                    <?php endif; ?>
+                                    <?php endif ?>
                                 </td>
 
                                 <?php /* bundle product: DISCOUNT PERCENT */ ?>
@@ -251,11 +251,11 @@
                                     <?php else: ?>
                                         <?php echo $item->getDiscountPercent(); ?>%<br>
                                         <input type="text"
-                                               <?php if ($canShowPriceInfo || $item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                               <?php if ($canShowPriceInfo || $item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                                class="edit_order_item required-entry validate-number"
                                                value="<?php echo number_format($item->getDiscountPercent(), 2, '.', ''); ?>"
                                                name="items[<?php echo $item->getId(); ?>][discount_percent]"/>
-                                    <?php endif; ?>
+                                    <?php endif ?>
                                 </td>
 
                                 <?php /* bundle product: ROW TOTAL */ ?>
@@ -271,13 +271,13 @@
                                                class="edit_order_item required-entry validate-number"
                                                value="<?php echo number_format($this->getBaseRowTotal($item), 2, '.', ''); ?>"
                                                name="items[<?php echo $item->getId(); ?>][row_total]"/>
-                                    <?php endif; ?>
+                                    <?php endif ?>
                                 </td>
 
                                 <?php /* bundle product: IWD_DOWNLOADABLE Support period */ ?>
                                 <?php if ($isIwdDownloadable): ?>
                                     <td class="a-right">&nbsp;</td>
-                                <?php endif; ?>
+                                <?php endif ?>
 
                                 <?php /* bundle product: REMOVE */ ?>
                                 <td class="ordered_item_remove a-center last">
@@ -286,7 +286,7 @@
                                                name="items[<?php echo $item->getId(); ?>][remove]"
                                                data-item-id="<?php echo $item->getId(); ?>"
                                                id="remove_<?php echo $item->getId(); ?>" value="1"/>
-                                    <?php endif; ?>
+                                    <?php endif ?>
                                 </td>
                             </tr>
 
@@ -315,10 +315,10 @@
                                         <?php /* bundle product: IWD_DOWNLOADABLE Support period */ ?>
                                         <?php if ($isIwdDownloadable): ?>
                                             <td class="a-right">&nbsp;</td>
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                     </tr>
                                     <?php $_prevOptionId = $attributes['option_id']; ?>
-                                <?php endif; ?>
+                                <?php endif ?>
 
                                 <?php /* BUNDLE ITEM */ ?>
                                 <tr data-item-id="<?php echo $_item->getId(); ?>"
@@ -342,7 +342,7 @@
                                             <?php echo $_item->getStatus(); ?>
                                         <?php else: ?>
                                             &nbsp;
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                     </td>
 
                                     <?php /*bundle item: ORIGINAL PRICE */ ?>
@@ -354,7 +354,7 @@
                                                    name="items[<?php echo $_item->getId(); ?>][original_price]"/>
                                         <?php else: ?>
                                             &nbsp;
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                     </td>
 
                                     <?php /*bundle item: PRICE */ ?>
@@ -363,7 +363,7 @@
                                             <?php echo $helper->__("Excl.Tax") ?>:&nbsp;
                                             <b><?php echo $order->formatBasePrice($_item->getBasePrice()); ?></b><br>
                                             <input type="text"
-                                                   <?php if ($_item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                                   <?php if ($_item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                                    class="edit_order_item required-entry validate-number"
                                                    value="<?php echo number_format($_item->getBasePrice(), 2, '.', ''); ?>"
                                                    name="items[<?php echo $_item->getId(); ?>][price]"/></br>
@@ -372,13 +372,13 @@
                                             <b><?php echo $order->formatBasePrice($_item->getBasePriceInclTax()); ?></b>
                                             <br>
                                             <input type="text"
-                                                   <?php if ($_item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                                   <?php if ($_item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                                    class="edit_order_item required-entry validate-number"
                                                    value="<?php echo number_format($_item->getBasePriceInclTax(), 2, '.', ''); ?>"
                                                    name="items[<?php echo $_item->getId(); ?>][price_incl_tax]"/>
                                         <?php else: ?>
                                             &nbsp;
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                     </td>
 
                                     <?php /*bundle item: QTY */ ?>
@@ -397,19 +397,19 @@
                                                     <td><?php echo $helper->__("Refunded") ?></td>
                                                     <td><?php echo $_item->getQtyRefunded() * 1; ?></td>
                                                 </tr>
-                                            <?php endif; ?>
+                                            <?php endif ?>
                                             <?php if ($_item->getQtyShipped() > 0): ?>
                                                 <tr>
                                                     <td><?php echo $helper->__("Shipped") ?></td>
                                                     <td><?php echo $_item->getQtyShipped() * 1; ?></td>
                                                 </tr>
-                                            <?php endif; ?>
+                                            <?php endif ?>
                                             <?php if ($_item->getQtyCancelled() > 0): ?>
                                                 <tr>
                                                     <td><?php echo $helper->__("Cancelled") ?></td>
                                                     <td><?php echo $_item->getQtyCancelled() * 1; ?></td>
                                                 </tr>
-                                            <?php endif; ?>
+                                            <?php endif ?>
                                             <tr>
                                                 <td><b><?php echo $helper->__("New&nbsp;qty"); ?></b></td>
                                                 <td>
@@ -427,7 +427,7 @@
                                                            data-qty-refunded="<?php echo $_item->getQtyRefunded(); ?>"
                                                         <?php if ($stock_qtyIncrements): ?>
                                                             title="<?php echo $helper->__('Qty increments x%s', $stock_qtyIncrements); ?>"
-                                                        <?php endif; ?>
+                                                        <?php endif ?>
                                                     />
                                                 </td>
                                             </tr>
@@ -464,7 +464,7 @@
                                                    name="items[<?php echo $_item->getId(); ?>][subtotal_incl_tax]"/>
                                         <?php else: ?>
                                             &nbsp;
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                     </td>
 
                                     <?php /*bundle item: TAX AMOUNT */ ?>
@@ -482,7 +482,7 @@
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
                                         <?php else: ?>
                                             &nbsp;
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                     </td>
 
                                     <?php /*bundle item: TAX PERCENT */ ?>
@@ -490,13 +490,13 @@
                                         <?php if ($canShowPriceInfo): ?>
                                             <?php echo number_format($_item->getTaxPercent(), 2); ?>%<br>
                                             <input type="text"
-                                                   <?php if ($_item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                                   <?php if ($_item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                                    class="edit_order_item required-entry validate-number"
                                                    value="<?php echo number_format($_item->getTaxPercent(), 2, '.', ''); ?>"
                                                    name="items[<?php echo $_item->getId(); ?>][tax_percent]"/>
                                         <?php else: ?>
                                             &nbsp;
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                     </td>
 
                                     <?php /*bundle item: DISCOUNT AMOUNT */ ?>
@@ -509,7 +509,7 @@
                                                    name="items[<?php echo $_item->getId(); ?>][discount_amount]"/>
                                         <?php else: ?>
                                             &nbsp;
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                     </td>
 
                                     <?php /*bundle item: DISCOUNT PERCENT */ ?>
@@ -521,7 +521,7 @@
                                                    name="items[<?php echo $_item->getId(); ?>][discount_percent]"/>
                                         <?php else: ?>
                                             &nbsp;
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                     </td>
 
                                     <?php /*bundle item: ROW TOTAL */ ?>
@@ -536,13 +536,13 @@
                                                    name="items[<?php echo $_item->getId(); ?>][row_total]"/>
                                         <?php else: ?>
                                             &nbsp;
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                     </td>
 
                                     <?php /* bundle product: IWD_DOWNLOADABLE Support period */ ?>
                                     <?php if ($isIwdDownloadable): ?>
                                         <td class="a-right">&nbsp;</td>
-                                    <?php endif; ?>
+                                    <?php endif ?>
 
                                     <?php /*bundle item: REMOVE */ ?>
                                     <td class="ordered_item_remove a-center last">
@@ -553,7 +553,7 @@
                                                    data-parent-id="<?php echo $item->getId(); ?>"
                                                    data-item-id="<?php echo $_item->getId(); ?>"
                                             />
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                     </td>
 
                                     <?php /* - - - helpers - - - */ ?>
@@ -566,7 +566,7 @@
                                            name="items[<?php echo $_item->getId(); ?>][parent]"/>
                                     <?php /* - - - helpers - - - */ ?>
                                 </tr>
-                            <?php endforeach; ?>
+                            <?php endforeach ?>
                         <?php else: ?>
                             <?php
                             $has_options = $this->hasOptions($item);
@@ -586,7 +586,7 @@
                                 data-item-id="<?php echo $item->getId(); ?>"
                                 data-product-id="<?php echo $item->getProductId(); ?>">
                                 <?php /* simple product: NAME */ ?>
-                                <td <?php if (!$has_options): ?>colspan="2" <?php else: ?> class="first" <?php endif; ?>>
+                                <td <?php if (!$has_options): ?>colspan="2" <?php else: ?> class="first" <?php endif ?>>
                                     <div>
                                         <b>
                                             <span class="item_name item_name_<?php echo $item->getId(); ?>"><?php echo $item->getName(); ?></span><br>
@@ -604,7 +604,7 @@
                                                     data-id="<?php echo $_option['option_id'] ?>" class="<?php echo 'option'; ?>"
                                                 <?php else: ?>
                                                     data-id="<?php echo $_option['label'] ?>" class="<?php echo 'attribute'; ?>"
-                                                <?php endif; ?>>
+                                                <?php endif ?>>
                                                     <?php echo $_option['label'] ?>
                                                 </dt>
 
@@ -612,15 +612,15 @@
                                                     data-id="<?php echo $_option['option_id'] ?>" class="<?php echo 'option'; ?>"
                                                 <?php else: ?>
                                                     data-id="<?php echo $_option['label'] ?>" class="<?php echo 'attribute'; ?>"
-                                                <?php endif; ?>>
+                                                <?php endif ?>>
                                                     <?php if (isset($_option['custom_view']) && $_option['custom_view']): ?>
                                                         <?php echo $this->getCustomizedOptionValue($_option); ?>
                                                     <?php else: ?>
                                                         <?php echo $_option['value']; ?>
-                                                    <?php endif; ?>
+                                                    <?php endif ?>
                                                 </dd>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
+                                            <?php endforeach ?>
+                                        <?php endif ?>
                                     </dl>
                                     <div class="notice notice_<?php echo $item->getId(); ?>" style="display:none">
                                         <div class="notice_qty" style="font-size:95%; display:none">The requested
@@ -648,7 +648,7 @@
                                                    name="items[<?php echo $item->getId(); ?>][product_options]"/>
                                         </div>
                                     </td>
-                                <?php endif; ?>
+                                <?php endif ?>
 
                                 <?php /* simple product: STATUS */ ?>
                                 <td class="a-center"><?php echo $item->getStatus(); ?></td>
@@ -664,13 +664,13 @@
                                 <?php /* simple product: PRICE */ ?>
                                 <td><?php echo $helper->__("Excl.Tax") ?>:&nbsp;<b><?php echo $order->formatBasePrice($item->getBasePrice()); ?></b><br>
                                     <input type="text" class="edit_order_item required-entry validate-number"
-                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                            value="<?php echo number_format($item->getBasePrice(), 2, '.', ''); ?>"
                                            name="items[<?php echo $item->getId(); ?>][price]"/>
 
                                     </br><?php echo $helper->__("Incl.Tax") ?>:&nbsp;<b><?php echo $order->formatBasePrice($item->getBasePriceInclTax()); ?></b><br>
                                     <input type="text" class="edit_order_item required-entry validate-number"
-                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                            value="<?php echo number_format($item->getBasePriceInclTax(), 2, '.', ''); ?>"
                                            name="items[<?php echo $item->getId(); ?>][price_incl_tax]"/>
                                 </td>
@@ -687,25 +687,25 @@
                                                 <td><?php echo $helper->__("Invoiced") ?></td>
                                                 <td><?php echo $item->getQtyInvoiced() * 1; ?></td>
                                             </tr>
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                         <?php if ($item->getQtyRefunded() > 0): ?>
                                             <tr>
                                                 <td><?php echo $helper->__("Refunded") ?></td>
                                                 <td><?php echo $item->getQtyRefunded() * 1; ?></td>
                                             </tr>
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                         <?php if ($item->getQtyShipped() > 0): ?>
                                             <tr>
                                                 <td><?php echo $helper->__("Shipped") ?></td>
                                                 <td><?php echo $item->getQtyShipped() * 1; ?></td>
                                             </tr>
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                         <?php if ($item->getQtyCancelled() > 0): ?>
                                             <tr>
                                                 <td><?php echo $helper->__("Cancelled") ?></td>
                                                 <td><?php echo $item->getQtyCancelled() * 1; ?></td>
                                             </tr>
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                         <tr>
                                             <td><b><?php echo $helper->__("New&nbsp;qty"); ?></b></td>
                                             <td>
@@ -724,7 +724,7 @@
                                                        data-qty-refunded="<?php echo $item->getQtyRefunded(); ?>"
                                                     <?php if ($stock_qtyIncrements): ?>
                                                         title="<?php echo $helper->__('Qty increments x%s', $stock_qtyIncrements); ?>"
-                                                    <?php endif; ?>
+                                                    <?php endif ?>
                                                 />
                                             </td>
                                         </tr>
@@ -735,13 +735,13 @@
                                 <td><?php echo $helper->__("Excl.Tax") ?>:&nbsp;<b><?php echo $order->formatBasePrice($item->getBaseRowTotal()); ?></b>
                                     <input type="text" readonly="readonly"
                                            class="edit_order_item required-entry validate-number"
-                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                            value="<?php echo number_format($item->getBaseRowTotal(), 2, '.', ''); ?>"
                                            name="items[<?php echo $item->getId(); ?>][subtotal]"/>
                                     </br><?php echo $helper->__("Incl.Tax") ?>:&nbsp;<b><?php echo $order->formatBasePrice($item->getBaseRowTotalInclTax()); ?></b>
                                     <input type="text" readonly="readonly"
                                            class="edit_order_item required-entry validate-number"
-                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                            value="<?php echo number_format($item->getBaseRowTotalInclTax(), 2, '.', ''); ?>"
                                            name="items[<?php echo $item->getId(); ?>][subtotal_incl_tax]"/>
                                 </td>
@@ -751,7 +751,7 @@
                                     <?php echo $order->formatBasePrice($item->getBaseTaxAmount()); ?><br>
                                     <input type="text" readonly="readonly"
                                            class="edit_order_item required-entry validate-number"
-                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                            value="<?php echo number_format($item->getTaxAmount(), 2, '.', ''); ?>"
                                            name="items[<?php echo $item->getId(); ?>][tax_amount]"/>
                                     <input type="hidden" class="edit_order_item required-entry validate-number"
@@ -766,7 +766,7 @@
                                     <?php echo number_format($item->getTaxPercent(), 2); ?>%<br>
                                     <input type="text" class="edit_order_item required-entry validate-number"
                                            value="<?php echo number_format($item->getTaxPercent(), 2, '.', ''); ?>"
-                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                            name="items[<?php echo $item->getId(); ?>][tax_percent]"/>
                                 </td>
 
@@ -781,7 +781,7 @@
                                 <?php /* simple product: DISCOUNT PERCENT */ ?>
                                 <td><?php echo number_format($item->getDiscountPercent(), 2); ?>%<br>
                                     <input type="text" class="edit_order_item required-entry validate-number"
-                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                            value="<?php echo number_format($item->getDiscountPercent(), 2, '.', ''); ?>"
                                            name="items[<?php echo $item->getId(); ?>][discount_percent]"/>
                                 </td>
@@ -791,7 +791,7 @@
                                             class="price"><?php echo $this->getCurrencyRowTotal($item); ?></span></b><br>
                                     <input type="text" readonly="readonly"
                                            class="edit_order_item required-entry validate-number"
-                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif; ?>
+                                           <?php if ($item->getQtyRefunded() > 0): ?>readonly="readonly"<?php endif ?>
                                            value="<?php echo number_format($this->getBaseRowTotal($item), 2, '.', ''); ?>"
                                            name="items[<?php echo $item->getId(); ?>][row_total]"/>
                                 </td>
@@ -806,9 +806,9 @@
                                                    name="items[<?php echo $item->getId(); ?>][support_date]"
                                                    value="<?php echo Mage::helper('iwd_ordermanager/downloadable')->getSupportPeriodDate($item); ?>"
                                             />
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                     </td>
-                                <?php endif; ?>
+                                <?php endif ?>
 
                                 <?php /* simple product: REMOVE */ ?>
                                 <td class="ordered_item_remove a-center last">
@@ -817,12 +817,12 @@
                                                class="remove_ordered_item"
                                                data-item-id="<?php echo $item->getId(); ?>"
                                                id="remove_<?php echo $item->getId(); ?>" value="1"/>
-                                    <?php endif; ?>
+                                    <?php endif ?>
                                 </td>
                             </tr>
-                        <?php endif; ?>
+                        <?php endif ?>
                         </tbody>
-                    <?php endforeach; ?>
+                    <?php endforeach ?>
 
                     <tfoot>
                     <td colspan="5" class="v-middle">
@@ -852,7 +852,7 @@
                         <input type="hidden" value="<?php echo $this->order_id; ?>" name="order_id"
                                id="order_id_<?php echo $this->order_id; ?>">
                     </td>
-                    <?php if ($isIwdDownloadable): ?><td>&nbsp;</td><?php endif; ?>
+                    <?php if ($isIwdDownloadable): ?><td>&nbsp;</td><?php endif ?>
                     <td colspan="3" class="v-middle">
                         <button id="edit_ordered_items_submit" type="button" disabled="disabled"
                                 onclick="IWD.OrderManager.OrderedItems.editOrderedItemsSubmit();"
@@ -887,7 +887,7 @@
                 item_id:<?php echo $item->getId(); ?>,
                 product_id:<?php echo $item->getId(); ?>
             });
-        <?php endforeach; ?>
+        <?php endforeach ?>
         //]]>
     </script>
 </div>

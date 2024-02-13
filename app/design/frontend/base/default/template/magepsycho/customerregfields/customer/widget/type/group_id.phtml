@@ -12,12 +12,12 @@
 		echo $group->getCustomerGroupCode();
 		?>
 	<?php else : ?>
-		<select id="<?php echo $this->getFieldId('group_id')?>" name="<?php echo $this->getFieldName('group_id')?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getGroupLabel()) ?>"<?php if ($this->isRequired()): ?> class="validate-select"<?php endif; ?> <?php echo $this->getFieldParams() ?>>
+		<select id="<?php echo $this->getFieldId('group_id')?>" name="<?php echo $this->getFieldName('group_id')?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getGroupLabel()) ?>"<?php if ($this->isRequired()): ?> class="validate-select"<?php endif ?> <?php echo $this->getFieldParams() ?>>
 			<?php $options  = $this->getGroupSelectOptions(); ?>
 			<?php $value    = $this->getObject()->getGroupId(); ?>
 			<?php foreach ($options as $option): ?>
 				<option value="<?php echo $option['value'] ?>"<?php if ($option['value'] == $value) echo ' selected="selected"' ?>><?php echo $option['label'] ?></option>
-			<?php endforeach;?>
+			<?php endforeach ?>
 		</select>
 	<?php endif ?>
 

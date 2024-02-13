@@ -36,9 +36,9 @@
         <li <?php if(!empty($_item['children'])): ?>onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')"<?php endif ?> class=" <?php echo (!$_level && !empty($_item['active']))?' active':'' ?> <?php echo !empty($_item['children'])?' parent':'' ?><?php echo (!empty($_level) && !empty($_item['last']))?' last':'' ?> level<?php echo $_level ?> <?php echo isset($_item['class']) ? $_item['class'] : ''; ?>"> <a href="<?php echo $_item['url'] ?>" <?php if(!empty($_item['title'])): ?>title="<?php echo $_item['title'] ?>"<?php endif ?> <?php if(!empty($_item['click'])): ?>onclick="<?php echo $_item['click']; ?>"<?php endif ?> class="<?php echo ($_level===0 && !empty($_item['active']))?'active':'' ?>" style="<?php echo isset($_item['style']) ? $_item['style'] : ''; ?>"><span><?php echo $_item['label'] ?><?php if(!$_level): ?><?php endif ?></span></a>
             <?php if(!empty($_item['children'])): ?>
                 <?php drawMenuLevelExtendware($_item['children'], $_level+1); ?>
-            <?php endif; ?>
+            <?php endif ?>
         </li>
-        <?php endforeach; ?>
+        <?php endforeach ?>
     </ul>
 <?php }//function ?>
 

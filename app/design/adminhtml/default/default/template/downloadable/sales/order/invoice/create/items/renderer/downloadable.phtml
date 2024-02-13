@@ -9,19 +9,19 @@ $this->setPriceDataObject($_item) ?>
         <span class="price-excl-tax">
             <?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
                 <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
-            <?php endif; ?>
+            <?php endif ?>
 			<?php echo $this->displayPrices($_item->getBasePrice(), $_item->getPrice()) ?>
 		</span>
         <br/>
-    <?php endif; ?>
+    <?php endif ?>
     <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
         <span class="price-incl-tax">
             <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
                 <span class="label"><?php echo $this->helper('tax')->__('Incl. Tax'); ?>:</span>
-            <?php endif; ?>
+            <?php endif ?>
 			<?php echo $this->helper('checkout')->formatPrice($this->helper('checkout')->getPriceInclTax($_item)); ?>
         </span>
-    <?php endif; ?>
+    <?php endif ?>
 </td>
 <td class="a-center"><?php echo $this->getColumnHtml($_item, 'qty') ?></td>
 <td class="a-center">
@@ -31,25 +31,25 @@ $this->setPriceDataObject($_item) ?>
                value="<?php echo $_item->getQty() * 1 ?>"/>
     <?php else : ?>
         <?php echo $_item->getQty() * 1 ?>
-    <?php endif; ?>
+    <?php endif ?>
 </td>
 <td class="a-right">
     <?php if ($this->helper('tax')->displaySalesBothPrices() || $this->helper('tax')->displaySalesPriceExclTax()): ?>
         <span class="price-excl-tax">
             <?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
                 <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
-            <?php endif; ?>
+            <?php endif ?>
 			<?php echo $this->displayPrices($_item->getBaseRowTotal(), $_item->getRowTotal()) ?>
 		</span>
         <br/>
-    <?php endif; ?>
+    <?php endif ?>
 
     <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
         <span class="price-incl-tax">
 			<?php echo $this->helper('checkout')->formatPrice($this->helper('checkout')->getSubtotalInclTax($_item)); ?>
 
         </span>
-    <?php endif; ?>
+    <?php endif ?>
 </td>
 <td class="a-right"><?php echo $this->displayPriceAttribute('tax_amount') ?></td>
 <td class="a-right"><?php echo $this->displayPriceAttribute('discount_amount') ?></td>

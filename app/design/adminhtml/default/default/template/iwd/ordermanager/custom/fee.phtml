@@ -22,7 +22,7 @@ $description = $this->getAdditionalAmountDescription();
                         <tr>
                             <?php if (!$this->isManageTax()) : ?>
                                 <td width="1"><label><?php echo $helper->__('Add Custom Amount') ?></label></td>
-                            <?php endif; ?>
+                            <?php endif ?>
                             <td width="1">
                                 <input type="text" id="iwd_om_custom_amount" name="iwd_om_custom_amount" class="fee-decimal-validation input-text" placeholder="$0.00 Excl Tax" value="<?php echo $amount; ?>"/>
                                 <?php if ($this->isManageTax()) : ?>
@@ -31,7 +31,7 @@ $description = $this->getAdditionalAmountDescription();
                                     <span>%</span>
                                     <span>=</span>
                                     <input type="text" id="iwd_om_custom_amount_incl_tax" name="iwd_om_custom_amount_incl_tax" class="fee-decimal-validation input-text" placeholder="$0.00 Incl Tax" value="<?php echo $amountInclTax; ?>"/>
-                                <?php endif; ?>
+                                <?php endif ?>
                             </td>
                             <td>
                                 <input type="text" id="iwd_om_custom_amount_desc" name="iwd_om_custom_amount_desc" class="input-text" placeholder="Description" value="<?php echo $description; ?>"/>
@@ -42,7 +42,7 @@ $description = $this->getAdditionalAmountDescription();
                                     <span><span><span><?php echo $helper->__('Apply') ?></span></span></span>
                                 </button>
                                 <button title="<?php echo $helper->__('Remove') ?>"
-                                        <?php if(empty($amount)): ?>style="display:none;"<?php endif; ?>
+                                        <?php if(empty($amount)): ?>style="display:none;"<?php endif ?>
                                         id="iwd_om_custom_amount_remove"
                                         type="button" class="scalable">
                                     <span><span><span><?php echo $helper->__('Remove') ?></span></span></span>
@@ -61,4 +61,4 @@ $description = $this->getAdditionalAmountDescription();
         IWD.OrderManager.AdditionalDiscount.isManageTax = <?php echo $this->isManageTax() ? 'true' : 'false' ?>;
         IWD.OrderManager.AdditionalDiscount.init();
     </script>
-<?php endif; ?>
+<?php endif ?>

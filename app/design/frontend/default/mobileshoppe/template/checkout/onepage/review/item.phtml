@@ -11,7 +11,7 @@ $_item = $this->getItem()?>
                     <?php foreach ($_options as $_option) : ?>
                     <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
                     <dt><?php echo $this->escapeHtml($_option['label']) ?></dt>
-                    <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>><?php echo $_formatedOptionValue['value'] ?>
+                    <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif ?>><?php echo $_formatedOptionValue['value'] ?>
                         <?php if (isset($_formatedOptionValue['full_view'])): ?>
                         <div class="truncated_full_value">
                             <dl class="item-options">
@@ -19,15 +19,15 @@ $_item = $this->getItem()?>
                                 <dd><?php echo $_formatedOptionValue['full_view'] ?></dd>
                             </dl>
                         </div>
-                        <?php endif; ?>
+                        <?php endif ?>
                     </dd>
-                    <?php endforeach; ?>
+                    <?php endforeach ?>
                 </dl>
-            <?php endif;?>
+            <?php endif ?>
 
             <?php if ($addtInfoBlock = $this->getProductAdditionalInformationBlock()):?>
                 <?php echo $addtInfoBlock->setItem($_item)->toHtml() ?>
-            <?php endif;?>
+            <?php endif ?>
 
         </td>
     </tr>
@@ -37,20 +37,20 @@ $_item = $this->getItem()?>
 				<span class="cart-price">
 					<?php echo $this->helper('checkout')->formatPrice($_item->getCalculationPrice()) ?>
                 </span>
-            <?php endif; ?>
+            <?php endif ?>
             <?php if ($this->helper('tax')->displayCartPriceInclTax()): ?>
                 <?php $_incl = $this->helper('checkout')->getPriceInclTax($_item); ?>
 				<span class="cart-price">
 					<?php echo $this->helper('checkout')->formatPrice($_incl) ?>
                 </span>
-            <?php endif; ?>
+            <?php endif ?>
         </td>
         <td class="a-right">
             <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
 				<span class="cart-price">
 					<?php echo $this->helper('checkout')->formatPrice($_item->getRowTotal()) ?>
                 </span>
-            <?php endif; ?>
+            <?php endif ?>
 
             <?php if ($this->helper('tax')->displayCartPriceInclTax()): ?>
 
@@ -58,7 +58,7 @@ $_item = $this->getItem()?>
 				<span class="cart-price">
 					<?php echo $this->helper('checkout')->formatPrice($_incl) ?>
                 </span>
-            <?php endif; ?>
+            <?php endif ?>
         </td>
     </tr>
 </tbody>

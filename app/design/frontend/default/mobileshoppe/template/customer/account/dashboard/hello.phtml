@@ -12,5 +12,5 @@ $customerGroupId = Mage::getSingleton('customer/session')->getCustomerGroupId();
     <p><?php //echo $this->__('From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.') ?></p>
 	<?php else: ?>
 	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('new-health-profile')->toHtml() ?>
-	<?php endif; ?>
+	<?php endif ?>
 </div>

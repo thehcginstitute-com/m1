@@ -192,7 +192,7 @@
 	        </div>-->
 	        <?php if (Mage::helper('checkout')->isContextCheckout()): ?>
 	            <input name="context" type="hidden" value="checkout" />
-	        <?php endif; ?>
+	        <?php endif ?>
 
 <!-- 2023-11-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 1) "The «CONTINUE» button does not work on the «BILLING INFORMATION» screen on the `/checkout/onepage/`
@@ -209,7 +209,7 @@ https://github.com/thehcginstitute-com/m1/blob/2023-01-16-1/app/code/core/Mage/C
         var dataForm = new VarienForm('form-validate', true);
         <?php if ($this->getShowAddressFields()): ?>
         new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
-        <?php endif; ?>
+        <?php endif ?>
     //]]>
     </script>
 

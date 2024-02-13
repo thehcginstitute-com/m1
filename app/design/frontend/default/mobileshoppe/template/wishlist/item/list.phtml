@@ -30,7 +30,7 @@
     <div class="headingcell">
             <?php foreach ($columns as $column): ?>
                 <div><?php echo $column->getTitle();?></div>
-            <?php endforeach; ?>
+            <?php endforeach ?>
 	</div>
 	<div class="contentcell">
         <?php if (count($this->getItems())): ?>
@@ -38,15 +38,15 @@
             	<div id="item_<?php echo $item->getId();?>" class="cellitem"> 
                     <?php foreach ($columns as $column): ?>
                         <?php $column->setItem($item); echo $column->toHtml($item);?>
-                    <?php endforeach; ?>
+                    <?php endforeach ?>
               </div>
               <div class="clear"></div>
             <?php endforeach ?>
         <?php else: ?>
             <p class="wishlist-empty"><?php echo $this->__('This Wishlist has no Items');?></p>
-        <?php endif; ?>
+        <?php endif ?>
 	</div>
 </table>
 <?php foreach ($columns as $column): ?>
     <?php echo $column->getAdditionalHtml();?>
-<?php endforeach; ?>
+<?php endforeach ?>

@@ -12,7 +12,7 @@
                 <label class="normal"
                        for="history_notify"><?php echo Mage::helper('sales')->__('Notify Customer by Email') ?></label>
                 <br/>
-            <?php endif; ?>
+            <?php endif ?>
             <input name="comment[is_visible_on_front]" type="checkbox" id="history_visible" value="1"/><label
                 class="normal"
                 for="history_visible"> <?php echo Mage::helper('sales')->__('Visible on Frontend') ?></label>
@@ -37,14 +37,14 @@
                                      height="16" alt=""/>
                             <?php else: ?>
                                 <?php echo $this->helper('sales')->__('Not Notified') ?>
-                            <?php endif; ?>
+                            <?php endif ?>
                         </strong></small>
                     <br/>
 
                     <div id="comment_text_<?php echo $_comment->getEntityId(); ?>">
                         <?php echo $this->escapeHtml($_comment->getComment(), array('a', 'b', 'br', 'strong', 'i', 'u')) ?></div>
                 </li>
-            <?php endforeach; ?>
+            <?php endforeach ?>
         </ul>
         <script type="text/javascript">
             function submitComment() {
@@ -64,4 +64,4 @@
             });
         </script>
     </div>
-<?php endif; ?>
+<?php endif ?>

@@ -43,14 +43,14 @@ $taxIter++; ?>
         <?php $isFirst = 1; ?>
 
         <?php foreach ($rates as $rate): ?>
-            <tr class="summary-details-<?php echo $taxIter; ?> summary-details<?php if ($isTop): echo ' summary-details-first'; endif; ?>"
+            <tr class="summary-details-<?php echo $taxIter; ?> summary-details<?php if ($isTop): echo ' summary-details-first'; endif ?>"
                 style="display:none;">
                 <td class="a-right" style="<?php echo $this->getTotal()->getStyle() ?>"
                     colspan="<?php echo $this->getColspan(); ?>">
                     <?php echo $this->escapeHtml($rate['title']); ?>
                     <?php if (!is_null($rate['percent'])): ?>
                         (<?php echo (float)$rate['percent']; ?>%)
-                    <?php endif; ?>
+                    <?php endif ?>
                     <br/>
                 </td>
                 <?php if ($isFirst): ?>
@@ -58,17 +58,17 @@ $taxIter++; ?>
                         rowspan="<?php echo count($rates); ?>">
                         <?php echo $this->formatPrice($amount); ?>
                     </td>
-                <?php endif; ?>
+                <?php endif ?>
             </tr>
             <?php $isFirst = 0; ?>
             <?php $isTop = 0; ?>
-        <?php endforeach; ?>
-    <?php endforeach; ?>
+        <?php endforeach ?>
+    <?php endforeach ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
-<?php endif; ?>
+<?php endif ?>
 <?php $class = "{$this->getTotal()->getCode()} " . ($this->helper('tax')->displayFullSummary() ? 'summary-total' : ''); ?>
-<tr<?php if ($this->helper('tax')->displayFullSummary()): ?> onclick="expandDetails(this, '.summary-details-<?php echo $taxIter; ?>')"<?php endif; ?>
+<tr<?php if ($this->helper('tax')->displayFullSummary()): ?> onclick="expandDetails(this, '.summary-details-<?php echo $taxIter; ?>')"<?php endif ?>
     class="<?php echo $class; ?>">
     <td style="<?php echo $this->getTotal()->getStyle() ?>" class="a-right"
         colspan="<?php echo $this->getColspan(); ?>">
@@ -76,7 +76,7 @@ $taxIter++; ?>
             <div class="summary-collapse"><?php echo $this->getTotal()->getTitle() ?></div>
         <?php else: ?>
             <?php echo $this->getTotal()->getTitle() ?>
-        <?php endif; ?>
+        <?php endif ?>
     </td>
     <td style="<?php echo $this->getTotal()->getStyle() ?>"
         class="a-right"><?php echo $this->formatPrice($this->getTotal()->getValue()) ?></td>

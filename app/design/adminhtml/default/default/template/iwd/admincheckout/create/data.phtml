@@ -20,7 +20,7 @@
         <div id="order-methods">
             <div id="order-card_validation" class="box-left payments"><?php echo $this->getChildHtml('card_validation') ?></div>
         </div>
-        <?php endif; ?>
+        <?php endif ?>
 
         <div class="clear"></div>
         <?php if($this->getCustomerId()): ?>
@@ -30,7 +30,7 @@
             </div>
         <?php else: ?>
             <div id="order-gift_options"><?php echo $this->getChildHtml('gift_options') ?></div>
-        <?php endif; ?>
+        <?php endif ?>
 
         <div class="clear"></div>
         <div class="box-left entry-edit">
@@ -40,7 +40,7 @@
 
         <?php if(Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/custom_amount')): ?>
             <?php echo $this->getChildHtml('iwd_om_custom_fee') ?>
-        <?php endif; ?>
+        <?php endif ?>
 
         <div class="box-right entry-edit">
             <div class="entry-edit-head"><h4><?php echo Mage::helper('sales')->__('Order Totals') ?></h4></div>

@@ -75,7 +75,7 @@ https://github.com/thehcginstitute-com/m1/issues/320
                 </div>
             </li>
             <li class="control">
-                <input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Change Password')) ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> class="checkbox" /><label for="change_password"><?php echo $this->__('Change Password') ?></label>
+                <input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Change Password')) ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif ?> class="checkbox" /><label for="change_password"><?php echo $this->__('Change Password') ?></label>
             </li>
         </ul>
     </div>
@@ -121,6 +121,6 @@ https://github.com/thehcginstitute-com/m1/issues/320
 
     <?php if($this->getCustomer()->getChangePassword()): ?>
         setPasswordForm(true);
-    <?php endif; ?>
+    <?php endif ?>
 //]]>
 </script>

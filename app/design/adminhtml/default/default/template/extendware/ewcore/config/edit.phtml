@@ -37,7 +37,7 @@
     <table cellspacing="0">
         <tr>
             <td>
-                <h3<?php if($this->getHeaderCss()): ?> class="<?php echo $this->getHeaderCss()?>"<?php endif; ?>><?php echo Mage::helper('adminhtml')->__($this->getTitle()) ?></h3>
+                <h3<?php if($this->getHeaderCss()): ?> class="<?php echo $this->getHeaderCss()?>"<?php endif ?>><?php echo Mage::helper('adminhtml')->__($this->getTitle()) ?></h3>
             </td>
             <td class="form-buttons"><?php echo $this->getFormButtonHtml() ?></td>
          </tr>
@@ -47,7 +47,7 @@
 <div id="messages"><ul class="messages"><li class="notice-msg"><ul><li><span>
 <?php echo $this->__('Please <u>read the help descriptions, field descriptions, fieldset descriptions, and user guides</u> so you may configure this extension to suit your needs.', $this->getSkinUrl('extendware/ewcore/images/help.png')); ?>
 </span></li></ul></li></ul></div>
-<?php endif; ?>
+<?php endif ?>
 <form action="<?php echo $this->getSaveUrl() ?>" method="post" id="config_edit_form" enctype="multipart/form-data">
     <?php echo $this->getBlockHtml('formkey')?>
     <?php echo $this->getChildHtml('form') ?>

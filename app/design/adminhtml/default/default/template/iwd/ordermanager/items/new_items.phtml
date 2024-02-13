@@ -26,14 +26,14 @@ $validate_inventory = $helper->isValidateInventory();
                     <div class="error">
                         <?php foreach ($errorInfos as $errorInfo): ?>
                             <span><?php echo $errorInfo['message']; ?></span>
-                        <?php endforeach; ?>
+                        <?php endforeach ?>
                     </div>
-                <?php endif; ?>
+                <?php endif ?>
             </td>
         </tr>
         </tbody>
         <?php continue; ?>
-    <?php endif; ?>
+    <?php endif ?>
 
     <tbody class="<?php echo ($i++) % 2 ? 'even' : 'odd' ?>">
     <?php if ($item->getParentItem()) continue; ?>
@@ -66,10 +66,10 @@ $validate_inventory = $helper->isValidateInventory();
                     <div class="notice_qty" style="font-size:95%;">
                         <?php foreach ($errorInfos as $errorInfo): ?>
                             <span><?php echo $errorInfo['message']; ?></span>
-                        <?php endforeach; ?>
+                        <?php endforeach ?>
                     </div>
                 </div>
-                <?php endif; ?>
+                <?php endif ?>
 
                 <input type="text" value="<?php echo $item->getDescription(); ?>"
                        placeholder="<?php echo $helper->__('Description') ?>"
@@ -91,13 +91,13 @@ $validate_inventory = $helper->isValidateInventory();
             <?php /* bundle product: PRICE */ ?>
             <td>Excl.Tax:&nbsp;<b><?php echo $order->formatBasePrice($item->getPrice()); ?></b><br>
                 <input
-                    type="text" <?php if ($canShowPriceInfo): ?>readonly="readonly"<?php endif; ?>
+                    type="text" <?php if ($canShowPriceInfo): ?>readonly="readonly"<?php endif ?>
                     class="edit_order_item required-entry validate-number"
                     value="<?php echo number_format($item->getPrice(), 2, '.', ''); ?>"
                     name="items[<?php echo $item->getId(); ?>][price]"/>
 
                 </br>Incl.Tax:&nbsp;<b><?php echo $order->formatBasePrice($item->getBasePriceInclTax()); ?></b><br>
-                <input type="text" <?php if ($canShowPriceInfo): ?>readonly="readonly"<?php endif; ?>
+                <input type="text" <?php if ($canShowPriceInfo): ?>readonly="readonly"<?php endif ?>
                        class="edit_order_item required-entry validate-number"
                        value="<?php echo number_format($item->getBasePriceInclTax(), 2, '.', ''); ?>"
                        name="items[<?php echo $item->getId(); ?>][price_incl_tax]"/>
@@ -125,7 +125,7 @@ $validate_inventory = $helper->isValidateInventory();
                        data-stock-max-sales-qty="<?php echo $stock_maxSaleQty ? $stock_maxSaleQty : 1 ?>"
                     <?php if($stock_qtyIncrements): ?>
                         title="<?php echo $helper->__('Qty increments x%s', $stock_qtyIncrements); ?>"
-                    <?php endif; ?>
+                    <?php endif ?>
                     />
             </td>
 
@@ -162,11 +162,11 @@ $validate_inventory = $helper->isValidateInventory();
                     <input type="hidden" value="0" name="items[<?php echo $item->getId(); ?>][tax_percent]"/>
                 <?php else: ?>
                     <?php echo number_format($item->getTaxPercent(), 2); ?>%<br>
-                    <input type="text" <?php if ($canShowPriceInfo): ?>readonly="readonly"<?php endif; ?>
+                    <input type="text" <?php if ($canShowPriceInfo): ?>readonly="readonly"<?php endif ?>
                            class="edit_order_item required-entry validate-number"
                            value="<?php echo number_format($item->getTaxPercent(), 2, '.', ''); ?>"
                            name="items[<?php echo $item->getId(); ?>][tax_percent]"/>
-                <?php endif; ?>
+                <?php endif ?>
             </td>
 
             <?php /* bundle product: DISCOUNT AMOUNT */ ?>
@@ -179,7 +179,7 @@ $validate_inventory = $helper->isValidateInventory();
                            class="edit_order_item required-entry validate-number"
                            value="<?php echo number_format($item->getBaseDiscountAmount(), 2, '.', ''); ?>"
                            name="items[<?php echo $item->getId(); ?>][discount_amount]"/>
-                <?php endif; ?>
+                <?php endif ?>
             </td>
 
             <?php /* bundle product: DISCOUNT PERCENT */ ?>
@@ -188,11 +188,11 @@ $validate_inventory = $helper->isValidateInventory();
                     <input type="hidden" value="0" name="items[<?php echo $item->getId(); ?>][discount_percent]"/>
                 <?php else: ?>
                     <?php echo number_format($item->getDiscountPercent(), 2, '.', ''); ?>%<br>
-                    <input type="text" <?php if ($canShowPriceInfo): ?>readonly="readonly"<?php endif; ?>
+                    <input type="text" <?php if ($canShowPriceInfo): ?>readonly="readonly"<?php endif ?>
                            class="edit_order_item required-entry validate-number"
                            value="<?php echo number_format($item->getDiscountPercent(), 2, '.', ''); ?>"
                            name="items[<?php echo $item->getId(); ?>][discount_percent]"/>
-                <?php endif; ?>
+                <?php endif ?>
             </td>
 
             <?php /* bundle product: ROW TOTAL */ ?>
@@ -205,7 +205,7 @@ $validate_inventory = $helper->isValidateInventory();
                            class="edit_order_item required-entry validate-number"
                            value="<?php echo number_format($this->getBaseRowTotal($item), 2, '.', ''); ?>"
                            name="items[<?php echo $item->getId(); ?>][row_total]"/>
-                <?php endif; ?>
+                <?php endif ?>
             </td>
 
             <?php /* bundle product: REMOVE */ ?>
@@ -236,7 +236,7 @@ $validate_inventory = $helper->isValidateInventory();
                     </td>
                 </tr>
                 <?php $_prevOptionId = $attributes['option_id']; ?>
-            <?php endif; ?>
+            <?php endif ?>
 
             <?php /* BUNDLE ITEM */ ?>
             <tr data-item-id="<?php echo $_item->getId(); ?>"
@@ -257,7 +257,7 @@ $validate_inventory = $helper->isValidateInventory();
                         <?php echo $helper->__("Added"); ?>
                     <?php else: ?>
                         &nbsp;
-                    <?php endif; ?>
+                    <?php endif ?>
                 </td>
 
                 <?php /*bundle item: ORIGINAL PRICE */ ?>
@@ -269,7 +269,7 @@ $validate_inventory = $helper->isValidateInventory();
                                name="items[<?php echo $_item->getId(); ?>][original_price]"/>
                     <?php else: ?>
                         &nbsp;
-                    <?php endif; ?>
+                    <?php endif ?>
                 </td>
 
                 <?php /*bundle item: PRICE */ ?>
@@ -288,7 +288,7 @@ $validate_inventory = $helper->isValidateInventory();
                                name="items[<?php echo $_item->getId(); ?>][price_incl_tax]"/>
                     <?php else: ?>
                         &nbsp;
-                    <?php endif; ?>
+                    <?php endif ?>
                 </td>
 
                 <?php /*bundle item: QTY */ ?>
@@ -312,7 +312,7 @@ $validate_inventory = $helper->isValidateInventory();
                            data-stock-max-sales-qty="<?php echo $stock_maxSaleQty ? $stock_maxSaleQty : 1 ?>"
                         <?php if($stock_qtyIncrements): ?>
                             title="<?php echo $helper->__('Qty increments x%s', $stock_qtyIncrements); ?>"
-                        <?php endif; ?>
+                        <?php endif ?>
                         />
                     <input type="hidden" value="<?php echo $_item->getQty() / $item->getQty() * 1; ?>"
                            name="items[<?php echo $_item->getId(); ?>][qty_item_in_bundle]"/>
@@ -333,7 +333,7 @@ $validate_inventory = $helper->isValidateInventory();
                                name="items[<?php echo $_item->getId(); ?>][subtotal_incl_tax]"/>
                     <?php else: ?>
                         &nbsp;
-                    <?php endif; ?>
+                    <?php endif ?>
                 </td>
 
                 <?php /*bundle item: TAX AMOUNT */ ?>
@@ -349,7 +349,7 @@ $validate_inventory = $helper->isValidateInventory();
                                name="items[<?php echo $_item->getId(); ?>][hidden_tax_amount]"/>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
-                    <?php endif; ?>
+                    <?php endif ?>
                 </td>
 
                 <?php /*bundle item: TAX PERCENT */ ?>
@@ -362,7 +362,7 @@ $validate_inventory = $helper->isValidateInventory();
                                name="items[<?php echo $_item->getId(); ?>][tax_percent]"/>
                     <?php else: ?>
                         &nbsp;
-                    <?php endif; ?>
+                    <?php endif ?>
                 </td>
 
                 <?php /*bundle item: DISCOUNT AMOUNT */ ?>
@@ -375,7 +375,7 @@ $validate_inventory = $helper->isValidateInventory();
                                name="items[<?php echo $_item->getId(); ?>][discount_amount]"/>
                     <?php else: ?>
                         &nbsp;
-                    <?php endif; ?>
+                    <?php endif ?>
                 </td>
 
                 <?php /*bundle item: DISCOUNT PERCENT */ ?>
@@ -387,7 +387,7 @@ $validate_inventory = $helper->isValidateInventory();
                                name="items[<?php echo $_item->getId(); ?>][discount_percent]"/>
                     <?php else: ?>
                         &nbsp;
-                    <?php endif; ?>
+                    <?php endif ?>
                 </td>
 
                 <?php /*bundle item: ROW TOTAL */ ?>
@@ -400,7 +400,7 @@ $validate_inventory = $helper->isValidateInventory();
                                name="items[<?php echo $_item->getId(); ?>][row_total]"/>
                     <?php else: ?>
                         &nbsp;
-                    <?php endif; ?>
+                    <?php endif ?>
                 </td>
 
                 <?php /*bundle item: REMOVE */ ?>
@@ -428,7 +428,7 @@ $validate_inventory = $helper->isValidateInventory();
                        name="items[<?php echo $_item->getId(); ?>][parent]"/>
                 <!-- helpers -->
             </tr>
-        <?php endforeach; ?>
+        <?php endforeach ?>
     <?php else: ?>
         <?php /* SIMPLE PRODUCT */ ?>
         <tr class="border ordered_item"
@@ -448,10 +448,10 @@ $validate_inventory = $helper->isValidateInventory();
                         <div class="notice_qty" style="font-size:95%;">
                             <?php foreach ($errorInfos as $errorInfo): ?>
                                 <span><?php echo $errorInfo['message']; ?></span>
-                            <?php endforeach; ?>
+                            <?php endforeach ?>
                         </div>
                     </div>
-                <?php endif; ?>
+                <?php endif ?>
 
                 <input type="text" value="<?php echo $item->getDescription(); ?>"
                        placeholder="<?php echo $helper->__('Description') ?>"
@@ -502,7 +502,7 @@ $validate_inventory = $helper->isValidateInventory();
                        data-stock-max-sales-qty="<?php echo $stock_maxSaleQty ? $stock_maxSaleQty : 1 ?>"
                     <?php if($stock_qtyIncrements): ?>
                         title="<?php echo $helper->__('Qty increments x%s', $stock_qtyIncrements); ?>"
-                    <?php endif; ?>
+                    <?php endif ?>
                     />
             </td>
 
@@ -579,6 +579,6 @@ $validate_inventory = $helper->isValidateInventory();
                        name="items[<?php echo $item->getId(); ?>][quote_item]"/>
             </td>
         </tr>
-    <?php endif; ?>
+    <?php endif ?>
     </tbody>
-<?php endforeach; ?>
+<?php endforeach ?>

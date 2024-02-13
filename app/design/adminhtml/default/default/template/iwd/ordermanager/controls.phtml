@@ -18,14 +18,14 @@
                 title="<?php echo Mage::helper('customer')->__("Cancel"); ?>">
             <?php echo Mage::helper('customer')->__("Cancel"); ?>
         </button>
-    <?php endif; ?>
+    <?php endif ?>
     <?php if(!empty($buttonOnclickUpdate)): ?>
         <button class="scalable right" type="button"
                 onclick="<?php echo $buttonOnclickUpdate; ?>"
                 title="<?php echo Mage::helper('customer')->__("Update"); ?>">
             <?php echo Mage::helper('customer')->__("Update"); ?>
         </button>
-    <?php endif; ?>
+    <?php endif ?>
 
     <div class="control_checkboxes">
         <label class="iwd_om_confirm">
@@ -43,7 +43,7 @@
                 </span>
             </label>
             <span class="iwd_om_tooltip" title="<?php echo $helper->__('Customize email list and message.'); ?>">
-                <span class="notify_customize" <?php if(!$helper->isNotifyCustomerCheckedDefault()): ?>style="display:none"<?php endif; ?> onclick="IWD.OrderManager.NotifyPopup.showModal('<?php echo $block; ?>');" title="">
+                <span class="notify_customize" <?php if(!$helper->isNotifyCustomerCheckedDefault()): ?>style="display:none"<?php endif ?> onclick="IWD.OrderManager.NotifyPopup.showModal('<?php echo $block; ?>');" title="">
                     [<?php echo Mage::helper('customer')->__("customize"); ?>]
                 </span>
             </span>
@@ -56,7 +56,7 @@
                     <span title=""><?php echo $helper->__('Recalculate Order Amount'); ?></span>
                 </span>
             </label>
-        <?php endif; ?>
+        <?php endif ?>
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused «Reauthorize» feature from IWD Order Manager":
 https://github.com/thehcginstitute-com/m1/issues/362 -->

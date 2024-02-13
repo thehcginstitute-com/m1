@@ -9,7 +9,7 @@ if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
 	?>
 	<?php foreach ($this->getGalleryImages() as $_image): ?>
 		   <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(500); ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>" />
-	<?php endforeach; ?>
+	<?php endforeach ?>
 </div>
 <script type="text/javascript">
 //<![CDATA[
@@ -21,4 +21,4 @@ jQuery('#galleria').galleria({
 });
 //]]>
 </script>
-<?php endif; ?>
+<?php endif ?>

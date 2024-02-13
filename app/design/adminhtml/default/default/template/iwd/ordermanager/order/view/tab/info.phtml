@@ -22,7 +22,7 @@ $isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusFo
     <div class="box-right">
         <?php else: ?>
         <div class="box-left">
-            <?php endif; ?>
+            <?php endif ?>
             <!--Payment Method-->
             <div class="entry-edit">
                 <div class="entry-edit-head">
@@ -48,9 +48,9 @@ $isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusFo
                                    title="<?php echo $helper->__("You can not edit payment method!"); ?>">
                                     <?php echo Mage::helper('sales')->__("Edit"); ?>
                                 </a>
-                            <?php endif; ?>
+                            <?php endif ?>
                         </div>
-                    <?php endif; ?>
+                    <?php endif ?>
                     <?php /*** END: add link "EDIT" ***/?>
                 </div>
                 <div class="hor-scroll">
@@ -83,9 +83,9 @@ $isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusFo
                                        title="<?php echo $helper->__("You can't edit shipping information!"); ?>">
                                         <?php echo Mage::helper('sales')->__("Edit"); ?>
                                     </a>
-                                <?php endif; ?>
+                                <?php endif ?>
                             </div>
-                        <?php endif; ?>
+                        <?php endif ?>
                         <?php /*** END: add link "EDIT" ***/?>
                     </div>
                     <div class="hor-scroll">
@@ -103,7 +103,7 @@ $isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusFo
 									title="<?= $this->quoteEscape($this->__('Track Order')) ?>"
 								><?= $this->__('Track Order') ?></a>
                                 <br/>
-                            <?php endif; ?>
+                            <?php endif ?>
                             <?php if ($order->getShippingDescription()): ?>
                                 <strong><?php echo $this->escapeHtml($order->getShippingDescription()) ?></strong>
 
@@ -111,21 +111,21 @@ $isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusFo
                                     <?php $_excl = $this->displayShippingPriceInclTax($order); ?>
                                 <?php else: ?>
                                     <?php $_excl = $this->displayPriceAttribute('shipping_amount', false, ' '); ?>
-                                <?php endif; ?>
+                                <?php endif ?>
                                 <?php $_incl = $this->displayShippingPriceInclTax($order); ?>
 
                                 <?php echo $_excl; ?>
                                 <?php if ($this->helper('tax')->displayShippingBothPrices() && $_incl != $_excl): ?>
                                     (<?php echo $this->__('Incl. Tax'); ?> <?php echo $_incl; ?>)
-                                <?php endif; ?>
+                                <?php endif ?>
                             <?php else: ?>
                                 <?php echo $this->helper('sales')->__('No shipping information available'); ?>
-                            <?php endif; ?>
+                            <?php endif ?>
                         </fieldset>
                     </div>
                 </div>
             </div>
-        <?php endif; ?>
+        <?php endif ?>
         <div class="clear"></div>
 
         <?php echo $this->getGiftOptionsHtml() ?>
@@ -149,9 +149,9 @@ $isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusFo
                                title="<?php echo $helper->__("You can't edit ordered items!"); ?>">
                                 <?php echo Mage::helper('sales')->__("Edit"); ?>
                             </a>
-                        <?php endif; ?>
+                        <?php endif ?>
                     </div>
-                <?php endif; ?>
+                <?php endif ?>
                 <?php /*** END: add link "EDIT" ***/?>
             </div>
         </div>

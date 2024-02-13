@@ -17,7 +17,7 @@ if (!empty($hideAddToCartLink)) {
             el.writeAttribute('title', '<?php echo $this->escapeHtml($hideAddToCartText) ?>');
             el.writeAttribute('href', "<?php echo $this->escapeHtml($onclickAction) ?>");
             el.update('<?php echo $this->escapeHtml($hideAddToCartText) ?>');
-            <?php endif; ?>
+            <?php endif ?>
         });
 
         // remove duplicate restricted price label

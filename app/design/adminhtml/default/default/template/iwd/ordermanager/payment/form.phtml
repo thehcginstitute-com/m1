@@ -16,7 +16,7 @@ $helper = Mage::helper('iwd_ordermanager');
             <?php /* IWD Stripe */ ?>
             <?php if(Mage::getConfig()->getModuleConfig('IWD_Stripe')->is('active', 'true')): ?>
                 IWD.Stripe.init();
-            <?php endif; ?>
+            <?php endif ?>
             <?php /* IWD Stripe */ ?>
         </script>
 
@@ -35,28 +35,28 @@ $helper = Mage::helper('iwd_ordermanager');
                                     <input id="p_method_<?php echo $code ?>" value="<?php echo $code ?>" type="radio"
                                            name="payment[method]"
                                            title="<?php echo $this->htmlEscape($method->getTitle()) ?>"
-                                           onclick="payment.switchMethod('<?php echo $code ?>')"<?php if ($this->getSelectedMethodCode() == $code): ?> checked="checked"<?php endif; ?>
-                                           <?php if ($counter == $methodsCount) : ?>class="validate-one-required-by-name"<?php endif; ?>/>
+                                           onclick="payment.switchMethod('<?php echo $code ?>')"<?php if ($this->getSelectedMethodCode() == $code): ?> checked="checked"<?php endif ?>
+                                           <?php if ($counter == $methodsCount) : ?>class="validate-one-required-by-name"<?php endif ?>/>
                                 <?php else : ?>
                                     <span class="no-display">
                                         <input id="p_method_<?php echo $code ?>"
                                             value="<?php echo $code ?>" type="radio"
                                             name="payment[method]" checked="checked"/>
                                     </span>
-                                <?php endif; ?>
+                                <?php endif ?>
 
                                 <label for="p_method_<?php echo $code ?>"><?php echo $method->getTitle() ?></label>
                             </dt>
                             <dd>
                                 <?php echo $this->getChildHtml('payment.method.' . $code) ?>
                             </dd>
-                        <?php endforeach; ?>
+                        <?php endforeach ?>
                     </dl>
                 </div>
                 <script type="text/javascript">order.setPaymentMethod('<?php echo $this->getSelectedMethodCode() ?>')</script>
             <?php else: ?>
                 <div><?php echo $helper->__('No Payment Methods') ?></div>
-            <?php endif; ?>
+            <?php endif ?>
 
             <?php
                 echo Mage::app()->getLayout()->createBlock('adminhtml/template')

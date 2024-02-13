@@ -35,7 +35,7 @@ $_specialPriceStoreLabel = $this->getProductAttribute('special_price')->getStore
 						<?php echo $_coreHelper->formatPrice($_price, false) ?>
 					<?php else: ?>
 						<?php echo $_coreHelper->formatPrice($_finalPrice, false) ?>
-					<?php endif; ?>
+					<?php endif ?>
 				</span>
 			</span>
 			<span class="price-including-tax">
@@ -50,9 +50,9 @@ $_specialPriceStoreLabel = $this->getProductAttribute('special_price')->getStore
 					<?php echo $_coreHelper->formatPrice($_price, true) ?>
 				<?php else: ?>
 					<?php echo $_coreHelper->formatPrice($_finalPrice, true) ?>
-				<?php endif; ?>
+				<?php endif ?>
 			</span>
-        <?php endif; ?>
+        <?php endif ?>
     <?php else: /* if ($_finalPrice == $_price): */ ?>
             <p class="old-price">
                 <span class="price-label"><?php echo $this->__('Regular Price:') ?></span>
@@ -86,7 +86,7 @@ $_specialPriceStoreLabel = $this->getProductAttribute('special_price')->getStore
                     <?php echo $_coreHelper->formatPrice($_finalPrice, false) ?>
                 </span>
                 </p>
-            <?php endif; ?>
+            <?php endif ?>
 
     <?php endif; /* if ($_finalPrice == $_price): */ ?>
 
@@ -155,7 +155,7 @@ $_specialPriceStoreLabel = $this->getProductAttribute('special_price')->getStore
                     <span class="price" id="product-minimal-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>">
                     <?php echo $_coreHelper->formatPrice($_showPrice, false) ?>
                 </span>
-                <?php endif; ?>
+                <?php endif ?>
             </p>
         </div>
     <?php endif; /* if ($this->getDisplayMinimalPrice() && $_minimalPrice): */ ?>

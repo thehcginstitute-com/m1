@@ -10,17 +10,17 @@ $_order = $this->getItem()->getOrder(); ?>
                 <?php foreach ($this->getItemOptions() as $option): ?>
                     <dt><strong><em><?php echo $option['label'] ?></em></strong></dt>
                     <dd style="margin:0; padding:0 0 0 9px;"><?php echo $option['value'] ?></dd>
-                <?php endforeach; ?>
+                <?php endforeach ?>
             </dl>
-        <?php endif; ?>
+        <?php endif ?>
         <?php if ($links = $this->getLinks()->getPurchasedItems()): ?>
             <dl style="margin:0; padding:0;">
                 <dt><strong><em><?php echo $this->escapeHtml($this->getLinksTitle()); ?></em></strong></dt>
                 <?php foreach ($links as $link): ?>
                     <dd style="margin:0; padding:0 0 0 9px;"><?php echo $this->escapeHtml($link->getLinkTitle()); ?></dd>
-                <?php endforeach; ?>
+                <?php endforeach ?>
             </dl>
-        <?php endif; ?>
+        <?php endif ?>
         <?php echo $this->escapeHtml($_item->getDescription()) ?>
     </td>
     <td align="left" valign="top" style="padding:3px 9px"><?php echo $this->escapeHtml($this->getSku($_item)) ?></td>
@@ -29,16 +29,16 @@ $_order = $this->getItem()->getOrder(); ?>
         <?php if ($this->helper('tax')->displayCartPriceExclTax($_order->getStore()) || $this->helper('tax')->displayCartBothPrices($_order->getStore())): ?>
             <?php if ($this->helper('tax')->displayCartBothPrices($_order->getStore())): ?>
                 <span class="label"><?php echo Mage::helper('tax')->__('Excl. Tax'); ?>:</span>
-            <?php endif; ?>
+            <?php endif ?>
             <?php echo $_order->formatPrice($_item->getRowTotal()) ?>
-        <?php endif; ?>
+        <?php endif ?>
 
         <?php if ($this->helper('tax')->displayCartPriceInclTax($_order->getStore()) || $this->helper('tax')->displayCartBothPrices($_order->getStore())): ?>
             <?php if ($this->helper('tax')->displayCartBothPrices($_order->getStore())): ?>
                 <br/><span class="label"><?php echo Mage::helper('tax')->__('Incl. Tax'); ?>:</span>
-            <?php endif; ?>
+            <?php endif ?>
             <?php $_incl = $this->helper('checkout')->getSubtotalInclTax($_item); ?>
 			<?php echo $_order->formatPrice($_incl) ?>
-        <?php endif; ?>
+        <?php endif ?>
     </td>
 </tr>

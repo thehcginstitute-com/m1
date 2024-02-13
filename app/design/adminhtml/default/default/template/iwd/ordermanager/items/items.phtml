@@ -40,18 +40,18 @@
         <col width="1" />
         <?php if (Mage::helper('iwd_ordermanager')->isMultiInventoryEnable()): ?>
             <col width="1" />
-        <?php endif; ?>
+        <?php endif ?>
         <?php if(Mage::getConfig()->getModuleConfig('IWD_Downloadable')->is('active', 'true')): ?>
             <col width="1" />
             <col width="1" />
-        <?php endif; ?>
+        <?php endif ?>
 
         <thead>
             <tr class="headings">
                 <th><?php echo $this->helper('sales')->__('Product') ?></th>
                 <?php if (Mage::helper('iwd_ordermanager')->isMultiInventoryEnable()): ?>
                     <th><span class="nobr"><?php echo $this->helper('sales')->__('Assign Stock') ?></span></th>
-                <?php endif; ?>
+                <?php endif ?>
                 <th><span class="nobr"><?php echo $this->helper('sales')->__('Item Status') ?></span></th>
                 <th><span class="nobr"><?php echo $this->helper('sales')->__('Original Price') ?></span></th>
                 <th><?php echo $this->helper('sales')->__('Price') ?></th>
@@ -65,7 +65,7 @@
                 <?php if(Mage::getConfig()->getModuleConfig('IWD_Downloadable')->is('active', 'true')): ?>
                     <th><span class="nobr">&nbsp;<?php echo $this->helper('sales')->__('Support At') ?>&nbsp;&nbsp;</span></th>
                     <th class="last"><span class="nobr">&nbsp;<?php echo $this->helper('sales')->__('Downloads') ?>&nbsp;&nbsp;</span></th>
-                <?php endif; ?>
+                <?php endif ?>
             </tr>
         </thead>
         <?php $_items = $this->getItemsCollection() ?>
@@ -75,7 +75,7 @@
                 <?php echo $this->getItemHtml($_item) ?>
                 <?php echo $this->getItemExtraInfoHtml($_item) ?>
             </tbody>
-        <?php endforeach; ?>
+        <?php endforeach ?>
     </table>
   </div>
 </div>

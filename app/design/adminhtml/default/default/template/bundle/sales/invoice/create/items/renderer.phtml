@@ -10,7 +10,7 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
     <?php $_showlastRow = true ?>
 <?php else: ?>
     <?php $_showlastRow = false ?>
-<?php endif; ?>
+<?php endif ?>
 
 <?php foreach ($items as $_item): ?>
     <?php $this->setPriceDataObject($_item) ?>
@@ -28,8 +28,8 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
             <td class="last">&nbsp;</td>
         </tr>
         <?php $_prevOptionId = $attributes['option_id'] ?>
-        <?php endif; ?>
-    <?php endif; ?>
+        <?php endif ?>
+    <?php endif ?>
     <tr<?php echo (++$_index==$_count && !$_showlastRow)?' class="border"':'' ?>>
         <?php if (!$_item->getOrderItem()->getParentItem()): ?>
         <td><h5 class="title"><?php echo $this->escapeHtml($_item->getName()) ?></h5>
@@ -40,31 +40,31 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
         </td>
         <?php else: ?>
         <td><div class="option-value"><?php echo $this->getValueHtml($_item)?></div></td>
-        <?php endif; ?>
+        <?php endif ?>
         <td class="a-right">
             <?php if ($this->canShowPriceInfo($_item)): ?>
                 <?php if ($this->helper('tax')->displaySalesBothPrices() || $this->helper('tax')->displaySalesPriceExclTax()): ?>
                     <span class="price-excl-tax">
                         <?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
                             <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
-                        <?php endif; ?>
+                        <?php endif ?>
 						<?php echo $this->displayPrices($_item->getBasePrice(), $_item->getPrice()) ?>
                     </span>
                     <br />
-                <?php endif; ?>
+                <?php endif ?>
                 <?php if ($this->helper('tax')->displaySalesBothPrices() || $this->helper('tax')->displaySalesPriceInclTax()): ?>
                     <span class="price-incl-tax">
                         <?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
                             <span class="label"><?php echo $this->__('Incl. Tax'); ?>:</span>
-                        <?php endif; ?>
+                        <?php endif ?>
                         <?php $_incl = $this->helper('checkout')->getPriceInclTax($_item); ?>
                         <?php $_baseIncl = $this->helper('checkout')->getBasePriceInclTax($_item); ?>
 						<?php echo $this->displayPrices($_baseIncl, $_incl) ?>
                     </span>
-                <?php endif; ?>
+                <?php endif ?>
             <?php else: ?>
                 &nbsp;
-            <?php endif; ?>
+            <?php endif ?>
         </td>
         <td>
             <?php if ($this->canShowPriceInfo($_item)): ?>
@@ -78,25 +78,25 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
                         <td><?php echo Mage::helper('sales')->__('Invoiced') ?></td>
                         <td><strong><?php echo $_item->getOrderItem()->getQtyInvoiced()*1 ?></strong></td>
                     </tr>
-                    <?php endif; ?>
+                    <?php endif ?>
                     <?php if ((float) $_item->getOrderItem()->getQtyShipped() && $this->isShipmentSeparately($_item)): ?>
                     <tr>
                         <td><?php echo Mage::helper('sales')->__('Shipped') ?></td>
                         <td><strong><?php echo $_item->getOrderItem()->getQtyShipped()*1 ?></strong></td>
                     </tr>
-                    <?php endif; ?>
+                    <?php endif ?>
                     <?php if ((float) $_item->getOrderItem()->getQtyRefunded()): ?>
                     <tr>
                         <td><?php echo Mage::helper('sales')->__('Refunded') ?></td>
                         <td><strong><?php echo $_item->getOrderItem()->getQtyRefunded()*1 ?></strong></td>
                     </tr>
-                    <?php endif; ?>
+                    <?php endif ?>
                     <?php if ((float) $_item->getOrderItem()->getQtyCanceled()): ?>
                     <tr>
                         <td><?php echo Mage::helper('sales')->__('Canceled') ?></td>
                         <td><strong><?php echo $_item->getOrderItem()->getQtyCanceled()*1 ?></strong></td>
                     </tr>
-                    <?php endif; ?>
+                    <?php endif ?>
                 </table>
             <?php elseif ($this->isShipmentSeparately($_item)): ?>
                 <table cellspacing="0" class="qty-table">
@@ -109,11 +109,11 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
                         <td><?php echo Mage::helper('sales')->__('Shipped') ?></td>
                         <td><strong><?php echo $_item->getOrderItem()->getQtyShipped()*1 ?></strong></td>
                     </tr>
-                    <?php endif; ?>
+                    <?php endif ?>
                 </table>
             <?php else: ?>
                 &nbsp;
-                        <?php endif; ?>
+                        <?php endif ?>
         </td>
         <td class="a-center">
             <?php if ($this->canShowPriceInfo($_item)): ?>
@@ -121,10 +121,10 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
                     <input type="text" class="input-text qty-input" name="invoice[items][<?php echo $_item->getOrderItemId() ?>]" value="<?php echo $_item->getQty()*1 ?>" />
                 <?php else : ?>
                     <?php echo $_item->getQty()*1 ?>
-                <?php endif; ?>
+                <?php endif ?>
             <?php else: ?>
                 &nbsp;
-            <?php endif; ?>
+            <?php endif ?>
         </td>
         <td class="a-right">
             <?php if ($this->canShowPriceInfo($_item)): ?>
@@ -132,38 +132,38 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
                     <span class="price-excl-tax">
                         <?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
                             <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
-                        <?php endif; ?>
+                        <?php endif ?>
 						<?php echo $this->displayPrices($_item->getBaseRowTotal(), $_item->getRowTotal()) ?>
                     </span>
                     <br />
-                <?php endif; ?>
+                <?php endif ?>
                 <?php if ($this->helper('tax')->displaySalesBothPrices() || $this->helper('tax')->displaySalesPriceInclTax()): ?>
                     <span class="price-incl-tax">
                         <?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
                             <span class="label"><?php echo $this->__('Incl. Tax'); ?>:</span>
-                        <?php endif; ?>
+                        <?php endif ?>
                         <?php $_incl = $this->helper('checkout')->getSubtotalInclTax($_item); ?>
                         <?php $_baseIncl = $this->helper('checkout')->getBaseSubtotalInclTax($_item); ?>
 						<?php echo $this->displayPrices($_baseIncl, $_incl) ?>
                     </span>
-                <?php endif; ?>
+                <?php endif ?>
             <?php else: ?>
                 &nbsp;
-            <?php endif; ?>
+            <?php endif ?>
         </td>
         <td class="a-right">
             <?php if ($this->canShowPriceInfo($_item)): ?>
                 <?php echo $this->displayPriceAttribute('tax_amount') ?>
             <?php else: ?>
                 &nbsp;
-                        <?php endif; ?>
+                        <?php endif ?>
         </td>
         <td class="a-right">
             <?php if ($this->canShowPriceInfo($_item)): ?>
                 <?php echo $this->displayPriceAttribute('discount_amount') ?>
             <?php else: ?>
                 &nbsp;
-                        <?php endif; ?>
+                        <?php endif ?>
         </td>
         <td class="a-right last">
             <?php if ($this->canShowPriceInfo($_item)): ?>
@@ -173,10 +173,10 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
                 ) ?>
             <?php else: ?>
                 &nbsp;
-                        <?php endif; ?>
+                        <?php endif ?>
         </td>
     </tr>
-<?php endforeach; ?>
+<?php endforeach ?>
 <?php if($_showlastRow): ?>
     <tr class="border">
         <td>
@@ -196,14 +196,14 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
                             $('<?php echo $_id ?>').up().observe('mouseover', function(){$('<?php echo $_id ?>').show();});
                             $('<?php echo $_id ?>').up().observe('mouseout',  function(){$('<?php echo $_id ?>').hide();});
                             </script>
-                        <?php endif;?>
-                    <?php endif;?>
+                        <?php endif ?>
+                    <?php endif ?>
                     </dd>
-                <?php endforeach; ?>
+                <?php endforeach ?>
                 </dl>
             <?php else: ?>
                 &nbsp;
-                        <?php endif; ?>
+                        <?php endif ?>
             <?php echo $this->escapeHtml($_item->getDescription()) ?>
         </td>
         <td>&nbsp;</td>
@@ -214,4 +214,4 @@ if($this->getOrderOptions() || $_item->getDescription()): ?>
         <td>&nbsp;</td>
         <td class="last">&nbsp;</td>
     </tr>
-<?php endif; ?>
+<?php endif ?>

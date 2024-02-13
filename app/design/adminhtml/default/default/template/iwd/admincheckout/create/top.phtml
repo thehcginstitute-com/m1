@@ -3,11 +3,11 @@
     <select id="currency_switcher" name="order[currency]" onchange="order.setCurrencyId(this.value); order.setCurrencySymbol(this.options[this.selectedIndex].getAttribute('symbol'));">
         <?php foreach ($this->getAvailableCurrencies() as $code): ?>
             <option value="<?php echo $code ?>"
-                <?php if($code==$this->getCurrentCurrencyCode()): ?> selected="selected"<?php endif; ?>
+                <?php if($code==$this->getCurrentCurrencyCode()): ?> selected="selected"<?php endif ?>
                 symbol="<?php echo $this->getCurrencySymbol($code) ?>">
                 <?php echo $this->getCurrencyName($code) ?>
             </option>
-        <?php endforeach; ?>
+        <?php endforeach ?>
     </select>
 
     <?php echo $this->getChildHtml('store.switcher') ?>

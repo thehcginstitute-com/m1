@@ -38,16 +38,16 @@ $canApplyMAP  = Mage::helper('catalog')->canApplyMsrp($_product);
                 <?php echo Mage::helper('core')->currency($_finalPrice,true,false) ?>
             <?php endif ?>
         </span>
-    <?php endif; ?>
+    <?php endif ?>
     </span>
     <?php endif ?>
     </p>
 </div>
-<?php endif; ?>
+<?php endif ?>
 <?php if($_product->isSaleable()): ?>
 <script type="text/javascript">
 document.observe("dom:loaded", function() {
     bundle.reloadPrice();
 });
 </script>
-<?php endif; ?>
+<?php endif ?>

@@ -26,13 +26,13 @@
 	            <tr id="attribute-options-table">
 		            <?php foreach ($this->getStores() as $_store): ?>
 		                <th><?php echo $_store->getName() ?></th>
-		            <?php endforeach; ?>
+		            <?php endforeach ?>
 		                <th><?php echo $this->getAddNewButtonHtml() ?></th>
 		            </tr>
 		    	    <tr class="no-display template" id="row-template">
 		                <?php foreach ($this->getStores() as $_store): ?>
-		                <td><input name="option[value][{{id}}][<?php echo $_store->getId() ?>]" value="{{store<?php echo $_store->getId() ?>}}" class="input-text<?php if($_store->getId()==0): ?> required-option<?php endif; ?>" type="text" /></td>
-		                <?php endforeach; ?>
+		                <td><input name="option[value][{{id}}][<?php echo $_store->getId() ?>]" value="{{store<?php echo $_store->getId() ?>}}" class="input-text<?php if($_store->getId()==0): ?> required-option<?php endif ?>" type="text" /></td>
+		                <?php endforeach ?>
 		                <td class="a-left">
 		                    <input type="hidden" class="delete-flag" name="option[delete][{{id}}]" value="" />
 		                    <?php echo $this->getDeleteButtonHtml() ?>
@@ -51,8 +51,8 @@ var optionDefaultInputType = 'radio';
 var templateText =
         '<tr class="option-row">'+
 <?php foreach ($this->getStores() as $_store): ?>
-            '<td><input name="option[value][{{id}}][<?php echo $_store->getId() ?>]" value="{{store<?php echo $_store->getId() ?>}}" class="input-text<?php if($_store->getId()==0): ?> required-option<?php endif; ?>" type="text" /><\/td>'+
-<?php endforeach; ?>
+            '<td><input name="option[value][{{id}}][<?php echo $_store->getId() ?>]" value="{{store<?php echo $_store->getId() ?>}}" class="input-text<?php if($_store->getId()==0): ?> required-option<?php endif ?>" type="text" /><\/td>'+
+<?php endforeach ?>
             '<td class="a-left">'+
                 '<input type="hidden" class="delete-flag" name="option[delete][{{id}}]" value="" />'+
                 '<?php echo $this->getDeleteButtonHtml() ?>'+
@@ -143,7 +143,7 @@ Validation.addAllThese([
 }]]);
 <?php foreach ($this->getOptionValues() as $_value): ?>
     attributeOption.add(<?php echo $_value->toJson() ?>);
-<?php endforeach; ?>
+<?php endforeach ?>
 //]]>
 </script>
 <script type="text/javascript">

@@ -69,10 +69,10 @@ list($_minimalPriceInclTax, $_maximalPriceInclTax) = $_priceModel->getTotalPrice
                     <?php echo $_coreHelper->currency($_minimalPriceInclTax) ?>
                 <?php else: ?>
                     <?php echo $_coreHelper->currency($_minimalPriceTax) ?>
-                <?php endif; ?>
+                <?php endif ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
-            <?php endif; ?>
+            <?php endif ?>
             </p>
         <?php else: ?>
             <?php if ($_minimalPriceTax <> $_maximalPriceTax): ?>
@@ -94,10 +94,10 @@ list($_minimalPriceInclTax, $_maximalPriceInclTax) = $_priceModel->getTotalPrice
                         <?php echo $_coreHelper->currency($_minimalPriceInclTax) ?>
                     <?php else: ?>
                         <?php echo $_coreHelper->currency($_minimalPriceTax) ?>
-                    <?php endif; ?>
+                    <?php endif ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
-                <?php endif; ?>
+                <?php endif ?>
             </p>
                 <p class="price-to">
                     <span class="price-label"><?php echo $this->__('To') ?>:</span>
@@ -117,10 +117,10 @@ list($_minimalPriceInclTax, $_maximalPriceInclTax) = $_priceModel->getTotalPrice
                         <?php echo $_coreHelper->currency($_maximalPriceInclTax) ?>
                     <?php else: ?>
                         <?php echo $_coreHelper->currency($_maximalPriceTax) ?>
-                    <?php endif; ?>
+                    <?php endif ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
-                    <?php endif; ?>
+                    <?php endif ?>
                 </p>
             <?php else: ?>
                 <?php if ($this->displayBothPrices()): ?>
@@ -138,7 +138,7 @@ list($_minimalPriceInclTax, $_maximalPriceInclTax) = $_priceModel->getTotalPrice
                     <?php echo $_coreHelper->currency($_minimalPriceTax) ?>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377 -->
-                <?php endif; ?>
-            <?php endif; ?>
-        <?php endif; ?>
+                <?php endif ?>
+            <?php endif ?>
+        <?php endif ?>
 </div>

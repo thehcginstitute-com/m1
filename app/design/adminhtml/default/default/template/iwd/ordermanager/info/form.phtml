@@ -25,7 +25,7 @@
                 </li>
             </ul>
         </div>
-    <?php endif; ?>
+    <?php endif ?>
 
     <table cellspacing="0" class="form-list form-edit-order">
         <tbody>
@@ -56,7 +56,7 @@
                             <?php if ($status['status'] == $order->getStatus()) echo 'selected = "selected"'; ?>>
                             <?php echo $status['label']; ?>
                         </option>
-                    <?php endforeach; ?>
+                    <?php endforeach ?>
                 </select>
             </td>
         </tr>
@@ -71,11 +71,11 @@
                                 <?php if ($id == $order->getState()) echo 'selected = "selected"'; ?>>
                                 <?php echo $label; ?>
                             </option>
-                        <?php endforeach; ?>
+                        <?php endforeach ?>
                     </select>
                 </td>
             </tr>
-        <?php endif; ?>
+        <?php endif ?>
         <tr>
             <td class="label">
                 <label><?php echo $helper->__("Purchased From"); ?> <span class="required">*</span></label>
@@ -90,13 +90,13 @@
                                 <option value="<?php echo $view->getId(); ?>"
                                         <?php if($view->getId() == $order->getStoreId()): ?>
                                             selected="selected"
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                 >
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $view->getName(); ?>
                                 </option>
-                            <?php endforeach; ?>
-                        <?php endforeach; ?>
-                    <?php endforeach; ?>
+                            <?php endforeach ?>
+                        <?php endforeach ?>
+                    <?php endforeach ?>
                 </select>
             </td>
         </tr>
@@ -108,16 +108,16 @@
                 </td>
                 <td class="value">
                     <select name="hide_on_front">
-                        <option value="0" <?php if($order->getIwdOmStatus() == 0): ?>selected="selected"<?php endif; ?>>
+                        <option value="0" <?php if($order->getIwdOmStatus() == 0): ?>selected="selected"<?php endif ?>>
                             <?php echo $helper->__("No"); ?>
                         </option>
-                        <option value="1" <?php if($order->getIwdOmStatus() == 1): ?>selected="selected"<?php endif; ?>>
+                        <option value="1" <?php if($order->getIwdOmStatus() == 1): ?>selected="selected"<?php endif ?>>
                             <?php echo $helper->__("Yes"); ?>
                         </option>
                     </select>
                 </td>
             </tr>
-        <?php endif; ?>
+        <?php endif ?>
 
         <?php if($this->isInvoicePage()): ?>
             <tr>
@@ -153,11 +153,11 @@
                                 <?php if ($id == $invoice->getState()) echo 'selected = "selected"'; ?>>
                                 <?php echo $label; ?>
                             </option>
-                        <?php endforeach; ?>
+                        <?php endforeach ?>
                     </select>
                 </td>
             </tr>
-        <?php endif; ?>
+        <?php endif ?>
 
         <?php if($this->isShippingPage()): ?>
             <tr>
@@ -183,7 +183,7 @@
                            value="<?php echo $helper->getDateTime($shipping->getCreatedAt()); ?>"/>
                 </td>
             </tr>
-        <?php endif; ?>
+        <?php endif ?>
 
         <?php if($this->isCreditmemoPage()): ?>
             <tr>
@@ -219,11 +219,11 @@
                                 <?php if ($id == $creditMemo->getState()) echo 'selected = "selected"'; ?>>
                                 <?php echo $label ?>
                             </option>
-                        <?php endforeach; ?>
+                        <?php endforeach ?>
                     </select>
                 </td>
             </tr>
-        <?php endif; ?>
+        <?php endif ?>
         </tbody>
     </table>
 

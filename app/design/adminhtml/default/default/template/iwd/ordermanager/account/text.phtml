@@ -6,7 +6,7 @@
                 <a href="<?php echo $this->customer_view_url ?>" target="_blank"><strong><?php echo $this->htmlEscape($this->order->getCustomerName()) ?></strong></a>
             <?php else: ?>
                 <strong><?php echo $this->htmlEscape($this->order->getCustomerName()) ?></strong>
-            <?php endif; ?>
+            <?php endif ?>
         </td>
     </tr>
     <tr>
@@ -18,11 +18,11 @@
             <td class="label"><label><?php echo Mage::helper('sales')->__('Customer Group') ?></label></td>
             <td class="value"><strong><?php echo $this->group_name; ?></strong></td>
         </tr>
-    <?php endif; ?>
+    <?php endif ?>
     <?php foreach ($this->customer_account_data as $data):?>
         <tr>
             <td class="label"><label><?php echo $data['label'] ?></label></td>
             <td class="value"><strong><?php echo $data['value'] ?></strong></td>
         </tr>
-    <?php endforeach;?>
+    <?php endforeach ?>
 </table>

@@ -11,7 +11,7 @@
 ?>
 <?php if ($printUrl): ?>
     <iframe src="<?php echo $printUrl ?>" width="0" height="0" align="left" style="display:none; border:0;"></iframe>
-<?php endif; ?>
+<?php endif ?>
 
 <script type="text/javascript">
     if(typeof(jQueryIWD) == "undefined"){if(typeof(jQuery) != "undefined") {jQueryIWD = jQuery;}} $ji = jQueryIWD;
@@ -25,7 +25,7 @@
         <?php if ($this->isAllowedEditMassaction()) :?>
         IWD.OrderMassaction.updateUrl = "<?php echo $helper->getUrl('*/sales_massaction/update'); ?>?isAjax=true";
         IWD.OrderMassaction.init('<?php echo Mage::getModel('iwd_ordergrid/sales_massaction')->getMassactionForCurrentUser() ?>');
-        <?php endif; ?>
+        <?php endif ?>
     });
 </script>
-<?php endif; ?>
+<?php endif ?>

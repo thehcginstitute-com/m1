@@ -19,7 +19,7 @@ $_order=$this->getOrder(); ?>
             <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
                 <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
                     <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
-                <?php endif; ?>
+                <?php endif ?>
 				<?php echo $_order->formatPrice($_item->getRowTotal()) ?>
             <?php endif;
 			if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()) {
@@ -43,19 +43,19 @@ $_order=$this->getOrder(); ?>
                 <td colspan="2" align="right" style="padding:3px 9px"><?php echo Mage::helper('sales')->__('Discount') ?></td>
                 <td align="right" style="padding:3px 9px"><?php echo $_order->formatPrice($_order->getDiscountAmount()) ?></td>
             </tr>
-        <?php endif; ?>
+        <?php endif ?>
         <?php if ($_order->getShippingAmount()): ?>
             <tr>
                 <td colspan="2" align="right" style="padding:3px 9px"><?php echo Mage::helper('sales')->__('Shipping Amount') ?></td>
                 <td align="right" style="padding:3px 9px"><?php echo $_order->formatPrice($_order->getShippingAmount()) ?></td>
             </tr>
-        <?php endif; ?>
+        <?php endif ?>
         <?php if ($_order->getTaxAmount()): ?>
             <tr>
                 <td colspan="2" align="right" style="padding:3px 9px"><?php echo Mage::helper('sales')->__('Tax Amount') ?></td>
                 <td align="right" style="padding:3px 9px"><?php echo $_order->formatPrice($_order->getTaxAmount()) ?></td>
             </tr>
-        <?php endif; ?>
+        <?php endif ?>
         <tr bgcolor="#DEE5E8">
             <td colspan="2" align="right" style="padding:3px 9px"><strong><big><?php echo Mage::helper('sales')->__('Grand Total') ?></big></strong></td>
             <td align="right" style="padding:6px 9px"><strong><big><?php echo $_order->formatPrice($_order->getGrandTotal()) ?></big></strong></td>

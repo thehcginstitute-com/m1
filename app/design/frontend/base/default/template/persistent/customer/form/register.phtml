@@ -97,7 +97,7 @@ https://github.com/thehcginstitute-com/m1/issues/333 -->
 			<?php if ($this->isNewsletterEnabled()): ?>
 				<li class="control">
 					<div class="input-box">
-						<input type="checkbox" name="is_subscribed" title="<?php echo $this->quoteEscape($this->__('Sign Up for Newsletter')) ?>" value="1" id="is_subscribed"<?php if ($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox" />
+						<input type="checkbox" name="is_subscribed" title="<?php echo $this->quoteEscape($this->__('Sign Up for Newsletter')) ?>" value="1" id="is_subscribed"<?php if ($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif ?> class="checkbox" />
 					</div>
 					<label for="is_subscribed"><?php echo $this->__('Sign Up for Newsletter') ?></label>
 				</li>
@@ -189,7 +189,7 @@ https://github.com/thehcginstitute-com/m1/issues/333 -->
                     <input type="hidden" name="default_billing" value="1" />
                     <input type="hidden" name="default_shipping" value="1" />
                 </li>
-            <?php endif; ?>
+            <?php endif ?>
 			</ul>
 		</div>
 <!-- 2023-01-16 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
@@ -590,14 +590,14 @@ https://github.com/thehcginstitute-com/m1/issues/8 -->
 	        </div>
 	        <?php if (Mage::helper('checkout')->isContextCheckout()): ?>
 	            <input name="context" type="hidden" value="checkout" />
-	        <?php endif; ?>
+	        <?php endif ?>
 			</form>
     <script type="text/javascript">
     //<![CDATA[
         var dataForm = new VarienForm('form-validate', true);
         <?php if ($this->getShowAddressFields()): ?>
         new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
-        <?php endif; ?>
+        <?php endif ?>
     //]]>
     </script>
 </div>

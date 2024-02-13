@@ -12,13 +12,13 @@ $_quote = $this->getItem()->getQuote(); ?>
             <dd style="margin:0; padding:0 0 0 9px;">
                 <?php echo nl2br($this->escapeHtml($option['value'])) ?>
             </dd>
-            <?php endforeach; ?>
+            <?php endforeach ?>
         </dl>
-        <?php endif; ?>
+        <?php endif ?>
         <?php $addInfoBlock = $this->getProductAdditionalInformationBlock(); ?>
         <?php if ($addInfoBlock) :?>
         <?php echo $addInfoBlock->setItem($_item)->toHtml(); ?>
-        <?php endif; ?>
+        <?php endif ?>
         <?php echo $this->escapeHtml($_item->getDescription()) ?>
     </td>
     <td align="left" valign="top" style="font-size:11px; padding:3px 9px; border-bottom:1px dotted #CCCCCC;"><?php echo $this->htmlEscape($this->getSku($_item)) ?></td>
@@ -27,18 +27,18 @@ $_quote = $this->getItem()->getQuote(); ?>
         <?php if ($this->helper('tax')->displaySalesPriceExclTax($_quote->getStoreId()) || $this->helper('tax')->displaySalesBothPrices($_quote->getStore())): ?>
         <?php if ($this->helper('tax')->displaySalesBothPrices($_quote->getStoreId())): ?>
             <span class="label"><?php echo Mage::helper('tax')->__('Excl. Tax'); ?>:</span>
-            <?php endif; ?>
+            <?php endif ?>
 			<?php echo Mage::app()->getLocale()->currency($_quote->getQuoteCurrencyCode())->toCurrency($_item->getRowTotal()) ?>
-        <?php endif; ?>
+        <?php endif ?>
 
 
         <?php if ($this->helper('tax')->displaySalesPriceInclTax($_quote->getStoreId()) || $this->helper('tax')->displaySalesBothPrices($_quote->getStoreId())): ?>
         <?php if ($this->helper('tax')->displaySalesBothPrices($_quote->getStoreId())): ?>
             <br /><span class="label"><?php echo Mage::helper('tax')->__('Incl. Tax'); ?>:</span>
-            <?php endif; ?>
+            <?php endif ?>
         <?php $_incl = $this->helper('checkout')->getSubtotalInclTax($_item); ?>
         <?php echo Mage::app()->getLocale()->currency($_quote->getQuoteCurrencyCode())->toCurrency($_incl) ?>
-        <?php endif; ?>
+        <?php endif ?>
     </td>
 </tr>
 <?php if ($_item->getGiftMessageId() && $_giftMessage = $this->helper('giftmessage/message')->getGiftMessage($_item->getGiftMessageId())): ?>
@@ -50,4 +50,4 @@ $_quote = $this->getItem()->getQuote(); ?>
         <strong><?php echo $this->__('Message:'); ?></strong><br /><?php echo $this->htmlEscape($_giftMessage->getMessage()) ?>
     </td>
 </tr>
-<?php endif; ?>
+<?php endif ?>

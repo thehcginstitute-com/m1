@@ -36,7 +36,7 @@
 	    					<td class="value">
 	    						<?php foreach ($this->getDomains() as $domain) : ?>
 	    						<div><input type="checkbox" name="domain[]" value="<?php echo $domain; ?>" <?php echo $this->isChecked($domain, $extension->getKey(), $extension->getSortCode()) ? 'checked="checked"' : ""; ?> /> <?php echo $domain?></div>
-	    						<?php endforeach;?>
+	    						<?php endforeach ?>
 	    					</td>
 	    				</tr>
 	    				<tr>
@@ -60,7 +60,7 @@
 	    						<select id="type_<?php echo $extension->getCode(); ?>" name="type" class=" required-entry select">
 	    							<?php foreach ($this->getLicenseTypeOption($extension->getLicense()) as $key=>$label) : ?>
 	    							<option value="<?php echo $key?>"><?php echo $label?></option>
-	    							<?php endforeach; ?>
+	    							<?php endforeach ?>
 	    						</select>            
 	    					</td>
 	    				</tr>
@@ -76,7 +76,7 @@
 								</button>				
 							</td>
 						</tr>
-	    				<?php endif; ?>
+	    				<?php endif ?>
 	            	</tbody>
 	        	</table>
 			</div>
@@ -85,10 +85,10 @@
 	<script type="text/javascript">
 	    var editForm_<?php echo $extension->getCode(); ?> = new varienForm('edit_form_<?php echo $extension->getCode(); ?>', '');
 	</script>
-	<?php endforeach; ?>
+	<?php endforeach ?>
 	<?php if(!count($extensions)) : ?>
 	<p><?php echo $this->__('There are no extensions found.'); ?></p>
-	<?php endif; ?>
+	<?php endif ?>
 </div>
 <script type="text/javascript">
 

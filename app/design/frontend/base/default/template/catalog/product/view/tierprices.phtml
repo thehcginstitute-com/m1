@@ -12,7 +12,7 @@ if (count($_tierPrices) > 0): ?>
     <ul class="<?php echo ($this->getInGrouped() ? 'tier-prices-grouped product-pricing-grouped' : 'tier-prices product-pricing'); ?>">
     <?php if ($this->getInGrouped()): ?>
         <?php $_tierPrices = $this->getTierPrices($_product); ?>
-    <?php endif; ?>
+    <?php endif ?>
     <?php foreach ($_tierPrices as $_index => $_price): ?>
         <li class="tier-price tier-<?php echo $_index; ?>">
         <?php if ($_catalogHelper->canApplyMsrp($_product)): ?>
@@ -20,7 +20,7 @@ if (count($_tierPrices) > 0): ?>
                 <?php echo $this->__('Buy %1$s for', $_price['price_qty']) ?>:
             <?php else: ?>
                 <?php echo $this->__('Buy %1$s', $_price['price_qty']) ?>
-            <?php endif; ?>
+            <?php endif ?>
         <?php else: ?>
 
         <?php if ($this->helper('tax')->displayBothPrices()): ?>
@@ -30,8 +30,8 @@ if (count($_tierPrices) > 0): ?>
 				<?php echo $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price_incl_tax']) ?>
             <?php else: ?>
 				<?php echo $this->__('Buy %1$s for %2$s each', $_price['price_qty'], $_price['formated_price']) ?>
-            <?php endif; ?>
-        <?php endif; ?>
+            <?php endif ?>
+        <?php endif ?>
 
         <?php endif; // Can apply MSRP ?>
 
@@ -40,7 +40,7 @@ if (count($_tierPrices) > 0): ?>
             || ($_product->getPrice() != $_product->getFinalPrice() &&  $_product->getFinalPrice() > $_price['price'])): ?>
                 <?php echo $this->__('and') ?>&nbsp;<strong class="benefit"><?php echo $this->__('save')?>&nbsp;<span class="percent tier-<?php echo $_index;?>"><?php echo $_price['savePercent']?></span>%
             <?php endif ?></strong>
-        <?php endif; ?>
+        <?php endif ?>
 
         <?php if ($_catalogHelper->isShowPriceOnGesture($_product)):?>
             <?php $popupId = 'msrp-popup-' . $_product->getId() . $this->helper('core')->getRandomString(20); ?>
@@ -74,11 +74,11 @@ if (count($_tierPrices) > 0): ?>
             <span class="msrp-price-hide-message">
                 <?php echo $_catalogHelper->getMsrpPriceMessage($_product) ?>
             </span>
-        <?php endif; ?>
+        <?php endif ?>
 
 
         </li>
 
     <?php endforeach ?>
     </ul>
-<?php endif;?>
+<?php endif ?>

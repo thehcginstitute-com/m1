@@ -39,10 +39,10 @@ $_jobCodes = $this->getAvailableJobCodes(); /* @var $_jobCodes array */
 									<?php foreach ($_schedules as $_schedule): /* @var $_schedule Aoe_Scheduler_Model_Schedule */ ?>
 										<div <?php echo $this->getGanttDivAttributes($_schedule); ?>></div>
 										<?php echo $this->getLayout()->createBlock('aoe_scheduler/adminhtml_timelineDetail')->setSchedule($_schedule)->toHtml(); ?>
-									<?php endforeach; ?>
+									<?php endforeach ?>
 								</div>
 							</div>
-						<?php endforeach; ?>
+						<?php endforeach ?>
 
 					</div>
 				</div>
@@ -61,12 +61,12 @@ $_jobCodes = $this->getAvailableJobCodes(); /* @var $_jobCodes array */
 						<?php echo $jobCode; ?>
 					</div>
 				</div>
-			<?php endforeach; ?>
+			<?php endforeach ?>
 
 		</div><!-- id="leftcolumn" -->
 
 	<?php else: ?>
 		<?php echo $this->__('No tasks found.'); ?>
-	<?php endif; ?>
+	<?php endif ?>
 
 </div><!-- id="maincontainer" -->

@@ -12,22 +12,22 @@
 		<div class="notification-global" id="<?php echo $message->getId(); ?>">
 			<?php if ($message->getRight()): ?>
 				<span class="f-right"><?php echo $message->getRight(); ?></span>
-			<?php endif; ?>
+			<?php endif ?>
 			
 			<?php if ($message->hasConfigureUrl() === true): ?>
 				<a href="<?php echo $message->getConfigureUrl(); ?>" style="text-decoration: none; font-size: 9px; color: black;">[?]</a>
-			<?php endif; ?>
+			<?php endif ?>
 			<?php if ($message->hasInfoUrl() === true): ?>
 				<strong class="label clickable" onclick='window.location=<?php echo json_encode($message->getInfoUrl()); ?>'><?php echo $message->getLabel(); ?>: </strong> <?php echo $message->getText(); ?> 
 				<a href="<?php echo $message->getInfoUrl(); ?>" onclick="<?php echo $message->getInfoUrlOnClick(); ?>"><?php echo $infoLabel; ?></a>
 			<?php else: ?>
 				<strong class="label"><?php echo $message->getLabel(); ?>:</strong> <?php echo $message->getText(); ?> 
-			<?php endif; ?>
+			<?php endif ?>
 		</div>
 		<?php if ($message->getScript()): ?>
 			<script><?php echo $message->getScript(); ?></script>
-		<?php endif; ?>	
+		<?php endif ?>
 <?php
 	}
 ?>
-<?php endif; ?>
+<?php endif ?>

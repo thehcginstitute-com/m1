@@ -148,7 +148,7 @@
             IWD.OrderManager.TaxCalculation.applyTaxOnOriginalPrice = <?php echo Mage::helper("tax")->applyTaxOnOriginalPrice() ? 1 : 0; ?>;
             IWD.OrderManager.TaxCalculation.validateStockQty = <?php echo Mage::helper("iwd_ordermanager")->isValidateInventory(); ?>;
             IWD.OrderManager.TaxCalculation.init();
-        <?php endif; ?>
+        <?php endif ?>
 
         IWD.OrderManager.Address.urlEditAddressForm = "<?php echo $helper->getUrl('*/sales_address/getForm') ?>?isAjax=true";
         IWD.OrderManager.Address.urlEditAddressSubmit = "<?php echo $helper->getUrl('*/sales_address/updateInfo')?>?isAjax=true";

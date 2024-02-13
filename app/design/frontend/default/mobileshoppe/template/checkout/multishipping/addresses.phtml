@@ -42,7 +42,7 @@ echo $this->getMessagesBlock()->toHtml() ?>
                 <tr>
                     <td><?php echo $this->getItemHtml($_item->getQuoteItem())?></td>
                     <td><input type="text" data-multiship-item-id="<?php echo $this->jsQuoteEscape($_item->getSku()) ?>" name="ship[<?php echo $_index ?>][<?php echo $_item->getQuoteItemId() ?>][qty]" value="<?php echo $this->escapeHtml($_item->getQty()) ?>" size="2" class="input-text qty" /></td>
-                    <td><?php if ($_item->getProduct()->getIsVirtual()): echo $this->__('Shipping selection is not applicable.'); else: echo $this->getAddressesHtmlSelect($_item, $_index); endif; ?></td>
+                    <td><?php if ($_item->getProduct()->getIsVirtual()): echo $this->__('Shipping selection is not applicable.'); else: echo $this->getAddressesHtmlSelect($_item, $_index); endif ?></td>
 <!-- 2024-01-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 https://github.com/thehcginstitute-com/m1/blob/2024-01-15-2/app/design/frontend/default/mobileshoppe/template/checkout/multishipping/addresses.phtml#L69 -->
                     <td class="a-center removeitem">
@@ -53,14 +53,14 @@ https://github.com/thehcginstitute-com/m1/blob/2024-01-15-2/app/design/frontend/
 						><?= $this->__('Remove Item') ?></a>
 					</td>
                 </tr>
-                <?php endif; ?>
-            <?php endforeach; ?>
+                <?php endif ?>
+            <?php endforeach ?>
             </tbody>
         </table>
         <script type="text/javascript">decorateTable('multiship-addresses-table')</script>
         <div class="buttons-set">
             <p class="back-link"><a href="<?php echo $this->getBackUrl() ?>"><small>&laquo; </small><?php echo $this->__('Back to Shopping Cart') ?></a></p>
-            <button type="submit" data-action="checkout-continue-shipping" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Continue to Shipping Information')) ?>" class="button<?php if ($this->isContinueDisabled()):?> disabled<?php endif; ?>" onclick="$('can_continue_flag').value=1"<?php if ($this->isContinueDisabled()):?> disabled="disabled"<?php endif; ?>><span><span><?php echo $this->__('Continue to Shipping Information') ?></span></span></button>
+            <button type="submit" data-action="checkout-continue-shipping" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Continue to Shipping Information')) ?>" class="button<?php if ($this->isContinueDisabled()):?> disabled<?php endif ?>" onclick="$('can_continue_flag').value=1"<?php if ($this->isContinueDisabled()):?> disabled="disabled"<?php endif ?>><span><span><?php echo $this->__('Continue to Shipping Information') ?></span></span></button>
         </div>
     </div>
     <?php echo $this->getBlockHtml("formkey") ?>

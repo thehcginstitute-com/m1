@@ -19,7 +19,7 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
             <?php foreach ($_options as $_option) : ?>
                 <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
                 <dt><?php echo $this->escapeHtml($_option['label']) ?></dt>
-                <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>><?php echo $_formatedOptionValue['value'] ?>
+                <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif ?>><?php echo $_formatedOptionValue['value'] ?>
                     <?php if (isset($_formatedOptionValue['full_view'])): ?>
                         <div class="truncated_full_value">
                             <dl class="item-options">
@@ -27,20 +27,20 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
                                 <dd><?php echo $_formatedOptionValue['full_view'] ?></dd>
                             </dl>
                         </div>
-                    <?php endif; ?>
+                    <?php endif ?>
                 </dd>
-            <?php endforeach; ?>
+            <?php endforeach ?>
         </dl>
-    <?php endif; ?>
+    <?php endif ?>
     <!-- downloadable -->
     <?php if ($links = $this->getLinks()): ?>
         <dl class="item-options">
             <dt><?php echo $this->escapeHtml($this->getLinksTitle()); ?></dt>
             <?php foreach ($links as $link): ?>
                 <dd><?php echo $this->escapeHtml($link->getTitle()); ?></dd>
-            <?php endforeach; ?>
+            <?php endforeach ?>
         </dl>
-    <?php endif; ?>
+    <?php endif ?>
     <!-- EOF downloadable -->
 
     <?php if ($messages = $this->getMessages()): ?>
@@ -48,8 +48,8 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
             <div class="shopping-cart-item-message <?php echo $message['type'] ?>">
                 * <?php echo $this->escapeHtml($message['text']) ?>
             </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
+        <?php endforeach ?>
+    <?php endif ?>
 </td>
 <td class="a-center">
     <a href="<?php echo $this->getConfigureUrl() ?>"
@@ -62,7 +62,7 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
     </td>
 <?php endif ?>
 <?php if ($canApplyMsrp): ?>
-    <td class="a-right"<?php if ($this->helper('tax')->displayCartBothPrices()): ?> colspan="2"<?php endif; ?>>
+    <td class="a-right"<?php if ($this->helper('tax')->displayCartBothPrices()): ?> colspan="2"<?php endif ?>>
         <span class="cart-price">
             <span class="cart-msrp-unit"><?php echo $this->__('See price before order confirmation.'); ?></span>
             <?php $helpLinkId = 'cart-msrp-help-' . $_item->getId(); ?>
@@ -82,7 +82,7 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
 				<?php echo $this->helper('checkout')->formatPrice($_item->getCalculationPrice()) ?>
 			</div>
         </td>
-    <?php endif; ?>
+    <?php endif ?>
     <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
         <td>
             <?php $_incl = $this->helper('checkout')->getPriceInclTax($_item); ?>
@@ -90,8 +90,8 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
 				<?php echo $this->helper('checkout')->formatPrice($_incl) ?>
 			</div>
         </td>
-    <?php endif; ?>
-<?php endif; ?>
+    <?php endif ?>
+<?php endif ?>
 <td class="a-center">
     <input name="cart[<?php echo $_item->getId() ?>][qty]" value="<?php echo $this->getQty() ?>" size="4"
            title="<?php echo Mage::helper('core')->quoteEscape($this->__('Qty')) ?>" class="input-text qty"
@@ -105,11 +105,11 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
                     <span class="cart-msrp-subtotal">--</span>
                 <?php else: ?>
 					<?php echo $this->helper('checkout')->formatPrice($_item->getRowTotal()) ?>
-                <?php endif; ?>
+                <?php endif ?>
 
             </div>
     </td>
-<?php endif; ?>
+<?php endif ?>
 <?php if (($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()) && !$_item->getNoSubtotal()): ?>
     <td>
         <?php $_incl = $this->helper('checkout')->getSubtotalInclTax($_item); ?>
@@ -119,11 +119,11 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
                     <span class="cart-msrp-subtotal">--</span>
                 <?php else: ?>
 					<?php echo $this->helper('checkout')->formatPrice($_incl) ?>
-                <?php endif; ?>
+                <?php endif ?>
 
             </div>
     </td>
-<?php endif; ?>
+<?php endif ?>
     <td class="a-center product-cart-remove">
         <a href="#"
            title="<?php echo Mage::helper('core')->quoteEscape($this->__('Remove Item')) ?>"

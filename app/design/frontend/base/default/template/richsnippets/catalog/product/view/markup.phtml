@@ -84,13 +84,13 @@
             <meta
                 itemprop="price"
                 content="<?php echo round($_product->getPriceModel()->getFinalPrice(null, $_product), 2); ?>">
-        <?php endif; ?>
+        <?php endif ?>
         <meta
             itemprop="availability"
             content="<?php echo $_product->isAvailable() ?
                 'http://schema.org/InStock' :
                 'http://schema.org/OutOfStock'; ?>">
-    <?php endif; ?>
+    <?php endif ?>
     <meta itemprop="priceCurrency"
           content="<?php echo Mage::app()->getStore()->getCurrentCurrencyCode(); ?>">
 </div>
@@ -105,5 +105,5 @@
         <meta itemprop="ratingCount" content="<?php echo $this->getReviewsCount(); ?>">
         <meta itemprop="reviewCount" content="<?php echo $this->getReviewsCount(); ?>">
     </div>
-<?php endif; ?>
-<?php endif; ?>
+<?php endif ?>
+<?php endif ?>

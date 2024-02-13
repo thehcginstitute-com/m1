@@ -9,7 +9,7 @@ $_item = $this->getItem(); ?>
             <dt><?php echo $this->escapeHtml($_option['label']) ?></dt>
             <?php if (!$this->getPrintStatus()): ?>
                 <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
-                <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>>
+                <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif ?>>
                     <?php echo $_formatedOptionValue['value'] ?>
                     <?php if (isset($_formatedOptionValue['full_view'])): ?>
                     <div class="truncated_full_value">
@@ -18,24 +18,24 @@ $_item = $this->getItem(); ?>
                             <dd><?php echo $_formatedOptionValue['full_view'] ?></dd>
                         </dl>
                     </div>
-                    <?php endif; ?>
+                    <?php endif ?>
                 </dd>
             <?php else: ?>
                 <dd>
                     <?php echo nl2br($this->escapeHtml( (isset($_option['print_value']) ? $_option['print_value'] : $_option['value']) )) ?>
                 </dd>
-            <?php endif; ?>
-        <?php endforeach; ?>
+            <?php endif ?>
+        <?php endforeach ?>
         </dl>
-        <?php endif; ?>
+        <?php endif ?>
         <?php $addtInfoBlock = $this->getProductAdditionalInformationBlock(); ?>
         <?php if ($addtInfoBlock) :?>
             <?php echo $addtInfoBlock->setItem($_item)->toHtml(); ?>
-        <?php endif; ?>
+        <?php endif ?>
         <?php echo $this->escapeHtml($_item->getDescription()) ?>
         <?php if($this->helper('giftmessage/message')->getIsMessagesAvailable('order_item', $_item) && $_item->getGiftMessageId()): ?>
             <a href="#" id="order-item-gift-message-link-<?php echo $_item->getId() ?>" class="gift-message-link" onclick="return giftMessageToogle('<?php echo $_item->getId() ?>')"><?php echo $this->__('Gift Message') ?></a>
-        <?php endif; ?>
+        <?php endif ?>
     </td>
     <td><?php echo $this->escapeHtml(Mage::helper('core/string')->splitInjection($this->getSku())) ?></td>
     <td class="a-right">
@@ -43,39 +43,39 @@ $_item = $this->getItem(); ?>
             <span class="price-excl-tax">
                 <?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
 					<span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
-                <?php endif; ?>
+                <?php endif ?>
 				<span class="cart-price">
 					<?php echo $this->getOrder()->formatPrice($this->getItem()->getPrice()) ?>
                 </span>
             </span>
             <br />
-        <?php endif; ?>
+        <?php endif ?>
         <?php if ($this->helper('tax')->displaySalesBothPrices() || $this->helper('tax')->displaySalesPriceInclTax()): ?>
             <span class="price-incl-tax">
                 <?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
 					<span class="label"><?php echo $this->__('Incl. Tax'); ?>:</span>
-                <?php endif; ?>
+                <?php endif ?>
                 <?php $_incl = $this->helper('checkout')->getPriceInclTax($this->getItem()); ?>
 				<span class="cart-price">
 					<?php echo $this->getOrder()->formatPrice($_incl) ?>
                 </span>
             </span>
-        <?php endif; ?>
+        <?php endif ?>
     </td>
     <td class="a-right">
         <span class="nobr">
                 <?php if ($this->getItem()->getQtyOrdered() > 0): ?>
             <?php echo $this->__('Ordered'); ?>: <strong><?php echo $this->getItem()->getQtyOrdered()*1 ?></strong><br />
-        <?php endif; ?>
+        <?php endif ?>
         <?php if ($this->getItem()->getQtyShipped() > 0): ?>
             <?php echo $this->__('Shipped'); ?>: <strong><?php echo $this->getItem()->getQtyShipped()*1 ?></strong><br />
-        <?php endif; ?>
+        <?php endif ?>
         <?php if ($this->getItem()->getQtyCanceled() > 0): ?>
             <?php echo $this->__('Canceled'); ?>: <strong><?php echo $this->getItem()->getQtyCanceled()*1 ?></strong><br />
-        <?php endif; ?>
+        <?php endif ?>
         <?php if ($this->getItem()->getQtyRefunded() > 0): ?>
             <?php echo $this->__('Refunded'); ?>: <strong><?php echo $this->getItem()->getQtyRefunded()*1 ?></strong><br />
-        <?php endif; ?>
+        <?php endif ?>
         </span>
     </td>
     <td class="a-right">
@@ -83,31 +83,31 @@ $_item = $this->getItem(); ?>
             <span class="price-excl-tax">
                 <?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
 					<span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
-                <?php endif; ?>
+                <?php endif ?>
 				<span class="cart-price">
 					<?php echo $this->getOrder()->formatPrice($this->getItem()->getRowTotal()) ?>
                 </span>
             </span>
             <br />
-        <?php endif; ?>
+        <?php endif ?>
         <?php if ($this->helper('tax')->displaySalesBothPrices() || $this->helper('tax')->displaySalesPriceInclTax()): ?>
             <span class="price-incl-tax">
                 <?php if ($this->helper('tax')->displaySalesBothPrices()): ?>
 					<span class="label"><?php echo $this->__('Incl. Tax'); ?>:</span>
-                <?php endif; ?>
+                <?php endif ?>
                 <?php $_incl = $this->helper('checkout')->getSubtotalInclTax($this->getItem()); ?>
 				<span class="cart-price">
 					<?php echo $this->getOrder()->formatPrice($_incl) ?>
                 </span>
             </span>
-        <?php endif; ?>
+        <?php endif ?>
     </td>
     <!--
     <?php if ($this->helper('tax')->displaySalesBothPrices() || $this->helper('tax')->displaySalesPriceExclTax()): ?>
     <th class="a-right"><?php echo $this->getOrder()->formatPrice($this->getItem()->getRowTotal()) ?></th>
-    <?php endif; ?>
+    <?php endif ?>
     <?php if ($this->helper('tax')->displaySalesBothPrices() || $this->helper('tax')->displaySalesPriceInclTax()): ?>
     <th class="a-right"><?php echo $this->getOrder()->formatPrice($this->helper('checkout')->getSubtotalInclTax($this->getItem())); ?></th>
-    <?php endif; ?>
+    <?php endif ?>
     -->
 </tr>

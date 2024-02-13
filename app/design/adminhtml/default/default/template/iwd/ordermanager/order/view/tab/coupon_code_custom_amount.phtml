@@ -31,7 +31,7 @@
                                 </button>
                                 <button title="<?php echo $helper->__('Remove') ?>"
                                         id="iwd_om_coupon_code_remove"
-                                        <?php if(empty($code)): ?>style="display:none;"<?php endif; ?>
+                                        <?php if(empty($code)): ?>style="display:none;"<?php endif ?>
                                         type="button" class="scalable">
                                     <span><span><span><?php echo $helper->__('Remove') ?></span></span></span>
                                 </button>
@@ -47,10 +47,10 @@
     IWD.OrderManager.CouponCode.applyUrl = "<?php echo Mage::helper('adminhtml')->getUrl('*/sales_coupon/applyCoupon');?>?isAjax=true";
     IWD.OrderManager.CouponCode.init();
 </script>
-<?php endif; ?>
+<?php endif ?>
 
 <?php echo $this->getChildHtml('iwd_om_custom_fee') ?>
 
 <?php if($this->isCouponCodeEnabled() && $this->isAdditionalDiscountEnabled()): ?>
 <div class="clear"></div>
-<?php endif; ?>
+<?php endif ?>

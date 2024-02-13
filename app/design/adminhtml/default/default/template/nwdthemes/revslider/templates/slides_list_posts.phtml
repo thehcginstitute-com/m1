@@ -79,7 +79,7 @@
 						<span class="slide-col col-operations-posts">
 							<?php if ($showDelete) : ?>
 								<a id="button_delete_slide" class='button-primary revred button_delete_slide' data-slideid="<?php echo $postID?>" href='javascript:void(0)'><i class="revicon-trash"></i><?php echo $this->__("Delete")?></a>
-							<?php endif; ?>
+							<?php endif ?>
 						</span>
 						<?php if ( ! $showSortBy) : ?>
 							<span class="slide-col col-handle">
@@ -87,10 +87,10 @@
 									<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
 								</div>
 							</span>
-						<?php endif; ?>
+						<?php endif ?>
 						<div class="clear"></div>
 					</li>
-				<?php endforeach;?>
+				<?php endforeach ?>
 			</ul>
 		</div>
 	</div>

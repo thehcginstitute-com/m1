@@ -19,18 +19,18 @@
             if ($ji.isFunction($ji.fn.stickyTableHeaders)) {
                 $ji("#sales_order_grid_table").stickyTableHeaders();
             }
-        <?php endif; ?>
+        <?php endif ?>
     }
 
     <?php /* LIMIT PERIOD FOR ORDER GRID (when we have many orders) */ ?>
     <?php if($this->isLimitPeriod()): ?>
         $ji("input[name=\'created_at[from]\']").val("<?php echo $this->getCreatedAtFrom() ?>");
         $ji("input[name=\'created_at[to]\']").val("<?php echo $this->getCreatedAtTo() ?>");
-    <?php endif; ?>
+    <?php endif ?>
 
     <?php /* INIT ORDER TOTALS */ ?>
     <?php if($this->isTotalsEnabled()): ?>
         IWD.OrderGridTotals.initTable(<?php echo $this->getTotalsGridOptionsJson() ?>, <?php echo $this->getTotalsJson() ?>);
-    <?php endif; ?>
+    <?php endif ?>
 </script>
 

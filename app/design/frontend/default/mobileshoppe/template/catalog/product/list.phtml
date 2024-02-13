@@ -16,7 +16,7 @@ if(!$_productCollection->count()): ?>
     <?php $_iterator = 0; ?>
     <ol class="products-list" id="products-list">
     <?php foreach ($_productCollection as $_product): ?>
-        <li class="item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
+        <li class="item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif ?>">
             <?php // Product Image ?>
             <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(252); ?>" width="252" height="252" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
             <?php // Product description ?>
@@ -26,7 +26,7 @@ if(!$_productCollection->count()): ?>
                     <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a></h2>
                     <?php if($_product->getRatingSummary()): ?>
                     <?php echo $this->getReviewsSummaryHtml($_product) ?>
-                    <?php endif; ?>
+                    <?php endif ?>
                     <?php echo $this->getPriceHtml($_product, true) ?>
                     <?php if($_product->isSaleable()):
 						# 2024-01-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -48,7 +48,7 @@ if(!$_productCollection->count()): ?>
 						</p>
                     <?php else: ?>
                         <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
-                    <?php endif; ?>
+                    <?php endif ?>
                     <div class="desc std">
                         <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
                         <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
@@ -91,7 +91,7 @@ if(!$_productCollection->count()): ?>
                 </div>
             </div>
         </li>
-    <?php endforeach; ?>
+    <?php endforeach ?>
     </ol>
     <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
 
@@ -110,7 +110,7 @@ if(!$_productCollection->count()): ?>
                 <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
                 <?php if($_product->getRatingSummary()): ?>
                 <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
-                <?php endif; ?>
+                <?php endif ?>
                 <?php echo $this->getPriceHtml($_product, true) ?>
                 </div>
                 <div class="actions">
@@ -134,7 +134,7 @@ if(!$_productCollection->count()): ?>
                         </button>
                     <?php else: ?>
                         <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
-                    <?php endif; ?>
+                    <?php endif ?>
                     <ul class="add-to-links">
                         <?php if ($this->helper('wishlist')->isAllow()) {
 							# 2024-01-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -175,10 +175,10 @@ if(!$_productCollection->count()): ?>
 		<?php endforeach ?>
 		</ul>
         <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
-    <?php endif; ?>
+    <?php endif ?>
 
     <div class="toolbar-bottom">
         <?php echo $this->getToolbarBlock()->setTemplate('catalog/product/list/toolbar_bottom.phtml')->toHtml(); ?>
     </div>
 </div>
-<?php endif; ?>
+<?php endif ?>

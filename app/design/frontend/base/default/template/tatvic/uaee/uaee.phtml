@@ -205,8 +205,8 @@
 
 
 
-        <?php endif; ?>
-    <?php endif; ?>
+        <?php endif ?>
+    <?php endif ?>
 
     <?php if (strpos($this->getRequest()->getPathInfo(), 'checkout/cart/') !== false) : ?>
 
@@ -252,7 +252,7 @@
             ga('set', '&cu', '<?php echo Mage::app()->getStore()->getCurrentCurrencyCode(); ?>');
             exec_tvc_t_dc = true;
 
-    <?php endif; ?>
+    <?php endif ?>
 
     <?php if (Mage::app()->getRequest()->getControllerName() === "category"): ?>
 
@@ -325,7 +325,7 @@
 
 
 
-    <?php endif; ?>
+    <?php endif ?>
 
 
 
@@ -454,7 +454,7 @@ $collection->addAttributeToSelect("*")
                     exec_tvc_t_ppv = true;
 
         <?php $catIds = "";
-    endif; ?>
+    endif ?>
 
 
     <?php if ($this->isCheckout() && !$this->isEcommerce()):
@@ -522,7 +522,7 @@ $collection->addAttributeToSelect("*")
 
 
 
-    <?php endif; ?>
+    <?php endif ?>
     <?php if ($this->isEcommerce()): ?>
 
         <?php
@@ -626,7 +626,7 @@ $collection->addAttributeToSelect("*")
                     //replace with exec_tvc_t_thnx
 
 
-    <?php endif; ?>
+    <?php endif ?>
     </script>
 
     <!--Tatvic Enhanced eCommerce Section end -->

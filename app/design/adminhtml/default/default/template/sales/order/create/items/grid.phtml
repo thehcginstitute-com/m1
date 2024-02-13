@@ -37,7 +37,7 @@ if (empty($_items)): ?>
     <p class="a-right">
         <?php echo $this->getButtonHtml($this->helper('sales')->__('Update Items and Qty\'s'),'order.itemsUpdate()'); ?>
     </p>
-    <?php endif; ?>
+    <?php endif ?>
     <div class="grid" id="order-items_grid">
         <table cellspacing="0" class="data order-tables">
             <col />
@@ -82,11 +82,11 @@ if (empty($_items)): ?>
                             </div>
                             <?php if($_item->getMessage(false)): ?>
                                 <?php foreach ($_item->getMessage(false) as $message): ?>
-                                <div class="<?php if($_item->getHasError()): ?>error<?php else: ?>notice<?php endif; ?>">
+                                <div class="<?php if($_item->getHasError()): ?>error<?php else: ?>notice<?php endif ?>">
                                     <div style="font-size:95%"><?php echo Mage::helper('core')->escapeHtml($message); ?></div>
                                 </div>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                                <?php endforeach ?>
+                            <?php endif ?>
                         </td>
                         <td class="a-center v-middle">
                             <?php echo $this->getConfigureButtonHtml($_item) ?>
@@ -99,34 +99,34 @@ if (empty($_items)): ?>
     <?php if ($this->helper('tax')->displayCartPriceExclTax($this->getStore()) || $this->helper('tax')->displayCartBothPrices($this->getStore())): ?>
         <?php if ($this->helper('tax')->displayCartBothPrices($this->getStore())): ?>
             <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
-        <?php endif; ?>
+        <?php endif ?>
 		<?php echo $this->formatPrice($_item->getCalculationPrice()) ?>
-    <?php endif; ?>
+    <?php endif ?>
     <?php if ($this->helper('tax')->displayCartPriceInclTax($this->getStore()) || $this->helper('tax')->displayCartBothPrices($this->getStore())): ?>
         <?php if ($this->helper('tax')->displayCartBothPrices($this->getStore())): ?>
             <br /><span class="label"><?php echo $this->__('Incl. Tax'); ?>:</span>
-        <?php endif; ?>
+        <?php endif ?>
         <?php $_incl = $this->helper('checkout')->getPriceInclTax($_item); ?>
 		<?php echo $this->formatPrice($_incl) ?>
-    <?php endif; ?>
+    <?php endif ?>
 
 
 
 
                             <?php $_isCustomPrice = $this->usedCustomPriceForItem($_item) ?>
                             <?php if($_tier = $this->getTierHtml($_item)): ?>
-                            <div id="item_tier_block_<?php echo $_item->getId() ?>"<?php if ($_isCustomPrice): ?> style="display:none"<?php endif; ?>>
+                            <div id="item_tier_block_<?php echo $_item->getId() ?>"<?php if ($_isCustomPrice): ?> style="display:none"<?php endif ?>>
                                 <a href="#" onclick="$('item_tier_<?php echo $_item->getId() ?>').toggle();return false;"><?php echo $this->helper('sales')->__('Tier Pricing') ?></a>
                                 <div style="display:none" id="item_tier_<?php echo $_item->getId() ?>"><?php echo $_tier ?></div>
                             </div>
-                            <?php endif; ?>
+                            <?php endif ?>
                             <?php if ($this->canApplyCustomPrice($_item)): ?>
                             <div class="nobr">
-                            <input type="checkbox" id="item_use_custom_price_<?php echo $_item->getId() ?>"<?php if ($_isCustomPrice): ?> checked="checked"<?php endif; ?> onclick="order.toggleCustomPrice(this, 'item_custom_price_<?php echo $_item->getId() ?>', 'item_tier_block_<?php echo $_item->getId() ?>');"/>
+                            <input type="checkbox" id="item_use_custom_price_<?php echo $_item->getId() ?>"<?php if ($_isCustomPrice): ?> checked="checked"<?php endif ?> onclick="order.toggleCustomPrice(this, 'item_custom_price_<?php echo $_item->getId() ?>', 'item_tier_block_<?php echo $_item->getId() ?>');"/>
                             <label class="normal" for="item_use_custom_price_<?php echo $_item->getId() ?>"><?php echo $this->helper('sales')->__('Custom Price') ?>*</label>
                             </div>
-                            <?php endif; ?>
-                            <input id="item_custom_price_<?php echo $_item->getId() ?>" name="item[<?php echo $_item->getId() ?>][custom_price]" value="<?php echo sprintf("%.2f", $this->getOriginalEditablePrice($_item))?>"<?php if (!$_isCustomPrice): ?> style="display:none" disabled="disabled"<?php endif; ?> class="input-text item-price"/>
+                            <?php endif ?>
+                            <input id="item_custom_price_<?php echo $_item->getId() ?>" name="item[<?php echo $_item->getId() ?>][custom_price]" value="<?php echo sprintf("%.2f", $this->getOriginalEditablePrice($_item))?>"<?php if (!$_isCustomPrice): ?> style="display:none" disabled="disabled"<?php endif ?> class="input-text item-price"/>
                         </td>
                         <td><input name="item[<?php echo $_item->getId() ?>][qty]" class="input-text item-qty" value="<?php echo $_item->getQty()*1 ?>" maxlength="12" /></td>
                         <td class="price">
@@ -137,23 +137,23 @@ if (empty($_items)): ?>
     <?php if ($this->helper('tax')->displayCartPriceExclTax($this->getStore()) || $this->helper('tax')->displayCartBothPrices($this->getStore())): ?>
         <?php if ($this->helper('tax')->displayCartBothPrices($this->getStore())): ?>
             <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
-        <?php endif; ?>
+        <?php endif ?>
 		<?php echo $this->formatPrice($_item->getRowTotal()) ?>
-    <?php endif; ?>
+    <?php endif ?>
     <?php if ($this->helper('tax')->displayCartPriceInclTax($this->getStore()) || $this->helper('tax')->displayCartBothPrices($this->getStore())): ?>
         <?php if ($this->helper('tax')->displayCartBothPrices($this->getStore())): ?>
             <br /><span class="label"><?php echo $this->__('Incl. Tax'); ?>:</span>
-        <?php endif; ?>
+        <?php endif ?>
         <?php $_incl = $this->helper('checkout')->getSubtotalInclTax($_item); ?>
 		<?php echo $this->formatPrice($_incl) ?>
-    <?php endif; ?>
+    <?php endif ?>
 
 
 
                         </td>
                         <td class="price">
                             <?php echo $this->formatPrice(-$_item->getDiscountAmount()) ?><br />
-                            <input id="item_use_discount_<?php echo $_item->getId() ?>" name="item[<?php echo $_item->getId() ?>][use_discount]"<?php if (!$_item->getNoDiscount()): ?>checked="checked"<?php endif; ?> value="1" type="checkbox" />
+                            <input id="item_use_discount_<?php echo $_item->getId() ?>" name="item[<?php echo $_item->getId() ?>][use_discount]"<?php if (!$_item->getNoDiscount()): ?>checked="checked"<?php endif ?> value="1" type="checkbox" />
                             <label for="item_use_discount_<?php echo $_item->getId() ?>" class="normal"><?php echo $this->helper('sales')->__('Apply') ?></label>
                         </td>
                         <td class="price">
@@ -168,19 +168,19 @@ if (empty($_items)): ?>
 		}
 		if ($this->helper('tax')->displayCartBothPrices($this->getStore())): ?>
             <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
-        <?php endif; ?>
+        <?php endif ?>
 		<?php echo $this->formatPrice(max(0, $_rowTotalLessDiscount)) ?>
-    <?php endif; ?>
+    <?php endif ?>
 
 
     <?php if ($this->helper('tax')->displayCartPriceInclTax($this->getStore()) || $this->helper('tax')->displayCartBothPrices($this->getStore())): ?>
         <?php if ($this->helper('tax')->displayCartBothPrices($this->getStore())): ?>
             <br /><span class="label"><?php echo $this->__('Incl. Tax'); ?>:</span>
-        <?php endif; ?>
+        <?php endif ?>
 
         <?php $_incl = $this->helper('checkout')->getSubtotalInclTax($_item) - $_item->getDiscountTaxCompensation() - $_item->getDiscountAmount(); ?>
         <?php echo $this->formatPrice($_incl) ?>
-    <?php endif; ?>
+    <?php endif ?>
 
                         </td>
                         <td class="last">
@@ -197,17 +197,17 @@ if (empty($_items)): ?>
                                             <optgroup label="<?php echo $this->helper('sales')->__('Move to Wishlist') ?>">
                                                 <?php foreach ($wishlists as $wishlist):?>
                                                     <option value="wishlist_<?php echo $wishlist->getId();?>"><?php echo $this->escapeHtml($wishlist->getName());?></option>
-                                                <?php endforeach;?>
+                                                <?php endforeach ?>
                                             </optgroup>
-                                        <?php endif; ?>
-                                    <?php endif; ?>
-                                <?php endif; ?>
+                                        <?php endif ?>
+                                    <?php endif ?>
+                                <?php endif ?>
                             </select>
                         </td>
                     </tr>
                     <?php echo $this->getItemExtraInfo($_item)->toHtml(); ?>
                 </tbody>
-                <?php endforeach; ?>
+                <?php endforeach ?>
         </table>
     </div>
     <table cellspacing="0" width="100%">
@@ -251,5 +251,5 @@ if (empty($_items)): ?>
 
 //]]>
 </script>
-<?php endif; ?>
-<?php endif; ?>
+<?php endif ?>
+<?php endif ?>

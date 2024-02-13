@@ -43,7 +43,7 @@
                                                     <?php echo $this->getOrder()->formatBasePrice($_excl); ?>
                                                     <?php if ($_excl != $_incl): ?>
                                                         (<?php echo $this->__('Incl. Tax ') . $this->getOrder()->formatBasePrice($_incl); ?>)
-                                                    <?php endif; ?>
+                                                    <?php endif ?>
                                                 </strong>
                                             </label>
                                             <table id="s_method_<?php echo $_code ?>_edit_table" style="display:none">
@@ -92,11 +92,11 @@
                                             </table>
                                         <?php endif ?>
                                     </li>
-                                <?php endforeach; ?>
+                                <?php endforeach ?>
                             </ul>
                         </dd>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                    <?php endforeach ?>
+                <?php endif ?>
 
                 <?php /* BEGIN: custom shipping method */ ?>
                 <hr>
@@ -134,7 +134,7 @@
                                                 $helper->__('My custom shipping') ?>"
                                         <?php else: ?>
                                             value="<?php echo $helper->__('My custom shipping') ?>"
-                                        <?php endif; ?>
+                                        <?php endif ?>
                                            name="s_description[<?php echo $_code_custom ?>]"/>
                                 </td>
                             </tr>

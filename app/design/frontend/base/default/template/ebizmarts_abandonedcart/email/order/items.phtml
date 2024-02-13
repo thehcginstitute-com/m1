@@ -54,7 +54,7 @@
                 }
             }
             $options = array_merge($finalResult, $result);
-        endif; ?>
+        endif ?>
         <tbody<?php echo $i%2 ? ' bgcolor="#F6F6F6"' : '' ?>>
 		    <tr>
 		        <?php echo '<td valign="top" align="left" style="padding:3px 9px">'. $_item['name'] .'</td>'; ?>
@@ -64,6 +64,6 @@
 		        <?php if(isset($options) && is_array($options)) : foreach($options as $option) : echo '<tr><td valign="top" align="left" style="padding:3px 9px" colspan="4"><strong><em>'.$option['label'].'</em></strong></td></tr>'.'<tr><td valign="top" align="left" style="padding:3px 19px">'.$option['value'].'</td>'; if(isset($option['sku'])) : echo '<td style="padding:3px 9px">' . $option['sku'] . '</td><td></td><td></td>'; else: echo '<td></td><td></td><td></td>'; endif; endforeach; $options = null; endif; '</tr>' ?>
 		    </tr>
     	</tbody>
-        <?php endforeach; ?>
-        <?php endif;?>
+        <?php endforeach ?>
+        <?php endif ?>
 </table>

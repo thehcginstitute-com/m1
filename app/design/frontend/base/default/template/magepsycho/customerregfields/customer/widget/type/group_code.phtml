@@ -9,6 +9,6 @@ if ($this->getIsEditPage() && ! $isValidCustomerForEdit) return '';
 	<?php if ($this->getIsEditPage() && ! $isGroupEditable) : ?>
 		<?php echo $this->getObject()->getMpGroupCode(); ?>
 	<?php else: ?>
-		<input type="text" id="<?php echo $this->getFieldId('mp_group_code') ?>" name="<?php echo $this->getFieldName('mp_group_code') ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getGroupLabel()) ?>" class="input-text <?php if ($this->isRequired()) : ?> required-entry<?php endif; ?>" value="<?php echo $this->escapeHtml($this->getObject()->getMpGroupCode()) ?>" <?php echo $this->getFieldParams() ?> />
-	<?php endif; ?>
+		<input type="text" id="<?php echo $this->getFieldId('mp_group_code') ?>" name="<?php echo $this->getFieldName('mp_group_code') ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getGroupLabel()) ?>" class="input-text <?php if ($this->isRequired()) : ?> required-entry<?php endif ?>" value="<?php echo $this->escapeHtml($this->getObject()->getMpGroupCode()) ?>" <?php echo $this->getFieldParams() ?> />
+	<?php endif ?>
 </div>

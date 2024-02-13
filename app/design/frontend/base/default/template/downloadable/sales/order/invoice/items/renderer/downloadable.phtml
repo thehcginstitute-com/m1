@@ -10,7 +10,7 @@ $_order = $this->getItem()->getOrderItem()->getOrder(); ?>
                 <dt><?php echo $this->escapeHtml($_option['label']) ?></dt>
                 <?php if (!$this->getPrintStatus()): ?>
                     <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
-                    <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>>
+                    <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif ?>>
                         <?php echo $_formatedOptionValue['value'] ?>
                         <?php if (isset($_formatedOptionValue['full_view'])): ?>
                             <div class="truncated_full_value">
@@ -19,14 +19,14 @@ $_order = $this->getItem()->getOrderItem()->getOrder(); ?>
                                     <dd><?php echo $_formatedOptionValue['full_view'] ?></dd>
                                 </dl>
                             </div>
-                        <?php endif; ?>
+                        <?php endif ?>
                     </dd>
                 <?php else: ?>
                     <dd><?php echo $this->escapeHtml((isset($_option['print_value']) ? $_option['print_value'] : $_option['value'])) ?></dd>
-                <?php endif; ?>
-            <?php endforeach; ?>
+                <?php endif ?>
+            <?php endforeach ?>
         </dl>
-    <?php endif; ?>
+    <?php endif ?>
 
     <!-- downloadable -->
     <?php if ($links = $this->getLinks()): ?>
@@ -34,9 +34,9 @@ $_order = $this->getItem()->getOrderItem()->getOrder(); ?>
             <dt><?php echo $this->escapeHtml($this->getLinksTitle()); ?></dt>
             <?php foreach ($links->getPurchasedItems() as $link): ?>
                 <dd><?php echo $this->escapeHtml($link->getLinkTitle()); ?></dd>
-            <?php endforeach; ?>
+            <?php endforeach ?>
         </dl>
-    <?php endif; ?>
+    <?php endif ?>
     <!-- EOF downloadable -->
 
     <?php echo $this->escapeHtml($_item->getDescription()) ?>
@@ -44,7 +44,7 @@ $_order = $this->getItem()->getOrderItem()->getOrder(); ?>
         <br/><a href="#" id="order-item-gift-message-link-<?php echo $_item->getId() ?>"
                 class="giftmessage-preview-link expand"
                 onclick="return giftMessageToogle('<?php echo $_item->getId() ?>')"><?php echo $this->__('Gift Message') ?></a>
-    <?php endif; ?>
+    <?php endif ?>
 </td>
 <td><?php echo $this->escapeHtml(Mage::helper('core/string')->splitInjection($this->getSku())) ?></td>
 <td class="a-right nowrap">
@@ -52,25 +52,25 @@ $_order = $this->getItem()->getOrderItem()->getOrder(); ?>
     <span class="price-excl-tax">
             <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
                 <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
-            <?php endif; ?>
+            <?php endif ?>
 			<span class="cart-price">
 				<?php echo $this->getOrder()->formatPrice($this->getItem()->getPrice()) ?>
 			</span>
         </span>
         <br/>
-        <?php endif; ?>
+        <?php endif ?>
         <?php if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceInclTax()): ?>
         <span class="price-incl-tax">
             <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
                 <span class="label"><?php echo $this->__('Incl. Tax'); ?>:</span>
-            <?php endif; ?>
+            <?php endif ?>
             <?php $_incl = $this->helper('checkout')->getPriceInclTax($this->getItem()); ?>
 
             <span class="cart-price">
 				<?php echo $this->getOrder()->formatPrice($_incl) ?>
 			</span>
         </span>
-            <?php endif; ?>
+            <?php endif ?>
 </td>
 <td class="a-center"><?php echo $_item->getQty() * 1 ?> </td>
 <td class="a-right nowrap">
@@ -78,23 +78,23 @@ $_order = $this->getItem()->getOrderItem()->getOrder(); ?>
     <span class="price-excl-tax">
             <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
                 <span class="label"><?php echo $this->__('Excl. Tax'); ?>:</span>
-            <?php endif; ?>
+            <?php endif ?>
 			<span class="cart-price">
 				<?php echo $this->getOrder()->formatPrice($this->getItem()->getRowTotal()) ?>
 			</span>
         </span>
         <br/>
-        <?php endif; ?>
+        <?php endif ?>
         <?php if ($this->helper('tax')->displayCartBothPrices() || $this->helper('tax')->displayCartPriceInclTax()): ?>
         <span class="price-incl-tax">
             <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
                 <span class="label"><?php echo $this->__('Incl. Tax'); ?>:</span>
-            <?php endif; ?>
+            <?php endif ?>
             <?php $_incl = $this->helper('checkout')->getSubtotalInclTax($this->getItem()); ?>
 			<span class="cart-price">
 				<?php echo $this->getOrder()->formatPrice($_incl) ?>
 			</span>
         </span>
-            <?php endif; ?>
+            <?php endif ?>
 </td>
 </tr>

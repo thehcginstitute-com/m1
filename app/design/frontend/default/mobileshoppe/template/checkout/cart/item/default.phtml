@@ -11,21 +11,21 @@ $_params = $this->escapeHtml(json_encode(['form_key' => $this->getFormKey()]));
 $_deleteUrl = $this->getDeleteUrlCustom(false);
 ?>
 <tr>
-    <td><?php if ($this->hasProductUrl()):?><a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->escapeHtml($this->getProductName()) ?>" class="product-image"><?php endif;?><img src="<?php echo $this->getProductThumbnail()->resize(75); ?>" width="75" height="75" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" /><?php if ($this->hasProductUrl()):?></a><?php endif;?></td>
+    <td><?php if ($this->hasProductUrl()):?><a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->escapeHtml($this->getProductName()) ?>" class="product-image"><?php endif ?><img src="<?php echo $this->getProductThumbnail()->resize(75); ?>" width="75" height="75" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" /><?php if ($this->hasProductUrl()):?></a><?php endif ?></td>
     <td>
         <h2 class="product-name">
         <?php if ($this->hasProductUrl()):?>
             <a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->escapeHtml($this->getProductName()) ?></a>
         <?php else: ?>
             <?php echo $this->escapeHtml($this->getProductName()) ?>
-        <?php endif; ?>
+        <?php endif ?>
         </h2>
         <?php if ($_options = $this->getOptionList()):?>
         <dl class="item-options">
             <?php foreach ($_options as $_option) : ?>
             <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
             <dt><?php echo $this->escapeHtml($_option['label']) ?></dt>
-            <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>><?php echo $_formatedOptionValue['value'] ?>
+            <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif ?>><?php echo $_formatedOptionValue['value'] ?>
                 <?php if (isset($_formatedOptionValue['full_view'])): ?>
                 <div class="truncated_full_value">
                     <dl class="item-options">
@@ -33,20 +33,20 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
                         <dd><?php echo $_formatedOptionValue['full_view'] ?></dd>
                     </dl>
                 </div>
-                <?php endif; ?>
+                <?php endif ?>
             </dd>
-            <?php endforeach; ?>
+            <?php endforeach ?>
         </dl>
-        <?php endif;?>
+        <?php endif ?>
         <?php if ($messages = $this->getMessages()): ?>
         <?php foreach ($messages as $message): ?>
             <p class="item-msg <?php echo $message['type'] ?>">* <?php echo $this->escapeHtml($message['text']) ?></p>
-        <?php endforeach; ?>
-        <?php endif; ?>
+        <?php endforeach ?>
+        <?php endif ?>
         <?php $addInfoBlock = $this->getProductAdditionalInformationBlock(); ?>
         <?php if ($addInfoBlock): ?>
             <?php echo $addInfoBlock->setItem($_item)->toHtml() ?>
-        <?php endif;?>
+        <?php endif ?>
     </td>
     <td class="a-center edititem">
         <?php if ($isVisibleProduct): ?>
@@ -69,7 +69,7 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
     <?php endif ?>
 
     <?php if ($canApplyMsrp): ?>
-        <td class="a-right"<?php if ($this->helper('tax')->displayCartBothPrices()): ?> colspan="2"<?php endif; ?>>
+        <td class="a-right"<?php if ($this->helper('tax')->displayCartBothPrices()): ?> colspan="2"<?php endif ?>>
             <span class="cart-price">
                 <span class="cart-msrp-unit"><?php echo $this->__('See price before order confirmation.'); ?></span>
                 <?php $helpLinkId = 'cart-msrp-help-' . $_item->getId(); ?>
@@ -87,7 +87,7 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
 				<?php echo $this->helper('checkout')->formatPrice($_item->getCalculationPrice()) ?>
             </span>
         </td>
-        <?php endif; ?>
+        <?php endif ?>
         <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
         <td>
             <?php $_incl = $this->helper('checkout')->getPriceInclTax($_item); ?>
@@ -95,8 +95,8 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
 				<?php echo $this->helper('checkout')->formatPrice($_incl) ?>
 			</span>
         </td>
-        <?php endif; ?>
-    <?php endif; ?>
+        <?php endif ?>
+    <?php endif ?>
     <td class="a-center qtybox">
 		<input
 			class="input-text qty"
@@ -119,10 +119,10 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
                 <span class="cart-msrp-subtotal">--</span>
             <?php else: ?>
 				<?php echo $this->helper('checkout')->formatPrice($_item->getRowTotal()) ?>
-            <?php endif; ?>
+            <?php endif ?>
         </span>
     </td>
-    <?php endif; ?>
+    <?php endif ?>
     <?php if (($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()) && !$_item->getNoSubtotal()): ?>
     <td class="finaltotal">
         <?php $_incl = $this->helper('checkout')->getSubtotalInclTax($_item); ?>
@@ -132,11 +132,11 @@ $_deleteUrl = $this->getDeleteUrlCustom(false);
                 <span class="cart-msrp-subtotal">--</span>
             <?php else: ?>
 				<?php echo $this->helper('checkout')->formatPrice($_incl) ?>
-            <?php endif; ?>
+            <?php endif ?>
 
         </span>
     </td>
-    <?php endif; ?>
+    <?php endif ?>
     <td class="a-center removeitem">
 <!-- 2024-01-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # 1) "Port the `app/design/frontend/base/default/template/checkout/cart/item/default.phtml` 1.9.1.0 → 1.9.4.5 changes
