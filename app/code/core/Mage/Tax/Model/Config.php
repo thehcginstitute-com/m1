@@ -27,7 +27,8 @@ class Mage_Tax_Model_Config
      */
     public const XML_PATH_TAX_NOTIFICATION_DISCOUNT = 'tax/ignore_notification/discount';
     public const XML_PATH_TAX_NOTIFICATION_PRICE_DISPLAY = 'tax/ignore_notification/price_display';
-    public const XML_PATH_TAX_NOTIFICATION_FPT_CONFIGURATION = 'tax/ignore_notification/fpt_configuration';
+	# 2024-02-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
     public const XML_PATH_TAX_NOTIFICATION_URL = 'tax/notification/url';
     /**#@-*/
 
