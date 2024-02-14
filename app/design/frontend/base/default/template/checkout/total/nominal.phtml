@@ -9,7 +9,7 @@
  * @category    design
  * @package     base_default
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @copyright   Copyright (c) 2021 The OpenMage Contributors (https://www.openmage.org)
+ * @copyright   Copyright (c) 2021-2022 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
@@ -24,8 +24,8 @@
     </th>
 </tr>
 <?php foreach ($this->getTotalItems() as $i => $item): ?>
-<?php foreach ($this->getTotalItemDetails($item) as $j => $row): ?>
-<tr class="summary-details <?php echo "summary-details-nominal-{$i}" . (0 == $j ? ' summary-details-first' : '') . ($this->getItemDetailsRowIsCompounded($row) ? '' : ' summary-details-excluded')?>" style="display:none;">
+<?php foreach ($this->getTotalItemDetails($item) as $j => $row):?>
+<tr class="summary-details <?php echo "summary-details-nominal-{$i}" . ($j == 0 ? ' summary-details-first' : '') . ($this->getItemDetailsRowIsCompounded($row) ? '' : ' summary-details-excluded')?>" style="display:none;">
     <td colspan="<?php echo $this->getColspan(); ?>" style="<?php echo $this->getTotalStyle() ?>" class="a-right">
         <?php echo $this->escapeHtml($this->getItemDetailsRowLabel($row)) ?>
     </td>
