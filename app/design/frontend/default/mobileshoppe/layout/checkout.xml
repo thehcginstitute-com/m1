@@ -409,5 +409,6 @@ One page checkout order review block
             <block type="checkout/onepage_failure" name="checkout.failure" template="checkout/onepage/failure.phtml"/>
         </reference>
     </checkout_onepage_failure>
-    <block type="core/list" name="additional.product.info"/>
+<!-- 2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2": https://github.com/thehcginstitute-com/m1/issues/34 -->
 </layout>
