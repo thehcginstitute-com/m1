@@ -9,6 +9,7 @@
  * @category    design
  * @package     base_default
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright   Copyright (c) 2021 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
@@ -42,7 +43,7 @@ For checkout/onepage/shipping.phtml:
             <?php else: ?>
                 <select id="<?php echo $this->getFieldId('prefix')?>" name="<?php echo $this->getFieldName('prefix')?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getStoreLabel('prefix')) ?>" class="<?php echo $this->helper('customer/address')->getAttributeValidationClass('prefix') ?>" <?php echo $this->getFieldParams() ?>>
                 <?php foreach ($this->getPrefixOptions() as $_option): ?>
-                    <option value="<?php echo $_option?>"<?php if ($this->getObject()->getPrefix()==$_option): ?> selected="selected"<?php endif ?>><?php echo $this->__($_option)?></option>
+                    <option value="<?php echo $_option?>"<?php if ($this->getObject()->getPrefix()==$_option):?> selected="selected"<?php endif ?>><?php echo $this->__($_option)?></option>
                 <?php endforeach ?>
                 </select>
             <?php endif ?>
@@ -79,7 +80,7 @@ For checkout/onepage/shipping.phtml:
         <?php else: ?>
             <select id="<?php echo $this->getFieldId('suffix')?>" name="<?php echo $this->getFieldName('suffix')?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getStoreLabel('suffix')) ?>" class="<?php echo $this->helper('customer/address')->getAttributeValidationClass('suffix') ?>" <?php echo $this->getFieldParams() ?>>
             <?php foreach ($this->getSuffixOptions() as $_option): ?>
-                <option value="<?php echo $_option?>"<?php if ($this->getObject()->getSuffix()==$_option): ?> selected="selected"<?php endif ?>><?php echo $this->__($_option)?></option>
+                <option value="<?php echo $_option?>"<?php if ($this->getObject()->getSuffix()==$_option):?> selected="selected"<?php endif ?>><?php echo $this->__($_option)?></option>
             <?php endforeach ?>
             </select>
         <?php endif ?>
