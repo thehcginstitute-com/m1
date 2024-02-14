@@ -10,6 +10,7 @@
  * @category    design
  * @package     base_default
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright   Copyright (c) 2021 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
@@ -20,7 +21,7 @@
             <block type="core/text_list" name="form.additional.info">
                 <block type="captcha/captcha" name="captcha">
                     <reference name="head">
-                        <action method="addJs"><file>mage/captcha.js</file></action>
+                        <action method="addJs" ifconfig="customer/captcha/enable"><file>mage/captcha.js</file></action>
                     </reference>
                     <action method="setFormId"><formId>user_login</formId></action>
                     <action method="setImgWidth"><width>230</width></action>
@@ -34,7 +35,7 @@
             <block type="core/text_list" name="form.additional.info">
                 <block type="captcha/captcha" name="captcha">
                     <reference name="head">
-                        <action method="addJs"><file>mage/captcha.js</file></action>
+                        <action method="addJs" ifconfig="customer/captcha/enable"><file>mage/captcha.js</file></action>
                     </reference>
                     <action method="setFormId"><formId>user_forgotpassword</formId></action>
                     <action method="setImgWidth"><width>230</width></action>
@@ -48,7 +49,7 @@
             <block type="core/text_list" name="form.additional.info">
                 <block type="captcha/captcha" name="captcha">
                     <reference name="head">
-                        <action method="addJs"><file>mage/captcha.js</file></action>
+                        <action method="addJs" ifconfig="customer/captcha/enable"><file>mage/captcha.js</file></action>
                     </reference>
                     <action method="setFormId"><formId>user_create</formId></action>
                     <action method="setImgWidth"><width>230</width></action>
@@ -62,7 +63,7 @@
             <block type="core/text_list" name="form.additional.info">
                 <block type="captcha/captcha" name="captcha">
                     <reference name="head">
-                        <action method="addJs"><file>mage/captcha.js</file></action>
+                        <action method="addJs" ifconfig="customer/captcha/enable"><file>mage/captcha.js</file></action>
                     </reference>
                     <action method="setFormId"><formId>user_login</formId></action>
                     <action method="setImgWidth"><width>230</width></action>
@@ -74,7 +75,7 @@
             <block type="core/text_list" name="form.additional.info">
                 <block type="captcha/captcha" name="captcha.guest.checkout">
                     <reference name="head">
-                        <action method="addJs"><file>mage/captcha.js</file></action>
+                        <action method="addJs" ifconfig="customer/captcha/enable"><file>mage/captcha.js</file></action>
                     </reference>
                     <action method="setFormId"><formId>guest_checkout</formId></action>
                     <action method="setImgWidth"><width>230</width></action>
@@ -82,7 +83,7 @@
                 </block>
                 <block type="captcha/captcha" name="captcha.register.during.checkout">
                     <reference name="head">
-                        <action method="addJs"><file>mage/captcha.js</file></action>
+                        <action method="addJs" ifconfig="customer/captcha/enable"><file>mage/captcha.js</file></action>
                     </reference>
                     <action method="setFormId"><formId>register_during_checkout</formId></action>
                     <action method="setImgWidth"><width>230</width></action>
@@ -96,7 +97,7 @@
             <block type="core/text_list" name="wishlist.sharing.form.additional.info">
                 <block type="captcha/captcha" name="captcha">
                     <reference name="head">
-                        <action method="addJs"><file>mage/captcha.js</file></action>
+                        <action method="addJs" ifconfig="customer/captcha/enable"><file>mage/captcha.js</file></action>
                     </reference>
                     <action method="setFormId"><formId>wishlist_sharing</formId></action>
                     <action method="setImgWidth"><width>230</width></action>
@@ -110,7 +111,7 @@
             <block type="core/text_list" name="sendfriend.send.form.additional.info">
                 <block type="captcha/captcha" name="captcha">
                     <reference name="head">
-                        <action method="addJs"><file>mage/captcha.js</file></action>
+                        <action method="addJs" ifconfig="customer/captcha/enable"><file>mage/captcha.js</file></action>
                     </reference>
                     <action method="setFormId"><formId>sendfriend_send</formId></action>
                     <action method="setImgWidth"><width>230</width></action>
