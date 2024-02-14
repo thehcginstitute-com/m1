@@ -1,18 +1,3 @@
-<?php
-/**
- * OpenMage
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available at https://opensource.org/license/afl-3-0-php
- *
- * @category    design
- * @package     default_default
- * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @copyright   Copyright (c) 2020-2022 The OpenMage Contributors (https://www.openmage.org)
- * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -35,33 +20,45 @@
 <body id="page-login">
     <div class="login-container">
         <div class="login-box">
+<!--  2024-01-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Autocomplete the backend login form": https://github.com/thehcginstitute-com/m1/issues/146 -->
             <form method="post" action="<?php echo $this->getUrl('adminhtml') ?>" id="loginForm">
                 <div class="login-form">
+<!--  2024-01-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Port the modifications of `app/design/adminhtml/default/default/template/login.phtml` to Magento 1.9.4.5":
+https://github.com/thehcginstitute-com/m1/issues/110 -->
+					<a href="https://www.thehcginstitute.com/store"
+					><img
+						style="margin-bottom:15px;"
+						src="<?php echo $this->getSkinUrl('images/hcg-logo.png')?>" alt=""
+					/></a>
                     <input name="form_key" type="hidden" value="<?php echo $this->getFormKey() ?>" />
-                    <h2><?php echo Mage::helper('adminhtml')->__('Log in to Admin Panel') ?></h2>
+<!--  2024-01-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Port the modifications of `app/design/adminhtml/default/default/template/login.phtml` to Magento 1.9.4.5":
+https://github.com/thehcginstitute-com/m1/issues/110 -->
                     <div id="messages">
                         <?php echo $this->getMessagesBlock()->toHtml() ?>
                     </div>
-                    <div class="input-box input-left">
-                        <label for="username"><?php echo Mage::helper('adminhtml')->__('User Name:') ?></label><br />
-                        <input type="text" id="username" name="login[username]" value="" class="required-entry input-text" autofocus="autofocus" />
-                    </div>
-                    <div class="input-box input-right">
-                        <label for="login"><?php echo Mage::helper('adminhtml')->__('Password:') ?></label><br />
-                        <input type="password" id="login" name="login[password]" value="" class="required-entry input-text" />
-                    </div>
-                    <?php echo $this->getChildHtml('form.additional.info') ?>
+                    <div class="input-box input-left"><label for="username"><?php echo Mage::helper('adminhtml')->__('User Name:') ?></label><br/>
+                        <input type="text" id="username" name="login[username]" value="" class="required-entry input-text" autofocus="autofocus" /></div>
+                    <div class="input-box input-right"><label for="login"><?php echo Mage::helper('adminhtml')->__('Password:') ?></label><br />
+<!--  2024-01-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Autocomplete the backend login form": https://github.com/thehcginstitute-com/m1/issues/146 -->
+                        <input type="password" id="login" name="login[password]" value="" class="required-entry input-text" /></div>
+                    <?php echo $this->getChildHtml('form.additional.info'); ?>
                     <div class="clear"></div>
                     <div class="form-buttons">
                         <a class="left" href="<?php echo Mage::helper('adminhtml')->getUrl('adminhtml/index/forgotpassword', ['_nosecret' => true]) ?>"><?php echo Mage::helper('adminhtml')->__('Forgot your password?') ?></a>
                         <button type="submit" class="form-button"><span><span><span><?php echo Mage::helper('adminhtml')->__('Login') ?></span></span></span></button>
                     </div>
                 </div>
-                <p class="legal"><?php echo Mage::helper('adminhtml')->__('Powered by OpenMage') ?></p>
+<!--  2024-01-10 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Port the modifications of `app/design/adminhtml/default/default/template/login.phtml` to Magento 1.9.4.5":
+https://github.com/thehcginstitute-com/m1/issues/110 -->
             </form>
             <div class="bottom"></div>
             <script type="text/javascript">
-                var loginForm = new varienForm('loginForm');
+                 var loginForm = new varienForm('loginForm');
             </script>
         </div>
     </div>
