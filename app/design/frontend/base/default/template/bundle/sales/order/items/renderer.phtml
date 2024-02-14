@@ -1,7 +1,7 @@
 <?php # 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
 $parentItem = $this->getItem() ?>
-<?php $items = array_merge(array($parentItem), $parentItem->getChildrenItems()); ?>
+<?php $items = array_merge([$parentItem], $parentItem->getChildrenItems()); ?>
 <?php $_count = count ($items) ?>
 <?php $_index = 0 ?>
 
