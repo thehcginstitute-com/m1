@@ -1,5 +1,8 @@
 <?php /** @var Mage_Catalog_Block_Product_List $this */
 $_productCollection=$this->getLoadedProductCollection();
+# 2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2": https://github.com/thehcginstitute-com/m1/issues/34
+$_productCollectionCount = count($_productCollection);
 $_helper = $this->helper('catalog/output');
 # 2024-01-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # 1) "Port the `app/design/frontend/base/default/template/catalog/product/list.phtml` 1.9.1.0 → 1.9.4.5 changes
@@ -16,7 +19,9 @@ if(!$_productCollection->count()): ?>
     <?php $_iterator = 0; ?>
     <ol class="products-list" id="products-list">
     <?php foreach ($_productCollection as $_product): ?>
-        <li class="item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif ?>">
+		<?php # 2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2": https://github.com/thehcginstitute-com/m1/issues/34 ?>
+        <li class="item<?php if(++$_iterator === $_productCollectionCount): ?> last<?php endif ?>">
             <?php // Product Image ?>
             <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(252); ?>" width="252" height="252" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
             <?php // Product description ?>
