@@ -9,6 +9,7 @@
  * @category    design
  * @package     base_default
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright   Copyright (c) 2021-2022 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
@@ -20,8 +21,8 @@
     <li>
         <a href="#"
            onclick="customFormSubmit(
-                   '<?php echo $this->helper('wishlist')->getAddUrlWithCustomParams($_product, array(), false) ?>',
-                   '<?php echo $this->escapeHtml(json_encode(array('form_key' => $this->getFormKey()))) ?>',
+                   '<?php echo $this->helper('wishlist')->getAddUrlWithCustomParams($_product, [], false) ?>',
+                   '<?php echo $this->escapeHtml(json_encode(['form_key' => $this->getFormKey()])) ?>',
                    'post')"
            class="link-wishlist">
             <?php echo $this->__('Add to Wishlist') ?>
@@ -38,7 +39,7 @@
            class="link-compare"
            onclick="customFormSubmit(
                    '<?php echo $_compareUrl ?>',
-                   '<?php echo $this->escapeHtml(json_encode(array('form_key' => $this->getFormKey()))) ?>',
+                   '<?php echo $this->escapeHtml(json_encode(['form_key' => $this->getFormKey()])) ?>',
                    'post')">
             <?php echo $this->__('Add to Compare') ?>
         </a>
