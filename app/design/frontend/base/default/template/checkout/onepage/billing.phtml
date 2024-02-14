@@ -233,6 +233,15 @@
     //billingForm.setElementsRelation('billing:country_id', 'billing:region', '<?php echo $this->getUrl('directory/json/childRegion') ?>', '<?php echo $this->__('Select State/Province...') ?>');
     $('billing-address-select') && billing.newAddress(!$('billing-address-select').value);
 
-    var billingRegionUpdater = new RegionUpdater('billing:country_id', 'billing:region', 'billing:region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'billing:postcode');
+    var billingRegionUpdater = new RegionUpdater(
+		'billing:country_id'
+		,'billing:region'
+		,'billing:region_id'
+		<?php # 2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2": https://github.com/thehcginstitute-com/m1/issues/34 ?>
+		,<?= Mage::helper('directory')->getRegionJsonByStore() ?>
+		,undefined
+		,'billing:postcode'
+	);
 //]]>
 </script>
