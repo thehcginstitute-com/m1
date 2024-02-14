@@ -36,7 +36,9 @@
     <?php if ($this->needDisplayBaseGrandtotal()): ?>
     <tr>
         <td class="a-right" colspan="<?php echo $_colspan; ?>">
-            <small><?php echo $this->helper('sales')->__('Your credit card will be charged for') ?></small>
+<!-- 2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2": https://github.com/thehcginstitute-com/m1/issues/34 -->
+            <small><?php echo $this->helper('sales')->__('Grand Total to be Charged') ?></small>
         </td>
         <td class="a-right nonecell">
             <small><?php echo $this->displayBaseGrandtotal() ?></small>
