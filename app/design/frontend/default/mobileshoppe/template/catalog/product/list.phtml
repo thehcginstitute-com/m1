@@ -39,17 +39,18 @@ if(!$_productCollection->count()): ?>
 						# 1.9.1.0 → 1.9.4.5 changes to the `mobileshoppe` design theme":
 						# https://github.com/thehcginstitute-com/m1/issues/209
 						# 2) https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/design/frontend/base/default/template/catalog/product/list.phtml#L62-L72
+						# 2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+						# "Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2":
+						# https://github.com/thehcginstitute-com/m1/issues/34
+						$_cartUrl = $this->getAddToCartUrlCustom($_product, [], false);
 					?>
-                        <p>
+                        <p class="action">
 							<button
 								type="button"
-								title="<?php echo $this->quoteEscape($this->__('Add to Cart')) ?>"
+								title="<?= $this->quoteEscape($this->__('Add to Cart')) ?>"
 								class="button btn-cart"
-								onclick="customFormSubmit(
-									'<?= $this->getAddToCartUrlCustom($_product, [], false) ?>'
-									,'<?= $_params ?>'
-									,'post')"
-							><span><span><?php echo $this->__('View Requirements') ?></span></span></button>
+								onclick="customFormSubmit('<?= $_cartUrl ?>', '<?= $_params ?>', 'post')"
+							><span><span><?= $this->__('View Requirements') ?></span></span></button>
 						</p>
                     <?php else: ?>
                         <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
