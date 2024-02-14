@@ -595,9 +595,19 @@ https://github.com/thehcginstitute-com/m1/issues/8 -->
     <script type="text/javascript">
     //<![CDATA[
         var dataForm = new VarienForm('form-validate', true);
-        <?php if ($this->getShowAddressFields()): ?>
-        new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
-        <?php endif ?>
+        <?php if ($this->getShowAddressFields()) {
+			# 2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2": https://github.com/thehcginstitute-com/m1/issues/34
+		?>
+			new RegionUpdater(
+				'country'
+				,'region'
+				,'region_id'
+				,<?= Mage::helper('directory')->getRegionJsonByStore() ?>
+				,undefined
+				,'zip'
+			);
+        <?php } ?>
     //]]>
     </script>
 </div>
