@@ -24,8 +24,12 @@
         <reference name="customer_form_register">
 <!-- 2024-01-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "`customer/form/register.phtml` is unused because it is always overriden by `persistent/customer/form/register.phtml`":
-https://github.com/thehcginstitute-com/m1/issues/335 -->
-            <action method="setTemplate"><template>persistent/customer/form/register.phtml</template></action>
+https://github.com/thehcginstitute-com/m1/issues/335
+2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2": https://github.com/thehcginstitute-com/m1/issues/34 -->
+            <action method="setTemplate" ifconfig="persistent/options/enabled">
+				<template>persistent/customer/form/register.phtml</template>
+			</action>
             <block type="persistent/form_remember" name="persistent.remember.me" template="persistent/remember_me.phtml" />
             <block type="core/template" name="persistent.remember.me.tooltip" template="persistent/remember_me_tooltip.phtml" />
         </reference>
