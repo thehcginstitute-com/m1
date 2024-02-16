@@ -8,6 +8,7 @@
  * @category    Mage
  * @package     Mage_Adminhtml
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright   Copyright (c) 2017-2022 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 var varienForm = new Class.create();
@@ -216,6 +217,10 @@ RegionUpdater.prototype = {
             label = $$('label[for="' + currentElement.id + '"]')[0];
             if (label) {
                 wildCard = label.down('em') || label.down('span.required');
+                if (!wildCard) {
+                    label.insert(' <span class="required">*</span>');
+                    wildCard = label.down('span.required');
+                }
                 var topElement = label.up('tr') || label.up('li');
                 if (!that.config.show_all_regions && topElement) {
                     if (regionRequired) {
@@ -499,6 +504,19 @@ FormElementDependenceController.prototype = {
         levels_up : 1 // how many levels up to travel when toggling element
     },
 
+    getSelectValues : function(select) {
+        var result = [];
+        var options = select && select.options;
+        var opt;
+        for (var i = 0, iLen = options.length; i < iLen; i++) {
+            opt = options[i];
+            if (opt.selected) {
+                result.push(opt.value);
+            }
+        }
+        return result;
+    },
+
     /**
      * Define whether target element should be toggled and show/hide its row
      *
@@ -517,13 +535,20 @@ FormElementDependenceController.prototype = {
         var shouldShowUp = true;
         for (var idFrom in valuesFrom) {
             var from = $(idFrom);
-            if (valuesFrom[idFrom] instanceof Array) {
-                if (!from || valuesFrom[idFrom].indexOf(from.value) == -1) {
+            if (from.tagName === 'SELECT' && from.className.indexOf('multiselect') > -1) {
+                var elementValues = this.getSelectValues(from);
+                if (!from || elementValues.indexOf(valuesFrom[idFrom]) <= -1) {
                     shouldShowUp = false;
                 }
             } else {
-                if (!from || from.value != valuesFrom[idFrom]) {
-                    shouldShowUp = false;
+                if (valuesFrom[idFrom] instanceof Array) {
+                    if (!from || valuesFrom[idFrom].indexOf(from.value) == -1) {
+                        shouldShowUp = false;
+                    }
+                } else {
+                    if (!from || from.value != valuesFrom[idFrom]) {
+                        shouldShowUp = false;
+                    }
                 }
             }
         }
@@ -550,3 +575,37 @@ FormElementDependenceController.prototype = {
         }
     }
 };
+
+// optional_zip_countries.phtml
+function onAddressCountryChanged(countryElement) {
+    var zipElementId = countryElement.id.replace(/country_id/, 'postcode');
+    // Ajax-request and normal content load compatibility
+    if ($(zipElementId) != undefined) {
+        setPostcodeOptional($(zipElementId), countryElement.value);
+    } else {
+        Event.observe(window, "load", function () {
+            setPostcodeOptional($(zipElementId), countryElement.value);
+        });
+    }
+}
+
+function setPostcodeOptional(zipElement, country) {
+    var spanElement = zipElement.up(1).down('label > span.required');
+    if (!spanElement || (typeof optionalZipCountries == 'undefined')) {
+        return; // nothing to do (for example in system config)
+    }
+    if (optionalZipCountries.indexOf(country) != -1) {
+        Validation.reset(zipElement);
+        while (zipElement.hasClassName('required-entry')) {
+            zipElement.removeClassName('required-entry');
+        }
+        spanElement.hide();
+    } else {
+        zipElement.addClassName('required-entry');
+        spanElement.show();
+    }
+}
+
+if (typeof varienGlobalEvents != 'undefined') {
+    varienGlobalEvents.attachEventHandler("address_country_changed", onAddressCountryChanged);
+}
