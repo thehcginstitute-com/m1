@@ -16,11 +16,11 @@
 
 <?php $_items = $this->getReviewsCollection()->getItems();?>
 <div class="box-collateral box-reviews" id="customer-reviews">
-    <?php if (count($_items)): ?>
+    <?php if (count($_items)):?>
         <h2><?php echo $this->__('Customer Reviews') ?></h2>
         <?php echo $this->getChildHtml('toolbar') ?>
         <dl>
-        <?php foreach ($_items as $_review): ?>
+        <?php foreach ($_items as $_review):?>
             <dt>
                 <a href="<?php echo $this->getReviewUrl($_review->getId()) ?>"><?php echo $this->escapeHtml($_review->getTitle()) ?></a> <?php echo $this->__('Review by <span>%s</span>', $this->escapeHtml($_review->getNickname())) ?>
             </dt>
