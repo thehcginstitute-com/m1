@@ -9,7 +9,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 	   onclick="if (confirmRemoveWishlistItem()) {
 					customFormSubmit(
 						'<?php echo $this->getItemRemoveUrlCustom($this->getItem(), false) ?>',
-						'<?php echo $this->escapeHtml(json_encode(array('form_key' => $this->getFormKey()))) ?>',
+						'<?php echo $this->escapeHtml(json_encode(['form_key' => $this->getFormKey()])) ?>',
 						'post'
 					)
 				}">
