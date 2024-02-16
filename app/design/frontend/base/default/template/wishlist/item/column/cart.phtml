@@ -9,6 +9,7 @@
  * @category    design
  * @package     base_default
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright   Copyright (c) 2021 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
@@ -41,7 +42,7 @@ $options = $this->getChild('customer.wishlist.item.options')
     <?php endif ?>
 <?php endif ?>
 </div>
-<?php foreach($this->getSortedChildren() as $childName): ?>
+<?php foreach($this->getSortedChildren() as $childName):?>
     <?php echo $this->getChildHtml($childName, false);?>
 <?php endforeach ?>
 <?php if ($product->isVisibleInSiteVisibility()): ?>
