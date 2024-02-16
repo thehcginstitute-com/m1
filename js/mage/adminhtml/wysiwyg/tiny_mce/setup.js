@@ -8,6 +8,7 @@
  * @category    Mage
  * @package     Mage_Adminhtml
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright   Copyright (c) 2018 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
@@ -203,7 +204,7 @@ tinyMceWysiwygSetup.prototype =
                 +"img[align<bottom?left?middle?right?top|alt|border|class|dir<ltr?rtl|height"
                 +"|hspace|id|ismap<ismap|lang|longdesc|name|onclick|ondblclick|onkeydown"
                 +"|onkeypress|onkeyup|onmousedown|onmousemove|onmouseout|onmouseover"
-                +"|onmouseup|src|style|title|usemap|vspace|width],"
+                +"|onmouseup|sizes|src|srcset|style|title|usemap|vspace|width],"
                 +"input[accept|accesskey|align<bottom?left?middle?right?top|alt"
                 +"|checked<checked|class|dir<ltr?rtl|disabled<disabled|id|ismap<ismap|lang"
                 +"|maxlength|name|onblur|onclick|ondblclick|onfocus|onkeydown|onkeypress"
