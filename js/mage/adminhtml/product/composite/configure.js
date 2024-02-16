@@ -8,6 +8,7 @@
  * @category    Mage
  * @package     Mage_Adminhtml
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright   Copyright (c) 2021 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
@@ -42,7 +43,9 @@ ProductConfigure.prototype = {
      * Initialize object
      */
     initialize: function() {
-        this._initWindowElements();
+        if ($("product_composite_configure")) {
+            this._initWindowElements();
+        }
     },
 
     /**
