@@ -1,27 +1,16 @@
 <?php
 /**
- * Magento
- *
- * NOTICE OF LICENSE
+ * OpenMage
  *
  * This source file is subject to the Open Software License (OSL 3.0)
  * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magento.com so we can send you a copy immediately.
+ * It is also available at https://opensource.org/license/osl-3-0-php
  *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magento.com for more information.
- *
- * @category    Varien
- * @package     Varien_Autoload
- * @copyright  Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @category   Varien
+ * @package    Varien_Autoload
+ * @copyright  Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright  Copyright (c) 2018-2022 The OpenMage Contributors (https://www.openmage.org)
+ * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 /**
@@ -29,34 +18,17 @@
  */
 class Varien_Autoload
 {
-    const SCOPE_FILE_PREFIX = '__';
-
-    static protected $_instance;
-    static protected $_scope = 'default';
-
-    protected $_isIncludePathDefined= null;
-    protected $_collectClasses      = false;
-    protected $_collectPath         = null;
-    protected $_arrLoadedClasses    = array();
-
     /**
-     * Class constructor
+     * @var Varien_Autoload
      */
-    public function __construct()
-    {
-        register_shutdown_function(array($this, 'destroy'));
-		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-		# "Delete the unused `Mage_Compiler` module": https://github.com/thehcginstitute-com/m1/issues/363
-        $this->_isIncludePathDefined = false;
-        self::registerScope(self::$_scope);
-    }
+    protected static $_instance;
 
     /**
      * Singleton pattern implementation
      *
      * @return Varien_Autoload
      */
-    static public function instance()
+    public static function instance()
     {
         if (!self::$_instance) {
             self::$_instance = new Varien_Autoload();
@@ -67,9 +39,9 @@ class Varien_Autoload
     /**
      * Register SPL autoload function
      */
-    static public function register()
+    public static function register()
     {
-        spl_autoload_register(array(self::instance(), 'autoload'));
+        spl_autoload_register([self::instance(), 'autoload']);
     }
 
     /**
@@ -79,95 +51,20 @@ class Varien_Autoload
      */
     public function autoload($class)
     {
-        if ($this->_collectClasses) {
-            $this->_arrLoadedClasses[self::$_scope][] = $class;
-		}
 		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Delete the unused `Mage_Compiler` module": https://github.com/thehcginstitute-com/m1/issues/363
-		$classFile = str_replace(' ', DIRECTORY_SEPARATOR, ucwords(str_replace('_', ' ',
+		$path = str_replace(' ', DIRECTORY_SEPARATOR, ucwords(str_replace('_', ' ',
 			# 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			# 1) «Support PHP namespaces»: https://github.com/thehcginstitute-com/m1/issues/139
 			# 2) I ported it from
 			# https://github.com/trackspecmotorsports/site/blob/2023-07-10/lib/Varien/Autoload.php#L89-L94
 			# 3) I also used the same solution in in https://github.com/itsapiece
 			str_replace('\\', '/', $class)
-		)));
-        $classFile.= '.php';
-        //echo $classFile;die();
-        return @include $classFile;
-    }
-
-    /**
-     * Register autoload scope
-     * This process allow include scope file which can contain classes
-     * definition which are used for this scope
-     *
-     * @param string $code scope code
-     */
-    static public function registerScope($code)
-    {
-        self::$_scope = $code;
-	# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# "Delete the unused `Mage_Compiler` module": https://github.com/thehcginstitute-com/m1/issues/363
-    }
-
-    /**
-     * Get current autoload scope
-     *
-     * @return string
-     */
-    static public function getScope()
-    {
-        return self::$_scope;
-    }
-
-    /**
-     * Class destructor
-     */
-    public function destroy()
-    {
-        if ($this->_collectClasses) {
-            $this->_saveCollectedStat();
+		))) . '.php';
+        /** @see https://stackoverflow.com/a/5504486/716029 */
+        $found = stream_resolve_include_path($path);
+        if ($found !== false) {
+            return include $found;
         }
-    }
-
-    /**
-     * Save information about used classes per scope with class popularity
-     * Class_Name:popularity
-     *
-     * @return Varien_Autoload
-     */
-    protected function _saveCollectedStat()
-    {
-        if (!is_dir($this->_collectPath)) {
-            @mkdir($this->_collectPath);
-            @chmod($this->_collectPath, 0777);
-        }
-
-        if (!is_writeable($this->_collectPath)) {
-            return $this;
-        }
-
-        foreach ($this->_arrLoadedClasses as $scope => $classes) {
-            $file = $this->_collectPath.DIRECTORY_SEPARATOR.$scope.'.csv';
-            $data = array();
-            if (file_exists($file)) {
-                $data = explode("\n", file_get_contents($file));
-                foreach ($data as $index => $class) {
-                    $class = explode(':', $class);
-                    $searchIndex = array_search($class[0], $classes);
-                    if ($searchIndex !== false) {
-                        $class[1]+=1;
-                        unset($classes[$searchIndex]);
-                    }
-                    $data[$index] = $class[0].':'.$class[1];
-                }
-            }
-            foreach ($classes as $class) {
-                $data[] = $class . ':1';
-            }
-            file_put_contents($file, implode("\n", $data));
-        }
-        return $this;
     }
 }
