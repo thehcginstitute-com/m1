@@ -8,6 +8,7 @@
  * @category    Mage
  * @package     js
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright   Copyright (c) 2022 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 var directPost = Class.create();
@@ -110,8 +111,7 @@ directPost.prototype = {
                             this.returnQuote();
                         } else {
                             this.changeInputOptions('disabled', false);
-                            toggleSelectsUnderBlock($('loading-mask'), true);
-                            $('loading-mask').hide();
+                            hideLoader();
                             enableElements('save');
                         }
                     }
@@ -158,8 +158,7 @@ directPost.prototype = {
                     case 'sales_order_edit':
                     case 'sales_order_create':
                         this.changeInputOptions('disabled', false);
-                        toggleSelectsUnderBlock($('loading-mask'), true);
-                        $('loading-mask').hide();
+                        hideLoader();
                         enableElements('save');
                         break;
                 }
@@ -246,9 +245,7 @@ directPost.prototype = {
             });
             this.hasError = false;
             if (paymentMethodEl.value == this.code) {
-                toggleSelectsUnderBlock($('loading-mask'), false);
-                $('loading-mask').show();
-                setLoaderPosition();
+                showLoader();
                 this.changeInputOptions('disabled', 'disabled');
                 this.paymentRequestSent = true;
                 this.orderRequestSent = true;
