@@ -9,7 +9,7 @@
  * @category    design
  * @package     base_default
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @copyright   Copyright (c) 2021 The OpenMage Contributors (https://www.openmage.org)
+ * @copyright   Copyright (c) 2021-2022 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
@@ -19,14 +19,15 @@
     <h1><?php echo $this->__('Tracking Information'); ?></h1>
     <button class="button" onclick="window.close(); window.opener.focus();"><span><span><?php echo $this->__('Close Window') ?></span></span></button>
 </div>
-<?php if(sizeof($_results)>0): ?>
+<?php if(count($_results) > 0): ?>
 <?php foreach($_results as $shipid => $_result): ?>
     <?php if($shipid): ?>
     <h2 class="sub-title"><?php echo $this->__('Shipment #').$shipid; ?></h2>
     <?php endif ?>
-    <?php if(sizeof($_result)>0): ?>
-        <?php $rowCount = sizeof($_result); $counter = 1; ?>
-        <?php $_id = 0; foreach($_result as $track): ?>
+    <?php if(($rowCount = count($_result)) > 0): ?>
+        <?php $counter = 1;
+        $_id = 0;
+        foreach($_result as $track): ?>
             <table class="tracking-table-popup data-table" id="tracking-table-popup-<?php echo $_id ?>">
                 <col width="15%" />
                 <col />
@@ -117,7 +118,7 @@
                 </tbody>
             </table>
             <script type="text/javascript">decorateTable('tracking-table-popup-<?php echo $_id++ ?>');</script>
-            <?php if (is_object($track) && sizeof($track->getProgressdetail())>0): ?>
+            <?php if (is_object($track) && is_array($track->getProgressdetail()) && count($track->getProgressdetail()) > 0): ?>
                 <br />
                 <table class="data-table" id="track-history-table-<?php echo $track->getTracking(); ?>">
                     <col />
