@@ -9,6 +9,7 @@
  * @category    design
  * @package     base_default
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright   Copyright (c) 2021-2022 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 /* @var $this Mage_Wishlist_Block_Customer_Wishlist */
@@ -22,7 +23,7 @@
         </div>
         <?php echo $this->getMessagesBlock()->toHtml() ?>
 
-        <form id="wishlist-view-form" action="<?php echo $this->getUrl('*/*/update', array('wishlist_id' => $this->getWishlistInstance()->getId())) ?>" method="post">
+        <form id="wishlist-view-form" action="<?php echo $this->getUrl('*/*/update', ['wishlist_id' => $this->getWishlistInstance()->getId()]) ?>" method="post">
             <?php echo $this->getChildHtml('top'); ?>
             <fieldset>
                 <?php if ($this->hasWishlistItems()): ?>
