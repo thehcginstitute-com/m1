@@ -8,6 +8,7 @@
  * @category    Mage
  * @package     Mage_Adminhtml
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright   Copyright (c) 2019-2022 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 var varienGrid = new Class.create();
@@ -49,6 +50,8 @@ varienGrid.prototype = {
             for (var row=0; row<this.rows.length; row++) {
                 if(row%2==0){
                     Element.addClassName(this.rows[row], 'even');
+                }else{
+                    Element.addClassName(this.rows[row], 'odd');
                 }
 
                 Event.observe(this.rows[row],'mouseover',this.trOnMouseOver);
@@ -279,10 +282,12 @@ varienGrid.prototype = {
             if(filters[i].value && filters[i].value.length) elements.push(filters[i]);
         }
         if (!this.doFilterCallback || (this.doFilterCallback && this.doFilterCallback())) {
+            this.addVarToUrl(this.pageVar, 1);
             this.reload(this.addVarToUrl(this.filterVar, encode_base64(Form.serializeElements(elements))));
         }
     },
     resetFilter : function(){
+        this.addVarToUrl(this.pageVar, 1);
         this.reload(this.addVarToUrl(this.filterVar, ''));
     },
     checkCheckboxes : function(element){

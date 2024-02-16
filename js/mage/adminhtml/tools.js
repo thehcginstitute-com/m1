@@ -8,6 +8,7 @@
  * @category    Mage
  * @package     Mage_Adminhtml
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright   Copyright (c) 2019 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 function setLocation(url){
@@ -513,7 +514,7 @@ var Cookie = {
         if (cookieLifeTime) {
             var date = new Date();
             date.setTime(date.getTime()+(cookieLifeTime*1000));
-            expires = '; expires='+date.toGMTString();
+            expires = '; expires='+date.toUTCString();
         }
         var urlPath = '/' + BASE_URL.split('/').slice(3).join('/'); // Get relative path
         document.cookie = escape(cookieName) + "=" + escape(cookieValue) + expires + "; path=" + urlPath;
