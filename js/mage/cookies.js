@@ -8,6 +8,7 @@
  * @category    Mage
  * @package     js
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright   Copyright (c) 2018-2019 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 // old school cookie functions grabbed off the web
@@ -27,7 +28,7 @@ Mage.Cookies.set = function(name, value){
      var domain = (argc > 4) ? argv[4] : Mage.Cookies.domain;
      var secure = (argc > 5) ? argv[5] : Mage.Cookies.secure;
      document.cookie = name + "=" + escape (value) +
-       ((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+       ((expires == null) ? "" : ("; expires=" + expires.toUTCString())) +
        ((path == null) ? "" : ("; path=" + path)) +
        ((domain == null) ? "" : ("; domain=" + domain)) +
        ((secure == true) ? "; secure" : "");
@@ -52,8 +53,7 @@ Mage.Cookies.get = function(name){
 
 Mage.Cookies.clear = function(name) {
   if(Mage.Cookies.get(name)){
-    document.cookie = name + "=" +
-    "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+       Mage.Cookies.set(name, '', new Date(0));
   }
 };
 
