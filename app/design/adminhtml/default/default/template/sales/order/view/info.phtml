@@ -213,7 +213,9 @@ $helper = Mage::helper('iwd_ordermanager');
 							# https://github.com/thehcginstitute-com/m1/issues/327
 							$p = 'hcg/sales/order/view/info/'; /** @var string $p */
 							echo df_render_simple("{$p}IWD_OnepageCheckoutSignature.phtml", [], ['_order' => $_order]);
-							echo df_render_simple("{$p}Webkul_CustomField.phtml", [], ['b' => $this]);
+							# 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+							# "Delete the unused `Webkul_CustomField` module":
+							# https://github.com/thehcginstitute-com/m1/issues/382
 						?>
                     </table>
                 </div>
