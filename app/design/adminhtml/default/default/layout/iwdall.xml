@@ -7,18 +7,12 @@
 			<action method="addCss"><name>iwd/all/iwdall.css</name></action>
 		</reference>
 	</default>
-	
 	 <adminhtml_iwd_all_support_index>
         <update handle="editor"/>
         <reference name="content">
             <block type="iwdall/adminhtml_support_edit" after="-" name="supportform"/>
         </reference>
     </adminhtml_iwd_all_support_index>
-	
-	<adminhtml_system_config_edit>
-        <reference name="content">
-            <block type="iwdall/jsinit" name="iwd_all_jsinit" template="iwd/jsinit.phtml"/>
-        </reference>
-    </adminhtml_system_config_edit>
-	
+<!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent `IWD_All` from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/370 -->
 </layout>
