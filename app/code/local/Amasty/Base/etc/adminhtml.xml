@@ -21,9 +21,8 @@
                                     <ambase translate="title">
                                         <title>Amasty - Extensions Information</title>
                                     </ambase>
-                                    <amstore translate="title">
-                                        <title>Amasty - Extensions Store</title>
-                                    </amstore>
+<!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent Amasty from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/380 -->
                                 </children>
                             </config>
                         </children>
