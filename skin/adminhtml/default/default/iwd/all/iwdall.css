@@ -1,8 +1,0 @@
-.head-adminhtml-message{background-image: url("../../images/fam_folder_table.gif");}
-.iwd-notification{ text-decoration: none;}
-.head-adminhtml-list { background-image: url("../../images/fam_package.gif");}
-.iwd-block dl > dt.label{background: url("images/iwdlogo.png") no-repeat scroll 10px 2px #D1DEDF;padding-left: 50px;text-indent: -999em;}
-.defaultadmin .iwd-block dl > dt.label {background:url("images/iwdlogo.png") no-repeat scroll 25px 9px #424a4d !important;}
-
-/* 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Prevent `IWD_All` from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/370 */
