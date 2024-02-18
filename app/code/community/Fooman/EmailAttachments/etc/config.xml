@@ -159,14 +159,8 @@
             </creditmemo_comment>
         </sales_email>
     </default>
-    <!--<crontab>
-        <jobs>
-            <emailattachments_updates>
-                <schedule><cron_expr>* */8 * * *</cron_expr></schedule>
-                <run><model>emailattachments/updates::checkUpdate</model></run>
-            </emailattachments_updates>
-        </jobs>
-    </crontab>-->
+<!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent `Fooman_EmailAttachments` from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/369 -->
     <phpunit>
         <suite>
             <modules>
