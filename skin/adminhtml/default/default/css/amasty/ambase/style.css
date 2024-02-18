@@ -1,26 +1,5 @@
-#amasty_store
-{
-    border: none;
-    height: 1700px; /* fallback */
-    width: 100%;
-}
-
-.amasty-store-tab
-{
-    position: relative;
-}
-
-.amasty-store-tab span:after
-{
-    top: 0;
-    right: 3px;
-    position: absolute;
-    content: " ";
-    display: block;
-    background: url(../../../images/ambase/shop.png) no-repeat;
-    width: 55px;
-    height: 23px;
-}
+/* 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent Amasty from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/380 */
 
 .ambase-debug-section{
     background: #FFF;
