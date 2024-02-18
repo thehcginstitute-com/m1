@@ -29,18 +29,9 @@
 1) "Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354
 2) "Delete the unused `Mage_Authorizenet` module": https://github.com/thehcginstitute-com/m1/issues/352
 3) "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
-4) "Delete the Braintree support from IWD modules": https://github.com/thehcginstitute-com/m1/issues/360 -->
-            <iwdall>
-                <class>IWD_All_Model</class>
-                <resourceModel>iwdall_mysql4</resourceModel>
-            </iwdall>
-
-            <iwdall_mysql4>
-                <class>IWD_All_Model_Mysql4</class>
-                <entities>
-                   
-                </entities>
-            </iwdall_mysql4>
+4) "Delete the Braintree support from IWD modules": https://github.com/thehcginstitute-com/m1/issues/360 
+2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent `IWD_All` from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/370 -->
         </models>
 
         <resources>
