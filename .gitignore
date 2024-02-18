@@ -26,7 +26,6 @@
 !/app/**/*
 /app/etc/local.xml
 !/errors/**/*
-!/includes/**/*
 !/js/**/*
 !/lib/**/*
 !/shell/**/*
