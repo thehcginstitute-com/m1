@@ -12,9 +12,8 @@
             <action method="addCss">
                 <name>css/amasty/ambase/style.css</name>
             </action>
-            <action method="addJs">
-                <name>amasty/ambase/store.js</name>
-            </action>
+<!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent Amasty from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/380 -->
         </reference>
     </adminhtml_system_config_edit>
     <adminhtml_ambase_base_ajax>
