@@ -127,14 +127,6 @@
             </modules>
         </translate>
     </adminhtml>
-
-    <default>
-        <ambase>
-            <feed>
-                <check_frequency>86400</check_frequency>
-                <update>1</update>
-                <promo>1</promo>
-            </feed>
-        </ambase>
-    </default>
+<!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent Amasty from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/380 -->
 </config>
