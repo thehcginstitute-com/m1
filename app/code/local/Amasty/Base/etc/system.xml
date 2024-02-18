@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <amasty translate="label" module="ambase">
+            <label>Amasty</label>
+            <sort_order>400</sort_order>
+        </amasty>
+    </tabs>
+</config>

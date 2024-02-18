@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Amasty_Base>
+            <version>2.1.15</version>
+        </Amasty_Base>
+    </modules>
+    <global>
+        <helpers>
+            <ambase>
+                <class>Amasty_Base_Helper</class>
+            </ambase>
+        </helpers>
+    </global>
+</config>
