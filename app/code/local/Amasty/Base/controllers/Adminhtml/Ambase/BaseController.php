@@ -31,16 +31,8 @@ class Amasty_Base_Adminhtml_Ambase_BaseController extends Mage_Adminhtml_Control
         }
     }
     
-    public function closePromoAction()
-    {
-        $collection = Mage::helper("ambase/promo")->getNotificationsCollection();
-        
-        foreach($collection as $notification)
-        {
-            $notification->setIsRead(true);
-            $notification->save();
-        }
-    }
+	# 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Prevent Amasty from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/380
     
     public function ajaxAction()
     {
