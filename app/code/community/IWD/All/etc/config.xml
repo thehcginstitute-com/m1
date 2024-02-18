@@ -1,69 +1,45 @@
 <?xml version="1.0"?>
 <config>
-    <modules>
-        <IWD_All>
-            <version>2.2.4</version>
-        </IWD_All>
-    </modules>
-
+	<modules>
+		<IWD_All>
+			<version>2.2.4</version>
+		</IWD_All>
+	</modules>
 <!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Prevent `IWD_All` from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/370 -->
-
-    <adminhtml>
-        <translate>
-            <modules>
-                <IWD_All>
-                    <files>
-                        <default>IWD_All.csv</default>
-                    </files>
-                </IWD_All>
-            </modules>
-        </translate>
+	<adminhtml>
+		<translate>
+			<modules>
+				<IWD_All>
+					<files>
+						<default>IWD_All.csv</default>
+					</files>
+				</IWD_All>
+			</modules>
+		</translate>
 <!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Prevent `IWD_All` from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/370 -->
-    </adminhtml>
-
-    <global>
-        <models>
+	</adminhtml>
+	<global>
+		<models>
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 1) "Delete the unused `Mage_Paygate` module": https://github.com/thehcginstitute-com/m1/issues/354
 2) "Delete the unused `Mage_Authorizenet` module": https://github.com/thehcginstitute-com/m1/issues/352
 3) "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
-4) "Delete the Braintree support from IWD modules": https://github.com/thehcginstitute-com/m1/issues/360 
+4) "Delete the Braintree support from IWD modules": https://github.com/thehcginstitute-com/m1/issues/360
 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Prevent `IWD_All` from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/370 -->
-        </models>
-
-        <resources>
-            <iwdall_setup>
-                <setup>
-                    <module>IWD_All</module>
-                </setup>
-            </iwdall_setup>
-
-            <iwdall_write>
-                <connection>
-                    <use>core_write</use>
-                </connection>
-            </iwdall_write>
-
-            <iwdall_read>
-                <connection>
-                    <use>core_read</use>
-                </connection>
-            </iwdall_read>
-        </resources>
-
-        <helpers>
-            <iwdall>
-                <class>IWD_All_Helper</class>
-            </iwdall>
-        </helpers>
-
+		</models>
 <!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Prevent `IWD_All` from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/370 -->
-    </global>
-
+		<helpers>
+			<iwdall>
+				<class>IWD_All_Helper</class>
+			</iwdall>
+		</helpers>
+<!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent `IWD_All` from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/370 -->
+	</global>
 <!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Prevent `IWD_All` from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/370 -->
 </config>
