@@ -19,18 +19,6 @@ class Amasty_Base_Adminhtml_Ambase_BaseController extends Mage_Adminhtml_Control
         return $this->_moduleHelper;
     }
     
-    public function closeUpdateAction()
-    {
-        $code = Mage::app()->getRequest()->getParam('code');
-        
-        $moduleHelper = $this->_getModuleHelper($code);
-        
-        if ($moduleHelper->isNewVersionAvailable())
-        {
-            $moduleHelper->setModuleUpdated();
-        }
-    }
-    
 	# 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	# "Prevent Amasty from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/380
     
