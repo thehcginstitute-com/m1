@@ -10,7 +10,9 @@ class Amasty_Notfound_Model_Admin_Session extends Mage_Admin_Model_Session
     {
         $serverProtocol = !empty($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0';
         header("$serverProtocol 404 Not Found", true, 404);
-        Mage::helper('ambase/utils')->_exit();
+		# 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "The `create_function` function was removed in PHP 8": https://github.com/thehcginstitute-com/m1/issues/381
+        exit(0);
     }
     
     protected function _config($key, $asNumber=false)
