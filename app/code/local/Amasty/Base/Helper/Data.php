@@ -139,12 +139,8 @@ class Amasty_Base_Helper_Data extends Mage_Core_Helper_Abstract
         return $_finalResult;
     }
     
-    public function ajaxHtml(){        
-        return Mage::app()->getLayout()->createBlock('ambase/adminhtml_debug_general')->toHtml() . 
-                Mage::app()->getLayout()->createBlock('ambase/adminhtml_debug_conflict')->toHtml() .
-                Mage::app()->getLayout()->createBlock('ambase/adminhtml_debug_rewrite')->toHtml() .
-                Mage::app()->getLayout()->createBlock('ambase/adminhtml_debug_event')->toHtml();
-    }
+	# 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Prevent Amasty from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/380
     
     public function getParentClasses($class){
         return array_values(class_parents($class));
