@@ -205,7 +205,7 @@ https://github.com/thehcginstitute-com/m1/issues/8 -->
 								type="password"
 								name="password"
 								id="password"
-								title="<?= Mage::helper('core')->quoteEscape($this->__('Password')) ?>"
+								title="<?= $this->quoteEscape($this->__('Password')) ?>"
 								class="input-text required-entry validate-password min-pass-length-<?= $minPasswordLength ?>"
 							/>
                             <p class="form-instructions"><?= Mage::helper('customer')->__('The minimum password length is %s', $minPasswordLength) ?></p>
