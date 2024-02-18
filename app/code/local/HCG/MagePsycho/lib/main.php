@@ -22,7 +22,6 @@ use MagePsycho_Storerestrictionpro_Helper_Data as hS;
  * @used-by app/code/local/MagePsycho/Customerregfields/sql/magepsycho_customerregfields_setup/mysql4-upgrade-0.1.0-0.2.2.php
  * @used-by app/design/frontend/base/default/template/checkout/onepage/billing.phtml
  * @used-by app/design/frontend/base/default/template/customer/form/edit.phtml
- * @used-by app/design/frontend/base/default/template/customfield/customfields.phtml
  * @used-by app/design/frontend/base/default/template/magepsycho/customerregfields/customer/widget/type/group_code.phtml
  * @used-by app/design/frontend/base/default/template/magepsycho/customerregfields/customer/widget/type/group_id.phtml
  */
