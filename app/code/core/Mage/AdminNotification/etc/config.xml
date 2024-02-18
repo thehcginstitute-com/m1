@@ -59,16 +59,8 @@
                 </Mage_AdminNotification>
             </modules>
         </translate>
-        <events>
-            <controller_action_predispatch>
-                <observers>
-                    <adminnotification>
-                        <class>adminnotification/observer</class>
-                        <method>preDispatch</method>
-                    </adminnotification>
-                </observers>
-            </controller_action_predispatch>
-        </events>
+<!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent OpenMage from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/371 -->
         <layout>
             <updates>
                 <adminnotification>
