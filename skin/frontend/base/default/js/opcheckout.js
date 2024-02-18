@@ -8,6 +8,7 @@
  * @category    design
  * @package     base_default
  * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @copyright   Copyright (c) 2015-2019 The OpenMage Contributors (https://www.openmage.org)
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 var Checkout = Class.create();
@@ -78,9 +79,9 @@ Checkout.prototype = {
 
     _disableEnableAll: function(element, isDisabled) {
         var descendants = element.descendants();
-        for (var k in descendants) {
-            descendants[k].disabled = isDisabled;
-        }
+        descendants.each(function(descendant) {
+            descendant.disabled = isDisabled;
+        });
         element.disabled = isDisabled;
     },
 
@@ -730,7 +731,7 @@ Payment.prototype = {
     changeVisible: function(method, mode) {
         var block = 'payment_form_' + method;
         [block + '_before', block, block + '_after'].each(function(el) {
-            element = $(el);
+            var element = $(el);
             if (element) {
                 element.style.display = (mode) ? 'none' : '';
                 element.select('input', 'select', 'textarea', 'button').each(function(field) {
