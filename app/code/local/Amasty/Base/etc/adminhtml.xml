@@ -32,17 +32,8 @@
             </admin>
         </resources>
     </acl>
-    <events>
-        <controller_action_predispatch>
-            <observers>
-                <ambase_upds>
-                    <type>singleton</type>
-                    <class>ambase/feed</class>
-                    <method>check</method>
-                </ambase_upds>
-            </observers>
-        </controller_action_predispatch>
-    </events>
+<!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent Amasty from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/380 -->
     <translate>
         <modules>
             <Amasty_Base>
