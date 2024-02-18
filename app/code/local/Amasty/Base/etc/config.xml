@@ -100,22 +100,10 @@
                 </admin>
             </resources>
         </acl>
-        <events>
-<!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Prevent Amasty from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/380 -->
 <!-- 2018-09-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 «include(Amasty\Base\Model\Observer.php): failed to open stream: No such file or directory»
-            <controller_action_layout_render_before_adminhtml_system_config_edit>
-                <observers>
-                    <amsupport>
-                        <type>singleton</type>
-                        <class>ambase/observer</class>
-                        <method>addSupportBlock</method>
-                    </amsupport>
-                </observers>
-            </controller_action_layout_render_before_adminhtml_system_config_edit>
--->
-        </events>
+2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent Amasty from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/380 -->
         <translate>
             <modules>
                 <Amasty_Base>
