@@ -6,13 +6,8 @@
                 <iwdall>
                     <title>IWD Extensions</title>
                     <sort_order>0</sort_order>
-                    <children>
-                        <support>
-                            <title>Support</title>
-                            <sort_order>0</sort_order>
-                            <action>adminhtml/iwd_all_support/index</action>
-                        </support>
-                    </children>
+<!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent `IWD_All` from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/370 -->
                 </iwdall>
             </children>
         </system>
@@ -43,10 +38,8 @@
                                         <title>IWD Core</title>
                                         <sort_order>60</sort_order>
                                     </iwdall>
-                                    <iwdstore translate="title" module="iwdall">
-                                        <title>IWD Extensions</title> 
-                                        <sort_order>60</sort_order>
-                                    </iwdstore>
+<!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Prevent `IWD_All` from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/370 -->
                                 </children>
                             </config>
                         </children>
