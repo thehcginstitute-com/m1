@@ -53,9 +53,9 @@ class Boot {
 	 * В том числе, в частости, не можем прочитывать настройки текущего магазина.
 	 * @used-by self::run()
 	 */
-	private static function init() {
+	private static function init():void {
 		self::lib();
-		register_shutdown_function(function() {\Df\Qa\Failure\Error::check();});
+		register_shutdown_function(function():void {\Df\Qa\Failure\Error::check();});
 	}
 
 	/** 
