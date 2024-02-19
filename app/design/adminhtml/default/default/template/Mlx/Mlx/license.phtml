@@ -21,11 +21,8 @@
 	    	<div class="hor-scroll">
 	    		<table cellspacing="0" class="form-list">
 	    			<tbody>	
-	    				<tr>
-	        				<td class="label"><label><?php echo $this->__('License info'); ?></label></td>
-	    					<td class="value"><?php echo $this->getLicenseInfo($extension->getKey(), $extension->getSortCode()); ?></td>
-	    				</tr>
-	    				
+<!-- 2024-02-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the MLX licensing code because it is deprecated": https://github.com/thehcginstitute-com/m1/issues/389 -->
 	    				<tr>
 	        				<td class="label"><label for="key_<?php echo $extension->getCode(); ?>"><?php echo $this->__('License key'); ?></label></td>
 	    					<td class="value"><input style="width: 600px;" id="key_<?php echo $extension->getCode(); ?>" name="key" value="<?php echo $extension->getKey(); ?>" type="text" class="input-text required-entry"></td>
