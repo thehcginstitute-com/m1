@@ -4,7 +4,9 @@
  		<reference name="head">
 			<action method="addJs"><script>Mlx/Mlx/tinybox/tinybox.js</script></action>
 			<action method="addCss"><stylesheet>Mlx/Mlx/css/tinybox/style.css</stylesheet></action>
-			<action method="addCss"><stylesheet>Mlx/Mlx/css/style.css</stylesheet></action>
+<!-- 2024-02-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+«GET /skin/adminhtml/base/default/Mlx/Mlx/css/style.css net::ERR_ABORTED 404 (Not Found)»: https://github.com/thehcginstitute-com/m1/issues/385 -->
+			<action method="addCss"><stylesheet>Mlx/css/style.css</stylesheet></action>
 		</reference>
 	</default>	
 <!-- 2024-02-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
