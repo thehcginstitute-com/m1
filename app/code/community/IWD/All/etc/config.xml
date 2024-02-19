@@ -42,4 +42,15 @@
 	</global>
 <!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Prevent `IWD_All` from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/370 -->
+	<frontend>
+		<layout>
+			<updates>
+				<iwdall>
+<!-- 2024-02-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+«jQueryIWD is not defined»: https://github.com/thehcginstitute-com/m1/issues/393 -->
+					<file>iwd_all.xml</file>
+				</iwdall>
+			</updates>
+		</layout>
+	</frontend>
 </config>
