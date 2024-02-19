@@ -6,7 +6,7 @@
  * @return array
  */
 function df_context() {return
-	[ 'Magento' => Mage::getVersion(), 'PHP' => phpversion()]
+	['OpenMage' => Mage::getOpenMageVersion(), 'PHP' => phpversion()]
 	+ (df_is_cli()
 		? ['Command' => df_cli_cmd()]
 		: ([
