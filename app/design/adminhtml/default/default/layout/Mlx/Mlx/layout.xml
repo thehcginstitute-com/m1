@@ -7,11 +7,6 @@
 			<action method="addCss"><stylesheet>Mlx/Mlx/css/style.css</stylesheet></action>
 		</reference>
 	</default>	
-	
-	<adminhtml_mlx_license_index>
-		<reference name="content">
-			<block type="mlx/adminhtml_license" template="Mlx/Mlx/license.phtml" name="mlx.license" />
-		</reference>
-	</adminhtml_mlx_license_index>
-
+<!-- 2024-02-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the MLX licensing code because it is deprecated": https://github.com/thehcginstitute-com/m1/issues/389 -->
 </layout>
