@@ -184,7 +184,8 @@ function mageCoreErrorHandler($errno, $errstr, $errfile, $errline)
 	 * 2024-02-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * 1) "PHP errors should be logged to separate files in the `var/log/mage2.pro` folder":
 	 * https://github.com/thehcginstitute-com/m1/issues/390
-	 * 2) @todo Call @see \Mage_Core_Model_App::setErrorHandler() in \Df\Core\Boot::init() instead.
+	 * 2) @todo Call @see \Mage_Core_Model_App::setErrorHandler() in \Df\Core\Boot::init() instead:
+	 * https://github.com/thehcginstitute-com/m1/issues/391
 	 */
 	df_log($errorMessage);
     if (Mage::getIsDeveloperMode()) {
