@@ -43,7 +43,6 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     public const XML_PATH_USE_FRONTEND_SID     = 'web/session/use_frontend_sid';
 
     public const XML_NODE_USET_AGENT_SKIP      = 'global/session/validation/http_user_agent_skip';
-    public const XML_PATH_LOG_EXCEPTION_FILE   = 'dev/log/exception_file';
 
     public const SESSION_ID_QUERY_PARAM        = 'SID';
 
