@@ -26,9 +26,7 @@ final class Frame extends \Df\Core\O {
 	 * @used-by df_sentry()
 	 * @used-by \Df\Qa\Trace\Formatter::p()
 	 */
-	function file():string {return dfc($this, function() {return
-		!($r = (string)$this['file'])? $r : df_path_relative($r);});
-	}
+	function file():string {return dfc($this, function() {return !($r = (string)$this['file'])? $r : df_path_relative($r);});}
 
 	/**
 	 * 2015-04-03 Строка отсутствует при вызовах типа @see call_user_func()

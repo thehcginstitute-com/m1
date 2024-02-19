@@ -51,10 +51,10 @@ function df_path_n($p) {return str_replace(['\/', '\\'], '/', $p);}
 
 /**
  * 2015-12-06 It trims the ending «/».
- * @param string $p
- * @param string $b [optional]
- * @return string
+ * @used-by df_module_name_by_path()
+ * @used-by \Df\Qa\Failure\Error::preface()
+ * @used-by \Df\Qa\Trace\Frame::file()
  */
-function df_path_relative($p, $b = BP) {return df_trim_text_left(
-	df_trim_ds_left(df_path_n($p)), df_trim_ds_left(df_path_n($b))
+function df_path_relative(string $p):string {return df_trim_text_left(
+	df_trim_ds_left(df_path_n($p)), df_trim_ds_left(df_path_n(BP . '/'))
 );}
