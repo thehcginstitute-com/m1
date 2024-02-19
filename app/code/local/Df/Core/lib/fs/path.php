@@ -50,7 +50,7 @@ function df_adjust_paths_in_message($m) {
 function df_path_n($p) {return str_replace(['\/', '\\'], '/', $p);}
 
 /**
- * 2015-12-06 Левый «/» мы убираем.
+ * 2015-12-06 It trims the ending «/».
  * @param string $p
  * @param string $b [optional]
  * @return string
