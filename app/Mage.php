@@ -933,8 +933,12 @@ final class Mage
         if (!self::getConfig()) {
             return;
         }
-        $file = self::getStoreConfig('dev/log/exception_file');
-        self::log("\n" . $e->__toString(), Zend_Log::ERR, $file);
+		# 2024-02-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# 1) "Exceptions should be logged to separate files in the `var/log/mage2.pro` folder":
+		# https://github.com/thehcginstitute-com/m1/issues/387
+		# 2) The original code:
+		# https://github.com/thehcginstitute-com/m1/blob/2024-02-19/app/Mage.php#L936-L937
+		df_log($e);
     }
 
     /**
