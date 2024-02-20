@@ -19,7 +19,8 @@ $installer = $this;
 $orderGridTable             = $installer->getTable('sales/order_grid');
 $orderTable                 = $installer->getTable('sales/order');
 $paymentTransactionTable    = $installer->getTable('sales/payment_transaction');
-$profileTable               = $installer->getTable('sales_recurring_profile');
+# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 $orderItemTable             = $installer->getTable('sales_flat_order_item');
 $flatOrderTable             = $installer->getTable('sales_flat_order');
 $profileOrderTable          = $installer->getTable('sales_recurring_profile_order');
