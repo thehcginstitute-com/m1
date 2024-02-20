@@ -434,7 +434,8 @@ class Mage_Sales_Model_Entity_Setup extends Mage_Eav_Model_Entity_Setup
                     'original_price'    => ['type' => 'decimal'],
                     'price'             => ['type' => 'decimal'],
                     'cost'              => ['type' => 'decimal'],
-                    'is_nominal'        => ['type' => 'int'],
+					# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
 
                     'discount_percent'  => ['type' => 'decimal'],
                     'discount_amount'   => ['type' => 'decimal'],
