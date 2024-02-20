@@ -52,7 +52,8 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
     public const CHECK_USE_FOR_MULTISHIPPING = 8;
     public const CHECK_USE_INTERNAL          = 16;
     public const CHECK_ORDER_TOTAL_MIN_MAX   = 32;
-    public const CHECK_RECURRING_PROFILES    = 64;
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
     public const CHECK_ZERO_TOTAL            = 128;
 
     protected $_code;
