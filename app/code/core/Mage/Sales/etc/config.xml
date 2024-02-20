@@ -1527,9 +1527,8 @@ https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/code/core/Mage/Sales
                 <sales module="Mage_Sales">
                     <file>sales.xml</file>
                 </sales>
-                <sales_billing_agreement module="Mage_Sales">
-                    <file>sales/billing_agreement.xml</file>
-                </sales_billing_agreement>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
                 <sales_recurring_profile module="Mage_Sales">
                     <file>sales/recurring_profile.xml</file>
                 </sales_recurring_profile>
