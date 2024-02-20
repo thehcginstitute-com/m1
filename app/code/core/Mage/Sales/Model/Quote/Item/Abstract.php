@@ -107,8 +107,8 @@
  *
  * @method string getName()
  * @method bool getNoDiscount()
- * @method float getNominalRowTotal()
- * @method array getNominalTotalDetails()
+ * 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
  *
  * @method $this unsMessage()
  *
