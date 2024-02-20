@@ -248,38 +248,9 @@ class Mage_Sales_Model_Observer
         return $this;
     }
 
-    /**
-     * Add the recurring profile form when editing a product
-     *
-     * @param Varien_Event_Observer $observer
-     */
-    public function prepareProductEditFormRecurringProfile($observer)
-    {
-        // replace the element of recurring payment profile field with a form
-        $profileElement = $observer->getEvent()->getProductElement();
-        $block = Mage::app()->getLayout()->createBlock(
-            'sales/adminhtml_recurring_profile_edit_form',
-            'adminhtml_recurring_profile_edit_form'
-        )->setParentElement($profileElement)
-            ->setProductEntity($observer->getEvent()->getProduct());
-        $observer->getEvent()->getResult()->output = $block->toHtml();
-
-        // make the profile element dependent on is_recurring
-        /** @var Mage_Adminhtml_Block_Widget_Form_Element_Dependence $block */
-        $block = Mage::app()->getLayout()->createBlock(
-            'adminhtml/widget_form_element_dependence',
-            'adminhtml_recurring_profile_edit_form_dependence'
-        );
-        $dependencies = $block
-            ->addFieldMap('is_recurring', 'product[is_recurring]')
-            ->addFieldMap($profileElement->getHtmlId(), $profileElement->getName())
-            ->addFieldDependence($profileElement->getName(), 'product[is_recurring]', '1')
-            ->addConfigOptions(['levels_up' => 2]);
-        $observer->getEvent()->getResult()->output .= $dependencies->toHtml();
-    }
-
 	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
+	# 1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
+	# 2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
     /**
      * Set new customer group to all his quotes
