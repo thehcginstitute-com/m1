@@ -50,25 +50,8 @@ $installer->getConnection()->dropForeignKey(
     'FK_PRODUCT_ORDERED_AGGREGATED_YEARLY_STORE_ID'
 );
 
-$installer->getConnection()->dropForeignKey(
-    $installer->getTable('sales/billing_agreement'),
-    'FK_BILLING_AGREEMENT_CUSTOMER'
-);
-
-$installer->getConnection()->dropForeignKey(
-    $installer->getTable('sales/billing_agreement'),
-    'FK_BILLING_AGREEMENT_STORE'
-);
-
-$installer->getConnection()->dropForeignKey(
-    $installer->getTable('sales/billing_agreement_order'),
-    'FK_BILLING_AGREEMENT_ORDER_AGREEMENT'
-);
-
-$installer->getConnection()->dropForeignKey(
-    $installer->getTable('sales/billing_agreement_order'),
-    'FK_BILLING_AGREEMENT_ORDER_ORDER'
-);
+# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
 $installer->getConnection()->dropForeignKey(
     $installer->getTable('sales/creditmemo'),
