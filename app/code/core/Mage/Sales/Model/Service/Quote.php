@@ -214,17 +214,8 @@ class Mage_Sales_Model_Service_Quote
      */
     public function submitAll()
     {
-        // don't allow submitNominalItems() to inactivate quote
-        $shouldInactivateQuoteOld = $this->_shouldInactivateQuote;
-        $this->_shouldInactivateQuote = false;
-        try {
-			# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
-            $this->_shouldInactivateQuote = $shouldInactivateQuoteOld;
-        } catch (Exception $e) {
-            $this->_shouldInactivateQuote = $shouldInactivateQuoteOld;
-            throw $e;
-        }
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
         // no need to submit the order if there are no normal items remained
         if (!$this->_quote->getAllVisibleItems()) {
             $this->_inactivateQuote();
