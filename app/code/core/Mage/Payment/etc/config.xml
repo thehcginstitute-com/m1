@@ -127,16 +127,8 @@
                 </Mage_Payment>
             </modules>
         </translate>
-        <events>
-            <catalog_product_type_prepare_full_options>
-                <observers>
-                    <payment_recurring_profile_prepare_options>
-                        <class>payment/observer</class>
-                        <method>prepareProductRecurringProfileOptions</method>
-                    </payment_recurring_profile_prepare_options>
-                </observers>
-            </catalog_product_type_prepare_full_options>
-        </events>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
         <layout>
             <updates>
                 <payment module="Mage_Payment">
