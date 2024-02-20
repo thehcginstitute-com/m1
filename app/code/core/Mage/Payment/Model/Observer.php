@@ -53,52 +53,8 @@ class Mage_Payment_Model_Observer
         return $this;
     }
 
-    /**
-     * Collect buy request and set it as custom option
-     *
-     * Also sets the collected information and schedule as informational static options
-     *
-     * @param Varien_Event_Observer $observer
-     */
-    public function prepareProductRecurringProfileOptions($observer)
-    {
-        /** @var Mage_Catalog_Model_Product $product */
-        $product = $observer->getEvent()->getProduct();
-        $buyRequest = $observer->getEvent()->getBuyRequest();
-
-        if (!$product->isRecurring()) {
-            return;
-        }
-
-        $profile = Mage::getModel('payment/recurring_profile')
-            ->setLocale(Mage::app()->getLocale())
-            ->setStore(Mage::app()->getStore())
-            ->importBuyRequest($buyRequest)
-            ->importProduct($product);
-        if (!$profile) {
-            return;
-        }
-
-        // add the start datetime as product custom option
-        $product->addCustomOption(
-            Mage_Payment_Model_Recurring_Profile::PRODUCT_OPTIONS_KEY,
-            serialize(['start_datetime' => $profile->getStartDatetime()])
-        );
-
-        // duplicate as 'additional_options' to render with the product statically
-        $infoOptions = [[
-            'label' => $profile->getFieldLabel('start_datetime'),
-            'value' => $profile->exportStartDatetime(true),
-        ]];
-
-        foreach ($profile->exportScheduleInfo() as $info) {
-            $infoOptions[] = [
-                'label' => $info->getTitle(),
-                'value' => $info->getSchedule(),
-            ];
-        }
-        $product->addCustomOption('additional_options', serialize($infoOptions));
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
     /**
      * Sets current instructions for bank transfer account
