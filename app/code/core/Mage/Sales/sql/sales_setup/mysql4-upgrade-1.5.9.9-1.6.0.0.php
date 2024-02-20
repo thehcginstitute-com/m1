@@ -7538,38 +7538,8 @@ $installer->getConnection()->addForeignKey(
     'entity_id'
 );
 
-$installer->getConnection()->addForeignKey(
-    $installer->getFkName('sales/billing_agreement', 'customer_id', 'customer/entity', 'entity_id'),
-    $installer->getTable('sales/billing_agreement'),
-    'customer_id',
-    $installer->getTable('customer/entity'),
-    'entity_id'
-);
-
-$installer->getConnection()->addForeignKey(
-    $installer->getFkName('sales/billing_agreement', 'store_id', 'core/store', 'store_id'),
-    $installer->getTable('sales/billing_agreement'),
-    'store_id',
-    $installer->getTable('core/store'),
-    'store_id',
-    Varien_Db_Ddl_Table::ACTION_SET_NULL
-);
-
-$installer->getConnection()->addForeignKey(
-    $installer->getFkName('sales/billing_agreement_order', 'agreement_id', 'sales/billing_agreement', 'agreement_id'),
-    $installer->getTable('sales/billing_agreement_order'),
-    'agreement_id',
-    $installer->getTable('sales/billing_agreement'),
-    'agreement_id'
-);
-
-$installer->getConnection()->addForeignKey(
-    $installer->getFkName('sales/billing_agreement_order', 'order_id', 'sales/order', 'entity_id'),
-    $installer->getTable('sales/billing_agreement_order'),
-    'order_id',
-    $installer->getTable('sales/order'),
-    'entity_id'
-);
+# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
 $installer->getConnection()->addForeignKey(
     $installer->getFkName('sales/creditmemo', 'order_id', 'sales/order', 'entity_id'),
