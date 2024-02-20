@@ -55,8 +55,8 @@
  * @method string getLastRealOrderId()
  * @method $this setLastRealOrderId(string $value)
  * @method $this unsLastRealOrderId()
- * @method int getLastRecurringProfileIds()
- * @method $this setLastRecurringProfileIds(array $value)
+ * 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
  * @method int getLastSuccessQuoteId()
  * @method $this setLastSuccessQuoteId(int $value)
  * @method $this unsLastSuccessQuoteId()
