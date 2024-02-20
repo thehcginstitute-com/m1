@@ -32,7 +32,8 @@
 				, 'account_edit'=>'account_edit'
 				, 'address_book'=>'address_book'
 				, 'orders'=>'orders'
-				, 'billing_agreements'=>'billing_agreements'
+				# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 				, 'recurring_profiles'=>'recurring_profiles'
 				, 'reviews'=>'reviews'
 				, 'tags'=>'tags'
