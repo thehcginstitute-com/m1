@@ -1207,7 +1207,8 @@ https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/code/core/Mage/Sales
 "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407 -->
                     <subtotal>
                         <class>sales/quote_address_total_subtotal</class>
-                        <after>nominal</after>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407 -->
                         <before>grand_total</before>
                     </subtotal>
                     <shipping>
