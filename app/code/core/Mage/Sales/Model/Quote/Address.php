@@ -584,18 +584,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
         return $items;
     }
 
-    /**
-     * Getter for all non-nominal items
-     *
-     * @return array
-     */
-    public function getAllNonNominalItems()
-    {
-        $this->_nominalOnly = false;
-        $result = $this->getAllItems();
-        $this->_nominalOnly = null;
-        return $result;
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
 
     /**
      * Getter for all nominal items
