@@ -5469,23 +5469,8 @@ ul.crosssell-products-list {
 	margin: 5px 0 0;
 }
 
-.billing-agreements .info-box {
-	margin: 15px 0;
-}
-
-.billing-agreements .info-box p {
-	margin: 9px 0;
-}
-
-.billing-agreements .form-list li select {
-	float: left;
-	margin: 3px 10px 0 0;
-}
-
-.billing-agreements .table-caption {
-	font-weight: bold;
-	font-size: 13px;
-}
+/* 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 */
 
 .cart-msrp-totals {
 	color: red;
