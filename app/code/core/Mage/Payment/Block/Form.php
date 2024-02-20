@@ -58,13 +58,6 @@ class Mage_Payment_Block_Form extends Mage_Core_Block_Template
         return $this->escapeHtml($this->getMethod()->getInfoInstance()->getData($field));
     }
 
-    /**
-     * Check whether current payment method can create billing agreement
-     *
-     * @return bool
-     */
-    public function canCreateBillingAgreement()
-    {
-        return $this->getMethod()->canCreateBillingAgreement();
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 }
