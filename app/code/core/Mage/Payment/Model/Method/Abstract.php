@@ -299,18 +299,8 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
     }
 
 	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
-
-    /**
-     * Whether can manage recurring profiles
-     *
-     * @return bool
-     */
-    public function canManageRecurringProfiles()
-    {
-        return $this->_canManageRecurringProfiles
-               && ($this instanceof Mage_Payment_Model_Recurring_Profile_MethodInterface);
-    }
+	# 1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
+	# 2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
     /**
      * Retrieve model helper
