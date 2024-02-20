@@ -51,11 +51,8 @@
                     <action>adminhtml/sales_recurring_profile</action>
                     <sort_order>60</sort_order>
                 </recurring_profile>
-                <billing_agreement translate="title" module="sales">
-                    <title>Billing Agreements</title>
-                    <action>adminhtml/sales_billing_agreement</action>
-                    <sort_order>70</sort_order>
-                </billing_agreement>
+<!-- 2024-02-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
             </children>
          </sales>
          <system>
