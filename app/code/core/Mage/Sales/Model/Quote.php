@@ -1900,46 +1900,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     }
 
 	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
-
-    /**
-     * Getter whether quote has nominal items
-     * Can bypass treating virtual items as nominal
-     *
-     * @param bool $countVirtual
-     * @return bool
-     */
-    public function hasNominalItems($countVirtual = true)
-    {
-        foreach ($this->getAllVisibleItems() as $item) {
-            if ($item->isNominal()) {
-                if ((!$countVirtual) && $item->getProduct()->isVirtual()) {
-                    continue;
-                }
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Whether quote has nominal items only
-     *
-     * @return bool
-     */
-    public function isNominal()
-    {
-        foreach ($this->getAllVisibleItems() as $item) {
-            if (!$item->isNominal()) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
-
+	# 1) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
+	# 2) "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
     /**
      * @return $this
      */
