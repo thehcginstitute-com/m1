@@ -494,12 +494,10 @@ class Mage_Sales_Model_Order_Payment extends Mage_Payment_Model_Info
                 $invoice->setIsPaid(true);
                 $this->_updateTotals(['base_amount_paid_online' => $amountToCapture]);
             }
-            if ($order->isNominal()) {
-                $message = $this->_prependMessage(Mage::helper('sales')->__('Nominal order registered.'));
-            } else {
-                $message = $this->_prependMessage($message);
-                $message = $this->_appendTransactionToMessage($transaction, $message);
-            }
+			# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
+			$message = $this->_prependMessage($message);
+			$message = $this->_appendTransactionToMessage($transaction, $message);
             $order->setState($state, $status, $message);
             $this->getMethodInstance()->processInvoice($invoice, $this); // should be deprecated
             return $this;
