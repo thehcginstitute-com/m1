@@ -6,6 +6,13 @@
 			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
 		</HCG_Core>
 	</modules>
+	<adminhtml>
+		<layout>
+			<updates>
+				<hcg_core module='hcg_core'><file>hcg/core.xml</file></hcg_core>
+			</updates>
+		</layout>
+	</adminhtml>
 	<frontend>
 		<events>
 <!-- 2023-12-24
