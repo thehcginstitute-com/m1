@@ -302,20 +302,8 @@ class Mage_Sales_Model_Service_Quote
         return $this;
     }
 
-    /**
-     * Submit recurring payment profiles
-     */
-    protected function _submitRecurringPaymentProfiles()
-    {
-        $profiles = $this->_quote->prepareRecurringPaymentProfiles();
-        foreach ($profiles as $profile) {
-            if (!$profile->isValid()) {
-                Mage::throwException($profile->getValidationErrors(true, true));
-            }
-            $profile->submit();
-        }
-        $this->_recurringPaymentProfiles = $profiles;
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
     /**
      * Get rid of all nominal items
