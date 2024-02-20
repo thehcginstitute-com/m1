@@ -119,9 +119,8 @@
  * @method $this setIsInStock(bool $value)
  * @method bool getIsMassupdate()
  * @method $this setIsMassupdate(bool $value)
- * @method bool hasIsRecurring()
- * @method bool getIsRecurring()
- * @method $this unsRecurringProfile()
+ * 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
  * @method $this setIsSalable(bool $value)
  * @method $this setIsSuperMode(bool $value)
  *
