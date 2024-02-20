@@ -1258,8 +1258,8 @@ https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/code/core/Mage/Sales
                         <special_to_date/>
                         <special_price/>
                         <cost/>
-                        <is_recurring/>
-                        <recurring_profile/>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
                         <gift_message_available/>
                         <msrp_enabled/>
                         <msrp/>
