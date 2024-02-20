@@ -528,11 +528,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
         $cachedItems = 'all';
         $key = 'cached_items_' . $cachedItems;
         if (!$this->hasData($key)) {
-            // For compatibility  we will use $this->_filterNominal to divide nominal items from non-nominal
-            // (because it can be overloaded)
-            // So keep current flag $this->_nominalOnly and restore it after cycle
-            $wasNominal = $this->_nominalOnly;
-            $this->_nominalOnly = true; // Now $this->_filterNominal() will return positive values for nominal items
+			# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
 
             $quoteItems = $this->getQuote()->getItemsCollection();
             $addressItems = $this->getItemsCollection();
