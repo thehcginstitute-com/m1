@@ -1948,32 +1948,9 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
         }
         return true;
     }
-
-    /**
-     * Create recurring payment profiles basing on the current items
-     *
-     * @return Mage_Payment_Model_Recurring_Profile[]
-     */
-    public function prepareRecurringPaymentProfiles()
-    {
-        if (!$this->getTotalsCollectedFlag()) {
-            // Whoops! Make sure nominal totals must be calculated here.
-            throw new Exception('Quote totals must be collected before this operation.');
-        }
-
-        $result = [];
-        foreach ($this->getAllVisibleItems() as $item) {
-            $product = $item->getProduct();
-            if (is_object($product) && ($product->isRecurring())
-                && $profile = Mage::getModel('sales/recurring_profile')->importProduct($product)
-            ) {
-                $profile->importQuote($this);
-                $profile->importQuoteItem($item);
-                $result[] = $profile;
-            }
-        }
-        return $result;
-    }
+	
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
     /**
      * @return $this
