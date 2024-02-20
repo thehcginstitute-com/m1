@@ -1229,14 +1229,8 @@ https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/code/core/Mage/Sales
                     </msrp>
                 </totals>
                 <nominal_totals>
-                    <recurring_initial_fee>
-                        <class>sales/quote_address_total_nominal_recurring_initial</class>
-                        <sort_order>10</sort_order>
-                    </recurring_initial_fee>
-                    <recurring_trial_payment>
-                        <class>sales/quote_address_total_nominal_recurring_trial</class>
-                        <sort_order>50</sort_order>
-                    </recurring_trial_payment>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
                     <nominal_subtotal>
                         <class>sales/quote_address_total_nominal_subtotal</class>
                         <sort_order>250</sort_order>
