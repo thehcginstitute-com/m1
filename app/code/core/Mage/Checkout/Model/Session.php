@@ -477,8 +477,9 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      */
     public function clearHelperData()
     {
-        $this->setLastBillingAgreementId(null)
-            ->setRedirectUrl(null)
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
+        $this->setRedirectUrl(null)
             ->setLastOrderId(null)
             ->setLastRealOrderId(null)
             ->setLastRecurringProfileIds(null)
