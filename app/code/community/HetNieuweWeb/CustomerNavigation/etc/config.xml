@@ -41,8 +41,8 @@
 				<address_book>1</address_book>
 				<orders>1</orders>
 <!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
-				<recurring_profiles>1</recurring_profiles>
+1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
+2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
 				<reviews>1</reviews>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
