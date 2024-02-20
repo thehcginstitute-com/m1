@@ -2,5 +2,7 @@
 // 1) "The backend order grid is not properly colored": https://github.com/thehcginstitute-com/m1/issues/395
 // 2) "The «Recent Orders» grid on the backend customer screen is not properly colored":
 // https://github.com/thehcginstitute-com/m1/issues/398
+// 3) "The orders grid is not proprly colored on the `/admin/customer/edit/id/<…>/` page":
+// https://github.com/thehcginstitute-com/m1/issues/399
 @import '_grid';
 @import 'orders/_all';

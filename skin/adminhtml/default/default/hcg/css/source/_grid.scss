@@ -1,10 +1,14 @@
-#customer_view_orders_grid_table
+// 2024-02-20
+// "The orders grid is not proprly colored on the `/admin/customer/edit/id/<…>/` page":
+// https://github.com/thehcginstitute-com/m1/issues/399
+#customer_orders_grid_table
+// 2024-02-20
+// "The «Recent Orders» grid on the backend customer screen is not properly colored":
+// https://github.com/thehcginstitute-com/m1/issues/398
+,#customer_view_orders_grid_table
+// 2024-02-20 "The backend order grid is not properly colored": https://github.com/thehcginstitute-com/m1/issues/395
 ,#sales_order_grid_table {
-	// 2024-02-20
-	// 1) "The backend order grid is not properly colored": https://github.com/thehcginstitute-com/m1/issues/395
-	// 2) "The «Recent Orders» grid on the backend customer screen is not properly colored":
-	// https://github.com/thehcginstitute-com/m1/issues/398
-	// 3.1) https://github.com/thehcginstitute-com/m1/blob/2024-02-20/skin/adminhtml/default/openmage/scss/override.scss#L219
-	// 3.2) https://github.com/thehcginstitute-com/m1/blob/2024-02-20/skin/adminhtml/default/openmage/scss/override.scss#L349-L380
+	// 1) https://github.com/thehcginstitute-com/m1/blob/2024-02-20/skin/adminhtml/default/openmage/scss/override.scss#L219
+	// 2) https://github.com/thehcginstitute-com/m1/blob/2024-02-20/skin/adminhtml/default/openmage/scss/override.scss#L349-L380
 	td {background-color: initial !important;}
 }
