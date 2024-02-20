@@ -1612,26 +1612,8 @@ class Mage_Sales_Model_Order_Payment extends Mage_Payment_Model_Info
         return $this;
     }
 
-    /**
-     * Generate billing agreement object if there is billing agreement data
-     * Adds it to order as related object
-     */
-    protected function _createBillingAgreement()
-    {
-        if ($this->getBillingAgreementData()) {
-            $order = $this->getOrder();
-            $agreement = Mage::getModel('sales/billing_agreement')->importOrderPayment($this);
-            if ($agreement->isValid()) {
-                $message = Mage::helper('sales')->__('Created billing agreement #%s.', $agreement->getReferenceId());
-                $order->addRelatedObject($agreement);
-                $this->_billingAgreement = $agreement;
-            } else {
-                $message = Mage::helper('sales')->__('Failed to create billing agreement for this order.');
-            }
-            $comment = $order->addStatusHistoryComment($message);
-            $order->addRelatedObject($comment);
-        }
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
     /**
      * Additionnal transaction info setter
