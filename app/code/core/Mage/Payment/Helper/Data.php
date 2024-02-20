@@ -130,25 +130,8 @@ class Mage_Payment_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
 	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
-
-    /**
-     * Get payment methods that implement recurring profilez management
-     *
-     * @param mixed $store
-     * @return array
-     */
-    public function getRecurringProfileMethods($store = null)
-    {
-        $result = [];
-        foreach ($this->getPaymentMethods($store) as $code => $data) {
-            $method = $this->getMethodInstance($code);
-            if ($method && $method->canManageRecurringProfiles()) {
-                $result[] = $method;
-            }
-        }
-        return $result;
-    }
+	# 1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
+	# 2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
     /**
      * Retrieve all payment methods
