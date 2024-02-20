@@ -1552,15 +1552,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
         return $this->getIsVirtual();
     }
 
-    /**
-     * Whether the product is a recurring payment
-     *
-     * @return bool
-     */
-    public function isRecurring()
-    {
-        return $this->getIsRecurring() == '1';
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
     /**
      * Alias for isSalable()
