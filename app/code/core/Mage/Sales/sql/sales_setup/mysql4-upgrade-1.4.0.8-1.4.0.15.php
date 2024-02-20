@@ -23,7 +23,8 @@ $paymentTransactionTable    = $installer->getTable('sales/payment_transaction');
 # "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 $orderItemTable             = $installer->getTable('sales_flat_order_item');
 $flatOrderTable             = $installer->getTable('sales_flat_order');
-$profileOrderTable          = $installer->getTable('sales_recurring_profile_order');
+# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 $customerEntityTable        = $installer->getTable('customer_entity');
 $coreStoreTable             = $installer->getTable('core_store');
 # 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
