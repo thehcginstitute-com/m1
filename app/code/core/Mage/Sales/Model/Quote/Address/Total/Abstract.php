@@ -196,6 +196,7 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
     /**
 	 * 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
+	 * 
      * Get all items
      *
      * @param Mage_Sales_Model_Quote_Address $address
