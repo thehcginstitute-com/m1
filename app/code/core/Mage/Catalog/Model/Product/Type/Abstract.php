@@ -779,9 +779,8 @@ abstract class Mage_Catalog_Model_Product_Type_Abstract
         if ($this->getProduct($product)->getHasOptions()) {
             return true;
         }
-        if ($this->getProduct($product)->isRecurring()) {
-            return true;
-        }
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
         return false;
     }
 
