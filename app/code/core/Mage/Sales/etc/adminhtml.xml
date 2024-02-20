@@ -46,13 +46,9 @@
                     <action>adminhtml/sales_transactions</action>
                     <sort_order>50</sort_order>
                 </transactions>
-                <recurring_profile translate="title" module="sales">
-                    <title>Recurring Profiles (beta)</title>
-                    <action>adminhtml/sales_recurring_profile</action>
-                    <sort_order>60</sort_order>
-                </recurring_profile>
-<!-- 2024-02-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
+2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
             </children>
          </sales>
          <system>
