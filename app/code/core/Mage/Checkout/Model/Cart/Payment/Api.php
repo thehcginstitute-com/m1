@@ -108,9 +108,9 @@ class Mage_Checkout_Model_Cart_Payment_Api extends Mage_Checkout_Model_Api_Resou
         foreach ($methods as $method) {
             /** @var Mage_Payment_Model_Method_Abstract $method */
             if ($this->_canUsePaymentMethod($method, $quote)) {
-                $isRecurring = $quote->hasRecurringItems() && $method->canManageRecurringProfiles();
-
-                if ($total != 0 || $method->getCode() == 'free' || $isRecurring) {
+				# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
+                if ($total != 0 || $method->getCode() == 'free') {
                     $methodsResult[] = [
                         'code' => $method->getCode(),
                         'title' => $method->getTitle(),
