@@ -41,8 +41,8 @@ class Mage_ImportExport_Model_Export_Entity_Product_Type_Simple extends Mage_Imp
      */
     protected $_disabledAttrs = [
         'old_id',
-        'recurring_profile',
-        'is_recurring',
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
         'tier_price',
         'group_price',
         'category_ids'
