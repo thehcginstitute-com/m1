@@ -81,7 +81,8 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
     protected $_isInitializeNeeded          = false;
     protected $_canFetchTransactionInfo     = false;
     protected $_canReviewPayment            = false;
-    protected $_canCreateBillingAgreement   = false;
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
     protected $_canManageRecurringProfiles  = true;
     /**
      * TODO: whether a captured transaction may be voided by this gateway
