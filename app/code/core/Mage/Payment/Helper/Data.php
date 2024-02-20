@@ -129,23 +129,8 @@ class Mage_Payment_Helper_Data extends Mage_Core_Helper_Abstract
         return $block;
     }
 
-    /**
-     * Retrieve available billing agreement methods
-     *
-     * @param mixed $store
-     * @param Mage_Sales_Model_Quote $quote
-     * @return array
-     */
-    public function getBillingAgreementMethods($store = null, $quote = null)
-    {
-        $result = [];
-        foreach ($this->getStoreMethods($store, $quote) as $method) {
-            if ($method->canManageBillingAgreements()) {
-                $result[] = $method;
-            }
-        }
-        return $result;
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
     /**
      * Get payment methods that implement recurring profilez management
