@@ -192,24 +192,6 @@ class Mage_Sales_Model_Resource_Order_Collection extends Mage_Sales_Model_Resour
     }
 
 	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
-
-    /**
-     * Add filter by specified recurring profile id(s)
-     *
-     * @param array|int $ids
-     * @return $this
-     */
-    public function addRecurringProfilesFilter($ids)
-    {
-        $ids = (is_array($ids)) ? $ids : [$ids];
-        $this->getSelect()
-            ->joinInner(
-                ['srpo' => $this->getTable('sales/recurring_profile_order')],
-                'main_table.entity_id = srpo.order_id',
-                []
-            )
-            ->where('srpo.profile_id IN(?)', $ids);
-        return $this;
-    }
+	# 1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
+	# 2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 }
