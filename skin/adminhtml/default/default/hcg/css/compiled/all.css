@@ -1,5 +1,12 @@
 body.adminhtml-sales-order-index table#sales_order_grid_table td {
   background-color: initial !important;
 }
+body.adminhtml-sales-order-index table#sales_order_grid_table th > .range {
+  position: relative;
+  z-index: 3;
+}
+body.adminhtml-sales-order-index table#sales_order_grid_table th > .range label {
+  padding-left: 0;
+}
 
 /*# sourceMappingURL=all.css.map */
