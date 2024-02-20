@@ -308,25 +308,8 @@ $installer->getConnection()->dropForeignKey(
     'FK_SALES_PAYMENT_TRANSACTION_PAYMENT'
 );
 
-$installer->getConnection()->dropForeignKey(
-    $installer->getTable('sales/recurring_profile'),
-    'FK_RECURRING_PROFILE_CUSTOMER'
-);
-
-$installer->getConnection()->dropForeignKey(
-    $installer->getTable('sales/recurring_profile'),
-    'FK_RECURRING_PROFILE_STORE'
-);
-
-$installer->getConnection()->dropForeignKey(
-    $installer->getTable('sales/recurring_profile_order'),
-    'FK_RECURRING_PROFILE_ORDER_ORDER'
-);
-
-$installer->getConnection()->dropForeignKey(
-    $installer->getTable('sales/recurring_profile_order'),
-    'FK_RECURRING_PROFILE_ORDER_PROFILE'
-);
+# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
 $installer->getConnection()->dropForeignKey(
     $installer->getTable('sales/refunded_aggregated'),
