@@ -272,8 +272,9 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
 
         $lastQuoteId = $session->getLastQuoteId();
         $lastOrderId = $session->getLastOrderId();
-        $lastRecurringProfiles = $session->getLastRecurringProfileIds();
-        if (!$lastQuoteId || (!$lastOrderId && empty($lastRecurringProfiles))) {
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
+        if (!$lastQuoteId || !$lastOrderId) {
             $this->_redirect('checkout/cart');
             return;
         }
