@@ -62,17 +62,9 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</orders>
-<!-- 2024-02-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
-						<recurring_profiles translate="label">
-							<label>Recurring Profiles</label>
-							<frontend_type>select</frontend_type>
-							<source_model>adminhtml/system_config_source_enabledisable</source_model>							
-							<sort_order>60</sort_order>
-							<show_in_default>1</show_in_default>
-							<show_in_website>1</show_in_website>
-							<show_in_store>1</show_in_store>
-						</recurring_profiles>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
+2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
 						<reviews translate="label">
 							<label>My Product Reviews</label>
 							<frontend_type>select</frontend_type>
