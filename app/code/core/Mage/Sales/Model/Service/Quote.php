@@ -122,7 +122,8 @@ class Mage_Sales_Model_Service_Quote
      */
     public function submitOrder()
     {
-        $this->_deleteNominalItems();
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
         $this->_validate();
         $quote = $this->_quote;
         $isVirtual = $quote->isVirtual();
