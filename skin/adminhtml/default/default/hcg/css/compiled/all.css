@@ -1,3 +1,5 @@
-
+body.adminhtml-sales-order-index table#sales_order_grid_table td {
+  background-color: initial !important;
+}
 
 /*# sourceMappingURL=all.css.map */
