@@ -7139,34 +7139,8 @@ $installer->getConnection()->addIndex(
     Varien_Db_Adapter_Interface::INDEX_TYPE_UNIQUE
 );
 
-$installer->getConnection()->addIndex(
-    $installer->getTable('sales/recurring_profile'),
-    $installer->getIdxName('sales/recurring_profile', ['customer_id']),
-    ['customer_id']
-);
-
-$installer->getConnection()->addIndex(
-    $installer->getTable('sales/recurring_profile'),
-    $installer->getIdxName('sales/recurring_profile', ['store_id']),
-    ['store_id']
-);
-
-$installer->getConnection()->addIndex(
-    $installer->getTable('sales/recurring_profile_order'),
-    $installer->getIdxName(
-        'sales/recurring_profile_order',
-        ['profile_id', 'order_id'],
-        Varien_Db_Adapter_Interface::INDEX_TYPE_UNIQUE
-    ),
-    ['profile_id', 'order_id'],
-    Varien_Db_Adapter_Interface::INDEX_TYPE_UNIQUE
-);
-
-$installer->getConnection()->addIndex(
-    $installer->getTable('sales/recurring_profile_order'),
-    $installer->getIdxName('sales/recurring_profile_order', ['order_id']),
-    ['order_id']
-);
+# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
 $installer->getConnection()->addIndex(
     $installer->getTable('sales/refunded_aggregated'),
