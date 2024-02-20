@@ -848,21 +848,12 @@ class Mage_Checkout_Model_Type_Onepage
 			# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
         }
 
-        // add recurring profiles information to the session
-        $profiles = $service->getRecurringPaymentProfiles();
-        if ($profiles) {
-            $ids = [];
-            /** @var Mage_Sales_Model_Recurring_Profile $profile */
-            foreach ($profiles as $profile) {
-                $ids[] = $profile->getId();
-            }
-            $this->_checkoutSession->setLastRecurringProfileIds($ids);
-            // TODO: send recurring profile emails
-        }
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
         Mage::dispatchEvent(
             'checkout_submit_all_after',
-            ['order' => $order, 'quote' => $this->getQuote(), 'recurring_profiles' => $profiles]
+            ['order' => $order, 'quote' => $this->getQuote()]
         );
 
         return $this;
