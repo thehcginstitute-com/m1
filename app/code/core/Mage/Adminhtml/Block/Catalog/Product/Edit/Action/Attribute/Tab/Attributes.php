@@ -34,7 +34,9 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Action_Attribute_Tab_Attributes 
     protected function _prepareForm()
     {
         $this->setFormExcludedFieldList([
-            'tier_price','gallery', 'media_gallery', 'recurring_profile', 'group_price'
+			# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
+            'tier_price','gallery', 'media_gallery', 'group_price'
         ]);
         Mage::dispatchEvent('adminhtml_catalog_product_form_prepare_excluded_field_list', ['object' => $this]);
 
