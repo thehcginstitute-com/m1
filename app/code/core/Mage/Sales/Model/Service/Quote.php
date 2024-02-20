@@ -240,15 +240,8 @@ class Mage_Sales_Model_Service_Quote
         $this->submitOrder();
     }
 
-    /**
-     * Return recurring payment profiles
-     *
-     * @return array
-     */
-    public function getRecurringPaymentProfiles()
-    {
-        return $this->_recurringPaymentProfiles;
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
     /**
      * Get an order that may had been created during submission
