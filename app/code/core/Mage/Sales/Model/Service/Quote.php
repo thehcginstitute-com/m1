@@ -204,18 +204,9 @@ class Mage_Sales_Model_Service_Quote
         return $order;
     }
 
-    /**
-     * Submit nominal items
-     *
-     */
-    public function submitNominalItems()
-    {
-        $this->_validate();
-		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-		# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
-        $this->_inactivateQuote();
-        $this->_deleteNominalItems();
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# 1) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
+	# 2) "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
 
     /**
      * Submit all available items
