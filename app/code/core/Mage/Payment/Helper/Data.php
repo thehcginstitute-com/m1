@@ -231,26 +231,8 @@ class Mage_Payment_Helper_Data extends Mage_Core_Helper_Abstract
         return $methods;
     }
 
-    /**
-     * Retrieve all billing agreement methods (code and label)
-     *
-     * @return array
-     */
-    public function getAllBillingAgreementMethods()
-    {
-        $result = [];
-        $interface = 'Mage_Payment_Model_Billing_Agreement_MethodInterface';
-        foreach ($this->getPaymentMethods() as $code => $data) {
-            if (!isset($data['model'])) {
-                continue;
-            }
-            $method = Mage::app()->getConfig()->getModelClassName($data['model']);
-            if (in_array($interface, class_implements($method))) {
-                $result[$code] = $data['title'];
-            }
-        }
-        return $result;
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
     /**
      * Returns value of Zero Subtotal Checkout / Enabled
