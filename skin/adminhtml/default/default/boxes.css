@@ -714,7 +714,8 @@ div.autocomplete ul li { padding:.5em .7em; min-height:32px; cursor:pointer; tex
 .head-sales-order-invoice,
 .head-sales-order-creditmemo,
 .head-adminhtml-recurring-profile,
-.head-adminhtml-billing-agreement,
+/* 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 */
 .head-checkout-agreement        { background-image:url(images/fam_folder_table.gif); padding-left:22px; }
 .head-tax,
 .head-tax-rule,
