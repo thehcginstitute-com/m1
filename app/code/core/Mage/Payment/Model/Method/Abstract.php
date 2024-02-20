@@ -642,7 +642,9 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
         ]);
 
         if ($checkResult->isAvailable && $quote) {
-            $checkResult->isAvailable = $this->isApplicableToQuote($quote, self::CHECK_RECURRING_PROFILES);
+			# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
+            $checkResult->isAvailable = $this->isApplicableToQuote($quote, 0);
         }
         return $checkResult->isAvailable;
     }
