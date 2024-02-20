@@ -1009,7 +1009,8 @@
 
     <adminhtml_customer_edit>
         <reference name="customer_edit_tabs">
-            <action method="addTab"><name>customer_edit_tab_agreements</name><block>sales/adminhtml_customer_edit_tab_agreement</block></action>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
             <action method="addTab"><name>customer_edit_tab_recurring_profile</name><block>sales/adminhtml_customer_edit_tab_recurring_profile</block></action>
         </reference>
     </adminhtml_customer_edit>
