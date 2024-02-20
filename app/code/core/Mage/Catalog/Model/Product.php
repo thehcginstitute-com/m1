@@ -183,7 +183,8 @@
  * @method $this setRealPriceHtml(string $value)
  * @method bool getRelatedReadonly()
  * @method $this setRelatedLinkData(array $value)
- * @method array getRecurringProfile()
+ * 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
  * @method array getRelatedLinkData()
  * @method bool hasRelatedProducts()
  * @method $this setRelatedProducts(array $value)
