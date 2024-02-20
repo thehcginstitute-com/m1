@@ -494,10 +494,8 @@
                     <to_order_item>*</to_order_item>
                 </base_hidden_tax_amount>
 <!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
-                <is_nominal>
-                    <to_order_item>*</to_order_item>
-                </is_nominal>
+1) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
+2) "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407 -->
             </sales_convert_quote_item>
             <sales_convert_order>
                 <customer_id>
@@ -1205,10 +1203,8 @@ The really used `discount` value:
 https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/code/core/Mage/SalesRule/etc/config.xml#L140-L144 -->
 						<class>THE VALUE IS NOT USED</class>
 					</discount>
-                    <nominal>
-                        <class>sales/quote_address_total_nominal</class>
-                        <before>subtotal</before>
-                    </nominal>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407 -->
                     <subtotal>
                         <class>sales/quote_address_total_subtotal</class>
                         <after>nominal</after>
