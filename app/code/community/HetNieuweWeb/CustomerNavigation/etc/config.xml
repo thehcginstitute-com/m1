@@ -40,7 +40,8 @@
 				<account_edit>1</account_edit>
 				<address_book>1</address_book>
 				<orders>1</orders>
-				<billing_agreements>1</billing_agreements>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
 				<recurring_profiles>1</recurring_profiles>
 				<reviews>1</reviews>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
