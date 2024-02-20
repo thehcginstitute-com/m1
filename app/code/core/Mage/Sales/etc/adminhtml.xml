@@ -122,29 +122,8 @@
                                 <title>Recurring Profiles</title>
                                 <sort_order>60</sort_order>
                             </recurring_profile>
-                            <billing_agreement translate="title">
-                                <title>Billing Agreements</title>
-                                    <children>
-                                        <actions translate="title">
-                                            <title>Actions</title>
-                                            <children>
-                                                <view translate="title">
-                                                    <title>View</title>
-                                                    <sort_order>5</sort_order>
-                                                </view>
-                                                <manage translate="title">
-                                                    <title>Manage</title>
-                                                    <sort_order>10</sort_order>
-                                                </manage>
-                                                <use translate="title">
-                                                    <title>Place Order Using Billing Agreements</title>
-                                                    <sort_order>15</sort_order>
-                                                </use>
-                                            </children>
-                                        </actions>
-                                    </children>
-                                <sort_order>70</sort_order>
-                            </billing_agreement>
+<!-- 2024-02-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
                         </children>
                     </sales>
                     <system>
