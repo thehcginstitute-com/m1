@@ -278,21 +278,8 @@ class Mage_Sales_Model_Observer
         $observer->getEvent()->getResult()->output .= $dependencies->toHtml();
     }
 
-    /**
-     * Block admin ability to use customer billing agreements
-     *
-     * @param Varien_Event_Observer $observer
-     */
-    public function restrictAdminBillingAgreementUsage($observer)
-    {
-        $methodInstance = $observer->getEvent()->getMethodInstance();
-        if (!($methodInstance instanceof Mage_Sales_Model_Payment_Method_Billing_AgreementAbstract)) {
-            return;
-        }
-        if (!Mage::getSingleton('admin/session')->isAllowed('sales/order/actions/use')) {
-            $observer->getEvent()->getResult()->isAvailable = false;
-        }
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
     /**
      * Set new customer group to all his quotes
