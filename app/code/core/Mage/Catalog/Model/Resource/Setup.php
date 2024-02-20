@@ -664,30 +664,8 @@ class Mage_Catalog_Model_Resource_Setup extends Mage_Eav_Model_Entity_Setup
                         'apply_to'                   => 'simple,configurable,virtual',
                         'group'                      => 'Prices',
                     ],
-                    'is_recurring'       => [
-                        'type'                       => 'int',
-                        'label'                      => 'Enable Recurring Profile',
-                        'input'                      => 'select',
-                        'source'                     => 'eav/entity_attribute_source_boolean',
-                        'required'                   => false,
-                        'note'                       =>
-                            'Products with recurring profile participate in catalog as nominal items.',
-                        'sort_order'                 => 1,
-                        'apply_to'                   => 'simple,virtual',
-                        'is_configurable'            => false,
-                        'group'                      => 'Recurring Profile',
-                    ],
-                    'recurring_profile'  => [
-                        'type'                       => 'text',
-                        'label'                      => 'Recurring Payment Profile',
-                        'input'                      => 'text',
-                        'backend'                    => 'catalog/product_attribute_backend_recurring',
-                        'required'                   => false,
-                        'sort_order'                 => 2,
-                        'apply_to'                   => 'simple,virtual',
-                        'is_configurable'            => false,
-                        'group'                      => 'Recurring Profile',
-                    ],
+					# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
                     'visibility'         => [
                         'type'                       => 'int',
                         'label'                      => 'Visibility',
