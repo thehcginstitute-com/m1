@@ -7667,39 +7667,8 @@ $installer->getConnection()->addForeignKey(
     'entity_id'
 );
 
-$installer->getConnection()->addForeignKey(
-    $installer->getFkName('sales/recurring_profile', 'customer_id', 'customer/entity', 'entity_id'),
-    $installer->getTable('sales/recurring_profile'),
-    'customer_id',
-    $installer->getTable('customer/entity'),
-    'entity_id',
-    Varien_Db_Ddl_Table::ACTION_SET_NULL
-);
-
-$installer->getConnection()->addForeignKey(
-    $installer->getFkName('sales/recurring_profile', 'store_id', 'core/store', 'store_id'),
-    $installer->getTable('sales/recurring_profile'),
-    'store_id',
-    $installer->getTable('core/store'),
-    'store_id',
-    Varien_Db_Ddl_Table::ACTION_SET_NULL
-);
-
-$installer->getConnection()->addForeignKey(
-    $installer->getFkName('sales/recurring_profile_order', 'order_id', 'sales/order', 'entity_id'),
-    $installer->getTable('sales/recurring_profile_order'),
-    'order_id',
-    $installer->getTable('sales/order'),
-    'entity_id'
-);
-
-$installer->getConnection()->addForeignKey(
-    $installer->getFkName('sales/recurring_profile_order', 'profile_id', 'sales/recurring_profile', 'profile_id'),
-    $installer->getTable('sales/recurring_profile_order'),
-    'profile_id',
-    $installer->getTable('sales/recurring_profile'),
-    'profile_id'
-);
+# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
 $installer->getConnection()->addForeignKey(
     $installer->getFkName('sales/refunded_aggregated', 'store_id', 'core/store', 'store_id'),
