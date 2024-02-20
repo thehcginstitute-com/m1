@@ -149,7 +149,8 @@
                             <open_amount_min>1</open_amount_min>
                             <open_amount_max>1</open_amount_max>
                             <image>1</image>
-                            <is_recurring>1</is_recurring>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
                             <gallery>1</gallery>
                             <media_gallery>1</media_gallery>
                             <price_view>1</price_view>
