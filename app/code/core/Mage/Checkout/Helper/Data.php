@@ -285,7 +285,8 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
             && $quote->validateMinimumAmount(true)
             && (($quote->getItemsSummaryQty() - $quote->getItemVirtualQty()) > 0)
             && ($quote->getItemsSummaryQty() <= $maximunQty)
-            && !$quote->hasNominalItems()
+			# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
         ;
     }
 
