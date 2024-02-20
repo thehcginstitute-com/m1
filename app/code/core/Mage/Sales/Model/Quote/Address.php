@@ -588,37 +588,6 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
 	# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
 
     /**
-     * Getter for all nominal items
-     *
-     * @return Mage_Sales_Model_Quote_Address_Item[]
-     */
-    public function getAllNominalItems()
-    {
-        $this->_nominalOnly = true;
-        $result = $this->getAllItems();
-        $this->_nominalOnly = null;
-        return $result;
-    }
-
-    /**
-     * Segregate by nominal criteria
-     *
-     * true: get nominals only
-     * false: get non-nominals only
-     * null: get all
-     *
-     * @param Mage_Sales_Model_Quote_Item_Abstract $item
-     * @return Mage_Sales_Model_Quote_Item_Abstract|false
-     */
-    protected function _filterNominal($item)
-    {
-        return ($this->_nominalOnly === null)
-            || (($this->_nominalOnly === false) && !$item->isNominal())
-            || (($this->_nominalOnly === true) && $item->isNominal())
-            ? $item : false;
-    }
-
-    /**
      * Retrieve all visible items
      *
      * @return Mage_Sales_Model_Quote_Address_Item[]
