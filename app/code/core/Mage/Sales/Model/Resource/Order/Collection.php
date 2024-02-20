@@ -191,24 +191,8 @@ class Mage_Sales_Model_Resource_Order_Collection extends Mage_Sales_Model_Resour
         return $this;
     }
 
-    /**
-     * Add filter by specified billing agreements
-     *
-     * @param int|array $agreements
-     * @return $this
-     */
-    public function addBillingAgreementsFilter($agreements)
-    {
-        $agreements = (is_array($agreements)) ? $agreements : [$agreements];
-        $this->getSelect()
-            ->joinInner(
-                ['sbao' => $this->getTable('sales/billing_agreement_order')],
-                'main_table.entity_id = sbao.order_id',
-                []
-            )
-            ->where('sbao.agreement_id IN(?)', $agreements);
-        return $this;
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
     /**
      * Add filter by specified recurring profile id(s)
