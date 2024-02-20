@@ -167,8 +167,8 @@
  * @method $this setHiddenTaxRefunded(float $value)
  * @method float getBaseHiddenTaxRefunded()
  * @method $this setBaseHiddenTaxRefunded(float $value)
- * @method int getIsNominal()
- * @method $this setIsNominal(int $value)
+ * 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
  * @method float getTaxCanceled()
  * @method $this setTaxCanceled(float $value)
  * @method float getHiddenTaxCanceled()
