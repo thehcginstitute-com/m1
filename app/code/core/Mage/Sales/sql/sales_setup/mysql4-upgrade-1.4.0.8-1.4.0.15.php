@@ -50,10 +50,7 @@ $installer->getConnection()->addColumn(
     'created_at',
     'DATETIME NULL'
 );
-
-//-------
-$this->getConnection()->addColumn($orderItemTable, 'is_nominal', 'int NOT NULL DEFAULT \'0\'');
-
 # 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # 1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 # 2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
+# 3) "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
