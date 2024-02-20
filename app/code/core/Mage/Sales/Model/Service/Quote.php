@@ -210,7 +210,8 @@ class Mage_Sales_Model_Service_Quote
     public function submitNominalItems()
     {
         $this->_validate();
-        $this->_submitRecurringPaymentProfiles();
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
         $this->_inactivateQuote();
         $this->_deleteNominalItems();
     }
