@@ -396,25 +396,8 @@ $installer->getConnection()->dropIndex(
     'IDX_PRODUCT_ID'
 );
 
-$installer->getConnection()->dropIndex(
-    $installer->getTable('sales/billing_agreement'),
-    'IDX_CUSTOMER'
-);
-
-$installer->getConnection()->dropIndex(
-    $installer->getTable('sales/billing_agreement'),
-    'FK_BILLING_AGREEMENT_STORE'
-);
-
-$installer->getConnection()->dropIndex(
-    $installer->getTable('sales/billing_agreement_order'),
-    'UNQ_BILLING_AGREEMENT_ORDER'
-);
-
-$installer->getConnection()->dropIndex(
-    $installer->getTable('sales/billing_agreement_order'),
-    'FK_BILLING_AGREEMENT_ORDER_ORDER'
-);
+# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
 $installer->getConnection()->dropIndex(
     $installer->getTable('sales/creditmemo'),
