@@ -140,12 +140,8 @@
                         <before>grand_total</before>
                     </discount>
                 </totals>
-                <nominal_totals>
-                    <nominal_discount>
-                        <class>salesrule/quote_nominal_discount</class>
-                        <sort_order>550</sort_order>
-                    </nominal_discount>
-                </nominal_totals>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407 -->
             </quote>
         </sales>
         <salesrule>
