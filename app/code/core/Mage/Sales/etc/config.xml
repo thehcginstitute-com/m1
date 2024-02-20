@@ -1624,14 +1624,8 @@ https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/code/core/Mage/Sales
                     </payment>
                 </observers>
             </catalog_product_edit_form_render_recurring>
-            <payment_method_is_active>
-                <observers>
-                    <sales_billing_agreement>
-                        <class>sales/observer</class>
-                        <method>restrictAdminBillingAgreementUsage</method>
-                    </sales_billing_agreement>
-                </observers>
-            </payment_method_is_active>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
 
             <customer_save_after>
                 <observers>
