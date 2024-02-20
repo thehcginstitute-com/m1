@@ -219,12 +219,8 @@ class Mage_Sales_Model_Order_Payment extends Mage_Payment_Model_Info
      */
     protected $_order;
 
-    /**
-     * Billing agreement instance that may be created during payment processing
-     *
-     * @var Mage_Sales_Model_Billing_Agreement
-     */
-    protected $_billingAgreement = null;
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
     /**
      * Whether can void
