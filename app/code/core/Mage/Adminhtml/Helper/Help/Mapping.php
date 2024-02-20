@@ -39,7 +39,8 @@ abstract class Mage_Adminhtml_Helper_Help_Mapping extends Mage_Core_Helper_Abstr
             'sales_shipment' => 'order-processing/order-ship.html',
             'sales_creditmemo' => 'order-processing/credit-refunds.html',
             'sales_transactions' => 'order-processing/sales-transactions.html',
-            'sales_recurring_profile' => 'catalog/product-recurring-profile.html',
+# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 # 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
             'checkout_agreement' => 'order-processing/terms-conditions.html',
