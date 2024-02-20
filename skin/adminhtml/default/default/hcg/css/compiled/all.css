@@ -5,8 +5,16 @@ body.adminhtml-sales-order-index table#sales_order_grid_table th > .range {
   position: relative;
   z-index: 3;
 }
-body.adminhtml-sales-order-index table#sales_order_grid_table th > .range .label {
+body.adminhtml-sales-order-index table#sales_order_grid_table th > .range > .date > * {
+  font-size: 80%;
+}
+body.adminhtml-sales-order-index table#sales_order_grid_table th > .range > .date > input {
+  width: 6em !important;
+}
+body.adminhtml-sales-order-index table#sales_order_grid_table th > .range > .date > .label {
   padding-left: 0;
+  padding-right: 2px;
+  width: 3em;
 }
 
 /*# sourceMappingURL=all.css.map */
