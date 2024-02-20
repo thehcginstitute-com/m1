@@ -844,12 +844,8 @@ class Mage_Checkout_Model_Type_Onepage
             $this->_checkoutSession->setLastOrderId($order->getId())
                 ->setRedirectUrl($redirectUrl)
                 ->setLastRealOrderId($order->getIncrementId());
-
-            // as well a billing agreement can be created
-            $agreement = $order->getPayment()->getBillingAgreement();
-            if ($agreement) {
-                $this->_checkoutSession->setLastBillingAgreementId($agreement->getId());
-            }
+			# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
         }
 
         // add recurring profiles information to the session
