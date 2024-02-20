@@ -789,10 +789,8 @@ $table = $installer->getConnection()
     ], 'Hidden Tax Refunded')
     ->addColumn('base_hidden_tax_refunded', Varien_Db_Ddl_Table::TYPE_DECIMAL, '12,4', [
     ], 'Base Hidden Tax Refunded')
-    ->addColumn('is_nominal', Varien_Db_Ddl_Table::TYPE_INTEGER, null, [
-        'nullable'  => false,
-        'default'   => '0',
-    ], 'Is Nominal')
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
     ->addColumn('tax_canceled', Varien_Db_Ddl_Table::TYPE_DECIMAL, '12,4', [
     ], 'Tax Canceled')
     ->addColumn('hidden_tax_canceled', Varien_Db_Ddl_Table::TYPE_DECIMAL, '12,4', [
