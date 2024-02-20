@@ -151,7 +151,9 @@
                 <totals>
                     <tax_subtotal>
                         <class>tax/sales_total_quote_subtotal</class>
-                        <after>subtotal,nominal,shipping,freeshipping</after>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407 -->
+                        <after>subtotal,shipping,freeshipping</after>
                         <before>tax,discount</before>
                     </tax_subtotal>
                     <tax_shipping>
