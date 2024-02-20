@@ -535,8 +535,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
             $addressItems = $this->getItemsCollection();
 
             $items = [];
-            $nominalItems = [];
-            $nonNominalItems = [];
+			# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
             if ($this->getQuote()->getIsMultiShipping() && $addressItems->count() > 0) {
                 foreach ($addressItems as $aItem) {
                     if ($aItem->isDeleted()) {
@@ -550,11 +550,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
                         }
                     }
                     $items[] = $aItem;
-                    if ($this->_filterNominal($aItem)) {
-                        $nominalItems[] = $aItem;
-                    } else {
-                        $nonNominalItems[] = $aItem;
-                    }
+					# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
                 }
             } else {
                 /*
@@ -571,21 +568,16 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
                             continue;
                         }
                         $items[] = $qItem;
-                        if ($this->_filterNominal($qItem)) {
-                            $nominalItems[] = $qItem;
-                        } else {
-                            $nonNominalItems[] = $qItem;
-                        }
+						# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+						# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
                     }
                 }
             }
 
             // Cache calculated lists
             $this->setData('cached_items_all', $items);
-            $this->setData('cached_items_nominal', $nominalItems);
-            $this->setData('cached_items_nonnominal', $nonNominalItems);
-
-            $this->_nominalOnly = $wasNominal; // Restore original value before we changed it
+			# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
         }
 
         $items = $this->getData($key);
