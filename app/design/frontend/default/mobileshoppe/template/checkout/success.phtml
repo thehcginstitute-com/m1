@@ -19,9 +19,8 @@
     </p>
 <?php endif ?>
 <?php endif ?>
-<?php if ($this->getAgreementRefId()): ?>
-    <p><?php echo $this->__('Your billing agreement # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getAgreementUrl()), $this->escapeHtml($this->getAgreementRefId())))?></p>
-<?php endif ?>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
 <?php if ($profiles = $this->getRecurringProfiles()): ?>
 <p><?php echo $this->__('Your recurring payment profiles:'); ?></p>
 <ul class="disc">
