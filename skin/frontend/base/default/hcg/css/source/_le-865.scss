@@ -1,0 +1,109 @@
+@media only screen and (max-width: 865px) {
+	.page > .row .top_block {
+		height: auto;
+		> ul.top-contact {
+			float: none;
+			> li {
+				width: 100%;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				text-align: right;
+				p {margin-right: 9px;}
+			}
+		}
+		> ul.links {
+			float: none;
+			display: table;
+			width: 100%;
+			> li {display: table-cell; text-align: center;}
+		}
+	}
+	.header-container {
+		padding-left: 8px;
+		> .header {
+			overflow: hidden;
+			padding: 8px 0 !important;
+			position: static;
+			> .logo {
+				margin-top: 0 !important;
+				padding: 0;
+				> a > img {height: 91px !important; width: 220px !important;}
+			}
+			> .nav-container {
+				display: table;
+				height: 52px;
+				> .hcg-mobile-menu-icon {
+					//background: beige;
+					cursor: pointer;
+					display: block;
+					float: right;
+					margin-right: 12px;
+					margin-top: 30px;
+					vertical-align: middle;
+					width: 24px;
+					&:before {
+						box-sizing: border-box;
+						-webkit-font-smoothing: antialiased;
+						color: rgba(0,0,0,0.6);
+						content: '\f0c9';
+						display: inline-block;
+						float: right;
+						font-size: inherit;
+						font: normal normal normal 14px/1 FontAwesome;
+						font-size: 28px;
+						text-rendering: auto;
+						transform: translate(0,0);
+					}
+				}
+				> ul#nav {
+					background: white;
+					box-shadow: rgba(0,0,0,0.129412) 3px 3px 15px;
+					display: none;
+					margin-top: 100px;
+					padding: 0;
+					position: absolute;
+					right: 2%;
+					width: 90%;
+					z-index: 101;
+					> li {
+						border-bottom: 1px solid rgba(0,0,0,0.08);
+						display: block;
+						float: none;
+						height: auto;
+						padding: 16px 15px 14px 33.5px !important;
+						text-align: left;
+						&:last-child {border-bottom: 0; padding-bottom: 15px !important;}
+						&.hcg-has-children.open {padding-bottom: 0 !important;}
+						> a {
+							display: block;
+							line-height: 20px;
+							i.fa {
+								display: block;
+								float: right;
+								font-size: 20px;
+								&:before {content: '\f146';}
+								&.fa-angle-down:before {content: '\f0fe';}
+							}
+						}
+						> ul {
+							box-shadow: none;
+							max-height: 0;
+							overflow: hidden;
+							position: static;
+							transition: max-height 0.25s ease-out;
+							width: 100%;
+							> li {
+								padding: 20px 0 20px 2px;
+								&:last-child {border-bottom: 0;}
+							}
+						}
+						> ul.shown-sub {
+							max-height: 1000px;
+						}
+					}
+				}
+			}
+		}
+	}
+	body > .zsiq_floatmain {z-index: 40 !important;}
+}
