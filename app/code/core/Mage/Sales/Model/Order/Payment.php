@@ -383,7 +383,8 @@ class Mage_Sales_Model_Order_Payment extends Mage_Payment_Model_Info
             }
         }
 
-        $this->_createBillingAgreement();
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
         $orderIsNotified = null;
         if ($stateObject->getState() && $stateObject->getStatus()) {
