@@ -21,7 +21,8 @@
  * @author     Magento Core Team <core@magentocommerce.com>
  *
  * @method $this setCanViewProfiles(bool $value)
- * @method $this setRecurringProfiles(Mage_Sales_Model_Recurring_Profile[] $value)
+ * 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
  */
 class Mage_Checkout_Block_Onepage_Success extends Mage_Core_Block_Template
 {
