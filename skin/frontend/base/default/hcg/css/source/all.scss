@@ -118,22 +118,15 @@
 		}
 	}
 	.header-container {
-		//background: darkkhaki !important;
 		padding-left: 8px;
 		> .header {
-			//background: azure;
-			//overflow: hidden;
-			//height: 91px !important;
 			overflow: hidden;
 			padding: 8px 0 !important;
 			position: static;
 			> .logo {
 				margin-top: 0 !important;
 				padding: 0;
-				> a > img {
-					//height: 52px !important; width: 125px !important;
-					height: 91px !important; width: 220px !important;
-				}
+				> a > img {height: 91px !important; width: 220px !important;}
 			}
 			> .nav-container {
 				display: table;
@@ -176,7 +169,6 @@
 						display: block;
 						float: none;
 						height: auto;
-						//line-height: 15px;
 						padding: 16px 15px 14px 33.5px !important;
 						text-align: left;
 						&:last-child {border-bottom: 0; padding-bottom: 15px !important;}
@@ -190,10 +182,8 @@
 								font-size: 20px;
 								&:before {content: '\f146';}
 								&.fa-angle-down:before {content: '\f0fe';}
-								//&.fa-angle-up:before {content: '\f146';}
 							}
 						}
-						//> ul {transition: max-height 1s ease-out;}
 						> ul {
 							box-shadow: none;
 							max-height: 0;
