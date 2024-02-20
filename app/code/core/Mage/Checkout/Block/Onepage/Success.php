@@ -134,28 +134,6 @@ class Mage_Checkout_Block_Onepage_Success extends Mage_Core_Block_Template
     }
 
 	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
-
-    /**
-     * Prepare recurring payment profiles from the session
-     */
-    protected function _prepareLastRecurringProfiles()
-    {
-        $profileIds = Mage::getSingleton('checkout/session')->getLastRecurringProfileIds();
-        if ($profileIds && is_array($profileIds)) {
-            $collection = Mage::getModel('sales/recurring_profile')->getCollection()
-                ->addFieldToFilter('profile_id', ['in' => $profileIds])
-            ;
-            $profiles = [];
-            foreach ($collection as $profile) {
-                $profiles[] = $profile;
-            }
-            if ($profiles) {
-                $this->setRecurringProfiles($profiles);
-                if (Mage::getSingleton('customer/session')->isLoggedIn()) {
-                    $this->setCanViewProfiles(true);
-                }
-            }
-        }
-    }
+	# 1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
+	# 2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 }
