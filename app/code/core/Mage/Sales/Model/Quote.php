@@ -1911,20 +1911,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
         return $this;
     }
 
-    /**
-     * Whether there are recurring items
-     *
-     * @return bool
-     */
-    public function hasRecurringItems()
-    {
-        foreach ($this->getAllVisibleItems() as $item) {
-            if ($item->getProduct() && $item->getProduct()->isRecurring()) {
-                return true;
-            }
-        }
-        return false;
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
     /**
      * Getter whether quote has nominal items
