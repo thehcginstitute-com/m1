@@ -216,3 +216,12 @@
 	}
 	body > .zsiq_floatmain {z-index: 40 !important;}
 }
+// 2024-02-20
+// The code below was added by someone at 2020-03-30:
+// https://github.com/thehcginstitute-com/m1/blob/2024-02-19-3/skin/frontend/base/default/hcg/css/compiled/all.css#L69-L94
+.header .nav-container ul#nav > li {
+	@media (min-width: 870px) {padding-right: 12px;}
+	@media (min-width: 970px) {padding-right: 20px;}
+	@media (min-width: 1000px) {padding-right: 25px;}
+	@media (min-width: 1170px) {padding-right: 40px;}
+}
