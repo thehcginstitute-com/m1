@@ -299,15 +299,8 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
         return true;
     }
 
-    /**
-     * Check manage billing agreements availability
-     *
-     * @return bool
-     */
-    public function canManageBillingAgreements()
-    {
-        return ($this instanceof Mage_Payment_Model_Billing_Agreement_MethodInterface);
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
     /**
      * Whether can manage recurring profiles
