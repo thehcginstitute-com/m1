@@ -563,32 +563,8 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
         return $this->_getData('base_calculation_price');
     }
 
-    /**
-     * Get whether the item is nominal
-     * TODO: fix for multishipping checkout
-     *
-     * @return bool
-     */
-    public function isNominal()
-    {
-        if (!$this->hasData('is_nominal')) {
-			# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
-            $this->setData('is_nominal', false);
-        }
-        return $this->_getData('is_nominal');
-    }
-
-    /**
-     * Data getter for 'is_nominal'
-     * Used for converting item to order item
-     *
-     * @return int
-     */
-    public function getIsNominal()
-    {
-        return (int)$this->isNominal();
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
 
     /**
      * Get original price (retrieved from product) for item.
