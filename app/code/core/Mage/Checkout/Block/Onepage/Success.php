@@ -84,16 +84,8 @@ class Mage_Checkout_Block_Onepage_Success extends Mage_Core_Block_Template
         return (bool)$this->_getData('is_order_visible');
     }
 
-    /**
-     * Getter for recurring profile view page
-     *
-     * @param Varien_Object|Mage_Sales_Model_Recurring_Profile $profile
-     * @return string
-     */
-    public function getProfileUrl(Varien_Object $profile)
-    {
-        return $this->getUrl('sales/recurring_profile/view', ['profile' => $profile->getId()]);
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
     /**
      * Initialize data and prepare it for output
