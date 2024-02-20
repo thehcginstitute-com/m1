@@ -493,9 +493,8 @@
                 <base_hidden_tax_amount>
                     <to_order_item>*</to_order_item>
                 </base_hidden_tax_amount>
-                <is_recurring>
-                    <to_order_item>*</to_order_item>
-                </is_recurring>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
                 <is_nominal>
                     <to_order_item>*</to_order_item>
                 </is_nominal>
