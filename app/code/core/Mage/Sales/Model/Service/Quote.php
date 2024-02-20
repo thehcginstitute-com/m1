@@ -287,17 +287,6 @@ class Mage_Sales_Model_Service_Quote
     }
 
 	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
-
-    /**
-     * Get rid of all nominal items
-     */
-    protected function _deleteNominalItems()
-    {
-        foreach ($this->_quote->getAllVisibleItems() as $item) {
-            if ($item->isNominal()) {
-                $item->isDeleted(true);
-            }
-        }
-    }
+	# 1) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
+	# 2) "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
 }
