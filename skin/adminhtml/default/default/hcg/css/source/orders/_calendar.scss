@@ -1,0 +1,23 @@
+// 2024-02-20
+// "Improve the calendar controls appearance on the the backend order grid":
+// https://github.com/thehcginstitute-com/m1/issues/397
+th > .range {
+	position: relative;
+	// 2024-02-20
+	// I set it to a higher value than `z-index` of the next column's control:
+	// https://github.com/thehcginstitute-com/m1/blob/2024-02-20/skin/adminhtml/default/default/iwd/ordergrid/order_grid.css#L82
+	z-index: 3;
+	> .date {
+		> * {font-size: 80%;}
+		// 2024-02-20 It was `75px !important`: https://github.com/thehcginstitute-com/m1/blob/2024-02-20/skin/adminhtml/default/openmage/scss/override.scss#L280
+		> input {width: 6em !important;}
+		> .label {
+			// 2024-02-20 It was `4px`: https://github.com/thehcginstitute-com/m1/blob/2024-02-20/skin/adminhtml/default/openmage/scss/override.scss#L272
+			padding-left: 0;
+			// 2024-02-20 It was `4px`: https://github.com/thehcginstitute-com/m1/blob/2024-02-20/skin/adminhtml/default/openmage/scss/override.scss#L272
+			padding-right: 2px;
+			// 2024-02-20 It was `40px`: https://github.com/thehcginstitute-com/m1/blob/2024-02-20/skin/adminhtml/default/openmage/scss/override.scss#L272
+			width: 3em;
+		}
+	}
+}

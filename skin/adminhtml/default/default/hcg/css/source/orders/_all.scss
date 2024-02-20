@@ -1,0 +1,13 @@
+body.adminhtml-sales-order-index {
+	table#sales_order_grid_table {
+		// 2024-02-20
+		// "Improve the calendar controls appearance on the the backend order grid":
+		// https://github.com/thehcginstitute-com/m1/issues/397
+		@import '_calendar';
+		// 2024-02-20
+		// 1) "The backend order grid is not properly colored": https://github.com/thehcginstitute-com/m1/issues/395
+		// 2.1) https://github.com/thehcginstitute-com/m1/blob/2024-02-20/skin/adminhtml/default/openmage/scss/override.scss#L219
+		// 2.2) https://github.com/thehcginstitute-com/m1/blob/2024-02-20/skin/adminhtml/default/openmage/scss/override.scss#L349-L380
+		td {background-color: initial !important;}
+	}
+}
