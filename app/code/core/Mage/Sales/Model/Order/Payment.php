@@ -1354,15 +1354,8 @@ class Mage_Sales_Model_Order_Payment extends Mage_Payment_Model_Info
         return $this;
     }
 
-    /**
-     * Get the billing agreement, if any
-     *
-     * @return Mage_Sales_Model_Billing_Agreement|null
-     */
-    public function getBillingAgreement()
-    {
-        return $this->_billingAgreement;
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
     /**
      * Totals updater utility method
