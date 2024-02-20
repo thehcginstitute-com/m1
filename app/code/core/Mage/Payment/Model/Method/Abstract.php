@@ -233,15 +233,8 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
         return $this->_canFetchTransactionInfo;
     }
 
-    /**
-     * Check whether payment method instance can create billing agreements
-     *
-     * @return bool
-     */
-    public function canCreateBillingAgreement()
-    {
-        return $this->_canCreateBillingAgreement;
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
     /**
      * Fetch transaction info
