@@ -1019,12 +1019,8 @@
                     <creditmemo_comment>
                         <table>sales_flat_creditmemo_comment</table>
                     </creditmemo_comment>
-                    <recurring_profile>
-                        <table>sales_recurring_profile</table>
-                    </recurring_profile>
-                    <recurring_profile_order>
-                        <table>sales_recurring_profile_order</table>
-                    </recurring_profile_order>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
                     <order_tax>
                         <table>sales_order_tax</table>
                     </order_tax>
