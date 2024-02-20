@@ -147,15 +147,8 @@
                 </checkout_payment_failed_template>
             </email>
         </template>
-        <sales>
-            <quote>
-                <totals>
-                    <nominal>
-                        <renderer>checkout/total_nominal</renderer>
-                    </nominal>
-                </totals>
-            </quote>
-        </sales>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407 -->
     </global>
     <frontend>
         <secure_url>
