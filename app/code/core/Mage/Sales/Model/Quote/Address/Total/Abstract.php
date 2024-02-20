@@ -201,7 +201,9 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
      */
     protected function _getAddressItems(Mage_Sales_Model_Quote_Address $address)
     {
-        return $address->getAllNonNominalItems();
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
+        return $address->getAllItems();
     }
 
     /**
