@@ -1148,12 +1148,10 @@ class Mage_Sales_Model_Order_Payment extends Mage_Payment_Model_Info
 
         // update transactions, order state and add comments
         $transaction = $this->_addTransaction(Mage_Sales_Model_Order_Payment_Transaction::TYPE_AUTH);
-        if ($order->isNominal()) {
-            $message = $this->_prependMessage(Mage::helper('sales')->__('Nominal order registered.'));
-        } else {
-            $message = $this->_prependMessage($message);
-            $message = $this->_appendTransactionToMessage($transaction, $message);
-        }
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
+		$message = $this->_prependMessage($message);
+		$message = $this->_appendTransactionToMessage($transaction, $message);
         $order->setState($state, $status, $message);
 
         return $this;
