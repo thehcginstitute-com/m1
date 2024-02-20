@@ -7128,17 +7128,6 @@ $installer->getConnection()->addIndex(
     ['payment_id']
 );
 
-$installer->getConnection()->addIndex(
-    $installer->getTable('sales/recurring_profile'),
-    $installer->getIdxName(
-        'sales/recurring_profile',
-        ['internal_reference_id'],
-        Varien_Db_Adapter_Interface::INDEX_TYPE_UNIQUE
-    ),
-    ['internal_reference_id'],
-    Varien_Db_Adapter_Interface::INDEX_TYPE_UNIQUE
-);
-
 # 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 
