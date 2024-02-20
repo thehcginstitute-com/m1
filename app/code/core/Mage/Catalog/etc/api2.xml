@@ -166,7 +166,8 @@
                             <regular_price_without_tax>1</regular_price_without_tax>
                             <final_price_with_tax>1</final_price_with_tax>
                             <final_price_without_tax>1</final_price_without_tax>
-                            <recurring_profile>1</recurring_profile>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
                             <thumbnail>1</thumbnail>
                             <entity_id>1</entity_id>
                             <created_at>1</created_at>
