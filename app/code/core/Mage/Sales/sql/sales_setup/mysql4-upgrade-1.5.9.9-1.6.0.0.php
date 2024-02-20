@@ -3560,11 +3560,8 @@ $tables = [
                 'precision' => 12,
                 'comment'   => 'Base Hidden Tax Refunded'
             ],
-            'is_nominal' => [
-                'type'      => Varien_Db_Ddl_Table::TYPE_INTEGER,
-                'nullable'  => false,
-                'comment'   => 'Is Nominal'
-            ],
+			# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
             'tax_canceled' => [
                 'type'      => Varien_Db_Ddl_Table::TYPE_DECIMAL,
                 'scale'     => 4,
