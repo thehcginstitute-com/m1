@@ -523,7 +523,9 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     public function getAllItems()
     {
         // We calculate item list once and cache it in three arrays - all items, nominal, non-nominal
-        $cachedItems = $this->_nominalOnly ? 'nominal' : ($this->_nominalOnly === false ? 'nonnominal' : 'all');
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
+        $cachedItems = 'all';
         $key = 'cached_items_' . $cachedItems;
         if (!$this->hasData($key)) {
             // For compatibility  we will use $this->_filterNominal to divide nominal items from non-nominal
