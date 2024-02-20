@@ -101,7 +101,8 @@ class Mage_Checkout_Block_Onepage_Success extends Mage_Core_Block_Template
     protected function _beforeToHtml()
     {
         $this->_prepareLastOrder();
-        $this->_prepareLastBillingAgreement();
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
         $this->_prepareLastRecurringProfiles();
         return parent::_beforeToHtml();
     }
@@ -132,27 +133,8 @@ class Mage_Checkout_Block_Onepage_Success extends Mage_Core_Block_Template
         }
     }
 
-    /**
-     * Prepare billing agreement data from an identifier in the session
-     */
-    protected function _prepareLastBillingAgreement()
-    {
-        $agreementId = Mage::getSingleton('checkout/session')->getLastBillingAgreementId();
-        $customerId = Mage::getSingleton('customer/session')->getCustomerId();
-        if ($agreementId && $customerId) {
-            $agreement = Mage::getModel('sales/billing_agreement')->load($agreementId);
-            if ($agreement->getId() && $customerId == $agreement->getCustomerId()) {
-                $this->addData([
-                    'agreement_ref_id' => $agreement->getReferenceId(),
-                    'agreement_url' => $this->getUrl(
-                        'sales/billing_agreement/view',
-                        ['agreement' => $agreementId]
-                    ),
-                    'agreement' => $agreement,
-                ]);
-            }
-        }
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
     /**
      * Prepare recurring payment profiles from the session
