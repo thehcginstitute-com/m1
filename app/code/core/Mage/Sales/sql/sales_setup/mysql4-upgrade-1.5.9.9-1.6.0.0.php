@@ -6525,82 +6525,9 @@ $tables = [
             ]
         ],
         'comment' => 'Sales Bestsellers Aggregated Yearly'
-    ],
-    $installer->getTable('sales/billing_agreement') => [
-        'columns' => [
-            'agreement_id' => [
-                'type'      => Varien_Db_Ddl_Table::TYPE_INTEGER,
-                'identity'  => true,
-                'unsigned'  => true,
-                'nullable'  => false,
-                'primary'   => true,
-                'comment'   => 'Agreement Id'
-            ],
-            'customer_id' => [
-                'type'      => Varien_Db_Ddl_Table::TYPE_INTEGER,
-                'unsigned'  => true,
-                'nullable'  => false,
-                'comment'   => 'Customer Id'
-            ],
-            'method_code' => [
-                'type'      => Varien_Db_Ddl_Table::TYPE_TEXT,
-                'length'    => 32,
-                'nullable'  => false,
-                'comment'   => 'Method Code'
-            ],
-            'reference_id' => [
-                'type'      => Varien_Db_Ddl_Table::TYPE_TEXT,
-                'length'    => 32,
-                'nullable'  => false,
-                'comment'   => 'Reference Id'
-            ],
-            'status' => [
-                'type'      => Varien_Db_Ddl_Table::TYPE_TEXT,
-                'length'    => 20,
-                'nullable'  => false,
-                'comment'   => 'Status'
-            ],
-            'created_at' => [
-                'type'      => Varien_Db_Ddl_Table::TYPE_TIMESTAMP,
-                'nullable'  => false,
-                'comment'   => 'Created At'
-            ],
-            'updated_at' => [
-                'type'      => Varien_Db_Ddl_Table::TYPE_TIMESTAMP,
-                'comment'   => 'Updated At'
-            ],
-            'store_id' => [
-                'type'      => Varien_Db_Ddl_Table::TYPE_SMALLINT,
-                'unsigned'  => true,
-                'comment'   => 'Store Id'
-            ],
-            'agreement_label' => [
-                'type'      => Varien_Db_Ddl_Table::TYPE_TEXT,
-                'length'    => 255,
-                'comment'   => 'Agreement Label'
-            ]
-        ],
-        'comment' => 'Sales Billing Agreement'
-    ],
-    $installer->getTable('sales/billing_agreement_order') => [
-        'columns' => [
-            'agreement_id' => [
-                'type'      => Varien_Db_Ddl_Table::TYPE_INTEGER,
-                'unsigned'  => true,
-                'nullable'  => false,
-                'primary'   => true,
-                'comment'   => 'Agreement Id'
-            ],
-            'order_id' => [
-                'type'      => Varien_Db_Ddl_Table::TYPE_INTEGER,
-                'unsigned'  => true,
-                'nullable'  => false,
-                'primary'   => true,
-                'comment'   => 'Order Id'
-            ]
-        ],
-        'comment' => 'Sales Billing Agreement Order'
     ]
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 ];
 
 $installer->getConnection()->modifyTables($tables);
