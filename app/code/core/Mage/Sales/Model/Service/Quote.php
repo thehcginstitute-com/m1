@@ -218,7 +218,8 @@ class Mage_Sales_Model_Service_Quote
         $shouldInactivateQuoteOld = $this->_shouldInactivateQuote;
         $this->_shouldInactivateQuote = false;
         try {
-            $this->submitNominalItems();
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
             $this->_shouldInactivateQuote = $shouldInactivateQuoteOld;
         } catch (Exception $e) {
             $this->_shouldInactivateQuote = $shouldInactivateQuoteOld;
