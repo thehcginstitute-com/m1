@@ -25,8 +25,8 @@ $flatOrderTable             = $installer->getTable('sales_flat_order');
 $profileOrderTable          = $installer->getTable('sales_recurring_profile_order');
 $customerEntityTable        = $installer->getTable('customer_entity');
 $coreStoreTable             = $installer->getTable('core_store');
-$billingAgreementTable      = $installer->getTable('sales/billing_agreement');
-$billingAgreementOrderTable = $installer->getTable('sales/billing_agreement_order');
+# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
 //-------
 $installer->getConnection()->addColumn(
@@ -52,53 +52,8 @@ $installer->getConnection()->addColumn(
 //-------
 $this->getConnection()->addColumn($orderItemTable, 'is_nominal', 'int NOT NULL DEFAULT \'0\'');
 
-//-------
-$installer->run("
-    CREATE TABLE `{$billingAgreementTable}` (
-      `agreement_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-      `customer_id` int(10) unsigned NOT NULL,
-      `method_code` varchar(32) NOT NULL,
-      `reference_id` varchar(32) NOT NULL,
-      `status` varchar(20) NOT NULL,
-      `created_at` datetime NOT NULL,
-      `updated_at` datetime DEFAULT NULL,
-      PRIMARY KEY (`agreement_id`),
-      KEY `IDX_CUSTOMER` (`customer_id`)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-");
-
-$installer->getConnection()->addConstraint(
-    'FK_BILLING_AGREEMENT_CUSTOMER',
-    $billingAgreementTable,
-    'customer_id',
-    $installer->getTable('customer/entity'),
-    'entity_id'
-);
-
-//-------
-$installer->run("
-    CREATE TABLE `{$billingAgreementOrderTable}` (
-      `agreement_id` int(10) unsigned NOT NULL,
-      `order_id` int(10) unsigned NOT NULL,
-      UNIQUE KEY `UNQ_BILLING_AGREEMENT_ORDER` (`agreement_id`,`order_id`)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-");
-
-$installer->getConnection()->addConstraint(
-    'FK_BILLING_AGREEMENT_ORDER_AGREEMENT',
-    $billingAgreementOrderTable,
-    'agreement_id',
-    $billingAgreementTable,
-    'agreement_id'
-);
-
-$installer->getConnection()->addConstraint(
-    'FK_BILLING_AGREEMENT_ORDER_ORDER',
-    $billingAgreementOrderTable,
-    'order_id',
-    $orderTable,
-    'entity_id'
-);
+# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 
 //-------
 
