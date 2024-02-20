@@ -1225,18 +1225,9 @@ https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/code/core/Mage/Sales
                         <before>grand_total</before>
                     </msrp>
                 </totals>
-                <nominal_totals>
 <!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
-                    <nominal_subtotal>
-                        <class>sales/quote_address_total_nominal_subtotal</class>
-                        <sort_order>250</sort_order>
-                    </nominal_subtotal>
-                    <nominal_shipping>
-                        <class>sales/quote_address_total_nominal_shipping</class>
-                        <sort_order>1250</sort_order>
-                    </nominal_shipping>
-                </nominal_totals>
+1) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
+2) "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407 -->
                 <item>
                     <product_attributes>
                         <sku/>
