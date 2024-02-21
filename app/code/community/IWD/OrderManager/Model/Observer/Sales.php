@@ -5,28 +5,8 @@
  */
 class IWD_OrderManager_Model_Observer_Sales
 {
-    /**
-     * @param Varien_Event_Observer $observer
-     */
-    public function backupOrderBeforeEdit(Varien_Event_Observer $observer)
-    {
-        $order = $observer->getEvent()->getOrder();
-        $orderItems = $observer->getEvent()->getOrderItems();
-
-        /**
-         * @var $backup IWD_OrderManager_Model_Backup_Sales
-         */
-        $backup = Mage::getModel('iwd_ordermanager/backup_sales');
-        $backup->saveBackup($order, $orderItems, 'order', 'edit');
-
-        $backupId = $order->getIwdBackupId();
-        $autoReAuthorization = Mage::helper('iwd_ordermanager')->isAutoReAuthorization();
-
-		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-		# 1) "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
-		# 2) "Delete the `IWD_OrderManager_Model_Payment_Payment` class":
-		# https://github.com/thehcginstitute-com/m1/issues/361
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Backup Sales» feature of `IWD_OrderManager`": https://github.com/thehcginstitute-com/m1/issues/412
 
     /**
      * @param Varien_Event_Observer $observer
