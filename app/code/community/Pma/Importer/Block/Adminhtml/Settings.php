@@ -74,24 +74,22 @@ class Pma_Importer_Block_Adminhtml_Settings extends Mage_Adminhtml_Block_Templat
 
 			return $response ;
 	  }
-	
+
   
-	 function _orderencodeAction($collection){
-
-			   $importerModel = Mage::getModel('importer/importer');
-			   $dataCollection = $importerModel->getCollection();
-			   foreach($dataCollection as $item){
-					$response['account_token']= $item->getAccount_token();
-			   }
-
+	function _orderencodeAction($collection){
+		$importerModel = Mage::getModel('importer/importer');
+		$dataCollection = $importerModel->getCollection();
+		foreach($dataCollection as $item){
+			$response['account_token']= $item->getAccount_token();
+		}
 		  foreach($collection as $items){
 
 			   $order = Mage::getModel('sales/order')->loadByIncrementId($items->getIncrement_id());
 			   $customer  = Mage::getModel('customer/customer')->load($items->getCustomerId());
  
 			   $response[$items->getIncrement_id()]['grand_total'] = $items->getGrand_total();
-			   $response[$items->getIncrement_id()]['visitor_id'] =  $customer->getData('visitorid');
-			   //$response[$items->getIncrement_id()]['transaction_id'] =  $order->getPayment()->getLastTransId();
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `visitorid` field from `Pma_Importer`": https://github.com/thehcginstitute-com/m1/issues/417
 
 			   $response[$items->getIncrement_id()]['shipping'] = $items->getShipping_amount();
 			   $response[$items->getIncrement_id()]['tax'] = $items->getTax_amount();
