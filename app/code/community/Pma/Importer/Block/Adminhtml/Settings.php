@@ -4,7 +4,7 @@ class Pma_Importer_Block_Adminhtml_Settings extends Mage_Adminhtml_Block_Templat
 
     protected $response = array();
 
-    public function __construct() {
+     function __construct() {
         parent::__construct();
         $importerModel = Mage::getModel('importer/importer');
         $collection = $importerModel->getCollection();
@@ -76,7 +76,7 @@ class Pma_Importer_Block_Adminhtml_Settings extends Mage_Adminhtml_Block_Templat
       }
     
   
-    public function _orderencodeAction($collection){
+     function _orderencodeAction($collection){
               
                $importerModel = Mage::getModel('importer/importer');
                $dataCollection = $importerModel->getCollection();
@@ -132,7 +132,7 @@ class Pma_Importer_Block_Adminhtml_Settings extends Mage_Adminhtml_Block_Templat
           return $response ;
      }
      
-      public function _curlDataAction($json,$url){
+       function _curlDataAction($json,$url){
          
             $post_data = $json ;
             

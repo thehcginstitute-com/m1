@@ -11,7 +11,7 @@ class Pma_Importer_Adminhtml_ImportersController extends Mage_Adminhtml_Controll
         return $this;
     }  
     
-    public function indexAction() {
+     function indexAction() {
         $this->_initAction();
         
         $importerModel = Mage::getModel('importer/importer');
@@ -41,7 +41,7 @@ class Pma_Importer_Adminhtml_ImportersController extends Mage_Adminhtml_Controll
         $this->renderLayout();
     }
    
-    public function saveAction()
+     function saveAction()
     {
       if ($this->getRequest()->getPost()) {
           

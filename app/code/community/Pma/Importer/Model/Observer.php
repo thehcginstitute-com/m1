@@ -2,7 +2,7 @@
 
 class Pma_Importer_Model_Observer {
 
-  public function customerDataUpdate($observer){
+   function customerDataUpdate($observer){
    
    //echo "<pre>"; print_r($_POST);
    echo  $observer->getEvent()->getData('order');
@@ -10,7 +10,7 @@ class Pma_Importer_Model_Observer {
 
   }
   
-   public function status(Varien_Event_Observer $observer) {
+    function status(Varien_Event_Observer $observer) {
 
 	//echo "<pre>"; print_r($_POST);
 

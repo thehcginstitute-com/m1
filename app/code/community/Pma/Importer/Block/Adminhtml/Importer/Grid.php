@@ -2,7 +2,7 @@
      
     class Pma_Importer_Block_Adminhtml_Importer_Grid extends Mage_Adminhtml_Block_Widget_Grid
     {
-        public function __construct()
+         function __construct()
         {
             parent::__construct();
             $this->setId('importerGrid');
@@ -140,7 +140,7 @@
             return $this;
         }
     
-        public function getRowUrl($row)
+         function getRowUrl($row)
         {
             if (Mage::getSingleton('admin/session')->isAllowed('sales/order/actions/view')) {
                 return $this->getUrl('*/sales_order/view', array('order_id' => $row->getId()));
@@ -148,7 +148,7 @@
             return false;
         }
     
-        public function getGridUrl()
+         function getGridUrl()
         {
             return $this->getUrl('*/*/grid', array('_current'=>true));
         }

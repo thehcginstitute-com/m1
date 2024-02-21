@@ -2,7 +2,7 @@
  
     class Pma_Importer_Block_Adminhtml_Importer extends Mage_Adminhtml_Block_Widget_Grid_Container
     {
-        public function __construct()
+         function __construct()
         {  
             $this->_controller = 'adminhtml_importer';
             $this->_blockGroup = 'importer';
