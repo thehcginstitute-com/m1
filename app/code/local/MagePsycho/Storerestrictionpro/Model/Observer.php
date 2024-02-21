@@ -73,24 +73,17 @@ class MagePsycho_Storerestrictionpro_Model_Observer
     function customerSaveBefore(Varien_Event_Observer $observer)
     {
         $helper = Mage::helper('magepsycho_storerestrictionpro');
-        $helper->log(__METHOD__, true);
-
         if ($helper->skipAccountActivationFxn()) {
-            $helper->log('enabled()::', !$helper->skipAccountActivationFxn());
             return;
         }
-
         $customer = $observer->getEvent()->getCustomer();
         $storeId  = $helper->getCustomerStoreId($customer);
-        $helper->log('$storeId::' . $storeId . ', $customerId()::' . $customer->getId());
         if (!$customer->getId()) {
             $customer->setCustomerActivationNewAccount(true);
-            $helper->log('isAdmin::' . Mage::app()->getStore()->isAdmin() . ', adminCustomerSave::' . $helper->_checkControllerAction('customer', 'save'));
             if (!(Mage::app()->getStore()->isAdmin() && $helper->_checkControllerAction('customer', 'save'))) {
                 // Do not set the default status on the admin customer edit save action
                 $groupId       = $customer->getGroupId();
-                $defaultStatus = $helper->getAccountActivationDefaultStatus($groupId, $storeId);
-                $helper->log('$groupId::' . $groupId . ', $defaultStatus::' . $defaultStatus);
+                $defaultStatus = $helper->getAccountActivationDefaultStatus($groupId, $storeId);;
                 $customer->setAccountActivated($defaultStatus);
                 //@todo suppress VAt validation message
             }
@@ -107,7 +100,6 @@ class MagePsycho_Storerestrictionpro_Model_Observer
     function customerSaveAfter(Varien_Event_Observer $observer)
     {
         $helper = Mage::helper('magepsycho_storerestrictionpro');
-        $helper->log(__METHOD__, true);
 
         if ($helper->skipAccountActivationFxn()) {
             return;
@@ -121,28 +113,22 @@ class MagePsycho_Storerestrictionpro_Model_Observer
 
         try {
             if (Mage::app()->getStore()->isAdmin()) {
-                $helper->log('isAdmin()::1');
-                $helper->log('getOrigData()::' . $customer->getOrigData('account_activated') . ', getAccountActivated()::' . $customer->getAccountActivated() . ', getCustomerActivationNewAccount()::' . $customer->getCustomerActivationNewAccount());
                 if (!$customer->getOrigData('account_activated') && $customer->getAccountActivated()) {
                     // Send customer email only if it isn't a new account and it isn't activated by default
                     if (!($customer->getCustomerActivationNewAccount() && $defaultStatus)) {
-                        $helper->log('sendCustomerNotificationEmail()::1');
                         $helper->sendCustomerNotificationEmail($customer);
                     }
                 }
             } else {
-                $helper->log('getCustomerActivationNewAccount()::1');
                 if ($customer->getCustomerActivationNewAccount()) {
                     // Only notify the admin if the default is deactivated
                     if (!$defaultStatus) {
-                        $helper->log('sendAdminNotificationEmail()::1');
                         $helper->sendAdminNotificationEmail($customer);
                     }
                 }
                 $customer->setCustomerActivationNewAccount(false);
             }
         } catch (Exception $e) {
-            $helper->log('ERROR::Exception::' . $e->getMessage());
             Mage::throwException($e->getMessage());
         }
     }
@@ -251,11 +237,8 @@ class MagePsycho_Storerestrictionpro_Model_Observer
     {
         $helper   = Mage::helper('magepsycho_storerestrictionpro');
         $fullActionName = $observer->getControllerAction()->getFullActionName();
-        $helper->log('$requestedRoute::' . $fullActionName);
-
         //condition for which store restriction extension should be by passed
         if ($helper->skipRestrictionByDefault()) {
-            $helper->log('restrictedByPassed for request::' . $fullActionName);
             return;
         }
 
@@ -282,29 +265,23 @@ class MagePsycho_Storerestrictionpro_Model_Observer
                 $isCurrentPageRestricted = false;
 
                 if (in_array($fullActionName, array('cms_index_index', 'cms_page_view'))) {//CMS page
-                    $helper->log('::CMS::', true);
                     if (!$helper->isRestrictedCmsPageAccessible()) {
                         $isCurrentPageRestricted = true;
                     }
                 } else if (in_array($fullActionName, array('catalog_category_view'))) {//Category page
-                    $helper->log('::CATEGORY::', true);
                     if (!$helper->isRestrictedCategoryPageAccessible()) {
                         $isCurrentPageRestricted = true;
                     }
                 } else if (in_array($fullActionName, array('catalog_product_view'))) {//Product page
-                    $helper->log('::PRODUCT::', true);
                     if (!$helper->isRestrictedProductPageAccessible()) {
                         $isCurrentPageRestricted = true;
                     }
                 } else {//Modules page
-                    $helper->log('::MODULE::', true);
                     //get all the list of allowed modules
                     if (!$helper->isRestrictedModulePageAccessible()) {
                         $isCurrentPageRestricted = true;
                     }
                 }
-
-                $helper->log('$isCurrentPageRestricted::' . $isCurrentPageRestricted);
                 if ($isCurrentPageRestricted) {
                     //check if the current page is restricted, yes? then add the error message to session, get landing page and redirect
                     Mage::getSingleton('core/session')->getMessages(true);
@@ -313,7 +290,6 @@ class MagePsycho_Storerestrictionpro_Model_Observer
                         Mage::getSingleton('core/session')->addError($storeErrorMessage);
                     }
                     $landingPage = $helper->getRestrictedLandingPage();
-                    $helper->log('$storeErrorMessage::' . $storeErrorMessage . ', $landingPage::' . $landingPage);
                     $this->_redirect($landingPage);
                 }
             }
