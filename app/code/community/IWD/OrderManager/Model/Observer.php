@@ -464,15 +464,8 @@ class IWD_OrderManager_Model_Observer
         }
     }
 
-    /**
-     * @param Varien_Event_Observer $observer
-     */
-    public function commentDelete(Varien_Event_Observer $observer)
-    {
-        $comment = $observer->getEvent()->getComment();
-        $type = $observer->getEvent()->getType();
-        Mage::getModel('iwd_ordermanager/backup_comments')->saveBackup($comment, $type);
-    }
+	# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Delete the unused «Backup Sales» feature of `IWD_OrderManager`": https://github.com/thehcginstitute-com/m1/issues/412
     /******************************************* end DELETE: CREATE BACKUPS **/
 
 

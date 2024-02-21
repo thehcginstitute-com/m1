@@ -357,15 +357,8 @@
                     </creditmemo_delete_before>
                 </observers>
             </iwd_ordermanager_sales_creditmemo_delete_before>
-            <iwd_ordermanager_sales_comment_delete_before>
-                <observers>
-                    <comment_delete_before>
-                        <type>singleton</type>
-                        <class>iwd_ordermanager/observer</class>
-                        <method>commentDelete</method>
-                    </comment_delete_before>
-                </observers>
-            </iwd_ordermanager_sales_comment_delete_before>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Backup Sales» feature of `IWD_OrderManager`": https://github.com/thehcginstitute-com/m1/issues/412 -->
             <iwd_ordermanager_update_order_after>
                 <observers>
                     <iwd_ordermanager_after_order_update>
