@@ -457,10 +457,8 @@ class IWD_OrderManager_Model_Observer
     public function shipmentDelete(Varien_Event_Observer $observer)
     {
         $obj = $observer->getEvent()->getShipment();
-        $items = $observer->getEvent()->getShipmentItems();
-
-        Mage::getModel('iwd_ordermanager/backup_sales')->saveBackup($obj, $items, 'shipment');
-
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Backup Sales» feature of `IWD_OrderManager`": https://github.com/thehcginstitute-com/m1/issues/412
         if (!Mage::helper('iwd_ordermanager')->isEnterpriseMagentoEdition()) {
             Mage::getModel('iwd_ordermanager/archive_shipment')->load($obj->getEntityId(), 'entity_id')->delete();
         }
