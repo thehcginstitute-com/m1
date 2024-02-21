@@ -126,24 +126,8 @@
         </template>
 
         <events>
-            <iwd_ordermanager_sales_order_edit_before>
-                <observers>
-                    <ordermanager_backup_order_edit_before_edit>
-                        <type>singleton</type>
-                        <class>iwd_ordermanager/observer_sales</class>
-                        <method>backupOrderBeforeEdit</method>
-                    </ordermanager_backup_order_edit_before_edit>
-                </observers>
-            </iwd_ordermanager_sales_order_edit_before>
-            <iwd_ordermanager_update_order_amount_before>
-                <observers>
-                    <ordermanager_backup_order_amount_before_edit>
-                        <type>singleton</type>
-                        <class>iwd_ordermanager/observer_sales</class>
-                        <method>backupOrderBeforeEdit</method>
-                    </ordermanager_backup_order_amount_before_edit>
-                </observers>
-            </iwd_ordermanager_update_order_amount_before>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Backup Sales» feature of `IWD_OrderManager`": https://github.com/thehcginstitute-com/m1/issues/412 -->
 
             <sales_order_status_history_save_before>
                 <observers>
