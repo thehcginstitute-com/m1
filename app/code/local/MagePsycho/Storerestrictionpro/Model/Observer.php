@@ -34,37 +34,30 @@ class MagePsycho_Storerestrictionpro_Model_Observer
     function customerLogin(Varien_Event_Observer $observer)
     {
         $helper = Mage::helper('magepsycho_storerestrictionpro');
-        $helper->log(__METHOD__, true);
         if ($helper->skipAccountActivationFxn() || $helper->isApiRequest()) {
             return;
         }
 
         $customer       = $observer->getEvent()->getCustomer();
         $session        = Mage::getSingleton('customer/session');
-        $helper->log('enabled()::' . (int)$helper->enabled() . ', getAccountActivated()::' . $customer->getAccountActivated());
         if ( ! $customer->getAccountActivated()) {
             $session->setCustomer(Mage::getModel('customer/customer'))
                 ->setId(null)
                 ->setCustomerGroupId(Mage_Customer_Model_Group::NOT_LOGGED_IN_ID);
 
             $isRegistrationRequest = $helper->checkPageUrl('customer', 'account', 'createpost');
-            $helper->log('$isRegistrationRequest::' . $isRegistrationRequest);
             if ($isRegistrationRequest) { //@todo fix this
                 //regular registration
                 $nonActivationRegistrationMessage = $helper->cfgH()->getNewAccountActivationRedirectionErrorMessageRegistration();
-                $helper->log('NON-ACTIVATED::REGISTRATION::MESSAGE::' . $nonActivationRegistrationMessage);
                 $session->addSuccess($nonActivationRegistrationMessage);
                 $redirectUrl = $helper->getNonActivatedLandingPage();
-                $helper->log('$redirectUrl::Register::' . $redirectUrl);
                 $this->_redirect($redirectUrl);
             } else {
                 //other types of login
                 $nonActivationLoginMessage = $helper->cfgH()->getNewAccountActivationRedirectionErrorMessageLogin();
-                $helper->log('NON-ACTIVATED::LOGIN::MESSAGE::' . $nonActivationLoginMessage);
                 #Mage::throwException($helper->__($nonActivationLoginMessage));
                 $session->addError($nonActivationLoginMessage);
                 $redirectUrl = $helper->getNonActivatedLandingPage();
-                $helper->log('$redirectUrl::Login::' . $redirectUrl);
                 $this->_redirect($redirectUrl);
             }
         }
