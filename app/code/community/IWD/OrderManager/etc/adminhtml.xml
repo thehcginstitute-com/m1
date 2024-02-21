@@ -27,24 +27,8 @@
             </children>
         </system>
         <sales>
-            <children>
-                <iwd_ordermanager_backups module="iwd_ordermanager">
-                    <title>Backups Deleted Sales</title>
-                    <sort_order>42</sort_order>
-                    <children>
-                        <sales module="iwd_ordermanager">
-                            <title>Sales</title>
-                            <sort_order>10</sort_order>
-                            <action>adminhtml/sales_backup_sales/index</action>
-                        </sales>
-                        <comments module="iwd_ordermanager">
-                            <title>Comments</title>
-                            <sort_order>20</sort_order>
-                            <action>adminhtml/sales_backup_comments/index</action>
-                        </comments>
-                    </children>
-                </iwd_ordermanager_backups>
-            </children>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Backup Sales» feature of `IWD_OrderManager`": https://github.com/thehcginstitute-com/m1/issues/412 -->
             <children>
                 <iwd_ordermanager_archive module="iwd_ordermanager">
                 <title>Archive Sales</title>
