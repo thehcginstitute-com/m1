@@ -103,12 +103,8 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 
     public function updateOrderPayment($orderId, $oldOrder)
     {
-        $backupId = $this->loadOrder($orderId)->getIwdBackupId();
-        if (empty($backupId)) {
-# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Delete the unused «Reauthorize» feature from IWD Order Manager": https://github.com/thehcginstitute-com/m1/issues/362
-            return 1;
-        }
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Backup Sales» feature of `IWD_OrderManager`": https://github.com/thehcginstitute-com/m1/issues/412
 
         Mage::getSingleton('adminhtml/session')->addNotice(
             Mage::helper('iwd_ordermanager')->__(
