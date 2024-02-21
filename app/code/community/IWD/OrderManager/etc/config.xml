@@ -44,12 +44,8 @@
             <iwd_ordermanager_mysql4>
                 <class>IWD_OrderManager_Model_Mysql4</class>
                 <entities>
-                    <backup_comments>
-                        <table>iwd_backup_flat_comments</table>
-                    </backup_comments>
-                    <backup_sales>
-                        <table>iwd_backup_flat_sales</table>
-                    </backup_sales>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Backup Sales» feature of `IWD_OrderManager`": https://github.com/thehcginstitute-com/m1/issues/412 -->
                     <archive_order>
                         <table>iwd_sales_archive_order_grid</table>
                     </archive_order>
