@@ -44,7 +44,6 @@ class MagePsycho_Loginredirectpro_Model_Rewrite_Customer extends Mage_Customer_M
         if ($type == 'registered') {
             if ($newAccountEmailTemplate = $helper->getAccountTemplate()) {
                 $emailTemplate = $newAccountEmailTemplate;
-                $helper->log('Custom Email Template Set::'.$emailTemplate);
             }
         }
 

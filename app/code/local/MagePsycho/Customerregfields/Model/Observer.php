@@ -52,33 +52,24 @@ class MagePsycho_Customerregfields_Model_Observer
 	 */
 	function customerSaveBefore(Varien_Event_Observer $observer)
 	{
-		$helper     = hcg_mp_hc();
-		$helper->log(__METHOD__, true);
+		$helper = hcg_mp_hc();
 		if ($helper->skipGroupCodeSelectorFxn()) {
-			$helper->log('SKIPPED::NotValidRequestForGroupCode');
 			return $this;
 		}
 
 		try {
 			$customer       = $observer->getEvent()->getCustomer();
 			$groupCode      = $customer->getMpGroupCode();
-			$helper->log('$groupCode::' . $groupCode);
 			if (empty($groupCode)) {
-				$helper->log('SKIPPED::EmptyGroupCode');
 				return $this;
 			}
 
 			if ($groupId = $helper->checkIfGroupCodeIsValid($groupCode)) {
 				$customer->setGroupId($groupId);
 				$customer->setMpGroupCode($groupCode);
-				$helper->log('CustomerGroupSet', true);
-				$helper->log('customerEmail::' . $customer->getEmail());
-				$helper->log('setGroupId::' . $groupId);
-				$helper->log('setGroupCode::' . $groupCode);
 			}
 
 		} catch (Exception $e) {
-			$helper->log('Exception::' . $e->getMessage());
 			Mage::logException($e);
 		}
 	}
@@ -132,17 +123,12 @@ class MagePsycho_Customerregfields_Model_Observer
 		) {
 			return $this;
 		}
-
-		$helper->log(__METHOD__, true);
-
 		// Set $customer object and customerSaveBefore() will take care of the rest
 		$customer       = $quote->getCustomer();
 		if ($groupId = Mage::getSingleton('checkout/session')->getSessMpGroupId()) {
-			$helper->log('$groupId::' . $groupId);
 			$customer->setGroupId($groupId);
 		}
 		if ($groupCode = Mage::getSingleton('checkout/session')->getSessMpGroupCode()) {
-			$helper->log('$groupCode::' . $groupCode);
 			$customer->setMpGroupCode($groupCode);
 		}
 	}
@@ -164,16 +150,12 @@ class MagePsycho_Customerregfields_Model_Observer
 			return $this;
 		}
 
-		$helper->log(__METHOD__, true);
-
 		if ($groupId = Mage::getSingleton('checkout/session')->getSessMpGroupId()) {
-			$helper->log('$groupId::' . $groupId);
 			$order->setCustomerGroupId($groupId);
 			Mage::getSingleton('checkout/session')->setSessMpGroupId();
 		}
 		if ($groupCode = Mage::getSingleton('checkout/session')->getSessMpGroupCode()) {
 			if ($groupId = $helper->checkIfGroupCodeIsValid($groupCode)) {
-				$helper->log('$groupCode::' . $groupCode);
 				$order->setCustomerGroupId($groupId);
 				Mage::getSingleton('checkout/session')->setSessMpGroupCode();
 			}
