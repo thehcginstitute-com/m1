@@ -445,9 +445,8 @@ class IWD_OrderManager_Model_Observer
     public function creditmemoDelete(Varien_Event_Observer $observer)
     {
         $obj = $observer->getEvent()->getCreditmemo();
-        $items = $observer->getEvent()->getCreditmemoItems();
-
-        Mage::getModel('iwd_ordermanager/backup_sales')->saveBackup($obj, $items, 'creditmemo');
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused «Backup Sales» feature of `IWD_OrderManager`": https://github.com/thehcginstitute-com/m1/issues/412
 
         if (!Mage::helper('iwd_ordermanager')->isEnterpriseMagentoEdition()) {
             Mage::getModel('iwd_ordermanager/archive_creditmemo')->load($obj->getEntityId(), 'entity_id')->delete();
