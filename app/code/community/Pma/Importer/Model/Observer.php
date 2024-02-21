@@ -9,35 +9,21 @@ class Pma_Importer_Model_Observer {
 	  die('<--');
 
   }
-  
-    function status(Varien_Event_Observer $observer) {
 
-	//echo "<pre>"; print_r($_POST);
-
-	  $data = Mage::app()->getRequest()->getPost('order');
-	  $visitorId = $data['account']['visitorid'];
-
-
-	 $order = $observer->getEvent()->getOrder();
-
-
-			   $response = array();
-
-			   $importerModel = Mage::getModel('importer/importer');
-			   $dataCollection = $importerModel->getCollection();
-
-			   foreach($dataCollection as $item){
-					$response['account_token']= $item->getAccount_token();
-			   }
-
-			   $order = Mage::getModel('sales/order')->loadByIncrementId($order->getIncrement_id());
-			   $customer  = Mage::getModel('customer/customer')->load($order->getCustomerId());
-
-			   if($visitorId != $customer->getData('visitorid'))
-			   {
-				   $customer->setData('visitorid',$visitorId);
-				   $customer->save();
-			   }
+	function status(Varien_Event_Observer $observer) {
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `visitorid` field from `Pma_Importer`": https://github.com/thehcginstitute-com/m1/issues/417
+		$order = $observer->getEvent()->getOrder();
+		$response = array();
+		$importerModel = Mage::getModel('importer/importer');
+		$dataCollection = $importerModel->getCollection();
+		foreach($dataCollection as $item) {
+			$response['account_token']= $item->getAccount_token();
+		}
+		$order = Mage::getModel('sales/order')->loadByIncrementId($order->getIncrement_id());
+		$customer  = Mage::getModel('customer/customer')->load($order->getCustomerId());
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `visitorid` field from `Pma_Importer`": https://github.com/thehcginstitute-com/m1/issues/417
 
 			   $response[$order->getIncrement_id()]['grand_total'] = $order->getGrand_total();
 			   $response[$order->getIncrement_id()]['visitor_id'] = $customer->getData('visitorid');
