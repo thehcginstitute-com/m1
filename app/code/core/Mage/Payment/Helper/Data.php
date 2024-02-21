@@ -39,8 +39,9 @@ class Mage_Payment_Helper_Data extends Mage_Core_Helper_Abstract
         $class = Mage::getStoreConfig($key);
         if (is_null($class)) {
 			# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# "«Unkown» is misspelled": https://github.com/thehcginstitute-com/m1/issues/414
-            Mage::logException(new Exception(sprintf('Unknown payment method with code "%s"', $code)));
+			# 1) "«Unkown» is misspelled": https://github.com/thehcginstitute-com/m1/issues/414
+            # 2) "`Mage_Payment_Helper_Data::getMethodInstance()` should not log the «Unknown payment method» message":
+			# https://github.com/thehcginstitute-com/m1/issues/415
             return false;
         }
         return Mage::getModel($class);
