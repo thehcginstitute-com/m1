@@ -21,20 +21,14 @@ class Pma_Importer_Model_Observer {
 			$response['account_token']= $item->getAccount_token();
 		}
 		$order = Mage::getModel('sales/order')->loadByIncrementId($order->getIncrement_id());
-		$customer  = Mage::getModel('customer/customer')->load($order->getCustomerId());
 		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Delete the unused `visitorid` field from `Pma_Importer`": https://github.com/thehcginstitute-com/m1/issues/417
-
-			   $response[$order->getIncrement_id()]['grand_total'] = $order->getGrand_total();
-			   $response[$order->getIncrement_id()]['visitor_id'] = $customer->getData('visitorid');
-			   $response[$order->getIncrement_id()]['shipping'] = $order->getShipping_amount();
-			   $response[$order->getIncrement_id()]['tax'] = $order->getTax_amount();
-
-			   $response[$order->getIncrement_id()]['order_status'] = $order->getStatusLabel();
-
-
-
-
+		$response[$order->getIncrement_id()]['grand_total'] = $order->getGrand_total();
+		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the unused `visitorid` field from `Pma_Importer`": https://github.com/thehcginstitute-com/m1/issues/417
+		$response[$order->getIncrement_id()]['shipping'] = $order->getShipping_amount();
+		$response[$order->getIncrement_id()]['tax'] = $order->getTax_amount();
+		$response[$order->getIncrement_id()]['order_status'] = $order->getStatusLabel();
 				$response[$order->getIncrement_id()]['Transaction_id'] =  $order->getPayment()->getLastTransId();
 				$orderItems = $order->getAllVisibleItems();
 
