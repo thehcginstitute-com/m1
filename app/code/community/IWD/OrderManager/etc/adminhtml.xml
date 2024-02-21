@@ -99,13 +99,8 @@
                                     <archive_shipments translate="title"><title>Archive Shipments</title></archive_shipments>
                                 </children>
                             </iwd_ordermanager_archive>
-                            <iwd_ordermanager_backups translate="title">
-                                <title>Backups</title>
-                                <children>
-                                    <sales translate="title"><title>Backup Sales</title></sales>
-                                    <comments translate="title"><title>Backup Comments</title></comments>
-                                </children>
-                            </iwd_ordermanager_backups>
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Backup Sales» feature of `IWD_OrderManager`": https://github.com/thehcginstitute-com/m1/issues/412 -->
                         </children>
                     </sales>
                     <iwd_ordermanager>
