@@ -295,26 +295,21 @@ class MagePsycho_Storerestrictionpro_Model_Observer
             }
 
         } else if ($helper->cfgH()->getRestrictionType() == MagePsycho_Storerestrictionpro_Model_System_Config_Source_Restrictiontypes::RESTRICTION_TYPE_ACCESSIBLE_RESTRICTED) {
-            $helper->log('::Accessible(Only Configured Pages/Sections Restricted)::', true);
             $isCurrentPageRestricted = false;
 
             if (in_array($fullActionName, array('cms_index_index', 'cms_page_view'))) {//CMS page
-                $helper->log('::CMS::', true);
                 if ($helper->isAccessibleCmsPageRestricted()) {
                     $isCurrentPageRestricted = true;
                 }
             } else if (in_array($fullActionName, array('catalog_category_view'))) {//Category page
-                $helper->log('::CATEGORY::', true);
                 if ($helper->isAccessibleCategoryPageRestricted()) {
                     $isCurrentPageRestricted = true;
                 }
             } else if (in_array($fullActionName, array('catalog_product_view'))) {//Product page
-                $helper->log('::PRODUCT::', true);
                 if ($helper->isAccessibleProductPageRestricted()) {
                     $isCurrentPageRestricted = true;
                 }
             } else {//Modules page
-                $helper->log('::MODULE::', true);
 
                 //if checkout is restricted
                 if ($helper->isAccessibleCheckoutPageRestricted() && stripos($fullActionName, 'checkout_onepage_') !== false) {
@@ -326,8 +321,6 @@ class MagePsycho_Storerestrictionpro_Model_Observer
                     $isCurrentPageRestricted = true;
                 }
             }
-
-            $helper->log('$isCurrentPageRestricted::AccessibleCase::' . (int)$isCurrentPageRestricted);
             if ($isCurrentPageRestricted) {
                 //check if the current page is restricted, yes? then add the error message to session, get landing page and redirect
                 Mage::getSingleton('core/session')->getMessages(true);
@@ -336,7 +329,6 @@ class MagePsycho_Storerestrictionpro_Model_Observer
                     Mage::getSingleton('core/session')->addError($storeErrorMessage);
                 }
                 $landingPage = $helper->getAccessibleLandingPage();
-                $helper->log('$storeErrorMessage::AccessibleCase::' . $storeErrorMessage . ', $landingPage2::' . $landingPage);
                 $this->_redirect($landingPage);
             }
         }
