@@ -970,6 +970,9 @@ final class Mage
      */
     public static function printException(Throwable $e, $extra = '')
     {
+		# 2024-02-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Log `var/report` reports to `var/log/mage2.pro`": https://github.com/thehcginstitute-com/m1/issues/429
+		df_log($e);
         if (self::$_isDeveloperMode) {
             print '<pre>';
 

@@ -6,6 +6,12 @@ use Varien_Object as _DO;
 
 /**
  * 2024-01-10 "Port the latest version of `df_log` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/168
+ * @used-by mageCoreErrorHandler()
+ * @used-by Df_Core_Model_Layout::_getBlockInstance()
+ * @used-by Df\Qa\Failure\Error::check()
+ * @used-by Df\Qa\Failure\Error::log()
+ * @used-by Mage::logException()
+ * @used-by Mage::printException()
  * @param _DO|mixed[]|mixed|E $v
  * @param string|object|null $m [optional]
  */
