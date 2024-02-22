@@ -90,9 +90,9 @@
 ############################################
 ## enable rewrites
 
-# 2024-02-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# `Options +FollowSymLinks` leads to «Internal Server Error» on 167.71.186.128:
-# https://github.com/thehcginstitute-com/m1/issues/422
+	# 2024-02-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# `Options +FollowSymLinks` leads to «Internal Server Error» on 167.71.186.128:
+	# https://github.com/thehcginstitute-com/m1/issues/422
     RewriteEngine on
 
 ############################################
