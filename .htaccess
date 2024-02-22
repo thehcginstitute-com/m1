@@ -95,7 +95,7 @@
 	# https://github.com/thehcginstitute-com/m1/issues/422
 	# 2) "`Options +FollowSymLinks` leads to «Internal Server Error»":
 	# https://github.com/thehcginstitute-com/167.71.186.128/issues/5
-	Options +FollowSymLink
+	Options +FollowSymLinks
     RewriteEngine on
 
 ############################################
