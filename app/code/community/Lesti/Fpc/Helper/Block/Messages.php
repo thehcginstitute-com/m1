@@ -22,8 +22,10 @@ class Lesti_Fpc_Helper_Block_Messages extends Mage_Core_Helper_Abstract
      */
     public function initLayoutMessages(
         Mage_Core_Model_Layout $layout,
-        $messagesStorage =
-        array('catalog/session', 'tag/session', 'checkout/session', 'customer/session')
+		# 2024-02-27 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# «Invalid messages storage "tag/session" for layout messages initialization»:
+		# https://github.com/thehcginstitute-com/m1/issues/430
+        $messagesStorage = ['catalog/session', 'checkout/session', 'customer/session']
     )
     {
         $block = $layout->getMessagesBlock();
