@@ -1,0 +1,11 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+<!-- 2024-03-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Implement the `Df_Customer` module": https://github.com/thehcginstitute-com/m1/issues/444 -->
+		<Df_Customer>
+			<version>1.0.0</version>
+			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
+		</Df_Customer>
+	</modules>
+</config>
