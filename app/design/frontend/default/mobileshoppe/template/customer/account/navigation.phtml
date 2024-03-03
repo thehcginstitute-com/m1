@@ -1,13 +1,14 @@
 <?php
-	# 2024-01-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# 1) The template is not cached, so we can use `Mage::getSingleton('customer/session')->getCustomerGroupId()` here.
-	# 2) "Delete the `Mage::getSingleton('customer/session')->getCustomerGroupId()` call from cached `*.phtml` files":
-	# https://github.com/thehcginstitute-com/m1/issues/238
-	# 2024-03-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	# "Refactor the `app/design/frontend/default/mobileshoppe/template/customer/account/navigation.phtml` template":
-	# https://github.com/thehcginstitute-com/m1/issues/441
-	$isCustomerNew = hcg_customer_is_new(); /** @var bool $isCustomerNew */
-	/** @var HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation $this */
+# 2024-03-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Refactor the `app/design/frontend/default/mobileshoppe/template/customer/account/navigation.phtml` template":
+# https://github.com/thehcginstitute-com/m1/issues/441
+use Varien_Object as O;
+/** @var HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation $this */
+# 2024-01-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) The template is not cached, so we can use `Mage::getSingleton('customer/session')->getCustomerGroupId()` here.
+# 2) "Delete the `Mage::getSingleton('customer/session')->getCustomerGroupId()` call from cached `*.phtml` files":
+# https://github.com/thehcginstitute-com/m1/issues/238
+$isCustomerNew = hcg_customer_is_new(); /** @var bool $isCustomerNew */
 ?>
 <div class="block block-account">
 	<div class="block-title">
@@ -16,7 +17,7 @@
 	<div class="block-content">
 		<ul>
 			<?php
-				$_links = $this->getLinks();
+				$_links = $this->getLinks(); /** @var O[] $_links */
 				$_index = 1;
 				$_count = count($_links);
 				foreach ($_links as $_link) {
