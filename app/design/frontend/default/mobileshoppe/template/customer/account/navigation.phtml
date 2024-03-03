@@ -21,7 +21,7 @@ $isCustomerNew = hcg_customer_is_new(); /** @var bool $isCustomerNew */
 				$count = count($ll); /** @var int $count */
 				$i = 1;
 				foreach ($ll as $l) { /** @var O $l */
-					$isLast = ($i++ >= $count); /** @var bool $isLast */
+					$isLast = $i++ >= $count; /** @var bool $isLast */
 					if ($this->isActive($l)) { ?>
 						<li
 							class="current<?= ($isLast ? ' last' : '') ?>"
