@@ -22,7 +22,7 @@
 # 1) The template is not cached, so we can use `Mage::getSingleton('customer/session')->getCustomerGroupId()` here.
 # 2) "Delete the `Mage::getSingleton('customer/session')->getCustomerGroupId()` call from cached `*.phtml` files":
 # https://github.com/thehcginstitute-com/m1/issues/238
-if (4 === (int)Mage::getSingleton('customer/session')->getCustomerGroupId()) {
+if (hcg_customer_is_new()) {
 	echo $this->getLayout()->createBlock('cms/block')->setBlockId('checkout-page')->toHtml();
 } ?>
 <form action="" id="co-payment-form">
