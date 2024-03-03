@@ -16,9 +16,3 @@ function df_bts(bool $v):string {return $v ? 'true' : 'false';}
  * http://stackoverflow.com/questions/13913411/mb-strpos-vs-strpos-whats-the-difference
  */
 function df_contains($haystack, $n) {return false !== strpos($haystack, $n);}
-
-/**
- * @param mixed|null $v
- * @return mixed
- */
-function df_nts($v) {return !is_null($v) ? $v : '';}
