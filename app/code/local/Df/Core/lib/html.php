@@ -1,4 +1,5 @@
 <?php
+use Df\Core\Html\Tag;
 /**
  * 2015-04-16
  * From now on you can pass an array as an attribute's value: @see \Df\Core\Html\Tag::getAttributeAsText()
