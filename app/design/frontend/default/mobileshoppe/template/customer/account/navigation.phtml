@@ -17,10 +17,10 @@ $isCustomerNew = hcg_customer_is_new(); /** @var bool $isCustomerNew */
 	<div class="block-content">
 		<ul>
 			<?php
-				$_links = $this->getLinks(); /** @var O[] $_links */
+				$ll = $this->getLinks(); /** @var O[] $ll */
 				$_index = 1;
-				$_count = count($_links);
-				foreach ($_links as $_link) {
+				$_count = count($ll);
+				foreach ($ll as $_link) {
 					$_last = ($_index++ >= $_count);
 					if ($this->isActive($_link)) { ?>
 						<li
