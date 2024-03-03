@@ -5,6 +5,16 @@
 			<active>true</active>
 			<codePool>local</codePool>
 		</HCG_Core>
+<!-- 2024-03-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Implement the `hcg_customer_is_new()` function` template": https://github.com/thehcginstitute-com/m1/issues/442 -->
+		<HCG_Customer>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<HCG_Core/>
+				<Mage_Customer/>
+			</depends>
+		</HCG_Customer>
 <!-- 2024-01-27 "Refactor the `MagePsycho_*` modules": https://github.com/thehcginstitute-com/m1/issues/331 -->
 		<HCG_MagePsycho>
 			<active>true</active>
