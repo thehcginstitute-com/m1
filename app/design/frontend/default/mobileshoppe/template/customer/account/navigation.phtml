@@ -3,6 +3,9 @@
 	# 1) The template is not cached, so we can use `Mage::getSingleton('customer/session')->getCustomerGroupId()` here.
 	# 2) "Delete the `Mage::getSingleton('customer/session')->getCustomerGroupId()` call from cached `*.phtml` files":
 	# https://github.com/thehcginstitute-com/m1/issues/238
+	# 2024-03-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Refactor the `app/design/frontend/default/mobileshoppe/template/customer/account/navigation.phtml` template":
+	# https://github.com/thehcginstitute-com/m1/issues/441
     $customerGroupId = Mage::getSingleton('customer/session')->getCustomerGroupId();    
 ?>
 <div class="block block-account">
