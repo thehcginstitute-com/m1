@@ -7,7 +7,7 @@ class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation extends 
 	 * @used-by app/design/frontend/base/default/layout/hetnieuweweb_customernavigation.xml
 	 */
 	function removeLinkByName():void {
-		$NavigationLinks = [
+		$ll = [
 			'account'=>'account'
 			, 'account_edit'=>'account_edit'
 			, 'address_book'=>'address_book'
@@ -22,10 +22,10 @@ class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation extends 
 			, 'newsletter'=>'newsletter'
 			, 'downloadable_products'=>'downloadable_products'
 		];
-		foreach ($NavigationLinks as $link => $configName) {
-			$display = Mage::getStoreConfig('customer_navigation/display/'.$configName);
-			if (isset($this->_links[$link]) && !$display) {
-				unset($this->_links[$link]);
+		foreach ($ll as $l => $c) {
+			$display = Mage::getStoreConfig('customer_navigation/display/'.$c);
+			if (isset($this->_links[$l]) && !$display) {
+				unset($this->_links[$l]);
 			}
 		}
 	}
@@ -35,7 +35,7 @@ class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation extends 
 	 * @used-by app/design/frontend/base/default/layout/hetnieuweweb_customernavigation.xml
 	 */
 	function renameLinkByName():void {
-		$NavigationLinks = [
+		$ll = [
 			'account'=>'account'
 			, 'account_edit'=>'account_edit'
 			, 'address_book'=>'address_book'
@@ -50,10 +50,10 @@ class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation extends 
 			, 'newsletter'=>'newsletter'
 			, 'downloadable_products'=>'downloadable_products'
 		];
-		foreach ($NavigationLinks as $link => $configName) {
-			$name = Mage::getStoreConfig('customer_navigation/rename/'.$configName);
-			if (isset($this->_links[$link]) && $name != '') {
-				$this->_links[$link]["label"] = $name;
+		foreach ($ll as $l => $c) {
+			$name = Mage::getStoreConfig('customer_navigation/rename/'.$c);
+			if (isset($this->_links[$l]) && $name != '') {
+				$this->_links[$l]["label"] = $name;
 			}
 		}
 	}
