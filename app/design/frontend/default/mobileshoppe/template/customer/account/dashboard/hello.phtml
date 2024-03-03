@@ -7,10 +7,9 @@ $customerGroupId = Mage::getSingleton('customer/session')->getCustomerGroupId();
 ?>
 <div class="welcome-msg">
     <p class="hello"><strong><?php echo $this->__('Hello, %s!', $this->escapeHtml($this->getCustomerName())) ?></strong></p>
-	<?php if($customerGroupId==4): ?>
-	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('patient')->toHtml() ?>
-    <p><?php //echo $this->__('From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.') ?></p>
+	<?php if(hcg_is_patient()): ?>
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('patient')->toHtml() ?>
 	<?php else: ?>
-	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('new-health-profile')->toHtml() ?>
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('new-health-profile')->toHtml() ?>
 	<?php endif ?>
 </div>
