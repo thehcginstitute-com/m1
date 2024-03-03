@@ -10,7 +10,7 @@
 ?>
 <div class="block block-account">
 	<div class="block-title">
-		<strong><span><?php echo $this->__('My Account'); ?></span></strong>
+		<strong><span><?= $this->__('My Account'); ?></span></strong>
 	</div>
 	<div class="block-content">
 	
@@ -21,10 +21,10 @@
 			<?php foreach ($_links as $_link): ?>
 				<?php $_last = ($_index++ >= $_count); ?>
 				<?php if ($this->isActive($_link)): ?>
-					<li class="current<?php echo ($_last ? ' last' : '') ?>" <?php if($customerGroupId =='4' && ($_link->getLabel() =='Orders & Refills' || $_link->getLabel() == 'Wishlist' ) ){ echo "id=hideme";} ?>><strong>
-					<?php echo $_link->getLabel() ?></strong></li>
+					<li class="current<?= ($_last ? ' last' : '') ?>" <?php if($customerGroupId =='4' && ($_link->getLabel() =='Orders & Refills' || $_link->getLabel() == 'Wishlist' ) ){ echo "id=hideme";} ?>><strong>
+					<?= $_link->getLabel() ?></strong></li>
 				<?php else: ?>
-					<li<?php echo ($_last ? ' class="last "' : '') ?> <?php if($customerGroupId =='4' && ($_link->getLabel() =='Orders & Refills' || $_link->getLabel() == 'Wishlist' )){ echo "id=hideme";} ?>><a href="<?php echo $_link->getUrl() ?>"><?php echo $_link->getLabel() ?></a></li>
+					<li<?= ($_last ? ' class="last "' : '') ?> <?php if($customerGroupId =='4' && ($_link->getLabel() =='Orders & Refills' || $_link->getLabel() == 'Wishlist' )){ echo "id=hideme";} ?>><a href="<?= $_link->getUrl() ?>"><?= $_link->getLabel() ?></a></li>
 				<?php endif ?>
 			<?php endforeach ?>
 		</ul>
