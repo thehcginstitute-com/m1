@@ -21,9 +21,9 @@ class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation extends 
 			, 'OAuth Customer Tokens'=>'oauth_customer_tokens'
 			, 'newsletter'=>'newsletter'
 			, 'downloadable_products'=>'downloadable_products'
-		];
+		]; /** @var array(string => string) $ll*/
 		foreach ($ll as $l => $c) {
-			$display = Mage::getStoreConfig('customer_navigation/display/'.$c);
+			$display = Mage::getStoreConfig("customer_navigation/display/$c");
 			if (isset($this->_links[$l]) && !$display) {
 				unset($this->_links[$l]);
 			}
@@ -49,9 +49,9 @@ class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation extends 
 			, 'OAuth Customer Tokens'=>'oauth_customer_tokens'
 			, 'newsletter'=>'newsletter'
 			, 'downloadable_products'=>'downloadable_products'
-		];
+		]; /** @var array(string => string) $ll*/
 		foreach ($ll as $l => $c) {
-			$name = Mage::getStoreConfig('customer_navigation/rename/'.$c);
+			$name = Mage::getStoreConfig("customer_navigation/rename/$c");
 			if (isset($this->_links[$l]) && $name != '') {
 				$this->_links[$l]["label"] = $name;
 			}
