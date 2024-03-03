@@ -21,10 +21,10 @@ $isCustomerNew = hcg_customer_is_new(); /** @var bool $isCustomerNew */
 				$count = count($ll); /** @var int $count */
 				$i = 1;
 				foreach ($ll as $l) { /** @var O $l */
-					$_last = ($i++ >= $count);
+					$last = ($i++ >= $count);
 					if ($this->isActive($l)) { ?>
 						<li
-							class="current<?= ($_last ? ' last' : '') ?>"
+							class="current<?= ($last ? ' last' : '') ?>"
 							<?php
 								if (
 									$isCustomerNew
@@ -34,7 +34,7 @@ $isCustomerNew = hcg_customer_is_new(); /** @var bool $isCustomerNew */
 							?>
 						><strong><?= $l->getLabel() ?></strong></li>
 					<?php } else { ?>
-						<li<?= ($_last ? ' class="last "' : '') ?>
+						<li<?= ($last ? ' class="last "' : '') ?>
 							<?php if (
 								$isCustomerNew
 								&& ($l->getLabel() =='Orders & Refills' || $l->getLabel() == 'Wishlist' )) {
