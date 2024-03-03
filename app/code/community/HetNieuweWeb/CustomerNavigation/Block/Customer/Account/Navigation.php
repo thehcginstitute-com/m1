@@ -16,7 +16,8 @@ class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation extends 
 			# 1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 			# 2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 			, 'reviews'=>'reviews'
-			, 'tags'=>'tags'
+			# 2024-03-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
 			, 'wishlist'=>'wishlist'
 			, 'OAuth Customer Tokens'=>'oauth_customer_tokens'
 			, 'newsletter'=>'newsletter'
@@ -44,7 +45,8 @@ class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation extends 
 			# 1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
 			# 2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
 			, 'reviews'=>'reviews'
-			, 'tags'=>'tags'
+			# 2024-03-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
 			, 'wishlist'=>'wishlist'
 			, 'OAuth Customer Tokens'=>'oauth_customer_tokens'
 			, 'newsletter'=>'newsletter'
