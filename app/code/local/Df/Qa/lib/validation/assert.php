@@ -28,9 +28,8 @@ function df_assert_sne($v, $sl = 0) {
 
 /**
  * @param mixed $v
- * @return bool
  */
-function df_bool($v) {
+function df_bool($v):bool {
 	/**
 	 * Unfortunately, we can not replace @uses in_array() with @see array_flip() + @see isset() to speedup the execution,
 	 * because it could lead to the warning: «Warning: array_flip(): Can only flip STRING and INTEGER values!».

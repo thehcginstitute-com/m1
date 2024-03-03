@@ -24,7 +24,7 @@ final class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation ex
 			, 'downloadable_products'=>'downloadable_products'
 		]; /** @var array(string => string) $ll*/
 		foreach ($ll as $l => $c) {/** @var string $l */ /** @var string $c */
-			if (isset($this->_links[$l]) && !self::c('display', $c)) {
+			if (isset($this->_links[$l]) && !df_bool(self::c('display', $c))) {
 				unset($this->_links[$l]);
 			}
 		}
