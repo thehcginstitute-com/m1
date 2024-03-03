@@ -2,6 +2,7 @@
 /**
  * @see df_bts_yn()
  * @used-by \Df\Qa\Dumper::dump()
+ * @used-by \IWD_OrderManager_Helper_Data::CheckTableEngine()
  */
 function df_bts(bool $v):string {return $v ? 'true' : 'false';}
 

@@ -84,8 +84,8 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
 			# 2024-02-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			# «Undefined index: engine in app/code/community/IWD/OrderManager/Helper/Data.php on line 85»:
 			# https://github.com/thehcginstitute-com/m1/issues/426
-            $isEngineInno = "InnoDB" === df_first($data[0]) ? 'true' : 'false';
-            $cache->save("{$isEngineInno}", 'iwd_order_manager_engine', array("iwd_order_manager_engine"), 3600);
+            $isEngineInno = df_bts('InnoDB' === df_first($data[0]));
+            $cache->save("{$isEngineInno}", 'iwd_order_manager_engine', ["iwd_order_manager_engine"], 3600);
             return $isEngineInno;
         } catch (Exception $e) {
             IWD_OrderManager_Model_Logger::log($e->getMessage());
