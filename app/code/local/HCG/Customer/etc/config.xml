@@ -1,0 +1,9 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+		<HCG_Customer>
+			<version>1.0.0</version>
+			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
+		</HCG_Customer>
+	</modules>
+</config>
