@@ -1,19 +1,16 @@
 <?xml version="1.0" ?>
-
 <config>
 	<modules>
 		<HetNieuweWeb_CustomerNavigation>
 			<version>0.2.0</version>
 		</HetNieuweWeb_CustomerNavigation>
 	</modules>
-	
 	<global>
 		<helpers>
 			<customerNavigation>
 				<class>HetNieuweWeb_CustomerNavigation_Helper</class>
 			</customerNavigation>
 		</helpers>
-		
 		<blocks>
 			<customer>
 				<rewrite>
@@ -22,7 +19,6 @@
 			</customer>
 		</blocks>
 	</global>
-	
 	<frontend>
 		<layout>
 			<updates>
@@ -32,7 +28,6 @@
 			</updates>
 		</layout>
 	</frontend>
-	
 	<default>
 		<customer_navigation>
 			<display>
