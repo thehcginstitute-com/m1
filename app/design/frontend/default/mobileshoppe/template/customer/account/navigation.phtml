@@ -18,9 +18,9 @@
 				$_links = $this->getLinks();
 				$_index = 1;
 				$_count = count($_links);
-				foreach ($_links as $_link) { ?>
-				<?php $_last = ($_index++ >= $_count); ?>
-				<?php if ($this->isActive($_link)): ?>
+				foreach ($_links as $_link) {
+					$_last = ($_index++ >= $_count);
+					if ($this->isActive($_link)): ?>
 					<li class="current<?= ($_last ? ' last' : '') ?>" <?php if($customerGroupId =='4' && ($_link->getLabel() =='Orders & Refills' || $_link->getLabel() == 'Wishlist' ) ){ echo "id=hideme";} ?>><strong>
 					<?= $_link->getLabel() ?></strong></li>
 				<?php else: ?>
