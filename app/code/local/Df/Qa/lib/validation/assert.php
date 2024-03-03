@@ -27,6 +27,7 @@ function df_assert_sne($v, $sl = 0) {
 }
 
 /**
+ * @used-by \HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation::removeLinkByName()
  * @param mixed $v
  */
 function df_bool($v):bool {
