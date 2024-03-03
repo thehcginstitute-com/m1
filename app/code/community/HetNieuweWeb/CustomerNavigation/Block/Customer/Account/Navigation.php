@@ -24,7 +24,7 @@ final class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation ex
 			, 'downloadable_products'=>'downloadable_products'
 		]; /** @var array(string => string) $ll*/
 		foreach ($ll as $l => $c) {/** @var string $l */ /** @var string $c */
-			if (isset($this->_links[$l]) && !Mage::getStoreConfig("customer_navigation/display/$c")) {
+			if (isset($this->_links[$l]) && !df_bts(self::c('display', $c))) {
 				unset($this->_links[$l]);
 			}
 		}
@@ -52,9 +52,17 @@ final class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation ex
 			, 'downloadable_products'=>'downloadable_products'
 		]; /** @var array(string => string) $ll*/
 		foreach ($ll as $l => $c) {/** @var string $l */ /** @var string $c */ /** @var string $n */
-			if (isset($this->_links[$l]) && !df_es($n = Mage::getStoreConfig("customer_navigation/rename/$c"))) {
+			if (isset($this->_links[$l]) && !df_es($n = self::c('rename', $c))) {
 				$this->_links[$l]['label'] = $n;
 			}
 		}
 	}
+
+	/**
+	 * 2024-03-03
+	 * @used-by self::removeLinkByName()
+	 * @used-by self::renameLinkByName()
+	 * @return string|null
+	 */
+	private static function c(string $group, string $field) {return Mage::getStoreConfig("customer_navigation/$group/$field");}
 }

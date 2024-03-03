@@ -2,10 +2,8 @@
 /**
  * @see df_bts_yn()
  * @used-by \Df\Qa\Dumper::dump()
- * @param bool $v
- * @return string
  */
-function df_bts($v) {return $v ? 'true' : 'false';}
+function df_bts(bool $v):string {return $v ? 'true' : 'false';}
 
 /**
  * 2015-04-17
