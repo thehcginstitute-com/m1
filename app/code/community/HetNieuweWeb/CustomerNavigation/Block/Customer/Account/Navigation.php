@@ -1,7 +1,7 @@
 <?php
 # 2024-03-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `HetNieuweWeb_CustomerNavigation` module": https://github.com/thehcginstitute-com/m1/issues/437
-class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation extends Mage_Customer_Block_Account_Navigation {
+final class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation extends Mage_Customer_Block_Account_Navigation {
 	/**
 	 * 2024-03-03
 	 * @used-by app/design/frontend/base/default/layout/hetnieuweweb_customernavigation.xml
