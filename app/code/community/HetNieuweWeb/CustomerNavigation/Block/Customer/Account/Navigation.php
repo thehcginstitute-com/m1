@@ -1,7 +1,7 @@
 <?php
 	class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation extends Mage_Customer_Block_Account_Navigation
 	{	
-		public function removeLinkByName() {
+		function removeLinkByName() {
 			$NavigationLinks = [
 				'account'=>'account'
 				, 'account_edit'=>'account_edit'
@@ -26,7 +26,7 @@
 			}
 		}
 		
-		public function renameLinkByName() {
+		function renameLinkByName() {
 			$NavigationLinks = [
 				'account'=>'account'
 				, 'account_edit'=>'account_edit'
