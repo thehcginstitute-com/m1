@@ -40,7 +40,7 @@ use Mage_Catalog_Block_Category_View as B; /** @var B $this */
 			# https://github.com/thehcginstitute-com/m1/issues/239#issuecomment-1891306046
 			# https://github.com/thehcginstitute-com/m1/issues/241#issuecomment-1891306208
 			/** @var int  $gid */
-			!($gid = (int)Mage::getSingleton('customer/session')->getCustomerGroupId())
+			!($gid = df_customer_group())
 			? $_helper->categoryAttribute($_category, $_description, 'description')
 			: $this->getLayout()->createBlock('cms/block')
 				->setBlockId(1 === $gid ? 'patient-message' : 'nhp-message')
