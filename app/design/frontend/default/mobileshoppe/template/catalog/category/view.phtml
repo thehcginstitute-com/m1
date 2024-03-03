@@ -39,11 +39,10 @@ use Mage_Catalog_Block_Category_View as B; /** @var B $this */
 			# similar to:
 			# https://github.com/thehcginstitute-com/m1/issues/239#issuecomment-1891306046
 			# https://github.com/thehcginstitute-com/m1/issues/241#issuecomment-1891306208
-			/** @var int  $gid */
-			!($gid = df_customer_group())
+			df_customer_is_anon()
 			? $_helper->categoryAttribute($_category, $_description, 'description')
 			: $this->getLayout()->createBlock('cms/block')
-				->setBlockId(1 === $gid ? 'patient-message' : 'nhp-message')
+				->setBlockId(hcg_is_patient() ? 'patient-message' : 'nhp-message')
 				->toHtml()
 		?>
 	</div>
