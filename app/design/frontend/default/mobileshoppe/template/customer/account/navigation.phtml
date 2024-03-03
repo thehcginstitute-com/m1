@@ -14,10 +14,11 @@
 	</div>
 	<div class="block-content">
 		<ul>
-			<?php $_links = $this->getLinks(); ?>
-			<?php $_index = 1; ?>
-			<?php $_count = count($_links); ?>
-			<?php foreach ($_links as $_link): ?>
+			<?php
+				$_links = $this->getLinks();
+				$_index = 1;
+				$_count = count($_links);
+				foreach ($_links as $_link): ?>
 				<?php $_last = ($_index++ >= $_count); ?>
 				<?php if ($this->isActive($_link)): ?>
 					<li class="current<?= ($_last ? ' last' : '') ?>" <?php if($customerGroupId =='4' && ($_link->getLabel() =='Orders & Refills' || $_link->getLabel() == 'Wishlist' ) ){ echo "id=hideme";} ?>><strong>
