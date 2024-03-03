@@ -6,7 +6,7 @@
 	# 2024-03-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	# "Refactor the `app/design/frontend/default/mobileshoppe/template/customer/account/navigation.phtml` template":
 	# https://github.com/thehcginstitute-com/m1/issues/441
-	$customerGroupId = Mage::getSingleton('customer/session')->getCustomerGroupId();
+	$isCustomerNew = hcg_customer_is_new(); /** @var bool $isCustomerNew */
 ?>
 <div class="block block-account">
 	<div class="block-title">
@@ -25,7 +25,7 @@
 							class="current<?= ($_last ? ' last' : '') ?>"
 							<?php
 								if (
-									$customerGroupId =='4'
+									$isCustomerNew
 									&& ($_link->getLabel() =='Orders & Refills' || $_link->getLabel() == 'Wishlist' )) {
 										echo "id=hideme";
 								}
@@ -34,7 +34,7 @@
 					<?php } else { ?>
 						<li<?= ($_last ? ' class="last "' : '') ?>
 							<?php if (
-								$customerGroupId =='4'
+								$isCustomerNew
 								&& ($_link->getLabel() =='Orders & Refills' || $_link->getLabel() == 'Wishlist' )) {
 									echo "id=hideme";
 							} ?>
