@@ -7,11 +7,10 @@ $_items = $_helper->getItemCount() > 0 ? $_helper->getItemCollection() : null;
 # https://github.com/thehcginstitute-com/m1/issues/239#issuecomment-1891306046
 # 2) https://github.com/thehcginstitute-com/m1/issues/239
 # 3) https://github.com/thehcginstitute-com/m1/issues/238
-$customerGroupId = (int)Mage::getSingleton('customer/session')->getCustomerGroupId();
 # 2024-01-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Port the `app/design/frontend/base/default/template/catalog/product/compare/sidebar.phtml` 1.9.1.0 → 1.9.4.5 changes
 # to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/206
-if ($_items && 4 !== $customerGroupId) {  ?>
+if ($_items && !hcg_customer_is_new()) {  ?>
 <div class="block block-list block-compare">
 	<div class="block-title">
         <strong><span><?php echo $this->__('Compare Products') ?>
