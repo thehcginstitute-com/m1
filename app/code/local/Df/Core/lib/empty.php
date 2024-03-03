@@ -10,6 +10,7 @@
  * @used-by df_path_is_internal()
  * @used-by df_report()
  * @used-by df_result_sne()
+ * @used-by \HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation::renameLinkByName()
  * @param mixed $v
  * @return bool
  */

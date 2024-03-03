@@ -23,9 +23,8 @@ final class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation ex
 			, 'newsletter'=>'newsletter'
 			, 'downloadable_products'=>'downloadable_products'
 		]; /** @var array(string => string) $ll*/
-		foreach ($ll as $l => $c) {
-			$display = Mage::getStoreConfig("customer_navigation/display/$c");
-			if (isset($this->_links[$l]) && !$display) {
+		foreach ($ll as $l => $c) {/** @var string $l */ /** @var string $c */
+			if (isset($this->_links[$l]) && !Mage::getStoreConfig("customer_navigation/display/$c")) {
 				unset($this->_links[$l]);
 			}
 		}
@@ -52,10 +51,9 @@ final class HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation ex
 			, 'newsletter'=>'newsletter'
 			, 'downloadable_products'=>'downloadable_products'
 		]; /** @var array(string => string) $ll*/
-		foreach ($ll as $l => $c) {
-			$name = Mage::getStoreConfig("customer_navigation/rename/$c");
-			if (isset($this->_links[$l]) && $name != '') {
-				$this->_links[$l]["label"] = $name;
+		foreach ($ll as $l => $c) {/** @var string $l */ /** @var string $c */ /** @var string $n */
+			if (isset($this->_links[$l]) && !df_es($n = Mage::getStoreConfig("customer_navigation/rename/$c"))) {
+				$this->_links[$l]['label'] = $n;
 			}
 		}
 	}
