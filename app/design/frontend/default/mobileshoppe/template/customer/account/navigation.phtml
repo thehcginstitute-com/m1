@@ -18,29 +18,29 @@ $isCustomerNew = hcg_customer_is_new(); /** @var bool $isCustomerNew */
 		<ul>
 			<?php
 				$ll = $this->getLinks(); /** @var O[] $ll */
+				$count = count($ll); /** @var int $count */
 				$_index = 1;
-				$_count = count($ll);
-				foreach ($ll as $_link) {
-					$_last = ($_index++ >= $_count);
-					if ($this->isActive($_link)) { ?>
+				foreach ($ll as $l) {
+					$_last = ($_index++ >= $count);
+					if ($this->isActive($l)) { ?>
 						<li
 							class="current<?= ($_last ? ' last' : '') ?>"
 							<?php
 								if (
 									$isCustomerNew
-									&& ($_link->getLabel() =='Orders & Refills' || $_link->getLabel() == 'Wishlist' )) {
+									&& ($l->getLabel() =='Orders & Refills' || $l->getLabel() == 'Wishlist' )) {
 										echo "id=hideme";
 								}
 							?>
-						><strong><?= $_link->getLabel() ?></strong></li>
+						><strong><?= $l->getLabel() ?></strong></li>
 					<?php } else { ?>
 						<li<?= ($_last ? ' class="last "' : '') ?>
 							<?php if (
 								$isCustomerNew
-								&& ($_link->getLabel() =='Orders & Refills' || $_link->getLabel() == 'Wishlist' )) {
+								&& ($l->getLabel() =='Orders & Refills' || $l->getLabel() == 'Wishlist' )) {
 									echo "id=hideme";
 							} ?>
-						><a href="<?= $_link->getUrl() ?>"><?= $_link->getLabel() ?></a></li>
+						><a href="<?= $l->getUrl() ?>"><?= $l->getLabel() ?></a></li>
 				<?php } ?>
 			<?php } ?>
 		</ul>
