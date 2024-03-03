@@ -20,7 +20,7 @@ $isCustomerNew = hcg_customer_is_new(); /** @var bool $isCustomerNew */
 				$ll = $this->getLinks(); /** @var O[] $ll */
 				$count = count($ll); /** @var int $count */
 				$_index = 1;
-				foreach ($ll as $l) {
+				foreach ($ll as $l) { /** @var O $l */
 					$_last = ($_index++ >= $count);
 					if ($this->isActive($l)) { ?>
 						<li
