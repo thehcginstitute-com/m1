@@ -1,5 +1,4 @@
 <?xml version="1.0" ?>
-
 <config>
 	<tabs>
 		<hetnieuweweb translate="label">
@@ -7,7 +6,6 @@
 			<sort_order>150</sort_order>
 		</hetnieuweweb>
 	</tabs>
-	
 	<sections>
 		<customer_navigation translate="label">
 			<label>Customer Navigation</label>
