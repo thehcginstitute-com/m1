@@ -6,7 +6,4 @@ class Mandrill_Internal
     {
         $this->master = $master;
     }
-
 }
-
-

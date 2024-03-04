@@ -2,35 +2,86 @@
 /**
  * mailchimp-lib Magento Component
  *
- * @category Ebizmarts
- * @package mailchimp-lib
- * @author Ebizmarts Team <info@ebizmarts.com>
+ * @category  Ebizmarts
+ * @package   mailchimp-lib
+ * @author    Ebizmarts Team <info@ebizmarts.com>
  * @copyright Ebizmarts (http://ebizmarts.com)
- * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @date: 5/2/16 3:59 PM
- * @file: Ecommerce.php
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @date:     5/2/16 3:59 PM
+ * @file:     Ecommerce.php
  */
-class Mailchimp_Ecommerce extends Mailchimp_Abstract
+class MailChimp_Ecommerce extends MailChimp_Abstract
 {
     /**
-     * @var Mailchimp_EcommerceStore
+     * @var MailChimp_EcommerceStore
      */
     public $stores;
     /**
-     * @var Mailchimp_EcommerceCarts
+     * @var MailChimp_EcommerceCarts
      */
     public $carts;
     /**
-     * @var Mailchimp_EcommerceCustomers
+     * @var MailChimp_EcommerceCustomers
      */
     public $customers;
     /**
-     * @var Mailchimp_EcommerceOrders
+     * @var MailChimp_EcommerceOrders
      */
     public $orders;
     /**
-     * @var Mailchimp_EcommerceProducts
+     * @var MailChimp_EcommerceProducts
      */
     public $products;
+    /**
+     * @var MailChimp_EcommercePromoRules
+     */
+    public $promoRules;
 
+    /**
+     * @return MailChimp_EcommerceStore
+     */
+    public function getStores()
+    {
+        return $this->stores;
+    }
+
+    /**
+     * @return MailChimp_EcommerceCarts
+     */
+    public function getCarts()
+    {
+        return $this->carts;
+    }
+
+    /**
+     * @return MailChimp_EcommerceCustomers
+     */
+    public function getCustomers()
+    {
+        return $this->customers;
+    }
+
+    /**
+     * @return MailChimp_EcommerceOrders
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    /**
+     * @return MailChimp_EcommerceProducts
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+    /**
+     * @return MailChimp_EcommercePromoRules
+     */
+    public function getPromoRules()
+    {
+        return $this->promoRules;
+    }
 }

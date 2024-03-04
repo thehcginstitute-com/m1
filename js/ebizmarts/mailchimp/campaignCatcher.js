@@ -1,42 +1,76 @@
-    function getCampaign() 
-{
-        var urlparams = location.search.substr(1).split('&');
-        var params = new Array();
-        var mc_cid = null;
-        var isMailchimp = false;
-        for (var i = 0; i < urlparams.length; i++) {
-            var param = urlparams[i].split('=');
-            var key = param[0];
-            var val = param[1];
-            if (key && val) {
-                params[key] = val;
-            }
+function getCampaign() {
+    let urlparams = null;
+    let isGet = location.search.search('\\?');
+    let mc_cid = null;
+    let isMailchimp = false;
 
-            if(key=='utm_source') {
-                var reg = /^mailchimp$/;
-                if(reg.exec(val)) {
-                    isMailchimp = true;
+    if (isGet !== -1) {
+        urlparams = getUrlVars();
+        urlparams.forEach(
+            function (item) {
+                if (item.key === 'utm_source') {
+                    let reg = /^mailchimp$/;
+
+                    if (reg.exec(item.value)) {
+                        isMailchimp = true;
+                    }
+                } else {
+                    if (item.key === 'mc_cid') {
+                        mc_cid = item.value;
+                    }
                 }
             }
-            else {
-                if (key=='mc_cid') {
-                    mc_cid = val;
-                }
-            }
-        }
-
-        if (mc_cid&&!isMailchimp) {
-            Mage.Cookies.set('mailchimp_campaign_id' , mc_cid);
-            Mage.Cookies.set('mailchimp_landing_page', location);
-        }
-
-        if(isMailchimp) {
-            Mage.Cookies.clear('mailchimp_campaign_id');
-            Mage.Cookies.set('mailchimp_landing_page', location);
-        }
-    }
-    if (document.loaded) {
-        getCampaign;
+        );
     } else {
-        document.observe('dom:loaded', getCampaign);
+        urlparams = location.href.split('/');
+        let utmIndex = jQuery.inArray('utm_source', urlparams);
+        let mccidIndex = jQuery.inArray('mc_cid', urlparams);
+
+        if (utmIndex !== -1) {
+            let value = urlparams[utmIndex + 1];
+            let reg = /^mailchimp$/;
+
+            if (reg.exec(value)) {
+                isMailchimp = true;
+            }
+        } else {
+            if (mccidIndex !== -1) {
+                mc_cid = urlparams[mccidIndex + 1];
+            }
+        }
     }
+
+    if (mc_cid && !isMailchimp) {
+        Mage.Cookies.clear('mailchimp_campaign_id');
+        Mage.Cookies.set('mailchimp_campaign_id', mc_cid);
+    }
+
+    let landingPage = Mage.Cookies.get('mailchimp_landing_page');
+
+    if (!landingPage) {
+        Mage.Cookies.set('mailchimp_landing_page', location);
+    }
+
+    if (isMailchimp) {
+        Mage.Cookies.clear('mailchimp_campaign_id');
+        Mage.Cookies.set('mailchimp_landing_page', location);
+    }
+}
+
+function getUrlVars() {
+    let vars = [];
+    let i = 0;
+    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+        function (m, key, value) {
+            vars[i] = {'value': value, 'key': key};
+            i++;
+        }
+    );
+    return vars;
+}
+
+if (document.loaded) {
+    getCampaign();
+} else {
+    document.observe('dom:loaded', getCampaign);
+}

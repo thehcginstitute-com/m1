@@ -2,26 +2,26 @@
 /**
  * mailchimp-lib Magento Component
  *
- * @category Ebizmarts
- * @package mailchimp-lib
- * @author Ebizmarts Team <info@ebizmarts.com>
+ * @category  Ebizmarts
+ * @package   mailchimp-lib
+ * @author    Ebizmarts Team <info@ebizmarts.com>
  * @copyright Ebizmarts (http://ebizmarts.com)
- * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @date: 5/2/16 4:48 PM
- * @file: Reports.php
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @date:     5/2/16 4:48 PM
+ * @file:     Reports.php
  */
-class Mailchimp_Reports extends Mailchimp_Abstract
+class MailChimp_Reports extends MailChimp_Abstract
 {
     /**
-     * @var Mailchimp_ReportsCampaignAdvice
+     * @var MailChimp_ReportsCampaignAdvice
      */
     public $campaignAdvice;
     /**
-     * @var Mailchimp_ReportsClickReports
+     * @var MailChimp_ReportsClickReports
      */
     public $clickReports;
     /**
-     * @var Mailchimp_ReportsDomainPerformance
+     * @var MailChimp_ReportsDomainPerformance
      */
     public $domainPerformance;
     /**
@@ -29,7 +29,7 @@ class Mailchimp_Reports extends Mailchimp_Abstract
      */
     public $eapURLReport;
     /**
-     * @var Mailchimp_ReportsEmailActivity
+     * @var MailChimp_ReportsEmailActivity
      */
     public $emailActivity;
     /**
@@ -37,15 +37,15 @@ class Mailchimp_Reports extends Mailchimp_Abstract
      */
     public $location;
     /**
-     * @var Mailchimp_ReportsSentTo
+     * @var MailChimp_ReportsSentTo
      */
     public $sentTo;
     /**
-     * @var Mailchimp_ReportsSubReports
+     * @var MailChimp_ReportsSubReports
      */
     public $subReports;
     /**
-     * @var Mailchimp_ReportsUnsubscribes
+     * @var MailChimp_ReportsUnsubscribes
      */
     public $unsubscribes;
 }

@@ -18,21 +18,59 @@ class Mandrill_Message extends Mandrill_Mandrill
     protected $_to = array();
     protected $_headers = array();
     protected $_fromName;
+    protected $_tags = array();
+    protected $_returnPath = null;
 
+    /**
+     * Flag: whether or not email has attachments
+     *
+     * @var boolean
+     */
+    public $hasAttachments = false;
 
     public function getMail()
     {
         return $this;
     }
 
-    public function createAttachment($body,
-                                     $mimeType = Zend_Mime::TYPE_OCTETSTREAM,
-                                     $disposition = Zend_Mime::DISPOSITION_ATTACHMENT,
-                                     $encoding = Zend_Mime::ENCODING_BASE64,
-                                     $filename = null)
+    /**
+     * Adds an existing attachment to the mail message
+     *
+     * @param  Zend_Mime_Part $attachment
+     * @return Mandrill_Message Provides fluent interface
+     */
+    public function addAttachment(Zend_Mime_Part $attachment)
     {
-        $att = array('type' => $mimeType, 'name' => $filename, 'content' => base64_encode($body));
-        array_push($this->_attachments, $att);
+        $this->_attachments[] = $attachment;
+        $this->hasAttachments = true;
+
+        return $this;
+    }
+
+    /**
+     * @param $body
+     * @param string $mimeType
+     * @param string $disposition
+     * @param string $encoding
+     * @param null   $filename
+     * @return Zend_Mime_Part
+     */
+    public function createAttachment(
+        $body,
+        $mimeType = Zend_Mime::TYPE_OCTETSTREAM,
+        $disposition = Zend_Mime::DISPOSITION_ATTACHMENT,
+        $encoding = Zend_Mime::ENCODING_BASE64,
+        $filename = null
+    ) {
+        $mp = new Zend_Mime_Part($body);
+        $mp->encoding = $encoding;
+        $mp->type = $mimeType;
+        $mp->disposition = $disposition;
+        $mp->filename = $filename;
+
+        $this->addAttachment($mp);
+
+        return $mp;
     }
 
     public function log($m)
@@ -45,18 +83,36 @@ class Mandrill_Message extends Mandrill_Mandrill
 
     public function getAttachments()
     {
-        return $this->_attachments;
+        $_attachments = array();
+
+        foreach ($this->_attachments as $attachment) {
+            /**
+             * @var Zend_Mime_Part $attachment
+             */
+            $_attachments[] = array(
+                'type' => $attachment->type,
+                'name' => $attachment->filename,
+                'content' => $attachment->getContent()
+            );
+        }
+
+        return $_attachments;
     }
 
     public function addBcc($bcc)
     {
-        $storeId = Mage::app()->getStore()->getId();
         if (is_array($bcc)) {
             foreach ($bcc as $email) {
-                array_push($this->_bcc, $email);
+                $this->_bcc[] = array(
+                    'email' => $email,
+                    'type' => 'bcc'
+                );
             }
         } else {
-            array_push($this->_bcc, $bcc);
+            $this->_bcc[] = array(
+                'email' => $bcc,
+                'type' => 'bcc'
+            );
         }
     }
 
@@ -65,22 +121,67 @@ class Mandrill_Message extends Mandrill_Mandrill
         return $this->_bcc;
     }
 
-    public function addTo($email, $name = '')
+    public function addTo($emails, $names = '')
     {
-        if (!is_array($email)) {
-            $email = array($name => $email);
-        }
+        if (is_array($emails)) {
+            $max = count($emails);
 
-        foreach ($email as $n => $recipient) {
-            $this->_to[] = $recipient;
+            for ($i = 0; $i < $max; $i++) {
+                if (isset($names[$i])) {
+                    $this->_to[] = array(
+                        'email' => $emails[$i],
+                        'name' => $names[$i],
+                        'type' => 'to'
+                    );
+                } else {
+                    $this->_to[] = array(
+                        'email' => $emails[$i],
+                        'name' => '',
+                        'type' => 'to'
+                    );
+                }
+            }
+        } else {
+            $this->_to[] = array(
+                'email' => $emails,
+                'name' => $names,
+                'type' => 'to'
+            );
         }
-
+    }
+    public function getReplyTo()
+    {
+        $emails = array();
+        foreach ($this->_to as $item) {
+            $emails[] = $item['email'];
+        }
+        return $emails;
+    }
+    public function setReturnPath($email)
+    {
+//        if ($this->_returnPath === null) {
+            $email = $this->_filterEmail($email);
+            $this->_returnPath = $email;
+            $this->_headers['Reply-To'] = sprintf('%s', $email);
+//        }
         return $this;
     }
+    public function getReturnPath()
+    {
+        if (null !== $this->_returnPath) {
+            return $this->_returnPath;
+        }
 
+        return $this->_from;
+    }
     public function getTo()
     {
         return $this->_to;
+    }
+
+    public function getRecipients()
+    {
+        return $this->getTo();
     }
 
     public function setBodyHtml($html, $charset = null, $encoding = Zend_Mime::ENCODING_QUOTEDPRINTABLE)
@@ -109,6 +210,7 @@ class Mandrill_Message extends Mandrill_Mandrill
             $subject = $this->_filterOther($subject);
             $this->_subject = $subject;
         }
+
         return $this;
     }
 
@@ -121,10 +223,8 @@ class Mandrill_Message extends Mandrill_Mandrill
     {
 
         $email = $this->_filterEmail($email);
-//        $name  = $this->_filterName($name);
         $this->_from = $email;
         $this->_fromName = $name;
-//        $this->_storeHeader('From', $this->_formatAddress($email, $name), true);
 
         return $this;
     }
@@ -151,7 +251,7 @@ class Mandrill_Message extends Mandrill_Mandrill
     /**
      * Filter of name data
      *
-     * @param string $name
+     * @param  string $name
      * @return string
      */
     protected function _filterName($name)
@@ -181,7 +281,7 @@ class Mandrill_Message extends Mandrill_Mandrill
     {
         $email = $this->_filterEmail($email);
         $name = $this->_filterName($name);
-        $this->_headers[] = array('Reply-To' => sprintf('%s <%s>', $name, $email));
+        $this->_headers['Reply-To'] = sprintf('%s <%s>', $name, $email);
         return $this;
     }
 
@@ -195,62 +295,63 @@ class Mandrill_Message extends Mandrill_Mandrill
             /**
              * @see Zend_Mail_Exception
              */
-            #require_once 'Zend/Mail/Exception.php';
+            // require_once 'Zend/Mail/Exception.php';
             throw new Zend_Mail_Exception('Cannot set standard header from addHeader()');
         }
 
-        $this->_header[$name] = $value;
+        $this->_headers[$name] = $value;
 
         return $this;
     }
 
     public function getHeaders()
     {
-        if (isset($this->_headers[0])) {
-            return $this->_headers[0];
-        } else {
-            return null;
-        }
+        return $this->_headers;
+    }
+    public function setTags($tags)
+    {
+        $this->_tags = $tags;
     }
 
     public function send()
     {
         $email = array();
-        foreach ($this->_to as $to) {
-            $email['to'][] = array(
-                'email' => $to
-            );
-        }
-        foreach ($this->_bcc as $bcc) {
-            $email['to'][] = array(
-                'email' => $bcc,
-                'type' => 'bcc'
-            );
-        }
+
+        $email['to'] = array_merge($this->getTo(),$this->getBcc());
+
         $email['subject'] = $this->_subject;
+
         if (isset($this->_fromName)) {
             $email['from_name'] = $this->_fromName;
         }
+
         $email['from_email'] = $this->_from;
+
         if ($headers = $this->getHeaders()) {
             $email['headers'] = $headers;
         }
+
         if ($att = $this->getAttachments()) {
             $email['attachments'] = $att;
         }
+
         if ($this->_bodyHtml) {
             $email['html'] = $this->_bodyHtml;
         }
+
         if ($this->_bodyText) {
             $email['text'] = $this->_bodyText;
         }
-
+        if ($this->_tags) {
+            $email['tags'] = $this->_tags;
+        }
         try {
-            $result = $this->messages->send($email);
+            $this->messages->send($email);
         } catch (Exception $e) {
             Mage::logException($e);
             return false;
         }
+
         return true;
     }
 }
