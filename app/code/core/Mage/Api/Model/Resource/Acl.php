@@ -119,7 +119,14 @@ class Mage_Api_Model_Resource_Acl extends Mage_Core_Model_Resource_Db_Abstract
                 } elseif ($rule['api_permission'] == 'deny') {
                     $acl->deny($role, $resource, $privileges, $assert);
                 }
-            } catch (Exception $e) {
+            }
+			/**
+			 * 2024-03-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			 * "«Resource '…' not found» on `/api/xmlrpc`": https://github.com/thehcginstitute-com/m1/issues/455
+			 * @see Mage_Admin_Model_Resource_Acl::loadRules()
+			 */
+			catch (Zend_Acl_Exception $e) {}
+			catch (Exception $e) {
                 Mage::logException($e);
             }
         }

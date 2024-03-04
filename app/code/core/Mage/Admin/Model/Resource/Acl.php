@@ -133,8 +133,11 @@ class Mage_Admin_Model_Resource_Acl extends Mage_Core_Model_Resource_Db_Abstract
                     $acl->deny($role, $resource, $privileges, $assert);
                 }
             }
-			# 2024-02-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# "Prevent logging of «Resource '…' not found»": https://github.com/thehcginstitute-com/m1/issues/424
+			/**
+			 * 2024-02-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			 * "Prevent logging of «Resource '…' not found»": https://github.com/thehcginstitute-com/m1/issues/424
+			 * 2024-03-04 @see Mage_Api_Model_Resource_Acl::loadRules()
+			 */
 			catch (Zend_Acl_Exception $e) {}
 			catch (Exception $e) {
                 Mage::logException($e);
