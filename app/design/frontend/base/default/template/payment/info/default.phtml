@@ -1,0 +1,30 @@
+<?php
+/**
+ * 2024-03-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * 1) «include(app/design/frontend/base/default/template/payment/info/default.phtml):
+ * failed to open stream: No such file or directory»: https://github.com/thehcginstitute-com/m1/issues/458
+ * 2) The template is used for backend orders.
+ * @used-by \Mage_Sales_Model_Order::queueNewOrderEmail() uses the code:
+ * 		$appEmulation = Mage::getSingleton('core/app_emulation');
+ * 		$initialEnvironmentInfo = $appEmulation->startEnvironmentEmulation($storeId);
+ * @var Mage_Payment_Block_Info $this
+ */
+?>
+<p><strong><?php echo $this->escapeHtml($this->getMethod()->getTitle()) ?></strong></p>
+
+<?php if ($_specificInfo = $this->getSpecificInformation()):?>
+<table>
+    <tbody>
+    <?php foreach ($_specificInfo as $_label => $_value):?>
+        <tr>
+            <th><strong><?php echo $this->escapeHtml($_label)?>:</strong></th>
+        </tr>
+        <tr>
+            <td><?php echo nl2br(implode("\n", $this->getValueAsArray($_value, true)))?></td>
+        </tr>
+    <?php endforeach ?>
+    </tbody>
+</table>
+<?php endif ?>
+
+<?php echo $this->getChildHtml()?>
