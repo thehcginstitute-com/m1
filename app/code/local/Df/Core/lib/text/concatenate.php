@@ -68,8 +68,6 @@ function df_cc_s(...$a) {return df_ccc(' ', dfa_flatten($a));}
  * @used-by df_oqi_s()
  * @used-by df_report_prefix()
  * @used-by df_url_bp()
- * @param string string
  * @param string|string[] $a
- * @return string
  */
-function df_ccc($glue, ...$a) {return implode($glue, df_clean(dfa_flatten($a)));}
+function df_ccc(string $glue, ...$a):string {return implode($glue, df_clean(dfa_flatten($a)));}
