@@ -380,15 +380,13 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
 
             return true;
         }
-
         $token = $this->_config['security_token'];
-
-        $authToken = (isset($_SERVER['HTTP_X_GLEW_TOKEN']) ? $_SERVER['HTTP_X_GLEW_TOKEN'] : $_SERVER['X_GLEW_TOKEN']);
-
-        if (empty($authToken)) {
+		# 2024-03-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# «Undefined index: X_GLEW_TOKEN in app/code/community/Glew/Service/controllers/ModuleController.php on line 384»
+		# https://github.com/thehcginstitute-com/m1/issues/472
+        if (!($authToken = dfa_try($_SERVER, 'HTTP_X_GLEW_TOKEN',  'X_GLEW_TOKEN'))) {
             $this->_reject();
         }
-
         if (trim($token) != trim($authToken)) {
             $this->_helper->log('Glew feed request with invalid security token: '.$authToken.' compared to stored token: '.$token);
             $this->_reject();

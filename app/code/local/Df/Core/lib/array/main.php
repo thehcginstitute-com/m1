@@ -45,7 +45,8 @@ function dfaf($a, $b):array {
 
 /**
  * 2021-01-29
- * @used-by \IWD_OrderManager_Helper_Data::CheckTableEngine()
+ * @used-by dfa_try()
+ * @used-by IWD_OrderManager_Helper_Data::CheckTableEngine()
  * @param array $a
  * @return mixed|null
  */

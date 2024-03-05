@@ -2,6 +2,7 @@
 /**
  * 2021-01-29
  * @used-by app/design/frontend/base/default/template/richpanel/head.phtml
+ * @used-by dfa_try()
  * @param array(int|string => mixed) $a
  * @param string|string[]|int|null $k
  * @param mixed $d
@@ -77,3 +78,14 @@ function dfa_select_ordered($a, array $k) {
 	$resultWithGarbage = dfa_merge_numeric($resultKeys, df_ita($a));
 	return array_intersect_key($resultWithGarbage, $resultKeys);
 }
+
+/**
+ * 2019-01-28
+ * @used-by Glew_Service_ModuleController::_initRequest()
+ * 2024-03-05
+ * 1) https://3v4l.org/C3qrh
+ * 2) The previous code (`dfa_seq`): https://github.com/mage2pro/core/blob/10.6.9/Core/lib/array/main.php#L214-L231
+ * @param array(int|string => mixed) $a
+ * @return mixed|null
+ */
+function dfa_try(array $a, string ...$k) {return df_first(dfa($a, $k));}
