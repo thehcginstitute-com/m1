@@ -8,4 +8,3 @@ class Glew_Service_Block_StoreUrl extends Mage_Adminhtml_Block_System_Config_For
         return Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB, true);
     }
 }
-

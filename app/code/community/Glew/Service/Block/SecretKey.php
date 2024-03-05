@@ -12,4 +12,3 @@ class Glew_Service_Block_SecretKey extends Mage_Adminhtml_Block_System_Config_Fo
         return trim($token);
     }
 }
-

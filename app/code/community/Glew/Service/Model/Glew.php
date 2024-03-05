@@ -18,4 +18,3 @@ class Glew_Service_Model_Glew
         return !empty($securityToken);
     }
 }
-

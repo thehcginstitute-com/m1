@@ -7,6 +7,7 @@ class Glew_Service_Model_Types_Customer
         if (!$customer) {
             return $this;
         }
+        
         $this->id = $customer->getId();
         $this->e_mail = $customer->getData('email');
         $groupId = $customer->getGroupId();
@@ -39,4 +40,3 @@ class Glew_Service_Model_Types_Customer
         return $this;
     }
 }
-

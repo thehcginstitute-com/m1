@@ -11,4 +11,3 @@ $installer->setConfigData('glew_settings/general/security_token', $token);
 $installer->setConfigData('glew_settings/general/shownav', 1);
 
 $installer->endSetup();
-

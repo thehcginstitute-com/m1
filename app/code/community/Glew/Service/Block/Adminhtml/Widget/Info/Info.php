@@ -23,4 +23,3 @@ class Glew_Service_Block_Adminhtml_Widget_Info_Info extends Mage_Adminhtml_Block
         return $html;
     }
 }
-

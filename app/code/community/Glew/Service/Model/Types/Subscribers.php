@@ -35,4 +35,3 @@ class Glew_Service_Model_Types_Subscribers
         return $this;
     }
 }
-

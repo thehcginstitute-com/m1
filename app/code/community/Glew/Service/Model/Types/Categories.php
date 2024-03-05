@@ -47,4 +47,3 @@ class Glew_Service_Model_Types_Categories
         return $this;
     }
 }
-

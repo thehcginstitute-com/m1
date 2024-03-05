@@ -18,19 +18,28 @@ class Glew_Service_Model_Types_Order
         $this->customer_is_guest = $order->getCustomerIsGuest();
         $this->total_qty_ordered = (int) $order->getTotalQtyOrdered();
         $this->currency = $order->getOrderCurrencyCode();
+        $this->base_currency_total = round($order->getBaseGrandTotal(), 2);
         $this->total = round($order->getGrandTotal(), 2);
         $this->tax = round($order->getTaxAmount(), 2);
         $this->shipping_total = round($order->getShippingAmount(), 2);
         $this->shipping_tax = round($order->getShippingTaxAmount(), 2);
         $this->shipping_description = $order->getShippingDescription();
         try {
-            $this->payment_method = $order->getPayment()->getMethodInstance()->getTitle();
+            $payment = $order->getPayment();
+            if ($payment) {
+                $this->payment_method = $payment->getMethodInstance()->getTitle();
+            } else {
+                $this->payment_method = '';
+            }
         } catch (Exception $e) {
             $this->payment_method = '';
         }
 
-        $this->discount_amount = round($order->getDiscountAmount(), 2);
-        $this->discount_description = $order->getDiscountDescription();
+        try {
+            $this->discount_amount = round($order->getDiscountAmount(), 2);
+            $this->discount_description = $order->getDiscountDescription();
+            $this->discount_code = $order->getCouponCode();
+        } catch (Exception $e) {}
         $this->weight = $order->getWeight();
         $this->remote_ip = $order->getRemoteIp();
         $this->store = $order->getStore()->getCode();
@@ -38,4 +47,3 @@ class Glew_Service_Model_Types_Order
         return $this;
     }
 }
-

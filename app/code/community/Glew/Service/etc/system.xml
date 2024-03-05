@@ -52,7 +52,7 @@
                             <comment>Must clear cache after changing</comment>
                         </shownav>
                         <siteurl translate="label">
-                            <label>Your Store URL</label>
+                            <label>Store URL</label>
                             <frontend_type>button</frontend_type>
                             <frontend_model>glew/storeUrl</frontend_model>
                             <sort_order>22</sort_order>
@@ -77,4 +77,3 @@
         </glew_settings>
     </sections>
 </config>
-

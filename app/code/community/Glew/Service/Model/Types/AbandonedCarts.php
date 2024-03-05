@@ -48,4 +48,3 @@ class Glew_Service_Model_Types_AbandonedCarts
         return $this;
     }
 }
-
