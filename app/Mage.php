@@ -965,8 +965,9 @@ final class Mage
 
     /**
      * Display exception
-     *
      * @param Throwable $e
+	 * 2024-03-05 Dmitrii Fediuk
+	 * @used-by self::run()
      */
     public static function printException(Throwable $e, $extra = '')
     {
