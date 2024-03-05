@@ -896,14 +896,13 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract
 
     /**
      * Save error response from MailChimp's API in "MailChimp_Error.log" file.
-     *
-     * @param $message
+     * @param $m
      */
-    public function logError($message)
-    {
-        if ($this->isErrorLogEnabled()) {
-            Mage::log($message, null, 'MailChimp_Errors.log', true);
-        }
+    function logError($m) {
+		# 2024-03-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Log MailChimp errors to separate files in the `var/log/mage2.pro` folder":
+		# https://github.com/thehcginstitute-com/m1/issues/475
+		df_log($m);
     }
 
     /**
