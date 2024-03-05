@@ -19,6 +19,12 @@ class Glew_Service_Model_Types_Product
             $this->parent_product_id = $parentProductIds[0];
             $parentProductImage = $resource->getAttributeRawValue($parentProductIds[0], 'image', Mage::app()->getStore());
         }
+		else {
+			# 2024-03-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# «Undefined variable: parentProductImage in app/code/community/Glew/Service/Model/Types/Product.php on line 31»:
+			# https://github.com/thehcginstitute-com/m1/issues/467
+			$parentProductImage = null;
+		}
 
         foreach ($productAttributes as $field => $usesSource) {
             try {
