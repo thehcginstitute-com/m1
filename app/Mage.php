@@ -969,46 +969,61 @@ final class Mage
 	 * 2024-03-05 Dmitrii Fediuk
 	 * @used-by self::run()
      */
-    public static function printException(Throwable $e, $extra = '')
-    {
-		# 2024-02-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-		# "Log `var/report` reports to `var/log/mage2.pro`": https://github.com/thehcginstitute-com/m1/issues/429
-		df_log($e);
-        if (self::$_isDeveloperMode) {
-            print '<pre>';
+    public static function printException(Throwable $e, $extra = '') {
+		/**
+		 * 2024-03-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		 * 1) "Prevent logging of «Unable to Connect to ssl://www.mlx-store.com:443»":
+		 * https://github.com/thehcginstitute-com/m1/issues/470
+		 * 2) «Unable to Connect to ssl://www.mlx-store.com:443»: https://github.com/thehcginstitute-com/m1/issues/469
+		 * 3) @see Zend_Http_Client_Adapter_Socket::connect():
+		 * 		throw new Zend_Http_Client_Adapter_Exception(
+		 * 			'Unable to Connect to ' . $host . ':' . $port . '. Error #' . $errno . ': ' . $errstr
+		 * 		);
+		 * https://github.com/Shardj/zf1-future/blob/release-1.22.0/library/Zend/Http/Client/Adapter/Socket.php#L235-L236
+		 */
+		if (
+			!$e instanceof Zend_Http_Client_Adapter_Exception
+			|| !df_contains($e->getMessage(), 'Unable to Connect to ssl://www.mlx-store.com:443')
+		) {
+			# 2024-02-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Log `var/report` reports to `var/log/mage2.pro`": https://github.com/thehcginstitute-com/m1/issues/429
+			df_log($e);
+			if (self::$_isDeveloperMode) {
+				print '<pre>';
 
-            if (!empty($extra)) {
-                print $extra . "\n\n";
-            }
+				if (!empty($extra)) {
+					print $extra . "\n\n";
+				}
 
-            print $e->getMessage() . "\n\n";
-            print $e->getTraceAsString();
-            print '</pre>';
-        } else {
-            $reportData = [
-                (!empty($extra) ? $extra . "\n\n" : '') . $e->getMessage(),
-                $e->getTraceAsString()
-            ];
+				print $e->getMessage() . "\n\n";
+				print $e->getTraceAsString();
+				print '</pre>';
+			} else {
+				$reportData = [
+					(!empty($extra) ? $extra . "\n\n" : '') . $e->getMessage(),
+					$e->getTraceAsString()
+				];
 
-            // retrieve server data
-            if (isset($_SERVER['REQUEST_URI'])) {
-                $reportData['url'] = $_SERVER['REQUEST_URI'];
-            }
-            if (isset($_SERVER['SCRIPT_NAME'])) {
-                $reportData['script_name'] = $_SERVER['SCRIPT_NAME'];
-            }
+				// retrieve server data
+				if (isset($_SERVER['REQUEST_URI'])) {
+					$reportData['url'] = $_SERVER['REQUEST_URI'];
+				}
+				if (isset($_SERVER['SCRIPT_NAME'])) {
+					$reportData['script_name'] = $_SERVER['SCRIPT_NAME'];
+				}
 
-            // attempt to specify store as a skin
-            try {
-                $storeCode = self::app()->getStore()->getCode();
-                $reportData['skin'] = $storeCode;
-            } catch (Exception $e) {
-            }
+				// attempt to specify store as a skin
+				try {
+					$storeCode = self::app()->getStore()->getCode();
+					$reportData['skin'] = $storeCode;
+				} catch (Exception $e) {
+				}
 
-            require_once(self::getBaseDir() . DS . 'errors' . DS . 'report.php');
-        }
+				require_once(self::getBaseDir() . DS . 'errors' . DS . 'report.php');
+			}
 
-        die();
+			die();
+		}
     }
 
     /**

@@ -10,6 +10,7 @@ function df_bts(bool $v):string {return $v ? 'true' : 'false';}
  * 2015-04-17
  * Добавлена возможность указывать в качестве $needle массив.
  * Эта возможность используется в\AttributeFilter::parse()
+ * @used-by Mage::printException()
  * @param string $haystack
  * @param string $n
  * @return bool
