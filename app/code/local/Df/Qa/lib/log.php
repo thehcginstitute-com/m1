@@ -10,6 +10,7 @@ use Varien_Object as _DO;
  * @used-by Df\Qa\Failure\Error::check()
  * @used-by Df\Qa\Failure\Error::log()
  * @used-by Df_Core_Model_Layout::_getBlockInstance()
+ * @used-by Ebizmarts_MailChimp::call()
  * @used-by Ebizmarts_MailChimp_Helper_Data::logError()
  * @used-by Mage::logException()
  * @used-by Mage::printException()

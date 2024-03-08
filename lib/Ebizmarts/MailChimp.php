@@ -360,6 +360,7 @@ class Ebizmarts_MailChimp
 			}
 		}
 		catch (MailChimp_HttpError $e) {
+			df_log($e, $this, ['message' => $e->getFriendlyMessage()], 'api');
 			throw $e;
 		}
 
