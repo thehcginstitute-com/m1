@@ -340,21 +340,28 @@ class Ebizmarts_MailChimp
         $result = json_decode($responseBody, true);
 
         $curlError = curl_error($ch);
-        if (!empty($curlError)) {
-            throw new MailChimp_HttpError($url, $method, $params, '', "API call to $url failed: " . curl_error($ch));
-        }
+		# 2024-03-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Log failures of `Ebizmarts_MailChimp::call()`": https://github.com/thehcginstitute-com/m1/issues/477
+		try {
+			if (!empty($curlError)) {
+				throw new MailChimp_HttpError($url, $method, $params, '', "API call to $url failed: " . curl_error($ch));
+			}
 
-        if (floor($info['http_code'] / 100) >= 4) {
-            if (is_array($result)) {
-                $detail = array_key_exists('detail', $result) ? $result['detail'] : '';
-                $errors = array_key_exists('errors', $result) ? $result['errors'] : null;
-                $title = array_key_exists('title', $result) ? $result['title'] : '';
+			if (floor($info['http_code'] / 100) >= 4) {
+				if (is_array($result)) {
+					$detail = array_key_exists('detail', $result) ? $result['detail'] : '';
+					$errors = array_key_exists('errors', $result) ? $result['errors'] : null;
+					$title = array_key_exists('title', $result) ? $result['title'] : '';
 
-                throw new MailChimp_HttpError($this->_root . $url, $method, $params, $title, $detail, $errors);
-            } else {
-                throw new MailChimp_HttpError($this->_root . $url, $method, $params, $result);
-            }
-        }
+					throw new MailChimp_HttpError($this->_root . $url, $method, $params, $title, $detail, $errors);
+				} else {
+					throw new MailChimp_HttpError($this->_root . $url, $method, $params, $result);
+				}
+			}
+		}
+		catch (MailChimp_HttpError $e) {
+			throw $e;
+		}
 
         return $result;
     }
