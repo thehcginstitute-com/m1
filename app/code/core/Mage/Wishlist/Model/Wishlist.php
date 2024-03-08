@@ -587,7 +587,10 @@ class Mage_Wishlist_Model_Wishlist extends Mage_Core_Model_Abstract
                 $item->isDeleted(true);
                 $this->setDataChanges(true);
             } else {
-                $resultItem->setQty($buyRequest->getQty() * 1);
+				# 2024-03-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# «A non-numeric value encountered in app/code/core/Mage/Wishlist/Model/Wishlist.php on line 590»:
+				# https://github.com/thehcginstitute-com/m1/issues/476
+                $resultItem->setQty((int)$buyRequest->getQty() * 1);
                 $resultItem->setOrigData('qty', 0);
             }
         } else {
