@@ -183,7 +183,7 @@ class Mage_Reports_Model_Resource_Quote_Collection extends Mage_Sales_Model_Reso
         $adapter = $this->getSelect()->getAdapter();
         $customerName = $adapter->getConcatSql(['cust_fname.value', 'cust_mname.value', 'cust_lname.value',], ' ');
 		# 2024-03-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-		# 1) "The «Customer Name» and «Email» columns are empty for some row of the «Abandoned carts» backend grid":
+		# 1) "The «Customer Name» and «Email» columns are empty for some rows of the «Abandoned carts» backend grid":
 		# https://github.com/thehcginstitute-com/m1/issues/478
         # 2.1) Magento 1.9.4.5 uses `joinInner`:
 		# https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/code/core/Mage/Reports/Model/Resource/Quote/Collection.php#L196-L227
