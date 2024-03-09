@@ -182,13 +182,21 @@ class Mage_Reports_Model_Resource_Quote_Collection extends Mage_Sales_Model_Reso
 
         $adapter = $this->getSelect()->getAdapter();
         $customerName = $adapter->getConcatSql(['cust_fname.value', 'cust_mname.value', 'cust_lname.value',], ' ');
-        $this->getSelect()
-            ->joinLeft(
+		# 2024-03-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# 1) "The «Customer Name» and «Email» columns are empty for some row of the «Abandoned carts» backend grid":
+		# https://github.com/thehcginstitute-com/m1/issues/478
+        # 2.1) Magento 1.9.4.5 uses `joinInner`:
+		# https://github.com/OpenMage/magento-mirror/blob/1.9.4.5/app/code/core/Mage/Reports/Model/Resource/Quote/Collection.php#L196-L227
+		# 2.2) OpenMage 19.5.2 uses `joinLeft`:
+		# https://github.com/OpenMage/magento-lts/blob/v19.5.2/app/code/core/Mage/Reports/Model/Resource/Quote/Collection.php#L186-L216
+		# 3) I reverted `joinLeft` to `joinInner` because the carts of anonymous visitors seem to be useless.
+		$this->getSelect()
+            ->joinInner(
                 ['cust_email' => $attrEmailTableName],
                 'cust_email.entity_id = main_table.customer_id',
                 ['email' => 'cust_email.email']
             )
-            ->joinLeft(
+            ->joinInner(
                 ['cust_fname' => $attrFirstnameTableName],
                 implode(' AND ', [
                     'cust_fname.entity_id = main_table.customer_id',
@@ -196,7 +204,7 @@ class Mage_Reports_Model_Resource_Quote_Collection extends Mage_Sales_Model_Reso
                 ]),
                 ['firstname' => 'cust_fname.value']
             )
-            ->joinLeft(
+            ->joinInner(
                 ['cust_mname' => $attrMiddlenameTableName],
                 implode(' AND ', [
                     'cust_mname.entity_id = main_table.customer_id',
@@ -204,7 +212,7 @@ class Mage_Reports_Model_Resource_Quote_Collection extends Mage_Sales_Model_Reso
                 ]),
                 ['middlename' => 'cust_mname.value']
             )
-            ->joinLeft(
+            ->joinInner(
                 ['cust_lname' => $attrLastnameTableName],
                 implode(' AND ', [
                     'cust_lname.entity_id = main_table.customer_id',
