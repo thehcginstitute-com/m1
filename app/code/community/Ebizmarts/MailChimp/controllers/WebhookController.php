@@ -80,10 +80,12 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
             if ($myKey == $requestKey) {
                 if ($request->getPost('type')) {
                     Mage::getModel('mailchimp/processWebhook')->saveWebhookRequest($data);
-                } else {
-                    $helper->logError($this->__('Webhook successfully created.'));
                 }
-            } else {
+				# 2024-03-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "«Webhook successfully created» should not be logged as an error my MailChimp":
+				# https://github.com/thehcginstitute-com/m1/issues/480
+            }
+			else {
                 $helper->logError($this->__('Webhook Key invalid! Key Request: %s - My Key: %s', $requestKey, $myKey));
                 $helper->logError($this->__('Webhook call ended'));
             }
