@@ -1,10 +1,6 @@
 <?php
-
-/**
- * Crontab observer.
- *
- * @author Fabrizio Branca <fabrizio.branca@aoemedia.de>
- */
+# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Refactor the `Aoe_Scheduler` module": https://github.com/thehcginstitute-com/m1/issues/494
 class Aoe_Scheduler_Model_Observer extends Mage_Cron_Model_Observer {
 
 	const XML_PATH_MAX_RUNNING_TIME = 'system/cron/max_running_time';
@@ -204,7 +200,7 @@ class Aoe_Scheduler_Model_Observer extends Mage_Cron_Model_Observer {
 
 	/**
 	 * Send error mail
-	 *
+	 * @used-by self::dispatch()
 	 * @param Aoe_Scheduler_Model_Schedule $schedule
 	 * @param $error
 	 * @return Aoe_Scheduler_Model_Observer
