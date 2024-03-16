@@ -199,13 +199,13 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
 				 * 2024-03-16
 				 * 2024-03-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				 * 1) I intentionally use @see \Exception::getPrevious().
-				 * @see \Varien_Data_Form_Filter_Date::inputFilter()
+				 * @see Varien_Data_Form_Filter_Date::inputFilter()
 				 * 1.1) "`Varien_Data_Form_Filter_Date::inputFilter()` should throw an exception
 				 * with a user-friendly message on a PHP error": https://github.com/thehcginstitute-com/m1/issues/485
 				 */
-				throw new Exception(
+				df_error(
 					"The value «{$value}» seems to be invalid for the field «{$this->getAttribute()->getStoreLabel()}»."
-					, 0, $e->getPrevious()
+					,$e->getPrevious()
 				);
 			}
         }

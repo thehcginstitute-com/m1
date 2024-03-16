@@ -7,6 +7,8 @@ use Throwable as Th; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": 
  * 2020-01-21
  * 2024-03-16 "Port `df_error` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/487
  * @used-by df_assert()
+ * @used-by Mage_Eav_Model_Attribute_Data_Abstract::_applyInputFilter()
+ * @used-by Varien_Data_Form_Filter_Date::inputFilter()
  * @param string|mixed|Th|null ...$a
  * @throws DFE
  */
