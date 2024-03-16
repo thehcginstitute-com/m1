@@ -75,7 +75,10 @@ class Varien_Data_Form_Filter_Date implements Varien_Data_Form_Filter_Interface
 		}
 		catch (Exception $e) {
 			/**
-			 *
+			 * 2024-03-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			 * 1) In most cases, it will be caught by @see \Mage_Eav_Model_Attribute_Data_Abstract::_applyInputFilter()
+			 * 2) "`Mage_Eav_Model_Attribute_Data_Abstract::_applyInputFilter()` should throw an exception
+			 * with a user-friendly message on a PHP error": https://github.com/thehcginstitute-com/m1/issues/486
 			 */
 			throw new Exception("The value «{$value}» seems to be invalid as a date.", $e);
 		}
