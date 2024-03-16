@@ -57,19 +57,25 @@ class Varien_Data_Form_Filter_Date implements Varien_Data_Form_Filter_Interface
      * @param string $value
      * @return string
      */
-    public function inputFilter($value)
-    {
-        $filterInput = new Zend_Filter_LocalizedToNormalized([
-            'date_format'   => $this->_dateFormat,
-            'locale'        => $this->_locale
-        ]);
-        $filterInternal = new Zend_Filter_NormalizedToLocalized([
-            'date_format'   => Varien_Date::DATE_INTERNAL_FORMAT,
-            'locale'        => $this->_locale
-        ]);
-
-        $value = $filterInput->filter($value);
-        $value = $filterInternal->filter($value);
+    public function inputFilter($value) {
+		# 2024-03-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "`Varien_Data_Form_Filter_Date::inputFilter()` should throw an exception with a user-friendly message on a PHP error":
+		# https://github.com/thehcginstitute-com/m1/issues/485
+		try {
+			$filterInput = new Zend_Filter_LocalizedToNormalized([
+				'date_format'   => $this->_dateFormat,
+				'locale'        => $this->_locale
+			]);
+			$filterInternal = new Zend_Filter_NormalizedToLocalized([
+				'date_format'   => Varien_Date::DATE_INTERNAL_FORMAT,
+				'locale'        => $this->_locale
+			]);
+			$value = $filterInput->filter($value);
+			$value = $filterInternal->filter($value);
+		}
+		catch (Exception $e) {
+			throw new Exception("The value «{$value}» seems to be invalid as a date.", $e);
+		}
         return $value;
     }
 
