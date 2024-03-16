@@ -2131,7 +2131,11 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract
                 }
                 break;
             case 'default':
-                if ($scopeSoFar['scope'] != 'stores') {
+				# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# «Trying to access array offset on value of type null
+				# in app/code/community/Ebizmarts/MailChimp/Helper/Data.php on line 2134»:
+				# https://github.com/thehcginstitute-com/m1/issues/495
+                if ($scopeSoFar && 'stores' !== dfa($scopeSoFar, 'scope')) {
                     $scopeSoFar = array('scope_id' => $config->getScopeId(), 'scope' => $config->getScope());
                 }
                 break;

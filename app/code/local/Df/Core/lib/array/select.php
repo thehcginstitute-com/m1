@@ -1,8 +1,9 @@
 <?php
 /**
  * 2021-01-29
- * @used-by app/design/frontend/base/default/template/richpanel/head.phtml
  * @used-by dfa_try()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::getRealScopeForConfig()
+ * @used-by app/design/frontend/base/default/template/richpanel/head.phtml
  * @param array(int|string => mixed) $a
  * @param string|string[]|int|null $k
  * @param mixed $d
