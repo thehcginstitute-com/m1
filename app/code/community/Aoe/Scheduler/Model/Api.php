@@ -12,7 +12,7 @@ class Aoe_Scheduler_Model_Api extends Mage_Api_Model_Resource_Abstract {
 	 * @param $code
 	 * @return array
 	 */
-	public function runNow($code) {
+	function runNow($code) {
 		$schedule = Mage::getModel('cron/schedule') /* @var $schedule Aoe_Scheduler_Model_Schedule */
 			->setJobCode($code)
 			->runNow(false) // without trying to lock the job
@@ -27,7 +27,7 @@ class Aoe_Scheduler_Model_Api extends Mage_Api_Model_Resource_Abstract {
 	 * @param null $time
 	 * @return array
 	 */
-	public function schedule($code, $time=NULL) {
+	function schedule($code, $time=NULL) {
 		$schedule = Mage::getModel('cron/schedule') /* @var $schedule Aoe_Scheduler_Model_Schedule */
 			->setJobCode($code)
 			->schedule($time)
@@ -41,7 +41,7 @@ class Aoe_Scheduler_Model_Api extends Mage_Api_Model_Resource_Abstract {
 	 * @param $id
 	 * @return string
 	 */
-	public function info($id) {
+	function info($id) {
 		$schedule = Mage::getModel('cron/schedule')->load($id); /* @var $schedule Aoe_Scheduler_Model_Schedule */
 		return $schedule->getData();
 	}

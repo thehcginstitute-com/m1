@@ -12,7 +12,7 @@ class Aoe_Scheduler_Block_Adminhtml_Scheduler extends Mage_Adminhtml_Block_Widge
 	/**
 	 * Constructor for Scheduler Adminhtml Block
 	 */
-	public function __construct() {
+	function __construct() {
 		$this->_blockGroup = 'aoe_scheduler';
 		$this->_controller = 'adminhtml_scheduler';
 		$this->_headerText = Mage::helper('aoe_scheduler')->__('Scheduled tasks');
@@ -50,7 +50,7 @@ class Aoe_Scheduler_Block_Adminhtml_Scheduler extends Mage_Adminhtml_Block_Widge
 	 *
 	 * @return string
 	 */
-	public function getHeaderCssClass() {
+	function getHeaderCssClass() {
 		return '';
 	}
 

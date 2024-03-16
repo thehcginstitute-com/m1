@@ -25,7 +25,7 @@ class Aoe_Scheduler_Block_Adminhtml_TimelineDetail extends Mage_Adminhtml_Block_
 	 * @param Aoe_Scheduler_Model_Schedule $schedule
 	 * @return Aoe_Scheduler_Block_Adminhtml_TimelineDetail
 	 */
-	public function setSchedule(Aoe_Scheduler_Model_Schedule $schedule) {
+	function setSchedule(Aoe_Scheduler_Model_Schedule $schedule) {
 		$this->schedule = $schedule;
 		return $this;
 	}
@@ -37,7 +37,7 @@ class Aoe_Scheduler_Block_Adminhtml_TimelineDetail extends Mage_Adminhtml_Block_
 	 *
 	 * @return Aoe_Scheduler_Block_Adminhtml_TimelineDetail
 	 */
-	public function getSchedule() {
+	function getSchedule() {
 		return $this->schedule;
 	}
 

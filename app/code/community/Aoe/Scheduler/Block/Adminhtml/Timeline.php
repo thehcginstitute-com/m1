@@ -114,7 +114,7 @@ class Aoe_Scheduler_Block_Adminhtml_Timeline extends Mage_Adminhtml_Block_Widget
 	 *
 	 * @return int
 	 */
-	public function getTimelinePanelWidth() {
+	function getTimelinePanelWidth() {
 		return ($this->endtime - $this->starttime) / $this->zoom;
 	}
 
@@ -125,7 +125,7 @@ class Aoe_Scheduler_Block_Adminhtml_Timeline extends Mage_Adminhtml_Block_Widget
 	 *
 	 * @return float
 	 */
-	public function getNowline() {
+	function getNowline() {
 		return (time() - $this->starttime) / $this->zoom;
 	}
 
@@ -136,7 +136,7 @@ class Aoe_Scheduler_Block_Adminhtml_Timeline extends Mage_Adminhtml_Block_Widget
 	 *
 	 * @return array
 	 */
-	public function getAvailableJobCodes() {
+	function getAvailableJobCodes() {
 		return array_keys($this->schedules);
 	}
 
@@ -148,7 +148,7 @@ class Aoe_Scheduler_Block_Adminhtml_Timeline extends Mage_Adminhtml_Block_Widget
 	 * @param string $code
 	 * @return array
 	 */
-	public function getSchedulesForCode($code) {
+	function getSchedulesForCode($code) {
 		return $this->schedules[$code];
 	}
 
@@ -159,7 +159,7 @@ class Aoe_Scheduler_Block_Adminhtml_Timeline extends Mage_Adminhtml_Block_Widget
 	 *
 	 * @return int
 	 */
-	public function getStarttime() {
+	function getStarttime() {
 		return $this->starttime;
 	}
 
@@ -170,7 +170,7 @@ class Aoe_Scheduler_Block_Adminhtml_Timeline extends Mage_Adminhtml_Block_Widget
 	 *
 	 * @return int
 	 */
-	public function getEndtime() {
+	function getEndtime() {
 		return $this->endtime;
 	}
 
@@ -182,7 +182,7 @@ class Aoe_Scheduler_Block_Adminhtml_Timeline extends Mage_Adminhtml_Block_Widget
 	 * @param Aoe_Scheduler_Model_Schedule $schedule
 	 * @return string
 	 */
-	public function getGanttDivAttributes(Aoe_Scheduler_Model_Schedule $schedule) {
+	function getGanttDivAttributes(Aoe_Scheduler_Model_Schedule $schedule) {
 
 		if ($schedule->getStatus() == Mage_Cron_Model_Schedule::STATUS_RUNNING) {
 			$duration = time() - strtotime($schedule->getExecutedAt());

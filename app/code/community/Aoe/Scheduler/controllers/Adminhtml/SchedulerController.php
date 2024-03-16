@@ -16,7 +16,7 @@ class Aoe_Scheduler_Adminhtml_SchedulerController extends Aoe_Scheduler_Adminhtm
 	 *
 	 * @return void
 	 */
-	public function deleteAction() {
+	function deleteAction() {
 		$ids = $this->getRequest()->getParam('schedule_ids');
 		foreach ($ids as $id) {
 			$schedule = Mage::getModel('cron/schedule')->load($id)->delete(); /* @var $schedule Mage_Cron_Model_Schedule */

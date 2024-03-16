@@ -19,7 +19,7 @@ class Aoe_Scheduler_Model_Observer extends Mage_Cron_Model_Observer {
 	 *
 	 * @param Varien_Event_Observer $observer
 	 */
-	public function dispatch($observer)
+	function dispatch($observer)
 	{
 		$schedules = $this->getPendingSchedules();
 		$scheduleLifetime = Mage::getStoreConfig(self::XML_PATH_SCHEDULE_LIFETIME) * 60;
@@ -124,7 +124,7 @@ class Aoe_Scheduler_Model_Observer extends Mage_Cron_Model_Observer {
 	 *
 	 * @return void
 	 */
-	public function checkRunningJobs() {
+	function checkRunningJobs() {
 
 		$maxAge = time() - Mage::getStoreConfig(self::XML_PATH_MAX_RUNNING_TIME) * 60;
 
@@ -175,7 +175,7 @@ class Aoe_Scheduler_Model_Observer extends Mage_Cron_Model_Observer {
 	 *
 	 * @return Mage_Cron_Model_Observer
 	 */
-	public function generate() {
+	function generate() {
 		$result = parent::generate();
 
 		$cron_schedule = Mage::getSingleton('core/resource')->getTableName('cron_schedule');

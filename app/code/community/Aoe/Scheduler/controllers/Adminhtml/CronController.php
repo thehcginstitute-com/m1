@@ -16,7 +16,7 @@ class Aoe_Scheduler_Adminhtml_CronController extends Aoe_Scheduler_Adminhtml_Abs
 	 *
 	 * @return void
 	 */
-	public function disableAction() {
+	function disableAction() {
 		$codes = $this->getRequest()->getParam('codes');
 		$disabledCrons = Mage::helper('aoe_scheduler')->trimExplode(',', Mage::getStoreConfig('system/cron/disabled_crons'), true);
 		foreach ($codes as $code) {
@@ -37,7 +37,7 @@ class Aoe_Scheduler_Adminhtml_CronController extends Aoe_Scheduler_Adminhtml_Abs
 	 *
 	 * @return void
 	 */
-	public function enableAction() {
+	function enableAction() {
 		$codes = $this->getRequest()->getParam('codes');
 		$disabledCrons = Mage::helper('aoe_scheduler')->trimExplode(',', Mage::getStoreConfig('system/cron/disabled_crons'), true);
 		foreach ($codes as $key => $code) {
@@ -59,7 +59,7 @@ class Aoe_Scheduler_Adminhtml_CronController extends Aoe_Scheduler_Adminhtml_Abs
 	 *
 	 * @return void
 	 */
-	public function scheduleNowAction() {
+	function scheduleNowAction() {
 		$codes = $this->getRequest()->getParam('codes');
 		if (is_array($codes)) {
 			foreach ($codes as $key) {
@@ -80,7 +80,7 @@ class Aoe_Scheduler_Adminhtml_CronController extends Aoe_Scheduler_Adminhtml_Abs
 	 *
 	 * @return void
 	 */
-	public function runNowAction() {
+	function runNowAction() {
 		$codes = $this->getRequest()->getParam('codes');
 		if (is_array($codes)) {
 			foreach ($codes as $key) {

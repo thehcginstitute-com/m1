@@ -12,7 +12,7 @@ class Aoe_Scheduler_Block_Adminhtml_Cron extends Mage_Adminhtml_Block_Widget_Gri
 	/**
 	 * Constructor for Cron Adminhtml Block
 	 */
-	public function __construct() {
+	function __construct() {
 		$this->_blockGroup = 'aoe_scheduler';
 		$this->_controller = 'adminhtml_cron';
 		$this->_headerText = Mage::helper('aoe_scheduler')->__('Available tasks');
@@ -50,7 +50,7 @@ class Aoe_Scheduler_Block_Adminhtml_Cron extends Mage_Adminhtml_Block_Widget_Gri
 	 *
 	 * @return string
 	 */
-	public function getHeaderCssClass() {
+	function getHeaderCssClass() {
 		return '';
 	}
 

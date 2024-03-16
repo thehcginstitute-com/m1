@@ -12,7 +12,7 @@ abstract class Aoe_Scheduler_Adminhtml_AbstractController extends Mage_Adminhtml
 	 *
 	 * @return void
 	 */
-	public function indexAction() {
+	function indexAction() {
 		$this->checkHeartbeat();
 
 		$this->loadLayout();
@@ -55,7 +55,7 @@ abstract class Aoe_Scheduler_Adminhtml_AbstractController extends Mage_Adminhtml
 	 *
 	 * @return void
 	 */
-	public function generateScheduleAction() {
+	function generateScheduleAction() {
 		$observer = Mage::getModel('cron/observer'); /* @var $observer Mage_Cron_Model_Observer */
 		$observer->generate();
 		Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Generated schedule'));

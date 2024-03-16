@@ -12,7 +12,7 @@ class Aoe_Scheduler_Block_Adminhtml_Scheduler_Grid extends Mage_Adminhtml_Block_
 	/**
 	 * Constructor. Set basic parameters
 	 */
-	public function __construct() {
+	function __construct() {
 		parent::__construct();
 		$this->setId('scheduler_grid');
 		$this->setUseAjax(false);
@@ -119,7 +119,7 @@ class Aoe_Scheduler_Block_Adminhtml_Scheduler_Grid extends Mage_Adminhtml_Block_
 	 * @param Aoe_Scheduler_Model_Schedule $row
 	 * @return string
 	 */
-	public function decorateMessages($value, Aoe_Scheduler_Model_Schedule $row) {
+	function decorateMessages($value, Aoe_Scheduler_Model_Schedule $row) {
 		$return = '';
 		if (!empty($value)) {
 			$return .= '<a href="#" onclick="$(\'messages_'.$row->getScheduleId().'\').toggle(); return false;">'.Mage::helper('aoe_scheduler')->__('Message').'</a>';
@@ -163,7 +163,7 @@ class Aoe_Scheduler_Block_Adminhtml_Scheduler_Grid extends Mage_Adminhtml_Block_
 	 *
 	 * @return string Requested URL
 	 */
-	public function getGridUrl() {
+	function getGridUrl() {
 		return $this->getUrl('adminhtml/scheduler/index', array('_current' => true));
 	}
 

@@ -31,7 +31,7 @@ class Aoe_Scheduler_Model_Schedule extends Mage_Cron_Model_Schedule {
 	 * @param bool $tryLockJob
 	 * @return Aoe_Scheduler_Model_Schedule
 	 */
-	public function runNow($tryLockJob=true) {
+	function runNow($tryLockJob=true) {
 		$modelCallback = $this->getJobConfiguration()->getModel();
 
 		if (!$this->getCreatedAt()) {
@@ -89,7 +89,7 @@ class Aoe_Scheduler_Model_Schedule extends Mage_Cron_Model_Schedule {
 	 * @deprecated use Aoe_Scheduler_Model_Schedule::schedule() instead
 	 * @return Aoe_Scheduler_Model_Schedule
 	 */
-	public function scheduleNow() {
+	function scheduleNow() {
 		return $this->schedule();
 	}
 
@@ -101,7 +101,7 @@ class Aoe_Scheduler_Model_Schedule extends Mage_Cron_Model_Schedule {
 	 * @param int $time
 	 * @return Aoe_Scheduler_Model_Schedule
 	 */
-	public function schedule($time=NULL) {
+	function schedule($time=NULL) {
 		if (is_null($time)) {
 			$time = time();
 		}
@@ -119,7 +119,7 @@ class Aoe_Scheduler_Model_Schedule extends Mage_Cron_Model_Schedule {
 	 *
 	 * @return Aoe_Scheduler_Model_Configuration
 	 */
-	public function getJobConfiguration() {
+	function getJobConfiguration() {
 		if (is_null($this->_jobConfiguration)) {
 			$this->_jobConfiguration = Mage::getModel('aoe_scheduler/configuration')->loadByCode($this->getJobCode());
 		}
@@ -133,7 +133,7 @@ class Aoe_Scheduler_Model_Schedule extends Mage_Cron_Model_Schedule {
 	 *
 	 * @return string
 	 */
-	public function getStarttime() {
+	function getStarttime() {
 		$starttime = $this->getExecutedAt();
 		if (empty($starttime) || $starttime == '0000-00-00 00:00:00') {
 			$starttime = $this->getScheduledAt();
@@ -148,7 +148,7 @@ class Aoe_Scheduler_Model_Schedule extends Mage_Cron_Model_Schedule {
 	 *
 	 * @return bool|int time in seconds, or false
 	 */
-	public function getDuration() {
+	function getDuration() {
 		$duration = false;
 		if ($this->getExecutedAt() && ($this->getExecutedAt() != '0000-00-00 00:00:00')
 			&& $this->getFinishedAt() && ($this->getFinishedAt() != '0000-00-00 00:00:00')) {

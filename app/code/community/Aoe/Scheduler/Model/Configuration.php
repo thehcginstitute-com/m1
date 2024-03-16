@@ -33,7 +33,7 @@ class Aoe_Scheduler_Model_Configuration extends Mage_Core_Model_Abstract {
 	 *
 	 * @return string
 	 */
-	public function getIdFieldName() {
+	function getIdFieldName() {
 		return 'id';
 	}
 
@@ -44,7 +44,7 @@ class Aoe_Scheduler_Model_Configuration extends Mage_Core_Model_Abstract {
 	 *
 	 * @param string $code
 	 */
-	public function loadByCode($code) {
+	function loadByCode($code) {
 		$this->setId($code);
 		$this->setName($code);
 

@@ -12,7 +12,7 @@ class Aoe_Scheduler_Block_Adminhtml_Cron_Grid extends Mage_Adminhtml_Block_Widge
 	/**
 	 * Constructor
 	 */
-	public function __construct() {
+	function __construct() {
 		parent::__construct();
 		$this->setId('cron_grid');
 		$this->_filterVisibility = false;
@@ -100,7 +100,7 @@ class Aoe_Scheduler_Block_Adminhtml_Cron_Grid extends Mage_Adminhtml_Block_Widge
 	 *
 	 * @return string
 	 */
-	public function decorateStatus($value) {
+	function decorateStatus($value) {
 		$cell = sprintf('<span class="grid-severity-%s"><span>%s</span></span>',
 			($value == Aoe_Scheduler_Model_Configuration::STATUS_DISABLED) ? 'critical' : 'notice',
 			Mage::helper('aoe_scheduler')->__($value)
@@ -131,7 +131,7 @@ class Aoe_Scheduler_Block_Adminhtml_Cron_Grid extends Mage_Adminhtml_Block_Widge
 	 *
 	 * @return string Requested URL
 	 */
-	public function getGridUrl() {
+	function getGridUrl() {
 		return $this->getUrl('adminhtml/scheduler/cron', array('_current' => true));
 	}
 

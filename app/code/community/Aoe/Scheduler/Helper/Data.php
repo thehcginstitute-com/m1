@@ -18,7 +18,7 @@ class Aoe_Scheduler_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param bool $removeEmptyValues If set, all empty values will be removed in output
 	 * @return array Exploded values
 	 */
-	public function trimExplode($delim, $string, $removeEmptyValues=false) {
+	function trimExplode($delim, $string, $removeEmptyValues=false) {
 		$explodedValues = explode($delim, $string);
 
 		$result = array_map('trim', $explodedValues);
@@ -44,7 +44,7 @@ class Aoe_Scheduler_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param $status
 	 * @return string
 	 */
-	public function decorateStatus($status) {
+	function decorateStatus($status) {
 		switch ($status) {
 			case Mage_Cron_Model_Schedule::STATUS_SUCCESS:
 				$result = '<span class="bar-green"><span>'.$status.'</span></span>';
@@ -77,7 +77,7 @@ class Aoe_Scheduler_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param string $value
 	 * @return string
 	 */
-	public function decorateTimeFrameCallBack($value) {
+	function decorateTimeFrameCallBack($value) {
 		return $this->decorateTime($value, false, NULL);
 	}
 
@@ -91,7 +91,7 @@ class Aoe_Scheduler_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param string $dateFormat make sure Y-m-d is in it, if you want to have it replaced
 	 * @return string
 	 */
-	public function decorateTime($value, $echoToday=false, $dateFormat=NULL) {
+	function decorateTime($value, $echoToday=false, $dateFormat=NULL) {
 		if (empty($value) || $value == '0000-00-00 00:00:00') {
 			$value = '';
 		} else {
@@ -110,7 +110,7 @@ class Aoe_Scheduler_Helper_Data extends Mage_Core_Helper_Abstract {
 	/**
 	 * Get last heartbeat
 	 */
-	public function getLastHeartbeat() {
+	function getLastHeartbeat() {
 		if ($this->isDisabled('aoescheduler_heartbeat')) {
 			return false;
 		}
@@ -135,7 +135,7 @@ class Aoe_Scheduler_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param $time2
 	 * @return int
 	 */
-	public function dateDiff($time1, $time2=NULL) {
+	function dateDiff($time1, $time2=NULL) {
 		if (is_null($time2)) {
 			$time2 = Mage::getModel('core/date')->date();
 		}
@@ -152,7 +152,7 @@ class Aoe_Scheduler_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param $jobCode
 	 * @return bool
 	 */
-	public function isDisabled($jobCode) {
+	function isDisabled($jobCode) {
 		$disabledJobs = Mage::getStoreConfig('system/cron/disabled_crons');
 		$disabledJobs = $this->trimExplode(',', $disabledJobs);
 		return in_array($jobCode, $disabledJobs);
