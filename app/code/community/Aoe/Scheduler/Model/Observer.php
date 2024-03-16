@@ -87,6 +87,8 @@ class Aoe_Scheduler_Model_Observer extends Mage_Cron_Model_Observer {
 				Mage::dispatchEvent('cron_' . $schedule->getJobCode() . '_after', array('schedule' => $schedule));
 			}
 			catch (Exception $e) {
+				# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "`Aoe_Scheduler`should log Cron errors": https://github.com/thehcginstitute-com/m1/issues/493
 				df_log($e);
 				$schedule->setStatus($errorStatus)->setMessages($e->__toString());
 				Mage::dispatchEvent(
