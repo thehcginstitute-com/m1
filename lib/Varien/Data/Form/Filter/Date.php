@@ -74,6 +74,9 @@ class Varien_Data_Form_Filter_Date implements Varien_Data_Form_Filter_Interface
 			$value = $filterInternal->filter($value);
 		}
 		catch (Exception $e) {
+			/**
+			 *
+			 */
 			throw new Exception("The value «{$value}» seems to be invalid as a date.", $e);
 		}
         return $value;
