@@ -87,6 +87,7 @@ class Aoe_Scheduler_Model_Observer extends Mage_Cron_Model_Observer {
 				Mage::dispatchEvent('cron_' . $schedule->getJobCode() . '_after', array('schedule' => $schedule));
 			}
 			catch (Exception $e) {
+				df_log($e);
 				$schedule->setStatus($errorStatus)->setMessages($e->__toString());
 				Mage::dispatchEvent(
 					'cron_' . $schedule->getJobCode() . '_exception', array('schedule' => $schedule, 'exception' => $e)
@@ -99,7 +100,7 @@ class Aoe_Scheduler_Model_Observer extends Mage_Cron_Model_Observer {
 		$this->checkRunningJobs();
 		$this->cleanup();
 	}
-	
+
 	/**
 	 * Check running jobs
 	 *
