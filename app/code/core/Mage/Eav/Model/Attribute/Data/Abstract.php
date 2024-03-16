@@ -188,7 +188,21 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
 
         $filter = $this->_getFormFilter();
         if ($filter) {
-            $value = $filter->inputFilter($value);
+			# 2024-03-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Implement the `hcg_customer_is_new()` function` template": https://github.com/thehcginstitute-com/m1/issues/486
+			try {
+				$value = $filter->inputFilter($value);
+			}
+            catch (Exception $e) {
+				/**
+				 * 2024-03-16
+				 * 1) I intentionally use @see \Exception::getPrevious().
+				 * @see \Varien_Data_Form_Filter_Date::inputFilter()
+				 * 1.1) "`Varien_Data_Form_Filter_Date::inputFilter()` should throw an exception
+				 * with a user-friendly message on a PHP error": https://github.com/thehcginstitute-com/m1/issues/485
+				 */
+				throw new Exception("The value «{$value}» seems to be invalid as a date.", $e->getPrevious());
+			}
         }
 
         return $value;
