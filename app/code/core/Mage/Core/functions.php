@@ -188,9 +188,10 @@ function mageCoreErrorHandler($errno, $errstr, $errfile, $errline)
 	 * https://github.com/thehcginstitute-com/m1/issues/391
 	 */
 	df_log($errorMessage);
-    if (Mage::getIsDeveloperMode()) {
-        throw new Exception($errorMessage);
-    }
+	# 2024-03-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "PHP errors should be always converted to exceptions, regardless of the developer mode":
+	# https://github.com/thehcginstitute-com/m1/issues/484
+    throw new Exception($errorMessage);
 }
 
 /**
