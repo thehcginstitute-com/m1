@@ -1,13 +1,22 @@
 <?php
+use Df\Core\Exception as DFE;
 use Exception as E;
+use Throwable as Th; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 
 /**
  * 2020-01-21
  * 2024-03-16 "Port `df_error` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/487
  * @used-by df_assert()
- * @param string|string[]|mixed|E|null ...$m
- * @throws E
+ * @param string|mixed|Th|null ...$a
+ * @throws DFE
  */
-function df_error(...$m) {throw $m instanceof E ? $m : new E(
-	is_null($m) ? null : (is_array($m) ? implode("\n\n", $m) : sprintf(...$m))
-);}
+function df_error(...$a) {throw df_error_create(...$a);}
+
+/**
+ * 2016-07-31
+ * 2024-03-16 "Port `df_error_create` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/488
+ * @used-by df_error()
+ * @used-by df_error_html()
+ * @param string|array(string|Th)|mixed|Th|null ...$a
+ */
+function df_error_create(...$a):DFE {return df_is_th($a0 = dfa($a, 0)) ? DFE::wrap($a0) : new DFE(...$a);}

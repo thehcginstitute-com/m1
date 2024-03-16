@@ -8,6 +8,7 @@ class Exception extends E implements \ArrayAccess {
 	 * отличаться от сигнатуры конструктора класса родителя:
 	 * http://3v4l.org/qQdJ3
 	 * @used-by self::wrap()
+	 * @used-by df_error_create()
 	 * @param mixed ...$args
 	 */
 	function __construct(...$args) {
