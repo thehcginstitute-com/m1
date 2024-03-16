@@ -579,77 +579,88 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     {
         $response       = new Varien_Object();
         $response->setError(0);
-        $websiteId      = Mage::app()->getStore()->getWebsiteId();
-        $accountData    = $this->getRequest()->getPost('account');
 
-        $customer = Mage::getModel('customer/customer');
-        $customerId = $this->getRequest()->getParam('id');
-        if ($customerId) {
-            $customer->load($customerId);
-            $websiteId = $customer->getWebsiteId();
-        } elseif (isset($accountData['website_id'])) {
-            $websiteId = $accountData['website_id'];
-        }
+		# 2024-03-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "The backend became broken on saving a customer with an invalid date of birth":
+		# hhttps://github.com/thehcginstitute-com/m1/issues/483
+		try {
+			$websiteId      = Mage::app()->getStore()->getWebsiteId();
+			$accountData    = $this->getRequest()->getPost('account');
 
-        /** @var Mage_Customer_Model_Form $customerForm */
-        $customerForm = Mage::getModel('customer/form');
-        $customerForm->setEntity($customer)
-            ->setFormCode('adminhtml_customer')
-            ->setIsAjaxRequest(true)
-            ->ignoreInvisible(false)
-        ;
+			$customer = Mage::getModel('customer/customer');
+			$customerId = $this->getRequest()->getParam('id');
+			if ($customerId) {
+				$customer->load($customerId);
+				$websiteId = $customer->getWebsiteId();
+			} elseif (isset($accountData['website_id'])) {
+				$websiteId = $accountData['website_id'];
+			}
 
-        $data   = $customerForm->extractData($this->getRequest(), 'account');
-        $errors = $customerForm->validateData($data);
-        if ($errors !== true) {
-            foreach ($errors as $error) {
-                $this->_getSession()->addError($error);
-            }
-            $response->setError(1);
-        }
+			/** @var Mage_Customer_Model_Form $customerForm */
+			$customerForm = Mage::getModel('customer/form');
+			$customerForm->setEntity($customer)
+				->setFormCode('adminhtml_customer')
+				->setIsAjaxRequest(true)
+				->ignoreInvisible(false)
+			;
 
-        # additional validate email
-        if (!$response->getError()) {
-            # Trying to load customer with the same email and return error message
-            # if customer with the same email address exisits
-            $checkCustomer = Mage::getModel('customer/customer')
-                ->setWebsiteId($websiteId);
-            $checkCustomer->loadByEmail($accountData['email']);
-            if ($checkCustomer->getId() && ($checkCustomer->getId() != $customer->getId())) {
-                $response->setError(1);
-                $this->_getSession()->addError(
-                    Mage::helper('adminhtml')->__('Customer with the same email already exists.')
-                );
-            }
-        }
+			$data = $customerForm->extractData($this->getRequest(), 'account');
+			$errors = $customerForm->validateData($data);
+			if ($errors !== true) {
+				foreach ($errors as $error) {
+					$this->_getSession()->addError($error);
+				}
+				$response->setError(1);
+			}
 
-        $addressesData = $this->getRequest()->getParam('address');
-        if (is_array($addressesData)) {
-            /** @var Mage_Customer_Model_Form $addressForm */
-            $addressForm = Mage::getModel('customer/form');
-            $addressForm->setFormCode('adminhtml_customer_address')->ignoreInvisible(false);
-            foreach (array_keys($addressesData) as $index) {
-                if ($index === '_template_') {
-                    continue;
-                }
-                $address = $customer->getAddressItemById($index);
-                if (!$address) {
-                    $address   = Mage::getModel('customer/address');
-                }
+			# additional validate email
+			if (!$response->getError()) {
+				# Trying to load customer with the same email and return error message
+				# if customer with the same email address exisits
+				$checkCustomer = Mage::getModel('customer/customer')
+					->setWebsiteId($websiteId);
+				$checkCustomer->loadByEmail($accountData['email']);
+				if ($checkCustomer->getId() && ($checkCustomer->getId() != $customer->getId())) {
+					$response->setError(1);
+					$this->_getSession()->addError(
+						Mage::helper('adminhtml')->__('Customer with the same email already exists.')
+					);
+				}
+			}
 
-                $requestScope = sprintf('address/%s', $index);
-                $formData = $addressForm->setEntity($address)
-                    ->extractData($this->getRequest(), $requestScope);
+			$addressesData = $this->getRequest()->getParam('address');
+			if (is_array($addressesData)) {
+				/** @var Mage_Customer_Model_Form $addressForm */
+				$addressForm = Mage::getModel('customer/form');
+				$addressForm->setFormCode('adminhtml_customer_address')->ignoreInvisible(false);
+				foreach (array_keys($addressesData) as $index) {
+					if ($index === '_template_') {
+						continue;
+					}
+					$address = $customer->getAddressItemById($index);
+					if (!$address) {
+						$address   = Mage::getModel('customer/address');
+					}
 
-                $errors = $addressForm->validateData($formData);
-                if ($errors !== true) {
-                    foreach ($errors as $error) {
-                        $this->_getSession()->addError($error);
-                    }
-                    $response->setError(1);
-                }
-            }
-        }
+					$requestScope = sprintf('address/%s', $index);
+					$formData = $addressForm->setEntity($address)
+						->extractData($this->getRequest(), $requestScope);
+
+					$errors = $addressForm->validateData($formData);
+					if ($errors !== true) {
+						foreach ($errors as $error) {
+							$this->_getSession()->addError($error);
+						}
+						$response->setError(1);
+					}
+				}
+			}
+		}
+		catch (Exception $e) {
+			df_log($e);
+			$response['error'] = true;
+			$this->_getSession()->addError(Mage::helper('adminhtml')->__(df_xts($e)));
+		}
 
         if ($response->getError()) {
             $this->_initLayoutMessages('adminhtml/session');

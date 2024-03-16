@@ -14,6 +14,7 @@ use Varien_Object as _DO;
  * @used-by Ebizmarts_MailChimp_Helper_Data::logError()
  * @used-by Mage::logException()
  * @used-by Mage::printException()
+ * @used-by Mage_Adminhtml_CustomerController::validateAction()
  * @param _DO|mixed[]|mixed|E $v
  * @param string|object|null $m [optional]
  */
