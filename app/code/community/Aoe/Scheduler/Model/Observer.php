@@ -209,7 +209,7 @@ class Aoe_Scheduler_Model_Observer extends Mage_Cron_Model_Observer {
 	 * @param $error
 	 * @return Aoe_Scheduler_Model_Observer
 	 */
-	protected function sendErrorMail(Aoe_Scheduler_Model_Schedule $schedule, $error) {
+	private function sendErrorMail(Aoe_Scheduler_Model_Schedule $schedule, $error) {
 		if (!Mage::getStoreConfig(self::XML_PATH_EMAIL_RECIPIENT)) {
 			return $this;
 		}
