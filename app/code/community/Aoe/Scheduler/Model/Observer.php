@@ -15,34 +15,28 @@ class Aoe_Scheduler_Model_Observer extends Mage_Cron_Model_Observer {
 	 *
 	 * @param Varien_Event_Observer $observer
 	 */
-	function dispatch($observer)
-	{
+	function dispatch($observer) {
 		$schedules = $this->getPendingSchedules();
 		$scheduleLifetime = Mage::getStoreConfig(self::XML_PATH_SCHEDULE_LIFETIME) * 60;
 		$now = time();
 		$jobsRoot = Mage::getConfig()->getNode('crontab/jobs');
-
 		foreach ($schedules->getIterator() as $schedule) { /* @var $schedule Aoe_Scheduler_Model_Schedule */
 			try {
 				$errorStatus = Mage_Cron_Model_Schedule::STATUS_ERROR;
 				$errorMessage = Mage::helper('cron')->__('Unknown error.');
-
 				$jobConfig = $jobsRoot->{$schedule->getJobCode()};
 				if (!$jobConfig || !$jobConfig->run) {
 					Mage::throwException(Mage::helper('cron')->__('No valid configuration found.'));
 				}
-
 				$runConfig = $jobConfig->run;
 				$time = strtotime($schedule->getScheduledAt());
 				if ($time > $now) {
 					continue;
 				}
-
 				if ($time < $now - $scheduleLifetime) {
 					$errorStatus = Mage_Cron_Model_Schedule::STATUS_MISSED;
 					Mage::throwException(Mage::helper('cron')->__('Too late for the schedule.'));
 				}
-
 				if ($runConfig->model) {
 					if (!preg_match(self::REGEX_RUN_MODEL, (string)$runConfig->model, $run)) {
 						Mage::throwException(Mage::helper('cron')->__('Invalid model/method definition, expecting "model/class::method".'));
@@ -56,7 +50,6 @@ class Aoe_Scheduler_Model_Observer extends Mage_Cron_Model_Observer {
 				if (empty($callback)) {
 					Mage::throwException(Mage::helper('cron')->__('No callbacks found'));
 				}
-
 				if (!$schedule->tryLockJob()) {
 					// another cron started this job intermittently, so skip it
 					continue;
@@ -69,11 +62,8 @@ class Aoe_Scheduler_Model_Observer extends Mage_Cron_Model_Observer {
 					->setStatus(Mage_Cron_Model_Schedule::STATUS_RUNNING)
 					->setExecutedAt(strftime('%Y-%m-%d %H:%M:%S', time()))
 					->save();
-
 				Mage::dispatchEvent('cron_' . $schedule->getJobCode() . '_before', array('schedule' => $schedule));
-
 				$messages = call_user_func_array($callback, $arguments);
-
 				// added by Fabrizio to also save messages when no exception was thrown
 				if (!empty($messages)) {
 					if (is_object($messages)) {
@@ -83,38 +73,33 @@ class Aoe_Scheduler_Model_Observer extends Mage_Cron_Model_Observer {
 					}
 					$schedule->setMessages($messages);
 				}
-
 				// schedules can report an error state by returning a string that starts with "ERROR:"
 				if (is_string($messages) && strtoupper(substr($messages, 0, 6)) == 'ERROR:') {
 					$schedule->setStatus(Mage_Cron_Model_Schedule::STATUS_ERROR);
 					$this->sendErrorMail($schedule, $messages);
 					Mage::dispatchEvent('cron_' . $schedule->getJobCode() . '_after_error', array('schedule' => $schedule));
-				} else {
+				}
+				else {
 					$schedule->setStatus(Mage_Cron_Model_Schedule::STATUS_SUCCESS);
 					Mage::dispatchEvent('cron_' . $schedule->getJobCode() . '_after_success', array('schedule' => $schedule));
 				}
-				
 				$schedule->setFinishedAt(strftime('%Y-%m-%d %H:%M:%S', time()));
 				Mage::dispatchEvent('cron_' . $schedule->getJobCode() . '_after', array('schedule' => $schedule));
-
-			} catch (Exception $e) {
-				$schedule->setStatus($errorStatus)
-					->setMessages($e->__toString());
-				Mage::dispatchEvent('cron_' . $schedule->getJobCode() . '_exception', array('schedule' => $schedule, 'exception' => $e));
-
+			}
+			catch (Exception $e) {
+				$schedule->setStatus($errorStatus)->setMessages($e->__toString());
+				Mage::dispatchEvent(
+					'cron_' . $schedule->getJobCode() . '_exception', array('schedule' => $schedule, 'exception' => $e)
+				);
 				$this->sendErrorMail($schedule, $e->__toString());
-
 			}
 			$schedule->save();
 		}
-
 		$this->generate();
 		$this->checkRunningJobs();
 		$this->cleanup();
 	}
-
-
-
+	
 	/**
 	 * Check running jobs
 	 *
