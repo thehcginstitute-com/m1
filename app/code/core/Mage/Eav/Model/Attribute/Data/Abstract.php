@@ -203,7 +203,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
 				 * 1.1) "`Varien_Data_Form_Filter_Date::inputFilter()` should throw an exception
 				 * with a user-friendly message on a PHP error": https://github.com/thehcginstitute-com/m1/issues/485
 				 */
-				throw new Exception("The value «{$value}» seems to be invalid as a date.", $e->getPrevious());
+				throw new Exception("The value «{$value}» seems to be invalid as a date.", 0, $e->getPrevious());
 			}
         }
 
