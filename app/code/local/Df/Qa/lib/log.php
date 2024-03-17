@@ -16,6 +16,7 @@ use Varien_Object as _DO;
  * @used-by Mage::logException()
  * @used-by Mage::printException()
  * @used-by Mage_Adminhtml_CustomerController::validateAction()
+ * @used-by Varien_Data_Collection_Db::addItem()
  * @param _DO|mixed[]|mixed|E $v
  * @param string|object|null $m [optional]
  */

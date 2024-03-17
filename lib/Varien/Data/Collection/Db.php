@@ -1,17 +1,5 @@
 <?php
-/**
- * OpenMage
- *
- * This source file is subject to the Open Software License (OSL 3.0)
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available at https://opensource.org/license/osl-3-0-php
- *
- * @category   Varien
- * @package    Varien_Data
- * @copyright  Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @copyright  Copyright (c) 2020-2023 The OpenMage Contributors (https://www.openmage.org)
- * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */
+use Varien_Object as O;
 
 /**
  * Base items collection class
@@ -162,6 +150,27 @@ class Varien_Data_Collection_Db extends Varien_Data_Collection
         }
         return parent::_getItemId($item);
     }
+
+	/**
+	 * 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 1) "Log the problem SQL for «Item (…) with the same id "…" already exist» exceptions
+	 * of `Varien_Data_Collection_Db::addItem()`": https://github.com/thehcginstitute-com/m1/issues/500
+	 * 2) "`Varien_Data_Collection_Db::addItem()` should log the «Item (…) with the same id "…" already exist» problem
+	 * instead of throwing it as an exception": https://github.com/thehcginstitute-com/m1/issues/501
+	 * @override
+	 * @return self
+	 * @see Mage_Eav_Model_Entity_Collection_Abstract::addItem()
+	 * @see Varien_Data_Collection::addItem()
+	 */
+	function addItem(O $o) {
+		try {
+			parent::_addItem($o);
+		}
+		catch (Exception $e) {
+			df_log($e, $this, ['SQL' => $this->getSelect()->assemble()]);
+		}
+		return $this;
+	}
 
     /**
      * Set database connection adapter
