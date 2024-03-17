@@ -164,7 +164,7 @@ class Varien_Data_Collection_Db extends Varien_Data_Collection
 	 */
 	function addItem(O $o) {
 		try {
-			parent::_addItem($o);
+			parent::addItem($o);
 		}
 		catch (Exception $e) {
 			df_log($e, $this, ['SQL' => $this->getSelect()->assemble()]);
