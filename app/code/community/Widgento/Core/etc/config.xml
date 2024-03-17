@@ -10,25 +10,4 @@
 			<widgentocore><class>Widgento_Core_Helper</class></widgentocore>
 		</helpers>
 	</global>
-	<adminhtml>
-		<acl>
-			<resources>
-				<admin>
-					<children>
-						<system>
-							<children>
-								<config>
-									<children>
-										<widgentocore>
-											<title>Widgento Modules Info</title>
-										</widgentocore>
-									</children>
-								</config>
-							</children>
-						</system>
-					</children>
-				</admin>
-			</resources>
-		</acl>
-	</adminhtml>
 </config>
