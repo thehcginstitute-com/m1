@@ -360,7 +360,14 @@ class Ebizmarts_MailChimp
 			}
 		}
 		catch (MailChimp_HttpError $e) {
-			df_log($e, $this, ['message' => $e->getFriendlyMessage()], 'api');
+			# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# 1) "`Ebizmarts_MailChimp`: «Member In Compliance State» should not be logged":
+			# https://github.com/thehcginstitute-com/m1/issues/506
+			# 2) "`Ebizmarts_MailChimp`: «Member In Compliance State for Api Call»":
+			# https://github.com/thehcginstitute-com/m1/issues/505
+			if ('Member In Compliance State' !== $e->getMailchimpTitle()) {
+				df_log($e, $this, ['message' => $e->getFriendlyMessage()], 'api');
+			}
 			throw $e;
 		}
 
