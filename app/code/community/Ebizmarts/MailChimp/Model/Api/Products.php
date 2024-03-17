@@ -174,14 +174,9 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
                 $batchArray[$counter] = $data;
                 $counter++;
             }
-
-            $this->addSyncDataError(
-                $product->getId(),
-                self::PRODUCT_DISABLED_IN_MAGENTO,
-                null,
-                null,
-                $this->getDateHelper()->getCurrentDateTime()
-            );
+			# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "`Ebizmarts_MailChimp` should not log «This product was deleted because it is disabled in Magento»":
+			# https://github.com/thehcginstitute-com/m1/issues/513
         }
 
         return $batchArray;
