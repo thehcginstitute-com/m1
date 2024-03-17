@@ -683,10 +683,12 @@ class Ebizmarts_MailChimp_Model_Api_Batches
                     }
                 }
             }
-        } catch (MailChimp_Error $e) {
-            $helper->logError($e->getFriendlyMessage());
-        } catch (Exception $e) {
-            $helper->logError($e->getMessage());
+        }
+		catch (Exception $e) {
+			# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "`Ebizmarts_MailChimp_Model_Api_Batches::sendStoreSubscriberBatch()` should log the trace for exceptions":
+			# https://github.com/thehcginstitute-com/m1/issues/509
+            df_log($e);
         }
 
         return array(null, $limit);
