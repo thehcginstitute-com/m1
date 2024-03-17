@@ -13,6 +13,7 @@ use Varien_Object as _DO;
  * @used-by Df_Core_Model_Layout::_getBlockInstance()
  * @used-by Ebizmarts_MailChimp::call()
  * @used-by Ebizmarts_MailChimp_Helper_Data::logError()
+ * @used-by Ebizmarts_MailChimp_Model_Api_ItemSynchronizer::logSyncError()
  * @used-by Mage::logException()
  * @used-by Mage::printException()
  * @used-by Mage_Adminhtml_CustomerController::validateAction()

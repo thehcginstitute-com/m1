@@ -220,8 +220,18 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
         $originalId,
         $batchId
     ) {
-        $this->getHelper()->logError($error);
-
+		# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Log the context for `Ebizmarts_MailChimp_Model_Api_ItemSynchronizer::logSyncError()`":
+		# https://github.com/thehcginstitute-com/m1/issues/503
+		df_log($error, $this, [
+			'batchId' => $batchId
+			,'originalId' => $originalId
+			,'regType' => $regType
+			,'status' => $status
+			,'storeId' => $storeId
+			,'title' => $title
+			,'type' => $type
+		]);
         try {
             $this->_logMailchimpError(
                 $error, $type, $title,
