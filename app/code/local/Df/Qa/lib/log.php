@@ -14,6 +14,7 @@ use Varien_Object as _DO;
  * @used-by Ebizmarts_MailChimp::call()
  * @used-by Ebizmarts_MailChimp_Helper_Data::logError()
  * @used-by Ebizmarts_MailChimp_Model_Api_ItemSynchronizer::logSyncError()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::buildMailChimpTags()
  * @used-by Mage::logException()
  * @used-by Mage::printException()
  * @used-by Mage_Adminhtml_CustomerController::validateAction()

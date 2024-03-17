@@ -206,6 +206,19 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
         if ($newVars->hasData()) {
             $this->mergeMailchimpTags($newVars->getData());
         }
+
+		# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "`Ebizmarts_MailChimp`: «Your merge fields were invalid» /
+		# «field [FNAME] : Please enter a value» /
+		# «field [LNAME] : Please enter a value»": https://github.com/thehcginstitute-com/m1/issues/507
+		$d = $this->getMailChimpTags(); /** @var array(string => string) $d */
+		if (!dfa($d, 'FNAME')) {
+			df_log('`FNAME` is missing in the merge fields', $this, [
+				'Merge Fields' => $d
+				,'Customer' => $this->getCustomer()
+				,'Subscriber' => $this->getSubscriber()
+			]);
+		}
     }
 
     /**
