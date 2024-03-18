@@ -70,9 +70,7 @@ class Widgento_Login_IndexController extends Mage_Core_Controller_Front_Action
 		$hash     = $this->getRequest()->getParam(self::REQUEST_HASH);
 		$login    = $this->getLoginModel()->load($hash, 'login_hash');
 		$isActive = $login->getIsActive();
-
 		$login->truncate();
-
 		if ($isActive && $login->getCustomerId()) {
 			Mage::dispatchEvent('widgentologin_before_login', array(
 				'customer_id' => $login->getCustomerId(),
