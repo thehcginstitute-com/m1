@@ -1,10 +1,10 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
 <layout>
 	<adminhtml_customer_edit>
-		<reference name="customer_edit">
-			<action method="addButton">
-				<area helper="widgentologin/button/getButtonArea" />
-				<data helper="widgentologin/button/getButtonData" />
+		<reference name='customer_edit'>
+			<action method='addButton'>
+				<area helper='widgentologin/button/getButtonArea' />
+				<data helper='widgentologin/button/getButtonData' />
 				<id>login</id>
 				<level>-1</level>
 				<sort>0</sort>
