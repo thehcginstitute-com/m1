@@ -38,19 +38,19 @@ class Widgento_Login_IndexController extends Mage_Core_Controller_Front_Action
 	}
 
 	/**
-	 * @return array
+	 * @used-by self::indexAction()
 	 */
-	protected function getClearSingletonsList()
-	{
+	private function getClearSingletonsList():array {
 		return array(
 			Mage::getSingleton('catalog/session'),
 			Mage::getSingleton('catalogsearch/session'),
 			Mage::getSingleton('core/session'),
 			Mage::getSingleton('customer/session'),
 			Mage::getSingleton('newsletter/session'),
-			Mage::getSingleton('paypal/session'),
-			Mage::getSingleton('paypal/session'),
-			Mage::getSingleton('paypaluk/session'),
+			# 2024-03-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# «Call to a member function clear() on bool
+			# in app/code/community/Widgento/Login/controllers/IndexController.php:73»:
+			# https://github.com/thehcginstitute-com/m1/issues/520
 			Mage::getSingleton('reports/session'),
 			Mage::getSingleton('review/session'),
 			Mage::getSingleton('wishlist/session'),
@@ -70,7 +70,13 @@ class Widgento_Login_IndexController extends Mage_Core_Controller_Front_Action
 
 			foreach ($this->getClearSingletonsList() as $singleton) {
 				/* @var $singleton Mage_Core_Session_Abstract */
-				$singleton->clear();
+				# 2024-03-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# «Call to a member function clear() on bool
+				# in app/code/community/Widgento/Login/controllers/IndexController.php:73»:
+				# https://github.com/thehcginstitute-com/m1/issues/520
+				if ($singleton) {
+					$singleton->clear();
+				}
 			}
 
 			if ($this->getCustomerSession()->getCustomerId()) {
