@@ -11,7 +11,7 @@ class Widgento_Login_Helper_Button extends Mage_Core_Helper_Abstract
     function getButtonData()
     {
         return array(
-            'label'   => $this->getHelper()->__('Log in customer'),
+            'label'   => $this->getHelper()->__('Log In'),
             'onclick' => 'window.open(\''.$this->getUrlModel()->getUrl(
                 'adminhtml/widgentologin_index/',
                 array('id' => $this->getCustomerId())
