@@ -27,7 +27,6 @@
 			<widgentologin><class>Widgento_Login_Helper</class></widgentologin>
 		</helpers>
 	</global>
-
 	<admin>
 		<routers>
 			<adminhtml>
@@ -39,7 +38,6 @@
 			</adminhtml>
 	   </routers>
 	</admin>
-
 	<adminhtml>
 		<layout>
 			<updates>
@@ -48,27 +46,6 @@
 				</widgentologin>
 			</updates>
 		</layout>
-		<acl>
-			<resources>
-				<admin>
-					<children>
-						<customer>
-							<children>
-								<widgentologin>
-									<title>Login as Customer</title>
-									<children>
-										<log>
-											<title>Login as Customer Logs</title>
-										</log>
-									</children>
-								</widgentologin>
-							</children>
-						</customer>
-					</children>
-				</admin>
-			</resources>
-		</acl>
-
 		<menu>
 			<customer>
 				<children>
