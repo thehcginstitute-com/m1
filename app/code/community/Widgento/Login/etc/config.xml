@@ -26,16 +26,6 @@
 		<helpers>
 			<widgentologin><class>Widgento_Login_Helper</class></widgentologin>
 		</helpers>
-		<events>
-			<widgento_core_uninstall>
-				<observers>
-					<widgentologin>
-						<class>widgentologin/uninstall</class>
-						<method>uninstall</method>
-					</widgentologin>
-				</observers>
-			</widgento_core_uninstall>
-		</events>
 	</global>
 
 	<admin>
