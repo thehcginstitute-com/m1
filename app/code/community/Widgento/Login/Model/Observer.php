@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: yury
- * Date: 8/21/16
- * Time: 1:44 PM
- */
-
 class Widgento_Login_Model_Observer
 {
     private static $availableActionNames = array(
