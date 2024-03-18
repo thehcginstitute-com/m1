@@ -2,7 +2,7 @@
 
 class Widgento_Login_Block_Adminhtml_Log_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('widgentologin_log_grid');
@@ -76,12 +76,12 @@ class Widgento_Login_Block_Adminhtml_Log_Grid extends Mage_Adminhtml_Block_Widge
         return parent::_prepareColumns();
     }
 
-    public function getRowUrl($item)
+    function getRowUrl($item)
     {
         return $this->getUrl('adminhtml/customer/edit', array('id' => $item->getCustomerId()));
     }
 
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/grid', array('_current' => true));
     }

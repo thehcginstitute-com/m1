@@ -8,7 +8,7 @@ class Widgento_Login_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $customerId
      * @return int
      */
-    public function getCustomerStoreId($customerId)
+    function getCustomerStoreId($customerId)
     {
         if (!$customerId) {
             return false;
@@ -106,7 +106,7 @@ class Widgento_Login_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $customerId
      * @return bool
      */
-    public function isLoginAllowed($customerId) {
+    function isLoginAllowed($customerId) {
         $transport = $this->getEventTransport();
         $this->dispatchEvent('widgentologin_disable', array(
             'transport'   => $transport,

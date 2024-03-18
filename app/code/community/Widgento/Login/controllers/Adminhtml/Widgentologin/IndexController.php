@@ -2,7 +2,7 @@
 
 class Widgento_Login_Adminhtml_Widgentologin_IndexController extends Mage_Adminhtml_Controller_Action
 {
-    public function indexAction()
+    function indexAction()
     {
         $customerId = $this->getRequest()->getParam('id');
         $customer   = Mage::getModel('customer/customer')->load($customerId);
@@ -27,7 +27,7 @@ class Widgento_Login_Adminhtml_Widgentologin_IndexController extends Mage_Adminh
             ));
     }
 
-    public function _isAllowed()
+    function _isAllowed()
     {
         return Mage::getSingleton('admin/session')->isAllowed('customer/widgentologin');
     }

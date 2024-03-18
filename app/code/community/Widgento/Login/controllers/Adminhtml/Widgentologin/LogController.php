@@ -12,24 +12,24 @@ class Widgento_Login_Adminhtml_Widgentologin_LogController extends Mage_Adminhtm
         return $this;
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout()
             ->renderLayout();
     }
 
-    public function _isAllowed()
+    function _isAllowed()
     {
         return Mage::getSingleton('admin/session')->isAllowed('customer/widgentologin/log');
     }
 
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout(false);
         $this->renderLayout();
     }
 
-    public function clearAction()
+    function clearAction()
     {
         Mage::getModel('widgentologin/login')->truncate();
 

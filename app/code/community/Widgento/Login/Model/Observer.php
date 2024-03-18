@@ -16,7 +16,7 @@ class Widgento_Login_Model_Observer
      * @event websiterestriction_frontend
      * @param Varien_Event_Observer $observer
      */
-    public function removeFrontendRestrictions(Varien_Event_Observer $observer)
+    function removeFrontendRestrictions(Varien_Event_Observer $observer)
     {
         /* @var $controller Mage_Core_Controller_Varien_Action */
         $controller = $observer->getController();

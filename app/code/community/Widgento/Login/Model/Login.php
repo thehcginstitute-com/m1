@@ -14,7 +14,7 @@ class Widgento_Login_Model_Login extends Mage_Catalog_Model_Abstract
         $this->_init('widgentologin/login');
     }
 
-    public function truncate()
+    function truncate()
     {
         $this->getResource()->truncate();
 

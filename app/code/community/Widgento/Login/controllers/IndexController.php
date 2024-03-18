@@ -65,7 +65,7 @@ class Widgento_Login_IndexController extends Mage_Core_Controller_Front_Action
         );
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $hash     = $this->getRequest()->getParam(self::REQUEST_HASH);
         $login    = $this->getLoginModel()->load($hash, 'login_hash');

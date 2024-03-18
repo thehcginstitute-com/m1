@@ -10,7 +10,7 @@ class Widgento_Login_Model_Mysql4_Login extends Mage_Core_Model_Mysql4_Abstract
         $this->_init('widgentologin/login', 'login_id');
     }
 
-    public function truncate()
+    function truncate()
     {
         $db = $this->_getWriteAdapter();
         if (method_exists($db, 'truncateTable'))

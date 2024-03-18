@@ -4,7 +4,7 @@ class Widgento_Login_Model_Mysql4_Login_Collection extends Mage_Core_Model_Mysql
 {
     protected $_storeId;
 
-    public function _construct()
+    function _construct()
     {
         $this->_init('widgentologin/login');
     }
@@ -13,7 +13,7 @@ class Widgento_Login_Model_Mysql4_Login_Collection extends Mage_Core_Model_Mysql
      * @param int $storeId
      * @return Widgento_Login_Model_Mysql4_Login_Collection
      */
-    public function setStoreId($storeId)
+    function setStoreId($storeId)
     {
         $this->_storeId = $storeId;
 
@@ -23,7 +23,7 @@ class Widgento_Login_Model_Mysql4_Login_Collection extends Mage_Core_Model_Mysql
     /**
      * @return Widgento_Login_Model_Mysql4_Login_Collection
      */
-    public function joinCustomers()
+    function joinCustomers()
     {
         $this->getSelect()
             ->joinLeft(array('customer' => $this->getTable('customer/entity')), 'customer.entity_id = main_table.customer_id', array('customer.email' => 'email'));
@@ -34,7 +34,7 @@ class Widgento_Login_Model_Mysql4_Login_Collection extends Mage_Core_Model_Mysql
     /**
      * @return Widgento_Login_Model_Mysql4_Login_Collection
      */
-    public function prepareColumns()
+    function prepareColumns()
     {
         $this->getSelect()
             ->columns(array('main_table.store_id' => 'store_id'));
@@ -45,7 +45,7 @@ class Widgento_Login_Model_Mysql4_Login_Collection extends Mage_Core_Model_Mysql
     /**
      * @return Widgento_Login_Model_Mysql4_Login_Collection
      */
-    public function joinAdmins()
+    function joinAdmins()
     {
         $this->getSelect()
             ->joinLeft(array('admin' => $this->getTable('admin/user')), 'admin.user_id = main_table.admin_id', array('username' => 'admin.username'));

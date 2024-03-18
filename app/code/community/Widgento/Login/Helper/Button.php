@@ -8,7 +8,7 @@ class Widgento_Login_Helper_Button extends Mage_Core_Helper_Abstract
     /**
      * @return array
      */
-    public function getButtonData()
+    function getButtonData()
     {
         return array(
             'label'   => $this->getHelper()->__('Log in customer'),
@@ -80,7 +80,7 @@ class Widgento_Login_Helper_Button extends Mage_Core_Helper_Abstract
     /**
      * @return string
      */
-    public function getButtonArea()
+    function getButtonArea()
     {
         if (!$this->getHelper()->isLoginAllowed($this->getCustomerId())
             || !$this->getHelper()->getCustomerStoreId($this->getCustomerId())) {
