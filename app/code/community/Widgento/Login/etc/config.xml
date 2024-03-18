@@ -86,17 +86,6 @@
 				</widgentologin>
 			</updates>
 		</layout>
-
-		<translate>
-			<modules>
-				<Widgento_Login>
-					<files>
-						<default>Widgento_Login.csv</default>
-					</files>
-				</Widgento_Login>
-			</modules>
-		</translate>
-
 		<acl>
 			<resources>
 				<admin>
