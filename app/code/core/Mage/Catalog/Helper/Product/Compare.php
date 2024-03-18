@@ -223,6 +223,11 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
             /* Price data is added to consider item stock status using price index */
             $this->_itemCollection->addPriceData();
 
+			# 2024-03-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "«Item (Mage_Catalog_Model_Product) with the same id "…" already exist»
+			# on loading `Mage_Catalog_Model_Resource_Product_Compare_Item_Collection`":
+			# https://github.com/thehcginstitute-com/m1/issues/496
+			$this->_itemCollection->getSelect()->group('t_compare.product_id');
             $this->_itemCollection->addAttributeToSelect('name')
                 ->addUrlRewrite()
                 ->load();
