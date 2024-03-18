@@ -1,5 +1,7 @@
 <?php
-class Widgento_Login_IndexController extends Mage_Core_Controller_Front_Action {
+ 
+class Widgento_Login_IndexController extends Mage_Core_Controller_Front_Action
+{
 	const REDIRECT_PATH = 'customer/account';
 	const REQUEST_HASH  = 'id';
 
