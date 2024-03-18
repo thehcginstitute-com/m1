@@ -224,9 +224,12 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
             $this->_itemCollection->addPriceData();
 
 			# 2024-03-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# "«Item (Mage_Catalog_Model_Product) with the same id "…" already exist»
+			# 1) "«Item (Mage_Catalog_Model_Product) with the same id "…" already exist»
 			# on loading `Mage_Catalog_Model_Resource_Product_Compare_Item_Collection`":
 			# https://github.com/thehcginstitute-com/m1/issues/496
+			# 2) "How did I fix «Item (Mage_Catalog_Model_Product) with the same id "…" already exist»
+			# on loading `Mage_Catalog_Model_Resource_Product_Compare_Item_Collection` in Magento 1?"
+			# https://mage2.pro/t/6435
 			$this->_itemCollection->getSelect()->group('t_compare.product_id');
             $this->_itemCollection->addAttributeToSelect('name')
                 ->addUrlRewrite()
