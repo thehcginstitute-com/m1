@@ -2,7 +2,13 @@
 <layout>
 	<adminhtml_customer_edit>
 		<reference name="customer_edit">
-			<action method="addButton"><id>login</id><data helper="widgentologin/button/getButtonData" /><level>-1</level><sort>0</sort><area helper="widgentologin/button/getButtonArea" /></action>
+			<action method="addButton">
+				<area helper="widgentologin/button/getButtonArea" />
+				<data helper="widgentologin/button/getButtonData" />
+				<id>login</id>
+				<level>-1</level>
+				<sort>0</sort>
+			</action>
 		</reference>
 	</adminhtml_customer_edit>
 
