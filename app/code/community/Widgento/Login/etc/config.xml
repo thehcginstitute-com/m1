@@ -101,17 +101,6 @@
 			<resources>
 				<admin>
 					<children>
-						<system>
-							<children>
-								<config>
-									<children>
-										<widgentologin>
-											<title>Login as Customer</title>
-										</widgentologin>
-									</children>
-								</config>
-							</children>
-						</system>
 						<customer>
 							<children>
 								<widgentologin>
