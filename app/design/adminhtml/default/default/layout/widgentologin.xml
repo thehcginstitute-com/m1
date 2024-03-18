@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <layout>
-    <adminhtml_customer_edit>
-        <reference name="customer_edit">
-            <action method="addButton"><id>login</id><data helper="widgentologin/button/getButtonData" /><level>-1</level><sort>0</sort><area helper="widgentologin/button/getButtonArea" /></action>
-        </reference>
-    </adminhtml_customer_edit>
+	<adminhtml_customer_edit>
+		<reference name="customer_edit">
+			<action method="addButton"><id>login</id><data helper="widgentologin/button/getButtonData" /><level>-1</level><sort>0</sort><area helper="widgentologin/button/getButtonArea" /></action>
+		</reference>
+	</adminhtml_customer_edit>
 
-    <adminhtml_widgentologin_log_index>
-        <reference name="content">
-            <block type="widgentologin/adminhtml_log" name="widgentologin.log"></block>
-        </reference>
-    </adminhtml_widgentologin_log_index>
+	<adminhtml_widgentologin_log_index>
+		<reference name="content">
+			<block type="widgentologin/adminhtml_log" name="widgentologin.log"></block>
+		</reference>
+	</adminhtml_widgentologin_log_index>
 
-    <adminhtml_widgentologin_log_grid>
-        <update handle="formkey"/>
-        <block type="widgentologin/adminhtml_log_grid" name="widgentologin.log.grid" output="toHtml"></block>
-    </adminhtml_widgentologin_log_grid>
+	<adminhtml_widgentologin_log_grid>
+		<update handle="formkey"/>
+		<block type="widgentologin/adminhtml_log_grid" name="widgentologin.log.grid" output="toHtml"></block>
+	</adminhtml_widgentologin_log_grid>
 </layout>
