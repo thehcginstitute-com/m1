@@ -44,16 +44,16 @@ class Widgento_Login_IndexController extends Mage_Core_Controller_Front_Action
 	{
 		return array(
 			Mage::getSingleton('catalog/session'),
+			Mage::getSingleton('catalogsearch/session'),
 			Mage::getSingleton('core/session'),
 			Mage::getSingleton('customer/session'),
 			Mage::getSingleton('newsletter/session'),
 			Mage::getSingleton('paypal/session'),
 			Mage::getSingleton('paypal/session'),
+			Mage::getSingleton('paypaluk/session'),
 			Mage::getSingleton('reports/session'),
 			Mage::getSingleton('review/session'),
 			Mage::getSingleton('wishlist/session'),
-			Mage::getSingleton('catalogsearch/session'),
-			Mage::getSingleton('paypaluk/session'),
 		);
 	}
 
