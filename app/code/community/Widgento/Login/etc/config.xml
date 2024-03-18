@@ -46,19 +46,7 @@
 				</widgentologin>
 			</updates>
 		</layout>
-		<menu>
-			<customer>
-				<children>
-					<widgentologin translate="title" module="widgentologin">
-						<title>Login as Customer Logs</title>
-						<action>adminhtml/widgentologin_log/index</action>
-						<sort_order>200</sort_order>
-					</widgentologin>
-				</children>
-			</customer>
-		</menu>
 	</adminhtml>
-
 	<frontend>
 		<routers>
 			<widgentologin>
