@@ -142,12 +142,4 @@
 			</websiterestriction_frontend>
 		</events>
 	</frontend>
-
-	<default>
-		<widgentologin>
-			<general>
-				<order_view_display>1</order_view_display>
-			</general>
-		</widgentologin>
-	</default>
 </config>
