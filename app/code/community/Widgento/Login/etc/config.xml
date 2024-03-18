@@ -169,7 +169,6 @@
 		<widgentologin>
 			<general>
 				<order_view_display>1</order_view_display>
-				<save_logs>1</save_logs>
 			</general>
 		</widgentologin>
 	</default>
