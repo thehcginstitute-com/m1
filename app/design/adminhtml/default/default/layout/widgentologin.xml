@@ -1,14 +1,16 @@
 <?xml version='1.0'?>
 <layout>
 	<adminhtml_customer_edit>
-		<reference name='customer_edit'>
-			<action method='addButton'>
-				<area helper='widgentologin/button/getButtonArea' />
-				<data helper='widgentologin/button/getButtonData' />
+        <reference name='customer_edit'>
+            <action method='addButton'>
+<!-- 2024-03-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+It will not work if reordered (for an unknown reason). -->
 				<id>login</id>
+				<data helper='widgentologin/button/getButtonData' />
 				<level>-1</level>
 				<sort>0</sort>
+				<area helper='widgentologin/button/getButtonArea' />
 			</action>
-		</reference>
-	</adminhtml_customer_edit>
+        </reference>
+    </adminhtml_customer_edit>
 </layout>
