@@ -26,26 +26,6 @@
 		<helpers>
 			<widgentologin><class>Widgento_Login_Helper</class></widgentologin>
 		</helpers>
-		<resources>
-			<widgento_login_setup>
-				<setup>
-				   <module>Widgento_Login</module>
-				</setup>
-				<connection>
-					<use>core_setup</use>
-				</connection>
-			</widgento_login_setup>
-			<widgentologin_write>
-				<connection>
-					<use>core_write</use>
-				</connection>
-			</widgentologin_write>
-			<widgentologin_read>
-				<connection>
-					<use>core_read</use>
-				</connection>
-			</widgentologin_read>
-		</resources>
 		<events>
 			<widgento_core_uninstall>
 				<observers>
