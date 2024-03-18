@@ -5,7 +5,6 @@
 			<version>1.1.4</version>
 		</Widgento_Login>
 	</modules>
-
 	<global>
 		<models>
 			<widgentologin>
@@ -24,16 +23,9 @@
 				</entities>
 			</widgentologin_mysql4>
 		</models>
-		<blocks>
-			<widgentologin>
-				<class>Widgento_Login_Block</class>
-			</widgentologin>
-		</blocks>
-
 		<helpers>
 			<widgentologin><class>Widgento_Login_Helper</class></widgentologin>
 		</helpers>
-
 		<resources>
 			<widgento_login_setup>
 				<setup>
