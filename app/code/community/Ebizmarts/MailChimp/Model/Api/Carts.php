@@ -2,7 +2,8 @@
 # 2024-03-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 use Ebizmarts_MailChimp_Model_Api_Products as ApiProducts;
-use Ebizmarts_MailChimp_Model_Ecommercesyncdata as M;
+use Mage_Sales_Model_Quote as Q;
+use Mage_Sales_Model_Resource_Quote_Collection as QC;
 class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 {
 	const BATCH_LIMIT = 100;
@@ -137,7 +138,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 			Ebizmarts_MailChimp_Model_Config::IS_QUOTE,
 			"m4m.mailchimp_sync_deleted = 0 AND m4m.mailchimp_sync_delta < updated_at",
 			"modified"
-		);
+		); /** @var QC $modifiedCarts */
 
 		$allCarts = array();
 		foreach ($modifiedCarts as $cart) {
@@ -380,7 +381,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 * @used-by self::_getNewQuotes()
 	 * @return string|false
 	 */
-	private function makeCart(M $cart, bool $isModified) {
+	private function makeCart(Q $cart, bool $isModified) {
 		$r = ''; /** @var string|false $r */
 		if ($customer = $this->_getCustomer($cart, $sid = $this->getMagentoStoreId())) {
 			/** @var array(string => string) $customer */
