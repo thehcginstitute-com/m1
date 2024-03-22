@@ -27,5 +27,6 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
  * @used-by Ebizmarts_MailChimp_Model_Observer::itemCancel()
  * @used-by Ebizmarts_MailChimp_Model_Observer::cancelCreditMemo()
  * @used-by Ebizmarts_MailChimp_Model_Observer::newCreditMemo()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
  */
 function hcg_mc_syncd_new():SyncD {return new SyncD;}

@@ -448,7 +448,7 @@ class Ebizmarts_MailChimp_Model_Observer
 
                     $mailchimpStoreId = $helper->getMCStoreId($storeId);
                     $productId = $item->getProductId();
-                    $dataProduct = $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem(
+                    $dataProduct = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
                         $productId,
                         Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                         $mailchimpStoreId
