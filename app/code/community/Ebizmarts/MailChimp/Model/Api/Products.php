@@ -682,7 +682,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
     protected function shouldSendProductUpdate($product)
     {
         return $product->getMailchimpSyncModified()
-            && $product->getMailchimpSyncDelta()
+            && $product['mailchimp_sync_delta']
             && $product->getMailchimpSyncedFlag()
             && $product->getMailchimpSyncError() == '';
     }
