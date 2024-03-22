@@ -308,8 +308,9 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::createBatchJson()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::sendModifiedProduct()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::_getNewPromoCodes()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::makeDeletedPromoCodesCollection()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::_setDeleted()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::_setModified()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::makeDeletedPromoCodesCollection()
 	 */
 	function getMailchimpEcommerceSyncDataModel():SyncD {return new SyncD;}
 
