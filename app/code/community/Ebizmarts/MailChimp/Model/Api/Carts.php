@@ -600,7 +600,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		$magentoStoreId = $this->getMagentoStoreId();
 
 		$helper = $this->getHelper();
-		$apiProducts = self::apiProducts();
+		$apiProducts = self::apiProducts(); /** @var ApiProducts $apiProducts */
 		$apiProducts->setMailchimpStoreId($mailchimpStoreId);
 		$apiProducts->setMagentoStoreId($magentoStoreId);
 
