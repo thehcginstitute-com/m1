@@ -2,7 +2,7 @@
 # 2024-03-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 use Ebizmarts_MailChimp_Model_Api_Products as ApiProducts;
-use Mage_Core_Model_Abstract as M;
+use Ebizmarts_MailChimp_Model_Ecommercesyncdata as M;
 class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 {
 	const BATCH_LIMIT = 100;
@@ -390,11 +390,11 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 				,'customer' => $customer
 				,'id' => $cart->getEntityId()
 				,'order_total' => $cart->getGrandTotal()
+				,'tax_total' => 0
 			]; /** @var array string => string|float $ra */
 			if ($campaignId = $cart['mailchimp_campaign_id']) {
 				$ra['campaign_id'] = $campaignId;
 			}
-			$ra['tax_total'] = 0;
 			$api = self::apiProducts(); /** @var ApiProducts $api */
 			$api->setMagentoStoreId($sid);
 			$lines = $this->_processCartLines($cart->getAllVisibleItems(), $api);
