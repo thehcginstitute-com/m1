@@ -382,7 +382,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 */
 	private function makeCart($cart, $isModified = false) {
 		$r = ''; /** @var string|false $r */
-		$apiProducts = $this->getApiProducts();
+		$apiProducts = self::apiProducts();
 		$apiProducts->setMagentoStoreId($sid = $this->getMagentoStoreId());
 		$campaignId = $cart->getMailchimpCampaignId();
 		$ra = ['id' => $cart->getEntityId()];
@@ -599,7 +599,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		$magentoStoreId = $this->getMagentoStoreId();
 
 		$helper = $this->getHelper();
-		$apiProducts = $this->getApiProducts();
+		$apiProducts = self::apiProducts();
 		$apiProducts->setMailchimpStoreId($mailchimpStoreId);
 		$apiProducts->setMagentoStoreId($magentoStoreId);
 
@@ -751,11 +751,6 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	}
 
 	/**
-	 * @return Ebizmarts_MailChimp_Model_Api_Products
-	 */
-	private static function apiProducts() {return Mage::getModel('mailchimp/api_products');}
-
-	/**
 	 * @return string
 	 */
 	protected function getItemType()
@@ -813,4 +808,11 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 			$collectionToSync->addFieldToFilter('is_active', array('eq' => 0));
 		}
 	}
+
+	/**
+	 * @used-by self::makeCart()
+	 * @used-by self::addProductNotSentData()
+	 * @return Ebizmarts_MailChimp_Model_Api_Products
+	 */
+	private static function apiProducts() {return Mage::getModel('mailchimp/api_products');}
 }
