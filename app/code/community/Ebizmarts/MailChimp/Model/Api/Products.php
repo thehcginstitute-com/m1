@@ -289,7 +289,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
                     $mailchimpStoreId
                 );
 
-                if ($productSyncDataItem->getMailchimpSyncDelta()) {
+                if ($productSyncDataItem['mailchimp_sync_delta']) {
                     $parent = $this->_getParentProduct($parentId);
                     $variantProducts = $this->makeProductChildrenArray(
                         $parent,
