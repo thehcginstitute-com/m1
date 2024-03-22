@@ -298,7 +298,7 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 	}
 
 	/**
-	 * @return Ebizmarts_MailChimp_Model_Ecommercesyncdata
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Carts::_processCartLines()
 	 */
 	function getMailchimpEcommerceSyncDataModel():SyncD {return new SyncD;}
 
