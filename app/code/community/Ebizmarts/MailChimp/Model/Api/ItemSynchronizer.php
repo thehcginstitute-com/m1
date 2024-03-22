@@ -300,10 +300,7 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 	/**
 	 * @return Ebizmarts_MailChimp_Model_Ecommercesyncdata
 	 */
-	function getMailchimpEcommerceSyncDataModel()
-	{
-		return new Ebizmarts_MailChimp_Model_Ecommercesyncdata();
-	}
+	function getMailchimpEcommerceSyncDataModel():SyncD {return new SyncD;}
 
 	/**
 	 * @param $magentoStoreId
