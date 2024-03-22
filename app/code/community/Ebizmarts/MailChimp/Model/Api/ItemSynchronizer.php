@@ -298,30 +298,6 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 	}
 
 	/**
-	 * @used-by self::_updateSyncData()
-	 * @used-by self::markAllSyncDataAsModified()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Carts::_processCartLines()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::createBatchJson()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Orders::_getPayloadDataLines()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Orders::getSyncedOrder()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::_buildUpdateProductRequest()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::createBatchJson()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::sendModifiedProduct()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::_getNewPromoCodes()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::_setDeleted()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::_setModified()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::deletePromoCodeSyncData()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::deletePromoCodesSyncDataByRule()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::getPromoCodesForRule()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::makeDeletedPromoCodesCollection()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoRules::_setDeleted()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoRules::_setModified()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoRules::deletePromoRuleSyncData()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoRules::makeModifiedAndDeletedPromoRulesCollection()
-	 */
-	function getMailchimpEcommerceSyncDataModel():SyncD {return new SyncD;}
-
-	/**
 	 * @param $magentoStoreId
 	 * @return mixed
 	 */

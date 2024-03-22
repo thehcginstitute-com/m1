@@ -473,14 +473,6 @@ class Ebizmarts_MailChimp_Model_Observer
     }
 
     /**
-     * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata
-     */
-    function getMailchimpEcommerceSyncDataModel()
-    {
-        return Mage::getModel('mailchimp/ecommercesyncdata');
-    }
-
-    /**
      * Catch order save before event, mark it as modified and associate the landing page to the order data.
      *
      * @param  Varien_Event_Observer $observer
@@ -834,7 +826,7 @@ class Ebizmarts_MailChimp_Model_Observer
                 }
 
                 $productId = $item->getProductId();
-                $dataProduct = $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem(
+                $dataProduct = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
                     $productId,
                     Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                     $mailchimpStoreId
@@ -874,7 +866,7 @@ class Ebizmarts_MailChimp_Model_Observer
             $apiProduct->setMagentoStoreId($storeId);
 
             $productId = $item->getProductId();
-            $dataProduct = $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem(
+            $dataProduct = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
                 $productId,
                 Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                 $mailchimpStoreId
@@ -913,7 +905,7 @@ class Ebizmarts_MailChimp_Model_Observer
                 $status = $this->getCatalogProductStatusModel()->getProductStatus($product->getId(), $storeId);
 
                 if ($status[$product->getId()] == self::PRODUCT_IS_ENABLED) {
-                    $dataProduct = $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem(
+                    $dataProduct = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
                         $product->getId(),
                         Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                         $mailchimpStoreId
@@ -956,7 +948,7 @@ class Ebizmarts_MailChimp_Model_Observer
 
             if ($ecommEnabled) {
                 foreach ($productIds as $productId) {
-                    $dataProduct = $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem(
+                    $dataProduct = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
                         $productId,
                         Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                         $mailchimpStoreId
