@@ -241,11 +241,12 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		$helper = $this->getHelper();
 		$dateHelper = $this->getDateHelper();
 		$batchId = $this->getBatchId();
+		/** @var QC $newCarts */
 		$newCarts = $this->buildEcommerceCollectionToSync(Ebizmarts_MailChimp_Model_Config::IS_QUOTE);
 
 		$allCarts = array();
 
-		foreach ($newCarts as $cart) {
+		foreach ($newCarts as $cart) { /** @var Q $cart */
 			$cartId = $cart->getEntityId();
 			$orderCollection = $this->getOrderCollection();
 			$cartCustomerEmail = $cart->getCustomerEmail();
