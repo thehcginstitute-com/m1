@@ -381,6 +381,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 * @return string|false
 	 */
 	private function makeCart($cart, $isModified = false) {
+		$r = ''; /** @var string|false $r */
 		$magentoStoreId = $this->getMagentoStoreId();
 		$apiProduct = $this->getApiProducts();
 		$apiProduct->setMagentoStoreId($magentoStoreId);
@@ -388,24 +389,22 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		$oneCart = [];
 		$oneCart['id'] = $cart->getEntityId();
 		$customer = $this->_getCustomer($cart, $magentoStoreId);
-		if (empty($customer)) {
-			return "";
+		if (!empty($customer)) {
+			$oneCart['customer'] = $customer;
+			if ($campaignId) {
+				$oneCart['campaign_id'] = $campaignId;
+			}
+			$oneCart['checkout_url'] = $this->_getCheckoutUrl($cart, $isModified);
+			$oneCart['currency_code'] = $cart->getQuoteCurrencyCode();
+			$oneCart['order_total'] = $cart->getGrandTotal();
+			$oneCart['tax_total'] = 0;
+			$lines = $this->_processCartLines($cart->getAllVisibleItems(), $apiProduct);
+			if ($lines['count']) {
+				$oneCart['lines'] = $lines['lines'];
+				$r = json_encode($oneCart);
+			}
 		}
-		$oneCart['customer'] = $customer;
-		if ($campaignId) {
-			$oneCart['campaign_id'] = $campaignId;
-		}
-		$oneCart['checkout_url'] = $this->_getCheckoutUrl($cart, $isModified);
-		$oneCart['currency_code'] = $cart->getQuoteCurrencyCode();
-		$oneCart['order_total'] = $cart->getGrandTotal();
-		$oneCart['tax_total'] = 0;
-		$lines = $this->_processCartLines($cart->getAllVisibleItems(), $apiProduct);
-		$jsonData = "";
-		if ($lines['count']) {
-			$oneCart['lines'] = $lines['lines'];
-			$jsonData = json_encode($oneCart);
-		}
-		return $jsonData;
+		return $r;
 	}
 
 	/**
