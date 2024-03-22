@@ -382,24 +382,24 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 * @used-by self::_getNewQuotes()
 	 * @return string|false
 	 */
-	private function makeCart(Q $cart, bool $isModified) {
+	private function makeCart(Q $q, bool $isModified) {
 		$r = ''; /** @var string|false $r */
-		if ($customer = $this->_getCustomer($cart, $sid = $this->getMagentoStoreId())) {
+		if ($customer = $this->_getCustomer($q, $sid = $this->getMagentoStoreId())) {
 			/** @var array(string => string) $customer */
 			$ra = [
-				'checkout_url' => $this->_getCheckoutUrl($cart, $isModified)
-				,'currency_code' => $cart->getQuoteCurrencyCode()
+				'checkout_url' => $this->_getCheckoutUrl($q, $isModified)
+				,'currency_code' => $q->getQuoteCurrencyCode()
 				,'customer' => $customer
-				,'id' => $cart->getEntityId()
-				,'order_total' => $cart->getGrandTotal()
+				,'id' => $q->getEntityId()
+				,'order_total' => $q->getGrandTotal()
 				,'tax_total' => 0
 			]; /** @var array string => string|float $ra */
-			if ($campaignId = $cart['mailchimp_campaign_id']) {
+			if ($campaignId = $q['mailchimp_campaign_id']) {
 				$ra['campaign_id'] = $campaignId;
 			}
 			$api = self::apiProducts(); /** @var ApiProducts $api */
 			$api->setMagentoStoreId($sid);
-			$lines = $this->_processCartLines($cart->getAllVisibleItems(), $api);
+			$lines = $this->_processCartLines($q->getAllVisibleItems(), $api);
 			if ($lines['count']) {
 				$ra['lines'] = $lines['lines'];
 				$r = json_encode($ra);
