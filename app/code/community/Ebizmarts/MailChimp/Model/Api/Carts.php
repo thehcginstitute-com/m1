@@ -384,26 +384,23 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 */
 	private function makeCart(Q $q, bool $isModified) {
 		$r = ''; /** @var string|false $r */
-		if ($customer = $this->_getCustomer($q, $sid = $this->getMagentoStoreId())) {
-			/** @var array(string => string) $customer */
-			$ra = [
-				'checkout_url' => $this->_getCheckoutUrl($q, $isModified)
-				,'currency_code' => $q->getQuoteCurrencyCode()
-				,'customer' => $customer
-				,'id' => $q->getEntityId()
-				,'order_total' => $q->getGrandTotal()
-				,'tax_total' => 0
-			]; /** @var array string => string|float $ra */
-			if ($campaignId = $q['mailchimp_campaign_id']) {
-				$ra['campaign_id'] = $campaignId;
-			}
-			$api = self::apiProducts(); /** @var ApiProducts $api */
-			$api->setMagentoStoreId($sid);
-			$lines = $this->_processCartLines($q->getAllVisibleItems(), $api);
-			if ($lines['count']) {
-				$ra['lines'] = $lines['lines'];
-				$r = json_encode($ra);
-			}
+		$ra = [
+			'checkout_url' => $this->_getCheckoutUrl($q, $isModified)
+			,'currency_code' => $q->getQuoteCurrencyCode()
+			,'customer' => $this->_getCustomer($q, $sid = $this->getMagentoStoreId())
+			,'id' => $q->getEntityId()
+			,'order_total' => $q->getGrandTotal()
+			,'tax_total' => 0
+		]; /** @var array string => string|float $ra */
+		if ($campaignId = $q['mailchimp_campaign_id']) {
+			$ra['campaign_id'] = $campaignId;
+		}
+		$api = self::apiProducts(); /** @var ApiProducts $api */
+		$api->setMagentoStoreId($sid);
+		$lines = $this->_processCartLines($q->getAllVisibleItems(), $api);
+		if ($lines['count']) {
+			$ra['lines'] = $lines['lines'];
+			$r = json_encode($ra);
 		}
 		return $r;
 	}
