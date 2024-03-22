@@ -389,11 +389,11 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 				,'currency_code' => $cart->getQuoteCurrencyCode()
 				,'customer' => $customer
 				,'id' => $cart->getEntityId()
+				,'order_total' => $cart->getGrandTotal()
 			]; /** @var array string => string|float $ra */
 			if ($campaignId = $cart['mailchimp_campaign_id']) {
 				$ra['campaign_id'] = $campaignId;
 			}
-			$ra['order_total'] = $cart->getGrandTotal();
 			$ra['tax_total'] = 0;
 			$api = self::apiProducts(); /** @var ApiProducts $api */
 			$api->setMagentoStoreId($sid);
