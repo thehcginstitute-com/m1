@@ -1,6 +1,7 @@
 <?php
 # 2024-03-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+use Ebizmarts_MailChimp_Model_Api_Products as ApiProducts;
 class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 {
 	const BATCH_LIMIT = 100;
@@ -812,7 +813,6 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @used-by self::makeCart()
 	 * @used-by self::addProductNotSentData()
-	 * @return Ebizmarts_MailChimp_Model_Api_Products
 	 */
-	private static function apiProducts() {return Mage::getModel('mailchimp/api_products');}
+	private static function apiProducts():ApiProducts {return Mage::getModel('mailchimp/api_products');}
 }
