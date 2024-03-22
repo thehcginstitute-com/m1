@@ -404,13 +404,13 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 
 	/**
 	 * @used-by self::makeCart()
-	 * @param QI[] $items
+	 * @param QI[] $ii
 	 * @return array(string => int|array(string => mixed))
 	 */
-	private function _processCartLines(array $items, ApiProducts $api):array {
+	private function _processCartLines(array $ii, ApiProducts $api):array {
 		$lines = [];
-		$itemCount = 0;
-		foreach ($items as $i) { /** @var QI $i */
+		$count = 0;
+		foreach ($ii as $i) { /** @var QI $i */
 			$pid = $i->getProductId();
 			$isTypeProduct = $this->isTypeProduct();
 			if ($i->getProductType() == 'bundle' || $i->getProductType() == 'grouped') {
@@ -434,7 +434,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 			); /** @var SyncD $sd */
 			if (($disabled = !$api->isProductEnabled($pid)) || ($sd->getMailchimpSyncDelta() && !$sd->getMailchimpSyncError())) {
 				$lines[] = [
-					'id' => (string)++$itemCount //id can not be 0 so we add 1 to $itemCount before setting the id
+					'id' => (string)++$count //id can not be 0 so we add 1 to $itemCount before setting the id
 					,'price' => $i->getRowTotal()
 					,'product_id' => $pid
 					,'product_variant_id' => $variantId
@@ -446,7 +446,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 				}
 			}
 		}
-		return ['lines' => $lines, 'count' => $itemCount];
+		return ['lines' => $lines, 'count' => $count];
 	}
 
 	/**
