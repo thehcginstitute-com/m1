@@ -204,7 +204,11 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 
                     $this->addSyncDataToken($cartId, $this->getToken());
                 } else {
-                    $error = $helper->__('There is not supported products in this cart.');
+					# 2024-03-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "[`Ebizmarts_MailChimp`] The phrase
+					# «There is not supported products in this cart» is grammatically incorrect":
+					# https://github.com/thehcginstitute-com/m1/issues/522
+                    $error = $helper->__('There are not supported products in this cart.');
                     $this->addSyncDataError($cartId, $error);
                 }
             } else {
@@ -311,7 +315,11 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 
                     $this->addSyncDataToken($cartId, $this->getToken());
                 } else {
-                    $error = $helper->__('There is not supported products in this cart.');
+					# 2024-03-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "[`Ebizmarts_MailChimp`] The phrase
+					# «There is not supported products in this cart» is grammatically incorrect":
+					# https://github.com/thehcginstitute-com/m1/issues/522
+                    $error = $helper->__('There are not supported products in this cart.');
 
                     $this->addSyncDataError(
                         $cartId,
