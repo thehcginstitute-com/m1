@@ -315,6 +315,7 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::deletePromoCodeSyncData()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::getPromoCodesForRule()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoRules::makeModifiedAndDeletedPromoRulesCollection()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_PromoRules::deletePromoRuleSyncData()
 	 */
 	function getMailchimpEcommerceSyncDataModel():SyncD {return new SyncD;}
 
