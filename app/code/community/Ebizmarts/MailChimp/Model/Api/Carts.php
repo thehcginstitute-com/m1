@@ -410,16 +410,16 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	private function _processCartLines(array $items, ApiProducts $api):array {
 		$lines = [];
 		$itemCount = 0;
-		foreach ($items as $item) { /** @var QI $item */
-			$pid = $item->getProductId();
+		foreach ($items as $i) { /** @var QI $i */
+			$pid = $i->getProductId();
 			$isTypeProduct = $this->isTypeProduct();
-			if ($item->getProductType() == 'bundle' || $item->getProductType() == 'grouped') {
+			if ($i->getProductType() == 'bundle' || $i->getProductType() == 'grouped') {
 				continue;
 			}
-			if ($this->isProductTypeConfigurable($item)) {
+			if ($this->isProductTypeConfigurable($i)) {
 				$variant = null;
-				if ($item->getOptionByCode('simple_product')) {
-					$variant = $item->getOptionByCode('simple_product')->getProduct();
+				if ($i->getOptionByCode('simple_product')) {
+					$variant = $i->getOptionByCode('simple_product')->getProduct();
 				}
 				if (!$variant) {
 					continue;
@@ -427,7 +427,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 				$variantId = $variant->getId();
 			}
 			else {
-				$variantId = $item->getProductId();
+				$variantId = $i->getProductId();
 			}
 			$sd = $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem(
 				$pid, $isTypeProduct, $this->getMailchimpStoreId()
@@ -435,10 +435,10 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 			if (($disabled = !$api->isProductEnabled($pid)) || ($sd->getMailchimpSyncDelta() && !$sd->getMailchimpSyncError())) {
 				$lines[] = [
 					'id' => (string)++$itemCount //id can not be 0 so we add 1 to $itemCount before setting the id
-					,'price' => $item->getRowTotal()
+					,'price' => $i->getRowTotal()
 					,'product_id' => $pid
 					,'product_variant_id' => $variantId
-					,'quantity' => (int)$item->getQty()
+					,'quantity' => (int)$i->getQty()
 				];
 				if ($disabled) {
 					// update disabled products to remove the product from mailchimp after sending the order
