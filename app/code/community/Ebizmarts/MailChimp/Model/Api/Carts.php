@@ -403,7 +403,6 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 
 	/**
 	 * @used-by self::makeCart()
-	 * @param $items
 	 * @param $apiProduct Ebizmarts_MailChimp_Model_Api_Products
 	 * @return array
 	 */
