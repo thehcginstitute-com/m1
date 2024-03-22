@@ -508,52 +508,39 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 * @used-by self::makeCart()
 	 * @param  $magentoStoreId
 	 */
-	private function _getCustomer(Q $cart, $magentoStoreId):array
-	{
+	private function _getCustomer(Q $cart, $magentoStoreId):array {
 		$customer = [
 			"id" => hash('md5', strtolower($cart->getCustomerEmail())),
 			"email_address" => $cart->getCustomerEmail(),
 			"opt_in_status" => $this->getApiCustomersOptIn($magentoStoreId)
 		];
-
 		$firstName = $cart->getCustomerFirstname();
-
 		if ($firstName) {
 			$customer["first_name"] = $firstName;
 		}
-
 		$lastName = $cart->getCustomerLastname();
-
 		if ($lastName) {
 			$customer["last_name"] = $lastName;
 		}
-
 		$billingAddress = $cart->getBillingAddress();
-
 		if ($billingAddress) {
 			$street = $billingAddress->getStreet();
 			$address = array();
-
 			if (isset($street[0])) {
 				$address['address1'] = $street[0];
-
 				if (count($street) > 1) {
 					$address['address2'] = $street[1];
 				}
 			}
-
 			$address = $this->_addBillingAddress($address, $billingAddress);
-
 			if (!empty($address)) {
 				$customer['address'] = $address;
 			}
 		}
-
 		//company
 		if ($billingAddress->getCompany()) {
 			$customer["company"] = $billingAddress->getCompany();
 		}
-
 		return $customer;
 	}
 
