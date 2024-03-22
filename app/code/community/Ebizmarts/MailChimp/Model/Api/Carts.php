@@ -404,10 +404,9 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @used-by self::makeCart()
 	 * @param QI[] $items
-	 * @param $apiProduct Ebizmarts_MailChimp_Model_Api_Products
 	 * @return array
 	 */
-	private function _processCartLines(array $items, $apiProduct):array {
+	private function _processCartLines(array $items, ApiProducts $api):array {
 		$lines = [];
 		$itemCount = 0;
 		foreach ($items as $item) { /** @var QI $item */
@@ -435,7 +434,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 			}
 			//id can not be 0 so we add 1 to $itemCount before setting the id.
 			$productSyncError = $productSyncData->getMailchimpSyncError();
-			$disabled = !$apiProduct->isProductEnabled($pid);
+			$disabled = !$api->isProductEnabled($pid);
 			if ($disabled || ($productSyncData->getMailchimpSyncDelta() && $productSyncError == '')) {
 				$itemCount++;
 				$line['id'] = (string)$itemCount;
@@ -446,7 +445,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 				$lines[] = $line;
 				if ($disabled) {
 					// update disabled products to remove the product from mailchimp after sending the order
-					$apiProduct->updateDisabledProducts($pid);
+					$api->updateDisabledProducts($pid);
 				}
 			}
 		}
