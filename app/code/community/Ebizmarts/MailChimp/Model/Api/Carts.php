@@ -434,8 +434,10 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 			}
 			//id can not be 0 so we add 1 to $itemCount before setting the id.
 			$productSyncError = $productSyncData->getMailchimpSyncError();
-			$disabled = !$api->isProductEnabled($pid);
-			if ($disabled || ($productSyncData->getMailchimpSyncDelta() && $productSyncError == '')) {
+			if (
+				($disabled = !$api->isProductEnabled($pid))
+				|| ($productSyncData->getMailchimpSyncDelta() && $productSyncError == '')
+			) {
 				$itemCount++;
 				$line['id'] = (string)$itemCount;
 				$line['product_id'] = $pid;
