@@ -407,12 +407,12 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 * @param $apiProduct Ebizmarts_MailChimp_Model_Api_Products
 	 * @return array
 	 */
-	private function _processCartLines(array $items, $apiProduct) {
+	private function _processCartLines(array $items, $apiProduct):array {
 		$mailchimpStoreId = $this->getMailchimpStoreId();
 		$magentoStoreId = $this->getMagentoStoreId();
 		$lines = [];
 		$itemCount = 0;
-		foreach ($items as $item) {
+		foreach ($items as $item) { /** @var QI $item */
 			$productId = $item->getProductId();
 			$isTypeProduct = $this->isTypeProduct();
 			$productSyncData = $this->getMailchimpEcommerceSyncDataModel()
