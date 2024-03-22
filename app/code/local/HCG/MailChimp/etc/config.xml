@@ -1,0 +1,10 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+<!-- 2024-03-22 "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524 -->
+		<HCG_MailChimp>
+			<version>0.0.1</version>
+			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
+		</HCG_MailChimp>
+	</modules>
+</config>

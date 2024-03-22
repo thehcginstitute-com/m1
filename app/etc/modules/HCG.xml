@@ -22,6 +22,14 @@
 			<active>true</active>
 			<codePool>local</codePool>
 		</HCG_MagePsycho>
+<!-- 2024-03-22 "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524 -->
+		<HCG_MailChimp>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<Ebizmarts_MailChimp/>
+			</depends>
+		</HCG_MailChimp>
 <!-- 2024-01-06
 "Port the modifications of `app/code/core/Mage/Page/Block/Html/Head.php` to Magento 1.9.4.5":
 https://github.com/thehcginstitute-com/m1/issues/97 -->
