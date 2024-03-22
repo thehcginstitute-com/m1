@@ -385,7 +385,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		$apiProduct = $this->getApiProducts();
 		$apiProduct->setMagentoStoreId($magentoStoreId);
 		$campaignId = $cart->getMailchimpCampaignId();
-		$oneCart = array();
+		$oneCart = [];
 		$oneCart['id'] = $cart->getEntityId();
 		$customer = $this->_getCustomer($cart, $magentoStoreId);
 		if (empty($customer)) {
