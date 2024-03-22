@@ -505,12 +505,10 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	}
 
 	/**
-	 * Get Customer data for the cart.
-	 *
-	 * @param  $cart
+	 * @used-by self::makeCart()
 	 * @param  $magentoStoreId
 	 */
-	function _getCustomer($cart, $magentoStoreId):array
+	private function _getCustomer(Q $cart, $magentoStoreId):array
 	{
 		$customer = [
 			"id" => hash('md5', strtolower($cart->getCustomerEmail())),
