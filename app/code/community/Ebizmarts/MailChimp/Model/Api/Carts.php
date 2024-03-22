@@ -383,7 +383,6 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 * @return string|false
 	 */
 	private function makeCart(Q $q, bool $isModified) {
-		$r = ''; /** @var string|false $r */
 		$ra = [
 			'checkout_url' => $this->_getCheckoutUrl($q, $isModified)
 			,'currency_code' => $q->getQuoteCurrencyCode()
@@ -398,11 +397,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		$api = self::apiProducts(); /** @var ApiProducts $api */
 		$api->setMagentoStoreId($sid);
 		$lines = $this->_processCartLines($q->getAllVisibleItems(), $api);
-		if ($lines['count']) {
-			$ra['lines'] = $lines['lines'];
-			$r = json_encode($ra);
-		}
-		return $r;
+		return !$lines['count'] ? '' : json_encode(['lines' => $lines['lines']] + $ra);
 	}
 
 	/**
