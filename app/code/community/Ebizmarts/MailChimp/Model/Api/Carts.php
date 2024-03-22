@@ -505,9 +505,8 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 *
 	 * @param  $cart
 	 * @param  $magentoStoreId
-	 * @return array
 	 */
-	function _getCustomer($cart, $magentoStoreId)
+	function _getCustomer($cart, $magentoStoreId):array
 	{
 		$customer = array(
 			"id" => hash('md5', strtolower($cart->getCustomerEmail())),
