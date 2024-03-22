@@ -415,8 +415,9 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		foreach ($items as $item) { /** @var QI $item */
 			$productId = $item->getProductId();
 			$isTypeProduct = $this->isTypeProduct();
-			$productSyncData = $this->getMailchimpEcommerceSyncDataModel()
-				->getEcommerceSyncDataItem($productId, $isTypeProduct, $mailchimpStoreId);
+			$productSyncData = $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem(
+				$productId, $isTypeProduct, $mailchimpStoreId
+			);
 			$line = [];
 			if ($item->getProductType() == 'bundle' || $item->getProductType() == 'grouped') {
 				continue;
