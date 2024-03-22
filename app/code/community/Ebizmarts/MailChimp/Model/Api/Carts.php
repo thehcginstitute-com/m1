@@ -404,7 +404,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @used-by self::makeCart()
 	 * @param QI[] $items
-	 * @return array
+	 * @return array(string => int|array(string => mixed))
 	 */
 	private function _processCartLines(array $items, ApiProducts $api):array {
 		$lines = [];
