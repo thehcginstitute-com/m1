@@ -384,12 +384,11 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		$r = ''; /** @var string|false $r */
 		$apiProducts = self::apiProducts(); /** @var ApiProducts $apiProducts */
 		$apiProducts->setMagentoStoreId($sid = $this->getMagentoStoreId());
-		$campaignId = $cart['mailchimp_campaign_id'];
 		$ra = ['id' => $cart->getEntityId()];
 		$customer = $this->_getCustomer($cart, $sid);
 		if (!empty($customer)) {
 			$ra['customer'] = $customer;
-			if ($campaignId) {
+			if ($campaignId = $cart['mailchimp_campaign_id']) {
 				$ra['campaign_id'] = $campaignId;
 			}
 			$ra['checkout_url'] = $this->_getCheckoutUrl($cart, $isModified);
