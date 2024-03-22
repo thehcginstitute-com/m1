@@ -3,6 +3,7 @@
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 use Ebizmarts_MailChimp_Model_Api_Products as ApiProducts;
 use Mage_Sales_Model_Quote as Q;
+use Mage_Sales_Model_Quote_Item as QI;
 use Mage_Sales_Model_Resource_Quote_Collection as QC;
 class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 {
