@@ -382,8 +382,8 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 */
 	private function makeCart($cart, $isModified = false) {
 		$r = ''; /** @var string|false $r */
-		$apiProduct = $this->getApiProducts();
-		$apiProduct->setMagentoStoreId($sid = $this->getMagentoStoreId());
+		$apiProducts = $this->getApiProducts();
+		$apiProducts->setMagentoStoreId($sid = $this->getMagentoStoreId());
 		$campaignId = $cart->getMailchimpCampaignId();
 		$ra = ['id' => $cart->getEntityId()];
 		$customer = $this->_getCustomer($cart, $sid);
@@ -396,7 +396,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 			$ra['currency_code'] = $cart->getQuoteCurrencyCode();
 			$ra['order_total'] = $cart->getGrandTotal();
 			$ra['tax_total'] = 0;
-			$lines = $this->_processCartLines($cart->getAllVisibleItems(), $apiProduct);
+			$lines = $this->_processCartLines($cart->getAllVisibleItems(), $apiProducts);
 			if ($lines['count']) {
 				$ra['lines'] = $lines['lines'];
 				$r = json_encode($ra);
