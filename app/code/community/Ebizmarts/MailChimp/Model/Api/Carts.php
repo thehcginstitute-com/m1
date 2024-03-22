@@ -383,7 +383,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 */
 	private function makeCart($cart, $isModified = false) {
 		$r = ''; /** @var string|false $r */
-		$apiProducts = self::apiProducts();
+		$apiProducts = self::apiProducts(); /** @var ApiProducts $apiProducts */
 		$apiProducts->setMagentoStoreId($sid = $this->getMagentoStoreId());
 		$campaignId = $cart->getMailchimpCampaignId();
 		$ra = ['id' => $cart->getEntityId()];
