@@ -411,10 +411,10 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		$lines = [];
 		$itemCount = 0;
 		foreach ($items as $item) { /** @var QI $item */
-			$productId = $item->getProductId();
+			$pid = $item->getProductId();
 			$isTypeProduct = $this->isTypeProduct();
 			$productSyncData = $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem(
-				$productId, $isTypeProduct, $this->getMailchimpStoreId()
+				$pid, $isTypeProduct, $this->getMailchimpStoreId()
 			);
 			$line = [];
 			if ($item->getProductType() == 'bundle' || $item->getProductType() == 'grouped') {
@@ -435,18 +435,18 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 			}
 			//id can not be 0 so we add 1 to $itemCount before setting the id.
 			$productSyncError = $productSyncData->getMailchimpSyncError();
-			$disabled = !$apiProduct->isProductEnabled($productId);
+			$disabled = !$apiProduct->isProductEnabled($pid);
 			if ($disabled || ($productSyncData->getMailchimpSyncDelta() && $productSyncError == '')) {
 				$itemCount++;
 				$line['id'] = (string)$itemCount;
-				$line['product_id'] = $productId;
+				$line['product_id'] = $pid;
 				$line['product_variant_id'] = $variantId;
 				$line['quantity'] = (int)$item->getQty();
 				$line['price'] = $item->getRowTotal();
 				$lines[] = $line;
 				if ($disabled) {
 					// update disabled products to remove the product from mailchimp after sending the order
-					$apiProduct->updateDisabledProducts($productId);
+					$apiProduct->updateDisabledProducts($pid);
 				}
 			}
 		}
