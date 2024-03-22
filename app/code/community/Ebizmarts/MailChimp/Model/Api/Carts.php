@@ -396,8 +396,8 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		}
 		$api = self::apiProducts(); /** @var ApiProducts $api */
 		$api->setMagentoStoreId($sid);
-		$lines = $this->_processCartLines($q->getAllVisibleItems(), $api);
-		return !$lines['count'] ? '' : json_encode(['lines' => $lines['lines']] + $ra);
+		$res = $this->_processCartLines($q->getAllVisibleItems(), $api);
+		return !$res['count'] ? '' : json_encode(['lines' => $res['lines']] + $ra);
 	}
 
 	/**
