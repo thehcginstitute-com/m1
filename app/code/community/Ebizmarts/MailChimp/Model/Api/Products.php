@@ -586,7 +586,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
             }
 
             $syncModified = $productSyncData->getMailchimpSyncModified();
-            $productSyncDelta = $productSyncData->getMailchimpSyncDelta();
+            $productSyncDelta = $productSyncData['mailchimp_sync_delta'];
             $isProductEnabled = $this->isProductEnabled($productId);
 
             if ($syncModified && $isProductEnabled) {
