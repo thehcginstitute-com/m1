@@ -141,7 +141,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		); /** @var QC $modifiedCarts */
 
 		$allCarts = array();
-		foreach ($modifiedCarts as $cart) {
+		foreach ($modifiedCarts as $cart) { /** @var Q $cart */
 			$cartId = $cart->getEntityId();
 			/**
 			 * @var $customer Mage_Customer_Model_Customer
