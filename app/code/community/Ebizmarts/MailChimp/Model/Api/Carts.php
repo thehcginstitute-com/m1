@@ -382,40 +382,29 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 */
 	private function makeCart($cart, $isModified = false) {
 		$magentoStoreId = $this->getMagentoStoreId();
-
 		$apiProduct = $this->getApiProducts();
 		$apiProduct->setMagentoStoreId($magentoStoreId);
-
 		$campaignId = $cart->getMailchimpCampaignId();
 		$oneCart = array();
 		$oneCart['id'] = $cart->getEntityId();
 		$customer = $this->_getCustomer($cart, $magentoStoreId);
-
 		if (empty($customer)) {
 			return "";
 		}
-
 		$oneCart['customer'] = $customer;
-
 		if ($campaignId) {
 			$oneCart['campaign_id'] = $campaignId;
 		}
-
 		$oneCart['checkout_url'] = $this->_getCheckoutUrl($cart, $isModified);
 		$oneCart['currency_code'] = $cart->getQuoteCurrencyCode();
 		$oneCart['order_total'] = $cart->getGrandTotal();
 		$oneCart['tax_total'] = 0;
-		// get all items on the cart
 		$lines = $this->_processCartLines($cart->getAllVisibleItems(), $apiProduct);
-
 		$jsonData = "";
-
 		if ($lines['count']) {
 			$oneCart['lines'] = $lines['lines'];
-			//encode to JSON
 			$jsonData = json_encode($oneCart);
 		}
-
 		return $jsonData;
 	}
 
