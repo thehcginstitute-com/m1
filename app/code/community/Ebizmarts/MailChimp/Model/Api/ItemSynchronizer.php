@@ -306,6 +306,7 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Orders::getSyncedOrder()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::_buildUpdateProductRequest()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::createBatchJson()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::sendModifiedProduct()
 	 */
 	function getMailchimpEcommerceSyncDataModel():SyncD {return new SyncD;}
 
