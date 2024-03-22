@@ -451,7 +451,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 				}
 			}
 		}
-		return array('lines' => $lines, 'count' => $itemCount);
+		return ['lines' => $lines, 'count' => $itemCount];
 	}
 
 	/**
