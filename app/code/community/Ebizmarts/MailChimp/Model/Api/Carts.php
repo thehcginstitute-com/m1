@@ -413,7 +413,6 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		foreach ($items as $item) { /** @var QI $item */
 			$pid = $item->getProductId();
 			$isTypeProduct = $this->isTypeProduct();
-			$line = [];
 			if ($item->getProductType() == 'bundle' || $item->getProductType() == 'grouped') {
 				continue;
 			}
@@ -435,6 +434,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 			); /** @var SyncD $sd */
 			if (($disabled = !$api->isProductEnabled($pid)) || ($sd->getMailchimpSyncDelta() && !$sd->getMailchimpSyncError())) {
 				$itemCount++; //id can not be 0 so we add 1 to $itemCount before setting the id.
+				$line = [];
 				$line['id'] = (string)$itemCount;
 				$line['product_id'] = $pid;
 				$line['product_variant_id'] = $variantId;
