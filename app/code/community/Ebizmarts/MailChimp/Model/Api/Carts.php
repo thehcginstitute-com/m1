@@ -374,6 +374,8 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	}
 
 	/**
+	 * @used-by self::_getModifiedQuotes()
+	 * @used-by self::_getNewQuotes()
 	 * @param $cart
 	 * @param $isModified
 	 * @return string
