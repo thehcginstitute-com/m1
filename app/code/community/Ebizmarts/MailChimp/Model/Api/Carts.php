@@ -410,7 +410,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	private function _processCartLines(array $items, $apiProduct) {
 		$mailchimpStoreId = $this->getMailchimpStoreId();
 		$magentoStoreId = $this->getMagentoStoreId();
-		$lines = array();
+		$lines = [];
 		$itemCount = 0;
 		foreach ($items as $item) {
 			$productId = $item->getProductId();
