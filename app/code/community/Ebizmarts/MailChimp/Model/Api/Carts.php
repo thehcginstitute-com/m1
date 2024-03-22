@@ -2,6 +2,7 @@
 # 2024-03-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 use Ebizmarts_MailChimp_Model_Api_Products as ApiProducts;
+use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
 use Mage_Sales_Model_Quote as Q;
 use Mage_Sales_Model_Quote_Item as QI;
 use Mage_Sales_Model_Resource_Quote_Collection as QC;
@@ -412,9 +413,6 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		foreach ($items as $item) { /** @var QI $item */
 			$pid = $item->getProductId();
 			$isTypeProduct = $this->isTypeProduct();
-			$productSyncData = $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem(
-				$pid, $isTypeProduct, $this->getMailchimpStoreId()
-			);
 			$line = [];
 			if ($item->getProductType() == 'bundle' || $item->getProductType() == 'grouped') {
 				continue;
@@ -432,13 +430,15 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 			else {
 				$variantId = $item->getProductId();
 			}
-			//id can not be 0 so we add 1 to $itemCount before setting the id.
-			$productSyncError = $productSyncData->getMailchimpSyncError();
+			$sd = $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem(
+				$pid, $isTypeProduct, $this->getMailchimpStoreId()
+			); /** @var SyncD $sd */
+			$productSyncError = $sd->getMailchimpSyncError();
 			if (
 				($disabled = !$api->isProductEnabled($pid))
-				|| ($productSyncData->getMailchimpSyncDelta() && $productSyncError == '')
+				|| ($sd->getMailchimpSyncDelta() && $productSyncError == '')
 			) {
-				$itemCount++;
+				$itemCount++; //id can not be 0 so we add 1 to $itemCount before setting the id.
 				$line['id'] = (string)$itemCount;
 				$line['product_id'] = $pid;
 				$line['product_variant_id'] = $variantId;
