@@ -2,6 +2,7 @@
 # 2024-03-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 use Ebizmarts_MailChimp_Model_Api_Products as ApiProducts;
+use Varien_Object as VO;
 class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 {
 	const BATCH_LIMIT = 100;
@@ -377,10 +378,9 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @used-by self::_getModifiedQuotes()
 	 * @used-by self::_getNewQuotes()
-	 * @param $cart
 	 * @return string|false
 	 */
-	private function makeCart($cart, bool $isModified) {
+	private function makeCart(VO $cart, bool $isModified) {
 		$r = ''; /** @var string|false $r */
 		$apiProducts = self::apiProducts(); /** @var ApiProducts $apiProducts */
 		$apiProducts->setMagentoStoreId($sid = $this->getMagentoStoreId());
