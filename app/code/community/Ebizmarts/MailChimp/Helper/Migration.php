@@ -263,7 +263,7 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
                         $customerObject = Mage::getModel('customer/customer')->load($customerId);
                         $syncError = null;
                         $syncModified = null;
-                        $syncDelta = $customerObject->getMailchimpSyncDelta();
+                        $syncDelta = $customerObject['mailchimp_sync_delta'];
 
                         if ($customer->getMailchimpSyncError()) {
                             $syncError = $customer->getMailchimpSyncError();
