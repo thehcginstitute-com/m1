@@ -17,7 +17,7 @@ class Ebizmarts_MailChimp_Helper_Mandrill extends Mage_Core_Helper_Abstract
      * @param $message
      * @param $storeId
      */
-    public function log($message, $storeId)
+    function log($message, $storeId)
     {
         if (Mage::helper('mailchimp/mandrill')->isMandrillLogEnabled($storeId)) {
             Mage::log($message, null, 'Mandrill_Request.log', true);
@@ -29,7 +29,7 @@ class Ebizmarts_MailChimp_Helper_Mandrill extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getUserAgent()
+    function getUserAgent()
     {
         $modules = Mage::getConfig()->getNode('modules')->children();
         $modulesArray = (array)$modules;
@@ -49,7 +49,7 @@ class Ebizmarts_MailChimp_Helper_Mandrill extends Mage_Core_Helper_Abstract
      * @param null $scope
      * @return mixed
      */
-    public function isMandrillLogEnabled($scopeId = 0, $scope = null)
+    function isMandrillLogEnabled($scopeId = 0, $scope = null)
     {
         return Mage::helper('mailchimp')
             ->getConfigValueForScope(
@@ -66,7 +66,7 @@ class Ebizmarts_MailChimp_Helper_Mandrill extends Mage_Core_Helper_Abstract
      * @param null $scope
      * @return mixed
      */
-    public function isMandrillEnabled($scopeId = 0, $scope = null)
+    function isMandrillEnabled($scopeId = 0, $scope = null)
     {
         return Mage::helper('mailchimp')
             ->getConfigValueForScope(
@@ -83,7 +83,7 @@ class Ebizmarts_MailChimp_Helper_Mandrill extends Mage_Core_Helper_Abstract
      * @param null $scope
      * @return mixed
      */
-    public function getMandrillApiKey($scopeId = 0, $scope = null)
+    function getMandrillApiKey($scopeId = 0, $scope = null)
     {
         $mailchimpHelper = Mage::helper('mailchimp');
         return $mailchimpHelper->decryptData(

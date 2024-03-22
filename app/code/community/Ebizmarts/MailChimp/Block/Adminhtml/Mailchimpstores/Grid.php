@@ -13,7 +13,7 @@
 class Ebizmarts_MailChimp_Block_Adminhtml_Mailchimpstores_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('mailchimp_stores_grid');
@@ -70,11 +70,11 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Mailchimpstores_Grid extends Mage_Admi
         return parent::_prepareColumns();
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', array('id' => $row->getId()));
     }
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/grid', array('_current' => true));
     }

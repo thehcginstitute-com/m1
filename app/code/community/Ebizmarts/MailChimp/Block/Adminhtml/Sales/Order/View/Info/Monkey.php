@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
     /**
      * @return bool
      */
-    public function isReferred()
+    function isReferred()
     {
         $order = $this->getCurrentOrder();
         $ret = false;
@@ -41,7 +41,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
     /**
      * @return string
      */
-    public function getCampaignId()
+    function getCampaignId()
     {
         $order = $this->getCurrentOrder();
         return $order->getMailchimpCampaignId();
@@ -50,7 +50,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
     /**
      * @return string
      */
-    public function getCampaignName()
+    function getCampaignName()
     {
         if (!$this->_campaignName) {
             $campaignId = $this->getCampaignId();
@@ -70,7 +70,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
      * @param $data
      * @return string
      */
-    public function escapeQuote($data)
+    function escapeQuote($data)
     {
         return $this->getMailChimpHelper()->mcEscapeQuote($data);
     }
@@ -78,7 +78,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
     /**
      * @return Ebizmarts_MailChimp_Helper_Data
      */
-    public function getMailChimpHelper()
+    function getMailChimpHelper()
     {
         return Mage::helper('mailchimp');
     }
@@ -100,7 +100,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
      *
      * @return bool
      */
-    public function isDataAvailable()
+    function isDataAvailable()
     {
         $dataAvailable = false;
         $campaignName = $this->getCampaignName();
@@ -116,7 +116,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
      * @return string | return the store code
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getStoreCodeFromOrder()
+    function getStoreCodeFromOrder()
     {
         $helper = $this->getMailChimpHelper();
         $order = $this->getCurrentOrder();

@@ -38,7 +38,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
      * @return array
      * @throws Mage_Core_Exception
      */
-    public function createBatchJson()
+    function createBatchJson()
     {
         $mailchimpStoreId = $this->getMailchimpStoreId();
         $magentoStoreId = $this->getMagentoStoreId();
@@ -266,7 +266,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
      * @return false|string
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function GeneratePOSTPayload($order)
+    function GeneratePOSTPayload($order)
     {
         $magentoStoreId = $this->getMagentoStoreId();
 
@@ -710,7 +710,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
      * @param $orderId
      * @param $magentoStoreId
      */
-    public function update($orderId, $magentoStoreId)
+    function update($orderId, $magentoStoreId)
     {
         $helper = $this->getHelper();
 
@@ -727,7 +727,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
      * @param  $magentoStoreId
      * @return array
      */
-    public function replaceAllOrdersBatch($initialTime, $mailchimpStoreId, $magentoStoreId)
+    function replaceAllOrdersBatch($initialTime, $mailchimpStoreId, $magentoStoreId)
     {
         $helper = $this->getHelper();
         $dateHelper = $this->getDateHelper();
@@ -832,7 +832,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
      * @param $batchArray
      * @return mixed
      */
-    public function addProductNotSentData($order, $batchArray)
+    function addProductNotSentData($order, $batchArray)
     {
         $mailchimpStoreId = $this->getMailchimpStoreId();
         $magentoStoreId = $this->getMagentoStoreId();
@@ -853,7 +853,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
     /**
      * @param $newOrders
      */
-    public function joinMailchimpSyncDataWithoutWhere($newOrders, $mailchimpStoreId=null)
+    function joinMailchimpSyncDataWithoutWhere($newOrders, $mailchimpStoreId=null)
     {
         $this->_ecommerceOrdersCollection->joinLeftEcommerceSyncData($newOrders);
     }
@@ -863,7 +863,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
      * @return array
      */
 
-    public function getPromoData($order)
+    function getPromoData($order)
     {
         $promo = null;
 
@@ -918,7 +918,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
      * @param $mailchimpStoreId
      * @return array
      */
-    public function getSyncedOrder($orderId, $mailchimpStoreId)
+    function getSyncedOrder($orderId, $mailchimpStoreId)
     {
         $result = $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem(
             $orderId,
@@ -1025,7 +1025,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
      * @return bool return true if the campaign is from the current list.
      * @throws Mage_Core_Exception
      */
-    public function shouldSendCampaignId($mailchimpCampaignId, $orderId)
+    function shouldSendCampaignId($mailchimpCampaignId, $orderId)
     {
         $magentoStoreId = $this->getMagentoStoreId();
         $isCampaingFromCurrentList = false;
@@ -1124,7 +1124,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
     /**
      * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Orders_Collection
      */
-    public function getEcommerceResourceCollection()
+    function getEcommerceResourceCollection()
     {
         return $this->_ecommerceOrdersCollection;
     }
@@ -1132,7 +1132,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
     /**
      * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Orders_Collection
      */
-    public function initializeEcommerceResourceCollection()
+    function initializeEcommerceResourceCollection()
     {
         /**
          * @var $collection Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Orders_Collection

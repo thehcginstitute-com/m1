@@ -57,7 +57,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Account
      * @param  $params
      * @throws Exception
      */
-    public function __construct($params)
+    function __construct($params)
     {
         $mcStore = null;
         $helper = $this->_helper = $this->makeHelper();
@@ -141,7 +141,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Account
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $helper = $this->_helper;
         $migrationHelper = $this->_migrationHelper;

@@ -19,7 +19,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_PromoRules_Collection
      *
      * @return void
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
     }
@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_PromoRules_Collection
     /**
      * @param Mage_SalesRule_Model_Resource_Rule_Collection $preFilteredPromoRulesCollection
      */
-    public function joinLeftEcommerceSyncData($preFilteredPromoRulesCollection, $columns = array('m4m.*'))
+    function joinLeftEcommerceSyncData($preFilteredPromoRulesCollection, $columns = array('m4m.*'))
     {
         $mailchimpTableName = $this->getMailchimpEcommerceDataTableName();
         $preFilteredPromoRulesCollection->getSelect()->joinLeft(

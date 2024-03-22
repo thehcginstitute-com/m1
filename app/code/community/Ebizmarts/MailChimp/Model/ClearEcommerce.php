@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Model_ClearEcommerce
      */
     protected $_ecommerceData;
 
-    public function __construct()
+    function __construct()
     {
         $this->_helper = Mage::helper('mailchimp');
         $this->_dateHelper = Mage::helper('mailchimp/date');
@@ -58,7 +58,7 @@ class Ebizmarts_MailChimp_Model_ClearEcommerce
      * Process all types of data from eCommerce data to delete
      * non active products, quotes, customers, etc. from the table.
      */
-    public function clearEcommerceData()
+    function clearEcommerceData()
     {
         $itemsPRO = $this->getItemsToDelete(Ebizmarts_MailChimp_Model_Config::IS_PRODUCT);
         $itemsCUS = $this->getItemsToDelete(Ebizmarts_MailChimp_Model_Config::IS_CUSTOMER);
@@ -77,7 +77,7 @@ class Ebizmarts_MailChimp_Model_ClearEcommerce
      * @param $data
      * @param $type
      */
-    public function processData($data, $type)
+    function processData($data, $type)
     {
         $ids = array();
         foreach ($data as $item) {
@@ -98,7 +98,7 @@ class Ebizmarts_MailChimp_Model_ClearEcommerce
      * @param $type
      * @return array
      */
-    public function processDeletedData($type)
+    function processDeletedData($type)
     {
         $ids = array();
         $eData = $this->getDeletedRows($type);
@@ -278,7 +278,7 @@ class Ebizmarts_MailChimp_Model_ClearEcommerce
      * @param $ids
      * @param $type
      */
-    public function deleteEcommerceRows($ids, $type)
+    function deleteEcommerceRows($ids, $type)
     {
         $ids = array_filter($ids);
         $ids = implode(',' , $ids);

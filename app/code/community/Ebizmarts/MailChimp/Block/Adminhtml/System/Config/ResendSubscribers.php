@@ -24,7 +24,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_ResendSubscribers
         return $this->_toHtml();
     }
 
-    public function getButtonHtml()
+    function getButtonHtml()
     {
         $helper = $this->makeHelper();
         $scopeArray = $helper->getCurrentScope();
@@ -44,7 +44,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_ResendSubscribers
             return $button->toHtml();
         }
     }
-    public function getAjaxCheckUrl()
+    function getAjaxCheckUrl()
     {
         $helper = $this->makeHelper();
         $scopeArray = $helper->getCurrentScope();

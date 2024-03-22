@@ -14,7 +14,7 @@ class Ebizmarts_MailChimp_Model_Subscriber extends Mage_Newsletter_Model_Subscri
     /**
      * @return $this|Mage_Newsletter_Model_Subscriber
      */
-    public function sendUnsubscriptionEmail()
+    function sendUnsubscriptionEmail()
     {
         if (Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_ACTIVE)
             && Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_MAGENTO_MAIL) != 1
@@ -28,7 +28,7 @@ class Ebizmarts_MailChimp_Model_Subscriber extends Mage_Newsletter_Model_Subscri
     /**
      * @return $this|Mage_Newsletter_Model_Subscriber
      */
-    public function sendConfirmationRequestEmail()
+    function sendConfirmationRequestEmail()
     {
         if (Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_ACTIVE)
             && Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_MAGENTO_MAIL) != 1
@@ -42,7 +42,7 @@ class Ebizmarts_MailChimp_Model_Subscriber extends Mage_Newsletter_Model_Subscri
     /**
      * @return $this|Mage_Newsletter_Model_Subscriber
      */
-    public function sendConfirmationSuccessEmail()
+    function sendConfirmationSuccessEmail()
     {
         if (Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_ACTIVE)
             && Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_MAGENTO_MAIL) != 1
@@ -57,7 +57,7 @@ class Ebizmarts_MailChimp_Model_Subscriber extends Mage_Newsletter_Model_Subscri
      * @param string $code
      * @return bool
      */
-    public function confirm($code)
+    function confirm($code)
     {
         if ($this->getCode() == $code) {
             $this->setStatus(self::STATUS_SUBSCRIBED)

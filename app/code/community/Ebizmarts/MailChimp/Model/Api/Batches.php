@@ -63,7 +63,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
      */
     protected $_apiSubscribers;
 
-    public function __construct()
+    function __construct()
     {
         $this->_mailchimpHelper = Mage::helper('mailchimp');
         $this->_mailchimpDateHelper = Mage::helper('mailchimp/date');
@@ -121,7 +121,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
     /**
      * @return Ebizmarts_MailChimp_Model_Api_Products
      */
-    public function getApiProducts()
+    function getApiProducts()
     {
         return $this->_apiProducts;
     }
@@ -129,7 +129,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
     /**
      * @return Ebizmarts_MailChimp_Model_Api_Carts
      */
-    public function getApiCarts()
+    function getApiCarts()
     {
         return $this->_apiCarts;
     }
@@ -137,7 +137,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
     /**
      * @return Ebizmarts_MailChimp_Model_Api_Orders
      */
-    public function getApiOrders()
+    function getApiOrders()
     {
         return $this->_apiOrders;
     }
@@ -145,7 +145,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
     /**
      * @return Ebizmarts_MailChimp_Model_Api_PromoRules
      */
-    public function getApiPromoRules()
+    function getApiPromoRules()
     {
         return $this->_apiPromoRules;
     }
@@ -153,7 +153,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
     /**
      * @return Ebizmarts_MailChimp_Model_Api_PromoCodes
      */
-    public function getApiPromoCodes()
+    function getApiPromoCodes()
     {
         return $this->_apiPromoCodes;
     }
@@ -185,7 +185,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
     /**
      * @return string
      */
-    public function getMagentoBaseDir()
+    function getMagentoBaseDir()
     {
         return Mage::getBaseDir();
     }
@@ -195,7 +195,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
      * @param $batchId
      * @return bool
      */
-    public function batchDirExists($baseDir, $batchId)
+    function batchDirExists($baseDir, $batchId)
     {
         return $this->getMailchimpFileHelper()
             ->fileExists($baseDir . DS . 'var' . DS . 'mailchimp' . DS . $batchId, false);
@@ -206,7 +206,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
      * @param $batchId
      * @return bool
      */
-    public function removeBatchDir($baseDir, $batchId)
+    function removeBatchDir($baseDir, $batchId)
     {
         return $this->getMailchimpFileHelper()
             ->rmDir($baseDir . DS . 'var' . DS . 'mailchimp' . DS . $batchId);
@@ -215,7 +215,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
     /**
      * Get Results and send Ecommerce Batches.
      */
-    public function handleEcommerceBatches()
+    function handleEcommerceBatches()
     {
         $helper = $this->getHelper();
         $stores = $this->getStores();
@@ -252,7 +252,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
     /**
      * Get Results and send Subscriber Batches.
      */
-    public function handleSubscriberBatches()
+    function handleSubscriberBatches()
     {
         $this->_sendSubscriberBatches();
     }
@@ -264,7 +264,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
      * @param bool  $isEcommerceData
      * @throws Mage_Core_Exception
      */
-    public function _getResults($magentoStoreId, $isEcommerceData = true, $status = Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING)
+    function _getResults($magentoStoreId, $isEcommerceData = true, $status = Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING)
     {
         $helper = $this->getHelper();
         $mailchimpStoreId = $helper->getMCStoreId($magentoStoreId);
@@ -330,7 +330,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
      * @param  $magentoStoreId
      * @throws Mage_Core_Exception
      */
-    public function _sendEcommerceBatch($magentoStoreId)
+    function _sendEcommerceBatch($magentoStoreId)
     {
         $helper = $this->getHelper();
         $mailchimpStoreId = $helper->getMCStoreId($magentoStoreId);
@@ -529,7 +529,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
         $connection->delete($tableName, $where);
     }
 
-    public function ecommerceDeleteCallback($args)
+    function ecommerceDeleteCallback($args)
     {
         $ecommerceData = Mage::getModel('mailchimp/ecommercesyncdata');
         $ecommerceData->setData($args['row']);
@@ -555,7 +555,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
         );
     }
 
-    public function ecommerceSentCallback($args)
+    function ecommerceSentCallback($args)
     {
         $ecommerceData = Mage::getModel('mailchimp/ecommercesyncdata');
         $ecommerceData->setData($args['row']); // map data to customer model
@@ -634,7 +634,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
      * @param  $limit
      * @return array|null
      */
-    public function sendStoreSubscriberBatch($storeId, $limit)
+    function sendStoreSubscriberBatch($storeId, $limit)
     {
         $helper = $this->getHelper();
 
@@ -699,7 +699,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
      * @param $magentoStoreId
      * @return array
      */
-    public function getBatchResponse($batchId, $magentoStoreId)
+    function getBatchResponse($batchId, $magentoStoreId)
     {
         $helper = $this->getHelper();
         $fileHelper = $this->getMailchimpFileHelper();
@@ -951,7 +951,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
      * @param $initialTime
      * @param $magentoStoreId
      */
-    public function replaceAllOrders($initialTime, $magentoStoreId)
+    function replaceAllOrders($initialTime, $magentoStoreId)
     {
         $helper = $this->getHelper();
         try {
@@ -1103,7 +1103,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
      * @param $syncedDateArray
      * @throws Mage_Core_Exception
      */
-    public function handleSyncingValue($syncedDateArray)
+    function handleSyncingValue($syncedDateArray)
     {
         $helper = $this->getHelper();
         foreach ($syncedDateArray as $mailchimpStoreId => $val) {

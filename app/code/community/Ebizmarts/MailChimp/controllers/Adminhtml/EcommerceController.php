@@ -13,13 +13,13 @@
  */
 class Ebizmarts_MailChimp_Adminhtml_EcommerceController extends Mage_Adminhtml_Controller_Action
 {
-    public function renderresendecomAction()
+    function renderresendecomAction()
     {
         $this->loadLayout();
         $this->renderLayout();
     }
 
-    public function resetLocalErrorsAction()
+    function resetLocalErrorsAction()
     {
         $helper = $this->makeHelper();
         $mageApp = $helper->getMageApp();
@@ -46,7 +46,7 @@ class Ebizmarts_MailChimp_Adminhtml_EcommerceController extends Mage_Adminhtml_C
         $mageApp->getResponse()->setBody($success);
     }
 
-    public function resendEcommerceDataAction()
+    function resendEcommerceDataAction()
     {
         $helper = $this->makeHelper();
         $mageApp = $helper->getMageApp();
@@ -79,7 +79,7 @@ class Ebizmarts_MailChimp_Adminhtml_EcommerceController extends Mage_Adminhtml_C
         $mageApp->getResponse()->setBody($success);
     }
 
-    public function createMergeFieldsAction()
+    function createMergeFieldsAction()
     {
         $helper = $this->makeHelper();
         $mageApp = $helper->getMageApp();
@@ -126,17 +126,17 @@ class Ebizmarts_MailChimp_Adminhtml_EcommerceController extends Mage_Adminhtml_C
         return Mage::getSingleton('admin/session');
     }
 
-    public function addWarning($message)
+    function addWarning($message)
     {
         Mage::getSingleton('core/session')->addWarning($message);
     }
 
-    public function addSuccess($message)
+    function addSuccess($message)
     {
         Mage::getSingleton('core/session')->addSuccess($message);
     }
 
-    public function addError($message)
+    function addError($message)
     {
         Mage::getSingleton('core/session')->addError($message);
     }

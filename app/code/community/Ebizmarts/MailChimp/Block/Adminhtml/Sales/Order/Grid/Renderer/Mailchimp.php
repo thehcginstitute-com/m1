@@ -17,7 +17,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_Grid_Renderer_Mailchimp
      * @param Varien_Object $row
      * @return string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $result = '';
 

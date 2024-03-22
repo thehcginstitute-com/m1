@@ -20,7 +20,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Form_Field_Mapfields
      */
     protected $_helper;
 
-    public function __construct()
+    function __construct()
     {
         $this->_helper = $this->makeHelper();
 
@@ -73,7 +73,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Form_Field_Mapfields
      * @param $data
      * @return string
      */
-    public function escapeQuote($data)
+    function escapeQuote($data)
     {
         return $this->getHelper()->mcEscapeQuote($data);
     }
@@ -81,7 +81,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Form_Field_Mapfields
     /**
      * @return Ebizmarts_MailChimp_Helper_Data
      */
-    public function getHelper($type='')
+    function getHelper($type='')
     {
         return $this->_helper;
     }

@@ -13,7 +13,7 @@
  */
 class Ebizmarts_MailChimp_Block_Adminhtml_Mailchimperrors extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         // The blockGroup must match the first half of how we call the block, and controller matches the second half
         // ie. foo_bar/adminhtml_baz

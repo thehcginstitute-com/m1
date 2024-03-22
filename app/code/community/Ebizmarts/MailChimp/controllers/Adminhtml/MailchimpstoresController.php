@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
         return $this;
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_loadStores();
         $this->_title($this->__('Newsletter'))
@@ -38,7 +38,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
         $this->renderLayout();
     }
 
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout(false);
         $this->renderLayout();
@@ -57,7 +57,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
         return $this;
     }
 
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('Mailchimp'))->_title($this->__('Mailchimp Store'));
         $id = $this->getRequest()->getParam('id');
@@ -75,12 +75,12 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
             ->renderLayout();
     }
 
-    public function newAction()
+    function newAction()
     {
         $this->_forward('edit');
     }
 
-    public function saveAction()
+    function saveAction()
     {
         $isPost = $this->getRequest()->getPost();
 
@@ -224,7 +224,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
             ->save();
     }
 
-    public function getstoresAction()
+    function getstoresAction()
     {
         $helper = $this->getMailchimpHelper();
         $apiKey = $helper->decryptData($this->getRequest()->getParam('api_key'));
@@ -254,7 +254,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
         $response->setBody($jsonData);
     }
 
-    public function deleteAction()
+    function deleteAction()
     {
         $helper = $this->getMailchimpHelper();
         $id = $this->getRequest()->getParam('id');

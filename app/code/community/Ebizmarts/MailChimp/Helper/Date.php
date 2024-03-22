@@ -18,7 +18,7 @@ class Ebizmarts_MailChimp_Helper_Date extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getDateMicrotime()
+    function getDateMicrotime()
     {
         $microtime = explode(' ', microtime());
         $msec = $microtime[0];
@@ -34,7 +34,7 @@ class Ebizmarts_MailChimp_Helper_Date extends Mage_Core_Helper_Abstract
      * @param  $initialTime
      * @return bool
      */
-    public function timePassed($initialTime)
+    function timePassed($initialTime)
     {
         $storeCount = count(Mage::app()->getStores());
         $timePassed = false;
@@ -54,7 +54,7 @@ class Ebizmarts_MailChimp_Helper_Date extends Mage_Core_Helper_Abstract
     /**
      * @return string
      */
-    public function getCurrentDateTime()
+    function getCurrentDateTime()
     {
         return $this->formatDate(null, 'd-m-Y H:i:s');
     }
@@ -69,7 +69,7 @@ class Ebizmarts_MailChimp_Helper_Date extends Mage_Core_Helper_Abstract
      * @return mixed
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function formatDate($date = null, $format = 'Y-m-d', $useStoreTime = false)
+    function formatDate($date = null, $format = 'Y-m-d', $useStoreTime = false)
     {
         $gmtTimestamp = Mage::getModel('core/date')->gmtTimestamp($date);
         $currentTimestamp = $this->getTimestamp($gmtTimestamp);
@@ -97,7 +97,7 @@ class Ebizmarts_MailChimp_Helper_Date extends Mage_Core_Helper_Abstract
      * @param null $time
      * @return string
      */
-    public function getTimestamp($time = null)
+    function getTimestamp($time = null)
     {
         return Mage::getModel('core/date')->timestamp($time);
     }

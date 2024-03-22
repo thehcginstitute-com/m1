@@ -19,7 +19,7 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata_Quote extends Ebizmarts_MailCh
      *
      * @return void
      */
-    public function _construct()
+    function _construct()
     {
 
     }

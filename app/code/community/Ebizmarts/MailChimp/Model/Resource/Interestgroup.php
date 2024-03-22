@@ -19,7 +19,7 @@ class Ebizmarts_MailChimp_Model_Resource_Interestgroup extends Mage_Core_Model_R
      *
      * @return void
      */
-    public function _construct()
+    function _construct()
     {
         $this->_init('mailchimp/interestgroup', 'id');
     }
@@ -30,7 +30,7 @@ class Ebizmarts_MailChimp_Model_Resource_Interestgroup extends Mage_Core_Model_R
      * @param int $storeId
      * @return array
      */
-    public function getByRelatedIdStoreId($customerId = 0, $subscriberId = 0, $storeId = 0)
+    function getByRelatedIdStoreId($customerId = 0, $subscriberId = 0, $storeId = 0)
     {
         $read = $this->_getReadAdapter();
         $select = $read->select()

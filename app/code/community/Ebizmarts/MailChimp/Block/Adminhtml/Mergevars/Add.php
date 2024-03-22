@@ -9,7 +9,7 @@
 class Ebizmarts_MailChimp_Block_Adminhtml_Mergevars_Add extends Mage_Adminhtml_Block_Widget_Form_Container
 {
     protected $_mode = 'add';
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'adminhtml_mergevars';
         $this->_blockGroup = 'mailchimp';
@@ -23,7 +23,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Mergevars_Add extends Mage_Adminhtml_B
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('mailchimp')->__('New Field Type');
     }

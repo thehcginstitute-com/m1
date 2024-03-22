@@ -17,7 +17,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Success_Groups extends Mage_Core_Block_
     protected $_helper;
     protected $_toreId;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_helper = Mage::helper('mailchimp');
@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Success_Groups extends Mage_Core_Block_
     /**
      * @return string
      */
-    public function getFormUrl()
+    function getFormUrl()
     {
         return $this->getSuccessInterestUrl();
     }
@@ -36,7 +36,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Success_Groups extends Mage_Core_Block_
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getSuccessInterestUrl()
+    function getSuccessInterestUrl()
     {
         $url = 'mailchimp/group/index';
         return Mage::app()->getStore()->getUrl($url);
@@ -47,7 +47,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Success_Groups extends Mage_Core_Block_
      * @throws Mage_Core_Exception
      * @throws MailChimp_Error
      */
-    public function getInterest()
+    function getInterest()
     {
         $subscriber = $this->getSubscriberModel();
         $order = $this->getSessionLastRealOrder();
@@ -63,7 +63,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Success_Groups extends Mage_Core_Block_
      * @return string
      * @throws Mage_Core_Exception
      */
-    public function getMessageBefore()
+    function getMessageBefore()
     {
         $storeId = $this->_storeId;
         $message = $this->getMailChimpHelper()->getCheckoutSuccessHtmlBefore($storeId);
@@ -74,7 +74,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Success_Groups extends Mage_Core_Block_
      * @return string
      * @throws Mage_Core_Exception
      */
-    public function getMessageAfter()
+    function getMessageAfter()
     {
         $storeId = $this->_storeId;
         $message = $this->getMailChimpHelper()->getCheckoutSuccessHtmlAfter($storeId);
@@ -85,7 +85,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Success_Groups extends Mage_Core_Block_
      * @param $data
      * @return string
      */
-    public function escapeQuote($data)
+    function escapeQuote($data)
     {
         return $this->getMailChimpHelper()->mcEscapeQuote($data);
     }
@@ -93,7 +93,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Success_Groups extends Mage_Core_Block_
     /**
      * @return Ebizmarts_MailChimp_Helper_Data|Mage_Core_Helper_Abstract
      */
-    public function getMailChimpHelper()
+    function getMailChimpHelper()
     {
         return $this->_helper;
     }

@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Store
      * @param  $params
      * @throws Exception
      */
-    public function __construct($params)
+    function __construct($params)
     {
         $helper = $this->_helper = $this->makeHelper();
         $scopeArray = $helper->getCurrentScope();
@@ -49,7 +49,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Store
         }
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         $helper = $this->getHelper();
         $mcStores = $this->getMCStores();

@@ -14,7 +14,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_ConnectionTimeout
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return array(
             array('value' => 10, 'label' => Mage::helper('mailchimp')->__('10')),

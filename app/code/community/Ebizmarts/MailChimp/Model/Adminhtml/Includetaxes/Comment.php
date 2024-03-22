@@ -12,7 +12,7 @@
  */
 class Ebizmarts_MailChimp_Model_Adminhtml_Includetaxes_Comment
 {
-    public function getCommentText()
+    function getCommentText()
     {
         $helper = Mage::helper('mailchimp');
         return $helper->__(

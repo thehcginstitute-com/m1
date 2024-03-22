@@ -20,12 +20,12 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Fieldset_Mandrill_Hint
      * @param  Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         return $this->toHtml();
     }
 
-    public function getMandrillVersion()
+    function getMandrillVersion()
     {
         return (string)Mage::getConfig()->getNode('modules/Ebizmarts_Mandrill/version');
     }

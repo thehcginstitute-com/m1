@@ -16,7 +16,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_Grid_Renderer_MailchimpOrd
 {
     const SYNCED = 1;
 
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $storeId = $row->getStoreId();
         $orderId = $row->getEntityId();

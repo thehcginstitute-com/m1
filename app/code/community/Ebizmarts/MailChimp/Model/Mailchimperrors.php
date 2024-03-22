@@ -18,7 +18,7 @@ class Ebizmarts_MailChimp_Model_Mailchimperrors extends Mage_Core_Model_Abstract
      *
      * @return void
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->_init('mailchimp/mailchimperrors');

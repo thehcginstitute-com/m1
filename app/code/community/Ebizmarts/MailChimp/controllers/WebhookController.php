@@ -42,7 +42,7 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
     /**
      * Entry point for all webhook operations
      */
-    public function indexAction()
+    function indexAction()
     {
         $request = $this->getRequest();
         $requestKey = $request->getParam('wkey');

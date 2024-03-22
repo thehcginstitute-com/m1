@@ -19,7 +19,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_PromoCodes_Collection
      *
      * @return void
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
     }
@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_PromoCodes_Collection
     /**
      * @param Mage_SalesRule_Model_Resource_Coupon_Collection $preFilteredPromoCodesCollection
      */
-    public function joinLeftEcommerceSyncData($preFilteredPromoCodesCollection, $columns = array('m4m.*'))
+    function joinLeftEcommerceSyncData($preFilteredPromoCodesCollection, $columns = array('m4m.*'))
     {
         $joinCondition = "m4m.related_id = main_table.coupon_id AND m4m.type = '%s' AND m4m.mailchimp_store_id = '%s'";
         $mailchimpTableName = $this->getMailchimpEcommerceDataTableName();
@@ -41,7 +41,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_PromoCodes_Collection
     /**
      * @param $collection Mage_SalesRule_Model_Resource_Coupon_Collection
      */
-    public function addWebsiteColumn($collection)
+    function addWebsiteColumn($collection)
     {
         $websiteTableName = $this->getCoreResource()->getTableName('salesrule/website');
         $collection->getSelect()->joinLeft(
@@ -54,7 +54,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_PromoCodes_Collection
     /**
      * @param $collection Mage_SalesRule_Model_Resource_Coupon_Collection
      */
-    public function joinPromoRuleData($collection)
+    function joinPromoRuleData($collection)
     {
         $salesRuleName = $this->getCoreResource()->getTableName('salesrule/rule');
         $conditions = 'main_table.rule_id=salesrule.rule_id';

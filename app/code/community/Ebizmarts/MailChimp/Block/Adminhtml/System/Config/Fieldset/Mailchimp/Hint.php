@@ -20,7 +20,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Fieldset_Mailchimp_Hint
      * @param  Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         return $this->toHtml();
     }
@@ -28,7 +28,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Fieldset_Mailchimp_Hint
     /**
      * @return string
      */
-    public function getMailChimpVersion()
+    function getMailChimpVersion()
     {
         return (string)Mage::getConfig()->getNode('modules/Ebizmarts_MailChimp/version');
     }
@@ -36,7 +36,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Fieldset_Mailchimp_Hint
     /**
      * @return mixed
      */
-    public function getMigrationFinishedStatus()
+    function getMigrationFinishedStatus()
     {
         return $this->makeMigrationHelper()->migrationFinished();
     }
@@ -53,7 +53,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Fieldset_Mailchimp_Hint
     /**
      * @return mixed
      */
-    public function getStoresUrl()
+    function getStoresUrl()
     {
         return  Mage::helper('adminhtml')->getUrl('adminhtml/mailchimp/getStores');
     }
@@ -61,7 +61,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Fieldset_Mailchimp_Hint
     /**
      * @return mixed
      */
-    public function getListUrl()
+    function getListUrl()
     {
         return  Mage::helper('adminhtml')->getUrl('adminhtml/mailchimp/getList');
     }
@@ -69,7 +69,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Fieldset_Mailchimp_Hint
     /**
      * @return mixed
      */
-    public function getInfoUrl()
+    function getInfoUrl()
     {
         return  Mage::helper('adminhtml')->getUrl('adminhtml/mailchimp/getInfo');
     }
@@ -77,12 +77,12 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Fieldset_Mailchimp_Hint
     /**
      * @return mixed
      */
-    public function getInterestUrl()
+    function getInterestUrl()
     {
         return  Mage::helper('adminhtml')->getUrl('adminhtml/mailchimp/getInterest');
     }
 
-    public function isApiKeySet()
+    function isApiKeySet()
     {
         $helper = $this->makeHelper();
         $scopeArray = $helper->getCurrentScope();

@@ -16,7 +16,7 @@
 class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Product extends
     Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata
 {
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->setType(Ebizmarts_MailChimp_Model_Config::IS_PRODUCT);

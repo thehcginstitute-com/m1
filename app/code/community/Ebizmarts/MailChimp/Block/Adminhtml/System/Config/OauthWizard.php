@@ -32,7 +32,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_OauthWizard
      * @param  Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         $element->unsScope()->unsCanUseWebsiteValue()->unsCanUseDefaultValue();
         return parent::render($element);

@@ -19,7 +19,7 @@ class Ebizmarts_MailChimp_Model_Resource_Webhookrequest extends Mage_Core_Model_
      *
      * @return void
      */
-    public function _construct()
+    function _construct()
     {
         $this->_init('mailchimp/webhookrequest', 'id');
     }

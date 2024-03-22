@@ -24,7 +24,7 @@ class Ebizmarts_MailChimp_Block_Customer_Newsletter_Index extends Mage_Customer_
     protected $_helper;
     protected $_storeId;
 
-    public function __construct()
+    function __construct()
     {
         $this->setTemplate('ebizmarts/mailchimp/customer/newsletter/index.phtml');
         $this->_helper = Mage::helper('mailchimp');
@@ -37,7 +37,7 @@ class Ebizmarts_MailChimp_Block_Customer_Newsletter_Index extends Mage_Customer_
      * @throws Mage_Core_Model_Store_Exception
      * @throws MailChimp_Error
      */
-    public function getInterest()
+    function getInterest()
     {
         $subscriber = $this->getSubscriberModel();
         $subscriber->loadByEmail($this->_getEmail());
@@ -60,7 +60,7 @@ class Ebizmarts_MailChimp_Block_Customer_Newsletter_Index extends Mage_Customer_
      * @param $data
      * @return string
      */
-    public function escapeQuote($data)
+    function escapeQuote($data)
     {
         return $this->getMailChimpHelper()->mcEscapeQuote($data);
     }
@@ -68,7 +68,7 @@ class Ebizmarts_MailChimp_Block_Customer_Newsletter_Index extends Mage_Customer_
     /**
      * @return Ebizmarts_MailChimp_Helper_Data
      */
-    public function getMailChimpHelper()
+    function getMailChimpHelper()
     {
         return $this->_helper;
     }

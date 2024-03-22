@@ -14,7 +14,7 @@
 class Ebizmarts_MailChimp_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Template
 {
 
-    public function getMessageNotification()
+    function getMessageNotification()
     {
         $helper = $this->makeHelper();
         if ($helper->isImageCacheFlushed() && $helper->isEcomSyncDataEnabledInAnyScope()) {
@@ -29,7 +29,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Notifications extends Mage_Adminhtml_B
     /**
      * @return string
      */
-    public function getMessage()
+    function getMessage()
     {
         $helper = $this->makeHelper();
         $message = 'Are you sure you want to delete the local data in order to send all items again?\n'
@@ -38,14 +38,14 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Notifications extends Mage_Adminhtml_B
         return $helper->__($message);
     }
 
-    public function getAjaxCheckUrl()
+    function getAjaxCheckUrl()
     {
         $helper = $this->makeHelper();
 
         return $helper->getUrlForNotification();
     }
 
-    public function getUrlForResendEcommerce()
+    function getUrlForResendEcommerce()
     {
         $helper = $this->makeHelper();
         $scopeArray = $helper->getCurrentScope();

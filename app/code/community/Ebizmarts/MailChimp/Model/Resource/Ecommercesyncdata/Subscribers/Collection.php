@@ -19,7 +19,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Subscribers_Collectio
      *
      * @return void
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
     }
@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Subscribers_Collectio
     /**
      * @param Mage_Newsletter_Model_Resource_Subscriber_Collection $preFilteredOrdersCollection
      */
-    public function joinLeftEcommerceSyncData($preFilteredOrdersCollection)
+    function joinLeftEcommerceSyncData($preFilteredOrdersCollection)
     {
         $mailchimpTableName = $this->getMailchimpEcommerceDataTableName();
         $preFilteredOrdersCollection->getSelect()->joinLeft(

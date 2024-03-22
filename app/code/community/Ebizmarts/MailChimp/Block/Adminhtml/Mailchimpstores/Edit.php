@@ -11,7 +11,7 @@
  */
 class Ebizmarts_MailChimp_Block_Adminhtml_Mailchimpstores_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'id';
         $this->_controller = 'adminhtml_mailchimpstores';
@@ -55,12 +55,12 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Mailchimpstores_Edit extends Mage_Admi
         }";
     }
 
-    public function getStoreId()
+    function getStoreId()
     {
         return Mage::registry('current_store')->getId();
     }
 
-    public function getHeaderText()
+    function getHeaderText()
     {
         if (Mage::registry('current_mailchimpstore')->getId()) {
             return $this->escapeHtml(Mage::registry('current_mailchimpstore')->getName());

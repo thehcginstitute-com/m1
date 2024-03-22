@@ -15,7 +15,7 @@ require_once Mage::getModuleDir('controllers', 'Mage_Checkout') . DS . 'CartCont
 
 class Ebizmarts_MailChimp_CartController extends Mage_Checkout_CartController
 {
-    public function loadquoteAction()
+    function loadquoteAction()
     {
         $params = $this->getRequest()->getParams();
 
@@ -78,7 +78,7 @@ class Ebizmarts_MailChimp_CartController extends Mage_Checkout_CartController
         }
     }
 
-    public function loadcouponAction()
+    function loadcouponAction()
     {
         $params = $this->getRequest()->getParams();
 
@@ -143,7 +143,7 @@ class Ebizmarts_MailChimp_CartController extends Mage_Checkout_CartController
     /**
      * @return mixed
      */
-    public function getMailchimpEcommerceSyncDataModel()
+    function getMailchimpEcommerceSyncDataModel()
     {
         return Mage::getModel('mailchimp/ecommercesyncdata');
     }

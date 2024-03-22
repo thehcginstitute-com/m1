@@ -19,7 +19,7 @@ class Ebizmarts_MailChimp_Model_Resource_Interestgroup_Collection extends
      *
      * @return void
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->_init('mailchimp/interestgroup');

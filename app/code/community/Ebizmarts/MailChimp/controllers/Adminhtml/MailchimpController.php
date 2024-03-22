@@ -17,14 +17,14 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpController extends Mage_Adminhtml_C
     protected $_helper;
     protected $_webhookHelper;
 
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_helper = Mage::helper('mailchimp');
         $this->_webhookHelper = Mage::helper('mailchimp/webhook');
         return parent::preDispatch();
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $customerId = (int)$this->getRequest()->getParam('id');
 
@@ -41,7 +41,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpController extends Mage_Adminhtml_C
         }
     }
 
-    public function resendSubscribersAction()
+    function resendSubscribersAction()
     {
         $helper = $this->getHelper();
         $mageApp = $helper->getMageApp();
@@ -59,7 +59,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpController extends Mage_Adminhtml_C
         $mageApp->getResponse()->setBody($success);
     }
 
-    public function createWebhookAction()
+    function createWebhookAction()
     {
         $helper = $this->getHelper();
         $webhookHelper = $this->getWebhookHelper();
@@ -74,7 +74,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpController extends Mage_Adminhtml_C
         $mageApp->getResponse()->setBody($message);
     }
 
-    public function getStoresAction()
+    function getStoresAction()
     {
         $helper = $this->getHelper();
         $apiKey = $this->getRequest()->getParam('api_key');
@@ -91,7 +91,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpController extends Mage_Adminhtml_C
         $response->setBody($jsonData);
     }
 
-    public function getInfoAction()
+    function getInfoAction()
     {
         $helper = $this->getHelper();
         $request = $this->getRequest();
@@ -120,7 +120,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpController extends Mage_Adminhtml_C
         $response->setBody($jsonData);
     }
 
-    public function getListAction()
+    function getListAction()
     {
         $helper = $this->getHelper();
         $request = $this->getRequest();
@@ -139,7 +139,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpController extends Mage_Adminhtml_C
         $response->setBody($jsonData);
     }
 
-    public function getInterestAction()
+    function getInterestAction()
     {
         $helper = $this->getHelper();
         $request = $this->getRequest();

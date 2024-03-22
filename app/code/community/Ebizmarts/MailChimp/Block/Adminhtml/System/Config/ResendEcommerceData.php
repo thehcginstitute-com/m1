@@ -24,7 +24,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_ResendEcommerceData
         return $this->_toHtml();
     }
 
-    public function getButtonHtml()
+    function getButtonHtml()
     {
         $helper = $this->makeHelper();
         $scopeArray = $helper->getCurrentScope();

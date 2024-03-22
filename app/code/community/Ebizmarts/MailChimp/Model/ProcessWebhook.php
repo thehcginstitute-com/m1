@@ -38,7 +38,7 @@ class Ebizmarts_MailChimp_Model_ProcessWebhook
 
     const WEBHOOKS_PATH = 'mailchimp/webhook/index/';
 
-    public function __construct()
+    function __construct()
     {
         $this->_helper = Mage::helper('mailchimp');
         $this->_dateHelper = Mage::helper('mailchimp/date');
@@ -47,7 +47,7 @@ class Ebizmarts_MailChimp_Model_ProcessWebhook
         $this->_interestGroupHandle = Mage::getModel('mailchimp/api_subscribers_InterestGroupHandle');
     }
 
-    public function saveWebhookRequest(array $data)
+    function saveWebhookRequest(array $data)
     {
         Mage::getModel('mailchimp/webhookrequest')
             ->setType($data['type'])
@@ -61,7 +61,7 @@ class Ebizmarts_MailChimp_Model_ProcessWebhook
      *
      * @return void
      */
-    public function processWebhookData()
+    function processWebhookData()
     {
         $collection = Mage::getModel('mailchimp/webhookrequest')->getCollection();
         $collection->addFieldToFilter('processed', array('eq' => 0));
@@ -212,12 +212,12 @@ class Ebizmarts_MailChimp_Model_ProcessWebhook
      * @param array $data
      * @throws Mage_Core_Exception
      */
-    public function _profile(array $data)
+    function _profile(array $data)
     {
         $this->getMailchimpTagsModel()->processMergeFields($data);
     }
 
-    public function deleteProcessed()
+    function deleteProcessed()
     {
         $helper = $this->getHelper();
         $resource = $helper->getCoreResource();

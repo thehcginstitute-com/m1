@@ -14,7 +14,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_BatchLimit
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return array(
             array('value' => 50, 'label' => Mage::helper('mailchimp')->__('50')),

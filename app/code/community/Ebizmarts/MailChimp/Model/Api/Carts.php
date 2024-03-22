@@ -29,7 +29,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @return array
 	 */
-	public function createBatchJson()
+	function createBatchJson()
 	{
 		$mailchimpStoreId = $this->getMailchimpStoreId();
 		$magentoStoreId = $this->getMagentoStoreId();
@@ -79,7 +79,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @return array
 	 */
-	public function _getConvertedQuotes()
+	function _getConvertedQuotes()
 	{
 		$mailchimpStoreId = $this->getMailchimpStoreId();
 
@@ -131,7 +131,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @return array
 	 */
-	public function _getModifiedQuotes()
+	function _getModifiedQuotes()
 	{
 		$mailchimpStoreId = $this->getMailchimpStoreId();
 		$magentoStoreId = $this->getMagentoStoreId();
@@ -238,7 +238,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 * @return array|mixed
 	 * @throws Mage_Core_Exception
 	 */
-	public function _getNewQuotes()
+	function _getNewQuotes()
 	{
 		$mailchimpStoreId = $this->getMailchimpStoreId();
 		$magentoStoreId = $this->getMagentoStoreId();
@@ -365,7 +365,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 * @param  $email
 	 * @return object
 	 */
-	public function getAllCartsByEmail($email)
+	function getAllCartsByEmail($email)
 	{
 		$allCartsForEmail = $this->getItemResourceModelCollection();
 		$allCartsForEmail->addFieldToFilter('is_active', array('eq' => 1));
@@ -386,7 +386,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 * @param $isModified
 	 * @return string
 	 */
-	public function makeCart($cart, $isModified = false)
+	function makeCart($cart, $isModified = false)
 	{
 		$magentoStoreId = $this->getMagentoStoreId();
 
@@ -529,7 +529,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 * @param  $magentoStoreId
 	 * @return array
 	 */
-	public function _getCustomer($cart, $magentoStoreId)
+	function _getCustomer($cart, $magentoStoreId)
 	{
 		$customer = array(
 			"id" => hash('md5', strtolower($cart->getCustomerEmail())),
@@ -614,7 +614,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 * @param $allCarts
 	 * @return mixed
 	 */
-	public function addProductNotSentData($cart, $allCarts)
+	function addProductNotSentData($cart, $allCarts)
 	{
 		$mailchimpStoreId = $this->getMailchimpStoreId();
 		$magentoStoreId = $this->getMagentoStoreId();
@@ -635,7 +635,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @param Mage_Sales_Model_Resource_Quote_Collection $preFilteredCollection
 	 */
-	public function joinLeftEcommerceSyncData($preFilteredCollection)
+	function joinLeftEcommerceSyncData($preFilteredCollection)
 	{
 		$this->_ecommerceQuotesCollection->joinLeftEcommerceSyncData($preFilteredCollection);
 	}
@@ -643,7 +643,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @return Mage_Sales_Model_Resource_Quote_Collection
 	 */
-	public function getItemResourceModelCollection()
+	function getItemResourceModelCollection()
 	{
 		return Mage::getResourceModel('sales/quote_collection');
 	}
@@ -651,7 +651,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @return false|Mage_Core_Model_Abstract
 	 */
-	public function getCustomerModel()
+	function getCustomerModel()
 	{
 		return Mage::getModel("customer/customer");
 	}
@@ -660,7 +660,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 * @param $magentoStoreId
 	 * @return mixed
 	 */
-	public function getWebSiteIdFromMagentoStoreId($magentoStoreId)
+	function getWebSiteIdFromMagentoStoreId($magentoStoreId)
 	{
 		return Mage::getModel('core/store')->load($magentoStoreId)->getWebsiteId();
 	}
@@ -668,7 +668,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @return int
 	 */
-	public function getCounter()
+	function getCounter()
 	{
 		return $this->_counter;
 	}
@@ -676,7 +676,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @param $counter
 	 */
-	public function setCounter($counter)
+	function setCounter($counter)
 	{
 		$this->_counter = $counter;
 	}
@@ -686,7 +686,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 *
 	 * @return string
 	 */
-	public function getBatchId()
+	function getBatchId()
 	{
 		return $this->_batchId;
 	}
@@ -694,7 +694,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @param $batchId
 	 */
-	public function setBatchId($batchId)
+	function setBatchId($batchId)
 	{
 		$this->_batchId = $batchId;
 	}
@@ -704,7 +704,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 *
 	 * @return string|null
 	 */
-	public function getToken()
+	function getToken()
 	{
 		return $this->_token;
 	}
@@ -712,7 +712,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @param string $token
 	 */
-	public function setToken($token)
+	function setToken($token)
 	{
 
 		$this->_token = $token;
@@ -790,7 +790,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Quote_Collection
 	 */
-	public function initializeEcommerceResourceCollection()
+	function initializeEcommerceResourceCollection()
 	{
 		/**
 		 * @var $collection Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Quote_Collection
@@ -803,7 +803,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Quote_Collection
 	 */
-	public function getEcommerceResourceCollection()
+	function getEcommerceResourceCollection()
 	{
 		return $this->_ecommerceQuotesCollection;
 	}

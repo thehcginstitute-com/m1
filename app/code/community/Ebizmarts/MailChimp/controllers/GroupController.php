@@ -14,7 +14,7 @@
 
 class Ebizmarts_MailChimp_GroupController extends Mage_Core_Controller_Front_Action
 {
-    public function indexAction()
+    function indexAction()
     {
         $helper = $this->getHelper();
         $order = $this->getSessionLastRealOrder();

@@ -13,13 +13,13 @@
 class Ebizmarts_MailChimp_Adminhtml_MergevarsController extends Mage_Adminhtml_Controller_Action
 {
 
-    public function addmergevarAction()
+    function addmergevarAction()
     {
         $this->loadLayout();
         $this->renderLayout();
     }
 
-    public function saveaddAction()
+    function saveaddAction()
     {
         $postData = $this->getRequest()->getPost('mergevar', array());
         $label = $postData['label'];

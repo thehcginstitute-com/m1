@@ -21,13 +21,13 @@ class Ebizmarts_MailChimp_Model_Cron
      */
     protected $_mailChimpMigrationHelper;
 
-    public function __construct()
+    function __construct()
     {
         $this->_mailChimpHelper = Mage::helper('mailchimp');
         $this->_mailChimpMigrationHelper = Mage::helper('mailchimp/migration');
     }
 
-    public function syncEcommerceBatchData()
+    function syncEcommerceBatchData()
     {
         if ($this->getMigrationHelper()->migrationFinished()) {
             Mage::getModel('mailchimp/api_batches')->handleEcommerceBatches();
@@ -36,26 +36,26 @@ class Ebizmarts_MailChimp_Model_Cron
         }
     }
 
-    public function syncSubscriberBatchData()
+    function syncSubscriberBatchData()
     {
         Mage::getModel('mailchimp/api_batches')->handleSubscriberBatches();
     }
 
-    public function processWebhookData()
+    function processWebhookData()
     {
         Mage::getModel('mailchimp/processWebhook')->processWebhookData();
     }
 
-    public function deleteWebhookRequests()
+    function deleteWebhookRequests()
     {
         Mage::getModel('mailchimp/processWebhook')->deleteProcessed();
     }
 
-    public function clearEcommerceData()
+    function clearEcommerceData()
     {
         Mage::getModel('mailchimp/clearEcommerce')->clearEcommerceData();
     }
-    public function clearBatches()
+    function clearBatches()
     {
         Mage::getModel('mailchimp/clearBatches')->clearBatches();
     }

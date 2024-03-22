@@ -20,7 +20,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_CreateWebhook
         return $this->_toHtml();
     }
 
-    public function getButtonHtml()
+    function getButtonHtml()
     {
         $helper = $this->makeHelper();
             $button = $this->getLayout()->createBlock('adminhtml/widget_button')
@@ -39,7 +39,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_CreateWebhook
     /**
      * @return string
      */
-    public function getSuccessMessage()
+    function getSuccessMessage()
     {
         $helper = $this->makeHelper();
         $message = 'The webhook was created successfully.';
@@ -49,14 +49,14 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_CreateWebhook
     /**
      * @return string
      */
-    public function getFailureMessage()
+    function getFailureMessage()
     {
         $helper = $this->makeHelper();
         $message = 'Something went wrong.';
         return $helper->__($message);
     }
 
-    public function getAjaxCheckUrl()
+    function getAjaxCheckUrl()
     {
         $helper = $this->makeHelper();
         $scopeArray = $helper->getCurrentScope();

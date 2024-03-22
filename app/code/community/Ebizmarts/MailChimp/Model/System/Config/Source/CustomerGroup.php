@@ -17,7 +17,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_CustomerGroup
      * @param  $params
      * @throws Mage_Core_Exception
      */
-    public function __construct($params)
+    function __construct($params)
     {
         $helper = $this->makeHelper();
         $scopeArray = $helper->getCurrentScope();
@@ -38,7 +38,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_CustomerGroup
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $groups = array();
         $helper = $this->makeHelper();

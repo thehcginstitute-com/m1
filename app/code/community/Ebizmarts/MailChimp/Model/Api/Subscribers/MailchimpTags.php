@@ -52,7 +52,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
      */
     protected $_interestGroupHandle;
 
-    public function __construct()
+    function __construct()
     {
         $this->setMailChimpHelper();
         $this->setMailChimpDateHelper();
@@ -64,7 +64,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @param $storeId
      */
-    public function setStoreId($storeId)
+    function setStoreId($storeId)
     {
         $this->_storeId = $storeId;
     }
@@ -72,7 +72,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_storeId;
     }
@@ -80,7 +80,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @param Mage_Newsletter_Model_Subscriber $subscriber
      */
-    public function setSubscriber($subscriber)
+    function setSubscriber($subscriber)
     {
         $this->_subscriber = $subscriber;
     }
@@ -88,7 +88,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @return Mage_Newsletter_Model_Subscriber
      */
-    public function getSubscriber()
+    function getSubscriber()
     {
         return $this->_subscriber;
     }
@@ -96,7 +96,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @param Mage_Customer_Model_Customer $customer
      */
-    public function setCustomer($customer)
+    function setCustomer($customer)
     {
         $this->_customer = $customer;
     }
@@ -104,7 +104,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         return $this->_customer;
     }
@@ -126,7 +126,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @return array
      */
-    public function getMailChimpTags()
+    function getMailChimpTags()
     {
         return $this->_mailChimpTags;
     }
@@ -135,7 +135,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
      * @param $key
      * @param $value
      */
-    public function addMailChimpTag($key, $value)
+    function addMailChimpTag($key, $value)
     {
         $this->_mailChimpTags[$key] = $value;
     }
@@ -144,7 +144,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
      * @param $key
      * @return mixed|null
      */
-    public function getMailChimpTagValue($key)
+    function getMailChimpTagValue($key)
     {
         $mailchimpTagValue = null;
 
@@ -158,7 +158,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @return Mage_Sales_Model_Order
      */
-    public function getLastOrder()
+    function getLastOrder()
     {
         return $this->_lastOrder;
     }
@@ -166,7 +166,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @param Mage_Sales_Model_Order $lastOrder
      */
-    public function setLastOrder($lastOrder)
+    function setLastOrder($lastOrder)
     {
         $this->_lastOrder = $lastOrder;
     }
@@ -174,7 +174,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @throws Mage_Core_Exception
      */
-    public function buildMailChimpTags()
+    function buildMailChimpTags()
     {
         $helper = $this->getMailchimpHelper();
         $storeId = $this->getStoreId();
@@ -226,7 +226,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
      * @param bool $subscribe
      * @throws Mage_Core_Exception
      */
-    public function processMergeFields($data, $subscribe = false)
+    function processMergeFields($data, $subscribe = false)
     {
         $helper = $this->getMailchimpHelper();
         $email = $data['email'];
@@ -779,7 +779,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @return Ebizmarts_MailChimp_Helper_Data
      */
-    public function getMailchimpHelper()
+    function getMailchimpHelper()
     {
         return $this->_mcHelper;
     }
@@ -795,7 +795,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @return Ebizmarts_MailChimp_Helper_Date
      */
-    public function getMailchimpDateHelper()
+    function getMailchimpDateHelper()
     {
         return $this->_mcDateHelper;
     }
@@ -811,7 +811,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @return Ebizmarts_MailChimp_Helper_Webhook
      */
-    public function getMailchimpWebhookHelper()
+    function getMailchimpWebhookHelper()
     {
         return $this->_mcWebhookHelper;
     }

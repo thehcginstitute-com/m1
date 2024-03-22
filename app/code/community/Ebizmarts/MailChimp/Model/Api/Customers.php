@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
      */
     protected $_ecommerceCustomersCollection;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -63,7 +63,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
      * @param int[] $customerIdsToSync Customer IDs to synchronise.
      * @return Mage_Customer_Model_Resource_Customer_Collection
      */
-    public function makeCustomersNotSentCollection($customerIdsToSync)
+    function makeCustomersNotSentCollection($customerIdsToSync)
     {
         /**
          * @var Mage_Customer_Model_Resource_Customer_Collection $collection
@@ -82,7 +82,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
      * @return array
      * @throws Mage_Core_Exception
      */
-    public function createBatchJson()
+    function createBatchJson()
     {
         $mailchimpStoreId = $this->getMailchimpStoreId();
         $magentoStoreId = $this->getMagentoStoreId();
@@ -313,7 +313,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
      * @param $customerId
      * @param $storeId
      */
-    public function update($customerId)
+    function update($customerId)
     {
         $this->markSyncDataAsModified($customerId);
     }
@@ -322,7 +322,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
      * @param $magentoStoreId
      * @return array
      */
-    public function getOptIn($magentoStoreId)
+    function getOptIn($magentoStoreId)
     {
         return $this->getOptInConfiguration($magentoStoreId);
     }
@@ -663,7 +663,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
     /**
      * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Customers_Collection
      */
-    public function initializeEcommerceResourceCollection()
+    function initializeEcommerceResourceCollection()
     {
         /**
          * @var $collection Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Customers_Collection
@@ -676,7 +676,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
     /**
      * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Customers_Collection
      */
-    public function getEcommerceResourceCollection()
+    function getEcommerceResourceCollection()
     {
         return $this->_ecommerceCustomersCollection;
     }

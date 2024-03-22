@@ -26,7 +26,7 @@ class Ebizmarts_MailChimp_Helper_Curl extends Mage_Core_Helper_Abstract
      * @param array $params
      * @return array
      */
-    public function curlExec($url, $httpMethod, $curlOptions = array(), $params = array())
+    function curlExec($url, $httpMethod, $curlOptions = array(), $params = array())
     {
         if ($url === false) {
             return array('error' => "It's required an URL to be requested with any http method.");
@@ -65,7 +65,7 @@ class Ebizmarts_MailChimp_Helper_Curl extends Mage_Core_Helper_Abstract
     /**+
      * @return int
      */
-    public function getStatus()
+    function getStatus()
     {
         return $this->_curl->getStatus();
     }

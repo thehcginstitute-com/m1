@@ -23,7 +23,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Userinfo
      *
      * @return void
      */
-    public function __construct()
+    function __construct()
     {
         $mandillHelper = Mage::helper('mailchimp/mandrill');
         $storeId = Mage::app()->getStore()->getId();
@@ -55,7 +55,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Userinfo
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $helper = Mage::helper('mailchimp');
         if (is_array($this->_accountDetails)) {

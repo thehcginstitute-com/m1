@@ -13,7 +13,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_IncludingTaxes
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $helper = $this->getHelper();
         return array(

@@ -15,7 +15,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController extends Mage_Admin
 {
     const MAX_RETRIES = 5;
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Newsletter'))
             ->_title($this->__('MailChimp'));
@@ -25,13 +25,13 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController extends Mage_Admin
         $this->renderLayout();
     }
 
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout(false);
         $this->renderLayout();
     }
 
-    public function downloadresponseAction()
+    function downloadresponseAction()
     {
         $helper = $this->makeHelper();
         $errorId = $this->getRequest()->getParam('id');

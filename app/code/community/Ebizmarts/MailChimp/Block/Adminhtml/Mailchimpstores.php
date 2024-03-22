@@ -13,7 +13,7 @@
  */
 class Ebizmarts_MailChimp_Block_Adminhtml_Mailchimpstores extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_blockGroup = 'mailchimp';
         $this->_controller = 'adminhtml_mailchimpstores';

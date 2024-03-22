@@ -13,7 +13,7 @@ class Ebizmarts_MailChimp_Block_Group_Type extends Mage_Core_Block_Template
     protected $_currentInterest;
     protected $_helper;
 
-    public function __construct(array $args = array())
+    function __construct(array $args = array())
     {
         $this->_helper = Mage::helper('mailchimp');
 
@@ -30,7 +30,7 @@ class Ebizmarts_MailChimp_Block_Group_Type extends Mage_Core_Block_Template
      * @param $data
      * @return string
      */
-    public function escapeQuote($data)
+    function escapeQuote($data)
     {
         return $this->getHelper()->mcEscapeQuote($data);
     }
@@ -38,7 +38,7 @@ class Ebizmarts_MailChimp_Block_Group_Type extends Mage_Core_Block_Template
     /**
      * @return Ebizmarts_MailChimp_Helper_Data
      */
-    public function getHelper($type='')
+    function getHelper($type='')
     {
         return $this->_helper;
     }

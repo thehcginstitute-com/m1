@@ -25,7 +25,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
      */
     protected $_ecommerceSubscribersCollection;
 
-    public function __construct()
+    function __construct()
     {
         $mageMCHelper = Mage::helper('mailchimp');
         $this->setMailchimpHelper($mageMCHelper);
@@ -44,7 +44,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
     /**
      * @return mixed
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_storeId;
     }
@@ -57,7 +57,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
      * @throws Mage_Core_Exception
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function createBatchJson($listId, $storeId, $limit)
+    function createBatchJson($listId, $storeId, $limit)
     {
         $this->setStoreId($storeId);
         $helper = $this->getMailchimpHelper();
@@ -249,7 +249,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
      * @param       $subscriber
      * @param bool  $updateStatus If set to true, it will force the status update even for those already subscribed.
      */
-    public function updateSubscriber($subscriber, $updateStatus = false)
+    function updateSubscriber($subscriber, $updateStatus = false)
     {
         $saveSubscriber = false;
         $isAdmin = Mage::app()->getStore()->isAdmin();
@@ -420,7 +420,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
      * @param $status
      * @return string
      */
-    public function translateMagentoStatusToMailchimpStatus($status)
+    function translateMagentoStatusToMailchimpStatus($status)
     {
         if ($this->statusEqualsUnsubscribed($status)) {
             $status = 'unsubscribed';
@@ -473,7 +473,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
      * @param $subscriber
      * @throws Mage_Core_Exception
      */
-    public function deleteSubscriber($subscriber)
+    function deleteSubscriber($subscriber)
     {
         $helper = $this->getMailchimpHelper();
         $storeId = $subscriber->getStoreId();
@@ -496,7 +496,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
     /**
      * @param $emailAddress
      */
-    public function update($emailAddress)
+    function update($emailAddress)
     {
         $subscriber = Mage::getSingleton('newsletter/subscriber')->loadByEmail($emailAddress);
 
@@ -534,7 +534,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
     /**
      * @param $mageMCHelper
      */
-    public function setMailchimpHelper($mageMCHelper)
+    function setMailchimpHelper($mageMCHelper)
     {
         $this->_mcHelper = $mageMCHelper;
     }
@@ -550,7 +550,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
     /**
      * @param $mageMCDateHelper
      */
-    public function setMailchimpDateHelper($mageMCDateHelper)
+    function setMailchimpDateHelper($mageMCDateHelper)
     {
         $this->_mcDateHelper = $mageMCDateHelper;
     }
@@ -632,7 +632,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
     /**
      * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Subscribers_Collection
      */
-    public function getResourceCollection()
+    function getResourceCollection()
     {
         /**
          * @var $collection Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Subscribers_Collection

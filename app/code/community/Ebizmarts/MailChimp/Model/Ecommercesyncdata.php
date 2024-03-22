@@ -18,7 +18,7 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
      *
      * @return void
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->_init('mailchimp/ecommercesyncdata');
@@ -40,7 +40,7 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
      * @param null  $deletedRelatedId
      * @param bool  $allowBatchRemoval
      */
-    public function saveEcommerceSyncData(
+    function saveEcommerceSyncData(
         $itemId,
         $itemType,
         $mailchimpStoreId,
@@ -74,7 +74,7 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
      * @param  $mailchimpStoreId
      * @return Ebizmarts_MailChimp_Model_Ecommercesyncdata
      */
-    public function getEcommerceSyncDataItem($itemId, $itemType, $mailchimpStoreId)
+    function getEcommerceSyncDataItem($itemId, $itemType, $mailchimpStoreId)
     {
         $collection = $this->getCollection()
             ->addFieldToFilter('related_id', array('eq' => $itemId))
@@ -99,7 +99,7 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
      * @param $itemType
      * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection
      */
-    public function getAllEcommerceSyncDataItemsPerId($itemId, $itemType)
+    function getAllEcommerceSyncDataItemsPerId($itemId, $itemType)
     {
         $collection = $this->getCollection()
             ->addFieldToFilter('related_id', array('eq' => $itemId))
@@ -175,7 +175,7 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
             $ecommerceSyncDataItem->setData("mailchimp_synced_flag", $syncedFlag);
         }
     }
-    public function markAllAsModified($id,$type)
+    function markAllAsModified($id,$type)
     {
         $this->getResource()->markAllAsModified($id,$type);
         return $this;

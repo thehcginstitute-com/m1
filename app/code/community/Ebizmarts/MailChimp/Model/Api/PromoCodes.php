@@ -24,7 +24,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
      */
     protected $_ecommercePromoCodesCollection;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
     }
@@ -32,7 +32,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
     /**
      * @return array
      */
-    public function createBatchJson()
+    function createBatchJson()
     {
         $mailchimpStoreId = $this->getMailchimpStoreId();
         $magentoStoreId = $this->getMagentoStoreId();
@@ -255,7 +255,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
      * @param $magentoStoreId
      * @return Mage_SalesRule_Model_Resource_Coupon_Collection
      */
-    public function makePromoCodesCollection($magentoStoreId)
+    function makePromoCodesCollection($magentoStoreId)
     {
         $helper = $this->getHelper();
         /**
@@ -289,7 +289,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
     /**
      * @param $collection
      */
-    public function joinMailchimpSyncDataWithoutWhere($collection, $mailchimpStoreId=null)
+    function joinMailchimpSyncDataWithoutWhere($collection, $mailchimpStoreId=null)
     {
         $columns = array(
             "m4m.related_id",
@@ -354,7 +354,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
     /**
      * @return Ebizmarts_MailChimp_Model_Api_PromoRules|false|Mage_Core_Model_Abstract
      */
-    public function getApiPromoRules()
+    function getApiPromoRules()
     {
         if (!$this->_apiPromoRules) {
             $this->_apiPromoRules = Mage::getModel('mailchimp/api_promoRules');
@@ -366,7 +366,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
     /**
      * @param $codeId
      */
-    public function update($codeId)
+    function update($codeId)
     {
         $this->_setModified($codeId);
     }
@@ -394,7 +394,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
      * @param $codeId
      * @param $promoRuleId
      */
-    public function markAsDeleted($codeId, $promoRuleId)
+    function markAsDeleted($codeId, $promoRuleId)
     {
         $this->_setDeleted($codeId, $promoRuleId);
     }
@@ -421,7 +421,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
      * @param $promoRule
      * @throws Exception
      */
-    public function deletePromoCodesSyncDataByRule($promoRule)
+    function deletePromoCodesSyncDataByRule($promoRule)
     {
         $promoCodeIds = $this->getPromoCodesForRule($promoRule->getRelatedId());
 
@@ -440,7 +440,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
     /**
      * @param $promoCodeId
      */
-    public function deletePromoCodeSyncData($promoCodeId)
+    function deletePromoCodeSyncData($promoCodeId)
     {
         $promoCodeSyncDataItem = $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem(
             $promoCodeId,
@@ -534,7 +534,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
     /**
      * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_PromoCodes_Collection
      */
-    public function initializeEcommerceResourceCollection()
+    function initializeEcommerceResourceCollection()
     {
         /**
          * @var $collection Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_PromoCodes_Collection
@@ -547,7 +547,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
     /**
      * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_PromoCodes_Collection
      */
-    public function getEcommerceResourceCollection()
+    function getEcommerceResourceCollection()
     {
         return $this->_ecommercePromoCodesCollection;
     }

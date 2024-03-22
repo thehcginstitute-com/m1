@@ -17,7 +17,7 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
      */
     protected $_helper;
 
-    public function __construct()
+    function __construct()
     {
         $this->_helper = Mage::helper('mailchimp');
     }
@@ -28,7 +28,7 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
      * @return mixed
      * @throws Mage_Core_Exception
      */
-    public function getWebhookDeleteAction($scopeId, $scope = null)
+    function getWebhookDeleteAction($scopeId, $scope = null)
     {
         $helper = $this->getHelper();
         return $helper->getConfigValueForScope(
@@ -46,7 +46,7 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
      * @return mixed
      * @throws Mage_Core_Exception
      */
-    public function getWebhookId($scopeId = 0, $scope = null)
+    function getWebhookId($scopeId = 0, $scope = null)
     {
         $helper = $this->getHelper();
         return $helper->getConfigValueForScope(
@@ -59,7 +59,7 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
     /**
      * @return string
      */
-    public function getWebhooksKey()
+    function getWebhooksKey()
     {
         $helper = $this->getHelper();
         $crypt = hash('md5', (string)$helper->getConfig()->getNode('global/crypt/key'));
@@ -72,7 +72,7 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
      * @param           $scopeId
      * @param string    $scope
      */
-    public function handleWebhookChange($scopeId, $scope = 'stores')
+    function handleWebhookChange($scopeId, $scope = 'stores')
     {
         $helper = $this->getHelper();
         $webhookScope = $helper->getRealScopeForConfig(
@@ -152,7 +152,7 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
      * @param $listId
      * @param $webhookId
      */
-    public function deleteWebhookFromList($apiWebhook, $listId, $webhookId)
+    function deleteWebhookFromList($apiWebhook, $listId, $webhookId)
     {
         $apiWebhook->delete($listId, $webhookId);
     }
@@ -160,7 +160,7 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
     /**
      * Returns true on successful creation, or error message if it fails
      */
-    public function createNewWebhook($scopeId, $scope, $listId)
+    function createNewWebhook($scopeId, $scope, $listId)
     {
         //TODO: cambiar llamadas de este metodo
         $helper = $this->getHelper();

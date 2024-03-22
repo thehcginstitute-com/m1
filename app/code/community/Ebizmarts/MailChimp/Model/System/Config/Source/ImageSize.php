@@ -20,7 +20,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_ImageSize
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $helper = Mage::helper('mailchimp');
         return array(

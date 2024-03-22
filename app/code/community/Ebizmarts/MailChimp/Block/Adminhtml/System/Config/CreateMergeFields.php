@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_CreateMergeFields
         return $this->_toHtml();
     }
 
-    public function getButtonHtml()
+    function getButtonHtml()
     {
         $button = $this->getLayout()->createBlock('adminhtml/widget_button')
             ->setData(
@@ -40,7 +40,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_CreateMergeFields
 
         return $button->toHtml();
     }
-    public function getAjaxCheckUrl()
+    function getAjaxCheckUrl()
     {
         $helper = $this->makeHelper();
         $scopeArray = $helper->getCurrentScope();
@@ -50,7 +50,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_CreateMergeFields
     /**
      * @return string
      */
-    public function getMessageForMailchimpErrorLog()
+    function getMessageForMailchimpErrorLog()
     {
         $helper = $this->makeHelper();
         $message =

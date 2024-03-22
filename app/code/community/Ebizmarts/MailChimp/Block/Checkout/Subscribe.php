@@ -23,7 +23,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Subscribe extends Mage_Core_Block_Templ
     protected $_helper;
     protected $_storeId;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_helper = Mage::helper('mailchimp');
@@ -34,7 +34,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Subscribe extends Mage_Core_Block_Templ
      * @param $data
      * @return string
      */
-    public function escapeQuote($data)
+    function escapeQuote($data)
     {
         return $this->getHelper()->mcEscapeQuote($data);
     }
@@ -42,7 +42,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Subscribe extends Mage_Core_Block_Templ
     /**
      * @return Ebizmarts_MailChimp_Helper_Data
      */
-    public function getHelper($type='')
+    function getHelper($type='')
     {
         return $this->_helper;
     }
@@ -103,7 +103,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Subscribe extends Mage_Core_Block_Templ
         return ($currentValue == Ebizmarts_MailChimp_Model_System_Config_Source_Checkoutsubscribe::CHECKED_BY_DEFAULT);
     }
 
-    public function isForceEnabled()
+    function isForceEnabled()
     {
         $currentValue = $this->getCurrentCheckoutSubscribeValue();
         if ($this->isForceHidden($currentValue) || $this->isForceVisible($currentValue)) {
@@ -113,7 +113,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Subscribe extends Mage_Core_Block_Templ
         return false;
     }
 
-    public function isChecked()
+    function isChecked()
     {
         $currentValue = $this->getCurrentCheckoutSubscribeValue();
         if ($this->isCheckedByDefault($currentValue) || $this->isForceVisible($currentValue)) {
@@ -123,7 +123,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Subscribe extends Mage_Core_Block_Templ
         return false;
     }
 
-    public function addToPostOnLoad()
+    function addToPostOnLoad()
     {
         return ($this->isChecked() || $this->isForceHidden());
     }
@@ -133,7 +133,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Subscribe extends Mage_Core_Block_Templ
      *
      * @return array
      */
-    public function getGeneralList()
+    function getGeneralList()
     {
         $storeId = $this->_storeId;
         $helper = $this->_helper;

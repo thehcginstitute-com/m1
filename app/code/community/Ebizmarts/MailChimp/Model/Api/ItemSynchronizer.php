@@ -24,7 +24,7 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
     /**
      * @return mixed
      */
-    public function getMailchimpStoreId()
+    function getMailchimpStoreId()
     {
         return $this->_mailchimpStoreId;
     }
@@ -32,7 +32,7 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
     /**
      * @param mixed $mailchimpStoreId
      */
-    public function setMailchimpStoreId($mailchimpStoreId)
+    function setMailchimpStoreId($mailchimpStoreId)
     {
         $this->_mailchimpStoreId = $mailchimpStoreId;
     }
@@ -44,7 +44,7 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
     /**
      * @return mixed
      */
-    public function getMagentoStoreId()
+    function getMagentoStoreId()
     {
         return $this->_magentoStoreId;
     }
@@ -52,12 +52,12 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
     /**
      * @param mixed $magentoStoreId
      */
-    public function setMagentoStoreId($magentoStoreId)
+    function setMagentoStoreId($magentoStoreId)
     {
         $this->_magentoStoreId = $magentoStoreId;
     }
 
-    public function __construct()
+    function __construct()
     {
         $this->_mailchimpHelper = Mage::helper('mailchimp');
         $this->_mailchimpDateHelper = Mage::helper('mailchimp/date');
@@ -298,7 +298,7 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
     /**
      * @return mixed
      */
-    public function getMailchimpEcommerceDataTableName()
+    function getMailchimpEcommerceDataTableName()
     {
         return $this->getCoreResource()
             ->getTableName('mailchimp/ecommercesyncdata');
@@ -307,7 +307,7 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
     /**
      * @return Ebizmarts_MailChimp_Model_Ecommercesyncdata
      */
-    public function getMailchimpEcommerceSyncDataModel()
+    function getMailchimpEcommerceSyncDataModel()
     {
         return new Ebizmarts_MailChimp_Model_Ecommercesyncdata();
     }
@@ -316,7 +316,7 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
      * @param $magentoStoreId
      * @return mixed
      */
-    public function getWebSiteIdFromMagentoStoreId($magentoStoreId)
+    function getWebSiteIdFromMagentoStoreId($magentoStoreId)
     {
         return Mage::getModel('core/store')->load($magentoStoreId)->getWebsiteId();
     }
@@ -324,7 +324,7 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
     /**
      * @return Mage_Core_Model_Resource
      */
-    public function getCoreResource()
+    function getCoreResource()
     {
         return Mage::getSingleton('core/resource');
     }
@@ -337,7 +337,7 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
         return null;
     }
 
-    public function joinMailchimpSyncDataWithoutWhere($customerCollection, $mailchimpStoreId)
+    function joinMailchimpSyncDataWithoutWhere($customerCollection, $mailchimpStoreId)
     {
         $this->initializeEcommerceResourceCollection()
             ->joinMailchimpSyncDataWithoutWhere($customerCollection, $mailchimpStoreId);
@@ -350,7 +350,7 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
      * @return mixed
      * @throws Mage_Core_Exception
      */
-    public function buildEcommerceCollectionToSync(
+    function buildEcommerceCollectionToSync(
         $itemType,
         $where = "m4m.mailchimp_sync_delta IS NULL",
         $isNewItem = "new"

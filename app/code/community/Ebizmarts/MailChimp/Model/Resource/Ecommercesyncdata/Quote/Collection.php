@@ -19,7 +19,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Quote_Collection exte
      *
      * @return void
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
     }
@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Quote_Collection exte
     /**
      * @param Mage_Sales_Model_Resource_Quote_Collection $preFilteredQuotesCollection
      */
-    public function joinLeftEcommerceSyncData($preFilteredQuotesCollection)
+    function joinLeftEcommerceSyncData($preFilteredQuotesCollection)
     {
         $mailchimpTableName = $this->getMailchimpEcommerceDataTableName();
         $preFilteredQuotesCollection->getSelect()->joinLeft(

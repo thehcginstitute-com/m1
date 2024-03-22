@@ -22,7 +22,7 @@ class Ebizmarts_MailChimp_Model_Email_Template extends Ebizmarts_MailChimp_Model
      * @return bool
      * @throws Exception
      */
-    public function send($email, $name = null, array $variables = array())
+    function send($email, $name = null, array $variables = array())
     {
 
         try {
@@ -231,7 +231,7 @@ class Ebizmarts_MailChimp_Model_Email_Template extends Ebizmarts_MailChimp_Model
      * @throws Mage_Core_Model_Store_Exception
      * @throws Mandrill_Error
      */
-    public function getMail()
+    function getMail()
     {
         if (is_null($this->_mail)) {
             $mandrillHelper = $this->makeMandrillHelper();

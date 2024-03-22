@@ -2,7 +2,7 @@
 
 class Ebizmarts_MailChimp_Model_Adminhtml_Storeid_Comment
 {
-    public function getCommentText()
+    function getCommentText()
     {
         $helper = Mage::helper('mailchimp');
         return $helper->__(

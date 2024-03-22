@@ -9,7 +9,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Newsletter_Subscriber_Renderer_Lastnam
     extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
 {
 
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $subscriberLastName = $row->getData('subscriber_lastname');
         $customerLastName = $row->getData('customer_lastname');

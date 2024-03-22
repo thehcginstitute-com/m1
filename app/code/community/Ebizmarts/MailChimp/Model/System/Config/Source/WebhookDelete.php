@@ -17,7 +17,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_WebhookDelete
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $mailchimpHelper = Mage::helper('mailchimp');
 

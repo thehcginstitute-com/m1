@@ -6,12 +6,12 @@ class Ebizmarts_MailChimp_Model_ClearBatches
      * @var Ebizmarts_MailChimp_Helper_Data
      */
     protected $_helper;
-    public function __construct()
+    function __construct()
     {
         $this->_helper = Mage::helper('mailchimp');
 
     }
-    public function clearBatches()
+    function clearBatches()
     {
         // Clean batches table, remove all the canceled or completed batch jobs
         try {

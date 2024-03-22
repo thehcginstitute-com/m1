@@ -26,7 +26,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Ma
     protected $_helper;
     protected $_storeId;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('ebizmarts/mailchimp/customer/tab/mailchimp.phtml');
@@ -38,7 +38,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Ma
         }
     }
 
-    public function getInterest()
+    function getInterest()
     {
         $customer = $this->getCustomer();
         $subscriber = $this->getSubscriberModel();
@@ -55,7 +55,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Ma
      * @param $data
      * @return string
      */
-    public function escapeQuote($data)
+    function escapeQuote($data)
     {
         return $this->getHelper()->mcEscapeQuote($data);
     }
@@ -63,7 +63,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Ma
     /**
      * @return Ebizmarts_MailChimp_Helper_Data
      */
-    public function getHelper($type='')
+    function getHelper($type='')
     {
         return $this->_helper;
     }

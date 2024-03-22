@@ -20,7 +20,7 @@ class Ebizmarts_MailChimp_Helper_File extends Mage_Core_Helper_Abstract
      */
     protected $_ioFile;
 
-    public function __construct()
+    function __construct()
     {
         $this->_ioFile = new Varien_Io_File();
     }
@@ -28,7 +28,7 @@ class Ebizmarts_MailChimp_Helper_File extends Mage_Core_Helper_Abstract
     /**
      * @return Varien_Io_File
      */
-    public function getIoFile()
+    function getIoFile()
     {
         return $this->_ioFile;
     }
@@ -37,7 +37,7 @@ class Ebizmarts_MailChimp_Helper_File extends Mage_Core_Helper_Abstract
      * @param string $file
      * @return string
      */
-    public function dirName($file = '.')
+    function dirName($file = '.')
     {
         return $this->_ioFile->dirname($file);
     }
@@ -45,7 +45,7 @@ class Ebizmarts_MailChimp_Helper_File extends Mage_Core_Helper_Abstract
      * @param string $name
      * @return bool
      */
-    public function isDir($name)
+    function isDir($name)
     {
         return is_dir($name);
     }
@@ -56,7 +56,7 @@ class Ebizmarts_MailChimp_Helper_File extends Mage_Core_Helper_Abstract
      * @param bool $recursive
      * @return bool
      */
-    public function mkDir($dir, $mode = 0777, $recursive = true)
+    function mkDir($dir, $mode = 0777, $recursive = true)
     {
         return $this->_ioFile->mkdir($dir, $mode, $recursive);
     }
@@ -66,7 +66,7 @@ class Ebizmarts_MailChimp_Helper_File extends Mage_Core_Helper_Abstract
      * @param bool $recursive
      * @return bool
      */
-    public function rmDir($directory, $recursive = false)
+    function rmDir($directory, $recursive = false)
     {
         return $this->_ioFile->rmdir($directory, $recursive);
     }
@@ -77,7 +77,7 @@ class Ebizmarts_MailChimp_Helper_File extends Mage_Core_Helper_Abstract
      * @param null $mode
      * @return bool|int
      */
-    public function write($filename, $src, $mode = null)
+    function write($filename, $src, $mode = null)
     {
         return $this->_ioFile->write($filename, $src, $mode);
     }
@@ -87,7 +87,7 @@ class Ebizmarts_MailChimp_Helper_File extends Mage_Core_Helper_Abstract
      * @param bool $onlyFile
      * @return bool
      */
-    public function fileExists($file, $onlyFile = true)
+    function fileExists($file, $onlyFile = true)
     {
         return $this->_ioFile->fileExists($file, $onlyFile);
     }
@@ -96,7 +96,7 @@ class Ebizmarts_MailChimp_Helper_File extends Mage_Core_Helper_Abstract
      * @param $filename
      * @return bool
      */
-    public function unlink($filename)
+    function unlink($filename)
     {
         return $this->rm($filename);
     }
@@ -105,7 +105,7 @@ class Ebizmarts_MailChimp_Helper_File extends Mage_Core_Helper_Abstract
      * @param $filename
      * @return bool
      */
-    public function rm($filename)
+    function rm($filename)
     {
         return $this->_ioFile->rm($filename);
     }
@@ -115,15 +115,15 @@ class Ebizmarts_MailChimp_Helper_File extends Mage_Core_Helper_Abstract
      * @param $content
      * @return int
      */
-    public function filePutContent($filename, $content)
+    function filePutContent($filename, $content)
     {
         return $this->_ioFile->filePutContent($filename, $content);
     }
 
-    public function read($filename){
+    function read($filename){
         return $this->_ioFile->read($filename);
     }
-    public function open($args=array())
+    function open($args=array())
     {
         return $this->_ioFile->open($args);
     }

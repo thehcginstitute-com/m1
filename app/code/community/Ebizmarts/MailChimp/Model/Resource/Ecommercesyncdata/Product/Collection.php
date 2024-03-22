@@ -19,7 +19,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Product_Collection ex
      *
      * @return void
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
     }
@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Product_Collection ex
     /**
      * @param Mage_Catalog_Model_Resource_Product_Collection $preFilteredProductsCollection
      */
-    public function joinLeftEcommerceSyncData($preFilteredProductsCollection)
+    function joinLeftEcommerceSyncData($preFilteredProductsCollection)
     {
         $mailchimpTableName = $this->getMailchimpEcommerceDataTableName();
         $preFilteredProductsCollection->getSelect()->joinLeft(
@@ -42,7 +42,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Product_Collection ex
      * @param $collection Mage_Catalog_Model_Resource_Product_Collection
      * @param $joinCondition
      */
-    public function executeMailchimpDataJoin($collection, $joinCondition)
+    function executeMailchimpDataJoin($collection, $joinCondition)
     {
         $mailchimpTableName = $this->getMailchimpEcommerceDataTableName();
         $collection->getSelect()->joinLeft(
@@ -62,7 +62,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Product_Collection ex
     /**
      * @param $deletedProducts
      */
-    public function joinMailchimpSyncDataDeleted($deletedProducts, $limit = null)
+    function joinMailchimpSyncDataDeleted($deletedProducts, $limit = null)
     {
         $this->joinLeftEcommerceSyncData($deletedProducts);
         $deletedProducts->getSelect()->where("m4m.mailchimp_sync_deleted = 1 AND m4m.mailchimp_sync_error = ''");
@@ -72,12 +72,12 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Product_Collection ex
         }
     }
 
-    public function addJoinLeft($collection, array $array, $colString)
+    function addJoinLeft($collection, array $array, $colString)
     {
         $collection->getSelect()->joinLeft($array, $colString);
     }
 
-    public function resetColumns($collection, $reset, $columns)
+    function resetColumns($collection, $reset, $columns)
     {
         $collection->getSelect()->reset($reset)->columns($columns);
     }
@@ -85,7 +85,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Product_Collection ex
     /**
      * @param $collection Mage_Catalog_Model_Resource_Product_Collection
      */
-    public function joinQtyAndBackorders($collection)
+    function joinQtyAndBackorders($collection)
     {
         $collection->joinField(
             'qty',

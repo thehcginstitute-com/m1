@@ -110,7 +110,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @return  Varien_Event_Observer
      * @throws  Mage_Core_Exception
      */
-    public function saveConfigBefore(Varien_Event_Observer $observer)
+    function saveConfigBefore(Varien_Event_Observer $observer)
     {
         $config = $observer->getObject();
 
@@ -193,7 +193,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @return  Varien_Event_Observer
      * @throws  Mage_Core_Exception
      */
-    public function subscriberSaveBefore(Varien_Event_Observer $observer)
+    function subscriberSaveBefore(Varien_Event_Observer $observer)
     {
         $subscriber = $observer->getEvent()->getSubscriber();
         $subscriberSource = $subscriber->getSubscriberSource();
@@ -224,7 +224,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @throws  Mage_Core_Exception
      * @throws  Mage_Core_Model_Store_Exception
      */
-    public function subscriberSaveAfter(Varien_Event_Observer $observer)
+    function subscriberSaveAfter(Varien_Event_Observer $observer)
     {
         $subscriber = $observer->getEvent()->getSubscriber();
         $storeViewId = $this->getStoreViewIdBySubscriber($subscriber);
@@ -269,7 +269,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return Varien_Event_Observer
      */
-    public function handleSubscriberDeletion(Varien_Event_Observer $observer)
+    function handleSubscriberDeletion(Varien_Event_Observer $observer)
     {
         $subscriber = $observer->getEvent()->getSubscriber();
         $helper = $this->makeHelper();
@@ -288,7 +288,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return $this|Varien_Event_Observer
      */
-    public function alterNewsletterGrid(Varien_Event_Observer $observer)
+    function alterNewsletterGrid(Varien_Event_Observer $observer)
     {
 
         $block = $observer->getEvent()->getBlock();
@@ -327,7 +327,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return Varien_Event_Observer
      */
-    public function customerSaveAfter(Varien_Event_Observer $observer)
+    function customerSaveAfter(Varien_Event_Observer $observer)
     {
         $customer = $observer->getEvent()->getCustomer();
         $origEmail = $customer->getOrigData('email');
@@ -381,7 +381,7 @@ class Ebizmarts_MailChimp_Model_Observer
         return $observer;
     }
 
-    public function customerAddressSaveBefore(Varien_Event_Observer $observer)
+    function customerAddressSaveBefore(Varien_Event_Observer $observer)
     {
         $customerId = $observer->getEvent()->getCustomerAddress()->getCustomerId();
         $customer = $this->getCustomerModel()->load($customerId);
@@ -411,7 +411,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @return Varien_Event_Observer
      * @throws Exception
      */
-    public function newOrder(Varien_Event_Observer $observer)
+    function newOrder(Varien_Event_Observer $observer)
     {
         $helper = $this->makeHelper();
         $post = $helper->getMageApp()->getRequest()->getPost('mailchimp_subscribe');
@@ -475,7 +475,7 @@ class Ebizmarts_MailChimp_Model_Observer
     /**
      * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata
      */
-    public function getMailchimpEcommerceSyncDataModel()
+    function getMailchimpEcommerceSyncDataModel()
     {
         return Mage::getModel('mailchimp/ecommercesyncdata');
     }
@@ -486,7 +486,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return Varien_Event_Observer
      */
-    public function orderSaveBefore(Varien_Event_Observer $observer)
+    function orderSaveBefore(Varien_Event_Observer $observer)
     {
         $order = $observer->getEvent()->getOrder();
         $storeId = $order->getStoreId();
@@ -508,7 +508,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return Varien_Event_Observer
      */
-    public function saveCampaignData(Varien_Event_Observer $observer)
+    function saveCampaignData(Varien_Event_Observer $observer)
     {
         $order = $observer->getEvent()->getOrder();
         $campaignCookie = $this->_getCampaignCookie();
@@ -532,7 +532,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @return Varien_Event_Observer
      * @throws Exception
      */
-    public function removeCampaignData()
+    function removeCampaignData()
     {
         if ($this->_getCampaignCookie()) {
             Mage::getModel('core/cookie')->delete('mailchimp_campaign_id');
@@ -569,7 +569,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return Varien_Event_Observer
      */
-    public function addOrderViewMonkey(Varien_Event_Observer $observer)
+    function addOrderViewMonkey(Varien_Event_Observer $observer)
     {
         $block = $observer->getBlock();
         if (($block->getNameInLayout() == 'order_info')
@@ -600,7 +600,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @return Varien_Event_Observer
      * @throws Mage_Core_Exception
      */
-    public function addColumnToSalesOrderGrid(Varien_Event_Observer $observer)
+    function addColumnToSalesOrderGrid(Varien_Event_Observer $observer)
     {
         $helper = $this->makeHelper();
         $addColumnConfig = $helper->getMonkeyInGrid(0);
@@ -656,7 +656,7 @@ class Ebizmarts_MailChimp_Model_Observer
     }
 
 
-    public function addColumnToSalesOrderGridCollection(Varien_Event_Observer $observer)
+    function addColumnToSalesOrderGridCollection(Varien_Event_Observer $observer)
     {
         $helper = $this->makeHelper();
         $addColumnConfig = $helper->getMonkeyInGrid(0);
@@ -696,7 +696,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return Varien_Event_Observer
      */
-    public function loadCustomerToQuote(Varien_Event_Observer $observer)
+    function loadCustomerToQuote(Varien_Event_Observer $observer)
     {
         $quote = $observer->getEvent()->getQuote();
         $storeId = $quote->getStoreId();
@@ -742,7 +742,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return Varien_Event_Observer
      */
-    public function newCreditMemo(Varien_Event_Observer $observer)
+    function newCreditMemo(Varien_Event_Observer $observer)
     {
         $creditMemo = $observer->getEvent()->getCreditmemo();
         $order = $creditMemo->getOrder();
@@ -789,7 +789,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return Varien_Event_Observer
      */
-    public function createCreditmemo($observer)
+    function createCreditmemo($observer)
     {
         $mailchimpUnsubscribe = $this->getRequest()->getParam('mailchimp_unsubscribe');
 
@@ -812,7 +812,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return Varien_Event_Observer
      */
-    public function cancelCreditMemo(Varien_Event_Observer $observer)
+    function cancelCreditMemo(Varien_Event_Observer $observer)
     {
         $creditMemo = $observer->getEvent()->getCreditmemo();
         $order = $creditMemo->getOrder();
@@ -860,7 +860,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @return Varien_Event_Observer
      * @throws Exception
      */
-    public function itemCancel(Varien_Event_Observer $observer)
+    function itemCancel(Varien_Event_Observer $observer)
     {
         $item = $observer->getEvent()->getItem();
         $helper = $this->makeHelper();
@@ -896,7 +896,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return Varien_Event_Observer
      */
-    public function productSaveAfter(Varien_Event_Observer $observer)
+    function productSaveAfter(Varien_Event_Observer $observer)
     {
         $product = $observer->getEvent()->getProduct();
         $helper = $this->makeHelper();
@@ -942,7 +942,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return Varien_Event_Observer
      */
-    public function productAttributeUpdate(Varien_Event_Observer $observer)
+    function productAttributeUpdate(Varien_Event_Observer $observer)
     {
         $productIds = $observer->getEvent()->getProductIds();
         $helper = $this->makeHelper();
@@ -1005,7 +1005,7 @@ class Ebizmarts_MailChimp_Model_Observer
         }
     }
 
-    public function salesruleSaveAfter(Varien_Event_Observer $observer)
+    function salesruleSaveAfter(Varien_Event_Observer $observer)
     {
         $promoRulesApi = $this->makeApiPromoRule();
         $rule = $observer->getEvent()->getRule();
@@ -1023,7 +1023,7 @@ class Ebizmarts_MailChimp_Model_Observer
         return $observer;
     }
 
-    public function salesruleDeleteAfter(Varien_Event_Observer $observer)
+    function salesruleDeleteAfter(Varien_Event_Observer $observer)
     {
         $rule = $observer->getEvent()->getRule();
         $ruleId = $rule->getRuleId();
@@ -1038,7 +1038,7 @@ class Ebizmarts_MailChimp_Model_Observer
         return $observer;
     }
 
-    public function secondaryCouponsDelete(Varien_Event_Observer $observer)
+    function secondaryCouponsDelete(Varien_Event_Observer $observer)
     {
         $promoCodesApi = $this->makeApiPromoCode();
         $params = $this->getRequest()->getParams();
@@ -1055,7 +1055,7 @@ class Ebizmarts_MailChimp_Model_Observer
         return $observer;
     }
 
-    public function cleanProductImagesCacheAfter(Varien_Event_Observer $observer)
+    function cleanProductImagesCacheAfter(Varien_Event_Observer $observer)
     {
         $message = 'Image cache has been flushed please resend the products in order to update image URL.';
         $helper = $this->makeHelper();
@@ -1159,7 +1159,7 @@ class Ebizmarts_MailChimp_Model_Observer
         }
     }
 
-    public function addCustomerTab(Varien_Event_Observer $observer)
+    function addCustomerTab(Varien_Event_Observer $observer)
     {
         $block = $observer->getEvent()->getBlock();
         $helper = $this->makeHelper();
@@ -1205,7 +1205,7 @@ class Ebizmarts_MailChimp_Model_Observer
      * @return Mage_Newsletter_Model_Subscriber
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function handleCustomerGroups($subscriberEmail, $params, $storeId, $customerId = null)
+    function handleCustomerGroups($subscriberEmail, $params, $storeId, $customerId = null)
     {
         $helper = $this->makeHelper();
         $subscriberModel = $this->getSubscriberModel();
@@ -1346,7 +1346,7 @@ class Ebizmarts_MailChimp_Model_Observer
     {
         return $subscriberSource === Ebizmarts_MailChimp_Model_Subscriber::MAILCHIMP_SUBSCRIBE;
     }
-    public function productImportAfter($observer)
+    function productImportAfter($observer)
     {
         $helper = $this->makeHelper();
         $adapter = $observer->getEvent()->getAdapter();

@@ -28,13 +28,13 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection extends
      *
      * @return void
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->_init('mailchimp/ecommercesyncdata');
     }
 
-    public function getMailchimpEcommerceDataTableName()
+    function getMailchimpEcommerceDataTableName()
     {
         return $this->getCoreResource()
             ->getTableName('mailchimp/ecommercesyncdata');
@@ -43,7 +43,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection extends
     /**
      * @return Mage_Core_Model_Resource
      */
-    public function getCoreResource()
+    function getCoreResource()
     {
         return Mage::getSingleton('core/resource');
     }
@@ -51,7 +51,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection extends
     /**
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_storeId;
     }
@@ -59,7 +59,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection extends
     /**
      * @param int $storeId
      */
-    public function setStoreId($storeId)
+    function setStoreId($storeId)
     {
         $this->_storeId = $storeId;
     }
@@ -67,7 +67,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection extends
     /**
      * @return string
      */
-    public function getMailchimpStoreId()
+    function getMailchimpStoreId()
     {
         return $this->_mailchimpStoreId;
     }
@@ -75,7 +75,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection extends
     /**
      * @param string $mailchimpStoreId
      */
-    public function setMailchimpStoreId($mailchimpStoreId)
+    function setMailchimpStoreId($mailchimpStoreId)
     {
         $this->_mailchimpStoreId = $mailchimpStoreId;
     }
@@ -84,7 +84,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection extends
      * @param $collection Varien_Data_Collection_Db
      * @param $limit
      */
-    public function limitCollection($collection, $limit)
+    function limitCollection($collection, $limit)
     {
         $collection->getSelect()->limit($limit);
     }
@@ -94,7 +94,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection extends
      * @param $where
      * @param int null $limit
      */
-    public function addWhere($collection, $where = null, $limit = null)
+    function addWhere($collection, $where = null, $limit = null)
     {
         if (isset($where)) {
             $collection->getSelect()->where($where);

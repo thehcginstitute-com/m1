@@ -18,7 +18,7 @@ class Ebizmarts_MailChimp_Model_Email_Queue extends Mage_Core_Model_Email_Queue
      *
      * @return Mage_Core_Model_Email_Queue
      */
-    public function send()
+    function send()
     {
         /**
         * @var $collection Mage_Core_Model_Resource_Email_Queue_Collection
@@ -202,7 +202,7 @@ class Ebizmarts_MailChimp_Model_Email_Queue extends Mage_Core_Model_Email_Queue
      * @param $storeId
      * @return Mandrill_Message|Zend_Mail
      */
-    public function getMail($storeId)
+    function getMail($storeId)
     {
         if (!Mage::helper('mailchimp/mandrill')->isMandrillEnabled($storeId)) {
             return null;

@@ -13,7 +13,7 @@
 class Ebizmarts_MailChimp_Block_Adminhtml_Mailchimperrors_Link
     extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
 {
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $id = $row->getData('original_id');
         switch ($row->getData('regtype')) {

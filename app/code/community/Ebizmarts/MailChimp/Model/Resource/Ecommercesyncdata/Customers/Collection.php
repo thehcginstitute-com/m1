@@ -19,7 +19,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Customers_Collection 
      *
      * @return void
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
     }
@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Customers_Collection 
     /**
      * @param Mage_Customer_Model_Resource_Customer_Collection $preFilteredCustomersCollection
      */
-    public function joinLeftEcommerceSyncData($preFilteredCustomersCollection)
+    function joinLeftEcommerceSyncData($preFilteredCustomersCollection)
     {
         $mailchimpTableName = $this->getMailchimpEcommerceDataTableName();
         $joinCondition      = "m4m.related_id = e.entity_id AND m4m.type = '%s' AND m4m.mailchimp_store_id = '%s'";

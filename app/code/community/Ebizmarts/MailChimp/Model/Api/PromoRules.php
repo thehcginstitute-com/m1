@@ -29,7 +29,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
      */
     protected $_promoCodes;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_promoCodes = Mage::getModel('mailchimp/api_promoCodes');
@@ -38,7 +38,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
     /**
      * @return array
      */
-    public function createBatchJson()
+    function createBatchJson()
     {
         $mailchimpStoreId = $this->getMailchimpStoreId();
         $magentoStoreId = $this->getMagentoStoreId();
@@ -96,7 +96,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
      * @param $magentoStoreId
      * @return array
      */
-    public function getNewPromoRule($ruleId, $mailchimpStoreId, $magentoStoreId)
+    function getNewPromoRule($ruleId, $mailchimpStoreId, $magentoStoreId)
     {
         $this->setMailchimpStoreId($mailchimpStoreId);
         $promoData = array();
@@ -202,7 +202,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
      * @param $magentoStoreId
      * @return Mage_SalesRule_Model_Resource_Rule_Collection
      */
-    public function makePromoRulesCollection($magentoStoreId)
+    function makePromoRulesCollection($magentoStoreId)
     {
         /**
          * @var Mage_SalesRule_Model_Resource_Rule_Collection $collection
@@ -344,7 +344,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
     /**
      * @param $ruleId
      */
-    public function update($ruleId)
+    function update($ruleId)
     {
         $this->_setModified($ruleId);
     }
@@ -372,7 +372,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
     /**
      * @param $ruleId
      */
-    public function markAsDeleted($ruleId)
+    function markAsDeleted($ruleId)
     {
         $this->_setDeleted($ruleId);
     }
@@ -470,7 +470,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
     /**
      * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_PromoRules_Collection
      */
-    public function getResourceCollection()
+    function getResourceCollection()
     {
         /**
          * @var $collection Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_PromoRules_Collection

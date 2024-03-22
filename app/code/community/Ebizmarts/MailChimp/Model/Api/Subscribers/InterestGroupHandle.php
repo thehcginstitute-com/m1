@@ -40,7 +40,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
      */
     protected $_listId;
 
-    public function __construct()
+    function __construct()
     {
         $this->_helper = Mage::helper('mailchimp');
         $this->_dateHelper = Mage::helper('mailchimp/date');
@@ -51,7 +51,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function processGroupsData()
+    function processGroupsData()
     {
         $groups = array();
         $helper = $this->getHelper();
@@ -89,7 +89,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
     /**
      * @return Mage_Newsletter_Model_Subscriber
      */
-    public function getSubscriber()
+    function getSubscriber()
     {
         if ($this->_subscriber === null) {
             $customerEmail = $this->_customer->getEmail();
@@ -165,7 +165,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
      * @param $groupings
      * @return $this
      */
-    public function setGroupings($groupings)
+    function setGroupings($groupings)
     {
         $this->_groupings = $groupings;
         return $this;
@@ -175,7 +175,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
      * @param $customer
      * @return $this
      */
-    public function setCustomer($customer)
+    function setCustomer($customer)
     {
         $this->_customer = $customer;
         return $this;
@@ -185,7 +185,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
      * @param $subscriber
      * @return $this
      */
-    public function setSubscriber($subscriber)
+    function setSubscriber($subscriber)
     {
         $this->_subscriber = $subscriber;
         return $this;
@@ -195,7 +195,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
      * @param $listId
      * @return $this
      */
-    public function setListId($listId)
+    function setListId($listId)
     {
         $this->_listId = $listId;
         return $this;

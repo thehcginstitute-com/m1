@@ -7,7 +7,7 @@ class Ebizmarts_MailChimp_Model_Adminhtml_Reseterrors_Comment
      */
     protected $_mcHelper;
 
-    public function __construct()
+    function __construct()
     {
         $this->setMcHelper();
     }
@@ -15,7 +15,7 @@ class Ebizmarts_MailChimp_Model_Adminhtml_Reseterrors_Comment
     /**
      * @return Ebizmarts_MailChimp_Helper_Data
      */
-    public function getMcHelper()
+    function getMcHelper()
     {
         return $this->_mcHelper;
     }
@@ -23,7 +23,7 @@ class Ebizmarts_MailChimp_Model_Adminhtml_Reseterrors_Comment
     /**
      * @param Ebizmarts_MailChimp_Helper_Data $mcHelper
      */
-    public function setMcHelper()
+    function setMcHelper()
     {
         $this->_mcHelper = Mage::helper('mailchimp');
     }
@@ -31,7 +31,7 @@ class Ebizmarts_MailChimp_Model_Adminhtml_Reseterrors_Comment
     /**
      * @return string
      */
-    public function getCommentText()
+    function getCommentText()
     {
         $helper = $this->getMcHelper();
         $scopeArray = $helper->getCurrentScope();

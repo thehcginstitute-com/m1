@@ -19,7 +19,7 @@ class Ebizmarts_MailChimp_Model_Resource_Mailchimperrors extends Mage_Core_Model
      *
      * @return void
      */
-    public function _construct()
+    function _construct()
     {
         $this->_init('mailchimp/mailchimperrors', 'id');
     }

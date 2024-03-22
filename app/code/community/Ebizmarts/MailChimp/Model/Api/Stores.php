@@ -28,7 +28,7 @@ class Ebizmarts_MailChimp_Model_Api_Stores
      * @return mixed
      * @throws Exception
      */
-    public function createMailChimpStore(
+    function createMailChimpStore(
         $apiKey,
         $listId,
         $storeName,
@@ -111,7 +111,7 @@ class Ebizmarts_MailChimp_Model_Api_Stores
      * @return mixed|string
      * @throws Mage_Core_Exception
      */
-    public function editMailChimpStore(
+    function editMailChimpStore(
         $mailchimpStoreId,
         $apiKey,
         $storeName,
@@ -217,7 +217,7 @@ class Ebizmarts_MailChimp_Model_Api_Stores
      * @throws Mage_Core_Exception
      * @throws Ebizmarts_MailChimp_Helper_Data_ApiKeyException
      */
-    public function deleteMailChimpStore($mailchimpStoreId, $apiKey)
+    function deleteMailChimpStore($mailchimpStoreId, $apiKey)
     {
         $helper = $this->makeHelper();
 
@@ -267,7 +267,7 @@ class Ebizmarts_MailChimp_Model_Api_Stores
      * @param  $mailchimpStoreId
      * @throws MailChimp_Error
      */
-    public function editIsSyncing($mailchimpApi, $isSincingValue, $mailchimpStoreId)
+    function editIsSyncing($mailchimpApi, $isSincingValue, $mailchimpStoreId)
     {
         $mailchimpApi->getEcommerce()->getStores()->edit(
             $mailchimpStoreId,

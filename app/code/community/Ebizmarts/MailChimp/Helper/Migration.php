@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
      */
     protected $_webhookHelper;
 
-    public function __construct()
+    function __construct()
     {
         $this->_helper = Mage::helper('mailchimp');
         $this->_dateHelper = Mage::helper('mailchimp/date');
@@ -37,7 +37,7 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
     /**
      * Handle data migration for versions that require it.
      */
-    public function handleMigrationUpdates()
+    function handleMigrationUpdates()
     {
         $helper = $this->getHelper();
         $dateHelper = $this->getDateHelper();
@@ -623,7 +623,7 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
      * @return bool
      * @throws Mage_Core_Exception
      */
-    public function migrationFinished()
+    function migrationFinished()
     {
         $helper = $this->getHelper();
         $migrationFinished = false;
@@ -662,7 +662,7 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
     /**
      * Delete config data for migration from 1.1.6.
      */
-    public function delete116MigrationConfigData()
+    function delete116MigrationConfigData()
     {
         $helper = $this->getHelper();
         $stores = $helper->getMageApp()->getStores();
@@ -790,7 +790,7 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
     /**
      * @param $arrayMigrationConfigData
      */
-    public function handleDeleteMigrationConfigData($arrayMigrationConfigData)
+    function handleDeleteMigrationConfigData($arrayMigrationConfigData)
     {
         $helper = $this->getHelper();
         foreach ($arrayMigrationConfigData as $migrationConfigData => $value) {
