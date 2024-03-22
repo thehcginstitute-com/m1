@@ -433,14 +433,13 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 				$pid, $isTypeProduct, $this->getMailchimpStoreId()
 			); /** @var SyncD $sd */
 			if (($disabled = !$api->isProductEnabled($pid)) || ($sd->getMailchimpSyncDelta() && !$sd->getMailchimpSyncError())) {
-				$itemCount++; //id can not be 0 so we add 1 to $itemCount before setting the id.
-				$line = [];
-				$line['id'] = (string)$itemCount;
-				$line['product_id'] = $pid;
-				$line['product_variant_id'] = $variantId;
-				$line['quantity'] = (int)$item->getQty();
-				$line['price'] = $item->getRowTotal();
-				$lines[] = $line;
+				$lines[] = [
+					'id' => (string)++$itemCount //id can not be 0 so we add 1 to $itemCount before setting the id
+					,'price' => $item->getRowTotal()
+					,'product_id' => $pid
+					,'product_variant_id' => $variantId
+					,'quantity' => (int)$item->getQty()
+				];
 				if ($disabled) {
 					// update disabled products to remove the product from mailchimp after sending the order
 					$api->updateDisabledProducts($pid);
