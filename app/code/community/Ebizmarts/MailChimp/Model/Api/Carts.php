@@ -378,10 +378,9 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	 * @used-by self::_getModifiedQuotes()
 	 * @used-by self::_getNewQuotes()
 	 * @param $cart
-	 * @param $isModified
 	 * @return string|false
 	 */
-	private function makeCart($cart, $isModified = false) {
+	private function makeCart($cart, bool $isModified = false) {
 		$r = ''; /** @var string|false $r */
 		$apiProducts = self::apiProducts(); /** @var ApiProducts $apiProducts */
 		$apiProducts->setMagentoStoreId($sid = $this->getMagentoStoreId());
