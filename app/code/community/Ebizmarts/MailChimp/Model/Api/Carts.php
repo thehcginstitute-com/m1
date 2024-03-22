@@ -410,41 +410,33 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	private function _processCartLines(array $items, $apiProduct) {
 		$mailchimpStoreId = $this->getMailchimpStoreId();
 		$magentoStoreId = $this->getMagentoStoreId();
-
 		$lines = array();
 		$itemCount = 0;
-
 		foreach ($items as $item) {
 			$productId = $item->getProductId();
 			$isTypeProduct = $this->isTypeProduct();
 			$productSyncData = $this->getMailchimpEcommerceSyncDataModel()
 				->getEcommerceSyncDataItem($productId, $isTypeProduct, $mailchimpStoreId);
 			$line = array();
-
 			if ($item->getProductType() == 'bundle' || $item->getProductType() == 'grouped') {
 				continue;
 			}
-
 			if ($this->isProductTypeConfigurable($item)) {
 				$variant = null;
-
 				if ($item->getOptionByCode('simple_product')) {
 					$variant = $item->getOptionByCode('simple_product')->getProduct();
 				}
-
 				if (!$variant) {
 					continue;
 				}
-
 				$variantId = $variant->getId();
-			} else {
+			}
+			else {
 				$variantId = $item->getProductId();
 			}
-
 			//id can not be 0 so we add 1 to $itemCount before setting the id.
 			$productSyncError = $productSyncData->getMailchimpSyncError();
 			$isProductEnabled = $apiProduct->isProductEnabled($productId, $magentoStoreId);
-
 			if (!$isProductEnabled || ($productSyncData->getMailchimpSyncDelta() && $productSyncError == '')) {
 				$itemCount++;
 				$line['id'] = (string)$itemCount;
@@ -453,14 +445,12 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 				$line['quantity'] = (int)$item->getQty();
 				$line['price'] = $item->getRowTotal();
 				$lines[] = $line;
-
 				if (!$isProductEnabled) {
 					// update disabled products to remove the product from mailchimp after sending the order
 					$apiProduct->updateDisabledProducts($productId);
 				}
 			}
 		}
-
 		return array('lines' => $lines, 'count' => $itemCount);
 	}
 
