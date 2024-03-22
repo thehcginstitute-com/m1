@@ -517,7 +517,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		$billingAddress = $cart->getBillingAddress();
 		if ($billingAddress) {
 			$street = $billingAddress->getStreet();
-			$address = array();
+			$address = [];
 			if (isset($street[0])) {
 				$address['address1'] = $street[0];
 				if (count($street) > 1) {
