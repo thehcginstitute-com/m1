@@ -383,7 +383,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	private function makeCart(M $cart, bool $isModified) {
 		$r = ''; /** @var string|false $r */
 		$ra = ['id' => $cart->getEntityId()];
-		$customer = $this->_getCustomer($cart, $sid);
+		$customer = $this->_getCustomer($cart, $sid = $this->getMagentoStoreId());
 		if (!empty($customer)) {
 			$ra['customer'] = $customer;
 			if ($campaignId = $cart['mailchimp_campaign_id']) {
@@ -394,7 +394,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 			$ra['order_total'] = $cart->getGrandTotal();
 			$ra['tax_total'] = 0;
 			$api = self::apiProducts(); /** @var ApiProducts $api */
-			$api->setMagentoStoreId($sid = $this->getMagentoStoreId());
+			$api->setMagentoStoreId($sid);
 			$lines = $this->_processCartLines($cart->getAllVisibleItems(), $api);
 			if ($lines['count']) {
 				$ra['lines'] = $lines['lines'];
