@@ -38,5 +38,6 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
  * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
  * @used-by Ebizmarts_MailChimp_Model_Observer::productAttributeUpdate()
  * @used-by Ebizmarts_MailChimp_Model_Observer::productSaveAfter()
+ * @used-by Ebizmarts_MailChimp_CartController::loadcouponAction()
  */
 function hcg_mc_syncd_new():SyncD {return new SyncD;}
