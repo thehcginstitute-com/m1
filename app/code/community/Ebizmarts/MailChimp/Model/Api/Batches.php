@@ -1034,8 +1034,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
         if ($itemType == Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER) {
             $helper->updateSubscriberSyndData($itemId, $syncDelta, $syncError, 0, null);
         } else {
-            $ecommerceSyncData = $this->getMailchimpEcommerceSyncDataModel();
-            $ecommerceSyncData->saveEcommerceSyncData(
+            hcg_mc_syncd_new()->saveEcommerceSyncData(
                 $itemId,
                 $itemType,
                 $mailchimpStoreId,
