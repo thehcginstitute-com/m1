@@ -409,8 +409,8 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
                         $orderObject = $this->getSalesOrderModel()->load($orderId);
                         $syncDelta = $orderObject['mailchimp_sync_delta'];
 
-                        if ($order->getMailchimpSyncError()) {
-                            $syncError = $order->getMailchimpSyncError();
+                        if ($order['mailchimp_sync_error']) {
+                            $syncError = $order['mailchimp_sync_error'];
                         }
 
                         if ($order->getMailchimpSyncModified()) {
