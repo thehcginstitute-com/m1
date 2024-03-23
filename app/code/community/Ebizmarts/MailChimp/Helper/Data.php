@@ -3185,7 +3185,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract
 			$api = $this->getApi($scopeArray['scope_id'], $scopeArray['scope']);
 		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 			# 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# " Resolve the `Ebizmarts_MailChimp` module's issues found by IntelliJ IDEA inspections":
+			# "Resolve the `Ebizmarts_MailChimp` module's issues found by IntelliJ IDEA inspections":
 			# https://github.com/thehcginstitute-com/m1/issues/530
 			$api = null;
 			$this->logError($e->getMessage());
