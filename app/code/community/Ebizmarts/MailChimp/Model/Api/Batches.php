@@ -557,20 +557,20 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 
 	function ecommerceSentCallback($args)
 	{
-		$ecommerceData = hcg_mc_syncd_new();
-		$ecommerceData->setData($args['row']); // map data to customer model
+		$d = hcg_mc_syncd_new();
+		$d->setData($args['row']); // map data to customer model
 		$writeAdapter = Mage::getSingleton('core/resource')->getConnection('core_write');
 		$insertData = array(
-			'id' => $ecommerceData->getId(),
-			'related_id' => $ecommerceData->getRelatedId(),
-			'type' => $ecommerceData->getType(),
-			'mailchimp_store_id' => $ecommerceData->getMailchimpStoreId(),
-			'mailchimp_sync_error' => $ecommerceData['mailchimp_sync_error'],
-			'mailchimp_sync_delta' => $ecommerceData['mailchimp_sync_delta'],
-			'mailchimp_sync_modified' => $ecommerceData->getMailchimpSyncModified(),
-			'mailchimp_sync_deleted' => $ecommerceData->getMailchimpSyncDeleted(),
-			'mailchimp_token' => $ecommerceData->getMailchimpToken(),
-			'batch_id' => $ecommerceData->getBatchId()
+			'id' => $d->getId(),
+			'related_id' => $d->getRelatedId(),
+			'type' => $d->getType(),
+			'mailchimp_store_id' => $d->getMailchimpStoreId(),
+			'mailchimp_sync_error' => $d['mailchimp_sync_error'],
+			'mailchimp_sync_delta' => $d['mailchimp_sync_delta'],
+			'mailchimp_sync_modified' => $d->getMailchimpSyncModified(),
+			'mailchimp_sync_deleted' => $d->getMailchimpSyncDeleted(),
+			'mailchimp_token' => $d->getMailchimpToken(),
+			'batch_id' => $d->getBatchId()
 		);
 		$resource = Mage::getResourceModel('mailchimp/ecommercesyncdata');
 		$writeAdapter->insertOnDuplicate(
