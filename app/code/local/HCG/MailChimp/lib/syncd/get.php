@@ -47,6 +47,6 @@ function hcg_mc_syncd_get(int $id, string $t, string $sid):D {
 	;
 	return $c->getSize()
 		? $c->getLastItem()
-		: hcg_mc_syncd_new()->addData(['mailchimp_store_id' => $sid, 'related_id' => $id, 'type' => $t])
+		: new D(['mailchimp_store_id' => $sid, 'related_id' => $id, 'type' => $t])
 	;
 }
