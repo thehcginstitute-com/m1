@@ -108,7 +108,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
             $ruleId = $promoCode->getRuleId();
 
             try {
-                $promoRuleSyncData = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
+                $promoRuleSyncData = hcg_mc_syncd_get(
                     $ruleId,
                     Ebizmarts_MailChimp_Model_Config::IS_PROMO_RULE,
                     $mailchimpStoreId
@@ -442,7 +442,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
      */
     function deletePromoCodeSyncData($promoCodeId)
     {
-        $promoCodeSyncDataItem = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
+        $promoCodeSyncDataItem = hcg_mc_syncd_get(
             $promoCodeId,
             Ebizmarts_MailChimp_Model_Config::IS_PROMO_CODE,
             $this->getMailchimpStoreId()

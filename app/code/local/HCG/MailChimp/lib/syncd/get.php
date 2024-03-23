@@ -13,6 +13,8 @@ use Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection as C;
  * @used-by Ebizmarts_MailChimp_Model_Api_Products::_buildUpdateProductRequest()
  * @used-by Ebizmarts_MailChimp_Model_Api_Products::createBatchJson()
  * @used-by Ebizmarts_MailChimp_Model_Api_Products::sendModifiedProduct()
+ * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::_getNewPromoCodes()
+ * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::deletePromoCodeSyncData()
  * @param $id
  * @param $type
  * @param $sid
