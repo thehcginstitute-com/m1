@@ -130,7 +130,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
                     }
                 }
 
-                if ($promoRuleSyncData->getMailchimpSyncError()) {
+                if ($promoRuleSyncData['mailchimp_sync_error']) {
                     $this->setCodeWithParentError($ruleId, $codeId);
                     continue;
                 }
