@@ -2,8 +2,8 @@
 use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 /**
  * 2024-03-22 "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+ * @used-by hcg_mc_syncd_get()
  * @used-by Ebizmarts_MailChimp_CartController::loadcouponAction()
- * @used-by Ebizmarts_MailChimp_CartController::loadquoteAction()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getLastCartSent()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getLastCustomerSent()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getLastOrderSent()

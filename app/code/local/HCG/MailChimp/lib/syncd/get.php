@@ -3,6 +3,7 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection as C;
 /**
  * 2024-03-23 "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+ * @used-by Ebizmarts_MailChimp_CartController::loadquoteAction()
  * @param $id
  * @param $type
  * @param $sid
