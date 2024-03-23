@@ -443,7 +443,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
     function deletePromoCodeSyncData($promoCodeId)
     {
         $promoCodeSyncDataItem = hcg_mc_syncd_get(
-            $promoCodeId,
+            (int)$promoCodeId,
             Ebizmarts_MailChimp_Model_Config::IS_PROMO_CODE,
             $this->getMailchimpStoreId()
         );
