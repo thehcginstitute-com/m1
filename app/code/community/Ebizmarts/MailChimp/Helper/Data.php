@@ -1641,21 +1641,18 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract
 		$configImageSize = $this->getImageSize($magentoStoreId);
 
 		switch ($configImageSize) {
-		case self::DEFAULT_SIZE:
-			$imageSize = Ebizmarts_MailChimp_Model_Config::IMAGE_SIZE_DEFAULT;
-			break;
-		case self::SMALL_SIZE:
-			$imageSize = Ebizmarts_MailChimp_Model_Config::IMAGE_SIZE_SMALL;
-			break;
-		case self::THUMBNAIL_SIZE:
-			$imageSize = Ebizmarts_MailChimp_Model_Config::IMAGE_SIZE_THUMBNAIL;
-			break;
-		case self::ORIGINAL_SIZE:
-			$imageSize = Ebizmarts_MailChimp_Model_Config::IMAGE_SIZE_DEFAULT;
-			break;
-		default:
-			$imageSize = Ebizmarts_MailChimp_Model_Config::IMAGE_SIZE_DEFAULT;
-			break;
+			case self::SMALL_SIZE:
+				$imageSize = Ebizmarts_MailChimp_Model_Config::IMAGE_SIZE_SMALL;
+				break;
+			case self::THUMBNAIL_SIZE:
+				$imageSize = Ebizmarts_MailChimp_Model_Config::IMAGE_SIZE_THUMBNAIL;
+				break;
+			case self::ORIGINAL_SIZE:
+				$imageSize = Ebizmarts_MailChimp_Model_Config::IMAGE_SIZE_DEFAULT;
+				break;
+			case self::DEFAULT_SIZE:
+			default:
+				$imageSize = Ebizmarts_MailChimp_Model_Config::IMAGE_SIZE_DEFAULT;
 		}
 
 		$productImage = $productResourceModel->getAttributeRawValue($productId, $imageSize, $magentoStoreId);
