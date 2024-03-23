@@ -557,7 +557,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 
     function ecommerceSentCallback($args)
     {
-        $ecommerceData = Mage::getModel('mailchimp/ecommercesyncdata');
+        $ecommerceData = hcg_mc_syncd_new();
         $ecommerceData->setData($args['row']); // map data to customer model
         $writeAdapter = Mage::getSingleton('core/resource')->getConnection('core_write');
         $insertData = array(
