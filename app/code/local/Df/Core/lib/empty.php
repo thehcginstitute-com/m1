@@ -61,6 +61,14 @@ function df_etn($v) {return $v ?: null;}
 function df_ets($v) {return $v ?: '';}
 
 /**
+ * 2024-03-23 "Port `df_ftn()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/STUB
+ * @used-by df_fetch_one()
+ * @param mixed|false $v
+ * @return mixed|null
+ */
+function df_ftn($v) {return false === $v ? null : $v;}
+
+/**
  * 2016-08-04
  * @see df_es()
  * @used-by dfa()
