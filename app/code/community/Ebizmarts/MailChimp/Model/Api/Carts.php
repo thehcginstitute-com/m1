@@ -708,10 +708,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 	/**
 	 * @return string
 	 */
-	protected function isTypeProduct()
-	{
-		return Ebizmarts_MailChimp_Model_Config::IS_PRODUCT;
-	}
+	protected function isTypeProduct() {return Ebizmarts_MailChimp_Model_Config::IS_PRODUCT;}
 
 	/**
 	 * @return string
