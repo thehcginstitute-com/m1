@@ -906,7 +906,7 @@ class Ebizmarts_MailChimp_Model_Observer
 
                 if ($status[$product->getId()] == self::PRODUCT_IS_ENABLED) {
                     $dataProduct = hcg_mc_syncd_get(
-                        $product->getId(),
+                        (int)$product->getId(),
                         Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                         $mailchimpStoreId
                     );
