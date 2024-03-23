@@ -276,7 +276,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
      */
     protected function makeDeletedPromoCodesCollection()
     {
-        $deletedPromoCodes = $this->getMailchimpEcommerceSyncDataModel()->getCollection();
+        $deletedPromoCodes = hcg_mc_syncd_new()->getCollection();
         $where = "mailchimp_store_id = '" . $this->getMailchimpStoreId()
             . "' AND type = '" . Ebizmarts_MailChimp_Model_Config::IS_PROMO_CODE
             . "' AND mailchimp_sync_deleted = 1";
