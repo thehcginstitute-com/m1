@@ -3941,15 +3941,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract
             $scope
         );
     }
-
-    /**
-     * @return Ebizmarts_MailChimp_Model_Ecommercesyncdata
-     */
-    protected function getMailchimpEcommerceSyncDataModel()
-    {
-        return Mage::getModel('mailchimp/ecommercesyncdata');
-    }
-
+	
     /**
      * @param       $index
      * @param int   $increment
