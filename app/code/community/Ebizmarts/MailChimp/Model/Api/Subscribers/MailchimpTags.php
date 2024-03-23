@@ -522,7 +522,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @param $attributeCode
      * @param $customer
-     * @return string | returns the data of the attribute code.
+     * @return string
      */
     protected function getCustomerGroupLabel($attributeCode, $customer)
     {
