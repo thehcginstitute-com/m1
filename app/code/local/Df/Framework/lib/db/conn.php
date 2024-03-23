@@ -11,7 +11,7 @@ function df_conn():IAdapter {static $r; return $r ? $r : $r = df_mage_r()->getCo
 /**
  * 2018-12-07
  * @used-by df_conn()
- * @return \Mage_Core_Model_Resource
+ * @return Mage_Core_Model_Resource
  */
 function df_mage_r() {return Mage::getSingleton('core/resource');}
 
