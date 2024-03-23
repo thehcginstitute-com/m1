@@ -769,7 +769,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
 
     /**
      * @param $orderCollection
-     * @return bool | returns true if the size of the orderCollection have at least one element.
+     * @return bool
      */
     protected function isNotEmptyOrderCollection($orderCollection)
     {
