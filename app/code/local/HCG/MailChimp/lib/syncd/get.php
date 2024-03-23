@@ -20,6 +20,7 @@ use Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection as C;
  * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
  * @used-by Ebizmarts_MailChimp_Model_Observer::newCreditMemo()
  * @used-by Ebizmarts_MailChimp_Model_Observer::cancelCreditMemo()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::itemCancel()
  * @param $id
  * @param $type
  * @param $sid
