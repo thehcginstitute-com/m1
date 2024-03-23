@@ -108,7 +108,7 @@ class Ebizmarts_MailChimp_Adminhtml_EcommerceController extends Mage_Adminhtml_C
 		,'renderresendecom'
 		,'resendEcommerceData'
 		,'resetLocalErrors'
-	]) && $this->getAdminSession()->isAllowed('system/config/mailchimp');}
+	]) && df_backend_session()->isAllowed('system/config/mailchimp');}
 
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Data
@@ -116,14 +116,6 @@ class Ebizmarts_MailChimp_Adminhtml_EcommerceController extends Mage_Adminhtml_C
 	protected function makeHelper()
 	{
 		return Mage::helper('mailchimp');
-	}
-
-	/**
-	 * @return Mage_Adminhtml_Model_Session
-	 */
-	protected function getAdminSession()
-	{
-		return Mage::getSingleton('admin/session');
 	}
 
 	function addWarning($message)
