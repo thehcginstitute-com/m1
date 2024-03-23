@@ -1192,7 +1192,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract
 	{
 		$lastCustomerSent = null;
 		$mcStoreId = $this->getMCStoreId($scopeId, $scope);
-		$syncDataCollection = $this->getMailchimpEcommerceSyncDataModel()->getCollection()
+		$syncDataCollection = hcg_mc_syncd_new()->getCollection()
 			->addFieldToFilter('mailchimp_store_id', array('eq' => $mcStoreId))
 			->addFieldToFilter('type', array('eq' => Ebizmarts_MailChimp_Model_Config::IS_CUSTOMER))
 			->setOrder('related_id', 'DESC')
