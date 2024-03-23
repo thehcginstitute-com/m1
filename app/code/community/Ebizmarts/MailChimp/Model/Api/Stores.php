@@ -287,7 +287,7 @@ class Ebizmarts_MailChimp_Model_Api_Stores
     }
 
     /**
-     * @return Ebizmarts_MailChimp_Helper_Dat3
+     * @return Ebizmarts_MailChimp_Helper_Date
      */
     protected function makeDateHelper()
     {
