@@ -13,6 +13,7 @@ use Varien_Db_Select as S;
  * https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Db/Select.php#L929-L931
  * 2) The function always returns @see S
  * I added @see Zend_Db_Select to the PHPDoc return type declaration just for my IDE convenience.
+ * 2024-03-23 "Port `df_db_from()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/527
  * @used-by df_customer_att_pos_after()
  * @used-by df_customer_is_new()
  * @used-by df_fetch()
