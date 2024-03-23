@@ -15,6 +15,7 @@ use Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection as C;
  * @used-by Ebizmarts_MailChimp_Model_Api_Products::sendModifiedProduct()
  * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::_getNewPromoCodes()
  * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::deletePromoCodeSyncData()
+ * @used-by Ebizmarts_MailChimp_Model_Api_PromoRules::deletePromoRuleSyncData()
  * @param $id
  * @param $type
  * @param $sid

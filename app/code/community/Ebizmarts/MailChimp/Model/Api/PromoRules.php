@@ -237,7 +237,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
 	 */
 	protected function deletePromoRuleSyncData($ruleId)
 	{
-		$ruleSyncDataItem = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
+		$ruleSyncDataItem = hcg_mc_syncd_get(
 			$ruleId,
 			Ebizmarts_MailChimp_Model_Config::IS_PROMO_RULE,
 			$this->getMailchimpStoreId()
