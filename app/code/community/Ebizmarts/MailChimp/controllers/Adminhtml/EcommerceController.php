@@ -100,6 +100,8 @@ class Ebizmarts_MailChimp_Adminhtml_EcommerceController extends Mage_Adminhtml_C
 	 * 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Resolve the `Ebizmarts_MailChimp` module's issues found by IntelliJ IDEA inspections":
 	 * https://github.com/thehcginstitute-com/m1/issues/530
+	 * @override
+	 * @see Mage_Adminhtml_Controller_Action::_isAllowed()
 	 */
 	protected function _isAllowed():bool {
 		switch ($this->getRequest()->getActionName()) {
