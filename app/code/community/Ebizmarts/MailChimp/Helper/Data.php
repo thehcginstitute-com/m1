@@ -3864,7 +3864,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract
 	}
 
 	/**
-	 * @param $message add a warning with the message that receive as param
+	 * @param $message
 	 */
 	function addAdminWarning($message)
 	{
