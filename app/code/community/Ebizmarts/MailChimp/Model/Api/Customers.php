@@ -119,7 +119,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
             if (false !== $customerJson) {
                 if (!empty($customerJson)) {
                     $isSubscribed = $this->isSubscribed($subscriber, $customer);
-                    $dataCustomer = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
+                    $dataCustomer = hcg_mc_syncd_get(
                         $customer->getId(),
                         Ebizmarts_MailChimp_Model_Config::IS_CUSTOMER,
                         $mailchimpStoreId

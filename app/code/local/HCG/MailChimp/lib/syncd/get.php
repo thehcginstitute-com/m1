@@ -7,6 +7,7 @@ use Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection as C;
  * @used-by Ebizmarts_MailChimp_CartController::loadcouponAction()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::getDataProduct()
  * @used-by Ebizmarts_MailChimp_Model_Api_Carts::_processCartLines()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Customers::createBatchJson()
  * @param $id
  * @param $type
  * @param $sid
