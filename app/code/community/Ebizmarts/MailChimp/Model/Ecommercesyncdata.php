@@ -66,9 +66,9 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 	 */
 	function getEcommerceSyncDataItem($itemId, $itemType, $mailchimpStoreId):SyncD {
 		$collection = $this->getCollection()
+			->addFieldToFilter('mailchimp_store_id', ['eq' => $mailchimpStoreId])
 			->addFieldToFilter('related_id', ['eq' => $itemId])
 			->addFieldToFilter('type', ['eq' => $itemType])
-			->addFieldToFilter('mailchimp_store_id', ['eq' => $mailchimpStoreId])
 			->setCurPage(1)
 			->setPageSize(1)
 		;
