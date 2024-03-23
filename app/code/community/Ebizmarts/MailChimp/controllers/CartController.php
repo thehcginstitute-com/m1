@@ -24,12 +24,11 @@ class Ebizmarts_MailChimp_CartController extends Mage_Checkout_CartController
             $quote = Mage::getModel('sales/quote')->load($params['id']);
             $storeId = $quote->getStoreId();
             $mailchimpStoreId = Mage::helper('mailchimp')->getMCStoreId($storeId);
-            $quoteSyncData = $this->getMailchimpEcommerceSyncDataModel()
-                ->getEcommerceSyncDataItem(
-                    $params['id'],
-                    Ebizmarts_MailChimp_Model_Config::IS_QUOTE,
-                    $mailchimpStoreId
-                );
+            $quoteSyncData = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
+				$params['id'],
+				Ebizmarts_MailChimp_Model_Config::IS_QUOTE,
+				$mailchimpStoreId
+			);
             $url = Mage::getUrl(Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::ABANDONEDCART_PAGE, $storeId));
 
             if (isset($params['mc_cid'])) {

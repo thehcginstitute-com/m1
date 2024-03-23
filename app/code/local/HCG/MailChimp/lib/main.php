@@ -2,6 +2,8 @@
 use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
 /**
  * 2024-03-22 "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+ * @used-by Ebizmarts_MailChimp_CartController::loadcouponAction()
+ * @used-by Ebizmarts_MailChimp_CartController::loadquoteAction()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getLastCartSent()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getLastCustomerSent()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getLastOrderSent()
@@ -38,6 +40,5 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
  * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
  * @used-by Ebizmarts_MailChimp_Model_Observer::productAttributeUpdate()
  * @used-by Ebizmarts_MailChimp_Model_Observer::productSaveAfter()
- * @used-by Ebizmarts_MailChimp_CartController::loadcouponAction()
  */
 function hcg_mc_syncd_new():SyncD {return new SyncD;}
