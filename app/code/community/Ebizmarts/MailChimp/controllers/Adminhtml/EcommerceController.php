@@ -103,14 +103,12 @@ class Ebizmarts_MailChimp_Adminhtml_EcommerceController extends Mage_Adminhtml_C
 	 * @override
 	 * @see Mage_Adminhtml_Controller_Action::_isAllowed()
 	 */
-	protected function _isAllowed():bool {return $this->getAdminSession()->isAllowed(
-		!in_array($this->getRequest()->getActionName(), [
-			'createMergeFields'
-			,'renderresendecom'
-			,'resendEcommerceData'
-			,'resetLocalErrors'
-		]) ? '' : 'system/config/mailchimp'
-	);}
+	protected function _isAllowed():bool {return in_array($this->getRequest()->getActionName(), [
+		'createMergeFields'
+		,'renderresendecom'
+		,'resendEcommerceData'
+		,'resetLocalErrors'
+	]) && $this->getAdminSession()->isAllowed('system/config/mailchimp');}
 
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Data
