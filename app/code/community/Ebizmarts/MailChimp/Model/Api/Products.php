@@ -1248,7 +1248,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Orders::_getPayloadDataLines()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::sendModifiedProduct()
      * @param $productId
-     * @return bool | return true if the product is enabled in Magento.
+     * @return bool
      */
     function isProductEnabled($productId)
     {
