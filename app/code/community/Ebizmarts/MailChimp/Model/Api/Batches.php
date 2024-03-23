@@ -553,7 +553,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 */
 	function ecommerceSentCallback($args) {
-		$d = hcg_mc_syncd_new();
+		$d = hcg_mc_syncd_new(); /** @var D $d */
 		$d->setData($args['row']); // map data to customer model
 		$writeAdapter = Mage::getSingleton('core/resource')->getConnection('core_write');
 		$insertData = array(
