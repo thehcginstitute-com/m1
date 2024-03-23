@@ -1,14 +1,7 @@
 <?php
-
-/**
- * mailchimp-lib Magento Component
- *
- * @category  Ebizmarts
- * @package   mailchimp-lib
- * @author    Ebizmarts Team <info@ebizmarts.com>
- * @copyright Ebizmarts (http://ebizmarts.com)
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */
+# 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 class Ebizmarts_MailChimp_Model_Api_Batches
 {
 	const SEND_PROMO_ENABLED = 1;
