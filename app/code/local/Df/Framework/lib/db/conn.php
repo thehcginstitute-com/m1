@@ -1,7 +1,7 @@
 <?php
 /**
  * 2018-12-07
- * @return \Varien_Db_Adapter_Pdo_Mysql|\Varien_Db_Adapter_Interface
+ * @return Varien_Db_Adapter_Pdo_Mysql|Varien_Db_Adapter_Interface
  */
 function df_conn() {static $r; return $r ? $r : $r = df_mage_r()->getConnection('write');}
 
