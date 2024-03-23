@@ -41,7 +41,7 @@ function hcg_mc_syncd_get(int $id, string $t, string $sid):D {
 		 * 		«QUO»: @see Ebizmarts_MailChimp_Model_Config::IS_QUOTE
 		 * 		«SUB»: @see Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER
 		 */
-		->addFieldToFilter('type', ['eq' => $t]) #
+		->addFieldToFilter('type', ['eq' => $t])
 		->setCurPage(1)
 		->setPageSize(1)
 	;
