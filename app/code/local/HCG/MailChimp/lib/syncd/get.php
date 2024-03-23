@@ -30,7 +30,18 @@ function hcg_mc_syncd_get(int $id, string $t, string $sid):D {
 		# 2024-03-23 `mailchimp_store_id`: «www.thehcginstitute.com_2017-03-05-013122»
 		->addFieldToFilter('mailchimp_store_id', ['eq' => $sid])
 		->addFieldToFilter('related_id', ['eq' => $id])
-		->addFieldToFilter('type', ['eq' => $t]) # 2024-03-23 `type`: «CUS», «ORD», «PRO», «QUO»
+		/**
+		 * 2024-03-23
+		 * `type`:
+		 * 		«CUS»: @see Ebizmarts_MailChimp_Model_Config::IS_CUSTOMER
+		 * 		«ORD»: @see Ebizmarts_MailChimp_Model_Config::IS_ORDER
+		 * 		«PCD»: @see Ebizmarts_MailChimp_Model_Config::IS_PROMO_CODE
+		 * 		«PRL»: @see Ebizmarts_MailChimp_Model_Config::IS_PROMO_RULE
+		 * 		«PRO»: @see Ebizmarts_MailChimp_Model_Config::IS_PRODUCT
+		 * 		«QUO»: @see Ebizmarts_MailChimp_Model_Config::IS_QUOTE
+		 * 		«SUB»: @see Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER
+		 */
+		->addFieldToFilter('type', ['eq' => $t]) #
 		->setCurPage(1)
 		->setPageSize(1)
 	;
