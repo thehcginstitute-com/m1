@@ -2,6 +2,7 @@
 /**
  * 2021-01-29
  * @used-by dfa_try()
+ * @used-by Ebizmarts_MailChimp_Block_Popup_Emailcatcher::_handleCookie() (https://github.com/thehcginstitute-com/m1/issues/530)
  * @used-by Ebizmarts_MailChimp_Helper_Data::getRealScopeForConfig()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::createBatchJson()
