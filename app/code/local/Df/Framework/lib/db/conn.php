@@ -9,12 +9,6 @@ use Varien_Db_Adapter_Interface as IAdapter;
 function df_conn():IAdapter {static $r; return $r ? $r : $r = df_db_resource()->getConnection('write');}
 
 /**
- * 2015-09-29
- * @return \Varien_Db_Select
- */
-function df_select() {return df_conn()->select();}
-
-/**
  * @uses Mage_Core_Model_Resource::getTableName() не кэширует результаты своей работы,
  * и, глядя на реализацию @see Mage_Core_Model_Resource_Setup::getTable(),
  * которая выполняет кэширование для @see Mage_Core_Model_Resource::getTableName(),
