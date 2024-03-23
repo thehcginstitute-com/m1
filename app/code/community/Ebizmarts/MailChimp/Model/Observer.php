@@ -949,7 +949,7 @@ class Ebizmarts_MailChimp_Model_Observer
             if ($ecommEnabled) {
                 foreach ($productIds as $productId) {
                     $dataProduct = hcg_mc_syncd_get(
-                        $productId,
+                        (int)$productId,
                         Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                         $mailchimpStoreId
                     );
