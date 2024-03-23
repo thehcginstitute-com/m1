@@ -120,7 +120,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
 					//update promo rule delta
 					$this->addSyncData($ruleId);
 				} else {
-					$error = $promoRule->getMailchimpSyncError();
+					$error = $promoRule['mailchimp_sync_error'];
 
 					if (!$error) {
 						$error = $helper->__('Something went wrong when retrieving the information.');
