@@ -74,9 +74,11 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 		;
 		return $c->getSize()
 			? $c->getLastItem()
-			: $this->setData("related_id", $itemId)
-				->setData("type", $itemType)
-				->setData("mailchimp_store_id", $mailchimpStoreId)
+			: $this->addData([
+				'related_id' => $itemId
+				,'type' => $itemType
+				,'mailchimp_store_id' => $mailchimpStoreId
+			])
 		;
 	}
 
