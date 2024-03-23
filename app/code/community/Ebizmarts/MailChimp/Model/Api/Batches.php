@@ -562,7 +562,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 			'type' => $d->getType(),
 			'mailchimp_store_id' => $d->getMailchimpStoreId(),
 			'mailchimp_sync_error' => $d['mailchimp_sync_error'],
-			'mailchimp_sync_delta' => $d['mailchimp_sync_delta'],
+			'mailchimp_sync_delta' => $d->time(),
 			'mailchimp_sync_modified' => $d->getMailchimpSyncModified(),
 			'mailchimp_sync_deleted' => $d->getMailchimpSyncDeleted(),
 			'mailchimp_token' => $d->getMailchimpToken(),
