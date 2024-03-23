@@ -294,7 +294,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
 
 		if ($error) {
 			$data = array();
-			$promoRule->setMailchimpSyncError($error);
+			$promoRule['mailchimp_sync_error'] = $error;
 		}
 
 		return $data;
