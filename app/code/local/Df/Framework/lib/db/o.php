@@ -10,5 +10,6 @@ function df_db_resource():R {return Mage::getSingleton('core/resource');}
 
 /**
  * 2015-09-29
+ * @used-by df_db_from()
  */
 function df_select():S {return df_conn()->select();}

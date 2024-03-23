@@ -24,7 +24,7 @@ function df_table($name) {
 	 */
 	$key = is_array($name) ? implode('_', $name) : $name;
 	if (!isset($cache[$key])) {
-		$cache[$key] = df_mage_r()->getTableName($name);
+		$cache[$key] = df_db_resource()->getTableName($name);
 	}
 	return $cache[$key];
 }
