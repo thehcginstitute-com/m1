@@ -72,15 +72,12 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 			->setCurPage(1)
 			->setPageSize(1)
 		;
-		if ($collection->getSize()) {
-			$ecommerceSyndDataItem = $collection->getLastItem();
-		}
-		else {
-			$ecommerceSyndDataItem = $this->setData("related_id", $itemId)
+		return $collection->getSize()
+			? $collection->getLastItem()
+			: $this->setData("related_id", $itemId)
 				->setData("type", $itemType)
-				->setData("mailchimp_store_id", $mailchimpStoreId);
-		}
-		return $ecommerceSyndDataItem;
+				->setData("mailchimp_store_id", $mailchimpStoreId)
+		;
 	}
 
 	/**
