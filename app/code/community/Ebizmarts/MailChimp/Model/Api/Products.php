@@ -283,7 +283,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
             $parentIds = $this->_productTypeConfigurableResource->getParentIdsByChild($product->getId());
 
             foreach ($parentIds as $parentId) {
-                $productSyncDataItem = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
+                $productSyncDataItem = hcg_mc_syncd_get(
                     $parentId,
                     Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                     $mailchimpStoreId
