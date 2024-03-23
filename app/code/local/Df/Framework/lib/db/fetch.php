@@ -5,6 +5,7 @@ use Varien_Db_Select as S;
  * 2015-11-03
  * 2024-03-23 "Port `df_fetch_one()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/525
  * @used-by df_fetch_one_int()
+ * @used-by hcg_mc_syncd_get()
  * @param string|string[] $cols
  * @param array(string => string) $compare
  * @return string|null|array(string => mixed)

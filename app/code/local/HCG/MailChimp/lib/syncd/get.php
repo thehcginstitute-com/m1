@@ -2,7 +2,17 @@
 use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection as C;
 /**
- * 2024-03-23 "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+ * 2024-03-23
+ * 1) "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+ * 2.2) `mailchimp_store_id`: «www.thehcginstitute.com_2017-03-05-013122»
+ * 2.2) `type`:
+ *  		«CUS»: @see Ebizmarts_MailChimp_Model_Config::IS_CUSTOMER
+ * 			«ORD»: @see Ebizmarts_MailChimp_Model_Config::IS_ORDER
+ * 			«PCD»: @see Ebizmarts_MailChimp_Model_Config::IS_PROMO_CODE
+ * 			«PRL»: @see Ebizmarts_MailChimp_Model_Config::IS_PROMO_RULE
+ * 			«PRO»: @see Ebizmarts_MailChimp_Model_Config::IS_PRODUCT
+ * 			«QUO»: @see Ebizmarts_MailChimp_Model_Config::IS_QUOTE
+ * 			SUB»: @see Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER
  * @used-by Ebizmarts_MailChimp_CartController::loadcouponAction()
  * @used-by Ebizmarts_MailChimp_CartController::loadquoteAction()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::getDataProduct()
@@ -24,26 +34,8 @@ use Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection as C;
  * @used-by Ebizmarts_MailChimp_Model_Observer::productAttributeUpdate()
  * @used-by Ebizmarts_MailChimp_Model_Observer::productSaveAfter()
  */
-function hcg_mc_syncd_get(int $id, string $t, string $sid):D {
-	$c = new C;
-	$c
-		# 2024-03-23 `mailchimp_store_id`: «www.thehcginstitute.com_2017-03-05-013122»
-		->addFieldToFilter('mailchimp_store_id', ['eq' => $sid])
-		->addFieldToFilter('related_id', ['eq' => $id])
-		/**
-		 * 2024-03-23
-		 * `type`:
-		 * 		«CUS»: @see Ebizmarts_MailChimp_Model_Config::IS_CUSTOMER
-		 * 		«ORD»: @see Ebizmarts_MailChimp_Model_Config::IS_ORDER
-		 * 		«PCD»: @see Ebizmarts_MailChimp_Model_Config::IS_PROMO_CODE
-		 * 		«PRL»: @see Ebizmarts_MailChimp_Model_Config::IS_PROMO_RULE
-		 * 		«PRO»: @see Ebizmarts_MailChimp_Model_Config::IS_PRODUCT
-		 * 		«QUO»: @see Ebizmarts_MailChimp_Model_Config::IS_QUOTE
-		 * 		«SUB»: @see Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER
-		 */
-		->addFieldToFilter('type', ['eq' => $t])
-		->setCurPage(1)
-		->setPageSize(1)
-	;
-	return $c->getSize() ? $c->getLastItem() : new D(['mailchimp_store_id' => $sid, 'related_id' => $id, 'type' => $t]);
-}
+function hcg_mc_syncd_get(int $id, string $t, string $sid):D {return new D(
+	df_fetch_one(
+		'mailchimp_ecommerce_sync_data', '*', $d = ['mailchimp_store_id' => $sid, 'related_id' => $id ,'type' => $t]
+	) ?: $d
+);}
