@@ -1,6 +1,7 @@
 <?php
 use Varien_Db_Adapter_Pdo_Mysql as Mysql;
 use Varien_Db_Adapter_Interface as IAdapter;
+use Mage_Core_Model_Resource as R;
 
 /**
  * 2018-12-07
@@ -11,9 +12,8 @@ function df_conn():IAdapter {static $r; return $r ? $r : $r = df_mage_r()->getCo
 /**
  * 2018-12-07
  * @used-by df_conn()
- * @return Mage_Core_Model_Resource
  */
-function df_mage_r() {return Mage::getSingleton('core/resource');}
+function df_mage_r():R {return Mage::getSingleton('core/resource');}
 
 /**
  * 2015-09-29
