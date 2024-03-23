@@ -58,27 +58,6 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 	}
 
 	/**
-	 * 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 * @param $itemId
-	 * @param $itemType
-	 * @param $mailchimpStoreId
-	 */
-	function getEcommerceSyncDataItem($itemId, $itemType, $mailchimpStoreId):SyncD {
-		$c = $this->getCollection()
-			->addFieldToFilter('mailchimp_store_id', ['eq' => $mailchimpStoreId])
-			->addFieldToFilter('related_id', ['eq' => $itemId])
-			->addFieldToFilter('type', ['eq' => $itemType])
-			->setCurPage(1)
-			->setPageSize(1)
-		;
-		return $c->getSize()
-			? $c->getLastItem()
-			: $this->addData(['mailchimp_store_id' => $mailchimpStoreId, 'related_id' => $itemId, 'type' => $itemType])
-		;
-	}
-
-	/**
 	 * @param $itemId
 	 * @param $itemType
 	 * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection
