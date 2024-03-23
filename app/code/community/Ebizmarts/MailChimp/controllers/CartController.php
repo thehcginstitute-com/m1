@@ -25,7 +25,7 @@ class Ebizmarts_MailChimp_CartController extends Mage_Checkout_CartController
             $storeId = $quote->getStoreId();
             $mailchimpStoreId = Mage::helper('mailchimp')->getMCStoreId($storeId);
             $quoteSyncData = hcg_mc_syncd_get(
-				$params['id'],
+				(int)$params['id'],
 				Ebizmarts_MailChimp_Model_Config::IS_QUOTE,
 				$mailchimpStoreId
 			);
@@ -83,7 +83,7 @@ class Ebizmarts_MailChimp_CartController extends Mage_Checkout_CartController
 
         if (isset($params['coupon_id']) && isset($params['coupon_token'])) {
             $helper = Mage::helper('mailchimp');
-            $id = $params['coupon_id'];
+            $id = (int)$params['coupon_id'];
             $token = $params['coupon_token'];
             $storeId = Mage::app()->getStore()->getId();
             $mailchimpStoreId = $helper->getMCStoreId($storeId);

@@ -1210,7 +1210,9 @@ class Ebizmarts_MailChimp_Model_Api_Batches
      * @param $type
      * @return Varien_Object
      */
-    protected function getDataProduct($mailchimpStoreId, $id, $type) {return hcg_mc_syncd_get($id, $type, $mailchimpStoreId);}
+    protected function getDataProduct($mailchimpStoreId, $id, $type) {return hcg_mc_syncd_get(
+		(int)$id, $type, $mailchimpStoreId
+	);}
 
     /**
      * @param $batchId
