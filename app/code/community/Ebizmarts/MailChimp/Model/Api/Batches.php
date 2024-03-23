@@ -1221,7 +1221,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
      */
     protected function getDataProduct($mailchimpStoreId, $id, $type)
     {
-        return $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem($id, $type, $mailchimpStoreId);
+        return hcg_mc_syncd_new()->getEcommerceSyncDataItem($id, $type, $mailchimpStoreId);
     }
 
     /**
