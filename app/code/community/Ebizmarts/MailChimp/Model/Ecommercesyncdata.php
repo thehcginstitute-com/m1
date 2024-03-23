@@ -72,6 +72,16 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 	}
 
 	/**
+	 * 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 1) "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * 2) https://3v4l.org/NoALo
+	 * 3) Returns a string like «2024-03-17 05:53:46» or «0000-00-00 00:00:00».
+	 * 4.1) The database field is always filled.
+	 * 4.2) It has the `datetime` type.
+	 */
+	final function time():?string {return $this['mailchimp_sync_delta'];}
+
+	/**
 	 * @param $itemId
 	 * @param $itemType
 	 * @param $syncDelta
