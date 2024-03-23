@@ -912,7 +912,7 @@ class Ebizmarts_MailChimp_Model_Observer
                     );
 
                     $isMarkedAsDeleted = $dataProduct->getMailchimpSyncDeleted();
-                    $errorMessage = $dataProduct->getMailchimpSyncError();
+                    $errorMessage = $dataProduct['mailchimp_sync_error'];
 
                     if ($isMarkedAsDeleted
                         || $errorMessage == Ebizmarts_MailChimp_Model_Api_Products::PRODUCT_DISABLED_IN_MAGENTO
