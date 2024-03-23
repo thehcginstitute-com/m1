@@ -283,13 +283,13 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
             $parentIds = $this->_productTypeConfigurableResource->getParentIdsByChild($product->getId());
 
             foreach ($parentIds as $parentId) {
-                $productSyncDataItem = hcg_mc_syncd_get(
+                $d = hcg_mc_syncd_get(
                     (int)$parentId,
                     Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                     $mailchimpStoreId
                 );
 
-                if ($productSyncDataItem['mailchimp_sync_delta']) {
+                if ($d['mailchimp_sync_delta']) {
                     $parent = $this->_getParentProduct($parentId);
                     $variantProducts = $this->makeProductChildrenArray(
                         $parent,
