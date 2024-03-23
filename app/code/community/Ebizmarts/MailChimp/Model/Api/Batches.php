@@ -912,7 +912,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
             $isProductDisabledInMagento = Ebizmarts_MailChimp_Model_Api_Products::PRODUCT_DISABLED_IN_MAGENTO;
 
             if ($dataProduct->getMailchimpSyncDeleted()
-                || $dataProduct->getMailchimpSyncError() == $isProductDisabledInMagento
+                || $dataProduct['mailchimp_sync_error'] == $isProductDisabledInMagento
             ) {
                 $error = $isProductDisabledInMagento;
             }
