@@ -1053,14 +1053,6 @@ class Ebizmarts_MailChimp_Model_Api_Batches
     }
 
     /**
-     * @return Ebizmarts_MailChimp_Model_Ecommercesyncdata
-     */
-    protected function getMailchimpEcommerceSyncDataModel()
-    {
-        return Mage::getModel('mailchimp/ecommercesyncdata');
-    }
-
-    /**
      * @param $storeId
      * @param $syncedDateArray
      * @return mixed

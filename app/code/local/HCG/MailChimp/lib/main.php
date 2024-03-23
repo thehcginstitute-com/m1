@@ -2,6 +2,7 @@
 use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
 /**
  * 2024-03-22 "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+ * @used-by Ebizmarts_MailChimp_Model_Api_Batches::getDataProduct()
  * @used-by Ebizmarts_MailChimp_Model_Api_Carts::_processCartLines()
  * @used-by Ebizmarts_MailChimp_Model_Api_Customers::createBatchJson()
  * @used-by Ebizmarts_MailChimp_Model_Api_ItemSynchronizer::_updateSyncData()
