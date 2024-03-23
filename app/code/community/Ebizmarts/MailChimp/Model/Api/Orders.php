@@ -408,7 +408,9 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 		foreach ($items as $item) {
 			$productId = (int)$item->getProductId();
 			$isTypeProduct = $this->isTypeProduct();
-			$productSyncData = hcg_mc_syncd_get($productId, $isTypeProduct, $mailchimpStoreId);
+			# 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+			$d = hcg_mc_syncd_get($productId, $isTypeProduct, $mailchimpStoreId); /** @var D $d */
 
 			if ($this->isItemConfigurable($item)) {
 				$options = $item->getProductOptions();
@@ -426,10 +428,10 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 				$variant = $productId;
 			}
 
-			$productSyncError = $productSyncData['mailchimp_sync_error'];
+			$productSyncError = $d['mailchimp_sync_error'];
 			$isProductEnabled = $apiProduct->isProductEnabled($productId);
 
-			if (!$isProductEnabled || ($productSyncData['mailchimp_sync_delta'] && $productSyncError == '')) {
+			if (!$isProductEnabled || ($d->time() && $productSyncError == '')) {
 				$itemCount++;
 				$lines[] = array(
 					"id" => (string)$itemCount,
