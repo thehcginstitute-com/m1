@@ -139,12 +139,4 @@ class Ebizmarts_MailChimp_CartController extends Mage_Checkout_CartController
             }
         }
     }
-
-    /**
-     * @return mixed
-     */
-    function getMailchimpEcommerceSyncDataModel()
-    {
-        return Mage::getModel('mailchimp/ecommercesyncdata');
-    }
 }
