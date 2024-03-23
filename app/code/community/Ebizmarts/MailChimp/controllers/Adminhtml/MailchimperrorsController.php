@@ -98,7 +98,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController extends Mage_Admin
 	 */
 	protected function _isAllowed():bool {return in_array($this->getRequest()->getActionName(), [
 		'downloadresponse', 'grid', 'index'
-	]) && $this->getAdminSession()->isAllowed('newsletter/mailchimp/mailchimperrors');}
+	]) && Mage::getSingleton('admin/session')->isAllowed('newsletter/mailchimp/mailchimperrors');}
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Data
 	 */
