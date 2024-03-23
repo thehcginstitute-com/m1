@@ -76,11 +76,11 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 	 * 3) Returns a string like «2024-03-17 05:53:46» or «0000-00-00 00:00:00».
 	 * 4.1) The database field is always filled.
 	 * 4.2) It has the `datetime` type.
+	 * @used-by self::saveEcommerceSyncData()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::ecommerceSentCallback()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Orders::_getPayloadDataLines()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::_buildUpdateProductRequest()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::sendModifiedProduct()
-	 * @used-by Ebizmarts_MailChimp_Model_Ecommercesyncdata::saveEcommerceSyncData()
 	 */
 	final function time():?string {return $this['mailchimp_sync_delta'];}
 
