@@ -105,7 +105,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
 
         foreach ($newPromoCodes as $promoCode) {
             $codeId = $promoCode->getCouponId();
-            $ruleId = $promoCode->getRuleId();
+            $ruleId = (int)$promoCode->getRuleId();
 
             try {
                 $promoRuleSyncData = hcg_mc_syncd_get(
