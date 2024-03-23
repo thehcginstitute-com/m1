@@ -116,6 +116,7 @@ function dfc($o, Closure $f, array $a = [], $unique = true, $offset = 0) {
  * @used-by df_module_file_read()
  * @used-by df_modules_my()
  * @used-by df_product_images_path_rel()
+ * @used-by df_table()
  * @used-by dfac()
  * @param bool $unique
  * @param int $offset
