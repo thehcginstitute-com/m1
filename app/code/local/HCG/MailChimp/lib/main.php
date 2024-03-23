@@ -2,7 +2,12 @@
 use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
 /**
  * 2024-03-22 "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+ * @used-by Ebizmarts_MailChimp_Helper_Data::getLastCartSent()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::getLastOrderSent()
  * @used-by Ebizmarts_MailChimp_Helper_Migration::_migrateCartsFrom115()
+ * @used-by Ebizmarts_MailChimp_Helper_Migration::_migrateCustomersFrom115()
+ * @used-by Ebizmarts_MailChimp_Helper_Migration::_migrateOrdersFrom115()
+ * @used-by Ebizmarts_MailChimp_Helper_Migration::_migrateProductsFrom115()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::getDataProduct()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::saveSyncData()
  * @used-by Ebizmarts_MailChimp_Model_Api_Carts::_processCartLines()
@@ -31,9 +36,5 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
  * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
  * @used-by Ebizmarts_MailChimp_Model_Observer::productAttributeUpdate()
  * @used-by Ebizmarts_MailChimp_Model_Observer::productSaveAfter()
- * @used-by Ebizmarts_MailChimp_Helper_Migration::_migrateOrdersFrom115()
- * @used-by Ebizmarts_MailChimp_Helper_Migration::_migrateProductsFrom115()
- * @used-by Ebizmarts_MailChimp_Helper_Migration::_migrateCustomersFrom115()
- * @used-by Ebizmarts_MailChimp_Helper_Data::getLastCartSent()
  */
 function hcg_mc_syncd_new():SyncD {return new SyncD;}
