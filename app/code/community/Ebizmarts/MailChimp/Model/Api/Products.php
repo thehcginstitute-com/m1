@@ -266,21 +266,18 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
 		$magentoStoreId = $this->getMagentoStoreId();
 		$variantProducts = array();
 		$operations = array();
-
 		if ($this->isSimpleProduct($product)
 			|| $this->isVirtualProduct($product)
 			|| $this->isDownloadableProduct($product)
 		) {
 			$variantProducts[] = $product;
 			$parentIds = $this->_productTypeConfigurableResource->getParentIdsByChild($product->getId());
-
 			foreach ($parentIds as $parentId) {
 				$d = hcg_mc_syncd_get(
 					(int)$parentId,
 					Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
 					$mailchimpStoreId
 				); /** @var D $d */
-
 				if ($d->time()) {
 					$parent = $this->_getParentProduct($parentId);
 					$variantProducts = $this->makeProductChildrenArray(
