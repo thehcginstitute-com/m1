@@ -905,7 +905,7 @@ class Ebizmarts_MailChimp_Model_Observer
                 $status = $this->getCatalogProductStatusModel()->getProductStatus($product->getId(), $storeId);
 
                 if ($status[$product->getId()] == self::PRODUCT_IS_ENABLED) {
-                    $dataProduct = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
+                    $dataProduct = hcg_mc_syncd_get(
                         $product->getId(),
                         Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                         $mailchimpStoreId
@@ -948,7 +948,7 @@ class Ebizmarts_MailChimp_Model_Observer
 
             if ($ecommEnabled) {
                 foreach ($productIds as $productId) {
-                    $dataProduct = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
+                    $dataProduct = hcg_mc_syncd_get(
                         $productId,
                         Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                         $mailchimpStoreId

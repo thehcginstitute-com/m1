@@ -17,10 +17,12 @@ use Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection as C;
  * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::deletePromoCodeSyncData()
  * @used-by Ebizmarts_MailChimp_Model_Api_PromoRules::deletePromoRuleSyncData()
  * @used-by Ebizmarts_MailChimp_Model_Ecommercesyncdata::saveEcommerceSyncData()
- * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
- * @used-by Ebizmarts_MailChimp_Model_Observer::newCreditMemo()
  * @used-by Ebizmarts_MailChimp_Model_Observer::cancelCreditMemo()
  * @used-by Ebizmarts_MailChimp_Model_Observer::itemCancel()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::newCreditMemo()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::productAttributeUpdate()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::productSaveAfter()
  * @param $id
  * @param $type
  * @param $sid
