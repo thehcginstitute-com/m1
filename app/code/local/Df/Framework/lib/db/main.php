@@ -11,7 +11,7 @@ use Varien_Db_Select as S;
  *			$cols = array($cols);
  *		}
  * https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Db/Select.php#L929-L931
- * 2) The function always returns @see Select
+ * 2) The function always returns @see S
  * I added @see Zend_Db_Select to the PHPDoc return type declaration just for my IDE convenience.
  * @used-by df_customer_att_pos_after()
  * @used-by df_customer_is_new()
@@ -25,6 +25,6 @@ use Varien_Db_Select as S;
  * @param string|null $schema [optional]
  * @return S|Zend_Db_Select
  */
-function df_db_from($t, $cols = '*', $schema = null) {return df_select()->from(
+function df_db_from($t, $cols = '*', $schema = null):S {return df_select()->from(
 	$t instanceof Entity ? $t->getEntityTable() : (is_array($t) ? $t : df_table($t)), $cols, $schema
 );}
