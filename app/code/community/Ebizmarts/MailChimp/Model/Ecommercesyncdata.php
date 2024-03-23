@@ -58,8 +58,8 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 	}
 
 	/**
-	 *  Load Ecommerce Sync Data Item if exists or set the values for a new one and return it.
-	 *
+	 * 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @param  $itemId
 	 * @param  $itemType
 	 * @param  $mailchimpStoreId
