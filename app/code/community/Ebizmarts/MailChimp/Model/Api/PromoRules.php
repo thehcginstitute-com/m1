@@ -219,7 +219,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
 	 */
 	protected function makeModifiedAndDeletedPromoRulesCollection()
 	{
-		$deletedAndModifiedPromoRules = $this->getMailchimpEcommerceSyncDataModel()->getCollection();
+		$deletedAndModifiedPromoRules = hcg_mc_syncd_new()->getCollection();
 
 		$this->_ecommercePromoRulesCollection->addWhere(
 			$deletedAndModifiedPromoRules,
