@@ -2,6 +2,15 @@
 <!--  2024-01-09 "Implement the `Df_*` library": https://github.com/thehcginstitute-com/m1/issues/138 -->
 <config>
 	<modules>
+<!-- 2024-03-23
+"Port `df_backend_session()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/531 -->
+		<Df_Backend>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<Mage_Admin/>
+			</depends>
+		</Df_Backend>
 		<Df_Core>
 			<active>true</active>
 			<codePool>local</codePool>
