@@ -555,8 +555,11 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 		);
 	}
 
-	function ecommerceSentCallback($args)
-	{
+	/**
+	 * 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 */
+	function ecommerceSentCallback($args) {
 		$d = hcg_mc_syncd_new();
 		$d->setData($args['row']); // map data to customer model
 		$writeAdapter = Mage::getSingleton('core/resource')->getConnection('core_write');
