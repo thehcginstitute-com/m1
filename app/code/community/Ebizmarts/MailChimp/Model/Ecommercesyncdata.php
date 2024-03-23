@@ -81,6 +81,7 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::ecommerceSentCallback()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Orders::_getPayloadDataLines()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::_buildUpdateProductRequest()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::sendModifiedProduct()
 	 */
 	final function time():?string {return $this['mailchimp_sync_delta'];}
 

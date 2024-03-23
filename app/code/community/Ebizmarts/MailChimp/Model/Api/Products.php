@@ -551,12 +551,11 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
 
 			$product = $this->loadProductById($itemProductId);
 			$productId = (int)$product->getId();
-			$productSyncData = hcg_mc_syncd_get(
+			$d = hcg_mc_syncd_get(
 				$productId,
 				Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
 				$mailchimpStoreId
-			);
-
+			); /** @var D $d */
 			if ($productId != $itemProductId
 				|| $this->isBundleProduct($product)
 				|| $this->isGroupedProduct($product)
@@ -573,17 +572,14 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
 
 				continue;
 			}
-
-			$syncModified = $productSyncData->getMailchimpSyncModified();
-			$productSyncDelta = $productSyncData['mailchimp_sync_delta'];
+			$syncModified = $d->getMailchimpSyncModified();
+			$productSyncDelta = $d->time();
 			$isProductEnabled = $this->isProductEnabled($productId);
-
 			if ($syncModified && $isProductEnabled) {
 				$buildUpdateOperations = $this->_buildUpdateProductRequest(
 					$product,
 					$batchId
 				);
-
 				if ($buildUpdateOperations !== false) {
 					// json correctly encoded
 					$data = array_merge(
