@@ -565,7 +565,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
             'related_id' => $ecommerceData->getRelatedId(),
             'type' => $ecommerceData->getType(),
             'mailchimp_store_id' => $ecommerceData->getMailchimpStoreId(),
-            'mailchimp_sync_error' => $ecommerceData->getMailchimpSyncError(),
+            'mailchimp_sync_error' => $ecommerceData['mailchimp_sync_error'],
             'mailchimp_sync_delta' => $ecommerceData['mailchimp_sync_delta'],
             'mailchimp_sync_modified' => $ecommerceData->getMailchimpSyncModified(),
             'mailchimp_sync_deleted' => $ecommerceData->getMailchimpSyncDeleted(),
