@@ -1,26 +1,9 @@
 <?php
-
-/**
- * mc-magento Magento Component
- *
- * @category  Ebizmarts
- * @package   mc-magento
- * @author    Ebizmarts Team <info@ebizmarts.com>
- * @copyright Ebizmarts (http://ebizmarts.com)
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @date:     2019-10-02 15:53
- * @file:     Ecommercesyncdata.php
- */
-class Ebizmarts_MailChimp_Model_Ecommercesyncdata_Quote extends Ebizmarts_MailChimp_Model_Ecommercesyncdata
-{
-
-    /**
-     * Initialize
-     *
-     * @return void
-     */
-    function _construct()
-    {
-
-    }
+# 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+class Ebizmarts_MailChimp_Model_Ecommercesyncdata_Quote extends Ebizmarts_MailChimp_Model_Ecommercesyncdata {
+	/**
+	 * @return void
+	 */
+	function _construct():void {}
 }
