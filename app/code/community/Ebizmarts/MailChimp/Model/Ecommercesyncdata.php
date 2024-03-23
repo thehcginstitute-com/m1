@@ -1,16 +1,7 @@
 <?php
-/**
- * mc-magento Magento Component
- *
- * @category  Ebizmarts
- * @package   mc-magento
- * @author    Ebizmarts Team <info@ebizmarts.com>
- * @copyright Ebizmarts (http://ebizmarts.com)
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @date:     5/16/16 6:23 PM
- * @file:     MailchimpSychBatches.php
- */
-
+# 2024-03-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
 class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstract
 {
 	/**
@@ -72,9 +63,8 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 	 * @param  $itemId
 	 * @param  $itemType
 	 * @param  $mailchimpStoreId
-	 * @return Ebizmarts_MailChimp_Model_Ecommercesyncdata
 	 */
-	function getEcommerceSyncDataItem($itemId, $itemType, $mailchimpStoreId) {
+	function getEcommerceSyncDataItem($itemId, $itemType, $mailchimpStoreId):SyncD {
 		$collection = $this->getCollection()
 			->addFieldToFilter('related_id', array('eq' => $itemId))
 			->addFieldToFilter('type', array('eq' => $itemType))
