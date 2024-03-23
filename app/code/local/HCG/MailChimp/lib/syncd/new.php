@@ -11,7 +11,6 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
  * @used-by Ebizmarts_MailChimp_Helper_Migration::_migrateCustomersFrom115()
  * @used-by Ebizmarts_MailChimp_Helper_Migration::_migrateOrdersFrom115()
  * @used-by Ebizmarts_MailChimp_Helper_Migration::_migrateProductsFrom115()
- * @used-by Ebizmarts_MailChimp_Model_Api_Batches::getDataProduct()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::saveSyncData()
  * @used-by Ebizmarts_MailChimp_Model_Api_Carts::_processCartLines()
  * @used-by Ebizmarts_MailChimp_Model_Api_Customers::createBatchJson()
