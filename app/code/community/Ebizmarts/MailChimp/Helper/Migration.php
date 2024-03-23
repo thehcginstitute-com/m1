@@ -327,8 +327,8 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
                         $syncError = null;
                         $syncModified = null;
 
-                        if ($product->getMailchimpSyncError()) {
-                            $syncError = $product->getMailchimpSyncError();
+                        if ($product['mailchimp_sync_error']) {
+                            $syncError = $product['mailchimp_sync_error'];
                         }
 
                         if ($product->getMailchimpSyncModified()) {
