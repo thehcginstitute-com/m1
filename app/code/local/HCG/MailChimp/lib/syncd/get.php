@@ -10,6 +10,7 @@ use Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection as C;
  * @used-by Ebizmarts_MailChimp_Model_Api_Customers::createBatchJson()
  * @used-by Ebizmarts_MailChimp_Model_Api_Orders::_getPayloadDataLines()
  * @used-by Ebizmarts_MailChimp_Model_Api_Orders::getSyncedOrder()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Products::createBatchJson()
  * @param $id
  * @param $type
  * @param $sid

@@ -112,7 +112,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
                     $batchArray[$counter] = $data;
                     $counter++;
 
-                    $dataProduct = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
+                    $dataProduct = hcg_mc_syncd_get(
                         $productId,
                         Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                         $mailchimpStoreId
