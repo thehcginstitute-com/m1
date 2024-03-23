@@ -504,9 +504,7 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
                         if ($quote->getMailchimpToken()) {
                             $token = $quote->getMailchimpToken();
                         }
-
-                        $ecommerceSyncData = $this->getMailchimpEcommerceSyncDataModel();
-                        $ecommerceSyncData->saveEcommerceSyncData(
+                        hcg_mc_syncd_new()->saveEcommerceSyncData(
                             $quoteId,
                             Ebizmarts_MailChimp_Model_Config::IS_QUOTE,
                             $mailchimpStoreId,
