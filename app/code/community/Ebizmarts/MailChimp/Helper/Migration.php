@@ -272,9 +272,7 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
                         if ($customer->getMailchimpSyncModified()) {
                             $syncModified = $customer->getMailchimpSyncModified();
                         }
-
-                        $ecommerceSyncData = $this->getMailchimpEcommerceSyncDataModel();
-                        $ecommerceSyncData->saveEcommerceSyncData(
+                        hcg_mc_syncd_new()->saveEcommerceSyncData(
                             $customerId,
                             Ebizmarts_MailChimp_Model_Config::IS_CUSTOMER,
                             $mailchimpStoreId,
