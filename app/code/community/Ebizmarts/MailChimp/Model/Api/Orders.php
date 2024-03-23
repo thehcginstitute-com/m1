@@ -920,7 +920,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
      */
     function getSyncedOrder($orderId, $mailchimpStoreId)
     {
-        $result = $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem(
+        $result = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
             $orderId,
             Ebizmarts_MailChimp_Model_Config::IS_ORDER,
             $mailchimpStoreId
