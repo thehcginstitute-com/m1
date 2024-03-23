@@ -32,7 +32,4 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
  * @used-by Ebizmarts_MailChimp_Model_Observer::productAttributeUpdate()
  * @used-by Ebizmarts_MailChimp_Model_Observer::productSaveAfter()
  */
-function hcg_mc_syncd_new(): SyncD
-{
-	return new SyncD;
-}
+function hcg_mc_syncd_new():SyncD {return new SyncD;}
