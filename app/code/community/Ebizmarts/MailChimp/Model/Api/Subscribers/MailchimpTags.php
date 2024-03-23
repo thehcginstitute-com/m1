@@ -533,7 +533,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
      * @param $mergeVars
      * @param $key
      * @param $genderValue
-     * @return string | return a string with the gender of the customer.
+     * @return string
      */
     protected function getGenderLabel($mergeVars, $key, $genderValue)
     {
