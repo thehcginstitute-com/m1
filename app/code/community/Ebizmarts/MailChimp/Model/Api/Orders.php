@@ -434,7 +434,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 				$variant = $productId;
 			}
 
-			$productSyncError = $productSyncData->getMailchimpSyncError();
+			$productSyncError = $productSyncData['mailchimp_sync_error'];
 			$isProductEnabled = $apiProduct->isProductEnabled($productId);
 
 			if (!$isProductEnabled || ($productSyncData['mailchimp_sync_delta'] && $productSyncError == '')) {
