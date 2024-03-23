@@ -45,7 +45,7 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 		$deletedRelatedId = null,
 		$allowBatchRemoval = true
 	) {
-		$ecommerceSyncDataItem = $this->getEcommerceSyncDataItem($itemId, $itemType, $mailchimpStoreId);
+		$ecommerceSyncDataItem = hcg_mc_syncd_get($itemId, $itemType, $mailchimpStoreId);
 
 		if (!$saveOnlyIfexists || $ecommerceSyncDataItem['mailchimp_sync_delta']) {
 			$this->setEcommerceSyncDataItemValues(

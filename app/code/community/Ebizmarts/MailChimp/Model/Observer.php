@@ -448,7 +448,7 @@ class Ebizmarts_MailChimp_Model_Observer
 
                     $mailchimpStoreId = $helper->getMCStoreId($storeId);
                     $productId = $item->getProductId();
-                    $dataProduct = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
+                    $dataProduct = hcg_mc_syncd_get(
                         $productId,
                         Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                         $mailchimpStoreId
@@ -756,7 +756,7 @@ class Ebizmarts_MailChimp_Model_Observer
                 }
 
                 $productId = $item->getProductId();
-                $dataProduct = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
+                $dataProduct = hcg_mc_syncd_get(
                     $productId,
                     Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                     $mailchimpStoreId
@@ -826,7 +826,7 @@ class Ebizmarts_MailChimp_Model_Observer
                 }
 
                 $productId = $item->getProductId();
-                $dataProduct = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
+                $dataProduct = hcg_mc_syncd_get(
                     $productId,
                     Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                     $mailchimpStoreId
