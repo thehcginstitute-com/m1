@@ -132,6 +132,7 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 			$ecommerceSyncDataItem->setData("mailchimp_synced_flag", $syncedFlag);
 		}
 	}
+
 	function markAllAsModified($id,$type)
 	{
 		$this->getResource()->markAllAsModified($id,$type);
