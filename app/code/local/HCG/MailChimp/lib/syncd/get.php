@@ -23,21 +23,19 @@ use Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection as C;
  * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
  * @used-by Ebizmarts_MailChimp_Model_Observer::productAttributeUpdate()
  * @used-by Ebizmarts_MailChimp_Model_Observer::productSaveAfter()
- * @param $id
- * @param $type
- * @param $sid
  */
-function hcg_mc_syncd_get($id, $type, $sid):D {
+function hcg_mc_syncd_get(int $id, string $t, string $sid):D {
 	$c = new C;
 	$c
+		# 2024-03-23 `mailchimp_store_id`: «www.thehcginstitute.com_2017-03-05-013122»
 		->addFieldToFilter('mailchimp_store_id', ['eq' => $sid])
 		->addFieldToFilter('related_id', ['eq' => $id])
-		->addFieldToFilter('type', ['eq' => $type])
+		->addFieldToFilter('type', ['eq' => $t]) # 2024-03-23 `type`: «CUS», «ORD», «PRO», «QUO»
 		->setCurPage(1)
 		->setPageSize(1)
 	;
 	return $c->getSize()
 		? $c->getLastItem()
-		: hcg_mc_syncd_new()->addData(['mailchimp_store_id' => $sid, 'related_id' => $id, 'type' => $type])
+		: hcg_mc_syncd_new()->addData(['mailchimp_store_id' => $sid, 'related_id' => $id, 'type' => $t])
 	;
 }
