@@ -89,19 +89,16 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController extends Mage_Admin
 		return;
 	}
 
-	protected function _isAllowed()
-	{
-		switch ($this->getRequest()->getActionName()) {
-		case 'index':
-		case 'grid':
-		case 'downloadresponse':
-			$acl = 'newsletter/mailchimp/mailchimperrors';
-			break;
-		}
-
-		return Mage::getSingleton('admin/session')->isAllowed($acl);
-	}
-
+	/**
+	 * 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Resolve the `Ebizmarts_MailChimp` module's issues found by IntelliJ IDEA inspections":
+	 * https://github.com/thehcginstitute-com/m1/issues/530
+	 * @override
+	 * @see Mage_Adminhtml_Controller_Action::_isAllowed()
+	 */
+	protected function _isAllowed():bool {return in_array($this->getRequest()->getActionName(), [
+		'downloadresponse', 'grid', 'index'
+	]) && $this->getAdminSession()->isAllowed('newsletter/mailchimp/mailchimperrors');}
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Data
 	 */
