@@ -113,7 +113,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
     }
 
     /**
-     * @return string | return the store code
+     * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
     function getStoreCodeFromOrder()
