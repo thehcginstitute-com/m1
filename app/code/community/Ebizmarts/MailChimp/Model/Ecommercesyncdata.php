@@ -25,7 +25,7 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 	 * @param null  $deletedRelatedId
 	 * @param bool  $allowBatchRemoval
 	 */
-	function saveEcommerceSyncData(
+	final function saveEcommerceSyncData(
 		$itemId,
 		$itemType,
 		$mailchimpStoreId,
@@ -56,13 +56,19 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 	 * @param $itemType
 	 * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection
 	 */
-	function getAllEcommerceSyncDataItemsPerId($itemId, $itemType)
+	final function getAllEcommerceSyncDataItemsPerId($itemId, $itemType)
 	{
 		$collection = $this->getCollection()
 			->addFieldToFilter('related_id', array('eq' => $itemId))
 			->addFieldToFilter('type', array('eq' => $itemType));
 
 		return $collection;
+	}
+
+	final function markAllAsModified($id,$type)
+	{
+		$this->getResource()->markAllAsModified($id,$type);
+		return $this;
 	}
 
 	/**
@@ -78,7 +84,7 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 	 * @param $allowBatchRemoval
 	 * @param Ebizmarts_MailChimp_Model_Ecommercesyncdata $ecommerceSyncDataItem
 	 */
-	protected function setEcommerceSyncDataItemValues(
+	final protected function setEcommerceSyncDataItemValues(
 		$itemId,
 		$itemType,
 		$syncDelta,
@@ -131,11 +137,5 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 		if ($syncedFlag !== null) {
 			$ecommerceSyncDataItem->setData("mailchimp_synced_flag", $syncedFlag);
 		}
-	}
-
-	function markAllAsModified($id,$type)
-	{
-		$this->getResource()->markAllAsModified($id,$type);
-		return $this;
 	}
 }
