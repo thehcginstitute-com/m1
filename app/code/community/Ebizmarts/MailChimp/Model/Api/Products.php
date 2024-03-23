@@ -91,7 +91,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
         $counter = 0;
 
         foreach ($collection as $product) {
-            $productId = $product->getId();
+            $productId = (int)$product->getId();
 
             if ($this->shouldSendProductUpdate($product)) {
                 $buildUpdateOperations = $this->_buildUpdateProductRequest($product, $batchId);
@@ -284,7 +284,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
 
             foreach ($parentIds as $parentId) {
                 $productSyncDataItem = hcg_mc_syncd_get(
-                    $parentId,
+                    (int)$parentId,
                     Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
                     $mailchimpStoreId
                 );

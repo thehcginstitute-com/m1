@@ -414,7 +414,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 		$itemCount = 0;
 
 		foreach ($items as $item) {
-			$productId = $item->getProductId();
+			$productId = (int)$item->getProductId();
 			$isTypeProduct = $this->isTypeProduct();
 			$productSyncData = hcg_mc_syncd_get($productId, $isTypeProduct, $mailchimpStoreId);
 
@@ -920,7 +920,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 	function getSyncedOrder($orderId, $mailchimpStoreId)
 	{
 		$result = hcg_mc_syncd_get(
-			$orderId,
+			(int)$orderId,
 			Ebizmarts_MailChimp_Model_Config::IS_ORDER,
 			$mailchimpStoreId
 		);
