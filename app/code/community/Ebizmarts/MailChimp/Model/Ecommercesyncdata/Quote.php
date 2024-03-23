@@ -3,7 +3,8 @@
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 class Ebizmarts_MailChimp_Model_Ecommercesyncdata_Quote extends Ebizmarts_MailChimp_Model_Ecommercesyncdata {
 	/**
-	 * @return void
+	 * @override
+	 * @see Ebizmarts_MailChimp_Model_Ecommercesyncdata::_construct()
 	 */
 	function _construct():void {}
 }
