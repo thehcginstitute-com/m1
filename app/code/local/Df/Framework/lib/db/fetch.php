@@ -1,4 +1,6 @@
 <?php
+use Varien_Db_Select as S;
+
 /**
  * 2015-11-03
  * 2024-03-23 "Port `df_fetch_one()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/525
