@@ -561,7 +561,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
             $itemProductId = $item->getProductId();
 
             $product = $this->loadProductById($itemProductId);
-            $productId = $product->getId();
+            $productId = (int)$product->getId();
             $productSyncData = hcg_mc_syncd_get(
                 $productId,
                 Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
