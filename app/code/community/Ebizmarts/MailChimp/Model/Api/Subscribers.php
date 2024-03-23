@@ -565,7 +565,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 
     /**
      * @param $lastOrder
-     * @return array | return an array with the address from the order if exist and the addressData is empty.
+     * @return array
      */
     protected function getAddressFromLastOrder($lastOrder)
     {
