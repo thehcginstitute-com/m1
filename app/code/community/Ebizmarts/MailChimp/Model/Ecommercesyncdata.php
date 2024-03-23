@@ -79,6 +79,7 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 	 * 4.1) The database field is always filled.
 	 * 4.2) It has the `datetime` type.
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::ecommerceSentCallback()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Orders::_getPayloadDataLines()
 	 */
 	final function time():?string {return $this['mailchimp_sync_delta'];}
 
