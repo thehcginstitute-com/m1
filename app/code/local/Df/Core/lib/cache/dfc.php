@@ -69,6 +69,10 @@ function dfc($o, Closure $f, array $a = [], $unique = true, $offset = 0) {
 		# 1) "Reiplement the WeakMap usage from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/152
 		# 2) https://github.com/mage2pro/core/blob/10.5.3/Core/lib/cache/dfc.php#L66-L79
 		static $map; /** @var WeakMap $map */
+		# 2024-03-23
+		# "[IntelliJ IDEA] «'WeakMap' is available starting with 8.0 PHP version»":
+		# https://github.com/thehcginstitute-com/m1/issues/529
+		/** @noinspection PhpElementIsNotAvailableInCurrentPhpVersionInspection */
 		$map = $map ?: new WeakMap;
 		if (!$map->offsetExists($o)) {
 			$map[$o] = [];
