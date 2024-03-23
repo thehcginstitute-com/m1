@@ -791,7 +791,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
     /**
      * @param       $product
      * @param bool  $isBuildUpdateProductRequest
-     * @return array | return an array with the childs of the product passed by parameter
+     * @return array
      */
     function makeProductChildrenArray($product, $isBuildUpdateProductRequest = false)
     {
