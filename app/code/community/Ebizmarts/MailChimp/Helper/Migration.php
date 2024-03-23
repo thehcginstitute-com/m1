@@ -218,14 +218,6 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @return Ebizmarts_MailChimp_Model_Ecommercesyncdata
-     */
-    protected function getMailchimpEcommerceSyncDataModel()
-    {
-        return Mage::getModel('mailchimp/ecommercesyncdata');
-    }
-
-    /**
      * Migrate Customers from version 1.1.5 to the mailchimp_ecommerce_sync_data table.
      *
      * @param  $mailchimpStoreId
