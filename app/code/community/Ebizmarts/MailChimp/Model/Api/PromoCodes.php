@@ -405,7 +405,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
      */
     protected function _setDeleted($codeId, $promoRuleId)
     {
-        $promoCodes = $this->getMailchimpEcommerceSyncDataModel()->getAllEcommerceSyncDataItemsPerId(
+        $promoCodes = hcg_mc_syncd_new()->getAllEcommerceSyncDataItemsPerId(
             $codeId,
             Ebizmarts_MailChimp_Model_Config::IS_PROMO_CODE
         );
