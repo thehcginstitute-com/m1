@@ -479,8 +479,8 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
                         $quoteObject = $this->getSalesQuoteModel()->loadByIdWithoutStore($quoteId);
                         $syncDelta = $quoteObject['mailchimp_sync_delta'];
 
-                        if ($quote->getMailchimpSyncError()) {
-                            $syncError = $quote->getMailchimpSyncError();
+                        if ($quote['mailchimp_sync_error']) {
+                            $syncError = $quote['mailchimp_sync_error'];
                         }
 
                         if ($quote->getMailchimpSyncDeleted()) {
