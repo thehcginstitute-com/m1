@@ -3,15 +3,10 @@
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 final class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstract {
 	/**
-	 * Initialize model
-	 *
-	 * @return void
+	 * @override
+	 * @see Varien_Object::_construct()
 	 */
-	function _construct()
-	{
-		parent::_construct();
-		$this->_init('mailchimp/ecommercesyncdata');
-	}
+	function _construct():void {$this->_init('mailchimp/ecommercesyncdata');}
 
 	/**
 	 * Save entry for ecommerce_sync_data table overwriting old item if exists or creating a new one if it does not.
