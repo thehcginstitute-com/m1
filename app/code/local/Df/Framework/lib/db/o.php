@@ -1,5 +1,6 @@
 <?php
 use Mage_Core_Model_Resource as R;
+use Varien_Db_Select as S;
 
 /**
  * 2018-12-07
@@ -9,6 +10,5 @@ function df_db_resource():R {return Mage::getSingleton('core/resource');}
 
 /**
  * 2015-09-29
- * @return Varien_Db_Select
  */
-function df_select() {return df_conn()->select();}
+function df_select():S {return df_conn()->select();}
