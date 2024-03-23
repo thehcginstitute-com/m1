@@ -825,7 +825,7 @@ class Ebizmarts_MailChimp_Model_Observer
                     continue;
                 }
 
-                $productId = $item->getProductId();
+                $productId = (int)$item->getProductId();
                 $dataProduct = hcg_mc_syncd_get(
                     $productId,
                     Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
