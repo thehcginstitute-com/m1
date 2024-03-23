@@ -90,7 +90,7 @@ class Ebizmarts_MailChimp_CartController extends Mage_Checkout_CartController
             $mailchimpStoreId = $helper->getMCStoreId($storeId);
             $url = Mage::getUrl('checkout/cart');
 
-            $promoCodeSyncData = $this->getMailchimpEcommerceSyncDataModel()->getEcommerceSyncDataItem(
+            $promoCodeSyncData = hcg_mc_syncd_new()->getEcommerceSyncDataItem(
                 $id,
                 Ebizmarts_MailChimp_Model_Config::IS_PROMO_CODE,
                 $mailchimpStoreId
