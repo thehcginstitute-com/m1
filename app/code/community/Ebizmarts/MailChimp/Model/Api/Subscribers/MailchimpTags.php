@@ -478,7 +478,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
 
     /**
      * @param $address
-     * @return array | returns an array with the address data of the customer.
+     * @return array
      */
     protected function getAddressData($address)
     {
