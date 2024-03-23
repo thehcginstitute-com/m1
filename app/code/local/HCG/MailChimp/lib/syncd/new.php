@@ -1,5 +1,5 @@
 <?php
-use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
+use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 /**
  * 2024-03-22 "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
  * @used-by Ebizmarts_MailChimp_CartController::loadcouponAction()
@@ -41,4 +41,4 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
  * @used-by Ebizmarts_MailChimp_Model_Observer::productAttributeUpdate()
  * @used-by Ebizmarts_MailChimp_Model_Observer::productSaveAfter()
  */
-function hcg_mc_syncd_new():SyncD {return new SyncD;}
+function hcg_mc_syncd_new():D {return new D;}
