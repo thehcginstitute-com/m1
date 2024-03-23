@@ -458,7 +458,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
     {
         $promoCodes = array();
         $helper = $this->getHelper();
-        $promoRules = $this->getMailchimpEcommerceSyncDataModel()->getAllEcommerceSyncDataItemsPerId(
+        $promoRules = hcg_mc_syncd_new()->getAllEcommerceSyncDataItemsPerId(
             $promoRuleId,
             Ebizmarts_MailChimp_Model_Config::IS_PROMO_RULE
         );

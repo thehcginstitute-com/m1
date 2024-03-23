@@ -22,11 +22,11 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
  * @used-by Ebizmarts_MailChimp_Model_Api_PromoRules::_setModified()
  * @used-by Ebizmarts_MailChimp_Model_Api_PromoRules::deletePromoRuleSyncData()
  * @used-by Ebizmarts_MailChimp_Model_Api_PromoRules::makeModifiedAndDeletedPromoRulesCollection()
- * @used-by Ebizmarts_MailChimp_Model_Observer::productAttributeUpdate()
- * @used-by Ebizmarts_MailChimp_Model_Observer::productSaveAfter()
- * @used-by Ebizmarts_MailChimp_Model_Observer::itemCancel()
  * @used-by Ebizmarts_MailChimp_Model_Observer::cancelCreditMemo()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::itemCancel()
  * @used-by Ebizmarts_MailChimp_Model_Observer::newCreditMemo()
  * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::productAttributeUpdate()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::productSaveAfter()
  */
 function hcg_mc_syncd_new():SyncD {return new SyncD;}
