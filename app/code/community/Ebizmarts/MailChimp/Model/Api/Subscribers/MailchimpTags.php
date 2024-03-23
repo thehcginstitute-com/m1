@@ -587,7 +587,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @param $subscriber
      * @param $customer
-     * @return string | return the last name of the customer.
+     * @return string
      */
     protected function getLastName($subscriber, $customer)
     {
