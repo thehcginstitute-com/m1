@@ -622,7 +622,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
     /**
      * @param $customAtt
      * @param $customer
-     * @return array | returns an array with the address if it exists
+     * @return array
      */
     protected function getAddressForCustomizedAttributes($customAtt, $customer)
     {
