@@ -34,5 +34,6 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
  * @used-by Ebizmarts_MailChimp_Helper_Migration::_migrateOrdersFrom115()
  * @used-by Ebizmarts_MailChimp_Helper_Migration::_migrateProductsFrom115()
  * @used-by Ebizmarts_MailChimp_Helper_Migration::_migrateCustomersFrom115()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::getLastCartSent()
  */
 function hcg_mc_syncd_new():SyncD {return new SyncD;}
