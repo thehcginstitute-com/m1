@@ -1,9 +1,7 @@
 <?php
 # 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-use Ebizmarts_MailChimp_Model_Ecommercesyncdata as SyncD;
-class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstract
-{
+class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstract {
 	/**
 	 * Initialize model
 	 *
