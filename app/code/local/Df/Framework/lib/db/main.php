@@ -1,4 +1,5 @@
 <?php
+use Mage_Eav_Model_Entity_Abstract as Entity;
 use Varien_Db_Select as S;
 
 /**
