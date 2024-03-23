@@ -45,8 +45,5 @@ function hcg_mc_syncd_get(int $id, string $t, string $sid):D {
 		->setCurPage(1)
 		->setPageSize(1)
 	;
-	return $c->getSize()
-		? $c->getLastItem()
-		: new D(['mailchimp_store_id' => $sid, 'related_id' => $id, 'type' => $t])
-	;
+	return $c->getSize() ? $c->getLastItem() : new D(['mailchimp_store_id' => $sid, 'related_id' => $id, 'type' => $t]);
 }
