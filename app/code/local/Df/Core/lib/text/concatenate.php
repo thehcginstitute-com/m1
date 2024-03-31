@@ -78,6 +78,7 @@ function df_cc_s(...$a) {return df_ccc(' ', dfa_flatten($a));}
  * @used-by df_oqi_s()
  * @used-by df_report_prefix()
  * @used-by df_url_bp()
+ * @used-by IWD_OrderManager_Adminhtml_Sales_AddressController::format() (https://github.com/thehcginstitute-com/m1/issues/533)
  * @param string|string[] $a
  */
 function df_ccc(string $glue, ...$a):string {return implode($glue, df_clean(dfa_flatten($a)));}

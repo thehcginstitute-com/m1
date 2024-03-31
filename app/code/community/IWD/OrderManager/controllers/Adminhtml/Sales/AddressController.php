@@ -92,11 +92,9 @@ class IWD_OrderManager_Adminhtml_Sales_AddressController extends IWD_OrderManage
 			df_cc_s($v('firstname'), $v('lastname'))
 			,$v('company')
 			,df_cc_br($v('street'))
-			,$v('city')
-			,df_region_name($a)
-			,$v('postcode')
+			,df_ccc(', ', $v('city'), df_region_name($a), $v('postcode'))
 			,df_country_ctn($v('country_id'))
-			,$v('telephone')
+			,df_kv(df_clean(['T' => $v('telephone')]))
 			,$v('fax')
 			,df_kv(df_clean(['Tax ID' => $v('vat_id')]))
 		);
