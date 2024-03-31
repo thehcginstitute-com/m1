@@ -32,11 +32,16 @@ class IWD_OrderManager_Adminhtml_Sales_AddressController extends IWD_OrderManage
 
 		Mage::getModel('iwd_ordermanager/address')->updateOrderAddress($address);
 
-		$result['address'] = $this->getAddressTextAfterSave($address);
+		$result['address'] = $this->format($address);
 
 		return $result;
 	}
 
+	/**
+	 * 2024-03-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `IWD_OrderManager` module": https://github.com/thehcginstitute-com/m1/issues/533
+	 * @used-by self::updateInfo()
+	 */
 	private function format(array $a):string {
 		if (!$this->reload) {
 			return $this->getLayout()
