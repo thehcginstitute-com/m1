@@ -13,15 +13,15 @@ final class IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Text extends Ma
 		$this->setTemplate('iwd/ordermanager/address/text.phtml');
 	}
 
-	function getRegion() {
+	function country() {
+		$address = $this->getAddress();
+		return Mage::getModel('directory/country')->load($address['country_id'])->getName();
+	}
+
+	function region() {
 		$address = $this->getAddress();
 		return (!isset($address['region']) || empty($address['region']) ?
 			Mage::getModel('directory/region')->load($address['region_id'])->getName() :
 			$address['region']);
-	}
-
-	function getCountry() {
-		$address = $this->getAddress();
-		return Mage::getModel('directory/country')->load($address['country_id'])->getName();
 	}
 }
