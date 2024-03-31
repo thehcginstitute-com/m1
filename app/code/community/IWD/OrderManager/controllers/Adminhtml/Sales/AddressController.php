@@ -89,7 +89,7 @@ class IWD_OrderManager_Adminhtml_Sales_AddressController extends IWD_OrderManage
 		$v = function(string $k) use($a):string {return dfa($a, $k, '');};
 		return df_cc_br(
 			df_cc_s($v('firstname'), $v('lastname'))
-			,$a('company')
+			,$v('company')
 			,df_cc_br($v('street'))
 			,$v('city')
 			,df_region_name($a)
