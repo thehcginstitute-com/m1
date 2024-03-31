@@ -86,7 +86,8 @@ class IWD_OrderManager_Adminhtml_Sales_AddressController extends IWD_OrderManage
 	 * @used-by self::updateInfo()
 	 */
 	private static function format(array $a):string {
-		$v = function(string $k) use($a):string {return dfa($a, $k, '');};
+		/** @return string|array */
+		$v = function(string $k) use($a) {return dfa($a, $k, '');};
 		return df_cc_br(
 			df_cc_s($v('firstname'), $v('lastname'))
 			,$v('company')
