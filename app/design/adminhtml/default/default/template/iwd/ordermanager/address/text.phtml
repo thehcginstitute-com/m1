@@ -7,7 +7,7 @@ $a = function(string $k):string {return dfa(
 	 * 2024-03-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * `$this['address']` is set by @see IWD_OrderManager_Adminhtml_Sales_AddressController::getAddressTextAfterSave()
 	 */	
-	$this['address'], $k, ''
+	$this->address(), $k, ''
 );};
 echo df_cc_br(
 	df_cc_s($a('firstname'), $a('lastname'))
