@@ -78,6 +78,7 @@ class Ebizmarts_MailChimp_Model_Ecommercesyncdata extends Mage_Core_Model_Abstra
 	 * 4.2) It has the `datetime` type.
 	 * @used-by self::saveEcommerceSyncData()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::ecommerceSentCallback()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Carts::_processCartLines()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Orders::_getPayloadDataLines()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::_buildUpdateProductRequest()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Products::sendModifiedProduct()
