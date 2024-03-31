@@ -2,26 +2,28 @@
 # 2024-03-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `IWD_OrderManager` module": https://github.com/thehcginstitute-com/m1/issues/533
 use IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Text as B; /** @var B $this */
-/**
- * 2024-03-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
- * It is set by @see IWD_OrderManager_Adminhtml_Sales_AddressController::getAddressTextAfterSave()
- */
-$a = $this['address']; /** @var array(string => string) $a */
-echo $a['firstname']?> <?php echo $a['lastname']?><br />
-<?php if($a['company']) echo $a['company'].'<br />'; ?>
-<?php echo implode('<br/>',$a['street']); ?>
-<?php echo $a['city']?>, 
-<?php if (!is_null($a['region'])): ?>
+$a = function(string $k):string {return dfa(
+	/**
+	 * 2024-03-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * `$this['address']` is set by @see IWD_OrderManager_Adminhtml_Sales_AddressController::getAddressTextAfterSave()
+	 */	
+	$this['address'], $k, ''
+);};
+echo $a('firstname')?> <?php echo $a('lastname')?><br />
+<?php if($a('company')) echo $a('company').'<br />'; ?>
+<?php echo implode('<br/>',$a('street')); ?>
+<?php echo $a('city')?>, 
+<?php if (!is_null($a('region'))): ?>
 	<?php echo $this->getRegion()?>,
 <?php endif ?>
-<?php echo $a['postcode']?><br>
+<?php echo $a('postcode')?><br>
 <?php echo $this->getCountry(); ?><br>
-<?php if ($a['telephone']): ?> 
-	T: <?php echo $a['telephone']?><br />
+<?php if ($a('telephone')): ?> 
+	T: <?php echo $a('telephone')?><br />
 <?php endif ?>
-<?php if ($a['fax']): ?> 
-	F: <?php echo $a['fax']?><br />
+<?php if ($a('fax')): ?> 
+	F: <?php echo $a('fax')?><br />
 <?php endif ?>
-<?php if ($a['vat_id']): ?>
-	VAT: <?php echo $a['vat_id']?>
+<?php if ($a('vat_id')): ?>
+	VAT: <?php echo $a('vat_id')?>
 <?php endif ?>
