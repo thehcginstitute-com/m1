@@ -13,13 +13,25 @@ final class IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Text extends Ma
 		$this->setTemplate('iwd/ordermanager/address/text.phtml');
 	}
 
+	/**
+	 * 2024-03-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 1) "Refactor the `IWD_OrderManager` module": https://github.com/thehcginstitute-com/m1/issues/533
+	 * 2) It is set by @see IWD_OrderManager_Adminhtml_Sales_AddressController::getAddressTextAfterSave()
+	 * @return array(string => string)
+	 */		
+	function address():array {return $this['address'];}
+
 	function country() {
 		$address = $this->getAddress();
 		return Mage::getModel('directory/country')->load($address['country_id'])->getName();
 	}
 
-	function region() {
-		$address = $this->getAddress();
+	/**
+	 * 2024-03-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `IWD_OrderManager` module": https://github.com/thehcginstitute-com/m1/issues/533
+	 */
+	function region():string {
+		$a = $this['address'];
 		return (!isset($address['region']) || empty($address['region']) ?
 			Mage::getModel('directory/region')->load($address['region_id'])->getName() :
 			$address['region']);
