@@ -62,7 +62,8 @@ These products only require the medical intake form. You can find the appropriat
                             <td valign="top" style="font-size:12px; padding:7px 9px 9px 9px; border-left:1px solid #EAEAEA; border-bottom:1px solid #EAEAEA; border-right:1px solid #EAEAEA;">
                                 {{var order.getShippingAddress().format('html')}}
                                 &nbsp;
-								<br/><br/><b>Shipping Method:</b><br/>{{var order.getShippingDescription()}}
+								<div style="margin-top:1em"><strong>Shipping Method:</strong></div>
+								<div>{{var order.getShippingDescription()}}</div>
                             </td>
                         </tr>
                         </tbody>
