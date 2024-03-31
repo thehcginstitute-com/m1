@@ -1,4 +1,13 @@
-<?php echo $this->address['firstname']?> <?php echo $this->address['lastname']?><br />
+<?php
+# 2024-03-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Refactor the `IWD_OrderManager` module": https://github.com/thehcginstitute-com/m1/issues/533
+use IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Text as B; /** @var B $this */
+/**
+ * 2024-03-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * It is set by @see IWD_OrderManager_Adminhtml_Sales_AddressController::getAddressTextAfterSave()
+ */
+$a = $this['address']; /** @var array(string => string) $a */
+echo $this->address['firstname']?> <?php echo $this->address['lastname']?><br />
 <?php if($this->address['company']) echo $this->address['company'].'<br />'; ?>
 <?php echo implode('<br/>',$this->address['street']); ?>
 <?php echo $this->address['city']?>, 
