@@ -25,8 +25,8 @@ final class IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Text extends Ma
 	function address():array {return $this['address'];}
 
 	function country() {
-		$address = $this->address();
-		return Mage::getModel('directory/country')->load($address['country_id'])->getName();
+		$a = $this->address();
+		return Mage::getModel('directory/country')->load($a['country_id'])->getName();
 	}
 
 	/**
@@ -34,9 +34,9 @@ final class IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Text extends Ma
 	 * "Refactor the `IWD_OrderManager` module": https://github.com/thehcginstitute-com/m1/issues/533
 	 */
 	function region():string {
-		$address = $this->address();
-		return (!isset($address['region']) || empty($address['region']) ?
-			Mage::getModel('directory/region')->load($address['region_id'])->getName() :
-			$address['region']);
+		$a = $this->address();
+		return (!isset($a['region']) || empty($a['region']) ?
+			Mage::getModel('directory/region')->load($a['region_id'])->getName() :
+			$a['region']);
 	}
 }
