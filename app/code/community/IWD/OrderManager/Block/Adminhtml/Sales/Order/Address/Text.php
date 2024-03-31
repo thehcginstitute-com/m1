@@ -24,7 +24,12 @@ final class IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Text extends Ma
 	 */
 	function address():array {return $this['address'];}
 
-	function country() {
+	/**
+	 * 2024-03-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `IWD_OrderManager` module": https://github.com/thehcginstitute-com/m1/issues/533
+	 * @used-by app/design/adminhtml/default/default/template/iwd/ordermanager/address/text.phtml
+	 */
+	function country():string {
 		$a = $this->address();
 		return Mage::getModel('directory/country')->load($a['country_id'])->getName();
 	}
@@ -32,6 +37,7 @@ final class IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Text extends Ma
 	/**
 	 * 2024-03-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor the `IWD_OrderManager` module": https://github.com/thehcginstitute-com/m1/issues/533
+	 * @used-by app/design/adminhtml/default/default/template/iwd/ordermanager/address/text.phtml
 	 */
 	function region():string {
 		$a = $this->address();
