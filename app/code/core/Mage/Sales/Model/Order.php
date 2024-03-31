@@ -1373,6 +1373,9 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
         // Get the destination email addresses to send copies to
         $copyTo = $this->_getEmails(self::XML_PATH_EMAIL_COPY_TO);
+		# 2024-04-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Confirmation emails are sometimes sent twice for the same order":
+		# https://github.com/thehcginstitute-com/m1/issues/538
         $copyMethod = Mage::getStoreConfig(self::XML_PATH_EMAIL_COPY_METHOD, $storeId);
 
         // Start store emulation process
