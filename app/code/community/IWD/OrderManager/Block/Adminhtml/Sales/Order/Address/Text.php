@@ -1,14 +1,12 @@
 <?php
-
-class IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Text extends Mage_Adminhtml_Block_Widget
-{
-	public function __construct()
+class IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Text extends Mage_Adminhtml_Block_Widget {
+	function __construct()
 	{
 		parent::__construct();
 		$this->setTemplate('iwd/ordermanager/address/text.phtml');
 	}
 
-	public function getRegion()
+	function getRegion()
 	{
 		$address = $this->getAddress();
 
@@ -17,7 +15,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Text extends Mage_Adm
 			$address['region']);
 	}
 
-	public function getCountry()
+	function getCountry()
 	{
 		$address = $this->getAddress();
 
