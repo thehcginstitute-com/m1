@@ -123,7 +123,8 @@ class Mage_Adminhtml_Block_Permissions_User_Edit_Tab_Main extends Mage_Adminhtml
                 'required' => true,
             ]);
         }
-
+		# 2024-04-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Restrict the access to bank card numbers in the backend": https://github.com/thehcginstitute-com/m1/issues/541
         if (Mage::getSingleton('admin/session')->getUser()->getId() != $model->getUserId()) {
             $fieldset->addField('is_active', 'select', [
                 'name'      => 'is_active',
