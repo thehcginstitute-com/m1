@@ -30,6 +30,7 @@ function df_format(...$a):string { /** @var string $r */
  * 2017-07-09
  * @used-by \Df\Qa\Failure\Error::preface()
  * @used-by \Df\Qa\Trace\Formatter::frame()
+ * @used-by IWD_OrderManager_Adminhtml_Sales_AddressController::format() (https://github.com/thehcginstitute-com/m1/issues/533)
  * @param array(string => string) $a
  * @param int $pad
  * @return string

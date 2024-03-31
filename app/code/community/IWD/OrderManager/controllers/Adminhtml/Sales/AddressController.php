@@ -32,25 +32,9 @@ class IWD_OrderManager_Adminhtml_Sales_AddressController extends IWD_OrderManage
 
 		Mage::getModel('iwd_ordermanager/address')->updateOrderAddress($address);
 
-		$result['address'] = $this->format($address);
+		$result['address'] = $this->reload ? '' : self::format($address);
 
 		return $result;
-	}
-
-	/**
-	 * 2024-03-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `IWD_OrderManager` module": https://github.com/thehcginstitute-com/m1/issues/533
-	 * @used-by self::updateInfo()
-	 */
-	private function format(array $a):string {
-		if (!$this->reload) {
-			return $this->getLayout()
-				->createBlock('iwd_ordermanager/adminhtml_sales_order_address_text')
-				->setData('address', $a)
-				->toHtml();
-		}
-
-		return '';
 	}
 
 	protected function isNeedReloadPage($address)
@@ -94,5 +78,26 @@ class IWD_OrderManager_Adminhtml_Sales_AddressController extends IWD_OrderManage
 	protected function _isAllowed()
 	{
 		return Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/actions/edit_address');
+	}
+
+	/**
+	 * 2024-03-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `IWD_OrderManager` module": https://github.com/thehcginstitute-com/m1/issues/533
+	 * @used-by self::updateInfo()
+	 */
+	private static function format(array $a):string {
+		$v = function(string $k) use($a):string {return dfa($a, $k, '');};
+		return df_cc_br(
+			df_cc_s($v('firstname'), $v('lastname'))
+			,$a('company')
+			,df_cc_br($v('street'))
+			,$v('city')
+			,df_region_name($a)
+			,$v('postcode')
+			,df_country_ctn($v('country_id'))
+			,$v('telephone')
+			,$v('fax')
+			,df_kv(df_clean(['Tax ID' => $v('vat_id')]))
+		);
 	}
 }

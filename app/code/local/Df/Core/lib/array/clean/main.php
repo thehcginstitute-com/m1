@@ -38,6 +38,7 @@
  * @used-by df_page_result()
  * @used-by df_store_code_from_url()
  * @used-by df_zf_http_last_req()
+ * @used-by IWD_OrderManager_Adminhtml_Sales_AddressController::format() (https://github.com/thehcginstitute-com/m1/issues/533)
  * @param mixed ...$k [optional]
  */
 function df_clean(array $r, ...$k):array {/** @var mixed[] $r */return df_clean_r(

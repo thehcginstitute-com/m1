@@ -13,10 +13,7 @@ function df_cc(string $glue, ...$a):string {return implode($glue, dfa_flatten($a
  * 2016-08-13
  * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax will reject arrays: https://3v4l.org/jFdPm
  * 2024-03-31 "Port `df_cc_br()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/534
- * @used-by \Df\Payment\Settings::messageFailure()
- * @used-by \Dfe\AllPay\Choice::title()
- * @used-by \Dfe\Square\API\Validator::short()
- * @used-by \Stock2Shop\OrderExport\Observer\OrderSaveAfter::execute()
+ * @used-by IWD_OrderManager_Adminhtml_Sales_AddressController::format() (https://github.com/thehcginstitute-com/m1/issues/533)
  * @param string|string[] $a
  */
 function df_cc_br(...$a):string {return df_ccc("<br>", dfa_flatten($a));}
@@ -61,6 +58,7 @@ function df_cc_path(...$a) {return df_ccc('/', dfa_flatten($a));}
  * @used-by df_cli_cmd()
  * @used-by df_log_l()
  * @used-by dfe_modules_info()
+ * @used-by IWD_OrderManager_Adminhtml_Sales_AddressController::format() (https://github.com/thehcginstitute-com/m1/issues/533)
  * @param string|string[] $a
  * @return string
  */

@@ -8,6 +8,7 @@
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::createBatchJson()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::buildMailChimpTags()
+ * @used-by IWD_OrderManager_Adminhtml_Sales_AddressController::format() (https://github.com/thehcginstitute-com/m1/issues/533)
  * @used-by app/design/frontend/base/default/template/richpanel/head.phtml
  * @param array(int|string => mixed) $a
  * @param string|string[]|int|null $k
