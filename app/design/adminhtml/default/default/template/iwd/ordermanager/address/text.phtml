@@ -12,4 +12,6 @@ echo df_cc_br(
 	,$a('postcode')
 	,df_country_ctn($a('country_id'))
 	,$a('telephone')
+	,$a('fax')
+	,df_kv(df_clean(['Tax ID' => $a('vat_id')]))
 );
