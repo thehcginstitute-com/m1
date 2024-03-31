@@ -15,8 +15,7 @@
 			<active>true</active>
 			<codePool>local</codePool>
 		</Df_Core>
-<!-- 2024-03-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Implement the `Df_Customer` module": https://github.com/thehcginstitute-com/m1/issues/444 -->
+<!-- 2024-03-03 "Implement the `Df_Customer` module": https://github.com/thehcginstitute-com/m1/issues/444 -->
 		<Df_Customer>
 			<active>true</active>
 			<codePool>local</codePool>
@@ -24,6 +23,14 @@
 				<Mage_Customer/>
 			</depends>
 		</Df_Customer>
+<!-- "Port `df_region_name()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/535 -->
+		<Df_Directory>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<Mage_Directory/>
+			</depends>
+		</Df_Directory>
 		<Df_Framework>
 			<active>true</active>
 			<codePool>local</codePool>

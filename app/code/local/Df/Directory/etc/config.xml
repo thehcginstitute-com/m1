@@ -1,10 +1,10 @@
 <?xml version='1.0'?>
 <config>
 	<modules>
-<!-- 2024-03-03 "Implement the `Df_Customer` module": https://github.com/thehcginstitute-com/m1/issues/444 -->
-		<Df_Customer>
+<!-- 2024-03-31 "Port `df_region_name()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/535 -->
+		<Df_Directory>
 			<version>1.0.0</version>
 			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
-		</Df_Customer>
+		</Df_Directory>
 	</modules>
 </config>
