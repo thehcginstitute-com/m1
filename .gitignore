@@ -27,7 +27,10 @@
 /app/etc/local.xml
 # 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the database": https://github.com/thehcginstitute-com/m1/issues/409
+# 2024-03-31
+# "Order confirmation emails are wrongly formatted": https://github.com/thehcginstitute-com/m1/issues/537
 !/db/**/*
+!/other/**/*
 !/errors/**/*
 !/js/**/*
 !/lib/**/*
