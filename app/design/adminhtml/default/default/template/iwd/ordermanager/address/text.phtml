@@ -9,21 +9,10 @@ $a = function(string $k):string {return dfa(
 	 */	
 	$this['address'], $k, ''
 );};
-echo df_cc_s($a('firstname'), $a('lastname')); ?><br />
-<?php if($a('company')) echo $a('company').'<br />'; ?>
-<?php echo implode('<br/>',$a('street')); ?>
-<?php echo $a('city')?>, 
-<?php if (!is_null($a('region'))): ?>
-	<?php echo $this->getRegion()?>,
-<?php endif ?>
-<?php echo $a('postcode')?><br>
-<?php echo $this->getCountry(); ?><br>
-<?php if ($a('telephone')): ?> 
-	T: <?php echo $a('telephone')?><br />
-<?php endif ?>
-<?php if ($a('fax')): ?> 
-	F: <?php echo $a('fax')?><br />
-<?php endif ?>
-<?php if ($a('vat_id')): ?>
-	VAT: <?php echo $a('vat_id')?>
-<?php endif ?>
+echo df_cc_br(
+	df_cc_s($a('firstname'), $a('lastname'))
+	,$a('company')
+	,df_cc_br($a('street'))
+	,$a('company')
+	,$this->getRegion()
+);
