@@ -4,6 +4,7 @@
 namespace INT\DisplayCvv;
 use Mage_Payment_Model_Info as I;
 use Mage_Sales_Model_Order_Payment as OP;
+use Mage_Sales_Model_Quote_Payment as QP;
 use Varien_Object as VO;
 final class B extends \Mage_Payment_Block_Info_Ccsave {
 	/**
@@ -33,6 +34,8 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 			if (!$this->getIsSecureMode()) {
 				$order = \Mage::getModel("sales/order")->load($i->getOrder()->getId());
 				$qid = $order->getQuoteId();
+				$qp = new QP; /** @var QP $qp */
+				$qp->load($qid, 'quote_id');
 				$connection = \Mage::getSingleton('core/resource')->getConnection('core_read');
 				$select = $connection->select()
 					->from('sales_flat_quote_payment', ['*'])
