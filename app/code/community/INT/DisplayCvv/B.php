@@ -2,6 +2,8 @@
 # 2024-04-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `INT_DisplayCvv`": https://github.com/thehcginstitute-com/m1/issues/142
 namespace INT\DisplayCvv;
+use HCG\Backend\User as HU;
+use Mage_Admin_Model_User as U;
 use Mage_Payment_Model_Info as I;
 use Mage_Sales_Model_Order_Payment as OP;
 use Mage_Sales_Model_Quote as Q;
@@ -41,7 +43,9 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 				if ($deleted = df_request_o()->has($kDelete = 'deleteCVV')) {
 					$qp->unsetData($k)->save();
 				}
-				if (!$cvv || $deleted) {
+				$u = df_backend_user(); /** @var U $u */
+				$canViewBankCardNumbers = hcg_is_super_admin() || !!$u[HU::CAN_VIEW_BANK_CARD_NUMBERS];
+				if (!$cvv || $deleted || !$canViewBankCardNumbers) {
 					$r->addData([
 						'Expiration Date' => $this->_formatCardDate($i->getCcExpYear(), $this->getCcExpMonth()),
 						'Credit Card Number' => substr($i->getCcNumber(), -4),
