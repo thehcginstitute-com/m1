@@ -1,6 +1,7 @@
 <?php
 # 2024-04-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `INT_DisplayCvv`": https://github.com/thehcginstitute-com/m1/issues/142
+use Varien_Object as VO;
 class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_Ccsave {
 	/**
 	 * 2024-04-01
@@ -20,8 +21,9 @@ class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_C
 	 * @override
 	 * @see Mage_Payment_Block_Info_Ccsave::_prepareSpecificInformation()
 	 * @used-by Mage_Payment_Block_Info::getSpecificInformation()
+	 * @param Varien_Object|array $transport
 	 */
-	protected function _prepareSpecificInformation($transport = null) {
+	protected function _prepareSpecificInformation($transport = null):VO {
 		if (null !== $this->_paymentSpecificInformation) {
 			return $this->_paymentSpecificInformation;
 		}
