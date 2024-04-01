@@ -37,8 +37,8 @@ class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_C
 	   $cardNumberShow = substr($info->getCcNumber(), -4);
 	   $CcLast4 = $rowArray['cc_last4'];
 		# 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	  	# «Undefined index: rcvv in app/code/community/INT/DisplayCvv/Block/Payment/Info/Ccsave.php on line 39»:
-	  	# https://github.com/thehcginstitute-com/m1/issues/137
+		# «Undefined index: rcvv in app/code/community/INT/DisplayCvv/Block/Payment/Info/Ccsave.php on line 39»:
+		# https://github.com/thehcginstitute-com/m1/issues/137
 		if ($qid = df_request('rcvv')) {
 			$connection = Mage::getSingleton('core/resource')->getConnection('core_read');
 			$connection->update("sales_flat_quote_payment",array("cc_cid_enc" => '',"cc_exp_month" => '',"cc_exp_year" => '',"cc_number_enc"=>'',"cc_last4"=>''),"quote_id=$qid");
