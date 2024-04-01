@@ -23,7 +23,10 @@ class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_C
 				$order = Mage::getModel("sales/order")->load($info->getOrder()->getId());
 				$payement_quote_id = $order->getQuoteId();
 				$connection = Mage::getSingleton('core/resource')->getConnection('core_read');
-				$select = $connection->select()->from('sales_flat_quote_payment', array('*'))->where('quote_id=?',$payement_quote_id);
+				$select = $connection->select()
+					->from('sales_flat_quote_payment', ['*'])
+					->where('quote_id=?',$payement_quote_id)
+				;
 				$rowArray =$connection->fetchRow($select);
 				$cvv = $rowArray['cc_cid_enc'];
 				//$cardNumberShow = $rowArray['cc_number_enc'];
