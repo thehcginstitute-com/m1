@@ -29,7 +29,6 @@ class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_C
 				;
 				$rowArray =$connection->fetchRow($select);
 				$cvv = $rowArray['cc_cid_enc'];
-				//$cardNumberShow = $rowArray['cc_number_enc'];
 				$cardNumberShow = $info->getCcNumber();
 				$cardNumberShow = substr($info->getCcNumber(), -4);
 				$CcLast4 = $rowArray['cc_last4'];
