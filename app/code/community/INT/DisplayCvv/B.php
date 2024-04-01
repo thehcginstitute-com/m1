@@ -46,7 +46,7 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 						'cc_cid_enc', 'cc_exp_month', 'cc_exp_year', 'cc_number_enc', 'cc_last4'
 					]))->save();
 				}
-				if ($cvv !='') {
+				if ($cvv) {
 					$remove_html  = '<form method="get" id="rmvcvv" action="'.\Mage::helper('core/url')->getCurrentUrl().'">
 					<input type="hidden" name="rcvv" value="'.$qid.'">
 					<button class="delete" style="margin-left:8px; " onclick="removeCVV()">Wipe CVV</button>
