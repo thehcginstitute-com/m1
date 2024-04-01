@@ -21,6 +21,8 @@
  * @see df_is_ajax()
  * @see df_is_frontend()
  * @see df_is_rest()
+ * @used-by df_backend_user()
+ * @used-by df_backend_user_id()
  * @used-by df_ban()
  * @used-by df_block()
  * @used-by df_catalog_locator()
