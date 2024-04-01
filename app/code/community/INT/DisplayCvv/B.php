@@ -37,25 +37,25 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 				$q->setStoreId(1)->load($i->getOrder()->getQuoteId());
 				$qp = $q->getPayment(); /** @var QP $qp */
 				$cvv = $qp[$k = 'cc_cid_enc']; /** @var string $k */ /** @var string|null $cvv */
-				$cardNumberShow = substr($i->getCcNumber(), -4);
-				if ($deleted = df_request_o()->has($rDeleteCVV = 'deleteCVV')) {
+				/** @var bool $deleted */ /** @var string $kDelete */
+				if ($deleted = df_request_o()->has($kDelete = 'deleteCVV')) {
 					$qp->unsetData($k)->save();
 				}
 				if (!$cvv || $deleted) {
 					$r->addData([
 						'Expiration Date' => $this->_formatCardDate($i->getCcExpYear(), $this->getCcExpMonth()),
-						'Credit Card Number' => $cardNumberShow,
+						'Credit Card Number' => substr($i->getCcNumber(), -4),
 					]);
 				}
 				else {
 					?>
-					<form action='<?= df_current_url() ?>' id='<?= $rDeleteCVV ?>'>
+					<form action='<?= df_current_url() ?>' id='<?= $kDelete ?>'>
 						<button class='delete' onclick='deleteCVV()' style='margin-left:8px;'>Wipe CVV</button>
-						<input name='<?= $rDeleteCVV ?>' type='hidden'/>
+						<input name='<?= $kDelete ?>' type='hidden'/>
 					</form>
 					<script>
 						function deleteCVV() {
-							const form = document.getElementById('<?= $rDeleteCVV ?>');
+							const form = document.getElementById('<?= $kDelete ?>');
 							if (confirm("Are you sure you want to clear CVV Number for this order?") == true) {
 								form.submit();
 							}
