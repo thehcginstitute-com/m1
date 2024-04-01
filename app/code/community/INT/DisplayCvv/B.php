@@ -38,11 +38,9 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 					->from('sales_flat_quote_payment', ['*'])
 					->where('quote_id=?', $qid)
 				;
-				$rowArray =$connection->fetchRow($select);
+				$rowArray = $connection->fetchRow($select);
 				$cvv = $rowArray['cc_cid_enc'];
-				$cardNumberShow = $i->getCcNumber();
 				$cardNumberShow = substr($i->getCcNumber(), -4);
-				$CcLast4 = $rowArray['cc_last4'];
 				# 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				# «Undefined index: rcvv in app/code/community/INT/DisplayCvv/Block/Payment/Info/Ccsave.php on line 39»:
 				# https://github.com/thehcginstitute-com/m1/issues/137
