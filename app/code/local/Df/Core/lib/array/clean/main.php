@@ -1,4 +1,5 @@
 <?php
+use Df\Core\Exception as DFE;
 
 /**
  * 2015-02-07
@@ -44,6 +45,25 @@
 function df_clean(array $r, ...$k):array {/** @var mixed[] $r */return df_clean_r(
 	$r, array_merge([false], df_args($k)), false
 );}
+
+/**
+ * 2017-02-18 https://3v4l.org/l2b4m
+ * 2024-04-01 "Port `df_clean_keys()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/543
+ * @param array(int|string => mixed) $a
+ * @param mixed ...$remove [optional]
+ * @return array(int|string => mixed)
+ * @throws DFE
+ */
+function df_clean_keys(array $a, ...$remove):array {
+	# 2017-02-18
+	# Для неассоциативных массивов функция не только не имеет смысла,
+	# но и работала бы некорректно в свете замечания к функции df_clean():
+	# тот алгоритм, который мы там используем для устранения дыр в массиве-результате,
+	# здесь привёл бы к полной утрате ключей.
+	df_assert_assoc($a);
+	$remove = array_merge(['', null], df_args($remove));
+	return array_filter($a, function($k) use($remove) {return !in_array($k, $remove, true);}, ARRAY_FILTER_USE_KEY);
+}
 
 /**
  * 2020-02-05
