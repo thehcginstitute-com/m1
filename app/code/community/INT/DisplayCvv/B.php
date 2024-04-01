@@ -4,6 +4,7 @@
 namespace INT\DisplayCvv;
 use Mage_Payment_Model_Info as I;
 use Mage_Sales_Model_Order_Payment as OP;
+use Mage_Sales_Model_Quote as Q;
 use Mage_Sales_Model_Quote_Payment as QP;
 use Varien_Object as VO;
 final class B extends \Mage_Payment_Block_Info_Ccsave {
@@ -32,18 +33,13 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 			$i = $this->getInfo(); /** @var I|OP $i */
 			$r = parent::_prepareSpecificInformation(new VO(['Name on the Card' => $i->getCcOwner()]));
 			if (!$this->getIsSecureMode()) {
-				$qp = new QP; /** @var QP $qp */
-				$qp->load($i->getOrder()->getQuoteId(), 'quote_id');
-				$cvv = $qp['cc_cid_enc'];
+				$q = new Q;
+				$q->setStoreId(1)->load($i->getOrder()->getQuoteId());
+				$qp = $q->getPayment();
+				$cvv = $qp[$kCVV = 'cc_cid_enc'];
 				$cardNumberShow = substr($i->getCcNumber(), -4);
-				# 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				# «Undefined index: rcvv in app/code/community/INT/DisplayCvv/Block/Payment/Info/Ccsave.php on line 39»:
-				# https://github.com/thehcginstitute-com/m1/issues/137
-				$deleteCVV = 'deleteCVV';
-				if (df_request_o()->has($deleteCVV)) {
-					$qp->setData(df_clean_keys($qp->getData(), [
-						'cc_cid_enc', 'cc_exp_month', 'cc_exp_year', 'cc_number_enc', 'cc_last4'
-					]))->save();
+				if (df_request_o()->has($rDeleteCVV = 'deleteCVV')) {
+					$qp->unsetData($kCVV)->save();
 				}
 				if (!$cvv) {
 					$r->addData([
@@ -53,13 +49,13 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 				}
 				else {
 					?>
-					<form action='<?= df_current_url() ?>' id='<?= $deleteCVV ?>'>
+					<form action='<?= df_current_url() ?>' id='<?= $rDeleteCVV ?>'>
 						<button class='delete' onclick='deleteCVV()' style='margin-left:8px;'>Wipe CVV</button>
-						<input name='<?= $deleteCVV ?>' type='hidden'/>
+						<input name='<?= $rDeleteCVV ?>' type='hidden'/>
 					</form>
 					<script>
 						function deleteCVV() {
-							const form = document.getElementById('<?= $deleteCVV ?>');
+							const form = document.getElementById('<?= $rDeleteCVV ?>');
 							if (confirm("Are you sure you want to clear CVV Number for this order?") == true) {
 								form.submit();
 							}
