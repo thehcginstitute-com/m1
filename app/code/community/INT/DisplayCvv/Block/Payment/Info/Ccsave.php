@@ -69,7 +69,7 @@ class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_C
 				else {
 					$transport->addData(array(
 						'Expiration Date' => $this->_formatCardDate($info->getCcExpYear(), $this->getCcExpMonth()),
-						Mage::helper('payment')->__('Credit Card Number') => $cardNumberShow,
+						'Credit Card Number' => $cardNumberShow,
 					));
 				}
 			}
