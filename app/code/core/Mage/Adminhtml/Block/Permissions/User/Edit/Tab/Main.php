@@ -132,7 +132,7 @@ class Mage_Adminhtml_Block_Permissions_User_Edit_Tab_Main extends Mage_Adminhtml
 				,'id' => $id
 				,'label' => 'Can view bank card numbers'
 				,'name' => $id
-				,'options' => ['1' => 'Yes', '0' => 'Inactive']
+				,'options' => ['1' => 'Yes', '0' => 'No']
 				,'style' => 'width: 80px'
 			]);
 		}
