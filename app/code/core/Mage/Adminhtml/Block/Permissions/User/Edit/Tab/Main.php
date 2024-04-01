@@ -125,7 +125,9 @@ class Mage_Adminhtml_Block_Permissions_User_Edit_Tab_Main extends Mage_Adminhtml
         }
 		# 2024-04-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Restrict the access to bank card numbers in the backend": https://github.com/thehcginstitute-com/m1/issues/541
-		//df_backend_session()->getUser()->getId()
+		if (in_array(df_backend_user_id(), [5, 51])) {
+
+		}
         if (Mage::getSingleton('admin/session')->getUser()->getId() != $model->getUserId()) {
             $fieldset->addField('is_active', 'select', [
                 'name'      => 'is_active',

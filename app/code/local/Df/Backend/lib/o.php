@@ -22,5 +22,6 @@ function df_backend_user():?U {return !df_is_backend() ? null : df_backend_sessi
  * 2024-04-01
  * 1) PHP 8 will allow `?->`: https://stitcher.io/blog/php-8-nullsafe-operator
  * 2) https://3v4l.org/aC22E
+ * @used-by Mage_Adminhtml_Block_Permissions_User_Edit_Tab_Main::_prepareForm() (https://github.com/thehcginstitute-com/m1/issues/541)
  */
 function df_backend_user_id():int {return !df_is_backend() ?  0 : (int)df_backend_user()->getId();}
