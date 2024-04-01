@@ -32,11 +32,11 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 			$r = parent::_prepareSpecificInformation(new VO(['Name on the Card' => $i->getCcOwner()]));
 			if (!$this->getIsSecureMode()) {
 				$order = \Mage::getModel("sales/order")->load($i->getOrder()->getId());
-				$payement_quote_id = $order->getQuoteId();
+				$qid = $order->getQuoteId();
 				$connection = \Mage::getSingleton('core/resource')->getConnection('core_read');
 				$select = $connection->select()
 					->from('sales_flat_quote_payment', ['*'])
-					->where('quote_id=?', $payement_quote_id)
+					->where('quote_id=?', $qid)
 				;
 				$rowArray =$connection->fetchRow($select);
 				$cvv = $rowArray['cc_cid_enc'];
@@ -56,7 +56,7 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 				}
 				if ($cvv !='') {
 					$remove_html  = '<form method="get" id="rmvcvv" action="'.\Mage::helper('core/url')->getCurrentUrl().'">
-					<input type="hidden" name="rcvv" value="'.$payement_quote_id.'">
+					<input type="hidden" name="rcvv" value="'.$qid.'">
 					<button class="delete" style="margin-left:8px; " onclick="removeCVV()">Wipe CVV</button>
 					</form>
 					';?>
