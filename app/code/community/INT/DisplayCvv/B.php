@@ -33,13 +33,13 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 			$i = $this->getInfo(); /** @var I|OP $i */
 			$r = parent::_prepareSpecificInformation(new VO(['Name on the Card' => $i->getCcOwner()]));
 			if (!$this->getIsSecureMode()) {
-				$q = new Q;
+				$q = new Q; /** @var Q $q */
 				$q->setStoreId(1)->load($i->getOrder()->getQuoteId());
-				$qp = $q->getPayment();
-				$cvv = $qp[$kCVV = 'cc_cid_enc'];
+				$qp = $q->getPayment(); /** @var QP $qp */
+				$cvv = $qp[$k = 'cc_cid_enc']; /** @var string $k */ /** @var string|null $cvv */
 				$cardNumberShow = substr($i->getCcNumber(), -4);
 				if ($deleted = df_request_o()->has($rDeleteCVV = 'deleteCVV')) {
-					$qp->unsetData($kCVV)->save();
+					$qp->unsetData($k)->save();
 				}
 				if (!$cvv || $deleted) {
 					$r->addData([
