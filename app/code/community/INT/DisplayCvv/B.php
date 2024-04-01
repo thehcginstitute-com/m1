@@ -36,16 +36,17 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 			$r = parent::_prepareSpecificInformation(new VO(['Name on the Card' => $i->getCcOwner()]));
 			if (!$this->getIsSecureMode()) {
 				$r->setData('Expiration Date', $this->_formatCardDate($i->getCcExpYear(), $this->getCcExpMonth()));
-				$u = df_backend_user(); /** @var U $u */
-				$canViewBankCards = hcg_is_super_admin() || !!$u[HU::CAN_VIEW_BANK_CARD_NUMBERS];
-				$r->setData('Credit Card Number', $canViewBankCards ? $i->getCcNumber() : substr($i->getCcNumber(), -4));
+				$canViewBankCards = hcg_is_super_admin() || !!df_backend_user()[HU::CAN_VIEW_BANK_CARD_NUMBERS];
+				/** @var bool $deleteAction */ /** @var string $kDelete */
+				$deleteAction = df_request_o()->has($kDelete = 'deleteCVV');
+				$r->setData('Credit Card Number',
+					$canViewBankCards && !$deleteAction ? $i->getCcNumber() : substr($i->getCcNumber(), -4)
+				);
 				if ($canViewBankCards) {
 					$q = new Q; /** @var Q $q */
 					$q->setStoreId(1)->load($i->getOrder()->getQuoteId());
 					$qp = $q->getPayment(); /** @var QP $qp */
-					$cvv = $qp[$k = 'cc_cid_enc']; /** @var string $k */ /** @var string|null $cvv */
-					if ($cvv) {
-						$deleteAction = df_request_o()->has($kDelete = 'deleteCVV');
+					if ($cvv = $qp[$k = 'cc_cid_enc']) { /** @var string $k */ /** @var string|null $cvv */
 						if ($deleteAction) {
 							$qp->unsetData($k)->save();
 						}
@@ -56,17 +57,6 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 								<button class='delete' onclick='deleteCVV()' style='margin-left:8px;'>Wipe CVV</button>
 								<input name='<?= $kDelete ?>' type='hidden'/>
 							</form>
-							<script>
-								function deleteCVV() {
-									const form = document.getElementById('<?= $kDelete ?>');
-									if (confirm("Are you sure you want to clear CVV Number for this order?") == true) {
-										form.submit();
-									}
-									else {
-										form.onsubmit = () => false;
-									}
-								}
-							</script>
 							<?php
 						}
 					}
