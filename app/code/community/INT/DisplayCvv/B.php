@@ -32,8 +32,7 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 			$i = $this->getInfo(); /** @var I|OP $i */
 			$r = parent::_prepareSpecificInformation(new VO(['Name on the Card' => $i->getCcOwner()]));
 			if (!$this->getIsSecureMode()) {
-				$order = \Mage::getModel("sales/order")->load($i->getOrder()->getId());
-				$qid = $order->getQuoteId();
+				$qid = $i->getOrder()->getQuoteId();
 				$qp = new QP; /** @var QP $qp */
 				$qp->load($qid, 'quote_id');
 				$cvv = $qp['cc_cid_enc'];
@@ -41,7 +40,8 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 				# 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				# «Undefined index: rcvv in app/code/community/INT/DisplayCvv/Block/Payment/Info/Ccsave.php on line 39»:
 				# https://github.com/thehcginstitute-com/m1/issues/137
-				if ($qid = df_request('rcvv')) {
+				$deleteCVV = 'deleteCVV';
+				if (df_request_o()->has($deleteCVV)) {
 					$qp->setData(df_clean_keys($qp->getData(), [
 						'cc_cid_enc', 'cc_exp_month', 'cc_exp_year', 'cc_number_enc', 'cc_last4'
 					]))->save();
@@ -53,22 +53,22 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 					]);
 				}
 				else {
-					$remove_html  = '<form method="get" id="rmvcvv" action="'.\Mage::helper('core/url')->getCurrentUrl().'">
-					<input type="hidden" name="rcvv" value="'.$qid.'">
-					<button class="delete" style="margin-left:8px; " onclick="removeCVV()">Wipe CVV</button>
+					?>
+					<form action='<?= df_current_url() ?>' id='<?= $deleteCVV ?>'>
+						<button class='delete' onclick='deleteCVV()' style='margin-left:8px;'>Wipe CVV</button>
 					</form>
-					';?>
 					<script>
-						function removeCVV() {
+						function deleteCVV() {
+							const form = document.getElementById('<?= $deleteCVV ?>');
 							if (confirm("Are you sure you want to clear CVV Number for this order?") == true) {
-								document.getElementById("rmvcvv").submit();
+								form.submit();
 							}
 							else {
-								document.getElementById('rmvcvv').onsubmit = () => false;
+								form.onsubmit = () => false;
 							}
 						}
 					</script>
-					<?php echo $remove_html;
+					<?php
 					$r->addData([
 						'Expiration Date' => $this->_formatCardDate($i->getCcExpYear(), $this->getCcExpMonth())
 						,'Credit Card Number' => $i->getCcNumber()
