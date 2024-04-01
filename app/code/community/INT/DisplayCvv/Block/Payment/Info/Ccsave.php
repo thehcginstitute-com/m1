@@ -64,14 +64,12 @@ class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_C
 						),
 						Mage::helper('payment')->__('Credit Card Number') => $info->getCcNumber(),
 						Mage::helper('payment')->__('CVV Number') => $cvv,
-						//Mage::helper('payment')->__('Card testing') => $cardNumberShow
 					));
 				}
 				else {
 					$transport->addData(array(
 						Mage::helper('payment')->__('Expiration Date') =>
 						$this->_formatCardDate($info->getCcExpYear(), $this->getCcExpMonth()),
-						//Mage::helper('payment')->__('Credit Card Number') => $info->getCcNumber(),
 						Mage::helper('payment')->__('Credit Card Number') => $cardNumberShow,
 					));
 				}
