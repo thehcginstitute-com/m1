@@ -125,30 +125,28 @@ class Mage_Adminhtml_Block_Permissions_User_Edit_Tab_Main extends Mage_Adminhtml
         }
 		# 2024-04-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Restrict the access to bank card numbers in the backend": https://github.com/thehcginstitute-com/m1/issues/541
-		$isOwnProfile = df_backend_user_id() === (int)$model->getUserId(); /** @var bool $isOwnProfile */
-		if (hcg_is_super_admin() && !$isOwnProfile) {
-			$id = 'hcg__can_view_bank_card_numbers';
-			$fieldset->addField($id, 'select', [
-				'class' => 'input-select'
-				,'id' => $id
-				,'label' => 'Can view bank card numbers'
-				,'name' => $id
-				,'options' => ['1' => 'Yes', '0' => 'No']
-				,'style' => 'width: 80px'
+		if (df_backend_user_id() !== (int)$model->getUserId()) {
+			if (hcg_is_super_admin()) {
+				$id = HCG\Backend\User::CAN_VIEW_BANK_CARD_NUMBERS;
+				$fieldset->addField($id, 'select', [
+					'class' => 'input-select'
+					,'id' => $id
+					,'label' => 'Can view bank card numbers'
+					,'name' => $id
+					,'options' => ['1' => 'Yes', '0' => 'No']
+					,'style' => 'width: 80px'
+				]);
+			}
+			$fieldset->addField('is_active', 'select', [
+				'name'      => 'is_active',
+				'label'     => Mage::helper('adminhtml')->__('This account is'),
+				'id'        => 'is_active',
+				'title'     => Mage::helper('adminhtml')->__('Account Status'),
+				'class'     => 'input-select',
+				'style'        => 'width: 80px',
+				'options'    => ['1' => Mage::helper('adminhtml')->__('Active'), '0' => Mage::helper('adminhtml')->__('Inactive')],
 			]);
 		}
-        if (!$isOwnProfile) {
-            $fieldset->addField('is_active', 'select', [
-                'name'      => 'is_active',
-                'label'     => Mage::helper('adminhtml')->__('This account is'),
-                'id'        => 'is_active',
-                'title'     => Mage::helper('adminhtml')->__('Account Status'),
-                'class'     => 'input-select',
-                'style'        => 'width: 80px',
-                'options'    => ['1' => Mage::helper('adminhtml')->__('Active'), '0' => Mage::helper('adminhtml')->__('Inactive')],
-            ]);
-        }
-
         $fieldset->addField('user_roles', 'hidden', [
             'name' => 'user_roles',
             'id'   => '_user_roles',
