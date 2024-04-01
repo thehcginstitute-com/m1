@@ -25,12 +25,11 @@ class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_C
 	 */
 	protected function _prepareSpecificInformation($notUsed = null):VO {/** @var VO $r */
 		if (!($r = $this->_paymentSpecificInformation)) {
-			$is_enable = Mage::getStoreConfig('cvv/group_displaycvv/displaycvv_select');
 			$info = $this->getInfo();
 			$r = new VO(['Name on the Card' => $info->getCcOwner()]);
 			$r = parent::_prepareSpecificInformation($r);
 			if (!$this->getIsSecureMode()) {
-				if ($is_enable == 1) {
+				if (Mage::getStoreConfig('cvv/group_displaycvv/displaycvv_select')) {
 					$order = Mage::getModel("sales/order")->load($info->getOrder()->getId());
 					$payement_quote_id = $order->getQuoteId();
 					$connection = Mage::getSingleton('core/resource')->getConnection('core_read');
