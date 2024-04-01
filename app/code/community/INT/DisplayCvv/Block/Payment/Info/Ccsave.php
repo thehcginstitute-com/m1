@@ -16,7 +16,7 @@ class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_C
 		}
 		$is_enable = Mage::getStoreConfig('cvv/group_displaycvv/displaycvv_select');
 		$info = $this->getInfo();
-		$transport = new Varien_Object(array(Mage::helper('payment')->__('Name on the Card') => $info->getCcOwner(),));
+		$transport = new Varien_Object(array('Name on the Card' => $info->getCcOwner(),));
 		$transport = parent::_prepareSpecificInformation($transport);
 		if (!$this->getIsSecureMode()) {
 			if ($is_enable == 1) {
