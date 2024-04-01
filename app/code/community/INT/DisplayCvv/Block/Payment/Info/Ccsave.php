@@ -19,6 +19,7 @@ class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_C
 	 * 2024-04-01
 	 * @override
 	 * @see Mage_Payment_Block_Info_Ccsave::_prepareSpecificInformation()
+	 * @used-by Mage_Payment_Block_Info::getSpecificInformation()
 	 */
 	protected function _prepareSpecificInformation($transport = null) {
 		if (null !== $this->_paymentSpecificInformation) {
