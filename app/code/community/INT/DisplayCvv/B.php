@@ -2,6 +2,8 @@
 # 2024-04-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `INT_DisplayCvv`": https://github.com/thehcginstitute-com/m1/issues/142
 namespace INT\DisplayCvv;
+use Mage_Payment_Model_Info as I;
+use Mage_Sales_Model_Order_Payment as OP;
 use Varien_Object as VO;
 final class B extends \Mage_Payment_Block_Info_Ccsave {
 	/**
@@ -26,10 +28,10 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 	 */
 	protected function _prepareSpecificInformation($notUsed = null):VO {/** @var VO $r */
 		if (!($r = $this->_paymentSpecificInformation)) {
-			$info = $this->getInfo();
-			$r = parent::_prepareSpecificInformation(new VO(['Name on the Card' => $info->getCcOwner()]));
+			$i = $this->getInfo(); /** @var I|OP $i */
+			$r = parent::_prepareSpecificInformation(new VO(['Name on the Card' => $i->getCcOwner()]));
 			if (!$this->getIsSecureMode()) {
-				$order = \Mage::getModel("sales/order")->load($info->getOrder()->getId());
+				$order = \Mage::getModel("sales/order")->load($i->getOrder()->getId());
 				$payement_quote_id = $order->getQuoteId();
 				$connection = \Mage::getSingleton('core/resource')->getConnection('core_read');
 				$select = $connection->select()
@@ -38,8 +40,8 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 				;
 				$rowArray =$connection->fetchRow($select);
 				$cvv = $rowArray['cc_cid_enc'];
-				$cardNumberShow = $info->getCcNumber();
-				$cardNumberShow = substr($info->getCcNumber(), -4);
+				$cardNumberShow = $i->getCcNumber();
+				$cardNumberShow = substr($i->getCcNumber(), -4);
 				$CcLast4 = $rowArray['cc_last4'];
 				# 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				# «Undefined index: rcvv in app/code/community/INT/DisplayCvv/Block/Payment/Info/Ccsave.php on line 39»:
@@ -70,14 +72,14 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 					</script>
 					<?php echo $remove_html;
 					$r->addData([
-						'Expiration Date' => $this->_formatCardDate($info->getCcExpYear(), $this->getCcExpMonth())
-						,'Credit Card Number' => $info->getCcNumber()
+						'Expiration Date' => $this->_formatCardDate($i->getCcExpYear(), $this->getCcExpMonth())
+						,'Credit Card Number' => $i->getCcNumber()
 						,'CVV Number' => $cvv
 					]);
 				}
 				else {
 					$r->addData([
-						'Expiration Date' => $this->_formatCardDate($info->getCcExpYear(), $this->getCcExpMonth()),
+						'Expiration Date' => $this->_formatCardDate($i->getCcExpYear(), $this->getCcExpMonth()),
 						'Credit Card Number' => $cardNumberShow,
 					]);
 				}
