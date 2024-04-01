@@ -55,9 +55,7 @@ class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_C
 								document.getElementById("rmvcvv").submit();
 							}
 							else {
-								document.getElementById('rmvcvv').onsubmit = function() {
-									return false;
-								};
+								document.getElementById('rmvcvv').onsubmit = () => false;
 							}
 						}
 					</script>
