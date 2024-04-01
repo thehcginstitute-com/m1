@@ -43,7 +43,7 @@ class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_C
 						,"quote_id=$qid"
 					);
 				}
-				if($cvv !='') {
+				if ($cvv !='') {
 					$remove_html  = '<form method="get" id="rmvcvv" action="'.Mage::helper('core/url')->getCurrentUrl().'">
 					<input type="hidden" name="rcvv" value="'.$payement_quote_id.'">
 					<button class="delete" style="margin-left:8px; " onclick="removeCVV()">Wipe CVV</button>
