@@ -1,6 +1,16 @@
 <?xml version='1.0'?>
 <config>
 	<modules>
+<!-- 2024-04-01
+"Restrict the access to bank card numbers in the backend": https://github.com/thehcginstitute-com/m1/issues/541 -->
+		<HCG_Backend>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<HCG_Core/>
+				<Df_Backend/>
+			</depends>
+		</HCG_Backend>
 		<HCG_Core>
 			<active>true</active>
 			<codePool>local</codePool>
