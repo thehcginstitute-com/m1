@@ -35,6 +35,7 @@ function df_is_admin($store = null) {return 'admin' === Mage::app()->getStore($s
 
 /**
  * @used-by df_context()
+ * @used-by INT\DisplayCvv\B::_prepareSpecificInformation() (https://github.com/thehcginstitute-com/m1/issues/142)
  * @return string
  */
 function df_current_url() {return df_mage_url_h()->getCurrentUrl();}

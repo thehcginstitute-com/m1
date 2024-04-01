@@ -32,9 +32,8 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 			$i = $this->getInfo(); /** @var I|OP $i */
 			$r = parent::_prepareSpecificInformation(new VO(['Name on the Card' => $i->getCcOwner()]));
 			if (!$this->getIsSecureMode()) {
-				$qid = $i->getOrder()->getQuoteId();
 				$qp = new QP; /** @var QP $qp */
-				$qp->load($qid, 'quote_id');
+				$qp->load($i->getOrder()->getQuoteId(), 'quote_id');
 				$cvv = $qp['cc_cid_enc'];
 				$cardNumberShow = substr($i->getCcNumber(), -4);
 				# 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
