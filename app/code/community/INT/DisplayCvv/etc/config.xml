@@ -19,9 +19,7 @@
 	<global>
 		<blocks>
 			<payment>
-				<rewrite>
-					<info_ccsave>INT_DisplayCvv_Block_Payment_Info_Ccsave</info_ccsave>
-				</rewrite>
+				<rewrite><info_ccsave>INT_DisplayCvv_B</info_ccsave></rewrite>
 			</payment>
 		</blocks>
 		<helpers>
