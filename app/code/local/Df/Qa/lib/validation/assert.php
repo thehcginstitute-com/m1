@@ -1,4 +1,5 @@
 <?php
+use Df\Core\Exception as DFE;
 use Df\Qa\Method as Q;
 use Exception as E;
 use Throwable as Th; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
@@ -11,6 +12,15 @@ use Throwable as Th; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": 
  * @throws E
  */
 function df_assert($cond, $m = null) {return $cond ?: df_error($m);}
+
+/**
+ * 2017-02-18
+ * 2024-04-01 "Port `df_assert_assoc()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/544
+ * @used-by df_clean_keys()
+ * @return array(string => mixed)
+ * @throws DFE
+ */
+function df_assert_assoc(array $a):array {return df_is_assoc($a) ? $a : df_error('The array should be associative.');}
 
 /**
  * @used-by df_currency_base()

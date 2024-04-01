@@ -9,6 +9,7 @@
  * и не замечал её особого влияния на производительность системы.
  * Возможно, другие алгоритмы лучше, лень разбираться.
  * 2017-10-29 It returns `true` for an empty array.
+ * @used-by df_assert_assoc()
  * @param array(int|string => mixed) $a
  * @return bool
  */
