@@ -27,6 +27,7 @@ function df_es($v) {return '' === $v;}
  * @used-by df_package()
  * @used-by df_primary_key()
  * @used-by df_trd()
+ * @used-by Mage_Sales_Model_Order::queueNewOrderEmail() (https://github.com/thehcginstitute-com/m1/issues/538)
  * @param mixed|null $v
  * @return array
  */
