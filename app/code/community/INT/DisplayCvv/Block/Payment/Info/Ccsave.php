@@ -5,8 +5,8 @@ class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_C
 	function __construct() {
 		$this->_controller = 'adminhtml_displaycvv';
 		$this->_blockGroup = 'displaycvv';
-		$this->_headerText = Mage::helper('displaycvv')->__('Item Manager');
-		$this->_addButtonLabel = Mage::helper('displaycvv')->__('Add Item');
+		$this->_headerText = 'Item Manager';
+		$this->_addButtonLabel = 'Add Item';
 		parent::__construct();
 	}
   
