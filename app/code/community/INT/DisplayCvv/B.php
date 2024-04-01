@@ -38,10 +38,10 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 				$qp = $q->getPayment();
 				$cvv = $qp[$kCVV = 'cc_cid_enc'];
 				$cardNumberShow = substr($i->getCcNumber(), -4);
-				if (df_request_o()->has($rDeleteCVV = 'deleteCVV')) {
+				if ($deleted = df_request_o()->has($rDeleteCVV = 'deleteCVV')) {
 					$qp->unsetData($kCVV)->save();
 				}
-				if (!$cvv) {
+				if (!$cvv || $deleted) {
 					$r->addData([
 						'Expiration Date' => $this->_formatCardDate($i->getCcExpYear(), $this->getCcExpMonth()),
 						'Credit Card Number' => $cardNumberShow,
