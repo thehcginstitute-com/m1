@@ -1,0 +1,11 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+<!-- 2024-04-01
+"Confirmation emails are sometimes sent twice for the same order": https://github.com/thehcginstitute-com/m1/issues/538 -->
+		<HCG_Sales>
+			<version>1.0.0</version>
+			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
+		</HCG_Sales>
+	</modules>
+</config>

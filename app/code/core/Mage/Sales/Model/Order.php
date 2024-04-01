@@ -1376,7 +1376,10 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 		# 2024-04-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Confirmation emails are sometimes sent twice for the same order":
 		# https://github.com/thehcginstitute-com/m1/issues/538
-		$copyTo = array_diff(df_eta($copyTo), [$this->getCustomerEmail()]);
+		$copyTo = in_array($this->getCustomerEmail(), \HCG\Sales\C::ADMINISTRATIVE_EMAILS)
+			? []
+			: array_diff(df_eta($copyTo), [$this->getCustomerEmail()])
+		;
         $copyMethod = Mage::getStoreConfig(self::XML_PATH_EMAIL_COPY_METHOD, $storeId);
 
         // Start store emulation process

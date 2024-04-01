@@ -15,15 +15,14 @@
 			<active>true</active>
 			<codePool>local</codePool>
 		</HCG_Core>
-<!-- 2024-03-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+<!-- 2024-03-03
 "Implement the `hcg_customer_is_new()` function` template": https://github.com/thehcginstitute-com/m1/issues/442 -->
 		<HCG_Customer>
 			<active>true</active>
 			<codePool>local</codePool>
 			<depends>
 				<HCG_Core/>
-<!-- 2024-03-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Implement the `Df_Customer` module": https://github.com/thehcginstitute-com/m1/issues/444 -->
+<!-- 2024-03-03 "Implement the `Df_Customer` module": https://github.com/thehcginstitute-com/m1/issues/444 -->
 				<Df_Customer/>
 			</depends>
 		</HCG_Customer>
@@ -61,6 +60,16 @@ https://github.com/thehcginstitute-com/m1/issues/97 -->
 				<Mage_Payment/>
 			</depends>
 		</HCG_Payment>
+<!-- 2024-04-01
+"Confirmation emails are sometimes sent twice for the same order": https://github.com/thehcginstitute-com/m1/issues/538 -->
+		<HCG_Sales>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<HCG_Core/>
+				<Mage_Sales/>
+			</depends>
+		</HCG_Sales>
 		<HCG_WP>
 			<active>true</active>
 			<codePool>local</codePool>

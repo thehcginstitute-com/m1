@@ -45,7 +45,7 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 					//df_map();
 					//foreach(['cc_cid_enc', 'cc_exp_month', 'cc_exp_year'])
 					//df_clea
-					$qp->unsetData();
+					//$qp->unsetData();
 					$connection = \Mage::getSingleton('core/resource')->getConnection('core_read');
 					$connection->update(
 						"sales_flat_quote_payment"
