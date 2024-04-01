@@ -42,6 +42,10 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 				# «Undefined index: rcvv in app/code/community/INT/DisplayCvv/Block/Payment/Info/Ccsave.php on line 39»:
 				# https://github.com/thehcginstitute-com/m1/issues/137
 				if ($qid = df_request('rcvv')) {
+					//df_map();
+					//foreach(['cc_cid_enc', 'cc_exp_month', 'cc_exp_year'])
+					//df_clea
+					$qp->unsetData();
 					$connection = \Mage::getSingleton('core/resource')->getConnection('core_read');
 					$connection->update(
 						"sales_flat_quote_payment"
