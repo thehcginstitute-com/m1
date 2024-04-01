@@ -35,45 +35,41 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 			$i = $this->getInfo(); /** @var I|OP $i */
 			$r = parent::_prepareSpecificInformation(new VO(['Name on the Card' => $i->getCcOwner()]));
 			if (!$this->getIsSecureMode()) {
-				$q = new Q; /** @var Q $q */
-				$q->setStoreId(1)->load($i->getOrder()->getQuoteId());
-				$qp = $q->getPayment(); /** @var QP $qp */
-				$cvv = $qp[$k = 'cc_cid_enc']; /** @var string $k */ /** @var string|null $cvv */
-				/** @var bool $deleted */ /** @var string $kDelete */
-				if ($deleted = df_request_o()->has($kDelete = 'deleteCVV')) {
-					$qp->unsetData($k)->save();
-				}
+				$r->setData('Expiration Date', $this->_formatCardDate($i->getCcExpYear(), $this->getCcExpMonth()));
 				$u = df_backend_user(); /** @var U $u */
-				$canViewBankCardNumbers = hcg_is_super_admin() || !!$u[HU::CAN_VIEW_BANK_CARD_NUMBERS];
-				if (!$cvv || $deleted || !$canViewBankCardNumbers) {
-					$r->addData([
-						'Expiration Date' => $this->_formatCardDate($i->getCcExpYear(), $this->getCcExpMonth()),
-						'Credit Card Number' => substr($i->getCcNumber(), -4),
-					]);
-				}
-				else {
-					?>
-					<form action='<?= df_current_url() ?>' id='<?= $kDelete ?>'>
-						<button class='delete' onclick='deleteCVV()' style='margin-left:8px;'>Wipe CVV</button>
-						<input name='<?= $kDelete ?>' type='hidden'/>
-					</form>
-					<script>
-						function deleteCVV() {
-							const form = document.getElementById('<?= $kDelete ?>');
-							if (confirm("Are you sure you want to clear CVV Number for this order?") == true) {
-								form.submit();
-							}
-							else {
-								form.onsubmit = () => false;
-							}
+				$canViewBankCards = hcg_is_super_admin() || !!$u[HU::CAN_VIEW_BANK_CARD_NUMBERS];
+				$r->setData('Credit Card Number', $canViewBankCards ? $i->getCcNumber() : substr($i->getCcNumber(), -4));
+				if ($canViewBankCards) {
+					$q = new Q; /** @var Q $q */
+					$q->setStoreId(1)->load($i->getOrder()->getQuoteId());
+					$qp = $q->getPayment(); /** @var QP $qp */
+					$cvv = $qp[$k = 'cc_cid_enc']; /** @var string $k */ /** @var string|null $cvv */
+					if ($cvv) {
+						$deleteAction = df_request_o()->has($kDelete = 'deleteCVV');
+						if ($deleteAction) {
+							$qp->unsetData($k)->save();
 						}
-					</script>
-					<?php
-					$r->addData([
-						'Expiration Date' => $this->_formatCardDate($i->getCcExpYear(), $this->getCcExpMonth())
-						,'Credit Card Number' => $i->getCcNumber()
-						,'CVV Number' => $cvv
-					]);
+						else {
+							$r->setData('CVV', $cvv);
+							?>
+							<form action='<?= df_current_url() ?>' id='<?= $kDelete ?>'>
+								<button class='delete' onclick='deleteCVV()' style='margin-left:8px;'>Wipe CVV</button>
+								<input name='<?= $kDelete ?>' type='hidden'/>
+							</form>
+							<script>
+								function deleteCVV() {
+									const form = document.getElementById('<?= $kDelete ?>');
+									if (confirm("Are you sure you want to clear CVV Number for this order?") == true) {
+										form.submit();
+									}
+									else {
+										form.onsubmit = () => false;
+									}
+								}
+							</script>
+							<?php
+						}
+					}
 				}
 			}
 		}
