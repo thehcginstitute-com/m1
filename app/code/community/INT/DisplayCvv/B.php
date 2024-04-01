@@ -46,7 +46,13 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 						'cc_cid_enc', 'cc_exp_month', 'cc_exp_year', 'cc_number_enc', 'cc_last4'
 					]))->save();
 				}
-				if ($cvv) {
+				if (!$cvv) {
+					$r->addData([
+						'Expiration Date' => $this->_formatCardDate($i->getCcExpYear(), $this->getCcExpMonth()),
+						'Credit Card Number' => $cardNumberShow,
+					]);
+				}
+				else {
 					$remove_html  = '<form method="get" id="rmvcvv" action="'.\Mage::helper('core/url')->getCurrentUrl().'">
 					<input type="hidden" name="rcvv" value="'.$qid.'">
 					<button class="delete" style="margin-left:8px; " onclick="removeCVV()">Wipe CVV</button>
@@ -67,12 +73,6 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 						'Expiration Date' => $this->_formatCardDate($i->getCcExpYear(), $this->getCcExpMonth())
 						,'Credit Card Number' => $i->getCcNumber()
 						,'CVV Number' => $cvv
-					]);
-				}
-				else {
-					$r->addData([
-						'Expiration Date' => $this->_formatCardDate($i->getCcExpYear(), $this->getCcExpMonth()),
-						'Credit Card Number' => $cardNumberShow,
 					]);
 				}
 			}
