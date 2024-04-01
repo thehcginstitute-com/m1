@@ -36,7 +36,7 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 			$r = parent::_prepareSpecificInformation(new VO(['Name on the Card' => $i->getCcOwner()]));
 			if (!$this->getIsSecureMode()) {
 				$r->setData('Expiration Date', $this->_formatCardDate($i->getCcExpYear(), $this->getCcExpMonth()));
-				$canViewBankCards = hcg_is_super_admin() || !!df_backend_user()[HU::CAN_VIEW_BANK_CARD_NUMBERS];
+				$canViewBankCards = hcg_is_super_admin() || !!df_backend_user()[HU::CAN_VIEW_BANK_CARDS];
 				/** @var bool $deleteAction */ /** @var string $kDelete */
 				$deleteAction = df_request_o()->has($kDelete = 'deleteCVV');
 				$r->setData('Credit Card Number',
