@@ -1,4 +1,6 @@
 <?php
+# 2024-04-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Refactor `INT_DisplayCvv`": https://github.com/thehcginstitute-com/m1/issues/142
 class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_Ccsave {
 	function __construct() {
 		$this->_controller = 'adminhtml_displaycvv';
