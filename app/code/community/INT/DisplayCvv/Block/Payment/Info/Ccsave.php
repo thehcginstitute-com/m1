@@ -14,7 +14,12 @@ class INT_DisplayCvv_Block_Payment_Info_Ccsave extends Mage_Payment_Block_Info_C
 		$this->_headerText = 'Item Manager';
 		parent::__construct();
 	}
-  
+
+	/**
+	 * 2024-04-01
+	 * @override
+	 * @see Mage_Payment_Block_Info_Ccsave::_prepareSpecificInformation()
+	 */
 	protected function _prepareSpecificInformation($transport = null) {
 		if (null !== $this->_paymentSpecificInformation) {
 			return $this->_paymentSpecificInformation;
