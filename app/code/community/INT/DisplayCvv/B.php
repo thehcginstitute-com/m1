@@ -55,6 +55,7 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 					?>
 					<form action='<?= df_current_url() ?>' id='<?= $deleteCVV ?>'>
 						<button class='delete' onclick='deleteCVV()' style='margin-left:8px;'>Wipe CVV</button>
+						<input name='<?= $deleteCVV ?>' type='hidden'/>
 					</form>
 					<script>
 						function deleteCVV() {
