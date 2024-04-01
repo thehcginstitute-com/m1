@@ -125,7 +125,7 @@ class Mage_Adminhtml_Block_Permissions_User_Edit_Tab_Main extends Mage_Adminhtml
         }
 		# 2024-04-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Restrict the access to bank card numbers in the backend": https://github.com/thehcginstitute-com/m1/issues/541
-		if (in_array(df_backend_user_id(), [5, 51])) {
+		if (in_array(df_backend_user_id(), hcg_super_admins())) {
 			$id = 'can_view_bank_card_numbers';
 			$fieldset->addField($id, 'select', [
 				'class' => 'input-select'
