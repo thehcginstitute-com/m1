@@ -44,13 +44,7 @@ final class B extends \Mage_Payment_Block_Info_Ccsave {
 				if ($qid = df_request('rcvv')) {
 					$qp->setData(df_clean_keys($qp->getData(), [
 						'cc_cid_enc', 'cc_exp_month', 'cc_exp_year', 'cc_number_enc', 'cc_last4'
-					]));
-					$connection = \Mage::getSingleton('core/resource')->getConnection('core_read');
-					$connection->update(
-						"sales_flat_quote_payment"
-						,["cc_cid_enc" => '',"cc_exp_month" => '',"cc_exp_year" => '',"cc_number_enc"=>'',"cc_last4"=>'']
-						,"quote_id=$qid"
-					);
+					]))->save();
 				}
 				if ($cvv !='') {
 					$remove_html  = '<form method="get" id="rmvcvv" action="'.\Mage::helper('core/url')->getCurrentUrl().'">
