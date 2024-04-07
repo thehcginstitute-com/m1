@@ -507,16 +507,17 @@ class IWD_OrderGrid_Model_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 		$iwdMultiselectType = $helper->isAllowCustomGrid() ? 'iwd_multiselect' : 'options';
 		$textComplexFilter = $helper->isAllowCustomGrid() ? 'complex-filter' : '';
 		$selectComplexFilter = $helper->isAllowCustomGrid() ? 'complex-filter-select' : '';
-		$statuses = Mage::getSingleton('sales/order_config')->getStatuses();
 		# 2024-04-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Show the status code after the name for the statuses with the same name
 		# in the «Status» dropdown of the backend order grid":
 		# https://github.com/thehcginstitute-com/m1/issues/551
-		# ...
+		$addCodes = function(array $a):array {
+			return $a;
+		};
 		# 2024-04-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "The items of the «Status» dropdown of the backend order grid should be ordered alphabetically":
 		# https://github.com/thehcginstitute-com/m1/issues/546
-		$statuses = df_sort($statuses);
+		$statuses = df_sort($addCodes(Mage::getSingleton('sales/order_config')->getStatuses()));
 		$columns = array(
 			/*** main table ***/
 			'increment_id' => array(
