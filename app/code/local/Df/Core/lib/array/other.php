@@ -47,7 +47,8 @@ function dfaf($a, $b):array {
  * 2018-04-24
  * 2024-04-08
  * 1) I added the `is_null($k)` case: https://github.com/thehcginstitute-com/m1/issues/551
- * 2) 2024-04-08 "Port `dfa_group()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/STUB
+ * 2) 2024-04-08 "Port `dfa_group()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/552
+ * @used-by IWD_OrderGrid_Model_Order_Grid::prepareGridColumns() (https://github.com/thehcginstitute-com/m1/issues/551)
  * @param array(int|string => mixed) $a
  * @param string|int|null $k
  * @return array(int|string => array(int|string => mixed))

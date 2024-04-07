@@ -512,6 +512,7 @@ class IWD_OrderGrid_Model_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 		# in the «Status» dropdown of the backend order grid":
 		# https://github.com/thehcginstitute-com/m1/issues/551
 		$addCodes = function(array $a):array {
+			$g = dfa_group($a);
 			return $a;
 		};
 		$columns = array(
