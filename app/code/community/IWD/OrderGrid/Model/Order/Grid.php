@@ -507,7 +507,10 @@ class IWD_OrderGrid_Model_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 		$iwdMultiselectType = $helper->isAllowCustomGrid() ? 'iwd_multiselect' : 'options';
 		$textComplexFilter = $helper->isAllowCustomGrid() ? 'complex-filter' : '';
 		$selectComplexFilter = $helper->isAllowCustomGrid() ? 'complex-filter-select' : '';
-
+		# 2024-04-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "The items of the «Status» dropdown of the backend order grid should be ordered alphabetically":
+		# https://github.com/thehcginstitute-com/m1/issues/546
+		$statuses = df_sort(Mage::getSingleton('sales/order_config')->getStatuses());
 		$columns = array(
 			/*** main table ***/
 			'increment_id' => array(
@@ -532,10 +535,7 @@ class IWD_OrderGrid_Model_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 				'type' => $iwdMultiselectType,
 				'filter_index' => 'main_table.status',
 				'filter_condition_callback' => array($this, 'complexFilter'),
-				# 2024-04-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				# "The items of the «Status» dropdown of the backend order grid should be ordered alphabetically":
-				# https://github.com/thehcginstitute-com/m1/issues/546
-				'options' => df_sort(Mage::getSingleton('sales/order_config')->getStatuses()),
+				'options' => $statuses,
 				'header_css_class' => $selectComplexFilter
 			),
 			'base_grand_total' => array(
