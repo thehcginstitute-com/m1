@@ -73,6 +73,7 @@ function df_ksort_r_ci(array $a) {return !df_is_assoc($a) ? $a : df_ksort_r($a, 
  * @used-by df_oqi_leafs()
  * @used-by df_sort_l()
  * @used-by df_zf_http_last_req()
+ * @used-by IWD_OrderGrid_Model_Order_Grid::prepareGridColumns() (https://github.com/thehcginstitute-com/m1/issues/546)
  * @param array(int|string => mixed) $a
  * @param Closure|string|null $f [optional]
  * @return array(int|string => mixed)
