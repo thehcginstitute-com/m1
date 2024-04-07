@@ -3,7 +3,6 @@
 # "Refactor `INT_DisplayCvv`": https://github.com/thehcginstitute-com/m1/issues/142
 namespace INT\DisplayCvv;
 use HCG\Backend\User as HU;
-use Mage_Admin_Model_User as U;
 use Mage_Payment_Model_Info as I;
 use Mage_Sales_Model_Order_Payment as OP;
 use Mage_Sales_Model_Quote as Q;
