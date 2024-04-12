@@ -48,10 +48,17 @@ function __()
  * @param string $destSep
  * @return string
  */
-function uc_words($str, $destSep = '_')
-{
-    return str_replace(' ', $destSep, ucwords(str_replace('_', ' ', $str)));
-}
+function uc_words($str, $destSep = '_'):string {return str_replace(' ', $destSep, ucwords(
+	/**
+	 * 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 1) "Rework `uc_words()` to support PHP namespaces": https://github.com/thehcginstitute-com/m1/issues/558
+	 * 2.1)  «If `search` is an array and `replace` is a string, then this replacement string is used for every value of `search`.»
+	 * https://php.net/manual/function.str-replace.php
+	 * 2.2) @see df_explode_multiple()
+	 * 3) @see df_explode_class()
+	 */
+	str_replace(['\\', '_'], ' ', $str)
+));}
 
 /**
  * Simple sql format date
