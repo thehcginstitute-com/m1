@@ -79,6 +79,8 @@ function is_empty_date($date)
 }
 
 /**
+ * @used-by Mage_Core_Model_Layout::_getBlockInstance()
+ * @used-by Mage_ProductAlert_Helper_Data::createBlock()
  * @param string $class
  * @return bool|string
  */
@@ -93,6 +95,11 @@ function mageFindClassFile($class)
             break;
         }
     }
+	# 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	# "Implement a diagnostics of errors in `mageFindClassFile()`": https://github.com/thehcginstitute-com/m1/issues/556
+	if (!$found) {
+		df_log("Unable to find the class «{$class}».", null, ['get_include_path' => explode(PS, get_include_path())]);
+	}
     return $found;
 }
 

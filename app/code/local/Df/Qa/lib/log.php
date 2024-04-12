@@ -7,6 +7,7 @@ use Varien_Object as _DO;
 /**
  * 2024-01-10 "Port the latest version of `df_log` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/168
  * @used-by mageCoreErrorHandler()
+ * @used-by mageFindClassFile() (https://github.com/thehcginstitute-com/m1/issues/556)
  * @used-by Aoe_Scheduler_Model_Observer::dispatch()
  * @used-by Df\Qa\Failure\Error::check()
  * @used-by Df\Qa\Failure\Error::log()
