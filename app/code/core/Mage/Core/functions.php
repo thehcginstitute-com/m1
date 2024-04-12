@@ -41,17 +41,16 @@ function __()
 
 /**
  * Tiny function to enhance functionality of ucwords
- *
  * Will capitalize first letters and convert separators if needed
- *
+ * 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * "Remove the unused 3rd argument of `uc_words()`": https://github.com/thehcginstitute-com/m1/issues/559
  * @param string $str
  * @param string $destSep
- * @param string $srcSep
  * @return string
  */
-function uc_words($str, $destSep = '_', $srcSep = '_')
+function uc_words($str, $destSep = '_')
 {
-    return str_replace(' ', $destSep, ucwords(str_replace($srcSep, ' ', $str)));
+    return str_replace(' ', $destSep, ucwords(str_replace('_', ' ', $str)));
 }
 
 /**
