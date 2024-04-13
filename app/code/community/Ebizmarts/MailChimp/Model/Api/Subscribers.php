@@ -71,7 +71,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 		$this->_ecommerceSubscribersCollection->setStoreId($this->getStoreId());
 		$subscriberArray = array();
 		if ($thisScopeHasList && !$thisScopeHasSubMinSyncDateFlag || !$helper->getSubMinSyncDateFlag($this->getStoreId())) {
-			$realScope = $helper->getRealScopeForConfig(
+			$realScope = hcg_mc_cfg_scope(
 				Ebizmarts_MailChimp_Model_Config::GENERAL_LIST,
 				$this->getStoreId()
 			);

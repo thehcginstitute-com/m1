@@ -75,7 +75,7 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
     function handleWebhookChange($scopeId, $scope = 'stores')
     {
         $helper = $this->getHelper();
-        $webhookScope = $helper->getRealScopeForConfig(
+        $webhookScope = hcg_mc_cfg_scope(
             Ebizmarts_MailChimp_Model_Config::GENERAL_LIST,
             $scopeId,
             $scope
