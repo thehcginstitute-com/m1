@@ -35,6 +35,7 @@ use Mage_Sales_Model_Order as O;
  * @used-by df_store_id()
  * @used-by df_store_url()
  * @used-by df_url_frontend()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::getRealScopeForConfig() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @param int|string|null|bool|S|O $v [optional]
  * @throws Exception
  * https://github.com/magento/magento2/issues/2222
