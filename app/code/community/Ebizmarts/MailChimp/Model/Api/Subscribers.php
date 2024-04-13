@@ -85,7 +85,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 				$this->_mcDateHelper->formatDate(null, 'Y-m-d H:i:s')
 			]], dfa($realScope, 'scope_id'), dfa($realScope, 'scope'));
 		}
-
 		//get subscribers
 		$collection = Mage::getResourceModel('newsletter/subscriber_collection')
 			->addFieldToFilter('subscriber_status', array('eq' => 1))
@@ -104,14 +103,12 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 					array('eq' => 1)
 				)
 			);
-
 		$collection->addFieldToFilter('mailchimp_sync_error', array('eq' => ''));
 		$this->_ecommerceSubscribersCollection->limitCollection($collection, $limit);
 		$date = $dateHelper->getDateMicrotime();
 		$batchId = 'storeid-' . $this->getStoreId() . '_'
 			. Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER . '_' . $date;
 		$counter = 0;
-
 		foreach ($collection as $subscriber) {
 			$data = $this->_buildSubscriberData($subscriber);
 			$emailHash = hash('md5', strtolower($subscriber->getSubscriberEmail()));
