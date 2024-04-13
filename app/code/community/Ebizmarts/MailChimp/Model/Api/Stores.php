@@ -70,7 +70,7 @@ class Ebizmarts_MailChimp_Model_Api_Stores
                     $response['connected_site']['site_script']['url']
                 )
             );
-            hcg_mc_cfg_save($configValues, 0, 'default');
+            hcg_mc_cfg_save_a($configValues, 0, 'default');
             $successMessage = $helper->__("The Mailchimp store was successfully created.");
             $adminSession = $this->getAdminSession();
             $adminSession->addSuccess($successMessage);

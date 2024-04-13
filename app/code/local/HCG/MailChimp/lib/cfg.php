@@ -26,7 +26,7 @@ use Mage_Core_Model_Config as Cfg;
  * @used-by app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.6.3-1.1.6.4.php
  * @used-by app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.6.4-1.1.6.5.php
  */
-function hcg_mc_cfg_save(array $vv, int $scopeId = 0, string $scope = 'default', bool $cleanCache = true):void {
+function hcg_mc_cfg_save_a(array $vv, int $scopeId = 0, string $scope = 'default', bool $cleanCache = true):void {
 	$c = Mage::getConfig(); /** @var Cfg $c */
 	foreach ($vv as $v) {/** @var string[] $v */
 		$c->saveConfig($v[0], $v[1], $scope, $scopeId);

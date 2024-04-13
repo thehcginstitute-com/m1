@@ -445,7 +445,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	function deleteAllConfiguredMCStoreLocalData($mailchimpStoreId, $scopeId, $scope = 'stores')
 	{
 		$configValues = array(array(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_ACTIVE, 0));
-		hcg_mc_cfg_save($configValues, $scopeId, $scope, false);
+		hcg_mc_cfg_save_a($configValues, $scopeId, $scope, false);
 		$config = $this->getConfig();
 		$config->deleteConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_MCSTOREID, $scope, $scopeId);
 		$this->deletePreviousConfiguredMCStoreLocalData($mailchimpStoreId, $scopeId, $scope = 'stores');
@@ -630,7 +630,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 			$configValue = array(
 				array(Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$mailchimpStoreId", $oldSyncingFlag)
 			);
-			hcg_mc_cfg_save($configValue, $scopeId, $scope);
+			hcg_mc_cfg_save_a($configValue, $scopeId, $scope);
 		}
 
 		//Delete old entry if exists particularly in this scope.
@@ -1158,7 +1158,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 			$configValues[] = array(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_RESEND_ENABLED, 1);
 			$configValues[] = array(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_RESEND_TURN, 1);
-			hcg_mc_cfg_save($configValues, $scopeId, $scope);
+			hcg_mc_cfg_save_a($configValues, $scopeId, $scope);
 		}
 	}
 
@@ -1922,7 +1922,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 						$url
 					)
 				);
-				hcg_mc_cfg_save($configValues, 0, 'default');
+				hcg_mc_cfg_save_a($configValues, 0, 'default');
 				$mcJsUrlSaved = true;
 			}
 		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
@@ -2348,7 +2348,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	function setResendTurn($value, $scopeId, $scope = 'stores')
 	{
 		$configValue = array(array(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_RESEND_TURN, $value));
-		hcg_mc_cfg_save($configValue, $scopeId, $scope);
+		hcg_mc_cfg_save_a($configValue, $scopeId, $scope);
 	}
 
 	/**

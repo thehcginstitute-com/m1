@@ -216,7 +216,7 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
                     $newWebhook = $api->getLists()->getWebhooks()->add($listId, $hookUrl, $events, $sources);
                     $newWebhookId = $newWebhook['id'];
                     $configValues = array(array(Ebizmarts_MailChimp_Model_Config::GENERAL_WEBHOOK_ID, $newWebhookId));
-                    hcg_mc_cfg_save($configValues, $scopeId, $scope);
+                    hcg_mc_cfg_save_a($configValues, $scopeId, $scope);
 
                     return true;
                 } else {
