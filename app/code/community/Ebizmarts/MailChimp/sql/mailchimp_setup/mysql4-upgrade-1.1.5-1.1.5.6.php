@@ -42,16 +42,5 @@ try {
 } catch (Exception $e) {
     Mage::log($e->getMessage(), null, 'MailChimp_Errors.log', true);
 }
-
-hcg_mc_cfg_save_a(
-        array(
-            array(
-                Ebizmarts_MailChimp_Model_Config::GENERAL_MIGRATE_FROM_115,
-                1)
-        ),
-        0,
-        'default'
-    );
-
-
+hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::GENERAL_MIGRATE_FROM_115, 1);
 $installer->endSetup();
