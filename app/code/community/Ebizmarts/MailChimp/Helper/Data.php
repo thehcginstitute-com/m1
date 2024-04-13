@@ -2054,6 +2054,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 	/*
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::createBatchJson()
+	 * @used-by Ebizmarts_MailChimp_Helper_Webhook::handleWebhookChange()
 	 * @param $path
 	 * @param $scopeId
 	 * @param string $scope
