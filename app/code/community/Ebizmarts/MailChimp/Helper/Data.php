@@ -2057,13 +2057,9 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by Ebizmarts_MailChimp_Helper_Webhook::handleWebhookChange()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::createBatchJson()
-	 * @param $path
-	 * @param $scopeId
-	 * @param string $scope
 	 * @return array|null
 	 */
-	function getRealScopeForConfig($path, $scopeId, $scope = 'stores')
-	{
+	function getRealScopeForConfig(string $path, int $scopeId, $scope = 'stores') {
 		$websiteId = null;
 
 		if ($scope == 'stores') {
