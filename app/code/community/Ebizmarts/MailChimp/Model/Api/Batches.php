@@ -1105,7 +1105,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 								$date
 							)
 						);
-						hcg_mc_cfg_save_a($config, 0, 'default');
+						hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_SYNC_DATE . "_$mailchimpStoreId", $date);
 					}
 				} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 					$helper->logError($e->getMessage());
