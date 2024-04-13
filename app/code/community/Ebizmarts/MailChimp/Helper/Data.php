@@ -1917,13 +1917,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 			if (isset($response['connected_site']['site_script']['url'])) {
 				$url = $response['connected_site']['site_script']['url'];
-				$configValues = array(
-					array(
-						Ebizmarts_MailChimp_Model_Config::ECOMMERCE_MC_JS_URL . "_$mailchimpStoreId",
-						$url
-					)
-				);
-				hcg_mc_cfg_save_a($configValues, 0, 'default');
+				hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_MC_JS_URL . "_$mailchimpStoreId", $url);
 				$mcJsUrlSaved = true;
 			}
 		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
