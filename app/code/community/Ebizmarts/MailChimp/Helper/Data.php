@@ -1591,7 +1591,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @used-by self::deleteAllConfiguredMCStoreLocalData()
 	 * @used-by self::getMCIsSyncing()
 	 * @used-by self::saveLastItemsSent()
-	 * @used-by self::STUB()
+	 * @used-by self::setResendTurn()
 	 * @used-by self::STUB()
 	 * @used-by self::STUB()
 	 * @used-by STUB()
