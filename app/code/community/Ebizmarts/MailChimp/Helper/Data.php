@@ -1589,12 +1589,11 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by Ebizmarts_MailChimp_Adminhtml_MergevarsController::saveaddAction()
-	 * @param       $configValues
-	 * @param       $scopeId
-	 * @param       $scope
-	 * @param bool  $cleanCache
+	 * @param $configValues
+	 * @param $scopeId
+	 * @param $scope
 	 */
-	function saveMailchimpConfig($configValues, $scopeId, $scope, $cleanCache = true) {
+	function saveMailchimpConfig($configValues, $scopeId, $scope, bool $cleanCache = true):void {
 		$cfg = Mage::getConfig(); /** @var Cfg $cfg */
 		foreach ($configValues as $configValue) {
 			$cfg->saveConfig($configValue[0], $configValue[1], $scope, $scopeId);
