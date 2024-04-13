@@ -1593,31 +1593,23 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @used-by self::retrieveAndSaveMCJsUrlInConfig()
 	 * @used-by self::saveLastItemsSent()
 	 * @used-by self::setResendTurn()
+	 * @used-by Ebizmarts_MailChimp_Adminhtml_MergevarsController::saveaddAction()
 	 * @used-by Ebizmarts_MailChimp_Helper_Webhook::createNewWebhook()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::_updateSyncingFlag()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::handleSyncingValue()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Orders::replaceAllOrdersBatch()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Stores::createMailChimpStore()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::createBatchJson()
+	 * @used-by Ebizmarts_MailChimp_Model_Observer::cleanProductImagesCacheAfter()
 	 * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Active::_afterSave()
 	 * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Apikey::_afterSave()
 	 * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Ecommerce::_afterSave()
 	 * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_List::_afterSave()
 	 * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Store::_afterSave()
-	 * @used-by Ebizmarts_MailChimp_Model_Observer::cleanProductImagesCacheAfter()
 	 * @used-by app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.20-1.1.21.php
 	 * @used-by app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.5-1.1.5.6.php
 	 * @used-by app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.6.3-1.1.6.4.php
 	 * @used-by app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.6.4-1.1.6.5.php
-	 * @used-by STUB()
-	 * @used-by STUB()
-	 * @used-by STUB()
-	 * @used-by STUB()
-	 * @used-by STUB()
-	 * @used-by STUB()
-	 * @used-by STUB()
-	 * @used-by STUB()
-	 * @used-by Ebizmarts_MailChimp_Adminhtml_MergevarsController::saveaddAction()
 	 * @param $configValues
 	 * @param $scopeId
 	 * @param $scope
