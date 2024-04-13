@@ -2052,10 +2052,11 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 		return $customer;
 	}
 
-	/**
-	 * @param           $path
-	 * @param           $scopeId
-	 * @param string    $scope
+	/*
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::createBatchJson()
+	 * @param $path
+	 * @param $scopeId
+	 * @param string $scope
 	 * @return array|null
 	 */
 	function getRealScopeForConfig($path, $scopeId, $scope = 'stores')
