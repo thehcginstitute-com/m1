@@ -1588,6 +1588,17 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	/**
 	 * 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by self::deleteAllConfiguredMCStoreLocalData()
+	 * @used-by STUB()
+	 * @used-by STUB()
+	 * @used-by STUB()
+	 * @used-by STUB()
+	 * @used-by STUB()
+	 * @used-by STUB()
+	 * @used-by STUB()
+	 * @used-by STUB()
+	 * @used-by STUB()
+	 * @used-by STUB()
 	 * @used-by Ebizmarts_MailChimp_Adminhtml_MergevarsController::saveaddAction()
 	 * @param $configValues
 	 * @param $scopeId
