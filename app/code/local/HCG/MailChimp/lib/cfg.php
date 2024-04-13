@@ -38,7 +38,6 @@ function hcg_mc_cfg_save(string $path, string $v, int $scopeId = 0, string $scop
  * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
  * @used-by Ebizmarts_MailChimp_Helper_Data::saveLastItemsSent()
  * @used-by Ebizmarts_MailChimp_Model_Observer::cleanProductImagesCacheAfter()
- * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Active::_afterSave()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Apikey::_afterSave()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Ecommerce::_afterSave()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_List::_afterSave()
