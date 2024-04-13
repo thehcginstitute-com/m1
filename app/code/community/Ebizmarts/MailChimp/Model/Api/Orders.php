@@ -759,6 +759,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 			self::BATCH_LIMIT_ONLY_ORDERS
 		);
 
+		$orderId = null;
 		foreach ($orderCollection as $order) {
 			//Delete order
 			$orderId = $order->getEntityId();
@@ -809,13 +810,23 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 				if (empty($batchArray)) {
 					$batchArray[] = $helper->__('Time passed.');
 				}
-
-				hcg_mc_cfg_save_a($config, $magentoStoreId, 'stores');
+				hcg_mc_cfg_save(
+					Ebizmarts_MailChimp_Model_Config::GENERAL_MIGRATE_LAST_ORDER_ID
+					,$orderId
+					,$magentoStoreId
+					,'stores'
+				);
 				break;
 			}
 		}
-
-		hcg_mc_cfg_save_a($config, $magentoStoreId, 'stores');
+		if ($orderId) {
+			hcg_mc_cfg_save(
+				Ebizmarts_MailChimp_Model_Config::GENERAL_MIGRATE_LAST_ORDER_ID
+				,$orderId
+				,$magentoStoreId
+				,'stores'
+			);
+		}
 
 		return $batchArray;
 	}
