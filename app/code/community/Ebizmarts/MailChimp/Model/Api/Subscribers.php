@@ -57,28 +57,20 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 	 * @throws Mage_Core_Exception
 	 * @throws Mage_Core_Model_Store_Exception
 	 */
-	function createBatchJson($listId, $storeId, $limit)
-	{
+	function createBatchJson($listId, $storeId, $limit) {
 		$this->setStoreId($storeId);
 		$helper = $this->getMailchimpHelper();
 		$dateHelper = $this->getMailchimpDateHelper();
 		$thisScopeHasSubMinSyncDateFlag = $helper->getIfConfigExistsForScope(
-			Ebizmarts_MailChimp_Model_Config::GENERAL_SUBMINSYNCDATEFLAG,
-			$this->getStoreId()
+			Ebizmarts_MailChimp_Model_Config::GENERAL_SUBMINSYNCDATEFLAG, $this->getStoreId()
 		);
 		$thisScopeHasList = $helper->getIfConfigExistsForScope(
-			Ebizmarts_MailChimp_Model_Config::GENERAL_LIST,
-			$this->getStoreId()
+			Ebizmarts_MailChimp_Model_Config::GENERAL_LIST, $this->getStoreId()
 		);
-
 		$this->_ecommerceSubscribersCollection = $this->getResourceCollection();
 		$this->_ecommerceSubscribersCollection->setStoreId($this->getStoreId());
-
 		$subscriberArray = array();
-
-		if ($thisScopeHasList && !$thisScopeHasSubMinSyncDateFlag
-			|| !$helper->getSubMinSyncDateFlag($this->getStoreId())
-		) {
+		if ($thisScopeHasList && !$thisScopeHasSubMinSyncDateFlag || !$helper->getSubMinSyncDateFlag($this->getStoreId())) {
 			$realScope = $helper->getRealScopeForConfig(
 				Ebizmarts_MailChimp_Model_Config::GENERAL_LIST,
 				$this->getStoreId()
