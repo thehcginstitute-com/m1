@@ -33,13 +33,12 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_Store extends Mage_Core_Mo
             $helper->deletePreviousConfiguredMCStoreLocalData($oldMailchimpStoreId, $scopeId, $scope);
 
             if ($isSyncing === null) {
-                $configValues = array(
-                    array(
-                        Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$newMailchimpStoreId",
-                        true
-                    )
-                );
-                hcg_mc_cfg_save_a($configValues, $scopeId, $scope);
+                hcg_mc_cfg_save(
+					Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$newMailchimpStoreId"
+					,true
+					,$scopeId
+					,$scope
+				);
             }
         }
     }
