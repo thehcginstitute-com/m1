@@ -9,16 +9,7 @@ try {
  ADD column `batch_id` VARCHAR (10) DEFAULT NULL;
 "
     );
-
-    hcg_mc_cfg_save_a(
-            array(
-                array(
-                    Ebizmarts_MailChimp_Model_Config::GENERAL_MIGRATE_FROM_1164,
-                    1)
-            ),
-            0,
-            'default'
-        );
+hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::GENERAL_MIGRATE_FROM_1164, 1);
 } catch (Exception $e) {
     Mage::log($e->getMessage(), null, 'MailChimp_Errors.log', true);
 }
