@@ -7,7 +7,6 @@ use Mage_Core_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Helper_Data::deleteAllConfiguredMCStoreLocalData()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getMCIsSyncing()
  * @used-by Ebizmarts_MailChimp_Helper_Data::retrieveAndSaveMCJsUrlInConfig()
- * @used-by Ebizmarts_MailChimp_Helper_Data::saveLastItemsSent()
  * @used-by Ebizmarts_MailChimp_Helper_Data::setResendTurn()
  * @used-by Ebizmarts_MailChimp_Helper_Webhook::createNewWebhook()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::_updateSyncingFlag()
