@@ -35,8 +35,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_List extends Mage_Core_Mod
         );
 
         if ($valueChanged && !$this->getValue()) {
-            $configValue = array(array(Ebizmarts_MailChimp_Model_Config::GENERAL_ACTIVE, false));
-            hcg_mc_cfg_save_a($configValue, $scopeId, $scope);
+            hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::GENERAL_ACTIVE, false, $scopeId, $scope);
             $message = $helper->__(
                 'Please note the extension has been disabled due to the lack of an api key or audience configured.'
             );
@@ -44,13 +43,12 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_List extends Mage_Core_Mod
         }
 
         if ($valueChanged && ($moduleIsActive || $thisScopeHasSubMinSyncDateFlag) && $this->getValue()) {
-            $configValues = array(
-                array(
-                    Ebizmarts_MailChimp_Model_Config::GENERAL_SUBMINSYNCDATEFLAG,
-                    $dateHelper->formatDate(null, "Y-m-d H:i:s")
-                )
-            );
-            hcg_mc_cfg_save_a($configValues, $scopeId, $scope);
+            hcg_mc_cfg_save(
+				Ebizmarts_MailChimp_Model_Config::GENERAL_SUBMINSYNCDATEFLAG
+				,$dateHelper->formatDate(null, "Y-m-d H:i:s")
+				,$scopeId
+				,$scope
+			);
         }
 
         if ($apiKey && $moduleIsActive && $valueChanged) {
