@@ -1051,8 +1051,7 @@ class Ebizmarts_MailChimp_Model_Observer
     {
         $message = 'Image cache has been flushed please resend the products in order to update image URL.';
         $helper = $this->makeHelper();
-        $configValues = array(array(Ebizmarts_MailChimp_Model_Config::PRODUCT_IMAGE_CACHE_FLUSH, 1));
-        hcg_mc_cfg_save_a($configValues, 0, 'default');
+        hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::PRODUCT_IMAGE_CACHE_FLUSH, 1);
         $helper->addAdminWarning($message);
 
         return $observer;
