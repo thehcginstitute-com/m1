@@ -2057,9 +2057,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by Ebizmarts_MailChimp_Helper_Webhook::handleWebhookChange()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::createBatchJson()
-	 * @return array|null
 	 */
-	function getRealScopeForConfig(string $path, int $scopeId, $scope = 'stores') {
+	function getRealScopeForConfig(string $path, int $scopeId, $scope = 'stores'):array {
 		$websiteId = null;
 		if ($scope == 'stores') {
 			$websiteId = Mage::getModel('core/store')->load($scopeId)->getWebsiteId();
@@ -2070,7 +2069,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 		$configCollection = Mage::getResourceModel('core/config_data_collection')
 			->addFieldToFilter('path', array('eq' => $path))
 			->addFieldToFilter('scope_id', array('in' => $scopeIdsArray));
-		$scopeSoFar = null;
+		$r = []; /** @var array $r */
 		foreach ($configCollection as $config) {
 			//Discard possible extra website or store
 			if ($this->isExtraEntry($config, $scope, $scopeId, $websiteId)) {
@@ -2078,11 +2077,11 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 			}
 			switch ($config->getScope()) {
 			case 'stores':
-				$scopeSoFar = array('scope_id' => $config->getScopeId(), 'scope' => $config->getScope());
+				$r = array('scope_id' => $config->getScopeId(), 'scope' => $config->getScope());
 				break;
 			case 'websites':
-				if (!$scopeSoFar || $scopeSoFar['scope'] == 'default') {
-					$scopeSoFar = array('scope_id' => $config->getScopeId(), 'scope' => $config->getScope());
+				if (!$r || $r['scope'] == 'default') {
+					$r = array('scope_id' => $config->getScopeId(), 'scope' => $config->getScope());
 				}
 				break;
 			case 'default':
@@ -2090,8 +2089,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 				# «Trying to access array offset on value of type null
 				# in app/code/community/Ebizmarts/MailChimp/Helper/Data.php on line 2134»:
 				# https://github.com/thehcginstitute-com/m1/issues/495
-				if ($scopeSoFar && 'stores' !== dfa($scopeSoFar, 'scope')) {
-					$scopeSoFar = array('scope_id' => $config->getScopeId(), 'scope' => $config->getScope());
+				if ($r && 'stores' !== dfa($r, 'scope')) {
+					$r = array('scope_id' => $config->getScopeId(), 'scope' => $config->getScope());
 				}
 				break;
 			}
@@ -2104,7 +2103,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 		# «`Ebizmarts_MailChimp`: «Column 'scope' cannot be null, query was:
 		# INSERT INTO `core_config_data` (`scope`, `scope_id`, `path`, `value`) VALUES (?, ?, ?, ?)»:
 		# https://github.com/thehcginstitute-com/m1/issues/508
-		return $scopeSoFar ?: [0, 'default'];
+		return $r ?: [0, 'default'];
 	}
 
 	/**
