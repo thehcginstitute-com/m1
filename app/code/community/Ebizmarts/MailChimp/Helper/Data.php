@@ -1610,10 +1610,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @used-by app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.5-1.1.5.6.php
 	 * @used-by app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.6.3-1.1.6.4.php
 	 * @used-by app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.6.4-1.1.6.5.php
-	 * @param $scopeId
-	 * @param $scope
 	 */
-	function saveMailchimpConfig(array $vv, $scopeId, $scope, bool $cleanCache = true):void {
+	function saveMailchimpConfig(array $vv, int $scopeId = 0, string $scope = 'default', bool $cleanCache = true):void {
 		$c = Mage::getConfig(); /** @var Cfg $c */
 		foreach ($vv as $v) {/** @var string[] $v */
 			$c->saveConfig($v[0], $v[1], $scope, $scopeId);
