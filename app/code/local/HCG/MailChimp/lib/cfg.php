@@ -30,7 +30,7 @@ function hcg_mc_cfg_save(string $path, string $v, int $scopeId = 0, string $scop
 	$c = Mage::getConfig(); /** @var Cfg $c */
 	$c->saveConfig($path, $v, $scope, $scopeId);
 	if ($cleanCache) {
-		$c->cleanCache();
+		df_cache_clean_cfg();
 	}
 }
 
@@ -66,6 +66,6 @@ function hcg_mc_cfg_save_a(array $vv, int $scopeId = 0, string $scope = 'default
 		$c->saveConfig($v[0], $v[1], $scope, $scopeId);
 	}
 	if ($cleanCache) {
-		$c->cleanCache();
+		df_cache_clean_cfg();
 	}
 }
