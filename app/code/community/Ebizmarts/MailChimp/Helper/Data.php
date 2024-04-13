@@ -2060,12 +2060,10 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 */
 	function getRealScopeForConfig(string $path, int $scopeId, $scope = 'stores'):array {
 		$websiteId = null;
-		if ($scope == 'stores') {
-			$scopeIdsArray = [$scopeId, $websiteId = Mage::getModel('core/store')->load($scopeId)->getWebsiteId(), 0];
-		}
-		else {
-			$scopeIdsArray = [$scopeId, 0];
-		}
+		$scopeIdsArray = 'stores' !== $scope
+			? [$scopeId, 0]
+			: [$scopeId, $websiteId = Mage::getModel('core/store')->load($scopeId)->getWebsiteId(), 0]
+		;
 		$configCollection = Mage::getResourceModel('core/config_data_collection')
 			->addFieldToFilter('path', array('eq' => $path))
 			->addFieldToFilter('scope_id', array('in' => $scopeIdsArray));
