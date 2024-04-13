@@ -2,8 +2,7 @@
 
 $installer = $this;
 
-Mage::helper('mailchimp')
-    ->saveMailChimpConfig(
+hcg_mc_cfg_save(
         array(
             array(
                 Ebizmarts_MailChimp_Model_Config::GENERAL_MIGRATE_FROM_116,

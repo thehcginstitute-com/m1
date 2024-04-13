@@ -810,12 +810,12 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 					$batchArray[] = $helper->__('Time passed.');
 				}
 
-				$helper->saveMailchimpConfig($config, $magentoStoreId, 'stores');
+				hcg_mc_cfg_save($config, $magentoStoreId, 'stores');
 				break;
 			}
 		}
 
-		$helper->saveMailchimpConfig($config, $magentoStoreId, 'stores');
+		hcg_mc_cfg_save($config, $magentoStoreId, 'stores');
 
 		return $batchArray;
 	}

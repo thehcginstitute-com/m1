@@ -39,7 +39,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_Store extends Mage_Core_Mo
                         true
                     )
                 );
-                $helper->saveMailchimpConfig($configValues, $scopeId, $scope);
+                hcg_mc_cfg_save($configValues, $scopeId, $scope);
             }
         }
     }

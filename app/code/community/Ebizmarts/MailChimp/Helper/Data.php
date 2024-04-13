@@ -1,7 +1,4 @@
 <?php
-# 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-use Mage_Core_Model_Config as Cfg;
 class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	const DEFAULT_SIZE = '0';
 	const SMALL_SIZE = '1';
@@ -448,7 +445,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	function deleteAllConfiguredMCStoreLocalData($mailchimpStoreId, $scopeId, $scope = 'stores')
 	{
 		$configValues = array(array(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_ACTIVE, 0));
-		$this->saveMailchimpConfig($configValues, $scopeId, $scope, false);
+		hcg_mc_cfg_save($configValues, $scopeId, $scope, false);
 		$config = $this->getConfig();
 		$config->deleteConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_MCSTOREID, $scope, $scopeId);
 		$this->deletePreviousConfiguredMCStoreLocalData($mailchimpStoreId, $scopeId, $scope = 'stores');
@@ -633,7 +630,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 			$configValue = array(
 				array(Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$mailchimpStoreId", $oldSyncingFlag)
 			);
-			$this->saveMailchimpConfig($configValue, $scopeId, $scope);
+			hcg_mc_cfg_save($configValue, $scopeId, $scope);
 		}
 
 		//Delete old entry if exists particularly in this scope.
@@ -1161,7 +1158,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 			$configValues[] = array(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_RESEND_ENABLED, 1);
 			$configValues[] = array(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_RESEND_TURN, 1);
-			$this->saveMailchimpConfig($configValues, $scopeId, $scope);
+			hcg_mc_cfg_save($configValues, $scopeId, $scope);
 		}
 	}
 
@@ -1586,42 +1583,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 * @used-by self::deleteAllConfiguredMCStoreLocalData()
-	 * @used-by self::getMCIsSyncing()
-	 * @used-by self::retrieveAndSaveMCJsUrlInConfig()
-	 * @used-by self::saveLastItemsSent()
-	 * @used-by self::setResendTurn()
-	 * @used-by Ebizmarts_MailChimp_Adminhtml_MergevarsController::saveaddAction()
-	 * @used-by Ebizmarts_MailChimp_Helper_Webhook::createNewWebhook()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::_updateSyncingFlag()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::handleSyncingValue()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Orders::replaceAllOrdersBatch()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Stores::createMailChimpStore()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::createBatchJson()
-	 * @used-by Ebizmarts_MailChimp_Model_Observer::cleanProductImagesCacheAfter()
-	 * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Active::_afterSave()
-	 * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Apikey::_afterSave()
-	 * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Ecommerce::_afterSave()
-	 * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_List::_afterSave()
-	 * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Store::_afterSave()
-	 * @used-by app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.20-1.1.21.php
-	 * @used-by app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.5-1.1.5.6.php
-	 * @used-by app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.6.3-1.1.6.4.php
-	 * @used-by app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.6.4-1.1.6.5.php
-	 */
-	function saveMailchimpConfig(array $vv, int $scopeId = 0, string $scope = 'default', bool $cleanCache = true):void {
-		$c = Mage::getConfig(); /** @var Cfg $c */
-		foreach ($vv as $v) {/** @var string[] $v */
-			$c->saveConfig($v[0], $v[1], $scope, $scopeId);
-		}
-		if ($cleanCache) {
-			$c->cleanCache();
-		}
-	}
-
-	/**
 	 * If $productImageUrl not null returns it, else return $parentImageUrl.
 	 * Both parameters could be null.
 	 *
@@ -1961,7 +1922,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 						$url
 					)
 				);
-				$this->saveMailchimpConfig($configValues, 0, 'default');
+				hcg_mc_cfg_save($configValues, 0, 'default');
 				$mcJsUrlSaved = true;
 			}
 		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
@@ -2387,7 +2348,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	function setResendTurn($value, $scopeId, $scope = 'stores')
 	{
 		$configValue = array(array(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_RESEND_TURN, $value));
-		$this->saveMailchimpConfig($configValue, $scopeId, $scope);
+		hcg_mc_cfg_save($configValue, $scopeId, $scope);
 	}
 
 	/**

@@ -13,8 +13,7 @@ try {
     /* If webhook is created, edites it and place the new "event" variable */
     if ($configDataCollection->getSize()) {
         // Sets the migration flag to edit webhooks.
-        Mage::helper('mailchimp')
-            ->saveMailChimpConfig(
+        hcg_mc_cfg_save(
                 array(
                     array(
                         Ebizmarts_MailChimp_Model_Config::GENERAL_MIGRATE_FROM_1120,

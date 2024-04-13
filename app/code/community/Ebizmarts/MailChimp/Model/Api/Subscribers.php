@@ -80,7 +80,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 			# in app/code/community/Ebizmarts/MailChimp/Model/Api/Subscribers.php on line 92»:
 			# https://github.com/thehcginstitute-com/m1/issues/504
 			$realScope = $realScope ?: [];
-			$helper->saveMailchimpConfig(
+			hcg_mc_cfg_save(
 				[[
 					Ebizmarts_MailChimp_Model_Config::GENERAL_SUBMINSYNCDATEFLAG,
 					$this->_mcDateHelper->formatDate(null, 'Y-m-d H:i:s')
