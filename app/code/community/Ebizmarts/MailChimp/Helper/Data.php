@@ -2340,10 +2340,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param           $scopeId
 	 * @param string    $scope
 	 */
-	function setResendTurn($value, $scopeId, $scope = 'stores')
-	{
-		$configValue = array(array(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_RESEND_TURN, $value));
-		hcg_mc_cfg_save_a($configValue, $scopeId, $scope);
+	function setResendTurn($value, $scopeId, $scope = 'stores') {
+		hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_RESEND_TURN, $value, $scopeId, $scope);
 	}
 
 	/**
