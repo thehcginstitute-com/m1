@@ -2,8 +2,7 @@
 # 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 use Mage_Core_Model_Config as Cfg;
-class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract
-{
+class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	const DEFAULT_SIZE = '0';
 	const SMALL_SIZE = '1';
 	const THUMBNAIL_SIZE = '2';
