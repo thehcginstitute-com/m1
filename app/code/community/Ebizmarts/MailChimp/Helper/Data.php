@@ -1590,10 +1590,10 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by self::deleteAllConfiguredMCStoreLocalData()
 	 * @used-by self::getMCIsSyncing()
+	 * @used-by self::retrieveAndSaveMCJsUrlInConfig()
 	 * @used-by self::saveLastItemsSent()
 	 * @used-by self::setResendTurn()
-	 * @used-by self::STUB()
-	 * @used-by self::STUB()
+	 * @used-by Ebizmarts_MailChimp_Helper_Webhook::createNewWebhook()
 	 * @used-by STUB()
 	 * @used-by STUB()
 	 * @used-by STUB()
