@@ -20,8 +20,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_Apikey extends Mage_Core_M
         $valueChanged = $this->isValueChanged();
 
         if ($valueChanged && !$this->getValue()) {
-            $configValue = array(array(Ebizmarts_MailChimp_Model_Config::GENERAL_ACTIVE, false));
-            hcg_mc_cfg_save_a($configValue, $scopeId, $scope);
+            hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::GENERAL_ACTIVE, false, $scopeId, $scope);
             $message = $helper->__(
                 'Please note the extension has been disabled due to the lack of an api key or audience configured.'
             );
