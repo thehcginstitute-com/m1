@@ -1,0 +1,10 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+<!-- 2024-04-14 "Port `df_is_o()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/562 -->
+		<Df_OQ>
+			<version>1.0.0</version>
+			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
+		</Df_OQ>
+	</modules>
+</config>

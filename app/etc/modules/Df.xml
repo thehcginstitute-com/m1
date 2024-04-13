@@ -38,6 +38,14 @@
 				<Df_Core/>
 			</depends>
 		</Df_Framework>
+<!-- 2024-04-14 "Port `df_is_o()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/562 -->
+		<Df_OQ>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<Mage_Sales/>
+			</depends>
+		</Df_OQ>
 		<Df_Qa>
 			<active>true</active>
 			<codePool>local</codePool>
