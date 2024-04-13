@@ -23,7 +23,7 @@
 				<Mage_Customer/>
 			</depends>
 		</Df_Customer>
-<!-- "Port `df_region_name()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/535 -->
+<!-- 2024-03-31 "Port `df_region_name()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/535 -->
 		<Df_Directory>
 			<active>true</active>
 			<codePool>local</codePool>
@@ -45,5 +45,10 @@
 				<Df_Core/>
 			</depends>
 		</Df_Qa>
+<!-- 2024-04-14 "Port `df_store()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/561 -->
+		<Df_Store>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Df_Store>
 	</modules>
 </config>
