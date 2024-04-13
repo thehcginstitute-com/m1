@@ -2096,7 +2096,15 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 				break;
 			}
 		}
-		return $scopeSoFar;
+		# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# «Trying to access array offset on value of type null
+		# in app/code/community/Ebizmarts/MailChimp/Model/Api/Subscribers.php on line 92»:
+		# https://github.com/thehcginstitute-com/m1/issues/504
+		# 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# «`Ebizmarts_MailChimp`: «Column 'scope' cannot be null, query was:
+		# INSERT INTO `core_config_data` (`scope`, `scope_id`, `path`, `value`) VALUES (?, ?, ?, ?)»:
+		# https://github.com/thehcginstitute-com/m1/issues/508
+		return $scopeSoFar ?: [0, 'default'];
 	}
 
 	/**

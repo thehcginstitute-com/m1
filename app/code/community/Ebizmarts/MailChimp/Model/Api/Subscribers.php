@@ -75,11 +75,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 				Ebizmarts_MailChimp_Model_Config::GENERAL_LIST,
 				$this->getStoreId()
 			);
-			# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# «Trying to access array offset on value of type null
-			# in app/code/community/Ebizmarts/MailChimp/Model/Api/Subscribers.php on line 92»:
-			# https://github.com/thehcginstitute-com/m1/issues/504
-			$realScope = $realScope ?: [];
 			hcg_mc_cfg_save(
 				Ebizmarts_MailChimp_Model_Config::GENERAL_SUBMINSYNCDATEFLAG
 				, $this->_mcDateHelper->formatDate(null, 'Y-m-d H:i:s')
