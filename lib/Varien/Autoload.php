@@ -54,11 +54,16 @@ class Varien_Autoload
 		# 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Delete the unused `Mage_Compiler` module": https://github.com/thehcginstitute-com/m1/issues/363
 		$path = str_replace(' ', DIRECTORY_SEPARATOR, ucwords(str_replace('_', ' ',
-			# 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# 1) «Support PHP namespaces»: https://github.com/thehcginstitute-com/m1/issues/139
-			# 2) I ported it from
-			# https://github.com/trackspecmotorsports/site/blob/2023-07-10/lib/Varien/Autoload.php#L89-L94
-			# 3) I also used the same solution in in https://github.com/itsapiece
+			/**
+			 * 2024-01-09 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			 * 1) «Support PHP namespaces»: https://github.com/thehcginstitute-com/m1/issues/139
+			 * 2) I ported it from
+			 * # https://github.com/trackspecmotorsports/site/blob/2023-07-10/lib/Varien/Autoload.php#L89-L94
+			 * 3) I also used the same solution in https://github.com/itsapiece
+			 * 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			 * 1) @see uc_words(): it is another part of the solution.
+			 * 2) "Rework `uc_words()` to support PHP namespaces": https://github.com/thehcginstitute-com/m1/issues/558
+			 */
 			str_replace('\\', '/', $class)
 		))) . '.php';
         /** @see https://stackoverflow.com/a/5504486/716029 */

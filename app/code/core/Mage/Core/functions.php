@@ -56,6 +56,8 @@ function uc_words($str, $destSep = '_'):string {return str_replace(' ', $destSep
 	 * https://php.net/manual/function.str-replace.php
 	 * 2.2) @see df_explode_multiple()
 	 * 3) @see df_explode_class()
+	 * 4) «Support PHP namespaces»: https://github.com/thehcginstitute-com/m1/issues/139
+	 * 5) @see Varien_Autoload::autoload()
 	 */
 	str_replace(['\\', '_'], ' ', $str)
 ));}
