@@ -1,7 +1,5 @@
 <?php
-
 $installer = $this;
-
 try {
     $installer->run(
         "
@@ -13,5 +11,4 @@ hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::GENERAL_MIGRATE_FROM_1164, 1);
 } catch (Exception $e) {
     Mage::log($e->getMessage(), null, 'MailChimp_Errors.log', true);
 }
-
 $installer->endSetup();
