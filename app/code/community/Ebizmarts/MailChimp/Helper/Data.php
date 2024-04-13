@@ -2062,9 +2062,9 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 		$websiteId = null;
 		if ($scope == 'stores') {
 			$websiteId = Mage::getModel('core/store')->load($scopeId)->getWebsiteId();
-			$scopeIdsArray = array($scopeId, $websiteId, 0);
+			$scopeIdsArray = [$scopeId, $websiteId, 0];
 		} else {
-			$scopeIdsArray = array($scopeId, 0);
+			$scopeIdsArray = [$scopeId, 0];
 		}
 		$configCollection = Mage::getResourceModel('core/config_data_collection')
 			->addFieldToFilter('path', array('eq' => $path))
