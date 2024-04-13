@@ -626,10 +626,12 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 		//Save old value in new place.
 		if ($syncingFlag === null && $oldSyncingFlag !== null) {
-			$configValue = array(
-				array(Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$mailchimpStoreId", $oldSyncingFlag)
+			hcg_mc_cfg_save(
+				Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$mailchimpStoreId"
+				,$oldSyncingFlag
+				,$scopeId
+				,$scope
 			);
-			hcg_mc_cfg_save_a($configValue, $scopeId, $scope);
 		}
 
 		//Delete old entry if exists particularly in this scope.

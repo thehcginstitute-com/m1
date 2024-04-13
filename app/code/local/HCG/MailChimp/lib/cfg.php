@@ -37,7 +37,6 @@ function hcg_mc_cfg_save(string $path, string $v, int $scopeId = 0, string $scop
 /**
  * 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
  * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
- * @used-by Ebizmarts_MailChimp_Helper_Data::getMCIsSyncing()
  * @used-by Ebizmarts_MailChimp_Helper_Data::retrieveAndSaveMCJsUrlInConfig()
  * @used-by Ebizmarts_MailChimp_Helper_Data::saveLastItemsSent()
  * @used-by Ebizmarts_MailChimp_Helper_Data::setResendTurn()
