@@ -481,20 +481,16 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 
 		if ($this->shouldFlagAsSyncing($syncingFlag, $itemAmount, $helper)) {
 			//Set is syncing per scope in 1 until sync finishes.
-			$configValue = array(
-				array(Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$mailchimpStoreId", 1)
-			);
-			hcg_mc_cfg_save_a($configValue, $magentoStoreId, 'stores');
+			hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$mailchimpStoreId", 1, $magentoStoreId, 'stores');
 		} else {
 			if ($this->shouldFlagAsSynced($syncingFlag, $itemAmount)) {
 				//Set is syncing per scope to a date because it is not sending any more items.
-				$configValue = array(
-					array(
-						Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$mailchimpStoreId",
-						$dateHelper->formatDate(null, 'Y-m-d H:i:s')
-					)
+				hcg_mc_cfg_save(
+					Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$mailchimpStoreId"
+					,$dateHelper->formatDate(null, 'Y-m-d H:i:s')
+					,$magentoStoreId
+					,'stores'
 				);
-				hcg_mc_cfg_save_a($configValue, $magentoStoreId, 'stores');
 			}
 		}
 	}
