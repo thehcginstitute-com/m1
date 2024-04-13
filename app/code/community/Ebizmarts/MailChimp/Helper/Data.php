@@ -1,15 +1,7 @@
 <?php
-
-/**
- * MailChimp For Magento
- *
- * @category  Ebizmarts_MailChimp
- * @author    Ebizmarts Team <info@ebizmarts.com>
- * @copyright Ebizmarts (http://ebizmarts.com)
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @date:     4/29/16 3:55 PM
- * @file:     Data.php
- */
+# 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+use Mage_Core_Model_Config as Cfg;
 class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract
 {
 	const DEFAULT_SIZE = '0';
@@ -1602,12 +1594,11 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract
 	 * @param       $scope
 	 * @param bool  $cleanCache
 	 */
-	function saveMailchimpConfig($configValues, $scopeId, $scope, $cleanCache = true)
-	{
+	function saveMailchimpConfig($configValues, $scopeId, $scope, $cleanCache = true) {
+		$cfg = Mage::getConfig();
 		foreach ($configValues as $configValue) {
 			$this->getConfig()->saveConfig($configValue[0], $configValue[1], $scope, $scopeId);
 		}
-
 		if ($cleanCache) {
 			$this->getConfig()->cleanCache();
 		}
