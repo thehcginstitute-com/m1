@@ -444,8 +444,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 */
 	function deleteAllConfiguredMCStoreLocalData($mailchimpStoreId, $scopeId, $scope = 'stores')
 	{
-		$configValues = array(array(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_ACTIVE, 0));
-		hcg_mc_cfg_save_a($configValues, $scopeId, $scope, false);
+		hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_ACTIVE, 0, $scopeId, $scope, false);
 		$config = $this->getConfig();
 		$config->deleteConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_MCSTOREID, $scope, $scopeId);
 		$this->deletePreviousConfiguredMCStoreLocalData($mailchimpStoreId, $scopeId, $scope = 'stores');
