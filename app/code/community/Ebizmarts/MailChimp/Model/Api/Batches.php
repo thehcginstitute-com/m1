@@ -1099,12 +1099,6 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 					$isSyncingDate = $helper->getDateSyncFinishByMailChimpStoreId($mailchimpStoreId);
 					if (!$isSyncingDate && $mailchimpStoreId) {
 						$this->getApiStores()->editIsSyncing($api, false, $mailchimpStoreId);
-						$config = array(
-							array(
-								Ebizmarts_MailChimp_Model_Config::ECOMMERCE_SYNC_DATE . "_$mailchimpStoreId",
-								$date
-							)
-						);
 						hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_SYNC_DATE . "_$mailchimpStoreId", $date);
 					}
 				} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
