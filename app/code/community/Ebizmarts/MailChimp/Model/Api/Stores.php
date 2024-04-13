@@ -64,13 +64,10 @@ class Ebizmarts_MailChimp_Model_Api_Stores
                 $storePhone,
                 $address
             );
-            $configValues = array(
-                array(
-                    Ebizmarts_MailChimp_Model_Config::ECOMMERCE_MC_JS_URL . "_$mailchimpStoreId",
-                    $response['connected_site']['site_script']['url']
-                )
-            );
-            hcg_mc_cfg_save_a($configValues, 0, 'default');
+            hcg_mc_cfg_save(
+				Ebizmarts_MailChimp_Model_Config::ECOMMERCE_MC_JS_URL . "_$mailchimpStoreId"
+				,$response['connected_site']['site_script']['url']
+			);
             $successMessage = $helper->__("The Mailchimp store was successfully created.");
             $adminSession = $this->getAdminSession();
             $adminSession->addSuccess($successMessage);
