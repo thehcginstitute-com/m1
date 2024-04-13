@@ -1604,7 +1604,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Ecommerce::_afterSave()
 	 * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_List::_afterSave()
 	 * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Store::_afterSave()
-	 * @used-by STUB()
+	 * @used-by Ebizmarts_MailChimp_Model_Observer::cleanProductImagesCacheAfter()
 	 * @used-by STUB()
 	 * @used-by STUB()
 	 * @used-by STUB()
