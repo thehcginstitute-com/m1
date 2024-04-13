@@ -3,12 +3,12 @@ use Mage_Core_Model_Config as Cfg;
 /**
  * 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
  * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
- * @used-by self::deleteAllConfiguredMCStoreLocalData()
- * @used-by self::getMCIsSyncing()
- * @used-by self::retrieveAndSaveMCJsUrlInConfig()
- * @used-by self::saveLastItemsSent()
- * @used-by self::setResendTurn()
  * @used-by Ebizmarts_MailChimp_Adminhtml_MergevarsController::saveaddAction()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::deleteAllConfiguredMCStoreLocalData()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::getMCIsSyncing()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::retrieveAndSaveMCJsUrlInConfig()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::saveLastItemsSent()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::setResendTurn()
  * @used-by Ebizmarts_MailChimp_Helper_Webhook::createNewWebhook()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::_updateSyncingFlag()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::handleSyncingValue()
