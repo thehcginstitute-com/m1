@@ -511,9 +511,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
     protected function setCodeWithParentError($ruleId, $codeId)
     {
         $dateHelper = $this->getDateHelper();
-        $error = Mage::helper('mailchimp')->__(
-            'Parent rule with id ' . $ruleId . ' has not been correctly sent.'
-        );
+        $error = 'Parent rule with id ' . $ruleId . ' has not been correctly sent.';
         $this->addSyncDataError(
             $codeId,
             $error,

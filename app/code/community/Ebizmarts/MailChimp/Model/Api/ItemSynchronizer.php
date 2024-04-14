@@ -52,7 +52,7 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 
 	function __construct()
 	{
-		$this->_mailchimpHelper = Mage::helper('mailchimp');
+		$this->_mailchimpHelper = hcg_mc_h();
 		$this->_mailchimpDateHelper = Mage::helper('mailchimp/date');
 	}
 
