@@ -20,7 +20,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_Mapfield
 
     protected function _afterLoad()
     {
-        $this->_helper = Mage::helper('mailchimp');
+        $this->_helper = hcg_mc_h();
 
         if (!is_array($this->getValue())) {
             if (is_object($this->getValue())) {
