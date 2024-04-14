@@ -25,7 +25,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_CartController::loadcouponAction::loadquoteAction()
  * @used-by Ebizmarts_MailChimp_Helper_Mandrill::isMandrillLogEnabled()
  * @used-by Ebizmarts_MailChimp_Helper_Mandrill::isMandrillEnabled()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Helper_Mandrill::getMandrillApiKey()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()

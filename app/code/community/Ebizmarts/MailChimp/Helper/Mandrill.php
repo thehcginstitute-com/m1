@@ -85,7 +85,7 @@ class Ebizmarts_MailChimp_Helper_Mandrill extends Mage_Core_Helper_Abstract
      */
     function getMandrillApiKey($scopeId = 0, $scope = null)
     {
-        $mailchimpHelper = Mage::helper('mailchimp');
+        $mailchimpHelper = hcg_mc_h();
         return $mailchimpHelper->decryptData(
             $mailchimpHelper
                 ->getConfigValueForScope(
