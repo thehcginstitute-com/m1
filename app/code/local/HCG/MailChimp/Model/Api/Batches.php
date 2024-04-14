@@ -50,7 +50,10 @@ final class Batches {
 			}
 			$mE->save();
 			hcg_mc_h()->modifyCounterDataSentToMailchimp($type, true);
-			hcg_mc_h()->logError($error);
+			# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Improve the error logging in `HCG\MailChimp\Model\Api\Batches::handleErrorItem()`":
+			# https://github.com/thehcginstitute-com/m1/issues/565
+			df_log($error, null, $mE->getData());
 		}
 	}
 }
