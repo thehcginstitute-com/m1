@@ -16,7 +16,7 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, $scope = 'stores'):array {
 				: [$scopeId, $websiteId = df_store($scopeId)->getWebsiteId(), 0]
 		]);
 	$r = []; /** @var array $r */
-	$h = Mage::helper('mailchimp'); /** @var H $h */
+	$h = hcg_mc_h(); /** @var H $h */
 	foreach ($configCollection as $config) {
 		//Discard possible extra website or store
 		if ($h->isExtraEntry($config, $scope, $scopeId, $websiteId)) {
