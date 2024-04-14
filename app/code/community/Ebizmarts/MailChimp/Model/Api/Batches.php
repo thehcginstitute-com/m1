@@ -1186,11 +1186,9 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by self::handleSubscriberBatches()
-	 * @param  $storeId
-	 * @param  $limit
-	 * @return array|null
+	 * @param $storeId
 	 */
-	private function sendStoreSubscriberBatch($storeId, $limit) {
+	private function sendStoreSubscriberBatch($storeId, int $limit):int {
 		$h = hcg_mc_h();
 		try {
 			if ($h->isSubscriptionEnabled($storeId)) {
@@ -1219,7 +1217,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 								->setStatus($batchResponse['status']);
 							$batch->save();
 							$this->_showResumeSubscriber($batchResponse['id'], $storeId);
-							return [$batchResponse, $limit];
+							return $limit;
 						}
 						catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 							$h->logError($e->getMessage());
@@ -1238,6 +1236,6 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 			# https://github.com/thehcginstitute-com/m1/issues/509
 			df_log($e);
 		}
-		return [null, $limit];
+		return $limit;
 	}
 }
