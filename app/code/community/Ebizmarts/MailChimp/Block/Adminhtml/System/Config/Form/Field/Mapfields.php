@@ -135,8 +135,5 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Form_Field_Mapfields
     /**
      * @return Mage_Core_Helper_Abstract
      */
-    protected function makeHelper()
-    {
-        return Mage::helper('mailchimp');
-    }
+    protected function makeHelper() {return hcg_mc_h();}
 }
