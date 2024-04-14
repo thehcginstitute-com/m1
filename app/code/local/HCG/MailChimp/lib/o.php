@@ -22,7 +22,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController::makeHelper()
  * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController::getMailchimpHelper()
  * @used-by Ebizmarts_MailChimp_Adminhtml_MergevarsController::makeHelper()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_CartController::loadquoteAction()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
