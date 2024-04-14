@@ -41,7 +41,6 @@ final class Batches {
 				# on line 836»: https://github.com/thehcginstitute-com/m1/issues/510
 				,'type' => dfa($response, 'type')
 			]); /** @var mE $mE */
-			$mE->setRegtype($type);
 			$mE->setOriginalId($id);
 			$mE->setBatchId($batchId);
 			$mE->setStoreId($store[1]);
