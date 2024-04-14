@@ -1,6 +1,5 @@
 <?php
 use Ebizmarts_MailChimp_Helper_Data as H;
-use Mage_Core_Model_Config as Cfg;
 /**
  * 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
  * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
