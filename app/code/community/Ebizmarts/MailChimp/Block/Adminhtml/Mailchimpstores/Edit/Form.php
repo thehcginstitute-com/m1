@@ -229,5 +229,5 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Mailchimpstores_Edit_Form extends Mage
     /**
      * @return Ebizmarts_MailChimp_Helper_Data
      */
-    protected function makeHelper(){ return hcg_mc_h(); }
+    protected function makeHelper() {return hcg_mc_h();}
 }

@@ -35,7 +35,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Mailchimpstores_Grid extends Mage_Admi
         $this->addColumn(
             'mc_account_name',
             array(
-                'header' => Mage::helper('mailchimp')->__('MC Account name'),
+                'header' => 'MC Account name',
                 'index' => 'mc_account_name',
                 'width' => '100px',
                 'sortable' => true
@@ -44,7 +44,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Mailchimpstores_Grid extends Mage_Admi
         $this->addColumn(
             'name',
             array(
-                'header' => Mage::helper('mailchimp')->__('Store Name'),
+                'header' => 'Store Name',
                 'index' => 'name',
                 'width' => '100px',
                 'sortable' => true
@@ -53,7 +53,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Mailchimpstores_Grid extends Mage_Admi
         $this->addColumn(
             'list_name',
             array(
-                'header' => Mage::helper('mailchimp')->__('List Name'),
+                'header' => 'List Name',
                 'index' => 'list_name',
                 'sortable' => false
             )
@@ -61,7 +61,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Mailchimpstores_Grid extends Mage_Admi
         $this->addColumn(
             'email_address',
             array(
-                'header' => Mage::helper('mailchimp')->__('Email'),
+                'header' => 'Email',
                 'index'  => 'email_address',
                 'sortable' => false
             )
