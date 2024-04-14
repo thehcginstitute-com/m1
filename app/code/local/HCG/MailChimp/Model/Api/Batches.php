@@ -33,6 +33,7 @@ final class Batches {
 			);
 			$mE = new mE([
 				'errors' => $errorDetails
+				,'regtype' => $type
 				,'status' => $i['status_code']
 				,'title' => $response['title']
 				# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
