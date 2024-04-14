@@ -253,12 +253,12 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 		# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# https://3v4l.org/AF1Vc
 		foreach ($this->getStores() as $s) {
-			$storeId = (int)$s->getId(); /** @var int $storeId */
-			$this->_getResults($storeId, false);
+			$sid = (int)$s->getId(); /** @var int $sid */
+			$this->_getResults($sid, false);
 			if (1 > $limit) {
 				break;
 			}
-			list($batchResponse, $limit) = $this->sendStoreSubscriberBatch($storeId, $limit);
+			list($batchResponse, $limit) = $this->sendStoreSubscriberBatch($sid, $limit);
 		}
 		$this->_getResults(0, false);
 		if (0 < $limit) {
