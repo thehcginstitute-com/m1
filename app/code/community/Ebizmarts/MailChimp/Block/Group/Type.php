@@ -15,7 +15,7 @@ class Ebizmarts_MailChimp_Block_Group_Type extends Mage_Core_Block_Template
 
     function __construct(array $args = array())
     {
-        $this->_helper = Mage::helper('mailchimp');
+        $this->_helper = hcg_mc_h();
 
         if (isset($args['interests'])) {
             $this->_currentInterest = $interests = $args['interests'];

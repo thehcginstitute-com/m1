@@ -16,7 +16,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Block_Checkout_Success_Groups::__construct()
  * @used-by Ebizmarts_MailChimp_Block_Checkout_Subscribe::__construct()
  * @used-by Ebizmarts_MailChimp_Block_Customer_Newsletter_Index::__construct()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Block_Group_Type::__construct()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
