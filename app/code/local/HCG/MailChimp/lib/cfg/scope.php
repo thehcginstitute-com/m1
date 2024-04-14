@@ -1,5 +1,6 @@
 <?php
 use Ebizmarts_MailChimp_Helper_Data as H;
+use Mage_Core_Model_Resource_Config_Data_Collection as CC;
 /**
  * 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
  * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
@@ -14,7 +15,7 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, $scope = 'stores'):array {
 			'stores' !== $scope
 				? [$scopeId, 0]
 				: [$scopeId, $websiteId = df_store($scopeId)->getWebsiteId(), 0]
-		]);
+		]); /** @var CC $configCollection */
 	$r = []; /** @var array $r */
 	$h = hcg_mc_h(); /** @var H $h */
 	foreach ($configCollection as $config) {
