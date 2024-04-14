@@ -25,23 +25,23 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, $scope = 'stores'):array {
 			continue;
 		}
 		switch ($c->getScope()) {
-		case 'stores':
-			$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
-			break;
-		case 'websites':
-			if (!$r || $r['scope'] == 'default') {
+			case 'stores':
 				$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
-			}
-			break;
-		case 'default':
-			# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# «Trying to access array offset on value of type null
-			# in app/code/community/Ebizmarts/MailChimp/Helper/Data.php on line 2134»:
-			# https://github.com/thehcginstitute-com/m1/issues/495
-			if ($r && 'stores' !== dfa($r, 'scope')) {
-				$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
-			}
-			break;
+				break;
+			case 'websites':
+				if (!$r || $r['scope'] == 'default') {
+					$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
+				}
+				break;
+			case 'default':
+				# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# «Trying to access array offset on value of type null
+				# in app/code/community/Ebizmarts/MailChimp/Helper/Data.php on line 2134»:
+				# https://github.com/thehcginstitute-com/m1/issues/495
+				if ($r && 'stores' !== dfa($r, 'scope')) {
+					$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
+				}
+				break;
 		}
 	}
 	# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
