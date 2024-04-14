@@ -38,5 +38,15 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
+ * @used-by STUB()
+ * @used-by STUB()
+ * @used-by STUB()
+ * @used-by STUB()
+ * @used-by STUB()
+ * @used-by STUB()
+ * @used-by STUB()
+ * @used-by STUB()
+ * @used-by STUB()
+ * @used-by STUB()
  */
 function hcg_mc_h():H {return Mage::helper('mailchimp');}
