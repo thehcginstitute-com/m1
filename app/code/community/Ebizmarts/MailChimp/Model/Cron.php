@@ -27,10 +27,11 @@ class Ebizmarts_MailChimp_Model_Cron
 		}
 	}
 
-	function syncSubscriberBatchData()
-	{
-		Mage::getModel('mailchimp/api_batches')->handleSubscriberBatches();
-	}
+	/**
+	 * 2024-04-14
+	 * @used-by Aoe_Scheduler_Model_Observer::dispatch()
+	 */
+	function syncSubscriberBatchData():void {Mage::getModel('mailchimp/api_batches')->handleSubscriberBatches();}
 
 	function processWebhookData()
 	{
