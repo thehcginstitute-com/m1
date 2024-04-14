@@ -54,13 +54,11 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::sendStoreSubscriberBatch()
 	 * @param $listId
-	 * @param $storeId
-	 * @param $limit
 	 * @return array
 	 * @throws Mage_Core_Exception
 	 * @throws Mage_Core_Model_Store_Exception
 	 */
-	function createBatchJson($listId, $storeId, $limit) {
+	function createBatchJson($listId, int $storeId, int $limit) {
 		$this->setStoreId($storeId);
 		$helper = $this->getMailchimpHelper();
 		$dateHelper = $this->getMailchimpDateHelper();
