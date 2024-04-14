@@ -838,15 +838,14 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 						$mailchimpErrors->setOriginalId($id);
 						$mailchimpErrors->setBatchId($batchId);
 						$mailchimpErrors->setStoreId($store[1]);
-
 						if ($type != Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER) {
 							$mailchimpErrors->setMailchimpStoreId($mailchimpStoreId);
 						}
-
 						$mailchimpErrors->save();
 						$helper->modifyCounterDataSentToMailchimp($type, true);
 						$helper->logError($error);
-					} else {
+					} 
+					else {
 						$syncDataItem = $this->getDataProduct($mailchimpStoreId, $id, $type);
 
 						if (!$syncDataItem->getMailchimpSyncModified()) {
