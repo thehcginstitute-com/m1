@@ -20,7 +20,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Adminhtml_EcommerceController::makeHelper()
  * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimpController::preDispatch()
  * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController::makeHelper()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController::getMailchimpHelper()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
