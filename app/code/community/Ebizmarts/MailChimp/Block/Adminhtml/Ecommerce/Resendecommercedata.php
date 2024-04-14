@@ -17,6 +17,6 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Ecommerce_Resendecommercedata
 
     function getHeaderText()
     {
-        return Mage::helper('mailchimp')->__('Data to send');
+        return 'Data to send';
     }
 }
