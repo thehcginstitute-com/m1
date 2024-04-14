@@ -60,18 +60,18 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 	 */
 	function createBatchJson($listId, int $storeId, int $limit) {
 		$this->setStoreId($storeId);
-		$helper = $this->getMailchimpHelper();
+		$h = hcg_mc_h();
 		$dateHelper = $this->getMailchimpDateHelper();
-		$thisScopeHasSubMinSyncDateFlag = $helper->getIfConfigExistsForScope(
+		$thisScopeHasSubMinSyncDateFlag = $h->getIfConfigExistsForScope(
 			Ebizmarts_MailChimp_Model_Config::GENERAL_SUBMINSYNCDATEFLAG, $this->getStoreId()
 		);
-		$thisScopeHasList = $helper->getIfConfigExistsForScope(
+		$thisScopeHasList = $h->getIfConfigExistsForScope(
 			Ebizmarts_MailChimp_Model_Config::GENERAL_LIST, $this->getStoreId()
 		);
 		$this->_ecommerceSubscribersCollection = $this->getResourceCollection();
 		$this->_ecommerceSubscribersCollection->setStoreId($this->getStoreId());
 		$subscriberArray = array();
-		if ($thisScopeHasList && !$thisScopeHasSubMinSyncDateFlag || !$helper->getSubMinSyncDateFlag($this->getStoreId())) {
+		if ($thisScopeHasList && !$thisScopeHasSubMinSyncDateFlag || !$h->getSubMinSyncDateFlag($this->getStoreId())) {
 			$realScope = hcg_mc_cfg_scope(
 				Ebizmarts_MailChimp_Model_Config::GENERAL_LIST,
 				$this->getStoreId()
@@ -118,7 +118,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 					# 2) https://stackoverflow.com/a/62230447
 					# 3) https://stackoverflow.com/a/77660311
 					,['eq' => '0000-00-00 00:00:00']
-					,['lt' => $helper->getSubMinSyncDateFlag($this->getStoreId())]
+					,['lt' => $h->getSubMinSyncDateFlag($this->getStoreId())]
 					,['eq' => 1]
 				]
 			);
@@ -138,9 +138,9 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 			if ($subscriberJson !== false) {
 				if (!empty($subscriberJson)) {
 					if ($subscriber->getMailchimpSyncModified()) {
-						$helper->modifyCounterSubscribers(Ebizmarts_MailChimp_Helper_Data::SUB_MOD);
+						$h->modifyCounterSubscribers(Ebizmarts_MailChimp_Helper_Data::SUB_MOD);
 					} else {
-						$helper->modifyCounterSubscribers(Ebizmarts_MailChimp_Helper_Data::SUB_NEW);
+						$h->modifyCounterSubscribers(Ebizmarts_MailChimp_Helper_Data::SUB_NEW);
 					}
 
 					$subscriberArray[$counter]['method'] = "PUT";
@@ -160,7 +160,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 				$jsonErrorMsg = json_last_error_msg();
 				$errorMessage = "Subscriber " . $subscriber->getSubscriberId()
 					. " json encode failed (" . $jsonErrorMsg . ")";
-				$helper->logError($errorMessage);
+				$h->logError($errorMessage);
 
 				$this->_saveSubscriber($subscriber, $jsonErrorMsg);
 			}
