@@ -245,7 +245,30 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
 	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncSubscriberBatchData()
 	 */
-	function handleSubscriberBatches():void	{$this->_sendSubscriberBatches();}
+	function handleSubscriberBatches():void	{
+		$subscriberLimit = hcg_mc_h()->getSubscriberAmountLimit();
+		$stores = $this->getStores();
+		$batchResponses = [];
+		foreach ($stores as $store) {
+			$storeId = $store->getId();
+			$this->_getResults($storeId, false);
+			if ($subscriberLimit > 0) {
+				list($batchResponse, $subscriberLimit) = $this->sendStoreSubscriberBatch($storeId, $subscriberLimit);
+				if ($batchResponse) {
+					$batchResponses[] = $batchResponse;
+				}
+			} else {
+				break;
+			}
+		}
+		$this->_getResults(0, false);
+		if ($subscriberLimit > 0) {
+			list($batchResponse, $subscriberLimit) = $this->sendStoreSubscriberBatch(0, $subscriberLimit);
+			if ($batchResponse) {
+				$batchResponses[] = $batchResponse;
+			}
+		}
+	}
 
 	/**
 	 * Get results of batch operations sent to MailChimp.
@@ -578,42 +601,6 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 				'batch_id'
 			)
 		);
-	}
-
-	/**
-	 * Send Subscribers batch on each store view, return array of batches responses.
-	 *
-	 * @return array
-	 */
-	protected function _sendSubscriberBatches()
-	{
-		$helper = $this->getHelper();
-
-		$subscriberLimit = $helper->getSubscriberAmountLimit();
-		$stores = $this->getStores();
-		$batchResponses = array();
-		foreach ($stores as $store) {
-			$storeId = $store->getId();
-			$this->_getResults($storeId, false);
-			if ($subscriberLimit > 0) {
-				list($batchResponse, $subscriberLimit) = $this->sendStoreSubscriberBatch($storeId, $subscriberLimit);
-				if ($batchResponse) {
-					$batchResponses[] = $batchResponse;
-				}
-			} else {
-				break;
-			}
-		}
-
-		$this->_getResults(0, false);
-		if ($subscriberLimit > 0) {
-			list($batchResponse, $subscriberLimit) = $this->sendStoreSubscriberBatch(0, $subscriberLimit);
-			if ($batchResponse) {
-				$batchResponses[] = $batchResponse;
-			}
-		}
-
-		return $batchResponses;
 	}
 
 	/**
