@@ -37,7 +37,7 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, $scope = 'stores'):array {
 			# in app/code/community/Ebizmarts/MailChimp/Helper/Data.php on line 2134»:
 			# https://github.com/thehcginstitute-com/m1/issues/495
 			if ($r && 'stores' !== dfa($r, 'scope')) {
-				$r = array('scope_id' => $config->getScopeId(), 'scope' => $config->getScope());
+				$r = ['scope_id' => $config->getScopeId(), 'scope' => $config->getScope()];
 			}
 			break;
 		}
