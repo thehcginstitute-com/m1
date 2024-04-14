@@ -23,7 +23,7 @@ class Ebizmarts_MailChimp_Model_Cron
 
     function __construct()
     {
-        $this->_mailChimpHelper = Mage::helper('mailchimp');
+        $this->_mailChimpHelper = hcg_mc_h();
         $this->_mailChimpMigrationHelper = Mage::helper('mailchimp/migration');
     }
 
