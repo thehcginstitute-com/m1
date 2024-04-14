@@ -23,12 +23,11 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Log
      */
     function toOptionArray()
     {
-        $helper = Mage::helper('mailchimp');
         return array(
-            array('value' => self::NONE, 'label' => $helper->__('None')),
-            array('value' => self::ERROR_LOG, 'label' => $helper->__('Error logs')),
-            array('value' => self::REQUEST_LOG, 'label' => $helper->__('Request logs')),
-            array('value' => self::BOTH, 'label' => $helper->__('Both'))
+            array('value' => self::NONE, 'label' => 'None'),
+            array('value' => self::ERROR_LOG, 'label' => 'Error logs'),
+            array('value' => self::REQUEST_LOG, 'label' => 'Request logs'),
+            array('value' => self::BOTH, 'label' => 'Both')
 
         );
     }
