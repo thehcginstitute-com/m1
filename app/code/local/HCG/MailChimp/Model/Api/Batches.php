@@ -32,14 +32,14 @@ final class Batches {
 				true
 			);
 			$mE = new mE([
-				'status' => $i['status_code']
+				'errors' => $errorDetails
+				,'status' => $i['status_code']
 				,'title' => $response['title']
 				# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				# «Undefined index: type in app/code/community/Ebizmarts/MailChimp/Model/Api/Batches.php
 				# on line 836»: https://github.com/thehcginstitute-com/m1/issues/510
 				,'type' => dfa($response, 'type')
 			]); /** @var mE $mE */
-			$mE->setErrors($errorDetails);
 			$mE->setRegtype($type);
 			$mE->setOriginalId($id);
 			$mE->setBatchId($batchId);
