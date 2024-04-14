@@ -39,6 +39,10 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::__construct()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle::__construct()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::setMailChimpHelper()
+ * @used-by Ebizmarts_MailChimp_Model_ClearBatches::__construct()
+ * @used-by Ebizmarts_MailChimp_Model_ClearEcommerce::__construct()
+ * @used-by Ebizmarts_MailChimp_Model_Cron::__construct()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Active::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Apikey::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Ecommerce::makeHelper()
@@ -51,17 +55,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_List::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_Store::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_Userinfo::toOptionArray()
- * @used-by Ebizmarts_MailChimp_Model_ClearBatches::__construct()
- * @used-by Ebizmarts_MailChimp_Model_ClearEcommerce::__construct()
- * @used-by Ebizmarts_MailChimp_Model_Cron::__construct()
- * @used-by Ebizmarts_MailChimp_Model_Observer::makeHelper()
  * @used-by app/design/adminhtml/default/default/template/ebizmarts/mailchimp/system/config/fieldset/hint.phtml
  * @used-by app/design/adminhtml/default/default/template/ebizmarts/mandrill/system/config/fieldset/hint.phtml
- * @used-by
- * @used-by
- * @used-by
- * @used-by
- * @used-by
- * @used-by
  */
 function hcg_mc_h():H {return Mage::helper('mailchimp');}
