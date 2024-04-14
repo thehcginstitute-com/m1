@@ -1219,7 +1219,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 								->setStatus($batchResponse['status']);
 							$batch->save();
 							$this->_showResumeSubscriber($batchResponse['id'], $storeId);
-							return array($batchResponse, $limit);
+							return [$batchResponse, $limit];
 						}
 						catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 							$h->logError($e->getMessage());
