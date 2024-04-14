@@ -8,7 +8,7 @@ class Ebizmarts_MailChimp_Model_ClearBatches
     protected $_helper;
     function __construct()
     {
-        $this->_helper = Mage::helper('mailchimp');
+        $this->_helper = hcg_mc_h();
 
     }
     function clearBatches()

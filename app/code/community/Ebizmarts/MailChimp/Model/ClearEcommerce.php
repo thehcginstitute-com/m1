@@ -29,7 +29,7 @@ class Ebizmarts_MailChimp_Model_ClearEcommerce
 
     function __construct()
     {
-        $this->_helper = Mage::helper('mailchimp');
+        $this->_helper = hcg_mc_h();
         $this->_dateHelper = Mage::helper('mailchimp/date');
 
         $this->_ecommerceData = Mage::getModel('mailchimp/ecommercesyncdata')
