@@ -2879,21 +2879,10 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * @return mixed
-	 * @throws Mage_Core_Exception
-	 */
-	function getSubscriberAmountLimit()
-	{
-		return $this->getConfigValueForScope(
-			Ebizmarts_MailChimp_Model_Config::GENERAL_SUBSCRIBER_AMOUNT,
-			0,
-			'default'
-		);
-	}
-
-	/**
 	 * @param           $scopeId
 	 * @param string    $scope
+	 *
+	 *
 	 * @return string
 	 * @throws Mage_Core_Exception
 	 * @throws Mage_Core_Model_Store_Exception
