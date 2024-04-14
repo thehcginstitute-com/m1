@@ -7,7 +7,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Mailchimpstores_Edit_Form::makeHelper()
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Mailchimpstores_Edit::makeHelper()
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_Grid_Renderer_MailchimpOrder::makeHelper()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey::getMailChimpHelper()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()

@@ -78,10 +78,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
     /**
      * @return Ebizmarts_MailChimp_Helper_Data
      */
-    function getMailChimpHelper()
-    {
-        return Mage::helper('mailchimp');
-    }
+    function getMailChimpHelper() {return hcg_mc_h();}
 
     /**
      * @return Mage_Sales_Model_Order
