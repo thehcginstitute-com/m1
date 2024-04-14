@@ -11,7 +11,6 @@ final class Batches {
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
 	 */
 	static function handleErrorItem(Sb $sb, array $i, $batchId, $mailchimpStoreId, $id, $type, $store):void {
-		$mE = new mE; /** @var mE $mE */
 		$response = json_decode($i['response'], true);
 		$errorDetails = $sb->_processFileErrors($response);
 		if (strstr($errorDetails, 'already exists')) {
@@ -32,6 +31,7 @@ final class Batches {
 				0,
 				true
 			);
+			$mE = new mE; /** @var mE $mE */
 			# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			# «Undefined index: type in app/code/community/Ebizmarts/MailChimp/Model/Api/Batches.php
 			# on line 836»: https://github.com/thehcginstitute-com/m1/issues/510
