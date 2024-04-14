@@ -23,13 +23,12 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Checkoutsubscribe
      */
     function toOptionArray()
     {
-        $helper = Mage::helper('mailchimp');
         return array(
-            array('value' => self::CHECKED_BY_DEFAULT, 'label' => $helper->__('Enabled - Checked by default')),
-            array('value' => self::NOT_CHECKED_BY_DEFAULT, 'label' => $helper->__('Enabled - Not Checked by default')),
-            array('value' => self::FORCE_HIDDEN, 'label' => $helper->__('Enabled - Force subscription hidden')),
-            array('value' => self::FORCE_VISIBLE, 'label' => $helper->__('Enabled - Force subscription')),
-            array('value' => self::DISABLED, 'label' => $helper->__('-- Disabled --'))
+            array('value' => self::CHECKED_BY_DEFAULT, 'label' => 'Enabled - Checked by default'),
+            array('value' => self::NOT_CHECKED_BY_DEFAULT, 'label' => 'Enabled - Not Checked by default'),
+            array('value' => self::FORCE_HIDDEN, 'label' => 'Enabled - Force subscription hidden'),
+            array('value' => self::FORCE_VISIBLE, 'label' => 'Enabled - Force subscription'),
+            array('value' => self::DISABLED, 'label' => '-- Disabled --')
         );
     }
 }
