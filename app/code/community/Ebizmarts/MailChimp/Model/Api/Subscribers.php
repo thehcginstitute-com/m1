@@ -97,12 +97,12 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 					'mailchimp_sync_delta',
 					'mailchimp_sync_modified'
 				],
-				array(
+				[
 					array('null' => true),
 					array('eq' => ''),
 					array('lt' => $helper->getSubMinSyncDateFlag($this->getStoreId())),
 					array('eq' => 1)
-				)
+				]
 			);
 		$collection->addFieldToFilter('mailchimp_sync_error', array('eq' => ''));
 		$this->_ecommerceSubscribersCollection->limitCollection($collection, $limit);
