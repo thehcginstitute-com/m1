@@ -17,12 +17,12 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_ConnectionTimeout
     function toOptionArray()
     {
         return array(
-            array('value' => 10, 'label' => Mage::helper('mailchimp')->__('10')),
-            array('value' => 20, 'label' => Mage::helper('mailchimp')->__('20')),
-            array('value' => 30, 'label' => Mage::helper('mailchimp')->__('30')),
-            array('value' => 40, 'label' => Mage::helper('mailchimp')->__('40')),
-            array('value' => 50, 'label' => Mage::helper('mailchimp')->__('50')),
-            array('value' => 60, 'label' => Mage::helper('mailchimp')->__('60'))
+            array('value' => 10, 'label' => 10),
+            array('value' => 20, 'label' => 20),
+            array('value' => 30, 'label' => 30),
+            array('value' => 40, 'label' => 40),
+            array('value' => 50, 'label' => 50),
+            array('value' => 60, 'label' => 60)
         );
     }
 }
