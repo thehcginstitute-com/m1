@@ -11,7 +11,7 @@ final class Batches {
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
 	 */
 	static function handleErrorItem(Sb $sb, array $i, $batchId, $mailchimpStoreId, $id, $type, $store):void {
-		$mailchimpErrors = new mE; /** @var mE $mailchimpErrors */
+		$mE = new mE; /** @var mE $mE */
 		$response = json_decode($i['response'], true);
 		$errorDetails = $sb->_processFileErrors($response);
 		if (strstr($errorDetails, 'already exists')) {
@@ -35,18 +35,18 @@ final class Batches {
 			# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			# «Undefined index: type in app/code/community/Ebizmarts/MailChimp/Model/Api/Batches.php
 			# on line 836»: https://github.com/thehcginstitute-com/m1/issues/510
-			$mailchimpErrors->setType(dfa($response, 'type'));
-			$mailchimpErrors->setTitle($response['title']);
-			$mailchimpErrors->setStatus($i['status_code']);
-			$mailchimpErrors->setErrors($errorDetails);
-			$mailchimpErrors->setRegtype($type);
-			$mailchimpErrors->setOriginalId($id);
-			$mailchimpErrors->setBatchId($batchId);
-			$mailchimpErrors->setStoreId($store[1]);
+			$mE->setType(dfa($response, 'type'));
+			$mE->setTitle($response['title']);
+			$mE->setStatus($i['status_code']);
+			$mE->setErrors($errorDetails);
+			$mE->setRegtype($type);
+			$mE->setOriginalId($id);
+			$mE->setBatchId($batchId);
+			$mE->setStoreId($store[1]);
 			if ($type != \Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER) {
-				$mailchimpErrors->setMailchimpStoreId($mailchimpStoreId);
+				$mE->setMailchimpStoreId($mailchimpStoreId);
 			}
-			$mailchimpErrors->save();
+			$mE->save();
 			hcg_mc_h()->modifyCounterDataSentToMailchimp($type, true);
 			hcg_mc_h()->logError($error);
 		}
