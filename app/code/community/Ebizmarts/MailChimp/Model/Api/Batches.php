@@ -783,36 +783,30 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 	 * @param $magentoStoreId
 	 * @throws Mage_Core_Exception
 	 */
-	protected function processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId)
-	{
+	protected function processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId) {
 		$helper = $this->getHelper();
 		$helper->resetCountersDataSentToMailchimp();
 		$fileHelper = $this->getMailchimpFileHelper();
 		$fileHelper->open(array('path'=>Mage::getBaseDir('var').DS.'mailchimp'));
-
 		foreach ($files as $file) {
 			$fileContent = $fileHelper->read($file);
 			$items = json_decode($fileContent, true);
-
 			if ($items !== false) {
 				foreach ($items as $item) {
 					$line = explode('_', $item['operation_id']);
 					$store = explode('-', $line[0]);
 					$type = $line[1];
 					$id = $line[3];
-
 					if ($item['status_code'] != 200) {
 						$mailchimpErrors = Mage::getModel('mailchimp/mailchimperrors');
 						//parse error
 						$response = json_decode($item['response'], true);
 						$errorDetails = $this->_processFileErrors($response);
-
 						if (strstr($errorDetails, 'already exists')) {
 							$this->setItemAsModified($mailchimpStoreId, $id, $type);
 							$helper->modifyCounterDataSentToMailchimp($type);
 							continue;
 						}
-
 						$error = $this->_getError($type, $mailchimpStoreId, $id, $response);
 						$this->saveSyncData(
 							$id,
@@ -826,7 +820,6 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 							0,
 							true
 						);
-
 						# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 						# «Undefined index: type in app/code/community/Ebizmarts/MailChimp/Model/Api/Batches.php
 						# on line 836»: https://github.com/thehcginstitute-com/m1/issues/510
@@ -844,7 +837,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 						$mailchimpErrors->save();
 						$helper->modifyCounterDataSentToMailchimp($type, true);
 						$helper->logError($error);
-					} 
+					}
 					else {
 						$syncDataItem = $this->getDataProduct($mailchimpStoreId, $id, $type);
 
