@@ -253,7 +253,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 		# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# https://3v4l.org/AF1Vc
 		foreach ($this->getStores() as $s) {
-			$storeId = $s->getId();
+			$storeId = (int)$s->getId(); /** @var int $storeId */
 			$this->_getResults($storeId, false);
 			if (1 > $limit) {
 				break;
@@ -1186,9 +1186,8 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by self::handleSubscriberBatches()
-	 * @param $storeId
 	 */
-	private function sendStoreSubscriberBatch($storeId, int $limit):int {
+	private function sendStoreSubscriberBatch(int $storeId, int $limit):int {
 		$h = hcg_mc_h();
 		try {
 			if ($h->isSubscriptionEnabled($storeId)) {
