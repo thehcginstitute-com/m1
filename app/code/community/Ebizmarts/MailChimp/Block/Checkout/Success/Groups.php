@@ -20,7 +20,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Success_Groups extends Mage_Core_Block_
     function __construct()
     {
         parent::__construct();
-        $this->_helper = Mage::helper('mailchimp');
+        $this->_helper = hcg_mc_h();
         $this->_storeId = Mage::app()->getStore()->getId();
     }
 

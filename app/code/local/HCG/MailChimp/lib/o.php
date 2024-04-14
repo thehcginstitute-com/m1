@@ -13,7 +13,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Account::makeHelper()
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_System_Config_CreateMergeFields::makeHelper()
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Notifications::makeHelper()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Block_Checkout_Success_Groups::__construct()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
