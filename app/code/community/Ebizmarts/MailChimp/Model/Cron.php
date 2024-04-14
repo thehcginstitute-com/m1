@@ -12,61 +12,61 @@
  */
 class Ebizmarts_MailChimp_Model_Cron
 {
-    /**
-     * @var Ebizmarts_MailChimp_Helper_Data
-     */
-    protected $_mailChimpHelper;
-    /**
-     * @var Ebizmarts_MailChimp_Helper_Migration
-     */
-    protected $_mailChimpMigrationHelper;
+	/**
+	 * @var Ebizmarts_MailChimp_Helper_Data
+	 */
+	protected $_mailChimpHelper;
+	/**
+	 * @var Ebizmarts_MailChimp_Helper_Migration
+	 */
+	protected $_mailChimpMigrationHelper;
 
-    function __construct()
-    {
-        $this->_mailChimpHelper = hcg_mc_h();
-        $this->_mailChimpMigrationHelper = Mage::helper('mailchimp/migration');
-    }
+	function __construct()
+	{
+		$this->_mailChimpHelper = hcg_mc_h();
+		$this->_mailChimpMigrationHelper = Mage::helper('mailchimp/migration');
+	}
 
-    function syncEcommerceBatchData()
-    {
-        if ($this->getMigrationHelper()->migrationFinished()) {
-            Mage::getModel('mailchimp/api_batches')->handleEcommerceBatches();
-        } else {
-            $this->getMigrationHelper()->handleMigrationUpdates();
-        }
-    }
+	function syncEcommerceBatchData()
+	{
+		if ($this->getMigrationHelper()->migrationFinished()) {
+			Mage::getModel('mailchimp/api_batches')->handleEcommerceBatches();
+		} else {
+			$this->getMigrationHelper()->handleMigrationUpdates();
+		}
+	}
 
-    function syncSubscriberBatchData()
-    {
-        Mage::getModel('mailchimp/api_batches')->handleSubscriberBatches();
-    }
+	function syncSubscriberBatchData()
+	{
+		Mage::getModel('mailchimp/api_batches')->handleSubscriberBatches();
+	}
 
-    function processWebhookData()
-    {
-        Mage::getModel('mailchimp/processWebhook')->processWebhookData();
-    }
+	function processWebhookData()
+	{
+		Mage::getModel('mailchimp/processWebhook')->processWebhookData();
+	}
 
-    function deleteWebhookRequests()
-    {
-        Mage::getModel('mailchimp/processWebhook')->deleteProcessed();
-    }
+	function deleteWebhookRequests()
+	{
+		Mage::getModel('mailchimp/processWebhook')->deleteProcessed();
+	}
 
-    function clearEcommerceData()
-    {
-        Mage::getModel('mailchimp/clearEcommerce')->clearEcommerceData();
-    }
-    function clearBatches()
-    {
-        Mage::getModel('mailchimp/clearBatches')->clearBatches();
-    }
+	function clearEcommerceData()
+	{
+		Mage::getModel('mailchimp/clearEcommerce')->clearEcommerceData();
+	}
+	function clearBatches()
+	{
+		Mage::getModel('mailchimp/clearBatches')->clearBatches();
+	}
 
-    protected function getHelper($type='')
-    {
-        return $this->_mailChimpHelper;
-    }
+	protected function getHelper($type='')
+	{
+		return $this->_mailChimpHelper;
+	}
 
-    protected function getMigrationHelper()
-    {
-        return $this->_mailChimpMigrationHelper;
-    }
+	protected function getMigrationHelper()
+	{
+		return $this->_mailChimpMigrationHelper;
+	}
 }
