@@ -61,7 +61,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_List extends Mage_Core_Mod
      */
     protected function getMailchimpHelper()
     {
-        return Mage::helper('mailchimp');
+        return hcg_mc_h();
     }
 
     /**
