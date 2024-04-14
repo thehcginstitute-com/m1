@@ -56,7 +56,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Model_Cron::__construct()
  * @used-by Ebizmarts_MailChimp_Model_Observer::makeHelper()
  * @used-by app/design/adminhtml/default/default/template/ebizmarts/mailchimp/system/config/fieldset/hint.phtml
- * @used-by
+ * @used-by app/design/adminhtml/default/default/template/ebizmarts/mandrill/system/config/fieldset/hint.phtml
  * @used-by
  * @used-by
  * @used-by
