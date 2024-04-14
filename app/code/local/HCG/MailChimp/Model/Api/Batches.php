@@ -33,6 +33,7 @@ final class Batches {
 			);
 			$mE = new mE([
 				'errors' => $errorDetails
+				,'original_id' => $id
 				,'regtype' => $type
 				,'status' => $i['status_code']
 				,'title' => $response['title']
@@ -41,7 +42,6 @@ final class Batches {
 				# on line 836»: https://github.com/thehcginstitute-com/m1/issues/510
 				,'type' => dfa($response, 'type')
 			]); /** @var mE $mE */
-			$mE->setOriginalId($id);
 			$mE->setBatchId($batchId);
 			$mE->setStoreId($store[1]);
 			if ($type != \Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER) {
