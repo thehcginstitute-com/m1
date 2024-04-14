@@ -46,7 +46,7 @@ final class Batches {
 				,'type' => dfa($response, 'type')
 			]); /** @var mE $mE */
 			if ($type != Cfg::IS_SUBSCRIBER) {
-				$mE->setMailchimpStoreId($mailchimpStoreId);
+				$mE['mailchimp_store_id'] = $mailchimpStoreId;
 			}
 			$mE->save();
 			hcg_mc_h()->modifyCounterDataSentToMailchimp($type, true);
