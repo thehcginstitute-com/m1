@@ -607,37 +607,30 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @param  $limit
 	 * @return array|null
 	 */
-	function sendStoreSubscriberBatch($storeId, $limit)
-	{
+	function sendStoreSubscriberBatch($storeId, $limit) {
 		$helper = $this->getHelper();
-
 		try {
 			if ($helper->isSubscriptionEnabled($storeId)) {
 				$helper->resetCountersSubscribers();
-
 				$listId = $helper->getGeneralList($storeId);
-
 				$batchArray = array();
-
 				//subscriber operations
 				$subscribersArray = $this->getApiSubscribers()->createBatchJson($listId, $storeId, $limit);
 				$limit -= count($subscribersArray);
-
 				$batchArray['operations'] = $subscribersArray;
-
 				if (!empty($batchArray['operations'])) {
 					$batchJson = json_encode($batchArray);
-
 					if ($batchJson === false) {
 						$helper->logRequest('Json encode error ' . json_last_error_msg());
-					} elseif ($batchJson == '') {
+					}
+					elseif ($batchJson == '') {
 						$helper->logRequest('An empty operation was detected');
-					} else {
+					}
+					else {
 						try {
 							$mailchimpApi = $helper->getApi($storeId);
 							$batchResponse = $mailchimpApi->getBatchOperation()->add($batchJson);
 							$helper->logRequest($batchJson, $batchResponse['id']);
-
 							//save batch id to db
 							$batch = $this->getSyncBatchesModel();
 							$batch->setStoreId($storeId)
@@ -645,7 +638,6 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 								->setStatus($batchResponse['status']);
 							$batch->save();
 							$this->_showResumeSubscriber($batchResponse['id'], $storeId);
-
 							return array($batchResponse, $limit);
 						} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 							$helper->logError($e->getMessage());
@@ -663,7 +655,6 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 			# https://github.com/thehcginstitute-com/m1/issues/509
 			df_log($e);
 		}
-
 		return array(null, $limit);
 	}
 
