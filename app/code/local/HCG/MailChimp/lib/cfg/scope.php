@@ -19,18 +19,18 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, $scope = 'stores'):array {
 		]); /** @var CC $cc */
 	$r = []; /** @var array $r */
 	$h = hcg_mc_h(); /** @var H $h */
-	foreach ($cc as $config) { /** @var C $config */
+	foreach ($cc as $c) { /** @var C $c */
 		//Discard possible extra website or store
-		if ($h->isExtraEntry($config, $scope, $scopeId, $websiteId)) {
+		if ($h->isExtraEntry($c, $scope, $scopeId, $websiteId)) {
 			continue;
 		}
-		switch ($config->getScope()) {
+		switch ($c->getScope()) {
 		case 'stores':
-			$r = ['scope_id' => $config->getScopeId(), 'scope' => $config->getScope()];
+			$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
 			break;
 		case 'websites':
 			if (!$r || $r['scope'] == 'default') {
-				$r = ['scope_id' => $config->getScopeId(), 'scope' => $config->getScope()];
+				$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
 			}
 			break;
 		case 'default':
@@ -39,7 +39,7 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, $scope = 'stores'):array {
 			# in app/code/community/Ebizmarts/MailChimp/Helper/Data.php on line 2134»:
 			# https://github.com/thehcginstitute-com/m1/issues/495
 			if ($r && 'stores' !== dfa($r, 'scope')) {
-				$r = ['scope_id' => $config->getScopeId(), 'scope' => $config->getScope()];
+				$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
 			}
 			break;
 		}
