@@ -4,7 +4,7 @@ class Ebizmarts_MailChimp_Model_Adminhtml_Storeid_Comment
 {
     function getCommentText()
     {
-        $helper = Mage::helper('mailchimp');
+        $helper = hcg_mc_h();
         return $helper->__(
             'Select the Mailchimp store you want to associate with this scope. '
             . 'You can create a new store at '
