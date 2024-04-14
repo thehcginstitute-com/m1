@@ -3,6 +3,7 @@
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 namespace HCG\MailChimp\Model\Api;
 use Ebizmarts_MailChimp_Model_Api_Batches as Sb;
+use Ebizmarts_MailChimp_Model_Mailchimperrors as mE;
 final class Batches {
 	/**
 	 * 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -10,7 +11,7 @@ final class Batches {
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
 	 */
 	static function handleErrorItem(Sb $sb, array $i, $batchId, $mailchimpStoreId, $id, $type, $store):void {
-		$mailchimpErrors = \Mage::getModel('mailchimp/mailchimperrors');
+		$mailchimpErrors = new mE; /** @var mE $mailchimpErrors */
 		$response = json_decode($i['response'], true);
 		$errorDetails = $sb->_processFileErrors($response);
 		if (strstr($errorDetails, 'already exists')) {
