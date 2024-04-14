@@ -11,7 +11,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Fieldset_Mailchimp_Hint::makeHelper()
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Form_Field_Mapfields::makeHelper()
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Account::makeHelper()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Block_Adminhtml_System_Config_CreateMergeFields::makeHelper()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
