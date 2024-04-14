@@ -25,7 +25,7 @@ class Ebizmarts_MailChimp_Model_Adminhtml_Resendecommercedata_Comment
      */
     function setMcHelper()
     {
-        $this->_mcHelper = Mage::helper('mailchimp');
+        $this->_mcHelper = hcg_mc_h();
     }
 
     /**
