@@ -23,10 +23,7 @@ class Ebizmarts_MailChimp_Model_Adminhtml_Resendecommercedata_Comment
     /**
      * @param Ebizmarts_MailChimp_Helper_Data $mcHelper
      */
-    function setMcHelper()
-    {
-        $this->_mcHelper = hcg_mc_h();
-    }
+    function setMcHelper() {$this->_mcHelper = hcg_mc_h();}
 
     /**
      * @return string
