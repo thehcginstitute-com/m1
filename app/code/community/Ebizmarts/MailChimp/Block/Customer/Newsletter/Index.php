@@ -27,7 +27,7 @@ class Ebizmarts_MailChimp_Block_Customer_Newsletter_Index extends Mage_Customer_
     function __construct()
     {
         $this->setTemplate('ebizmarts/mailchimp/customer/newsletter/index.phtml');
-        $this->_helper = Mage::helper('mailchimp');
+        $this->_helper = hcg_mc_h();
         $this->_storeId = Mage::app()->getStore()->getId();
     }
 
