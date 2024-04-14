@@ -1213,7 +1213,6 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 							$mailchimpApi = $helper->getApi($storeId);
 							$batchResponse = $mailchimpApi->getBatchOperation()->add($batchJson);
 							$helper->logRequest($batchJson, $batchResponse['id']);
-							//save batch id to db
 							$batch = $this->getSyncBatchesModel();
 							$batch->setStoreId($storeId)
 								->setBatchId($batchResponse['id'])
@@ -1221,9 +1220,11 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 							$batch->save();
 							$this->_showResumeSubscriber($batchResponse['id'], $storeId);
 							return array($batchResponse, $limit);
-						} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+						}
+						catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 							$helper->logError($e->getMessage());
-						} catch (MailChimp_Error $e) {
+						}
+						catch (MailChimp_Error $e) {
 							$helper->logRequest($batchJson);
 							$helper->logError($e->getFriendlyMessage());
 						}
