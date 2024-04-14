@@ -102,10 +102,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController extends Mage_Admin
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Data
 	 */
-	protected function makeHelper()
-	{
-		return Mage::helper('mailchimp');
-	}
+	protected function makeHelper() {return hcg_mc_h();}
 
 	/**
 	 * @return Ebizmarts_MailChimp_Model_Mailchimperrors
