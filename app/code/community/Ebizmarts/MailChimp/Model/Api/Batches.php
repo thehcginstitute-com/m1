@@ -248,6 +248,8 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	function handleSubscriberBatches():void	{
 		$subscriberLimit = hcg_mc_h()->getSubscriberAmountLimit();
 		$batchResponses = [];
+		# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# https://3v4l.org/AF1Vc
 		foreach ($this->getStores() as $store) {
 			$storeId = $store->getId();
 			$this->_getResults($storeId, false);
