@@ -24,7 +24,7 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, $scope = 'stores'):array {
 		}
 		switch ($config->getScope()) {
 		case 'stores':
-			$r = array('scope_id' => $config->getScopeId(), 'scope' => $config->getScope());
+			$r = ['scope_id' => $config->getScopeId(), 'scope' => $config->getScope()];
 			break;
 		case 'websites':
 			if (!$r || $r['scope'] == 'default') {
