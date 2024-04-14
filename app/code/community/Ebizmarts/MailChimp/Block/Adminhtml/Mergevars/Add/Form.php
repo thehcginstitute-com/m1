@@ -19,7 +19,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Mergevars_Add_Form extends Mage_Adminh
         );
         $fieldset = $form->addFieldset(
             'base_fieldset',
-            array('legend' => Mage::helper('mailchimp')->__('Mergevars Data'))
+            array('legend' => 'Mergevars Data')
         );
 
 
@@ -28,9 +28,9 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Mergevars_Add_Form extends Mage_Adminh
             'text',
             array(
             'name'  => 'mergevar[label]',
-            'label' => Mage::helper('mailchimp')->__('Merge Field Name'),
+            'label' => 'Merge Field Name',
             'id'    => 'mergevar_label',
-            'title' => Mage::helper('mailchimp')->__('Merge Field Name'),
+            'title' => 'Merge Field Name',
             'required' => true
             )
         );
@@ -39,7 +39,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Mergevars_Add_Form extends Mage_Adminh
             'select',
             array(
             'name' => 'mergevar[fieldtype]',
-            'label' => Mage::helper('mailchimp')->__('Merge Field Type'),
+            'label' => 'Merge Field Type',
             'id' => 'mergevar_fieldtype',
             'values' => Mage::getSingleton('mailchimp/system_config_source_fieldtype')->getFieldTypes(),
             'required' => true
@@ -51,9 +51,9 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Mergevars_Add_Form extends Mage_Adminh
             'text',
             array(
             'name'  => 'mergevar[value]',
-            'label' => Mage::helper('mailchimp')->__('Merge Field Tag'),
+            'label' => 'Merge Field Tag',
             'id'    => 'mergevar_value',
-            'title' => Mage::helper('mailchimp')->__('Merge Field Tag'),
+            'title' => 'Merge Field Tag',
             'note'     => 'This value will be used when adding the logic in the Observer. '
                 . 'Blank spaces are not allowed.',
             'required' => true
