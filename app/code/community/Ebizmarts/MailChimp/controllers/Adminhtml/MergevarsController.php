@@ -76,8 +76,5 @@ class Ebizmarts_MailChimp_Adminhtml_MergevarsController extends Mage_Adminhtml_C
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Data
 	 */
-	protected function makeHelper()
-	{
-		return Mage::helper('mailchimp');
-	}
+	protected function makeHelper() {return hcg_mc_h();}
 }
