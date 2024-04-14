@@ -243,7 +243,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * Get Results and send Subscriber Batches.
+	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncSubscriberBatchData()
 	 */
 	function handleSubscriberBatches()
 	{
