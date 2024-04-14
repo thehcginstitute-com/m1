@@ -1190,11 +1190,11 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @return array|null
 	 */
 	private function sendStoreSubscriberBatch($storeId, $limit) {
-		$helper = $this->getHelper();
+		$h = hcg_mc_h();
 		try {
-			if ($helper->isSubscriptionEnabled($storeId)) {
-				$helper->resetCountersSubscribers();
-				$listId = $helper->getGeneralList($storeId);
+			if ($h->isSubscriptionEnabled($storeId)) {
+				$h->resetCountersSubscribers();
+				$listId = $h->getGeneralList($storeId);
 				$batchArray = array();
 				//subscriber operations
 				$subscribersArray = $this->getApiSubscribers()->createBatchJson($listId, $storeId, $limit);
@@ -1203,16 +1203,16 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 				if (!empty($batchArray['operations'])) {
 					$batchJson = json_encode($batchArray);
 					if ($batchJson === false) {
-						$helper->logRequest('Json encode error ' . json_last_error_msg());
+						$h->logRequest('Json encode error ' . json_last_error_msg());
 					}
 					elseif ($batchJson == '') {
-						$helper->logRequest('An empty operation was detected');
+						$h->logRequest('An empty operation was detected');
 					}
 					else {
 						try {
-							$mailchimpApi = $helper->getApi($storeId);
+							$mailchimpApi = $h->getApi($storeId);
 							$batchResponse = $mailchimpApi->getBatchOperation()->add($batchJson);
-							$helper->logRequest($batchJson, $batchResponse['id']);
+							$h->logRequest($batchJson, $batchResponse['id']);
 							$batch = $this->getSyncBatchesModel();
 							$batch->setStoreId($storeId)
 								->setBatchId($batchResponse['id'])
@@ -1222,11 +1222,11 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 							return array($batchResponse, $limit);
 						}
 						catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-							$helper->logError($e->getMessage());
+							$h->logError($e->getMessage());
 						}
 						catch (MailChimp_Error $e) {
-							$helper->logRequest($batchJson);
-							$helper->logError($e->getFriendlyMessage());
+							$h->logRequest($batchJson);
+							$h->logError($e->getFriendlyMessage());
 						}
 					}
 				}
