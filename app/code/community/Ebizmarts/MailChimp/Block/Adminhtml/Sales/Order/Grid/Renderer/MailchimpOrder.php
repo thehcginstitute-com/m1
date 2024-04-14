@@ -47,10 +47,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_Grid_Renderer_MailchimpOrd
     /**
      * @return Ebizmarts_MailChimp_Helper_Data
      */
-    protected function makeHelper()
-    {
-        return Mage::helper('mailchimp');
-    }
+    protected function makeHelper() {return hcg_mc_h();}
 
     /**
      * @return Ebizmarts_MailChimp_Model_Api_Orders
