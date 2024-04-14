@@ -29,7 +29,7 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
 
     function __construct()
     {
-        $this->_helper = Mage::helper('mailchimp');
+        $this->_helper = hcg_mc_h();
         $this->_dateHelper = Mage::helper('mailchimp/date');
         $this->_webhookHelper = Mage::helper('mailchimp/webhook');
     }
