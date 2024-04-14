@@ -40,7 +40,7 @@ class Ebizmarts_MailChimp_Model_ProcessWebhook
 
     function __construct()
     {
-        $this->_helper = Mage::helper('mailchimp');
+        $this->_helper = hcg_mc_h();
         $this->_dateHelper = Mage::helper('mailchimp/date');
 
         $this->_tags = Mage::getModel('mailchimp/api_subscribers_MailchimpTags');
