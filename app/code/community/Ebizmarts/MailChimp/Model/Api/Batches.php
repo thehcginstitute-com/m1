@@ -253,13 +253,12 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 		foreach ($this->getStores() as $store) {
 			$storeId = $store->getId();
 			$this->_getResults($storeId, false);
-			if ($subscriberLimit > 0) {
-				list($batchResponse, $subscriberLimit) = $this->sendStoreSubscriberBatch($storeId, $subscriberLimit);
-				if ($batchResponse) {
-					$batchResponses[] = $batchResponse;
-				}
-			} else {
+			if (1 > $subscriberLimit) {
 				break;
+			}
+			list($batchResponse, $subscriberLimit) = $this->sendStoreSubscriberBatch($storeId, $subscriberLimit);
+			if ($batchResponse) {
+				$batchResponses[] = $batchResponse;
 			}
 		}
 		$this->_getResults(0, false);
