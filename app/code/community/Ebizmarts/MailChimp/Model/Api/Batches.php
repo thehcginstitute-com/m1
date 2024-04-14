@@ -1237,6 +1237,6 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 			# https://github.com/thehcginstitute-com/m1/issues/509
 			df_log($e);
 		}
-		return array(null, $limit);
+		return [null, $limit];
 	}
 }
