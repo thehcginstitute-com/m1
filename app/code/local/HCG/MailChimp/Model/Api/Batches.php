@@ -3,6 +3,7 @@
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 namespace HCG\MailChimp\Model\Api;
 use Ebizmarts_MailChimp_Model_Api_Batches as Sb;
+use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Mailchimperrors as mE;
 final class Batches {
 	/**
@@ -44,7 +45,7 @@ final class Batches {
 				# on line 836»: https://github.com/thehcginstitute-com/m1/issues/510
 				,'type' => dfa($response, 'type')
 			]); /** @var mE $mE */
-			if ($type != \Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER) {
+			if ($type != Cfg::IS_SUBSCRIBER) {
 				$mE->setMailchimpStoreId($mailchimpStoreId);
 			}
 			$mE->save();
