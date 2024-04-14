@@ -91,12 +91,12 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 			->addFieldToFilter('subscriber_status', array('eq' => 1))
 			->addFieldToFilter('store_id', array('eq' => $this->getStoreId()))
 			->addFieldToFilter(
-				array(
+				[
 					'mailchimp_sync_delta',
 					'mailchimp_sync_delta',
 					'mailchimp_sync_delta',
 					'mailchimp_sync_modified'
-				),
+				],
 				array(
 					array('null' => true),
 					array('eq' => ''),
