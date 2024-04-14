@@ -68,7 +68,7 @@ class Ebizmarts_MailChimp_Helper_Mandrill extends Mage_Core_Helper_Abstract
      */
     function isMandrillEnabled($scopeId = 0, $scope = null)
     {
-        return Mage::helper('mailchimp')
+        return hcg_mc_h()
             ->getConfigValueForScope(
                 Ebizmarts_MailChimp_Model_Config::MANDRILL_ACTIVE,
                 $scopeId,
