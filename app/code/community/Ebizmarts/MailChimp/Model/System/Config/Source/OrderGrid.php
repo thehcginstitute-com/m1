@@ -23,12 +23,11 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_OrderGrid
      */
     function toOptionArray()
     {
-        $helper = Mage::helper('mailchimp');
         return array(
-            array('value' => self::NONE, 'label' => $helper->__('None')),
-            array('value' => self::ICON, 'label' => $helper->__('Icon for Mailchimp orders')),
-            array('value' => self::SYNCED, 'label' => $helper->__('If orders are synced to Mailchimp')),
-            array('value' => self::BOTH, 'label' => $helper->__('Both'))
+            array('value' => self::NONE, 'label' => 'None'),
+            array('value' => self::ICON, 'label' => 'Icon for Mailchimp orders'),
+            array('value' => self::SYNCED, 'label' => 'If orders are synced to Mailchimp'),
+            array('value' => self::BOTH, 'label' => 'Both')
         );
     }
 }
