@@ -2,8 +2,8 @@
 # 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
-class Ebizmarts_MailChimp_Model_Api_Batches
-{
+use HCG\MailChimp\Model\Api\Batches as Plugin;
+class Ebizmarts_MailChimp_Model_Api_Batches {
 	const SEND_PROMO_ENABLED = 1;
 
 	/**
@@ -798,7 +798,9 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 					$type = $line[1];
 					$id = $line[3];
 					if ($item['status_code'] != 200) {
-						$this->handleErrorItem($item, $batchId, $mailchimpStoreId, $id, $type, $store);
+						# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+						# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+						Plugin::handleErrorItem($this, $item, $batchId, $mailchimpStoreId, $id, $type, $store);
 					}
 					else {
 						$syncDataItem = $this->getDataProduct($mailchimpStoreId, $id, $type);
@@ -840,13 +842,14 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 	}
 
 	/**
+	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
 	 * @param $type
 	 * @param $mailchimpStoreId
 	 * @param $id
 	 * @param $response
 	 * @return string
 	 */
-	protected function _getError($type, $mailchimpStoreId, $id, $response)
+	function _getError($type, $mailchimpStoreId, $id, $response)
 	{
 		$error = $response['title'] . " : " . $response['detail'];
 
@@ -865,10 +868,11 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 	}
 
 	/**
+	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
 	 * @param $response
 	 * @return string
 	 */
-	protected function _processFileErrors($response)
+	function _processFileErrors($response)
 	{
 		$errorDetails = "";
 
@@ -949,6 +953,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 	}
 
 	/**
+	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
 	 * @param       $itemId
 	 * @param       $itemType
 	 * @param       $mailchimpStoreId
@@ -960,7 +965,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 	 * @param null  $syncedFlag
 	 * @param bool  $saveOnlyIfExists
 	 */
-	protected function saveSyncData(
+	function saveSyncData(
 		$itemId,
 		$itemType,
 		$mailchimpStoreId,
@@ -1064,11 +1069,12 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 	}
 
 	/**
+	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
 	 * @param $mailchimpStoreId
 	 * @param $id
 	 * @param $type
 	 */
-	protected function setItemAsModified($mailchimpStoreId, $id, $type)
+	function setItemAsModified($mailchimpStoreId, $id, $type)
 	{
 		$isMarkedAsDeleted = null;
 
@@ -1260,52 +1266,5 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 	protected function getMailchimpFileHelper()
 	{
 		return Mage::helper('mailchimp/file');
-	}
-
-	/**
-	 * 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 * @used-by self::processEachResponseFile()
-	 */
-	private function handleErrorItem(array $i, $batchId, $mailchimpStoreId, $id, $type, $store):void {
-		$mailchimpErrors = Mage::getModel('mailchimp/mailchimperrors');
-		$response = json_decode($i['response'], true);
-		$errorDetails = $this->_processFileErrors($response);
-		if (strstr($errorDetails, 'already exists')) {
-			$this->setItemAsModified($mailchimpStoreId, $id, $type);
-			hcg_mc_h()->modifyCounterDataSentToMailchimp($type);
-		}
-		else {
-			$error = $this->_getError($type, $mailchimpStoreId, $id, $response);
-			$this->saveSyncData(
-				$id,
-				$type,
-				$mailchimpStoreId,
-				null,
-				$error,
-				0,
-				null,
-				null,
-				0,
-				true
-			);
-			# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# «Undefined index: type in app/code/community/Ebizmarts/MailChimp/Model/Api/Batches.php
-			# on line 836»: https://github.com/thehcginstitute-com/m1/issues/510
-			$mailchimpErrors->setType(dfa($response, 'type'));
-			$mailchimpErrors->setTitle($response['title']);
-			$mailchimpErrors->setStatus($i['status_code']);
-			$mailchimpErrors->setErrors($errorDetails);
-			$mailchimpErrors->setRegtype($type);
-			$mailchimpErrors->setOriginalId($id);
-			$mailchimpErrors->setBatchId($batchId);
-			$mailchimpErrors->setStoreId($store[1]);
-			if ($type != \Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER) {
-				$mailchimpErrors->setMailchimpStoreId($mailchimpStoreId);
-			}
-			$mailchimpErrors->save();
-			hcg_mc_h()->modifyCounterDataSentToMailchimp($type, true);
-			hcg_mc_h()->logError($error);
-		}
 	}
 }
