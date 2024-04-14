@@ -247,9 +247,8 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	 */
 	function handleSubscriberBatches():void	{
 		$subscriberLimit = hcg_mc_h()->getSubscriberAmountLimit();
-		$stores = $this->getStores();
 		$batchResponses = [];
-		foreach ($stores as $store) {
+		foreach ($this->getStores() as $store) {
 			$storeId = $store->getId();
 			$this->_getResults($storeId, false);
 			if ($subscriberLimit > 0) {
