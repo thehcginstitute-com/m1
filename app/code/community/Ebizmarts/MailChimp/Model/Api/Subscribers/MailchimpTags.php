@@ -789,7 +789,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
      */
     protected function setMailChimpHelper()
     {
-        $this->_mcHelper = Mage::helper('mailchimp');
+        $this->_mcHelper = hcg_mc_h();
     }
 
     /**
