@@ -47,7 +47,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Store::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Twowaysync::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_Account::makeHelper()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_CustomerGroup::makeHelper()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()

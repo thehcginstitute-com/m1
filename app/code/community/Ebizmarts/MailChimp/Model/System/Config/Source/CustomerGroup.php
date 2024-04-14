@@ -56,8 +56,5 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_CustomerGroup
     /**
      * @return Ebizmarts_MailChimp_Helper_Data
      */
-    protected function makeHelper()
-    {
-        return Mage::helper('mailchimp');
-    }
+    protected function makeHelper() {return hcg_mc_h();}
 }
