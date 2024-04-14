@@ -88,7 +88,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 		}
 		//get subscribers
 		$collection = Mage::getResourceModel('newsletter/subscriber_collection')
-			->addFieldToFilter('subscriber_status', array('eq' => 1))
+			->addFieldToFilter('subscriber_status',['eq' => 1])
 			->addFieldToFilter('store_id', array('eq' => $this->getStoreId()))
 			->addFieldToFilter(
 				[
