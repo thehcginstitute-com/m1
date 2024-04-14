@@ -25,6 +25,6 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Mergevars_Add extends Mage_Adminhtml_B
      */
     function getHeaderText()
     {
-        return Mage::helper('mailchimp')->__('New Field Type');
+        return 'New Field Type';
     }
 }
