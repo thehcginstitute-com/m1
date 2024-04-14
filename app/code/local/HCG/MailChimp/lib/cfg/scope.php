@@ -1,5 +1,6 @@
 <?php
 use Ebizmarts_MailChimp_Helper_Data as H;
+use Mage_Core_Model_Config_Data as C;
 use Mage_Core_Model_Resource_Config_Data_Collection as CC;
 /**
  * 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -18,7 +19,7 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, $scope = 'stores'):array {
 		]); /** @var CC $cc */
 	$r = []; /** @var array $r */
 	$h = hcg_mc_h(); /** @var H $h */
-	foreach ($cc as $config) {
+	foreach ($cc as $config) { /** @var C $config */
 		//Discard possible extra website or store
 		if ($h->isExtraEntry($config, $scope, $scopeId, $websiteId)) {
 			continue;
