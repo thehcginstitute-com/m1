@@ -19,11 +19,9 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_WebhookDelete
      */
     function toOptionArray()
     {
-        $mailchimpHelper = Mage::helper('mailchimp');
-
         return array(
-            array('value' => 0, 'label' => $mailchimpHelper->__('Unsubscribe')),
-            array('value' => 1, 'label' => $mailchimpHelper->__('Delete subscriber'))
+            array('value' => 0, 'label' => 'Unsubscribe'),
+            array('value' => 1, 'label' => 'Delete subscriber')
         );
     }
 }

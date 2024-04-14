@@ -57,7 +57,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Userinfo
      */
     function toOptionArray()
     {
-        $helper = Mage::helper('mailchimp');
+        $helper = hcg_mc_h();
         if (is_array($this->_accountDetails)) {
             if (!isset($this->_accountDetails['status'])) {
                 return array(
