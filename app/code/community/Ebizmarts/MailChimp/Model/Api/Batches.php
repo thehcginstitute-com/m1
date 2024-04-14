@@ -1195,7 +1195,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 			if ($h->isSubscriptionEnabled($storeId)) {
 				$h->resetCountersSubscribers();
 				$listId = $h->getGeneralList($storeId);
-				$batchArray = array();
+				$batchArray = [];
 				//subscriber operations
 				$subscribersArray = $this->getApiSubscribers()->createBatchJson($listId, $storeId, $limit);
 				$limit -= count($subscribersArray);
