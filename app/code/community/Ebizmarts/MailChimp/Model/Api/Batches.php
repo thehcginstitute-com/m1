@@ -245,10 +245,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
 	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncSubscriberBatchData()
 	 */
-	function handleSubscriberBatches()
-	{
-		$this->_sendSubscriberBatches();
-	}
+	function handleSubscriberBatches():void	{$this->_sendSubscriberBatches();}
 
 	/**
 	 * Get results of batch operations sent to MailChimp.
