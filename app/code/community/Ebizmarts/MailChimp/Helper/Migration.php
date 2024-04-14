@@ -588,7 +588,7 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
 
             foreach ($stores as $storeId => $store) {
                 if ($helper->isEcomSyncDataEnabled($storeId)) {
-                    Mage::getModel('mailchimp/api_batches')->replaceAllOrders($initialTime, $storeId);
+                    hcg_mc_batches_new()->replaceAllOrders($initialTime, $storeId);
                 }
 
                 if ($dateHelper->timePassed($initialTime)) {

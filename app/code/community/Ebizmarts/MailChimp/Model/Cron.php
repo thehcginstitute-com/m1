@@ -21,7 +21,7 @@ class Ebizmarts_MailChimp_Model_Cron
 	function syncEcommerceBatchData()
 	{
 		if ($this->getMigrationHelper()->migrationFinished()) {
-			Mage::getModel('mailchimp/api_batches')->handleEcommerceBatches();
+			hcg_mc_batches_new()->handleEcommerceBatches();
 		} else {
 			$this->getMigrationHelper()->handleMigrationUpdates();
 		}
@@ -31,7 +31,7 @@ class Ebizmarts_MailChimp_Model_Cron
 	 * 2024-04-14
 	 * @used-by Aoe_Scheduler_Model_Observer::dispatch()
 	 */
-	function syncSubscriberBatchData():void {Mage::getModel('mailchimp/api_batches')->handleSubscriberBatches();}
+	function syncSubscriberBatchData():void {hcg_mc_batches_new()->handleSubscriberBatches();}
 
 	function processWebhookData()
 	{
