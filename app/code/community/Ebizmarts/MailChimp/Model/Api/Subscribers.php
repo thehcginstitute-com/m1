@@ -98,10 +98,27 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 					'mailchimp_sync_modified'
 				],
 				[
-					['null' => true],
-					['eq' => ''],
-					['lt' => $helper->getSubMinSyncDateFlag($this->getStoreId())],
-					['eq' => 1]
+					['null' => true]
+					# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# 1) "`Ebizmarts_MailChimp`: «Incorrect DATETIME value: '', query was:
+					# SELECT `main_table`.*
+					# FROM `newsletter_subscriber` AS `main_table`
+					# WHERE (`subscriber_status` = 1)
+					# AND (main_table.store_id = '1')
+					# AND (
+					# 		(`mailchimp_sync_delta` IS NULL)
+					# 		OR (`mailchimp_sync_delta` = '')
+					# 		OR (`mailchimp_sync_delta` < '2024-04-13 20:30:38')
+					# 		OR (`mailchimp_sync_modified` = 1)
+					# )
+					# AND (`mailchimp_sync_error` = '')
+					# LIMIT 200;»":
+					# https://github.com/thehcginstitute-com/m1/issues/563
+					# 2) https://stackoverflow.com/a/62230447
+					# 3) https://stackoverflow.com/a/77660311
+					,['eq' => '0000-00-00 00:00:00']
+					,['lt' => $helper->getSubMinSyncDateFlag($this->getStoreId())]
+					,['eq' => 1]
 				]
 			);
 		$collection->addFieldToFilter('mailchimp_sync_error', array('eq' => ''));
