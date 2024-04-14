@@ -22,12 +22,11 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_ImageSize
      */
     function toOptionArray()
     {
-        $helper = Mage::helper('mailchimp');
         return array(
-            array('value' => self::BASE, 'label' => $helper->__('Base')),
-            array('value' => self::SMALL, 'label' => $helper->__('Small')),
-            array('value' => self::THUMBNAIL, 'label' => $helper->__('Thumbnail')),
-            array('value' => self::ORIGINAL, 'label' => $helper->__('Original'))
+            array('value' => self::BASE, 'label' => 'Base'),
+            array('value' => self::SMALL, 'label' => 'Small'),
+            array('value' => self::THUMBNAIL, 'label' => 'Thumbnail'),
+            array('value' => self::ORIGINAL, 'label' => 'Original')
         );
     }
 }
