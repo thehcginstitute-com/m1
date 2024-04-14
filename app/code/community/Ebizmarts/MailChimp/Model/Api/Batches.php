@@ -248,7 +248,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncSubscriberBatchData()
 	 */
 	function handleSubscriberBatches():void	{
-		$subscriberLimit = Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_SUBSCRIBER_AMOUNT, 0);
+		$subscriberLimit = (int)Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_SUBSCRIBER_AMOUNT, 0);
 		# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# https://3v4l.org/AF1Vc
 		foreach ($this->getStores() as $s) {
