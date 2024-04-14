@@ -55,8 +55,13 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Model_ClearEcommerce::__construct()
  * @used-by Ebizmarts_MailChimp_Model_Cron::__construct()
  * @used-by Ebizmarts_MailChimp_Model_Observer::makeHelper()
- * @used-by STUB()
- * @used-by STUB()
- * @used-by STUB()
+ * @used-by app/design/adminhtml/default/default/template/ebizmarts/mailchimp/system/config/fieldset/hint.phtml
+ * @used-by
+ * @used-by
+ * @used-by
+ * @used-by
+ * @used-by
+ * @used-by
+ * @used-by
  */
 function hcg_mc_h():H {return Mage::helper('mailchimp');}
