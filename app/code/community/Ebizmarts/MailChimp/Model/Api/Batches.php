@@ -840,10 +840,8 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 					}
 					else {
 						$syncDataItem = $this->getDataProduct($mailchimpStoreId, $id, $type);
-
 						if (!$syncDataItem->getMailchimpSyncModified()) {
 							$syncModified = $this->enableMergeFieldsSending($type, $syncDataItem);
-
 							$this->saveSyncData(
 								$id,
 								$type,
@@ -874,7 +872,6 @@ class Ebizmarts_MailChimp_Model_Api_Batches
 					}
 				}
 			}
-
 			$fileHelper->rm($file);
 		}
 		$this->_showResumeDataSentToMailchimp($magentoStoreId);
