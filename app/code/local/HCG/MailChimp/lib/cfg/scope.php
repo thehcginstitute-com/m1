@@ -9,16 +9,16 @@ use Mage_Core_Model_Resource_Config_Data_Collection as CC;
  */
 function hcg_mc_cfg_scope(string $path, int $scopeId, $scope = 'stores'):array {
 	$websiteId = null;
-	$configCollection = Mage::getResourceModel('core/config_data_collection')
+	$cc = Mage::getResourceModel('core/config_data_collection')
 		->addFieldToFilter('path', ['eq' => $path])
 		->addFieldToFilter('scope_id', ['in' =>
 			'stores' !== $scope
 				? [$scopeId, 0]
 				: [$scopeId, $websiteId = df_store($scopeId)->getWebsiteId(), 0]
-		]); /** @var CC $configCollection */
+		]); /** @var CC $cc */
 	$r = []; /** @var array $r */
 	$h = hcg_mc_h(); /** @var H $h */
-	foreach ($configCollection as $config) {
+	foreach ($cc as $config) {
 		//Discard possible extra website or store
 		if ($h->isExtraEntry($config, $scope, $scopeId, $websiteId)) {
 			continue;
