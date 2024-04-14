@@ -28,7 +28,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Helper_Mandrill::getMandrillApiKey()
  * @used-by Ebizmarts_MailChimp_Helper_Migration::__construct()
  * @used-by Ebizmarts_MailChimp_Helper_Webhook::__construct()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Model_Adminhtml_Includetaxes_Comment::getCommentText()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()

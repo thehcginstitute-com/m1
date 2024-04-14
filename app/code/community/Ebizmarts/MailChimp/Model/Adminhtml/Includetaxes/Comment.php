@@ -14,7 +14,7 @@ class Ebizmarts_MailChimp_Model_Adminhtml_Includetaxes_Comment
 {
     function getCommentText()
     {
-        $helper = Mage::helper('mailchimp');
+        $helper = hcg_mc_h();
         return $helper->__(
             'Send product price including tax if '
         )
