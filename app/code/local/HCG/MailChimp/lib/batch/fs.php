@@ -1,6 +1,17 @@
 <?php
 /**
  * 2024-04-20 "Refactor `DS . 'mailchimp'`": https://github.com/thehcginstitute-com/m1/issues/569
+ * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController::downloadresponseAction()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Batches::_getResults()
+ */
+function hcg_mc_batch_delete(string $id):void {
+	if (hcg_mc_batches_new()->batchDirExists($id)) {
+		hcg_mc_batches_new()->removeBatchDir($id);
+	}
+}
+
+/**
+ * 2024-04-20 "Refactor `DS . 'mailchimp'`": https://github.com/thehcginstitute-com/m1/issues/569
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::_unpackBatchFile()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::batchDirExists()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::getBatchResponse()
