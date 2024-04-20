@@ -46,7 +46,7 @@ function df_cc_n(...$a) {return df_ccc("\n", ...$a);}
  * @used-by df_js_x()
  * @used-by df_product_image_path2abs()
  * @used-by df_replace_store_code_in_url()
- * @used-by hcg_mc_batches_dir() (https://github.com/thehcginstitute-com/m1/issues/569)
+ * @used-by hcg_mc_batches_path() (https://github.com/thehcginstitute-com/m1/issues/569)
  * @param string|string[] $a
  * @return string
  */

@@ -189,7 +189,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @param $batchId
 	 */
 	function batchDirExists($baseDir, $batchId):bool {return $this->getMailchimpFileHelper()->fileExists(
-		hcg_mc_batches_dir() . DS . $batchId, false
+		hcg_mc_batches_path() . DS . $batchId, false
 	);}
 
 	/**
@@ -621,7 +621,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 				if (isset($response['status']) && $response['status'] == 'finished') {
 					// get the tar.gz file with the results
 					$fileUrl = urldecode($response['response_body_url']);
-					$fileName = hcg_mc_batches_dir() . DS . $batchId . '.tar.gz';
+					$fileName = hcg_mc_batches_path() . DS . $batchId . '.tar.gz';
 					$fd = fopen($fileName, 'w');
 
 					$curlOptions = array(
@@ -635,7 +635,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 					$curlResult = $curlHelper->curlExec($fileUrl, Zend_Http_Client::GET, $curlOptions);
 
 					fclose($fd);
-					$fileHelper->mkDir(hcg_mc_batches_dir() . DS . $batchId, 0750, true);
+					$fileHelper->mkDir(hcg_mc_batches_path() . DS . $batchId, 0750, true);
 					$archive = new Mage_Archive();
 
 					if ($fileHelper->fileExists($fileName)) {
@@ -668,7 +668,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	 */
 	protected function _unpackBatchFile($files, $batchId, $archive, $fileName, $baseDir)
 	{
-		$path = hcg_mc_batches_dir() . DS . $batchId;
+		$path = hcg_mc_batches_path() . DS . $batchId;
 		$archive->unpack($fileName, $path);
 		$archive->unpack($path . DS . $batchId . '.tar', $path);
 		$fileHelper = $this->getMailchimpFileHelper();
@@ -697,7 +697,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 		$helper = $this->getHelper();
 		$helper->resetCountersDataSentToMailchimp();
 		$fileHelper = $this->getMailchimpFileHelper();
-		$fileHelper->open(['path '=> hcg_mc_batches_dir()]);
+		$fileHelper->open(['path '=> hcg_mc_batches_path()]);
 		foreach ($files as $file) {
 			$fileContent = $fileHelper->read($file);
 			$items = json_decode($fileContent, true);
