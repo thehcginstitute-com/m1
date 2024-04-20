@@ -185,9 +185,11 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * @param $baseDir
+	 * 2024-04-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `DS . 'mailchimp'`": https://github.com/thehcginstitute-com/m1/issues/569
+	 * @used-by self::downloadresponseAction()
 	 */
-	function batchDirExists($baseDir, string $batchId):bool {return $this->getMailchimpFileHelper()->fileExists(
+	function batchDirExists(string $batchId):bool {return $this->getMailchimpFileHelper()->fileExists(
 		hcg_mc_batches_path($batchId), false
 	);}
 

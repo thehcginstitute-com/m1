@@ -78,7 +78,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController extends Mage_Admin
 
 				$baseDir = $apiBatches->getMagentoBaseDir();
 
-				if ($apiBatches->batchDirExists($baseDir, $batchId)) {
+				if ($apiBatches->batchDirExists($batchId)) {
 					$apiBatches->removeBatchDir($baseDir, $batchId);
 				}
 			} while (!count($fileContent) && $counter < self::MAX_RETRIES);
