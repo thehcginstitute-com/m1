@@ -194,15 +194,9 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	);}
 
 	/**
-	 * @param $baseDir
-	 * @param $batchId
-	 * @return bool
+	 * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController::downloadresponseAction()
 	 */
-	function removeBatchDir($baseDir, $batchId)
-	{
-		return $this->getMailchimpFileHelper()
-			->rmDir($baseDir . DS . 'var' . DS . 'mailchimp' . DS . $batchId);
-	}
+	function removeBatchDir(string $batchId):void {$this->getMailchimpFileHelper()->rmDir(hcg_mc_batches_path($batchId));}
 
 	/**
 	 * Get Results and send Ecommerce Batches.
