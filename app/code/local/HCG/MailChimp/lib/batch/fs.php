@@ -1,5 +1,4 @@
 <?php
-use Ebizmarts_MailChimp_Model_Api_Batches as B;
 /**
  * 2024-04-20 "Refactor `DS . 'mailchimp'`": https://github.com/thehcginstitute-com/m1/issues/569
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::_unpackBatchFile()
