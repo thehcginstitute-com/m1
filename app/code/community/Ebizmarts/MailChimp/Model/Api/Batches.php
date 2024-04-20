@@ -186,10 +186,9 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 
 	/**
 	 * @param $baseDir
-	 * @param $batchId
 	 */
-	function batchDirExists($baseDir, $batchId):bool {return $this->getMailchimpFileHelper()->fileExists(
-		hcg_mc_batches_path() . DS . $batchId, false
+	function batchDirExists($baseDir, string $batchId):bool {return $this->getMailchimpFileHelper()->fileExists(
+		hcg_mc_batches_path($batchId), false
 	);}
 
 	/**
