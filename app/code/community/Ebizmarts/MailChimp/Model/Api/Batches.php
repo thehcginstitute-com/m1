@@ -194,6 +194,8 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	);}
 
 	/**
+	 * 2024-04-20 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `DS . 'mailchimp'`": https://github.com/thehcginstitute-com/m1/issues/569
 	 * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController::downloadresponseAction()
 	 */
 	function removeBatchDir(string $batchId):void {$this->getMailchimpFileHelper()->rmDir(hcg_mc_batches_path($batchId));}
