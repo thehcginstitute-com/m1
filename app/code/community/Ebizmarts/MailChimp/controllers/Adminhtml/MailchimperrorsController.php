@@ -1,16 +1,5 @@
 <?php
-
-/**
- * mc-magento Magento Component
- *
- * @category  Ebizmarts
- * @package   mc-magento
- * @author    Ebizmarts Team <info@ebizmarts.com>
- * @copyright Ebizmarts (http://ebizmarts.com)
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @date:     6/10/16 12:35 PM
- * @file:     MailchimperrorsController.php
- */
+use Ebizmarts_MailChimp_Model_Api_Batches as B;
 class Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController extends Mage_Adminhtml_Controller_Action
 {
 	const MAX_RETRIES = 5;
@@ -110,12 +99,8 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController extends Mage_Admin
 	}
 
 	/**
-	 * @return Ebizmarts_MailChimp_Model_Api_Batches
 	 */
-	protected function getApiBatches()
-	{
-		return Mage::getModel('mailchimp/api_batches');
-	}
+	protected function getApiBatches():B {return hcg_mc_batches_new();}
 
 	/**
 	 * @param string $file
