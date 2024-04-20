@@ -8,7 +8,7 @@ use Ebizmarts_MailChimp_Model_Api_Batches as B;
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
  * @used-by app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-install-0.0.1.php
  */
-function hcg_mc_batches_path():string {return df_cc_path(Mage::getBaseDir('var'), 'mailchimp');}
+function hcg_mc_batches_path(string $p = ''):string {return df_cc_path(Mage::getBaseDir('var'), 'mailchimp', $p);}
 
 /**
  * 2024-04-14
