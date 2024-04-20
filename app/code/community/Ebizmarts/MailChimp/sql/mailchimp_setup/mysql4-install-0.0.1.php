@@ -35,7 +35,7 @@ try {
      * @var $fileHelper Ebizmarts_MailChimp_Helper_File
      */
     $fileHelper = Mage::helper('mailchimp/file');
-    $fileHelper->mkDir($baseDir . DS . 'var' . DS . 'mailchimp');
+    $fileHelper->mkDir(hcg_mc_batches_dir());
 } catch (Exception $e) {
     Mage::log($e->getMessage(), null, 'MailChimp_Errors.log', true);
 }
