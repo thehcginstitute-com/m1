@@ -258,7 +258,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 			if (1 > $limit) {
 				break;
 			}
-			list($batchResponse, $limit) = $this->sendStoreSubscriberBatch($sid, $limit);
+			$limit = $this->sendStoreSubscriberBatch($sid, $limit);
 		}
 		$this->_getResults(0, false);
 		if (0 < $limit) {
