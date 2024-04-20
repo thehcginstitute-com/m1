@@ -668,7 +668,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	 */
 	protected function _unpackBatchFile($files, $batchId, $archive, $fileName, $baseDir)
 	{
-		$path = $baseDir . DS . 'var' . DS . 'mailchimp' . DS . $batchId;
+		$path = hcg_mc_batches_dir() . DS . $batchId;
 		$archive->unpack($fileName, $path);
 		$archive->unpack($path . DS . $batchId . '.tar', $path);
 		$fileHelper = $this->getMailchimpFileHelper();
