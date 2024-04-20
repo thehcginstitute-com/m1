@@ -291,8 +291,8 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 					$this->_saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId);
 					$baseDir = $this->getMagentoBaseDir();
 
-					if ($this->batchDirExists($baseDir, $batchId)) {
-						$this->removeBatchDir($baseDir, $batchId);
+					if ($this->batchDirExists($batchId)) {
+						$this->removeBatchDir($batchId);
 					}
 				} catch (Exception $e) {
 					Mage::log("Error with a response: " . $e->getMessage());
