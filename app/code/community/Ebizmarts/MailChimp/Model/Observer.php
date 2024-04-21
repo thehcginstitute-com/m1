@@ -381,7 +381,7 @@ class Ebizmarts_MailChimp_Model_Observer
     {
         $customerId = $observer->getEvent()->getCustomerAddress()->getCustomerId();
         $customer = $this->getCustomerModel()->load($customerId);
-        $storeId = $customer->getStoreId();
+        $storeId = $customer->getStoreId(); /** @var int $storeId */
         $helper = $this->makeHelper();
 
         if ($helper->isSubscriptionEnabled($storeId)) {
@@ -392,7 +392,7 @@ class Ebizmarts_MailChimp_Model_Observer
         if ($helper->isEcomSyncDataEnabled($storeId)) {
             //update mailchimp ecommerce data for that customer
             $apiCustomer = $this->makeApiCustomer();
-            $apiCustomer->setMailchimpStoreId($helper->getMCStoreId($storeId));
+            $apiCustomer->setMailchimpStoreId(hcg_mc_sid($storeId));
             $apiCustomer->setMagentoStoreId($storeId);
             $apiCustomer->update($customerId);
         }
