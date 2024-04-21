@@ -587,8 +587,8 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 		try {
 			$baseDir = $this->getMagentoBaseDir();
 			$api = $helper->getApi($magentoStoreId);
-			if ($fileHelper->isDir($baseDir.DS.'var'.DS.'mailchimp') == false) {
-				$fileHelper->mkDir($baseDir.DS.'var'.DS.'mailchimp');
+			if ($fileHelper->isDir(hcg_mc_batches_path()) == false) {
+				$fileHelper->mkDir(hcg_mc_batches_path());
 			}
 			if ($api) {
 				// check the status of the job
