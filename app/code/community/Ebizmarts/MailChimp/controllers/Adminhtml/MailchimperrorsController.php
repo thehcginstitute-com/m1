@@ -25,7 +25,6 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController extends Mage_Admin
 		$helper = $this->makeHelper();
 		$errorId = $this->getRequest()->getParam('id');
 		$error = $this->getMailchimperrorsModel()->load($errorId);
-		$apiBatches = hcg_mc_batches_new(); /** @var B $apiBatches */
 		$batchId = $error->getBatchId();
 		$storeId = $error->getStoreId();
 		$mailchimpStoreId = $error->getMailchimpStoreId();
