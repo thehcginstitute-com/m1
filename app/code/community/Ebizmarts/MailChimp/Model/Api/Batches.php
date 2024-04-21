@@ -975,6 +975,11 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	private function getApiStores() {return Mage::getModel('mailchimp/api_stores');}
 
 	/**
+	 * @return Ebizmarts_MailChimp_Helper_Curl
+	 */
+	private function getMailchimpCurlHelper() {return Mage::helper('mailchimp/curl'); }
+
+	/**
 	 * @return Ebizmarts_MailChimp_Helper_File
 	 */
 	private function getMailchimpFileHelper()
@@ -1040,11 +1045,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		}
 		return $limit;
 	}
-
-	/**
-	 * @return Ebizmarts_MailChimp_Helper_Curl
-	 */
-	private function getMailchimpCurlHelper() {return Mage::helper('mailchimp/curl'); }
 
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Date
