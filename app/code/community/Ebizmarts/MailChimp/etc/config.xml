@@ -182,15 +182,9 @@
             </core>
         </models>
         <resources>
-            <mailchimp_setup>
-                <setup>
-                    <module>Ebizmarts_MailChimp</module>
-                    <class>Mage_Eav_Model_Entity_Setup</class>
-                </setup>
-                <connection>
-                    <use>core_setup</use>
-                </connection>
-            </mailchimp_setup>
+<!-- 2024-04-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the already executed migration code from `Ebizmarts_MailChimp`":
+https://github.com/thehcginstitute-com/m1/issues/573 -->
             <mailchimp_write>
                 <connection>
                     <use>core_write</use>
