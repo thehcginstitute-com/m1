@@ -666,26 +666,26 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @throws Mage_Core_Exception
 	 */
 	private function handleSyncingValue($syncedDateArray):void {
-		$helper = hcg_mc_h();
+		$h = hcg_mc_h();
 		foreach ($syncedDateArray as $mailchimpStoreId => $val) {
 			$magentoStoreId = key($val);
 			$date = $val[$magentoStoreId];
-			$ecomEnabled = $helper->isEcomSyncDataEnabled($magentoStoreId);
+			$ecomEnabled = $h->isEcomSyncDataEnabled($magentoStoreId);
 			if ($ecomEnabled && $date) {
 				try {
-					$api = $helper->getApi($magentoStoreId);
-					$isSyncingDate = $helper->getDateSyncFinishByMailChimpStoreId($mailchimpStoreId);
+					$api = $h->getApi($magentoStoreId);
+					$isSyncingDate = $h->getDateSyncFinishByMailChimpStoreId($mailchimpStoreId);
 					if (!$isSyncingDate && $mailchimpStoreId) {
 						$apiStores = new Ebizmarts_MailChimp_Model_Api_Stores;
 						$apiStores->editIsSyncing($api, false, $mailchimpStoreId);
 						hcg_mc_cfg_save(Cfg::ECOMMERCE_SYNC_DATE . "_$mailchimpStoreId", $date);
 					}
 				} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-					$helper->logError($e->getMessage());
+					$h->logError($e->getMessage());
 				} catch (MailChimp_Error $e) {
-					$helper->logError($e->getFriendlyMessage());
+					$h->logError($e->getFriendlyMessage());
 				} catch (Exception $e) {
-					$helper->logError($e->getMessage());
+					$h->logError($e->getMessage());
 				}
 			}
 		}
