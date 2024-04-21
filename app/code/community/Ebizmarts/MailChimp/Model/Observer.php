@@ -377,18 +377,15 @@ class Ebizmarts_MailChimp_Model_Observer
         return $observer;
     }
 
-    function customerAddressSaveBefore(Varien_Event_Observer $observer)
-    {
+    function customerAddressSaveBefore(Varien_Event_Observer $observer) {
         $customerId = $observer->getEvent()->getCustomerAddress()->getCustomerId();
         $customer = $this->getCustomerModel()->load($customerId);
         $storeId = $customer->getStoreId(); /** @var int $storeId */
         $helper = $this->makeHelper();
-
         if ($helper->isSubscriptionEnabled($storeId)) {
             //update subscriber data if a subscriber with the same email address exists
             $this->makeApiSubscriber()->update($customer->getEmail());
         }
-
         if ($helper->isEcomSyncDataEnabled($storeId)) {
             //update mailchimp ecommerce data for that customer
             $apiCustomer = $this->makeApiCustomer();
