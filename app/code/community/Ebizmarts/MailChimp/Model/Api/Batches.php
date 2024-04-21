@@ -559,19 +559,20 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	;}
 
 	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::sendStoreSubscriberBatch()
 	 * @param $batchId
 	 * @param $storeId
 	 * @throws Mage_Core_Exception
 	 */
-	private function _showResumeSubscriber($batchId, $storeId)
-	{
+	private function _showResumeSubscriber($batchId, $storeId):void	{
 		$helper = hcg_mc_h();
 		$countersSubscribers = $helper->getCountersSubscribers();
-
 		if (!empty($countersSubscribers) || $helper->getCountersSubscribers() != null) {
 			$helper->logBatchStatus("Sent batch $batchId for Magento store $storeId");
 			$helper->logBatchQuantity($helper->getCountersSubscribers());
-		} else {
+		}
+		else {
 			$helper->logBatchStatus("Nothing to sync for store $storeId");
 		}
 	}
