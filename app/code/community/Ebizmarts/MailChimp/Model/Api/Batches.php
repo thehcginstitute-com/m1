@@ -332,6 +332,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * @used-by self::getBatchResponse()
 	 * @param $files
 	 * @param $batchId
 	 * @param $archive Mage_Archive
