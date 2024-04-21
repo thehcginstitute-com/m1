@@ -1828,19 +1828,15 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 	/**
 	 * Retrieve store data and save the MCJs URL for the current store in config table.
-	 *
-	 * @param           $scopeId
 	 * @param string    $scope
 	 * @return bool
 	 * @throws Mage_Core_Exception
 	 */
-	function retrieveAndSaveMCJsUrlInConfig($scopeId, $scope = 'stores')
-	{
+	function retrieveAndSaveMCJsUrlInConfig(int $scopeId, $scope = 'stores') {
 		$mcJsUrlSaved = false;
-
 		try {
 			$api = $this->getApi($scopeId, $scope);
-			$mailchimpStoreId = $this->getMCStoreId($scopeId, $scope);
+			$mailchimpStoreId = hcg_mc_sid($scopeId);
 			$response = $api->getEcommerce()->getStores()->get($mailchimpStoreId, 'connected_site');
 
 			if (isset($response['connected_site']['site_script']['url'])) {
