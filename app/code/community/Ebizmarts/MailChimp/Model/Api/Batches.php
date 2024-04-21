@@ -14,9 +14,8 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @param $mailchimpStoreId
 	 * @param $id
 	 * @param $response
-	 * @return string
 	 */
-	function _getError($type, $mailchimpStoreId, $id, $response) {
+	function _getError($type, $mailchimpStoreId, $id, $response):string {
 		$error = $response['title'] . " : " . $response['detail'];
 		if ($type == Ebizmarts_MailChimp_Model_Config::IS_PRODUCT) {
 			$dataProduct = $this->getDataProduct($mailchimpStoreId, $id, $type);
