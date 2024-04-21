@@ -1052,16 +1052,12 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	/**
 	 * Set the correspondent MailChimp store id to each error.
 	 */
-	function handleOldErrors()
-	{
+	function handleOldErrors() {
 		$errorCollection = Mage::getModel('mailchimp/mailchimperrors')->getCollection()
 			->addFieldToFilter('type', array('neq' => 'SUB'))
 			->addFieldToFilter('mailchimp_store_id', array('eq' => ''));
-
 		foreach ($errorCollection as $error) {
-			$storeId = $error->getStoreId();
-			$mailchimpStoreId = $this->getMCStoreId($storeId);
-
+			$mailchimpStoreId = hcg_mc_sid($error->getStoreId());
 			if ($mailchimpStoreId) {
 				$this->_saveErrorItem($error, $mailchimpStoreId);
 			}
