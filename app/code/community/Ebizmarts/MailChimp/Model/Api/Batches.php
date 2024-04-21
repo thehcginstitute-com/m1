@@ -64,30 +64,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * @param $item
-	 * @param $files
-	 * @param $batchId
-	 * @param $mailchimpStoreId
-	 * @param $magentoStoreId
-	 * @throws Mage_Core_Exception
-	 */
-	private function _saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId):void {
-		$helper = hcg_mc_h();
-		if (!empty($files)) {
-			if (isset($files['error'])) {
-				$item->setStatus('error');
-				$item->save();
-				$helper->logBatchStatus('There was an error getting the result ');
-			}
-			else {
-				$this->processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId);
-				$item->setStatus('completed');
-				$item->save();
-			}
-		}
-	}
-
-	/**
 	 * Send Customers, Products, Orders, Carts to MailChimp store for given scope.
 	 * Return true if MailChimp store is reset in the process.
 	 *
@@ -929,6 +905,30 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 			}
 		} else {
 			$helper->logBatchStatus("Nothing was processed for store $storeId");
+		}
+	}
+
+	/**
+	 * @param $item
+	 * @param $files
+	 * @param $batchId
+	 * @param $mailchimpStoreId
+	 * @param $magentoStoreId
+	 * @throws Mage_Core_Exception
+	 */
+	private function _saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId):void {
+		$helper = hcg_mc_h();
+		if (!empty($files)) {
+			if (isset($files['error'])) {
+				$item->setStatus('error');
+				$item->save();
+				$helper->logBatchStatus('There was an error getting the result ');
+			}
+			else {
+				$this->processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId);
+				$item->setStatus('completed');
+				$item->save();
+			}
 		}
 	}
 
