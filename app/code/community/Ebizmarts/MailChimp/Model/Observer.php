@@ -965,17 +965,15 @@ class Ebizmarts_MailChimp_Model_Observer
     /**
      * @param $order
      */
-    protected function handleOrderUpdate($order)
-    {
-        $storeId = Mage::app()->getStore()->getStoreId();
-
+    protected function handleOrderUpdate($order) {
+        $storeId = Mage::app()->getStore()->getStoreId(); /** @var int $storeId */
         if ($storeId == 0) {
             $this->handleAdminOrderUpdate($order);
-        } else {
-            $helper = $this->makeHelper();
+        }
+		else {
             $apiOrder =  $this->makeApiOrder();
             $apiOrder->setMagentoStoreId($storeId);
-            $apiOrder->setMailchimpStoreId($helper->getMCStoreId($storeId));
+            $apiOrder->setMailchimpStoreId(hcg_mc_sid($storeId));
             $apiOrder->update($order->getId(), $storeId);
         }
     }
