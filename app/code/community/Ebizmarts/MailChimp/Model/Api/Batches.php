@@ -11,8 +11,8 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * 2024-04-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Batches::getBatchResponse()`":
 	 * https://github.com/thehcginstitute-com/m1/issues/571
+	 * @used-by self::_getResults()
 	 * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController::downloadresponseAction()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::_getResults()
 	 * @param $batchId
 	 * @param $magentoStoreId
 	 */
