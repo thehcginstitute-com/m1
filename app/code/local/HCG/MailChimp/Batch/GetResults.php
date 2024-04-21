@@ -7,12 +7,12 @@ final class GetResults {
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::handleEcommerceBatches()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::handleSubscriberBatches()
+	 * @used-by Subscriber::p()
 	 * @param $magentoStoreId
 	 * @throws \Mage_Core_Exception
 	 */
 	static function p(
-		Sb $sb, $magentoStoreId, bool $isEcommerceData = true, $status = \Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING
+		$magentoStoreId, bool $isEcommerceData = true, $status = \Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING
 	) {
 		$h = hcg_mc_h();
 		$mailchimpStoreId = $h->getMCStoreId($magentoStoreId);
