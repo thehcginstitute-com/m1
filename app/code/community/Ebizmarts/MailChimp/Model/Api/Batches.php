@@ -598,7 +598,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 				if (isset($response['status']) && $response['status'] == 'finished') {
 					// get the tar.gz file with the results
 					$fileUrl = urldecode($response['response_body_url']);
-					$fileName = hcg_mc_batches_path() . DS . $batchId . '.tar.gz';
+					$fileName = hcg_mc_batches_path($batchId) . '.tar.gz';
 					$fd = fopen($fileName, 'w');
 
 					$curlOptions = array(
