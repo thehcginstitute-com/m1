@@ -302,7 +302,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 */
 	function _sendEcommerceBatch($magentoStoreId)
 	{
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$mailchimpStoreId = $helper->getMCStoreId($magentoStoreId);
 
 		try {
