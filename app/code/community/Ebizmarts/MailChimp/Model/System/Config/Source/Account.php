@@ -26,11 +26,6 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Account
      */
     protected $_helper;
 
-    /**
-     * @var Ebizmarts_MailChimp_Helper_Migration
-     */
-    protected $_migrationHelper;
-
     const USERNAME_KEY = 0;
     const TOTAL_ACCOUNT_SUB_KEY = 1;
     const TOTAL_LIST_SUB_KEY = 2;
@@ -61,7 +56,6 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Account
     {
         $mcStore = null;
         $helper = $this->_helper = $this->makeHelper();
-        $migrationHelper = $this->_migrationHelper = $this->makeMigrationHelper();
         $scopeArray = $helper->getCurrentScope();
         $apiKey = (empty($params))
             ? $helper->getApiKey($scopeArray['scope_id'], $scopeArray['scope'])
@@ -144,7 +138,6 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Account
     function toOptionArray()
     {
         $helper = $this->_helper;
-        $migrationHelper = $this->_migrationHelper;
         $scopeArray = $helper->getCurrentScope();
         if (is_array($this->_accountDetails)) {
             $totalAccountSubscribersText = $helper->__('Total Account Subscribers:');
@@ -214,22 +207,6 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Account
                     )
                 );
             }
-
-            if (!$migrationHelper->migrationFinished()
-                && $helper->isEcommerceEnabled($scopeArray['scope_id'], $scopeArray['scope'])
-            ) {
-                $storeMigrationText = $helper->__(
-                    'The store data is currently being migrated to the new version. This process '
-                    . 'might take a while depending on the amount of data in Magento.'
-                );
-                $returnArray = array_merge(
-                    $returnArray,
-                    array(
-                        array('value' => self::STORE_MIGRATION_TEXT_KEY, 'label' => $storeMigrationText)
-                    )
-                );
-            }
-
             return $returnArray;
         } elseif (!$this->_accountDetails) {
             return array(array('value' => '', 'label' => $helper->__('--- Enter your API KEY first ---')));

@@ -32,7 +32,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Fieldset_Mailchimp_Hint
     {
         return (string)Mage::getConfig()->getNode('modules/Ebizmarts_MailChimp/version');
     }
-	
+
     /**
      * @return Mage_Core_Block_Abstract
      */
@@ -90,12 +90,4 @@ class Ebizmarts_MailChimp_Block_Adminhtml_System_Config_Fieldset_Mailchimp_Hint
      * @return Ebizmarts_MailChimp_Helper_Data
      */
     protected function makeHelper() {return hcg_mc_h();}
-
-    /**
-     * @return Ebizmarts_MailChimp_Helper_Migration
-     */
-    protected function makeMigrationHelper()
-    {
-        return Mage::helper('mailchimp/migration');
-    }
 }
