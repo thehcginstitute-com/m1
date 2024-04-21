@@ -1071,7 +1071,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 */
 	protected function _showResumeDataSentToMailchimp($storeId)
 	{
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$countersDataSentToMailchimp = $helper->getCountersDataSentToMailchimp();
 
 		if (!empty($countersDataSentToMailchimp) || $helper->getCountersDataSentToMailchimp() != null) {
