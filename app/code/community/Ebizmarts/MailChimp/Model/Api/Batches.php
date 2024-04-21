@@ -433,8 +433,8 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @throws Mage_Core_Exception
 	 */
 	private function processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId):void {
-		$helper = hcg_mc_h();
-		$helper->resetCountersDataSentToMailchimp();
+		$h = hcg_mc_h();
+		$h->resetCountersDataSentToMailchimp();
 		$fileHelper = hcg_mc_h_file();
 		$fileHelper->open(['path '=> hcg_mc_batches_path()]);
 		foreach ($files as $file) {
@@ -467,7 +467,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 								1,
 								true
 							);
-							$helper->modifyCounterDataSentToMailchimp($type);
+							$h->modifyCounterDataSentToMailchimp($type);
 						}
 						else {
 							SaveSyncData::p(
@@ -499,14 +499,14 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @return mixed
 	 */
 	private function addSyncValueToArray($storeId, $syncedDateArray) {
-		$helper = hcg_mc_h();
-		$ecomEnabled = $helper->isEcomSyncDataEnabled($storeId);
+		$h = hcg_mc_h();
+		$ecomEnabled = $h->isEcomSyncDataEnabled($storeId);
 		if ($ecomEnabled) {
-			$mailchimpStoreId = $helper->getMCStoreId($storeId);
-			$syncedDate = $helper->getMCIsSyncing($mailchimpStoreId, $storeId);
+			$mailchimpStoreId = $h->getMCStoreId($storeId);
+			$syncedDate = $h->getMCIsSyncing($mailchimpStoreId, $storeId);
 			// Check if $syncedDate is in date format to support previous versions.
 			if (isset($syncedDateArray[$mailchimpStoreId]) && $syncedDateArray[$mailchimpStoreId]) {
-				if ($helper->validateDate($syncedDate)) {
+				if ($h->validateDate($syncedDate)) {
 					if ($syncedDate > $syncedDateArray[$mailchimpStoreId]) {
 						$syncedDateArray[$mailchimpStoreId] = array($storeId => $syncedDate);
 					}
@@ -515,7 +515,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 				}
 			}
 			else {
-				if ($helper->validateDate($syncedDate)) {
+				if ($h->validateDate($syncedDate)) {
 					$syncedDateArray[$mailchimpStoreId] = array($storeId => $syncedDate);
 				}
 				else {
@@ -536,10 +536,10 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @used-by self::_updateSyncingFlag()
 	 * @param $syncingFlag
 	 * @param $itemAmount
-	 * @param $helper
+	 * @param $h
 	 */
-	private function shouldFlagAsSyncing($syncingFlag, $itemAmount, $helper):bool {return
-		$syncingFlag === null && $itemAmount !== 0 || $helper->validateDate($syncingFlag)
+	private function shouldFlagAsSyncing($syncingFlag, $itemAmount, $h):bool {return
+		$syncingFlag === null && $itemAmount !== 0 || $h->validateDate($syncingFlag)
 	;}
 
 	/**
