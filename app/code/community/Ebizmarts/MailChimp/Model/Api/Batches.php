@@ -4,7 +4,7 @@
 use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use HCG\MailChimp\Model\Api\Batches as Plugin;
-class Ebizmarts_MailChimp_Model_Api_Batches {
+final class Ebizmarts_MailChimp_Model_Api_Batches {
 	const SEND_PROMO_ENABLED = 1;
 
 	/**
