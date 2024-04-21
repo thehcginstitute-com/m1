@@ -10,20 +10,18 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
 	 * Get Results and send Ecommerce Batches.
 	 */
-	function handleEcommerceBatches()
-	{
+	function handleEcommerceBatches() {
 		$helper = hcg_mc_h();
 		$stores = Mage::app()->getStores();
 		$helper->handleResendDataBefore();
-
 		foreach ($stores as $store) {
 			$storeId = $store->getId();
-
 			if ($helper->isEcomSyncDataEnabled($storeId)) {
 				if ($helper->ping($storeId)) {
 					$this->_getResults($storeId);
 					$this->_sendEcommerceBatch($storeId);
-				} else {
+				}
+				else {
 					$helper->logError(
 						"Could not connect to MailChimp: Make sure the API Key is correct "
 						. "and there is an internet connection"
@@ -32,15 +30,12 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 				}
 			}
 		}
-
 		$helper->handleResendDataAfter();
-		$syncedDateArray = array();
-
+		$syncedDateArray = [];
 		foreach ($stores as $store) {
 			$storeId = $store->getId();
 			$syncedDateArray = $this->addSyncValueToArray($storeId, $syncedDateArray);
 		}
-
 		$this->handleSyncingValue($syncedDateArray);
 	}
 
