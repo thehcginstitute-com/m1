@@ -1803,34 +1803,26 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 	/**
 	 * Return html code for adding the MailChimp javascript.
-	 *
 	 * @return string
 	 * @throws Mage_Core_Exception
 	 * @throws Mage_Core_Model_Store_Exception
 	 */
-	function getMCJs()
-	{
+	function getMCJs() {
 		$script = '';
-		$url = null;
-		$storeId = $this->getMageApp()->getStore()->getId(); /** @var int $storeId */
-		$mailchimpStoreId = hcg_mc_sid($storeId);
-
-		if ($this->isEcomSyncDataEnabled($storeId)) {
+		if ($this->isEcomSyncDataEnabled($this->getMageApp()->getStore()->getId())) { /** @var int $storeId */
 			$currentUrl = $this->getConfigValueForScope(
-				Ebizmarts_MailChimp_Model_Config::ECOMMERCE_MC_JS_URL . "_$mailchimpStoreId",
+				Ebizmarts_MailChimp_Model_Config::ECOMMERCE_MC_JS_URL . "_" . hcg_mc_sid(),
 				0,
 				'default'
 			);
-
 			if (!empty($currentUrl)) {
 				$url = $currentUrl;
-			} else {
+			}
+			else {
 				$url = $this->retrieveAndSaveMCJsUrlInConfig($storeId);
 			}
-
 			$script = '<script type="text/javascript" src="' . $url . '" defer></script>';
 		}
-
 		return $script;
 	}
 
