@@ -7,12 +7,6 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use HCG\MailChimp\Model\Api\Batches as Plugin;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
-	function ecommerceDeleteCallback($args):void {
-		$ecommerceData = Mage::getModel('mailchimp/ecommercesyncdata');
-		$ecommerceData->setData($args['row']);
-		$ecommerceData->delete();
-	}
-
 	/**
 	 * 2024-04-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Batches::getBatchResponse()`":
