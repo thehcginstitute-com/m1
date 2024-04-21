@@ -585,7 +585,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	function getBatchResponse($batchId, $magentoStoreId):array {
 		$helper = $this->getHelper();
 		$fileHelper = $this->getMailchimpFileHelper();
-		$files = array();
+		$r = []; /** @var array $r */
 		try {
 			$baseDir = $this->getMagentoBaseDir();
 			$api = $helper->getApi($magentoStoreId);
@@ -612,25 +612,25 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 					$fileHelper->mkDir(hcg_mc_batches_path($batchId), 0750, true);
 					$archive = new Mage_Archive();
 					if ($fileHelper->fileExists($fileName)) {
-						$files = $this->_unpackBatchFile($files, $batchId, $archive, $fileName, $baseDir);
+						$r = $this->_unpackBatchFile($r, $batchId, $archive, $fileName, $baseDir);
 					}
 				}
 			}
 		}
 		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 			$helper->logError($e->getMessage());
-			$files['error'] = $e->getMessage();
+			$r['error'] = $e->getMessage();
 		}
 		catch (MailChimp_Error $e) {
 			$this->deleteBatchItems($batchId);
-			$files['error'] = $e->getFriendlyMessage();
+			$r['error'] = $e->getFriendlyMessage();
 			$helper->logError($e->getFriendlyMessage());
 		}
 		catch (Exception $e) {
-			$files['error'] = $e->getMessage();
+			$r['error'] = $e->getMessage();
 			$helper->logError($e->getMessage());
 		}
-		return $files;
+		return $r;
 	}
 
 	/**
