@@ -2,118 +2,8 @@
 # 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 # 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
-	/**
-	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by HCG\MailChimp\Batch\Commerce::p()
-	 * @param $magentoStoreId
-	 * @throws Mage_Core_Exception
-	 */
-	function _sendEcommerceBatch($magentoStoreId):void {
-		$h = hcg_mc_h();
-		$mailchimpStoreId = $h->getMCStoreId($magentoStoreId);
-		try {
-			$this->deleteUnsentItems();
-
-			if ($h->isEcomSyncDataEnabled($magentoStoreId)) {
-				$h->resetCountersSentPerBatch();
-				$batchArray = array();
-				//customer operations
-				$h->logBatchStatus('Generate Customers Payload');
-				/** @var Ebizmarts_MailChimp_Model_Api_Customers $apiCustomers */
-				$apiCustomers = new Ebizmarts_MailChimp_Model_Api_Customers;
-				$apiCustomers->setMailchimpStoreId($mailchimpStoreId);
-				$apiCustomers->setMagentoStoreId($magentoStoreId);
-
-				$customersArray = $apiCustomers->createBatchJson();
-				$batchArray['operations'] = $customersArray;
-
-				//product operations
-				$h->logBatchStatus('Generate Products Payload');
-
-				/** @var Ebizmarts_MailChimp_Model_Api_Products $apiProducts */
-				$apiProducts = new Ebizmarts_MailChimp_Model_Api_Products;
-				$apiProducts->setMailchimpStoreId($mailchimpStoreId);
-				$apiProducts->setMagentoStoreId($magentoStoreId);
-
-				$productsArray = $apiProducts->createBatchJson();
-				$batchArray['operations'] = array_merge($batchArray['operations'], $productsArray);
-
-				if ($h->getMCIsSyncing($mailchimpStoreId, $magentoStoreId) === 1) {
-					$h->logBatchStatus('No Carts will be synced until the store is completely synced');
-				} else {
-					//cart operations
-					$h->logBatchStatus('Generate Carts Payload');
-					/** @var Ebizmarts_MailChimp_Model_Api_Carts $apiCarts */
-					$apiCarts = new Ebizmarts_MailChimp_Model_Api_Carts;
-					$apiCarts->setMailchimpStoreId($mailchimpStoreId);
-					$apiCarts->setMagentoStoreId($magentoStoreId);
-					$cartsArray = $apiCarts->createBatchJson();
-					$batchArray['operations'] = array_merge($batchArray['operations'], $cartsArray);
-				}
-				//order operations
-				$h->logBatchStatus('Generate Orders Payload');
-				/** @var Ebizmarts_MailChimp_Model_Api_Orders $apiOrders */
-				$apiOrders = new Ebizmarts_MailChimp_Model_Api_Orders;
-				$apiOrders->setMailchimpStoreId($mailchimpStoreId);
-				$apiOrders->setMagentoStoreId($magentoStoreId);
-				$ordersArray = $apiOrders->createBatchJson();
-				$batchArray['operations'] = array_merge($batchArray['operations'], $ordersArray);
-				if ($h->getPromoConfig($magentoStoreId) == self::SEND_PROMO_ENABLED) {
-					//promo rule operations
-					$h->logBatchStatus('Generate Promo Rules Payload');
-					/** @var Ebizmarts_MailChimp_Model_Api_PromoRules $apiPromoRules */
-					$apiPromoRules = new Ebizmarts_MailChimp_Model_Api_PromoRules;
-					$apiPromoRules->setMailchimpStoreId($mailchimpStoreId);
-					$apiPromoRules->setMagentoStoreId($magentoStoreId);
-
-					$promoRulesArray = $apiPromoRules->createBatchJson();
-					$batchArray['operations'] = array_merge($batchArray['operations'], $promoRulesArray);
-
-					//promo code operations
-					$h->logBatchStatus('Generate Promo Codes Payload');
-					/** @var Ebizmarts_MailChimp_Model_Api_PromoCodes $apiPromoCodes */
-					$apiPromoCodes = new Ebizmarts_MailChimp_Model_Api_PromoCodes;
-					$apiPromoCodes->setMailchimpStoreId($mailchimpStoreId);
-					$apiPromoCodes->setMagentoStoreId($magentoStoreId);
-
-					$promoCodesArray = $apiPromoCodes->createBatchJson();
-					$batchArray['operations'] = array_merge($batchArray['operations'], $promoCodesArray);
-				}
-
-				//deleted product operations
-				$h->logBatchStatus('Generate Deleted Products Payload');
-				$deletedProductsArray = $apiProducts->createDeletedProductsBatchJson();
-				$batchArray['operations'] = array_merge($batchArray['operations'], $deletedProductsArray);
-				$batchJson = null;
-				$batchResponse = null;
-
-				try {
-					$this->_processBatchOperations($batchArray, $mailchimpStoreId, $magentoStoreId);
-					$this->_updateSyncingFlag($mailchimpStoreId, $magentoStoreId);
-				} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-					$h->logError($e->getMessage());
-				} catch (MailChimp_Error $e) {
-					$h->logError($e->getFriendlyMessage());
-
-					if ($batchJson && !isset($batchResponse['id'])) {
-						$h->logRequest($batchJson);
-					}
-				} catch (Exception $e) {
-					$h->logError($e->getMessage());
-					$h->logError("Json encode fails");
-					$h->logError($batchArray);
-				}
-			}
-		} catch (MailChimp_Error $e) {
-			$h->logError($e->getFriendlyMessage());
-		} catch (Exception $e) {
-			$h->logError($e->getMessage());
-		}
-	}
-
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::_sendEcommerceBatch()
@@ -125,7 +15,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @throws MailChimp_Error
 	 * @throws MailChimp_HttpError
 	 */
-	private function _processBatchOperations($batchArray, $mailchimpStoreId, $magentoStoreId):void {
+	function _processBatchOperations($batchArray, $mailchimpStoreId, $magentoStoreId):void {
 		$h = hcg_mc_h();
 		$mailchimpApi = $h->getApi($magentoStoreId);
 		if (!empty($batchArray['operations'])) {
@@ -174,45 +64,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::_sendEcommerceBatch()
-	 * @param $mailchimpStoreId
-	 * @param $magentoStoreId
-	 * @throws Mage_Core_Exception
-	 * @throws Mage_Core_Model_Store_Exception
-	 */
-	private function _updateSyncingFlag($mailchimpStoreId, $magentoStoreId):void {
-		$h = hcg_mc_h();
-		$itemAmount = $h->getTotalNewItemsSent();
-		$syncingFlag = $h->getMCIsSyncing($mailchimpStoreId, $magentoStoreId);
-		if ($this->shouldFlagAsSyncing($syncingFlag, $itemAmount, $h)) {
-			//Set is syncing per scope in 1 until sync finishes.
-			hcg_mc_cfg_save(Cfg::GENERAL_MCISSYNCING . "_$mailchimpStoreId", 1, $magentoStoreId, 'stores');
-		}
-		elseif ($this->shouldFlagAsSynced($syncingFlag, $itemAmount)) {
-			//Set is syncing per scope to a date because it is not sending any more items.
-			hcg_mc_cfg_save(
-				Cfg::GENERAL_MCISSYNCING . "_$mailchimpStoreId"
-				,hcg_mc_h_date()->formatDate(null, 'Y-m-d H:i:s')
-				,$magentoStoreId
-				,'stores'
-			);
-		}
-	}
-
-	/**
-	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::_sendEcommerceBatch()
-	 */
-	private function deleteUnsentItems():void {
-		$resource = hcg_mc_h()->getCoreResource();
-		$connection = $resource->getConnection('core_write');
-		$tableName = $resource->getTableName('mailchimp/ecommercesyncdata');
-		$where = array("batch_id IS NULL AND mailchimp_sync_modified != 1 AND mailchimp_sync_deleted != 1");
-		$connection->delete($tableName, $where);
-	}
-
-	/**
-	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::_processBatchOperations()
 	 */
 	private function markItemsAsSent($batchResponseId, $mailchimpStoreId):void {
@@ -229,27 +80,4 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 			$where
 		);
 	}
-
-	/**
-	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::_updateSyncingFlag()
-	 * @param $syncingFlag
-	 * @param $itemAmount
-	 * @param $h
-	 */
-	private function shouldFlagAsSyncing($syncingFlag, $itemAmount, $h):bool {return
-		$syncingFlag === null && $itemAmount !== 0 || $h->validateDate($syncingFlag)
-	;}
-
-	/**
-	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::_updateSyncingFlag()
-	 * @param $syncingFlag
-	 * @param $itemAmount
-	 */
-	private function shouldFlagAsSynced($syncingFlag, $itemAmount):bool {return
-		($syncingFlag === '1' || $syncingFlag === null) && $itemAmount === 0
-	;}
-
-	const SEND_PROMO_ENABLED = 1;
 }

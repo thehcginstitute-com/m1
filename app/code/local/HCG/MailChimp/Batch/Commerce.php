@@ -18,7 +18,7 @@ final class Commerce {
 			if ($h->isEcomSyncDataEnabled($storeId)) {
 				if ($h->ping($storeId)) {
 					GetResults::p($storeId);
-					hcg_mc_batches_new()->_sendEcommerceBatch($storeId);
+					Commerce\Send::p($storeId);
 				}
 				else {
 					$h->logError(
