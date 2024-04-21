@@ -504,7 +504,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 
 	protected function markItemsAsSent($batchResponseId, $mailchimpStoreId)
 	{
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$dateHelper = $this->getDateHelper();
 
 		$resource = $helper->getCoreResource();
