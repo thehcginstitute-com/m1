@@ -34,12 +34,12 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 					$fileUrl = urldecode($response['response_body_url']);
 					$fileName = hcg_mc_batches_path($batchId) . '.tar.gz';
 					$fd = fopen($fileName, 'w');
-					$curlOptions = array(
+					$curlOptions = [
 						CURLOPT_RETURNTRANSFER => 1,
 						CURLOPT_FILE => $fd,
 						CURLOPT_FOLLOWLOCATION => true, // this will follow redirects
 						CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-					);
+					];
 					$curlHelper = $this->getMailchimpCurlHelper();
 					$curlHelper->curlExec($fileUrl, Zend_Http_Client::GET, $curlOptions);
 					fclose($fd);
