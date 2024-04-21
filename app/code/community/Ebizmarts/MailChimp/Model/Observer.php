@@ -840,16 +840,14 @@ class Ebizmarts_MailChimp_Model_Observer
      * @return Varien_Event_Observer
      * @throws Exception
      */
-    function itemCancel(Varien_Event_Observer $observer)
-    {
+    function itemCancel(Varien_Event_Observer $observer) {
         $item = $observer->getEvent()->getItem();
         $helper = $this->makeHelper();
-        $storeId = $item->getStoreId();
+        $storeId = $item->getStoreId(); /** @var int $storeId */
         $ecomEnabled = $helper->isEcomSyncDataEnabled($storeId);
         $apiProduct = $this->makeApiProduct();
-
         if ($ecomEnabled) {
-            $mailchimpStoreId = $helper->getMCStoreId($storeId);
+            $mailchimpStoreId = hcg_mc_sid($storeId);
             $apiProduct->setMailchimpStoreId($mailchimpStoreId);
             $apiProduct->setMagentoStoreId($storeId);
 
