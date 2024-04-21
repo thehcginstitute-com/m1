@@ -75,6 +75,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_List::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_Store::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_Userinfo::toOptionArray()
+ * @used-by HCG\MailChimp\Batch\HandleErrorItem::p()
  * @used-by app/design/adminhtml/default/default/template/ebizmarts/mailchimp/system/config/fieldset/hint.phtml
  * @used-by app/design/adminhtml/default/default/template/ebizmarts/mandrill/system/config/fieldset/hint.phtml
  */

@@ -34,7 +34,7 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
  * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
  * @used-by Ebizmarts_MailChimp_Model_Observer::productAttributeUpdate()
  * @used-by Ebizmarts_MailChimp_Model_Observer::productSaveAfter()
- * @used-by HCG\MailChimp\Model\Api\Batches::error()
+ * @used-by HCG\MailChimp\Batches::error()
  */
 function hcg_mc_syncd_get(int $id, string $t, string $sid):D {return new D(
 	df_fetch_one(

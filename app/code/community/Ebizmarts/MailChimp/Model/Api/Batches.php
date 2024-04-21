@@ -3,8 +3,9 @@
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 # 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 use Ebizmarts_MailChimp_Model_Config as Cfg;
-use HCG\MailChimp\Model\Api\Batches as Plugin;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
+use HCG\MailChimp\Batch\HandleErrorItem;
+use HCG\MailChimp\Batch\SaveSyncData;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
 	 * 2024-04-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -453,13 +454,13 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 					if ($item['status_code'] != 200) {
 						# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 						# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-						Plugin::handleErrorItem($item, $batchId, $mailchimpStoreId, $id, $type, $store);
+						HandleErrorItem::p($item, $batchId, $mailchimpStoreId, $id, $type, $store);
 					}
 					else {
 						$syncDataItem = hcg_mc_syncd_get((int)$id, $type, $mailchimpStoreId);
 						if (!$syncDataItem->getMailchimpSyncModified()) {
 							$syncModified = $this->enableMergeFieldsSending($type, $syncDataItem);
-							Plugin::saveSyncData(
+							SaveSyncData::p(
 								$id,
 								$type,
 								$mailchimpStoreId,
@@ -474,7 +475,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 							$helper->modifyCounterDataSentToMailchimp($type);
 						}
 						else {
-							Plugin::saveSyncData(
+							SaveSyncData::p(
 								$id,
 								$type,
 								$mailchimpStoreId,

@@ -17,7 +17,7 @@ use Varien_Object as _DO;
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::sendStoreSubscriberBatch()
  * @used-by Ebizmarts_MailChimp_Model_Api_ItemSynchronizer::logSyncError()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::buildMailChimpTags()
- * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem() (https://github.com/thehcginstitute-com/m1/issues/565)
+ * @used-by HCG\MailChimp\Batch\HandleErrorItem::p() (https://github.com/thehcginstitute-com/m1/issues/565)
  * @used-by Mage::logException()
  * @used-by Mage::printException()
  * @used-by Mage_Adminhtml_CustomerController::validateAction()

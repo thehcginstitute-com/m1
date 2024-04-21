@@ -1,18 +1,16 @@
 <?php
-# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-# 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-namespace HCG\MailChimp\Model\Api;
+namespace HCG\MailChimp\Batch;
 use Ebizmarts_MailChimp_Model_Api_Products as ApiProducts;
 use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Mailchimperrors as mE;
-final class Batches {
+# 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+final class HandleErrorItem {
 	/**
 	 * 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
 	 */
-	static function handleErrorItem(array $i, $batchId, $mailchimpStoreId, $id, $type, $store):void {
+	static function p(array $i, $batchId, $mailchimpStoreId, $id, $type, $store):void {
 		$response = json_decode($i['response'], true);
 		$errorDetails = self::processFileErrors($response);
 		if (strstr($errorDetails, 'already exists')) {
@@ -21,7 +19,7 @@ final class Batches {
 		}
 		else {
 			$error = self::error($type, $mailchimpStoreId, $id, $response);
-			self::saveSyncData(
+			SaveSyncData::p(
 				$id,
 				$type,
 				$mailchimpStoreId,
@@ -52,7 +50,7 @@ final class Batches {
 			$mE->save();
 			hcg_mc_h()->modifyCounterDataSentToMailchimp($type, true);
 			# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# "Improve the error logging in `HCG\MailChimp\Model\Api\Batches::handleErrorItem()`":
+			# "Improve the error logging in `HCG\MailChimp\Batches::handleErrorItem()`":
 			# https://github.com/thehcginstitute-com/m1/issues/565
 			df_log($error, null, $mE->getData());
 		}
@@ -60,57 +58,7 @@ final class Batches {
 
 	/**
 	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::handleErrorItem()
-	 * @used-by self::setItemAsModified()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
-	 * @param       $itemId
-	 * @param       $itemType
-	 * @param       $mailchimpStoreId
-	 * @param null  $syncDelta
-	 * @param null  $syncError
-	 * @param int   $syncModified
-	 * @param null  $syncDeleted
-	 * @param null  $token
-	 * @param null  $syncedFlag
-	 * @param bool  $saveOnlyIfExists
-	 */
-	static function saveSyncData(
-		$itemId,
-		$itemType,
-		$mailchimpStoreId,
-		$syncDelta = null,
-		$syncError = null,
-		$syncModified = 0,
-		$syncDeleted = null,
-		$token = null,
-		$syncedFlag = null,
-		$saveOnlyIfExists = false
-	):void {
-		$helper = hcg_mc_h();
-		if ($itemType == Cfg::IS_SUBSCRIBER) {
-			$helper->updateSubscriberSyndData($itemId, $syncDelta, $syncError, 0, null);
-		}
-		else {
-			hcg_mc_syncd_new()->saveEcommerceSyncData(
-				$itemId,
-				$itemType,
-				$mailchimpStoreId,
-				$syncDelta,
-				$syncError,
-				$syncModified,
-				$syncDeleted,
-				$token,
-				$syncedFlag,
-				$saveOnlyIfExists,
-				null,
-				false
-			);
-		}
-	}
-
-	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::handleErrorItem()
+	 * @used-by self::p()
 	 * @param $mailchimpStoreId
 	 * @param $id
 	 * @param $response
@@ -131,7 +79,7 @@ final class Batches {
 
 	/**
 	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::handleErrorItem()
+	 * @used-by self::p()
 	 * @param array(string => mixed) $p
 	 */
 	private static function processFileErrors(array $p):string {
@@ -151,7 +99,7 @@ final class Batches {
 	}
 
 	/**
-	 * @used-by self::handleErrorItem()
+	 * @used-by self::p()
 	 * @param $mailchimpStoreId
 	 * @param $id
 	 * @param $type
@@ -162,7 +110,7 @@ final class Batches {
 			$isMarkedAsDeleted = $dataProduct->getMailchimpSyncDeleted();
 			$isProductDisabledInMagento = ApiProducts::PRODUCT_DISABLED_IN_MAGENTO;
 			if (!$isMarkedAsDeleted || $dataProduct['mailchimp_sync_error']!= $isProductDisabledInMagento) {
-				self::saveSyncData(
+				SaveSyncData::p(
 					$id,
 					$type,
 					$mailchimpStoreId,
@@ -176,7 +124,7 @@ final class Batches {
 				);
 			}
 			else {
-				self::saveSyncData(
+				SaveSyncData::p(
 					$id,
 					$type,
 					$mailchimpStoreId,
@@ -191,7 +139,7 @@ final class Batches {
 			}
 		}
 		else {
-			self::saveSyncData(
+			SaveSyncData::p(
 				$id,
 				$type,
 				$mailchimpStoreId,
