@@ -29,29 +29,6 @@ class Ebizmarts_MailChimp_Helper_Date extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * Check if more than 270 seconds passed since the migration started to prevent the job to take too long.
-     *
-     * @param  $initialTime
-     * @return bool
-     */
-    function timePassed($initialTime)
-    {
-        $storeCount = count(Mage::app()->getStores());
-        $timePassed = false;
-        $finalTime = $this->getTimestamp();
-        $difference = $finalTime - $initialTime;
-        //Set minimum of 30 seconds per store view.
-        $timeForAllStores = (30 * $storeCount);
-        //Set total time in 4:30 minutes if it is lower.
-        $timeAmount = ($timeForAllStores < 270) ? 270 : $timeForAllStores;
-        if ($difference > $timeAmount) {
-            $timePassed = true;
-        }
-
-        return $timePassed;
-    }
-
-    /**
      * @return string
      */
     function getCurrentDateTime()
