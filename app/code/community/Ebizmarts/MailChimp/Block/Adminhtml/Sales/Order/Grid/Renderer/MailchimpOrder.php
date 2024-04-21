@@ -1,16 +1,4 @@
 <?php
-
-/**
- * mc-magento Magento Component
- *
- * @category  Ebizmarts
- * @package   mc-magento
- * @author    Ebizmarts Team <info@ebizmarts.com>
- * @copyright Ebizmarts (http://ebizmarts.com)
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @date:     12/12/17 3:28 PM
- * @file:     Abandoned.php
- */
 class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_Grid_Renderer_MailchimpOrder
     extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
 {
@@ -23,7 +11,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_Grid_Renderer_MailchimpOrd
         $orderDate = $row->getCreatedAt();
         $helper = $this->makeHelper();
         if ($helper->isEcomSyncDataEnabled($storeId)) {
-            $mailchimpStoreId = $helper->getMCStoreId($storeId);
+            $mailchimpStoreId = hcg_mc_sid($storeId);
             $resultArray = $this->makeApiOrders()->getSyncedOrder($orderId, $mailchimpStoreId);
             $id = $resultArray['order_id'];
             $status = $resultArray['synced_status'];

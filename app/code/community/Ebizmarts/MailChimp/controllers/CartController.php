@@ -23,7 +23,7 @@ class Ebizmarts_MailChimp_CartController extends Mage_Checkout_CartController
             //restore the quote
             $quote = Mage::getModel('sales/quote')->load($params['id']);
             $storeId = $quote->getStoreId();
-            $mailchimpStoreId = hcg_mc_h()->getMCStoreId($storeId);
+            $mailchimpStoreId = hcg_mc_sid($storeId);
             $quoteSyncData = hcg_mc_syncd_get(
 				(int)$params['id'],
 				Ebizmarts_MailChimp_Model_Config::IS_QUOTE,
@@ -82,11 +82,10 @@ class Ebizmarts_MailChimp_CartController extends Mage_Checkout_CartController
         $params = $this->getRequest()->getParams();
 
         if (isset($params['coupon_id']) && isset($params['coupon_token'])) {
-            $helper = hcg_mc_h();
             $id = (int)$params['coupon_id'];
             $token = $params['coupon_token'];
             $storeId = Mage::app()->getStore()->getId();
-            $mailchimpStoreId = $helper->getMCStoreId($storeId);
+            $mailchimpStoreId = hcg_mc_sid($storeId);
             $url = Mage::getUrl('checkout/cart');
             $promoCodeSyncData = hcg_mc_syncd_get($id, Ebizmarts_MailChimp_Model_Config::IS_PROMO_CODE, $mailchimpStoreId);
             $couponId = $promoCodeSyncData->getRelatedId();

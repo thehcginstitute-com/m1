@@ -22,7 +22,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Block_Checkout_Success_Groups::__construct()
  * @used-by Ebizmarts_MailChimp_Block_Customer_Newsletter_Index::__construct()
  * @used-by Ebizmarts_MailChimp_Block_Group_Type::__construct()
- * @used-by Ebizmarts_MailChimp_CartController::loadcouponAction::loadquoteAction()
+ * @used-by Ebizmarts_MailChimp_CartController::loadquoteAction()
  * @used-by Ebizmarts_MailChimp_Helper_Mandrill::getMandrillApiKey()
  * @used-by Ebizmarts_MailChimp_Helper_Mandrill::isMandrillEnabled()
  * @used-by Ebizmarts_MailChimp_Helper_Mandrill::isMandrillLogEnabled()
