@@ -8,6 +8,7 @@ use HCG\MailChimp\Model\Api\Batches as Plugin;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
 	 * @param $type
 	 * @param $mailchimpStoreId
@@ -15,21 +16,17 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @param $response
 	 * @return string
 	 */
-	function _getError($type, $mailchimpStoreId, $id, $response)
-	{
+	function _getError($type, $mailchimpStoreId, $id, $response) {
 		$error = $response['title'] . " : " . $response['detail'];
-
 		if ($type == Ebizmarts_MailChimp_Model_Config::IS_PRODUCT) {
 			$dataProduct = $this->getDataProduct($mailchimpStoreId, $id, $type);
 			$isProductDisabledInMagento = Ebizmarts_MailChimp_Model_Api_Products::PRODUCT_DISABLED_IN_MAGENTO;
-
 			if ($dataProduct->getMailchimpSyncDeleted()
 				|| $dataProduct['mailchimp_sync_error'] == $isProductDisabledInMagento
 			) {
 				$error = $isProductDisabledInMagento;
 			}
 		}
-
 		return $error;
 	}
 
