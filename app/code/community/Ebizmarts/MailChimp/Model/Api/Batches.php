@@ -18,7 +18,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 */
 	function getBatchResponse($batchId, $magentoStoreId):array {
 		$helper = hcg_mc_h();
-		$fileHelper = $this->getMailchimpFileHelper();
+		$fileHelper = hcg_mc_h_file();
 		$r = []; /** @var array $r */
 		try {
 			$api = $helper->getApi($magentoStoreId);
@@ -39,8 +39,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 						CURLOPT_FOLLOWLOCATION => true, // this will follow redirects
 						CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 					];
-					$curlHelper = $this->getMailchimpCurlHelper();
-					$curlHelper->curlExec($fileUrl, Zend_Http_Client::GET, $curlOptions);
+					hcg_mc_h_curl()->curlExec($fileUrl, Zend_Http_Client::GET, $curlOptions);
 					fclose($fd);
 					$fileHelper->mkDir(hcg_mc_batches_path($batchId), 0750, true);
 					$archive = new Mage_Archive();
@@ -342,7 +341,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		$path = hcg_mc_batches_path($batchId);
 		$archive->unpack($fileName, $path);
 		$archive->unpack($path . DS . $batchId . '.tar', $path);
-		$fileHelper = $this->getMailchimpFileHelper();
+		$fileHelper = hcg_mc_h_file();
 		$dirItems = new DirectoryIterator($path);
 		foreach ($dirItems as $dirItem) {
 			if ($dirItem->isFile() && $dirItem->getExtension() == 'json') {
@@ -439,7 +438,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	private function processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId):void {
 		$helper = hcg_mc_h();
 		$helper->resetCountersDataSentToMailchimp();
-		$fileHelper = $this->getMailchimpFileHelper();
+		$fileHelper = hcg_mc_h_file();
 		$fileHelper->open(['path '=> hcg_mc_batches_path()]);
 		foreach ($files as $file) {
 			$fileContent = $fileHelper->read($file);
@@ -661,19 +660,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 			$syncModified = 1;
 		}
 		return $syncModified;
-	}
-
-	/**
-	 * @return Ebizmarts_MailChimp_Helper_Curl
-	 */
-	private function getMailchimpCurlHelper() {return Mage::helper('mailchimp/curl'); }
-
-	/**
-	 * @return Ebizmarts_MailChimp_Helper_File
-	 */
-	private function getMailchimpFileHelper()
-	{
-		return Mage::helper('mailchimp/file');
 	}
 
 	/**
