@@ -1,7 +1,7 @@
 <?php
 # 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-# 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+# 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 use HCG\MailChimp\Batch\HandleErrorItem;
@@ -67,7 +67,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncEcommerceBatchData()
 	 */
 	function handleEcommerceBatches():void {
@@ -123,7 +123,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::handleEcommerceBatches()
 	 * @used-by self::handleSubscriberBatches()
 	 * @used-by self::replaceAllOrders()
@@ -165,7 +165,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::_sendEcommerceBatch()
 	 * @param $batchArray
 	 * @param $mailchimpStoreId
@@ -204,7 +204,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::handleEcommerceBatches()
 	 * @param $magentoStoreId
 	 * @throws Mage_Core_Exception
@@ -313,7 +313,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::_processBatchOperations()
 	 * @param $batchId
 	 * @param $storeId
@@ -332,7 +332,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::getBatchResponse()
 	 * @param $files
 	 * @param $batchId
@@ -355,7 +355,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::_sendEcommerceBatch()
 	 * @param $mailchimpStoreId
 	 * @param $magentoStoreId
@@ -383,7 +383,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::getBatchResponse()
 	 * @param $batchId
 	 */
@@ -396,7 +396,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::_sendEcommerceBatch()
 	 */
 	private function deleteUnsentItems():void {
@@ -409,7 +409,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::_processBatchOperations()
 	 */
 	private function markItemsAsSent($batchResponseId, $mailchimpStoreId):void {
@@ -430,7 +430,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::_saveItemStatus()
 	 * @param $files
 	 * @param $batchId
@@ -498,7 +498,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::handleEcommerceBatches()
 	 * @param $storeId
 	 * @param $syncedDateArray
@@ -538,7 +538,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::_updateSyncingFlag()
 	 * @param $syncingFlag
 	 * @param $itemAmount
@@ -549,7 +549,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	;}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::_updateSyncingFlag()
 	 * @param $syncingFlag
 	 * @param $itemAmount
@@ -559,7 +559,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	;}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::sendStoreSubscriberBatch()
 	 * @param $batchId
 	 * @param $storeId
@@ -578,7 +578,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::processEachResponseFile()
 	 * @param $storeId
 	 * @throws Mage_Core_Exception
@@ -609,7 +609,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::_getResults()
 	 * @param $item
 	 * @param $files
@@ -696,7 +696,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::handleEcommerceBatches()
 	 * @param $syncedDateArray
 	 * @throws Mage_Core_Exception

@@ -3,7 +3,7 @@ namespace HCG\MailChimp\Batch;
 use Ebizmarts_MailChimp_Model_Api_Products as ApiProducts;
 use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Mailchimperrors as mE;
-# 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+# 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 final class HandleErrorItem {
 	/**
 	 * 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -57,7 +57,7 @@ final class HandleErrorItem {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::p()
 	 * @param $mailchimpStoreId
 	 * @param $id
@@ -78,7 +78,7 @@ final class HandleErrorItem {
 	}
 
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::p()
 	 * @param array(string => mixed) $p
 	 */
