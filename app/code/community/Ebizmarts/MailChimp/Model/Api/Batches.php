@@ -654,6 +654,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::processEachResponseFile()
 	 * @param $type
 	 */
 	private function enableMergeFieldsSending($type, Varien_Object $o):int {
@@ -663,11 +664,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		}
 		return $syncModified;
 	}
-
-	/**
-	 * @return Ebizmarts_MailChimp_Model_Api_Stores
-	 */
-	private function getApiStores() {return Mage::getModel('mailchimp/api_stores');}
 
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Date
@@ -704,7 +700,8 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 					$api = $helper->getApi($magentoStoreId);
 					$isSyncingDate = $helper->getDateSyncFinishByMailChimpStoreId($mailchimpStoreId);
 					if (!$isSyncingDate && $mailchimpStoreId) {
-						$this->getApiStores()->editIsSyncing($api, false, $mailchimpStoreId);
+						$apiStores = new Ebizmarts_MailChimp_Model_Api_Stores;
+						$apiStores->editIsSyncing($api, false, $mailchimpStoreId);
 						hcg_mc_cfg_save(Cfg::ECOMMERCE_SYNC_DATE . "_$mailchimpStoreId", $date);
 					}
 				} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
