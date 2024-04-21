@@ -451,7 +451,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		$mailchimpStoreId,
 		$magentoStoreId
 	) {
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$dateHelper = $this->getDateHelper();
 		$itemAmount = $helper->getTotalNewItemsSent();
 		$syncingFlag = $helper->getMCIsSyncing($mailchimpStoreId, $magentoStoreId);
