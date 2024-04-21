@@ -796,9 +796,8 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * Get results of batch operations sent to MailChimp.
-	 *
-	 * @param       $magentoStoreId
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @param $magentoStoreId
 	 * @param bool  $isEcommerceData
 	 * @throws Mage_Core_Exception
 	 */
