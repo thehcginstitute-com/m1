@@ -507,11 +507,9 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	private function addSyncValueToArray($storeId, $syncedDateArray) {
 		$helper = hcg_mc_h();
 		$ecomEnabled = $helper->isEcomSyncDataEnabled($storeId);
-
 		if ($ecomEnabled) {
 			$mailchimpStoreId = $helper->getMCStoreId($storeId);
 			$syncedDate = $helper->getMCIsSyncing($mailchimpStoreId, $storeId);
-
 			// Check if $syncedDate is in date format to support previous versions.
 			if (isset($syncedDateArray[$mailchimpStoreId]) && $syncedDateArray[$mailchimpStoreId]) {
 				if ($helper->validateDate($syncedDate)) {
