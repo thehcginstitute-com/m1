@@ -397,8 +397,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @used-by self::_sendEcommerceBatch()
 	 */
 	private function deleteUnsentItems():void {
-		$helper = hcg_mc_h();
-		$resource = $helper->getCoreResource();
+		$resource = hcg_mc_h()->getCoreResource();
 		$connection = $resource->getConnection('core_write');
 		$tableName = $resource->getTableName('mailchimp/ecommercesyncdata');
 		$where = array("batch_id IS NULL AND mailchimp_sync_modified != 1 AND mailchimp_sync_deleted != 1");
