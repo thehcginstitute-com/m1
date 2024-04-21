@@ -126,11 +126,10 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @used-by self::handleEcommerceBatches()
 	 * @used-by self::handleSubscriberBatches()
 	 * @param $magentoStoreId
-	 * @param bool  $isEcommerceData
 	 * @throws Mage_Core_Exception
 	 */
 	private function _getResults(
-		$magentoStoreId, $isEcommerceData = true, $status = Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING
+		$magentoStoreId, bool $isEcommerceData = true, $status = Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING
 	) {
 		$h = hcg_mc_h();
 		$mailchimpStoreId = $h->getMCStoreId($magentoStoreId);
