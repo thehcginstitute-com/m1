@@ -7,7 +7,6 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use HCG\MailChimp\Model\Api\Batches as Plugin;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
 	function __construct() {
-		$this->_apiPromoRules = Mage::getModel('mailchimp/api_promoRules');
 		$this->_apiPromoCodes = Mage::getModel('mailchimp/api_promoCodes');
 		$this->_apiSubscribers = Mage::getModel('mailchimp/api_subscribers');
 	}
@@ -53,10 +52,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
 	 * @return Ebizmarts_MailChimp_Model_Api_PromoRules
 	 */
-	function getApiPromoRules()
-	{
-		return $this->_apiPromoRules;
-	}
+	function getApiPromoRules() {return dfc($this, function() {return Mage::getModel('mailchimp/api_promoRules');});}
 
 	/**
 	 * @return Ebizmarts_MailChimp_Model_Api_PromoCodes
@@ -1125,11 +1121,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	const SEND_PROMO_ENABLED = 1;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_PromoRules
-	 */
-	private $_apiPromoRules;
 
 	/**
 	 * @var Ebizmarts_MailChimp_Model_Api_PromoCodes
