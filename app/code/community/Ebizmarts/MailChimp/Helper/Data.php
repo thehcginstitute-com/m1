@@ -378,21 +378,16 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * Get local store_id value of the MC store for given scope.
-	 *
-	 * @param       $scopeId
-	 * @param null  $scope
+	 * 2024-04-22 "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @param $scope [optional]
 	 * @return mixed
 	 * @throws Mage_Core_Exception
 	 */
-	function getMCStoreId($scopeId, $scope = null)
-	{
-		return $this->getConfigValueForScope(
-			Ebizmarts_MailChimp_Model_Config::GENERAL_MCSTOREID,
-			$scopeId,
-			$scope
-		);
-	}
+	function getMCStoreId(int $scopeId, $scope = null) {return $this->getConfigValueForScope(
+		Ebizmarts_MailChimp_Model_Config::GENERAL_MCSTOREID,
+		$scopeId,
+		$scope
+	);}
 
 	/**
 	 * Delete all data related to the configured store in a given scope.
