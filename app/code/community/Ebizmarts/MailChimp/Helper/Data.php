@@ -262,17 +262,14 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return array|mixed
 	 * @throws Mage_Core_Exception
 	 */
-	function getMagentoStoresForMCStoreIdByScope(int $scopeId, $scope)
-	{
-		$ret = array();
+	function getMagentoStoresForMCStoreIdByScope(int $scopeId, $scope) {
+		$ret = [];
 		$storeRelation = $this->getStoreRelation();
-		$mailchimpStoreIdForScope = hcg_mc_sid($scopeId);
-		$isThereAnyStore = array_key_exists($mailchimpStoreIdForScope, $storeRelation);
-
-		if ($mailchimpStoreIdForScope && $isThereAnyStore) {
-			$ret = $storeRelation[$mailchimpStoreIdForScope];
+		$sid = hcg_mc_sid($scopeId); /** @var ?string $sid */
+		$isThereAnyStore = array_key_exists($sid, $storeRelation);
+		if ($sid && $isThereAnyStore) {
+			$ret = $storeRelation[$sid];
 		}
-
 		return $ret;
 	}
 
@@ -688,15 +685,11 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return mixed
 	 * @throws Mage_Core_Exception
 	 */
-	function getDateSyncFinishByStoreId(int $scopeId = 0, $scope = null)
-	{
-		$mailchimpStoreId = hcg_mc_sid($scopeId);
-		return $this->getConfigValueForScope(
-			Ebizmarts_MailChimp_Model_Config::ECOMMERCE_SYNC_DATE . "_$mailchimpStoreId",
-			0,
-			'default'
-		);
-	}
+	function getDateSyncFinishByStoreId(int $scopeId = 0, $scope = null) {return $this->getConfigValueForScope(
+		Ebizmarts_MailChimp_Model_Config::ECOMMERCE_SYNC_DATE . "_" . hcg_mc_sid($scopeId),
+		0,
+		'default'
+	);}
 
 	/**
 	 * @param $mailchimpStoreId
