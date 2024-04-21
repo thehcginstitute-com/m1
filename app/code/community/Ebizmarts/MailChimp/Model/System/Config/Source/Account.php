@@ -221,14 +221,6 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Account
     protected function makeHelper() {return hcg_mc_h();}
 
     /**
-     * @return Ebizmarts_MailChimp_Helper_Migration
-     */
-    protected function makeMigrationHelper()
-    {
-        return Mage::helper('mailchimp/migration');
-    }
-
-    /**
      * @param $mailchimpStoreId
      * @return string
      * @throws Mage_Core_Exception
