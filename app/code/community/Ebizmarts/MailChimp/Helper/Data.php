@@ -1225,12 +1225,10 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 			->addFieldToFilter('type', array('eq' => Ebizmarts_MailChimp_Model_Config::IS_PROMO_CODE))
 			->setOrder('related_id', 'DESC')
 			->setPageSize(1);
-
 		if ($syncDataCollection->getSize()) {
 			$promoCodeSyncData = $syncDataCollection->getLastItem();
 			$lastPromoCodeSent = $promoCodeSyncData->getRelatedId();
 		}
-
 		return $lastPromoCodeSent;
 	}
 
