@@ -8,15 +8,15 @@ final class Process {
 	 * @used-by \HCG\MailChimp\Batch\Commerce\Send::p()
 	 * @param $batchArray
 	 * @param $mailchimpStoreId
-	 * @param $magentoStoreId
+	 * @param $mgStore
 	 * @throws \Ebizmarts_MailChimp_Helper_Data_ApiKeyException
 	 * @throws \Mage_Core_Exception
 	 * @throws \MailChimp_Error
 	 * @throws \MailChimp_HttpError
 	 */
-	static function p($batchArray, $mailchimpStoreId, $magentoStoreId):void {
+	static function p($batchArray, $mailchimpStoreId, $mgStore):void {
 		$h = hcg_mc_h();
-		$mailchimpApi = $h->getApi($magentoStoreId);
+		$mailchimpApi = $h->getApi($mgStore);
 		if (!empty($batchArray['operations'])) {
 			$batchJson = json_encode($batchArray);
 			if ($batchJson === false) {
@@ -34,11 +34,11 @@ final class Process {
 				$batch->setStoreId($mailchimpStoreId)->setBatchId($batchResponse['id'])->setStatus($batchResponse['status']);
 				$batch->save();
 				self::markItemsAsSent($batchResponse['id'], $mailchimpStoreId);
-				self::_showResumeEcommerce($batchResponse['id'], $magentoStoreId);
+				self::_showResumeEcommerce($batchResponse['id'], $mgStore);
 			}
 		}
 		else {
-			$h->logBatchStatus("Nothing to sync for store $magentoStoreId");
+			$h->logBatchStatus("Nothing to sync for store $mgStore");
 		}
 	}
 

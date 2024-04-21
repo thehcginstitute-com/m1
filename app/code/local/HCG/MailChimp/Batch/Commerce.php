@@ -87,12 +87,12 @@ final class Commerce {
 	private static function handleSyncingValue($syncedDateArray):void {
 		$h = hcg_mc_h();
 		foreach ($syncedDateArray as $mailchimpStoreId => $val) {
-			$magentoStoreId = key($val);
-			$date = $val[$magentoStoreId];
-			$ecomEnabled = $h->isEcomSyncDataEnabled($magentoStoreId);
+			$mgStore = (int)key($val); /** @var int $mgStore */
+			$date = $val[$mgStore];
+			$ecomEnabled = $h->isEcomSyncDataEnabled($mgStore);
 			if ($ecomEnabled && $date) {
 				try {
-					$api = $h->getApi($magentoStoreId);
+					$api = $h->getApi($mgStore);
 					$isSyncingDate = $h->getDateSyncFinishByMailChimpStoreId($mailchimpStoreId);
 					if (!$isSyncingDate && $mailchimpStoreId) {
 						$apiStores = new ApiStores; /** @var ApiStores $apiStores */

@@ -7,30 +7,30 @@ final class GetResults {
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by Commerce::p()
 	 * @used-by Subscriber::p()
-	 * @param $sid
+	 * @param $mgStore
 	 * @throws \Mage_Core_Exception
 	 */
 	static function p(
-		$sid, bool $isEcommerceData = true, $status = \Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING
+		$mgStore, bool $isEcommerceData = true, $status = \Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING
 	) {
 		$h = hcg_mc_h();
-		$mailchimpStoreId = $h->getMCStoreId($sid);
+		$mailchimpStoreId = $h->getMCStoreId($mgStore);
 		$syncb = new Synchbatches;
 		$collection = $syncb->getCollection()->addFieldToFilter('status', ['eq' => $status]);
 		if ($isEcommerceData) {
 			$collection->addFieldToFilter('store_id', ['eq' => $mailchimpStoreId]);
-			$enabled = $h->isEcomSyncDataEnabled($sid);
+			$enabled = $h->isEcomSyncDataEnabled($mgStore);
 		}
 		else {
-			$collection->addFieldToFilter('store_id', ['eq' => $sid]);
-			$enabled = $h->isSubscriptionEnabled($sid);
+			$collection->addFieldToFilter('store_id', ['eq' => $mgStore]);
+			$enabled = $h->isSubscriptionEnabled($mgStore);
 		}
 		if ($enabled) {
-			$h->logBatchStatus('Get results from Mailchimp for Magento store ' . $sid);
+			$h->logBatchStatus('Get results from Mailchimp for Magento store ' . $mgStore);
 			foreach ($collection as $item) {
 				try {
 					$batchId = $item->getBatchId();
-					self::_saveItemStatus($item, GetBatchResponse::p($batchId, $sid), $batchId, $mailchimpStoreId, $sid);
+					self::_saveItemStatus($item, GetBatchResponse::p($batchId, $mgStore), $batchId, $mailchimpStoreId, $mgStore);
 					hcg_mc_batch_delete($batchId);
 				}
 				catch (\Exception $e) {
@@ -47,10 +47,10 @@ final class GetResults {
 	 * @param $files
 	 * @param $batchId
 	 * @param $mailchimpStoreId
-	 * @param $sid
+	 * @param $mgStore
 	 * @throws \Mage_Core_Exception
 	 */
-	private static function _saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $sid):void {
+	private static function _saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $mgStore):void {
 		$h = hcg_mc_h();
 		if (!empty($files)) {
 			if (isset($files['error'])) {
@@ -59,7 +59,7 @@ final class GetResults {
 				$h->logBatchStatus('There was an error getting the result ');
 			}
 			else {
-				ProcessEachResponseFile::p($files, $batchId, $mailchimpStoreId, $sid);
+				ProcessEachResponseFile::p($files, $batchId, $mailchimpStoreId, $mgStore);
 				$item->setStatus('completed');
 				$item->save();
 			}

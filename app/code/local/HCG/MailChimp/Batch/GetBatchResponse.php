@@ -11,14 +11,13 @@ final class GetBatchResponse {
 	 * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController::downloadresponseAction()
 	 * @used-by GetResults::p()
 	 * @param $batchId
-	 * @param $magentoStoreId
 	 */
-	static function p($batchId, $magentoStoreId):array {
+	static function p($batchId, int $mgStore):array {
 		$h = hcg_mc_h();
 		$fileHelper = hcg_mc_h_file();
 		$r = []; /** @var array $r */
 		try {
-			$api = $h->getApi($magentoStoreId);
+			$api = $h->getApi($mgStore);
 			if ($fileHelper->isDir(hcg_mc_batches_path()) == false) {
 				$fileHelper->mkDir(hcg_mc_batches_path());
 			}
