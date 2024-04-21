@@ -126,6 +126,45 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 */
+	function ecommerceSentCallback($args) {
+		$d = hcg_mc_syncd_new(); /** @var D $d */
+		$d->setData($args['row']); // map data to customer model
+		$writeAdapter = Mage::getSingleton('core/resource')->getConnection('core_write');
+		$insertData = array(
+			'id' => $d->getId(),
+			'related_id' => $d->getRelatedId(),
+			'type' => $d->getType(),
+			'mailchimp_store_id' => $d->getMailchimpStoreId(),
+			'mailchimp_sync_error' => $d['mailchimp_sync_error'],
+			'mailchimp_sync_delta' => $d->time(),
+			'mailchimp_sync_modified' => $d->getMailchimpSyncModified(),
+			'mailchimp_sync_deleted' => $d->getMailchimpSyncDeleted(),
+			'mailchimp_token' => $d->getMailchimpToken(),
+			'batch_id' => $d->getBatchId()
+		);
+		$resource = Mage::getResourceModel('mailchimp/ecommercesyncdata');
+		$writeAdapter->insertOnDuplicate(
+			$resource->getMainTable(),
+			$insertData,
+			array(
+				'id',
+				'related_id',
+				'type',
+				'mailchimp_store_id',
+				'mailchimp_sync_error',
+				'mailchimp_sync_delta',
+				'mailchimp_sync_modified',
+				'mailchimp_sync_deleted',
+				'mailchimp_token',
+				'batch_id'
+			)
+		);
+	}
+
+	/**
 	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncEcommerceBatchData()
 	 */
@@ -289,45 +328,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 				'mailchimp_sync_delta' => $dateHelper->formatDate(null, 'Y-m-d H:i:s')
 			),
 			$where
-		);
-	}
-
-	/**
-	 * 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 */
-	function ecommerceSentCallback($args) {
-		$d = hcg_mc_syncd_new(); /** @var D $d */
-		$d->setData($args['row']); // map data to customer model
-		$writeAdapter = Mage::getSingleton('core/resource')->getConnection('core_write');
-		$insertData = array(
-			'id' => $d->getId(),
-			'related_id' => $d->getRelatedId(),
-			'type' => $d->getType(),
-			'mailchimp_store_id' => $d->getMailchimpStoreId(),
-			'mailchimp_sync_error' => $d['mailchimp_sync_error'],
-			'mailchimp_sync_delta' => $d->time(),
-			'mailchimp_sync_modified' => $d->getMailchimpSyncModified(),
-			'mailchimp_sync_deleted' => $d->getMailchimpSyncDeleted(),
-			'mailchimp_token' => $d->getMailchimpToken(),
-			'batch_id' => $d->getBatchId()
-		);
-		$resource = Mage::getResourceModel('mailchimp/ecommercesyncdata');
-		$writeAdapter->insertOnDuplicate(
-			$resource->getMainTable(),
-			$insertData,
-			array(
-				'id',
-				'related_id',
-				'type',
-				'mailchimp_store_id',
-				'mailchimp_sync_error',
-				'mailchimp_sync_delta',
-				'mailchimp_sync_modified',
-				'mailchimp_sync_deleted',
-				'mailchimp_token',
-				'batch_id'
-			)
 		);
 	}
 
