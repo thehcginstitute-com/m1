@@ -274,7 +274,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	{
 		$ret = array();
 		$storeRelation = $this->getStoreRelation();
-		$mailchimpStoreIdForScope = $this->getMCStoreId($scopeId, $scope);
+		$mailchimpStoreIdForScope = hcg_mc_sid($scopeId);
 		$isThereAnyStore = array_key_exists($mailchimpStoreIdForScope, $storeRelation);
 
 		if ($mailchimpStoreIdForScope && $isThereAnyStore) {

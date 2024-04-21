@@ -8,7 +8,7 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_CartController::loadquoteAction()
  * @used-by Ebizmarts_MailChimp_CartController::loadcouponAction()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getStoreRelation()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::getMagentoStoresForMCStoreIdByScope()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
