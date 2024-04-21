@@ -578,27 +578,27 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @throws Mage_Core_Exception
 	 */
 	private function _showResumeDataSentToMailchimp($storeId):void {
-		$helper = hcg_mc_h();
-		$countersDataSentToMailchimp = $helper->getCountersDataSentToMailchimp();
-		if (!empty($countersDataSentToMailchimp) || $helper->getCountersDataSentToMailchimp() != null) {
-			$helper->logBatchStatus("Processed data sent to Mailchimp for store $storeId");
-			$counter = $helper->getCountersDataSentToMailchimp();
-			$helper->logBatchQuantity($counter);
+		$h = hcg_mc_h();
+		$countersDataSentToMailchimp = $h->getCountersDataSentToMailchimp();
+		if (!empty($countersDataSentToMailchimp) || $h->getCountersDataSentToMailchimp() != null) {
+			$h->logBatchStatus("Processed data sent to Mailchimp for store $storeId");
+			$counter = $h->getCountersDataSentToMailchimp();
+			$h->logBatchQuantity($counter);
 			if ($this->isSetAnyCounterSubscriberOrEcommerceNotSent($counter)) {
-				if ($helper->isErrorLogEnabled()) {
-					$helper->logBatchStatus(
+				if ($h->isErrorLogEnabled()) {
+					$h->logBatchStatus(
 						'Please check Mailchimp Errors grid or MailChimp_Errors.log for more details.'
 					);
 				}
 				else {
-					$helper->logBatchStatus(
+					$h->logBatchStatus(
 						'Please check Mailchimp Errors grid and enable MailChimp_Errors.log for more details.'
 					);
 				}
 			}
 		}
 		else {
-			$helper->logBatchStatus("Nothing was processed for store $storeId");
+			$h->logBatchStatus("Nothing was processed for store $storeId");
 		}
 	}
 
