@@ -7,15 +7,10 @@ class Ebizmarts_MailChimp_Model_Cron
 	 * @var Ebizmarts_MailChimp_Helper_Data
 	 */
 	protected $_mailChimpHelper;
-	/**
-	 * @var Ebizmarts_MailChimp_Helper_Migration
-	 */
-	protected $_mailChimpMigrationHelper;
 
 	function __construct()
 	{
 		$this->_mailChimpHelper = hcg_mc_h();
-		$this->_mailChimpMigrationHelper = Mage::helper('mailchimp/migration');
 	}
 
 	function syncEcommerceBatchData() {hcg_mc_batches_new()->handleEcommerceBatches();}
@@ -48,10 +43,5 @@ class Ebizmarts_MailChimp_Model_Cron
 	protected function getHelper($type='')
 	{
 		return $this->_mailChimpHelper;
-	}
-
-	protected function getMigrationHelper()
-	{
-		return $this->_mailChimpMigrationHelper;
 	}
 }
