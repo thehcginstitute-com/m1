@@ -423,6 +423,54 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 
 	/**
 	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
+	 * @param       $itemId
+	 * @param       $itemType
+	 * @param       $mailchimpStoreId
+	 * @param null  $syncDelta
+	 * @param null  $syncError
+	 * @param int   $syncModified
+	 * @param null  $syncDeleted
+	 * @param null  $token
+	 * @param null  $syncedFlag
+	 * @param bool  $saveOnlyIfExists
+	 */
+	function saveSyncData(
+		$itemId,
+		$itemType,
+		$mailchimpStoreId,
+		$syncDelta = null,
+		$syncError = null,
+		$syncModified = 0,
+		$syncDeleted = null,
+		$token = null,
+		$syncedFlag = null,
+		$saveOnlyIfExists = false
+	) {
+		$helper = hcg_mc_h();
+
+		if ($itemType == Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER) {
+			$helper->updateSubscriberSyndData($itemId, $syncDelta, $syncError, 0, null);
+		}
+		else {
+			hcg_mc_syncd_new()->saveEcommerceSyncData(
+				$itemId,
+				$itemType,
+				$mailchimpStoreId,
+				$syncDelta,
+				$syncError,
+				$syncModified,
+				$syncDeleted,
+				$token,
+				$syncedFlag,
+				$saveOnlyIfExists,
+				null,
+				false
+			);
+		}
+	}
+
+	/**
+	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
 	 * @param $mailchimpStoreId
 	 * @param $id
 	 * @param $type
@@ -740,54 +788,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 			$fileHelper->rm($file);
 		}
 		$this->_showResumeDataSentToMailchimp($magentoStoreId);
-	}
-
-	/**
-	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
-	 * @param       $itemId
-	 * @param       $itemType
-	 * @param       $mailchimpStoreId
-	 * @param null  $syncDelta
-	 * @param null  $syncError
-	 * @param int   $syncModified
-	 * @param null  $syncDeleted
-	 * @param null  $token
-	 * @param null  $syncedFlag
-	 * @param bool  $saveOnlyIfExists
-	 */
-	function saveSyncData(
-		$itemId,
-		$itemType,
-		$mailchimpStoreId,
-		$syncDelta = null,
-		$syncError = null,
-		$syncModified = 0,
-		$syncDeleted = null,
-		$token = null,
-		$syncedFlag = null,
-		$saveOnlyIfExists = false
-	) {
-		$helper = hcg_mc_h();
-
-		if ($itemType == Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER) {
-			$helper->updateSubscriberSyndData($itemId, $syncDelta, $syncError, 0, null);
-		}
-		else {
-			hcg_mc_syncd_new()->saveEcommerceSyncData(
-				$itemId,
-				$itemType,
-				$mailchimpStoreId,
-				$syncDelta,
-				$syncError,
-				$syncModified,
-				$syncDeleted,
-				$token,
-				$syncedFlag,
-				$saveOnlyIfExists,
-				null,
-				false
-			);
-		}
 	}
 
 	/**
