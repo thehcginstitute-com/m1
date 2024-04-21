@@ -7,116 +7,6 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use HCG\MailChimp\Model\Api\Batches as Plugin;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
-	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @param  $magentoStoreId
-	 * @throws Mage_Core_Exception
-	 */
-	private function _sendEcommerceBatch($magentoStoreId)
-	{
-		$helper = hcg_mc_h();
-		$mailchimpStoreId = $helper->getMCStoreId($magentoStoreId);
-
-		try {
-			$this->deleteUnsentItems();
-
-			if ($helper->isEcomSyncDataEnabled($magentoStoreId)) {
-				$helper->resetCountersSentPerBatch();
-				$batchArray = array();
-				//customer operations
-				$helper->logBatchStatus('Generate Customers Payload');
-				/** @var Ebizmarts_MailChimp_Model_Api_Customers $apiCustomers */
-				$apiCustomers = new Ebizmarts_MailChimp_Model_Api_Customers;
-				$apiCustomers->setMailchimpStoreId($mailchimpStoreId);
-				$apiCustomers->setMagentoStoreId($magentoStoreId);
-
-				$customersArray = $apiCustomers->createBatchJson();
-				$batchArray['operations'] = $customersArray;
-
-				//product operations
-				$helper->logBatchStatus('Generate Products Payload');
-
-				/** @var Ebizmarts_MailChimp_Model_Api_Products $apiProducts */
-				$apiProducts = new Ebizmarts_MailChimp_Model_Api_Products;
-				$apiProducts->setMailchimpStoreId($mailchimpStoreId);
-				$apiProducts->setMagentoStoreId($magentoStoreId);
-
-				$productsArray = $apiProducts->createBatchJson();
-				$batchArray['operations'] = array_merge($batchArray['operations'], $productsArray);
-
-				if ($helper->getMCIsSyncing($mailchimpStoreId, $magentoStoreId) === 1) {
-					$helper->logBatchStatus('No Carts will be synced until the store is completely synced');
-				} else {
-					//cart operations
-					$helper->logBatchStatus('Generate Carts Payload');
-					/** @var Ebizmarts_MailChimp_Model_Api_Carts $apiCarts */
-					$apiCarts = new Ebizmarts_MailChimp_Model_Api_Carts;
-					$apiCarts->setMailchimpStoreId($mailchimpStoreId);
-					$apiCarts->setMagentoStoreId($magentoStoreId);
-					$cartsArray = $apiCarts->createBatchJson();
-					$batchArray['operations'] = array_merge($batchArray['operations'], $cartsArray);
-				}
-				//order operations
-				$helper->logBatchStatus('Generate Orders Payload');
-				/** @var Ebizmarts_MailChimp_Model_Api_Orders $apiOrders */
-				$apiOrders = new Ebizmarts_MailChimp_Model_Api_Orders;
-				$apiOrders->setMailchimpStoreId($mailchimpStoreId);
-				$apiOrders->setMagentoStoreId($magentoStoreId);
-				$ordersArray = $apiOrders->createBatchJson();
-				$batchArray['operations'] = array_merge($batchArray['operations'], $ordersArray);
-				if ($helper->getPromoConfig($magentoStoreId) == self::SEND_PROMO_ENABLED) {
-					//promo rule operations
-					$helper->logBatchStatus('Generate Promo Rules Payload');
-					/** @var Ebizmarts_MailChimp_Model_Api_PromoRules $apiPromoRules */
-					$apiPromoRules = new Ebizmarts_MailChimp_Model_Api_PromoRules;
-					$apiPromoRules->setMailchimpStoreId($mailchimpStoreId);
-					$apiPromoRules->setMagentoStoreId($magentoStoreId);
-
-					$promoRulesArray = $apiPromoRules->createBatchJson();
-					$batchArray['operations'] = array_merge($batchArray['operations'], $promoRulesArray);
-
-					//promo code operations
-					$helper->logBatchStatus('Generate Promo Codes Payload');
-					/** @var Ebizmarts_MailChimp_Model_Api_PromoCodes $apiPromoCodes */
-					$apiPromoCodes = new Ebizmarts_MailChimp_Model_Api_PromoCodes;
-					$apiPromoCodes->setMailchimpStoreId($mailchimpStoreId);
-					$apiPromoCodes->setMagentoStoreId($magentoStoreId);
-
-					$promoCodesArray = $apiPromoCodes->createBatchJson();
-					$batchArray['operations'] = array_merge($batchArray['operations'], $promoCodesArray);
-				}
-
-				//deleted product operations
-				$helper->logBatchStatus('Generate Deleted Products Payload');
-				$deletedProductsArray = $apiProducts->createDeletedProductsBatchJson();
-				$batchArray['operations'] = array_merge($batchArray['operations'], $deletedProductsArray);
-				$batchJson = null;
-				$batchResponse = null;
-
-				try {
-					$this->_processBatchOperations($batchArray, $mailchimpStoreId, $magentoStoreId);
-					$this->_updateSyncingFlag($mailchimpStoreId, $magentoStoreId);
-				} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-					$helper->logError($e->getMessage());
-				} catch (MailChimp_Error $e) {
-					$helper->logError($e->getFriendlyMessage());
-
-					if ($batchJson && !isset($batchResponse['id'])) {
-						$helper->logRequest($batchJson);
-					}
-				} catch (Exception $e) {
-					$helper->logError($e->getMessage());
-					$helper->logError("Json encode fails");
-					$helper->logError($batchArray);
-				}
-			}
-		} catch (MailChimp_Error $e) {
-			$helper->logError($e->getFriendlyMessage());
-		} catch (Exception $e) {
-			$helper->logError($e->getMessage());
-		}
-	}
-
 	function ecommerceDeleteCallback($args):void {
 		$ecommerceData = Mage::getModel('mailchimp/ecommercesyncdata');
 		$ecommerceData->setData($args['row']);
@@ -550,6 +440,116 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 			}
 		} else {
 			$helper->logBatchStatus("Nothing to sync for store $magentoStoreId");
+		}
+	}
+
+	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @param  $magentoStoreId
+	 * @throws Mage_Core_Exception
+	 */
+	private function _sendEcommerceBatch($magentoStoreId)
+	{
+		$helper = hcg_mc_h();
+		$mailchimpStoreId = $helper->getMCStoreId($magentoStoreId);
+
+		try {
+			$this->deleteUnsentItems();
+
+			if ($helper->isEcomSyncDataEnabled($magentoStoreId)) {
+				$helper->resetCountersSentPerBatch();
+				$batchArray = array();
+				//customer operations
+				$helper->logBatchStatus('Generate Customers Payload');
+				/** @var Ebizmarts_MailChimp_Model_Api_Customers $apiCustomers */
+				$apiCustomers = new Ebizmarts_MailChimp_Model_Api_Customers;
+				$apiCustomers->setMailchimpStoreId($mailchimpStoreId);
+				$apiCustomers->setMagentoStoreId($magentoStoreId);
+
+				$customersArray = $apiCustomers->createBatchJson();
+				$batchArray['operations'] = $customersArray;
+
+				//product operations
+				$helper->logBatchStatus('Generate Products Payload');
+
+				/** @var Ebizmarts_MailChimp_Model_Api_Products $apiProducts */
+				$apiProducts = new Ebizmarts_MailChimp_Model_Api_Products;
+				$apiProducts->setMailchimpStoreId($mailchimpStoreId);
+				$apiProducts->setMagentoStoreId($magentoStoreId);
+
+				$productsArray = $apiProducts->createBatchJson();
+				$batchArray['operations'] = array_merge($batchArray['operations'], $productsArray);
+
+				if ($helper->getMCIsSyncing($mailchimpStoreId, $magentoStoreId) === 1) {
+					$helper->logBatchStatus('No Carts will be synced until the store is completely synced');
+				} else {
+					//cart operations
+					$helper->logBatchStatus('Generate Carts Payload');
+					/** @var Ebizmarts_MailChimp_Model_Api_Carts $apiCarts */
+					$apiCarts = new Ebizmarts_MailChimp_Model_Api_Carts;
+					$apiCarts->setMailchimpStoreId($mailchimpStoreId);
+					$apiCarts->setMagentoStoreId($magentoStoreId);
+					$cartsArray = $apiCarts->createBatchJson();
+					$batchArray['operations'] = array_merge($batchArray['operations'], $cartsArray);
+				}
+				//order operations
+				$helper->logBatchStatus('Generate Orders Payload');
+				/** @var Ebizmarts_MailChimp_Model_Api_Orders $apiOrders */
+				$apiOrders = new Ebizmarts_MailChimp_Model_Api_Orders;
+				$apiOrders->setMailchimpStoreId($mailchimpStoreId);
+				$apiOrders->setMagentoStoreId($magentoStoreId);
+				$ordersArray = $apiOrders->createBatchJson();
+				$batchArray['operations'] = array_merge($batchArray['operations'], $ordersArray);
+				if ($helper->getPromoConfig($magentoStoreId) == self::SEND_PROMO_ENABLED) {
+					//promo rule operations
+					$helper->logBatchStatus('Generate Promo Rules Payload');
+					/** @var Ebizmarts_MailChimp_Model_Api_PromoRules $apiPromoRules */
+					$apiPromoRules = new Ebizmarts_MailChimp_Model_Api_PromoRules;
+					$apiPromoRules->setMailchimpStoreId($mailchimpStoreId);
+					$apiPromoRules->setMagentoStoreId($magentoStoreId);
+
+					$promoRulesArray = $apiPromoRules->createBatchJson();
+					$batchArray['operations'] = array_merge($batchArray['operations'], $promoRulesArray);
+
+					//promo code operations
+					$helper->logBatchStatus('Generate Promo Codes Payload');
+					/** @var Ebizmarts_MailChimp_Model_Api_PromoCodes $apiPromoCodes */
+					$apiPromoCodes = new Ebizmarts_MailChimp_Model_Api_PromoCodes;
+					$apiPromoCodes->setMailchimpStoreId($mailchimpStoreId);
+					$apiPromoCodes->setMagentoStoreId($magentoStoreId);
+
+					$promoCodesArray = $apiPromoCodes->createBatchJson();
+					$batchArray['operations'] = array_merge($batchArray['operations'], $promoCodesArray);
+				}
+
+				//deleted product operations
+				$helper->logBatchStatus('Generate Deleted Products Payload');
+				$deletedProductsArray = $apiProducts->createDeletedProductsBatchJson();
+				$batchArray['operations'] = array_merge($batchArray['operations'], $deletedProductsArray);
+				$batchJson = null;
+				$batchResponse = null;
+
+				try {
+					$this->_processBatchOperations($batchArray, $mailchimpStoreId, $magentoStoreId);
+					$this->_updateSyncingFlag($mailchimpStoreId, $magentoStoreId);
+				} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+					$helper->logError($e->getMessage());
+				} catch (MailChimp_Error $e) {
+					$helper->logError($e->getFriendlyMessage());
+
+					if ($batchJson && !isset($batchResponse['id'])) {
+						$helper->logRequest($batchJson);
+					}
+				} catch (Exception $e) {
+					$helper->logError($e->getMessage());
+					$helper->logError("Json encode fails");
+					$helper->logError($batchArray);
+				}
+			}
+		} catch (MailChimp_Error $e) {
+			$helper->logError($e->getFriendlyMessage());
+		} catch (Exception $e) {
+			$helper->logError($e->getMessage());
 		}
 	}
 
