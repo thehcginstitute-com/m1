@@ -71,16 +71,15 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @param $magentoStoreId
 	 * @throws Mage_Core_Exception
 	 */
-	private function _saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId)
-	{
+	private function _saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId):void {
 		$helper = hcg_mc_h();
-
 		if (!empty($files)) {
 			if (isset($files['error'])) {
 				$item->setStatus('error');
 				$item->save();
 				$helper->logBatchStatus('There was an error getting the result ');
-			} else {
+			}
+			else {
 				$this->processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId);
 				$item->setStatus('completed');
 				$item->save();
@@ -797,6 +796,10 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 
 	/**
 	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::handleEcommerceBatches()
+	 * @used-by self::handleSubscriberBatches()
+	 * @used-by self::replaceAllOrders()
+	 * @used-by self::STUB()
 	 * @param $magentoStoreId
 	 * @param bool  $isEcommerceData
 	 * @throws Mage_Core_Exception
