@@ -1811,12 +1811,11 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 		$mcJsUrlSaved = false;
 		try {
 			$api = $this->getApi($scopeId, $scope);
-			$mailchimpStoreId = hcg_mc_sid($scopeId);
-			$response = $api->getEcommerce()->getStores()->get($mailchimpStoreId, 'connected_site');
-
+			$mcStore = hcg_mc_sid($scopeId); /** @var ?string $mcStore */
+			$response = $api->getEcommerce()->getStores()->get($mcStore, 'connected_site');
 			if (isset($response['connected_site']['site_script']['url'])) {
 				$url = $response['connected_site']['site_script']['url'];
-				hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_MC_JS_URL . "_$mailchimpStoreId", $url);
+				hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_MC_JS_URL . "_$mcStore", $url);
 				$mcJsUrlSaved = true;
 			}
 		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
