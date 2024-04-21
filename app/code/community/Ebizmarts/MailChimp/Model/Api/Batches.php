@@ -6,11 +6,9 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use HCG\MailChimp\Model\Api\Batches as Plugin;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
-	function __construct()
-	{
+	function __construct() {
 		$this->_mailchimpDateHelper = Mage::helper('mailchimp/date');
 		$this->_mailchimpCurlHelper = Mage::helper('mailchimp/curl');
-
 		$this->_apiProducts = Mage::getModel('mailchimp/api_products');
 		$this->_apiCustomers = Mage::getModel('mailchimp/api_customers');
 		$this->_apiCarts = Mage::getModel('mailchimp/api_carts');
