@@ -19,19 +19,15 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_Store extends Mage_Core_Mo
         $scopeId = $this->getScopeId(); /** @var int $scopeId */
         $scope = $this->getScope();
         $groups = $this->getData('groups');
-
         $newMailchimpStoreId = (isset($groups['general']['fields']['storeid']['value']))
             ? $groups['general']['fields']['storeid']['value']
             : null;
-
-        $oldMailchimpStoreId = hcg_mc_sid($scopeId);
+        $mcStoreOld = hcg_mc_sid($scopeId); /** @var ?string $mcStoreOld */
         $isSyncing = $helper->getMCIsSyncing($newMailchimpStoreId, $scopeId, $scope);
-        $helper->cancelAllPendingBatches($oldMailchimpStoreId);
+        $helper->cancelAllPendingBatches($mcStoreOld);
         $helper->restoreAllCanceledBatches($newMailchimpStoreId);
-
         if ($this->isValueChanged() && $this->getValue()) {
-            $helper->deletePreviousConfiguredMCStoreLocalData($oldMailchimpStoreId, $scopeId, $scope);
-
+            $helper->deletePreviousConfiguredMCStoreLocalData($mcStoreOld, $scopeId, $scope);
             if ($isSyncing === null) {
                 hcg_mc_cfg_save(
 					Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$newMailchimpStoreId"
