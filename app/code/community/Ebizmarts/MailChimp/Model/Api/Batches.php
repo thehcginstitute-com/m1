@@ -7,6 +7,12 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use HCG\MailChimp\Model\Api\Batches as Plugin;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
+	function ecommerceDeleteCallback($args):void {
+		$ecommerceData = Mage::getModel('mailchimp/ecommercesyncdata');
+		$ecommerceData->setData($args['row']);
+		$ecommerceData->delete();
+	}
+
 	/**
 	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncEcommerceBatchData()
@@ -265,13 +271,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		$tableName = $resource->getTableName('mailchimp/ecommercesyncdata');
 		$where = array("batch_id IS NULL AND mailchimp_sync_modified != 1 AND mailchimp_sync_deleted != 1");
 		$connection->delete($tableName, $where);
-	}
-
-	function ecommerceDeleteCallback($args)
-	{
-		$ecommerceData = Mage::getModel('mailchimp/ecommercesyncdata');
-		$ecommerceData->setData($args['row']);
-		$ecommerceData->delete();
 	}
 
 	private function markItemsAsSent($batchResponseId, $mailchimpStoreId)
