@@ -10,7 +10,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
 	 * Get Results and send Ecommerce Batches.
 	 */
-	function handleEcommerceBatches() {
+	function handleEcommerceBatches():void {
 		$helper = hcg_mc_h();
 		$stores = Mage::app()->getStores();
 		$helper->handleResendDataBefore();
