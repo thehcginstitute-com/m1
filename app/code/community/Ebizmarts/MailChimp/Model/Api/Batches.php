@@ -278,7 +278,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 */
 	protected function _saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId)
 	{
-		$helper = $this->getHelper();
+		$helper = _getResults;
 
 		if (!empty($files)) {
 			if (isset($files['error'])) {
