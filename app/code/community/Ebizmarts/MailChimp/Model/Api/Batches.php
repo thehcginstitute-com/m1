@@ -124,6 +124,8 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * @used-by self::setItemAsModified()
+	 * @used-by self::processEachResponseFile()
 	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
 	 * @param       $itemId
 	 * @param       $itemType
