@@ -132,10 +132,8 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		$helper = hcg_mc_h();
 		try {
 			$this->_getResults($magentoStoreId);
-
 			//handle order replacement
 			$mailchimpStoreId = $helper->getMCStoreId($magentoStoreId);
-
 			$batchArray['operations'] = Mage::getModel('mailchimp/api_orders')->replaceAllOrdersBatch(
 				$initialTime,
 				$mailchimpStoreId,
@@ -146,15 +144,15 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 				 * @var $mailchimpApi Ebizmarts_MailChimp
 				 */
 				$mailchimpApi = $helper->getApi($magentoStoreId);
-
 				if (!empty($batchArray['operations'])) {
 					$batchJson = json_encode($batchArray);
-
 					if ($batchJson === false) {
 						$helper->logRequest('Json encode error: ' . json_last_error_msg());
-					} elseif ($batchJson == '') {
+					}
+					elseif ($batchJson == '') {
 						$helper->logRequest('An empty operation was detected');
-					} else {
+					}
+					else {
 						$batchResponse = $mailchimpApi->batchOperation->add($batchJson);
 						$helper->logRequest($batchJson, $batchResponse['id']);
 						//save batch id to db
@@ -165,18 +163,23 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 						$batch->save();
 					}
 				}
-			} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+			}
+			catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 				$helper->logError($e->getMessage());
-			} catch (MailChimp_Error $e) {
+			}
+			catch (MailChimp_Error $e) {
 				$helper->logError($e->getFriendlyMessage());
-			} catch (Exception $e) {
+			}
+			catch (Exception $e) {
 				$helper->logError($e->getMessage());
 				$helper->logError("Json encode fails");
 				$helper->logError($batchArray);
 			}
-		} catch (MailChimp_Error $e) {
+		}
+		catch (MailChimp_Error $e) {
 			$helper->logError($e->getFriendlyMessage());
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$helper->logError($e->getMessage());
 		}
 	}
