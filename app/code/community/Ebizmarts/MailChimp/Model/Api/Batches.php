@@ -387,7 +387,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @used-by self::getBatchResponse()
 	 * @param $batchId
 	 */
-	private function deleteBatchItems($batchId) {
+	private function deleteBatchItems($batchId):void {
 		$helper = hcg_mc_h();
 		$resource = $helper->getCoreResource();
 		$connection = $resource->getConnection('core_write');
