@@ -7,16 +7,6 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use HCG\MailChimp\Model\Api\Batches as Plugin;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
-	 * @return Ebizmarts_MailChimp_Model_Api_Orders
-	 */
-	function getApiOrders() {return dfc($this, function() {return Mage::getModel('mailchimp/api_orders');});}
-
-	/**
-	 * @return Ebizmarts_MailChimp_Model_Api_Products
-	 */
-	function getApiProducts() {return dfc($this, function() {return Mage::getModel('mailchimp/api_products');});}
-
-	/**
 	 * @return Ebizmarts_MailChimp_Model_Api_PromoCodes
 	 */
 	function getApiPromoCodes() {return dfc($this, function() {return Mage::getModel('mailchimp/api_promoCodes');});}
@@ -208,7 +198,8 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 				//product operations
 				$helper->logBatchStatus('Generate Products Payload');
 
-				$apiProducts = $this->getApiProducts();
+				/** @var Ebizmarts_MailChimp_Model_Api_Products $apiProducts */
+				$apiProducts = new Ebizmarts_MailChimp_Model_Api_Products;
 				$apiProducts->setMailchimpStoreId($mailchimpStoreId);
 				$apiProducts->setMagentoStoreId($magentoStoreId);
 
@@ -224,20 +215,17 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 					$apiCarts = new Ebizmarts_MailChimp_Model_Api_Carts;
 					$apiCarts->setMailchimpStoreId($mailchimpStoreId);
 					$apiCarts->setMagentoStoreId($magentoStoreId);
-
 					$cartsArray = $apiCarts->createBatchJson();
 					$batchArray['operations'] = array_merge($batchArray['operations'], $cartsArray);
 				}
-
 				//order operations
 				$helper->logBatchStatus('Generate Orders Payload');
-				$apiOrders = $this->getApiOrders();
+				/** @var Ebizmarts_MailChimp_Model_Api_Orders $apiOrders */
+				$apiOrders = new Ebizmarts_MailChimp_Model_Api_Orders;
 				$apiOrders->setMailchimpStoreId($mailchimpStoreId);
 				$apiOrders->setMagentoStoreId($magentoStoreId);
-
 				$ordersArray = $apiOrders->createBatchJson();
 				$batchArray['operations'] = array_merge($batchArray['operations'], $ordersArray);
-
 				if ($helper->getPromoConfig($magentoStoreId) == self::SEND_PROMO_ENABLED) {
 					//promo rule operations
 					$helper->logBatchStatus('Generate Promo Rules Payload');
