@@ -8,14 +8,6 @@ use HCG\MailChimp\Model\Api\Batches as Plugin;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
-	 * @return string
-	 */
-	function getMagentoBaseDir()
-	{
-		return Mage::getBaseDir();
-	}
-
-	/**
 	 * Get Results and send Ecommerce Batches.
 	 */
 	function handleEcommerceBatches()
@@ -421,7 +413,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		$fileHelper = $this->getMailchimpFileHelper();
 		$r = []; /** @var array $r */
 		try {
-			$baseDir = $this->getMagentoBaseDir();
+			$baseDir = Mage::getBaseDir();
 			$api = $helper->getApi($magentoStoreId);
 			if ($fileHelper->isDir(hcg_mc_batches_path()) == false) {
 				$fileHelper->mkDir(hcg_mc_batches_path());
