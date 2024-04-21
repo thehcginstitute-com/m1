@@ -408,8 +408,11 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		$connection->delete($tableName, $where);
 	}
 
-	private function markItemsAsSent($batchResponseId, $mailchimpStoreId)
-	{
+	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::_processBatchOperations()
+	 */
+	private function markItemsAsSent($batchResponseId, $mailchimpStoreId):void {
 		$helper = hcg_mc_h();
 		$dateHelper = $this->getDateHelper();
 
