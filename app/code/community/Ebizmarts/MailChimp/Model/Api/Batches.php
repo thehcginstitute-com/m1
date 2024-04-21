@@ -415,7 +415,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 
 	protected function _processBatchOperations($batchArray, $mailchimpStoreId, $magentoStoreId)
 	{
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$mailchimpApi = $helper->getApi($magentoStoreId);
 
 		if (!empty($batchArray['operations'])) {
