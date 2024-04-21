@@ -22,7 +22,7 @@ class Ebizmarts_MailChimp_CartController extends Mage_Checkout_CartController
         if (isset($params['id'])) {
             //restore the quote
             $quote = Mage::getModel('sales/quote')->load($params['id']);
-            $storeId = $quote->getStoreId();
+            $storeId = $quote->getStoreId(); /** @var int $storeId */
             $mailchimpStoreId = hcg_mc_sid($storeId);
             $quoteSyncData = hcg_mc_syncd_get(
 				(int)$params['id'],
