@@ -1127,11 +1127,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	const SEND_PROMO_ENABLED = 1;
 
 	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_Orders
-	 */
-	private $_apiOrders;
-
-	/**
 	 * @var Ebizmarts_MailChimp_Model_Api_PromoRules
 	 */
 	private $_apiPromoRules;
