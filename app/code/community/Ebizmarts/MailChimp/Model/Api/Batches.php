@@ -1054,7 +1054,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 */
 	protected function _showResumeSubscriber($batchId, $storeId)
 	{
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$countersSubscribers = $helper->getCountersSubscribers();
 
 		if (!empty($countersSubscribers) || $helper->getCountersSubscribers() != null) {
