@@ -11,14 +11,14 @@ final class HandleErrorItem {
 	 * @used-by \HCG\MailChimp\Batch\ProcessEachResponseFile::p()
 	 */
 	static function p(array $i, $batchId, $mailchimpStoreId, $id, $type, $store):void {
-		$response = json_decode($i['response'], true);
-		$errorDetails = self::processFileErrors($response);
+		$res = json_decode($i['response'], true);
+		$errorDetails = self::processFileErrors($res);
 		if (strstr($errorDetails, 'already exists')) {
 			self::setItemAsModified($mailchimpStoreId, $id, $type);
 			hcg_mc_h()->modifyCounterDataSentToMailchimp($type);
 		}
 		else {
-			$error = self::error($type, $mailchimpStoreId, $id, $response);
+			$error = self::error($type, $mailchimpStoreId, $id, $res);
 			SaveSyncData::p(
 				$id,
 				$type,
@@ -38,11 +38,11 @@ final class HandleErrorItem {
 				,'regtype' => $type
 				,'status' => $i['status_code']
 				,'store_id' => $store[1]
-				,'title' => $response['title']
+				,'title' => $res['title']
 				# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				# «Undefined index: type in app/code/community/Ebizmarts/MailChimp/Model/Api/Batches.php
 				# on line 836»: https://github.com/thehcginstitute-com/m1/issues/510
-				,'type' => dfa($response, 'type')
+				,'type' => dfa($res, 'type')
 			]); /** @var mE $mE */
 			if ($type != Cfg::IS_SUBSCRIBER) {
 				$mE['mailchimp_store_id'] = $mailchimpStoreId;
