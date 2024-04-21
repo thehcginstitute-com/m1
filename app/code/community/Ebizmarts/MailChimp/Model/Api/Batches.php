@@ -612,7 +612,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 					$curlResult = $curlHelper->curlExec($fileUrl, Zend_Http_Client::GET, $curlOptions);
 
 					fclose($fd);
-					$fileHelper->mkDir(hcg_mc_batches_path() . DS . $batchId, 0750, true);
+					$fileHelper->mkDir(hcg_mc_batches_path($batchId), 0750, true);
 					$archive = new Mage_Archive();
 
 					if ($fileHelper->fileExists($fileName)) {
