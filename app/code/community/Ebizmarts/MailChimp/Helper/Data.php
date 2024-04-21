@@ -246,18 +246,14 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 		foreach ($stores as $storeId => $store) { /** @var int $storeId */
 			if ($this->isEcomSyncDataEnabled($storeId)) {
-				$mcStoreId = hcg_mc_sid($storeId);
-
-				if ($mcStoreId) {
-					if (!array_key_exists($mcStoreId, $storeRelation)) {
-						$storeRelation[$mcStoreId] = array();
+				if ($sid = hcg_mc_sid($storeId)) { /** @var ?string $sid */
+					if (!array_key_exists($sid, $storeRelation)) {
+						$storeRelation[$sid] = [];
 					}
-
-					$storeRelation[$mcStoreId][] = $storeId;
+					$storeRelation[$sid][] = $storeId;
 				}
 			}
 		}
-
 		return $storeRelation;
 	}
 
