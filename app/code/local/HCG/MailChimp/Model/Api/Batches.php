@@ -83,12 +83,12 @@ final class Batches {
 	/**
 	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::handleErrorItem()
-	 * @param array(string => mixed) $response
+	 * @param array(string => mixed) $p
 	 */
-	private static function processFileErrors(array $response):string {
+	private static function processFileErrors(array $p):string {
 		$r = ''; /** @var string $r */
-		if (!empty($response['errors'])) {
-			foreach ($response['errors'] as $error) {
+		if (!empty($p['errors'])) {
+			foreach ($p['errors'] as $error) {
 				if (isset($error['field']) && isset($error['message'])) {
 					$r .= $r != "" ? " / " : "";
 					$r .= $error['field'] . " : " . $error['message'];
@@ -96,7 +96,7 @@ final class Batches {
 			}
 		}
 		if ($r == "") {
-			$r = $response['detail'];
+			$r = $p['detail'];
 		}
 		return $r;
 	}
