@@ -549,14 +549,14 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	;}
 
 	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::_updateSyncingFlag()
 	 * @param $syncingFlag
 	 * @param $itemAmount
-	 * @return bool
 	 */
-	private function shouldFlagAsSynced($syncingFlag, $itemAmount)
-	{
-		return ($syncingFlag === '1' || $syncingFlag === null) && $itemAmount === 0;
-	}
+	private function shouldFlagAsSynced($syncingFlag, $itemAmount):bool {return
+		($syncingFlag === '1' || $syncingFlag === null) && $itemAmount === 0
+	;}
 
 	/**
 	 * @param $batchId
