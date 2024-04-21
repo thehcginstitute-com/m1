@@ -2174,7 +2174,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 			if ($mcStore && $isSyncing != 1) {
 				$this->getApiStores()->editIsSyncing($mailchimpApi, $syncValue, $mcStore);
 			}
-		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+		}
+		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 			$this->logError($e->getMessage());
 		}
 	}
