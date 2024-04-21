@@ -86,18 +86,18 @@ final class Batches {
 	 * @param array(string => mixed) $response
 	 */
 	private static function processFileErrors(array $response):string {
-		$errorDetails = "";
+		$r = ''; /** @var string $r */
 		if (!empty($response['errors'])) {
 			foreach ($response['errors'] as $error) {
 				if (isset($error['field']) && isset($error['message'])) {
-					$errorDetails .= $errorDetails != "" ? " / " : "";
-					$errorDetails .= $error['field'] . " : " . $error['message'];
+					$r .= $r != "" ? " / " : "";
+					$r .= $error['field'] . " : " . $error['message'];
 				}
 			}
 		}
-		if ($errorDetails == "") {
-			$errorDetails = $response['detail'];
+		if ($r == "") {
+			$r = $response['detail'];
 		}
-		return $errorDetails;
+		return $r;
 	}
 }
