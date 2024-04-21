@@ -1055,10 +1055,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param null $filters
 	 * @throws Mage_Core_Exception
 	 */
-	function saveLastItemsSent(int $scopeId, $scope, $filters = null)
-	{
-		$mailchimpStoreId = hcg_mc_sid($scopeId);
-		$isSyncing = $this->getMCIsSyncing($mailchimpStoreId, $scopeId, $scope);
+	function saveLastItemsSent(int $scopeId, $scope, $filters = null) {
+		$isSyncing = $this->getMCIsSyncing(hcg_mc_sid($scopeId), $scopeId, $scope);
 
 		if ($isSyncing != 1 && $filters !== null) {
 			$configValues = array();
