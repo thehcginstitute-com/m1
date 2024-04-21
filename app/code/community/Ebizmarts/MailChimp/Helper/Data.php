@@ -974,16 +974,13 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param null  $filters
 	 * @throws Mage_Core_Exception
 	 */
-	function clearErrorGrid(int $scopeId, $scope, $excludeSubscribers = false, $filters = null)
-	{
+	function clearErrorGrid(int $scopeId, $scope, $excludeSubscribers = false, $filters = null) {
 		//Make sure there are no errors without no MailChimp store id due to older versions.
 		$this->handleOldErrors();
-
-		$mailchimpStoreId = hcg_mc_sid($scopeId);
-
 		if ($excludeSubscribers) {
-			$this->clearErrorGridByMCStore($mailchimpStoreId, $filters);
-		} else {
+			$this->clearErrorGridByMCStore(hcg_mc_sid($scopeId), $filters);
+		}
+		else {
 			$this->clearErrorGridByStoreId($scopeId, $filters);
 		}
 	}
