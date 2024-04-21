@@ -2169,11 +2169,10 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	function setIsSyncingIfFinishedPerScope($syncValue, int $scopeId, $scope = 'stores') {
 		try {
 			$mailchimpApi = $this->getApi($scopeId, $scope);
-			$mailchimpStoreId = hcg_mc_sid($scopeId);
-			$isSyncing = $this->getMCIsSyncing($mailchimpStoreId, $scopeId, $scope);
-
-			if ($mailchimpStoreId && $isSyncing != 1) {
-				$this->getApiStores()->editIsSyncing($mailchimpApi, $syncValue, $mailchimpStoreId);
+			$mcStore = hcg_mc_sid($scopeId); /** @var ?string $mcStore */
+			$isSyncing = $this->getMCIsSyncing($mcStore, $scopeId, $scope);
+			if ($mcStore && $isSyncing != 1) {
+				$this->getApiStores()->editIsSyncing($mailchimpApi, $syncValue, $mcStore);
 			}
 		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 			$this->logError($e->getMessage());
