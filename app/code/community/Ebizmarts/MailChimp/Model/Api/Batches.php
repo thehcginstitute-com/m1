@@ -372,7 +372,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		$syncingFlag = $helper->getMCIsSyncing($mailchimpStoreId, $magentoStoreId);
 		if ($this->shouldFlagAsSyncing($syncingFlag, $itemAmount, $helper)) {
 			//Set is syncing per scope in 1 until sync finishes.
-			hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$mailchimpStoreId", 1, $magentoStoreId, 'stores');
+			hcg_mc_cfg_save(Cfg::GENERAL_MCISSYNCING . "_$mailchimpStoreId", 1, $magentoStoreId, 'stores');
 		}
 		elseif ($this->shouldFlagAsSynced($syncingFlag, $itemAmount)) {
 			//Set is syncing per scope to a date because it is not sending any more items.
