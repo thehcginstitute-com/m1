@@ -68,14 +68,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * @return Ebizmarts_MailChimp_Helper_Data
-	 */
-	protected function getHelper($type='')
-	{
-		return hcg_mc_h();
-	}
-
-	/**
 	 * @return Ebizmarts_MailChimp_Helper_Curl
 	 */
 	protected function getMailchimpCurlHelper()
@@ -184,7 +176,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 */
 	function handleEcommerceBatches()
 	{
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$stores = $this->getStores();
 		$helper->handleResendDataBefore();
 
