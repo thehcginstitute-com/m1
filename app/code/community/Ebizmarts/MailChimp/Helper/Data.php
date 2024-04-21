@@ -711,16 +711,13 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param null $filters
 	 * @throws Mage_Core_Exception
 	 */
-	function resendMCEcommerceData(int $scopeId, $scope, $filters = null)
-	{
+	function resendMCEcommerceData(int $scopeId, $scope, $filters = null) {
 		if (hcg_mc_sid($scopeId)) {
 			if (!$this->getResendEnabled($scopeId, $scope)) {
 				$this->saveLastItemsSent($scopeId, $scope, $filters);
 			}
-
 			$this->removeEcommerceSyncData($scopeId, $scope, false, $filters);
 			$this->clearErrorGrid($scopeId, $scope, true, $filters);
-
 			if ($filters !== null && in_array(Ebizmarts_MailChimp_Model_Config::IS_PRODUCT, $filters)) {
 				$this->deleteFlushMagentoCacheFlag();
 			}
@@ -739,9 +736,9 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	{
 		if ($scopeId == 0 && $deleteErrorsOnly) {
 			$this->removeAllEcommerceSyncDataErrors($filters);
-		} else {
-			$mailchimpStoreId = hcg_mc_sid($scopeId);
-			$this->removeEcommerceSyncDataByMCStore($mailchimpStoreId, $deleteErrorsOnly, $filters);
+		}
+		else {
+			$this->removeEcommerceSyncDataByMCStore(hcg_mc_sid($scopeId), $deleteErrorsOnly, $filters);
 		}
 	}
 
