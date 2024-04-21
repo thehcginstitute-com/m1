@@ -9,10 +9,9 @@ final class ProcessEachResponseFile {
 	 * @param string[] $files
 	 * @param $batchId
 	 * @param $mailchimpStoreId
-	 * @param $magentoStoreId
 	 * @throws \Mage_Core_Exception
 	 */
-	static function p(array $files, $batchId, $mailchimpStoreId, $magentoStoreId):void {
+	static function p(array $files, $batchId, $mailchimpStoreId, int $mgStore):void {
 		$h = hcg_mc_h();
 		$h->resetCountersDataSentToMailchimp();
 		$fileHelper = hcg_mc_h_file();
@@ -68,7 +67,7 @@ final class ProcessEachResponseFile {
 			}
 			$fileHelper->rm($file);
 		}
-		self::_showResumeDataSentToMailchimp($magentoStoreId);
+		self::_showResumeDataSentToMailchimp($mgStore);
 	}
 
 	/**
