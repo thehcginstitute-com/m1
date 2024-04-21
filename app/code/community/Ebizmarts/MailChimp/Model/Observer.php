@@ -863,18 +863,16 @@ class Ebizmarts_MailChimp_Model_Observer
         foreach ($stores as $storeId => $store) { /** @var int $storeId */
             $ecommEnabled = $helper->isEcommerceEnabled($storeId);
             if ($ecommEnabled) {
-                $mailchimpStoreId = hcg_mc_sid($storeId);
-                $apiProduct->setMailchimpStoreId($mailchimpStoreId);
+                $mcStore = hcg_mc_sid($storeId); /** @var ?string $mcStore */
+                $apiProduct->setMailchimpStoreId($mcStore);
                 $apiProduct->setMagentoStoreId($storeId);
                 $status = $this->getCatalogProductStatusModel()->getProductStatus($product->getId(), $storeId);
-
                 if ($status[$product->getId()] == self::PRODUCT_IS_ENABLED) {
                     $dataProduct = hcg_mc_syncd_get(
                         (int)$product->getId(),
                         Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
-                        $mailchimpStoreId
+                        $mcStore
                     );
-
                     $isMarkedAsDeleted = $dataProduct->getMailchimpSyncDeleted();
                     $errorMessage = $dataProduct['mailchimp_sync_error'];
 
