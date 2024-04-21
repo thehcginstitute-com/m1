@@ -7,11 +7,6 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use HCG\MailChimp\Model\Api\Batches as Plugin;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
-	 * @return Ebizmarts_MailChimp_Model_Api_Carts
-	 */
-	function getApiCarts() {return dfc($this, function() {return Mage::getModel('mailchimp/api_carts');});}
-
-	/**
 	 * @return Ebizmarts_MailChimp_Model_Api_Customers
 	 */
 	function getApiCustomers() {return dfc($this, function() {return Mage::getModel('mailchimp/api_customers');});}
@@ -229,7 +224,8 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 				} else {
 					//cart operations
 					$helper->logBatchStatus('Generate Carts Payload');
-					$apiCarts = $this->getApiCarts();
+					/** @var Ebizmarts_MailChimp_Model_Api_Carts $apiCarts */
+					$apiCarts = new Ebizmarts_MailChimp_Model_Api_Carts;
 					$apiCarts->setMailchimpStoreId($mailchimpStoreId);
 					$apiCarts->setMagentoStoreId($magentoStoreId);
 
