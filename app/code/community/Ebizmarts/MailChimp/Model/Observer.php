@@ -724,18 +724,17 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return Varien_Event_Observer
      */
-    function newCreditMemo(Varien_Event_Observer $observer)
-    {
+    function newCreditMemo(Varien_Event_Observer $observer) {
         $creditMemo = $observer->getEvent()->getCreditmemo();
         $order = $creditMemo->getOrder();
-        $storeId = $order->getStoreId();
+        $storeId = $order->getStoreId(); /** @var int $storeId */
         $helper = $this->makeHelper();
         $ecomEnabled = $helper->isEcomSyncDataEnabled($storeId);
         $apiProduct = $this->makeApiProduct();
         $apiOrder = $this->makeApiOrder();
 
         if ($ecomEnabled) {
-            $mailchimpStoreId = $helper->getMCStoreId($storeId);
+            $mailchimpStoreId = hcg_mc_sid($storeId);
             $apiProduct->setMailchimpStoreId($mailchimpStoreId);
             $apiProduct->setMagentoStoreId($storeId);
             $items = $creditMemo->getAllItems();
