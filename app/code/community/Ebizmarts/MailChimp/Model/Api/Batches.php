@@ -613,12 +613,12 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @throws Mage_Core_Exception
 	 */
 	private function _saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId):void {
-		$helper = hcg_mc_h();
+		$h = hcg_mc_h();
 		if (!empty($files)) {
 			if (isset($files['error'])) {
 				$item->setStatus('error');
 				$item->save();
-				$helper->logBatchStatus('There was an error getting the result ');
+				$h->logBatchStatus('There was an error getting the result ');
 			}
 			else {
 				$this->processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId);
