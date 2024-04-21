@@ -264,13 +264,11 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 	/**
 	 * Get all Magento stores associated to the MailChimp store configured for the given scope.
-	 *
-	 * @param  $scopeId
 	 * @param  $scope
 	 * @return array|mixed
 	 * @throws Mage_Core_Exception
 	 */
-	function getMagentoStoresForMCStoreIdByScope($scopeId, $scope)
+	function getMagentoStoresForMCStoreIdByScope(int $scopeId, $scope)
 	{
 		$ret = array();
 		$storeRelation = $this->getStoreRelation();
