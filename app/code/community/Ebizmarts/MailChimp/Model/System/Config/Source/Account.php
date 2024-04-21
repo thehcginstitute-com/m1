@@ -65,15 +65,13 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Account
                 $api = $helper->getApiByKey($apiKey);
                 try {
                     $this->_accountDetails = $api->getRoot()->info('account_name,total_subscribers');
-
-                    $mcStoreId = (empty($params))
-                        ? hcg_mc_sid($scopeArray['scope_id'])
-                        : $params['mailchimp_store_id'];
+					/** @var ?string $mcStoreId */
+                    $mcStoreId = (empty($params)) ? hcg_mc_sid($scopeArray['scope_id']) : $params['mailchimp_store_id'];
                     try {
                         $mcStore = (!empty($mcStoreId))
                             ? $api->getEcommerce()->getStores()->get($mcStoreId, 'list_id,name,is_syncing')
-                            : array();
-
+                            : []
+						;
                         if (empty($mcStore)) {
                             $this->_accountDetails['store_exists'] = false;
                         }
