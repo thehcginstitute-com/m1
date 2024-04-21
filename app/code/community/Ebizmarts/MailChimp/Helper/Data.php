@@ -1482,21 +1482,12 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 	/**
 	 * Get actual scope where the MailChimp store was created if exists.
-	 *
-	 * @param  $storeId
 	 * @return array|null
 	 */
-	function getMailChimpScopeByStoreId($storeId)
-	{
-		$mailchimpScope = null;
-		$mailChimpStoreId = $this->getMCStoreId($storeId);
-		$mailchimpScope = $this->getFirstScopeFromConfig(
-			Ebizmarts_MailChimp_Model_Config::GENERAL_MCSTOREID,
-			$mailChimpStoreId
-		);
-
-		return $mailchimpScope;
-	}
+	function getMailChimpScopeByStoreId(int $storeId) {return $this->getFirstScopeFromConfig(
+		Ebizmarts_MailChimp_Model_Config::GENERAL_MCSTOREID,
+		hcg_mc_sid($storeId)
+	);}
 
 	/**
 	 * Return default store id for the configured scope on MailChimp.
@@ -1821,8 +1812,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	{
 		$script = '';
 		$url = null;
-		$storeId = $this->getMageApp()->getStore()->getId();
-		$mailchimpStoreId = $this->getMCStoreId($storeId);
+		$storeId = $this->getMageApp()->getStore()->getId(); /** @var int $storeId */
+		$mailchimpStoreId = hcg_mc_sid($storeId);
 
 		if ($this->isEcomSyncDataEnabled($storeId)) {
 			$currentUrl = $this->getConfigValueForScope(
