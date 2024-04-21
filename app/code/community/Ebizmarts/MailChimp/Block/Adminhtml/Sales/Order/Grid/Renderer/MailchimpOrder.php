@@ -11,8 +11,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_Grid_Renderer_MailchimpOrd
         $orderDate = $row->getCreatedAt();
         $helper = $this->makeHelper();
         if ($helper->isEcomSyncDataEnabled($storeId)) {
-            $mailchimpStoreId = hcg_mc_sid($storeId);
-            $resultArray = $this->makeApiOrders()->getSyncedOrder($orderId, $mailchimpStoreId);
+            $resultArray = $this->makeApiOrders()->getSyncedOrder($orderId, hcg_mc_sid($storeId));
             $id = $resultArray['order_id'];
             $status = $resultArray['synced_status'];
 
