@@ -916,7 +916,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 */
 	function handleSyncingValue($syncedDateArray)
 	{
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		foreach ($syncedDateArray as $mailchimpStoreId => $val) {
 			$magentoStoreId = key($val);
 			$date = $val[$magentoStoreId];
