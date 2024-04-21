@@ -519,19 +519,21 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 				} elseif ((int)$syncedDate === 1) {
 					$syncedDateArray[$mailchimpStoreId] = array($storeId => false);
 				}
-			} else {
+			}
+			else {
 				if ($helper->validateDate($syncedDate)) {
 					$syncedDateArray[$mailchimpStoreId] = array($storeId => $syncedDate);
-				} else {
+				}
+				else {
 					if ((int)$syncedDate === 1 || $syncedDate === null) {
 						$syncedDateArray[$mailchimpStoreId] = array($storeId => false);
-					} elseif (!isset($syncedDateArray[$mailchimpStoreId])) {
+					}
+					elseif (!isset($syncedDateArray[$mailchimpStoreId])) {
 						$syncedDateArray[$mailchimpStoreId] = array($storeId => true);
 					}
 				}
 			}
 		}
-
 		return $syncedDateArray;
 	}
 
