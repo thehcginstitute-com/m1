@@ -46,7 +46,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::deleteUnsentItems()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::markItemsAsSent()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::getBatchResponse()
- * @used-by Ebizmarts_MailChimp_Model_Api_Batches::STUB()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::STUB()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::STUB()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::STUB()

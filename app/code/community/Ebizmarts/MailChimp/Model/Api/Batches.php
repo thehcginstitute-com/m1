@@ -656,7 +656,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @throws Mage_Core_Exception
 	 */
 	protected function processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId) {
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$helper->resetCountersDataSentToMailchimp();
 		$fileHelper = $this->getMailchimpFileHelper();
 		$fileHelper->open(['path '=> hcg_mc_batches_path()]);
