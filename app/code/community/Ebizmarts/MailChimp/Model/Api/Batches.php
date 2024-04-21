@@ -6,48 +6,6 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use HCG\MailChimp\Model\Api\Batches as Plugin;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
-	const SEND_PROMO_ENABLED = 1;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Helper_Date
-	 */
-	private $_mailchimpDateHelper;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Helper_Curl
-	 */
-	private $_mailchimpCurlHelper;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_Customers
-	 */
-	private $_apiCustomers;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_Products
-	 */
-	private $_apiProducts;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_Carts
-	 */
-	private $_apiCarts;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_Orders
-	 */
-	private $_apiOrders;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_PromoRules
-	 */
-	private $_apiPromoRules;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_PromoCodes
-	 */
-	private $_apiPromoCodes;
-
 	/**
 	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers
 	 */
@@ -1196,4 +1154,46 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		}
 		return $limit;
 	}
+
+	const SEND_PROMO_ENABLED = 1;
+
+	/**
+	 * @var Ebizmarts_MailChimp_Helper_Date
+	 */
+	private $_mailchimpDateHelper;
+
+	/**
+	 * @var Ebizmarts_MailChimp_Helper_Curl
+	 */
+	private $_mailchimpCurlHelper;
+
+	/**
+	 * @var Ebizmarts_MailChimp_Model_Api_Customers
+	 */
+	private $_apiCustomers;
+
+	/**
+	 * @var Ebizmarts_MailChimp_Model_Api_Products
+	 */
+	private $_apiProducts;
+
+	/**
+	 * @var Ebizmarts_MailChimp_Model_Api_Carts
+	 */
+	private $_apiCarts;
+
+	/**
+	 * @var Ebizmarts_MailChimp_Model_Api_Orders
+	 */
+	private $_apiOrders;
+
+	/**
+	 * @var Ebizmarts_MailChimp_Model_Api_PromoRules
+	 */
+	private $_apiPromoRules;
+
+	/**
+	 * @var Ebizmarts_MailChimp_Model_Api_PromoCodes
+	 */
+	private $_apiPromoCodes;
 }
