@@ -362,10 +362,10 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @throws Mage_Core_Model_Store_Exception
 	 */
 	private function _updateSyncingFlag($mailchimpStoreId, $magentoStoreId):void {
-		$helper = hcg_mc_h();
-		$itemAmount = $helper->getTotalNewItemsSent();
-		$syncingFlag = $helper->getMCIsSyncing($mailchimpStoreId, $magentoStoreId);
-		if ($this->shouldFlagAsSyncing($syncingFlag, $itemAmount, $helper)) {
+		$h = hcg_mc_h();
+		$itemAmount = $h->getTotalNewItemsSent();
+		$syncingFlag = $h->getMCIsSyncing($mailchimpStoreId, $magentoStoreId);
+		if ($this->shouldFlagAsSyncing($syncingFlag, $itemAmount, $h)) {
 			//Set is syncing per scope in 1 until sync finishes.
 			hcg_mc_cfg_save(Cfg::GENERAL_MCISSYNCING . "_$mailchimpStoreId", 1, $magentoStoreId, 'stores');
 		}
@@ -386,8 +386,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @param $batchId
 	 */
 	private function deleteBatchItems($batchId):void {
-		$helper = hcg_mc_h();
-		$resource = $helper->getCoreResource();
+		$resource = hcg_mc_h()->getCoreResource();
 		$connection = $resource->getConnection('core_write');
 		$tableName = $resource->getTableName('mailchimp/ecommercesyncdata');
 		$connection->delete($tableName, ["batch_id = '$batchId'"]);
