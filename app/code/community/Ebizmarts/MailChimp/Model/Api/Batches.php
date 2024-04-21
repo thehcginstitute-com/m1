@@ -21,7 +21,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		$fileHelper = $this->getMailchimpFileHelper();
 		$r = []; /** @var array $r */
 		try {
-			$baseDir = Mage::getBaseDir();
 			$api = $helper->getApi($magentoStoreId);
 			if ($fileHelper->isDir(hcg_mc_batches_path()) == false) {
 				$fileHelper->mkDir(hcg_mc_batches_path());
@@ -46,7 +45,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 					$fileHelper->mkDir(hcg_mc_batches_path($batchId), 0750, true);
 					$archive = new Mage_Archive();
 					if ($fileHelper->fileExists($fileName)) {
-						$r = $this->_unpackBatchFile($r, $batchId, $archive, $fileName, $baseDir);
+						$r = $this->_unpackBatchFile($r, $batchId, $archive, $fileName);
 					}
 				}
 			}
@@ -337,10 +336,9 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @param $batchId
 	 * @param $archive Mage_Archive
 	 * @param $fileName
-	 * @param $baseDir
 	 * @return array
 	 */
-	private function _unpackBatchFile($files, $batchId, $archive, $fileName, $baseDir)
+	private function _unpackBatchFile($files, $batchId, $archive, $fileName)
 	{
 		$path = hcg_mc_batches_path($batchId);
 		$archive->unpack($fileName, $path);
