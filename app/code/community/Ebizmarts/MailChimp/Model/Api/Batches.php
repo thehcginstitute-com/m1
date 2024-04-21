@@ -498,12 +498,13 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::handleEcommerceBatches()
 	 * @param $storeId
 	 * @param $syncedDateArray
 	 * @return mixed
 	 */
-	private function addSyncValueToArray($storeId, $syncedDateArray)
-	{
+	private function addSyncValueToArray($storeId, $syncedDateArray) {
 		$helper = hcg_mc_h();
 		$ecomEnabled = $helper->isEcomSyncDataEnabled($storeId);
 
