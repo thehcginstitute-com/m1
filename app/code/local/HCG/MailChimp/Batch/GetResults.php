@@ -32,7 +32,7 @@ final class GetResults {
 				try {
 					$batchId = $item->getBatchId();
 					$files = $sb->getBatchResponse($batchId, $magentoStoreId);
-					self::_saveItemStatus($sb, $item, $files, $batchId, $mailchimpStoreId, $magentoStoreId);
+					self::_saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId);
 					hcg_mc_batch_delete($batchId);
 				}
 				catch (\Exception $e) {
@@ -52,7 +52,7 @@ final class GetResults {
 	 * @param $magentoStoreId
 	 * @throws \Mage_Core_Exception
 	 */
-	private static function _saveItemStatus(Sb $sb, $item, $files, $batchId, $mailchimpStoreId, $magentoStoreId):void {
+	private static function _saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId):void {
 		$h = hcg_mc_h();
 		if (!empty($files)) {
 			if (isset($files['error'])) {
