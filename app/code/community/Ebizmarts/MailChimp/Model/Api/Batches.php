@@ -320,15 +320,14 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @param $storeId
 	 * @throws Mage_Core_Exception
 	 */
-	private function _showResumeEcommerce($batchId, $storeId)
-	{
+	private function _showResumeEcommerce($batchId, $storeId):void {
 		$helper = hcg_mc_h();
 		$countersSentPerBatch = $helper->getCountersSentPerBatch();
-
 		if (!empty($countersSentPerBatch) || $countersSentPerBatch != null) {
 			$helper->logBatchStatus("Sent batch $batchId for Magento store $storeId");
 			$helper->logBatchQuantity($helper->getCountersSentPerBatch());
-		} else {
+		}
+		else {
 			$helper->logBatchStatus("Nothing to sync for store $storeId");
 		}
 	}
