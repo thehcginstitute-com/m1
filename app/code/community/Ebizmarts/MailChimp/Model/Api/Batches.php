@@ -5,20 +5,8 @@
 use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use HCG\MailChimp\Model\Api\Batches as Plugin;
+use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
-	/**
-	 * @return Ebizmarts_MailChimp_Model_Api_Subscribers
-	 */
-	function getApiSubscribers() {return dfc($this, function() {return Mage::getModel('mailchimp/api_subscribers');});}
-
-	/**
-	 * @return Ebizmarts_MailChimp_Model_Synchbatches
-	 */
-	private function getSyncBatchesModel()
-	{
-		return Mage::getModel('mailchimp/synchbatches');
-	}
-
 	/**
 	 * @return array
 	 */
@@ -106,7 +94,8 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	{
 		$helper = hcg_mc_h();
 		$mailchimpStoreId = $helper->getMCStoreId($magentoStoreId);
-		$collection = $this->getSyncBatchesModel()->getCollection()->addFieldToFilter('status', array('eq' => $status));
+		$sb = new Synchbatches;
+		$collection = $sb->getCollection()->addFieldToFilter('status', array('eq' => $status));
 
 		if ($isEcommerceData) {
 			$collection->addFieldToFilter('store_id', array('eq' => $mailchimpStoreId));
@@ -296,7 +285,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 				$batchResponse = $mailchimpApi->getBatchOperation()->add($batchJson);
 				$helper->logRequest($batchJson, $batchResponse['id']);
 				//save batch id to db
-				$batch = $this->getSyncBatchesModel();
+				$batch = new Synchbatches;
 				$batch->setStoreId($mailchimpStoreId)->setBatchId($batchResponse['id'])->setStatus($batchResponse['status']);
 				$batch->save();
 				$this->markItemsAsSent($batchResponse['id'], $mailchimpStoreId);
@@ -667,7 +656,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 						$batchResponse = $mailchimpApi->batchOperation->add($batchJson);
 						$helper->logRequest($batchJson, $batchResponse['id']);
 						//save batch id to db
-						$batch = $this->getSyncBatchesModel();
+						$batch = new Synchbatches;
 						$batch->setStoreId($mailchimpStoreId)
 							->setBatchId($batchResponse['id'])
 							->setStatus($batchResponse['status']);
@@ -1019,7 +1008,9 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 				$h->resetCountersSubscribers();
 				$listId = $h->getGeneralList($sid);
 				$batchArray = [];
-				$subscribersArray = $this->getApiSubscribers()->createBatchJson($listId, $sid, $limit);
+				/** @var Ebizmarts_MailChimp_Model_Api_Subscribers $api */
+				$api = new Ebizmarts_MailChimp_Model_Api_Subscribers;
+				$subscribersArray = $api->createBatchJson($listId, $sid, $limit);
 				$limit -= count($subscribersArray);
 				$batchArray['operations'] = $subscribersArray;
 				if (!empty($batchArray['operations'])) {
@@ -1035,7 +1026,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 							$mailchimpApi = $h->getApi($sid);
 							$batchResponse = $mailchimpApi->getBatchOperation()->add($batchJson);
 							$h->logRequest($batchJson, $batchResponse['id']);
-							$batch = $this->getSyncBatchesModel();
+							$batch = new Synchbatches;
 							$batch->setStoreId($sid)
 								->setBatchId($batchResponse['id'])
 								->setStatus($batchResponse['status']);

@@ -29,7 +29,6 @@ use Df\Core\RAM;
  * @used-by dfaoc()
  * @see df_prop()
  * @see dfaoc()
- * @used-by Ebizmarts_MailChimp_Model_Api_Batches::getApiSubscribers() (https://github.com/thehcginstitute-com/m1/issues/572)
  * @param object $o
  * @param bool $unique
  * @param int $offset
