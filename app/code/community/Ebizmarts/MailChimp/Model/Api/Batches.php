@@ -574,6 +574,7 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController::downloadresponseAction()
 	 * @param $batchId
 	 * @param $magentoStoreId
 	 * @return array
