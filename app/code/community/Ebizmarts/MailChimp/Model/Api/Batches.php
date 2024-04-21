@@ -40,65 +40,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * Send Subscribers batch on particular store view, return batch response.
-	 * 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 * @used-by HCG\MailChimp\Batch\Subscriber::p()
-	 */
-	function sendStoreSubscriberBatch(int $sid, int $limit):int {
-		$h = hcg_mc_h();
-		try {
-			if ($h->isSubscriptionEnabled($sid)) {
-				$h->resetCountersSubscribers();
-				$listId = $h->getGeneralList($sid);
-				$batchArray = [];
-				/** @var Ebizmarts_MailChimp_Model_Api_Subscribers $api */
-				$api = new Ebizmarts_MailChimp_Model_Api_Subscribers;
-				$subscribersArray = $api->createBatchJson($listId, $sid, $limit);
-				$limit -= count($subscribersArray);
-				$batchArray['operations'] = $subscribersArray;
-				if (!empty($batchArray['operations'])) {
-					$batchJson = json_encode($batchArray);
-					if ($batchJson === false) {
-						$h->logRequest('Json encode error ' . json_last_error_msg());
-					}
-					elseif ($batchJson == '') {
-						$h->logRequest('An empty operation was detected');
-					}
-					else {
-						try {
-							$mailchimpApi = $h->getApi($sid);
-							$batchResponse = $mailchimpApi->getBatchOperation()->add($batchJson);
-							$h->logRequest($batchJson, $batchResponse['id']);
-							$batch = new Synchbatches;
-							$batch->setStoreId($sid)
-								->setBatchId($batchResponse['id'])
-								->setStatus($batchResponse['status']);
-							$batch->save();
-							$this->_showResumeSubscriber($batchResponse['id'], $sid);
-							return $limit;
-						}
-						catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-							$h->logError($e->getMessage());
-						}
-						catch (MailChimp_Error $e) {
-							$h->logRequest($batchJson);
-							$h->logError($e->getFriendlyMessage());
-						}
-					}
-				}
-			}
-		}
-		catch (Exception $e) {
-			# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# "`Ebizmarts_MailChimp_Model_Api_Batches::sendStoreSubscriberBatch()` should log the trace for exceptions":
-			# https://github.com/thehcginstitute-com/m1/issues/509
-			df_log($e);
-		}
-		return $limit;
-	}
-
-	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::_sendEcommerceBatch()
 	 * @param $batchArray
@@ -383,25 +324,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	private function shouldFlagAsSynced($syncingFlag, $itemAmount):bool {return
 		($syncingFlag === '1' || $syncingFlag === null) && $itemAmount === 0
 	;}
-
-	/**
-	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::sendStoreSubscriberBatch()
-	 * @param $batchId
-	 * @param $storeId
-	 * @throws Mage_Core_Exception
-	 */
-	private function _showResumeSubscriber($batchId, $storeId):void	{
-		$h = hcg_mc_h();
-		$countersSubscribers = $h->getCountersSubscribers();
-		if (!empty($countersSubscribers) || $h->getCountersSubscribers() != null) {
-			$h->logBatchStatus("Sent batch $batchId for Magento store $storeId");
-			$h->logBatchQuantity($h->getCountersSubscribers());
-		}
-		else {
-			$h->logBatchStatus("Nothing to sync for store $storeId");
-		}
-	}
 
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
