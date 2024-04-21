@@ -8,13 +8,11 @@ use HCG\MailChimp\Model\Api\Batches as Plugin;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
-	 * Send Customers, Products, Orders, Carts to MailChimp store for given scope.
-	 * Return true if MailChimp store is reset in the process.
-	 *
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @param  $magentoStoreId
 	 * @throws Mage_Core_Exception
 	 */
-	function _sendEcommerceBatch($magentoStoreId)
+	private function _sendEcommerceBatch($magentoStoreId)
 	{
 		$helper = hcg_mc_h();
 		$mailchimpStoreId = $helper->getMCStoreId($magentoStoreId);
