@@ -16,7 +16,7 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Helper_Data::clearErrorGrid()
  * @used-by Ebizmarts_MailChimp_Helper_Data::handleOldErrors()
  * @used-by Ebizmarts_MailChimp_Helper_Data::saveLastItemsSent()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::getLastCustomerSent()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
