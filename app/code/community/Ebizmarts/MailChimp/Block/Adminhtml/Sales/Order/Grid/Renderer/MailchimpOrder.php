@@ -6,7 +6,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_Grid_Renderer_MailchimpOrd
 
     function render(Varien_Object $row)
     {
-        $storeId = $row->getStoreId();
+        $storeId = $row->getStoreId(); /** @var int $storeId */
         $orderId = $row->getEntityId();
         $orderDate = $row->getCreatedAt();
         $helper = $this->makeHelper();
