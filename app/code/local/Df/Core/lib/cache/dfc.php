@@ -34,7 +34,7 @@ use Df\Core\RAM;
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::getApiProducts() (https://github.com/thehcginstitute-com/m1/issues/572)
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::getApiOrders() (https://github.com/thehcginstitute-com/m1/issues/572)
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::getApiPromoRules() (https://github.com/thehcginstitute-com/m1/issues/572)
- * @used-by Ebizmarts_MailChimp_Model_Api_Batches::STUB() (https://github.com/thehcginstitute-com/m1/issues/572)
+ * @used-by Ebizmarts_MailChimp_Model_Api_Batches::getApiPromoCodes() (https://github.com/thehcginstitute-com/m1/issues/572)
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::STUB() (https://github.com/thehcginstitute-com/m1/issues/572)
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::STUB() (https://github.com/thehcginstitute-com/m1/issues/572)
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::STUB() (https://github.com/thehcginstitute-com/m1/issues/572)
