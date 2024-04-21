@@ -7,68 +7,6 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use HCG\MailChimp\Model\Api\Batches as Plugin;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
-	function ecommerceDeleteCallback($args):void {
-		$ecommerceData = Mage::getModel('mailchimp/ecommercesyncdata');
-		$ecommerceData->setData($args['row']);
-		$ecommerceData->delete();
-	}
-
-	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncEcommerceBatchData()
-	 */
-	function handleEcommerceBatches():void {
-		$helper = hcg_mc_h();
-		$stores = Mage::app()->getStores();
-		$helper->handleResendDataBefore();
-		foreach ($stores as $store) {
-			$storeId = $store->getId();
-			if ($helper->isEcomSyncDataEnabled($storeId)) {
-				if ($helper->ping($storeId)) {
-					$this->_getResults($storeId);
-					$this->_sendEcommerceBatch($storeId);
-				}
-				else {
-					$helper->logError(
-						"Could not connect to MailChimp: Make sure the API Key is correct "
-						. "and there is an internet connection"
-					);
-					return;
-				}
-			}
-		}
-		$helper->handleResendDataAfter();
-		$syncedDateArray = [];
-		foreach ($stores as $store) {
-			$storeId = $store->getId();
-			$syncedDateArray = $this->addSyncValueToArray($storeId, $syncedDateArray);
-		}
-		$this->handleSyncingValue($syncedDateArray);
-	}
-
-	/**
-	 * 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncSubscriberBatchData()
-	 */
-	function handleSubscriberBatches():void	{
-		$limit = (int)Mage::getStoreConfig(Cfg::GENERAL_SUBSCRIBER_AMOUNT, 0); /** @var int $limit */
-		# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-		# https://3v4l.org/AF1Vc
-		foreach (Mage::app()->getStores() as $s) {
-			$sid = (int)$s->getId(); /** @var int $sid */
-			$this->_getResults($sid, false);
-			if (1 > $limit) {
-				break;
-			}
-			$limit = $this->sendStoreSubscriberBatch($sid, $limit);
-		}
-		$this->_getResults(0, false);
-		if (0 < $limit) {
-			$this->sendStoreSubscriberBatch(0, $limit);
-		}
-	}
-
 	/**
 	 * Send Customers, Products, Orders, Carts to MailChimp store for given scope.
 	 * Return true if MailChimp store is reset in the process.
@@ -178,6 +116,68 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 			$helper->logError($e->getFriendlyMessage());
 		} catch (Exception $e) {
 			$helper->logError($e->getMessage());
+		}
+	}
+
+	function ecommerceDeleteCallback($args):void {
+		$ecommerceData = Mage::getModel('mailchimp/ecommercesyncdata');
+		$ecommerceData->setData($args['row']);
+		$ecommerceData->delete();
+	}
+
+	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncEcommerceBatchData()
+	 */
+	function handleEcommerceBatches():void {
+		$helper = hcg_mc_h();
+		$stores = Mage::app()->getStores();
+		$helper->handleResendDataBefore();
+		foreach ($stores as $store) {
+			$storeId = $store->getId();
+			if ($helper->isEcomSyncDataEnabled($storeId)) {
+				if ($helper->ping($storeId)) {
+					$this->_getResults($storeId);
+					$this->_sendEcommerceBatch($storeId);
+				}
+				else {
+					$helper->logError(
+						"Could not connect to MailChimp: Make sure the API Key is correct "
+						. "and there is an internet connection"
+					);
+					return;
+				}
+			}
+		}
+		$helper->handleResendDataAfter();
+		$syncedDateArray = [];
+		foreach ($stores as $store) {
+			$storeId = $store->getId();
+			$syncedDateArray = $this->addSyncValueToArray($storeId, $syncedDateArray);
+		}
+		$this->handleSyncingValue($syncedDateArray);
+	}
+
+	/**
+	 * 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncSubscriberBatchData()
+	 */
+	function handleSubscriberBatches():void	{
+		$limit = (int)Mage::getStoreConfig(Cfg::GENERAL_SUBSCRIBER_AMOUNT, 0); /** @var int $limit */
+		# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# https://3v4l.org/AF1Vc
+		foreach (Mage::app()->getStores() as $s) {
+			$sid = (int)$s->getId(); /** @var int $sid */
+			$this->_getResults($sid, false);
+			if (1 > $limit) {
+				break;
+			}
+			$limit = $this->sendStoreSubscriberBatch($sid, $limit);
+		}
+		$this->_getResults(0, false);
+		if (0 < $limit) {
+			$this->sendStoreSubscriberBatch(0, $limit);
 		}
 	}
 
