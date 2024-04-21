@@ -67,16 +67,16 @@ final class Batches {
 	 * @param $response
 	 */
 	private static function error(Sb $sb, $type, $mailchimpStoreId, $id, $response):string {
-		$error = $response['title'] . " : " . $response['detail'];
+		$r = $response['title'] . " : " . $response['detail']; /** @var string $r */
 		if ($type == Cfg::IS_PRODUCT) {
 			$dataProduct = $sb->getDataProduct($mailchimpStoreId, $id, $type);
 			$isProductDisabledInMagento = ApiProducts::PRODUCT_DISABLED_IN_MAGENTO;
 			if ($dataProduct->getMailchimpSyncDeleted()
 				|| $dataProduct['mailchimp_sync_error'] == $isProductDisabledInMagento
 			) {
-				$error = $isProductDisabledInMagento;
+				$r = $isProductDisabledInMagento;
 			}
 		}
-		return $error;
+		return $r;
 	}
 }
