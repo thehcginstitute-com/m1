@@ -13,7 +13,7 @@ class Ebizmarts_MailChimp_Model_Cron
 		$this->_mailChimpHelper = hcg_mc_h();
 	}
 
-	function syncEcommerceBatchData() {hcg_mc_batches_new()->handleEcommerceBatches();}
+	function syncEcommerceBatchData() {\HCG\MailChimp\Batch\Commerce::p();}
 
 	/**
 	 * 2024-04-14

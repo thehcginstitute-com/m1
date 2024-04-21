@@ -4,87 +4,14 @@
 # 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
-use HCG\MailChimp\Batch\GetResults;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncEcommerceBatchData()
-	 */
-	function handleEcommerceBatches():void {
-		$h = hcg_mc_h();
-		$stores = Mage::app()->getStores();
-		$h->handleResendDataBefore();
-		foreach ($stores as $store) {
-			$storeId = $store->getId();
-			if ($h->isEcomSyncDataEnabled($storeId)) {
-				if ($h->ping($storeId)) {
-					GetResults::p($storeId);
-					$this->_sendEcommerceBatch($storeId);
-				}
-				else {
-					$h->logError(
-						"Could not connect to MailChimp: Make sure the API Key is correct "
-						. "and there is an internet connection"
-					);
-					return;
-				}
-			}
-		}
-		$h->handleResendDataAfter();
-		$syncedDateArray = [];
-		foreach ($stores as $store) {
-			$storeId = $store->getId();
-			$syncedDateArray = $this->addSyncValueToArray($storeId, $syncedDateArray);
-		}
-		$this->handleSyncingValue($syncedDateArray);
-	}
-
-	/**
-	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::_sendEcommerceBatch()
-	 * @param $batchArray
-	 * @param $mailchimpStoreId
-	 * @param $magentoStoreId
-	 * @throws Ebizmarts_MailChimp_Helper_Data_ApiKeyException
-	 * @throws Mage_Core_Exception
-	 * @throws MailChimp_Error
-	 * @throws MailChimp_HttpError
-	 */
-	private function _processBatchOperations($batchArray, $mailchimpStoreId, $magentoStoreId):void {
-		$h = hcg_mc_h();
-		$mailchimpApi = $h->getApi($magentoStoreId);
-		if (!empty($batchArray['operations'])) {
-			$batchJson = json_encode($batchArray);
-			if ($batchJson === false) {
-				$h->logRequest('Json encode error ' . json_last_error_msg());
-			}
-			elseif (empty($batchJson)) {
-				$h->logRequest('An empty operation was detected');
-			}
-			else {
-				$h->logBatchStatus('Send batch operation');
-				$batchResponse = $mailchimpApi->getBatchOperation()->add($batchJson);
-				$h->logRequest($batchJson, $batchResponse['id']);
-				//save batch id to db
-				$batch = new Synchbatches;
-				$batch->setStoreId($mailchimpStoreId)->setBatchId($batchResponse['id'])->setStatus($batchResponse['status']);
-				$batch->save();
-				$this->markItemsAsSent($batchResponse['id'], $mailchimpStoreId);
-				$this->_showResumeEcommerce($batchResponse['id'], $magentoStoreId);
-			}
-		}
-		else {
-			$h->logBatchStatus("Nothing to sync for store $magentoStoreId");
-		}
-	}
-
-	/**
-	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::handleEcommerceBatches()
+	 * @used-by HCG\MailChimp\Batch\Commerce::p()
 	 * @param $magentoStoreId
 	 * @throws Mage_Core_Exception
 	 */
-	private function _sendEcommerceBatch($magentoStoreId):void {
+	function _sendEcommerceBatch($magentoStoreId):void {
 		$h = hcg_mc_h();
 		$mailchimpStoreId = $h->getMCStoreId($magentoStoreId);
 		try {
@@ -189,6 +116,45 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::_sendEcommerceBatch()
+	 * @param $batchArray
+	 * @param $mailchimpStoreId
+	 * @param $magentoStoreId
+	 * @throws Ebizmarts_MailChimp_Helper_Data_ApiKeyException
+	 * @throws Mage_Core_Exception
+	 * @throws MailChimp_Error
+	 * @throws MailChimp_HttpError
+	 */
+	private function _processBatchOperations($batchArray, $mailchimpStoreId, $magentoStoreId):void {
+		$h = hcg_mc_h();
+		$mailchimpApi = $h->getApi($magentoStoreId);
+		if (!empty($batchArray['operations'])) {
+			$batchJson = json_encode($batchArray);
+			if ($batchJson === false) {
+				$h->logRequest('Json encode error ' . json_last_error_msg());
+			}
+			elseif (empty($batchJson)) {
+				$h->logRequest('An empty operation was detected');
+			}
+			else {
+				$h->logBatchStatus('Send batch operation');
+				$batchResponse = $mailchimpApi->getBatchOperation()->add($batchJson);
+				$h->logRequest($batchJson, $batchResponse['id']);
+				//save batch id to db
+				$batch = new Synchbatches;
+				$batch->setStoreId($mailchimpStoreId)->setBatchId($batchResponse['id'])->setStatus($batchResponse['status']);
+				$batch->save();
+				$this->markItemsAsSent($batchResponse['id'], $mailchimpStoreId);
+				$this->_showResumeEcommerce($batchResponse['id'], $magentoStoreId);
+			}
+		}
+		else {
+			$h->logBatchStatus("Nothing to sync for store $magentoStoreId");
+		}
+	}
+
+	/**
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::_processBatchOperations()
 	 * @param $batchId
 	 * @param $storeId
@@ -266,46 +232,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::handleEcommerceBatches()
-	 * @param $storeId
-	 * @param $syncedDateArray
-	 * @return mixed
-	 */
-	private function addSyncValueToArray($storeId, $syncedDateArray) {
-		$h = hcg_mc_h();
-		$ecomEnabled = $h->isEcomSyncDataEnabled($storeId);
-		if ($ecomEnabled) {
-			$mailchimpStoreId = $h->getMCStoreId($storeId);
-			$syncedDate = $h->getMCIsSyncing($mailchimpStoreId, $storeId);
-			// Check if $syncedDate is in date format to support previous versions.
-			if (isset($syncedDateArray[$mailchimpStoreId]) && $syncedDateArray[$mailchimpStoreId]) {
-				if ($h->validateDate($syncedDate)) {
-					if ($syncedDate > $syncedDateArray[$mailchimpStoreId]) {
-						$syncedDateArray[$mailchimpStoreId] = array($storeId => $syncedDate);
-					}
-				} elseif ((int)$syncedDate === 1) {
-					$syncedDateArray[$mailchimpStoreId] = array($storeId => false);
-				}
-			}
-			else {
-				if ($h->validateDate($syncedDate)) {
-					$syncedDateArray[$mailchimpStoreId] = array($storeId => $syncedDate);
-				}
-				else {
-					if ((int)$syncedDate === 1 || $syncedDate === null) {
-						$syncedDateArray[$mailchimpStoreId] = array($storeId => false);
-					}
-					elseif (!isset($syncedDateArray[$mailchimpStoreId])) {
-						$syncedDateArray[$mailchimpStoreId] = array($storeId => true);
-					}
-				}
-			}
-		}
-		return $syncedDateArray;
-	}
-
-	/**
-	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::_updateSyncingFlag()
 	 * @param $syncingFlag
 	 * @param $itemAmount
@@ -324,38 +250,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	private function shouldFlagAsSynced($syncingFlag, $itemAmount):bool {return
 		($syncingFlag === '1' || $syncingFlag === null) && $itemAmount === 0
 	;}
-
-	/**
-	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::handleEcommerceBatches()
-	 * @param $syncedDateArray
-	 * @throws Mage_Core_Exception
-	 */
-	private function handleSyncingValue($syncedDateArray):void {
-		$h = hcg_mc_h();
-		foreach ($syncedDateArray as $mailchimpStoreId => $val) {
-			$magentoStoreId = key($val);
-			$date = $val[$magentoStoreId];
-			$ecomEnabled = $h->isEcomSyncDataEnabled($magentoStoreId);
-			if ($ecomEnabled && $date) {
-				try {
-					$api = $h->getApi($magentoStoreId);
-					$isSyncingDate = $h->getDateSyncFinishByMailChimpStoreId($mailchimpStoreId);
-					if (!$isSyncingDate && $mailchimpStoreId) {
-						$apiStores = new Ebizmarts_MailChimp_Model_Api_Stores;
-						$apiStores->editIsSyncing($api, false, $mailchimpStoreId);
-						hcg_mc_cfg_save(Cfg::ECOMMERCE_SYNC_DATE . "_$mailchimpStoreId", $date);
-					}
-				} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-					$h->logError($e->getMessage());
-				} catch (MailChimp_Error $e) {
-					$h->logError($e->getFriendlyMessage());
-				} catch (Exception $e) {
-					$h->logError($e->getMessage());
-				}
-			}
-		}
-	}
 
 	const SEND_PROMO_ENABLED = 1;
 }

@@ -5,7 +5,7 @@ use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 final class GetResults {
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::handleEcommerceBatches()
+	 * @used-by Commerce::p()
 	 * @used-by Subscriber::p()
 	 * @param $magentoStoreId
 	 * @throws \Mage_Core_Exception
