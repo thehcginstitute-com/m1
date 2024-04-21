@@ -849,7 +849,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		$syncedFlag = null,
 		$saveOnlyIfExists = false
 	) {
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 
 		if ($itemType == Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER) {
 			$helper->updateSubscriberSyndData($itemId, $syncDelta, $syncError, 0, null);
