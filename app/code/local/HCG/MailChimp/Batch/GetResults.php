@@ -30,8 +30,7 @@ final class GetResults {
 			foreach ($collection as $item) {
 				try {
 					$batchId = $item->getBatchId();
-					$files = GetBatchResponse::p($batchId, $magentoStoreId);
-					self::_saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId);
+					self::_saveItemStatus($item, GetBatchResponse::p($batchId, $magentoStoreId), $batchId, $mailchimpStoreId, $magentoStoreId);
 					hcg_mc_batch_delete($batchId);
 				}
 				catch (\Exception $e) {
