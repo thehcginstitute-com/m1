@@ -1036,7 +1036,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 */
 	protected function _showResumeEcommerce($batchId, $storeId)
 	{
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$countersSentPerBatch = $helper->getCountersSentPerBatch();
 
 		if (!empty($countersSentPerBatch) || $countersSentPerBatch != null) {
