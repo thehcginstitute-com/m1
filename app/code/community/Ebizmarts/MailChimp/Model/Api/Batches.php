@@ -34,6 +34,31 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
+	 * @param $response
+	 * @return string
+	 */
+	function _processFileErrors($response)
+	{
+		$errorDetails = "";
+
+		if (!empty($response['errors'])) {
+			foreach ($response['errors'] as $error) {
+				if (isset($error['field']) && isset($error['message'])) {
+					$errorDetails .= $errorDetails != "" ? " / " : "";
+					$errorDetails .= $error['field'] . " : " . $error['message'];
+				}
+			}
+		}
+
+		if ($errorDetails == "") {
+			$errorDetails = $response['detail'];
+		}
+
+		return $errorDetails;
+	}
+
+	/**
 	 * Send Customers, Products, Orders, Carts to MailChimp store for given scope.
 	 * Return true if MailChimp store is reset in the process.
 	 *
@@ -338,27 +363,60 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 
 	/**
 	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
-	 * @param $response
-	 * @return string
+	 * @param $mailchimpStoreId
+	 * @param $id
+	 * @param $type
 	 */
-	function _processFileErrors($response)
+	function setItemAsModified($mailchimpStoreId, $id, $type)
 	{
-		$errorDetails = "";
+		$isMarkedAsDeleted = null;
 
-		if (!empty($response['errors'])) {
-			foreach ($response['errors'] as $error) {
-				if (isset($error['field']) && isset($error['message'])) {
-					$errorDetails .= $errorDetails != "" ? " / " : "";
-					$errorDetails .= $error['field'] . " : " . $error['message'];
-				}
+		if ($type == Ebizmarts_MailChimp_Model_Config::IS_PRODUCT) {
+			$dataProduct = $this->getDataProduct($mailchimpStoreId, $id, $type);
+			$isMarkedAsDeleted = $dataProduct->getMailchimpSyncDeleted();
+			$isProductDisabledInMagento = Ebizmarts_MailChimp_Model_Api_Products::PRODUCT_DISABLED_IN_MAGENTO;
+
+			if (!$isMarkedAsDeleted || $dataProduct['mailchimp_sync_error']!= $isProductDisabledInMagento) {
+				$this->saveSyncData(
+					$id,
+					$type,
+					$mailchimpStoreId,
+					null,
+					null,
+					1,
+					0,
+					null,
+					1,
+					true
+				);
+			} else {
+				$this->saveSyncData(
+					$id,
+					$type,
+					$mailchimpStoreId,
+					null,
+					$isProductDisabledInMagento,
+					0,
+					1,
+					null,
+					0,
+					true
+				);
 			}
+		} else {
+			$this->saveSyncData(
+				$id,
+				$type,
+				$mailchimpStoreId,
+				null,
+				null,
+				1,
+				0,
+				null,
+				1,
+				true
+			);
 		}
-
-		if ($errorDetails == "") {
-			$errorDetails = $response['detail'];
-		}
-
-		return $errorDetails;
 	}
 
 	/**
@@ -708,64 +766,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		}
 
 		return $syncedDateArray;
-	}
-
-	/**
-	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
-	 * @param $mailchimpStoreId
-	 * @param $id
-	 * @param $type
-	 */
-	function setItemAsModified($mailchimpStoreId, $id, $type)
-	{
-		$isMarkedAsDeleted = null;
-
-		if ($type == Ebizmarts_MailChimp_Model_Config::IS_PRODUCT) {
-			$dataProduct = $this->getDataProduct($mailchimpStoreId, $id, $type);
-			$isMarkedAsDeleted = $dataProduct->getMailchimpSyncDeleted();
-			$isProductDisabledInMagento = Ebizmarts_MailChimp_Model_Api_Products::PRODUCT_DISABLED_IN_MAGENTO;
-
-			if (!$isMarkedAsDeleted || $dataProduct['mailchimp_sync_error']!= $isProductDisabledInMagento) {
-				$this->saveSyncData(
-					$id,
-					$type,
-					$mailchimpStoreId,
-					null,
-					null,
-					1,
-					0,
-					null,
-					1,
-					true
-				);
-			} else {
-				$this->saveSyncData(
-					$id,
-					$type,
-					$mailchimpStoreId,
-					null,
-					$isProductDisabledInMagento,
-					0,
-					1,
-					null,
-					0,
-					true
-				);
-			}
-		} else {
-			$this->saveSyncData(
-				$id,
-				$type,
-				$mailchimpStoreId,
-				null,
-				null,
-				1,
-				0,
-				null,
-				1,
-				true
-			);
-		}
 	}
 
 	/**
