@@ -2590,25 +2590,20 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 	/**
 	 * @param $itemId
-	 * @param $storeId
 	 * @return bool
 	 */
-	protected function isMissingCustomerLowerThanId($itemId, $storeId)
-	{
-		$mailchimpStoreId = $this->getMCStoreId($storeId);
+	protected function isMissingCustomerLowerThanId($itemId, int $storeId) {
 		$customerCollection = Mage::getResourceModel('customer/customer_collection')
 			->addFieldToFilter('store_id', array('eq' => $storeId))
 			->addFieldToFilter('entity_id', array('lteq' => $itemId));
 		Mage::getModel('mailchimp/api_customers')
-			->joinMailchimpSyncDataWithoutWhere($customerCollection, $mailchimpStoreId);
+			->joinMailchimpSyncDataWithoutWhere($customerCollection, hcg_mc_sid($storeId));
 		$customerCollection->getSelect()->where("m4m.mailchimp_sync_delta IS null");
-
 		if ($customerCollection->getSize()) {
 			$isMissing = true;
 		} else {
 			$isMissing = false;
 		}
-
 		return $isMissing;
 	}
 
@@ -2617,16 +2612,15 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param $storeId
 	 * @return bool
 	 */
-	protected function isMissingProductLowerThanId($itemId, $storeId)
+	protected function isMissingProductLowerThanId($itemId, int $storeId)
 	{
 		$apiProducts = Mage::getModel('mailchimp/api_products');
-		$mailchimpStoreId = $this->getMCStoreId($storeId);
 		$productCollection = Mage::getResourceModel('catalog/product_collection')
 			->addStoreFilter($storeId)
 			->addFieldToFilter('entity_id', array('lteq' => $itemId));
 		$productCollection->addFinalPrice();
 		$apiProducts->joinQtyAndBackorders($productCollection);
-		$apiProducts->joinMailchimpSyncData($productCollection, $mailchimpStoreId);
+		$apiProducts->joinMailchimpSyncData($productCollection, hcg_mc_sid($storeId));
 		$productCollection->getSelect()->where("m4m.mailchimp_sync_delta IS null");
 
 		if ($productCollection->getSize()) {
@@ -2643,28 +2637,22 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param $storeId
 	 * @return bool
 	 */
-	protected function isMissingOrderLowerThanId($itemId, $storeId)
-	{
-		$mailchimpStoreId = $this->getMCStoreId($storeId);
+	protected function isMissingOrderLowerThanId($itemId, int $storeId) {
 		$orderCollection = Mage::getResourceModel('sales/order_collection')
 			->addFieldToFilter('store_id', array('eq' => $storeId))
 			->addFieldToFilter('entity_id', array('lteq' => $itemId));
 		$firstDate = $this->getEcommerceFirstDate($storeId);
-
 		if ($firstDate) {
 			$orderCollection->addFieldToFilter('created_at', array('gt' => $firstDate));
 		}
-
 		Mage::getModel('mailchimp/api_orders')
-			->joinMailchimpSyncDataWithoutWhere($orderCollection, $mailchimpStoreId);
+			->joinMailchimpSyncDataWithoutWhere($orderCollection, hcg_mc_sid($storeId));
 		$orderCollection->getSelect()->where("m4m.mailchimp_sync_delta IS null");
-
 		if ($orderCollection->getSize()) {
 			$isMissing = true;
 		} else {
 			$isMissing = false;
 		}
-
 		return $isMissing;
 	}
 
