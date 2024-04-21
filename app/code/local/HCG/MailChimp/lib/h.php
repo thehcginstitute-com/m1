@@ -37,7 +37,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::handleEcommerceBatches()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::handleSubscriberBatches()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::sendStoreSubscriberBatch()
- * @used-by Ebizmarts_MailChimp_Model_Api_Batches::STUB()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Batches::_getResults()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::STUB()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::STUB()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::STUB()

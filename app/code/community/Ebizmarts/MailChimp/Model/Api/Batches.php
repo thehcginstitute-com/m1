@@ -240,7 +240,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 */
 	function _getResults($magentoStoreId, $isEcommerceData = true, $status = Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING)
 	{
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$mailchimpStoreId = $helper->getMCStoreId($magentoStoreId);
 		$collection = $this->getSyncBatchesModel()->getCollection()->addFieldToFilter('status', array('eq' => $status));
 
