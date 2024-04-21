@@ -18,7 +18,7 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Helper_Data::saveLastItemsSent()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getLastCustomerSent()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getLastProductSent()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::getLastOrderSent()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
