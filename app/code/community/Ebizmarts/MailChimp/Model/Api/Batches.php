@@ -8,27 +8,6 @@ use HCG\MailChimp\Model\Api\Batches as Plugin;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
-	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
-	 * @param $response
-	 * @return string
-	 */
-	function _processFileErrors($response) {
-		$errorDetails = "";
-		if (!empty($response['errors'])) {
-			foreach ($response['errors'] as $error) {
-				if (isset($error['field']) && isset($error['message'])) {
-					$errorDetails .= $errorDetails != "" ? " / " : "";
-					$errorDetails .= $error['field'] . " : " . $error['message'];
-				}
-			}
-		}
-		if ($errorDetails == "") {
-			$errorDetails = $response['detail'];
-		}
-		return $errorDetails;
-	}
-
-	/**
 	 * Send Customers, Products, Orders, Carts to MailChimp store for given scope.
 	 * Return true if MailChimp store is reset in the process.
 	 *

@@ -15,7 +15,7 @@ final class Batches {
 	 */
 	static function handleErrorItem(Sb $sb, array $i, $batchId, $mailchimpStoreId, $id, $type, $store):void {
 		$response = json_decode($i['response'], true);
-		$errorDetails = $sb->_processFileErrors($response);
+		$errorDetails = self::processFileErrors($response);
 		if (strstr($errorDetails, 'already exists')) {
 			$sb->setItemAsModified($mailchimpStoreId, $id, $type);
 			hcg_mc_h()->modifyCounterDataSentToMailchimp($type);
@@ -78,5 +78,26 @@ final class Batches {
 			}
 		}
 		return $r;
+	}
+
+	/**
+	 * @used-by self::handleErrorItem()
+	 * @param $response
+	 * @return string
+	 */
+	private static function processFileErrors($response):string {
+		$errorDetails = "";
+		if (!empty($response['errors'])) {
+			foreach ($response['errors'] as $error) {
+				if (isset($error['field']) && isset($error['message'])) {
+					$errorDetails .= $errorDetails != "" ? " / " : "";
+					$errorDetails .= $error['field'] . " : " . $error['message'];
+				}
+			}
+		}
+		if ($errorDetails == "") {
+			$errorDetails = $response['detail'];
+		}
+		return $errorDetails;
 	}
 }
