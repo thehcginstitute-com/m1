@@ -578,60 +578,54 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @param $magentoStoreId
 	 * @return array
 	 */
-	function getBatchResponse($batchId, $magentoStoreId)
-	{
+	function getBatchResponse($batchId, $magentoStoreId) {
 		$helper = $this->getHelper();
 		$fileHelper = $this->getMailchimpFileHelper();
 		$files = array();
-
 		try {
 			$baseDir = $this->getMagentoBaseDir();
 			$api = $helper->getApi($magentoStoreId);
-			if ($fileHelper->isDir($baseDir.DS.'var'.DS.'mailchimp') == false)
-			{
+			if ($fileHelper->isDir($baseDir.DS.'var'.DS.'mailchimp') == false) {
 				$fileHelper->mkDir($baseDir.DS.'var'.DS.'mailchimp');
 			}
 			if ($api) {
 				// check the status of the job
 				$response = $api->batchOperation->status($batchId);
-
 				if (isset($response['status']) && $response['status'] == 'finished') {
 					// get the tar.gz file with the results
 					$fileUrl = urldecode($response['response_body_url']);
 					$fileName = hcg_mc_batches_path($batchId) . '.tar.gz';
 					$fd = fopen($fileName, 'w');
-
 					$curlOptions = array(
 						CURLOPT_RETURNTRANSFER => 1,
 						CURLOPT_FILE => $fd,
 						CURLOPT_FOLLOWLOCATION => true, // this will follow redirects
 						CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 					);
-
 					$curlHelper = $this->getMailchimpCurlHelper();
-					$curlResult = $curlHelper->curlExec($fileUrl, Zend_Http_Client::GET, $curlOptions);
-
+					$curlHelper->curlExec($fileUrl, Zend_Http_Client::GET, $curlOptions);
 					fclose($fd);
 					$fileHelper->mkDir(hcg_mc_batches_path($batchId), 0750, true);
 					$archive = new Mage_Archive();
-
 					if ($fileHelper->fileExists($fileName)) {
 						$files = $this->_unpackBatchFile($files, $batchId, $archive, $fileName, $baseDir);
 					}
 				}
 			}
-		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+		}
+		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 			$helper->logError($e->getMessage());
 			$files['error'] = $e->getMessage();
-		} catch (MailChimp_Error $e) {
+		}
+		catch (MailChimp_Error $e) {
 			$this->deleteBatchItems($batchId);
 			$files['error'] = $e->getFriendlyMessage();
 			$helper->logError($e->getFriendlyMessage());
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$files['error'] = $e->getMessage();
 			$helper->logError($e->getMessage());
 		}
-
 		return $files;
 	}
 
