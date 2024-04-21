@@ -570,7 +570,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @param $magentoStoreId
 	 */
 	function getBatchResponse($batchId, $magentoStoreId):array {
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$fileHelper = $this->getMailchimpFileHelper();
 		$r = []; /** @var array $r */
 		try {
