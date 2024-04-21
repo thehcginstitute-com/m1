@@ -123,62 +123,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
-	 * @param $mailchimpStoreId
-	 * @param $id
-	 * @param $type
-	 */
-	function setItemAsModified($mailchimpStoreId, $id, $type):void {
-		if ($type == Ebizmarts_MailChimp_Model_Config::IS_PRODUCT) {
-			$dataProduct = hcg_mc_syncd_get((int)$id, $type, $mailchimpStoreId);
-			$isMarkedAsDeleted = $dataProduct->getMailchimpSyncDeleted();
-			$isProductDisabledInMagento = Ebizmarts_MailChimp_Model_Api_Products::PRODUCT_DISABLED_IN_MAGENTO;
-			if (!$isMarkedAsDeleted || $dataProduct['mailchimp_sync_error']!= $isProductDisabledInMagento) {
-				Plugin::saveSyncData(
-					$id,
-					$type,
-					$mailchimpStoreId,
-					null,
-					null,
-					1,
-					0,
-					null,
-					1,
-					true
-				);
-			}
-			else {
-				Plugin::saveSyncData(
-					$id,
-					$type,
-					$mailchimpStoreId,
-					null,
-					$isProductDisabledInMagento,
-					0,
-					1,
-					null,
-					0,
-					true
-				);
-			}
-		}
-		else {
-			Plugin::saveSyncData(
-				$id,
-				$type,
-				$mailchimpStoreId,
-				null,
-				null,
-				1,
-				0,
-				null,
-				1,
-				true
-			);
-		}
-	}
-
-	/**
 	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::handleEcommerceBatches()
 	 * @used-by self::handleSubscriberBatches()

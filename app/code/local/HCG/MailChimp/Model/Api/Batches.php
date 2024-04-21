@@ -17,7 +17,7 @@ final class Batches {
 		$response = json_decode($i['response'], true);
 		$errorDetails = self::processFileErrors($response);
 		if (strstr($errorDetails, 'already exists')) {
-			$sb->setItemAsModified($mailchimpStoreId, $id, $type);
+			self::setItemAsModified($mailchimpStoreId, $id, $type);
 			hcg_mc_h()->modifyCounterDataSentToMailchimp($type);
 		}
 		else {
@@ -62,8 +62,8 @@ final class Batches {
 	/**
 	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::handleErrorItem()
+	 * @used-by self::setItemAsModified()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::setItemAsModified()
 	 * @param       $itemId
 	 * @param       $itemType
 	 * @param       $mailchimpStoreId
@@ -149,5 +149,61 @@ final class Batches {
 			$r = $p['detail'];
 		}
 		return $r;
+	}
+
+	/**
+	 * @used-by self::handleErrorItem()
+	 * @param $mailchimpStoreId
+	 * @param $id
+	 * @param $type
+	 */
+	private static function setItemAsModified($mailchimpStoreId, $id, $type):void {
+		if ($type == Cfg::IS_PRODUCT) {
+			$dataProduct = hcg_mc_syncd_get((int)$id, $type, $mailchimpStoreId);
+			$isMarkedAsDeleted = $dataProduct->getMailchimpSyncDeleted();
+			$isProductDisabledInMagento = ApiProducts::PRODUCT_DISABLED_IN_MAGENTO;
+			if (!$isMarkedAsDeleted || $dataProduct['mailchimp_sync_error']!= $isProductDisabledInMagento) {
+				self::saveSyncData(
+					$id,
+					$type,
+					$mailchimpStoreId,
+					null,
+					null,
+					1,
+					0,
+					null,
+					1,
+					true
+				);
+			}
+			else {
+				self::saveSyncData(
+					$id,
+					$type,
+					$mailchimpStoreId,
+					null,
+					$isProductDisabledInMagento,
+					0,
+					1,
+					null,
+					0,
+					true
+				);
+			}
+		}
+		else {
+			self::saveSyncData(
+				$id,
+				$type,
+				$mailchimpStoreId,
+				null,
+				null,
+				1,
+				0,
+				null,
+				1,
+				true
+			);
+		}
 	}
 }
