@@ -134,13 +134,13 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		$h = hcg_mc_h();
 		$mailchimpStoreId = $h->getMCStoreId($magentoStoreId);
 		$sb = new Synchbatches;
-		$collection = $sb->getCollection()->addFieldToFilter('status', array('eq' => $status));
+		$collection = $sb->getCollection()->addFieldToFilter('status', ['eq' => $status]);
 		if ($isEcommerceData) {
-			$collection->addFieldToFilter('store_id', array('eq' => $mailchimpStoreId));
+			$collection->addFieldToFilter('store_id', ['eq' => $mailchimpStoreId]);
 			$enabled = $h->isEcomSyncDataEnabled($magentoStoreId);
 		}
 		else {
-			$collection->addFieldToFilter('store_id', array('eq' => $magentoStoreId));
+			$collection->addFieldToFilter('store_id', ['eq' => $magentoStoreId]);
 			$enabled = $h->isSubscriptionEnabled($magentoStoreId);
 		}
 		if ($enabled) {
@@ -151,7 +151,8 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 					$files = $this->getBatchResponse($batchId, $magentoStoreId);
 					$this->_saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId);
 					hcg_mc_batch_delete($batchId);
-				} catch (Exception $e) {
+				}
+				catch (Exception $e) {
 					Mage::log("Error with a response: " . $e->getMessage());
 				}
 			}
