@@ -7,14 +7,14 @@ final class Process {
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by \HCG\MailChimp\Batch\Commerce\Send::p()
 	 * @param $batchArray
-	 * @param $mailchimpStoreId
+	 * @param $mcStore
 	 * @param $mgStore
 	 * @throws \Ebizmarts_MailChimp_Helper_Data_ApiKeyException
 	 * @throws \Mage_Core_Exception
 	 * @throws \MailChimp_Error
 	 * @throws \MailChimp_HttpError
 	 */
-	static function p($batchArray, $mailchimpStoreId, $mgStore):void {
+	static function p($batchArray, $mcStore, $mgStore):void {
 		$h = hcg_mc_h();
 		$mailchimpApi = $h->getApi($mgStore);
 		if (!empty($batchArray['operations'])) {
@@ -31,9 +31,9 @@ final class Process {
 				$h->logRequest($batchJson, $batchResponse['id']);
 				//save batch id to db
 				$batch = new Synchbatches;
-				$batch->setStoreId($mailchimpStoreId)->setBatchId($batchResponse['id'])->setStatus($batchResponse['status']);
+				$batch->setStoreId($mcStore)->setBatchId($batchResponse['id'])->setStatus($batchResponse['status']);
 				$batch->save();
-				self::markItemsAsSent($batchResponse['id'], $mailchimpStoreId);
+				self::markItemsAsSent($batchResponse['id'], $mcStore);
 				self::_showResumeEcommerce($batchResponse['id'], $mgStore);
 			}
 		}
@@ -46,11 +46,11 @@ final class Process {
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::p()
 	 */
-	private static function markItemsAsSent($batchResponseId, $mailchimpStoreId):void {
+	private static function markItemsAsSent($batchResponseId, $mcStore):void {
 		$resource = hcg_mc_h()->getCoreResource();
 		$connection = $resource->getConnection('core_write');
 		$tableName = $resource->getTableName('mailchimp/ecommercesyncdata');
-		$where = ["batch_id IS NULL AND mailchimp_store_id = ?" => $mailchimpStoreId];
+		$where = ["batch_id IS NULL AND mailchimp_store_id = ?" => $mcStore];
 		$connection->update(
 			$tableName,
 			[

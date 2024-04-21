@@ -17,7 +17,7 @@ final class Send {
 	 */
 	static function p(int $mgStore):void {
 		$h = hcg_mc_h();
-		$mailchimpStoreId = $h->getMCStoreId($mgStore);
+		$mcStore = $h->getMCStoreId($mgStore);
 		try {
 			self::deleteUnsentItems();
 			if ($h->isEcomSyncDataEnabled($mgStore)) {
@@ -26,26 +26,26 @@ final class Send {
 				//customer operations
 				$h->logBatchStatus('Generate Customers Payload');
 				$apiCustomers = new ApiCustomers; /** @var ApiCustomers $apiCustomers */
-				$apiCustomers->setMailchimpStoreId($mailchimpStoreId);
+				$apiCustomers->setMailchimpStoreId($mcStore);
 				$apiCustomers->setMagentoStoreId($mgStore);
 				$customersArray = $apiCustomers->createBatchJson();
 				$batchArray['operations'] = $customersArray;
 				//product operations
 				$h->logBatchStatus('Generate Products Payload');
 				$apiProducts = new ApiProducts; /** @var ApiProducts $apiProducts */
-				$apiProducts->setMailchimpStoreId($mailchimpStoreId);
+				$apiProducts->setMailchimpStoreId($mcStore);
 				$apiProducts->setMagentoStoreId($mgStore);
 				$productsArray = $apiProducts->createBatchJson();
 				$batchArray['operations'] = array_merge($batchArray['operations'], $productsArray);
 
-				if ($h->getMCIsSyncing($mailchimpStoreId, $mgStore) === 1) {
+				if ($h->getMCIsSyncing($mcStore, $mgStore) === 1) {
 					$h->logBatchStatus('No Carts will be synced until the store is completely synced');
 				}
 				else {
 					//cart operations
 					$h->logBatchStatus('Generate Carts Payload');
 					$apiCarts = new ApiCarts; /** @var ApiCarts $apiCarts */
-					$apiCarts->setMailchimpStoreId($mailchimpStoreId);
+					$apiCarts->setMailchimpStoreId($mcStore);
 					$apiCarts->setMagentoStoreId($mgStore);
 					$cartsArray = $apiCarts->createBatchJson();
 					$batchArray['operations'] = array_merge($batchArray['operations'], $cartsArray);
@@ -53,7 +53,7 @@ final class Send {
 				//order operations
 				$h->logBatchStatus('Generate Orders Payload');
 				$apiOrders = new ApiOrders; /** @var ApiOrders $apiOrders */
-				$apiOrders->setMailchimpStoreId($mailchimpStoreId);
+				$apiOrders->setMailchimpStoreId($mcStore);
 				$apiOrders->setMagentoStoreId($mgStore);
 				$ordersArray = $apiOrders->createBatchJson();
 				$batchArray['operations'] = array_merge($batchArray['operations'], $ordersArray);
@@ -61,14 +61,14 @@ final class Send {
 					//promo rule operations
 					$h->logBatchStatus('Generate Promo Rules Payload');
 					$apiPromoRules = new ApiPromoRules; /** @var ApiPromoRules $apiPromoRules */
-					$apiPromoRules->setMailchimpStoreId($mailchimpStoreId);
+					$apiPromoRules->setMailchimpStoreId($mcStore);
 					$apiPromoRules->setMagentoStoreId($mgStore);
 					$promoRulesArray = $apiPromoRules->createBatchJson();
 					$batchArray['operations'] = array_merge($batchArray['operations'], $promoRulesArray);
 					//promo code operations
 					$h->logBatchStatus('Generate Promo Codes Payload');
 					$apiPromoCodes = new ApiPromoCodes; /** @var ApiPromoCodes $apiPromoCodes */
-					$apiPromoCodes->setMailchimpStoreId($mailchimpStoreId);
+					$apiPromoCodes->setMailchimpStoreId($mcStore);
 					$apiPromoCodes->setMagentoStoreId($mgStore);
 					$promoCodesArray = $apiPromoCodes->createBatchJson();
 					$batchArray['operations'] = array_merge($batchArray['operations'], $promoCodesArray);
@@ -80,8 +80,8 @@ final class Send {
 				$batchJson = null;
 				$batchResponse = null;
 				try {
-					Send\Process::p($batchArray, $mailchimpStoreId, $mgStore);
-					self::_updateSyncingFlag($mailchimpStoreId, $mgStore);
+					Send\Process::p($batchArray, $mcStore, $mgStore);
+					self::_updateSyncingFlag($mcStore, $mgStore);
 				}
 				catch (EApiKey $e) {
 					$h->logError($e->getMessage());
@@ -144,22 +144,22 @@ final class Send {
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::p()
-	 * @param $mailchimpStoreId
+	 * @param $mcStore
 	 * @throws \Mage_Core_Exception
 	 * @throws \Mage_Core_Model_Store_Exception
 	 */
-	private static function _updateSyncingFlag($mailchimpStoreId, int $mgStore):void {
+	private static function _updateSyncingFlag($mcStore, int $mgStore):void {
 		$h = hcg_mc_h();
 		$itemAmount = $h->getTotalNewItemsSent();
-		$syncingFlag = $h->getMCIsSyncing($mailchimpStoreId, $mgStore);
+		$syncingFlag = $h->getMCIsSyncing($mcStore, $mgStore);
 		if (self::shouldFlagAsSyncing($syncingFlag, $itemAmount, $h)) {
 			//Set is syncing per scope in 1 until sync finishes.
-			hcg_mc_cfg_save(Cfg::GENERAL_MCISSYNCING . "_$mailchimpStoreId", 1, $mgStore, 'stores');
+			hcg_mc_cfg_save(Cfg::GENERAL_MCISSYNCING . "_$mcStore", 1, $mgStore, 'stores');
 		}
 		elseif (self::shouldFlagAsSynced($syncingFlag, $itemAmount)) {
 			//Set is syncing per scope to a date because it is not sending any more items.
 			hcg_mc_cfg_save(
-				Cfg::GENERAL_MCISSYNCING . "_$mailchimpStoreId"
+				Cfg::GENERAL_MCISSYNCING . "_$mcStore"
 				,hcg_mc_h_date()->formatDate(null, 'Y-m-d H:i:s')
 				,$mgStore
 				,'stores'

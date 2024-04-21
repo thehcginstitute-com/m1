@@ -10,7 +10,7 @@ final class SaveSyncData {
 	 * @used-by \HCG\MailChimp\Batch\ProcessEachResponseFile::p()
 	 * @param       $itemId
 	 * @param       $itemType
-	 * @param       $mailchimpStoreId
+	 * @param       $mcStore
 	 * @param null  $syncDelta
 	 * @param null  $syncError
 	 * @param int   $syncModified
@@ -22,7 +22,7 @@ final class SaveSyncData {
 	static function p(
 		$itemId,
 		$itemType,
-		$mailchimpStoreId,
+		$mcStore,
 		$syncDelta = null,
 		$syncError = null,
 		$syncModified = 0,
@@ -39,7 +39,7 @@ final class SaveSyncData {
 			hcg_mc_syncd_new()->saveEcommerceSyncData(
 				$itemId,
 				$itemType,
-				$mailchimpStoreId,
+				$mcStore,
 				$syncDelta,
 				$syncError,
 				$syncModified,

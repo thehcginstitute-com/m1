@@ -49,28 +49,28 @@ final class Commerce {
 		$h = hcg_mc_h();
 		$ecomEnabled = $h->isEcomSyncDataEnabled($storeId);
 		if ($ecomEnabled) {
-			$mailchimpStoreId = $h->getMCStoreId($storeId);
-			$syncedDate = $h->getMCIsSyncing($mailchimpStoreId, $storeId);
+			$mcStore = $h->getMCStoreId($storeId);
+			$syncedDate = $h->getMCIsSyncing($mcStore, $storeId);
 			// Check if $syncedDate is in date format to support previous versions.
-			if (isset($syncedDateArray[$mailchimpStoreId]) && $syncedDateArray[$mailchimpStoreId]) {
+			if (isset($syncedDateArray[$mcStore]) && $syncedDateArray[$mcStore]) {
 				if ($h->validateDate($syncedDate)) {
-					if ($syncedDate > $syncedDateArray[$mailchimpStoreId]) {
-						$syncedDateArray[$mailchimpStoreId] = [$storeId => $syncedDate];
+					if ($syncedDate > $syncedDateArray[$mcStore]) {
+						$syncedDateArray[$mcStore] = [$storeId => $syncedDate];
 					}
 				} elseif ((int)$syncedDate === 1) {
-					$syncedDateArray[$mailchimpStoreId] = [$storeId => false];
+					$syncedDateArray[$mcStore] = [$storeId => false];
 				}
 			}
 			else {
 				if ($h->validateDate($syncedDate)) {
-					$syncedDateArray[$mailchimpStoreId] = [$storeId => $syncedDate];
+					$syncedDateArray[$mcStore] = [$storeId => $syncedDate];
 				}
 				else {
 					if ((int)$syncedDate === 1 || $syncedDate === null) {
-						$syncedDateArray[$mailchimpStoreId] = [$storeId => false];
+						$syncedDateArray[$mcStore] = [$storeId => false];
 					}
-					elseif (!isset($syncedDateArray[$mailchimpStoreId])) {
-						$syncedDateArray[$mailchimpStoreId] = [$storeId => true];
+					elseif (!isset($syncedDateArray[$mcStore])) {
+						$syncedDateArray[$mcStore] = [$storeId => true];
 					}
 				}
 			}
@@ -86,18 +86,18 @@ final class Commerce {
 	 */
 	private static function handleSyncingValue($syncedDateArray):void {
 		$h = hcg_mc_h();
-		foreach ($syncedDateArray as $mailchimpStoreId => $val) {
+		foreach ($syncedDateArray as $mcStore => $val) {
 			$mgStore = (int)key($val); /** @var int $mgStore */
 			$date = $val[$mgStore];
 			$ecomEnabled = $h->isEcomSyncDataEnabled($mgStore);
 			if ($ecomEnabled && $date) {
 				try {
 					$api = $h->getApi($mgStore);
-					$isSyncingDate = $h->getDateSyncFinishByMailChimpStoreId($mailchimpStoreId);
-					if (!$isSyncingDate && $mailchimpStoreId) {
+					$isSyncingDate = $h->getDateSyncFinishByMailChimpStoreId($mcStore);
+					if (!$isSyncingDate && $mcStore) {
 						$apiStores = new ApiStores; /** @var ApiStores $apiStores */
-						$apiStores->editIsSyncing($api, false, $mailchimpStoreId);
-						hcg_mc_cfg_save(Cfg::ECOMMERCE_SYNC_DATE . "_$mailchimpStoreId", $date);
+						$apiStores->editIsSyncing($api, false, $mcStore);
+						hcg_mc_cfg_save(Cfg::ECOMMERCE_SYNC_DATE . "_$mcStore", $date);
 					}
 				}
 				catch (EApiKey $e) {

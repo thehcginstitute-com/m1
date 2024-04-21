@@ -10,19 +10,19 @@ final class HandleErrorItem {
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by ProcessEachResponseFile::p()
 	 */
-	static function p(array $i, $batchId, $mailchimpStoreId, $id, $type, $store):void {
+	static function p(array $i, $batchId, $mcStore, $id, $type, $store):void {
 		$res = json_decode($i['response'], true);
 		$errorDetails = self::processFileErrors($res);
 		if (strstr($errorDetails, 'already exists')) {
-			self::setItemAsModified($mailchimpStoreId, $id, $type);
+			self::setItemAsModified($mcStore, $id, $type);
 			hcg_mc_h()->modifyCounterDataSentToMailchimp($type);
 		}
 		else {
-			$error = self::error($type, $mailchimpStoreId, $id, $res);
+			$error = self::error($type, $mcStore, $id, $res);
 			SaveSyncData::p(
 				$id,
 				$type,
-				$mailchimpStoreId,
+				$mcStore,
 				null,
 				$error,
 				0,
@@ -45,7 +45,7 @@ final class HandleErrorItem {
 				,'type' => dfa($res, 'type')
 			]); /** @var mE $mE */
 			if ($type != Cfg::IS_SUBSCRIBER) {
-				$mE['mailchimp_store_id'] = $mailchimpStoreId;
+				$mE['mailchimp_store_id'] = $mcStore;
 			}
 			$mE->save();
 			hcg_mc_h()->modifyCounterDataSentToMailchimp($type, true);
@@ -59,14 +59,14 @@ final class HandleErrorItem {
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::p()
-	 * @param $mailchimpStoreId
+	 * @param $mcStore
 	 * @param $id
 	 * @param $response
 	 */
-	private static function error($type, $mailchimpStoreId, $id, $response):string {
+	private static function error($type, $mcStore, $id, $response):string {
 		$r = $response['title'] . " : " . $response['detail']; /** @var string $r */
 		if ($type == Cfg::IS_PRODUCT) {
-			$dataProduct = hcg_mc_syncd_get((int)$id, $type, $mailchimpStoreId);
+			$dataProduct = hcg_mc_syncd_get((int)$id, $type, $mcStore);
 			$isProductDisabledInMagento = ApiProducts::PRODUCT_DISABLED_IN_MAGENTO;
 			if ($dataProduct->getMailchimpSyncDeleted()
 				|| $dataProduct['mailchimp_sync_error'] == $isProductDisabledInMagento
@@ -100,20 +100,20 @@ final class HandleErrorItem {
 
 	/**
 	 * @used-by self::p()
-	 * @param $mailchimpStoreId
+	 * @param $mcStore
 	 * @param $id
 	 * @param $type
 	 */
-	private static function setItemAsModified($mailchimpStoreId, $id, $type):void {
+	private static function setItemAsModified($mcStore, $id, $type):void {
 		if ($type == Cfg::IS_PRODUCT) {
-			$dataProduct = hcg_mc_syncd_get((int)$id, $type, $mailchimpStoreId);
+			$dataProduct = hcg_mc_syncd_get((int)$id, $type, $mcStore);
 			$isMarkedAsDeleted = $dataProduct->getMailchimpSyncDeleted();
 			$isProductDisabledInMagento = ApiProducts::PRODUCT_DISABLED_IN_MAGENTO;
 			if (!$isMarkedAsDeleted || $dataProduct['mailchimp_sync_error']!= $isProductDisabledInMagento) {
 				SaveSyncData::p(
 					$id,
 					$type,
-					$mailchimpStoreId,
+					$mcStore,
 					null,
 					null,
 					1,
@@ -127,7 +127,7 @@ final class HandleErrorItem {
 				SaveSyncData::p(
 					$id,
 					$type,
-					$mailchimpStoreId,
+					$mcStore,
 					null,
 					$isProductDisabledInMagento,
 					0,
@@ -142,7 +142,7 @@ final class HandleErrorItem {
 			SaveSyncData::p(
 				$id,
 				$type,
-				$mailchimpStoreId,
+				$mcStore,
 				null,
 				null,
 				1,

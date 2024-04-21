@@ -8,10 +8,10 @@ final class ProcessEachResponseFile {
 	 * @used-by GetResults::_saveItemStatus()
 	 * @param string[] $files
 	 * @param $batchId
-	 * @param $mailchimpStoreId
+	 * @param $mcStore
 	 * @throws \Mage_Core_Exception
 	 */
-	static function p(array $files, $batchId, $mailchimpStoreId, int $mgStore):void {
+	static function p(array $files, $batchId, $mcStore, int $mgStore):void {
 		$h = hcg_mc_h();
 		$h->resetCountersDataSentToMailchimp();
 		$fileHelper = hcg_mc_h_file();
@@ -28,16 +28,16 @@ final class ProcessEachResponseFile {
 					if ($item['status_code'] != 200) {
 						# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 						# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-						HandleErrorItem::p($item, $batchId, $mailchimpStoreId, $id, $type, $store);
+						HandleErrorItem::p($item, $batchId, $mcStore, $id, $type, $store);
 					}
 					else {
-						$syncDataItem = hcg_mc_syncd_get((int)$id, $type, $mailchimpStoreId);
+						$syncDataItem = hcg_mc_syncd_get((int)$id, $type, $mcStore);
 						if (!$syncDataItem->getMailchimpSyncModified()) {
 							$syncModified = self::enableMergeFieldsSending($type, $syncDataItem);
 							SaveSyncData::p(
 								$id,
 								$type,
-								$mailchimpStoreId,
+								$mcStore,
 								null,
 								'',
 								$syncModified,
@@ -52,7 +52,7 @@ final class ProcessEachResponseFile {
 							SaveSyncData::p(
 								$id,
 								$type,
-								$mailchimpStoreId,
+								$mcStore,
 								null,
 								'',
 								0,

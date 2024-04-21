@@ -14,11 +14,11 @@ final class GetResults {
 		$mgStore, bool $isEcommerceData = true, $status = \Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING
 	) {
 		$h = hcg_mc_h();
-		$mailchimpStoreId = $h->getMCStoreId($mgStore);
+		$mcStore = $h->getMCStoreId($mgStore);
 		$syncb = new Synchbatches;
 		$collection = $syncb->getCollection()->addFieldToFilter('status', ['eq' => $status]);
 		if ($isEcommerceData) {
-			$collection->addFieldToFilter('store_id', ['eq' => $mailchimpStoreId]);
+			$collection->addFieldToFilter('store_id', ['eq' => $mcStore]);
 			$enabled = $h->isEcomSyncDataEnabled($mgStore);
 		}
 		else {
@@ -30,7 +30,7 @@ final class GetResults {
 			foreach ($collection as $item) {
 				try {
 					$batchId = $item->getBatchId();
-					self::_saveItemStatus($item, GetBatchResponse::p($batchId, $mgStore), $batchId, $mailchimpStoreId, $mgStore);
+					self::_saveItemStatus($item, GetBatchResponse::p($batchId, $mgStore), $batchId, $mcStore, $mgStore);
 					hcg_mc_batch_delete($batchId);
 				}
 				catch (\Exception $e) {
@@ -46,11 +46,11 @@ final class GetResults {
 	 * @param $item
 	 * @param $files
 	 * @param $batchId
-	 * @param $mailchimpStoreId
+	 * @param $mcStore
 	 * @param $mgStore
 	 * @throws \Mage_Core_Exception
 	 */
-	private static function _saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $mgStore):void {
+	private static function _saveItemStatus($item, $files, $batchId, $mcStore, $mgStore):void {
 		$h = hcg_mc_h();
 		if (!empty($files)) {
 			if (isset($files['error'])) {
@@ -59,7 +59,7 @@ final class GetResults {
 				$h->logBatchStatus('There was an error getting the result ');
 			}
 			else {
-				ProcessEachResponseFile::p($files, $batchId, $mailchimpStoreId, $mgStore);
+				ProcessEachResponseFile::p($files, $batchId, $mcStore, $mgStore);
 				$item->setStatus('completed');
 				$item->save();
 			}
