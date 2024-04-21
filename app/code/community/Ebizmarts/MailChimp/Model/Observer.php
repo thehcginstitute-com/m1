@@ -409,7 +409,7 @@ class Ebizmarts_MailChimp_Model_Observer
         $helper = $this->makeHelper();
         $post = $helper->getMageApp()->getRequest()->getPost('mailchimp_subscribe');
         $order = $observer->getEvent()->getOrder();
-        $storeId = $order->getStoreId();
+        $storeId = $order->getStoreId(); /** @var int $storeId */
         $ecommEnabled = $helper->isEcomSyncDataEnabled($storeId);
         $subEnabled = $helper->isSubscriptionEnabled($storeId);
 
@@ -439,7 +439,7 @@ class Ebizmarts_MailChimp_Model_Observer
                         continue;
                     }
 
-                    $mailchimpStoreId = $helper->getMCStoreId($storeId);
+                    $mailchimpStoreId = hcg_mc_sid($storeId);
                     $productId = (int)$item->getProductId();
                     $dataProduct = hcg_mc_syncd_get(
                         $productId,

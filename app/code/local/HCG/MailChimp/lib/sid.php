@@ -36,7 +36,7 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Model_Observer::saveConfigBefore()
  * @used-by Ebizmarts_MailChimp_Model_Observer::customerSaveAfter()
  * @used-by Ebizmarts_MailChimp_Model_Observer::customerAddressSaveBefore()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
