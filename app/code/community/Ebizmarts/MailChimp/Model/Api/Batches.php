@@ -420,6 +420,48 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::handleEcommerceBatches()
+	 * @used-by self::handleSubscriberBatches()
+	 * @used-by self::replaceAllOrders()
+	 * @used-by self::STUB()
+	 * @param $magentoStoreId
+	 * @param bool  $isEcommerceData
+	 * @throws Mage_Core_Exception
+	 */
+	private function _getResults(
+		$magentoStoreId, $isEcommerceData = true, $status = Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING
+	) {
+		$helper = hcg_mc_h();
+		$mailchimpStoreId = $helper->getMCStoreId($magentoStoreId);
+		$sb = new Synchbatches;
+		$collection = $sb->getCollection()->addFieldToFilter('status', array('eq' => $status));
+
+		if ($isEcommerceData) {
+			$collection->addFieldToFilter('store_id', array('eq' => $mailchimpStoreId));
+			$enabled = $helper->isEcomSyncDataEnabled($magentoStoreId);
+		} else {
+			$collection->addFieldToFilter('store_id', array('eq' => $magentoStoreId));
+			$enabled = $helper->isSubscriptionEnabled($magentoStoreId);
+		}
+
+		if ($enabled) {
+			$helper->logBatchStatus('Get results from Mailchimp for Magento store ' . $magentoStoreId);
+
+			foreach ($collection as $item) {
+				try {
+					$batchId = $item->getBatchId();
+					$files = $this->getBatchResponse($batchId, $magentoStoreId);
+					$this->_saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId);
+					hcg_mc_batch_delete($batchId);
+				} catch (Exception $e) {
+					Mage::log("Error with a response: " . $e->getMessage());
+				}
+			}
+		}
+	}
+
+	/**
 	 * @param $batchArray
 	 * @param $mailchimpStoreId
 	 * @param $magentoStoreId
@@ -766,48 +808,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		}
 
 		return $syncedDateArray;
-	}
-
-	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::handleEcommerceBatches()
-	 * @used-by self::handleSubscriberBatches()
-	 * @used-by self::replaceAllOrders()
-	 * @used-by self::STUB()
-	 * @param $magentoStoreId
-	 * @param bool  $isEcommerceData
-	 * @throws Mage_Core_Exception
-	 */
-	private function _getResults(
-		$magentoStoreId, $isEcommerceData = true, $status = Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING
-	) {
-		$helper = hcg_mc_h();
-		$mailchimpStoreId = $helper->getMCStoreId($magentoStoreId);
-		$sb = new Synchbatches;
-		$collection = $sb->getCollection()->addFieldToFilter('status', array('eq' => $status));
-
-		if ($isEcommerceData) {
-			$collection->addFieldToFilter('store_id', array('eq' => $mailchimpStoreId));
-			$enabled = $helper->isEcomSyncDataEnabled($magentoStoreId);
-		} else {
-			$collection->addFieldToFilter('store_id', array('eq' => $magentoStoreId));
-			$enabled = $helper->isSubscriptionEnabled($magentoStoreId);
-		}
-
-		if ($enabled) {
-			$helper->logBatchStatus('Get results from Mailchimp for Magento store ' . $magentoStoreId);
-
-			foreach ($collection as $item) {
-				try {
-					$batchId = $item->getBatchId();
-					$files = $this->getBatchResponse($batchId, $magentoStoreId);
-					$this->_saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId);
-					hcg_mc_batch_delete($batchId);
-				} catch (Exception $e) {
-					Mage::log("Error with a response: " . $e->getMessage());
-				}
-			}
-		}
 	}
 
 	/**
