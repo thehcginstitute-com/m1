@@ -44,11 +44,12 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_List
             if ($apiKey) {
                 try {
                     $api = $helper->getApiByKey($apiKey);
-
                     //Add filter to only show the lists for the selected store when MC store selected.
+					/** @var ?string $mcStoreId */
                     $mcStoreId = (!empty($params))
                         ? $params['mailchimp_store_id']
-                        : hcg_mc_sid($scopeArray['scope_id']);
+                        : hcg_mc_sid($scopeArray['scope_id'])
+					;
                     if ($mcStoreId !== '' && $mcStoreId !== null) {
                         $listId = $helper->getListIdByApiKeyAndMCStoreId($apiKey, $mcStoreId);
                         if ($listId !== false) {
