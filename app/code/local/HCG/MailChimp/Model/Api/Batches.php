@@ -1,6 +1,7 @@
 <?php
 # 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+# 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 namespace HCG\MailChimp\Model\Api;
 use Ebizmarts_MailChimp_Model_Api_Batches as Sb;
 use Ebizmarts_MailChimp_Model_Config as Cfg;
@@ -19,7 +20,7 @@ final class Batches {
 			hcg_mc_h()->modifyCounterDataSentToMailchimp($type);
 		}
 		else {
-			$error = $sb->_getError($type, $mailchimpStoreId, $id, $response);
+			$error = self::error($sb, $type, $mailchimpStoreId, $id, $response);
 			$sb->saveSyncData(
 				$id,
 				$type,
@@ -55,5 +56,26 @@ final class Batches {
 			# https://github.com/thehcginstitute-com/m1/issues/565
 			df_log($error, null, $mE->getData());
 		}
+	}
+
+	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::handleErrorItem()
+	 * @param $mailchimpStoreId
+	 * @param $id
+	 * @param $response
+	 */
+	private static function error(Sb $sb, $type, $mailchimpStoreId, $id, $response):string {
+		$error = $response['title'] . " : " . $response['detail'];
+		if ($type == \Ebizmarts_MailChimp_Model_Config::IS_PRODUCT) {
+			$dataProduct = $sb->getDataProduct($mailchimpStoreId, $id, $type);
+			$isProductDisabledInMagento = \Ebizmarts_MailChimp_Model_Api_Products::PRODUCT_DISABLED_IN_MAGENTO;
+			if ($dataProduct->getMailchimpSyncDeleted()
+				|| $dataProduct['mailchimp_sync_error'] == $isProductDisabledInMagento
+			) {
+				$error = $isProductDisabledInMagento;
+			}
+		}
+		return $error;
 	}
 }

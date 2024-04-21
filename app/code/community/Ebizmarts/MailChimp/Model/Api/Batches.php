@@ -8,28 +8,6 @@ use HCG\MailChimp\Model\Api\Batches as Plugin;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
-	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
-	 * @param $type
-	 * @param $mailchimpStoreId
-	 * @param $id
-	 * @param $response
-	 */
-	function _getError($type, $mailchimpStoreId, $id, $response):string {
-		$error = $response['title'] . " : " . $response['detail'];
-		if ($type == Ebizmarts_MailChimp_Model_Config::IS_PRODUCT) {
-			$dataProduct = $this->getDataProduct($mailchimpStoreId, $id, $type);
-			$isProductDisabledInMagento = Ebizmarts_MailChimp_Model_Api_Products::PRODUCT_DISABLED_IN_MAGENTO;
-			if ($dataProduct->getMailchimpSyncDeleted()
-				|| $dataProduct['mailchimp_sync_error'] == $isProductDisabledInMagento
-			) {
-				$error = $isProductDisabledInMagento;
-			}
-		}
-		return $error;
-	}
-
-	/**
 	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
 	 * @param $response
 	 * @return string
@@ -270,6 +248,17 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		}
 		return $r;
 	}
+
+	/**
+	 * @used-by HCG\MailChimp\Model\Api\Batches::error()
+	 * @param $mailchimpStoreId
+	 * @param $id
+	 * @param $type
+	 * @return Varien_Object
+	 */
+	function getDataProduct($mailchimpStoreId, $id, $type) {return hcg_mc_syncd_get(
+		(int)$id, $type, $mailchimpStoreId
+	);}
 
 	/**
 	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
@@ -845,16 +834,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	{
 		return ($syncingFlag === '1' || $syncingFlag === null) && $itemAmount === 0;
 	}
-
-	/**
-	 * @param $mailchimpStoreId
-	 * @param $id
-	 * @param $type
-	 * @return Varien_Object
-	 */
-	private function getDataProduct($mailchimpStoreId, $id, $type) {return hcg_mc_syncd_get(
-		(int)$id, $type, $mailchimpStoreId
-	);}
 
 	/**
 	 * @param $batchId
