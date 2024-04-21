@@ -7,7 +7,7 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_Grid_Renderer_MailchimpOrder::render()
  * @used-by Ebizmarts_MailChimp_CartController::loadquoteAction()
  * @used-by Ebizmarts_MailChimp_CartController::loadcouponAction()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::getStoreRelation()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
