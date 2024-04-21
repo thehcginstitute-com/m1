@@ -2661,9 +2661,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param $storeId
 	 * @return bool
 	 */
-	protected function isMissingQuoteLowerThanId($itemId, $storeId)
-	{
-		$mailchimpStoreId = $this->getMCStoreId($storeId);
+	protected function isMissingQuoteLowerThanId($itemId, int $storeId) {
 		$quoteCollection = Mage::getResourceModel('sales/quote_collection')
 			->addFieldToFilter('store_id', array('eq' => $storeId))
 			->addFieldToFilter('entity_id', array('lteq' => $itemId))
@@ -2671,21 +2669,17 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 			->addFieldToFilter('customer_email', array('notnull' => true))
 			->addFieldToFilter('items_count', array('gt' => 0));
 		$firstDate = $this->getAbandonedCartFirstDate($storeId);
-
 		if ($firstDate) {
 			$quoteCollection->addFieldToFilter('updated_at', array('gt' => $firstDate));
 		}
-
 		Mage::getModel('mailchimp/api_carts')
-			->joinMailchimpSyncDataWithoutWhere($quoteCollection, $mailchimpStoreId);
+			->joinMailchimpSyncDataWithoutWhere($quoteCollection, hcg_mc_sid($storeId));
 		$quoteCollection->getSelect()->where("m4m.mailchimp_sync_delta IS null");
-
 		if ($quoteCollection->getSize()) {
 			$isMissing = true;
 		} else {
 			$isMissing = false;
 		}
-
 		return $isMissing;
 	}
 

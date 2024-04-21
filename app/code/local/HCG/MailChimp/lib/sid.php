@@ -29,7 +29,7 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Helper_Data::isMissingCustomerLowerThanId()
  * @used-by Ebizmarts_MailChimp_Helper_Data::isMissingProductLowerThanId()
  * @used-by Ebizmarts_MailChimp_Helper_Data::isMissingOrderLowerThanId()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::isMissingQuoteLowerThanId()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
