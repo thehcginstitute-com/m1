@@ -832,24 +832,20 @@ class Ebizmarts_MailChimp_Model_Observer
         $ecomEnabled = $helper->isEcomSyncDataEnabled($storeId);
         $apiProduct = $this->makeApiProduct();
         if ($ecomEnabled) {
-            $mailchimpStoreId = hcg_mc_sid($storeId);
-            $apiProduct->setMailchimpStoreId($mailchimpStoreId);
+            $mcStore = hcg_mc_sid($storeId); /** @var ?string $mcStore */
+            $apiProduct->setMailchimpStoreId($mcStore);
             $apiProduct->setMagentoStoreId($storeId);
-
             $productId = (int)$item->getProductId();
             $dataProduct = hcg_mc_syncd_get(
                 $productId,
                 Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
-                $mailchimpStoreId
+                $mcStore
             );
-
             $isMarkedAsDeleted = $dataProduct->getMailchimpSyncDeleted();
-
             if (!$this->isBundleItem($item) && !$this->isConfigurableItem($item) && !$isMarkedAsDeleted) {
                 $apiProduct->update($productId);
             }
         }
-
         return $observer;
     }
 
