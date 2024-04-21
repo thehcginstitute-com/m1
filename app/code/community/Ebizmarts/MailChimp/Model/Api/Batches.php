@@ -336,10 +336,9 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @used-by self::getBatchResponse()
 	 * @param $files
 	 * @param $batchId
-	 * @param $archive Mage_Archive
 	 * @param $fileName
 	 */
-	private function _unpackBatchFile($files, $batchId, $archive, $fileName):array {
+	private function _unpackBatchFile($files, $batchId, Mage_Archive $archive, $fileName):array {
 		$path = hcg_mc_batches_path($batchId);
 		$archive->unpack($fileName, $path);
 		$archive->unpack($path . DS . $batchId . '.tar', $path);
