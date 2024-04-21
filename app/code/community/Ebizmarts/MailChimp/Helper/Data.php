@@ -804,20 +804,16 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return bool
 	 * @throws Mage_Core_Exception
 	 */
-	function isEcomSyncDataEnabled(int $scopeId, $scope = null, $isStoreCreation = false)
-	{
+	function isEcomSyncDataEnabled(int $scopeId, $scope = null, $isStoreCreation = false) {
 		//If store id does not exist return false. (For deleted stores i.e.: order grid synced status)
 		if ($scopeId === null) {
 			$ret = false;
-		} else {
+		}
+		else {
 			$subscriptionEnabled = $this->isSubscriptionEnabled($scopeId, $scope);
 			$ecommerceEnabled = $this->isEcommerceEnabled($scopeId, $scope);
-			$mailchimpStoreId = hcg_mc_sid($scopeId);
-
-			$ret = ($mailchimpStoreId !== null || $isStoreCreation)
-				&& $subscriptionEnabled && $ecommerceEnabled;
+			$ret = (hcg_mc_sid($scopeId) !== null || $isStoreCreation) && $subscriptionEnabled && $ecommerceEnabled;
 		}
-
 		return $ret;
 	}
 
