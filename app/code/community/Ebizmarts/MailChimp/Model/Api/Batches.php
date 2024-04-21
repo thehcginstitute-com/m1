@@ -581,9 +581,8 @@ class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::_getResults()
 	 * @param $batchId
 	 * @param $magentoStoreId
-	 * @return array
 	 */
-	function getBatchResponse($batchId, $magentoStoreId) {
+	function getBatchResponse($batchId, $magentoStoreId):array {
 		$helper = $this->getHelper();
 		$fileHelper = $this->getMailchimpFileHelper();
 		$files = array();
