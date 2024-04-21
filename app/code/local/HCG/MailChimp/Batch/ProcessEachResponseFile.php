@@ -17,7 +17,7 @@ final class ProcessEachResponseFile {
 		$h->resetCountersDataSentToMailchimp();
 		$fileHelper = hcg_mc_h_file();
 		$fileHelper->open(['path '=> hcg_mc_batches_path()]);
-		foreach ($files as $file) {
+		foreach ($files as $file) {/** @var string $file */
 			$fileContent = $fileHelper->read($file);
 			$items = json_decode($fileContent, true);
 			if ($items !== false) {
