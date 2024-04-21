@@ -16,7 +16,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_Store extends Mage_Core_Mo
     protected function _afterSave()
     {
         $helper = $this->makeHelper();
-        $scopeId = $this->getScopeId();
+        $scopeId = $this->getScopeId(); /** @var int $scopeId */
         $scope = $this->getScope();
         $groups = $this->getData('groups');
 
@@ -24,7 +24,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_Store extends Mage_Core_Mo
             ? $groups['general']['fields']['storeid']['value']
             : null;
 
-        $oldMailchimpStoreId = $helper->getMCStoreId($scopeId, $scope);
+        $oldMailchimpStoreId = hcg_mc_sid($scopeId);
         $isSyncing = $helper->getMCIsSyncing($newMailchimpStoreId, $scopeId, $scope);
         $helper->cancelAllPendingBatches($oldMailchimpStoreId);
         $helper->restoreAllCanceledBatches($newMailchimpStoreId);
