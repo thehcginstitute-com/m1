@@ -13,7 +13,7 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Helper_Data::resendMCEcommerceData()
  * @used-by Ebizmarts_MailChimp_Helper_Data::removeEcommerceSyncData()
  * @used-by Ebizmarts_MailChimp_Helper_Data::isEcomSyncDataEnabled()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::clearErrorGrid()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
