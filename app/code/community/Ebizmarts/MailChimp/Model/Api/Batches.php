@@ -364,7 +364,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 */
 	private function _updateSyncingFlag($mailchimpStoreId, $magentoStoreId):void {
 		$helper = hcg_mc_h();
-		$dateHelper = $this->getDateHelper();
 		$itemAmount = $helper->getTotalNewItemsSent();
 		$syncingFlag = $helper->getMCIsSyncing($mailchimpStoreId, $magentoStoreId);
 		if ($this->shouldFlagAsSyncing($syncingFlag, $itemAmount, $helper)) {
@@ -375,7 +374,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 			//Set is syncing per scope to a date because it is not sending any more items.
 			hcg_mc_cfg_save(
 				Cfg::GENERAL_MCISSYNCING . "_$mailchimpStoreId"
-				,$dateHelper->formatDate(null, 'Y-m-d H:i:s')
+				,hcg_mc_h_date()->formatDate(null, 'Y-m-d H:i:s')
 				,$magentoStoreId
 				,'stores'
 			);
@@ -414,7 +413,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 */
 	private function markItemsAsSent($batchResponseId, $mailchimpStoreId):void {
 		$helper = hcg_mc_h();
-		$dateHelper = $this->getDateHelper();
 		$resource = $helper->getCoreResource();
 		$connection = $resource->getConnection('core_write');
 		$tableName = $resource->getTableName('mailchimp/ecommercesyncdata');
@@ -423,7 +421,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 			$tableName,
 			array(
 				'batch_id' => $batchResponseId,
-				'mailchimp_sync_delta' => $dateHelper->formatDate(null, 'Y-m-d H:i:s')
+				'mailchimp_sync_delta' => hcg_mc_h_date()->formatDate(null, 'Y-m-d H:i:s')
 			),
 			$where
 		);
@@ -664,11 +662,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		}
 		return $syncModified;
 	}
-
-	/**
-	 * @return Ebizmarts_MailChimp_Helper_Date
-	 */
-	private function getDateHelper() {return Mage::helper('mailchimp/date');}
 
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Curl
