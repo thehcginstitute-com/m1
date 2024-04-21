@@ -128,15 +128,11 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @param $id
 	 * @param $type
 	 */
-	function setItemAsModified($mailchimpStoreId, $id, $type)
-	{
-		$isMarkedAsDeleted = null;
-
+	function setItemAsModified($mailchimpStoreId, $id, $type):void {
 		if ($type == Ebizmarts_MailChimp_Model_Config::IS_PRODUCT) {
 			$dataProduct = hcg_mc_syncd_get((int)$id, $type, $mailchimpStoreId);
 			$isMarkedAsDeleted = $dataProduct->getMailchimpSyncDeleted();
 			$isProductDisabledInMagento = Ebizmarts_MailChimp_Model_Api_Products::PRODUCT_DISABLED_IN_MAGENTO;
-
 			if (!$isMarkedAsDeleted || $dataProduct['mailchimp_sync_error']!= $isProductDisabledInMagento) {
 				Plugin::saveSyncData(
 					$id,
@@ -165,7 +161,8 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 					true
 				);
 			}
-		} else {
+		}
+		else {
 			Plugin::saveSyncData(
 				$id,
 				$type,
