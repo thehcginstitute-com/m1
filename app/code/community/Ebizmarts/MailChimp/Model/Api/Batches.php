@@ -446,14 +446,12 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
 	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::handleEcommerceBatches()
-	 * @param  $magentoStoreId
+	 * @param $magentoStoreId
 	 * @throws Mage_Core_Exception
 	 */
-	private function _sendEcommerceBatch($magentoStoreId)
-	{
+	private function _sendEcommerceBatch($magentoStoreId):void {
 		$helper = hcg_mc_h();
 		$mailchimpStoreId = $helper->getMCStoreId($magentoStoreId);
-
 		try {
 			$this->deleteUnsentItems();
 
