@@ -499,6 +499,24 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * @param $batchId
+	 * @param $storeId
+	 * @throws Mage_Core_Exception
+	 */
+	private function _showResumeEcommerce($batchId, $storeId)
+	{
+		$helper = hcg_mc_h();
+		$countersSentPerBatch = $helper->getCountersSentPerBatch();
+
+		if (!empty($countersSentPerBatch) || $countersSentPerBatch != null) {
+			$helper->logBatchStatus("Sent batch $batchId for Magento store $storeId");
+			$helper->logBatchQuantity($helper->getCountersSentPerBatch());
+		} else {
+			$helper->logBatchStatus("Nothing to sync for store $storeId");
+		}
+	}
+
+	/**
 	 * @param $files
 	 * @param $batchId
 	 * @param $archive Mage_Archive
@@ -840,24 +858,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	private function getDataProduct($mailchimpStoreId, $id, $type) {return hcg_mc_syncd_get(
 		(int)$id, $type, $mailchimpStoreId
 	);}
-
-	/**
-	 * @param $batchId
-	 * @param $storeId
-	 * @throws Mage_Core_Exception
-	 */
-	private function _showResumeEcommerce($batchId, $storeId)
-	{
-		$helper = hcg_mc_h();
-		$countersSentPerBatch = $helper->getCountersSentPerBatch();
-
-		if (!empty($countersSentPerBatch) || $countersSentPerBatch != null) {
-			$helper->logBatchStatus("Sent batch $batchId for Magento store $storeId");
-			$helper->logBatchQuantity($helper->getCountersSentPerBatch());
-		} else {
-			$helper->logBatchStatus("Nothing to sync for store $storeId");
-		}
-	}
 
 	/**
 	 * @param $batchId
