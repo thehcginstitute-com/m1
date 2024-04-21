@@ -8,14 +8,6 @@ use HCG\MailChimp\Model\Api\Batches as Plugin;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
-	 * @return array
-	 */
-	private function getStores()
-	{
-		return Mage::app()->getStores();
-	}
-
-	/**
 	 * @return string
 	 */
 	function getMagentoBaseDir()
@@ -29,7 +21,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	function handleEcommerceBatches()
 	{
 		$helper = hcg_mc_h();
-		$stores = $this->getStores();
+		$stores = Mage::app()->getStores();
 		$helper->handleResendDataBefore();
 
 		foreach ($stores as $store) {
@@ -69,7 +61,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		$limit = (int)Mage::getStoreConfig(Cfg::GENERAL_SUBSCRIBER_AMOUNT, 0); /** @var int $limit */
 		# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# https://3v4l.org/AF1Vc
-		foreach ($this->getStores() as $s) {
+		foreach (Mage::app()->getStores() as $s) {
 			$sid = (int)$s->getId(); /** @var int $sid */
 			$this->_getResults($sid, false);
 			if (1 > $limit) {
