@@ -22,7 +22,7 @@ final class Batches {
 		}
 		else {
 			$error = self::error($type, $mailchimpStoreId, $id, $response);
-			$sb->saveSyncData(
+			self::saveSyncData(
 				$id,
 				$type,
 				$mailchimpStoreId,
@@ -56,6 +56,56 @@ final class Batches {
 			# "Improve the error logging in `HCG\MailChimp\Model\Api\Batches::handleErrorItem()`":
 			# https://github.com/thehcginstitute-com/m1/issues/565
 			df_log($error, null, $mE->getData());
+		}
+	}
+
+	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::handleErrorItem()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::setItemAsModified()
+	 * @param       $itemId
+	 * @param       $itemType
+	 * @param       $mailchimpStoreId
+	 * @param null  $syncDelta
+	 * @param null  $syncError
+	 * @param int   $syncModified
+	 * @param null  $syncDeleted
+	 * @param null  $token
+	 * @param null  $syncedFlag
+	 * @param bool  $saveOnlyIfExists
+	 */
+	static function saveSyncData(
+		$itemId,
+		$itemType,
+		$mailchimpStoreId,
+		$syncDelta = null,
+		$syncError = null,
+		$syncModified = 0,
+		$syncDeleted = null,
+		$token = null,
+		$syncedFlag = null,
+		$saveOnlyIfExists = false
+	):void {
+		$helper = hcg_mc_h();
+		if ($itemType == Cfg::IS_SUBSCRIBER) {
+			$helper->updateSubscriberSyndData($itemId, $syncDelta, $syncError, 0, null);
+		}
+		else {
+			hcg_mc_syncd_new()->saveEcommerceSyncData(
+				$itemId,
+				$itemType,
+				$mailchimpStoreId,
+				$syncDelta,
+				$syncError,
+				$syncModified,
+				$syncDeleted,
+				$token,
+				$syncedFlag,
+				$saveOnlyIfExists,
+				null,
+				false
+			);
 		}
 	}
 
