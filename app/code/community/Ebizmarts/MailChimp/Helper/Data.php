@@ -1197,25 +1197,20 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * @param $scopeId
 	 * @param $scope
 	 * @return int
 	 */
-	protected function getLastCartSent($scopeId, $scope)
-	{
+	protected function getLastCartSent(int $scopeId, $scope) {
 		$lastCartSent = null;
-		$mcStoreId = $this->getMCStoreId($scopeId, $scope);
 		$syncDataCollection = hcg_mc_syncd_new()->getCollection()
-			->addFieldToFilter('mailchimp_store_id', array('eq' => $mcStoreId))
+			->addFieldToFilter('mailchimp_store_id', array('eq' => hcg_mc_sid($scopeId)))
 			->addFieldToFilter('type', array('eq' => Ebizmarts_MailChimp_Model_Config::IS_QUOTE))
 			->setOrder('related_id', 'DESC')
 			->setPageSize(1);
-
 		if ($syncDataCollection->getSize()) {
 			$cartSyncData = $syncDataCollection->getLastItem();
 			$lastCartSent = $cartSyncData->getRelatedId();
 		}
-
 		return $lastCartSent;
 	}
 
