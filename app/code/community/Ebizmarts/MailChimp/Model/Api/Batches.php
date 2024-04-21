@@ -6,11 +6,6 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use HCG\MailChimp\Model\Api\Batches as Plugin;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers
-	 */
-	private $_apiSubscribers;
-
 	function __construct()
 	{
 		$this->_mailchimpDateHelper = Mage::helper('mailchimp/date');
@@ -1196,4 +1191,9 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @var Ebizmarts_MailChimp_Model_Api_PromoCodes
 	 */
 	private $_apiPromoCodes;
+
+	/**
+	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers
+	 */
+	private $_apiSubscribers;
 }
