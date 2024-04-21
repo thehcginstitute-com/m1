@@ -635,17 +635,16 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * @param $counter
-	 * @return bool
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::_showResumeDataSentToMailchimp()
 	 */
-	private function isSetAnyCounterSubscriberOrEcommerceNotSent($counter)
-	{
-		return isset($counter['SUB']['NOT SENT'])
-			|| isset($counter['CUS']['NOT SENT'])
-			|| isset($counter['ORD']['NOT SENT'])
-			|| isset($counter['PRO']['NOT SENT'])
-			|| isset($counter['QUO']['NOT SENT']);
-	}
+	private function isSetAnyCounterSubscriberOrEcommerceNotSent(array $counter):bool {return
+		isset($counter['SUB']['NOT SENT'])
+		|| isset($counter['CUS']['NOT SENT'])
+		|| isset($counter['ORD']['NOT SENT'])
+		|| isset($counter['PRO']['NOT SENT'])
+		|| isset($counter['QUO']['NOT SENT'])
+	;}
 
 	/**
 	 * @param Varien_Object $syncDataItem
