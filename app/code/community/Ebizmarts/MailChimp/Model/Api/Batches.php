@@ -124,13 +124,11 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * Handle batch for order id replacement with the increment id in MailChimp.
-	 *
+	 * @used-by Ebizmarts_MailChimp_Helper_Migration::_migrateOrdersFrom116()
 	 * @param $initialTime
 	 * @param $magentoStoreId
 	 */
-	function replaceAllOrders($initialTime, $magentoStoreId)
-	{
+	function replaceAllOrders($initialTime, $magentoStoreId):void {
 		$helper = hcg_mc_h();
 		try {
 			$this->_getResults($magentoStoreId);
