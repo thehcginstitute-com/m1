@@ -307,6 +307,31 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
+	 * @param $response
+	 * @return string
+	 */
+	function _processFileErrors($response)
+	{
+		$errorDetails = "";
+
+		if (!empty($response['errors'])) {
+			foreach ($response['errors'] as $error) {
+				if (isset($error['field']) && isset($error['message'])) {
+					$errorDetails .= $errorDetails != "" ? " / " : "";
+					$errorDetails .= $error['field'] . " : " . $error['message'];
+				}
+			}
+		}
+
+		if ($errorDetails == "") {
+			$errorDetails = $response['detail'];
+		}
+
+		return $errorDetails;
+	}
+
+	/**
 	 * @param $batchArray
 	 * @param $mailchimpStoreId
 	 * @param $magentoStoreId
@@ -315,7 +340,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @throws MailChimp_Error
 	 * @throws MailChimp_HttpError
 	 */
-
 	private function _processBatchOperations($batchArray, $mailchimpStoreId, $magentoStoreId)
 	{
 		$helper = hcg_mc_h();
@@ -508,33 +532,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 			$fileHelper->rm($file);
 		}
 		$this->_showResumeDataSentToMailchimp($magentoStoreId);
-	}
-
-
-
-	/**
-	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
-	 * @param $response
-	 * @return string
-	 */
-	function _processFileErrors($response)
-	{
-		$errorDetails = "";
-
-		if (!empty($response['errors'])) {
-			foreach ($response['errors'] as $error) {
-				if (isset($error['field']) && isset($error['message'])) {
-					$errorDetails .= $errorDetails != "" ? " / " : "";
-					$errorDetails .= $error['field'] . " : " . $error['message'];
-				}
-			}
-		}
-
-		if ($errorDetails == "") {
-			$errorDetails = $response['detail'];
-		}
-
-		return $errorDetails;
 	}
 
 	/**
