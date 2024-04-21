@@ -743,19 +743,17 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	/**
 	 * Remove items from mailchimp_ecommerce_sync_data table to allow them to be sent.
 	 * If scopeId is 0 remova from all scopes.
-	 *
-	 * @param       $scopeId
 	 * @param       $scope
 	 * @param bool  $deleteErrorsOnly
 	 * @param null  $filters
 	 * @throws Mage_Core_Exception
 	 */
-	function removeEcommerceSyncData($scopeId, $scope, $deleteErrorsOnly = false, $filters = null)
+	function removeEcommerceSyncData(int $scopeId, $scope, $deleteErrorsOnly = false, $filters = null)
 	{
 		if ($scopeId == 0 && $deleteErrorsOnly) {
 			$this->removeAllEcommerceSyncDataErrors($filters);
 		} else {
-			$mailchimpStoreId = $this->getMCStoreId($scopeId, $scope);
+			$mailchimpStoreId = hcg_mc_sid($scopeId);
 			$this->removeEcommerceSyncDataByMCStore($mailchimpStoreId, $deleteErrorsOnly, $filters);
 		}
 	}
@@ -817,14 +815,12 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 	/**
 	 * Check if Ecommerce data is configured to be sent.
-	 *
-	 * @param       $scopeId
 	 * @param null  $scope
 	 * @param bool  $isStoreCreation
 	 * @return bool
 	 * @throws Mage_Core_Exception
 	 */
-	function isEcomSyncDataEnabled($scopeId, $scope = null, $isStoreCreation = false)
+	function isEcomSyncDataEnabled(int $scopeId, $scope = null, $isStoreCreation = false)
 	{
 		//If store id does not exist return false. (For deleted stores i.e.: order grid synced status)
 		if ($scopeId === null) {
@@ -832,7 +828,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 		} else {
 			$subscriptionEnabled = $this->isSubscriptionEnabled($scopeId, $scope);
 			$ecommerceEnabled = $this->isEcommerceEnabled($scopeId, $scope);
-			$mailchimpStoreId = $this->getMCStoreId($scopeId, $scope);
+			$mailchimpStoreId = hcg_mc_sid($scopeId);
 
 			$ret = ($mailchimpStoreId !== null || $isStoreCreation)
 				&& $subscriptionEnabled && $ecommerceEnabled;
