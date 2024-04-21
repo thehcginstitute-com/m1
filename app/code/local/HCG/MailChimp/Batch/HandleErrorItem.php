@@ -8,7 +8,7 @@ final class HandleErrorItem {
 	/**
 	 * 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 * @used-by \HCG\MailChimp\Batch\ProcessEachResponseFile::p()
+	 * @used-by ProcessEachResponseFile::p()
 	 */
 	static function p(array $i, $batchId, $mailchimpStoreId, $id, $type, $store):void {
 		$res = json_decode($i['response'], true);
