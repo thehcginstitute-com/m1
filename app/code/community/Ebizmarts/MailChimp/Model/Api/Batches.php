@@ -395,8 +395,11 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		$connection->delete($tableName, ["batch_id = '$batchId'"]);
 	}
 
-	private function deleteUnsentItems()
-	{
+	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::_sendEcommerceBatch()
+	 */
+	private function deleteUnsentItems():void {
 		$helper = hcg_mc_h();
 		$resource = $helper->getCoreResource();
 		$connection = $resource->getConnection('core_write');
