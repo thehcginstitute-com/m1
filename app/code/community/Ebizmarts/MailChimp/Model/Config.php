@@ -19,6 +19,11 @@ class Ebizmarts_MailChimp_Model_Config
     const GENERAL_OLD_LIST                      = 'mailchimp/general/old_list';
     const GENERAL_LIST_CHANGED_SCOPES           = 'mailchimp/general/list_changed_scopes';
     const GENERAL_CHECKOUT_SUBSCRIBE            = 'mailchimp/general/checkout_subscribe';
+	/**
+	 * 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Helper_Data::getMCStoreId()`": https://github.com/thehcginstitute-com/m1/issues/574
+	 * @used-by hcg_mc_sid()
+	 */
     const GENERAL_MCSTOREID                     = 'mailchimp/general/storeid';
     const GENERAL_MCISSYNCING                   = 'mailchimp/general/is_syicing';
     const GENERAL_SUBMINSYNCDATEFLAG            = 'mailchimp/general/subminsyncdateflag';
