@@ -67,7 +67,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Account
                     $this->_accountDetails = $api->getRoot()->info('account_name,total_subscribers');
 
                     $mcStoreId = (empty($params))
-                        ? $helper->getMCStoreId($scopeArray['scope_id'], $scopeArray['scope'])
+                        ? hcg_mc_sid($scopeArray['scope_id'])
                         : $params['mailchimp_store_id'];
                     try {
                         $mcStore = (!empty($mcStoreId))
