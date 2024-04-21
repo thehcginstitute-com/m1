@@ -487,7 +487,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 
 	protected function deleteUnsentItems()
 	{
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$resource = $helper->getCoreResource();
 		$connection = $resource->getConnection('core_write');
 		$tableName = $resource->getTableName('mailchimp/ecommercesyncdata');
