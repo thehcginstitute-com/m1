@@ -15,7 +15,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Curl
 	 */
-	private function getMailchimpCurlHelper() { return Mage::helper('mailchimp/curl'); }
+	private function getMailchimpCurlHelper() {return Mage::helper('mailchimp/curl'); }
 
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Date
