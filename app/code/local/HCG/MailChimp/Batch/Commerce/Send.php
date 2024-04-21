@@ -81,7 +81,7 @@ final class Send {
 				$batchJson = null;
 				$batchResponse = null;
 				try {
-					hcg_mc_batches_new()->_processBatchOperations($batchArray, $mailchimpStoreId, $magentoStoreId);
+					Send\Process::p($batchArray, $mailchimpStoreId, $magentoStoreId);
 					self::_updateSyncingFlag($mailchimpStoreId, $magentoStoreId);
 				}
 				catch (EApiKey $e) {
