@@ -578,14 +578,14 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::processEachResponseFile()
 	 * @param $storeId
 	 * @throws Mage_Core_Exception
 	 */
-	private function _showResumeDataSentToMailchimp($storeId)
-	{
+	private function _showResumeDataSentToMailchimp($storeId):void {
 		$helper = hcg_mc_h();
 		$countersDataSentToMailchimp = $helper->getCountersDataSentToMailchimp();
-
 		if (!empty($countersDataSentToMailchimp) || $helper->getCountersDataSentToMailchimp() != null) {
 			$helper->logBatchStatus("Processed data sent to Mailchimp for store $storeId");
 			$counter = $helper->getCountersDataSentToMailchimp();
@@ -595,18 +595,22 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 					$helper->logBatchStatus(
 						'Please check Mailchimp Errors grid or MailChimp_Errors.log for more details.'
 					);
-				} else {
+				}
+				else {
 					$helper->logBatchStatus(
 						'Please check Mailchimp Errors grid and enable MailChimp_Errors.log for more details.'
 					);
 				}
 			}
-		} else {
+		}
+		else {
 			$helper->logBatchStatus("Nothing was processed for store $storeId");
 		}
 	}
 
 	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::_getResults()
 	 * @param $item
 	 * @param $files
 	 * @param $batchId
