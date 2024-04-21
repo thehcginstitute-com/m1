@@ -362,10 +362,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @throws Mage_Core_Exception
 	 * @throws Mage_Core_Model_Store_Exception
 	 */
-	private function _updateSyncingFlag(
-		$mailchimpStoreId,
-		$magentoStoreId
-	):void {
+	private function _updateSyncingFlag($mailchimpStoreId, $magentoStoreId):void {
 		$helper = hcg_mc_h();
 		$dateHelper = $this->getDateHelper();
 		$itemAmount = $helper->getTotalNewItemsSent();
