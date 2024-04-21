@@ -165,6 +165,66 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * 2024-04-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Batches::getBatchResponse()`":
+	 * https://github.com/thehcginstitute-com/m1/issues/571
+	 * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController::downloadresponseAction()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::_getResults()
+	 * @param $batchId
+	 * @param $magentoStoreId
+	 */
+	function getBatchResponse($batchId, $magentoStoreId):array {
+		$helper = hcg_mc_h();
+		$fileHelper = $this->getMailchimpFileHelper();
+		$r = []; /** @var array $r */
+		try {
+			$baseDir = Mage::getBaseDir();
+			$api = $helper->getApi($magentoStoreId);
+			if ($fileHelper->isDir(hcg_mc_batches_path()) == false) {
+				$fileHelper->mkDir(hcg_mc_batches_path());
+			}
+			if ($api) {
+				// check the status of the job
+				$response = $api->batchOperation->status($batchId);
+				if (isset($response['status']) && $response['status'] == 'finished') {
+					// get the tar.gz file with the results
+					$fileUrl = urldecode($response['response_body_url']);
+					$fileName = hcg_mc_batches_path($batchId) . '.tar.gz';
+					$fd = fopen($fileName, 'w');
+					$curlOptions = array(
+						CURLOPT_RETURNTRANSFER => 1,
+						CURLOPT_FILE => $fd,
+						CURLOPT_FOLLOWLOCATION => true, // this will follow redirects
+						CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+					);
+					$curlHelper = $this->getMailchimpCurlHelper();
+					$curlHelper->curlExec($fileUrl, Zend_Http_Client::GET, $curlOptions);
+					fclose($fd);
+					$fileHelper->mkDir(hcg_mc_batches_path($batchId), 0750, true);
+					$archive = new Mage_Archive();
+					if ($fileHelper->fileExists($fileName)) {
+						$r = $this->_unpackBatchFile($r, $batchId, $archive, $fileName, $baseDir);
+					}
+				}
+			}
+		}
+		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+			$helper->logError($e->getMessage());
+			$r['error'] = $e->getMessage();
+		}
+		catch (MailChimp_Error $e) {
+			$this->deleteBatchItems($batchId);
+			$r['error'] = $e->getFriendlyMessage();
+			$helper->logError($e->getFriendlyMessage());
+		}
+		catch (Exception $e) {
+			$r['error'] = $e->getMessage();
+			$helper->logError($e->getMessage());
+		}
+		return $r;
+	}
+
+	/**
 	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncEcommerceBatchData()
 	 */
@@ -329,66 +389,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 			),
 			$where
 		);
-	}
-
-	/**
-	 * 2024-04-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Batches::getBatchResponse()`":
-	 * https://github.com/thehcginstitute-com/m1/issues/571
-	 * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController::downloadresponseAction()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::_getResults()
-	 * @param $batchId
-	 * @param $magentoStoreId
-	 */
-	function getBatchResponse($batchId, $magentoStoreId):array {
-		$helper = hcg_mc_h();
-		$fileHelper = $this->getMailchimpFileHelper();
-		$r = []; /** @var array $r */
-		try {
-			$baseDir = Mage::getBaseDir();
-			$api = $helper->getApi($magentoStoreId);
-			if ($fileHelper->isDir(hcg_mc_batches_path()) == false) {
-				$fileHelper->mkDir(hcg_mc_batches_path());
-			}
-			if ($api) {
-				// check the status of the job
-				$response = $api->batchOperation->status($batchId);
-				if (isset($response['status']) && $response['status'] == 'finished') {
-					// get the tar.gz file with the results
-					$fileUrl = urldecode($response['response_body_url']);
-					$fileName = hcg_mc_batches_path($batchId) . '.tar.gz';
-					$fd = fopen($fileName, 'w');
-					$curlOptions = array(
-						CURLOPT_RETURNTRANSFER => 1,
-						CURLOPT_FILE => $fd,
-						CURLOPT_FOLLOWLOCATION => true, // this will follow redirects
-						CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-					);
-					$curlHelper = $this->getMailchimpCurlHelper();
-					$curlHelper->curlExec($fileUrl, Zend_Http_Client::GET, $curlOptions);
-					fclose($fd);
-					$fileHelper->mkDir(hcg_mc_batches_path($batchId), 0750, true);
-					$archive = new Mage_Archive();
-					if ($fileHelper->fileExists($fileName)) {
-						$r = $this->_unpackBatchFile($r, $batchId, $archive, $fileName, $baseDir);
-					}
-				}
-			}
-		}
-		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-			$helper->logError($e->getMessage());
-			$r['error'] = $e->getMessage();
-		}
-		catch (MailChimp_Error $e) {
-			$this->deleteBatchItems($batchId);
-			$r['error'] = $e->getFriendlyMessage();
-			$helper->logError($e->getFriendlyMessage());
-		}
-		catch (Exception $e) {
-			$r['error'] = $e->getMessage();
-			$helper->logError($e->getMessage());
-		}
-		return $r;
 	}
 
 	/**
