@@ -5,9 +5,9 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
 final class SaveSyncData {
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by \HCG\MailChimp\Batch\HandleErrorItem::p
+	 * @used-by \HCG\MailChimp\Batch\HandleErrorItem::p()
 	 * @used-by \HCG\MailChimp\Batch\HandleErrorItem::setItemAsModified()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
+	 * @used-by \HCG\MailChimp\Batch\ProcessEachResponseFile::p()
 	 * @param       $itemId
 	 * @param       $itemType
 	 * @param       $mailchimpStoreId

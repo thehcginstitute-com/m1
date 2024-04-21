@@ -4,8 +4,6 @@
 # 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
-use HCG\MailChimp\Batch\HandleErrorItem;
-use HCG\MailChimp\Batch\SaveSyncData;
 use HCG\MailChimp\Batch\GetResults;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
