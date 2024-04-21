@@ -338,25 +338,20 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @param $batchId
 	 * @param $archive Mage_Archive
 	 * @param $fileName
-	 * @return array
 	 */
-	private function _unpackBatchFile($files, $batchId, $archive, $fileName)
-	{
+	private function _unpackBatchFile($files, $batchId, $archive, $fileName):array {
 		$path = hcg_mc_batches_path($batchId);
 		$archive->unpack($fileName, $path);
 		$archive->unpack($path . DS . $batchId . '.tar', $path);
 		$fileHelper = $this->getMailchimpFileHelper();
 		$dirItems = new DirectoryIterator($path);
-
-		foreach ($dirItems as $index => $dirItem) {
-
-			if ($dirItem->isFile() && $dirItem->getExtension() == 'json'){
+		foreach ($dirItems as $dirItem) {
+			if ($dirItem->isFile() && $dirItem->getExtension() == 'json') {
 				$files[] = $path . DS . $dirItem->getBasename();
 			}
 		}
 		$fileHelper->rm($path . DS . $batchId . '.tar');
 		$fileHelper->rm($fileName);
-
 		return $files;
 	}
 
