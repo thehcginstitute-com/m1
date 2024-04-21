@@ -9,6 +9,7 @@ use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
 	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncEcommerceBatchData()
 	 */
 	function handleEcommerceBatches():void {
 		$helper = hcg_mc_h();
