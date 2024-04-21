@@ -6,13 +6,14 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 use HCG\MailChimp\Batch\HandleErrorItem;
 use HCG\MailChimp\Batch\SaveSyncData;
+use HCG\MailChimp\Batch\GetResults;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
 	 * 2024-04-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Batches::getBatchResponse()`":
 	 * https://github.com/thehcginstitute-com/m1/issues/571
-	 * @used-by self::_getResults()
 	 * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController::downloadresponseAction()
+	 * @used-by HCG\MailChimp\Batch\GetResults::p()
 	 * @param $batchId
 	 * @param $magentoStoreId
 	 */
@@ -77,7 +78,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 			$storeId = $store->getId();
 			if ($h->isEcomSyncDataEnabled($storeId)) {
 				if ($h->ping($storeId)) {
-					$this->_getResults($storeId);
+					GetResults::p($this, $storeId);
 					$this->_sendEcommerceBatch($storeId);
 				}
 				else {
@@ -109,13 +110,13 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		# https://3v4l.org/AF1Vc
 		foreach (Mage::app()->getStores() as $s) {
 			$sid = (int)$s->getId(); /** @var int $sid */
-			$this->_getResults($sid, false);
+			GetResults::p($this, $sid, false);
 			if (1 > $limit) {
 				break;
 			}
 			$limit = $this->sendStoreSubscriberBatch($sid, $limit);
 		}
-		$this->_getResults(0, false);
+		GetResults::p($this, 0, false);
 		if (0 < $limit) {
 			$this->sendStoreSubscriberBatch(0, $limit);
 		}
@@ -123,40 +124,70 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::handleEcommerceBatches()
-	 * @used-by self::handleSubscriberBatches()
+	 * @used-by HCG\MailChimp\Batch\GetResults::_saveItemStatus()
+	 * @param $files
+	 * @param $batchId
+	 * @param $mailchimpStoreId
 	 * @param $magentoStoreId
 	 * @throws Mage_Core_Exception
 	 */
-	private function _getResults(
-		$magentoStoreId, bool $isEcommerceData = true, $status = Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING
-	) {
+	function processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId):void {
 		$h = hcg_mc_h();
-		$mailchimpStoreId = $h->getMCStoreId($magentoStoreId);
-		$sb = new Synchbatches;
-		$collection = $sb->getCollection()->addFieldToFilter('status', ['eq' => $status]);
-		if ($isEcommerceData) {
-			$collection->addFieldToFilter('store_id', ['eq' => $mailchimpStoreId]);
-			$enabled = $h->isEcomSyncDataEnabled($magentoStoreId);
-		}
-		else {
-			$collection->addFieldToFilter('store_id', ['eq' => $magentoStoreId]);
-			$enabled = $h->isSubscriptionEnabled($magentoStoreId);
-		}
-		if ($enabled) {
-			$h->logBatchStatus('Get results from Mailchimp for Magento store ' . $magentoStoreId);
-			foreach ($collection as $item) {
-				try {
-					$batchId = $item->getBatchId();
-					$files = $this->getBatchResponse($batchId, $magentoStoreId);
-					$this->_saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId);
-					hcg_mc_batch_delete($batchId);
-				}
-				catch (Exception $e) {
-					Mage::log("Error with a response: " . $e->getMessage());
+		$h->resetCountersDataSentToMailchimp();
+		$fileHelper = hcg_mc_h_file();
+		$fileHelper->open(['path '=> hcg_mc_batches_path()]);
+		foreach ($files as $file) {
+			$fileContent = $fileHelper->read($file);
+			$items = json_decode($fileContent, true);
+			if ($items !== false) {
+				foreach ($items as $item) {
+					$line = explode('_', $item['operation_id']);
+					$store = explode('-', $line[0]);
+					$type = $line[1];
+					$id = $line[3];
+					if ($item['status_code'] != 200) {
+						# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+						# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+						HandleErrorItem::p($item, $batchId, $mailchimpStoreId, $id, $type, $store);
+					}
+					else {
+						$syncDataItem = hcg_mc_syncd_get((int)$id, $type, $mailchimpStoreId);
+						if (!$syncDataItem->getMailchimpSyncModified()) {
+							$syncModified = $this->enableMergeFieldsSending($type, $syncDataItem);
+							SaveSyncData::p(
+								$id,
+								$type,
+								$mailchimpStoreId,
+								null,
+								'',
+								$syncModified,
+								null,
+								null,
+								1,
+								true
+							);
+							$h->modifyCounterDataSentToMailchimp($type);
+						}
+						else {
+							SaveSyncData::p(
+								$id,
+								$type,
+								$mailchimpStoreId,
+								null,
+								'',
+								0,
+								null,
+								null,
+								1,
+								true
+							);
+						}
+					}
 				}
 			}
+			$fileHelper->rm($file);
 		}
+		$this->_showResumeDataSentToMailchimp($magentoStoreId);
 	}
 
 	/**
@@ -421,74 +452,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::_saveItemStatus()
-	 * @param $files
-	 * @param $batchId
-	 * @param $mailchimpStoreId
-	 * @param $magentoStoreId
-	 * @throws Mage_Core_Exception
-	 */
-	private function processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId):void {
-		$h = hcg_mc_h();
-		$h->resetCountersDataSentToMailchimp();
-		$fileHelper = hcg_mc_h_file();
-		$fileHelper->open(['path '=> hcg_mc_batches_path()]);
-		foreach ($files as $file) {
-			$fileContent = $fileHelper->read($file);
-			$items = json_decode($fileContent, true);
-			if ($items !== false) {
-				foreach ($items as $item) {
-					$line = explode('_', $item['operation_id']);
-					$store = explode('-', $line[0]);
-					$type = $line[1];
-					$id = $line[3];
-					if ($item['status_code'] != 200) {
-						# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-						# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-						HandleErrorItem::p($item, $batchId, $mailchimpStoreId, $id, $type, $store);
-					}
-					else {
-						$syncDataItem = hcg_mc_syncd_get((int)$id, $type, $mailchimpStoreId);
-						if (!$syncDataItem->getMailchimpSyncModified()) {
-							$syncModified = $this->enableMergeFieldsSending($type, $syncDataItem);
-							SaveSyncData::p(
-								$id,
-								$type,
-								$mailchimpStoreId,
-								null,
-								'',
-								$syncModified,
-								null,
-								null,
-								1,
-								true
-							);
-							$h->modifyCounterDataSentToMailchimp($type);
-						}
-						else {
-							SaveSyncData::p(
-								$id,
-								$type,
-								$mailchimpStoreId,
-								null,
-								'',
-								0,
-								null,
-								null,
-								1,
-								true
-							);
-						}
-					}
-				}
-			}
-			$fileHelper->rm($file);
-		}
-		$this->_showResumeDataSentToMailchimp($magentoStoreId);
-	}
-
-	/**
-	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::handleEcommerceBatches()
 	 * @param $storeId
 	 * @param $syncedDateArray
@@ -595,32 +558,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		}
 		else {
 			$h->logBatchStatus("Nothing was processed for store $storeId");
-		}
-	}
-
-	/**
-	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
-	 * @used-by self::_getResults()
-	 * @param $item
-	 * @param $files
-	 * @param $batchId
-	 * @param $mailchimpStoreId
-	 * @param $magentoStoreId
-	 * @throws Mage_Core_Exception
-	 */
-	private function _saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId):void {
-		$h = hcg_mc_h();
-		if (!empty($files)) {
-			if (isset($files['error'])) {
-				$item->setStatus('error');
-				$item->save();
-				$h->logBatchStatus('There was an error getting the result ');
-			}
-			else {
-				$this->processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId);
-				$item->setStatus('completed');
-				$item->save();
-			}
 		}
 	}
 
