@@ -415,7 +415,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	private function markItemsAsSent($batchResponseId, $mailchimpStoreId):void {
 		$helper = hcg_mc_h();
 		$dateHelper = $this->getDateHelper();
-
 		$resource = $helper->getCoreResource();
 		$connection = $resource->getConnection('core_write');
 		$tableName = $resource->getTableName('mailchimp/ecommercesyncdata');
@@ -431,13 +430,15 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::_saveItemStatus()
 	 * @param $files
 	 * @param $batchId
 	 * @param $mailchimpStoreId
 	 * @param $magentoStoreId
 	 * @throws Mage_Core_Exception
 	 */
-	private function processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId) {
+	private function processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId):void {
 		$helper = hcg_mc_h();
 		$helper->resetCountersDataSentToMailchimp();
 		$fileHelper = $this->getMailchimpFileHelper();
