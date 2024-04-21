@@ -25,7 +25,7 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Helper_Data::getMailChimpScopeByStoreId()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getMCJs()
  * @used-by Ebizmarts_MailChimp_Helper_Data::retrieveAndSaveMCJsUrlInConfig()
- * @used-by STUB()
+ * @used-by \bizmarts_MailChimp_Helper_Data::setIsSyncingIfFinishedPerScope()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()

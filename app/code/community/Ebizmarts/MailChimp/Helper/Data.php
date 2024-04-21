@@ -2186,17 +2186,14 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 	/**
 	 * Modify is_syncing value if initial sync finished in given scope.
-	 *
 	 * @param           $syncValue
-	 * @param           $scopeId
 	 * @param string    $scope
 	 * @throws Mage_Core_Exception
 	 */
-	function setIsSyncingIfFinishedPerScope($syncValue, $scopeId, $scope = 'stores')
-	{
+	function setIsSyncingIfFinishedPerScope($syncValue, int $scopeId, $scope = 'stores') {
 		try {
 			$mailchimpApi = $this->getApi($scopeId, $scope);
-			$mailchimpStoreId = $this->getMCStoreId($scopeId, $scope);
+			$mailchimpStoreId = hcg_mc_sid($scopeId);
 			$isSyncing = $this->getMCIsSyncing($mailchimpStoreId, $scopeId, $scope);
 
 			if ($mailchimpStoreId && $isSyncing != 1) {
