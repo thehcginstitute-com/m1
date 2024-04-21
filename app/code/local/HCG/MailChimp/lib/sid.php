@@ -43,7 +43,7 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Model_Observer::itemCancel()
  * @used-by Ebizmarts_MailChimp_Model_Observer::productSaveAfter()
  * @used-by HCG\MailChimp\Batch\Commerce\Send::p()
- * @used-by STUB()
+ * @used-by HCG\MailChimp\Batch\Commerce::addSyncValueToArray()
  * @used-by STUB()
  * @used-by STUB()
  */

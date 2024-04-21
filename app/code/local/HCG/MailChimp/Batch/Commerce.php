@@ -41,15 +41,14 @@ final class Commerce {
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::p()
-	 * @param $storeId
 	 * @param $syncedDateArray
 	 * @return mixed
 	 */
-	private static function addSyncValueToArray($storeId, $syncedDateArray) {
+	private static function addSyncValueToArray(int $storeId, $syncedDateArray) {
 		$h = hcg_mc_h();
 		$ecomEnabled = $h->isEcomSyncDataEnabled($storeId);
 		if ($ecomEnabled) {
-			$mcStore = $h->getMCStoreId($storeId);
+			$mcStore = hcg_mc_sid($storeId);
 			$syncedDate = $h->getMCIsSyncing($mcStore, $storeId);
 			// Check if $syncedDate is in date format to support previous versions.
 			if (isset($syncedDateArray[$mcStore]) && $syncedDateArray[$mcStore]) {
