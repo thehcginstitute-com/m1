@@ -18,14 +18,7 @@ class Ebizmarts_MailChimp_Model_Cron
 		$this->_mailChimpMigrationHelper = Mage::helper('mailchimp/migration');
 	}
 
-	function syncEcommerceBatchData()
-	{
-		if ($this->getMigrationHelper()->migrationFinished()) {
-			hcg_mc_batches_new()->handleEcommerceBatches();
-		} else {
-			$this->getMigrationHelper()->handleMigrationUpdates();
-		}
-	}
+	function syncEcommerceBatchData() {hcg_mc_batches_new()->handleEcommerceBatches();}
 
 	/**
 	 * 2024-04-14

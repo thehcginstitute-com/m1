@@ -602,48 +602,6 @@ class Ebizmarts_MailChimp_Helper_Migration extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * Return if migration has finished checking the config values.
-     *
-     * @return bool
-     * @throws Mage_Core_Exception
-     */
-    function migrationFinished()
-    {
-        $helper = $this->getHelper();
-        $migrationFinished = false;
-
-        $migrateFrom115 = $helper->getConfigValueForScope(
-            Ebizmarts_MailChimp_Model_Config::GENERAL_MIGRATE_FROM_115,
-            0,
-            'default'
-        );
-
-        $migrateFrom116 = $helper->getConfigValueForScope(
-            Ebizmarts_MailChimp_Model_Config::GENERAL_MIGRATE_FROM_116,
-            0,
-            'default'
-        );
-
-        $migrateFrom1164 = $helper->getConfigValueForScope(
-            Ebizmarts_MailChimp_Model_Config::GENERAL_MIGRATE_FROM_1164,
-            0,
-            'default'
-        );
-
-        $migrateFrom1120 = $helper->getConfigValueForScope(
-            Ebizmarts_MailChimp_Model_Config::GENERAL_MIGRATE_FROM_1120,
-            0,
-            'default'
-        );
-
-        if (!$migrateFrom115 && !$migrateFrom116 && !$migrateFrom1164 && !$migrateFrom1120) {
-            $migrationFinished = true;
-        }
-
-        return $migrationFinished;
-    }
-
-    /**
      * Delete config data for migration from 1.1.6.
      */
     function delete116MigrationConfigData()
