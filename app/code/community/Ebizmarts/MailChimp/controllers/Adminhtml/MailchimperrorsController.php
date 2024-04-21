@@ -44,7 +44,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController extends Mage_Admin
 
 			do {
 				$counter++;
-				$files = $apiBatches->getBatchResponse($batchId, $storeId);
+				$files = \HCG\MailChimp\Batch\GetBatchResponse::p($batchId, $storeId);
 				$fileContent = array();
 				if (array_key_exists('error', $files)) {
 					$fileContent = $this->__("Response was deleted from MailChimp server.");

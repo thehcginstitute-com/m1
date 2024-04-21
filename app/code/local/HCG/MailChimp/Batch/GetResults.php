@@ -31,7 +31,7 @@ final class GetResults {
 			foreach ($collection as $item) {
 				try {
 					$batchId = $item->getBatchId();
-					$files = $sb->getBatchResponse($batchId, $magentoStoreId);
+					$files = GetBatchResponse::p($batchId, $magentoStoreId);
 					self::_saveItemStatus($item, $files, $batchId, $mailchimpStoreId, $magentoStoreId);
 					hcg_mc_batch_delete($batchId);
 				}
