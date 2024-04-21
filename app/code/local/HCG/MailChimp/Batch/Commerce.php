@@ -48,7 +48,7 @@ final class Commerce {
 		$h = hcg_mc_h();
 		$ecomEnabled = $h->isEcomSyncDataEnabled($storeId);
 		if ($ecomEnabled) {
-			$mcStore = hcg_mc_sid($storeId);
+			$mcStore = hcg_mc_sid($storeId); /** @var ?string $mcStore */
 			$syncedDate = $h->getMCIsSyncing($mcStore, $storeId);
 			// Check if $syncedDate is in date format to support previous versions.
 			if (isset($syncedDateArray[$mcStore]) && $syncedDateArray[$mcStore]) {
