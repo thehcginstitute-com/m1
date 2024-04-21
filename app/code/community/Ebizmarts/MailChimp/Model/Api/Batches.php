@@ -970,6 +970,11 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * @return Ebizmarts_MailChimp_Model_Api_Stores
+	 */
+	private function getApiStores() {return Mage::getModel('mailchimp/api_stores');}
+
+	/**
 	 * @return Ebizmarts_MailChimp_Helper_File
 	 */
 	private function getMailchimpFileHelper()
@@ -1045,11 +1050,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @return Ebizmarts_MailChimp_Helper_Date
 	 */
 	private function getDateHelper() {return Mage::helper('mailchimp/date');}
-
-	/**
-	 * @return Ebizmarts_MailChimp_Model_Api_Stores
-	 */
-	private function getApiStores() {return Mage::getModel('mailchimp/api_stores');}
 
 	const SEND_PROMO_ENABLED = 1;
 }
