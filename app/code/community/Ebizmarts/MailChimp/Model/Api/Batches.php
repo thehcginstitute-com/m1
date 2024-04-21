@@ -1144,11 +1144,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	private $_apiCustomers;
 
 	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_Products
-	 */
-	private $_apiProducts;
-
-	/**
 	 * @var Ebizmarts_MailChimp_Model_Api_Carts
 	 */
 	private $_apiCarts;
