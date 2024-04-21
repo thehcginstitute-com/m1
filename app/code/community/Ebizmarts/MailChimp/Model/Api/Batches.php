@@ -6,10 +6,6 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
 use HCG\MailChimp\Model\Api\Batches as Plugin;
 final class Ebizmarts_MailChimp_Model_Api_Batches {
-	function __construct() {
-		$this->_apiSubscribers = Mage::getModel('mailchimp/api_subscribers');
-	}
-
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Curl
 	 */
@@ -61,10 +57,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	/**
 	 * @return Ebizmarts_MailChimp_Model_Api_Subscribers
 	 */
-	private function getApiSubscribers()
-	{
-		return $this->_apiSubscribers;
-	}
+	function getApiSubscribers() {return dfc($this, function() {return Mage::getModel('mailchimp/api_subscribers');});}
 
 	/**
 	 * @return Ebizmarts_MailChimp_Model_Synchbatches
@@ -1117,9 +1110,4 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	const SEND_PROMO_ENABLED = 1;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers
-	 */
-	private $_apiSubscribers;
 }
