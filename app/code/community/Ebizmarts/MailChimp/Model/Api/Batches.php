@@ -12,10 +12,8 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @param $response
 	 * @return string
 	 */
-	function _processFileErrors($response)
-	{
+	function _processFileErrors($response) {
 		$errorDetails = "";
-
 		if (!empty($response['errors'])) {
 			foreach ($response['errors'] as $error) {
 				if (isset($error['field']) && isset($error['message'])) {
@@ -24,11 +22,9 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 				}
 			}
 		}
-
 		if ($errorDetails == "") {
 			$errorDetails = $response['detail'];
 		}
-
 		return $errorDetails;
 	}
 
