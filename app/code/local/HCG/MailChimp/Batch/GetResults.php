@@ -61,7 +61,7 @@ final class GetResults {
 				$h->logBatchStatus('There was an error getting the result ');
 			}
 			else {
-				$sb->processEachResponseFile($files, $batchId, $mailchimpStoreId, $magentoStoreId);
+				ProcessEachResponseFile::p($files, $batchId, $mailchimpStoreId, $magentoStoreId);
 				$item->setStatus('completed');
 				$item->save();
 			}
