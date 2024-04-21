@@ -21,7 +21,7 @@ final class Batches {
 			hcg_mc_h()->modifyCounterDataSentToMailchimp($type);
 		}
 		else {
-			$error = self::error($sb, $type, $mailchimpStoreId, $id, $response);
+			$error = self::error($type, $mailchimpStoreId, $id, $response);
 			$sb->saveSyncData(
 				$id,
 				$type,
@@ -66,10 +66,10 @@ final class Batches {
 	 * @param $id
 	 * @param $response
 	 */
-	private static function error(Sb $sb, $type, $mailchimpStoreId, $id, $response):string {
+	private static function error($type, $mailchimpStoreId, $id, $response):string {
 		$r = $response['title'] . " : " . $response['detail']; /** @var string $r */
 		if ($type == Cfg::IS_PRODUCT) {
-			$dataProduct = $sb->getDataProduct($mailchimpStoreId, $id, $type);
+			$dataProduct = hcg_mc_syncd_get((int)$id, $type, $mailchimpStoreId);
 			$isProductDisabledInMagento = ApiProducts::PRODUCT_DISABLED_IN_MAGENTO;
 			if ($dataProduct->getMailchimpSyncDeleted()
 				|| $dataProduct['mailchimp_sync_error'] == $isProductDisabledInMagento
