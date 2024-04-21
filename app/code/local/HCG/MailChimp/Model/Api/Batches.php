@@ -68,7 +68,7 @@ final class Batches {
 	 */
 	private static function error(Sb $sb, $type, $mailchimpStoreId, $id, $response):string {
 		$error = $response['title'] . " : " . $response['detail'];
-		if ($type == \Ebizmarts_MailChimp_Model_Config::IS_PRODUCT) {
+		if ($type == Cfg::IS_PRODUCT) {
 			$dataProduct = $sb->getDataProduct($mailchimpStoreId, $id, $type);
 			$isProductDisabledInMagento = ApiProducts::PRODUCT_DISABLED_IN_MAGENTO;
 			if ($dataProduct->getMailchimpSyncDeleted()
