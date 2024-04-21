@@ -4,6 +4,7 @@
 # 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 namespace HCG\MailChimp\Model\Api;
 use Ebizmarts_MailChimp_Model_Api_Batches as Sb;
+use Ebizmarts_MailChimp_Model_Api_Products as ApiProducts;
 use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Mailchimperrors as mE;
 final class Batches {
@@ -69,7 +70,7 @@ final class Batches {
 		$error = $response['title'] . " : " . $response['detail'];
 		if ($type == \Ebizmarts_MailChimp_Model_Config::IS_PRODUCT) {
 			$dataProduct = $sb->getDataProduct($mailchimpStoreId, $id, $type);
-			$isProductDisabledInMagento = \Ebizmarts_MailChimp_Model_Api_Products::PRODUCT_DISABLED_IN_MAGENTO;
+			$isProductDisabledInMagento = ApiProducts::PRODUCT_DISABLED_IN_MAGENTO;
 			if ($dataProduct->getMailchimpSyncDeleted()
 				|| $dataProduct['mailchimp_sync_error'] == $isProductDisabledInMagento
 			) {
