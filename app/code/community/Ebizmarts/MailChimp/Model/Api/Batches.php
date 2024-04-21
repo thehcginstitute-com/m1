@@ -453,7 +453,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 					if ($item['status_code'] != 200) {
 						# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 						# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-						Plugin::handleErrorItem($this, $item, $batchId, $mailchimpStoreId, $id, $type, $store);
+						Plugin::handleErrorItem($item, $batchId, $mailchimpStoreId, $id, $type, $store);
 					}
 					else {
 						$syncDataItem = hcg_mc_syncd_get((int)$id, $type, $mailchimpStoreId);

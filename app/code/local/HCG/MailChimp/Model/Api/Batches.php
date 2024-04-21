@@ -3,7 +3,6 @@
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 # 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 namespace HCG\MailChimp\Model\Api;
-use Ebizmarts_MailChimp_Model_Api_Batches as Sb;
 use Ebizmarts_MailChimp_Model_Api_Products as ApiProducts;
 use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Ebizmarts_MailChimp_Model_Mailchimperrors as mE;
@@ -13,7 +12,7 @@ final class Batches {
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
 	 */
-	static function handleErrorItem(Sb $sb, array $i, $batchId, $mailchimpStoreId, $id, $type, $store):void {
+	static function handleErrorItem(array $i, $batchId, $mailchimpStoreId, $id, $type, $store):void {
 		$response = json_decode($i['response'], true);
 		$errorDetails = self::processFileErrors($response);
 		if (strstr($errorDetails, 'already exists')) {
