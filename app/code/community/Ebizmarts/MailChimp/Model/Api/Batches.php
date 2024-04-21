@@ -560,14 +560,14 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @throws Mage_Core_Exception
 	 */
 	private function _showResumeSubscriber($batchId, $storeId):void	{
-		$helper = hcg_mc_h();
-		$countersSubscribers = $helper->getCountersSubscribers();
-		if (!empty($countersSubscribers) || $helper->getCountersSubscribers() != null) {
-			$helper->logBatchStatus("Sent batch $batchId for Magento store $storeId");
-			$helper->logBatchQuantity($helper->getCountersSubscribers());
+		$h = hcg_mc_h();
+		$countersSubscribers = $h->getCountersSubscribers();
+		if (!empty($countersSubscribers) || $h->getCountersSubscribers() != null) {
+			$h->logBatchStatus("Sent batch $batchId for Magento store $storeId");
+			$h->logBatchQuantity($h->getCountersSubscribers());
 		}
 		else {
-			$helper->logBatchStatus("Nothing to sync for store $storeId");
+			$h->logBatchStatus("Nothing to sync for store $storeId");
 		}
 	}
 
