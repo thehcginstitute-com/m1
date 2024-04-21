@@ -176,19 +176,18 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * @throws MailChimp_Error
 	 * @throws MailChimp_HttpError
 	 */
-	private function _processBatchOperations($batchArray, $mailchimpStoreId, $magentoStoreId)
-	{
+	private function _processBatchOperations($batchArray, $mailchimpStoreId, $magentoStoreId):void {
 		$helper = hcg_mc_h();
 		$mailchimpApi = $helper->getApi($magentoStoreId);
-
 		if (!empty($batchArray['operations'])) {
 			$batchJson = json_encode($batchArray);
-
 			if ($batchJson === false) {
 				$helper->logRequest('Json encode error ' . json_last_error_msg());
-			} elseif (empty($batchJson)) {
+			}
+			elseif (empty($batchJson)) {
 				$helper->logRequest('An empty operation was detected');
-			} else {
+			}
+			else {
 				$helper->logBatchStatus('Send batch operation');
 				$batchResponse = $mailchimpApi->getBatchOperation()->add($batchJson);
 				$helper->logRequest($batchJson, $batchResponse['id']);
@@ -199,7 +198,8 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 				$this->markItemsAsSent($batchResponse['id'], $mailchimpStoreId);
 				$this->_showResumeEcommerce($batchResponse['id'], $magentoStoreId);
 			}
-		} else {
+		}
+		else {
 			$helper->logBatchStatus("Nothing to sync for store $magentoStoreId");
 		}
 	}
