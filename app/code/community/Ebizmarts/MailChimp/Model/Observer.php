@@ -412,7 +412,6 @@ class Ebizmarts_MailChimp_Model_Observer
         $storeId = $order->getStoreId(); /** @var int $storeId */
         $ecommEnabled = $helper->isEcomSyncDataEnabled($storeId);
         $subEnabled = $helper->isSubscriptionEnabled($storeId);
-
         if ($subEnabled) {
             if (isset($post)) {
                 $email = $order->getCustomerEmail();
@@ -432,27 +431,24 @@ class Ebizmarts_MailChimp_Model_Observer
         if ($ecommEnabled) {
             $this->removeCampaignData();
             $items = $order->getAllItems();
-
             try {
                 foreach ($items as $item) {
                     if ($this->isBundleItem($item) || $this->isConfigurableItem($item)) {
                         continue;
                     }
-
-                    $mailchimpStoreId = hcg_mc_sid($storeId);
+                    $mcStore = hcg_mc_sid($storeId); /** @var ?string $mcStore */
                     $productId = (int)$item->getProductId();
                     $dataProduct = hcg_mc_syncd_get(
                         $productId,
                         Ebizmarts_MailChimp_Model_Config::IS_PRODUCT,
-                        $mailchimpStoreId
+                        $mcStore
                     );
-
                     $isMarkedAsDeleted = $dataProduct->getMailchimpSyncDeleted();
                     $isMarkedAsModified = $dataProduct->getMailchimpSyncModified();
 
                     if (!$isMarkedAsDeleted && !$isMarkedAsModified) {
                         $apiProducts = $this->makeApiProduct();
-                        $apiProducts->setMailchimpStoreId($mailchimpStoreId);
+                        $apiProducts->setMailchimpStoreId($mcStore);
                         $apiProducts->setMagentoStoreId($storeId);
                         $apiProducts->update($productId);
                     }
