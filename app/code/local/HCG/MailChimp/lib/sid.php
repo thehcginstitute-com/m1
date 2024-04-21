@@ -33,7 +33,7 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Store::_afterSave()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_Account::__construct()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_List::__construct()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::saveConfigBefore()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
