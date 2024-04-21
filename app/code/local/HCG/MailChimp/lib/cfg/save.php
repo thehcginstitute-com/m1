@@ -11,7 +11,6 @@ use Mage_Core_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Helper_Webhook::createNewWebhook()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::_updateSyncingFlag()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::handleSyncingValue()
- * @used-by Ebizmarts_MailChimp_Model_Api_Orders::replaceAllOrdersBatch()
  * @used-by Ebizmarts_MailChimp_Model_Api_Stores::createMailChimpStore()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::createBatchJson()
  * @used-by Ebizmarts_MailChimp_Model_Observer::cleanProductImagesCacheAfter()

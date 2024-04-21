@@ -125,8 +125,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::handleEcommerceBatches()
 	 * @used-by self::handleSubscriberBatches()
-	 * @used-by self::replaceAllOrders()
-	 * @used-by self::STUB()
 	 * @param $magentoStoreId
 	 * @param bool  $isEcommerceData
 	 * @throws Mage_Core_Exception
@@ -138,18 +136,16 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		$mailchimpStoreId = $h->getMCStoreId($magentoStoreId);
 		$sb = new Synchbatches;
 		$collection = $sb->getCollection()->addFieldToFilter('status', array('eq' => $status));
-
 		if ($isEcommerceData) {
 			$collection->addFieldToFilter('store_id', array('eq' => $mailchimpStoreId));
 			$enabled = $h->isEcomSyncDataEnabled($magentoStoreId);
-		} else {
+		}
+		else {
 			$collection->addFieldToFilter('store_id', array('eq' => $magentoStoreId));
 			$enabled = $h->isSubscriptionEnabled($magentoStoreId);
 		}
-
 		if ($enabled) {
 			$h->logBatchStatus('Get results from Mailchimp for Magento store ' . $magentoStoreId);
-
 			foreach ($collection as $item) {
 				try {
 					$batchId = $item->getBatchId();
