@@ -365,25 +365,23 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	private function _updateSyncingFlag(
 		$mailchimpStoreId,
 		$magentoStoreId
-	) {
+	):void {
 		$helper = hcg_mc_h();
 		$dateHelper = $this->getDateHelper();
 		$itemAmount = $helper->getTotalNewItemsSent();
 		$syncingFlag = $helper->getMCIsSyncing($mailchimpStoreId, $magentoStoreId);
-
 		if ($this->shouldFlagAsSyncing($syncingFlag, $itemAmount, $helper)) {
 			//Set is syncing per scope in 1 until sync finishes.
 			hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$mailchimpStoreId", 1, $magentoStoreId, 'stores');
-		} else {
-			if ($this->shouldFlagAsSynced($syncingFlag, $itemAmount)) {
-				//Set is syncing per scope to a date because it is not sending any more items.
-				hcg_mc_cfg_save(
-					Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$mailchimpStoreId"
-					,$dateHelper->formatDate(null, 'Y-m-d H:i:s')
-					,$magentoStoreId
-					,'stores'
-				);
-			}
+		}
+		elseif ($this->shouldFlagAsSynced($syncingFlag, $itemAmount)) {
+			//Set is syncing per scope to a date because it is not sending any more items.
+			hcg_mc_cfg_save(
+				Ebizmarts_MailChimp_Model_Config::GENERAL_MCISSYNCING . "_$mailchimpStoreId"
+				,$dateHelper->formatDate(null, 'Y-m-d H:i:s')
+				,$magentoStoreId
+				,'stores'
+			);
 		}
 	}
 
