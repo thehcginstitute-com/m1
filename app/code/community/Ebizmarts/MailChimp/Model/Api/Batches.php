@@ -362,6 +362,66 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * Handle batch for order id replacement with the increment id in MailChimp.
+	 *
+	 * @param $initialTime
+	 * @param $magentoStoreId
+	 */
+	function replaceAllOrders($initialTime, $magentoStoreId)
+	{
+		$helper = hcg_mc_h();
+		try {
+			$this->_getResults($magentoStoreId);
+
+			//handle order replacement
+			$mailchimpStoreId = $helper->getMCStoreId($magentoStoreId);
+
+			$batchArray['operations'] = Mage::getModel('mailchimp/api_orders')->replaceAllOrdersBatch(
+				$initialTime,
+				$mailchimpStoreId,
+				$magentoStoreId
+			);
+			try {
+				/**
+				 * @var $mailchimpApi Ebizmarts_MailChimp
+				 */
+				$mailchimpApi = $helper->getApi($magentoStoreId);
+
+				if (!empty($batchArray['operations'])) {
+					$batchJson = json_encode($batchArray);
+
+					if ($batchJson === false) {
+						$helper->logRequest('Json encode error: ' . json_last_error_msg());
+					} elseif ($batchJson == '') {
+						$helper->logRequest('An empty operation was detected');
+					} else {
+						$batchResponse = $mailchimpApi->batchOperation->add($batchJson);
+						$helper->logRequest($batchJson, $batchResponse['id']);
+						//save batch id to db
+						$batch = new Synchbatches;
+						$batch->setStoreId($mailchimpStoreId)
+							->setBatchId($batchResponse['id'])
+							->setStatus($batchResponse['status']);
+						$batch->save();
+					}
+				}
+			} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+				$helper->logError($e->getMessage());
+			} catch (MailChimp_Error $e) {
+				$helper->logError($e->getFriendlyMessage());
+			} catch (Exception $e) {
+				$helper->logError($e->getMessage());
+				$helper->logError("Json encode fails");
+				$helper->logError($batchArray);
+			}
+		} catch (MailChimp_Error $e) {
+			$helper->logError($e->getFriendlyMessage());
+		} catch (Exception $e) {
+			$helper->logError($e->getMessage());
+		}
+	}
+
+	/**
 	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
 	 * @param $mailchimpStoreId
 	 * @param $id
@@ -680,66 +740,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 			$fileHelper->rm($file);
 		}
 		$this->_showResumeDataSentToMailchimp($magentoStoreId);
-	}
-
-	/**
-	 * Handle batch for order id replacement with the increment id in MailChimp.
-	 *
-	 * @param $initialTime
-	 * @param $magentoStoreId
-	 */
-	function replaceAllOrders($initialTime, $magentoStoreId)
-	{
-		$helper = hcg_mc_h();
-		try {
-			$this->_getResults($magentoStoreId);
-
-			//handle order replacement
-			$mailchimpStoreId = $helper->getMCStoreId($magentoStoreId);
-
-			$batchArray['operations'] = Mage::getModel('mailchimp/api_orders')->replaceAllOrdersBatch(
-				$initialTime,
-				$mailchimpStoreId,
-				$magentoStoreId
-			);
-			try {
-				/**
-				 * @var $mailchimpApi Ebizmarts_MailChimp
-				 */
-				$mailchimpApi = $helper->getApi($magentoStoreId);
-
-				if (!empty($batchArray['operations'])) {
-					$batchJson = json_encode($batchArray);
-
-					if ($batchJson === false) {
-						$helper->logRequest('Json encode error: ' . json_last_error_msg());
-					} elseif ($batchJson == '') {
-						$helper->logRequest('An empty operation was detected');
-					} else {
-						$batchResponse = $mailchimpApi->batchOperation->add($batchJson);
-						$helper->logRequest($batchJson, $batchResponse['id']);
-						//save batch id to db
-						$batch = new Synchbatches;
-						$batch->setStoreId($mailchimpStoreId)
-							->setBatchId($batchResponse['id'])
-							->setStatus($batchResponse['status']);
-						$batch->save();
-					}
-				}
-			} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-				$helper->logError($e->getMessage());
-			} catch (MailChimp_Error $e) {
-				$helper->logError($e->getFriendlyMessage());
-			} catch (Exception $e) {
-				$helper->logError($e->getMessage());
-				$helper->logError("Json encode fails");
-				$helper->logError($batchArray);
-			}
-		} catch (MailChimp_Error $e) {
-			$helper->logError($e->getFriendlyMessage());
-		} catch (Exception $e) {
-			$helper->logError($e->getMessage());
-		}
 	}
 
 	/**
