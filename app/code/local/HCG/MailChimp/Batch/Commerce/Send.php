@@ -17,7 +17,7 @@ final class Send {
 	 */
 	static function p(int $mgStore):void {
 		$h = hcg_mc_h();
-		$mcStore = $h->getMCStoreId($mgStore);
+		$mcStore = hcg_mc_sid($mgStore);
 		try {
 			self::deleteUnsentItems();
 			if ($h->isEcomSyncDataEnabled($mgStore)) {
