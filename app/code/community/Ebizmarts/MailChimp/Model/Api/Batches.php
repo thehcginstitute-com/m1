@@ -307,6 +307,36 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
+	 * @param $syncedDateArray
+	 * @throws Mage_Core_Exception
+	 */
+	function handleSyncingValue($syncedDateArray)
+	{
+		$helper = hcg_mc_h();
+		foreach ($syncedDateArray as $mailchimpStoreId => $val) {
+			$magentoStoreId = key($val);
+			$date = $val[$magentoStoreId];
+			$ecomEnabled = $helper->isEcomSyncDataEnabled($magentoStoreId);
+			if ($ecomEnabled && $date) {
+				try {
+					$api = $helper->getApi($magentoStoreId);
+					$isSyncingDate = $helper->getDateSyncFinishByMailChimpStoreId($mailchimpStoreId);
+					if (!$isSyncingDate && $mailchimpStoreId) {
+						$this->getApiStores()->editIsSyncing($api, false, $mailchimpStoreId);
+						hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_SYNC_DATE . "_$mailchimpStoreId", $date);
+					}
+				} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+					$helper->logError($e->getMessage());
+				} catch (MailChimp_Error $e) {
+					$helper->logError($e->getFriendlyMessage());
+				} catch (Exception $e) {
+					$helper->logError($e->getMessage());
+				}
+			}
+		}
+	}
+
+	/**
 	 * @used-by HCG\MailChimp\Model\Api\Batches::handleErrorItem()
 	 * @param $response
 	 * @return string
@@ -678,36 +708,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		}
 
 		return $syncedDateArray;
-	}
-
-	/**
-	 * @param $syncedDateArray
-	 * @throws Mage_Core_Exception
-	 */
-	function handleSyncingValue($syncedDateArray)
-	{
-		$helper = hcg_mc_h();
-		foreach ($syncedDateArray as $mailchimpStoreId => $val) {
-			$magentoStoreId = key($val);
-			$date = $val[$magentoStoreId];
-			$ecomEnabled = $helper->isEcomSyncDataEnabled($magentoStoreId);
-			if ($ecomEnabled && $date) {
-				try {
-					$api = $helper->getApi($magentoStoreId);
-					$isSyncingDate = $helper->getDateSyncFinishByMailChimpStoreId($mailchimpStoreId);
-					if (!$isSyncingDate && $mailchimpStoreId) {
-						$this->getApiStores()->editIsSyncing($api, false, $mailchimpStoreId);
-						hcg_mc_cfg_save(Ebizmarts_MailChimp_Model_Config::ECOMMERCE_SYNC_DATE . "_$mailchimpStoreId", $date);
-					}
-				} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-					$helper->logError($e->getMessage());
-				} catch (MailChimp_Error $e) {
-					$helper->logError($e->getFriendlyMessage());
-				} catch (Exception $e) {
-					$helper->logError($e->getMessage());
-				}
-			}
-		}
 	}
 
 	/**
