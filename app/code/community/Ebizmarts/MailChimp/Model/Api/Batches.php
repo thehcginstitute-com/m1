@@ -647,13 +647,10 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	;}
 
 	/**
-	 * @param Varien_Object $syncDataItem
-	 * @return bool
+	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
+	 * @used-by self::enableMergeFieldsSending()
 	 */
-	private function isFirstArrival(Varien_Object $syncDataItem)
-	{
-		return (int)$syncDataItem->getMailchimpSyncedFlag() !== 1;
-	}
+	private function isFirstArrival(Varien_Object $o):bool {return (int)$o->getMailchimpSyncedFlag() !== 1;}
 
 	/**
 	 * @param $type
