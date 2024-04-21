@@ -7,11 +7,10 @@ final class GetResults {
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by Commerce::p()
 	 * @used-by Subscriber::p()
-	 * @param $mgStore
 	 * @throws \Mage_Core_Exception
 	 */
 	static function p(
-		$mgStore, bool $isEcommerceData = true, $status = \Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING
+		int $mgStore, bool $isEcommerceData = true, $status = \Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING
 	) {
 		$h = hcg_mc_h();
 		$mcStore = $h->getMCStoreId($mgStore);
@@ -47,10 +46,9 @@ final class GetResults {
 	 * @param $files
 	 * @param $batchId
 	 * @param $mcStore
-	 * @param $mgStore
 	 * @throws \Mage_Core_Exception
 	 */
-	private static function _saveItemStatus($item, $files, $batchId, $mcStore, $mgStore):void {
+	private static function _saveItemStatus($item, $files, $batchId, $mcStore, int $mgStore):void {
 		$h = hcg_mc_h();
 		if (!empty($files)) {
 			if (isset($files['error'])) {

@@ -8,13 +8,12 @@ final class Process {
 	 * @used-by \HCG\MailChimp\Batch\Commerce\Send::p()
 	 * @param $batchArray
 	 * @param $mcStore
-	 * @param $mgStore
 	 * @throws \Ebizmarts_MailChimp_Helper_Data_ApiKeyException
 	 * @throws \Mage_Core_Exception
 	 * @throws \MailChimp_Error
 	 * @throws \MailChimp_HttpError
 	 */
-	static function p($batchArray, $mcStore, $mgStore):void {
+	static function p($batchArray, $mcStore, int $mgStore):void {
 		$h = hcg_mc_h();
 		$mailchimpApi = $h->getApi($mgStore);
 		if (!empty($batchArray['operations'])) {
