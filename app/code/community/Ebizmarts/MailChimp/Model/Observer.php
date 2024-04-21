@@ -119,7 +119,7 @@ class Ebizmarts_MailChimp_Model_Observer
             $mailchimpStoreId = (isset($configData['groups']['general']['fields']['storeid']['value']))
                 ? $configData['groups']['general']['fields']['storeid']['value']
                 : null;
-            $oldMailchimpStoreId = hcg_mc_sid($scopeArray['scope_id']);
+            $mcStoreOld = hcg_mc_sid($scopeArray['scope_id']); /** @var ?string $mcStoreOld */
 
             if (isset($configData['groups']['general']['fields']['apikey']['value'])
                 && !$helper->isApiKeyObscure($configData['groups']['general']['fields']['apikey']['value'])
@@ -150,7 +150,7 @@ class Ebizmarts_MailChimp_Model_Observer
                     $this->getAdminSession()->addError($message);
                 } elseif (isset($configData['groups']['general']['fields']['storeid']['inherit'])) {
                     unset($configData['groups']['general']['fields']['storeid']['inherit']);
-                    $configData['groups']['general']['fields']['storeid']['value'] = $oldMailchimpStoreId;
+                    $configData['groups']['general']['fields']['storeid']['value'] = $mcStoreOld;
                     $configDataChanged = true;
                     $message = $helper->__(
                         'The Mailchimp store configuration was not modified. There is a Mailchimp audience configured '
