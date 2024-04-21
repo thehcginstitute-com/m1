@@ -41,7 +41,7 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Model_Observer::newCreditMemo()
  * @used-by Ebizmarts_MailChimp_Model_Observer::cancelCreditMemo()
  * @used-by Ebizmarts_MailChimp_Model_Observer::itemCancel()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::productSaveAfter()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()

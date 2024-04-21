@@ -874,18 +874,15 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return Varien_Event_Observer
      */
-    function productSaveAfter(Varien_Event_Observer $observer)
-    {
+    function productSaveAfter(Varien_Event_Observer $observer) {
         $product = $observer->getEvent()->getProduct();
         $helper = $this->makeHelper();
         $apiProduct = $this->makeApiProduct();
         $stores = $helper->getMageApp()->getStores();
-
-        foreach ($stores as $storeId => $store) {
+        foreach ($stores as $storeId => $store) { /** @var int $storeId */
             $ecommEnabled = $helper->isEcommerceEnabled($storeId);
-
             if ($ecommEnabled) {
-                $mailchimpStoreId = $helper->getMCStoreId($storeId);
+                $mailchimpStoreId = hcg_mc_sid($storeId);
                 $apiProduct->setMailchimpStoreId($mailchimpStoreId);
                 $apiProduct->setMagentoStoreId($storeId);
                 $status = $this->getCatalogProductStatusModel()->getProductStatus($product->getId(), $storeId);
