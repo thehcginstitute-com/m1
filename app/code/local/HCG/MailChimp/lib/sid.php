@@ -10,7 +10,7 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Helper_Data::getStoreRelation()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getMagentoStoresForMCStoreIdByScope()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getDateSyncFinishByStoreId()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::resendMCEcommerceData()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()

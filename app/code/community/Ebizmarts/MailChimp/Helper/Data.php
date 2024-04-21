@@ -720,15 +720,13 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 	/**
 	 * Set the values to send all the items again.
-	 *
-	 * @param $scopeId
 	 * @param $scope
 	 * @param null $filters
 	 * @throws Mage_Core_Exception
 	 */
-	function resendMCEcommerceData($scopeId, $scope, $filters = null)
+	function resendMCEcommerceData(int $scopeId, $scope, $filters = null)
 	{
-		if ($this->getMCStoreId($scopeId, $scope) && $this->getMCStoreId($scopeId, $scope) != "") {
+		if (hcg_mc_sid($scopeId)) {
 			if (!$this->getResendEnabled($scopeId, $scope)) {
 				$this->saveLastItemsSent($scopeId, $scope, $filters);
 			}
