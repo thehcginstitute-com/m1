@@ -471,19 +471,16 @@ class Ebizmarts_MailChimp_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return Varien_Event_Observer
      */
-    function orderSaveBefore(Varien_Event_Observer $observer)
-    {
+    function orderSaveBefore(Varien_Event_Observer $observer) {
         $order = $observer->getEvent()->getOrder();
-        $storeId = $order->getStoreId();
+        $storeId = $order->getStoreId(); /** @var int $storeId */
         $apiOrder = $this->makeApiOrder();
         $helper = $this->makeHelper();
         $ecommEnabled = $helper->isEcomSyncDataEnabled($storeId);
-
         if ($ecommEnabled) {
-            $apiOrder->setMailchimpStoreId($helper->getMCStoreId($storeId));
+            $apiOrder->setMailchimpStoreId(hcg_mc_sid($storeId));
             $apiOrder->update($order->getId(), $storeId);
         }
-
         return $observer;
     }
 
