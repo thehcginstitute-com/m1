@@ -44,7 +44,7 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Model_Observer::productSaveAfter()
  * @used-by HCG\MailChimp\Batch\Commerce\Send::p()
  * @used-by HCG\MailChimp\Batch\Commerce::addSyncValueToArray()
- * @used-by STUB()
+ * @used-by HCG\MailChimp\Batch\GetResults::p()
  * @used-by STUB()
  */
 function hcg_mc_sid(int $mgStore = null):?string {return Mage::getStoreConfig(Cfg::GENERAL_MCSTOREID, $mgStore);}

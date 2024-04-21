@@ -13,7 +13,7 @@ final class GetResults {
 		int $mgStore, bool $isEcommerceData = true, $status = \Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING
 	) {
 		$h = hcg_mc_h();
-		$mcStore = $h->getMCStoreId($mgStore);
+		$mcStore = hcg_mc_sid($mgStore);
 		$syncb = new Synchbatches;
 		$collection = $syncb->getCollection()->addFieldToFilter('status', ['eq' => $status]);
 		if ($isEcommerceData) {
