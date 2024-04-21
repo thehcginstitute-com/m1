@@ -15,6 +15,8 @@ use Ebizmarts_MailChimp_Model_Ecommercesyncdata as D;
  * @used-by Ebizmarts_MailChimp_CartController::loadcouponAction()
  * @used-by Ebizmarts_MailChimp_CartController::loadquoteAction()
  * @used-by Ebizmarts_MailChimp_Model_Api_Batches::getDataProduct()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Batches::setItemAsModified()
  * @used-by Ebizmarts_MailChimp_Model_Api_Carts::_processCartLines()
  * @used-by Ebizmarts_MailChimp_Model_Api_Customers::createBatchJson()
  * @used-by Ebizmarts_MailChimp_Model_Api_Orders::_getPayloadDataLines()

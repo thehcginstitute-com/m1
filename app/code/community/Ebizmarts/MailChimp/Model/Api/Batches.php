@@ -250,17 +250,6 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 	}
 
 	/**
-	 * @used-by HCG\MailChimp\Model\Api\Batches::error()
-	 * @param $mailchimpStoreId
-	 * @param $id
-	 * @param $type
-	 * @return Varien_Object
-	 */
-	function getDataProduct($mailchimpStoreId, $id, $type) {return hcg_mc_syncd_get(
-		(int)$id, $type, $mailchimpStoreId
-	);}
-
-	/**
 	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncEcommerceBatchData()
 	 */
@@ -465,7 +454,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 		$isMarkedAsDeleted = null;
 
 		if ($type == Ebizmarts_MailChimp_Model_Config::IS_PRODUCT) {
-			$dataProduct = $this->getDataProduct($mailchimpStoreId, $id, $type);
+			$dataProduct = hcg_mc_syncd_get((int)$id, $type, $mailchimpStoreId);
 			$isMarkedAsDeleted = $dataProduct->getMailchimpSyncDeleted();
 			$isProductDisabledInMagento = Ebizmarts_MailChimp_Model_Api_Products::PRODUCT_DISABLED_IN_MAGENTO;
 
@@ -737,7 +726,7 @@ final class Ebizmarts_MailChimp_Model_Api_Batches {
 						Plugin::handleErrorItem($this, $item, $batchId, $mailchimpStoreId, $id, $type, $store);
 					}
 					else {
-						$syncDataItem = $this->getDataProduct($mailchimpStoreId, $id, $type);
+						$syncDataItem = hcg_mc_syncd_get((int)$id, $type, $mailchimpStoreId);
 						if (!$syncDataItem->getMailchimpSyncModified()) {
 							$syncModified = $this->enableMergeFieldsSending($type, $syncDataItem);
 							$this->saveSyncData(
