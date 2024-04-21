@@ -81,11 +81,11 @@ final class Batches {
 	}
 
 	/**
+	 * 2023-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::handleErrorItem()
-	 * @param $response
-	 * @return string
+	 * @param array(string => mixed) $response
 	 */
-	private static function processFileErrors($response):string {
+	private static function processFileErrors(array $response):string {
 		$errorDetails = "";
 		if (!empty($response['errors'])) {
 			foreach ($response['errors'] as $error) {
