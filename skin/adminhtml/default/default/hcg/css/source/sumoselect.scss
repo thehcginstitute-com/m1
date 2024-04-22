@@ -26,6 +26,7 @@
 			border-radius: 5px;
 		}
 	}
+	&:focus, &:hover, &.open {> .CaptionCont {border-color: #7799D0; box-shadow: 0 0 2px #7799D0;}}
 	p {margin: 0;}
 	.hidden {display: none;}
 	.search-txt {display: none; outline: none;}
@@ -37,10 +38,6 @@
 		-khtml-user-select: none;
 		-webkit-user-select: none;
 	}
-}
-.SumoSelect:focus > .CaptionCont, .SumoSelect:hover > .CaptionCont, .SumoSelect.open > .CaptionCont {
-	box-shadow: 0 0 2px #7799D0;
-	border-color: #7799D0;
 }
 .SumoSelect > .CaptionCont {
 	position: relative;
