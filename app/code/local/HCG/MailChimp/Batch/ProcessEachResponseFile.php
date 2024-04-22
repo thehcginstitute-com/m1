@@ -17,50 +17,47 @@ final class ProcessEachResponseFile {
 		$fileHelper = hcg_mc_h_file();
 		$fileHelper->open(['path '=> hcg_mc_batches_path()]);
 		foreach ($files as $file) {/** @var string $file */
-			$items = df_eta(json_decode($fileHelper->read($file), true));
-			if ($items) {
-				foreach ($items as $item) {
-					$line = explode('_', $item['operation_id']);
-					$store = explode('-', $line[0]);
-					$type = $line[1];
-					$id = $line[3];
-					if ($item['status_code'] != 200) {
-						# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-						# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-						HandleErrorItem::p($item, $batchId, $mcStore, $id, $type, $store);
+			foreach (df_eta(json_decode($fileHelper->read($file), true)) as $item) {
+				$line = explode('_', $item['operation_id']);
+				$store = explode('-', $line[0]);
+				$type = $line[1];
+				$id = $line[3];
+				if ($item['status_code'] != 200) {
+					# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+					HandleErrorItem::p($item, $batchId, $mcStore, $id, $type, $store);
+				}
+				else {
+					$syncDataItem = hcg_mc_syncd_get((int)$id, $type, $mcStore);
+					if (!$syncDataItem->getMailchimpSyncModified()) {
+						$syncModified = self::enableMergeFieldsSending($type, $syncDataItem);
+						SaveSyncData::p(
+							$id,
+							$type,
+							$mcStore,
+							null,
+							'',
+							$syncModified,
+							null,
+							null,
+							1,
+							true
+						);
+						$h->modifyCounterDataSentToMailchimp($type);
 					}
 					else {
-						$syncDataItem = hcg_mc_syncd_get((int)$id, $type, $mcStore);
-						if (!$syncDataItem->getMailchimpSyncModified()) {
-							$syncModified = self::enableMergeFieldsSending($type, $syncDataItem);
-							SaveSyncData::p(
-								$id,
-								$type,
-								$mcStore,
-								null,
-								'',
-								$syncModified,
-								null,
-								null,
-								1,
-								true
-							);
-							$h->modifyCounterDataSentToMailchimp($type);
-						}
-						else {
-							SaveSyncData::p(
-								$id,
-								$type,
-								$mcStore,
-								null,
-								'',
-								0,
-								null,
-								null,
-								1,
-								true
-							);
-						}
+						SaveSyncData::p(
+							$id,
+							$type,
+							$mcStore,
+							null,
+							'',
+							0,
+							null,
+							null,
+							1,
+							true
+						);
 					}
 				}
 			}
