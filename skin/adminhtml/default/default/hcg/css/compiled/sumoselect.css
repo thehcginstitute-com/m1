@@ -85,6 +85,13 @@
   border-radius: 2px;
   margin: 0;
 }
+.SumoSelect > .CaptionCont > label {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+}
 .SumoSelect > .CaptionCont > span {
   display: block;
   padding-right: 30px;
@@ -97,14 +104,6 @@
 .SumoSelect > .CaptionCont > span.placeholder {
   color: #ccc;
   font-style: italic;
-}
-
-.SumoSelect > .CaptionCont > label {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 30px;
 }
 
 .SumoSelect > .CaptionCont > label > i {
