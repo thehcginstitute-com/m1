@@ -27,14 +27,13 @@
 			border-radius: 5px;
 		}
 	}
-}
-
-.SumoSelect > .optWrapper > .options li.opt label, .SumoSelect > .CaptionCont, .SumoSelect .select-all > label {
-	user-select: none;
-	-o-user-select: none;
-	-moz-user-select: none;
-	-khtml-user-select: none;
-	-webkit-user-select: none;
+	> .optWrapper > .options li.opt label, > .CaptionCont, .select-all > label {
+		user-select: none;
+		-o-user-select: none;
+		-moz-user-select: none;
+		-khtml-user-select: none;
+		-webkit-user-select: none;
+	}
 }
 .SumoSelect {
 	display: inline-block;
