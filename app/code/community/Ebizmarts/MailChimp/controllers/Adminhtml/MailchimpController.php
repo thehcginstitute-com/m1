@@ -229,11 +229,9 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpController extends Mage_Adminhtml_C
 
     /**
      * @param $apiKey
-     * @param $mcStoreId
      * @return Ebizmarts_MailChimp_Model_System_Config_Source_Account
      */
-    protected function getSourceAccountInfoOptions($apiKey, $mcStoreId)
-    {
+    protected function getSourceAccountInfoOptions($apiKey, string $mcStoreId) {
         return Mage::getModel(
             'Ebizmarts_MailChimp_Model_System_Config_Source_Account',
             array('api_key' => $apiKey, 'mailchimp_store_id' => $mcStoreId)
