@@ -63,9 +63,8 @@ final class GetBatchResponse {
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::p()
-	 * @param $batchId
 	 */
-	private static function deleteBatchItems($batchId):void {
+	private static function deleteBatchItems(string $batchId):void {
 		$resource = hcg_mc_h()->getCoreResource();
 		$connection = $resource->getConnection('core_write');
 		$tableName = $resource->getTableName('mailchimp/ecommercesyncdata');
