@@ -167,7 +167,6 @@
   position: relative;
   max-height: 250px;
 }
-
 .SumoSelect > .optWrapper > .options li.group.disabled > label {
   opacity: 0.5;
 }
