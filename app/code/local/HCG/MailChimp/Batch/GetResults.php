@@ -45,10 +45,9 @@ final class GetResults {
 	 * @param $item
 	 * @param $files
 	 * @param $batchId
-	 * @param $mcStore
 	 * @throws \Mage_Core_Exception
 	 */
-	private static function _saveItemStatus($item, $files, $batchId, $mcStore, int $mgStore):void {
+	private static function _saveItemStatus($item, $files, $batchId, string $mcStore, int $mgStore):void {
 		$h = hcg_mc_h();
 		if (!empty($files)) {
 			if (isset($files['error'])) {
