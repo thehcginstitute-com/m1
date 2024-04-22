@@ -105,6 +105,7 @@
 		border-radius: 3px;
 		overflow: hidden;
 		&.okCancelInMulti > .options {border-radius: 2px 2px 0 0;}
+		&.selall > .options {border-radius: 0 0 2px 2px;}
 		ul {
 			display: block;
 			list-style: none;
@@ -117,13 +118,10 @@
 			position: relative;
 			// Set the height of pop up here (only for desktop mode)
 			max-height: 250px;
-		}			
+		}
 	}
 }
 
-.SumoSelect > .optWrapper.selall > .options {
-	border-radius: 0 0 2px 2px;
-}
 .SumoSelect > .optWrapper.selall.okCancelInMulti > .options {
 	border-radius: 0;
 }
