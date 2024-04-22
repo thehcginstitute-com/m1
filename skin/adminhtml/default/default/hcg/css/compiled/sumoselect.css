@@ -85,7 +85,6 @@
   border-radius: 2px;
   margin: 0;
 }
-
 .SumoSelect > .CaptionCont > span {
   display: block;
   padding-right: 30px;
@@ -93,9 +92,6 @@
   white-space: nowrap;
   overflow: hidden;
   cursor: default;
-  /* 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-  1) "Upgrade `HemantNegi/jquery.sumoselect`": https://github.com/thehcginstitute-com/m1/issues/553
-  2) https://github.com/thehcginstitute-com/m1/blob/2024-04-22/skin/adminhtml/default/default/iwd/ordergrid/sumoselect.css#L24 */
   font-weight: 100;
 }
 
