@@ -22,7 +22,7 @@ final class ProcessEachResponseFile {
 				$store = explode('-', $line[0]);
 				$type = $line[1];
 				$id = $line[3];
-				if ($item['status_code'] != 200) {
+				if (200 !== (int)$item['status_code']) {
 					# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 					# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 					HandleErrorItem::p($item, $batchId, $mcStore, $id, $type, $store);
