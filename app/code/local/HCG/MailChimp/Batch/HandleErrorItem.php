@@ -52,7 +52,7 @@ final class HandleErrorItem {
 			# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			# "Improve the error logging in `HCG\MailChimp\Batch\HandleErrorItem::p()`":
 			# https://github.com/thehcginstitute-com/m1/issues/565
-			df_log($error, null, $mE->getData());
+			df_log($error, null, $mE->getData() + $i + ['response' => $res]);
 		}
 	}
 
