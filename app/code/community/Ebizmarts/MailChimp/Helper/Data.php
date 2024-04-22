@@ -3224,7 +3224,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 		try {
 			$api = $this->getApiByKey($apiKey);
-			$mcStore = $api->getEcommerce()->getStores()->get($mailchimpStoreId, 'list_id');
+			$mcStore = $api->getEcommerce()->getStores()->get($mailchimpStoreId, 'list_id'); /** @var string $mcStore */
 
 			if (isset($mcStore['list_id'])) {
 				$listId = $mcStore['list_id'];
