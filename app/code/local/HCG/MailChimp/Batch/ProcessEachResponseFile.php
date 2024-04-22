@@ -7,10 +7,9 @@ final class ProcessEachResponseFile {
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by GetResults::_saveItemStatus()
 	 * @param string[] $files
-	 * @param $batchId
 	 * @throws \Mage_Core_Exception
 	 */
-	static function p(array $files, $batchId, string $mcStore, int $mgStore):void {
+	static function p(array $files, string $batchId, string $mcStore, int $mgStore):void {
 		$h = hcg_mc_h();
 		$h->resetCountersDataSentToMailchimp();
 		$fileHelper = hcg_mc_h_file();
