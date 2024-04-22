@@ -13,7 +13,7 @@ final class GetResults {
 	 */
 	static function p(int $mgStore, bool $isEcommerceData = true, string $status = H::BATCH_PENDING) {
 		$h = hcg_mc_h();
-		$mcStore = hcg_mc_sid($mgStore); /** @var ?string $mcStore */
+		$mcStore = hcg_mc_sid($mgStore); /** @var string $mcStore */
 		$bc = new BC; /** @var BC $bc */
 		$bc->addFieldToFilter('status', ['eq' => $status]);
 		if ($isEcommerceData) {

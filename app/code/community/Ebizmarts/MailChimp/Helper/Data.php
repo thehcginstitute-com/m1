@@ -1811,7 +1811,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 		$mcJsUrlSaved = false;
 		try {
 			$api = $this->getApi($scopeId, $scope);
-			$mcStore = hcg_mc_sid($scopeId); /** @var ?string $mcStore */
+			$mcStore = hcg_mc_sid($scopeId); /** @var string $mcStore */
 			$response = $api->getEcommerce()->getStores()->get($mcStore, 'connected_site');
 			if (isset($response['connected_site']['site_script']['url'])) {
 				$url = $response['connected_site']['site_script']['url'];
@@ -2169,7 +2169,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	function setIsSyncingIfFinishedPerScope($syncValue, int $scopeId, $scope = 'stores') {
 		try {
 			$mailchimpApi = $this->getApi($scopeId, $scope);
-			$mcStore = hcg_mc_sid($scopeId); /** @var ?string $mcStore */
+			$mcStore = hcg_mc_sid($scopeId); /** @var string $mcStore */
 			$isSyncing = $this->getMCIsSyncing($mcStore, $scopeId, $scope);
 			if ($mcStore && $isSyncing != 1) {
 				$this->getApiStores()->editIsSyncing($mailchimpApi, $syncValue, $mcStore);

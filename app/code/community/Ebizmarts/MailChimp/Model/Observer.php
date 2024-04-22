@@ -436,7 +436,7 @@ class Ebizmarts_MailChimp_Model_Observer
                     if ($this->isBundleItem($item) || $this->isConfigurableItem($item)) {
                         continue;
                     }
-                    $mcStore = hcg_mc_sid($storeId); /** @var ?string $mcStore */
+                    $mcStore = hcg_mc_sid($storeId); /** @var string $mcStore */
                     $productId = (int)$item->getProductId();
                     $dataProduct = hcg_mc_syncd_get(
                         $productId,
@@ -730,7 +730,7 @@ class Ebizmarts_MailChimp_Model_Observer
         $apiOrder = $this->makeApiOrder();
 
         if ($ecomEnabled) {
-            $mcStore = hcg_mc_sid($storeId); /** @var ?string $mcStore */
+            $mcStore = hcg_mc_sid($storeId); /** @var string $mcStore */
             $apiProduct->setMailchimpStoreId($mcStore);
             $apiProduct->setMagentoStoreId($storeId);
             $items = $creditMemo->getAllItems();
@@ -794,7 +794,7 @@ class Ebizmarts_MailChimp_Model_Observer
         $apiProduct = $this->makeApiProduct();
         $apiOrder = $this->makeApiOrder();
         if ($ecomEnabled) {
-            $mcStore = hcg_mc_sid($storeId); /** @var ?string $mcStore */
+            $mcStore = hcg_mc_sid($storeId); /** @var string $mcStore */
             $apiProduct->setMagentoStoreId($storeId);
             $apiProduct->setMailchimpStoreId($mcStore);
             $items = $creditMemo->getAllItems();
@@ -832,7 +832,7 @@ class Ebizmarts_MailChimp_Model_Observer
         $ecomEnabled = $helper->isEcomSyncDataEnabled($storeId);
         $apiProduct = $this->makeApiProduct();
         if ($ecomEnabled) {
-            $mcStore = hcg_mc_sid($storeId); /** @var ?string $mcStore */
+            $mcStore = hcg_mc_sid($storeId); /** @var string $mcStore */
             $apiProduct->setMailchimpStoreId($mcStore);
             $apiProduct->setMagentoStoreId($storeId);
             $productId = (int)$item->getProductId();
@@ -863,7 +863,7 @@ class Ebizmarts_MailChimp_Model_Observer
         foreach ($stores as $storeId => $store) { /** @var int $storeId */
             $ecommEnabled = $helper->isEcommerceEnabled($storeId);
             if ($ecommEnabled) {
-                $mcStore = hcg_mc_sid($storeId); /** @var ?string $mcStore */
+                $mcStore = hcg_mc_sid($storeId); /** @var string $mcStore */
                 $apiProduct->setMailchimpStoreId($mcStore);
                 $apiProduct->setMagentoStoreId($storeId);
                 $status = $this->getCatalogProductStatusModel()->getProductStatus($product->getId(), $storeId);
