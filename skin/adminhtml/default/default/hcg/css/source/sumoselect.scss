@@ -38,14 +38,14 @@
 		-khtml-user-select: none;
 		-webkit-user-select: none;
 	}
-}
-.SumoSelect > .CaptionCont {
-	position: relative;
-	border: 1px solid #A4A4A4;
-	min-height: 14px;
-	background-color: #fff;
-	border-radius: 2px;
-	margin: 0;
+	> .CaptionCont {
+		position: relative;
+		border: 1px solid #A4A4A4;
+		min-height: 14px;
+		background-color: #fff;
+		border-radius: 2px;
+		margin: 0;
+	}
 }
 .SumoSelect > .CaptionCont > span {
 	display: block;
