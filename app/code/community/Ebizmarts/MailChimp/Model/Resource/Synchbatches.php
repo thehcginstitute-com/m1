@@ -14,13 +14,13 @@
 class Ebizmarts_MailChimp_Model_Resource_SynchBatches extends Mage_Core_Model_Resource_Db_Abstract
 {
 
-    /**
-     * Initialize
-     *
-     * @return void
-     */
-    function _construct()
-    {
-        $this->_init('mailchimp/synchbatches', 'id');
-    }
+	/**
+	 * Initialize
+	 *
+	 * @return void
+	 */
+	function _construct()
+	{
+		$this->_init('mailchimp/synchbatches', 'id');
+	}
 }
