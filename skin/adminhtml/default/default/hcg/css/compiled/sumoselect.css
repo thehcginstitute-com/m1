@@ -182,12 +182,11 @@
   padding: 6px 6px;
   position: relative;
 }
+.SumoSelect > .optWrapper > .options li.opt:first-child {
+  border-radius: 2px 2px 0 0;
+}
 .SumoSelect > .optWrapper > .options li ul li.opt {
   padding-left: 22px;
-}
-
-.SumoSelect > .optWrapper > .options > li.opt:first-child {
-  border-radius: 2px 2px 0 0;
 }
 
 .SumoSelect > .optWrapper.selall > .options > li.opt:first-child {

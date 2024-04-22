@@ -123,15 +123,16 @@
 			max-height: 250px;
 			li {
 				&.group.disabled > label {opacity: 0.5;}
-				&.opt {border-bottom: 1px solid #f5f5f5; padding: 6px 6px; position: relative;}
+				&.opt {
+					border-bottom: 1px solid #f5f5f5; padding: 6px 6px; position: relative;
+					&:first-child {border-radius: 2px 2px 0 0;}
+				}
 				ul li.opt {padding-left: 22px;}
 			}
 		}
 	}
 }
-.SumoSelect > .optWrapper > .options > li.opt:first-child {
-	border-radius: 2px 2px 0 0;
-}
+
 .SumoSelect > .optWrapper.selall > .options > li.opt:first-child {
 	border-radius: 0;
 }
