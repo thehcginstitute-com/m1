@@ -1,5 +1,6 @@
 <?php
 namespace HCG\MailChimp\Batch;
+use Ebizmarts_MailChimp_Helper_Data as H;
 use Ebizmarts_MailChimp_Model_Synchbatches as Synchbatches;
 # 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 final class GetResults {
@@ -9,9 +10,7 @@ final class GetResults {
 	 * @used-by Subscriber::p()
 	 * @throws \Mage_Core_Exception
 	 */
-	static function p(
-		int $mgStore, bool $isEcommerceData = true, $status = \Ebizmarts_MailChimp_Helper_Data::BATCH_PENDING
-	) {
+	static function p(int $mgStore, bool $isEcommerceData = true, $status = H::BATCH_PENDING) {
 		$h = hcg_mc_h();
 		$mcStore = hcg_mc_sid($mgStore); /** @var ?string $mcStore */
 		$syncb = new Synchbatches;
