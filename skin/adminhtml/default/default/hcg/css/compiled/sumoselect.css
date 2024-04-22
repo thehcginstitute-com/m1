@@ -146,6 +146,9 @@
   border-radius: 3px;
   overflow: hidden;
 }
+.SumoSelect > .optWrapper.okCancelInMulti > .options {
+  border-radius: 2px 2px 0 0;
+}
 .SumoSelect > .optWrapper ul {
   display: block;
   list-style: none;
@@ -157,10 +160,6 @@
   border-radius: 2px;
   position: relative;
   max-height: 250px;
-}
-
-.SumoSelect > .optWrapper.okCancelInMulti > .options {
-  border-radius: 2px 2px 0 0;
 }
 
 .SumoSelect > .optWrapper.selall > .options {
