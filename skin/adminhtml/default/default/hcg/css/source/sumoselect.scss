@@ -11,6 +11,7 @@
 	.search-txt {display: none; outline: none;}
 	.no-match {display: none; padding: 6px;}
 	&.open {
+		> .search {> span, > label {visibility: hidden;}}
 		.search-txt {
 			display: inline-block;
 			position: absolute;
@@ -27,10 +28,6 @@
 		}
 	}
 }
-.SumoSelect.open > .search > span, .SumoSelect.open > .search > label {
-	visibility: hidden;
-}
-
 /*this is applied on that hidden select. DO NOT USE display:none; or visiblity:hidden; and Do not override any of these properties. */
 .SelectClass, .SumoUnder {
 	position: absolute;
