@@ -1,6 +1,6 @@
 <?php
 # 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# 2024-04-22 "Refactor `Ebizmarts_MailChimp_Model_Synchbatches`": https://github.com/thehcginstitute-com/m1/issues/575
+# "Refactor `Ebizmarts_MailChimp_Model_Synchbatches`": https://github.com/thehcginstitute-com/m1/issues/575
 class Ebizmarts_MailChimp_Model_Synchbatches extends Mage_Core_Model_Abstract {
     /**
      * Initialize model
