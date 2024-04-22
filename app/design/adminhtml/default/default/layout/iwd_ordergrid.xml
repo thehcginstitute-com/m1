@@ -17,7 +17,11 @@
             <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><file>iwd/ordergrid/grid.js</file></action>
             <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><file>iwd/ordergrid/massaction.js</file></action>
             <action method="addCss" ifconfig="iwd_ordermanager/grid_order/enable"><name>iwd/ordergrid/order_grid.css</name></action>
-            <action method="addCss" ifconfig="iwd_ordermanager/grid_order/enable"><name>iwd/ordergrid/sumoselect.css</name></action>
+            <action method="addCss" ifconfig="iwd_ordermanager/grid_order/enable">
+<!-- 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Refactor `HemantNegi/jquery.sumoselect`": https://github.com/thehcginstitute-com/m1/issues/576 -->
+				<name>iwd/ordergrid/sumoselect/.css</name>
+			</action>
         </reference>
         <reference name="content">
             <block type="iwd_ordergrid/adminhtml_sales_order_grid_init" name="grid-init" template="iwd/ordergrid/grid/init.phtml"/>
