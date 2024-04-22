@@ -155,6 +155,9 @@
 .SumoSelect > .optWrapper.selall.okCancelInMulti > .options {
   border-radius: 0;
 }
+.SumoSelect > .optWrapper.multiple > .options li ul li.opt {
+  padding-left: 50px;
+}
 .SumoSelect > .optWrapper ul {
   display: block;
   list-style: none;
@@ -172,10 +175,6 @@
 }
 .SumoSelect > .optWrapper > .options li ul li.opt {
   padding-left: 22px;
-}
-
-.SumoSelect > .optWrapper.multiple > .options li ul li.opt {
-  padding-left: 50px;
 }
 
 .SumoSelect > .optWrapper.isFloating > .options {
