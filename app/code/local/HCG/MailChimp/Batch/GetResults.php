@@ -42,21 +42,20 @@ final class GetResults {
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::p()
-	 * @param $item
 	 * @throws \Mage_Core_Exception
 	 */
-	private static function _saveItemStatus($item, array $files, string $batchId, string $mcStore, int $mgStore):void {
+	private static function _saveItemStatus(B $b, array $files, string $batchId, string $mcStore, int $mgStore):void {
 		$h = hcg_mc_h();
 		if (!empty($files)) {
 			if (isset($files['error'])) {
-				$item->setStatus('error');
-				$item->save();
+				$b->setStatus('error');
+				$b->save();
 				$h->logBatchStatus('There was an error getting the result ');
 			}
 			else {
 				ProcessEachResponseFile::p($files, $batchId, $mcStore, $mgStore);
-				$item->setStatus('completed');
-				$item->save();
+				$b->setStatus('completed');
+				$b->save();
 			}
 		}
 	}
