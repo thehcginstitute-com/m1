@@ -7,13 +7,12 @@ final class Process {
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by \HCG\MailChimp\Batch\Commerce\Send::p()
 	 * @param $batchArray
-	 * @param $mcStore
 	 * @throws \Ebizmarts_MailChimp_Helper_Data_ApiKeyException
 	 * @throws \Mage_Core_Exception
 	 * @throws \MailChimp_Error
 	 * @throws \MailChimp_HttpError
 	 */
-	static function p($batchArray, $mcStore, int $mgStore):void {
+	static function p($batchArray, string $mcStore, int $mgStore):void {
 		$h = hcg_mc_h();
 		$mailchimpApi = $h->getApi($mgStore);
 		if (!empty($batchArray['operations'])) {
