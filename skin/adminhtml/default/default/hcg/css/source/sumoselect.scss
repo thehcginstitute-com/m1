@@ -106,6 +106,7 @@
 		overflow: hidden;
 		&.okCancelInMulti > .options {border-radius: 2px 2px 0 0;}
 		&.selall > .options {border-radius: 0 0 2px 2px;}
+		&.selall.okCancelInMulti > .options {border-radius: 0;}
 		ul {
 			display: block;
 			list-style: none;
@@ -122,9 +123,6 @@
 	}
 }
 
-.SumoSelect > .optWrapper.selall.okCancelInMulti > .options {
-	border-radius: 0;
-}
 .SumoSelect > .optWrapper > .options li.group.disabled > label {
 	opacity: 0.5;
 }

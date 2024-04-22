@@ -152,6 +152,9 @@
 .SumoSelect > .optWrapper.selall > .options {
   border-radius: 0 0 2px 2px;
 }
+.SumoSelect > .optWrapper.selall.okCancelInMulti > .options {
+  border-radius: 0;
+}
 .SumoSelect > .optWrapper ul {
   display: block;
   list-style: none;
@@ -163,10 +166,6 @@
   border-radius: 2px;
   position: relative;
   max-height: 250px;
-}
-
-.SumoSelect > .optWrapper.selall.okCancelInMulti > .options {
-  border-radius: 0;
 }
 
 .SumoSelect > .optWrapper > .options li.group.disabled > label {
