@@ -10,7 +10,7 @@ final class HandleErrorItem {
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by ProcessEachResponseFile::p()
 	 */
-	static function p(array $i, $batchId, $mcStore, $id, $type, $store):void {
+	static function p(array $i, $batchId, string $mcStore, $id, $type, $store):void {
 		$res = json_decode($i['response'], true);
 		$errorDetails = self::processFileErrors($res);
 		if (strstr($errorDetails, 'already exists')) {
