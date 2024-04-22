@@ -10,7 +10,7 @@ final class GetResults {
 	 * @used-by Subscriber::p()
 	 * @throws \Mage_Core_Exception
 	 */
-	static function p(int $mgStore, bool $isEcommerceData = true, $status = H::BATCH_PENDING) {
+	static function p(int $mgStore, bool $isEcommerceData = true, string $status = H::BATCH_PENDING) {
 		$h = hcg_mc_h();
 		$mcStore = hcg_mc_sid($mgStore); /** @var ?string $mcStore */
 		$syncb = new Synchbatches;
