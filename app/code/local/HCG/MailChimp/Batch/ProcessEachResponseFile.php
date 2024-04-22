@@ -17,8 +17,7 @@ final class ProcessEachResponseFile {
 		$fileHelper = hcg_mc_h_file();
 		$fileHelper->open(['path '=> hcg_mc_batches_path()]);
 		foreach ($files as $file) {/** @var string $file */
-			$fileContent = $fileHelper->read($file);
-			$items = json_decode($fileContent, true);
+			$items = json_decode($fileHelper->read($file), true);
 			if ($items !== false) {
 				foreach ($items as $item) {
 					$line = explode('_', $item['operation_id']);
