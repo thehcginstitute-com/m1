@@ -24,7 +24,6 @@ class MailChimp_BatchOperations extends MailChimp_Abstract
     }
 
     /**
-     * @param $id               The unique id for the batch operation.
      * @param $fields           A comma-separated list of fields to return. Reference parameters of sub-objects
      *                          with dot notation.
      * @param $excludeFields    A comma-separated list of fields to exclude. Reference parameters of sub-objects
@@ -33,7 +32,7 @@ class MailChimp_BatchOperations extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function status($id, $fields = null, $excludeFields = null)
+    public function status(string $id, $fields = null, $excludeFields = null)
     {
         $_params = array();
 
