@@ -52,7 +52,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 	/**
 	 * 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Batches::sendStoreSubscriberBatch()
 	 * @param $listId
 	 * @return array
 	 * @throws Mage_Core_Exception

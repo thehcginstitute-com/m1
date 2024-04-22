@@ -5,9 +5,9 @@
  * @used-by dfa_try()
  * @used-by hcg_mc_cfg_scope() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Ebizmarts_MailChimp_Block_Popup_Emailcatcher::_handleCookie() (https://github.com/thehcginstitute-com/m1/issues/530)
- * @used-by Ebizmarts_MailChimp_Model_Api_Batches::processEachResponseFile()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::createBatchJson()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::buildMailChimpTags()
+ * @used-by HCG\MailChimp\Batch\ProcessEachResponseFile::p()
  * @used-by IWD_OrderManager_Adminhtml_Sales_AddressController::format() (https://github.com/thehcginstitute-com/m1/issues/533)
  * @used-by app/design/frontend/base/default/template/richpanel/head.phtml
  * @param array(int|string => mixed) $a

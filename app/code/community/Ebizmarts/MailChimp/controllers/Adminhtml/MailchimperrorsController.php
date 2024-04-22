@@ -1,5 +1,4 @@
 <?php
-use Ebizmarts_MailChimp_Model_Api_Batches as B;
 class Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController extends Mage_Adminhtml_Controller_Action
 {
 	const MAX_RETRIES = 5;
