@@ -144,11 +144,10 @@ final class Send {
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::p()
-	 * @param $mcStore
 	 * @throws \Mage_Core_Exception
 	 * @throws \Mage_Core_Model_Store_Exception
 	 */
-	private static function _updateSyncingFlag($mcStore, int $mgStore):void {
+	private static function _updateSyncingFlag(string $mcStore, int $mgStore):void {
 		$h = hcg_mc_h();
 		$itemAmount = $h->getTotalNewItemsSent();
 		$syncingFlag = $h->getMCIsSyncing($mcStore, $mgStore);
