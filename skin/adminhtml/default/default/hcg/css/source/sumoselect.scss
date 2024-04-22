@@ -9,11 +9,9 @@
 	p {margin: 0;}
 	.hidden {display: none;}
 	.search-txt {display: none; outline: none;}
+	.no-match {display: none; padding: 6px;}
 }
-.SumoSelect .no-match {
-	display: none;
-	padding: 6px;
-}
+
 .SumoSelect.open .search-txt {
 	display: inline-block;
 	position: absolute;
