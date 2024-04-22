@@ -104,7 +104,10 @@
 		box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.11);
 		border-radius: 3px;
 		overflow: hidden;
-		&.okCancelInMulti > .options {border-radius: 2px 2px 0 0;}
+		&.okCancelInMulti > .options {
+			border-radius: 2px 2px 0 0;
+			> li.opt:last-child {border-radius: 0;}
+		}
 		&.selall > .options {
 			border-radius: 0 0 2px 2px;
 			> li.opt:first-child {border-radius: 0;}
@@ -135,9 +138,6 @@
 			}
 		}
 	}
-}
-.SumoSelect > .optWrapper.okCancelInMulti > .options > li.opt:last-child {
-	border-radius: 0;
 }
 .SumoSelect > .optWrapper > .options li.opt:hover {
 	background-color: #E4E4E4;
