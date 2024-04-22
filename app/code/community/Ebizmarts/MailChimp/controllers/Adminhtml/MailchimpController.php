@@ -97,16 +97,12 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpController extends Mage_Adminhtml_C
         $request = $this->getRequest();
         $mcStoreId = $request->getParam('mailchimp_store_id'); /** @var string $mcStoreId */
         $apiKey = $request->getParam('api_key');
-
         if ($helper->isApiKeyObscure($apiKey)) {
             $apiKey = $this->getApiKeyValue();
         }
-
         $data = $this->getSourceAccountInfoOptions($apiKey, $mcStoreId);
-
         foreach ($data as $key => $element) {
             $liElement = '';
-
             if ($element['value'] == Ebizmarts_MailChimp_Model_System_Config_Source_Account::SYNC_LABEL_KEY) {
                 $liElement = $helper->getSyncFlagDataHtml($element, $liElement);
                 $data[$key]['label'] = $liElement;
