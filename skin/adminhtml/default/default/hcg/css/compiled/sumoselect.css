@@ -29,22 +29,11 @@
 }
 
 .SumoSelect {
+  display: inline-block;
   min-width: 50px;
   width: 100%;
-}
-.SumoSelect p {
-  margin: 0;
-}
-.SumoSelect .hidden {
-  display: none;
-}
-.SumoSelect .search-txt {
-  display: none;
   outline: none;
-}
-.SumoSelect .no-match {
-  display: none;
-  padding: 6px;
+  position: relative;
 }
 .SumoSelect.open > .search > span, .SumoSelect.open > .search > label {
   visibility: hidden;
@@ -63,18 +52,26 @@
   box-sizing: border-box;
   border-radius: 5px;
 }
+.SumoSelect p {
+  margin: 0;
+}
+.SumoSelect .hidden {
+  display: none;
+}
+.SumoSelect .search-txt {
+  display: none;
+  outline: none;
+}
+.SumoSelect .no-match {
+  display: none;
+  padding: 6px;
+}
 .SumoSelect > .optWrapper > .options li.opt label, .SumoSelect > .CaptionCont, .SumoSelect .select-all > label {
   user-select: none;
   -o-user-select: none;
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
-}
-
-.SumoSelect {
-  display: inline-block;
-  position: relative;
-  outline: none;
 }
 
 .SumoSelect:focus > .CaptionCont, .SumoSelect:hover > .CaptionCont, .SumoSelect.open > .CaptionCont {

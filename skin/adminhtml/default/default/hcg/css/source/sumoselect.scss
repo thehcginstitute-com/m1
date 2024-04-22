@@ -2,14 +2,13 @@
 // "Refactor `HemantNegi/jquery.sumoselect`": https://github.com/thehcginstitute-com/m1/issues/576
 @import 'sumoselect/_top-rules';
 .SumoSelect {
+	display: inline-block;
 	// 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	// 1) "Upgrade `HemantNegi/jquery.sumoselect`": https://github.com/thehcginstitute-com/m1/issues/553
 	// 2) https://github.com/thehcginstitute-com/m1/blob/2024-04-22/skin/adminhtml/default/default/iwd/ordergrid/sumoselect.css#L2
 	min-width: 50px; width: 100%;
-	p {margin: 0;}
-	.hidden {display: none;}
-	.search-txt {display: none; outline: none;}
-	.no-match {display: none; padding: 6px;}
+	outline: none;
+	position: relative;
 	&.open {
 		> .search {> span, > label {visibility: hidden;}}
 		.search-txt {
@@ -27,6 +26,10 @@
 			border-radius: 5px;
 		}
 	}
+	p {margin: 0;}
+	.hidden {display: none;}
+	.search-txt {display: none; outline: none;}
+	.no-match {display: none; padding: 6px;}
 	> .optWrapper > .options li.opt label, > .CaptionCont, .select-all > label {
 		user-select: none;
 		-o-user-select: none;
@@ -34,11 +37,6 @@
 		-khtml-user-select: none;
 		-webkit-user-select: none;
 	}
-}
-.SumoSelect {
-	display: inline-block;
-	position: relative;
-	outline: none;
 }
 .SumoSelect:focus > .CaptionCont, .SumoSelect:hover > .CaptionCont, .SumoSelect.open > .CaptionCont {
 	box-shadow: 0 0 2px #7799D0;
