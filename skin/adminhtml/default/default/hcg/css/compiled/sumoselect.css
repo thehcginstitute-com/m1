@@ -94,8 +94,6 @@
   cursor: default;
   font-weight: 100;
 }
-
-/*placeholder style*/
 .SumoSelect > .CaptionCont > span.placeholder {
   color: #ccc;
   font-style: italic;
