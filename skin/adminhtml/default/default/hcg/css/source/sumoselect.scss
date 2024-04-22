@@ -104,15 +104,16 @@
 		box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.11);
 		border-radius: 3px;
 		overflow: hidden;
+		ul {
+			display: block;
+			list-style: none;
+			margin: 0;
+			overflow: auto;
+			padding: 0;
+		}
 	}
 }
-.SumoSelect > .optWrapper ul {
-	list-style: none;
-	display: block;
-	padding: 0;
-	margin: 0;
-	overflow: auto;
-}
+
 .SumoSelect > .optWrapper > .options {
 	border-radius: 2px;
 	position: relative;
