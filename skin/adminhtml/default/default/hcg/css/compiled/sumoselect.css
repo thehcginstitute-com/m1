@@ -92,20 +92,6 @@
   top: 0;
   width: 30px;
 }
-.SumoSelect > .CaptionCont > span {
-  display: block;
-  padding-right: 30px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  cursor: default;
-  font-weight: 100;
-}
-.SumoSelect > .CaptionCont > span.placeholder {
-  color: #ccc;
-  font-style: italic;
-}
-
 .SumoSelect > .CaptionCont > label > i {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wMdBhAJ/fwnjwAAAGFJREFUKM9jYBh+gBFKuzEwMKQwMDB8xaOWlYGB4T4DA0MrsuapDAwM//HgNwwMDDbYTJuGQ8MHBgYGJ1xOYGNgYJiBpuEpAwODHSF/siDZ+ISBgcGClEDqZ2Bg8B6CkQsAPRga0cpRtDEAAAAASUVORK5CYII=");
   background-position: center center;
@@ -120,6 +106,19 @@
   margin: auto;
   background-repeat: no-repeat;
   opacity: 0.8;
+}
+.SumoSelect > .CaptionCont > span {
+  display: block;
+  padding-right: 30px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: default;
+  font-weight: 100;
+}
+.SumoSelect > .CaptionCont > span.placeholder {
+  color: #ccc;
+  font-style: italic;
 }
 
 .SumoSelect > .optWrapper {
