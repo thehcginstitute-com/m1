@@ -188,13 +188,12 @@
 .SumoSelect > .optWrapper > .options li.opt:first-child {
   border-radius: 2px 2px 0 0;
 }
+.SumoSelect > .optWrapper > .options li.opt:last-child {
+  border-bottom: none;
+  border-radius: 0 0 2px 2px;
+}
 .SumoSelect > .optWrapper > .options li ul li.opt {
   padding-left: 22px;
-}
-
-.SumoSelect > .optWrapper > .options > li.opt:last-child {
-  border-radius: 0 0 2px 2px;
-  border-bottom: none;
 }
 
 .SumoSelect > .optWrapper.okCancelInMulti > .options > li.opt:last-child {
