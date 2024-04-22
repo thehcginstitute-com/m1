@@ -29,7 +29,7 @@ final class GetResults {
 			foreach ($bc as $b) {/** @var B $b */
 				try {
 					$batchId = $b->getBatchId(); /** @var string $batchId  */
-					self::_saveItemStatus($b, GetBatchResponse::p($batchId, $mgStore), $batchId, $mcStore, $mgStore);
+					self::_saveItemStatus($b, GetBatchResponse::p($batchId, $mgStore), $mcStore, $mgStore);
 					hcg_mc_batch_delete($batchId);
 				}
 				catch (\Exception $e) {
@@ -44,7 +44,7 @@ final class GetResults {
 	 * @used-by self::p()
 	 * @throws \Mage_Core_Exception
 	 */
-	private static function _saveItemStatus(B $b, array $files, string $batchId, string $mcStore, int $mgStore):void {
+	private static function _saveItemStatus(B $b, array $files, string $mcStore, int $mgStore):void {
 		$h = hcg_mc_h();
 		if (!empty($files)) {
 			if (isset($files['error'])) {
@@ -53,7 +53,7 @@ final class GetResults {
 				$h->logBatchStatus('There was an error getting the result ');
 			}
 			else {
-				ProcessEachResponseFile::p($files, $batchId, $mcStore, $mgStore);
+				ProcessEachResponseFile::p($files, $b->getBatchId(), $mcStore, $mgStore);
 				$b->setStatus('completed');
 				$b->save();
 			}
