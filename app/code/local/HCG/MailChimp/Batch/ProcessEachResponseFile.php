@@ -8,10 +8,9 @@ final class ProcessEachResponseFile {
 	 * @used-by GetResults::_saveItemStatus()
 	 * @param string[] $files
 	 * @param $batchId
-	 * @param $mcStore
 	 * @throws \Mage_Core_Exception
 	 */
-	static function p(array $files, $batchId, $mcStore, int $mgStore):void {
+	static function p(array $files, $batchId, string $mcStore, int $mgStore):void {
 		$h = hcg_mc_h();
 		$h->resetCountersDataSentToMailchimp();
 		$fileHelper = hcg_mc_h_file();
