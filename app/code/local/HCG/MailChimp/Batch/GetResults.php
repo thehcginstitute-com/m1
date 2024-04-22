@@ -53,7 +53,7 @@ final class GetResults {
 				$h->logBatchStatus('There was an error getting the result ');
 			}
 			else {
-				ProcessEachResponseFile::p($files, $b->getBatchId(), $mcStore, $mgStore);
+				ProcessEachResponseFile::p($files, $b->id(), $mcStore, $mgStore);
 				$b->setStatus('completed');
 				$b->save();
 			}
