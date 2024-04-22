@@ -10,9 +10,8 @@ final class GetBatchResponse {
 	 * https://github.com/thehcginstitute-com/m1/issues/571
 	 * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController::downloadresponseAction()
 	 * @used-by GetResults::p()
-	 * @param $batchId
 	 */
-	static function p($batchId, int $mgStore):array {
+	static function p(string $batchId, int $mgStore):array {
 		$h = hcg_mc_h();
 		$fileHelper = hcg_mc_h_file();
 		$r = []; /** @var array $r */
