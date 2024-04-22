@@ -7,6 +7,7 @@ final class Ebizmarts_MailChimp_Model_Synchbatches extends Mage_Core_Model_Abstr
 	 * 1) "Refactor `Ebizmarts_MailChimp_Model_Synchbatches`": https://github.com/thehcginstitute-com/m1/issues/575
 	 * 2) A string like «ssolgd3wxj».
 	 * @used-by HCG\MailChimp\Batch\GetResults::_saveItemStatus()
+	 * @used-by HCG\MailChimp\Batch\GetResults::p()
 	 */
 	function id():string {return $this['batch_id'];}
 
