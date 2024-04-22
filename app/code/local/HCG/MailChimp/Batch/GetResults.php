@@ -26,10 +26,10 @@ final class GetResults {
 		}
 		if ($enabled) {
 			$h->logBatchStatus('Get results from Mailchimp for Magento store ' . $mgStore);
-			foreach ($bc as $item) {/** @var B $item */
+			foreach ($bc as $b) {/** @var B $b */
 				try {
-					$batchId = $item->getBatchId(); /** @var string $batchId  */
-					self::_saveItemStatus($item, GetBatchResponse::p($batchId, $mgStore), $batchId, $mcStore, $mgStore);
+					$batchId = $b->getBatchId(); /** @var string $batchId  */
+					self::_saveItemStatus($b, GetBatchResponse::p($batchId, $mgStore), $batchId, $mcStore, $mgStore);
 					hcg_mc_batch_delete($batchId);
 				}
 				catch (\Exception $e) {
