@@ -11,6 +11,13 @@ final class Ebizmarts_MailChimp_Model_Synchbatches extends Mage_Core_Model_Abstr
 	 */
 	function id():string {return $this['batch_id'];}
 
+	/**
+	 * 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Synchbatches`": https://github.com/thehcginstitute-com/m1/issues/575
+	 * @used-by HCG\MailChimp\Batch\GetResults::_saveItemStatus()
+	 */
+	function setStatus(string $v):void {$this['status'] = $v;}
+
     /**
      * 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Synchbatches`": https://github.com/thehcginstitute-com/m1/issues/575

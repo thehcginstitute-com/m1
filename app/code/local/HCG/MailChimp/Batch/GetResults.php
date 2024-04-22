@@ -48,7 +48,7 @@ final class GetResults {
 		$h = hcg_mc_h();
 		if (!empty($files)) {
 			if (isset($files['error'])) {
-				$b['status'] = 'error';
+				$b->setStatus('error');
 				$b->save();
 				$h->logBatchStatus('There was an error getting the result ');
 			}
