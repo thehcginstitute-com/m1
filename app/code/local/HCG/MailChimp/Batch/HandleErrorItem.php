@@ -99,11 +99,10 @@ final class HandleErrorItem {
 
 	/**
 	 * @used-by self::p()
-	 * @param $mcStore
 	 * @param $id
 	 * @param $type
 	 */
-	private static function setItemAsModified($mcStore, $id, $type):void {
+	private static function setItemAsModified(string $mcStore, $id, $type):void {
 		if ($type == Cfg::IS_PRODUCT) {
 			$dataProduct = hcg_mc_syncd_get((int)$id, $type, $mcStore);
 			$isMarkedAsDeleted = $dataProduct->getMailchimpSyncDeleted();
