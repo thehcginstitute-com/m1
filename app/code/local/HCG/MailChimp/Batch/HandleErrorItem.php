@@ -59,11 +59,10 @@ final class HandleErrorItem {
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::p()
-	 * @param $mcStore
 	 * @param $id
 	 * @param $response
 	 */
-	private static function error($type, $mcStore, $id, $response):string {
+	private static function error($type, string $mcStore, $id, $response):string {
 		$r = $response['title'] . " : " . $response['detail']; /** @var string $r */
 		if ($type == Cfg::IS_PRODUCT) {
 			$dataProduct = hcg_mc_syncd_get((int)$id, $type, $mcStore);
