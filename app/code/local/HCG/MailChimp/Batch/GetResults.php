@@ -28,7 +28,7 @@ final class GetResults {
 			$h->logBatchStatus('Get results from Mailchimp for Magento store ' . $mgStore);
 			foreach ($collection as $item) {
 				try {
-					$batchId = $item->getBatchId();
+					$batchId = $item->getBatchId(); /** @var string $batchId  */
 					self::_saveItemStatus($item, GetBatchResponse::p($batchId, $mgStore), $batchId, $mcStore, $mgStore);
 					hcg_mc_batch_delete($batchId);
 				}

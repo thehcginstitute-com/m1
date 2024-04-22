@@ -62,11 +62,10 @@ final class Process {
 	/**
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::p()
-	 * @param $batchId
 	 * @param $storeId
 	 * @throws \Mage_Core_Exception
 	 */
-	private static function _showResumeEcommerce($batchId, $storeId):void {
+	private static function _showResumeEcommerce(string $batchId, $storeId):void {
 		$h = hcg_mc_h();
 		$countersSentPerBatch = $h->getCountersSentPerBatch();
 		if (!empty($countersSentPerBatch) || $countersSentPerBatch != null) {
