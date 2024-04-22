@@ -2,6 +2,7 @@
 namespace HCG\MailChimp\Batch;
 use Ebizmarts_MailChimp_Helper_Data as H;
 use Ebizmarts_MailChimp_Model_Resource_Synchbatches_Collection as BC;
+use Ebizmarts_MailChimp_Model_Synchbatches as B;
 # 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 final class GetResults {
 	/**
@@ -25,7 +26,7 @@ final class GetResults {
 		}
 		if ($enabled) {
 			$h->logBatchStatus('Get results from Mailchimp for Magento store ' . $mgStore);
-			foreach ($bc as $item) {
+			foreach ($bc as $item) {/** @var B $item */
 				try {
 					$batchId = $item->getBatchId(); /** @var string $batchId  */
 					self::_saveItemStatus($item, GetBatchResponse::p($batchId, $mgStore), $batchId, $mcStore, $mgStore);
