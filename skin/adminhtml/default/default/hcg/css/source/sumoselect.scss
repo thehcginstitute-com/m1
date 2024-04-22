@@ -108,6 +108,7 @@
 		&.selall > .options {border-radius: 0 0 2px 2px;}
 		&.selall.okCancelInMulti > .options {border-radius: 0;}
 		&.multiple > .options li ul li.opt {padding-left: 50px;}
+		&.isFloating > .options {box-shadow: 0 0 100px #595959; max-height: 100%;}
 		ul {
 			display: block;
 			list-style: none;
@@ -127,10 +128,7 @@
 		}
 	}
 }
-.SumoSelect > .optWrapper.isFloating > .options {
-	max-height: 100%;
-	box-shadow: 0 0 100px #595959;
-}
+
 .SumoSelect > .optWrapper > .options li.opt {
 	padding: 6px 6px;
 	position: relative;

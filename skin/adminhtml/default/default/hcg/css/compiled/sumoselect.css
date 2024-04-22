@@ -158,6 +158,10 @@
 .SumoSelect > .optWrapper.multiple > .options li ul li.opt {
   padding-left: 50px;
 }
+.SumoSelect > .optWrapper.isFloating > .options {
+  box-shadow: 0 0 100px #595959;
+  max-height: 100%;
+}
 .SumoSelect > .optWrapper ul {
   display: block;
   list-style: none;
@@ -175,11 +179,6 @@
 }
 .SumoSelect > .optWrapper > .options li ul li.opt {
   padding-left: 22px;
-}
-
-.SumoSelect > .optWrapper.isFloating > .options {
-  max-height: 100%;
-  box-shadow: 0 0 100px #595959;
 }
 
 .SumoSelect > .optWrapper > .options li.opt {
