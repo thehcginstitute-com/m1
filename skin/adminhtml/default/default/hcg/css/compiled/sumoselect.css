@@ -152,6 +152,9 @@
 .SumoSelect > .optWrapper.selall > .options {
   border-radius: 0 0 2px 2px;
 }
+.SumoSelect > .optWrapper.selall > .options > li.opt:first-child {
+  border-radius: 0;
+}
 .SumoSelect > .optWrapper.selall.okCancelInMulti > .options {
   border-radius: 0;
 }
@@ -187,10 +190,6 @@
 }
 .SumoSelect > .optWrapper > .options li ul li.opt {
   padding-left: 22px;
-}
-
-.SumoSelect > .optWrapper.selall > .options > li.opt:first-child {
-  border-radius: 0;
 }
 
 .SumoSelect > .optWrapper > .options > li.opt:last-child {
