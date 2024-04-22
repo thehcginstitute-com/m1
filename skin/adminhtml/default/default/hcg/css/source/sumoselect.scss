@@ -111,16 +111,16 @@
 			overflow: auto;
 			padding: 0;
 		}
+		> .options {
+			border-radius: 2px;
+			position: relative;
+			/*Set the height of pop up here (only for desktop mode)*/
+			max-height: 250px;
+			/*height*/
+		}
 	}
 }
 
-.SumoSelect > .optWrapper > .options {
-	border-radius: 2px;
-	position: relative;
-	/*Set the height of pop up here (only for desktop mode)*/
-	max-height: 250px;
-	/*height*/
-}
 .SumoSelect > .optWrapper.okCancelInMulti > .options {
 	border-radius: 2px 2px 0 0;
 }
