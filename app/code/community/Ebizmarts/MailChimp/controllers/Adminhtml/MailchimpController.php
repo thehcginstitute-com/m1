@@ -95,7 +95,7 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpController extends Mage_Adminhtml_C
     {
         $helper = $this->getHelper();
         $request = $this->getRequest();
-        $mcStoreId = $request->getParam('mailchimp_store_id');
+        $mcStoreId = $request->getParam('mailchimp_store_id'); /** @var string $mcStore */
         $apiKey = $request->getParam('api_key');
 
         if ($helper->isApiKeyObscure($apiKey)) {
