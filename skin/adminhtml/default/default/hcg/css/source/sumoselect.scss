@@ -8,11 +8,7 @@
 	p {margin: 0;}
 	.hidden {display: none;}
 }
-/* 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-1) "Upgrade `HemantNegi/jquery.sumoselect`": https://github.com/thehcginstitute-com/m1/issues/553
-2) https://github.com/thehcginstitute-com/m1/blob/2024-04-22/skin/adminhtml/default/default/iwd/ordergrid/sumoselect.css#L4 */
-.SelectBox {padding: 0 8px;}
-.sumoStopScroll {overflow: hidden;}
+@import 'sumoselect/_top-rules';
 /* Filtering style */
 .SumoSelect .search-txt {
 	display: none;
