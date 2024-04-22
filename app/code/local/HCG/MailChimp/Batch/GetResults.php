@@ -49,14 +49,13 @@ final class GetResults {
 		if (!empty($files)) {
 			if (isset($files['error'])) {
 				$b->setStatus('error');
-				$b->save();
 				$h->logBatchStatus('There was an error getting the result ');
 			}
 			else {
 				ProcessEachResponseFile::p($files, $b->id(), $mcStore, $mgStore);
 				$b->setStatus('completed');
-				$b->save();
 			}
+			$b->save();
 		}
 	}
 }
