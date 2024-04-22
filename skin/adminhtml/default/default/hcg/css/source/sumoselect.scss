@@ -119,13 +119,14 @@
 			position: relative;
 			// Set the height of pop up here (only for desktop mode)
 			max-height: 250px;
-			li.group.disabled > label {opacity: 0.5;}
+			li {
+				&.group.disabled > label {opacity: 0.5;}
+				ul li.opt {padding-left: 22px;}
+			}
 		}
 	}
 }
-.SumoSelect > .optWrapper > .options li ul li.opt {
-	padding-left: 22px;
-}
+
 .SumoSelect > .optWrapper.multiple > .options li ul li.opt {
 	padding-left: 50px;
 }

@@ -170,7 +170,6 @@
 .SumoSelect > .optWrapper > .options li.group.disabled > label {
   opacity: 0.5;
 }
-
 .SumoSelect > .optWrapper > .options li ul li.opt {
   padding-left: 22px;
 }
