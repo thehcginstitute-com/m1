@@ -1,5 +1,6 @@
 // 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 // "Refactor `HemantNegi/jquery.sumoselect`": https://github.com/thehcginstitute-com/m1/issues/576
+@import 'sumoselect/_top-rules';
 .SumoSelect {
 	// 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	// 1) "Upgrade `HemantNegi/jquery.sumoselect`": https://github.com/thehcginstitute-com/m1/issues/553
@@ -7,19 +8,12 @@
 	min-width: 50px; width: 100%;
 	p {margin: 0;}
 	.hidden {display: none;}
+	.search-txt {display: none; outline: none;}
 }
-@import 'sumoselect/_top-rules';
-/* Filtering style */
-.SumoSelect .search-txt {
-	display: none;
-	outline: none;
-}
-
 .SumoSelect .no-match {
 	display: none;
 	padding: 6px;
 }
-
 .SumoSelect.open .search-txt {
 	display: inline-block;
 	position: absolute;
