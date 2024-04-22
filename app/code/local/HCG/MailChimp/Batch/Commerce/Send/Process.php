@@ -44,7 +44,7 @@ final class Process {
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::p()
 	 */
-	private static function markItemsAsSent($batchResponseId, $mcStore):void {
+	private static function markItemsAsSent($batchResponseId, string $mcStore):void {
 		$resource = hcg_mc_h()->getCoreResource();
 		$connection = $resource->getConnection('core_write');
 		$tableName = $resource->getTableName('mailchimp/ecommercesyncdata');
