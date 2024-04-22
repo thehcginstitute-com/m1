@@ -105,8 +105,10 @@
 		border-radius: 3px;
 		overflow: hidden;
 		&.okCancelInMulti > .options {border-radius: 2px 2px 0 0;}
-		&.selall > .options {border-radius: 0 0 2px 2px;}
-		&.selall > .options > li.opt:first-child {border-radius: 0;}
+		&.selall > .options {
+			border-radius: 0 0 2px 2px;
+			> li.opt:first-child {border-radius: 0;}
+		}
 		&.selall.okCancelInMulti > .options {border-radius: 0;}
 		&.multiple > .options li ul li.opt {padding-left: 50px;}
 		&.isFloating > .options {box-shadow: 0 0 100px #595959; max-height: 100%;}
