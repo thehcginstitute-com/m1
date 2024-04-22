@@ -75,10 +75,9 @@ final class GetBatchResponse {
 	 * 2024-04-21 "Refactor `Ebizmarts_MailChimp_Model_Api_Batches`": https://github.com/thehcginstitute-com/m1/issues/572
 	 * @used-by self::p()
 	 * @param $files
-	 * @param $batchId
 	 * @param $fileName
 	 */
-	private static function _unpackBatchFile($files, $batchId, \Mage_Archive $archive, $fileName):array {
+	private static function _unpackBatchFile($files, string $batchId, \Mage_Archive $archive, $fileName):array {
 		$path = hcg_mc_batches_path($batchId);
 		$archive->unpack($fileName, $path);
 		$archive->unpack($path . DS . $batchId . '.tar', $path);
