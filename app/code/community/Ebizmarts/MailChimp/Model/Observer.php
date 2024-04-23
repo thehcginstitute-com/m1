@@ -329,7 +329,9 @@ class Ebizmarts_MailChimp_Model_Observer
         $customer = $observer->getEvent()->getCustomer();
         $origEmail = $customer->getOrigData('email');
         $customerEmail = $customer->getEmail();
-        $storeId = $customer->getStoreId(); /** @var int $storeId */
+		# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# `$customer->getStoreId()` returns a string like «1».
+        $storeId = (int)$customer->getStoreId(); /** @var int $storeId */
         // if customer was created in admin, use store id selected for Mailchimp.
         if (!$storeId) {
             $storeId = $customer->getMailchimpStoreView();
