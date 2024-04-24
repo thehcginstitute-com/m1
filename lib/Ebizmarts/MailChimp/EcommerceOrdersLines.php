@@ -137,7 +137,12 @@ class MailChimp_EcommerceOrdersLines extends MailChimp_Abstract
 			$_params['product_id'] = $productId;
 		}
 		if ($productVariantId) {
-			$_params['product_variant_id'] = $productVariantId;
+			# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# 1) "`Ebizmarts_MailChimp`: «lines.item:0.product_variant_id :
+			# Schema describes string, integer found instead»":
+			# https://github.com/thehcginstitute-com/m1/issues/585
+			# 2) https://mailchimp.com/developer/marketing/api
+			$_params['product_variant_id'] = (string)$productVariantId;
 		}
 		if ($quantity) {
 			$_params['quantity'] = $quantity;
