@@ -156,8 +156,13 @@ IWD.OrderManager.OrderedItems = {
 			return;
 		}
 
-		/* if all items checked */
-		if ($ji('.ordered_item_remove').size() == $ji('.ordered_item_remove input:checkbox:checked').size()) {
+		// 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		// 1) "«$ji(...).size is not a function» in `js/iwd/ordermanager/order.js:160`":
+		// https://github.com/thehcginstitute-com/m1/issues/581
+		// 2) "Delete the `size()` jQuery method calls from `IWD_OrderManager`
+		// because `IWD_OrderManager` uses jQuery 3.3.1 and the `size()` method has been deleted from jQuery 3":
+		// https://github.com/thehcginstitute-com/m1/issues/582
+		if ($ji('.ordered_item_remove').length == $ji('.ordered_item_remove input:checkbox:checked').length) {
 			alert("Sorry, but you can not delete all items in order. Maybe, better remove this order?");
 			return;
 		}
