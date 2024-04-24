@@ -4,6 +4,7 @@
 # https://github.com/thehcginstitute-com/m1/issues/579
 use Mage_Customer_Model_Customer as C;
 use Mage_Newsletter_Model_Subscriber as S;
+/** @used-by Ebizmarts_MailChimp_Adminhtml_MailchimpController::indexAction() */
 final class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Mage_Adminhtml_Block_Widget_Grid {
 	/**
 	 * 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
