@@ -41,12 +41,14 @@ final class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp exte
 	}
 
 	/**
-	 * @param $data
-	 * @return string
+	 * 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp`":
+	 * https://github.com/thehcginstitute-com/m1/issues/579
+	 * @used-by app/design/adminhtml/default/default/template/ebizmarts/mailchimp/customer/tab/mailchimp.phtml
 	 */
-	function escapeQuote($data)
+	function escapeQuote(string $s):string
 	{
-		return $this->getHelper()->mcEscapeQuote($data);
+		return $this->getHelper()->mcEscapeQuote($s);
 	}
 
 	/**
