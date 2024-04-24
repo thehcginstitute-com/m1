@@ -16,8 +16,8 @@ $interest = $this->getInterest();
             <?php foreach($interest as $i): ?>
                 <div class="admin__field">
                     <label class="admin__field-label"
-                           for="<?php echo $this->escapeHtml($i['interest']['id']) ?>">
-                        <span><?php echo $this->escapeHtml($i['interest']['title']) ?></span>
+                           for="<?= $this->escapeHtml($i['interest']['id']) ?>">
+                        <span><?= $this->escapeHtml($i['interest']['title']) ?></span>
                     </label>
                     <div class="admin__field-control control">
                         <div class="fields">
@@ -27,20 +27,20 @@ $interest = $this->getInterest();
                                         <?php foreach($i['category'] as $c): ?>
                                             <li class="field no-label">
                                                 <input
-                                                        name="customer[interestgroup][<?php echo $this->escapeHtml($i['interest']['id']) ?>][<?php echo $this->escapeHtml($c['id']) ?>]"
+                                                        name="customer[interestgroup][<?= $this->escapeHtml($i['interest']['id']) ?>][<?= $this->escapeHtml($c['id']) ?>]"
                                                         type="checkbox"
                                                         data-form-part="customer_form"
-                                                        value="<?php echo $this->escapeHtml($c['id']) ?>"
+                                                        value="<?= $this->escapeHtml($c['id']) ?>"
                                                         id="<?php
                                                             echo $this->escapeHtml('mailchimp_group_'.$c['id'])
                                                         ?>"
-                                                        title="<?php echo $this->escapeHtml($c['name']) ?>"
+                                                        title="<?= $this->escapeHtml($c['name']) ?>"
                                                     <?php if ($c['checked']) {
                                                         echo 'checked';
                                                     } ?>
                                                 />
                                                 <label class="field label">
-                                                    <?php echo $this->escapeHtml($c['name'])?>
+                                                    <?= $this->escapeHtml($c['name'])?>
                                                 </label>
                                             </li>
                                         <?php endforeach; ?>
@@ -51,17 +51,17 @@ $interest = $this->getInterest();
                                         <select class="admin_field_field field"
                                                 data-form-part="customer_form"
                                                 name="customer[interestgroup]
-                                                    [<?php echo $this->escapeHtml($i['interest']['id']) ?>]"
+                                                    [<?= $this->escapeHtml($i['interest']['id']) ?>]"
                                                 id="<?php
                                                     echo $this->escapeHtml('mailchimp_group_'.$i['interest']['id'])
                                                 ?>"
-                                                title="<?php echo $this->escapeHtml($i['interest']['title']) ?>">
+                                                title="<?= $this->escapeHtml($i['interest']['title']) ?>">
                                             <option value=""></option>
                                             <?php foreach ($i['category'] as $c): ?>
-                                                <option value="<?php echo $this->escapeHtml($c['id'])?>"
+                                                <option value="<?= $this->escapeHtml($c['id'])?>"
                                                     <?php if ($c['checked']) {
                                                     echo 'selected';
-                                                    } ?>><?php echo $this->escapeHtml($c['name']) ?></option>
+                                                    } ?>><?= $this->escapeHtml($c['name']) ?></option>
                                             <?php endforeach; ?>
                                         </select>
 
@@ -73,18 +73,18 @@ $interest = $this->getInterest();
                                             <li class="field no-label" style="list-style: none">
                                                 <input class=""
                                                        name="customer[interestgroup]
-                                                            [<?php echo $this->escapeHtml($i['interest']['id']) ?>]"
+                                                            [<?= $this->escapeHtml($i['interest']['id']) ?>]"
                                                        type="radio"
                                                        data-form-part="customer_form"
-                                                       value="<?php echo $this->escapeHtml($c['id']) ?>"
-                                                       id="<?php echo $this->escapeHtml('mailchimp_group_'.$c['id']) ?>"
-                                                       title="<?php echo $this->escapeHtml($c['name']) ?>"
+                                                       value="<?= $this->escapeHtml($c['id']) ?>"
+                                                       id="<?= $this->escapeHtml('mailchimp_group_'.$c['id']) ?>"
+                                                       title="<?= $this->escapeHtml($c['name']) ?>"
                                                     <?php if ($c['checked']) {
                                                         echo 'checked';
                                                     } ?>
                                                 />
                                                 <label class="field label">
-                                                    <?php echo $this->escapeHtml($c['name'])?>
+                                                    <?= $this->escapeHtml($c['name'])?>
                                                 </label>
                                             </li>
                                         <?php endforeach; ?>
