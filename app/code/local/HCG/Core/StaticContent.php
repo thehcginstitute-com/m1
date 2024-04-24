@@ -7,5 +7,5 @@ final class HCG_Core_StaticContent {
 	 * @used-by HCG_Page_Block_Html_Head::addVersionStamp()
 	 * @const string
 	 */
-	const V = '2023-12-24';
+	const V = '2024-04-24';
 }
