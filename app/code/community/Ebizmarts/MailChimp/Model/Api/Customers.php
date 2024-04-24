@@ -47,10 +47,12 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 	{
 		$collection = $this->getItemResourceModelCollection();
 		$collection->addAttributeToFilter(
-			array(
-				array('attribute' => 'store_id', 'eq' => $this->getBatchMagentoStoreId()),
-				array('attribute' => 'mailchimp_store_view', 'eq' => $this->getBatchMagentoStoreId()),
-			),
+			[
+				['attribute' => 'store_id', 'eq' => $this->getBatchMagentoStoreId()],
+				# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
+				# because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
+			],
 			null,
 			'left'
 		);
