@@ -2,9 +2,7 @@
 # 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp`":
 # https://github.com/thehcginstitute-com/m1/issues/579
-class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Mage_Adminhtml_Block_Widget_Grid
-{
-
+class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Mage_Adminhtml_Block_Widget_Grid {
 	protected $_lists = array();
 	protected $_info = array();
 	protected $_myLists = array();
@@ -18,8 +16,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Ma
 	protected $_helper;
 	protected $_storeId;
 
-	function __construct()
-	{
+	function __construct() {
 		parent::__construct();
 		$this->setTemplate('ebizmarts/mailchimp/customer/tab/mailchimp.phtml');
 		$this->_helper = $this->makeHelper();
@@ -30,8 +27,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Ma
 		}
 	}
 
-	function getInterest()
-	{
+	function getInterest() {
 		$customer = $this->getCustomer();
 		$subscriber = $this->getSubscriberModel();
 		$subscriber->loadByEmail($customer->getEmail());
