@@ -14,19 +14,14 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Ma
 	 * @var Ebizmarts_MailChimp_Helper_Data
 	 */
 	protected $_helper;
-	protected $_storeId;
 
 	function __construct() {
 		parent::__construct();
 		$this->setTemplate('ebizmarts/mailchimp/customer/tab/mailchimp.phtml');
 		$this->_helper = $this->makeHelper();
-		$customerId = (int) $this->getRequest()->getParam('id');
+		$customerId = (int)$this->getRequest()->getParam('id');
 		if ($customerId) {
 			$this->_customer = $this->getCustomerModel()->load($customerId);
-			# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# "Refactor `Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp`":
-			# https://github.com/thehcginstitute-com/m1/issues/579
-			$this->_storeId = (int)$this->getCustomer()->getStoreId();
 		}
 	}
 
@@ -36,8 +31,14 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Ma
 		$subscriber->loadByEmail($customer->getEmail());
 		$subscriberId = $subscriber->getSubscriberId();
 		$customerId = $customer->getId();
-		$storeId = $this->getStoreId();
-		$interest = $this->_helper->getInterestGroups($customerId, $subscriberId, $storeId);
+		# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# 1) "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
+		# because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
+		# 2) "Refactor `Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp`":
+		# https://github.com/thehcginstitute-com/m1/issues/579
+		$interest = $this->_helper->getInterestGroups(
+			$customerId, $subscriberId, $this->_customer ? (int)$this->_customer->getStoreId() : 0
+		);
 
 		return $interest;
 	}
