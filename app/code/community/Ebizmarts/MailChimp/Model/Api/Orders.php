@@ -436,7 +436,12 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 				$lines[] = array(
 					"id" => (string)$itemCount,
 					"product_id" => $productId,
-					"product_variant_id" => $variant,
+					# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					# 1) "`Ebizmarts_MailChimp`: «lines.item:0.product_variant_id :
+					# Schema describes string, integer found instead»":
+					# https://github.com/thehcginstitute-com/m1/issues/585
+					# 2) https://mailchimp.com/developer/marketing/api
+					"product_variant_id" => (string)$variant,
 					"quantity" => (int)$item->getQtyOrdered(),
 					"price" => $item->getPrice(),
 					"discount" => abs($item->getDiscountAmount())
