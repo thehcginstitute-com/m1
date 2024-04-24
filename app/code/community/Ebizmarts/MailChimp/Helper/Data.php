@@ -3410,6 +3410,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
+	 * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp::interests()
 	 * @param           $customerId
 	 * @param           $subscriberId
 	 * @param           $storeId
