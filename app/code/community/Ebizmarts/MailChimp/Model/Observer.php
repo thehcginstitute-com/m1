@@ -1,17 +1,10 @@
 <?php
+# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+use Mage_Adminhtml_Block_Customer_Edit_Tabs as CustomerTabs;
+use Mage_Core_Block_Abstract as B;
 use Mage_Customer_Model_Customer as C;
-/**
- * MailChimp For Magento
- *
- * @category  Ebizmarts_MailChimp
- * @author    Ebizmarts Team <info@ebizmarts.com>
- * @copyright Ebizmarts (http://ebizmarts.com)
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @date:     4/29/16 3:55 PM
- * @file:     Observer.php
- */
-class Ebizmarts_MailChimp_Model_Observer
-{
+class Ebizmarts_MailChimp_Model_Observer {
 
     const PRODUCT_IS_ENABLED = 1;
 
@@ -1103,10 +1096,9 @@ class Ebizmarts_MailChimp_Model_Observer
 	 * @used-by Mage_Core_Model_App::_callObserverMethod()
 	 * @see app/code/community/Ebizmarts/MailChimp/etc/config.xml
 	 */
-    function addCustomerTab(Varien_Event_Observer $observer):void {
-        $block = $observer->getEvent()->getBlock();
+    function addCustomerTab(Varien_Event_Observer $o):void {
         // add tab in customer edit page
-        if ($block instanceof Mage_Adminhtml_Block_Customer_Edit_Tabs) {
+        if (($b = $o->getEvent()->getBlock()) instanceof CustomerTabs) { /** @var CustomerTabs $b */
             $c = Mage::getModel('customer/customer')->load(df_request('id')); /** @var C $c */
 			# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			# "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
@@ -1114,10 +1106,10 @@ class Ebizmarts_MailChimp_Model_Observer
             if (hcg_mc_h()->getLocalInterestCategories((int)$c->getStoreId())
                 && ($this->getRequest()->getActionName() == 'edit' || df_request('type'))
             ) {
-                $block->addTab(
+                $b->addTab(
                     'mailchimp', [
                         'label' => 'MailChimp',
-                        'url' => $block->getUrl('adminhtml/mailchimp/index', ['_current' => true]),
+                        'url' => $b->getUrl('adminhtml/mailchimp/index', ['_current' => true]),
                         'class' => 'ajax'
                     ]
                 );
