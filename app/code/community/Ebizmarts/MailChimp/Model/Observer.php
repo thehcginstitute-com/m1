@@ -214,7 +214,10 @@ class Ebizmarts_MailChimp_Model_Observer {
 	function subscriberSaveAfter(Varien_Event_Observer $observer)
 	{
 		$subscriber = $observer->getEvent()->getSubscriber();
-		$storeViewId = $this->getStoreViewIdBySubscriber($subscriber);
+		# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
+		# because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
+		$storeViewId = (int)$subscriber->getStoreId(); /** @var int $storeViewId */
 		$helper = $this->makeHelper();
 		$isEnabled = $helper->isSubscriptionEnabled($storeViewId);
 		$subscriberSource = $subscriber->getSubscriberSource();
@@ -1181,13 +1184,6 @@ class Ebizmarts_MailChimp_Model_Observer {
 	{
 		return Mage::getModel('catalog/product_status');
 	}
-
-	/**
-	 * 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
-	 * because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
-	 */
-	protected function getStoreViewIdBySubscriber(Mage_Newsletter_Model_Subscriber $s):int {return $s->getStoreId();}
 
 	/**
 	 * @param string $subscriberSource
