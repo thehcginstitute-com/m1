@@ -89,11 +89,4 @@ final class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp exte
 	{
 		return $this->_customer;
 	}
-
-	/**
-	 * 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
-	 * because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
-	 */
-	protected function getStoreId():int {return $this->_storeId;}
 }
