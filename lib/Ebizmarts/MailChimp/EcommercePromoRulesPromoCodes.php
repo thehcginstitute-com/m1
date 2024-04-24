@@ -30,7 +30,7 @@ class MailChimp_EcommercePromoRulesPromoCodes extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function add(
+    function add(
         $storeId,
         $promoRuleId,
         $promoCodeId,
@@ -79,7 +79,7 @@ class MailChimp_EcommercePromoRulesPromoCodes extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll($storeId, $promoRuleId, $fields = null, $excludeFields = null, $count = null, $offset = null)
+    function getAll($storeId, $promoRuleId, $fields = null, $excludeFields = null, $count = null, $offset = null)
     {
         $_params = array();
         if ($fields) {
@@ -116,7 +116,7 @@ class MailChimp_EcommercePromoRulesPromoCodes extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($storeId, $promoRuleId, $promoCodeId, $fields = null, $excludeFields = null)
+    function get($storeId, $promoRuleId, $promoCodeId, $fields = null, $excludeFields = null)
     {
         $_params = array();
         if ($fields) {
@@ -148,7 +148,7 @@ class MailChimp_EcommercePromoRulesPromoCodes extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function modify(
+    function modify(
         $storeId,
         $promoRuleId,
         $promoCodeId,
@@ -199,7 +199,7 @@ class MailChimp_EcommercePromoRulesPromoCodes extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function delete($storeId, $promoRuleId, $promoCodeId)
+    function delete($storeId, $promoRuleId, $promoCodeId)
     {
         $url = 'ecommerce/stores/' . $storeId . '/promo-rules/' . $promoRuleId . '/promo-codes/' . $promoCodeId;
 

@@ -22,7 +22,7 @@ class MailChimp_ListsClients extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getTop($listId, $fields = null, $excludeFields = null)
+    function getTop($listId, $fields = null, $excludeFields = null)
     {
         $_params = array();
 

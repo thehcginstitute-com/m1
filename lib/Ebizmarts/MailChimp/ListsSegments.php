@@ -17,7 +17,7 @@ class MailChimp_ListsSegments extends MailChimp_Abstract
      */
     public $segmentMembers;
 
-    public function getInformation($listId, $fields = null)
+    function getInformation($listId, $fields = null)
     {
         $_params = array();
         if ($fields) {
@@ -45,7 +45,7 @@ class MailChimp_ListsSegments extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll(
+    function getAll(
         $listId,
         $fields = null,
         $excludeFields = null,
@@ -105,7 +105,7 @@ class MailChimp_ListsSegments extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($listId, $segmentId)
+    function get($listId, $segmentId)
     {
         return $this->_master->call('lists/' . $listId . '/segments/' . $segmentId, null, Ebizmarts_MailChimp::GET);
     }
@@ -122,7 +122,7 @@ class MailChimp_ListsSegments extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function add($listId, $name, $staticSegment = null, $options = null)
+    function add($listId, $name, $staticSegment = null, $options = null)
     {
         $_params = array('name'=>$name);
 
@@ -149,7 +149,7 @@ class MailChimp_ListsSegments extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function modify($listId, $segmentId, $name, $staticSegment = null, $options = null)
+    function modify($listId, $segmentId, $name, $staticSegment = null, $options = null)
     {
         $_params = array();
         if ($name) {
@@ -176,7 +176,7 @@ class MailChimp_ListsSegments extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function delete($listId, $segmentId)
+    function delete($listId, $segmentId)
     {
         return $this->_master->call('lists/' . $listId . '/segments/' . $segmentId, null, Ebizmarts_MailChimp::DELETE);
     }

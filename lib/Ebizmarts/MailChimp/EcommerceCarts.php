@@ -25,7 +25,7 @@ class MailChimp_EcommerceCarts extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll($storeId, $fields = null, $excludeFields = null, $count = null, $offset = null)
+    function getAll($storeId, $fields = null, $excludeFields = null, $count = null, $offset = null)
     {
         $_params = array();
 

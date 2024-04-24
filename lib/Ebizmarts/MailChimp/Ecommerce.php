@@ -40,7 +40,7 @@ class MailChimp_Ecommerce extends MailChimp_Abstract
     /**
      * @return MailChimp_EcommerceStore
      */
-    public function getStores()
+    function getStores()
     {
         return $this->stores;
     }
@@ -48,7 +48,7 @@ class MailChimp_Ecommerce extends MailChimp_Abstract
     /**
      * @return MailChimp_EcommerceCarts
      */
-    public function getCarts()
+    function getCarts()
     {
         return $this->carts;
     }
@@ -56,7 +56,7 @@ class MailChimp_Ecommerce extends MailChimp_Abstract
     /**
      * @return MailChimp_EcommerceCustomers
      */
-    public function getCustomers()
+    function getCustomers()
     {
         return $this->customers;
     }
@@ -64,7 +64,7 @@ class MailChimp_Ecommerce extends MailChimp_Abstract
     /**
      * @return MailChimp_EcommerceOrders
      */
-    public function getOrders()
+    function getOrders()
     {
         return $this->orders;
     }
@@ -72,7 +72,7 @@ class MailChimp_Ecommerce extends MailChimp_Abstract
     /**
      * @return MailChimp_EcommerceProducts
      */
-    public function getProducts()
+    function getProducts()
     {
         return $this->products;
     }
@@ -80,7 +80,7 @@ class MailChimp_Ecommerce extends MailChimp_Abstract
     /**
      * @return MailChimp_EcommercePromoRules
      */
-    public function getPromoRules()
+    function getPromoRules()
     {
         return $this->promoRules;
     }

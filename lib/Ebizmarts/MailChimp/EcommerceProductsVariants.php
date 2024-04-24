@@ -27,7 +27,7 @@ class MailChimp_EcommerceProductsVariants extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function add(
+    function add(
         $storeId,
         $productId,
         $id,
@@ -89,7 +89,7 @@ class MailChimp_EcommerceProductsVariants extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll($storeId, $productId, $fields = null, $excludeFields = null, $count = null, $offset = null)
+    function getAll($storeId, $productId, $fields = null, $excludeFields = null, $count = null, $offset = null)
     {
         $_params=array();
 
@@ -124,7 +124,7 @@ class MailChimp_EcommerceProductsVariants extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($storeId, $productId, $variantId, $fields = null, $excludeFields = null)
+    function get($storeId, $productId, $variantId, $fields = null, $excludeFields = null)
     {
         $_params=array();
 
@@ -155,7 +155,7 @@ class MailChimp_EcommerceProductsVariants extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function modify(
+    function modify(
         $storeId,
         $productId,
         $variantId,
@@ -222,7 +222,7 @@ class MailChimp_EcommerceProductsVariants extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function addOrModify(
+    function addOrModify(
         $storeId,
         $productId,
         $variantId,
@@ -276,7 +276,7 @@ class MailChimp_EcommerceProductsVariants extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function delete($storeId, $productId, $variantId)
+    function delete($storeId, $productId, $variantId)
     {
         $url = 'ecommerce/stores/' . $storeId . '/products/' . $productId . '/variants/' . $variantId;
         $this->_master->call($url, null, Ebizmarts_MailChimp::DELETE);

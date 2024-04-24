@@ -25,7 +25,7 @@ class MailChimp_ListsAbuseReports extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll($listId, $fields = null, $excludeFields = null, $count = null, $offset = null)
+    function getAll($listId, $fields = null, $excludeFields = null, $count = null, $offset = null)
     {
         $_params = array();
 
@@ -62,7 +62,7 @@ class MailChimp_ListsAbuseReports extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($listId, $reportId, $fields = null, $excludeFields = null, $count = null, $offset = null)
+    function get($listId, $reportId, $fields = null, $excludeFields = null, $count = null, $offset = null)
     {
         $_params = array();
 

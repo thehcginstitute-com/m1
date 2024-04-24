@@ -27,7 +27,7 @@ class MailChimp_EcommerceCustomers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function add(
+    function add(
         $storeId,
         $id,
         $emailAddress,
@@ -72,7 +72,7 @@ class MailChimp_EcommerceCustomers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll($storeId, $fields = null, $excludeFields = null, $count = null, $offset = null)
+    function getAll($storeId, $fields = null, $excludeFields = null, $count = null, $offset = null)
     {
         $_params = array();
 
@@ -106,7 +106,7 @@ class MailChimp_EcommerceCustomers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($storeId, $customerId, $fields = null, $excludeFields = null)
+    function get($storeId, $customerId, $fields = null, $excludeFields = null)
     {
         $_params = array();
 
@@ -134,7 +134,7 @@ class MailChimp_EcommerceCustomers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getByEmail($storeId, $customerEmail, $fields = null, $excludeFields = null)
+    function getByEmail($storeId, $customerEmail, $fields = null, $excludeFields = null)
     {
         $_params = array('email_address'=>$customerEmail);
 
@@ -162,7 +162,7 @@ class MailChimp_EcommerceCustomers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function modify(
+    function modify(
         $storeId,
         $customerId,
         $optInStatus = null,
@@ -214,7 +214,7 @@ class MailChimp_EcommerceCustomers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function addOrModify(
+    function addOrModify(
         $storeId,
         $customerId,
         $emailAddress,
@@ -255,7 +255,7 @@ class MailChimp_EcommerceCustomers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function delete($storeId, $customerId)
+    function delete($storeId, $customerId)
     {
         $url = 'ecommerce/stores/' . $storeId . '/customers/' . $customerId;
 

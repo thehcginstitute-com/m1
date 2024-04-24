@@ -24,7 +24,7 @@ class MailChimp_EcommerceOrdersLines extends MailChimp_Abstract
 	 * @throws MailChimp_Error
 	 * @throws MailChimp_HttpError
 	 */
-	public function add($storeId, $orderId, $id, $productId, $productVariantId, $quantity, $price) {
+	function add($storeId, $orderId, $id, $productId, $productVariantId, $quantity, $price) {
 		$url = '/ecommerce/stores/' . $storeId . '/orders/' . $orderId . '/lines';
 		return $this->_master->call($url, [
 			'id'=> $id
@@ -49,7 +49,7 @@ class MailChimp_EcommerceOrdersLines extends MailChimp_Abstract
 	 * @throws MailChimp_Error
 	 * @throws MailChimp_HttpError
 	 */
-	public function getAll($storeId, $orderId, $fields = null, $excludeFields = null, $count = null, $offset = null)
+	function getAll($storeId, $orderId, $fields = null, $excludeFields = null, $count = null, $offset = null)
 	{
 		$_params = array();
 		if ($fields) {
@@ -85,7 +85,7 @@ class MailChimp_EcommerceOrdersLines extends MailChimp_Abstract
 	 * @throws MailChimp_Error
 	 * @throws MailChimp_HttpError
 	 */
-	public function get($storeId, $orderId, $lineId, $fields = null, $excludeFields = null)
+	function get($storeId, $orderId, $lineId, $fields = null, $excludeFields = null)
 	{
 		$_params = array();
 
@@ -114,7 +114,7 @@ class MailChimp_EcommerceOrdersLines extends MailChimp_Abstract
 	 * @throws MailChimp_Error
 	 * @throws MailChimp_HttpError
 	 */
-	public function modify(
+	function modify(
 		$storeId,
 		$orderId,
 		$lineId,
@@ -154,7 +154,7 @@ class MailChimp_EcommerceOrdersLines extends MailChimp_Abstract
 	 * @throws MailChimp_Error
 	 * @throws MailChimp_HttpError
 	 */
-	public function delete($storeId, $orderId, $lineId)
+	function delete($storeId, $orderId, $lineId)
 	{
 		$url = '/ecommerce/stores/' . $storeId . '/orders/' . $orderId . '/lines/' . $lineId;
 

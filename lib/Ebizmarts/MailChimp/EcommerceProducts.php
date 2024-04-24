@@ -34,7 +34,7 @@ class MailChimp_EcommerceProducts extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function add(
+    function add(
         $storeId,
         $id,
         $title,
@@ -94,7 +94,7 @@ class MailChimp_EcommerceProducts extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll($storeId, $fields = null, $excludeFields = null, $count = null, $offset = null)
+    function getAll($storeId, $fields = null, $excludeFields = null, $count = null, $offset = null)
     {
         $_params=array();
 
@@ -128,7 +128,7 @@ class MailChimp_EcommerceProducts extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($storeId, $productId, $fields = null, $excludeFields = null)
+    function get($storeId, $productId, $fields = null, $excludeFields = null)
     {
         $_params = array();
 
@@ -152,7 +152,7 @@ class MailChimp_EcommerceProducts extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function delete($storeId, $productId)
+    function delete($storeId, $productId)
     {
         $url = 'ecommerce/stores/' . $storeId . '/products/' . $productId;
 

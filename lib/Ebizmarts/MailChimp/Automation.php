@@ -17,7 +17,7 @@ class MailChimp_Automation extends MailChimp_Abstract
      */
     public $emails;
 
-    public function get(
+    function get(
         $id = null,
         $fields = null,
         $excludeFields = null,

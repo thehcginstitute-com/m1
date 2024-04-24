@@ -7,7 +7,7 @@ class MailChimp_BatchOperations extends MailChimp_Abstract
 	 * @throws MailChimp_Error
 	 * @throws MailChimp_HttpError
 	 */
-	public function add($operations)
+	function add($operations)
 	{
 		return $this->_master->call('batches', $operations, Ebizmarts_MailChimp::POST, false);
 	}
@@ -21,7 +21,7 @@ class MailChimp_BatchOperations extends MailChimp_Abstract
 	 * @throws MailChimp_Error
 	 * @throws MailChimp_HttpError
 	 */
-	public function status(string $id, $fields = null, $excludeFields = null)
+	function status(string $id, $fields = null, $excludeFields = null)
 	{
 		$_params = array();
 
@@ -48,7 +48,7 @@ class MailChimp_BatchOperations extends MailChimp_Abstract
 	 * @throws MailChimp_Error
 	 * @throws MailChimp_HttpError
 	 */
-	public function getAll($fields = null, $excludeFields = null, $count = null, $offset = null)
+	function getAll($fields = null, $excludeFields = null, $count = null, $offset = null)
 	{
 		$_params = array();
 

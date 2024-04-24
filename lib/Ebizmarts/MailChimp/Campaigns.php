@@ -26,7 +26,7 @@ class MailChimp_Campaigns extends MailChimp_Abstract
      */
     public $sendChecklist;
 
-    public function get(
+    function get(
         $id = null,
         $fields = null,
         $excludeFields = null,

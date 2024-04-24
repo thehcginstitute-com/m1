@@ -20,7 +20,7 @@ class MailChimp_ListsInterestCategory extends MailChimp_Abstract
     /**
      * @return MailChimp_ListInterestCategoryInterests
      */
-    public function getInterests()
+    function getInterests()
     {
         return $this->interests;
     }
@@ -36,7 +36,7 @@ class MailChimp_ListsInterestCategory extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function add($listId, $title, $type, $displayOrder = null)
+    function add($listId, $title, $type, $displayOrder = null)
     {
         $_params = array('title'=>$title,'type'=>$type);
 
@@ -61,7 +61,7 @@ class MailChimp_ListsInterestCategory extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll($listId, $fields = null, $excludeFields = null, $count = null, $offset = null, $type = null)
+    function getAll($listId, $fields = null, $excludeFields = null, $count = null, $offset = null, $type = null)
     {
         $_params = array();
         if ($fields) {
@@ -98,7 +98,7 @@ class MailChimp_ListsInterestCategory extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($listId, $interestCategoryId, $fields = null, $excludeFields = null)
+    function get($listId, $interestCategoryId, $fields = null, $excludeFields = null)
     {
         $_params = array();
         if ($fields) {
@@ -125,7 +125,7 @@ class MailChimp_ListsInterestCategory extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function modify($listId, $interestCategoryId, $title, $type, $displayOrder = null)
+    function modify($listId, $interestCategoryId, $title, $type, $displayOrder = null)
     {
         $_params = array('title'=>$title,'type'=>$type);
 
@@ -145,7 +145,7 @@ class MailChimp_ListsInterestCategory extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function delete($listId, $interestCategoryId)
+    function delete($listId, $interestCategoryId)
     {
         $url = 'lists/' . $listId . '/interest-categories/' . $interestCategoryId;
 

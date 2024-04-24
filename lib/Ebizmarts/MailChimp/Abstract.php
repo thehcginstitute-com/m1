@@ -22,7 +22,7 @@ class MailChimp_Abstract
      *
      * @param Ebizmarts_MailChimp $m
      */
-    public function __construct(Ebizmarts_MailChimp $m)
+    function __construct(Ebizmarts_MailChimp $m)
     {
         $this->_master = $m;
     }

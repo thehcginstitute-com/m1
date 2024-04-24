@@ -40,7 +40,7 @@ class MailChimp_ListsMembers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function add(
+    function add(
         $listId,
         $status,
         $emailAddress,
@@ -110,7 +110,7 @@ class MailChimp_ListsMembers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll(
+    function getAll(
         $listId,
         $fields = null,
         $excludeFields = null,
@@ -185,7 +185,7 @@ class MailChimp_ListsMembers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($listId, $subscriberHash, $fields = null, $excludeFields = null)
+    function get($listId, $subscriberHash, $fields = null, $excludeFields = null)
     {
         $_params = array();
 
@@ -216,7 +216,7 @@ class MailChimp_ListsMembers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function update(
+    function update(
         $listId,
         $subscriberHash,
         $emailType = null,
@@ -280,7 +280,7 @@ class MailChimp_ListsMembers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function addOrUpdate(
+    function addOrUpdate(
         $listId,
         $subscriberHash,
         $emailAddress,
@@ -335,7 +335,7 @@ class MailChimp_ListsMembers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function delete($listId, $subscriberHash)
+    function delete($listId, $subscriberHash)
     {
         return $this->_master->call(
             'lists/' . $listId . '/members/' . $subscriberHash, null, Ebizmarts_MailChimp::DELETE
@@ -350,7 +350,7 @@ class MailChimp_ListsMembers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getEmailByMcEid($listId, $mcEidCookie)
+    function getEmailByMcEid($listId, $mcEidCookie)
     {
         return $this->_master->call(
             'lists/' . $listId . '/members?unique_email_id=' . $mcEidCookie, null, Ebizmarts_MailChimp::GET

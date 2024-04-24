@@ -48,7 +48,7 @@ class MailChimp_HttpError extends MailChimp_Error
      */
     protected $_mailchimpParams;
 
-    public function __construct($url = "", $method = "", $params = "", $title = "", $details = "", $errors = null)
+    function __construct($url = "", $method = "", $params = "", $title = "", $details = "", $errors = null)
     {
         $titleComplete = $title . " for Api Call: " . $url;
         parent::__construct($titleComplete . " - " . $details);
@@ -61,7 +61,7 @@ class MailChimp_HttpError extends MailChimp_Error
         $this->_mailchimpParams = $params;
     }
 
-    public function getFriendlyMessage()
+    function getFriendlyMessage()
     {
         $friendlyMessage = $this->_mailchimpTitle . " for Api Call: ["
             . $this->_mailchimpUrl. "] using method ["
@@ -91,7 +91,7 @@ class MailChimp_HttpError extends MailChimp_Error
     /**
      * @return string
      */
-    public function getMailchimpTitleComplete()
+    function getMailchimpTitleComplete()
     {
         return $this->_mailchimpTitleComplete;
     }
@@ -99,7 +99,7 @@ class MailChimp_HttpError extends MailChimp_Error
     /**
      * @return string
      */
-    public function getMailchimpDetails()
+    function getMailchimpDetails()
     {
         return $this->_mailchimpDetails;
     }
@@ -107,7 +107,7 @@ class MailChimp_HttpError extends MailChimp_Error
     /**
      * @return array|null
      */
-    public function getMailchimpErrors()
+    function getMailchimpErrors()
     {
         return $this->_mailchimpErrors;
     }
@@ -115,7 +115,7 @@ class MailChimp_HttpError extends MailChimp_Error
     /**
      * @return string
      */
-    public function getMailchimpTitle()
+    function getMailchimpTitle()
     {
         return $this->_mailchimpTitle;
     }
@@ -123,7 +123,7 @@ class MailChimp_HttpError extends MailChimp_Error
     /**
      * @return string
      */
-    public function getMailchimpUrl()
+    function getMailchimpUrl()
     {
         return $this->_mailchimpUrl;
     }
@@ -131,7 +131,7 @@ class MailChimp_HttpError extends MailChimp_Error
     /**
      * @return string
      */
-    public function getMailchimpMethod()
+    function getMailchimpMethod()
     {
         return $this->_mailchimpMethod;
     }
@@ -139,7 +139,7 @@ class MailChimp_HttpError extends MailChimp_Error
     /**
      * @return string
      */
-    public function getMailchimpParams()
+    function getMailchimpParams()
     {
         return $this->_mailchimpParams;
     }

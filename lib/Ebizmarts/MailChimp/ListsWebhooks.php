@@ -20,7 +20,7 @@ class MailChimp_ListsWebhooks extends MailChimp_Abstract
      *                              whether they are enabled.
      * @return mixed
      */
-    public function add($listId, $url = null, $events = null, $sources = null)
+    function add($listId, $url = null, $events = null, $sources = null)
     {
         $_params = array();
 
@@ -48,7 +48,7 @@ class MailChimp_ListsWebhooks extends MailChimp_Abstract
      *                              whether they are enabled.
      * @return mixed
      */
-    public function edit($listId, $webhookId, $url = null, $events = null, $sources = null)
+    function edit($listId, $webhookId, $url = null, $events = null, $sources = null)
     {
         $_params = array();
 
@@ -75,7 +75,7 @@ class MailChimp_ListsWebhooks extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll($listId)
+    function getAll($listId)
     {
         return $this->_master->call('lists/' . $listId .'/webhooks', null, Ebizmarts_MailChimp::GET);
     }
@@ -87,7 +87,7 @@ class MailChimp_ListsWebhooks extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($listId, $webhookId)
+    function get($listId, $webhookId)
     {
         return $this->_master->call('lists/' . $listId . '/webhooks/' . $webhookId, null, Ebizmarts_MailChimp::GET);
     }
@@ -99,7 +99,7 @@ class MailChimp_ListsWebhooks extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function delete($listId, $webhookId)
+    function delete($listId, $webhookId)
     {
         return $this->_master->call('lists/' . $listId . '/webhooks/' . $webhookId, null, Ebizmarts_MailChimp::DELETE);
     }

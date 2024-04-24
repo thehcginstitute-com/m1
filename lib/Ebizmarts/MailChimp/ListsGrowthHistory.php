@@ -25,7 +25,7 @@ class MailChimp_ListsGrowthHistory extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll($listId, $fields = null, $excludeFields = null, $count = null, $offset = null)
+    function getAll($listId, $fields = null, $excludeFields = null, $count = null, $offset = null)
     {
         $_params = array();
 
@@ -59,7 +59,7 @@ class MailChimp_ListsGrowthHistory extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($listId, $month, $fields = null, $excludeFields = null)
+    function get($listId, $month, $fields = null, $excludeFields = null)
     {
         $_params = array();
         if ($fields) {

@@ -31,7 +31,7 @@ class MailChimp_EcommerceStore extends MailChimp_Abstract
      * @return mixed
      * @throws MailChimp_Error
      */
-    public function add(
+    function add(
         $id,
         $listId,
         $name,
@@ -98,7 +98,7 @@ class MailChimp_EcommerceStore extends MailChimp_Abstract
      * @return mixed
      * @throws MailChimp_Error
      */
-    public function get($id = null, $fields = null, $excludeFields = null, $count = null, $offset = null)
+    function get($id = null, $fields = null, $excludeFields = null, $count = null, $offset = null)
     {
         $_params = array();
         if ($fields) {
@@ -140,7 +140,7 @@ class MailChimp_EcommerceStore extends MailChimp_Abstract
      * @return mixed
      * @throws MailChimp_Error
      */
-    public function edit(
+    function edit(
         $storeId,
         $name = null,
         $platform = null,
@@ -208,7 +208,7 @@ class MailChimp_EcommerceStore extends MailChimp_Abstract
      * @return mixed
      * @throws MailChimp_Error
      */
-    public function delete($storeId)
+    function delete($storeId)
     {
         return $this->_master->call('ecommerce/stores/' . $storeId, null, Ebizmarts_MailChimp::DELETE);
     }

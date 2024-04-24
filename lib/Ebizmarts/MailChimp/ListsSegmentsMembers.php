@@ -26,7 +26,7 @@ class MailChimp_ListsSegmentsMembers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll($listId, $segmentId, $fields = null, $excludeFields = null, $count = null, $offset = null)
+    function getAll($listId, $segmentId, $fields = null, $excludeFields = null, $count = null, $offset = null)
     {
         $_params = array();
 
@@ -59,7 +59,7 @@ class MailChimp_ListsSegmentsMembers extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function add($listId, $segmentId, $emailAddress)
+    function add($listId, $segmentId, $emailAddress)
     {
         $_params = array('email_address'=>$emailAddress);
 
@@ -67,7 +67,7 @@ class MailChimp_ListsSegmentsMembers extends MailChimp_Abstract
             'lists/' . $listId . '/segments/' . $segmentId . '/members', $_params, Ebizmarts_MailChimp::POST
         );
     }
-    public function delete($listId, $segmentId, $subscriberHash)
+    function delete($listId, $segmentId, $subscriberHash)
     {
         $url = 'lists/' . $listId . '/segments/' . $segmentId . '/members/' . $subscriberHash;
 

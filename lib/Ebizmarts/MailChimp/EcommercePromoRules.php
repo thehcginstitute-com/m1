@@ -38,7 +38,7 @@ class MailChimp_EcommercePromoRules extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function add(
+    function add(
         $storeId,
         $promoRuleId,
         $description,
@@ -99,7 +99,7 @@ class MailChimp_EcommercePromoRules extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll($storeId, $fields = null, $excludeFields = null, $count = null, $offset = null)
+    function getAll($storeId, $fields = null, $excludeFields = null, $count = null, $offset = null)
     {
         $_params = array();
 
@@ -135,7 +135,7 @@ class MailChimp_EcommercePromoRules extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($storeId, $promoRuleId, $fields = null, $excludeFields = null)
+    function get($storeId, $promoRuleId, $fields = null, $excludeFields = null)
     {
         $_params = array();
         if ($fields) {
@@ -172,7 +172,7 @@ class MailChimp_EcommercePromoRules extends MailChimp_Abstract
      * @param null   $title             The title that will show up in promotion campaign. Restricted to UTF-8 characters with max length 100.
      * @return mixed
      */
-    public function modify(
+    function modify(
         $storeId,
         $promoRuleId,
         $description,
@@ -239,7 +239,7 @@ class MailChimp_EcommercePromoRules extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function delete($storeId, $promoRuleId)
+    function delete($storeId, $promoRuleId)
     {
         $url = 'ecommerce/stores/' . $storeId . '/promo-rules/' . $promoRuleId;
 

@@ -153,7 +153,7 @@ class Ebizmarts_MailChimp
     const DELETE = 'DELETE';
     const PUT = 'PUT';
 
-    public function __construct($apiKey = null, $opts = array(), $userAgent = null)
+    function __construct($apiKey = null, $opts = array(), $userAgent = null)
     {
         if (!$apiKey) {
             throw new MailChimp_Error('You must provide a MailChimp API key');
@@ -257,7 +257,7 @@ class Ebizmarts_MailChimp
     /**
      * @return MailChimp_Root
      */
-    public function getRoot()
+    function getRoot()
     {
         return $this->root;
     }
@@ -265,7 +265,7 @@ class Ebizmarts_MailChimp
     /**
      * @return MailChimp_Ecommerce
      */
-    public function getEcommerce()
+    function getEcommerce()
     {
         return $this->ecommerce;
     }
@@ -273,7 +273,7 @@ class Ebizmarts_MailChimp
     /**
      * @return MailChimp_BatchOperations
      */
-    public function getBatchOperation()
+    function getBatchOperation()
     {
         return $this->batchOperation;
     }
@@ -281,7 +281,7 @@ class Ebizmarts_MailChimp
     /**
      * @return MailChimp_Lists
      */
-    public function getLists()
+    function getLists()
     {
         return $this->lists;
     }
@@ -289,12 +289,12 @@ class Ebizmarts_MailChimp
     /**
      * @return MailChimp_Campaigns
      */
-    public function getCampaign()
+    function getCampaign()
     {
         return $this->campaigns;
     }
 
-    public function call($url, $params, $method = Ebizmarts_MailChimp::GET, $encodeJson = true)
+    function call($url, $params, $method = Ebizmarts_MailChimp::GET, $encodeJson = true)
     {
         $paramsOrig = $params;
 

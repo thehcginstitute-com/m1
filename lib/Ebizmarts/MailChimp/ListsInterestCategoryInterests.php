@@ -26,7 +26,7 @@ class MailChimp_ListInterestCategoryInterests extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll(
+    function getAll(
         $listId,
         $interestCategoryId,
         $fields = null,
@@ -68,7 +68,7 @@ class MailChimp_ListInterestCategoryInterests extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($listId, $interestCategoryId, $interestId, $excludeFields, $fields = null)
+    function get($listId, $interestCategoryId, $interestId, $excludeFields, $fields = null)
     {
         $_params = array();
         if ($fields) {
@@ -96,7 +96,7 @@ class MailChimp_ListInterestCategoryInterests extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function modify(
+    function modify(
         $listId,
         $interestCategoryId,
         $interestId,
@@ -133,7 +133,7 @@ class MailChimp_ListInterestCategoryInterests extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function delete($listId, $interestCategoryId, $interestId)
+    function delete($listId, $interestCategoryId, $interestId)
     {
         $url = 'lists/' . $listId . '/interest-categories/' . $interestCategoryId . '/interests/' . $interestId;
 

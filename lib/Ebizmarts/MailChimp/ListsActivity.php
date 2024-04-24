@@ -22,7 +22,7 @@ class MailChimp_ListsActivity extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($listId, $fields = null, $excludeFields = null)
+    function get($listId, $fields = null, $excludeFields = null)
     {
         $_params = array();
 

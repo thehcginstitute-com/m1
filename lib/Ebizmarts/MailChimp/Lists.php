@@ -53,7 +53,7 @@ class MailChimp_Lists extends MailChimp_Abstract
     /**
      * @return MailChimp_ListsWebhooks
      */
-    public function getWebhooks()
+    function getWebhooks()
     {
         return $this->webhooks;
     }
@@ -61,7 +61,7 @@ class MailChimp_Lists extends MailChimp_Abstract
     /**
      * @return MailChimp_ListsMergeFields
      */
-    public function getMergeFields()
+    function getMergeFields()
     {
         return $this->mergeFields;
     }
@@ -69,7 +69,7 @@ class MailChimp_Lists extends MailChimp_Abstract
     /**
      * @return MailChimp_ListsInterestCategory
      */
-    public function getInterestCategory()
+    function getInterestCategory()
     {
         return $this->interestCategory;
     }
@@ -77,7 +77,7 @@ class MailChimp_Lists extends MailChimp_Abstract
     /**
      * @return MailChimp_ListsMembers
      */
-    public function getMembers()
+    function getMembers()
     {
         return $this->members;
     }
@@ -106,7 +106,7 @@ class MailChimp_Lists extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function add(
+    function add(
         $name,
         $contact,
         $permissionRemanider,
@@ -126,7 +126,7 @@ class MailChimp_Lists extends MailChimp_Abstract
         return $this->_master->call('lists', $_params, Ebizmarts_MailChimp::POST);
     }
 
-    public function getLists(
+    function getLists(
         $id = null,
         $fields = null,
         $excludeFields = null,
@@ -204,7 +204,7 @@ class MailChimp_Lists extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function edit(
+    function edit(
         $listId,
         $name,
         $contact,
@@ -249,7 +249,7 @@ class MailChimp_Lists extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function delete($listId)
+    function delete($listId)
     {
         return $this->_master->call('lists/' . $listId, null, Ebizmarts_MailChimp::DELETE);
     }

@@ -20,7 +20,7 @@ class MailChimp_ListsMembersNotes extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function add($listId, $subscriberHash, $note = null)
+    function add($listId, $subscriberHash, $note = null)
     {
         $_params = array();
 
@@ -47,7 +47,7 @@ class MailChimp_ListsMembersNotes extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll(
+    function getAll(
         $listId,
         $subscriberHash,
         $fields = null,
@@ -90,7 +90,7 @@ class MailChimp_ListsMembersNotes extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($listId, $subscriberHash, $noteId, $fields = null, $excludeFields = null)
+    function get($listId, $subscriberHash, $noteId, $fields = null, $excludeFields = null)
     {
         $_params = array();
 
@@ -116,7 +116,7 @@ class MailChimp_ListsMembersNotes extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function modify($listId, $subscriberHash, $noteId, $note = null)
+    function modify($listId, $subscriberHash, $noteId, $note = null)
     {
         $_params = array();
 
@@ -128,7 +128,7 @@ class MailChimp_ListsMembersNotes extends MailChimp_Abstract
 
         return $this->_master->call($url, $_params, Ebizmarts_MailChimp::PATCH);
     }
-    public function delete($listId, $subscriberHash, $noteId)
+    function delete($listId, $subscriberHash, $noteId)
     {
         $url = 'lists/' . $listId . '/members/' . $subscriberHash . '/notes/' . $noteId;
 

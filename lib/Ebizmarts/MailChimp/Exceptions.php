@@ -19,13 +19,13 @@ class MailChimp_Error extends Exception
      */
     protected $_mailchimpMessage;
 
-    public function __construct($message = "")
+    function __construct($message = "")
     {
         $this->_mailchimpMessage = $message;
         parent::__construct($message);
     }
 
-    public function getFriendlyMessage()
+    function getFriendlyMessage()
     {
         $friendlyMessage = "Mailchimp error with the next message: " . $this->_mailchimpMessage;
 

@@ -27,7 +27,7 @@ class MailChimp_ListsMergeFields extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function getAll(
+    function getAll(
         $listId,
         $fields = null,
         $excludeFields = null,
@@ -72,7 +72,7 @@ class MailChimp_ListsMergeFields extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function get($listId, $mergeId)
+    function get($listId, $mergeId)
     {
         return $this->_master->call('lists/' . $listId . '/merge-fields/' . $mergeId, null, Ebizmarts_MailChimp::GET);
     }
@@ -92,7 +92,7 @@ class MailChimp_ListsMergeFields extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function add(
+    function add(
         $listId,
         $name,
         $type,
@@ -154,7 +154,7 @@ class MailChimp_ListsMergeFields extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function modify(
+    function modify(
         $listId,
         $mergeId,
         $displayOrder,
@@ -218,7 +218,7 @@ class MailChimp_ListsMergeFields extends MailChimp_Abstract
      * @throws MailChimp_Error
      * @throws MailChimp_HttpError
      */
-    public function delete($listId, $mergeId)
+    function delete($listId, $mergeId)
     {
         return $this->_master->call(
             'lists/' . $listId . '/merge-fields/' . $mergeId, null, Ebizmarts_MailChimp::DELETE
