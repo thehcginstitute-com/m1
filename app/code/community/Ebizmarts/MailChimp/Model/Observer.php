@@ -1097,8 +1097,12 @@ class Ebizmarts_MailChimp_Model_Observer
         }
     }
 
-    function addCustomerTab(Varien_Event_Observer $observer)
-    {
+	/**
+	 * 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by app/code/community/Ebizmarts/MailChimp/etc/config.xml
+	 */
+    function addCustomerTab(Varien_Event_Observer $observer):void {
         $block = $observer->getEvent()->getBlock();
         // add tab in customer edit page
         if ($block instanceof Mage_Adminhtml_Block_Customer_Edit_Tabs) {
@@ -1119,8 +1123,6 @@ class Ebizmarts_MailChimp_Model_Observer
                 );
             }
         }
-
-        return $observer;
     }
 
     protected function getRequest()
