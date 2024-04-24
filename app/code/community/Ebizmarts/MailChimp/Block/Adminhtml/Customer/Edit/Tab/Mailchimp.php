@@ -10,15 +10,10 @@ final class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp exte
 	protected $_form;
 	protected $_api;
 	protected $_customer;
-	/**
-	 * @var Ebizmarts_MailChimp_Helper_Data
-	 */
-	protected $_helper;
 
 	function __construct() {
 		parent::__construct();
 		$this->setTemplate('ebizmarts/mailchimp/customer/tab/mailchimp.phtml');
-		$this->_helper = $this->makeHelper();
 		$this->_customer = $this->getCustomerModel()->load((int)$this->getRequest()->getParam('id'));
 	}
 
@@ -41,36 +36,12 @@ final class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp exte
 	}
 
 	/**
-	 * 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp`":
-	 * https://github.com/thehcginstitute-com/m1/issues/579
-	 * @used-by app/design/adminhtml/default/default/template/ebizmarts/mailchimp/customer/tab/mailchimp.phtml
-	 */
-	function escapeQuote(string $s):string
-	{
-		return $this->getHelper()->mcEscapeQuote($s);
-	}
-
-	/**
-	 * @return Ebizmarts_MailChimp_Helper_Data
-	 */
-	function getHelper($type='')
-	{
-		return $this->_helper;
-	}
-
-	/**
 	 * @return Mage_Newsletter_Model_Subscriber
 	 */
 	protected function getSubscriberModel()
 	{
 		return Mage::getModel('newsletter/subscriber');
 	}
-
-	/**
-	 * @return Ebizmarts_MailChimp_Helper_Data
-	 */
-	protected function makeHelper() {return hcg_mc_h();}
 
 	/**
 	 * @return false|Mage_Core_Model_Abstract
