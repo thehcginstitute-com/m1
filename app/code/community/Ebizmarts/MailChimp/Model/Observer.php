@@ -1113,11 +1113,11 @@ class Ebizmarts_MailChimp_Model_Observer
                 || $this->getRequest()->getParam('type'))
             ) {
                 $block->addTab(
-                    'mailchimp', array(
+                    'mailchimp', [
                         'label' => $helper->__('MailChimp'),
-                        'url' => $block->getUrl('adminhtml/mailchimp/index', array('_current' => true)),
+                        'url' => $block->getUrl('adminhtml/mailchimp/index', ['_current' => true]),
                         'class' => 'ajax'
-                    )
+                    ]
                 );
             }
         }
