@@ -1100,7 +1100,8 @@ class Ebizmarts_MailChimp_Model_Observer
 	/**
 	 * 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 * @used-by app/code/community/Ebizmarts/MailChimp/etc/config.xml
+	 * @used-by Mage_Core_Model_App::_callObserverMethod()
+	 * @see app/code/community/Ebizmarts/MailChimp/etc/config.xml
 	 */
     function addCustomerTab(Varien_Event_Observer $observer):void {
         $block = $observer->getEvent()->getBlock();
