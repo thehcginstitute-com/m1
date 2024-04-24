@@ -1,15 +1,7 @@
 <?php
-/**
- * mc-magento Magento Component
- *
- * @category  Ebizmarts
- * @package   mc-magento
- * @author    Ebizmarts Team <info@ebizmarts.com>
- * @copyright Ebizmarts (http://ebizmarts.com)
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @date:     6/10/16 12:38 AM
- * @file:     Grid.php
- */
+# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Refactor `Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp`":
+# https://github.com/thehcginstitute-com/m1/issues/579
 class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Mage_Adminhtml_Block_Widget_Grid
 {
 
