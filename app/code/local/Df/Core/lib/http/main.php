@@ -1,6 +1,7 @@
 <?php
 /**
  * 2024-01-09 "Port `df_request()`": https://github.com/thehcginstitute-com/m1/issues/141
+ * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp::interests() (https://github.com/thehcginstitute-com/m1/issues/579)
  * @used-by app/code/community/INT/DisplayCvv/Block/Payment/Info/Ccsave.php
  * @param string|string[] $k [optional]
  * @param string|null|callable $d [optional]
