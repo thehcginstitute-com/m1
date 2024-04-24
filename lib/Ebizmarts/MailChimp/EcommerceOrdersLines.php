@@ -16,7 +16,7 @@ class MailChimp_EcommerceOrdersLines extends MailChimp_Abstract
 	 * @param $storeId              The store id.
 	 * @param $orderId              The id for the order in a store.
 	 * @param $id                   A unique identifier for the order line item.
-	 * @param $productId            A unique identifier for the product associated with the order line item.
+	 * @param $productId
 	 * @param $productVariantId
 	 * @param $quantity             The quantity of an order line item.
 	 * @param $price                The price of an order line item.
@@ -27,7 +27,12 @@ class MailChimp_EcommerceOrdersLines extends MailChimp_Abstract
 	function add($storeId, $orderId, $id, $productId, $productVariantId, $quantity, $price) {return
 		$this->_master->call('/ecommerce/stores/' . $storeId . '/orders/' . $orderId . '/lines', [
 			'id'=> $id
-			,'product_id'=> $productId
+			# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# 1) "`Ebizmarts_MailChimp`: «lines.item:0.product_id :
+			# Schema describes string, integer found instead»":
+			# https://github.com/thehcginstitute-com/m1/issues/584
+			# 2) https://mailchimp.com/developer/marketing/api
+			,'product_id'=> (string)$productId
 			# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			# 1) "`Ebizmarts_MailChimp`: «lines.item:0.product_variant_id :
 			# Schema describes string, integer found instead»":
