@@ -439,7 +439,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 					# Schema describes string, integer found instead»":
 					# https://github.com/thehcginstitute-com/m1/issues/584
 					# 2) https://mailchimp.com/developer/marketing/api
-					,'product_id' => $pid
+					,'product_id' => (string)$pid
 					# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 					# 1) "`Ebizmarts_MailChimp`: «lines.item:0.product_variant_id :
 					# Schema describes string, integer found instead»":
