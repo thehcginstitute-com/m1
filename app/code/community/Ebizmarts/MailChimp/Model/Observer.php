@@ -1187,26 +1187,7 @@ class Ebizmarts_MailChimp_Model_Observer {
 	 * "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
 	 * because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
 	 */
-	protected function getStoreViewIdByCustomerId(int $customerId):int {return 0;}
-
-	/**
-	 * @param Mage_Newsletter_Model_Subscriber $subscriber
-	 * @return int|null
-	 */
-	protected function getStoreViewIdBySubscriber($subscriber)
-	{
-		$storeViewId = $subscriber->getStoreId();
-
-		if ($storeViewId == 0) {
-			$storeViewIdByCustomerId = $this->getStoreViewIdByCustomerId($subscriber->getCustomerId());
-
-			if ($storeViewIdByCustomerId !== null) {
-				$storeViewId = $storeViewIdByCustomerId;
-			}
-		}
-
-		return $storeViewId;
-	}
+	protected function getStoreViewIdBySubscriber(Mage_Newsletter_Model_Subscriber $s):int {return $s->getStoreId();}
 
 	/**
 	 * @param string $subscriberSource
