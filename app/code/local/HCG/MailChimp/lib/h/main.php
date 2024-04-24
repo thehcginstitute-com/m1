@@ -61,6 +61,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Model_ClearBatches::__construct()
  * @used-by Ebizmarts_MailChimp_Model_ClearEcommerce::__construct()
  * @used-by Ebizmarts_MailChimp_Model_Cron::__construct()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::addCustomerTab()
  * @used-by Ebizmarts_MailChimp_Model_Observer::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Active::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Apikey::makeHelper()
