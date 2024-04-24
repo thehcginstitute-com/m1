@@ -14,263 +14,263 @@
 class Ebizmarts_MailChimp_Adminhtml_MailchimpController extends Mage_Adminhtml_Controller_Action
 {
 
-    protected $_helper;
-    protected $_webhookHelper;
+	protected $_helper;
+	protected $_webhookHelper;
 
-    function preDispatch()
-    {
-        $this->_helper = hcg_mc_h();
-        $this->_webhookHelper = Mage::helper('mailchimp/webhook');
-        return parent::preDispatch();
-    }
+	function preDispatch()
+	{
+		$this->_helper = hcg_mc_h();
+		$this->_webhookHelper = Mage::helper('mailchimp/webhook');
+		return parent::preDispatch();
+	}
 
-    function indexAction()
-    {
-        $customerId = (int)$this->getRequest()->getParam('id');
+	function indexAction()
+	{
+		$customerId = (int)$this->getRequest()->getParam('id');
 
-        if ($customerId) {
-            $block = $this->getLayout()
-                ->createBlock(
-                    'mailchimp/adminhtml_customer_edit_tab_mailchimp',
-                    'admin.customer.mailchimp'
-                )
-                ->setCustomerId($customerId)
-                ->setUseAjax(true);
-            $html = $this->getHtml($block);
-            $this->getResponse()->setBody($html);
-        }
-    }
+		if ($customerId) {
+			$block = $this->getLayout()
+				->createBlock(
+					'mailchimp/adminhtml_customer_edit_tab_mailchimp',
+					'admin.customer.mailchimp'
+				)
+				->setCustomerId($customerId)
+				->setUseAjax(true);
+			$html = $this->getHtml($block);
+			$this->getResponse()->setBody($html);
+		}
+	}
 
-    function resendSubscribersAction()
-    {
-        $helper = $this->getHelper();
-        $mageApp = $helper->getMageApp();
-        $request = $mageApp->getRequest();
-        $scope = $request->getParam('scope');
-        $scopeId = $request->getParam('scope_id');
-        $success = 1;
+	function resendSubscribersAction()
+	{
+		$helper = $this->getHelper();
+		$mageApp = $helper->getMageApp();
+		$request = $mageApp->getRequest();
+		$scope = $request->getParam('scope');
+		$scopeId = $request->getParam('scope_id');
+		$success = 1;
 
-        try {
-            $helper->resendSubscribers($scopeId, $scope);
-        } catch (Exception $e) {
-            $success = 0;
-        }
+		try {
+			$helper->resendSubscribers($scopeId, $scope);
+		} catch (Exception $e) {
+			$success = 0;
+		}
 
-        $mageApp->getResponse()->setBody($success);
-    }
+		$mageApp->getResponse()->setBody($success);
+	}
 
-    function createWebhookAction()
-    {
-        $helper = $this->getHelper();
-        $webhookHelper = $this->getWebhookHelper();
-        $mageApp = $helper->getMageApp();
-        $request = $mageApp->getRequest();
-        $scope = $request->getParam('scope');
-        $scopeId = $request->getParam('scope_id');
-        $listId = $helper->getGeneralList($scopeId);
+	function createWebhookAction()
+	{
+		$helper = $this->getHelper();
+		$webhookHelper = $this->getWebhookHelper();
+		$mageApp = $helper->getMageApp();
+		$request = $mageApp->getRequest();
+		$scope = $request->getParam('scope');
+		$scopeId = $request->getParam('scope_id');
+		$listId = $helper->getGeneralList($scopeId);
 
-        $message = $webhookHelper->createNewWebhook($scopeId, $scope, $listId);
+		$message = $webhookHelper->createNewWebhook($scopeId, $scope, $listId);
 
-        $mageApp->getResponse()->setBody($message);
-    }
+		$mageApp->getResponse()->setBody($message);
+	}
 
-    function getStoresAction()
-    {
-        $helper = $this->getHelper();
-        $apiKey = $this->getRequest()->getParam('api_key');
+	function getStoresAction()
+	{
+		$helper = $this->getHelper();
+		$apiKey = $this->getRequest()->getParam('api_key');
 
-        if ($helper->isApiKeyObscure($apiKey)) {
-            $apiKey = $this->getApiKeyValue();
-        }
+		if ($helper->isApiKeyObscure($apiKey)) {
+			$apiKey = $this->getApiKeyValue();
+		}
 
-        $data = $this->getSourceStoreOptions($apiKey);
-        $jsonData = json_encode($data);
+		$data = $this->getSourceStoreOptions($apiKey);
+		$jsonData = json_encode($data);
 
-        $response = $this->getResponse();
-        $response->setHeader('Content-type', 'application/json');
-        $response->setBody($jsonData);
-    }
+		$response = $this->getResponse();
+		$response->setHeader('Content-type', 'application/json');
+		$response->setBody($jsonData);
+	}
 
-    function getInfoAction()
-    {
-        $helper = $this->getHelper();
-        $request = $this->getRequest();
-        $mcStoreId = $request->getParam('mailchimp_store_id'); /** @var string $mcStoreId */
-        $apiKey = $request->getParam('api_key');
-        if ($helper->isApiKeyObscure($apiKey)) {
-            $apiKey = $this->getApiKeyValue();
-        }
-        $data = $this->getSourceAccountInfoOptions($apiKey, $mcStoreId);
-        foreach ($data as $key => $element) {
-            $liElement = '';
-            if ($element['value'] == Ebizmarts_MailChimp_Model_System_Config_Source_Account::SYNC_LABEL_KEY) {
-                $liElement = $helper->getSyncFlagDataHtml($element, $liElement);
-                $data[$key]['label'] = $liElement;
-            }
-        }
+	function getInfoAction()
+	{
+		$helper = $this->getHelper();
+		$request = $this->getRequest();
+		$mcStoreId = $request->getParam('mailchimp_store_id'); /** @var string $mcStoreId */
+		$apiKey = $request->getParam('api_key');
+		if ($helper->isApiKeyObscure($apiKey)) {
+			$apiKey = $this->getApiKeyValue();
+		}
+		$data = $this->getSourceAccountInfoOptions($apiKey, $mcStoreId);
+		foreach ($data as $key => $element) {
+			$liElement = '';
+			if ($element['value'] == Ebizmarts_MailChimp_Model_System_Config_Source_Account::SYNC_LABEL_KEY) {
+				$liElement = $helper->getSyncFlagDataHtml($element, $liElement);
+				$data[$key]['label'] = $liElement;
+			}
+		}
 
-        $jsonData = json_encode($data);
+		$jsonData = json_encode($data);
 
-        $response = $this->getResponse();
-        $response->setHeader('Content-type', 'application/json');
-        $response->setBody($jsonData);
-    }
+		$response = $this->getResponse();
+		$response->setHeader('Content-type', 'application/json');
+		$response->setBody($jsonData);
+	}
 
-    function getListAction()
-    {
-        $helper = $this->getHelper();
-        $request = $this->getRequest();
-        $apiKey = $request->getParam('api_key');
-        $mcStoreId = $request->getParam('mailchimp_store_id'); /** @var string $mcStoreId */
+	function getListAction()
+	{
+		$helper = $this->getHelper();
+		$request = $this->getRequest();
+		$apiKey = $request->getParam('api_key');
+		$mcStoreId = $request->getParam('mailchimp_store_id'); /** @var string $mcStoreId */
 
-        if ($helper->isApiKeyObscure($apiKey)) {
-            $apiKey = $this->getApiKeyValue();
-        }
+		if ($helper->isApiKeyObscure($apiKey)) {
+			$apiKey = $this->getApiKeyValue();
+		}
 
-        $data = $this->getSourceListOptions($apiKey, $mcStoreId);
-        $jsonData = json_encode($data);
+		$data = $this->getSourceListOptions($apiKey, $mcStoreId);
+		$jsonData = json_encode($data);
 
-        $response = $this->getResponse();
-        $response->setHeader('Content-type', 'application/json');
-        $response->setBody($jsonData);
-    }
+		$response = $this->getResponse();
+		$response->setHeader('Content-type', 'application/json');
+		$response->setBody($jsonData);
+	}
 
-    function getInterestAction()
-    {
-        $helper = $this->getHelper();
-        $request = $this->getRequest();
-        $apiKey = $request->getParam('api_key');
-        $listId = $request->getParam('list_id');
+	function getInterestAction()
+	{
+		$helper = $this->getHelper();
+		$request = $this->getRequest();
+		$apiKey = $request->getParam('api_key');
+		$listId = $request->getParam('list_id');
 
-        if ($helper->isApiKeyObscure($apiKey)) {
-            $apiKey = $this->getApiKeyValue();
-        }
+		if ($helper->isApiKeyObscure($apiKey)) {
+			$apiKey = $this->getApiKeyValue();
+		}
 
-        $data = $this->getSourceInterestOptions($apiKey, $listId);
-        $jsonData = json_encode($data);
+		$data = $this->getSourceInterestOptions($apiKey, $listId);
+		$jsonData = json_encode($data);
 
-        $response = $this->getResponse();
-        $response->setHeader('Content-type', 'application/json');
-        $response->setBody($jsonData);
-    }
+		$response = $this->getResponse();
+		$response->setHeader('Content-type', 'application/json');
+		$response->setBody($jsonData);
+	}
 
-    /**
-     * @param $mailchimpStoreId
-     * @return mixed
-     * @throws Mage_Core_Exception
-     */
-    protected function _getDateSync($mailchimpStoreId)
-    {
-        return $this->makeHelper()
-            ->getConfigValueForScope(
-                Ebizmarts_MailChimp_Model_Config::ECOMMERCE_SYNC_DATE . "_$mailchimpStoreId",
-                0,
-                'default'
-            );
-    }
+	/**
+	 * @param $mailchimpStoreId
+	 * @return mixed
+	 * @throws Mage_Core_Exception
+	 */
+	protected function _getDateSync($mailchimpStoreId)
+	{
+		return $this->makeHelper()
+			->getConfigValueForScope(
+				Ebizmarts_MailChimp_Model_Config::ECOMMERCE_SYNC_DATE . "_$mailchimpStoreId",
+				0,
+				'default'
+			);
+	}
 
-    /**
-     * @return mixed
-     */
-    protected function _isAllowed()
-    {
-        $acl = null;
-        switch ($this->getRequest()->getActionName()) {
-        case 'index':
-        case 'resendSubscribers':
-        case 'createWebhook':
-        case 'getStores':
-        case 'getList':
-        case 'getInfo':
-        case 'getInterest':
-            $acl = 'system/config/mailchimp';
-            break;
-        }
+	/**
+	 * @return mixed
+	 */
+	protected function _isAllowed()
+	{
+		$acl = null;
+		switch ($this->getRequest()->getActionName()) {
+		case 'index':
+		case 'resendSubscribers':
+		case 'createWebhook':
+		case 'getStores':
+		case 'getList':
+		case 'getInfo':
+		case 'getInterest':
+			$acl = 'system/config/mailchimp';
+			break;
+		}
 
-        return Mage::getSingleton('admin/session')->isAllowed($acl);
-    }
+		return Mage::getSingleton('admin/session')->isAllowed($acl);
+	}
 
-    /**
-     * @return Ebizmarts_MailChimp_Helper_Data
-     */
-    protected function getHelper($type='')
-    {
-        return $this->_helper;
-    }
+	/**
+	 * @return Ebizmarts_MailChimp_Helper_Data
+	 */
+	protected function getHelper($type='')
+	{
+		return $this->_helper;
+	}
 
-    /**
-     * @return Ebizmarts_MailChimp_Helper_Webhook
-     */
-    protected function getWebhookHelper()
-    {
-        return $this->_webhookHelper;
-    }
+	/**
+	 * @return Ebizmarts_MailChimp_Helper_Webhook
+	 */
+	protected function getWebhookHelper()
+	{
+		return $this->_webhookHelper;
+	}
 
-    /**
-     * @param $block
-     * @return mixed
-     */
-    protected function getHtml($block)
-    {
-        return $block->toHtml();
-    }
+	/**
+	 * @param $block
+	 * @return mixed
+	 */
+	protected function getHtml($block)
+	{
+		return $block->toHtml();
+	}
 
-    /**
-     * @param $apiKey
-     * @return Ebizmarts_MailChimp_Model_System_Config_Source_Store
-     */
-    protected function getSourceStoreOptions($apiKey)
-    {
-        return Mage::getModel(
-            'Ebizmarts_MailChimp_Model_System_Config_Source_Store',
-            array('api_key' => $apiKey)
-        )->toOptionArray();
-    }
+	/**
+	 * @param $apiKey
+	 * @return Ebizmarts_MailChimp_Model_System_Config_Source_Store
+	 */
+	protected function getSourceStoreOptions($apiKey)
+	{
+		return Mage::getModel(
+			'Ebizmarts_MailChimp_Model_System_Config_Source_Store',
+			array('api_key' => $apiKey)
+		)->toOptionArray();
+	}
 
-    /**
-     * @param $apiKey
-     * @return Ebizmarts_MailChimp_Model_System_Config_Source_Account
-     */
-    protected function getSourceAccountInfoOptions($apiKey, string $mcStoreId) {
-        return Mage::getModel(
-            'Ebizmarts_MailChimp_Model_System_Config_Source_Account',
-            array('api_key' => $apiKey, 'mailchimp_store_id' => $mcStoreId)
-        )->toOptionArray();
-    }
+	/**
+	 * @param $apiKey
+	 * @return Ebizmarts_MailChimp_Model_System_Config_Source_Account
+	 */
+	protected function getSourceAccountInfoOptions($apiKey, string $mcStoreId) {
+		return Mage::getModel(
+			'Ebizmarts_MailChimp_Model_System_Config_Source_Account',
+			array('api_key' => $apiKey, 'mailchimp_store_id' => $mcStoreId)
+		)->toOptionArray();
+	}
 
-    /**
-     * @param $apiKey
-     * @return Ebizmarts_MailChimp_Model_System_Config_Source_List
-     */
-    protected function getSourceListOptions($apiKey, string $mcStoreId)
-    {
-        return Mage::getModel(
-            'Ebizmarts_MailChimp_Model_System_Config_Source_List',
-            array('api_key' => $apiKey, 'mailchimp_store_id' => $mcStoreId)
-        )->toOptionArray();
-    }
+	/**
+	 * @param $apiKey
+	 * @return Ebizmarts_MailChimp_Model_System_Config_Source_List
+	 */
+	protected function getSourceListOptions($apiKey, string $mcStoreId)
+	{
+		return Mage::getModel(
+			'Ebizmarts_MailChimp_Model_System_Config_Source_List',
+			array('api_key' => $apiKey, 'mailchimp_store_id' => $mcStoreId)
+		)->toOptionArray();
+	}
 
-    /**
-     * @param $apiKey
-     * @param $listId
-     * @return Ebizmarts_MailChimp_Model_System_Config_Source_CustomerGroup
-     */
-    protected function getSourceInterestOptions($apiKey, $listId)
-    {
-        return Mage::getModel(
-            'Ebizmarts_MailChimp_Model_System_Config_Source_CustomerGroup',
-            array('api_key' => $apiKey, 'list_id' => $listId)
-        )->toOptionArray();
-    }
+	/**
+	 * @param $apiKey
+	 * @param $listId
+	 * @return Ebizmarts_MailChimp_Model_System_Config_Source_CustomerGroup
+	 */
+	protected function getSourceInterestOptions($apiKey, $listId)
+	{
+		return Mage::getModel(
+			'Ebizmarts_MailChimp_Model_System_Config_Source_CustomerGroup',
+			array('api_key' => $apiKey, 'list_id' => $listId)
+		)->toOptionArray();
+	}
 
-    /**
-     * @return string
-     */
-    protected function getApiKeyValue()
-    {
-        $helper = $this->getHelper();
-        $scopeArray = $helper->getCurrentScope();
+	/**
+	 * @return string
+	 */
+	protected function getApiKeyValue()
+	{
+		$helper = $this->getHelper();
+		$scopeArray = $helper->getCurrentScope();
 
-        return $helper->getApiKey($scopeArray['scope_id'], $scopeArray['scope']);
-    }
+		return $helper->getApiKey($scopeArray['scope_id'], $scopeArray['scope']);
+	}
 }
