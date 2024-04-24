@@ -2,6 +2,7 @@
 # 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp`":
 # https://github.com/thehcginstitute-com/m1/issues/579
+use Mage_Newsletter_Model_Subscriber as S;
 final class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Mage_Adminhtml_Block_Widget_Grid {
 	protected $_lists = array();
 	protected $_info = array();
@@ -25,7 +26,7 @@ final class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp exte
 	 */
 	function getInterest() {
 		$c = $this->getCustomer();
-		$s = $this->getSubscriberModel();
+		$s = new S; /** @var S $s */
 		$s->loadByEmail($c->getEmail());
 		# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# 1) "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
@@ -33,14 +34,6 @@ final class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp exte
 		# 2) "Refactor `Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp`":
 		# https://github.com/thehcginstitute-com/m1/issues/579
 		return hcg_mc_h()->getInterestGroups($c->getId(), $s->getSubscriberId(), (int)$this->_customer->getStoreId());
-	}
-
-	/**
-	 * @return Mage_Newsletter_Model_Subscriber
-	 */
-	protected function getSubscriberModel()
-	{
-		return Mage::getModel('newsletter/subscriber');
 	}
 
 	/**
