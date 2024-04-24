@@ -2,20 +2,12 @@
 # 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp`":
 # https://github.com/thehcginstitute-com/m1/issues/579
+use Mage_Customer_Model_Customer as C;
 use Mage_Newsletter_Model_Subscriber as S;
 final class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Mage_Adminhtml_Block_Widget_Grid {
-	protected $_lists = array();
-	protected $_info = array();
-	protected $_myLists = array();
-	protected $_generalList = array();
-	protected $_form;
-	protected $_api;
-	protected $_customer;
-
 	function __construct() {
 		parent::__construct();
 		$this->setTemplate('ebizmarts/mailchimp/customer/tab/mailchimp.phtml');
-		$this->_customer = $this->getCustomerModel()->load((int)$this->getRequest()->getParam('id'));
 	}
 
 	/**
@@ -25,7 +17,8 @@ final class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp exte
 	 * @used-by app/design/adminhtml/default/default/template/ebizmarts/mailchimp/customer/tab/mailchimp.phtml
 	 */
 	function getInterest() {
-		$c = $this->getCustomer();
+		$c = Mage::getModel('customer/customer'); /** @var C $c */
+		$c->load((int)df_request('id'));
 		$s = new S; /** @var S $s */
 		$s->loadByEmail($c->getEmail());
 		# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -33,22 +26,6 @@ final class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp exte
 		# because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
 		# 2) "Refactor `Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp`":
 		# https://github.com/thehcginstitute-com/m1/issues/579
-		return hcg_mc_h()->getInterestGroups($c->getId(), $s->getSubscriberId(), (int)$this->_customer->getStoreId());
-	}
-
-	/**
-	 * @return false|Mage_Core_Model_Abstract
-	 */
-	protected function getCustomerModel()
-	{
-		return Mage::getModel('customer/customer');
-	}
-
-	/**
-	 * @return Mage_Core_Model_Abstract
-	 */
-	protected function getCustomer()
-	{
-		return $this->_customer;
+		return hcg_mc_h()->getInterestGroups($c->getId(), $s->getSubscriberId(), (int)$c->getStoreId());
 	}
 }
