@@ -4,6 +4,7 @@
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp::interests() (https://github.com/thehcginstitute-com/m1/issues/579)
  * @used-by Ebizmarts_MailChimp_Model_Observer::addCustomerTab() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by app/code/community/INT/DisplayCvv/Block/Payment/Info/Ccsave.php
+ * @used-by HCG\MailChimp\Observer\AddTabToCustomer::p() (https://github.com/thehcginstitute-com/m1/issues/580)
  * @param string|string[] $k [optional]
  * @param string|null|callable $d [optional]
  * @return string|array(string => string)
@@ -38,6 +39,7 @@ function df_request_method() {return dfa($_SERVER, 'REQUEST_METHOD');}
  * @used-by df_request()
  * @used-by df_request_header()
  * @used-by df_rp_has()
+ * @used-by HCG\MailChimp\Observer\AddTabToCustomer::p() (https://github.com/thehcginstitute-com/m1/issues/580)
  * @used-by INT\DisplayCvv\B::_prepareSpecificInformation() (https://github.com/thehcginstitute-com/m1/issues/142)
  * @return Mage_Core_Controller_Request_Http
  */
