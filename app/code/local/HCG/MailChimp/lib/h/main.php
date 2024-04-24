@@ -8,7 +8,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimperrorsController::makeHelper()
  * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController::getMailchimpHelper()
  * @used-by Ebizmarts_MailChimp_Adminhtml_MergevarsController::makeHelper()
- * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp::makeHelper()
+ * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp::getInterest()
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Mailchimpstores_Edit::makeHelper()
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Mailchimpstores_Edit_Form::makeHelper()
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Notifications::makeHelper()
@@ -75,6 +75,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_Store::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_Userinfo::toOptionArray()
  * @used-by HCG\MailChimp\Batch\HandleErrorItem::p()
+ * @used-by app/design/adminhtml/default/default/template/ebizmarts/mailchimp/customer/tab/mailchimp.phtml
  * @used-by app/design/adminhtml/default/default/template/ebizmarts/mailchimp/system/config/fieldset/hint.phtml
  * @used-by app/design/adminhtml/default/default/template/ebizmarts/mandrill/system/config/fieldset/hint.phtml
  */
