@@ -3,7 +3,6 @@
 # "Refactor `Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp`":
 # https://github.com/thehcginstitute-com/m1/issues/579
 /** @var Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp $this */
-$interest = $this->getInterest();
 ?>
 <div class="fieldset-wrapper">
     <div class="fieldset-wrapper-title">
@@ -13,7 +12,7 @@ $interest = $this->getInterest();
     </div>
     <div class="admin__fieldset-wrapper-content">
         <fieldset class="admin__fieldset">
-            <?php foreach($interest as $i): ?>
+            <?php foreach($this->getInterest() as $i): ?>
                 <div class="admin__field">
                     <label class="admin__field-label"
                            for="<?= $this->escapeHtml($i['interest']['id']) ?>">
