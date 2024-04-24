@@ -43,15 +43,13 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 	 * @return int[] Customer IDs to sync
 	 * @throws Mage_Core_Exception
 	 */
-	protected function getCustomersToSync()
-	{
+	protected function getCustomersToSync() {
 		$collection = $this->getItemResourceModelCollection();
 		# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
 		# because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
 		$collection->addAttributeToFilter('store_id', $this->getBatchMagentoStoreId());
 		$this->joinMailchimpSyncData($collection);
-
 		return $collection->getAllIds($this->getBatchLimitFromConfig());
 	}
 
@@ -686,16 +684,10 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 //    /**
 //     * @param Mage_Customer_Model_Resource_Customer_Collection $collection
 //     */
-	protected function addFilters($collection, $isNewItem = "new")
-	{
-		$collection->addAttributeToFilter(
-			array(
-				array('attribute' => 'store_id', 'eq' => $this->getBatchMagentoStoreId()),
-				array('attribute' => 'mailchimp_store_view', 'eq' => $this->getBatchMagentoStoreId()),
-			),
-			null,
-			'left'
-		);
+	protected function addFilters($collection, $isNewItem = "new"):void {
+		# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
+		# because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
+		$collection->addAttributeToFilter('store_id', $this->getBatchMagentoStoreId());
 	}
-
 }
