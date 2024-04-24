@@ -1,9 +1,16 @@
 <?php
 use HCG_Core_StaticContent as SC;
-# 2024-01-06
-# "Port the modifications of `app/code/core/Mage/Page/Block/Html/Head.php` to Magento 1.9.4.5":
-# https://github.com/thehcginstitute-com/m1/issues/97
-final class HCG_Page_Block_Html_Head extends Mage_Page_Block_Html_Head {
+/**
+ * 2024-01-06
+ * "Port the modifications of `app/code/core/Mage/Page/Block/Html/Head.php` to Magento 1.9.4.5":
+ * https://github.com/thehcginstitute-com/m1/issues/97
+ * 2024-04-24
+ * "Add the `?v=<version>` suffix to the JavaScript files loaded in the Magento's backend
+ * from the `/js/` folder (similar to theme JavaScript and CSS files)":
+ * https://github.com/thehcginstitute-com/m1/issues/583
+ * @see Mage_Adminhtml_Block_Page_Head
+ */
+class HCG_Page_Block_Html_Head extends Mage_Page_Block_Html_Head {
 	/**
 	 * 2024-01-06 https://github.com/magento-russia/3/blob/2023-07-10/app/code/local/Df/Page/Block/Html/Head.php#L84-L104
 	 * @override
