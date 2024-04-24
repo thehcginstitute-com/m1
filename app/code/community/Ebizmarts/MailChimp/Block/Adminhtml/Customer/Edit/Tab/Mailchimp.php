@@ -36,11 +36,9 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Ma
 		# because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
 		# 2) "Refactor `Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp`":
 		# https://github.com/thehcginstitute-com/m1/issues/579
-		$interest = $this->_helper->getInterestGroups(
+		return $this->_helper->getInterestGroups(
 			$customerId, $subscriberId, $this->_customer ? (int)$this->_customer->getStoreId() : 0
 		);
-
-		return $interest;
 	}
 
 	/**
