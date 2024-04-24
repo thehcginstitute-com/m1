@@ -1,5 +1,5 @@
 <?php
-
+use Mage_Customer_Model_Customer as C;
 /**
  * MailChimp For Magento
  *
@@ -1107,13 +1107,12 @@ class Ebizmarts_MailChimp_Model_Observer
         $block = $observer->getEvent()->getBlock();
         // add tab in customer edit page
         if ($block instanceof Mage_Adminhtml_Block_Customer_Edit_Tabs) {
-            $customer = Mage::getModel('customer/customer')->load(df_request('id'));
+            $c = Mage::getModel('customer/customer')->load(df_request('id')); /** @var C $c */
 			# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			# "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
 			# because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
-            if (hcg_mc_h()->getLocalInterestCategories((int)$customer->getStoreId())
-                && ($this->getRequest()->getActionName() == 'edit'
-                || $this->getRequest()->getParam('type'))
+            if (hcg_mc_h()->getLocalInterestCategories((int)$c->getStoreId())
+                && ($this->getRequest()->getActionName() == 'edit' || df_request('type'))
             ) {
                 $block->addTab(
                     'mailchimp', [
