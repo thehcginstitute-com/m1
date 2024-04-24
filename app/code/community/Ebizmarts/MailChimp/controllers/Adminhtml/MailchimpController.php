@@ -24,6 +24,11 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpController extends Mage_Adminhtml_C
 		return parent::preDispatch();
 	}
 
+	/**
+	 * 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by Ebizmarts_MailChimp_Model_Observer::addCustomerTab()
+	 */
 	function indexAction()
 	{
 		$customerId = (int)$this->getRequest()->getParam('id');
