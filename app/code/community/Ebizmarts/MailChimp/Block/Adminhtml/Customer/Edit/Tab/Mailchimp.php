@@ -98,17 +98,9 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Ma
     }
 
     /**
-     * If customer was created in admin panel use the store view selected for MailChimp.
-     *
-     * @return mixed
+     * 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
+	 * because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
      */
-    protected function getStoreId()
-    {
-        $storeId = $this->_storeId;
-        if (!$storeId) {
-            $storeId = $this->_customer->getMailchimpStoreView();
-        }
-
-        return $storeId;
-    }
+    protected function getStoreId():int {return $this->_storeId;}
 }
