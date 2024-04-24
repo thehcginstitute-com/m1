@@ -2,7 +2,6 @@
 # 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Observer`": https://github.com/thehcginstitute-com/m1/issues/580
 use Mage_Adminhtml_Block_Customer_Edit_Tabs as CustomerTabs;
-use Mage_Core_Block_Abstract as B;
 use Mage_Customer_Model_Customer as C;
 class Ebizmarts_MailChimp_Model_Observer {
 

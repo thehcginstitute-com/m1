@@ -305,8 +305,10 @@ https://github.com/thehcginstitute-com/m1/issues/573 -->
                 <observers>
                     <mailchimp_add_customer_tab>
                         <type>model</type>
-                        <class>mailchimp/observer</class>
-                        <method>addCustomerTab</method>
+<!-- 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Refactor `Ebizmarts_MailChimp_Model_Observer`": https://github.com/thehcginstitute-com/m1/issues/580 -->
+                        <class>HCG\MailChimp\Observer\AddTabToCustomer</class>
+                        <method>p</method>
                     </mailchimp_add_customer_tab>
                 </observers>
             </core_block_abstract_prepare_layout_after>
