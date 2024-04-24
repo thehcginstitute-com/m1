@@ -24,16 +24,15 @@ class MailChimp_EcommerceOrdersLines extends MailChimp_Abstract
 	 * @throws MailChimp_Error
 	 * @throws MailChimp_HttpError
 	 */
-	function add($storeId, $orderId, $id, $productId, $productVariantId, $quantity, $price) {
-		$url = '/ecommerce/stores/' . $storeId . '/orders/' . $orderId . '/lines';
-		return $this->_master->call($url, [
+	function add($storeId, $orderId, $id, $productId, $productVariantId, $quantity, $price) {return
+		$this->_master->call('/ecommerce/stores/' . $storeId . '/orders/' . $orderId . '/lines', [
 			'id'=> $id
-			,'product_id'=>$productId
-			,'product_variant_id'=>$productVariantId
-			,'quantity'=>$quantity
-			,'price'=>$price
-		], Ebizmarts_MailChimp::POST);
-	}
+			,'product_id'=> $productId
+			,'product_variant_id'=> $productVariantId
+			,'quantity' => $quantity
+			,'price' => $price
+		], Ebizmarts_MailChimp::POST)
+	;}
 
 	/**
 	 * @param       $storeId        The store id.
