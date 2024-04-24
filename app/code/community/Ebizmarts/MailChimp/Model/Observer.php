@@ -332,10 +332,11 @@ class Ebizmarts_MailChimp_Model_Observer
 		# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# `$customer->getStoreId()` returns a string like «1».
         $storeId = (int)$customer->getStoreId(); /** @var int $storeId */
-        // if customer was created in admin, use store id selected for Mailchimp.
-        if (!$storeId) {
-            $storeId = $customer->getMailchimpStoreView();
-        }
+		# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# 1) "«Argument 1 passed to Ebizmarts_MailChimp_Helper_Data::isEcomSyncDataEnabled()
+		# must be of the type int, null given»": https://github.com/thehcginstitute-com/m1/issues/577
+		# 2) "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
+		# because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
         $helper = $this->makeHelper();
         $isEnabled = $helper->isSubscriptionEnabled($storeId);
         $params = $this->getRequest()->getParams();
