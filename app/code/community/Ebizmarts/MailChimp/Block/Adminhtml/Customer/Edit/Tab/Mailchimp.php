@@ -23,7 +23,10 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp extends Ma
 		$customerId = (int) $this->getRequest()->getParam('id');
 		if ($customerId) {
 			$this->_customer = $this->getCustomerModel()->load($customerId);
-			$this->_storeId = $this->getCustomer()->getStoreId();
+			# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Refactor `Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp`":
+			# https://github.com/thehcginstitute-com/m1/issues/579
+			$this->_storeId = (int)$this->getCustomer()->getStoreId();
 		}
 	}
 
