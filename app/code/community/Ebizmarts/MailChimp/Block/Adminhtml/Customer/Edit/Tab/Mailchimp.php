@@ -19,10 +19,7 @@ final class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp exte
 		parent::__construct();
 		$this->setTemplate('ebizmarts/mailchimp/customer/tab/mailchimp.phtml');
 		$this->_helper = $this->makeHelper();
-		$customerId = (int)$this->getRequest()->getParam('id');
-		if ($customerId) {
-			$this->_customer = $this->getCustomerModel()->load($customerId);
-		}
+		$this->_customer = $this->getCustomerModel()->load((int)$this->getRequest()->getParam('id'));
 	}
 
 	/**
