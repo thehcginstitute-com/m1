@@ -20,7 +20,7 @@ final class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp exte
 	 * https://github.com/thehcginstitute-com/m1/issues/579
 	 * @used-by app/design/adminhtml/default/default/template/ebizmarts/mailchimp/customer/tab/mailchimp.phtml
 	 */
-	function getInterest() {
+	function interests() {
 		$c = Mage::getModel('customer/customer'); /** @var C $c */
 		$c->load((int)df_request('id'));
 		$s = new S; /** @var S $s */

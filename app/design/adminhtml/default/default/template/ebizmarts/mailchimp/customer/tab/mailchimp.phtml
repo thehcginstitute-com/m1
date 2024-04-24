@@ -12,7 +12,7 @@
     </div>
     <div class="admin__fieldset-wrapper-content">
         <fieldset class="admin__fieldset">
-            <?php foreach($this->getInterest() as $i): ?>
+            <?php foreach($this->interests() as $i): ?>
                 <div class="admin__field">
                     <label class="admin__field-label"
                            for="<?= $this->escapeHtml($i['interest']['id']) ?>">
