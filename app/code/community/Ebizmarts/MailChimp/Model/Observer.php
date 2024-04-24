@@ -1,8 +1,6 @@
 <?php
 # 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Observer`": https://github.com/thehcginstitute-com/m1/issues/580
-use Mage_Adminhtml_Block_Customer_Edit_Tabs as CustomerTabs;
-use Mage_Customer_Model_Customer as C;
 class Ebizmarts_MailChimp_Model_Observer {
 
     const PRODUCT_IS_ENABLED = 1;
@@ -1086,33 +1084,6 @@ class Ebizmarts_MailChimp_Model_Observer {
                 null,
                 false
             );
-        }
-    }
-
-	/**
-	 * 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 * @used-by Mage_Core_Model_App::_callObserverMethod()
-	 * @see app/code/community/Ebizmarts/MailChimp/etc/config.xml
-	 */
-    function addCustomerTab(Varien_Event_Observer $o):void {
-        // add tab in customer edit page
-        if (($b = $o->getEvent()->getBlock()) instanceof CustomerTabs) { /** @var CustomerTabs $b */
-            $c = Mage::getModel('customer/customer')->load(df_request('id')); /** @var C $c */
-			# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
-			# because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
-            if (hcg_mc_h()->getLocalInterestCategories((int)$c->getStoreId())
-                && ($this->getRequest()->getActionName() == 'edit' || df_request('type'))
-            ) {
-                $b->addTab(
-                    'mailchimp', [
-                        'label' => 'MailChimp',
-                        'url' => $b->getUrl('adminhtml/mailchimp/index', ['_current' => true]),
-                        'class' => 'ajax'
-                    ]
-                );
-            }
         }
     }
 
