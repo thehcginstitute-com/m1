@@ -471,7 +471,10 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 		$this->logSyncError(
 			$jsonErrorMessage,
 			Ebizmarts_MailChimp_Model_Config::IS_CUSTOMER,
-			($customer->getStoreId() === 0) ? $customer->getMailchimpStoreView() : $customer->getStoreId(),
+			# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
+			# because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
+			$customer->getStoreId(),
 			'magento_side_error',
 			'Json Encode Failure',
 			0,
