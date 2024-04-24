@@ -131,27 +131,21 @@ class MailChimp_EcommerceOrdersLines extends MailChimp_Abstract
 		$productVariantId = null,
 		$quantity = null,
 		$price = null
-	){
-		$_params = array();
-
+	) {
+		$_params = [];
 		if ($productId) {
 			$_params['product_id'] = $productId;
 		}
-
 		if ($productVariantId) {
 			$_params['product_variant_id'] = $productVariantId;
 		}
-
 		if ($quantity) {
 			$_params['quantity'] = $quantity;
 		}
-
 		if ($price) {
 			$_params['price'] = $price;
 		}
-
 		$url = '/ecommerce/stores/' . $storeId . '/orders/' . $orderId . '/lines/' . $lineId;
-
 		return $this->_master->call($url, $_params, Ebizmarts_MailChimp::PATCH);
 	}
 
