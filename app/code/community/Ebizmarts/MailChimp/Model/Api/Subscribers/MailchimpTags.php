@@ -2,7 +2,7 @@
 # 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 # https://github.com/cabinetsbay/site/issues/589
-class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
+final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	const GENDER_VALUE_MALE = 1;
 	const GENDER_VALUE_FEMALE = 2;
 
