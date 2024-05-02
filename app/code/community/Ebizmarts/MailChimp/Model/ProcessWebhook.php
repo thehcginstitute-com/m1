@@ -116,21 +116,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	}
 
 	/**
-	 * Subscribe email to Magento list, store aware
-	 *
-	 * @param array $data
-	 * @return void
-	 */
-	private function _subscribe(array $data):void {
-		try {
-			$subscribe = true;
-			$this->getMailchimpTagsModel()->processMergeFields($data, $subscribe);
-		} catch (Exception $e) {
-			Mage::logException($e);
-		}
-	}
-
-	/**
 	 * Unsubscribe or delete email from Magento list, store aware
 	 *
 	 * @param array $data
@@ -182,6 +167,21 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @throws Mage_Core_Exception
 	 */
 	private function _profile(array $d):void {$this->getMailchimpTagsModel()->processMergeFields($d);}
+
+	/**
+	 * Subscribe email to Magento list, store aware
+	 *
+	 * @param array $data
+	 * @return void
+	 */
+	private function _subscribe(array $data):void {
+		try {
+			$subscribe = true;
+			$this->getMailchimpTagsModel()->processMergeFields($data, $subscribe);
+		} catch (Exception $e) {
+			Mage::logException($e);
+		}
+	}
 
 	/**
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
