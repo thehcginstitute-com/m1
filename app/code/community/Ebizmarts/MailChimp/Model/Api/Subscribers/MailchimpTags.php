@@ -339,14 +339,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
 
 	/**
-	 * @return mixed
-	 */
-	private function toArray()
-	{
-		return $this->_mailChimpTags;
-	}
-
-	/**
 	 * @param $mailchimpTags
 	 * @return bool
 	 */
