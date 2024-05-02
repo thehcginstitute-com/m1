@@ -409,15 +409,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @param $key
-	 */
-	private function addWebsiteId($key):void
-	{
-		$websiteId = $this->getWebSiteByStoreId($this->getStoreId());
-		$this->addMailChimpTag($key, $websiteId);
-	}
-
-	/**
 	 * @param $attributeCode
 	 * @param $key
 	 * @param $attribute
@@ -428,6 +419,31 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$mergeValue = $this->getUnknownMergeField($attributeCode, $customer, $attribute);
 		if ($mergeValue !== null) {
 			$this->addMailChimpTag($key, $mergeValue);
+		}
+	}
+
+	/**
+	 * @param $key
+	 */
+	private function addWebsiteId($key):void
+	{
+		$websiteId = $this->getWebSiteByStoreId($this->getStoreId());
+		$this->addMailChimpTag($key, $websiteId);
+	}
+
+	/**
+	 * @param $customAtt
+	 * @param $key
+	 * @param $customer
+	 */
+	private function addZipCodeFromCustomizedAttribute($customAtt, $key, $customer):void
+	{
+		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
+		if ($address) {
+			$zipCode = $address->getPostcode();
+			if ($zipCode) {
+				$this->addMailChimpTag($key, $zipCode);
+			}
 		}
 	}
 
@@ -835,22 +851,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $customAtt
-	 * @param $key
-	 * @param $customer
-	 */
-	private function addZipCodeFromCustomizedAttribute($customAtt, $key, $customer):void
-	{
-		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
-		if ($address) {
-			$zipCode = $address->getPostcode();
-			if ($zipCode) {
-				$this->addMailChimpTag($key, $zipCode);
-			}
-		}
-	}
 
 	/**
 	 * @param $customAtt
