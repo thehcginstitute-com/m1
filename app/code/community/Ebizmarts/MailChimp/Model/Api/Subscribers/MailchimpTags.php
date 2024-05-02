@@ -618,18 +618,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $mageMCHelper
+	 */
+	private function setMailChimpHelper():void {$this->_mcHelper = hcg_mc_h();}
+
+	/**
 	 * @param $mapFields
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $mageMCHelper
-	 */
-	private function setMailChimpHelper():void
-	{
-		$this->_mcHelper = hcg_mc_h();
-	}
 
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Date
