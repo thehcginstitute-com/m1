@@ -104,6 +104,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @return Ebizmarts_MailChimp_Helper_Webhook
+	 */
+	function getMailchimpWebhookHelper() {return $this->_mcWebhookHelper;}		
+
+	/**
 	 * @return int
 	 */
 	function getStoreId() {return $this->_storeId;}
@@ -637,14 +642,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @return Ebizmarts_MailChimp_Helper_Webhook
-	 */
-	function getMailchimpWebhookHelper()
-	{
-		return $this->_mcWebhookHelper;
-	}
 
 	/**
 	 * @param $mageMCWebhookHelper
