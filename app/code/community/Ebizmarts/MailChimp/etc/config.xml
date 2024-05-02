@@ -410,6 +410,7 @@ https://github.com/thehcginstitute-com/m1/issues/573 -->
             </abandonedcart>
         </mailchimp>
     </default>
+	<!--
     <crontab>
         <jobs>
             <mailchimp_bulksync_ecommerce_data>
@@ -468,4 +469,5 @@ https://github.com/thehcginstitute-com/m1/issues/573 -->
             </mailchimp_clear_batches>
         </jobs>
     </crontab>
+    -->
 </config>
