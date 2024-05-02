@@ -97,29 +97,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 	function getSubscriber():Sub {return $this->_subscriber;}
 
-	function setCustomer(C $customer):void {$this->_customer = $customer;}
-
-	function setLastOrder(O $lastOrder):void {$this->_lastOrder = $lastOrder;}
-
-	/**
-	 * @param $storeId
-	 */
-	function setStoreId($storeId):void {$this->_storeId = $storeId;}
-
-	function setSubscriber(Sub $subscriber):void {$this->_subscriber = $subscriber;}
-
-	/**
-	 * @return int
-	 */
-	private function _getCustomerId() {
-		if ($this->_subscriber === null) {
-			$customerId = $this->_customer->getId();
-		} else {
-			$customerId = $this->_subscriber->getCustomerId();
-		}
-		return $customerId;
-	}
-
 	/**
 	 * @param $data
 	 * @param bool $subscribe
@@ -182,6 +159,29 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				->setListId($listId)
 				->processGroupsData();
 		}
+	}
+
+	function setCustomer(C $customer):void {$this->_customer = $customer;}
+
+	function setLastOrder(O $lastOrder):void {$this->_lastOrder = $lastOrder;}
+
+	/**
+	 * @param $storeId
+	 */
+	function setStoreId($storeId):void {$this->_storeId = $storeId;}
+
+	function setSubscriber(Sub $subscriber):void {$this->_subscriber = $subscriber;}
+
+	/**
+	 * @return int
+	 */
+	private function _getCustomerId() {
+		if ($this->_subscriber === null) {
+			$customerId = $this->_customer->getId();
+		} else {
+			$customerId = $this->_subscriber->getCustomerId();
+		}
+		return $customerId;
 	}
 
 	/**
