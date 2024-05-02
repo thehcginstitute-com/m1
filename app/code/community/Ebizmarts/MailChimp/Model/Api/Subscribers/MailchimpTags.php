@@ -19,17 +19,14 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @return int
+	 */
+	function getStoreId() {return $this->_storeId;}
+
+	/**
 	 * @param $storeId
 	 */
 	function setStoreId($storeId):void {$this->_storeId = $storeId;}
-
-	/**
-	 * @return int
-	 */
-	function getStoreId()
-	{
-		return $this->_storeId;
-	}
 
 	/**
 	 * @param Mage_Newsletter_Model_Subscriber $subscriber
