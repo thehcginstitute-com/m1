@@ -397,6 +397,22 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $customer
 	 */
+	private function addStateFromCustomizedAttribute($customAtt, $key, $customer):void
+	{
+		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
+		if ($address) {
+			$state = $address->getRegion();
+			if ($state) {
+				$this->addMailChimpTag($key, $state);
+			}
+		}
+	}
+
+	/**
+	 * @param $customAtt
+	 * @param $key
+	 * @param $customer
+	 */
 	private function addTelephoneFromCustomizedAttribute($customAtt, $key, $customer):void
 	{
 		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
@@ -851,22 +867,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $customAtt
-	 * @param $key
-	 * @param $customer
-	 */
-	private function addStateFromCustomizedAttribute($customAtt, $key, $customer):void
-	{
-		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
-		if ($address) {
-			$state = $address->getRegion();
-			if ($state) {
-				$this->addMailChimpTag($key, $state);
-			}
-		}
-	}
 
 	/**
 	 * @param $key
