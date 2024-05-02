@@ -173,18 +173,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function setSubscriber(Sub $subscriber):void {$this->_subscriber = $subscriber;}
 
 	/**
-	 * @return int
-	 */
-	private function _getCustomerId() {
-		if ($this->_subscriber === null) {
-			$customerId = $this->_customer->getId();
-		} else {
-			$customerId = $this->_subscriber->getCustomerId();
-		}
-		return $customerId;
-	}
-
-	/**
 	 * @param $subscriber
 	 * @param $fname
 	 * @param $lname
@@ -225,6 +213,18 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		} catch (Exception $e) {
 			$helper->logError($e->getMessage());
 		}
+	}
+
+	/**
+	 * @return int
+	 */
+	private function _getCustomerId() {
+		if ($this->_subscriber === null) {
+			$customerId = $this->_customer->getId();
+		} else {
+			$customerId = $this->_subscriber->getCustomerId();
+		}
+		return $customerId;
 	}
 
 	/**
