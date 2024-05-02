@@ -8,20 +8,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
 	 * @used-by Aoe_Scheduler_Model_Observer::dispatch() (app/code/community/Ebizmarts/MailChimp/etc/config.xml)
 	 */
-	function deleteProcessed():void {
-		$helper = hcg_mc_h();
-		$resource = $helper->getCoreResource();
-		$connection = $resource->getConnection('core_write');
-		$tableName = $resource->getTableName('mailchimp/webhookrequest');
-		$where = array("fired_at < NOW() - INTERVAL 30 DAY AND processed = 1");
-		$connection->delete($tableName, $where);
-	}
-
-	/**
-	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
-	 * @used-by Aoe_Scheduler_Model_Observer::dispatch() (app/code/community/Ebizmarts/MailChimp/etc/config.xml)
-	 */
 	function processWebhookData():void {
 		$collection = Mage::getModel('mailchimp/webhookrequest')->getCollection();
 		$collection->addFieldToFilter('processed', array('eq' => 0));

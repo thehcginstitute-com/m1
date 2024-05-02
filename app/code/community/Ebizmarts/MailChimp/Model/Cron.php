@@ -13,6 +13,20 @@ class Ebizmarts_MailChimp_Model_Cron
 		$this->_mailChimpHelper = hcg_mc_h();
 	}
 
+	/**
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
+	 * @used-by Aoe_Scheduler_Model_Observer::dispatch() (app/code/community/Ebizmarts/MailChimp/etc/config.xml)
+	 */
+	function deleteProcessed():void {
+		$helper = hcg_mc_h();
+		$resource = $helper->getCoreResource();
+		$connection = $resource->getConnection('core_write');
+		$tableName = $resource->getTableName('mailchimp/webhookrequest');
+		$where = ["fired_at < NOW() - INTERVAL 30 DAY AND processed = 1"];
+		$connection->delete($tableName, $where);
+	}
+
 	function syncEcommerceBatchData() {\HCG\MailChimp\Batch\Commerce::p();}
 
 	/**
