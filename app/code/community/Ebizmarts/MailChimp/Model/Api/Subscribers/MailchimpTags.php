@@ -363,6 +363,23 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $customAtt
+	 * @param $customer
+	 * @return array
+	 */
+	private function getAddressForCustomizedAttributes($customAtt, $customer)
+	{
+		$lastOrder = $this->getLastOrderByEmail();
+		$address = $this->getAddressFromLastOrder($lastOrder);
+		if (!empty($address)) {
+			$addr = explode('_', $customAtt);
+			$address = $customer->getPrimaryAddress('default_' . $addr[0]);
+		}
+
+		return $address;
+	}
+
+	/**
 	 * @param $lastOrder
 	 * @return array
 	 */
@@ -467,23 +484,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $customAtt
-	 * @param $customer
-	 * @return array
-	 */
-	private function getAddressForCustomizedAttributes($customAtt, $customer)
-	{
-		$lastOrder = $this->getLastOrderByEmail();
-		$address = $this->getAddressFromLastOrder($lastOrder);
-		if (!empty($address)) {
-			$addr = explode('_', $customAtt);
-			$address = $customer->getPrimaryAddress('default_' . $addr[0]);
-		}
-
-		return $address;
-	}
 
 	/**
 	 * @param $customAtt
