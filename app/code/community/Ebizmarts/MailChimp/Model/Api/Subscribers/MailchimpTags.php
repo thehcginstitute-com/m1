@@ -893,7 +893,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $subscriber
 	 * @param $customer
 	 */
-	private function addLastName($key, $subscriber, $customer)
+	private function addLastName($key, $subscriber, $customer):void
 	{
 		$lastName = $this->getLastName($subscriber, $customer);
 
