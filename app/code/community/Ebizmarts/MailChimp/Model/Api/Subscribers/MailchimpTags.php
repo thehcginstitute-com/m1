@@ -905,7 +905,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $key
 	 */
-	private function addWebsiteId($key)
+	private function addWebsiteId($key):void
 	{
 		$websiteId = $this->getWebSiteByStoreId($this->getStoreId());
 		$this->addMailChimpTag($key, $websiteId);
