@@ -1,4 +1,5 @@
 <?php
+use Mage_Newsletter_Model_Subscriber as Sub;
 # 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 # https://github.com/cabinetsbay/site/issues/589
@@ -29,9 +30,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function setStoreId($storeId):void {$this->_storeId = $storeId;}
 
 	/**
-	 * @param Mage_Newsletter_Model_Subscriber $subscriber
 	 */
-	function setSubscriber($subscriber):void
+	function setSubscriber(Sub $subscriber):void
 	{
 		$this->_subscriber = $subscriber;
 	}
@@ -39,7 +39,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @return Mage_Newsletter_Model_Subscriber
 	 */
-	function getSubscriber()
+	function getSubscriber():Sub
 	{
 		return $this->_subscriber;
 	}
