@@ -375,6 +375,21 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function getEntityAttributeCollection() {return Mage::getResourceModel('eav/entity_attribute_collection');}
 
 	/**
+	 * @param $mergeVars
+	 * @param $key
+	 * @param $genderValue
+	 * @return string
+	 */
+	private function getGenderLabel($mergeVars, $key, $genderValue) {
+		if ($genderValue == self::GENDER_VALUE_MALE) {
+			$mergeVars[$key] = 'Male';
+		} elseif ($genderValue == self::GENDER_VALUE_FEMALE) {
+			$mergeVars[$key] = 'Female';
+		}
+		return $mergeVars[$key];
+	}
+
+	/**
 	 * @return Varien_Object
 	 */
 	private function getNewVarienObject() {return new Varien_Object;}
@@ -390,23 +405,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $mergeVars
-	 * @param $key
-	 * @param $genderValue
-	 * @return string
-	 */
-	private function getGenderLabel($mergeVars, $key, $genderValue)
-	{
-		if ($genderValue == self::GENDER_VALUE_MALE) {
-			$mergeVars[$key] = 'Male';
-		} elseif ($genderValue == self::GENDER_VALUE_FEMALE) {
-			$mergeVars[$key] = 'Female';
-		}
-
-		return $mergeVars[$key];
-	}
 
 	/**
 	 * @param $genderLabel
