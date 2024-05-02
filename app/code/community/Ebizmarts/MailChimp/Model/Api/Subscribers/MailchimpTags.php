@@ -300,6 +300,19 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $attributeCode
 	 * @param $key
+	 * @param $customer
+	 */
+	private function addGender($attributeCode, $key, $customer):void
+	{
+		if ($this->getCustomerGroupLabel($attributeCode, $customer)) {
+			$genderValue = $this->getCustomerGroupLabel($attributeCode, $customer);
+			$this->addMailChimpTag($key, $this->getGenderLabel($this->_mailChimpTags, $key, $genderValue));
+		}
+	}
+
+	/**
+	 * @param $attributeCode
+	 * @param $key
 	 * @param $attribute
 	 * @return |null
 	 */
@@ -701,19 +714,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $attributeCode
-	 * @param $key
-	 * @param $customer
-	 */
-	private function addGender($attributeCode, $key, $customer):void
-	{
-		if ($this->getCustomerGroupLabel($attributeCode, $customer)) {
-			$genderValue = $this->getCustomerGroupLabel($attributeCode, $customer);
-			$this->addMailChimpTag($key, $this->getGenderLabel($this->_mailChimpTags, $key, $genderValue));
-		}
-	}
 
 	/**
 	 * @param $attributeCode
