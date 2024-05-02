@@ -231,6 +231,8 @@ class Ebizmarts_MailChimp_Model_ProcessWebhook
 	}
 
 	/**
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
 	 * @used-by self::_profile()
 	 * @used-by self::_subscribe()
 	 */
