@@ -1064,7 +1064,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private $_subscriber;
 	/**
-	 * @var Mage_Customer_Model_Customer
+	 * @used-by self::getCustomer()
+	 * @used-by self::setCustomer()
+	 * @var C
 	 */
 	private $_customer;
 	/**
