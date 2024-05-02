@@ -55,6 +55,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 	function setCustomer(C $customer):void {$this->_customer = $customer;}
 
+	function setLastOrder(O $lastOrder):void {$this->_lastOrder = $lastOrder;}
+
 	/**
 	 * @param $storeId
 	 */
@@ -72,11 +74,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			$customerId = $this->_subscriber->getCustomerId();
 		}
 		return $customerId;
-	}
-	
-	function setLastOrder(O $lastOrder):void
-	{
-		$this->_lastOrder = $lastOrder;
 	}
 
 	/**
