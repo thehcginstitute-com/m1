@@ -284,6 +284,39 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $customAtt
+	 * @param $key
+	 * @return mixed | null
+	 */
+	private function customizedAttributes($customAtt, $key)
+	{
+		$eventValue = null;
+		$customer = $this->getCustomer();
+
+		if ($customAtt == 'billing_company' || $customAtt == 'shipping_company') {
+			$this->addCompany($customAtt, $customer, $key);
+		} elseif ($customAtt == 'billing_telephone' || $customAtt == 'shipping_telephone') {
+			$this->addTelephoneFromCustomizedAttribute($customAtt, $key, $customer);
+		} elseif ($customAtt == 'billing_country' || $customAtt == 'shipping_country') {
+			$this->addCountryFromCustomizedAttribute($customAtt, $key, $customer);
+		} elseif ($customAtt == 'billing_zipcode' || $customAtt == 'shipping_zipcode') {
+			$this->addZipCodeFromCustomizedAttribute($customAtt, $key, $customer);
+		} elseif ($customAtt == 'billing_state' || $customAtt == 'shipping_state') {
+			$this->addStateFromCustomizedAttribute($customAtt, $key, $customer);
+		} elseif ($customAtt == 'dop') {
+			$this->addDopFromCustomizedAttribute($key);
+		} elseif ($customAtt == 'store_code') {
+			$this->addStoreCodeFromCustomizedAttribute($key);
+		}
+
+		if ((string)$this->getMailChimpTagValue($key) != '') {
+			$eventValue = $this->getMailChimpTagValue($key);
+		}
+
+		return $eventValue;
+	}
+
+	/**
 	 * Allow possibility to add new vars in 'new_vars' array
 	 *
 	 * @param $newVars
@@ -484,39 +517,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $customAtt
-	 * @param $key
-	 * @return mixed | null
-	 */
-	private function customizedAttributes($customAtt, $key)
-	{
-		$eventValue = null;
-		$customer = $this->getCustomer();
-
-		if ($customAtt == 'billing_company' || $customAtt == 'shipping_company') {
-			$this->addCompany($customAtt, $customer, $key);
-		} elseif ($customAtt == 'billing_telephone' || $customAtt == 'shipping_telephone') {
-			$this->addTelephoneFromCustomizedAttribute($customAtt, $key, $customer);
-		} elseif ($customAtt == 'billing_country' || $customAtt == 'shipping_country') {
-			$this->addCountryFromCustomizedAttribute($customAtt, $key, $customer);
-		} elseif ($customAtt == 'billing_zipcode' || $customAtt == 'shipping_zipcode') {
-			$this->addZipCodeFromCustomizedAttribute($customAtt, $key, $customer);
-		} elseif ($customAtt == 'billing_state' || $customAtt == 'shipping_state') {
-			$this->addStateFromCustomizedAttribute($customAtt, $key, $customer);
-		} elseif ($customAtt == 'dop') {
-			$this->addDopFromCustomizedAttribute($key);
-		} elseif ($customAtt == 'store_code') {
-			$this->addStoreCodeFromCustomizedAttribute($key);
-		}
-
-		if ((string)$this->getMailChimpTagValue($key) != '') {
-			$eventValue = $this->getMailChimpTagValue($key);
-		}
-
-		return $eventValue;
-	}
 
 	/**
 	 * @param $attributeCode
