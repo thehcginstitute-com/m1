@@ -838,12 +838,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 	 * https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_setMailchimpTagsToCustomer()
 	 * @used-by self::buildMailChimpTags()
+	 * @used-by self::customerAttributes()
+	 * @used-by self::customizedAttributes()
+	 * @used-by self::dispatchMergeVarBefore()
 	 * @used-by self::processMergeFields()
-	 * @used-by self::STUB()
-	 * @used-by self::STUB()
-	 * @used-by self::STUB()
-	 * @used-by self::STUB()
 	 */
 	private function getCustomer():C {return $this->_customer;}
 
