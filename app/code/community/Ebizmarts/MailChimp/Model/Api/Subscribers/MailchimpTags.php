@@ -839,7 +839,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 	 * https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::buildMailChimpTags()
-	 * @used-by self::STUB()
+	 * @used-by self::processMergeFields()
 	 * @used-by self::STUB()
 	 * @used-by self::STUB()
 	 * @used-by self::STUB()
