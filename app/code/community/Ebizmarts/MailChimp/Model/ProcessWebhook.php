@@ -10,7 +10,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @used-by Aoe_Scheduler_Model_Observer::dispatch() (app/code/community/Ebizmarts/MailChimp/etc/config.xml)
 	 */
 	function __construct() {
-		$this->_dateHelper = Mage::helper('mailchimp/date');
 		$this->_tags = new Tags;
 		$this->_interestGroupHandle = Mage::getModel('mailchimp/api_subscribers_InterestGroupHandle');
 	}
@@ -200,17 +199,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 */
 	private function getMailchimpTagsModel():Tags {return $this->_tags;}
 
-	/**
-	 * @return Ebizmarts_MailChimp_Helper_Date|Mage_Core_Helper_Abstract
-	 */
-	private function getDateHelper()
-	{
-		return $this->_dateHelper;
-	}
-
 	const BATCH_LIMIT = 200;
-
-	private $_dateHelper;
 
 	/**
 	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
