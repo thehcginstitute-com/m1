@@ -283,6 +283,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $key
+	 */
+	private function addCreatedIn($key):void
+	{
+		$storeName = Mage::getModel('core/store')->load($this->getStoreId())->getName();
+		$this->addMailChimpTag($key, $storeName);
+	}
+
+	/**
 	 * @param $attributeCode
 	 * @param $key
 	 * @param $customer
@@ -767,15 +776,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $key
-	 */
-	private function addCreatedIn($key):void
-	{
-		$storeName = Mage::getModel('core/store')->load($this->getStoreId())->getName();
-		$this->addMailChimpTag($key, $storeName);
-	}
 
 	/**
 	 * @param $attributeCode
