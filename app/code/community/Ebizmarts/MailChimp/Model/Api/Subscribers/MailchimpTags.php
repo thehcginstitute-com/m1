@@ -98,6 +98,29 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function getSubscriber():Sub {return $this->_subscriber;}
 
 	/**
+	 * @param $attributeCode
+	 * @param $customer
+	 * @param $attribute
+	 * @return mixed
+	 */
+	private function getUnknownMergeField($attributeCode, $customer, $attribute)
+	{
+		$optionValue = null;
+
+		$attrValue = $this->getCustomerGroupLabel($attributeCode, $customer);
+		if ($attrValue !== null) {
+			if ($attribute['frontend_input'] == 'select' && $attrValue) {
+				$attr = $customer->getResource()->getAttribute($attributeCode);
+				$optionValue = $attr->getSource()->getOptionText($attrValue);
+			} elseif ($attrValue) {
+				$optionValue = $attrValue;
+			}
+		}
+
+		return $optionValue;
+	}
+
+	/**
 	 * @param $data
 	 * @param bool $subscribe
 	 * @throws Mage_Core_Exception
@@ -517,29 +540,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $attributeCode
-	 * @param $customer
-	 * @param $attribute
-	 * @return mixed
-	 */
-	private function getUnknownMergeField($attributeCode, $customer, $attribute)
-	{
-		$optionValue = null;
-
-		$attrValue = $this->getCustomerGroupLabel($attributeCode, $customer);
-		if ($attrValue !== null) {
-			if ($attribute['frontend_input'] == 'select' && $attrValue) {
-				$attr = $customer->getResource()->getAttribute($attributeCode);
-				$optionValue = $attr->getSource()->getOptionText($attrValue);
-			} elseif ($attrValue) {
-				$optionValue = $attrValue;
-			}
-		}
-
-		return $optionValue;
-	}
 
 	/**
 	 * @param $attributeCode
