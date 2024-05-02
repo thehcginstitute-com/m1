@@ -170,16 +170,18 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 		}
 	}
 
-	/**
-	 * @param array $data
-	 * @throws Mage_Core_Exception
-	 */
-	function _profile(array $data):void {$this->getMailchimpTagsModel()->processMergeFields($data);}
-
 	private function _getStoreId()
 	{
 		return Mage::app()->getStore()->getId();
 	}
+
+	/**
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
+	 * @used-by self::processWebhookData()
+	 * @throws Mage_Core_Exception
+	 */
+	private function _profile(array $d):void {$this->getMailchimpTagsModel()->processMergeFields($d);}
 
 	/**
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
