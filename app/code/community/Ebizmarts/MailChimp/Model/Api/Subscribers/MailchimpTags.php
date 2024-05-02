@@ -1015,7 +1015,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $subscriberEmail
 	 */
-	private function addDopFromCustomizedAttribute($key)
+	private function addDopFromCustomizedAttribute($key):void
 	{
 		$dop = $this->getLastDateOfPurchase();
 		if ($dop) {
