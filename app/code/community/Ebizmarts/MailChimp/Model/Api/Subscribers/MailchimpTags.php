@@ -183,7 +183,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param bool $subscribe
 	 * @throws Mage_Core_Exception
 	 */
-	function processMergeFields($data, $subscribe = false)
+	function processMergeFields($data, $subscribe = false):void
 	{
 		$helper = $this->getMailchimpHelper();
 		$email = $data['email'];
