@@ -63,9 +63,60 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	}
 
 	/**
+	 * Add "Cleaned Emails" notification to Adminnotification Inbox <cleaned>
+	 *
+	 * @param array $data
+	 * @return void
+	 */
+	private function _clean(array $data):void {
+		//Delete subscriber from Magento
+		$helper = hcg_mc_h();
+		$s = $helper->loadListSubscriber($data['list_id'], $data['email']);
+
+		if ($s && $s->getId()) {
+			try {
+				$s->delete();
+			} catch (Exception $e) {
+				Mage::logException($e);
+			}
+		}
+	}
+
+	/**
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
+	 * @used-by self::_profile()
+	 * @used-by self::_subscribe()
+	 */
+	private function getMailchimpTagsModel():Tags {return $this->_tags;}
+
+	/**
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
+	 * @used-by self::processWebhookData()
+	 * @throws Mage_Core_Exception
+	 */
+	private function _profile(array $d):void {$this->getMailchimpTagsModel()->processMergeFields($d);}
+
+	/**
 	 * @param $webhookRequest
 	 */
 	private function _saveProcessedWebhook($webhookRequest):void {$webhookRequest->setProcessed(1)->save();}
+
+	/**
+	 * Subscribe email to Magento list, store aware
+	 *
+	 * @param array $data
+	 * @return void
+	 */
+	private function _subscribe(array $data):void {
+		try {
+			$subscribe = true;
+			$this->getMailchimpTagsModel()->processMergeFields($data, $subscribe);
+		} catch (Exception $e) {
+			Mage::logException($e);
+		}
+	}
 
 	/**
 	 * Update customer email <upemail>
@@ -91,26 +142,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 				} else {
 					$helper->subscribeMember($newSubscriber);
 				}
-			}
-		}
-	}
-
-	/**
-	 * Add "Cleaned Emails" notification to Adminnotification Inbox <cleaned>
-	 *
-	 * @param array $data
-	 * @return void
-	 */
-	private function _clean(array $data):void {
-		//Delete subscriber from Magento
-		$helper = hcg_mc_h();
-		$s = $helper->loadListSubscriber($data['list_id'], $data['email']);
-
-		if ($s && $s->getId()) {
-			try {
-				$s->delete();
-			} catch (Exception $e) {
-				Mage::logException($e);
 			}
 		}
 	}
@@ -154,42 +185,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 			}
 		}
 	}
-
-	private function _getStoreId()
-	{
-		return Mage::app()->getStore()->getId();
-	}
-
-	/**
-	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
-	 * @used-by self::processWebhookData()
-	 * @throws Mage_Core_Exception
-	 */
-	private function _profile(array $d):void {$this->getMailchimpTagsModel()->processMergeFields($d);}
-
-	/**
-	 * Subscribe email to Magento list, store aware
-	 *
-	 * @param array $data
-	 * @return void
-	 */
-	private function _subscribe(array $data):void {
-		try {
-			$subscribe = true;
-			$this->getMailchimpTagsModel()->processMergeFields($data, $subscribe);
-		} catch (Exception $e) {
-			Mage::logException($e);
-		}
-	}
-
-	/**
-	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
-	 * @used-by self::_profile()
-	 * @used-by self::_subscribe()
-	 */
-	private function getMailchimpTagsModel():Tags {return $this->_tags;}
 
 	const BATCH_LIMIT = 200;
 
