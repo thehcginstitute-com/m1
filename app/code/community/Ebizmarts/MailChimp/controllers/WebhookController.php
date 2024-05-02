@@ -69,7 +69,8 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
 			//Validate "wkey" GET parameter
 			if ($myKey == $requestKey) {
 				if ($request->getPost('type')) {
-					Mage::getModel('mailchimp/processWebhook')->saveWebhookRequest($data);
+					$p = new Process; /** @var Process $p */
+					$p->saveWebhookRequest($data);
 				}
 				# 2024-03-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				# "«Webhook successfully created» should not be logged as an error my MailChimp":

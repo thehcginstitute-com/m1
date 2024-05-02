@@ -4,6 +4,11 @@
 # https://github.com/cabinetsbay/site/issues/590
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as Tags;
 final class Ebizmarts_MailChimp_Model_ProcessWebhook {
+	/**
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
+	 * @used-by Ebizmarts_MailChimp_WebhookController::indexAction()
+	 */
 	function __construct() {
 		$this->_helper = hcg_mc_h();
 		$this->_dateHelper = Mage::helper('mailchimp/date');
