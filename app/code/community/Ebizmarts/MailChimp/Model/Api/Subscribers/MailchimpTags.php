@@ -421,6 +421,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $key
+	 */
+	private function addStoreCodeFromCustomizedAttribute($key):void
+	{
+		$storeCode = Mage::getModel('core/store')->load($this->getStoreId())->getCode();
+		$this->addMailChimpTag($key, $storeCode);
+	}
+
+	/**
 	 * @param $customAtt
 	 * @param $key
 	 * @param $customer
@@ -879,15 +888,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $key
-	 */
-	private function addStoreCodeFromCustomizedAttribute($key):void
-	{
-		$storeCode = Mage::getModel('core/store')->load($this->getStoreId())->getCode();
-		$this->addMailChimpTag($key, $storeCode);
-	}
 
 	/**
 	 * Iterates the mailchimp tags.
