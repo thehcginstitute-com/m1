@@ -547,6 +547,25 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * return the latest order for this subscriber
+	 * @return Mage_Sales_Model_Order
+	 */
+	private function getLastOrderByEmail() {
+		$lastOrder = $this->getLastOrder();
+		if ($lastOrder === null) {
+			$helper = $this->getMailchimpHelper();
+			$orderCollection = $helper->getOrderCollectionByCustomerEmail($this->getSubscriber()->getSubscriberEmail())
+				->setOrder('created_at', 'DESC')
+				->setPageSize(1);
+			if ($this->isNotEmptyOrderCollection($orderCollection)) {
+				$lastOrder = $orderCollection->getLastItem();
+				$this->setLastOrder($lastOrder);
+			}
+		}
+		return $lastOrder;
+	}
+
+	/**
 	 * @return Varien_Object
 	 */
 	private function getNewVarienObject() {return new Varien_Object;}
@@ -598,30 +617,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * return the latest order for this subscriber
-	 *
-	 * @return Mage_Sales_Model_Order
-	 */
-	private function getLastOrderByEmail()
-	{
-		$lastOrder = $this->getLastOrder();
-
-		if ($lastOrder === null) {
-			$helper = $this->getMailchimpHelper();
-			$orderCollection = $helper->getOrderCollectionByCustomerEmail($this->getSubscriber()->getSubscriberEmail())
-				->setOrder('created_at', 'DESC')
-				->setPageSize(1);
-
-			if ($this->isNotEmptyOrderCollection($orderCollection)) {
-				$lastOrder = $orderCollection->getLastItem();
-				$this->setLastOrder($lastOrder);
-			}
-		}
-
-		return $lastOrder;
-	}
 
 	/**
 	 * @param $orderCollection
