@@ -1,4 +1,5 @@
 <?php
+use Mage_Customer_Model_Customer as C;
 use Mage_Newsletter_Model_Subscriber as Sub;
 # 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
@@ -19,6 +20,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$this->_interestGroupHandle = Mage::getModel('mailchimp/api_subscribers_InterestGroupHandle');
 	}
 
+	function getCustomer():C {return $this->_customer;}
+
 	/**
 	 * @return int
 	 */
@@ -26,29 +29,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 	function getSubscriber():Sub {return $this->_subscriber;}
 
+	function setCustomer(C $customer):void {$this->_customer = $customer;}
+
 	/**
 	 * @param $storeId
 	 */
 	function setStoreId($storeId):void {$this->_storeId = $storeId;}
 
 	function setSubscriber(Sub $subscriber):void {$this->_subscriber = $subscriber;}
-
-	/**
-	 * @param Mage_Customer_Model_Customer $customer
-	 */
-	function setCustomer($customer):void
-	{
-		$this->_customer = $customer;
-	}
-
-	/**
-	 * @return Mage_Customer_Model_Customer
-	 */
-	function getCustomer()
-	{
-		return $this->_customer;
-	}
-
+	
 	/**
 	 * @return int
 	 */
