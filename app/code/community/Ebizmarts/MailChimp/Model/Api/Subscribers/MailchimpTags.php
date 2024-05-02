@@ -540,9 +540,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::STUB()
 	 * @used-by self::STUB()
 	 * @used-by self::STUB()
-	 * @param $value
+	 * @param $v
 	 */
-	private function addMailChimpTag(string $key, $value):void {$this->_mailChimpTags[$key] = $value;}
+	private function addMailChimpTag(string $k, $v):void {$this->_mailChimpTags[$k] = $v;}
 
 	/**
 	 * @param $customAtt
