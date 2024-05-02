@@ -177,7 +177,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		}
 	}
 
-	function setCustomer(C $customer):void {$this->_customer = $customer;}
+	/**
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
+	 * https://github.com/cabinetsbay/site/issues/589
+	 */
+	function setCustomer(C $v):void {$this->_customer = $v;}
 
 	function setLastOrder(O $lastOrder):void {$this->_lastOrder = $lastOrder;}
 
