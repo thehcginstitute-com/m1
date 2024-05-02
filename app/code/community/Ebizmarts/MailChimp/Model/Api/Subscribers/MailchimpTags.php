@@ -925,7 +925,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $customer
 	 */
-	private function addDob($attributeCode, $key, $customer)
+	private function addDob($attributeCode, $key, $customer):void
 	{
 		if ($this->getCustomerGroupLabel($attributeCode, $customer)) {
 			$this->addMailChimpTag($key, $this->getDateOfBirth($attributeCode, $customer));
