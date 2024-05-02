@@ -267,6 +267,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 	/**
 	 * @param $attrId
+	 * @return string
+	 */
+	private function _getAttrbuteCode($attrId) {
+		$attributeCode = Mage::getModel('eav/entity_attribute')->load($attrId)->getAttributeCode();
+		return $attributeCode;
+	}
+	
+	/**
+	 * @param $attrId
 	 * @return bool
 	 */
 	private function _isAddress($attrId) {
@@ -950,17 +959,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $attrId
-	 * @return string
-	 */
-	private function _getAttrbuteCode($attrId)
-	{
-		$attributeCode = Mage::getModel('eav/entity_attribute')->load($attrId)->getAttributeCode();
-
-		return $attributeCode;
-	}
 
 	/**
 	 * @param $attrCode
