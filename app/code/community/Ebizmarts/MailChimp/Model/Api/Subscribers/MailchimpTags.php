@@ -744,7 +744,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $mageMCHelper
 	 */
-	private function setMailChimpHelper()
+	private function setMailChimpHelper():void
 	{
 		$this->_mcHelper = hcg_mc_h();
 	}
@@ -760,7 +760,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $mageMCDateHelper
 	 */
-	private function setMailChimpDateHelper()
+	private function setMailChimpDateHelper():void
 	{
 		$this->_mcDateHelper = Mage::helper('mailchimp/date');
 	}
@@ -776,7 +776,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $mageMCWebhookHelper
 	 */
-	private function setMailChimpWebhookHelper()
+	private function setMailChimpWebhookHelper():void
 	{
 		$this->_mcWebhookHelper = Mage::helper('mailchimp/webhook');
 	}
@@ -795,7 +795,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $customAtt
 	 * @param $key
 	 */
-	private function buildCustomerAttributes($attrSetId, $customAtt, $key)
+	private function buildCustomerAttributes($attrSetId, $customAtt, $key):void
 	{
 		$eventValue = null;
 		foreach ($attrSetId as $attribute) {
