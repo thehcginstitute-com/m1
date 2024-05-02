@@ -22,6 +22,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 	function getCustomer():C {return $this->_customer;}
 
+	function getMailChimpTags():array {return $this->_mailChimpTags;}
+
 	/**
 	 * @return int
 	 */
@@ -37,28 +39,20 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function setStoreId($storeId):void {$this->_storeId = $storeId;}
 
 	function setSubscriber(Sub $subscriber):void {$this->_subscriber = $subscriber;}
-	
+
 	/**
 	 * @return int
 	 */
-	private function _getCustomerId()
-	{
+	private function _getCustomerId() {
 		if ($this->_subscriber === null) {
 			$customerId = $this->_customer->getId();
 		} else {
 			$customerId = $this->_subscriber->getCustomerId();
 		}
-
 		return $customerId;
 	}
 
-	/**
-	 * @return array
-	 */
-	function getMailChimpTags()
-	{
-		return $this->_mailChimpTags;
-	}
+
 
 	/**
 	 * @param $key
