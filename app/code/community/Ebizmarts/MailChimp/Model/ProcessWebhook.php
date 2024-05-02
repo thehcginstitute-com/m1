@@ -17,6 +17,15 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 		$this->_interestGroupHandle = Mage::getModel('mailchimp/api_subscribers_InterestGroupHandle');
 	}
 
+	function deleteProcessed():void {
+		$helper = $this->getHelper();
+		$resource = $helper->getCoreResource();
+		$connection = $resource->getConnection('core_write');
+		$tableName = $resource->getTableName('mailchimp/webhookrequest');
+		$where = array("fired_at < NOW() - INTERVAL 30 DAY AND processed = 1");
+		$connection->delete($tableName, $where);
+	}
+
 	/**
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
@@ -166,15 +175,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @throws Mage_Core_Exception
 	 */
 	function _profile(array $data):void {$this->getMailchimpTagsModel()->processMergeFields($data);}
-
-	function deleteProcessed():void {
-		$helper = $this->getHelper();
-		$resource = $helper->getCoreResource();
-		$connection = $resource->getConnection('core_write');
-		$tableName = $resource->getTableName('mailchimp/webhookrequest');
-		$where = array("fired_at < NOW() - INTERVAL 30 DAY AND processed = 1");
-		$connection->delete($tableName, $where);
-	}
 
 	private function _getStoreId()
 	{
