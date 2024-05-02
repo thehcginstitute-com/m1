@@ -70,8 +70,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		}
 	}
 
-	function getCustomer():C {return $this->_customer;}
-
 	function getLastOrder():O {return $this->_lastOrder;}
 
 	/**
@@ -835,6 +833,13 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		}
 		return $addressData;
 	}
+
+	/**
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
+	 * https://github.com/cabinetsbay/site/issues/589
+	 */
+	private function getCustomer():C {return $this->_customer;}
 
 	/**
 	 * @param $attributeCode
