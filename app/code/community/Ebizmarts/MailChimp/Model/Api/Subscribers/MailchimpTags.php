@@ -313,6 +313,22 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $attributeCode
 	 * @param $key
+	 * @param $customer
+	 */
+	private function addGroupId($attributeCode, $key, $customer):void
+	{
+		if ($this->getCustomerGroupLabel($attributeCode, $customer)) {
+			$groupId = (int)$this->getCustomerGroupLabel($attributeCode, $customer);
+			$customerGroup = Mage::helper('customer')->getGroups()->toOptionHash();
+			$this->addMailChimpTag($key, $customerGroup[$groupId]);
+		} else {
+			$this->addMailChimpTag($key, 'NOT LOGGED IN');
+		}
+	}
+
+	/**
+	 * @param $attributeCode
+	 * @param $key
 	 * @param $attribute
 	 * @return |null
 	 */
@@ -714,22 +730,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $attributeCode
-	 * @param $key
-	 * @param $customer
-	 */
-	private function addGroupId($attributeCode, $key, $customer):void
-	{
-		if ($this->getCustomerGroupLabel($attributeCode, $customer)) {
-			$groupId = (int)$this->getCustomerGroupLabel($attributeCode, $customer);
-			$customerGroup = Mage::helper('customer')->getGroups()->toOptionHash();
-			$this->addMailChimpTag($key, $customerGroup[$groupId]);
-		} else {
-			$this->addMailChimpTag($key, 'NOT LOGGED IN');
-		}
-	}
 
 	/**
 	 * @param $key
