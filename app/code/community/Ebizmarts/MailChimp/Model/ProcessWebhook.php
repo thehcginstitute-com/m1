@@ -2,7 +2,6 @@
 # 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`":
 # https://github.com/cabinetsbay/site/issues/590
-use Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle as InterestGroupHandle;
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as Tags;
 final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	/**
@@ -12,7 +11,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 */
 	function __construct() {
 		$this->_tags = new Tags;
-		$this->_interestGroupHandle = new InterestGroupHandle;
 	}
 
 	/**
@@ -185,14 +183,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	}
 
 	/**
-	 * @return false|Mage_Core_Model_Abstract
-	 */
-	private function getInterestGroupHandleModel()
-	{
-		return $this->_interestGroupHandle;
-	}
-
-	/**
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
 	 * @used-by self::_profile()
@@ -201,11 +191,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	private function getMailchimpTagsModel():Tags {return $this->_tags;}
 
 	const BATCH_LIMIT = 200;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
-	 */
-	private $_interestGroupHandle;
 
 	/**
 	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
