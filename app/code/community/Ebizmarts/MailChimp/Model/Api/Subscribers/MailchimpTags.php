@@ -30,6 +30,20 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
 
 	/**
+	 * @return mixed|null
+	 */
+	function getMailChimpTagValue(string $key)
+	{
+		$mailchimpTagValue = null;
+
+		if (isset($this->_mailChimpTags[$key])) {
+			$mailchimpTagValue = $this->_mailChimpTags[$key];
+		}
+
+		return $mailchimpTagValue;
+	}
+
+	/**
 	 * @return int
 	 */
 	function getStoreId() {return $this->_storeId;}
@@ -56,26 +70,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		}
 		return $customerId;
 	}
-
-
-
-
-
-	/**
-	 * @param $key
-	 * @return mixed|null
-	 */
-	function getMailChimpTagValue($key)
-	{
-		$mailchimpTagValue = null;
-
-		if (isset($this->_mailChimpTags[$key])) {
-			$mailchimpTagValue = $this->_mailChimpTags[$key];
-		}
-
-		return $mailchimpTagValue;
-	}
-
+	
 	/**
 	 * @return Mage_Sales_Model_Order
 	 */
