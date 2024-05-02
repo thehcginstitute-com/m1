@@ -18,8 +18,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 		$this->_interestGroupHandle = Mage::getModel('mailchimp/api_subscribers_InterestGroupHandle');
 	}
 
-	function saveWebhookRequest(array $data)
-	{
+	function saveWebhookRequest(array $data) {
 		Mage::getModel('mailchimp/webhookrequest')
 			->setType($data['type'])
 			->setFiredAt($data['fired_at'])
