@@ -337,6 +337,18 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 	/**
 	 * @param $key
+	 * @param $subscriberEmail
+	 */
+	private function addDopFromCustomizedAttribute($key):void
+	{
+		$dop = $this->getLastDateOfPurchase();
+		if ($dop) {
+			$this->addMailChimpTag($key, $dop);
+		}
+	}
+
+	/**
+	 * @param $key
 	 * @param $subscriber
 	 * @param $customer
 	 */
@@ -867,18 +879,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $key
-	 * @param $subscriberEmail
-	 */
-	private function addDopFromCustomizedAttribute($key):void
-	{
-		$dop = $this->getLastDateOfPurchase();
-		if ($dop) {
-			$this->addMailChimpTag($key, $dop);
-		}
-	}
 
 	/**
 	 * @param $key
