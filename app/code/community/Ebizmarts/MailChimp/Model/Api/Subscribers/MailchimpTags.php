@@ -1026,7 +1026,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $key
 	 */
-	private function addStoreCodeFromCustomizedAttribute($key)
+	private function addStoreCodeFromCustomizedAttribute($key):void
 	{
 		$storeCode = Mage::getModel('core/store')->load($this->getStoreId())->getCode();
 		$this->addMailChimpTag($key, $storeCode);
