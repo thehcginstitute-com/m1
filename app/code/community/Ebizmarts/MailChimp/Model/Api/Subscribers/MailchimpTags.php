@@ -284,6 +284,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @return Object
+	 */
+	private function getEntityAttributeCollection() {return Mage::getResourceModel('eav/entity_attribute_collection');}
+
+	/**
 	 * @return Varien_Object
 	 */
 	private function getNewVarienObject()
@@ -297,10 +302,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
 
-	/**
-	 * @return Object
-	 */
-	private function getEntityAttributeCollection() {return Mage::getResourceModel('eav/entity_attribute_collection');}
+
 
 	/**
 	 * Add possibility to change value on certain merge tag
