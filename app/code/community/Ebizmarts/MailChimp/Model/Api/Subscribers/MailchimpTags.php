@@ -688,7 +688,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @return mixed
 	 */
-	private function addCompany($customAtt, $customer, $key)
+	private function addCompany($customAtt, $customer, $key):void
 	{
 		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
 		if ($address) {
