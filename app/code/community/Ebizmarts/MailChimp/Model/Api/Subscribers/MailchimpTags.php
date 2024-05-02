@@ -288,6 +288,22 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $data
+	 * @return string
+	 */
+	private function _getFName($data) {
+		$attrId = $this->_getAttrbuteId('firstname');
+		$magentoTag = '';
+		foreach ($this->_mailChimpTags as $tag) {
+			if ($tag['magento'] == $attrId) {
+				$magentoTag = $tag['mailchimp'];
+				break;
+			}
+		}
+		return $data['merges'][$magentoTag];
+	}
+
+	/**
 	 * @param $attrId
 	 * @return bool
 	 */
@@ -972,25 +988,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $data
-	 * @return string
-	 */
-	private function _getFName($data)
-	{
-		$attrId = $this->_getAttrbuteId('firstname');
-		$magentoTag = '';
-
-		foreach ($this->_mailChimpTags as $tag) {
-			if ($tag['magento'] == $attrId) {
-				$magentoTag = $tag['mailchimp'];
-				break;
-			}
-		}
-
-		return $data['merges'][$magentoTag];
-	}
 
 	/**
 	 * @param $data
