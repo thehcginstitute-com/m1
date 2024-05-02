@@ -250,7 +250,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $listId
 	 * @throws Exception
 	 */
-	private function _addSubscriberData($subscriber, $fname, $lname, $email, $listId)
+	private function _addSubscriberData($subscriber, $fname, $lname, $email, $listId):void
 	{
 		$helper = $this->getMailchimpHelper();
 		$webhookHelper = $this->getMailchimpWebhookHelper();
@@ -324,7 +324,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $attribute
 	 */
-	private function _addTags($attributeCode, $subscriber, $customer, $key, $attribute)
+	private function _addTags($attributeCode, $subscriber, $customer, $key, $attribute):void
 	{
 		if ($attributeCode == 'default_billing' || $attributeCode == 'default_shipping') {
 			$this->addDefaultShipping($attributeCode, $key, $customer);
