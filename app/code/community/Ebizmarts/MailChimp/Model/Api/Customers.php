@@ -1,15 +1,8 @@
 <?php
-
-/**
- * mailchimp-lib Magento Component
- *
- * @category  Ebizmarts
- * @package   mailchimp-lib
- * @author    Ebizmarts Team <info@ebizmarts.com>
- * @copyright Ebizmarts (http://ebizmarts.com)
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */
-
+# 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
+# https://github.com/cabinetsbay/site/issues/589
+use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as Tags;
 class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 {
 	const BATCH_LIMIT = 100;
@@ -171,7 +164,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 	 */
 	protected function _buildMailchimpTags($subscriber, $storeId)
 	{
-		$mailChimpTags = Mage::getModel('mailchimp/api_subscribers_MailchimpTags');
+		$mailChimpTags = new Tags;
 		$mailChimpTags->setStoreId($storeId);
 		$mailChimpTags->setSubscriber($subscriber);
 		$mailChimpTags->setCustomer(
