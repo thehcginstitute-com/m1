@@ -283,6 +283,23 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $customAtt
+	 * @param $key
+	 * @param $customer
+	 */
+	private function addCountryFromCustomizedAttribute($customAtt, $key, $customer):void
+	{
+		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
+		if ($address) {
+			$countryCode = $address->getCountry();
+			if ($countryCode) {
+				$countryName = Mage::getModel('directory/country')->loadByCode($countryCode)->getName();
+				$this->addMailChimpTag($key, $countryName);
+			}
+		}
+	}
+
+	/**
 	 * @param $key
 	 */
 	private function addCreatedIn($key):void
@@ -818,23 +835,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $customAtt
-	 * @param $key
-	 * @param $customer
-	 */
-	private function addCountryFromCustomizedAttribute($customAtt, $key, $customer):void
-	{
-		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
-		if ($address) {
-			$countryCode = $address->getCountry();
-			if ($countryCode) {
-				$countryName = Mage::getModel('directory/country')->loadByCode($countryCode)->getName();
-				$this->addMailChimpTag($key, $countryName);
-			}
-		}
-	}
 
 	/**
 	 * @param $customAtt
