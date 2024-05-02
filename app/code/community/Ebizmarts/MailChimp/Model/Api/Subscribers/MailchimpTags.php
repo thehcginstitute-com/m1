@@ -339,20 +339,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
 
 	/**
-	 * @param $mailchimpTags
-	 * @return bool
-	 */
-	private function mergeMailchimpTags($mailchimpTags)
-	{
-		if (is_array($mailchimpTags)) {
-			$this->_mailChimpTags = array_merge($this->_mailChimpTags, $mailchimpTags);
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	/**
 	 * @param $storeId
 	 * @return mixed
 	 */
@@ -577,7 +563,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		return $optionValue;
 	}
 
-
 	/**
 	 * @param $attributeCode
 	 * @param $customer
@@ -607,6 +592,19 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		}
 
 		return $lastDateOfPurchase;
+	}
+
+	/**
+	 * @param $mailchimpTags
+	 * @return bool
+	 */
+	private function mergeMailchimpTags($mailchimpTags) {
+		if (is_array($mailchimpTags)) {
+			$this->_mailChimpTags = array_merge($this->_mailChimpTags, $mailchimpTags);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
