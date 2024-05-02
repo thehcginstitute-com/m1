@@ -66,7 +66,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_clean()
  * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_unsubscribe()
  * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_updateEmail()
- * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::processWebhookData()
+ * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::p()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Active::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Apikey::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Ecommerce::makeHelper()

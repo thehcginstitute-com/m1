@@ -437,7 +437,7 @@ https://github.com/thehcginstitute-com/m1/issues/573 -->
                     <cron_expr>*/5 * * * *</cron_expr>
                 </schedule>
                 <run>
-                    <model>Ebizmarts_MailChimp_Model_ProcessWebhook::processWebhookData</model>
+                    <model>Ebizmarts_MailChimp_Model_ProcessWebhook::p</model>
                 </run>
                 <groups>ebizmarts_mailchimp</groups>
             </mailchimp_process_webhook_data>
