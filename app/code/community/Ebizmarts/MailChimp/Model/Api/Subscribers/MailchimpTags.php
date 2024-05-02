@@ -216,6 +216,38 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $attributeCode
+	 * @param $subscriber
+	 * @param $customer
+	 * @param $key
+	 * @param $attribute
+	 */
+	private function _addTags($attributeCode, $subscriber, $customer, $key, $attribute):void
+	{
+		if ($attributeCode == 'default_billing' || $attributeCode == 'default_shipping') {
+			$this->addDefaultShipping($attributeCode, $key, $customer);
+		} elseif ($attributeCode == 'gender') {
+			$this->addGender($attributeCode, $key, $customer);
+		} elseif ($attributeCode == 'group_id') {
+			$this->addGroupId($attributeCode, $key, $customer);
+		} elseif ($attributeCode == 'firstname') {
+			$this->addFirstName($key, $subscriber, $customer);
+		} elseif ($attributeCode == 'lastname') {
+			$this->addLastName($key, $subscriber, $customer);
+		} elseif ($attributeCode == 'store_id') {
+			$this->addMailChimpTag($key, $this->getStoreId());
+		} elseif ($attributeCode == 'website_id') {
+			$this->addWebsiteId($key);
+		} elseif ($attributeCode == 'created_in') {
+			$this->addCreatedIn($key);
+		} elseif ($attributeCode == 'dob') {
+			$this->addDob($attributeCode, $key, $customer);
+		} else {
+			$this->addUnknownMergeField($attributeCode, $key, $attribute, $customer);
+		}
+	}
+
+	/**
 	 * @return int
 	 */
 	private function _getCustomerId() {
@@ -257,38 +289,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function getNewVarienObject()
 	{
 		return new Varien_Object;
-	}
-
-	/**
-	 * @param $attributeCode
-	 * @param $subscriber
-	 * @param $customer
-	 * @param $key
-	 * @param $attribute
-	 */
-	private function _addTags($attributeCode, $subscriber, $customer, $key, $attribute):void
-	{
-		if ($attributeCode == 'default_billing' || $attributeCode == 'default_shipping') {
-			$this->addDefaultShipping($attributeCode, $key, $customer);
-		} elseif ($attributeCode == 'gender') {
-			$this->addGender($attributeCode, $key, $customer);
-		} elseif ($attributeCode == 'group_id') {
-			$this->addGroupId($attributeCode, $key, $customer);
-		} elseif ($attributeCode == 'firstname') {
-			$this->addFirstName($key, $subscriber, $customer);
-		} elseif ($attributeCode == 'lastname') {
-			$this->addLastName($key, $subscriber, $customer);
-		} elseif ($attributeCode == 'store_id') {
-			$this->addMailChimpTag($key, $this->getStoreId());
-		} elseif ($attributeCode == 'website_id') {
-			$this->addWebsiteId($key);
-		} elseif ($attributeCode == 'created_in') {
-			$this->addCreatedIn($key);
-		} elseif ($attributeCode == 'dob') {
-			$this->addDob($attributeCode, $key, $customer);
-		} else {
-			$this->addUnknownMergeField($attributeCode, $key, $attribute, $customer);
-		}
 	}
 
 	/**
