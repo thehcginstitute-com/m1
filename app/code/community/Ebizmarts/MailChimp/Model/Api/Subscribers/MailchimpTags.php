@@ -266,6 +266,21 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $attrId
+	 * @return bool
+	 */
+	private function _isAddress($attrId) {
+		if (is_numeric($attrId)) {
+			// Gets the magento attr_code.
+			$attributeCode = $this->_getAttrbuteCode($attrId);
+			if ($attributeCode == 'default_billing' || $attributeCode == 'default_shipping') {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * Sets the mailchimp tag value for tue customer.
 	 * @param $key
 	 * @param $value
@@ -935,24 +950,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $attrId
-	 * @return bool
-	 */
-	private function _isAddress($attrId)
-	{
-		if (is_numeric($attrId)) {
-			// Gets the magento attr_code.
-			$attributeCode = $this->_getAttrbuteCode($attrId);
-
-			if ($attributeCode == 'default_billing' || $attributeCode == 'default_shipping') {
-				return true;
-			}
-		}
-
-		return false;
-	}
 
 	/**
 	 * @param $attrId
