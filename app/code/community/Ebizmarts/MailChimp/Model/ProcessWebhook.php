@@ -3,13 +3,10 @@
 # "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`":
 # https://github.com/cabinetsbay/site/issues/590
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as Tags;
-final class Ebizmarts_MailChimp_Model_ProcessWebhook
-{
-	function __construct()
-	{
+final class Ebizmarts_MailChimp_Model_ProcessWebhook {
+	function __construct() {
 		$this->_helper = hcg_mc_h();
 		$this->_dateHelper = Mage::helper('mailchimp/date');
-
 		$this->_tags = new Tags;
 		$this->_interestGroupHandle = Mage::getModel('mailchimp/api_subscribers_InterestGroupHandle');
 	}
