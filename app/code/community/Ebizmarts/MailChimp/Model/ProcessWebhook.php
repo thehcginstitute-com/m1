@@ -56,10 +56,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	/**
 	 * @param $webhookRequest
 	 */
-	private function _saveProcessedWebhook($webhookRequest):void
-	{
-		$webhookRequest->setProcessed(1)->save();
-	}
+	private function _saveProcessedWebhook($webhookRequest):void {$webhookRequest->setProcessed(1)->save();}
 
 	/**
 	 * Update customer email <upemail>
@@ -67,8 +64,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @param array $data
 	 * @return void
 	 */
-	private function _updateEmail(array $data):void
-	{
+	private function _updateEmail(array $data):void {
 		$helper = $this->getHelper();
 		$listId = $data['list_id'];
 		$old = $data['old_email'];
@@ -96,8 +92,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @param array $data
 	 * @return void
 	 */
-	private function _clean(array $data):void
-	{
+	private function _clean(array $data):void {
 		//Delete subscriber from Magento
 		$helper = $this->getHelper();
 		$s = $helper->loadListSubscriber($data['list_id'], $data['email']);
@@ -117,8 +112,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @param array $data
 	 * @return void
 	 */
-	private function _subscribe(array $data):void
-	{
+	private function _subscribe(array $data):void {
 		try {
 			$subscribe = true;
 			$this->getMailchimpTagsModel()->processMergeFields($data, $subscribe);
@@ -133,8 +127,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @param array $data
 	 * @return void
 	 */
-	private function _unsubscribe(array $data):void
-	{
+	private function _unsubscribe(array $data):void {
 		$helper = $this->getHelper();
 		$subscriber = $helper->loadListSubscriber($data['list_id'], $data['email']);
 		if ($subscriber && $subscriber->getId()) {
@@ -172,13 +165,9 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @param array $data
 	 * @throws Mage_Core_Exception
 	 */
-	function _profile(array $data):void
-	{
-		$this->getMailchimpTagsModel()->processMergeFields($data);
-	}
+	function _profile(array $data):void {$this->getMailchimpTagsModel()->processMergeFields($data);}
 
-	function deleteProcessed():void
-	{
+	function deleteProcessed():void {
 		$helper = $this->getHelper();
 		$resource = $helper->getCoreResource();
 		$connection = $resource->getConnection('core_write');
