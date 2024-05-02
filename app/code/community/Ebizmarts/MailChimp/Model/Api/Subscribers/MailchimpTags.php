@@ -1064,7 +1064,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $mapFields
 	 * @param $customer
 	 */
-	private function _setMailchimpTagToCustomer($key, $value, $mapFields, $customer)
+	private function _setMailchimpTagToCustomer($key, $value, $mapFields, $customer):void
 	{
 		$ignore = array(
 			'billing_company', 'billing_country', 'billing_zipcode', 'billing_state', 'billing_telephone',
