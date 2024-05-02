@@ -304,6 +304,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @return false|Mage_Core_Model_Abstract
+	 */
+	private function _getInterestGroupHandleModel() {return $this->_interestGroupHandle;}
+
+	/**
 	 * @param $data
 	 * @return string
 	 */
@@ -1004,14 +1009,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @return false|Mage_Core_Model_Abstract
-	 */
-	private function _getInterestGroupHandleModel()
-	{
-		return $this->_interestGroupHandle;
-	}
 	
 	const GENDER_VALUE_MALE = 1;
 	const GENDER_VALUE_FEMALE = 2;
