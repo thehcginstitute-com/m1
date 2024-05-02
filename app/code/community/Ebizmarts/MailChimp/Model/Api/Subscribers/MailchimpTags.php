@@ -320,31 +320,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @return Object
-	 */
-	private function getEntityAttributeCollection() {return Mage::getResourceModel('eav/entity_attribute_collection');}
-
-	/**
-	 * @return Varien_Object
-	 */
-	private function getNewVarienObject() {return new Varien_Object;}
-
-	/**
-	 * @param $mapFields
-	 * @return mixed
-	 */
-	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $storeId
-	 * @return mixed
-	 */
-	private function getWebSiteByStoreId($storeId)
-	{
-		return Mage::getModel('core/store')->load($storeId)->getWebsiteId();
-	}
-
-	/**
 	 * @param $address
 	 * @return array
 	 */
@@ -386,6 +361,28 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 		return $addressData;
 	}
+
+	/**
+	 * @return Object
+	 */
+	private function getEntityAttributeCollection() {return Mage::getResourceModel('eav/entity_attribute_collection');}
+
+	/**
+	 * @return Varien_Object
+	 */
+	private function getNewVarienObject() {return new Varien_Object;}
+
+	/**
+	 * @param $storeId
+	 * @return mixed
+	 */
+	private function getWebSiteByStoreId($storeId) {return Mage::getModel('core/store')->load($storeId)->getWebsiteId();}
+
+	/**
+	 * @param $mapFields
+	 * @return mixed
+	 */
+	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
 
 	/**
 	 * @param $attributeCode
