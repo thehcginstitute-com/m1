@@ -26,6 +26,50 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	function addMailChimpTag(string $key, $value):void {$this->_mailChimpTags[$key] = $value;}
 
+	/**
+	 * @throws Mage_Core_Exception
+	 */
+	function buildMailChimpTags():void {
+		$helper = $this->getMailchimpHelper();
+		$storeId = $this->getStoreId();
+		$mapFields = $helper->getMapFields($storeId);
+		$maps = $this->unserializeMapFields($mapFields);
+		$attrSetId = $this->getEntityAttributeCollection()
+			->setEntityTypeFilter(1)
+			->addSetInfo()
+			->getData();
+		foreach ($maps as $map) {
+			$customAtt = $map['magento'];
+			$chimpTag = $map['mailchimp'];
+			if ($chimpTag && $customAtt) {
+				$key = strtoupper($chimpTag);
+				if (is_numeric($customAtt)) {
+					$this->buildCustomerAttributes($attrSetId, $customAtt, $key);
+				} else {
+					$this->buildCustomizedAttributes($customAtt, $key);
+				}
+			}
+		}
+		$newVars = $this->getNewVarienObject();
+		$this->dispatchEventMergeVarAfter($newVars);
+
+		if ($newVars->hasData()) {
+			$this->mergeMailchimpTags($newVars->getData());
+		}
+		# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "`Ebizmarts_MailChimp`: «Your merge fields were invalid» /
+		# «field [FNAME] : Please enter a value» /
+		# «field [LNAME] : Please enter a value»": https://github.com/thehcginstitute-com/m1/issues/507
+		$d = $this->getMailChimpTags(); /** @var array(string => string) $d */
+		if (!dfa($d, 'FNAME')) {
+			df_log('`FNAME` is missing in the merge fields', $this, [
+				'Merge Fields' => $d
+				,'Customer' => $this->getCustomer()
+				,'Subscriber' => $this->getSubscriber()
+			]);
+		}
+	}
+
 	function getCustomer():C {return $this->_customer;}
 
 	function getLastOrder():O {return $this->_lastOrder;}
@@ -74,50 +118,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			$customerId = $this->_subscriber->getCustomerId();
 		}
 		return $customerId;
-	}
-
-	/**
-	 * @throws Mage_Core_Exception
-	 */
-	function buildMailChimpTags():void {
-		$helper = $this->getMailchimpHelper();
-		$storeId = $this->getStoreId();
-		$mapFields = $helper->getMapFields($storeId);
-		$maps = $this->unserializeMapFields($mapFields);
-		$attrSetId = $this->getEntityAttributeCollection()
-			->setEntityTypeFilter(1)
-			->addSetInfo()
-			->getData();
-		foreach ($maps as $map) {
-			$customAtt = $map['magento'];
-			$chimpTag = $map['mailchimp'];
-			if ($chimpTag && $customAtt) {
-				$key = strtoupper($chimpTag);
-				if (is_numeric($customAtt)) {
-					$this->buildCustomerAttributes($attrSetId, $customAtt, $key);
-				} else {
-					$this->buildCustomizedAttributes($customAtt, $key);
-				}
-			}
-		}
-		$newVars = $this->getNewVarienObject();
-		$this->dispatchEventMergeVarAfter($newVars);
-
-		if ($newVars->hasData()) {
-			$this->mergeMailchimpTags($newVars->getData());
-		}
-		# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-		# "`Ebizmarts_MailChimp`: «Your merge fields were invalid» /
-		# «field [FNAME] : Please enter a value» /
-		# «field [LNAME] : Please enter a value»": https://github.com/thehcginstitute-com/m1/issues/507
-		$d = $this->getMailChimpTags(); /** @var array(string => string) $d */
-		if (!dfa($d, 'FNAME')) {
-			df_log('`FNAME` is missing in the merge fields', $this, [
-				'Merge Fields' => $d
-				,'Customer' => $this->getCustomer()
-				,'Subscriber' => $this->getSubscriber()
-			]);
-		}
 	}
 
 	/**
