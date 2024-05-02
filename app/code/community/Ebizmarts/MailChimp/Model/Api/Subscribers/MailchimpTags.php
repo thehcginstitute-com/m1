@@ -341,6 +341,20 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $key
+	 * @param $subscriber
+	 * @param $customer
+	 */
+	private function addLastName($key, $subscriber, $customer):void
+	{
+		$lastName = $this->getLastName($subscriber, $customer);
+
+		if ($lastName) {
+			$this->addMailChimpTag($key, $lastName);
+		}
+	}
+
+	/**
 	 * @param $attributeCode
 	 * @param $key
 	 * @param $attribute
@@ -744,20 +758,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $key
-	 * @param $subscriber
-	 * @param $customer
-	 */
-	private function addLastName($key, $subscriber, $customer):void
-	{
-		$lastName = $this->getLastName($subscriber, $customer);
-
-		if ($lastName) {
-			$this->addMailChimpTag($key, $lastName);
-		}
-	}
 
 	/**
 	 * @param $key
