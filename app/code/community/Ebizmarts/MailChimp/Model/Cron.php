@@ -1,6 +1,7 @@
 <?php
 # 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+use Ebizmarts_MailChimp_Model_ProcessWebhook as Process;
 class Ebizmarts_MailChimp_Model_Cron
 {
 	/**
@@ -21,9 +22,9 @@ class Ebizmarts_MailChimp_Model_Cron
 	 */
 	function syncSubscriberBatchData():void {\HCG\MailChimp\Batch\Subscriber::p();}
 
-	function processWebhookData()
-	{
-		Mage::getModel('mailchimp/processWebhook')->processWebhookData();
+	function processWebhookData() {
+		$p = new Process; /** @var Process $p */
+		$p->processWebhookData();
 	}
 
 	function deleteWebhookRequests()
