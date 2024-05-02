@@ -106,7 +106,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Webhook
 	 */
-	function getMailchimpWebhookHelper() {return $this->_mcWebhookHelper;}		
+	function getMailchimpWebhookHelper() {return $this->_mcWebhookHelper;}
 
 	/**
 	 * @return int
@@ -638,18 +638,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function setMailChimpHelper():void {$this->_mcHelper = hcg_mc_h();}
 
 	/**
+	 * @param $mageMCWebhookHelper
+	 */
+	private function setMailChimpWebhookHelper():void {$this->_mcWebhookHelper = Mage::helper('mailchimp/webhook');}
+
+	/**
 	 * @param $mapFields
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $mageMCWebhookHelper
-	 */
-	private function setMailChimpWebhookHelper():void
-	{
-		$this->_mcWebhookHelper = Mage::helper('mailchimp/webhook');
-	}
 
 	/**
 	 * @param $key
