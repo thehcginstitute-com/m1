@@ -850,7 +850,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $customer
 	 */
-	private function addGender($attributeCode, $key, $customer)
+	private function addGender($attributeCode, $key, $customer):void
 	{
 		if ($this->getCustomerGroupLabel($attributeCode, $customer)) {
 			$genderValue = $this->getCustomerGroupLabel($attributeCode, $customer);
@@ -863,7 +863,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $customer
 	 */
-	private function addGroupId($attributeCode, $key, $customer)
+	private function addGroupId($attributeCode, $key, $customer):void
 	{
 		if ($this->getCustomerGroupLabel($attributeCode, $customer)) {
 			$groupId = (int)$this->getCustomerGroupLabel($attributeCode, $customer);
