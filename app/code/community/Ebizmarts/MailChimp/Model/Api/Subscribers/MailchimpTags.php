@@ -367,10 +367,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $customer
 	 * @return string
 	 */
-	private function getCustomerGroupLabel($attributeCode, $customer)
-	{
-		return $customer->getData($attributeCode);
-	}
+	private function getCustomerGroupLabel($attributeCode, $customer) {return $customer->getData($attributeCode);}
 
 	/**
 	 * @return Object
