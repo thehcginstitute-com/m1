@@ -284,6 +284,23 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * Allow possibility to add new vars in 'new_vars' array
+	 *
+	 * @param $newVars
+	 */
+	private function dispatchEventMergeVarAfter(&$newVars):void
+	{
+		Mage::dispatchEvent(
+			'mailchimp_merge_field_send_after',
+			array(
+				'subscriber' => $this->getSubscriber(),
+				'vars' => $this->getMailChimpTags(),
+				'new_vars' => &$newVars
+			)
+		);
+	}
+
+	/**
 	 * Add possibility to change value on certain merge tag
 	 *
 	 * @param $attributeCode
@@ -320,25 +337,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-
-
-	/**
-	 * Allow possibility to add new vars in 'new_vars' array
-	 *
-	 * @param $newVars
-	 */
-	private function dispatchEventMergeVarAfter(&$newVars):void
-	{
-		Mage::dispatchEvent(
-			'mailchimp_merge_field_send_after',
-			array(
-				'subscriber' => $this->getSubscriber(),
-				'vars' => $this->getMailChimpTags(),
-				'new_vars' => &$newVars
-			)
-		);
-	}
 
 	/**
 	 * @return mixed
