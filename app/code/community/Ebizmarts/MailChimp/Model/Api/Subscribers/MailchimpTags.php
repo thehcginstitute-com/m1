@@ -82,7 +82,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		return $this->_mcHelper;
 	}
 
-
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
 
 	/**
