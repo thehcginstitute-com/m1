@@ -141,16 +141,16 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$subscriber->setSubscriberFirstname($fname);
 				$subscriber->setSubscriberLastname($lname);
 			}
-		} else {
-			if ($subscribe) {
-				$helper->subscribeMember($subscriber);
-			} else {
-				/**
-				 * Mailchimp subscriber not currently in magento newsletter subscribers.
-				 * Get mailchimp subscriber status and add missing newsletter subscriber.
-				 */
-				$this->_addSubscriberData($subscriber, $fname, $lname, $email, $listId);
-			}
+		}
+		elseif ($subscribe) {
+			$helper->subscribeMember($subscriber);
+		}
+		else {
+			/**
+			 * Mailchimp subscriber not currently in magento newsletter subscribers.
+			 * Get mailchimp subscriber status and add missing newsletter subscriber.
+			 */
+			$this->_addSubscriberData($subscriber, $fname, $lname, $email, $listId);
 		}
 		$subscriber->save();
 		$this->setSubscriber($subscriber);
