@@ -388,6 +388,20 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $attributeCode
 	 * @param $key
 	 * @param $attribute
+	 * @param $customer
+	 */
+	private function addUnknownMergeField($attributeCode, $key, $attribute, $customer):void
+	{
+		$mergeValue = $this->getUnknownMergeField($attributeCode, $customer, $attribute);
+		if ($mergeValue !== null) {
+			$this->addMailChimpTag($key, $mergeValue);
+		}
+	}
+
+	/**
+	 * @param $attributeCode
+	 * @param $key
+	 * @param $attribute
 	 * @return |null
 	 */
 	private function customerAttributes($attributeCode, $key, $attribute)
@@ -788,20 +802,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $attributeCode
-	 * @param $key
-	 * @param $attribute
-	 * @param $customer
-	 */
-	private function addUnknownMergeField($attributeCode, $key, $attribute, $customer):void
-	{
-		$mergeValue = $this->getUnknownMergeField($attributeCode, $customer, $attribute);
-		if ($mergeValue !== null) {
-			$this->addMailChimpTag($key, $mergeValue);
-		}
-	}
 
 	/**
 	 * @param $customAtt
