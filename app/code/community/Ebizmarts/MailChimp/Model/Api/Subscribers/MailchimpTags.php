@@ -119,29 +119,22 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param bool $subscribe
 	 * @throws Mage_Core_Exception
 	 */
-	function processMergeFields($data, $subscribe = false):void
-	{
+	function processMergeFields($data, $subscribe = false):void {
 		$helper = $this->getMailchimpHelper();
 		$email = $data['email'];
 		$listId = $data['list_id'];
-
 		$STATUS_SUBSCRIBED = Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED;
 		$storeId = $helper->getMagentoStoreIdsByListId($listId)[0];
-
 		$this->_mailChimpTags = $helper->getMapFields($storeId);
 		$this->_mailChimpTags = $this->unserializeMapFields($this->_mailChimpTags);
-
 		$customer = $helper->loadListCustomer($listId, $email);
-
 		if ($customer) {
 			$this->setCustomer($customer);
 			$this->_setMailchimpTagsToCustomer($data);
 		}
-
 		$subscriber = $helper->loadListSubscriber($listId, $email);
 		$fname = $this->_getFName($data);
 		$lname = $this->_getLName($data);
-
 		if ($subscriber->getId()) {
 			if ($subscriber->getStatus() != $STATUS_SUBSCRIBED && $subscribe) {
 				$subscriber->setStatus($STATUS_SUBSCRIBED);
@@ -159,19 +152,16 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->_addSubscriberData($subscriber, $fname, $lname, $email, $listId);
 			}
 		}
-
 		$subscriber->save();
 		$this->setSubscriber($subscriber);
-
 		if (isset($data['merges']['GROUPINGS'])) {
 			$interestGroupHandle = $this->_getInterestGroupHandleModel();
-
 			if ($this->getSubscriber() === null) {
 				$interestGroupHandle->setCustomer($this->getCustomer());
-			} else {
+			}
+			else {
 				$interestGroupHandle->setSubscriber($this->getSubscriber());
 			}
-
 			$interestGroupHandle->setGroupings($data['merges']['GROUPINGS'])
 				->setListId($listId)
 				->processGroupsData();
