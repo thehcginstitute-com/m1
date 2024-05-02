@@ -21,7 +21,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $storeId
 	 */
-	function setStoreId($storeId)
+	function setStoreId($storeId):void
 	{
 		$this->_storeId = $storeId;
 	}
@@ -37,7 +37,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param Mage_Newsletter_Model_Subscriber $subscriber
 	 */
-	function setSubscriber($subscriber)
+	function setSubscriber($subscriber):void
 	{
 		$this->_subscriber = $subscriber;
 	}
@@ -53,7 +53,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param Mage_Customer_Model_Customer $customer
 	 */
-	function setCustomer($customer)
+	function setCustomer($customer):void
 	{
 		$this->_customer = $customer;
 	}
@@ -92,7 +92,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $value
 	 */
-	function addMailChimpTag($key, $value)
+	function addMailChimpTag($key, $value):void
 	{
 		$this->_mailChimpTags[$key] = $value;
 	}
@@ -123,7 +123,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param Mage_Sales_Model_Order $lastOrder
 	 */
-	function setLastOrder($lastOrder)
+	function setLastOrder($lastOrder):void
 	{
 		$this->_lastOrder = $lastOrder;
 	}
@@ -131,7 +131,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @throws Mage_Core_Exception
 	 */
-	function buildMailChimpTags()
+	function buildMailChimpTags():void
 	{
 		$helper = $this->getMailchimpHelper();
 		$storeId = $this->getStoreId();
