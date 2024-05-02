@@ -599,6 +599,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function getWebSiteByStoreId($storeId) {return Mage::getModel('core/store')->load($storeId)->getWebsiteId();}
 
 	/**
+	 * @param $orderCollection
+	 * @return bool
+	 */
+	private function isNotEmptyOrderCollection($orderCollection) {return $orderCollection->getSize() > 0;}
+
+	/**
 	 * @param $mailchimpTags
 	 * @return bool
 	 */
@@ -616,15 +622,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $orderCollection
-	 * @return bool
-	 */
-	private function isNotEmptyOrderCollection($orderCollection)
-	{
-		return $orderCollection->getSize() > 0;
-	}
 
 	/**
 	 * @param $mageMCHelper
