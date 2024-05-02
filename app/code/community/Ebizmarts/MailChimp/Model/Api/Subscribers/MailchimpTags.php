@@ -1,6 +1,7 @@
 <?php
 use Mage_Customer_Model_Customer as C;
 use Mage_Newsletter_Model_Subscriber as Sub;
+use Mage_Sales_Model_Order as O;
 # 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 # https://github.com/cabinetsbay/site/issues/589
@@ -71,10 +72,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		return $customerId;
 	}
 	
-	/**
-	 * @return Mage_Sales_Model_Order
-	 */
-	function getLastOrder()
+	function getLastOrder():O
 	{
 		return $this->_lastOrder;
 	}
