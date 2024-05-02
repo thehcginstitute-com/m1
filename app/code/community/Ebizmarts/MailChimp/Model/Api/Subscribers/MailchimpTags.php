@@ -567,12 +567,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function getWebSiteByStoreId($storeId) {return Mage::getModel('core/store')->load($storeId)->getWebsiteId();}
 
 	/**
-	 * @param $mapFields
-	 * @return mixed
-	 */
-	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
 	 * @param $mailchimpTags
 	 * @return bool
 	 */
@@ -584,6 +578,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			return false;
 		}
 	}
+
+	/**
+	 * @param $mapFields
+	 * @return mixed
+	 */
+	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
 
 	/**
 	 * @param $customAtt
