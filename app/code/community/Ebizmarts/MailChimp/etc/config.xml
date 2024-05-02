@@ -410,7 +410,8 @@ https://github.com/thehcginstitute-com/m1/issues/573 -->
             </abandonedcart>
         </mailchimp>
     </default>
-	<!--
+<!-- 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Tempopary disable MailChimp Cron tasks": https://github.com/thehcginstitute-com/m1/issues/586
     <crontab>
         <jobs>
             <mailchimp_bulksync_ecommerce_data>
