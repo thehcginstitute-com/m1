@@ -340,6 +340,28 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $attrSetId
+	 * @param $customAtt
+	 * @param $key
+	 */
+	private function buildCustomerAttributes($attrSetId, $customAtt, $key):void {
+		$eventValue = null;
+		foreach ($attrSetId as $attribute) {
+			if ($attribute['attribute_id'] == $customAtt) {
+				$attributeCode = $attribute['attribute_code'];
+				$eventValue = $this->customerAttributes(
+					$attributeCode, $key, $attribute
+				);
+
+				$this->dispatchMergeVarBefore($attributeCode, $eventValue);
+				if ($eventValue !== null) {
+					$this->addMailChimpTag($key, $eventValue);
+				}
+			}
+		}
+	}
+
+	/**
 	 * Allow possibility to add new vars in 'new_vars' array
 	 *
 	 * @param $newVars
@@ -647,29 +669,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $attrSetId
-	 * @param $customAtt
-	 * @param $key
-	 */
-	private function buildCustomerAttributes($attrSetId, $customAtt, $key):void
-	{
-		$eventValue = null;
-		foreach ($attrSetId as $attribute) {
-			if ($attribute['attribute_id'] == $customAtt) {
-				$attributeCode = $attribute['attribute_code'];
-				$eventValue = $this->customerAttributes(
-					$attributeCode, $key, $attribute
-				);
-
-				$this->dispatchMergeVarBefore($attributeCode, $eventValue);
-				if ($eventValue !== null) {
-					$this->addMailChimpTag($key, $eventValue);
-				}
-			}
-		}
-	}
 
 	/**
 	 * @param $customAtt
