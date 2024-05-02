@@ -5,32 +5,6 @@
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as Tags;
 final class Ebizmarts_MailChimp_Model_ProcessWebhook
 {
-	const BATCH_LIMIT = 200;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Helper_Data
-	 */
-	private $_helper;
-	private $_dateHelper;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
-	 */
-	private $_interestGroupHandle;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
-	 */
-	private $_tags;
-
-	/**
-	 * Webhooks request url path
-	 *
-	 * @const string
-	 */
-
-	const WEBHOOKS_PATH = 'mailchimp/webhook/index/';
-
 	function __construct()
 	{
 		$this->_helper = hcg_mc_h();
@@ -256,4 +230,30 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook
 	{
 		return $this->_dateHelper;
 	}
+
+	const BATCH_LIMIT = 200;
+
+	/**
+	 * @var Ebizmarts_MailChimp_Helper_Data
+	 */
+	private $_helper;
+	private $_dateHelper;
+
+	/**
+	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
+	 */
+	private $_interestGroupHandle;
+
+	/**
+	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
+	 */
+	private $_tags;
+
+	/**
+	 * Webhooks request url path
+	 *
+	 * @const string
+	 */
+
+	const WEBHOOKS_PATH = 'mailchimp/webhook/index/';
 }
