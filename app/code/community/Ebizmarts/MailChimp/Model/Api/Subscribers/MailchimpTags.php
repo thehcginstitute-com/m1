@@ -327,10 +327,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @return Varien_Object
 	 */
-	private function getNewVarienObject()
-	{
-		return new Varien_Object;
-	}
+	private function getNewVarienObject() {return new Varien_Object;}
 
 	/**
 	 * @param $mapFields
