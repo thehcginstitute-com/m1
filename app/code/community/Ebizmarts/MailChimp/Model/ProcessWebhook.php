@@ -10,7 +10,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @used-by Aoe_Scheduler_Model_Observer::dispatch() (app/code/community/Ebizmarts/MailChimp/etc/config.xml)
 	 */
 	function __construct() {
-		$this->_helper = hcg_mc_h();
 		$this->_dateHelper = Mage::helper('mailchimp/date');
 		$this->_tags = new Tags;
 		$this->_interestGroupHandle = Mage::getModel('mailchimp/api_subscribers_InterestGroupHandle');
@@ -22,7 +21,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @used-by Aoe_Scheduler_Model_Observer::dispatch() (app/code/community/Ebizmarts/MailChimp/etc/config.xml)
 	 */
 	function deleteProcessed():void {
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$resource = $helper->getCoreResource();
 		$connection = $resource->getConnection('core_write');
 		$tableName = $resource->getTableName('mailchimp/webhookrequest');
@@ -41,7 +40,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 		$collection->getSelect()->limit(self::BATCH_LIMIT);
 
 		foreach ($collection as $webhookRequest) {
-			$data = $this->_helper->unserialize($webhookRequest->getDataRequest());
+			$data = hcg_mc_h()->unserialize($webhookRequest->getDataRequest());
 
 			if ($data) {
 				switch ($webhookRequest->getType()) {
@@ -78,7 +77,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @return void
 	 */
 	private function _updateEmail(array $data):void {
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$listId = $data['list_id'];
 		$old = $data['old_email'];
 		$new = $data['new_email'];
@@ -107,7 +106,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 */
 	private function _clean(array $data):void {
 		//Delete subscriber from Magento
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$s = $helper->loadListSubscriber($data['list_id'], $data['email']);
 
 		if ($s && $s->getId()) {
@@ -141,7 +140,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @return void
 	 */
 	private function _unsubscribe(array $data):void {
-		$helper = $this->getHelper();
+		$helper = hcg_mc_h();
 		$subscriber = $helper->loadListSubscriber($data['list_id'], $data['email']);
 		if ($subscriber && $subscriber->getId()) {
 			try {
@@ -202,14 +201,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	private function getMailchimpTagsModel():Tags {return $this->_tags;}
 
 	/**
-	 * @return Ebizmarts_MailChimp_Helper_Data
-	 */
-	private function getHelper($type='')
-	{
-		return $this->_helper;
-	}
-
-	/**
 	 * @return Ebizmarts_MailChimp_Helper_Date|Mage_Core_Helper_Abstract
 	 */
 	private function getDateHelper()
@@ -219,10 +210,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 
 	const BATCH_LIMIT = 200;
 
-	/**
-	 * @var Ebizmarts_MailChimp_Helper_Data
-	 */
-	private $_helper;
 	private $_dateHelper;
 
 	/**
