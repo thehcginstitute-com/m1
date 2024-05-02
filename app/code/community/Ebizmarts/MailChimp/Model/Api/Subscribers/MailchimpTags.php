@@ -891,7 +891,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 	/**
 	 * Iterates the mailchimp tags.
-	 *
 	 * @param $data
 	 * @param $listId
 	 * @throws Mage_Core_Exception
