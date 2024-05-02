@@ -363,6 +363,16 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $attributeCode
+	 * @param $customer
+	 * @return string
+	 */
+	private function getCustomerGroupLabel($attributeCode, $customer)
+	{
+		return $customer->getData($attributeCode);
+	}
+
+	/**
 	 * @return Object
 	 */
 	private function getEntityAttributeCollection() {return Mage::getResourceModel('eav/entity_attribute_collection');}
@@ -383,16 +393,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $attributeCode
-	 * @param $customer
-	 * @return string
-	 */
-	private function getCustomerGroupLabel($attributeCode, $customer)
-	{
-		return $customer->getData($attributeCode);
-	}
 
 	/**
 	 * @param $mergeVars
