@@ -266,6 +266,33 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * Sets the mailchimp tag value for tue customer.
+	 * @param $key
+	 * @param $value
+	 * @param $mapFields
+	 * @param $customer
+	 */
+	private function _setMailchimpTagToCustomer($key, $value, $mapFields, $customer):void
+	{
+		$ignore = array(
+			'billing_company', 'billing_country', 'billing_zipcode', 'billing_state', 'billing_telephone',
+			'shipping_company', 'shipping_telephone', 'shipping_country', 'shipping_zipcode', 'shipping_state',
+			'dop', 'store_code');
+
+		foreach ($mapFields as $map) {
+			if ($map['mailchimp'] == $key) {
+				if (!in_array($map['magento'], $ignore) && !$this->_isAddress($map['magento'])) {
+					if ($key != 'GENDER') {
+						$customer->setData($map['magento'], $value);
+					} else {
+						$customer->setData('gender', $this->getGenderValue($value));
+					}
+				}
+			}
+		}
+	}
+
+	/**
 	 * Iterates the mailchimp tags.
 	 * @param $data
 	 * @param $listId
@@ -908,34 +935,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * Sets the mailchimp tag value for tue customer.
-	 *
-	 * @param $key
-	 * @param $value
-	 * @param $mapFields
-	 * @param $customer
-	 */
-	private function _setMailchimpTagToCustomer($key, $value, $mapFields, $customer):void
-	{
-		$ignore = array(
-			'billing_company', 'billing_country', 'billing_zipcode', 'billing_state', 'billing_telephone',
-			'shipping_company', 'shipping_telephone', 'shipping_country', 'shipping_zipcode', 'shipping_state',
-			'dop', 'store_code');
-
-		foreach ($mapFields as $map) {
-			if ($map['mailchimp'] == $key) {
-				if (!in_array($map['magento'], $ignore) && !$this->_isAddress($map['magento'])) {
-					if ($key != 'GENDER') {
-						$customer->setData($map['magento'], $value);
-					} else {
-						$customer->setData('gender', $this->getGenderValue($value));
-					}
-				}
-			}
-		}
-	}
 
 	/**
 	 * @param $attrId
