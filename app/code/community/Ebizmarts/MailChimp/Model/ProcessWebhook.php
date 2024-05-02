@@ -1,15 +1,5 @@
 <?php
-
-/**
- * MailChimp For Magento
- *
- * @category  Ebizmarts_MailChimp
- * @author    Ebizmarts Team <info@ebizmarts.com>
- * @copyright Ebizmarts (http://ebizmarts.com)
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @date:     5/19/16 3:55 PM
- * @file:     ProdcessWebhook.php
- */
+use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as Tags;
 class Ebizmarts_MailChimp_Model_ProcessWebhook
 {
     const BATCH_LIMIT = 200;
@@ -43,7 +33,7 @@ class Ebizmarts_MailChimp_Model_ProcessWebhook
         $this->_helper = hcg_mc_h();
         $this->_dateHelper = Mage::helper('mailchimp/date');
 
-        $this->_tags = Mage::getModel('mailchimp/api_subscribers_MailchimpTags');
+        $this->_tags = new Tags;
         $this->_interestGroupHandle = Mage::getModel('mailchimp/api_subscribers_InterestGroupHandle');
     }
 
