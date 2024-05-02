@@ -114,6 +114,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function getSubscriber():Sub {return $this->_subscriber;}
 
 	/**
+	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_profile()
+	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_subscribe()
 	 * @param $data
 	 * @param bool $subscribe
 	 * @throws Mage_Core_Exception
