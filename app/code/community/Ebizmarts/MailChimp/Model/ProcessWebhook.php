@@ -2,6 +2,7 @@
 # 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`":
 # https://github.com/cabinetsbay/site/issues/590
+use Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle as InterestGroupHandle;
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as Tags;
 final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	/**
@@ -11,7 +12,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 */
 	function __construct() {
 		$this->_tags = new Tags;
-		$this->_interestGroupHandle = Mage::getModel('mailchimp/api_subscribers_InterestGroupHandle');
+		$this->_interestGroupHandle = new InterestGroupHandle;
 	}
 
 	/**
