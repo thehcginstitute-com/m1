@@ -20,6 +20,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$this->_interestGroupHandle = Mage::getModel('mailchimp/api_subscribers_InterestGroupHandle');
 	}
 
+	/**
+	 * @param $key
+	 * @param $value
+	 */
+	function addMailChimpTag($key, $value):void {$this->_mailChimpTags[$key] = $value;}
+
 	function getCustomer():C {return $this->_customer;}
 
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
@@ -54,14 +60,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 
 
-	/**
-	 * @param $key
-	 * @param $value
-	 */
-	function addMailChimpTag($key, $value):void
-	{
-		$this->_mailChimpTags[$key] = $value;
-	}
+
 
 	/**
 	 * @param $key
