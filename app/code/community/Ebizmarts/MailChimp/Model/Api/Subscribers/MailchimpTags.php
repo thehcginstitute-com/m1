@@ -257,6 +257,23 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $customAtt
+	 * @param $customer
+	 * @param $mergeVars
+	 * @param $key
+	 * @return mixed
+	 */
+	private function addCompany($customAtt, $customer, $key):void {
+		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
+		if ($address) {
+			$company = $address->getCompany();
+			if ($company) {
+				$this->addMailChimpTag($key, $company);
+			}
+		}
+	}
+
+	/**
 	 * @param $attributeCode
 	 * @param $key
 	 * @param $attribute
@@ -581,25 +598,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $customAtt
-	 * @param $customer
-	 * @param $mergeVars
-	 * @param $key
-	 * @return mixed
-	 */
-	private function addCompany($customAtt, $customer, $key):void
-	{
-		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
-		if ($address) {
-			$company = $address->getCompany();
-			if ($company) {
-				$this->addMailChimpTag($key, $company);
-			}
-		}
-
-	}
 
 	/**
 	 * return the latest order for this subscriber
