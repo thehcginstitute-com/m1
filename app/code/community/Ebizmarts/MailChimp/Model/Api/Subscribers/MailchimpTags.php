@@ -984,7 +984,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $customer
 	 */
-	private function addZipCodeFromCustomizedAttribute($customAtt, $key, $customer)
+	private function addZipCodeFromCustomizedAttribute($customAtt, $key, $customer):void
 	{
 		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
 		if ($address) {
