@@ -12,7 +12,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * https://github.com/cabinetsbay/site/issues/589
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::_buildMailchimpTags()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_buildMailchimpTags()
-	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::__construct()
+	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::processWebhookData()
 	 */
 	function __construct() {
 		$this->setMailChimpHelper();
@@ -114,8 +114,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function getSubscriber():Sub {return $this->_subscriber;}
 
 	/**
-	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_profile()
-	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_subscribe()
+	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::processWebhookData()
 	 * @param $data
 	 * @param bool $subscribe
 	 * @throws Mage_Core_Exception

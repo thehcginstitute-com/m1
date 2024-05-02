@@ -8,15 +8,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
 	 * @used-by Aoe_Scheduler_Model_Observer::dispatch() (app/code/community/Ebizmarts/MailChimp/etc/config.xml)
 	 */
-	function __construct() {
-		$this->_tags = new Tags;
-	}
-
-	/**
-	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
-	 * @used-by Aoe_Scheduler_Model_Observer::dispatch() (app/code/community/Ebizmarts/MailChimp/etc/config.xml)
-	 */
 	function deleteProcessed():void {
 		$helper = hcg_mc_h();
 		$resource = $helper->getCoreResource();
@@ -41,9 +32,14 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 
 			if ($data) {
 				switch ($webhookRequest->getType()) {
+					case 'profile':
+						$tags = new Tags;
+						$tags->processMergeFields($data);
+						break;
 					case 'subscribe':
 						try {
-							$this->getMailchimpTagsModel()->processMergeFields($data, true);
+							$tags = new Tags;
+							$tags->processMergeFields($data, true);
 						} catch (Exception $e) {
 							Mage::logException($e);
 						}
@@ -56,9 +52,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 						break;
 					case 'upemail':
 						$this->_updateEmail($data);
-						break;
-					case 'profile':
-						$this->getMailchimpTagsModel()->processMergeFields($data);
 				}
 			}
 
@@ -85,14 +78,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 			}
 		}
 	}
-
-	/**
-	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
-	 * @used-by self::_profile()
-	 * @used-by self::_subscribe()
-	 */
-	private function getMailchimpTagsModel():Tags {return $this->_tags;}
 
 	/**
 	 * @param $webhookRequest
@@ -168,11 +153,6 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	}
 
 	const BATCH_LIMIT = 200;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
-	 */
-	private $_tags;
 
 	/**
 	 * Webhooks request url path
