@@ -231,7 +231,8 @@ class Ebizmarts_MailChimp_Model_ProcessWebhook
 	}
 
 	/**
-	 * @return Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
+	 * @used-by self::_profile()
+	 * @used-by self::_subscribe()
 	 */
 	private function getMailchimpTagsModel():Tags {return $this->_tags;}
 
