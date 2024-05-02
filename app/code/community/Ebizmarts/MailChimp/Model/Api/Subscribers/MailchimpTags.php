@@ -914,7 +914,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $key
 	 */
-	private function addCreatedIn($key)
+	private function addCreatedIn($key):void
 	{
 		$storeName = Mage::getModel('core/store')->load($this->getStoreId())->getName();
 		$this->addMailChimpTag($key, $storeName);
