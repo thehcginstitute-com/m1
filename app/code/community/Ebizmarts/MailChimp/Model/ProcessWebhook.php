@@ -13,29 +13,28 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 		$collection->addFieldToFilter('processed', array('eq' => 0));
 		$collection->getSelect()->limit(self::BATCH_LIMIT);
 		foreach ($collection as $webhookRequest) {
-			$data = hcg_mc_h()->unserialize($webhookRequest->getDataRequest());
-			if ($data) {
+			if ($d = hcg_mc_h()->unserialize($webhookRequest->getDataRequest())) {
 				switch ($webhookRequest->getType()) {
 					case 'profile':
 						$tags = new Tags;
-						$tags->processMergeFields($data);
+						$tags->processMergeFields($d);
 						break;
 					case 'subscribe':
 						try {
 							$tags = new Tags;
-							$tags->processMergeFields($data, true);
+							$tags->processMergeFields($d, true);
 						} catch (Exception $e) {
 							Mage::logException($e);
 						}
 						break;
 					case 'unsubscribe':
-						$this->_unsubscribe($data);
+						$this->_unsubscribe($d);
 						break;
 					case 'cleaned':
-						$this->_clean($data);
+						$this->_clean($d);
 						break;
 					case 'upemail':
-						$this->_updateEmail($data);
+						$this->_updateEmail($d);
 				}
 			}
 			$this->_saveProcessedWebhook($webhookRequest);
