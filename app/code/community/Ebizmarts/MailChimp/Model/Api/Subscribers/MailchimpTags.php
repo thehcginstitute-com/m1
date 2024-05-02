@@ -817,7 +817,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $customAtt
 	 * @param $key
 	 */
-	private function buildCustomizedAttributes($customAtt, $key)
+	private function buildCustomizedAttributes($customAtt, $key):void
 	{
 		$eventValue = null;
 		$eventValue = $this->customizedAttributes(
@@ -835,7 +835,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $customer
 	 */
-	private function addDefaultShipping($attributeCode, $key, $customer)
+	private function addDefaultShipping($attributeCode, $key, $customer):void
 	{
 		$address = $customer->getPrimaryAddress($attributeCode);
 		$addressData = $this->getAddressData($address);
