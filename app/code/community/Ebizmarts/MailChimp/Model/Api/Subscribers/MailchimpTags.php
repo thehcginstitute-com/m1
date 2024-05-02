@@ -363,6 +363,18 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $lastOrder
+	 * @return array
+	 */
+	private function getAddressFromLastOrder($lastOrder) {
+		$addressData = array();
+		if ($lastOrder && $lastOrder->getShippingAddress()) {
+			$addressData = $lastOrder->getShippingAddress();
+		}
+		return $addressData;
+	}
+
+	/**
 	 * @param $attributeCode
 	 * @param $customer
 	 * @return string
@@ -455,20 +467,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $lastOrder
-	 * @return array
-	 */
-	private function getAddressFromLastOrder($lastOrder)
-	{
-		$addressData = array();
-		if ($lastOrder && $lastOrder->getShippingAddress()) {
-			$addressData = $lastOrder->getShippingAddress();
-		}
-
-		return $addressData;
-	}
 
 	/**
 	 * @param $customAtt
