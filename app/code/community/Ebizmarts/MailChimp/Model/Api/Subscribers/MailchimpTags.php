@@ -21,10 +21,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $storeId
 	 */
-	function setStoreId($storeId):void
-	{
-		$this->_storeId = $storeId;
-	}
+	function setStoreId($storeId):void {$this->_storeId = $storeId;}
 
 	/**
 	 * @return int
