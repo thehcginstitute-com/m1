@@ -1,5 +1,4 @@
 <?php
-use Ebizmarts_MailChimp_Model_ProcessWebhook as Process;
 class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_Action
 {
 	protected $_mailchimpHelper = null;
@@ -69,8 +68,7 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
 			//Validate "wkey" GET parameter
 			if ($myKey == $requestKey) {
 				if ($request->getPost('type')) {
-					$p = new Process; /** @var Process $p */
-					$p->saveWebhookRequest($data);
+					self::saveWebhookRequest($data);
 				}
 				# 2024-03-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				# "«Webhook successfully created» should not be logged as an error my MailChimp":
@@ -112,5 +110,18 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
 				$helper->logError($e->getFriendlyMessage());
 			}
 		}
+	}
+
+	/**
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
+	 * @used-by Ebizmarts_MailChimp_WebhookController::indexAction()
+	 */
+	private static function saveWebhookRequest(array $d):void {
+		Mage::getModel('mailchimp/webhookrequest')
+			->setType($d['type'])
+			->setFiredAt($d['fired_at'])
+			->setDataRequest(hcg_mc_h()->serialize($d['data']))
+			->save();
 	}
 }

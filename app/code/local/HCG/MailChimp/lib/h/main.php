@@ -74,6 +74,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_List::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_Store::makeHelper()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_Userinfo::toOptionArray()
+ * @used-by Ebizmarts_MailChimp_WebhookController::saveWebhookRequest()
  * @used-by HCG\MailChimp\Batch\HandleErrorItem::p()
  * @used-by HCG\MailChimp\Observer\AddTabToCustomer::p() (https://github.com/thehcginstitute-com/m1/issues/580)
  * @used-by app/design/adminhtml/default/default/template/ebizmarts/mailchimp/customer/tab/mailchimp.phtml
