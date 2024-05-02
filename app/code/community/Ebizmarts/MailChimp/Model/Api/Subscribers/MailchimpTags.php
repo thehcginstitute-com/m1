@@ -390,7 +390,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 *
 	 * @param $newVars
 	 */
-	private function dispatchEventMergeVarAfter(&$newVars)
+	private function dispatchEventMergeVarAfter(&$newVars):void
 	{
 		Mage::dispatchEvent(
 			'mailchimp_merge_field_send_after',
