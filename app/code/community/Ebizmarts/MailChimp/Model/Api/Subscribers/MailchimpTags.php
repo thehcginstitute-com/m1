@@ -24,25 +24,14 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	function getStoreId() {return $this->_storeId;}
 
+	function getSubscriber():Sub {return $this->_subscriber;}
+
 	/**
 	 * @param $storeId
 	 */
 	function setStoreId($storeId):void {$this->_storeId = $storeId;}
 
-	/**
-	 */
-	function setSubscriber(Sub $subscriber):void
-	{
-		$this->_subscriber = $subscriber;
-	}
-
-	/**
-	 * @return Mage_Newsletter_Model_Subscriber
-	 */
-	function getSubscriber():Sub
-	{
-		return $this->_subscriber;
-	}
+	function setSubscriber(Sub $subscriber):void {$this->_subscriber = $subscriber;}
 
 	/**
 	 * @param Mage_Customer_Model_Customer $customer
