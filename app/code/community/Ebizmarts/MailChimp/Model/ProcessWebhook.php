@@ -1,7 +1,6 @@
 <?php
 # 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`":
-# https://github.com/cabinetsbay/site/issues/590
+# "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as Tags;
 final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	/**
