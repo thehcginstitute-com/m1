@@ -301,9 +301,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-
-
+	
 	/**
 	 * Add possibility to change value on certain merge tag
 	 *
