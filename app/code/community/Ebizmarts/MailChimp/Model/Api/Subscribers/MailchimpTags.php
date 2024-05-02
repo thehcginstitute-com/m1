@@ -938,7 +938,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $attribute
 	 * @param $customer
 	 */
-	private function addUnknownMergeField($attributeCode, $key, $attribute, $customer)
+	private function addUnknownMergeField($attributeCode, $key, $attribute, $customer):void
 	{
 		$mergeValue = $this->getUnknownMergeField($attributeCode, $customer, $attribute);
 		if ($mergeValue !== null) {
