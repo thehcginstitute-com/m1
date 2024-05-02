@@ -27,9 +27,9 @@ class Ebizmarts_MailChimp_Model_Cron
 		$p->processWebhookData();
 	}
 
-	function deleteWebhookRequests()
-	{
-		Mage::getModel('mailchimp/processWebhook')->deleteProcessed();
+	function deleteWebhookRequests() {
+		$p = new Process; /** @var Process $p */
+		$p->deleteProcessed();
 	}
 
 	function clearEcommerceData()
