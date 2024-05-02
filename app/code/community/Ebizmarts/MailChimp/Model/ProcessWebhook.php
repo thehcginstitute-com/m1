@@ -17,6 +17,11 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 		$this->_interestGroupHandle = Mage::getModel('mailchimp/api_subscribers_InterestGroupHandle');
 	}
 
+	/**
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
+	 * @used-by Aoe_Scheduler_Model_Observer::dispatch() (app/code/community/Ebizmarts/MailChimp/etc/config.xml)
+	 */
 	function deleteProcessed():void {
 		$helper = $this->getHelper();
 		$resource = $helper->getCoreResource();

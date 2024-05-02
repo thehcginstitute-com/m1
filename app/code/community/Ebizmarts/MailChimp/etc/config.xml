@@ -446,7 +446,7 @@ https://github.com/thehcginstitute-com/m1/issues/573 -->
                     <cron_expr>0 0 * * *</cron_expr>
                 </schedule>
                 <run>
-                    <model>mailchimp/cron::deleteWebhookRequests</model>
+                    <model>Ebizmarts_MailChimp_Model_ProcessWebhook::deleteProcessed</model>
                 </run>
                 <groups>ebizmarts_mailchimp</groups>
             </mailchimp_delete_webhook_processed>
