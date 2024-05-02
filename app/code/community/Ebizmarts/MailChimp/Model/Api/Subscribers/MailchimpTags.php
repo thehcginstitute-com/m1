@@ -896,10 +896,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $listId
 	 * @throws Mage_Core_Exception
 	 */
-	private function _setMailchimpTagsToCustomer($data):void
-	{
+	private function _setMailchimpTagsToCustomer($data):void {
 		$customer = $this->getCustomer();
-
 		foreach ($data['merges'] as $key => $value) {
 			if (!empty($value)) {
 				if (is_array($this->_mailChimpTags)) {
@@ -909,7 +907,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				}
 			}
 		}
-
 		$customer->save();
 	}
 
