@@ -7,8 +7,8 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	/**
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
+	 * @used-by Aoe_Scheduler_Model_Observer::dispatch() (app/code/community/Ebizmarts/MailChimp/etc/config.xml)
 	 * @used-by Ebizmarts_MailChimp_Model_Cron::deleteWebhookRequests()
-	 * @used-by Ebizmarts_MailChimp_Model_Cron::processWebhookData()
 	 */
 	function __construct() {
 		$this->_helper = hcg_mc_h();
@@ -18,10 +18,11 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	}
 
 	/**
-	 * @used-by Ebizmarts_MailChimp_Model_Cron::processWebhookData()
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
+	 * @used-by Aoe_Scheduler_Model_Observer::dispatch() (app/code/community/Ebizmarts/MailChimp/etc/config.xml)
 	 */
-	function processWebhookData():void
-	{
+	function processWebhookData():void {
 		$collection = Mage::getModel('mailchimp/webhookrequest')->getCollection();
 		$collection->addFieldToFilter('processed', array('eq' => 0));
 		$collection->getSelect()->limit(self::BATCH_LIMIT);

@@ -22,14 +22,6 @@ class Ebizmarts_MailChimp_Model_Cron
 	 */
 	function syncSubscriberBatchData():void {\HCG\MailChimp\Batch\Subscriber::p();}
 
-	/**
-	 * @used-by app/code/community/Ebizmarts/MailChimp/etc/config.xml
-	 */
-	function processWebhookData() {
-		$p = new Process; /** @var Process $p */
-		$p->processWebhookData();
-	}
-
 	function deleteWebhookRequests() {
 		$p = new Process; /** @var Process $p */
 		$p->deleteProcessed();
