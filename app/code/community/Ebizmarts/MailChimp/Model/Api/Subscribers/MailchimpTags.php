@@ -75,6 +75,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function getLastOrder():O {return $this->_lastOrder;}
 
 	/**
+	 * @return Ebizmarts_MailChimp_Helper_Date
+	 */
+	function getMailchimpDateHelper() {return $this->_mcDateHelper;}
+
+	/**
 	 * @return Ebizmarts_MailChimp_Helper_Data
 	 */
 	function getMailchimpHelper()
@@ -627,14 +632,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @return Ebizmarts_MailChimp_Helper_Date
-	 */
-	function getMailchimpDateHelper()
-	{
-		return $this->_mcDateHelper;
-	}
 
 	/**
 	 * @param $mageMCDateHelper
