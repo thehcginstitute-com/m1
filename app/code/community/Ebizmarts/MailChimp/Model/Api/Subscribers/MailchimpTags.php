@@ -3,47 +3,6 @@
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 # https://github.com/cabinetsbay/site/issues/589
 final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
-	const GENDER_VALUE_MALE = 1;
-	const GENDER_VALUE_FEMALE = 2;
-
-	/**
-	 * @var int
-	 */
-	protected $_storeId;
-	/**
-	 * @var array
-	 */
-	protected $_mailChimpTags;
-	/**
-	 * @var Mage_Newsletter_Model_Subscriber
-	 */
-	protected $_subscriber;
-	/**
-	 * @var Mage_Customer_Model_Customer
-	 */
-	protected $_customer;
-	/**
-	 * @var Ebizmarts_MailChimp_Helper_Data
-	 */
-	protected $_mcHelper;
-	/**
-	 * @var Ebizmarts_MailChimp_Helper_Date
-	 */
-	protected $_mcDateHelper;
-	/**
-	 * @var Ebizmarts_MailChimp_Helper_Webhook
-	 */
-	protected $_mcWebhookHelper;
-	/**
-	 * @var Mage_Sales_Model_Order
-	 */
-	protected $_lastOrder;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
-	 */
-	protected $_interestGroupHandle;
-
 	function __construct()
 	{
 		$this->setMailChimpHelper();
@@ -104,7 +63,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @return int
 	 */
-	protected function _getCustomerId()
+	private function _getCustomerId()
 	{
 		if ($this->_subscriber === null) {
 			$customerId = $this->_customer->getId();
@@ -285,7 +244,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $listId
 	 * @throws Exception
 	 */
-	protected function _addSubscriberData($subscriber, $fname, $lname, $email, $listId)
+	private function _addSubscriberData($subscriber, $fname, $lname, $email, $listId)
 	{
 		$helper = $this->getMailchimpHelper();
 		$webhookHelper = $this->getMailchimpWebhookHelper();
@@ -323,7 +282,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @return Varien_Object
 	 */
-	protected function getNewVarienObject()
+	private function getNewVarienObject()
 	{
 		return new Varien_Object;
 	}
@@ -334,7 +293,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $attribute
 	 * @return |null
 	 */
-	protected function customerAttributes($attributeCode, $key, $attribute)
+	private function customerAttributes($attributeCode, $key, $attribute)
 	{
 		$subscriber = $this->getSubscriber();
 		$customer = $this->getCustomer();
@@ -359,7 +318,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $attribute
 	 */
-	protected function _addTags($attributeCode, $subscriber, $customer, $key, $attribute)
+	private function _addTags($attributeCode, $subscriber, $customer, $key, $attribute)
 	{
 		if ($attributeCode == 'default_billing' || $attributeCode == 'default_shipping') {
 			$this->addDefaultShipping($attributeCode, $key, $customer);
@@ -388,7 +347,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $mapFields
 	 * @return mixed
 	 */
-	protected function unserializeMapFields($mapFields)
+	private function unserializeMapFields($mapFields)
 	{
 		return $this->_mcHelper->unserialize($mapFields);
 	}
@@ -396,7 +355,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @return Object
 	 */
-	protected function getEntityAttributeCollection()
+	private function getEntityAttributeCollection()
 	{
 		return Mage::getResourceModel('eav/entity_attribute_collection');
 	}
@@ -407,7 +366,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $attributeCode
 	 * @param $eventValue
 	 */
-	protected function dispatchMergeVarBefore($attributeCode, &$eventValue)
+	private function dispatchMergeVarBefore($attributeCode, &$eventValue)
 	{
 		Mage::dispatchEvent(
 			'mailchimp_merge_field_send_before',
@@ -425,7 +384,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 *
 	 * @param $newVars
 	 */
-	protected function dispatchEventMergeVarAfter(&$newVars)
+	private function dispatchEventMergeVarAfter(&$newVars)
 	{
 		Mage::dispatchEvent(
 			'mailchimp_merge_field_send_after',
@@ -440,7 +399,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @return mixed
 	 */
-	protected function toArray()
+	private function toArray()
 	{
 		return $this->_mailChimpTags;
 	}
@@ -449,7 +408,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $mailchimpTags
 	 * @return bool
 	 */
-	protected function mergeMailchimpTags($mailchimpTags)
+	private function mergeMailchimpTags($mailchimpTags)
 	{
 		if (is_array($mailchimpTags)) {
 			$this->_mailChimpTags = array_merge($this->_mailChimpTags, $mailchimpTags);
@@ -463,7 +422,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $storeId
 	 * @return mixed
 	 */
-	protected function getWebSiteByStoreId($storeId)
+	private function getWebSiteByStoreId($storeId)
 	{
 		return Mage::getModel('core/store')->load($storeId)->getWebsiteId();
 	}
@@ -472,7 +431,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $address
 	 * @return array
 	 */
-	protected function getAddressData($address)
+	private function getAddressData($address)
 	{
 		$lastOrder = $this->getLastOrderByEmail();
 		$addressData = $this->getAddressFromLastOrder($lastOrder);
@@ -516,7 +475,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $customer
 	 * @return string
 	 */
-	protected function getCustomerGroupLabel($attributeCode, $customer)
+	private function getCustomerGroupLabel($attributeCode, $customer)
 	{
 		return $customer->getData($attributeCode);
 	}
@@ -527,7 +486,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $genderValue
 	 * @return string
 	 */
-	protected function getGenderLabel($mergeVars, $key, $genderValue)
+	private function getGenderLabel($mergeVars, $key, $genderValue)
 	{
 		if ($genderValue == self::GENDER_VALUE_MALE) {
 			$mergeVars[$key] = 'Male';
@@ -542,7 +501,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $genderLabel
 	 * @return int
 	 */
-	protected function getGenderValue($genderLabel)
+	private function getGenderValue($genderLabel)
 	{
 		$genderValue = 0;
 
@@ -560,7 +519,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $customer
 	 * @return string
 	 */
-	protected function getFirstName($subscriber, $customer)
+	private function getFirstName($subscriber, $customer)
 	{
 		$lastOrder = $this->getLastOrderByEmail();
 		$firstName = $customer->getFirstname();
@@ -581,7 +540,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $customer
 	 * @return string
 	 */
-	protected function getLastName($subscriber, $customer)
+	private function getLastName($subscriber, $customer)
 	{
 		$lastOrder = $this->getLastOrderByEmail();
 		$lastName = $customer->getLastname();
@@ -601,7 +560,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $lastOrder
 	 * @return array
 	 */
-	protected function getAddressFromLastOrder($lastOrder)
+	private function getAddressFromLastOrder($lastOrder)
 	{
 		$addressData = array();
 		if ($lastOrder && $lastOrder->getShippingAddress()) {
@@ -616,7 +575,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $customer
 	 * @return array
 	 */
-	protected function getAddressForCustomizedAttributes($customAtt, $customer)
+	private function getAddressForCustomizedAttributes($customAtt, $customer)
 	{
 		$lastOrder = $this->getLastOrderByEmail();
 		$address = $this->getAddressFromLastOrder($lastOrder);
@@ -633,7 +592,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @return mixed | null
 	 */
-	protected function customizedAttributes($customAtt, $key)
+	private function customizedAttributes($customAtt, $key)
 	{
 		$eventValue = null;
 		$customer = $this->getCustomer();
@@ -667,7 +626,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $attribute
 	 * @return mixed
 	 */
-	protected function getUnknownMergeField($attributeCode, $customer, $attribute)
+	private function getUnknownMergeField($attributeCode, $customer, $attribute)
 	{
 		$optionValue = null;
 
@@ -691,7 +650,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 * @throws Mage_Core_Model_Store_Exception
 	 */
-	protected function getDateOfBirth($attributeCode, $customer)
+	private function getDateOfBirth($attributeCode, $customer)
 	{
 		return $this->getMailchimpDateHelper()->formatDate(
 			$this->getCustomerGroupLabel($attributeCode, $customer),
@@ -705,7 +664,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param  $subscriberEmail
 	 * @return null
 	 */
-	protected function getLastDateOfPurchase()
+	private function getLastDateOfPurchase()
 	{
 		$lastDateOfPurchase = null;
 		$lastOrder = $this->getLastOrderByEmail();
@@ -723,7 +682,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @return mixed
 	 */
-	protected function addCompany($customAtt, $customer, $key)
+	private function addCompany($customAtt, $customer, $key)
 	{
 		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
 		if ($address) {
@@ -740,7 +699,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 *
 	 * @return Mage_Sales_Model_Order
 	 */
-	protected function getLastOrderByEmail()
+	private function getLastOrderByEmail()
 	{
 		$lastOrder = $this->getLastOrder();
 
@@ -763,7 +722,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $orderCollection
 	 * @return bool
 	 */
-	protected function isNotEmptyOrderCollection($orderCollection)
+	private function isNotEmptyOrderCollection($orderCollection)
 	{
 		return $orderCollection->getSize() > 0;
 	}
@@ -779,7 +738,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $mageMCHelper
 	 */
-	protected function setMailChimpHelper()
+	private function setMailChimpHelper()
 	{
 		$this->_mcHelper = hcg_mc_h();
 	}
@@ -795,7 +754,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $mageMCDateHelper
 	 */
-	protected function setMailChimpDateHelper()
+	private function setMailChimpDateHelper()
 	{
 		$this->_mcDateHelper = Mage::helper('mailchimp/date');
 	}
@@ -811,7 +770,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $mageMCWebhookHelper
 	 */
-	protected function setMailChimpWebhookHelper()
+	private function setMailChimpWebhookHelper()
 	{
 		$this->_mcWebhookHelper = Mage::helper('mailchimp/webhook');
 	}
@@ -820,7 +779,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @return bool
 	 */
-	protected function mailChimpTagIsSet($key)
+	private function mailChimpTagIsSet($key)
 	{
 		return isset($this->_mailChimpTags[$key]);
 	}
@@ -830,7 +789,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $customAtt
 	 * @param $key
 	 */
-	protected function buildCustomerAttributes($attrSetId, $customAtt, $key)
+	private function buildCustomerAttributes($attrSetId, $customAtt, $key)
 	{
 		$eventValue = null;
 		foreach ($attrSetId as $attribute) {
@@ -852,7 +811,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $customAtt
 	 * @param $key
 	 */
-	protected function buildCustomizedAttributes($customAtt, $key)
+	private function buildCustomizedAttributes($customAtt, $key)
 	{
 		$eventValue = null;
 		$eventValue = $this->customizedAttributes(
@@ -870,7 +829,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $customer
 	 */
-	protected function addDefaultShipping($attributeCode, $key, $customer)
+	private function addDefaultShipping($attributeCode, $key, $customer)
 	{
 		$address = $customer->getPrimaryAddress($attributeCode);
 		$addressData = $this->getAddressData($address);
@@ -885,7 +844,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $customer
 	 */
-	protected function addGender($attributeCode, $key, $customer)
+	private function addGender($attributeCode, $key, $customer)
 	{
 		if ($this->getCustomerGroupLabel($attributeCode, $customer)) {
 			$genderValue = $this->getCustomerGroupLabel($attributeCode, $customer);
@@ -898,7 +857,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $customer
 	 */
-	protected function addGroupId($attributeCode, $key, $customer)
+	private function addGroupId($attributeCode, $key, $customer)
 	{
 		if ($this->getCustomerGroupLabel($attributeCode, $customer)) {
 			$groupId = (int)$this->getCustomerGroupLabel($attributeCode, $customer);
@@ -914,7 +873,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $subscriber
 	 * @param $customer
 	 */
-	protected function addFirstName($key, $subscriber, $customer)
+	private function addFirstName($key, $subscriber, $customer)
 	{
 		$firstName = $this->getFirstName($subscriber, $customer);
 
@@ -928,7 +887,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $subscriber
 	 * @param $customer
 	 */
-	protected function addLastName($key, $subscriber, $customer)
+	private function addLastName($key, $subscriber, $customer)
 	{
 		$lastName = $this->getLastName($subscriber, $customer);
 
@@ -940,7 +899,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $key
 	 */
-	protected function addWebsiteId($key)
+	private function addWebsiteId($key)
 	{
 		$websiteId = $this->getWebSiteByStoreId($this->getStoreId());
 		$this->addMailChimpTag($key, $websiteId);
@@ -949,7 +908,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $key
 	 */
-	protected function addCreatedIn($key)
+	private function addCreatedIn($key)
 	{
 		$storeName = Mage::getModel('core/store')->load($this->getStoreId())->getName();
 		$this->addMailChimpTag($key, $storeName);
@@ -960,7 +919,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $customer
 	 */
-	protected function addDob($attributeCode, $key, $customer)
+	private function addDob($attributeCode, $key, $customer)
 	{
 		if ($this->getCustomerGroupLabel($attributeCode, $customer)) {
 			$this->addMailChimpTag($key, $this->getDateOfBirth($attributeCode, $customer));
@@ -973,7 +932,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $attribute
 	 * @param $customer
 	 */
-	protected function addUnknownMergeField($attributeCode, $key, $attribute, $customer)
+	private function addUnknownMergeField($attributeCode, $key, $attribute, $customer)
 	{
 		$mergeValue = $this->getUnknownMergeField($attributeCode, $customer, $attribute);
 		if ($mergeValue !== null) {
@@ -986,7 +945,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $customer
 	 */
-	protected function addTelephoneFromCustomizedAttribute($customAtt, $key, $customer)
+	private function addTelephoneFromCustomizedAttribute($customAtt, $key, $customer)
 	{
 		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
 		if ($address) {
@@ -1002,7 +961,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $customer
 	 */
-	protected function addCountryFromCustomizedAttribute($customAtt, $key, $customer)
+	private function addCountryFromCustomizedAttribute($customAtt, $key, $customer)
 	{
 		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
 		if ($address) {
@@ -1019,7 +978,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $customer
 	 */
-	protected function addZipCodeFromCustomizedAttribute($customAtt, $key, $customer)
+	private function addZipCodeFromCustomizedAttribute($customAtt, $key, $customer)
 	{
 		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
 		if ($address) {
@@ -1035,7 +994,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $customer
 	 */
-	protected function addStateFromCustomizedAttribute($customAtt, $key, $customer)
+	private function addStateFromCustomizedAttribute($customAtt, $key, $customer)
 	{
 		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
 		if ($address) {
@@ -1050,7 +1009,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $key
 	 * @param $subscriberEmail
 	 */
-	protected function addDopFromCustomizedAttribute($key)
+	private function addDopFromCustomizedAttribute($key)
 	{
 		$dop = $this->getLastDateOfPurchase();
 		if ($dop) {
@@ -1061,7 +1020,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $key
 	 */
-	protected function addStoreCodeFromCustomizedAttribute($key)
+	private function addStoreCodeFromCustomizedAttribute($key)
 	{
 		$storeCode = Mage::getModel('core/store')->load($this->getStoreId())->getCode();
 		$this->addMailChimpTag($key, $storeCode);
@@ -1074,7 +1033,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $listId
 	 * @throws Mage_Core_Exception
 	 */
-	protected function _setMailchimpTagsToCustomer($data)
+	private function _setMailchimpTagsToCustomer($data)
 	{
 		$customer = $this->getCustomer();
 
@@ -1099,7 +1058,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $mapFields
 	 * @param $customer
 	 */
-	protected function _setMailchimpTagToCustomer($key, $value, $mapFields, $customer)
+	private function _setMailchimpTagToCustomer($key, $value, $mapFields, $customer)
 	{
 		$ignore = array(
 			'billing_company', 'billing_country', 'billing_zipcode', 'billing_state', 'billing_telephone',
@@ -1123,7 +1082,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $attrId
 	 * @return bool
 	 */
-	protected function _isAddress($attrId)
+	private function _isAddress($attrId)
 	{
 		if (is_numeric($attrId)) {
 			// Gets the magento attr_code.
@@ -1141,7 +1100,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $attrId
 	 * @return string
 	 */
-	protected function _getAttrbuteCode($attrId)
+	private function _getAttrbuteCode($attrId)
 	{
 		$attributeCode = Mage::getModel('eav/entity_attribute')->load($attrId)->getAttributeCode();
 
@@ -1152,7 +1111,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $attrCode
 	 * @return int
 	 */
-	protected function _getAttrbuteId($attrCode)
+	private function _getAttrbuteId($attrCode)
 	{
 		$attribute = Mage::getModel('eav/entity_attribute')
 			->getCollection()
@@ -1167,7 +1126,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $data
 	 * @return string
 	 */
-	protected function _getFName($data)
+	private function _getFName($data)
 	{
 		$attrId = $this->_getAttrbuteId('firstname');
 		$magentoTag = '';
@@ -1186,7 +1145,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $data
 	 * @return string
 	 */
-	protected function _getLName($data)
+	private function _getLName($data)
 	{
 		$attrId = $this->_getAttrbuteId('lastname');
 		$magentoTag = '';
@@ -1204,9 +1163,49 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @return false|Mage_Core_Model_Abstract
 	 */
-	protected function _getInterestGroupHandleModel()
+	private function _getInterestGroupHandleModel()
 	{
 		return $this->_interestGroupHandle;
 	}
-}
+	
+	const GENDER_VALUE_MALE = 1;
+	const GENDER_VALUE_FEMALE = 2;
 
+	/**
+	 * @var int
+	 */
+	private $_storeId;
+	/**
+	 * @var array
+	 */
+	private $_mailChimpTags;
+	/**
+	 * @var Mage_Newsletter_Model_Subscriber
+	 */
+	private $_subscriber;
+	/**
+	 * @var Mage_Customer_Model_Customer
+	 */
+	private $_customer;
+	/**
+	 * @var Ebizmarts_MailChimp_Helper_Data
+	 */
+	private $_mcHelper;
+	/**
+	 * @var Ebizmarts_MailChimp_Helper_Date
+	 */
+	private $_mcDateHelper;
+	/**
+	 * @var Ebizmarts_MailChimp_Helper_Webhook
+	 */
+	private $_mcWebhookHelper;
+	/**
+	 * @var Mage_Sales_Model_Order
+	 */
+	private $_lastOrder;
+
+	/**
+	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
+	 */
+	private $_interestGroupHandle;	
+}
