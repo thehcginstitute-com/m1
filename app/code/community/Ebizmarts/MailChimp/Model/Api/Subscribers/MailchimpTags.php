@@ -72,6 +72,20 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 	function getCustomer():C {return $this->_customer;}
 
+	/**
+	 * @param $attributeCode
+	 * @param $customer
+	 * @return mixed
+	 * @throws Mage_Core_Model_Store_Exception
+	 */
+	private function getDateOfBirth($attributeCode, $customer)
+	{
+		return $this->getMailchimpDateHelper()->formatDate(
+			$this->getCustomerGroupLabel($attributeCode, $customer),
+			'm/d', 1
+		);
+	}
+
 	function getLastOrder():O {return $this->_lastOrder;}
 
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
@@ -540,20 +554,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $attributeCode
-	 * @param $customer
-	 * @return mixed
-	 * @throws Mage_Core_Model_Store_Exception
-	 */
-	private function getDateOfBirth($attributeCode, $customer)
-	{
-		return $this->getMailchimpDateHelper()->formatDate(
-			$this->getCustomerGroupLabel($attributeCode, $customer),
-			'm/d', 1
-		);
-	}
 
 	/**
 	 * If orders with the given email exists, returns the date of the last order made.
