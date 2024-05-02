@@ -355,6 +355,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $key
+	 */
+	private function addWebsiteId($key):void
+	{
+		$websiteId = $this->getWebSiteByStoreId($this->getStoreId());
+		$this->addMailChimpTag($key, $websiteId);
+	}
+
+	/**
 	 * @param $attributeCode
 	 * @param $key
 	 * @param $attribute
@@ -758,15 +767,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $key
-	 */
-	private function addWebsiteId($key):void
-	{
-		$websiteId = $this->getWebSiteByStoreId($this->getStoreId());
-		$this->addMailChimpTag($key, $websiteId);
-	}
 
 	/**
 	 * @param $key
