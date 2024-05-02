@@ -1,7 +1,4 @@
 <?php
-# 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
-# https://github.com/cabinetsbay/site/issues/589
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as Tags;
 class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 {
