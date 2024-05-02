@@ -74,10 +74,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		return $customerId;
 	}
 	
-	/**
-	 * @param Mage_Sales_Model_Order $lastOrder
-	 */
-	function setLastOrder($lastOrder):void
+	function setLastOrder(O $lastOrder):void
 	{
 		$this->_lastOrder = $lastOrder;
 	}
