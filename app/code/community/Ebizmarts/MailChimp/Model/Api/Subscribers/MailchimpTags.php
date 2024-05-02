@@ -1039,7 +1039,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $listId
 	 * @throws Mage_Core_Exception
 	 */
-	private function _setMailchimpTagsToCustomer($data)
+	private function _setMailchimpTagsToCustomer($data):void
 	{
 		$customer = $this->getCustomer();
 
