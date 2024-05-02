@@ -10,18 +10,18 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook
 	/**
 	 * @var Ebizmarts_MailChimp_Helper_Data
 	 */
-	protected $_helper;
-	protected $_dateHelper;
+	private $_helper;
+	private $_dateHelper;
 
 	/**
 	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
 	 */
-	protected $_interestGroupHandle;
+	private $_interestGroupHandle;
 
 	/**
 	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
 	 */
-	protected $_tags;
+	private $_tags;
 
 	/**
 	 * Webhooks request url path
@@ -89,7 +89,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook
 	/**
 	 * @param $webhookRequest
 	 */
-	protected function _saveProcessedWebhook($webhookRequest)
+	private function _saveProcessedWebhook($webhookRequest)
 	{
 		$webhookRequest->setProcessed(1)->save();
 	}
@@ -100,7 +100,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook
 	 * @param array $data
 	 * @return void
 	 */
-	protected function _updateEmail(array $data)
+	private function _updateEmail(array $data)
 	{
 		$helper = $this->getHelper();
 		$listId = $data['list_id'];
@@ -129,7 +129,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook
 	 * @param array $data
 	 * @return void
 	 */
-	protected function _clean(array $data)
+	private function _clean(array $data)
 	{
 		//Delete subscriber from Magento
 		$helper = $this->getHelper();
@@ -150,7 +150,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook
 	 * @param array $data
 	 * @return void
 	 */
-	protected function _subscribe(array $data)
+	private function _subscribe(array $data)
 	{
 		try {
 			$subscribe = true;
@@ -166,7 +166,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook
 	 * @param array $data
 	 * @return void
 	 */
-	protected function _unsubscribe(array $data)
+	private function _unsubscribe(array $data)
 	{
 		$helper = $this->getHelper();
 		$subscriber = $helper->loadListSubscriber($data['list_id'], $data['email']);
@@ -220,7 +220,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook
 		$connection->delete($tableName, $where);
 	}
 
-	protected function _getStoreId()
+	private function _getStoreId()
 	{
 		return Mage::app()->getStore()->getId();
 	}
@@ -228,7 +228,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook
 	/**
 	 * @return false|Mage_Core_Model_Abstract
 	 */
-	protected function getInterestGroupHandleModel()
+	private function getInterestGroupHandleModel()
 	{
 		return $this->_interestGroupHandle;
 	}
@@ -244,7 +244,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Data
 	 */
-	protected function getHelper($type='')
+	private function getHelper($type='')
 	{
 		return $this->_helper;
 	}
@@ -252,7 +252,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Date|Mage_Core_Helper_Abstract
 	 */
-	protected function getDateHelper()
+	private function getDateHelper()
 	{
 		return $this->_dateHelper;
 	}
