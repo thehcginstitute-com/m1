@@ -22,6 +22,25 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
+	 * https://github.com/cabinetsbay/site/issues/589
+ 	 * @used-by self::_addTags()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
 	 * @param $value
 	 */
 	private function addMailChimpTag(string $key, $value):void {$this->_mailChimpTags[$key] = $value;}
