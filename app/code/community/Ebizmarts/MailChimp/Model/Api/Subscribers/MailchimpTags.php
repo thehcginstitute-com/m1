@@ -623,6 +623,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @param $mageMCDateHelper
+	 */
+	private function setMailChimpDateHelper():void {$this->_mcDateHelper = Mage::helper('mailchimp/date');}
+
+	/**
 	 * @param $mageMCHelper
 	 */
 	private function setMailChimpHelper():void {$this->_mcHelper = hcg_mc_h();}
@@ -632,14 +637,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $mageMCDateHelper
-	 */
-	private function setMailChimpDateHelper():void
-	{
-		$this->_mcDateHelper = Mage::helper('mailchimp/date');
-	}
 
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Webhook
