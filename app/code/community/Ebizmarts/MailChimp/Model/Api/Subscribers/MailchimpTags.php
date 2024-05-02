@@ -74,6 +74,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 	function getLastOrder():O {return $this->_lastOrder;}
 
+	/**
+	 * @return Ebizmarts_MailChimp_Helper_Data
+	 */
+	function getMailchimpHelper()
+	{
+		return $this->_mcHelper;
+	}
+
+
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
 
 	/**
@@ -635,14 +644,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function isNotEmptyOrderCollection($orderCollection)
 	{
 		return $orderCollection->getSize() > 0;
-	}
-
-	/**
-	 * @return Ebizmarts_MailChimp_Helper_Data
-	 */
-	function getMailchimpHelper()
-	{
-		return $this->_mcHelper;
 	}
 
 	/**
