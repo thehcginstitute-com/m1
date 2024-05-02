@@ -28,6 +28,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 	function getCustomer():C {return $this->_customer;}
 
+	function getLastOrder():O {return $this->_lastOrder;}
+
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
 
 	/**
@@ -71,11 +73,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		}
 		return $customerId;
 	}
-	
-	function getLastOrder():O
-	{
-		return $this->_lastOrder;
-	}
+
+
 
 	/**
 	 * @param Mage_Sales_Model_Order $lastOrder
