@@ -42,7 +42,11 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 			if ($data) {
 				switch ($webhookRequest->getType()) {
 					case 'subscribe':
-						$this->_subscribe($data);
+						try {
+							$this->getMailchimpTagsModel()->processMergeFields($data, true);
+						} catch (Exception $e) {
+							Mage::logException($e);
+						}
 						break;
 					case 'unsubscribe':
 						$this->_unsubscribe($data);
@@ -54,7 +58,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 						$this->_updateEmail($data);
 						break;
 					case 'profile':
-						$this->_profile($data);
+						$this->getMailchimpTagsModel()->processMergeFields($data);
 				}
 			}
 
@@ -91,31 +95,9 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	private function getMailchimpTagsModel():Tags {return $this->_tags;}
 
 	/**
-	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
-	 * @used-by self::processWebhookData()
-	 * @throws Mage_Core_Exception
-	 */
-	private function _profile(array $d):void {$this->getMailchimpTagsModel()->processMergeFields($d);}
-
-	/**
 	 * @param $webhookRequest
 	 */
 	private function _saveProcessedWebhook($webhookRequest):void {$webhookRequest->setProcessed(1)->save();}
-
-	/**
-	 * Subscribe email to Magento list, store aware
-	 *
-	 * @param array $data
-	 * @return void
-	 */
-	private function _subscribe(array $data):void {
-		try {
-			$this->getMailchimpTagsModel()->processMergeFields($data, true);
-		} catch (Exception $e) {
-			Mage::logException($e);
-		}
-	}
 
 	/**
 	 * Update customer email <upemail>
