@@ -257,18 +257,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @return int
-	 */
-	private function _getCustomerId() {
-		if ($this->_subscriber === null) {
-			$customerId = $this->_customer->getId();
-		} else {
-			$customerId = $this->_subscriber->getCustomerId();
-		}
-		return $customerId;
-	}
-
-	/**
 	 * @param $attributeCode
 	 * @param $key
 	 * @param $attribute
