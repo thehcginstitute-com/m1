@@ -375,6 +375,24 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function getEntityAttributeCollection() {return Mage::getResourceModel('eav/entity_attribute_collection');}
 
 	/**
+	 * @param $subscriber
+	 * @param $customer
+	 * @return string
+	 */
+	private function getFirstName($subscriber, $customer) {
+		$lastOrder = $this->getLastOrderByEmail();
+		$firstName = $customer->getFirstname();
+		if (!$firstName) {
+			if ($subscriber->getSubscriberFirstname()) {
+				$firstName = $subscriber->getSubscriberFirstname();
+			} elseif ($lastOrder && $lastOrder->getCustomerFirstname()) {
+				$firstName = $lastOrder->getCustomerFirstname();
+			}
+		}
+		return $firstName;
+	}
+
+	/**
 	 * @param $mergeVars
 	 * @param $key
 	 * @param $genderValue
@@ -419,27 +437,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * @param $subscriber
-	 * @param $customer
-	 * @return string
-	 */
-	private function getFirstName($subscriber, $customer)
-	{
-		$lastOrder = $this->getLastOrderByEmail();
-		$firstName = $customer->getFirstname();
-
-		if (!$firstName) {
-			if ($subscriber->getSubscriberFirstname()) {
-				$firstName = $subscriber->getSubscriberFirstname();
-			} elseif ($lastOrder && $lastOrder->getCustomerFirstname()) {
-				$firstName = $lastOrder->getCustomerFirstname();
-			}
-		}
-
-		return $firstName;
-	}
 
 	/**
 	 * @param $subscriber
