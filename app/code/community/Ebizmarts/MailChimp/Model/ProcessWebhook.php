@@ -111,8 +111,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 */
 	private function _subscribe(array $data):void {
 		try {
-			$subscribe = true;
-			$this->getMailchimpTagsModel()->processMergeFields($data, $subscribe);
+			$this->getMailchimpTagsModel()->processMergeFields($data, true);
 		} catch (Exception $e) {
 			Mage::logException($e);
 		}
