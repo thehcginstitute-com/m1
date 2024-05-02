@@ -18,9 +18,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	}
 
 	/**
-	 * Process Webhook request
-	 *
-	 * @return void
+	 * @used-by Ebizmarts_MailChimp_Model_Cron::processWebhookData()
 	 */
 	function processWebhookData():void
 	{
