@@ -21,10 +21,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @param $key
 	 * @param $value
 	 */
-	function addMailChimpTag($key, $value):void {$this->_mailChimpTags[$key] = $value;}
+	function addMailChimpTag(string $key, $value):void {$this->_mailChimpTags[$key] = $value;}
 
 	function getCustomer():C {return $this->_customer;}
 
