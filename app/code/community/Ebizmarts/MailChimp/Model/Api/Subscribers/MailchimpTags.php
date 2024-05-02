@@ -86,6 +86,23 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		);
 	}
 
+	/**
+	 * If orders with the given email exists, returns the date of the last order made.
+	 *
+	 * @param  $subscriberEmail
+	 * @return null
+	 */
+	private function getLastDateOfPurchase()
+	{
+		$lastDateOfPurchase = null;
+		$lastOrder = $this->getLastOrderByEmail();
+		if ($lastOrder !== null) {
+			$lastDateOfPurchase = $lastOrder->getCreatedAt();
+		}
+
+		return $lastDateOfPurchase;
+	}
+
 	function getLastOrder():O {return $this->_lastOrder;}
 
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
@@ -554,23 +571,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
-
-	/**
-	 * If orders with the given email exists, returns the date of the last order made.
-	 *
-	 * @param  $subscriberEmail
-	 * @return null
-	 */
-	private function getLastDateOfPurchase()
-	{
-		$lastDateOfPurchase = null;
-		$lastOrder = $this->getLastOrderByEmail();
-		if ($lastOrder !== null) {
-			$lastDateOfPurchase = $lastOrder->getCreatedAt();
-		}
-
-		return $lastDateOfPurchase;
-	}
 
 	/**
 	 * @param $mailchimpTags
