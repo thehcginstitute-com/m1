@@ -18,7 +18,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 		$this->_interestGroupHandle = Mage::getModel('mailchimp/api_subscribers_InterestGroupHandle');
 	}
 
-	function saveWebhookRequest(array $data) {
+	function saveWebhookRequest(array $data):void {
 		Mage::getModel('mailchimp/webhookrequest')
 			->setType($data['type'])
 			->setFiredAt($data['fired_at'])
@@ -31,7 +31,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 *
 	 * @return void
 	 */
-	function processWebhookData()
+	function processWebhookData():void
 	{
 		$collection = Mage::getModel('mailchimp/webhookrequest')->getCollection();
 		$collection->addFieldToFilter('processed', array('eq' => 0));
@@ -66,7 +66,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	/**
 	 * @param $webhookRequest
 	 */
-	private function _saveProcessedWebhook($webhookRequest)
+	private function _saveProcessedWebhook($webhookRequest):void
 	{
 		$webhookRequest->setProcessed(1)->save();
 	}
@@ -77,7 +77,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @param array $data
 	 * @return void
 	 */
-	private function _updateEmail(array $data)
+	private function _updateEmail(array $data):void
 	{
 		$helper = $this->getHelper();
 		$listId = $data['list_id'];
@@ -106,7 +106,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @param array $data
 	 * @return void
 	 */
-	private function _clean(array $data)
+	private function _clean(array $data):void
 	{
 		//Delete subscriber from Magento
 		$helper = $this->getHelper();
@@ -127,7 +127,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @param array $data
 	 * @return void
 	 */
-	private function _subscribe(array $data)
+	private function _subscribe(array $data):void
 	{
 		try {
 			$subscribe = true;
@@ -143,7 +143,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @param array $data
 	 * @return void
 	 */
-	private function _unsubscribe(array $data)
+	private function _unsubscribe(array $data):void
 	{
 		$helper = $this->getHelper();
 		$subscriber = $helper->loadListSubscriber($data['list_id'], $data['email']);
@@ -182,12 +182,12 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @param array $data
 	 * @throws Mage_Core_Exception
 	 */
-	function _profile(array $data)
+	function _profile(array $data):void
 	{
 		$this->getMailchimpTagsModel()->processMergeFields($data);
 	}
 
-	function deleteProcessed()
+	function deleteProcessed():void
 	{
 		$helper = $this->getHelper();
 		$resource = $helper->getCoreResource();
