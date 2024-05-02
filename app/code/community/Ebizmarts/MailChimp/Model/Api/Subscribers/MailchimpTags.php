@@ -73,9 +73,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		}
 		return $customerId;
 	}
-
-
-
+	
 	/**
 	 * @param Mage_Sales_Model_Order $lastOrder
 	 */
