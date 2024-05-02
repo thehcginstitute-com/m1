@@ -228,14 +228,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @return Varien_Object
-	 */
-	private function getNewVarienObject()
-	{
-		return new Varien_Object;
-	}
-
-	/**
 	 * @param $attributeCode
 	 * @param $key
 	 * @param $attribute
@@ -257,6 +249,14 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		}
 
 		return $eventValue;
+	}
+
+	/**
+	 * @return Varien_Object
+	 */
+	private function getNewVarienObject()
+	{
+		return new Varien_Object;
 	}
 
 	/**
