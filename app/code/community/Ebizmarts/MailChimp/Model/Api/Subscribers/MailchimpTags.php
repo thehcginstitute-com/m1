@@ -15,7 +15,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::p()
 	 */
 	function __construct() {
-		$this->setMailChimpHelper();
 		$this->setMailChimpDateHelper();
 		$this->setMailChimpWebhookHelper();
 		$this->_interestGroupHandle = Mage::getModel('mailchimp/api_subscribers_InterestGroupHandle');
