@@ -32,6 +32,5 @@ use Ebizmarts_MailChimp_Helper_Date as H;
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
- * @used-by STUB()
  */
 function hcg_mc_h_date():H {return Mage::helper('mailchimp/date');}

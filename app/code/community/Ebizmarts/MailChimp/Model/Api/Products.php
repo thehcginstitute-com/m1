@@ -364,7 +364,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
 				$jsonErrorMsg,
 				null,
 				null,
-				$this->getDateHelper()->getCurrentDateTime()
+				hcg_mc_h_date()->getCurrentDateTime()
 			);
 
 			return false;
