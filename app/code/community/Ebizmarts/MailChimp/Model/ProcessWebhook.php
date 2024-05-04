@@ -2,6 +2,7 @@
 # 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as Tags;
+use HCG\MailChimp\Tags\ProcessMergeFields;
 final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	/**
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -16,6 +17,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 			if ($d = hcg_mc_h()->unserialize($webhookRequest->getDataRequest())) {
 				switch ($webhookRequest->getType()) {
 					case 'profile':
+						ProcessMergeFields::p($d);
 						$tags = new Tags;
 						$tags->processMergeFields($d);
 						break;

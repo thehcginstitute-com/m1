@@ -13,7 +13,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * https://github.com/cabinetsbay/site/issues/589
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::_buildMailchimpTags()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_buildMailchimpTags()
-	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::p()
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
 	 */
 	function __construct() {
 		$this->setMailChimpDateHelper();
