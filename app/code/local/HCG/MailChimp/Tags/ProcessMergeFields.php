@@ -48,7 +48,7 @@ final class ProcessMergeFields {
 		$subscriber->save();
 		$t->setSubscriber($subscriber);
 		if (isset($data['merges']['GROUPINGS'])) {
-			$interestGroupHandle = $t->_getInterestGroupHandleModel();
+			$interestGroupHandle = new \Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle;
 			if ($t->getSubscriber() === null) {
 				$interestGroupHandle->setCustomer($t->getCustomer());
 			}

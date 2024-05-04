@@ -17,8 +17,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	function __construct() {
 		$this->setMailChimpDateHelper();
-		$this->setMailChimpWebhookHelper();
-		$this->_interestGroupHandle = Mage::getModel('mailchimp/api_subscribers_InterestGroupHandle');
 	}
 
 	/**
@@ -172,11 +170,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$attrId = $attribute->getId();
 		return $attrId;
 	}
-
-	/**
-	 * @return false|Mage_Core_Model_Abstract
-	 */
-	private function _getInterestGroupHandleModel() {return $this->_interestGroupHandle;}
 
 	/**
 	 * @param $customAtt
@@ -867,9 +860,4 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @var Ebizmarts_MailChimp_Helper_Date
 	 */
 	private $_mcDateHelper;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
-	 */
-	private $_interestGroupHandle;	
 }
