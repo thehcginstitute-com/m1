@@ -1,5 +1,6 @@
 <?php
 namespace HCG\MailChimp\Tags;
+use Ebizmarts_MailChimp_Helper_Webhook as WebhookH;
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as T;
 # 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
@@ -68,7 +69,7 @@ final class ProcessMergeFields {
 	private static function _addSubscriberData($subscriber, $fname, $lname, $email, $listId):void
 	{
 		$helper = hcg_mc_h();
-		$webhookHelper = $this->getMailchimpWebhookHelper();
+		$webhookHelper = \Mage::helper('mailchimp/webhook'); /** @var WebhookH $webhookHelper */
 		$scopeArray = $helper->getFirstScopeFromConfig(
 			\Ebizmarts_MailChimp_Model_Config::GENERAL_LIST,
 			$listId

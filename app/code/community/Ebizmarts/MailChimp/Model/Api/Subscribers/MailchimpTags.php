@@ -92,11 +92,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @return Ebizmarts_MailChimp_Helper_Webhook
-	 */
-	function getMailchimpWebhookHelper() {return $this->_mcWebhookHelper;}
-
-	/**
 	 * @return int
 	 */
 	function getStoreId() {return $this->_storeId;}
@@ -821,11 +816,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function setMailChimpDateHelper():void {$this->_mcDateHelper = Mage::helper('mailchimp/date');}
 
 	/**
-	 * @param $mageMCWebhookHelper
-	 */
-	private function setMailChimpWebhookHelper():void {$this->_mcWebhookHelper = Mage::helper('mailchimp/webhook');}
-
-	/**
 	 * @param $mapFields
 	 * @return mixed
 	 */
@@ -877,10 +867,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @var Ebizmarts_MailChimp_Helper_Date
 	 */
 	private $_mcDateHelper;
-	/**
-	 * @var Ebizmarts_MailChimp_Helper_Webhook
-	 */
-	private $_mcWebhookHelper;
 
 	/**
 	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
