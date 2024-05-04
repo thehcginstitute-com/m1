@@ -107,7 +107,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			$this->addFirstName($k, $c);
 		}
 		elseif ($a == 'lastname') {
-			$this->addLastName($k, $s, $c);
+			$this->addLastName($k, $c);
 		}
 		elseif ($a == 'store_id') {
 			$this->addMailChimpTag($k, $this->getStoreId());
@@ -254,10 +254,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $subscriber
 	 * @param $customer
 	 */
-	private function addLastName($key, $subscriber, $customer):void
-	{
-		$lastName = $this->getLastName($subscriber, $customer);
-
+	private function addLastName($key, $customer):void {
+		$lastName = $this->getLastName($this->sub(), $customer);
 		if ($lastName) {
 			$this->addMailChimpTag($key, $lastName);
 		}
