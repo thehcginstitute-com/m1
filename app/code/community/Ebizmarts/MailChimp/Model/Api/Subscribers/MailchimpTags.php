@@ -92,8 +92,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::customerAttributes()
 	 */
-	private function _addTags($attributeCode, $subscriber, $customer, $key, $attribute):void
+	private function _addTags(string $attributeCode, $customer, $key, $attribute):void
 	{
+		$subscriber = $this->getSubscriber(); /** @var Sub $subscriber */
 		if ($attributeCode == 'default_billing' || $attributeCode == 'default_shipping') {
 			$this->addDefaultShipping($attributeCode, $key, $customer);
 		}
@@ -402,7 +403,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$eventValue = null;
 
 		if ($attributeCode != 'email') {
-			$this->_addTags($attributeCode, $subscriber, $customer, $key, $attribute);
+			$this->_addTags($attributeCode, $customer, $key, $attribute);
 		}
 
 		if ($this->getMailChimpTagValue($key) !== null) {
