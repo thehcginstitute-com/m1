@@ -507,16 +507,14 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
      * @param $codeId
      * @throws Mage_Core_Model_Store_Exception
      */
-    protected function setCodeWithParentError($ruleId, $codeId)
-    {
-        $dateHelper = $this->getDateHelper();
+    protected function setCodeWithParentError($ruleId, $codeId) {
         $error = 'Parent rule with id ' . $ruleId . ' has not been correctly sent.';
         $this->addSyncDataError(
             $codeId,
             $error,
             null,
             false,
-            $dateHelper->formatDate(null, "Y-m-d H:i:s")
+            hcg_mc_h_date()->formatDate(null, "Y-m-d H:i:s")
         );
     }
 
