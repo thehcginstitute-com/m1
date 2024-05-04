@@ -27,7 +27,7 @@ use Ebizmarts_MailChimp_Helper_Date as H;
  * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::createBatchJson()
  * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::_getNewPromoCodes()
  * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::setCodeWithParentError()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Model_Api_PromoRules::createBatchJson()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()

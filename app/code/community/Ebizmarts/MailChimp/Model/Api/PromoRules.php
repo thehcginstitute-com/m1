@@ -51,7 +51,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
 		$this->_batchId = 'storeid-'
 			. $magentoStoreId . '_'
 			. Ebizmarts_MailChimp_Model_Config::IS_PROMO_RULE . '_'
-			. $this->getDateHelper()->getDateMicrotime();
+			. hcg_mc_h_date()->getDateMicrotime();
 		$batchArray = array_merge($batchArray, $this->_getModifiedAndDeletedPromoRules());
 
 		return $batchArray;
