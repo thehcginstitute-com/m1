@@ -78,10 +78,9 @@ final class ProcessMergeFields {
 	/**
 	 * 2024-05-04
 	 * @used-by self::__construct()
-	 * @used-by self::STUB()
-	 * @used-by self::STUB()
-	 * @used-by self::STUB()
-	 * @used-by self::STUB()
+	 * @used-by self::_getFName()
+	 * @used-by self::_getLName()
+	 * @used-by self::_setMailchimpTagsToCustomer()
 	 * @var T
 	 */
 	private $_t;
