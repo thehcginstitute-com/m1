@@ -8,5 +8,6 @@ use Ebizmarts_MailChimp_Helper_Date as H;
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::updateSubscriber()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::getDateOfBirth()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_List::_afterSave()
+ * @used-by Ebizmarts_MailChimp_Model_Email_Queue::_saveMessage()
  */
 function hcg_mc_h_date():H {return Mage::helper('mailchimp/date');}

@@ -81,9 +81,7 @@ class Ebizmarts_MailChimp_Model_Email_Queue extends Mage_Core_Model_Email_Queue
      */
     protected function _saveMessage($message)
     {
-        $mageMCDateHelper = Mage::helper('mailchimp/date');
-
-        $message->setProcessedAt($mageMCDateHelper->formatDate(null, 'Y-m-d H:i:s'));
+        $message->setProcessedAt(hcg_mc_h_date()->formatDate(null, 'Y-m-d H:i:s'));
         $message->save();
     }
 
