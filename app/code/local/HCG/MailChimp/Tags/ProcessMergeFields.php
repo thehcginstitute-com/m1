@@ -51,7 +51,7 @@ final class ProcessMergeFields {
 		if (isset($data['merges']['GROUPINGS'])) {
 			$igh = new InterestGroupHandle; /** @var InterestGroupHandle $igh */
 			if ($t->getSubscriber() === null) {
-				$igh->setCustomer($t->getCustomer());
+				$igh->setCustomer($t->customerGet());
 			}
 			else {
 				$igh->setSubscriber($t->getSubscriber());
@@ -187,7 +187,7 @@ final class ProcessMergeFields {
 	 * @used-by self::p()
 	 */
 	private static function _setMailchimpTagsToCustomer(T $t, array $data):void {
-		$customer = $t->getCustomer();
+		$customer = $t->customerGet();
 		foreach ($data['merges'] as $key => $value) {
 			if (!empty($value)) {
 				if (is_array($t->_mailChimpTags)) {

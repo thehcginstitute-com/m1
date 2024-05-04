@@ -50,7 +50,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		if (!dfa($d, 'FNAME')) {
 			df_log('`FNAME` is missing in the merge fields', $this, [
 				'Merge Fields' => $d
-				,'Customer' => $this->getCustomer()
+				,'Customer' => $this->customerGet()
 				,'Subscriber' => $this->getSubscriber()
 			]);
 		}
@@ -60,14 +60,14 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 	 * https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::_setMailchimpTagsToCustomer()
 	 * @used-by self::buildMailChimpTags()
 	 * @used-by self::customerAttributes()
 	 * @used-by self::customizedAttributes()
 	 * @used-by self::dispatchMergeVarBefore()
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_setMailchimpTagsToCustomer()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
 	 */
-	function getCustomer():C {return $this->_customer;}
+	function customerGet():C {return $this->_customer;}
 
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
 
@@ -400,7 +400,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function customerAttributes($attributeCode, $key, $attribute)
 	{
 		$subscriber = $this->getSubscriber();
-		$customer = $this->getCustomer();
+		$customer = $this->customerGet();
 
 		$eventValue = null;
 
@@ -423,7 +423,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function customizedAttributes($customAtt, $key)
 	{
 		$eventValue = null;
-		$customer = $this->getCustomer();
+		$customer = $this->customerGet();
 
 		if ($customAtt == 'billing_company' || $customAtt == 'shipping_company') {
 			$this->addCompany($customAtt, $customer, $key);
@@ -515,7 +515,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		Mage::dispatchEvent(
 			'mailchimp_merge_field_send_before',
 			array(
-				'customer_id' => $this->getCustomer()->getId(),
+				'customer_id' => $this->customerGet()->getId(),
 				'subscriber_email' => $this->getSubscriber()->getSubscriberEmail(),
 				'merge_field_tag' => $attributeCode,
 				'merge_field_value' => &$eventValue
@@ -790,7 +790,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 	 * https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::getCustomer()
+	 * @used-by self::customerGet()
 	 * @used-by self::setCustomer()
 	 * @var C
 	 */
