@@ -94,7 +94,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function _addTags(string $attributeCode, $customer, $key, $attribute):void
 	{
-		$subscriber = $this->sub(); /** @var Sub $subscriber */
+		$s = $this->sub(); /** @var Sub $s */
 		if ($attributeCode == 'default_billing' || $attributeCode == 'default_shipping') {
 			$this->addDefaultShipping($attributeCode, $key, $customer);
 		}
@@ -105,10 +105,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			$this->addGroupId($attributeCode, $key, $customer);
 		}
 		elseif ($attributeCode == 'firstname') {
-			$this->addFirstName($key, $subscriber, $customer);
+			$this->addFirstName($key, $s, $customer);
 		}
 		elseif ($attributeCode == 'lastname') {
-			$this->addLastName($key, $subscriber, $customer);
+			$this->addLastName($key, $s, $customer);
 		}
 		elseif ($attributeCode == 'store_id') {
 			$this->addMailChimpTag($key, $this->getStoreId());
