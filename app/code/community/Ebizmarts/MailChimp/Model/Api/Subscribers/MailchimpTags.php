@@ -125,49 +125,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function setSubscriber(Sub $subscriber):void {$this->_subscriber = $subscriber;}
 
 	/**
-	 * @param $subscriber
-	 * @param $fname
-	 * @param $lname
-	 * @param $email
-	 * @param $listId
-	 * @throws Exception
-	 */
-	private function _addSubscriberData($subscriber, $fname, $lname, $email, $listId):void
-	{
-		$helper = hcg_mc_h();
-		$webhookHelper = $this->getMailchimpWebhookHelper();
-		$scopeArray = $helper->getFirstScopeFromConfig(
-			Ebizmarts_MailChimp_Model_Config::GENERAL_LIST,
-			$listId
-		);
-		$api = $helper->getApi($scopeArray['scope_id'], $scopeArray['scope']);
-
-		try {
-			$subscriber->setSubscriberFirstname($fname);
-			$subscriber->setSubscriberLastname($lname);
-			$md5HashEmail = hash('md5', strtolower($email));
-			$member = $api->getLists()->getMembers()->get(
-				$listId,
-				$md5HashEmail,
-				null,
-				null
-			);
-
-			if ($member['status'] == 'subscribed') {
-				$helper->subscribeMember($subscriber);
-			} else if ($member['status'] == 'unsubscribed') {
-				if (!$webhookHelper->getWebhookDeleteAction($subscriber->getStoreId())) {
-					$helper->unsubscribeMember($subscriber);
-				}
-			}
-		} catch (MailChimp_Error $e) {
-			$helper->logError($e->getFriendlyMessage());
-		} catch (Exception $e) {
-			$helper->logError($e->getMessage());
-		}
-	}
-
-	/**
 	 * @param $attributeCode
 	 * @param $subscriber
 	 * @param $customer

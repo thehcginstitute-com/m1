@@ -42,7 +42,7 @@ final class ProcessMergeFields {
 			 * Mailchimp subscriber not currently in magento newsletter subscribers.
 			 * Get mailchimp subscriber status and add missing newsletter subscriber.
 			 */
-			$t->_addSubscriberData($subscriber, $fname, $lname, $email, $listId);
+			self::_addSubscriberData($subscriber, $fname, $lname, $email, $listId);
 		}
 		$subscriber->save();
 		$t->setSubscriber($subscriber);
@@ -57,6 +57,46 @@ final class ProcessMergeFields {
 			$interestGroupHandle->setGroupings($data['merges']['GROUPINGS'])
 				->setListId($listId)
 				->processGroupsData();
+		}
+	}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::p()
+	 */
+	private static function _addSubscriberData($subscriber, $fname, $lname, $email, $listId):void
+	{
+		$helper = hcg_mc_h();
+		$webhookHelper = $this->getMailchimpWebhookHelper();
+		$scopeArray = $helper->getFirstScopeFromConfig(
+			\Ebizmarts_MailChimp_Model_Config::GENERAL_LIST,
+			$listId
+		);
+		$api = $helper->getApi($scopeArray['scope_id'], $scopeArray['scope']);
+
+		try {
+			$subscriber->setSubscriberFirstname($fname);
+			$subscriber->setSubscriberLastname($lname);
+			$md5HashEmail = hash('md5', strtolower($email));
+			$member = $api->getLists()->getMembers()->get(
+				$listId,
+				$md5HashEmail,
+				null,
+				null
+			);
+			if ($member['status'] == 'subscribed') {
+				$helper->subscribeMember($subscriber);
+			} else if ($member['status'] == 'unsubscribed') {
+				if (!$webhookHelper->getWebhookDeleteAction($subscriber->getStoreId())) {
+					$helper->unsubscribeMember($subscriber);
+				}
+			}
+		}
+		catch (\MailChimp_Error $e) {
+			$helper->logError($e->getFriendlyMessage());
+		} catch (\Exception $e) {
+			$helper->logError($e->getMessage());
 		}
 	}
 
