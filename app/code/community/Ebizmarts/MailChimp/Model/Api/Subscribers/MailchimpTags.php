@@ -75,14 +75,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	function getMailchimpDateHelper() {return $this->_mcDateHelper;}
 
-	/**
-	 * @return Ebizmarts_MailChimp_Helper_Data
-	 */
-	function getMailchimpHelper()
-	{
-		return $this->_mcHelper;
-	}
-
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
 
 	/**
@@ -118,7 +110,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @throws Mage_Core_Exception
 	 */
 	function processMergeFields($data, $subscribe = false):void {
-		$helper = $this->getMailchimpHelper();
+		$helper = hcg_mc_h();
 		$email = $data['email'];
 		$listId = $data['list_id'];
 		$STATUS_SUBSCRIBED = Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED;
@@ -192,7 +184,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function _addSubscriberData($subscriber, $fname, $lname, $email, $listId):void
 	{
-		$helper = $this->getMailchimpHelper();
+		$helper = hcg_mc_h();
 		$webhookHelper = $this->getMailchimpWebhookHelper();
 		$scopeArray = $helper->getFirstScopeFromConfig(
 			Ebizmarts_MailChimp_Model_Config::GENERAL_LIST,
