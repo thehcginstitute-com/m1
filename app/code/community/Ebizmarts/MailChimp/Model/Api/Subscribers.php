@@ -139,7 +139,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 					$this->_saveSubscriber(
 						$subscriber,
 						'',
-						$this->_mcDateHelper->formatDate(null, 'Y-m-d H:i:s'),
+						hcg_mc_h_date()->formatDate(null, 'Y-m-d H:i:s'),
 						true
 					);
 				}
