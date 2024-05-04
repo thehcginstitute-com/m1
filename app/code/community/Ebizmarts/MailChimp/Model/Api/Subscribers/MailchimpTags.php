@@ -301,26 +301,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * Iterates the mailchimp tags.
-	 * @param $data
-	 * @param $listId
-	 * @throws Mage_Core_Exception
-	 */
-	private function _setMailchimpTagsToCustomer($data):void {
-		$customer = $this->getCustomer();
-		foreach ($data['merges'] as $key => $value) {
-			if (!empty($value)) {
-				if (is_array($this->_mailChimpTags)) {
-					if ($key !== 'GROUPINGS') {
-						$this->_setMailchimpTagToCustomer($key, $value, $this->_mailChimpTags, $customer);
-					}
-				}
-			}
-		}
-		$customer->save();
-	}
-
-	/**
 	 * @param $customAtt
 	 * @param $customer
 	 * @param $mergeVars

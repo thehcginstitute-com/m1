@@ -22,7 +22,7 @@ final class ProcessMergeFields {
 		$customer = $helper->loadListCustomer($listId, $email);
 		if ($customer) {
 			$t->setCustomer($customer);
-			$t->_setMailchimpTagsToCustomer($data);
+			self::_setMailchimpTagsToCustomer($t, $data);
 		}
 		$subscriber = $helper->loadListSubscriber($listId, $email);
 		$fname = $t->_getFName($data);
@@ -58,5 +58,24 @@ final class ProcessMergeFields {
 				->setListId($listId)
 				->processGroupsData();
 		}
+	}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::p()
+	 */
+	private static function _setMailchimpTagsToCustomer(T $t, array $data):void {
+		$customer = $t->getCustomer();
+		foreach ($data['merges'] as $key => $value) {
+			if (!empty($value)) {
+				if (is_array($t->_mailChimpTags)) {
+					if ($key !== 'GROUPINGS') {
+						$t->_setMailchimpTagToCustomer($key, $value, $t->_mailChimpTags, $customer);
+					}
+				}
+			}
+		}
+		$customer->save();
 	}
 }
