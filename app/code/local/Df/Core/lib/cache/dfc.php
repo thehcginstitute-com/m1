@@ -29,6 +29,7 @@ use Df\Core\RAM;
  * @used-by dfaoc()
  * @see df_prop()
  * @see dfaoc()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::customer() (https://github.com/cabinetsbay/site/issues/589)
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::order() (https://github.com/cabinetsbay/site/issues/589)
  * @used-by HCG\MailChimp\Tags\ProcessMergeFields::customer() (https://github.com/cabinetsbay/site/issues/589)
  * @param object $o

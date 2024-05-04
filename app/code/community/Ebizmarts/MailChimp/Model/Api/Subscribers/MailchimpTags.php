@@ -50,7 +50,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		if (!dfa($d, 'FNAME')) {
 			df_log('`FNAME` is missing in the merge fields', $this, [
 				'Merge Fields' => $d
-				,'Customer' => $this->customerGet()
+				,'Customer' => $this->customer()
 				,'Subscriber' => $this->getSubscriber()
 			]);
 		}
@@ -78,13 +78,20 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function getStoreId() {return $this->_storeId;}
 
 	/**
-	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 	 * https://github.com/cabinetsbay/site/issues/589
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::_buildMailchimpTags()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_buildMailchimpTags()
+	 * @used-by self::buildMailChimpTags()
+	 * @used-by self::customerAttributes()
+	 * @used-by self::customizedAttributes()
+	 * @used-by self::dispatchMergeVarBefore()
 	 */
-	function setCustomer(C $v):void {$this->_customer = $v;}
+	private function customer():C {return dfc($this, function() {
+		$r = Mage::getModel('customer/customer'); /** @var C $r */
+		$r->setWebsiteId(df_store($this->getStoreId())->getWebsiteId());
+		$r->load($this->getSubscriber()->getCustomerId());
+		return $r;
+	});}
 
 	/**
 	 * @param $storeId
@@ -387,7 +394,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function customerAttributes($attributeCode, $key, $attribute)
 	{
 		$subscriber = $this->getSubscriber();
-		$customer = $this->customerGet();
+		$customer = $this->customer();
 
 		$eventValue = null;
 
@@ -403,17 +410,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
-	 * https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::buildMailChimpTags()
-	 * @used-by self::customerAttributes()
-	 * @used-by self::customizedAttributes()
-	 * @used-by self::dispatchMergeVarBefore()
-	 */
-	private function customerGet():C {return $this->_customer;}
-
-	/**
 	 * @param $customAtt
 	 * @param $key
 	 * @return mixed | null
@@ -421,7 +417,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function customizedAttributes($customAtt, $key)
 	{
 		$eventValue = null;
-		$customer = $this->customerGet();
+		$customer = $this->customer();
 
 		if ($customAtt == 'billing_company' || $customAtt == 'shipping_company') {
 			$this->addCompany($customAtt, $customer, $key);
@@ -513,7 +509,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		Mage::dispatchEvent(
 			'mailchimp_merge_field_send_before',
 			array(
-				'customer_id' => $this->customerGet()->getId(),
+				'customer_id' => $this->customer()->getId(),
 				'subscriber_email' => $this->getSubscriber()->getSubscriberEmail(),
 				'merge_field_tag' => $attributeCode,
 				'merge_field_value' => &$eventValue
@@ -783,16 +779,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::getGenderValue()
 	 */
 	const FEMALE = 2;
-
-	/**
-	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
-	 * https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::customerGet()
-	 * @used-by self::setCustomer()
-	 * @var C
-	 */
-	private $_customer;
 
 	/**
 	 * @var int

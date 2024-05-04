@@ -506,23 +506,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 	}
 
 	/**
-	 * @param $storeId
-	 * @return Mage_Core_Model_Abstract
-	 */
-	protected function getWebsiteByStoreId($storeId)
-	{
-		return Mage::getModel('core/store')->load($storeId)->getWebsiteId();
-	}
-
-	/**
-	 * @return false|Mage_Customer_Model_Customer
-	 */
-	protected function getCustomerByWebsiteAndId()
-	{
-		return Mage::getModel('customer/customer');
-	}
-
-	/**
 	 * @param $mageMCHelper
 	 */
 	function setMailchimpHelper($mageMCHelper)
@@ -595,12 +578,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 		$mailChimpTags = new Tags;
 		$mailChimpTags->setStoreId($storeId);
 		$mailChimpTags->setSubscriber($subscriber);
-		$mailChimpTags->setCustomer(
-			$this->getCustomerByWebsiteAndId()
-				->setWebsiteId($this->getWebsiteByStoreId($storeId))->load($subscriber->getCustomerId())
-		);
 		$mailChimpTags->buildMailChimpTags();
-
 		return $mailChimpTags;
 	}
 
