@@ -47,6 +47,25 @@ final class ProcessMergeFields {
 	}
 
 	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::p()
+	 */
+	private function _setMailchimpTagsToCustomer():void {
+		$customer = $this->_t->customerGet();
+		foreach ($this->_d['merges'] as $key => $value) {
+			if (!empty($value)) {
+				if (is_array($this->_t->_mailChimpTags)) {
+					if ($key !== 'GROUPINGS') {
+						self::_setMailchimpTagToCustomer($key, $value, $this->_t->_mailChimpTags, $customer);
+					}
+				}
+			}
+		}
+		$customer->save();
+	}
+
+	/**
 	 * 2024-05-04
 	 * @used-by self::__construct()
 	 * @var array
@@ -99,7 +118,7 @@ final class ProcessMergeFields {
 			 * Mailchimp subscriber not currently in magento newsletter subscribers.
 			 * Get mailchimp subscriber status and add missing newsletter subscriber.
 			 */
-			$i->_addSubscriberData($subscriber, $fname, $lname, $email, $listId);
+			self::_addSubscriberData($subscriber, $fname, $lname, $email, $listId);
 		}
 		$subscriber->save();
 		$t->setSubscriber($subscriber);
@@ -124,7 +143,7 @@ final class ProcessMergeFields {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::p()
 	 */
-	private function _addSubscriberData($subscriber, $fname, $lname, $email, $listId):void {
+	private static function _addSubscriberData($subscriber, $fname, $lname, $email, $listId):void {
 		$h = hcg_mc_h();
 		$scopeArray = $h->getFirstScopeFromConfig(Cfg::GENERAL_LIST, $listId);
 		$api = $h->getApi($scopeArray['scope_id'], $scopeArray['scope']);
@@ -200,25 +219,6 @@ final class ProcessMergeFields {
 			}
 		}
 		return false;
-	}
-
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::p()
-	 */
-	private function _setMailchimpTagsToCustomer():void {
-		$customer = $this->_t->customerGet();
-		foreach ($this->_d['merges'] as $key => $value) {
-			if (!empty($value)) {
-				if (is_array($this->_t->_mailChimpTags)) {
-					if ($key !== 'GROUPINGS') {
-						self::_setMailchimpTagToCustomer($key, $value, $this->_t->_mailChimpTags, $customer);
-					}
-				}
-			}
-		}
-		$customer->save();
 	}
 
 	/**
