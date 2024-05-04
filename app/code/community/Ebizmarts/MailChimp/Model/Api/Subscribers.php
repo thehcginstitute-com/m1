@@ -281,7 +281,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 					null,
 					null
 				);
-				$subscriber->setData("mailchimp_sync_delta", $this->_mcDateHelper->formatDate(null, 'Y-m-d H:i:s'));
+				$subscriber->setData("mailchimp_sync_delta", hcg_mc_h_date()->formatDate(null, 'Y-m-d H:i:s'));
 				$subscriber->setData("mailchimp_sync_error", "");
 				$subscriber->setData("mailchimp_sync_modified", 0);
 				$saveSubscriber = true;
