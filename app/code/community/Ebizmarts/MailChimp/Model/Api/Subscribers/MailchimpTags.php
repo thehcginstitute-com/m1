@@ -2,6 +2,7 @@
 use Mage_Customer_Model_Customer as C;
 use Mage_Newsletter_Model_Subscriber as Sub;
 use Mage_Sales_Model_Order as O;
+use Mage_Sales_Model_Resource_Order_Collection as OC;
 # 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 # https://github.com/cabinetsbay/site/issues/589
@@ -998,18 +999,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::getLastDateOfPurchase()
 	 * @used-by self::getLastName()
 	 */
-	private function order():?O {return dfc($this, function() {
-		$r = null; /** @var ?O $r */
+	private function order():?O {return dfc($this, function() {/** @var OC $c */ return !count(
 		$c = df_order_c()
 			->addFieldToFilter('customer_email', ['eq' => $this->getSubscriber()->getSubscriberEmail()])
 			->setOrder('created_at', 'DESC')
 			->setPageSize(1)
-		;
-		if ($c->getSize()) {
-			$r = $c->getLastItem();
-		}
-		return $r;
-	});}
+	) ? null : $c->getLastItem();});}
 
 	/**
 	 * @param $mageMCDateHelper
