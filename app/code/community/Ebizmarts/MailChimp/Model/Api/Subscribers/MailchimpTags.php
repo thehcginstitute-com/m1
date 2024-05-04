@@ -59,19 +59,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
 
 	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::customerAttributes()
-	 * @used-by self::customizedAttributes()
-	 */
-	private function getMailChimpTagValue(string $k) {return dfa($this->_mailChimpTags, $k);}
-
-	/**
-	 * @return int
-	 */
-	function getStoreId() {return $this->_storeId;}
-
-	/**
 	 * @param $storeId
 	 */
 	function setStoreId($storeId):void {$this->_storeId = $storeId;}
@@ -678,9 +665,29 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::customerAttributes()
+	 * @used-by self::customizedAttributes()
+	 */
+	private function getMailChimpTagValue(string $k) {return dfa($this->_mailChimpTags, $k);}
+
+	/**
 	 * @return Varien_Object
 	 */
 	private function getNewVarienObject() {return new Varien_Object;}
+
+	/**
+	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_addTags()
+	 * @used-by self::addCreatedIn()
+	 * @used-by self::addStoreCodeFromCustomizedAttribute()
+	 * @used-by self::addWebsiteId()
+	 * @used-by self::buildMailChimpTags()
+	 * @used-by self::customer()
+	 */
+	private function getStoreId():int {return $this->_storeId;}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
