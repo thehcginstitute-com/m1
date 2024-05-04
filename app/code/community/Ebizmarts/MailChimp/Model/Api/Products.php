@@ -543,8 +543,6 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
 		$data = array();
 		$batchId = $this->makeBatchId($magentoStoreId);
 		$items = $order->getAllVisibleItems();
-		$dateHelper = $this->getDateHelper();
-
 		foreach ($items as $item) {
 			$itemProductId = $item->getProductId();
 
@@ -565,7 +563,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
 						"This product type is not supported on MailChimp. (product id: $productId)",
 						null,
 						null,
-						$dateHelper->formatDate(null, 'Y-m-d H:i:s')
+						hcg_mc_h_date()->formatDate(null, 'Y-m-d H:i:s')
 					);
 				}
 
