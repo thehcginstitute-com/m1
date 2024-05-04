@@ -1000,10 +1000,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function order():?O {return dfc($this, function() {
 		$r = null; /** @var ?O $r */
-		$c = Mage::getResourceModel('sales/order_collection')->addFieldToFilter('customer_email', [
-			'eq' => $this->getSubscriber()->getSubscriberEmail()
-		]);
-		$c->setOrder('created_at', 'DESC')->setPageSize(1);
+		$c = df_order_c()
+			->addFieldToFilter('customer_email', ['eq' => $this->getSubscriber()->getSubscriberEmail()])
+			->setOrder('created_at', 'DESC')
+			->setPageSize(1)
+		;
 		if ($c->getSize()) {
 			$r = $c->getLastItem();
 		}
