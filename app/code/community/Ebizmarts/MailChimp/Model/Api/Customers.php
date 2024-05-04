@@ -136,7 +136,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 						'Customer with no data',
 						null,
 						false,
-						$this->getDateHelper()->getCurrentDateTime()
+						hcg_mc_h_date()->getCurrentDateTime()
 					);
 				}
 			} else {
@@ -146,7 +146,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 					$jsonErrorMessage,
 					null,
 					false,
-					$this->getDateHelper()->getCurrentDateTime()
+					hcg_mc_h_date()->getCurrentDateTime()
 				);
 			}
 		}
