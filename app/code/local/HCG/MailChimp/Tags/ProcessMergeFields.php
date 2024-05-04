@@ -72,7 +72,6 @@ final class ProcessMergeFields {
 			$listId
 		);
 		$api = $helper->getApi($scopeArray['scope_id'], $scopeArray['scope']);
-
 		try {
 			$subscriber->setSubscriberFirstname($fname);
 			$subscriber->setSubscriberLastname($lname);
@@ -85,15 +84,18 @@ final class ProcessMergeFields {
 			);
 			if ($member['status'] == 'subscribed') {
 				$helper->subscribeMember($subscriber);
-			} else if ($member['status'] == 'unsubscribed') {
-				if (!hcg_mc_h_webhook()->getWebhookDeleteAction($subscriber->getStoreId())) {
-					$helper->unsubscribeMember($subscriber);
-				}
+			}
+			elseif (
+				'unsubscribed' === $member['status']
+				&& !hcg_mc_h_webhook()->getWebhookDeleteAction($subscriber->getStoreId())
+			) {
+				$helper->unsubscribeMember($subscriber);
 			}
 		}
 		catch (\MailChimp_Error $e) {
 			$helper->logError($e->getFriendlyMessage());
-		} catch (\Exception $e) {
+		}
+		catch (\Exception $e) {
 			$helper->logError($e->getMessage());
 		}
 	}
