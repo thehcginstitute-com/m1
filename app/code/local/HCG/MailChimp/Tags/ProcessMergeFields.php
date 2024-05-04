@@ -63,6 +63,13 @@ final class ProcessMergeFields {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_setMailchimpTagToCustomer()
+	 */
+	private static function gender($s):int {return dfa(['Male' => T::MALE, 'Female' => T::FEMALE], $s, 0);}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::p()
 	 */
 	private static function _getFName(T $t, array $data) {
@@ -75,22 +82,6 @@ final class ProcessMergeFields {
 			}
 		}
 		return $data['merges'][$magentoTag];
-	}
-
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::_setMailchimpTagToCustomer()
-	 */
-	private static function getGenderValue($s):int {
-		$genderValue = 0;
-		if ($s == 'Male') {
-			$genderValue = T::MALE;
-		}
-		elseif ($s == 'Female') {
-			$genderValue = T::FEMALE;
-		}
-		return $genderValue;
 	}
 
 	/**
@@ -162,7 +153,7 @@ final class ProcessMergeFields {
 					if ($key != 'GENDER') {
 						$customer->setData($map['magento'], $value);
 					} else {
-						$customer->setData('gender', self::getGenderValue($value));
+						$customer->setData('gender', self::gender($value));
 					}
 				}
 			}
