@@ -27,8 +27,8 @@ final class ProcessMergeFields {
 			self::_setMailchimpTagsToCustomer($t, $data);
 		}
 		$subscriber = $helper->loadListSubscriber($listId, $email);
-		$fname = self::_getFName($t, $data);
-		$lname = self::_getLName($t, $data);
+		$fname = self::_getFName($data);
+		$lname = self::_getLName($data);
 		if ($subscriber->getId()) {
 			if ($subscriber->getStatus() != $STATUS_SUBSCRIBED && $subscribe) {
 				$subscriber->setStatus($STATUS_SUBSCRIBED);
@@ -136,7 +136,7 @@ final class ProcessMergeFields {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::p()
 	 */
-	private static function _getFName(T $t, array $data) {
+	private static function _getFName(array $data) {
 		$attrId = self::_getAttrbuteId('firstname');
 		$magentoTag = '';
 		foreach ($t->_mailChimpTags as $tag) {
@@ -153,7 +153,7 @@ final class ProcessMergeFields {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::p()
 	 */
-	private static function _getLName(T $t, array $data) {
+	private static function _getLName(array $data) {
 		$attrId = self::_getAttrbuteId('lastname');
 		$magentoTag = '';
 		foreach ($t->_mailChimpTags as $tag) {
