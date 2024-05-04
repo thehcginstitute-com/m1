@@ -16,7 +16,6 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_List extends Mage_Core_Mod
     {
         $groups = $this->getData('groups');
         $helper = $this->getMailchimpHelper();
-        $dateHelper = $this->getMailchimpDateHelper();
         $webhookHelper = $this->getMailchimpWebhookHelper();
         $scopeId = $this->getScopeId();
         $scope = $this->getScope();
@@ -45,7 +44,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_List extends Mage_Core_Mod
         if ($valueChanged && ($moduleIsActive || $thisScopeHasSubMinSyncDateFlag) && $this->getValue()) {
             hcg_mc_cfg_save(
 				Ebizmarts_MailChimp_Model_Config::GENERAL_SUBMINSYNCDATEFLAG
-				,$dateHelper->formatDate(null, "Y-m-d H:i:s")
+				,hcg_mc_h_date()->formatDate(null, "Y-m-d H:i:s")
 				,$scopeId
 				,$scope
 			);
@@ -62,14 +61,6 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_List extends Mage_Core_Mod
     protected function getMailchimpHelper()
     {
         return hcg_mc_h();
-    }
-
-    /**
-     * @return Ebizmarts_MailChimp_Helper_Date
-     */
-    protected function getMailchimpDateHelper()
-    {
-        return Mage::helper('mailchimp/date');
     }
 
     /**
