@@ -82,12 +82,12 @@ final class ProcessMergeFields {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_setMailchimpTagToCustomer()
 	 */
-	private static function getGenderValue($genderLabel) {
+	private static function getGenderValue($genderLabel):int {
 		$genderValue = 0;
 		if ($genderLabel == 'Male') {
-			$genderValue = self::GENDER_VALUE_MALE;
+			$genderValue = T::GENDER_VALUE_MALE;
 		} elseif ($genderLabel == 'Female') {
-			$genderValue = self::GENDER_VALUE_FEMALE;
+			$genderValue = T::GENDER_VALUE_FEMALE;
 		}
 		return $genderValue;
 	}
