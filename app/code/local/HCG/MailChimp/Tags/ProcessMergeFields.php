@@ -115,7 +115,7 @@ final class ProcessMergeFields {
 	 * @used-by self::_getLName()
 	 */
 	private static function _getAttrbuteId($attrCode) {
-		$attribute = Mage::getModel('eav/entity_attribute')
+		$attribute = \Mage::getModel('eav/entity_attribute')
 			->getCollection()
 			->addFieldToFilter('attribute_code', $attrCode)
 			->getFirstItem();
