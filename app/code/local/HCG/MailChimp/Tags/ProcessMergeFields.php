@@ -192,7 +192,7 @@ final class ProcessMergeFields {
 			if (!empty($value)) {
 				if (is_array($t->_mailChimpTags)) {
 					if ($key !== 'GROUPINGS') {
-						self::_setMailchimpTagToCustomer($t, $key, $value, $t->_mailChimpTags, $customer);
+						self::_setMailchimpTagToCustomer($key, $value, $t->_mailChimpTags, $customer);
 					}
 				}
 			}
@@ -205,7 +205,7 @@ final class ProcessMergeFields {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_setMailchimpTagsToCustomer()
 	 */
-	private static function _setMailchimpTagToCustomer(T $t, $key, $value, $mapFields, $customer):void {
+	private static function _setMailchimpTagToCustomer($key, $value, $mapFields, $customer):void {
 		$ignore = [
 			'billing_company', 'billing_country', 'billing_zipcode', 'billing_state', 'billing_telephone',
 			'shipping_company', 'shipping_telephone', 'shipping_country', 'shipping_zipcode', 'shipping_state',
