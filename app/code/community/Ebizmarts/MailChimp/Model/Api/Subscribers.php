@@ -8,7 +8,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 	 * Ebizmarts_MailChimp_Helper_Data
 	 */
 	protected $_mcHelper;
-	protected $_mcDateHelper;
 	protected $_storeId;
 
 	/**
@@ -67,7 +66,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 			);
 			hcg_mc_cfg_save(
 				Ebizmarts_MailChimp_Model_Config::GENERAL_SUBMINSYNCDATEFLAG
-				, $this->_mcDateHelper->formatDate(null, 'Y-m-d H:i:s')
+				,hcg_mc_h_date()->formatDate(null, 'Y-m-d H:i:s')
 				# 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				# «`Ebizmarts_MailChimp`: «Column 'scope' cannot be null, query was:
 				# INSERT INTO `core_config_data` (`scope`, `scope_id`, `path`, `value`) VALUES (?, ?, ?, ?)»:
