@@ -51,7 +51,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 	function createBatchJson($listId, int $storeId, int $limit) {
 		$this->setStoreId($storeId);
 		$h = hcg_mc_h();
-		$dateHelper = $this->getMailchimpDateHelper();
 		$thisScopeHasSubMinSyncDateFlag = $h->getIfConfigExistsForScope(
 			Ebizmarts_MailChimp_Model_Config::GENERAL_SUBMINSYNCDATEFLAG, $this->getStoreId()
 		);
@@ -114,7 +113,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 			);
 		$collection->addFieldToFilter('mailchimp_sync_error', array('eq' => ''));
 		$this->_ecommerceSubscribersCollection->limitCollection($collection, $limit);
-		$date = $dateHelper->getDateMicrotime();
+		$date = hcg_mc_h_date()->getDateMicrotime();
 		$batchId = 'storeid-' . $this->getStoreId() . '_'
 			. Ebizmarts_MailChimp_Model_Config::IS_SUBSCRIBER . '_' . $date;
 		$counter = 0;
