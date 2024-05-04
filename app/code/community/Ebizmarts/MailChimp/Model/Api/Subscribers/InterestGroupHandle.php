@@ -219,12 +219,4 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
     {
         return $this->_helper;
     }
-
-    /**
-     * @return Ebizmarts_MailChimp_Helper_Date|Mage_Core_Helper_Abstract
-     */
-    protected function getDateHelper()
-    {
-        return $this->_dateHelper;
-    }
 }
