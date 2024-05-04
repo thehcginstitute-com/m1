@@ -187,23 +187,20 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 		$storeId = $subscriber->getStoreId();
 		$data = array();
 		$data["email_address"] = $subscriber->getSubscriberEmail();
-		if ($t = Tags::p($subscriber, $storeId)) {
+		if ($t = Tags::p($subscriber, (int)$storeId)) {
 			$data["merge_fields"] = $t;
 		}
 		$status = $this->translateMagentoStatusToMailchimpStatus($subscriber->getStatus());
 		$data["status_if_new"] = $status;
-
 		if ($subscriber->getMailchimpSyncModified()) {
 			$data["status"] = $status;
 		}
-
 		$data["language"] = $helper->getStoreLanguageCode($storeId);
 		$interest = $this->_getInterest($subscriber);
 
 		if (!empty($interest)) {
 			$data['interests'] = $interest;
 		}
-
 		return $data;
 	}
 
@@ -243,22 +240,21 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 		$helper = $this->getMailchimpHelper();
 		$storeId = $subscriber->getStoreId();
 		$subscriptionEnabled = $helper->isSubscriptionEnabled($storeId);
-
 		if ($subscriptionEnabled) {
 			$listId = $helper->getGeneralList($storeId);
 			$newStatus = $this->translateMagentoStatusToMailchimpStatus($subscriber->getStatus());
 			$forceStatus = ($updateStatus) ? $newStatus : null;
-
 			try {
 				$api = $helper->getApi($storeId);
-			} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+			}
+			catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 				$helper->logError($e->getMessage());
 				return;
 			}
 			$language = $helper->getStoreLanguageCode($storeId);
 			$interest = $this->_getInterest($subscriber);
 			$emailHash = hash('md5', strtolower($subscriber->getSubscriberEmail()));
-			$t = Tags::p($subscriber, $storeId); /** @var array $t */
+			$t = Tags::p($subscriber, (int)$storeId); /** @var array $t */
 			try {
 				$api->lists->members->addOrUpdate(
 					$listId,

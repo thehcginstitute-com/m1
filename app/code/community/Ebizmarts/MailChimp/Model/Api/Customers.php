@@ -547,7 +547,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 	{
 		$subscriber->setSubscriberEmail($customer->getEmail());
 		$subscriber->setCustomerId($customer->getId());
-		$mergeFields["merge_fields"] = Tags::p($subscriber, $magentoStoreId);
+		$mergeFields["merge_fields"] = Tags::p($subscriber, (int)$magentoStoreId);
 		$batchData = $this->getCustomerPatchBatch($mergeFields, $customer, $listId);
 		return $batchData;
 	}
