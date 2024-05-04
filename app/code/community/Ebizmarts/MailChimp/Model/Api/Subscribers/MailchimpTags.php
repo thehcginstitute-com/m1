@@ -13,18 +13,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * https://github.com/cabinetsbay/site/issues/589
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::_buildMailchimpTags()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_buildMailchimpTags()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
-	 */
-	function __construct() {
-		$this->setMailChimpDateHelper();
-	}
-
-	/**
-	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
-	 * https://github.com/cabinetsbay/site/issues/589
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::_buildMailchimpTags()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_buildMailchimpTags()
 	 * @throws Mage_Core_Exception
 	 */
 	function buildMailChimpTags():void {
@@ -67,11 +55,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			]);
 		}
 	}
-
-	/**
-	 * @return Ebizmarts_MailChimp_Helper_Date
-	 */
-	function getMailchimpDateHelper() {return $this->_mcDateHelper;}
 
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
 
@@ -804,11 +787,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	) ? null : $c->getLastItem();});}
 
 	/**
-	 * @param $mageMCDateHelper
-	 */
-	private function setMailChimpDateHelper():void {$this->_mcDateHelper = Mage::helper('mailchimp/date');}
-
-	/**
 	 * @param $mapFields
 	 * @return mixed
 	 */
@@ -855,9 +833,4 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @var Mage_Newsletter_Model_Subscriber
 	 */
 	private $_subscriber;
-
-	/**
-	 * @var Ebizmarts_MailChimp_Helper_Date
-	 */
-	private $_mcDateHelper;
 }
