@@ -15,11 +15,12 @@ final class ProcessMergeFields {
 
 	/**
 	 * 2024-05-04
+	 * @used-by self::_setMailchimpTagsToCustomer()
 	 * @used-by self::p()
 	 */
-	private function customer():?C {return dfc($this, function() {
-		return hcg_mc_h()->loadListCustomer($this->_d['list_id'], $this->_d['email']);
-	});}
+	private function customer():?C {return dfc($this, function() {return hcg_mc_h()->loadListCustomer(
+		$this->_d['list_id'], $this->_d['email']
+	);});}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -61,7 +62,7 @@ final class ProcessMergeFields {
 	 * @used-by self::p()
 	 */
 	private function _setMailchimpTagsToCustomer():void {
-		$customer = $this->_t->customerGet();
+		$customer = $this->customer();
 		foreach ($this->_d['merges'] as $key => $value) {
 			if (!empty($value)) {
 				if (is_array($this->_t->_mailChimpTags)) {
@@ -80,6 +81,7 @@ final class ProcessMergeFields {
 	 * @used-by self::_getFName()
 	 * @used-by self::_getLName()
 	 * @used-by self::_setMailchimpTagsToCustomer()
+	 * @used-by self::customer()
 	 * @var array
 	 */
 	private $_d;
@@ -110,9 +112,7 @@ final class ProcessMergeFields {
 		$storeId = $helper->getMagentoStoreIdsByListId($listId)[0];
 		$t->_mailChimpTags = $helper->getMapFields($storeId);
 		$t->_mailChimpTags = $helper->unserialize($t->_mailChimpTags);
-		$customer = hcg_mc_h()->loadListCustomer($listId, $email);
-		if ($customer) {
-			$t->setCustomer($customer);
+		if ($i->customer()) {
 			$i->_setMailchimpTagsToCustomer();
 		}
 		$subscriber = $helper->loadListSubscriber($listId, $email);
