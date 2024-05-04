@@ -26,7 +26,7 @@ final class ProcessMergeFields {
 		}
 		$subscriber = $helper->loadListSubscriber($listId, $email);
 		$fname = self::_getFName($t, $data);
-		$lname = $t->_getLName($data);
+		$lname = self::_getLName($t, $data);
 		if ($subscriber->getId()) {
 			if ($subscriber->getStatus() != $STATUS_SUBSCRIBED && $subscribe) {
 				$subscriber->setStatus($STATUS_SUBSCRIBED);
@@ -63,10 +63,27 @@ final class ProcessMergeFields {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::STUB()
+	 * @used-by self::p()
 	 */
 	private static function _getFName(T $t, array $data) {
 		$attrId = $t->_getAttrbuteId('firstname');
+		$magentoTag = '';
+		foreach ($t->_mailChimpTags as $tag) {
+			if ($tag['magento'] == $attrId) {
+				$magentoTag = $tag['mailchimp'];
+				break;
+			}
+		}
+		return $data['merges'][$magentoTag];
+	}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::p()
+	 */
+	private static function _getLName(T $t, array $data) {
+		$attrId = $t->_getAttrbuteId('lastname');
 		$magentoTag = '';
 		foreach ($t->_mailChimpTags as $tag) {
 			if ($tag['magento'] == $attrId) {

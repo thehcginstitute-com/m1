@@ -227,22 +227,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function _getInterestGroupHandleModel() {return $this->_interestGroupHandle;}
 
 	/**
-	 * @param $data
-	 * @return string
-	 */
-	private function _getLName($data) {
-		$attrId = $this->_getAttrbuteId('lastname');
-		$magentoTag = '';
-		foreach ($this->_mailChimpTags as $tag) {
-			if ($tag['magento'] == $attrId) {
-				$magentoTag = $tag['mailchimp'];
-				break;
-			}
-		}
-		return $data['merges'][$magentoTag];
-	}
-
-	/**
 	 * @param $customAtt
 	 * @param $customer
 	 * @param $mergeVars
