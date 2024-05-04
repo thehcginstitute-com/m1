@@ -92,22 +92,22 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::customerAttributes()
 	 */
-	private function _addTags(string $a, $customer, $k, $attribute):void {
+	private function _addTags(string $a, C $c, $k, $attribute):void {
 		$s = $this->sub(); /** @var Sub $s */
 		if ($a == 'default_billing' || $a == 'default_shipping') {
-			$this->addDefaultShipping($a, $k, $customer);
+			$this->addDefaultShipping($a, $k, $c);
 		}
 		elseif ($a == 'gender') {
-			$this->addGender($a, $k, $customer);
+			$this->addGender($a, $k, $c);
 		}
 		elseif ($a == 'group_id') {
-			$this->addGroupId($a, $k, $customer);
+			$this->addGroupId($a, $k, $c);
 		}
 		elseif ($a == 'firstname') {
-			$this->addFirstName($k, $s, $customer);
+			$this->addFirstName($k, $s, $c);
 		}
 		elseif ($a == 'lastname') {
-			$this->addLastName($k, $s, $customer);
+			$this->addLastName($k, $s, $c);
 		}
 		elseif ($a == 'store_id') {
 			$this->addMailChimpTag($k, $this->getStoreId());
@@ -119,10 +119,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			$this->addCreatedIn($k);
 		}
 		elseif ($a == 'dob') {
-			$this->addDob($a, $k, $customer);
+			$this->addDob($a, $k, $c);
 		}
 		else {
-			$this->addUnknownMergeField($a, $k, $attribute, $customer);
+			$this->addUnknownMergeField($a, $k, $attribute, $c);
 		}
 	}
 
