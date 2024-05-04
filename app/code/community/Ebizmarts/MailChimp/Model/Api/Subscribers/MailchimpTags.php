@@ -394,21 +394,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $attribute
 	 * @return |null
 	 */
-	private function customerAttributes($attributeCode, $key, $attribute)
-	{
-		$subscriber = $this->sub();
+	private function customerAttributes($attributeCode, $key, $attribute) {
 		$customer = $this->customer();
-
 		$eventValue = null;
-
 		if ($attributeCode != 'email') {
 			$this->_addTags($attributeCode, $customer, $key, $attribute);
 		}
-
 		if ($this->getMailChimpTagValue($key) !== null) {
 			$eventValue = $this->getMailChimpTagValue($key);
 		}
-
 		return $eventValue;
 	}
 
@@ -772,8 +766,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_addTags()
 	 * @used-by self::_p()
-	 * @used-by self::customerAttributes()
 	 * @used-by self::dispatchEventMergeVarAfter()
 	 * @used-by self::dispatchMergeVarBefore()
 	 * @used-by self::order()
