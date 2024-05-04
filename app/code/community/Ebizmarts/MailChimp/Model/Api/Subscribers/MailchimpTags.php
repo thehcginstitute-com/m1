@@ -23,7 +23,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @var array
 	 */
 	public $_mailChimpTags;
-	
+
 	/**
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
@@ -31,7 +31,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::makeMailchimpTagsBatchStructure()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_buildSubscriberData()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::updateSubscriber()
-	 * @throws Mage_Core_Exception
 	 */
 	static function p(Sub $sub, int $sid):array {
 		$i = new self;

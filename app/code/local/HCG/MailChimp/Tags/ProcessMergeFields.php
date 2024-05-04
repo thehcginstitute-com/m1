@@ -8,6 +8,62 @@ use Mage_Customer_Model_Customer as C;
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 final class ProcessMergeFields {
 	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::p()
+	 * @throws \Mage_Core_Exception
+	 */
+	static function p(array $data, bool $subscribe = false):void {
+		$t = new T; /** @var T $t */
+		$i = new self($data, $t); /** @var self $i */
+		$helper = hcg_mc_h();
+		$email = $data['email'];
+		$listId = $data['list_id'];
+		$STATUS_SUBSCRIBED = \Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED;
+		$storeId = $helper->getMagentoStoreIdsByListId($listId)[0];
+		$t->_mailChimpTags = $helper->unserialize($helper->getMapFields($storeId));
+		if ($i->customer()) {
+			$i->_setMailchimpTagsToCustomer();
+		}
+		$subscriber = $helper->loadListSubscriber($listId, $email);
+		$fname = $i->_getFName();
+		$lname = $i->_getLName();
+		if ($subscriber->getId()) {
+			if ($subscriber->getStatus() != $STATUS_SUBSCRIBED && $subscribe) {
+				$subscriber->setStatus($STATUS_SUBSCRIBED);
+				$subscriber->setSubscriberFirstname($fname);
+				$subscriber->setSubscriberLastname($lname);
+			}
+		}
+		elseif ($subscribe) {
+			$helper->subscribeMember($subscriber);
+		}
+		else {
+			/**
+			 * Mailchimp subscriber not currently in magento newsletter subscribers.
+			 * Get mailchimp subscriber status and add missing newsletter subscriber.
+			 */
+			self::_addSubscriberData($subscriber, $fname, $lname, $email, $listId);
+		}
+		$subscriber->save();
+		$t->setSubscriber($subscriber);
+		if (isset($data['merges']['GROUPINGS'])) {
+			$igh = new InterestGroupHandle; /** @var InterestGroupHandle $igh */
+			if ($t->getSubscriber() === null) {
+				$igh->setCustomer($i->customer());
+			}
+			else {
+				$igh->setSubscriber($t->getSubscriber());
+			}
+			$igh
+				->setGroupings($data['merges']['GROUPINGS'])
+				->setListId($listId)
+				->processGroupsData()
+			;
+		}
+	}
+
+	/**
 	 * 2024-05-04
 	 * @used-by self::p()
 	 */
@@ -95,62 +151,6 @@ final class ProcessMergeFields {
 	 * @var T
 	 */
 	private $_t;
-
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::p()
-	 * @throws \Mage_Core_Exception
-	 */
-	static function p(array $data, bool $subscribe = false):void {
-		$t = new T; /** @var T $t */
-		$i = new self($data, $t); /** @var self $i */
-		$helper = hcg_mc_h();
-		$email = $data['email'];
-		$listId = $data['list_id'];
-		$STATUS_SUBSCRIBED = \Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED;
-		$storeId = $helper->getMagentoStoreIdsByListId($listId)[0];
-		$t->_mailChimpTags = $helper->unserialize($helper->getMapFields($storeId));
-		if ($i->customer()) {
-			$i->_setMailchimpTagsToCustomer();
-		}
-		$subscriber = $helper->loadListSubscriber($listId, $email);
-		$fname = $i->_getFName();
-		$lname = $i->_getLName();
-		if ($subscriber->getId()) {
-			if ($subscriber->getStatus() != $STATUS_SUBSCRIBED && $subscribe) {
-				$subscriber->setStatus($STATUS_SUBSCRIBED);
-				$subscriber->setSubscriberFirstname($fname);
-				$subscriber->setSubscriberLastname($lname);
-			}
-		}
-		elseif ($subscribe) {
-			$helper->subscribeMember($subscriber);
-		}
-		else {
-			/**
-			 * Mailchimp subscriber not currently in magento newsletter subscribers.
-			 * Get mailchimp subscriber status and add missing newsletter subscriber.
-			 */
-			self::_addSubscriberData($subscriber, $fname, $lname, $email, $listId);
-		}
-		$subscriber->save();
-		$t->setSubscriber($subscriber);
-		if (isset($data['merges']['GROUPINGS'])) {
-			$igh = new InterestGroupHandle; /** @var InterestGroupHandle $igh */
-			if ($t->getSubscriber() === null) {
-				$igh->setCustomer($i->customer());
-			}
-			else {
-				$igh->setSubscriber($t->getSubscriber());
-			}
-			$igh
-				->setGroupings($data['merges']['GROUPINGS'])
-				->setListId($listId)
-				->processGroupsData()
-			;
-		}
-	}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
