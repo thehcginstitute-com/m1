@@ -71,13 +71,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::getLastOrderByEmail()
-	 */
-	private function getLastOrder():O {return $this->_lastOrder;}
-
-	/**
 	 * @return Ebizmarts_MailChimp_Helper_Date
 	 */
 	function getMailchimpDateHelper() {return $this->_mcDateHelper;}
@@ -963,7 +956,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return Mage_Sales_Model_Order
 	 */
 	private function getLastOrderByEmail() {
-		$lastOrder = $this->getLastOrder();
+		$lastOrder = $this->_lastOrder;
 		if ($lastOrder === null) {
 			$helper = $this->getMailchimpHelper();
 			$orderCollection = $helper->getOrderCollectionByCustomerEmail($this->getSubscriber()->getSubscriberEmail())
