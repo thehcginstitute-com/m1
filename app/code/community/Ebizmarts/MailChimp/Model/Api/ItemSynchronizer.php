@@ -274,14 +274,6 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 	}
 
 	/**
-	 * @return Ebizmarts_MailChimp_Helper_Date
-	 */
-	protected function getDateHelper()
-	{
-		return $this->_mailchimpDateHelper;
-	}
-
-	/**
 	 * @return mixed
 	 */
 	function getMailchimpEcommerceDataTableName()
