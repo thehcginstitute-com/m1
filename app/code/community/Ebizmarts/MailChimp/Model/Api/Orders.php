@@ -40,7 +40,6 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 		$this->_ecommerceOrdersCollection->setStoreId($magentoStoreId);
 
 		$helper = $this->getHelper();
-		$dateHelper = $this->getDateHelper();
 		$oldStore = $helper->getCurrentStoreId();
 		$helper->setCurrentStore($magentoStoreId);
 
@@ -50,7 +49,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 		$this->_batchId = 'storeid-'
 			. $magentoStoreId . '_'
 			. Ebizmarts_MailChimp_Model_Config::IS_ORDER
-			. '_' . $dateHelper->getDateMicrotime();
+			. '_' . hcg_mc_h_date()->getDateMicrotime();
 		$resendTurn = $helper->getResendTurn($magentoStoreId);
 
 		if (!$resendTurn) {
@@ -76,8 +75,6 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 		$magentoStoreId = $this->getMagentoStoreId();
 
 		$helper = $this->getHelper();
-		$dateHelper = $this->getDateHelper();
-
 		$modifiedOrders = $this->buildEcommerceCollectionToSync(
 			Ebizmarts_MailChimp_Model_Config::IS_ORDER,
 			"m4m.mailchimp_sync_modified = 1",
@@ -115,7 +112,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 							$error,
 							null,
 							false,
-							$dateHelper->formatDate(null, "Y-m-d H:i:s")
+							hcg_mc_h_date()->formatDate(null, "Y-m-d H:i:s")
 						);
 						continue;
 					}
@@ -137,7 +134,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 						$jsonErrorMsg,
 						null,
 						false,
-						$dateHelper->formatDate(null, "Y-m-d H:i:s")
+						hcg_mc_h_date()->formatDate(null, "Y-m-d H:i:s")
 					);
 				}
 			} catch (Exception $e) {
