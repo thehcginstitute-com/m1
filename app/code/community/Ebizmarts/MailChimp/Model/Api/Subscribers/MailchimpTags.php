@@ -101,8 +101,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	function getStoreId() {return $this->_storeId;}
 
-	function getSubscriber():Sub {return $this->_subscriber;}
-
 	/**
 	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::p()
 	 * @param $data
@@ -941,12 +939,17 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		return $lastName;
 	}
 
-
-
 	/**
 	 * @return Varien_Object
 	 */
 	private function getNewVarienObject() {return new Varien_Object;}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::STUB()
+	 */
+	private function getSubscriber():Sub {return $this->_subscriber;}
 
 	/**
 	 * @param $attributeCode
