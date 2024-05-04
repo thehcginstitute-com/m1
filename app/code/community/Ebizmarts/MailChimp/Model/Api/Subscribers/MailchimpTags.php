@@ -8,6 +8,23 @@ use Mage_Sales_Model_Resource_Order_Collection as OC;
 # https://github.com/cabinetsbay/site/issues/589
 final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::addGender()
+	 * @used-by self::addMailChimpTag()
+	 * @used-by self::buildMailChimpTags()
+	 * @used-by self::dispatchEventMergeVarAfter()
+	 * @used-by self::getMailChimpTagValue()
+	 * @used-by self::mergeMailchimpTags()
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getFName()
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getLName()
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_setMailchimpTagsToCustomer()
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
+	 * @var array
+	 */
+	public $_mailChimpTags;
+	
+	/**
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 	 * https://github.com/cabinetsbay/site/issues/589
@@ -786,22 +803,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @var int
 	 */
 	private $_storeId;
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::addGender()
-	 * @used-by self::addMailChimpTag()
-	 * @used-by self::buildMailChimpTags()
-	 * @used-by self::dispatchEventMergeVarAfter()
-	 * @used-by self::getMailChimpTagValue()
-	 * @used-by self::mergeMailchimpTags()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getFName()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getLName()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_setMailchimpTagsToCustomer()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
-	 * @var array
-	 */
-	public $_mailChimpTags;
+
 	/**
 	 * @var Mage_Newsletter_Model_Subscriber
 	 */
