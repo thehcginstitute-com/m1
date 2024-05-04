@@ -558,13 +558,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 	}
 
 	/**
-	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::updateSubscriber()
-	 */
-	private function _buildMailchimpTags($subscriber, $storeId):array {return Tags::p($subscriber, $storeId);}
-
-	/**
 	 * @return Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Subscribers_Collection
 	 */
 	function getResourceCollection()
@@ -573,8 +566,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 		 * @var $collection Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Subscribers_Collection
 		 */
 		$collection = Mage::getResourceModel('mailchimp/ecommercesyncdata_subscribers_collection');
-
 		return $collection;
 	}
-
 }
