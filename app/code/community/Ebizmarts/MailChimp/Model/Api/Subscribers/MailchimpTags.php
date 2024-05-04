@@ -632,7 +632,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function getDateOfBirth($attributeCode, $customer)
 	{
-		return $this->getMailchimpDateHelper()->formatDate(
+		return hcg_mc_h_date()->formatDate(
 			$this->getCustomerGroupLabel($attributeCode, $customer),
 			'm/d', 1
 		);
