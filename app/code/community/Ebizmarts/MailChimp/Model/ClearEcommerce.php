@@ -40,14 +40,6 @@ class Ebizmarts_MailChimp_Model_ClearEcommerce
     }
 
     /**
-     * @return Ebizmarts_MailChimp_Helper_Date|Mage_Core_Helper_Abstract
-     */
-    protected function getDateHelper()
-    {
-        return $this->_dateHelper;
-    }
-
-    /**
      * Process all types of data from eCommerce data to delete
      * non active products, quotes, customers, etc. from the table.
      */
