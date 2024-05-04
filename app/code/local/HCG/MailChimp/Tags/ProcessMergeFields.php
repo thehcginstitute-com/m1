@@ -111,10 +111,24 @@ final class ProcessMergeFields {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_getFName()
+	 * @used-by self::_getLName()
+	 */
+	private static function _getAttrbuteId($attrCode) {
+		$attribute = Mage::getModel('eav/entity_attribute')
+			->getCollection()
+			->addFieldToFilter('attribute_code', $attrCode)
+			->getFirstItem();
+		return $attribute->getId();
+	}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::p()
 	 */
 	private static function _getFName(T $t, array $data) {
-		$attrId = $t->_getAttrbuteId('firstname');
+		$attrId = self::_getAttrbuteId('firstname');
 		$magentoTag = '';
 		foreach ($t->_mailChimpTags as $tag) {
 			if ($tag['magento'] == $attrId) {
@@ -131,7 +145,7 @@ final class ProcessMergeFields {
 	 * @used-by self::p()
 	 */
 	private static function _getLName(T $t, array $data) {
-		$attrId = $t->_getAttrbuteId('lastname');
+		$attrId = self::_getAttrbuteId('lastname');
 		$magentoTag = '';
 		foreach ($t->_mailChimpTags as $tag) {
 			if ($tag['magento'] == $attrId) {
