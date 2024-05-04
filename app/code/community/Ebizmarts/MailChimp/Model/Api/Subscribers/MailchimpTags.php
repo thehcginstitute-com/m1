@@ -1022,11 +1022,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function setMailChimpDateHelper():void {$this->_mcDateHelper = Mage::helper('mailchimp/date');}
 
 	/**
-	 * @param $mageMCHelper
-	 */
-	private function setMailChimpHelper():void {$this->_mcHelper = hcg_mc_h();}
-
-	/**
 	 * @param $mageMCWebhookHelper
 	 */
 	private function setMailChimpWebhookHelper():void {$this->_mcWebhookHelper = Mage::helper('mailchimp/webhook');}
@@ -1035,7 +1030,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $mapFields
 	 * @return mixed
 	 */
-	private function unserializeMapFields($mapFields) {return $this->_mcHelper->unserialize($mapFields);}
+	private function unserializeMapFields($mapFields) {return hcg_mc_h()->unserialize($mapFields);}
 	
 	const GENDER_VALUE_MALE = 1;
 	const GENDER_VALUE_FEMALE = 2;
@@ -1063,10 +1058,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private $_subscriber;
 
-	/**
-	 * @var Ebizmarts_MailChimp_Helper_Data
-	 */
-	private $_mcHelper;
 	/**
 	 * @var Ebizmarts_MailChimp_Helper_Date
 	 */

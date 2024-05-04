@@ -61,6 +61,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::buildMailChimpTags()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::order()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::processMergeFields()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::unserializeMapFields()
  * @used-by Ebizmarts_MailChimp_Model_ClearBatches::__construct()
  * @used-by Ebizmarts_MailChimp_Model_ClearEcommerce::__construct()
  * @used-by Ebizmarts_MailChimp_Model_Cron::__construct()
