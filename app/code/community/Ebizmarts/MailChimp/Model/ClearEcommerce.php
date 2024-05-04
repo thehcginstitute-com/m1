@@ -18,11 +18,6 @@ class Ebizmarts_MailChimp_Model_ClearEcommerce
     protected $_helper;
 
     /**
-     * @var Ebizmarts_MailChimp_Helper_Date
-     */
-    protected $_dateHelper;
-
-    /**
      * @var Ebizmarts_MailChimp_Model_Resource_Ecommercesyncdata_Collection
      */
     protected $_ecommerceData;
