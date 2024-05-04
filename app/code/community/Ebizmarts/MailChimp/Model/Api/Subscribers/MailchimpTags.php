@@ -16,10 +16,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::updateSubscriber()
 	 * @throws Mage_Core_Exception
 	 */
-	static function p($subscriber, $storeId):array {
+	static function p(Sub $sub, int $sid):array {
 		$i = new self;
-		$i->_subscriber = $subscriber;
-		$i->_storeId = $storeId;
+		$i->_subscriber = $sub;
+		$i->_storeId = $sid;
 		$i->buildMailChimpTags();
 		return $i->_mailChimpTags;
 	}
