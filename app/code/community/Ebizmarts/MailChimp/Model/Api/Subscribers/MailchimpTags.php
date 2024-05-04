@@ -949,21 +949,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		return $lastName;
 	}
 
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 */
-	private function order():?O {return dfc($this, function() {
-		$r = null; /** @var ?O $r */
-		$helper = $this->getMailchimpHelper();
-		$orderCollection = $helper->getOrderCollectionByCustomerEmail($this->getSubscriber()->getSubscriberEmail())
-			->setOrder('created_at', 'DESC')
-			->setPageSize(1);
-		if ($this->isNotEmptyOrderCollection($orderCollection)) {
-			$r = $orderCollection->getLastItem();
-		}
-		return $r;
-	});}
+
 
 	/**
 	 * @return Varien_Object
@@ -1017,6 +1003,22 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			return false;
 		}
 	}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 */
+	private function order():?O {return dfc($this, function() {
+		$r = null; /** @var ?O $r */
+		$helper = $this->getMailchimpHelper();
+		$orderCollection = $helper->getOrderCollectionByCustomerEmail($this->getSubscriber()->getSubscriberEmail())
+			->setOrder('created_at', 'DESC')
+			->setPageSize(1);
+		if ($this->isNotEmptyOrderCollection($orderCollection)) {
+			$r = $orderCollection->getLastItem();
+		}
+		return $r;
+	});}
 
 	/**
 	 * @param $mageMCDateHelper
