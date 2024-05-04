@@ -10,7 +10,7 @@ final class ProcessMergeFields {
 	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::p()
 	 * @throws \Mage_Core_Exception
 	 */
-	function p(array $data, bool $subscribe = false):void {
+	static function p(array $data, bool $subscribe = false):void {
 		$helper = hcg_mc_h();
 		$email = $data['email'];
 		$listId = $data['list_id'];
