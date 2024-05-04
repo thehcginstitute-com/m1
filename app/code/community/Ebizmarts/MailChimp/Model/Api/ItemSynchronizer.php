@@ -10,11 +10,6 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 	protected $_mailchimpHelper;
 
 	/**
-	 * @var Ebizmarts_MailChimp_Helper_Date
-	 */
-	protected $_mailchimpDateHelper;
-
-	/**
 	 * @return mixed
 	 */
 	function getMailchimpStoreId()
