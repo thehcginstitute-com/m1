@@ -187,13 +187,9 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 		$storeId = $subscriber->getStoreId();
 		$data = array();
 		$data["email_address"] = $subscriber->getSubscriberEmail();
-
-		$mailChimpTags = $this->_buildMailchimpTags($subscriber, $storeId);
-
-		if ($mailChimpTags->getMailChimpTags()) {
-			$data["merge_fields"] = $mailChimpTags->getMailChimpTags();
+		if ($t = Tags::p($subscriber, $storeId)) {
+			$data["merge_fields"] = $t;
 		}
-
 		$status = $this->translateMagentoStatusToMailchimpStatus($subscriber->getStatus());
 		$data["status_if_new"] = $status;
 
@@ -259,12 +255,10 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 				$helper->logError($e->getMessage());
 				return;
 			}
-
-			$mailChimpTags = $this->_buildMailchimpTags($subscriber, $storeId);
 			$language = $helper->getStoreLanguageCode($storeId);
 			$interest = $this->_getInterest($subscriber);
 			$emailHash = hash('md5', strtolower($subscriber->getSubscriberEmail()));
-
+			$t = Tags::p($subscriber, $storeId); /** @var array $t */
 			try {
 				$api->lists->members->addOrUpdate(
 					$listId,
@@ -273,7 +267,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 					$newStatus,
 					null,
 					$forceStatus,
-					$mailChimpTags->getMailChimpTags(),
+					$t,
 					$interest,
 					$language,
 					null,
@@ -290,7 +284,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 					if (strstr($e->getMailchimpDetails(), 'is in a compliance state')) {
 						try {
 							$this->_catchMailchimpNewstellerConfirm(
-								$api, $listId, $emailHash, $mailChimpTags, $subscriber, $interest
+								$api, $listId, $emailHash, $t, $subscriber, $interest
 							);
 							$saveSubscriber = true;
 						} catch (MailChimp_Error $e) {
@@ -363,7 +357,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 	 * @param $api
 	 * @param $listId
 	 * @param $emailHash
-	 * @param $mailChimpTags
 	 * @param $subscriber
 	 * @param $interest
 	 */
@@ -371,18 +364,14 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 		$api,
 		$listId,
 		$emailHash,
-		$mailChimpTags,
+		array $mailChimpTags,
 		$subscriber,
 		$interest
 	) {
 		$helper = $this->getMailchimpHelper();
-		$api->getLists()->getMembers()->update(
-			$listId, $emailHash, null, 'pending', $mailChimpTags->getMailChimpTags(), $interest
-		);
+		$api->getLists()->getMembers()->update($listId, $emailHash, null, 'pending', $mailChimpTags, $interest);
 		$subscriber->setSubscriberStatus(Mage_Newsletter_Model_Subscriber::STATUS_NOT_ACTIVE);
-		$message = $helper->__(
-			'To begin receiving the newsletter, you must first confirm your subscription'
-		);
+		$message = $helper->__('To begin receiving the newsletter, you must first confirm your subscription');
 		Mage::getSingleton('core/session')->addWarning($message);
 	}
 
@@ -571,7 +560,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::_buildSubscriberData()
 	 * @used-by self::updateSubscriber()
 	 */
 	private function _buildMailchimpTags($subscriber, $storeId):array {return Tags::p($subscriber, $storeId);}
