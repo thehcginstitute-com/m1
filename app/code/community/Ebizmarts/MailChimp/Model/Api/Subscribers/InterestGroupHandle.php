@@ -50,8 +50,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
     {
         $groups = array();
         $helper = $this->getHelper();
-        $dateHelper = $this->getDateHelper();
-
         $subscriber = $this->getSubscriber();
         $storeId = $subscriber->getStoreId();
 
@@ -75,7 +73,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
         $interestGroup->setSubscriberId($subscriberId);
         $interestGroup->setCustomerId($customerId);
         $interestGroup->setStoreId($storeId);
-        $interestGroup->setUpdatedAt($dateHelper->getCurrentDateTime());
+        $interestGroup->setUpdatedAt(hcg_mc_h_date()->getCurrentDateTime());
         $interestGroup->save();
 
         return $this;
