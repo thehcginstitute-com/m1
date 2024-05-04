@@ -950,35 +950,20 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * return the latest order for this subscriber
-	 * @return Mage_Sales_Model_Order
-	 */
-	private function getLastOrderByEmail() {
-		$lastOrder = $this->_lastOrder;
-		if ($lastOrder === null) {
-			$helper = $this->getMailchimpHelper();
-			$orderCollection = $helper->getOrderCollectionByCustomerEmail($this->getSubscriber()->getSubscriberEmail())
-				->setOrder('created_at', 'DESC')
-				->setPageSize(1);
-			if ($this->isNotEmptyOrderCollection($orderCollection)) {
-				$lastOrder = $orderCollection->getLastItem();
-				$this->setLastOrder($lastOrder);
-			}
-		}
-		return $lastOrder;
-	}
-
-	/**
-	 * @var Mage_Sales_Model_Order
-	 */
-	private $_lastOrder;
-
-	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::getLastOrderByEmail()
 	 */
-	private function setLastOrder(O $lastOrder):void {$this->_lastOrder = $lastOrder;}
+	private function getLastOrderByEmail():?O {return dfc($this, function() {
+		$r = null; /** @var ?O $r */
+		$helper = $this->getMailchimpHelper();
+		$orderCollection = $helper->getOrderCollectionByCustomerEmail($this->getSubscriber()->getSubscriberEmail())
+			->setOrder('created_at', 'DESC')
+			->setPageSize(1);
+		if ($this->isNotEmptyOrderCollection($orderCollection)) {
+			$r = $orderCollection->getLastItem();
+		}
+		return $r;
+	});}
 
 	/**
 	 * @return Varien_Object
