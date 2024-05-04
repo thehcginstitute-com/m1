@@ -969,6 +969,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * @var Mage_Sales_Model_Order
+	 */
+	private $_lastOrder;
+
+	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::getLastOrderByEmail()
@@ -1087,10 +1092,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @var Ebizmarts_MailChimp_Helper_Webhook
 	 */
 	private $_mcWebhookHelper;
-	/**
-	 * @var Mage_Sales_Model_Order
-	 */
-	private $_lastOrder;
 
 	/**
 	 * @var Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
