@@ -20,12 +20,8 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 						ProcessMergeFields::p($d);
 						break;
 					case 'subscribe':
-						try {
-							ProcessMergeFields::p($d, true);
-						}
-						catch (Exception $e) {
-							Mage::logException($e);
-						}
+						try {ProcessMergeFields::p($d, true);}
+						catch (Exception $e) {Mage::logException($e);}
 						break;
 					case 'unsubscribe':
 						$this->_unsubscribe($d);
