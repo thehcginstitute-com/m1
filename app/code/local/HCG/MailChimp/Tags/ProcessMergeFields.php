@@ -111,6 +111,15 @@ final class ProcessMergeFields {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_isAddress()
+	 */
+	private static function _getAttrbuteCode($attrId) {return
+		\Mage::getModel('eav/entity_attribute')->load($attrId)->getAttributeCode()
+	;}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_getFName()
 	 * @used-by self::_getLName()
 	 */
@@ -164,7 +173,7 @@ final class ProcessMergeFields {
 	private static function _isAddress(T $t, $attrId):bool {
 		if (is_numeric($attrId)) {
 			// Gets the magento attr_code.
-			$attributeCode = $t->_getAttrbuteCode($attrId);
+			$attributeCode = self::_getAttrbuteCode($attrId);
 			if ($attributeCode == 'default_billing' || $attributeCode == 'default_shipping') {
 				return true;
 			}

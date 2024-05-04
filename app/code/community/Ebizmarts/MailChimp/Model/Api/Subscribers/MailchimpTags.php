@@ -133,15 +133,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @param $attrId
-	 * @return string
-	 */
-	private function _getAttrbuteCode($attrId) {
-		$attributeCode = Mage::getModel('eav/entity_attribute')->load($attrId)->getAttributeCode();
-		return $attributeCode;
-	}
-
-	/**
 	 * @param $customAtt
 	 * @param $customer
 	 * @param $mergeVars
