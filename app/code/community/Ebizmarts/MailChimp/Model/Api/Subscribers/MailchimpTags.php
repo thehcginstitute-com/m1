@@ -749,20 +749,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @param $genderLabel
-	 * @return int
-	 */
-	private function getGenderValue($genderLabel) {
-		$genderValue = 0;
-		if ($genderLabel == 'Male') {
-			$genderValue = self::GENDER_VALUE_MALE;
-		} elseif ($genderLabel == 'Female') {
-			$genderValue = self::GENDER_VALUE_FEMALE;
-		}
-		return $genderValue;
-	}
-
-	/**
 	 * If orders with the given email exists, returns the date of the last order made.
 	 *
 	 * @param  $subscriberEmail

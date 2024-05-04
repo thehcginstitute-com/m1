@@ -80,6 +80,21 @@ final class ProcessMergeFields {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_setMailchimpTagToCustomer()
+	 */
+	private static function getGenderValue($genderLabel) {
+		$genderValue = 0;
+		if ($genderLabel == 'Male') {
+			$genderValue = self::GENDER_VALUE_MALE;
+		} elseif ($genderLabel == 'Female') {
+			$genderValue = self::GENDER_VALUE_FEMALE;
+		}
+		return $genderValue;
+	}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::p()
 	 */
 	private static function _getLName(T $t, array $data) {
@@ -146,7 +161,7 @@ final class ProcessMergeFields {
 					if ($key != 'GENDER') {
 						$customer->setData($map['magento'], $value);
 					} else {
-						$customer->setData('gender', $t->getGenderValue($value));
+						$customer->setData('gender', self::getGenderValue($value));
 					}
 				}
 			}
