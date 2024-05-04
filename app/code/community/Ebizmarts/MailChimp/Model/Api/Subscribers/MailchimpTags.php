@@ -762,7 +762,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function getAddressData($address)
 	{
-		$lastOrder = $this->getLastOrderByEmail();
+		$lastOrder = $this->orderLast();
 		$addressData = $this->getAddressFromLastOrder($lastOrder);
 		if (!empty($addressData)) {
 			if ($address) {
@@ -806,7 +806,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function getAddressForCustomizedAttributes($customAtt, $customer)
 	{
-		$lastOrder = $this->getLastOrderByEmail();
+		$lastOrder = $this->orderLast();
 		$address = $this->getAddressFromLastOrder($lastOrder);
 		if (!empty($address)) {
 			$addr = explode('_', $customAtt);
@@ -873,7 +873,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return string
 	 */
 	private function getFirstName($subscriber, $customer) {
-		$lastOrder = $this->getLastOrderByEmail();
+		$lastOrder = $this->orderLast();
 		$firstName = $customer->getFirstname();
 		if (!$firstName) {
 			if ($subscriber->getSubscriberFirstname()) {
@@ -923,7 +923,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function getLastDateOfPurchase()
 	{
 		$lastDateOfPurchase = null;
-		$lastOrder = $this->getLastOrderByEmail();
+		$lastOrder = $this->orderLast();
 		if ($lastOrder !== null) {
 			$lastDateOfPurchase = $lastOrder->getCreatedAt();
 		}
@@ -937,7 +937,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return string
 	 */
 	private function getLastName($subscriber, $customer) {
-		$lastOrder = $this->getLastOrderByEmail();
+		$lastOrder = $this->orderLast();
 		$lastName = $customer->getLastname();
 		if (!$lastName) {
 			if ($subscriber->getSubscriberLastname()) {
@@ -953,7 +953,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 */
-	private function getLastOrderByEmail():?O {return dfc($this, function() {
+	private function orderLast():?O {return dfc($this, function() {
 		$r = null; /** @var ?O $r */
 		$helper = $this->getMailchimpHelper();
 		$orderCollection = $helper->getOrderCollectionByCustomerEmail($this->getSubscriber()->getSubscriberEmail())
