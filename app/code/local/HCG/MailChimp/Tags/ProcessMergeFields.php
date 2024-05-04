@@ -85,9 +85,9 @@ final class ProcessMergeFields {
 	private static function getGenderValue($genderLabel):int {
 		$genderValue = 0;
 		if ($genderLabel == 'Male') {
-			$genderValue = T::GENDER_VALUE_MALE;
+			$genderValue = T::MALE;
 		} elseif ($genderLabel == 'Female') {
-			$genderValue = T::GENDER_VALUE_FEMALE;
+			$genderValue = T::FEMALE;
 		}
 		return $genderValue;
 	}

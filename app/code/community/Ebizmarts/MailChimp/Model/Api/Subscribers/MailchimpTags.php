@@ -740,9 +740,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return string
 	 */
 	private function getGenderLabel($mergeVars, $key, $genderValue) {
-		if ($genderValue == self::GENDER_VALUE_MALE) {
+		if ($genderValue == self::MALE) {
 			$mergeVars[$key] = 'Male';
-		} elseif ($genderValue == self::GENDER_VALUE_FEMALE) {
+		} elseif ($genderValue == self::FEMALE) {
 			$mergeVars[$key] = 'Female';
 		}
 		return $mergeVars[$key];
@@ -880,7 +880,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::getGenderLabel()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::getGenderValue()
 	 */
-	const GENDER_VALUE_MALE = 1;
+	const MALE = 1;
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -888,7 +888,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::getGenderLabel()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::getGenderValue()
 	 */
-	const GENDER_VALUE_FEMALE = 2;
+	const FEMALE = 2;
 
 	/**
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
