@@ -3,6 +3,7 @@ namespace HCG\MailChimp\Tags;
 use Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle as InterestGroupHandle;
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as T;
 use Ebizmarts_MailChimp_Model_Config as Cfg;
+use Mage_Customer_Model_Customer as C;
 # 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 final class ProcessMergeFields {
@@ -11,6 +12,14 @@ final class ProcessMergeFields {
 	 * @used-by self::p()
 	 */
 	private function __construct(array $data, T $t) {$this->_d = $data; $this->_t = $t;}
+
+	/**
+	 * 2024-05-04
+	 * @used-by self::p()
+	 */
+	private function customer():?C {return dfc($this, function() {
+		return hcg_mc_h()->loadListCustomer($this->_d['list_id'], $this->_d['email']);
+	});}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -101,7 +110,7 @@ final class ProcessMergeFields {
 		$storeId = $helper->getMagentoStoreIdsByListId($listId)[0];
 		$t->_mailChimpTags = $helper->getMapFields($storeId);
 		$t->_mailChimpTags = $helper->unserialize($t->_mailChimpTags);
-		$customer = $helper->loadListCustomer($listId, $email);
+		$customer = hcg_mc_h()->loadListCustomer($listId, $email);
 		if ($customer) {
 			$t->setCustomer($customer);
 			$i->_setMailchimpTagsToCustomer();
