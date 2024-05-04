@@ -15,10 +15,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
      * @var Ebizmarts_MailChimp_Helper_Data
      */
     protected $_helper;
-    /**
-     * @var Ebizmarts_MailChimp_Helper_Date
-     */
-    protected $_dateHelper;
 
     /**
      * @var Array

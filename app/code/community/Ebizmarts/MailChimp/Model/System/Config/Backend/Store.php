@@ -43,7 +43,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_Store extends Mage_Core_Mo
      * @return Ebizmarts_MailChimp_Helper_Data
      */
     protected function makeHelper() {return hcg_mc_h();}
-	
+
     /**
      * @return Mage_Adminhtml_Model_Session
      */
