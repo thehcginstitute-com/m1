@@ -977,12 +977,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function getWebSiteByStoreId($storeId) {return Mage::getModel('core/store')->load($storeId)->getWebsiteId();}
 
 	/**
-	 * @param $orderCollection
-	 * @return bool
-	 */
-	private function isNotEmptyOrderCollection($orderCollection) {return $orderCollection->getSize() > 0;}
-
-	/**
 	 * @param $mailchimpTags
 	 * @return bool
 	 */
@@ -1009,7 +1003,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$orderCollection = hcg_mc_h()->getOrderCollectionByCustomerEmail($this->getSubscriber()->getSubscriberEmail())
 			->setOrder('created_at', 'DESC')
 			->setPageSize(1);
-		if ($this->isNotEmptyOrderCollection($orderCollection)) {
+		if ($orderCollection->getSize()) {
 			$r = $orderCollection->getLastItem();
 		}
 		return $r;
