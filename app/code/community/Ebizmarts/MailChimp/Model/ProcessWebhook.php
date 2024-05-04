@@ -18,14 +18,12 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 				switch ($webhookRequest->getType()) {
 					case 'profile':
 						ProcessMergeFields::p($d);
-						$tags = new Tags;
-						$tags->processMergeFields($d);
 						break;
 					case 'subscribe':
 						try {
-							$tags = new Tags;
-							$tags->processMergeFields($d, true);
-						} catch (Exception $e) {
+							ProcessMergeFields::p($d, true);
+						}
+						catch (Exception $e) {
 							Mage::logException($e);
 						}
 						break;
