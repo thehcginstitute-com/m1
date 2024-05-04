@@ -93,12 +93,11 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 			}
 		}
 	}
-
+	
 	/**
-	 * Unsubscribe or delete email from Magento list, store aware
-	 *
-	 * @param array $data
-	 * @return void
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::p()
 	 */
 	private function _unsubscribe(array $data):void {
 		$helper = hcg_mc_h();
