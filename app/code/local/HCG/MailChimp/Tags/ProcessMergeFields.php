@@ -1,5 +1,6 @@
 <?php
 namespace HCG\MailChimp\Tags;
+use Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle as InterestGroupHandle;
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as T;
 use Ebizmarts_MailChimp_Model_Config as Cfg;
 # 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -48,16 +49,18 @@ final class ProcessMergeFields {
 		$subscriber->save();
 		$t->setSubscriber($subscriber);
 		if (isset($data['merges']['GROUPINGS'])) {
-			$interestGroupHandle = new \Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle;
+			$igh = new InterestGroupHandle; /** @var InterestGroupHandle $igh */
 			if ($t->getSubscriber() === null) {
-				$interestGroupHandle->setCustomer($t->getCustomer());
+				$igh->setCustomer($t->getCustomer());
 			}
 			else {
-				$interestGroupHandle->setSubscriber($t->getSubscriber());
+				$igh->setSubscriber($t->getSubscriber());
 			}
-			$interestGroupHandle->setGroupings($data['merges']['GROUPINGS'])
+			$igh
+				->setGroupings($data['merges']['GROUPINGS'])
 				->setListId($listId)
-				->processGroupsData();
+				->processGroupsData()
+			;
 		}
 	}
 
