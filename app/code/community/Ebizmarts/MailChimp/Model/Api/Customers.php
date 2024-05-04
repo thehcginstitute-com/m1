@@ -155,20 +155,6 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 	}
 
 	/**
-	 * @param $subscriber
-	 * @param $storeId
-	 * @return false|Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
-	 */
-	private function _buildMailchimpTags($subscriber, $storeId)
-	{
-		$mailChimpTags = new Tags;
-		$mailChimpTags->setStoreId($storeId);
-		$mailChimpTags->setSubscriber($subscriber);
-		$mailChimpTags->buildMailChimpTags();
-		return $mailChimpTags;
-	}
-
-	/**
 	 * @param $customerJson
 	 * @param $customer
 	 * @return array
@@ -561,8 +547,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 	{
 		$subscriber->setSubscriberEmail($customer->getEmail());
 		$subscriber->setCustomerId($customer->getId());
-		$mailChimpTags = $this->_buildMailchimpTags($subscriber, $magentoStoreId);
-		$mergeFields["merge_fields"] = $mailChimpTags->getMailChimpTags();
+		$mergeFields["merge_fields"] = Tags::p($subscriber, $magentoStoreId);
 		$batchData = $this->getCustomerPatchBatch($mergeFields, $customer, $listId);
 		return $batchData;
 	}

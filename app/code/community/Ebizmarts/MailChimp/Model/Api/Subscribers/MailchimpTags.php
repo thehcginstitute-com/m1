@@ -11,7 +11,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 	 * https://github.com/cabinetsbay/site/issues/589
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::_buildMailchimpTags()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::makeMailchimpTagsBatchStructure()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_buildSubscriberData()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::updateSubscriber()
 	 * @throws Mage_Core_Exception
