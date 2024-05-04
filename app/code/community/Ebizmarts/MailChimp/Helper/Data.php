@@ -3878,14 +3878,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * @return Ebizmarts_MailChimp_Helper_Date
-	 */
-	function getDateHelper()
-	{
-		return Mage::helper('mailchimp/date');
-	}
-
-	/**
 	 * @param $scopeId
 	 * @param $scope
 	 * @param $where
