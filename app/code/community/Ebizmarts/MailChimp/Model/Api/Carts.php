@@ -44,12 +44,10 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		if (!$helper->isAbandonedCartEnabled($magentoStoreId)) {
 			return $allCarts;
 		}
-
-		$dateHelper = $this->getDateHelper();
 		$this->_firstDate = $helper->getAbandonedCartFirstDate($magentoStoreId);
 		$this->setCounter(0);
 
-		$date = $dateHelper->getDateMicrotime();
+		$date = hcg_mc_h_date()->getDateMicrotime();
 		$this->setBatchId(
 			'storeid-'
 			. $magentoStoreId . '_'
@@ -241,7 +239,6 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 		$magentoStoreId = $this->getMagentoStoreId();
 
 		$helper = $this->getHelper();
-		$dateHelper = $this->getDateHelper();
 		$batchId = $this->getBatchId();
 		/** @var QC $newCarts */
 		$newCarts = $this->buildEcommerceCollectionToSync(Ebizmarts_MailChimp_Model_Config::IS_QUOTE);
@@ -324,7 +321,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 						$error,
 						null,
 						false,
-						$dateHelper->getCurrentDateTime()
+						hcg_mc_h_date()->getCurrentDateTime()
 					);
 				}
 			} else {
@@ -335,7 +332,7 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 					$jsonErrorMessage,
 					null,
 					false,
-					$dateHelper->getCurrentDateTime()
+					hcg_mc_h_date()->getCurrentDateTime()
 				);
 
 				//json encode failed
