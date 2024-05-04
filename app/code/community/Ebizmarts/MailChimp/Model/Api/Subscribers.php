@@ -541,15 +541,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 	}
 
 	/**
-	 * @param $mageMCDateHelper
-	 */
-	function setMailchimpDateHelper($mageMCDateHelper)
-	{
-		$this->_mcDateHelper = $mageMCDateHelper;
-	}
-
-
-	/**
 	 * @param $lastOrder
 	 * @return array
 	 */
