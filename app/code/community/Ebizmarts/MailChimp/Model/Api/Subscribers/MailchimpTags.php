@@ -83,7 +83,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * https://github.com/cabinetsbay/site/issues/589
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::_buildMailchimpTags()
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_buildMailchimpTags()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
 	 */
 	function setCustomer(C $v):void {$this->_customer = $v;}
 
