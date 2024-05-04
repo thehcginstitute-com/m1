@@ -56,19 +56,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		}
 	}
 
-	/**
-	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
-	 * https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::buildMailChimpTags()
-	 * @used-by self::customerAttributes()
-	 * @used-by self::customizedAttributes()
-	 * @used-by self::dispatchMergeVarBefore()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_setMailchimpTagsToCustomer()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
-	 */
-	function customerGet():C {return $this->_customer;}
-
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
 
 	/**
@@ -415,6 +402,17 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 		return $eventValue;
 	}
+
+	/**
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
+	 * https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::buildMailChimpTags()
+	 * @used-by self::customerAttributes()
+	 * @used-by self::customizedAttributes()
+	 * @used-by self::dispatchMergeVarBefore()
+	 */
+	private function customerGet():C {return $this->_customer;}
 
 	/**
 	 * @param $customAtt

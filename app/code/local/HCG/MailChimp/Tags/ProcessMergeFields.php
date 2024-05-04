@@ -140,7 +140,7 @@ final class ProcessMergeFields {
 		if (isset($data['merges']['GROUPINGS'])) {
 			$igh = new InterestGroupHandle; /** @var InterestGroupHandle $igh */
 			if ($t->getSubscriber() === null) {
-				$igh->setCustomer($t->customerGet());
+				$igh->setCustomer($i->customer());
 			}
 			else {
 				$igh->setSubscriber($t->getSubscriber());
