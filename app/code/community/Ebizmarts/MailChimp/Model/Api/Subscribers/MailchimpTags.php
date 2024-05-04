@@ -64,13 +64,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::customerAttributes()
 	 * @used-by self::customizedAttributes()
 	 */
-	private function getMailChimpTagValue(string $key) {
-		$r = null;
-		if (isset($this->_mailChimpTags[$key])) {
-			$r = $this->_mailChimpTags[$key];
-		}
-		return $r;
-	}
+	private function getMailChimpTagValue(string $k) {return dfa($this->_mailChimpTags, $k);}
 
 	/**
 	 * @return int
