@@ -66,12 +66,9 @@ final class ProcessMergeFields {
 	 * @used-by self::p()
 	 */
 	private static function _addSubscriberData($subscriber, $fname, $lname, $email, $listId):void {
-		$helper = hcg_mc_h();
-		$scopeArray = $helper->getFirstScopeFromConfig(
-			\Ebizmarts_MailChimp_Model_Config::GENERAL_LIST,
-			$listId
-		);
-		$api = $helper->getApi($scopeArray['scope_id'], $scopeArray['scope']);
+		$h = hcg_mc_h();
+		$scopeArray = $h->getFirstScopeFromConfig(\Ebizmarts_MailChimp_Model_Config::GENERAL_LIST, $listId);
+		$api = $h->getApi($scopeArray['scope_id'], $scopeArray['scope']);
 		try {
 			$subscriber->setSubscriberFirstname($fname);
 			$subscriber->setSubscriberLastname($lname);
@@ -83,20 +80,20 @@ final class ProcessMergeFields {
 				null
 			);
 			if ($member['status'] == 'subscribed') {
-				$helper->subscribeMember($subscriber);
+				$h->subscribeMember($subscriber);
 			}
 			elseif (
 				'unsubscribed' === $member['status']
 				&& !hcg_mc_h_webhook()->getWebhookDeleteAction($subscriber->getStoreId())
 			) {
-				$helper->unsubscribeMember($subscriber);
+				$h->unsubscribeMember($subscriber);
 			}
 		}
 		catch (\MailChimp_Error $e) {
-			$helper->logError($e->getFriendlyMessage());
+			$h->logError($e->getFriendlyMessage());
 		}
 		catch (\Exception $e) {
-			$helper->logError($e->getMessage());
+			$h->logError($e->getMessage());
 		}
 	}
 
