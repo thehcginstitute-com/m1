@@ -102,12 +102,13 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function getStoreId() {return $this->_storeId;}
 
 	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::p()
 	 * @param $data
-	 * @param bool $subscribe
 	 * @throws Mage_Core_Exception
 	 */
-	function processMergeFields($data, $subscribe = false):void {
+	function processMergeFields($data, bool $subscribe = false):void {
 		$helper = hcg_mc_h();
 		$email = $data['email'];
 		$listId = $data['list_id'];
