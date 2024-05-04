@@ -281,14 +281,6 @@ class Ebizmarts_MailChimp_Model_Api_Stores
     protected function makeHelper() {return hcg_mc_h();}
 
     /**
-     * @return Ebizmarts_MailChimp_Helper_Date
-     */
-    protected function makeDateHelper()
-    {
-        return Mage::helper('mailchimp/date');
-    }
-
-    /**
      * @return Mage_Adminhtml_Model_Session
      */
     protected function getAdminSession()
