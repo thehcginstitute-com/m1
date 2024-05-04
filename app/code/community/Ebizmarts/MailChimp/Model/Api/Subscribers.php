@@ -19,8 +19,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 	{
 		$mageMCHelper = hcg_mc_h();
 		$this->setMailchimpHelper($mageMCHelper);
-		$mageMCDateHelper = Mage::helper('mailchimp/date');
-		$this->setMailchimpDateHelper($mageMCDateHelper);
 	}
 
 	/**
