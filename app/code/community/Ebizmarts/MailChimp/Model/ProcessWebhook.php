@@ -67,10 +67,9 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	private function _saveProcessedWebhook($webhookRequest):void {$webhookRequest->setProcessed(1)->save();}
 
 	/**
-	 * Update customer email <upemail>
-	 *
-	 * @param array $data
-	 * @return void
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::STUB()
 	 */
 	private function _updateEmail(array $data):void {
 		$helper = hcg_mc_h();
