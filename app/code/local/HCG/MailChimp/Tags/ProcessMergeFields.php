@@ -170,7 +170,7 @@ final class ProcessMergeFields {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_setMailchimpTagToCustomer()
 	 */
-	private static function _isAddress(T $t, $attrId):bool {
+	private static function _isAddress($attrId):bool {
 		if (is_numeric($attrId)) {
 			// Gets the magento attr_code.
 			$attributeCode = self::_getAttrbuteCode($attrId);
@@ -213,7 +213,7 @@ final class ProcessMergeFields {
 		];
 		foreach ($mapFields as $map) {
 			if ($map['mailchimp'] == $key) {
-				if (!in_array($map['magento'], $ignore) && !self::_isAddress($t, $map['magento'])) {
+				if (!in_array($map['magento'], $ignore) && !self::_isAddress($map['magento'])) {
 					if ($key != 'GENDER') {
 						$customer->setData($map['magento'], $value);
 					} else {
