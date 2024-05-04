@@ -70,14 +70,6 @@ class Ebizmarts_MailChimp_GroupController extends Mage_Core_Controller_Front_Act
     }
 
     /**
-     * @return Ebizmarts_MailChimp_Helper_Date
-     */
-    protected function getDateHelper()
-    {
-        return Mage::helper('mailchimp/date');
-    }
-
-    /**
      * @return Ebizmarts_MailChimp_Model_Api_Subscribers
      */
     protected function getApiSubscriber()
