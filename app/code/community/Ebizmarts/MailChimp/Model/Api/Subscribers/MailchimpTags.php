@@ -170,6 +170,13 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	function setStoreId($storeId):void {$this->_storeId = $storeId;}
 
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::processMergeFields()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::_buildMailchimpTags()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_buildMailchimpTags()
+	 */
 	function setSubscriber(Sub $subscriber):void {$this->_subscriber = $subscriber;}
 
 	/**
