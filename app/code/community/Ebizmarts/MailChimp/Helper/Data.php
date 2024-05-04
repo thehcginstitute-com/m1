@@ -1767,16 +1767,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * @param $subscriberEmail
-	 * @return mixed
-	 */
-	function getOrderCollectionByCustomerEmail($subscriberEmail)
-	{
-		return Mage::getResourceModel('sales/order_collection')
-			->addFieldToFilter('customer_email', array('eq' => $subscriberEmail));
-	}
-
-	/**
 	 * Return html code for adding the MailChimp javascript.
 	 * @return string
 	 * @throws Mage_Core_Exception
