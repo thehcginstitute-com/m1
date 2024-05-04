@@ -51,7 +51,6 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
 		$this->_ecommerceProductsCollection->setStoreId($magentoStoreId);
 
 		$helper = $this->getHelper();
-		$dateHelper = $this->getDateHelper();
 		$oldStoreId = $helper->getCurrentStoreId();
 		$helper->setCurrentStore($magentoStoreId);
 
@@ -124,7 +123,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
 						"This product type is not supported on MailChimp. (product id: $productId)",
 						null,
 						false,
-						$dateHelper->formatDate(null, 'Y-m-d H:i:s')
+						hcg_mc_h_date()->formatDate(null, 'Y-m-d H:i:s')
 					);
 				}
 			}
