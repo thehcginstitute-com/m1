@@ -63,7 +63,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		# "`Ebizmarts_MailChimp`: «Your merge fields were invalid» /
 		# «field [FNAME] : Please enter a value» /
 		# «field [LNAME] : Please enter a value»": https://github.com/thehcginstitute-com/m1/issues/507
-		$d = $this->getMailChimpTags(); /** @var array(string => string) $d */
+		$d = $this->_mailChimpTags; /** @var array(string => string) $d */
 		if (!dfa($d, 'FNAME')) {
 			df_log('`FNAME` is missing in the merge fields', $this, [
 				'Merge Fields' => $d
@@ -72,18 +72,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			]);
 		}
 	}
-
-	/**
-	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::buildMailChimpTags()
-	 * @used-by self::dispatchEventMergeVarAfter()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::makeMailchimpTagsBatchStructure()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_buildSubscriberData()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_catchMailchimpNewstellerConfirm()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::updateSubscriber()
-	 */
-	function getMailChimpTags():array {return $this->_mailChimpTags;}
 
 	/**
 	 * @param $attributeCode
@@ -486,7 +474,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			'mailchimp_merge_field_send_after',
 			array(
 				'subscriber' => $this->getSubscriber(),
-				'vars' => $this->getMailChimpTags(),
+				'vars' => $this->_mailChimpTags,
 				'new_vars' => &$newVars
 			)
 		);
