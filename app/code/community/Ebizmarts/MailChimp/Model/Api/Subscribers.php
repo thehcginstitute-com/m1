@@ -190,8 +190,8 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 
 		$mailChimpTags = $this->_buildMailchimpTags($subscriber, $storeId);
 
-		if ($mailChimpTags->getMailchimpTags()) {
-			$data["merge_fields"] = $mailChimpTags->getMailchimpTags();
+		if ($mailChimpTags->getMailChimpTags()) {
+			$data["merge_fields"] = $mailChimpTags->getMailChimpTags();
 		}
 
 		$status = $this->translateMagentoStatusToMailchimpStatus($subscriber->getStatus());
@@ -273,7 +273,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 					$newStatus,
 					null,
 					$forceStatus,
-					$mailChimpTags->getMailchimpTags(),
+					$mailChimpTags->getMailChimpTags(),
 					$interest,
 					$language,
 					null,
@@ -377,7 +377,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 	) {
 		$helper = $this->getMailchimpHelper();
 		$api->getLists()->getMembers()->update(
-			$listId, $emailHash, null, 'pending', $mailChimpTags->getMailchimpTags(), $interest
+			$listId, $emailHash, null, 'pending', $mailChimpTags->getMailChimpTags(), $interest
 		);
 		$subscriber->setSubscriberStatus(Mage_Newsletter_Model_Subscriber::STATUS_NOT_ACTIVE);
 		$message = $helper->__(

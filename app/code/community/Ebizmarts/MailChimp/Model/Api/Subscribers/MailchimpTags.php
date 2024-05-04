@@ -56,6 +56,16 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		}
 	}
 
+	/**
+	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::buildMailChimpTags()
+	 * @used-by self::dispatchEventMergeVarAfter()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::makeMailchimpTagsBatchStructure()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_buildSubscriberData()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_catchMailchimpNewstellerConfirm()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::updateSubscriber()
+	 */
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
 
 	/**
