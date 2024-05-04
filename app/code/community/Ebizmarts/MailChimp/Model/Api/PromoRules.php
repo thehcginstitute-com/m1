@@ -102,8 +102,6 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
 		$promoData = array();
 		$promoRule = $this->getPromoRule($ruleId);
 		$helper = $this->getHelper();
-		$dateHelper = $this->getDateHelper();
-
 		try {
 			$ruleData = $this->generateRuleData($promoRule);
 			$promoRuleJson = json_encode($ruleData);
@@ -115,7 +113,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
 					$promoData['operation_id'] = 'storeid-'
 						. $magentoStoreId . '_'
 						. Ebizmarts_MailChimp_Model_Config::IS_PROMO_RULE . '_'
-						. $dateHelper->getDateMicrotime() . '_' . $ruleId;
+						. hcg_mc_h_date()->getDateMicrotime() . '_' . $ruleId;
 					$promoData['body'] = $promoRuleJson;
 					//update promo rule delta
 					$this->addSyncData($ruleId);
@@ -131,7 +129,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
 						$error,
 						null,
 						false,
-						$dateHelper->formatDate(null, "Y-m-d H:i:s")
+						hcg_mc_h_date()->formatDate(null, "Y-m-d H:i:s")
 					);
 				}
 			} else {
@@ -152,7 +150,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoRules extends Ebizmarts_MailChimp_Model
 					$jsonErrorMsg,
 					null,
 					false,
-					$dateHelper->formatDate(null, "Y-m-d H:i:s")
+					hcg_mc_h_date()->formatDate(null, "Y-m-d H:i:s")
 				);
 			}
 		} catch (Exception $e) {
