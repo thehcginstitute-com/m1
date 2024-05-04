@@ -110,8 +110,7 @@ final class ProcessMergeFields {
 		$listId = $data['list_id'];
 		$STATUS_SUBSCRIBED = \Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED;
 		$storeId = $helper->getMagentoStoreIdsByListId($listId)[0];
-		$t->_mailChimpTags = $helper->getMapFields($storeId);
-		$t->_mailChimpTags = $helper->unserialize($t->_mailChimpTags);
+		$t->_mailChimpTags = $helper->unserialize($helper->getMapFields($storeId));
 		if ($i->customer()) {
 			$i->_setMailchimpTagsToCustomer();
 		}
