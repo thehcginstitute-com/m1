@@ -93,7 +93,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::customerAttributes()
 	 */
 	private function _addTags(string $a, C $c, $k, $attribute):void {
-		$s = $this->sub(); /** @var Sub $s */
 		if ($a == 'default_billing' || $a == 'default_shipping') {
 			$this->addDefaultShipping($a, $k, $c);
 		}
@@ -762,8 +761,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::_addTags()
 	 * @used-by self::_p()
+	 * @used-by self::addFirstName()
+	 * @used-by self::addLastName()
 	 * @used-by self::dispatchEventMergeVarAfter()
 	 * @used-by self::dispatchMergeVarBefore()
 	 * @used-by self::order()
