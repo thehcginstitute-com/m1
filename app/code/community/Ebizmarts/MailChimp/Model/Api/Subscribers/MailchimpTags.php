@@ -30,7 +30,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @throws Mage_Core_Exception
 	 */
 	function buildMailChimpTags():void {
-		$helper = $this->getMailchimpHelper();
+		$helper = hcg_mc_h();
 		$storeId = $this->getStoreId();
 		$mapFields = $helper->getMapFields($storeId);
 		$maps = $this->unserializeMapFields($mapFields);
@@ -1007,8 +1007,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function order():?O {return dfc($this, function() {
 		$r = null; /** @var ?O $r */
-		$helper = $this->getMailchimpHelper();
-		$orderCollection = $helper->getOrderCollectionByCustomerEmail($this->getSubscriber()->getSubscriberEmail())
+		$orderCollection = hcg_mc_h()->getOrderCollectionByCustomerEmail($this->getSubscriber()->getSubscriberEmail())
 			->setOrder('created_at', 'DESC')
 			->setPageSize(1);
 		if ($this->isNotEmptyOrderCollection($orderCollection)) {
