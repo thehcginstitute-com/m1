@@ -222,22 +222,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @param $data
-	 * @return string
-	 */
-	private function _getFName($data) {
-		$attrId = $this->_getAttrbuteId('firstname');
-		$magentoTag = '';
-		foreach ($this->_mailChimpTags as $tag) {
-			if ($tag['magento'] == $attrId) {
-				$magentoTag = $tag['mailchimp'];
-				break;
-			}
-		}
-		return $data['merges'][$magentoTag];
-	}
-
-	/**
 	 * @return false|Mage_Core_Model_Abstract
 	 */
 	private function _getInterestGroupHandleModel() {return $this->_interestGroupHandle;}
@@ -256,48 +240,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			}
 		}
 		return $data['merges'][$magentoTag];
-	}
-
-	/**
-	 * @param $attrId
-	 * @return bool
-	 */
-	private function _isAddress($attrId) {
-		if (is_numeric($attrId)) {
-			// Gets the magento attr_code.
-			$attributeCode = $this->_getAttrbuteCode($attrId);
-			if ($attributeCode == 'default_billing' || $attributeCode == 'default_shipping') {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * Sets the mailchimp tag value for tue customer.
-	 * @param $key
-	 * @param $value
-	 * @param $mapFields
-	 * @param $customer
-	 */
-	private function _setMailchimpTagToCustomer($key, $value, $mapFields, $customer):void
-	{
-		$ignore = array(
-			'billing_company', 'billing_country', 'billing_zipcode', 'billing_state', 'billing_telephone',
-			'shipping_company', 'shipping_telephone', 'shipping_country', 'shipping_zipcode', 'shipping_state',
-			'dop', 'store_code');
-
-		foreach ($mapFields as $map) {
-			if ($map['mailchimp'] == $key) {
-				if (!in_array($map['magento'], $ignore) && !$this->_isAddress($map['magento'])) {
-					if ($key != 'GENDER') {
-						$customer->setData($map['magento'], $value);
-					} else {
-						$customer->setData('gender', $this->getGenderValue($value));
-					}
-				}
-			}
-		}
 	}
 
 	/**

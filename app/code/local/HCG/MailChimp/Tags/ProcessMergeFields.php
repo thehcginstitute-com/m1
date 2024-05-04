@@ -25,7 +25,7 @@ final class ProcessMergeFields {
 			self::_setMailchimpTagsToCustomer($t, $data);
 		}
 		$subscriber = $helper->loadListSubscriber($listId, $email);
-		$fname = $t->_getFName($data);
+		$fname = self::_getFName($t, $data);
 		$lname = $t->_getLName($data);
 		if ($subscriber->getId()) {
 			if ($subscriber->getStatus() != $STATUS_SUBSCRIBED && $subscribe) {
@@ -63,6 +63,39 @@ final class ProcessMergeFields {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::STUB()
+	 */
+	private static function _getFName(T $t, array $data) {
+		$attrId = $t->_getAttrbuteId('firstname');
+		$magentoTag = '';
+		foreach ($t->_mailChimpTags as $tag) {
+			if ($tag['magento'] == $attrId) {
+				$magentoTag = $tag['mailchimp'];
+				break;
+			}
+		}
+		return $data['merges'][$magentoTag];
+	}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_setMailchimpTagToCustomer()
+	 */
+	private static function _isAddress(T $t, $attrId):bool {
+		if (is_numeric($attrId)) {
+			// Gets the magento attr_code.
+			$attributeCode = $t->_getAttrbuteCode($attrId);
+			if ($attributeCode == 'default_billing' || $attributeCode == 'default_shipping') {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::p()
 	 */
 	private static function _setMailchimpTagsToCustomer(T $t, array $data):void {
@@ -71,11 +104,35 @@ final class ProcessMergeFields {
 			if (!empty($value)) {
 				if (is_array($t->_mailChimpTags)) {
 					if ($key !== 'GROUPINGS') {
-						$t->_setMailchimpTagToCustomer($key, $value, $t->_mailChimpTags, $customer);
+						self::_setMailchimpTagToCustomer($t, $key, $value, $t->_mailChimpTags, $customer);
 					}
 				}
 			}
 		}
 		$customer->save();
+	}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_setMailchimpTagsToCustomer()
+	 */
+	private static function _setMailchimpTagToCustomer(T $t, $key, $value, $mapFields, $customer):void {
+		$ignore = [
+			'billing_company', 'billing_country', 'billing_zipcode', 'billing_state', 'billing_telephone',
+			'shipping_company', 'shipping_telephone', 'shipping_country', 'shipping_zipcode', 'shipping_state',
+			'dop', 'store_code'
+		];
+		foreach ($mapFields as $map) {
+			if ($map['mailchimp'] == $key) {
+				if (!in_array($map['magento'], $ignore) && !self::_isAddress($t, $map['magento'])) {
+					if ($key != 'GENDER') {
+						$customer->setData($map['magento'], $value);
+					} else {
+						$customer->setData('gender', $t->getGenderValue($value));
+					}
+				}
+			}
+		}
 	}
 }
