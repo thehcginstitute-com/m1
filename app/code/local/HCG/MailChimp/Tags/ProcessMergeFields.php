@@ -1,6 +1,7 @@
 <?php
 namespace HCG\MailChimp\Tags;
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as T;
+use Ebizmarts_MailChimp_Model_Config as Cfg;
 # 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 final class ProcessMergeFields {
@@ -67,7 +68,7 @@ final class ProcessMergeFields {
 	 */
 	private static function _addSubscriberData($subscriber, $fname, $lname, $email, $listId):void {
 		$h = hcg_mc_h();
-		$scopeArray = $h->getFirstScopeFromConfig(\Ebizmarts_MailChimp_Model_Config::GENERAL_LIST, $listId);
+		$scopeArray = $h->getFirstScopeFromConfig(Cfg::GENERAL_LIST, $listId);
 		$api = $h->getApi($scopeArray['scope_id'], $scopeArray['scope']);
 		try {
 			$subscriber->setSubscriberFirstname($fname);
