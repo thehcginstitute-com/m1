@@ -59,9 +59,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
 
 	/**
-	 * @return mixed|null
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::customerAttributes()
+	 * @used-by self::customizedAttributes()
 	 */
-	function getMailChimpTagValue(string $key)
+	private function getMailChimpTagValue(string $key)
 	{
 		$mailchimpTagValue = null;
 
