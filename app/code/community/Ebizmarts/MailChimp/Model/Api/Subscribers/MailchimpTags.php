@@ -12,7 +12,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::addGender()
 	 * @used-by self::addMailChimpTag()
-	 * @used-by self::buildMailChimpTags()
+	 * @used-by self::_p()
 	 * @used-by self::dispatchEventMergeVarAfter()
 	 * @used-by self::getMailChimpTagValue()
 	 * @used-by self::mergeMailchimpTags()
@@ -36,7 +36,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$i = new self;
 		$i->_subscriber = $sub;
 		$i->_storeId = $sid;
-		$i->buildMailChimpTags();
+		$i->_p();
 		return $i->_mailChimpTags;
 	}
 
@@ -46,7 +46,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::p
 	 */
-	private function buildMailChimpTags():void {
+	private function _p():void {
 		$helper = hcg_mc_h();
 		$storeId = $this->getStoreId();
 		$mapFields = $helper->getMapFields($storeId);
@@ -369,7 +369,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 	 * https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::buildMailChimpTags()
+	 * @used-by self::_p()
 	 * @used-by self::customerAttributes()
 	 * @used-by self::customizedAttributes()
 	 * @used-by self::dispatchMergeVarBefore()
@@ -699,7 +699,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::addCreatedIn()
 	 * @used-by self::addStoreCodeFromCustomizedAttribute()
 	 * @used-by self::addWebsiteId()
-	 * @used-by self::buildMailChimpTags()
+	 * @used-by self::_p()
 	 * @used-by self::customer()
 	 */
 	private function getStoreId():int {return $this->_storeId;}
@@ -707,7 +707,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::buildMailChimpTags()
+	 * @used-by self::_p()
 	 * @used-by self::customerAttributes()
 	 * @used-by self::dispatchEventMergeVarAfter()
 	 * @used-by self::dispatchMergeVarBefore()
