@@ -159,7 +159,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 	 * @param $storeId
 	 * @return false|Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags
 	 */
-	protected function _buildMailchimpTags($subscriber, $storeId)
+	private function _buildMailchimpTags($subscriber, $storeId)
 	{
 		$mailChimpTags = new Tags;
 		$mailChimpTags->setStoreId($storeId);
