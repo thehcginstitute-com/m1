@@ -78,22 +78,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function getStoreId() {return $this->_storeId;}
 
 	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
-	 * https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::buildMailChimpTags()
-	 * @used-by self::customerAttributes()
-	 * @used-by self::customizedAttributes()
-	 * @used-by self::dispatchMergeVarBefore()
-	 */
-	private function customer():C {return dfc($this, function() {
-		$r = Mage::getModel('customer/customer'); /** @var C $r */
-		$r->setWebsiteId(df_store($this->getStoreId())->getWebsiteId());
-		$r->load($this->getSubscriber()->getCustomerId());
-		return $r;
-	});}
-
-	/**
 	 * @param $storeId
 	 */
 	function setStoreId($storeId):void {$this->_storeId = $storeId;}
@@ -384,6 +368,22 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			}
 		}
 	}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
+	 * https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::buildMailChimpTags()
+	 * @used-by self::customerAttributes()
+	 * @used-by self::customizedAttributes()
+	 * @used-by self::dispatchMergeVarBefore()
+	 */
+	private function customer():C {return dfc($this, function() {
+		$r = Mage::getModel('customer/customer'); /** @var C $r */
+		$r->setWebsiteId(df_store($this->getStoreId())->getWebsiteId());
+		$r->load($this->getSubscriber()->getCustomerId());
+		return $r;
+	});}
 
 	/**
 	 * @param $attributeCode
