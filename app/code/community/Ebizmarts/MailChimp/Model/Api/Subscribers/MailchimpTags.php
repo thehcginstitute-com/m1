@@ -1000,9 +1000,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private $_storeId;
 	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
 	 * @var array
 	 */
-	private $_mailChimpTags;
+	public $_mailChimpTags;
 	/**
 	 * @var Mage_Newsletter_Model_Subscriber
 	 */

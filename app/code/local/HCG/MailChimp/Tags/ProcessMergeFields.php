@@ -18,7 +18,7 @@ final class ProcessMergeFields {
 		$storeId = $helper->getMagentoStoreIdsByListId($listId)[0];
 		$t = new T; /** @var T $t */
 		$t->_mailChimpTags = $helper->getMapFields($storeId);
-		$t->_mailChimpTags = $t->unserializeMapFields($t->_mailChimpTags);
+		$t->_mailChimpTags = $helper->unserialize($t->_mailChimpTags);
 		$customer = $helper->loadListCustomer($listId, $email);
 		if ($customer) {
 			$t->setCustomer($customer);
