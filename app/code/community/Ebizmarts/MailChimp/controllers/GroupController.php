@@ -114,6 +114,6 @@ class Ebizmarts_MailChimp_GroupController extends Mage_Core_Controller_Front_Act
      */
     protected function getCurrentDateTime()
     {
-        return $this->getDateHelper()->formatDate(null, 'd-m-Y H:i:s');
+        return hcg_mc_h_date()->formatDate(null, 'd-m-Y H:i:s');
     }
 }
