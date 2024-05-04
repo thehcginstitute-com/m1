@@ -15,7 +15,7 @@ use Ebizmarts_MailChimp_Helper_Date as H;
  * @used-by Ebizmarts_MailChimp_Model_Api_Carts::createBatchJson()
  * @used-by Ebizmarts_MailChimp_Model_Api_Carts::_getNewQuotes()
  * @used-by Ebizmarts_MailChimp_Model_Api_Customers::createBatchJson()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Customers::makeBatchId()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()

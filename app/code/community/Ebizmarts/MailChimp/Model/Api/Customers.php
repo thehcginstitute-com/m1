@@ -333,7 +333,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 	{
 		$this->_batchId = "storeid-{$this->getBatchMagentoStoreId()}_";
 		$this->_batchId .= $this->getItemType() . '_';
-		$this->_batchId .= $this->getDateHelper()->getDateMicrotime();
+		$this->_batchId .= hcg_mc_h_date()->getDateMicrotime();
 	}
 
 	/**
