@@ -43,7 +43,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
     function __construct()
     {
         $this->_helper = hcg_mc_h();
-        $this->_dateHelper = Mage::helper('mailchimp/date');
     }
 
     /**
