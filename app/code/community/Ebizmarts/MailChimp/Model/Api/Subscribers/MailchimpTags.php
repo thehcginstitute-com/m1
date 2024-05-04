@@ -82,7 +82,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			df_log('`FNAME` is missing in the merge fields', $this, [
 				'Merge Fields' => $d
 				,'Customer' => $this->customer()
-				,'Subscriber' => $this->getSubscriber()
+				,'Subscriber' => $this->sub()
 			]);
 		}
 	}
@@ -94,7 +94,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function _addTags(string $attributeCode, $customer, $key, $attribute):void
 	{
-		$subscriber = $this->getSubscriber(); /** @var Sub $subscriber */
+		$subscriber = $this->sub(); /** @var Sub $subscriber */
 		if ($attributeCode == 'default_billing' || $attributeCode == 'default_shipping') {
 			$this->addDefaultShipping($attributeCode, $key, $customer);
 		}
@@ -385,7 +385,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function customer():C {return dfc($this, function() {
 		$r = Mage::getModel('customer/customer'); /** @var C $r */
 		$r->setWebsiteId(df_store($this->getStoreId())->getWebsiteId());
-		$r->load($this->getSubscriber()->getCustomerId());
+		$r->load($this->sub()->getCustomerId());
 		return $r;
 	});}
 
@@ -397,7 +397,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function customerAttributes($attributeCode, $key, $attribute)
 	{
-		$subscriber = $this->getSubscriber();
+		$subscriber = $this->sub();
 		$customer = $this->customer();
 
 		$eventValue = null;
@@ -495,7 +495,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		Mage::dispatchEvent(
 			'mailchimp_merge_field_send_after',
 			array(
-				'subscriber' => $this->getSubscriber(),
+				'subscriber' => $this->sub(),
 				'vars' => $this->_mailChimpTags,
 				'new_vars' => &$newVars
 			)
@@ -514,7 +514,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			'mailchimp_merge_field_send_before',
 			array(
 				'customer_id' => $this->customer()->getId(),
-				'subscriber_email' => $this->getSubscriber()->getSubscriberEmail(),
+				'subscriber_email' => $this->sub()->getSubscriberEmail(),
 				'merge_field_tag' => $attributeCode,
 				'merge_field_value' => &$eventValue
 			)
@@ -722,7 +722,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::order()
 	 * @used-by self::processMergeFields()
 	 */
-	private function getSubscriber():Sub {return $this->_subscriber;}
+	private function sub():Sub {return $this->_subscriber;}
 
 	/**
 	 * @param $attributeCode
@@ -777,7 +777,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function order():?O {return dfc($this, function() {/** @var OC $c */ return !count(
 		$c = df_order_c()
-			->addFieldToFilter('customer_email', ['eq' => $this->getSubscriber()->getSubscriberEmail()])
+			->addFieldToFilter('customer_email', ['eq' => $this->sub()->getSubscriberEmail()])
 			->setOrder('created_at', 'DESC')
 			->setPageSize(1)
 	) ? null : $c->getLastItem();});}
