@@ -571,7 +571,8 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers
 	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::STUB()
+	 * @used-by self::_buildSubscriberData()
+	 * @used-by self::updateSubscriber()
 	 */
 	private function _buildMailchimpTags($subscriber, $storeId):array {return Tags::p($subscriber, $storeId);}
 
