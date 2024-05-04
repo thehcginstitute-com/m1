@@ -1175,7 +1175,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
 			'left'
 		)->addAttributeToFilter(
 			'special_from_date',
-			array('lteq' => $this->getDateHelper()->formatDate() . " 23:59:59"),
+			array('lteq' => hcg_mc_h_date()->formatDate() . " 23:59:59"),
 			'left'
 		)->addAttributeToFilter(
 			'special_from_date',
@@ -1186,7 +1186,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
 		$whereCondition = $connection->quoteInto(
 			'm4m.mailchimp_sync_delta IS NOT NULL '
 			. 'AND m4m.mailchimp_sync_delta < ?',
-			$this->getDateHelper()->formatDate() . " 00:00:00"
+			hcg_mc_h_date()->formatDate() . " 00:00:00"
 		);
 
 		$productsCollectionResource = $this->getEcommerceResourceCollection();
@@ -1209,7 +1209,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
 			'left'
 		)->addAttributeToFilter(
 			'special_to_date',
-			array('lt' => $this->getDateHelper()->formatDate() . " 00:00:00"),
+			array('lt' => hcg_mc_h_date()->formatDate() . " 00:00:00"),
 			'left'
 		)->addAttributeToFilter(
 			'special_to_date',
