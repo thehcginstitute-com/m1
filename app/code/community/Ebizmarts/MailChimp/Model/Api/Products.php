@@ -608,8 +608,7 @@ class Ebizmarts_MailChimp_Model_Api_Products extends Ebizmarts_MailChimp_Model_A
 	function makeBatchId($magentoStoreId)
 	{
 		$batchId = 'storeid-' . $magentoStoreId . '_' . Ebizmarts_MailChimp_Model_Config::IS_PRODUCT;
-		$batchId .= '_' . $this->getDateHelper()->getDateMicrotime();
-
+		$batchId .= '_' . hcg_mc_h_date()->getDateMicrotime();
 		return $batchId;
 	}
 

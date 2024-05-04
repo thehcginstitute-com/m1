@@ -22,7 +22,7 @@ use Ebizmarts_MailChimp_Helper_Date as H;
  * @used-by Ebizmarts_MailChimp_Model_Api_Products::_buildNewProductRequest()
  * @used-by Ebizmarts_MailChimp_Model_Api_Products::_buildUpdateProductRequest()
  * @used-by Ebizmarts_MailChimp_Model_Api_Products::sendModifiedProduct()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Products::makeBatchId()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
