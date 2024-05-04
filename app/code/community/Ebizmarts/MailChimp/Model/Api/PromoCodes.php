@@ -88,7 +88,6 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
         $magentoStoreId = $this->getMagentoStoreId();
         $batchArray = array();
         $helper = $this->getHelper();
-        $dateHelper = $this->getDateHelper();
 //        $newPromoCodes = $this->makePromoCodesCollection($magentoStoreId);
         // be sure that the orders are not in mailchimp
         $websiteId = Mage::getModel('core/store')->load($magentoStoreId)->getWebsiteId();
@@ -155,7 +154,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
                             $error,
                             null,
                             false,
-                            $dateHelper->formatDate(null, "Y-m-d H:i:s")
+                            hcg_mc_h_date()->formatDate(null, "Y-m-d H:i:s")
                         );
                         continue;
                     }
@@ -177,7 +176,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
                         $jsonErrorMsg,
                         null,
                         false,
-                        $dateHelper->formatDate(null, "Y-m-d H:i:s")
+                        hcg_mc_h_date()->formatDate(null, "Y-m-d H:i:s")
                     );
                 }
             } catch (Exception $e) {
