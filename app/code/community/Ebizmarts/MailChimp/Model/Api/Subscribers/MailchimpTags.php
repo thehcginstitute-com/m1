@@ -1003,9 +1003,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$c = Mage::getResourceModel('sales/order_collection')->addFieldToFilter('customer_email', [
 			'eq' => $this->getSubscriber()->getSubscriberEmail()
 		]);
-		$c
-			->setOrder('created_at', 'DESC')
-			->setPageSize(1);
+		$c->setOrder('created_at', 'DESC')->setPageSize(1);
 		if ($c->getSize()) {
 			$r = $c->getLastItem();
 		}
