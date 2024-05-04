@@ -1,0 +1,10 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+<!-- 2024-05-04 "Port `df_order_c()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/591 -->
+		<Df_Sales>
+			<version>1.0.0</version>
+			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
+		</Df_Sales>
+	</modules>
+</config>

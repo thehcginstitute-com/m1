@@ -53,6 +53,14 @@
 				<Df_Core/>
 			</depends>
 		</Df_Qa>
+<!-- 2024-05-04 "Port `df_order_c()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/591 -->
+		<Df_Sales>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<Mage_Sales/>
+			</depends>
+		</Df_Sales>
 <!-- 2024-04-14 "Port `df_store()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/561 -->
 		<Df_Store>
 			<active>true</active>
