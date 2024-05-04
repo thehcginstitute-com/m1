@@ -15,7 +15,23 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_buildMailchimpTags()
 	 * @throws Mage_Core_Exception
 	 */
-	function buildMailChimpTags():void {
+	static function p($subscriber, $storeId):array {
+		$i = new self;
+		$i->_subscriber = $subscriber;
+		$i->_storeId = $storeId;
+		$i->buildMailChimpTags();
+		return $i->_mailChimpTags;
+	}
+
+	/**
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
+	 * https://github.com/cabinetsbay/site/issues/589
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::_buildMailchimpTags()
+	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_buildMailchimpTags()
+	 * @throws Mage_Core_Exception
+	 */
+	private function buildMailChimpTags():void {
 		$helper = hcg_mc_h();
 		$storeId = $this->getStoreId();
 		$mapFields = $helper->getMapFields($storeId);
@@ -67,20 +83,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::updateSubscriber()
 	 */
 	function getMailChimpTags():array {return $this->_mailChimpTags;}
-
-	/**
-	 * @param $storeId
-	 */
-	function setStoreId($storeId):void {$this->_storeId = $storeId;}
-
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::processMergeFields()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Customers::_buildMailchimpTags()
-	 * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_buildMailchimpTags()
-	 */
-	function setSubscriber(Sub $subscriber):void {$this->_subscriber = $subscriber;}
 
 	/**
 	 * @param $attributeCode
