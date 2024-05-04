@@ -34,7 +34,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	static function p(Sub $sub, int $sid):array {
 		$i = new self;
-		$i->_subscriber = $sub;
+		$i->_sub = $sub;
 		$i->_storeId = $sid;
 		$i->_p();
 		return $i->_mailChimpTags;
@@ -713,18 +713,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function getStoreId():int {return $this->_storeId;}
 
 	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::_p()
-	 * @used-by self::customerAttributes()
-	 * @used-by self::dispatchEventMergeVarAfter()
-	 * @used-by self::dispatchMergeVarBefore()
-	 * @used-by self::order()
-	 * @used-by self::processMergeFields()
-	 */
-	private function sub():Sub {return $this->_subscriber;}
-
-	/**
 	 * @param $attributeCode
 	 * @param $customer
 	 * @param $attribute
@@ -783,6 +771,18 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	) ? null : $c->getLastItem();});}
 
 	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_p()
+	 * @used-by self::customerAttributes()
+	 * @used-by self::dispatchEventMergeVarAfter()
+	 * @used-by self::dispatchMergeVarBefore()
+	 * @used-by self::order()
+	 * @used-by self::processMergeFields()
+	 */
+	private function sub():Sub {return $this->_sub;}
+
+	/**
 	 * @param $mapFields
 	 * @return mixed
 	 */
@@ -810,7 +810,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private $_storeId;
 
 	/**
-	 * @var Mage_Newsletter_Model_Subscriber
+	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @var Sub
 	 */
-	private $_subscriber;
+	private $_sub;
 }
