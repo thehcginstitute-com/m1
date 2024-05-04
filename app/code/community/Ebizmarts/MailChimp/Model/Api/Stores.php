@@ -41,8 +41,7 @@ class Ebizmarts_MailChimp_Model_Api_Stores
         $address
     ) {
         $helper = $this->makeHelper();
-        $dateHelper = $this->makeDateHelper();
-        $date = $dateHelper->getDateMicrotime();
+        $date = hcg_mc_h_date()->getDateMicrotime();
         $mailchimpStoreId = hash('md5', $storeName . '_' . $date);
 
         try {
