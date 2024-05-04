@@ -795,6 +795,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::dispatchEventMergeVarAfter()
 	 * @used-by self::getMailChimpTagValue()
 	 * @used-by self::mergeMailchimpTags()
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getFName()
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getLName()
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_setMailchimpTagsToCustomer()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
 	 * @var array
 	 */
