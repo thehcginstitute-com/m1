@@ -7,28 +7,83 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 final class ProcessMergeFields {
 	/**
+	 * 2024-05-04
+	 * @used-by self::p()
+	 */
+	private function __construct(array $data, T $t) {$this->_d = $data; $this->_t = $t;}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::p()
+	 */
+	private function _getFName() {
+		$attrId = self::_getAttrbuteId('firstname');
+		$magentoTag = '';
+		foreach ($this->_t->_mailChimpTags as $tag) {
+			if ($tag['magento'] == $attrId) {
+				$magentoTag = $tag['mailchimp'];
+				break;
+			}
+		}
+		return $this->_d['merges'][$magentoTag];
+	}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::p()
+	 */
+	private function _getLName() {
+		$attrId = self::_getAttrbuteId('lastname');
+		$magentoTag = '';
+		foreach ($this->_t->_mailChimpTags as $tag) {
+			if ($tag['magento'] == $attrId) {
+				$magentoTag = $tag['mailchimp'];
+				break;
+			}
+		}
+		return $this->_d['merges'][$magentoTag];
+	}
+
+	/**
+	 * 2024-05-04
+	 * @used-by self::__construct()
+	 * @var array
+	 */
+	private $_d;
+
+	/**
+	 * 2024-05-04
+	 * @used-by self::__construct()
+	 * @var T
+	 */
+	private $_t;
+
+	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::p()
 	 * @throws \Mage_Core_Exception
 	 */
 	static function p(array $data, bool $subscribe = false):void {
+		$t = new T; /** @var T $t */
+		$i = new self($data, $t); /** @var self $i */
 		$helper = hcg_mc_h();
 		$email = $data['email'];
 		$listId = $data['list_id'];
 		$STATUS_SUBSCRIBED = \Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED;
 		$storeId = $helper->getMagentoStoreIdsByListId($listId)[0];
-		$t = new T; /** @var T $t */
 		$t->_mailChimpTags = $helper->getMapFields($storeId);
 		$t->_mailChimpTags = $helper->unserialize($t->_mailChimpTags);
 		$customer = $helper->loadListCustomer($listId, $email);
 		if ($customer) {
 			$t->setCustomer($customer);
-			self::_setMailchimpTagsToCustomer($t, $data);
+			$i->_setMailchimpTagsToCustomer();
 		}
 		$subscriber = $helper->loadListSubscriber($listId, $email);
-		$fname = self::_getFName($t, $data);
-		$lname = self::_getLName($t, $data);
+		$fname = $i->_getFName();
+		$lname = $i->_getLName();
 		if ($subscriber->getId()) {
 			if ($subscriber->getStatus() != $STATUS_SUBSCRIBED && $subscribe) {
 				$subscriber->setStatus($STATUS_SUBSCRIBED);
@@ -44,7 +99,7 @@ final class ProcessMergeFields {
 			 * Mailchimp subscriber not currently in magento newsletter subscribers.
 			 * Get mailchimp subscriber status and add missing newsletter subscriber.
 			 */
-			self::_addSubscriberData($subscriber, $fname, $lname, $email, $listId);
+			$i->_addSubscriberData($subscriber, $fname, $lname, $email, $listId);
 		}
 		$subscriber->save();
 		$t->setSubscriber($subscriber);
@@ -69,7 +124,7 @@ final class ProcessMergeFields {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::p()
 	 */
-	private static function _addSubscriberData($subscriber, $fname, $lname, $email, $listId):void {
+	private function _addSubscriberData($subscriber, $fname, $lname, $email, $listId):void {
 		$h = hcg_mc_h();
 		$scopeArray = $h->getFirstScopeFromConfig(Cfg::GENERAL_LIST, $listId);
 		$api = $h->getApi($scopeArray['scope_id'], $scopeArray['scope']);
@@ -134,40 +189,6 @@ final class ProcessMergeFields {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::p()
-	 */
-	private static function _getFName(T $t, array $data) {
-		$attrId = self::_getAttrbuteId('firstname');
-		$magentoTag = '';
-		foreach ($t->_mailChimpTags as $tag) {
-			if ($tag['magento'] == $attrId) {
-				$magentoTag = $tag['mailchimp'];
-				break;
-			}
-		}
-		return $data['merges'][$magentoTag];
-	}
-
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::p()
-	 */
-	private static function _getLName(T $t, array $data) {
-		$attrId = self::_getAttrbuteId('lastname');
-		$magentoTag = '';
-		foreach ($t->_mailChimpTags as $tag) {
-			if ($tag['magento'] == $attrId) {
-				$magentoTag = $tag['mailchimp'];
-				break;
-			}
-		}
-		return $data['merges'][$magentoTag];
-	}
-
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_setMailchimpTagToCustomer()
 	 */
 	private static function _isAddress($attrId):bool {
@@ -186,13 +207,13 @@ final class ProcessMergeFields {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::p()
 	 */
-	private static function _setMailchimpTagsToCustomer(T $t, array $data):void {
-		$customer = $t->customerGet();
-		foreach ($data['merges'] as $key => $value) {
+	private function _setMailchimpTagsToCustomer():void {
+		$customer = $this->_t->customerGet();
+		foreach ($this->_d['merges'] as $key => $value) {
 			if (!empty($value)) {
-				if (is_array($t->_mailChimpTags)) {
+				if (is_array($this->_t->_mailChimpTags)) {
 					if ($key !== 'GROUPINGS') {
-						self::_setMailchimpTagToCustomer($key, $value, $t->_mailChimpTags, $customer);
+						self::_setMailchimpTagToCustomer($key, $value, $this->_t->_mailChimpTags, $customer);
 					}
 				}
 			}
