@@ -147,22 +147,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			}
 		}
 	}
-
-	/**
-	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::customizedAttributes()
-	 */
-	private function addZipCodeFromCustomizedAttribute($customAtt, $key, $customer):void {
-		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
-		if ($address) {
-			$zipCode = $address->getPostcode();
-			if ($zipCode) {
-				$this->set($key, $zipCode);
-			}
-		}
-	}
-
+	
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
@@ -207,7 +192,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			case 'billing_zipcode':
 			case 'shipping_zipcode':
-				$this->addZipCodeFromCustomizedAttribute($a, $k, $c);
+				if (($address = $this->getAddressForCustomizedAttributes($a, $c)) && ($v = $address->getPostcode())) {
+					$this->set($k, $v);
+				}
 				break;
 			case 'billing_state':
 			case 'shipping_state':
