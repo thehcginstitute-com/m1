@@ -90,7 +90,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::customerAttributes()
+	 * @used-by self::buildCustomerAttributes()
 	 */
 	private function _addTags(string $a, C $c, $k, $attribute):void {
 		switch ($a) {
@@ -268,18 +268,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::buildCustomerAttributes()
-	 */
-	private function customerAttributes($ac, string $k, $a) {
-		if ('email' !== $ac) {
-			$this->_addTags($ac, $this->customer(), $k, $a);
-		}
-		return $this->getMailChimpTagValue($k);
-	}
-
-	/**
-	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::buildCustomizedAttributes()
 	 */
 	private function customizedAttributes($customAtt, $key) {
@@ -320,7 +308,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		foreach ($attrSetId as $a) {
 			if ($a['attribute_id'] == $customAtt) {
 				$ac = $a['attribute_code'];
-				$v = $this->customerAttributes($ac, $k, $a);
+				if ('email' !== $ac) {
+					$this->_addTags($ac, $this->customer(), $k, $a);
+				}
+				$v = $this->getMailChimpTagValue($k);
 				$this->dispatchMergeVarBefore($ac, $v);
 				if (!is_null($v)) {
 					$this->set($k, $v);
@@ -551,7 +542,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::customerAttributes()
+	 * @used-by self::buildCustomerAttributes()
 	 * @used-by self::customizedAttributes()
 	 */
 	private function getMailChimpTagValue(string $k) {return dfa($this->_mailChimpTags, $k);}
