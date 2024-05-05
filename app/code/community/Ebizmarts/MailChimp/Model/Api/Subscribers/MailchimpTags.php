@@ -91,21 +91,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::customizedAttributes()
 	 */
-	private function addCompany($customAtt, $customer, $key):void {
-		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
-		if ($address) {
-			$company = $address->getCompany();
-			if ($company) {
-				$this->set($key, $company);
-			}
-		}
-	}
-
-	/**
-	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::customizedAttributes()
-	 */
 	private function addCountryFromCustomizedAttribute($customAtt, $key, $customer):void {
 		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
 		if ($address) {
@@ -221,7 +206,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		switch ($a) {
 			case 'billing_company':
 			case 'shipping_company':
-				$this->addCompany($a, $c, $k);
+				if (($address = $this->getAddressForCustomizedAttributes($a, $c)) && ($v = $address->getCompany())) {
+					$this->set($k, $v);
+				}
 				break;
 			case 'billing_telephone':
 			case 'shipping_telephone':
