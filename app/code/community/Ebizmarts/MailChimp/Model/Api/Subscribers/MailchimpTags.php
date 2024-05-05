@@ -136,7 +136,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				}
 				break;
 			default:
-				$this->addUnknownMergeField($a, $k, $attribute, $c);
+				if (!is_null($v = $this->getUnknownMergeField($a, $c, $attribute))) {
+					$this->set($k, $v);
+				}
 		}
 	}
 
@@ -240,20 +242,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			if ($telephone) {
 				$this->set($key, $telephone);
 			}
-		}
-	}
-
-	/**
-	 * @param $attributeCode
-	 * @param $key
-	 * @param $attribute
-	 * @param $customer
-	 */
-	private function addUnknownMergeField($attributeCode, $key, $attribute, $customer):void
-	{
-		$mergeValue = $this->getUnknownMergeField($attributeCode, $customer, $attribute);
-		if ($mergeValue !== null) {
-			$this->set($key, $mergeValue);
 		}
 	}
 
