@@ -11,7 +11,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::addGender()
-	 * @used-by self::addMailChimpTag()
+	 * @used-by self::add()
 	 * @used-by self::_p()
 	 * @used-by self::dispatchEventMergeVarAfter()
 	 * @used-by self::getMailChimpTagValue()
@@ -97,42 +97,42 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			case 'default_billing':
 			case 'default_shipping':
 				if ($v = $this->getAddressData($c->getPrimaryAddress($a))) {
-					$this->addMailChimpTag($k, $v);
+					$this->set($k, $v);
 				}
 				break;
 			case 'gender':
 				if ($v = $this->getCustomerGroupLabel($a, $c)) {
-					$this->addMailChimpTag($k, $this->getGenderLabel($this->_mailChimpTags, $k, $v));
+					$this->set($k, $this->getGenderLabel($this->_mailChimpTags, $k, $v));
 				}
 				break;
 			case 'group_id':
-				$this->addMailChimpTag($k, ($v = (int)$this->getCustomerGroupLabel($a, $c))
+				$this->set($k, ($v = (int)$this->getCustomerGroupLabel($a, $c))
 					? Mage::helper('customer')->getGroups()->toOptionHash()[$v]
 					: 'NOT LOGGED IN'
 				);
 				break;
 			case 'firstname':
 				if ($v = $this->getFirstName($this->sub(), $c)) {
-					$this->addMailChimpTag($k, $v);
+					$this->set($k, $v);
 				}
 				break;
 			case 'lastname':
 				if ($v = $this->getLastName($this->sub(), $c)) {
-					$this->addMailChimpTag($k, $v);
+					$this->set($k, $v);
 				}
 				break;
 			case 'store_id':
-				$this->addMailChimpTag($k, $this->getStoreId());
+				$this->set($k, $this->getStoreId());
 				break;
 			case 'website_id':
 				$this->addWebsiteId($k);
 				break;
 			case 'created_in':
-				$this->addMailChimpTag($k, Mage::getModel('core/store')->load($this->getStoreId())->getName());
+				$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getName());
 				break;
 			case 'dob':
 				if ($this->getCustomerGroupLabel($a, $c)) {
-					$this->addMailChimpTag($k, $this->getDateOfBirth($a, $c));
+					$this->set($k, $this->getDateOfBirth($a, $c));
 				}
 				break;
 			default:
@@ -150,7 +150,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		if ($address) {
 			$company = $address->getCompany();
 			if ($company) {
-				$this->addMailChimpTag($key, $company);
+				$this->set($key, $company);
 			}
 		}
 	}
@@ -166,7 +166,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			$countryCode = $address->getCountry();
 			if ($countryCode) {
 				$countryName = Mage::getModel('directory/country')->loadByCode($countryCode)->getName();
-				$this->addMailChimpTag($key, $countryName);
+				$this->set($key, $countryName);
 			}
 		}
 	}
@@ -178,7 +178,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function addDopFromCustomizedAttribute($key):void {
 		if ($dop = $this->getLastDateOfPurchase()) {
-			$this->addMailChimpTag($key, $dop);
+			$this->set($key, $dop);
 		}
 	}
 
@@ -200,7 +200,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
  	 * @used-by self::_addTags()
 	 * @param $v
 	 */
-	private function addMailChimpTag(string $k, $v):void {$this->_mailChimpTags[$k] = $v;}
+	private function set(string $k, $v):void {$this->_mailChimpTags[$k] = $v;}
 
 	/**
 	 * @param $customAtt
@@ -213,7 +213,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		if ($address) {
 			$state = $address->getRegion();
 			if ($state) {
-				$this->addMailChimpTag($key, $state);
+				$this->set($key, $state);
 			}
 		}
 	}
@@ -224,7 +224,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function addStoreCodeFromCustomizedAttribute($key):void
 	{
 		$storeCode = Mage::getModel('core/store')->load($this->getStoreId())->getCode();
-		$this->addMailChimpTag($key, $storeCode);
+		$this->set($key, $storeCode);
 	}
 
 	/**
@@ -238,7 +238,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		if ($address) {
 			$telephone = $address->getTelephone();
 			if ($telephone) {
-				$this->addMailChimpTag($key, $telephone);
+				$this->set($key, $telephone);
 			}
 		}
 	}
@@ -253,7 +253,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	{
 		$mergeValue = $this->getUnknownMergeField($attributeCode, $customer, $attribute);
 		if ($mergeValue !== null) {
-			$this->addMailChimpTag($key, $mergeValue);
+			$this->set($key, $mergeValue);
 		}
 	}
 
@@ -263,7 +263,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function addWebsiteId($key):void
 	{
 		$websiteId = $this->getWebSiteByStoreId($this->getStoreId());
-		$this->addMailChimpTag($key, $websiteId);
+		$this->set($key, $websiteId);
 	}
 
 	/**
@@ -277,7 +277,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		if ($address) {
 			$zipCode = $address->getPostcode();
 			if ($zipCode) {
-				$this->addMailChimpTag($key, $zipCode);
+				$this->set($key, $zipCode);
 			}
 		}
 	}
@@ -361,7 +361,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 				$this->dispatchMergeVarBefore($attributeCode, $eventValue);
 				if ($eventValue !== null) {
-					$this->addMailChimpTag($key, $eventValue);
+					$this->set($key, $eventValue);
 				}
 			}
 		}
@@ -380,7 +380,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 		$this->dispatchMergeVarBefore($customAtt, $eventValue);
 		if ($eventValue !== null) {
-			$this->addMailChimpTag($key, $eventValue);
+			$this->set($key, $eventValue);
 		}
 	}
 
