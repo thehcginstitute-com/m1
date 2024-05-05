@@ -91,7 +91,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::buildCustomerAttributes()
 	 */
-	private function _addTags(string $a, C $c, $k, $attribute):void {
+	private function processAttribute(string $a, C $c, $k, $attribute):void {
 		switch ($a) {
 			case 'default_billing':
 			case 'default_shipping':
@@ -198,7 +198,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::addZipCodeFromCustomizedAttribute()
 	 * @used-by self::buildCustomerAttributes()
 	 * @used-by self::buildCustomizedAttributes()
- 	 * @used-by self::_addTags()
+ 	 * @used-by self::processAttribute()
 	 * @param $v
 	 */
 	private function set(string $k, $v):void {$this->_mailChimpTags[$k] = $v;}
@@ -308,7 +308,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			if ($a['attribute_id'] == $customAtt) {
 				$ac = $a['attribute_code'];
 				if ('email' !== $ac) {
-					$this->_addTags($ac, $this->customer(), $k, $a);
+					$this->processAttribute($ac, $this->customer(), $k, $a);
 				}
 				$v = $this->getMailChimpTagValue($k);
 				$this->dispatchMergeVarBefore($ac, $v);
@@ -554,7 +554,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::_addTags()
+	 * @used-by self::processAttribute()
 	 * @used-by self::addCreatedIn()
 	 * @used-by self::addStoreCodeFromCustomizedAttribute()
 	 * @used-by self::addWebsiteId()
