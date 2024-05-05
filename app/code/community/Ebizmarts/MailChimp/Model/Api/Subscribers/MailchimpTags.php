@@ -69,7 +69,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		}
 		$newVars = $this->getNewVarienObject();
 		$this->dispatchEventMergeVarAfter($newVars);
-
 		if ($newVars->hasData()) {
 			$this->mergeMailchimpTags($newVars->getData());
 		}
