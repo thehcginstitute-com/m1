@@ -94,6 +94,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function _addTags(string $a, C $c, $k, $attribute):void {
 		if ($a == 'default_billing' || $a == 'default_shipping') {
+			if ($v = $this->getAddressData($c->getPrimaryAddress($a))) {
+				$this->addMailChimpTag($k, $v);
+			}
 			$this->addDefaultShipping($a, $k, $c);
 		}
 		elseif ($a == 'gender') {
@@ -155,18 +158,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			}
 		}
 	}
-
-	/**
-	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::_addTags()
-	 */
-	private function addDefaultShipping($attributeCode, $key, $customer):void {
-		if ($addressData = $this->getAddressData($customer->getPrimaryAddress($attributeCode))) {
-			$this->addMailChimpTag($key, $addressData);
-		}
-	}
-
+	
 	/**
 	 * @param $attributeCode
 	 * @param $key
