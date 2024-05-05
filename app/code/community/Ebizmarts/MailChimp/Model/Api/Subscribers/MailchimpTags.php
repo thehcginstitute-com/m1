@@ -218,6 +218,32 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function customizedAttributes(string $a, string $k) {
 		$r = null;
 		$c = $this->customer();
+		switch ($a) {
+			case 'STUB':
+				break;
+			case 'STUB':
+				break;
+			case 'STUB':
+				break;
+			case 'STUB':
+				break;
+			case 'STUB':
+				break;
+			case 'STUB':
+				break;
+			case 'STUB':
+				break;
+			case 'STUB':
+				break;
+			case 'STUB':
+				break;
+			case 'STUB':
+				break;
+			case 'STUB':
+				break;
+			case 'STUB':
+				break;					
+		}
 		if ($a == 'billing_company' || $a == 'shipping_company') {
 			$this->addCompany($a, $c, $k);
 		}
