@@ -235,9 +235,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			case 'shipping_zipcode':
 				$this->addZipCodeFromCustomizedAttribute($a, $k, $c);
 				break;
-			case 'STUB':
-				break;
-			case 'STUB':
+			case 'billing_state':
+			case 'shipping_state':
+				$this->addStateFromCustomizedAttribute($a, $k, $c);
 				break;
 			case 'STUB':
 				break;
@@ -254,13 +254,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			case 'STUB':
 				break;
 		}
-		if ($a == 'billing_zipcode' || $a == 'shipping_zipcode') {
-			$this->addZipCodeFromCustomizedAttribute($a, $k, $c);
-		}
-		elseif ($a == 'billing_state' || $a == 'shipping_state') {
-			$this->addStateFromCustomizedAttribute($a, $k, $c);
-		}
-		elseif ($a == 'dop') {
+		if ($a == 'dop') {
 			$this->addDopFromCustomizedAttribute($k);
 		}
 		elseif ($a == 'store_code') {
