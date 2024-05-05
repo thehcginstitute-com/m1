@@ -117,7 +117,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				}
 				break;
 			case 'lastname':
-				$this->addLastName($k, $c);
+				if ($v = $this->getLastName($this->sub(), $c)) {
+					$this->addMailChimpTag($k, $v);
+				}
 				break;
 			case 'store_id':
 				$this->addMailChimpTag($k, $this->getStoreId());
@@ -177,18 +179,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function addDopFromCustomizedAttribute($key):void {
 		if ($dop = $this->getLastDateOfPurchase()) {
 			$this->addMailChimpTag($key, $dop);
-		}
-	}
-
-	/**
-	 * @param $key
-	 * @param $subscriber
-	 * @param $customer
-	 */
-	private function addLastName($key, $customer):void {
-		$lastName = $this->getLastName($this->sub(), $customer);
-		if ($lastName) {
-			$this->addMailChimpTag($key, $lastName);
 		}
 	}
 
