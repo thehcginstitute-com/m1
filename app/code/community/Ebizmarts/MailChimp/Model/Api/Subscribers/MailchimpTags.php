@@ -217,21 +217,21 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function customizedAttributes(string $a, string $key) {
 		$eventValue = null;
-		$customer = $this->customer();
+		$c = $this->customer();
 		if ($a == 'billing_company' || $a == 'shipping_company') {
-			$this->addCompany($a, $customer, $key);
+			$this->addCompany($a, $c, $key);
 		}
 		elseif ($a == 'billing_telephone' || $a == 'shipping_telephone') {
-			$this->addTelephoneFromCustomizedAttribute($a, $key, $customer);
+			$this->addTelephoneFromCustomizedAttribute($a, $key, $c);
 		}
 		elseif ($a == 'billing_country' || $a == 'shipping_country') {
-			$this->addCountryFromCustomizedAttribute($a, $key, $customer);
+			$this->addCountryFromCustomizedAttribute($a, $key, $c);
 		}
 		elseif ($a == 'billing_zipcode' || $a == 'shipping_zipcode') {
-			$this->addZipCodeFromCustomizedAttribute($a, $key, $customer);
+			$this->addZipCodeFromCustomizedAttribute($a, $key, $c);
 		}
 		elseif ($a == 'billing_state' || $a == 'shipping_state') {
-			$this->addStateFromCustomizedAttribute($a, $key, $customer);
+			$this->addStateFromCustomizedAttribute($a, $key, $c);
 		}
 		elseif ($a == 'dop') {
 			$this->addDopFromCustomizedAttribute($key);
