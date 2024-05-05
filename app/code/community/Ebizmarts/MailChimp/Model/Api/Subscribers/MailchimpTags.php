@@ -239,7 +239,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			case 'shipping_state':
 				$this->addStateFromCustomizedAttribute($a, $k, $c);
 				break;
-			case 'STUB':
+			case 'dop':
+				$this->addDopFromCustomizedAttribute($k);
 				break;
 			case 'STUB':
 				break;
