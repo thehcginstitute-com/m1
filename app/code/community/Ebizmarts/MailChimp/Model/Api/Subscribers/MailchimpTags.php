@@ -368,15 +368,13 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @param $customAtt
-	 * @param $key
-	 * @return mixed | null
+	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::buildCustomizedAttributes()
 	 */
-	private function customizedAttributes($customAtt, $key)
-	{
+	private function customizedAttributes($customAtt, $key) {
 		$eventValue = null;
 		$customer = $this->customer();
-
 		if ($customAtt == 'billing_company' || $customAtt == 'shipping_company') {
 			$this->addCompany($customAtt, $customer, $key);
 		} elseif ($customAtt == 'billing_telephone' || $customAtt == 'shipping_telephone') {
@@ -392,11 +390,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		} elseif ($customAtt == 'store_code') {
 			$this->addStoreCodeFromCustomizedAttribute($key);
 		}
-
 		if ((string)$this->getMailChimpTagValue($key) != '') {
 			$eventValue = $this->getMailChimpTagValue($key);
 		}
-
 		return $eventValue;
 	}
 
