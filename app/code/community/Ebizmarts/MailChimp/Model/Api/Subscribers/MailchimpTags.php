@@ -242,24 +242,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			case 'dop':
 				$this->addDopFromCustomizedAttribute($k);
 				break;
-			case 'STUB':
+			case 'store_code':
+				$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
 				break;
-			case 'STUB':
-				break;
-			case 'STUB':
-				break;
-			case 'STUB':
-				break;
-			case 'STUB':
-				break;
-			case 'STUB':
-				break;
-		}
-		if ($a == 'dop') {
-			$this->addDopFromCustomizedAttribute($k);
-		}
-		elseif ($a == 'store_code') {
-			$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
 		}
 		if ((string)$this->getMailChimpTagValue($k) != '') {
 			$r = $this->getMailChimpTagValue($k);
