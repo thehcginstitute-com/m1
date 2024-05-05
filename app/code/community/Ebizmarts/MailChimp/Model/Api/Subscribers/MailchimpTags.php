@@ -101,7 +101,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				}
 				break;
 			case 'gender':
-				$this->addGender($a, $k, $c);
+				if ($v = $this->getCustomerGroupLabel($a, $c)) {
+					$this->addMailChimpTag($k, $this->getGenderLabel($this->_mailChimpTags, $k, $v));
+				}
 				break;
 			case 'group_id':
 				$this->addGroupId($a, $k, $c);
@@ -172,19 +174,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function addDopFromCustomizedAttribute($key):void {
 		if ($dop = $this->getLastDateOfPurchase()) {
 			$this->addMailChimpTag($key, $dop);
-		}
-	}
-
-	/**
-	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::STUB()
-	 */
-	private function addGender($attributeCode, $key, $customer):void
-	{
-		if ($this->getCustomerGroupLabel($attributeCode, $customer)) {
-			$genderValue = $this->getCustomerGroupLabel($attributeCode, $customer);
-			$this->addMailChimpTag($key, $this->getGenderLabel($this->_mailChimpTags, $key, $genderValue));
 		}
 	}
 
