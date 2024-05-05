@@ -275,7 +275,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		if ('email' !== $ac) {
 			$this->_addTags($ac, $this->customer(), $k, $a);
 		}
-		if ($this->getMailChimpTagValue($k) !== null) {
+		if (!is_null($this->getMailChimpTagValue($k))) {
 			$r = $this->getMailChimpTagValue($k);
 		}
 		return $r;
