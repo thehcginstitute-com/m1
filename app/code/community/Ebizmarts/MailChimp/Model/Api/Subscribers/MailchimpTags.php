@@ -220,12 +220,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @param $key
+	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::customizedAttributes()
 	 */
-	private function addStoreCodeFromCustomizedAttribute($key):void
-	{
-		$storeCode = Mage::getModel('core/store')->load($this->getStoreId())->getCode();
-		$this->set($key, $storeCode);
+	private function addStoreCodeFromCustomizedAttribute($key):void {
+		$this->set($key, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
 	}
 
 	/**
