@@ -270,13 +270,13 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::buildCustomerAttributes()
 	 */
-	private function customerAttributes($attributeCode, $key, $attribute) {
+	private function customerAttributes($ac, string $k, $a) {
 		$r = null;
-		if ($attributeCode != 'email') {
-			$this->_addTags($attributeCode, $this->customer(), $key, $attribute);
+		if ('email' !== $ac) {
+			$this->_addTags($ac, $this->customer(), $k, $a);
 		}
-		if ($this->getMailChimpTagValue($key) !== null) {
-			$r = $this->getMailChimpTagValue($key);
+		if ($this->getMailChimpTagValue($k) !== null) {
+			$r = $this->getMailChimpTagValue($k);
 		}
 		return $r;
 	}
