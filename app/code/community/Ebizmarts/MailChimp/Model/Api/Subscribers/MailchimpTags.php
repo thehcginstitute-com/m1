@@ -91,22 +91,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::customizedAttributes()
 	 */
-	private function addCountryFromCustomizedAttribute($customAtt, $key, $customer):void {
-		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
-		if ($address) {
-			$countryCode = $address->getCountry();
-			if ($countryCode) {
-				$countryName = Mage::getModel('directory/country')->loadByCode($countryCode)->getName();
-				$this->set($key, $countryName);
-			}
-		}
-	}
-
-	/**
-	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::customizedAttributes()
-	 */
 	private function addDopFromCustomizedAttribute($key):void {
 		if ($dop = $this->getLastDateOfPurchase()) {
 			$this->set($key, $dop);
@@ -147,7 +131,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			}
 		}
 	}
-	
+
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
@@ -188,7 +172,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			case 'billing_country':
 			case 'shipping_country':
-				$this->addCountryFromCustomizedAttribute($a, $k, $c);
+				if (($address = $this->getAddressForCustomizedAttributes($a, $c)) && ($v = $address->getCountry())) {
+					$this->set($k, Mage::getModel('directory/country')->loadByCode($v)->getName());
+				}
 				break;
 			case 'billing_zipcode':
 			case 'shipping_zipcode':
