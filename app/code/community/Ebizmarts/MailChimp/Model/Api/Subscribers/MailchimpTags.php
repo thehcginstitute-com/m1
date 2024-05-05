@@ -246,7 +246,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
 				break;
 		}
-		if ((string)$this->getMailChimpTagValue($k) != '') {
+		if (!df_nes($this->getMailChimpTagValue($k))) {
 			$r = $this->getMailChimpTagValue($k);
 		}
 		return $r;
