@@ -115,7 +115,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			$this->addWebsiteId($k);
 		}
 		elseif ($a == 'created_in') {
-			$this->addCreatedIn($k);
+			$this->addMailChimpTag($k, Mage::getModel('core/store')->load($this->getStoreId())->getName());
 		}
 		elseif ($a == 'dob') {
 			$this->addDob($a, $k, $c);
@@ -155,17 +155,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			}
 		}
 	}
-
-	/**
-	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::_addTags()
-	 */
-	private function addCreatedIn($key):void {$this->addMailChimpTag(
-		$key, Mage::getModel('core/store')->load($this->getStoreId())->getName()
-	);}
-
-
+	
 	/**
 	 * @param $attributeCode
 	 * @param $key
