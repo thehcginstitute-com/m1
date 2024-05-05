@@ -161,12 +161,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_addTags()
 	 */
-	private function addDefaultShipping($attributeCode, $key, $customer):void
-	{
-		$address = $customer->getPrimaryAddress($attributeCode);
-		$addressData = $this->getAddressData($address);
-
-		if (!empty($addressData)) {
+	private function addDefaultShipping($attributeCode, $key, $customer):void {
+		if ($addressData = $this->getAddressData($customer->getPrimaryAddress($attributeCode))) {
 			$this->addMailChimpTag($key, $addressData);
 		}
 	}
