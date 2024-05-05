@@ -89,61 +89,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::buildCustomerAttributes()
-	 */
-	private function processAttribute(string $a, C $c, $k, $attribute):void {
-		switch ($a) {
-			case 'default_billing':
-			case 'default_shipping':
-				if ($v = $this->getAddressData($c->getPrimaryAddress($a))) {
-					$this->set($k, $v);
-				}
-				break;
-			case 'gender':
-				if ($v = $this->getCustomerGroupLabel($a, $c)) {
-					$this->set($k, $this->getGenderLabel($this->_mailChimpTags, $k, $v));
-				}
-				break;
-			case 'group_id':
-				$this->set($k, ($v = (int)$this->getCustomerGroupLabel($a, $c))
-					? Mage::helper('customer')->getGroups()->toOptionHash()[$v]
-					: 'NOT LOGGED IN'
-				);
-				break;
-			case 'firstname':
-				if ($v = $this->getFirstName($this->sub(), $c)) {
-					$this->set($k, $v);
-				}
-				break;
-			case 'lastname':
-				if ($v = $this->getLastName($this->sub(), $c)) {
-					$this->set($k, $v);
-				}
-				break;
-			case 'store_id':
-				$this->set($k, $this->getStoreId());
-				break;
-			case 'website_id':
-				$this->set($k, $this->getWebSiteByStoreId($this->getStoreId()));
-				break;
-			case 'created_in':
-				$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getName());
-				break;
-			case 'dob':
-				if ($this->getCustomerGroupLabel($a, $c)) {
-					$this->set($k, $this->getDateOfBirth($a, $c));
-				}
-				break;
-			default:
-				if (!is_null($v = $this->getUnknownMergeField($a, $c, $attribute))) {
-					$this->set($k, $v);
-				}
-		}
-	}
-
-	/**
-	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::customizedAttributes()
 	 */
 	private function addCompany($customAtt, $customer, $key):void {
@@ -620,6 +565,61 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			->setOrder('created_at', 'DESC')
 			->setPageSize(1)
 	) ? null : $c->getLastItem();});}
+
+	/**
+	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::buildCustomerAttributes()
+	 */
+	private function processAttribute(string $a, C $c, $k, $attribute):void {
+		switch ($a) {
+			case 'default_billing':
+			case 'default_shipping':
+				if ($v = $this->getAddressData($c->getPrimaryAddress($a))) {
+					$this->set($k, $v);
+				}
+				break;
+			case 'gender':
+				if ($v = $this->getCustomerGroupLabel($a, $c)) {
+					$this->set($k, $this->getGenderLabel($this->_mailChimpTags, $k, $v));
+				}
+				break;
+			case 'group_id':
+				$this->set($k, ($v = (int)$this->getCustomerGroupLabel($a, $c))
+					? Mage::helper('customer')->getGroups()->toOptionHash()[$v]
+					: 'NOT LOGGED IN'
+				);
+				break;
+			case 'firstname':
+				if ($v = $this->getFirstName($this->sub(), $c)) {
+					$this->set($k, $v);
+				}
+				break;
+			case 'lastname':
+				if ($v = $this->getLastName($this->sub(), $c)) {
+					$this->set($k, $v);
+				}
+				break;
+			case 'store_id':
+				$this->set($k, $this->getStoreId());
+				break;
+			case 'website_id':
+				$this->set($k, $this->getWebSiteByStoreId($this->getStoreId()));
+				break;
+			case 'created_in':
+				$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getName());
+				break;
+			case 'dob':
+				if ($this->getCustomerGroupLabel($a, $c)) {
+					$this->set($k, $this->getDateOfBirth($a, $c));
+				}
+				break;
+			default:
+				if (!is_null($v = $this->getUnknownMergeField($a, $c, $attribute))) {
+					$this->set($k, $v);
+				}
+		}
+	}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
