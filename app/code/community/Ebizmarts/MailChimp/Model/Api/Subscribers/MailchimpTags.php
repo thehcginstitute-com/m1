@@ -219,7 +219,13 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$r = null;
 		$c = $this->customer();
 		switch ($a) {
-			case 'STUB':
+			case 'billing_company':
+			case 'shipping_company':
+				$this->addCompany($a, $c, $k);
+				break;
+			case 'billing_telephone':
+			case 'shipping_telephone':
+				$this->addTelephoneFromCustomizedAttribute($a, $k, $c);
 				break;
 			case 'STUB':
 				break;
@@ -237,17 +243,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			case 'STUB':
 				break;
-			case 'STUB':
-				break;
-			case 'STUB':
-				break;
-			case 'STUB':
-				break;					
 		}
-		if ($a == 'billing_company' || $a == 'shipping_company') {
-			$this->addCompany($a, $c, $k);
-		}
-		elseif ($a == 'billing_telephone' || $a == 'shipping_telephone') {
+		if ($a == 'billing_telephone' || $a == 'shipping_telephone') {
 			$this->addTelephoneFromCustomizedAttribute($a, $k, $c);
 		}
 		elseif ($a == 'billing_country' || $a == 'shipping_country') {
