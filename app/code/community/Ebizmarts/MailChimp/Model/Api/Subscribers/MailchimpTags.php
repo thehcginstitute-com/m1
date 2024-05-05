@@ -227,9 +227,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			case 'shipping_telephone':
 				$this->addTelephoneFromCustomizedAttribute($a, $k, $c);
 				break;
-			case 'STUB':
-				break;
-			case 'STUB':
+			case 'billing_country':
+			case 'shipping_country':
+				$this->addCountryFromCustomizedAttribute($a, $k, $c);
 				break;
 			case 'STUB':
 				break;
@@ -244,10 +244,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			case 'STUB':
 				break;
 		}
-		if ($a == 'billing_telephone' || $a == 'shipping_telephone') {
-			$this->addTelephoneFromCustomizedAttribute($a, $k, $c);
-		}
-		elseif ($a == 'billing_country' || $a == 'shipping_country') {
+		if ($a == 'billing_country' || $a == 'shipping_country') {
 			$this->addCountryFromCustomizedAttribute($a, $k, $c);
 		}
 		elseif ($a == 'billing_zipcode' || $a == 'shipping_zipcode') {
