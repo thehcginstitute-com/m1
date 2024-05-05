@@ -93,40 +93,41 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::customerAttributes()
 	 */
 	private function _addTags(string $a, C $c, $k, $attribute):void {
-		if (
-			in_array($a, ['default_billing', 'default_shipping'])
-			&& ($v = $this->getAddressData($c->getPrimaryAddress($a)))
-		) {
-			$this->addMailChimpTag($k, $v);
-		}
-		elseif ($a == 'gender') {
-			$this->addGender($a, $k, $c);
-		}
-		elseif ($a == 'group_id') {
-			$this->addGroupId($a, $k, $c);
-		}
-		elseif ($a == 'firstname') {
-			$this->addFirstName($k, $c);
-		}
-		elseif ($a == 'lastname') {
-			$this->addLastName($k, $c);
-		}
-		elseif ($a == 'store_id') {
-			$this->addMailChimpTag($k, $this->getStoreId());
-		}
-		elseif ($a == 'website_id') {
-			$this->addWebsiteId($k);
-		}
-		elseif ($a == 'created_in') {
-			$this->addMailChimpTag($k, Mage::getModel('core/store')->load($this->getStoreId())->getName());
-		}
-		elseif ($a == 'dob') {
-			if ($this->getCustomerGroupLabel($a, $c)) {
-				$this->addMailChimpTag($k, $this->getDateOfBirth($a, $c));
-			}
-		}
-		else {
-			$this->addUnknownMergeField($a, $k, $attribute, $c);
+		switch ($a) {
+			case 'default_billing':
+			case 'default_shipping':
+				if ($v = $this->getAddressData($c->getPrimaryAddress($a))) {
+					$this->addMailChimpTag($k, $v);
+				}
+				break;
+			case 'gender':
+				$this->addGender($a, $k, $c);
+				break;
+			case 'group_id':
+				$this->addGroupId($a, $k, $c);
+				break;
+			case 'firstname':
+				$this->addFirstName($k, $c);
+				break;
+			case 'lastname':
+				$this->addLastName($k, $c);
+				break;
+			case 'store_id':
+				$this->addMailChimpTag($k, $this->getStoreId());
+				break;
+			case 'website_id':
+				$this->addWebsiteId($k);
+				break;
+			case 'created_in':
+				$this->addMailChimpTag($k, Mage::getModel('core/store')->load($this->getStoreId())->getName());
+				break;
+			case 'dob':
+				if ($this->getCustomerGroupLabel($a, $c)) {
+					$this->addMailChimpTag($k, $this->getDateOfBirth($a, $c));
+				}
+				break;
+			default:
+				$this->addUnknownMergeField($a, $k, $attribute, $c);
 		}
 	}
 
