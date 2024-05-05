@@ -231,6 +231,16 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			case 'shipping_country':
 				$this->addCountryFromCustomizedAttribute($a, $k, $c);
 				break;
+			case 'billing_zipcode':
+			case 'shipping_zipcode':
+				$this->addZipCodeFromCustomizedAttribute($a, $k, $c);
+				break;
+			case 'STUB':
+				break;
+			case 'STUB':
+				break;
+			case 'STUB':
+				break;
 			case 'STUB':
 				break;
 			case 'STUB':
@@ -244,10 +254,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			case 'STUB':
 				break;
 		}
-		if ($a == 'billing_country' || $a == 'shipping_country') {
-			$this->addCountryFromCustomizedAttribute($a, $k, $c);
-		}
-		elseif ($a == 'billing_zipcode' || $a == 'shipping_zipcode') {
+		if ($a == 'billing_zipcode' || $a == 'shipping_zipcode') {
 			$this->addZipCodeFromCustomizedAttribute($a, $k, $c);
 		}
 		elseif ($a == 'billing_state' || $a == 'shipping_state') {
