@@ -90,15 +90,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 	 * https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::addCompany()
-	 * @used-by self::addCountryFromCustomizedAttribute()
-	 * @used-by self::addDopFromCustomizedAttribute()
 	 * @used-by self::addStateFromCustomizedAttribute()
 	 * @used-by self::addStoreCodeFromCustomizedAttribute()
-	 * @used-by self::addTelephoneFromCustomizedAttribute()
 	 * @used-by self::addUnknownMergeField()
 	 * @used-by self::addWebsiteId()
-	 * @used-by self::addZipCodeFromCustomizedAttribute()
 	 * @used-by self::buildCustomerAttributes()
 	 * @used-by self::buildCustomizedAttributes()
  	 * @used-by self::processAttribute()
