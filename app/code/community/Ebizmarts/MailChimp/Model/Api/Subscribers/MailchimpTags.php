@@ -319,16 +319,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $attrSetId
 	 * @param $customAtt
-	 * @param $key
 	 */
-	private function buildCustomerAttributes($attrSetId, $customAtt, $key):void {
+	private function buildCustomerAttributes($attrSetId, $customAtt, string $k):void {
 		foreach ($attrSetId as $attribute) {
 			if ($attribute['attribute_id'] == $customAtt) {
 				$attributeCode = $attribute['attribute_code'];
-				$v = $this->customerAttributes($attributeCode, $key, $attribute);
+				$v = $this->customerAttributes($attributeCode, $k, $attribute);
 				$this->dispatchMergeVarBefore($attributeCode, $v);
 				if (!is_null($v)) {
-					$this->set($key, $v);
+					$this->set($k, $v);
 				}
 			}
 		}
