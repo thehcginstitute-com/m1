@@ -93,11 +93,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::customerAttributes()
 	 */
 	private function _addTags(string $a, C $c, $k, $attribute):void {
-		if ($a == 'default_billing' || $a == 'default_shipping') {
-			if ($v = $this->getAddressData($c->getPrimaryAddress($a))) {
-				$this->addMailChimpTag($k, $v);
-			}
-			$this->addDefaultShipping($a, $k, $c);
+		if (
+			in_array($a, ['default_billing', 'default_shipping'])
+			&& ($v = $this->getAddressData($c->getPrimaryAddress($a)))
+		) {
+			$this->addMailChimpTag($k, $v);
 		}
 		elseif ($a == 'gender') {
 			$this->addGender($a, $k, $c);
@@ -158,7 +158,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			}
 		}
 	}
-	
+
 	/**
 	 * @param $attributeCode
 	 * @param $key
