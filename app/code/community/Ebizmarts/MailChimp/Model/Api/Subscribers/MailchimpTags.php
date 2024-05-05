@@ -179,8 +179,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $customer
 	 */
 	private function addFirstName($key, $customer):void {
-		$firstName = $this->getFirstName($this->sub(), $customer);
-		if ($firstName) {
+		if ($firstName = $this->getFirstName($this->sub(), $customer)) {
 			$this->addMailChimpTag($key, $firstName);
 		}
 	}
