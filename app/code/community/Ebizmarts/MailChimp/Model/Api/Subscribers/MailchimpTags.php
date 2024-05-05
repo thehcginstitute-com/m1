@@ -174,16 +174,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			$this->addMailChimpTag($key, $dop);
 		}
 	}
-
-	/**
-	 * @param $key
-	 * @param $subscriber
-	 * @param $customer
-	 */
-	private function addFirstName($key, $customer):void {
-
-	}
-
+	
 	/**
 	 * @param $attributeCode
 	 * @param $key
