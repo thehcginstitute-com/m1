@@ -215,32 +215,32 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::buildCustomizedAttributes()
 	 * @return mixed
 	 */
-	private function customizedAttributes(string $a, string $key) {
+	private function customizedAttributes(string $a, string $k) {
 		$eventValue = null;
 		$c = $this->customer();
 		if ($a == 'billing_company' || $a == 'shipping_company') {
-			$this->addCompany($a, $c, $key);
+			$this->addCompany($a, $c, $k);
 		}
 		elseif ($a == 'billing_telephone' || $a == 'shipping_telephone') {
-			$this->addTelephoneFromCustomizedAttribute($a, $key, $c);
+			$this->addTelephoneFromCustomizedAttribute($a, $k, $c);
 		}
 		elseif ($a == 'billing_country' || $a == 'shipping_country') {
-			$this->addCountryFromCustomizedAttribute($a, $key, $c);
+			$this->addCountryFromCustomizedAttribute($a, $k, $c);
 		}
 		elseif ($a == 'billing_zipcode' || $a == 'shipping_zipcode') {
-			$this->addZipCodeFromCustomizedAttribute($a, $key, $c);
+			$this->addZipCodeFromCustomizedAttribute($a, $k, $c);
 		}
 		elseif ($a == 'billing_state' || $a == 'shipping_state') {
-			$this->addStateFromCustomizedAttribute($a, $key, $c);
+			$this->addStateFromCustomizedAttribute($a, $k, $c);
 		}
 		elseif ($a == 'dop') {
-			$this->addDopFromCustomizedAttribute($key);
+			$this->addDopFromCustomizedAttribute($k);
 		}
 		elseif ($a == 'store_code') {
-			$this->set($key, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
+			$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
 		}
-		if ((string)$this->getMailChimpTagValue($key) != '') {
-			$eventValue = $this->getMailChimpTagValue($key);
+		if ((string)$this->getMailChimpTagValue($k) != '') {
+			$eventValue = $this->getMailChimpTagValue($k);
 		}
 		return $eventValue;
 	}
