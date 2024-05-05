@@ -214,7 +214,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::buildCustomizedAttributes()
 	 */
-	private function customizedAttributes($a, $key) {
+	private function customizedAttributes(string $a, string $key) {
 		$eventValue = null;
 		$customer = $this->customer();
 		if ($a == 'billing_company' || $a == 'shipping_company') {
