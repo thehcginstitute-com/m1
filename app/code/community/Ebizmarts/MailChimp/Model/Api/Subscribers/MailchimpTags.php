@@ -197,7 +197,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			case 'billing_telephone':
 			case 'shipping_telephone':
-				$this->addTelephoneFromCustomizedAttribute($a, $k, $c);
 				if (($address = $this->getAddressForCustomizedAttributes($a, $c)) && ($v = $address->getTelephone())) {
 					$this->set($k, $v);
 				}
