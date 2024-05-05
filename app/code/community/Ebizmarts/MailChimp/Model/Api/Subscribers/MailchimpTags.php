@@ -214,28 +214,28 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::buildCustomizedAttributes()
 	 */
-	private function customizedAttributes($customAtt, $key) {
+	private function customizedAttributes($a, $key) {
 		$eventValue = null;
 		$customer = $this->customer();
-		if ($customAtt == 'billing_company' || $customAtt == 'shipping_company') {
-			$this->addCompany($customAtt, $customer, $key);
+		if ($a == 'billing_company' || $a == 'shipping_company') {
+			$this->addCompany($a, $customer, $key);
 		}
-		elseif ($customAtt == 'billing_telephone' || $customAtt == 'shipping_telephone') {
-			$this->addTelephoneFromCustomizedAttribute($customAtt, $key, $customer);
+		elseif ($a == 'billing_telephone' || $a == 'shipping_telephone') {
+			$this->addTelephoneFromCustomizedAttribute($a, $key, $customer);
 		}
-		elseif ($customAtt == 'billing_country' || $customAtt == 'shipping_country') {
-			$this->addCountryFromCustomizedAttribute($customAtt, $key, $customer);
+		elseif ($a == 'billing_country' || $a == 'shipping_country') {
+			$this->addCountryFromCustomizedAttribute($a, $key, $customer);
 		}
-		elseif ($customAtt == 'billing_zipcode' || $customAtt == 'shipping_zipcode') {
-			$this->addZipCodeFromCustomizedAttribute($customAtt, $key, $customer);
+		elseif ($a == 'billing_zipcode' || $a == 'shipping_zipcode') {
+			$this->addZipCodeFromCustomizedAttribute($a, $key, $customer);
 		}
-		elseif ($customAtt == 'billing_state' || $customAtt == 'shipping_state') {
-			$this->addStateFromCustomizedAttribute($customAtt, $key, $customer);
+		elseif ($a == 'billing_state' || $a == 'shipping_state') {
+			$this->addStateFromCustomizedAttribute($a, $key, $customer);
 		}
-		elseif ($customAtt == 'dop') {
+		elseif ($a == 'dop') {
 			$this->addDopFromCustomizedAttribute($key);
 		}
-		elseif ($customAtt == 'store_code') {
+		elseif ($a == 'store_code') {
 			$this->set($key, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
 		}
 		if ((string)$this->getMailChimpTagValue($key) != '') {
