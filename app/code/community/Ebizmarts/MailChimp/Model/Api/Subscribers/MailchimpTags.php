@@ -167,10 +167,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::customizedAttributes()
 	 */
-	private function addDopFromCustomizedAttribute($key):void
-	{
-		$dop = $this->getLastDateOfPurchase();
-		if ($dop) {
+	private function addDopFromCustomizedAttribute($key):void {
+		if ($dop = $this->getLastDateOfPurchase()) {
 			$this->addMailChimpTag($key, $dop);
 		}
 	}
