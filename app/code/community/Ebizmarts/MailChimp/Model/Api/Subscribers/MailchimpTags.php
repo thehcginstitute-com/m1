@@ -237,7 +237,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::STUB()
+	 * @used-by self::customizedAttributes()
 	 */
 	private function addZipCodeFromCustomizedAttribute($customAtt, $key, $customer):void {
 		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
