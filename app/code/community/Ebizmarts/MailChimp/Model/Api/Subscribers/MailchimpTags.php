@@ -87,17 +87,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::customizedAttributes()
-	 */
-	private function addDopFromCustomizedAttribute($key):void {
-		if ($dop = $this->getLastDateOfPurchase()) {
-			$this->set($key, $dop);
-		}
-	}
-
-	/**
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 	 * https://github.com/cabinetsbay/site/issues/589
@@ -187,7 +176,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->addStateFromCustomizedAttribute($a, $k, $c);
 				break;
 			case 'dop':
-				$this->addDopFromCustomizedAttribute($k);
+				if ($v = $this->getLastDateOfPurchase()) {
+					$this->set($k, $v);
+				}
 				break;
 			case 'store_code':
 				$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
