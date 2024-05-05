@@ -271,10 +271,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::buildCustomerAttributes()
 	 */
 	private function customerAttributes($attributeCode, $key, $attribute) {
-		$customer = $this->customer();
 		$eventValue = null;
 		if ($attributeCode != 'email') {
-			$this->_addTags($attributeCode, $customer, $key, $attribute);
+			$this->_addTags($attributeCode, $this->customer(), $key, $attribute);
 		}
 		if ($this->getMailChimpTagValue($key) !== null) {
 			$eventValue = $this->getMailChimpTagValue($key);
