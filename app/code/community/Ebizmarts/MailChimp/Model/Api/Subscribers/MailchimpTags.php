@@ -107,7 +107,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->addGroupId($a, $k, $c);
 				break;
 			case 'firstname':
-				$this->addFirstName($k, $c);
+				if ($v = $this->getFirstName($this->sub(), $c)) {
+					$this->addMailChimpTag($k, $v);
+				}
 				break;
 			case 'lastname':
 				$this->addLastName($k, $c);
@@ -179,9 +181,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $customer
 	 */
 	private function addFirstName($key, $customer):void {
-		if ($firstName = $this->getFirstName($this->sub(), $customer)) {
-			$this->addMailChimpTag($key, $firstName);
-		}
+
 	}
 
 	/**
