@@ -126,11 +126,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @param $customAtt
-	 * @param $customer
-	 * @param $mergeVars
-	 * @param $key
-	 * @return mixed
+	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::customizedAttributes()
 	 */
 	private function addCompany($customAtt, $customer, $key):void {
 		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
@@ -167,6 +165,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$storeName = Mage::getModel('core/store')->load($this->getStoreId())->getName();
 		$this->addMailChimpTag($key, $storeName);
 	}
+
 
 	/**
 	 * @param $attributeCode
