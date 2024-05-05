@@ -107,6 +107,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			case 'group_id':
 				$this->addGroupId($a, $k, $c);
+				if (!($v = (int)$this->getCustomerGroupLabel($a, $c))) {
+					$this->addMailChimpTag($k, 'NOT LOGGED IN');
+				}
+				else {
+					$this->addMailChimpTag($k, Mage::helper('customer')->getGroups()->toOptionHash()[$v]);
+				}
 				break;
 			case 'firstname':
 				if ($v = $this->getFirstName($this->sub(), $c)) {
@@ -174,22 +180,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function addDopFromCustomizedAttribute($key):void {
 		if ($dop = $this->getLastDateOfPurchase()) {
 			$this->addMailChimpTag($key, $dop);
-		}
-	}
-
-	/**
-	 * @param $attributeCode
-	 * @param $key
-	 * @param $customer
-	 */
-	private function addGroupId($attributeCode, $key, $customer):void
-	{
-		if ($this->getCustomerGroupLabel($attributeCode, $customer)) {
-			$groupId = (int)$this->getCustomerGroupLabel($attributeCode, $customer);
-			$customerGroup = Mage::helper('customer')->getGroups()->toOptionHash();
-			$this->addMailChimpTag($key, $customerGroup[$groupId]);
-		} else {
-			$this->addMailChimpTag($key, 'NOT LOGGED IN');
 		}
 	}
 
