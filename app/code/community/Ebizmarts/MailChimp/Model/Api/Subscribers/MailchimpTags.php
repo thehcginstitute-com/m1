@@ -216,7 +216,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function customizedAttributes(string $a, string $k) {
-		$eventValue = null;
+		$r = null;
 		$c = $this->customer();
 		if ($a == 'billing_company' || $a == 'shipping_company') {
 			$this->addCompany($a, $c, $k);
@@ -240,9 +240,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
 		}
 		if ((string)$this->getMailChimpTagValue($k) != '') {
-			$eventValue = $this->getMailChimpTagValue($k);
+			$r = $this->getMailChimpTagValue($k);
 		}
-		return $eventValue;
+		return $r;
 	}
 
 	/**
