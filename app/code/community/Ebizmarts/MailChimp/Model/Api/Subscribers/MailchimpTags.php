@@ -106,13 +106,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				}
 				break;
 			case 'group_id':
-				$this->addGroupId($a, $k, $c);
-				if (!($v = (int)$this->getCustomerGroupLabel($a, $c))) {
-					$this->addMailChimpTag($k, 'NOT LOGGED IN');
-				}
-				else {
-					$this->addMailChimpTag($k, Mage::helper('customer')->getGroups()->toOptionHash()[$v]);
-				}
+				$this->addMailChimpTag($k, ($v = (int)$this->getCustomerGroupLabel($a, $c))
+					? Mage::helper('customer')->getGroups()->toOptionHash()[$v]
+					: 'NOT LOGGED IN'
+				);
 				break;
 			case 'firstname':
 				if ($v = $this->getFirstName($this->sub(), $c)) {
