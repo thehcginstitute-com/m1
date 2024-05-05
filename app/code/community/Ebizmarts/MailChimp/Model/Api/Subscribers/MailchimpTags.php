@@ -121,7 +121,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			$this->addMailChimpTag($k, Mage::getModel('core/store')->load($this->getStoreId())->getName());
 		}
 		elseif ($a == 'dob') {
-			$this->addDob($a, $k, $c);
+			if ($this->getCustomerGroupLabel($a, $c)) {
+				$this->addMailChimpTag($k, $this->getDateOfBirth($a, $c));
+			}
 		}
 		else {
 			$this->addUnknownMergeField($a, $k, $attribute, $c);
@@ -156,18 +158,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$countryName = Mage::getModel('directory/country')->loadByCode($countryCode)->getName();
 				$this->addMailChimpTag($key, $countryName);
 			}
-		}
-	}
-
-	/**
-	 * @param $attributeCode
-	 * @param $key
-	 * @param $customer
-	 */
-	private function addDob($attributeCode, $key, $customer):void
-	{
-		if ($this->getCustomerGroupLabel($attributeCode, $customer)) {
-			$this->addMailChimpTag($key, $this->getDateOfBirth($attributeCode, $customer));
 		}
 	}
 
