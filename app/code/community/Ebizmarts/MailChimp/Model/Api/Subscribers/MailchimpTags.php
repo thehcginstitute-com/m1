@@ -153,21 +153,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::customizedAttributes()
 	 */
-	private function addTelephoneFromCustomizedAttribute($customAtt, $key, $customer):void {
-		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
-		if ($address) {
-			$telephone = $address->getTelephone();
-			if ($telephone) {
-				$this->set($key, $telephone);
-			}
-		}
-	}
-
-	/**
-	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::customizedAttributes()
-	 */
 	private function addZipCodeFromCustomizedAttribute($customAtt, $key, $customer):void {
 		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
 		if ($address) {
@@ -213,6 +198,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			case 'billing_telephone':
 			case 'shipping_telephone':
 				$this->addTelephoneFromCustomizedAttribute($a, $k, $c);
+				if (($address = $this->getAddressForCustomizedAttributes($a, $c)) && ($v = $address->getTelephone())) {
+					$this->set($k, $v);
+				}
 				break;
 			case 'billing_country':
 			case 'shipping_country':
