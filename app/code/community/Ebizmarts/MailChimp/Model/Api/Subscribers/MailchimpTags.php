@@ -157,13 +157,13 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @param $key
+	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_addTags()
 	 */
-	private function addCreatedIn($key):void
-	{
-		$storeName = Mage::getModel('core/store')->load($this->getStoreId())->getName();
-		$this->addMailChimpTag($key, $storeName);
-	}
+	private function addCreatedIn($key):void {$this->addMailChimpTag(
+		$key, Mage::getModel('core/store')->load($this->getStoreId())->getName()
+	);}
 
 
 	/**
