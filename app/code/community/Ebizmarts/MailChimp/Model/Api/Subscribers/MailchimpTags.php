@@ -145,8 +145,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::customizedAttributes()
 	 */
-	private function addCountryFromCustomizedAttribute($customAtt, $key, $customer):void
-	{
+	private function addCountryFromCustomizedAttribute($customAtt, $key, $customer):void {
 		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
 		if ($address) {
 			$countryCode = $address->getCountry();
