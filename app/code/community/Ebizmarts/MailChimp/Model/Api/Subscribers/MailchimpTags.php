@@ -126,7 +126,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function customizedAttributes(string $a, string $k) {
 		$r = null;
 		$c = $this->customer();
-		$setFromAddress = function($f) use($a, $k):void {/** @var string|Closure $f */
+		$addressGet = function($f) use($a, $k):void {/** @var string|Closure $f */
 			if (
 				($ad = $this->addressC($a, $this->customer())) /** @var AddressC $ad */
 				&& 	($v = !is_string($f) ? $f($ad) : (df_starts_with($f, 'get') ? call_user_func([$ad, $f]) : $ad[$f]))
@@ -137,15 +137,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		switch ($a) {
 			case 'billing_company':
 			case 'shipping_company':
-				$setFromAddress('company');
+				$addressGet('company');
 				break;
 			case 'billing_telephone':
 			case 'shipping_telephone':
-				$setFromAddress('telephone');
+				$addressGet('telephone');
 				break;
 			case 'billing_country':
 			case 'shipping_country':
-				$setFromAddress(function(AddressC $a):?string {return !($c = $a->getCountry()) ? null : df_country_ctn($c);});
+				$addressGet(function(AddressC $a):?string {return !($c = $a->getCountry()) ? null : df_country_ctn($c);});
 				break;
 			case 'billing_zipcode':
 			case 'shipping_zipcode':
