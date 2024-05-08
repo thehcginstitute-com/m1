@@ -153,9 +153,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			case 'billing_state':
 			case 'shipping_state':
-				if (($address = $this->addressC($a, $c)) && ($v = $address->getRegion())) {
-					$this->set($k, $v);
-				}
+				$addressGet('getRegion'); /** @uses Mage_Customer_Model_Address_Abstract::getRegion() */
 				break;
 			case 'dop':
 				if ($v = $this->getLastDateOfPurchase()) {
