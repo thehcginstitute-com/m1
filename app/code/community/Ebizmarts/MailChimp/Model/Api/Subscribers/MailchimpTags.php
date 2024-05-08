@@ -304,8 +304,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::getAddressData()
 	 * @used-by self::getAddressForCustomizedAttributes()
 	 */
-	private function addressO():?AddressO {return dfc($this, function() {return
-		($o = $this->order()) ? df_ftn($o->getShippingAddress()) : null
+	private function addressO():?AddressO {return dfc($this, function() {return 
+		($o = $this->o()) ? df_ftn($o->getShippingAddress()) : null
 	;});}
 
 	/**
@@ -340,7 +340,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return string
 	 */
 	private function getFirstName($subscriber, $customer) {
-		$lastOrder = $this->order();
+		$lastOrder = $this->o();
 		$firstName = $customer->getFirstname();
 		if (!$firstName) {
 			if ($subscriber->getSubscriberFirstname()) {
@@ -376,7 +376,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function getLastDateOfPurchase()
 	{
 		$lastDateOfPurchase = null;
-		$lastOrder = $this->order();
+		$lastOrder = $this->o();
 		if ($lastOrder !== null) {
 			$lastDateOfPurchase = $lastOrder->getCreatedAt();
 		}
@@ -390,7 +390,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return string
 	 */
 	private function getLastName($subscriber, $customer) {
-		$lastOrder = $this->order();
+		$lastOrder = $this->o();
 		$lastName = $customer->getLastname();
 		if (!$lastName) {
 			if ($subscriber->getSubscriberLastname()) {
@@ -478,7 +478,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::getLastDateOfPurchase()
 	 * @used-by self::getLastName()
 	 */
-	private function order():?O {return dfc($this, function() {/** @var OC $c */ return !count(
+	private function o():?O {return dfc($this, function() {/** @var OC $c */ return !count(
 		$c = df_order_c()
 			->addFieldToFilter('customer_email', ['eq' => $this->sub()->getSubscriberEmail()])
 			->setOrder('created_at', 'DESC')
@@ -548,7 +548,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::addLastName()
 	 * @used-by self::dispatchEventMergeVarAfter()
 	 * @used-by self::dispatchMergeVarBefore()
-	 * @used-by self::order()
+	 * @used-by self::o()
 	 * @used-by self::processMergeFields()
 	 */
 	private function sub():Sub {return $this->_sub;}
