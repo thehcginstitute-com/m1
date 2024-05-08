@@ -126,6 +126,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function customizedAttributes(string $a, string $k) {
 		$r = null;
 		$c = $this->customer();
+		$setFromAddress = function(Closure $f) use($a, $k):void {
+			if ($addr = $this->addressC($a, $this->customer())) {/** @var AddressC $addr */
+				$this->set($k, $f($addr));
+			}
+		};
 		switch ($a) {
 			case 'billing_company':
 			case 'shipping_company':
