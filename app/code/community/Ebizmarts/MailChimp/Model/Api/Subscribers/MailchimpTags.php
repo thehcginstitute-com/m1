@@ -306,10 +306,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::getAddressForCustomizedAttributes()
 	 */
 	private function getAddressFromLastOrder() {
-		$lastOrder = $this->order();
+		$o = $this->order();
 		$addressData = [];
-		if ($lastOrder && $lastOrder->getShippingAddress()) {
-			$addressData = $lastOrder->getShippingAddress();
+		if ($o && $o->getShippingAddress()) {
+			$addressData = $o->getShippingAddress();
 		}
 		return $addressData;
 	}
