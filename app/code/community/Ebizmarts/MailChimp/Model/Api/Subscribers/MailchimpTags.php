@@ -305,12 +305,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::getAddressForCustomizedAttributes()
 	 */
-	private function getAddressFromLastOrder() {
-		$addressData = [];
+	private function getAddressFromLastOrder():array {
+		$r = [];
 		if (($o = $this->order()) && $o->getShippingAddress()) {/** @var O $o */
-			$addressData = $o->getShippingAddress();
+			$r = $o->getShippingAddress();
 		}
-		return $addressData;
+		return $r;
 	}
 
 	/**
