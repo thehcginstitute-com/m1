@@ -149,9 +149,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			case 'billing_zipcode':
 			case 'shipping_zipcode':
-				if (($address = $this->addressC($a, $c)) && ($v = $address->getPostcode())) {
-					$this->set($k, $v);
-				}
+				$addressGet('postcode');
 				break;
 			case 'billing_state':
 			case 'shipping_state':
