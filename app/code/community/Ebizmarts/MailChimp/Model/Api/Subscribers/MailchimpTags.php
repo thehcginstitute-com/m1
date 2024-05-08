@@ -63,7 +63,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			if ($chimpTag && $customAtt) {
 				$key = strtoupper($chimpTag);
 				if (is_numeric($customAtt)) {
-					$this->buildCustomerAttributes($attrSetId, $customAtt, $key);
+					$this->buildCustomerAttributes($attrSetId, (int)$customAtt, $key);
 				}
 				else {
 					$this->buildCustomizedAttributes($customAtt, $key);
@@ -177,7 +177,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
 	 */
-	private function buildCustomerAttributes($attrSetId, $customAtt, string $k):void {
+	private function buildCustomerAttributes($attrSetId, int $customAtt, string $k):void {
 		foreach ($attrSetId as $a) {
 			if ($a['attribute_id'] == $customAtt) {
 				$ac = $a['attribute_code'];
