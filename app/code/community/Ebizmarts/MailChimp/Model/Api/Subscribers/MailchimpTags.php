@@ -173,8 +173,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @param $attrSetId
-	 * @param $customAtt
+	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_p()
 	 */
 	private function buildCustomerAttributes($attrSetId, $customAtt, string $k):void {
 		foreach ($attrSetId as $a) {
