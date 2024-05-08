@@ -20,8 +20,7 @@ final class ProcessMergeFields {
 		$email = $data['email'];
 		$listId = $data['list_id'];
 		$STATUS_SUBSCRIBED = \Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED;
-		$storeId = $helper->getMagentoStoreIdsByListId($listId)[0];
-		$t->_d = $helper->unserialize($helper->getMapFields($storeId));
+		$t->_d = hcg_mc_cfg_fields();
 		if ($i->customer()) {
 			$i->_setMailchimpTagsToCustomer();
 		}
