@@ -292,7 +292,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::customizedAttributes()
 	 */
 	private function getAddressForCustomizedAttributes(string $att, C $c) {
-		$address = $this->getAddressFromLastOrder($this->order());
+		$address = $this->getAddressFromLastOrder();
 		if (!empty($address)) {
 			$addr = explode('_', $att);
 			$address = $c->getPrimaryAddress('default_' . $addr[0]);
@@ -305,7 +305,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::getAddressForCustomizedAttributes()
 	 */
-	private function getAddressFromLastOrder($lastOrder) {
+	private function getAddressFromLastOrder() {
+		$lastOrder = $this->order();
 		$addressData = [];
 		if ($lastOrder && $lastOrder->getShippingAddress()) {
 			$addressData = $lastOrder->getShippingAddress();
