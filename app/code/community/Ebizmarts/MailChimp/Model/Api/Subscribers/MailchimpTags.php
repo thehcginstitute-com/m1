@@ -22,7 +22,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
 	 * @var array
 	 */
-	public $_mailChimpTags;
+	public $_d;
 
 	/**
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -37,7 +37,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$i->_sub = $sub;
 		$i->_storeId = $sid;
 		$i->_p();
-		return $i->_mailChimpTags;
+		return $i->_d;
 	}
 
 	/**
@@ -76,7 +76,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		# "`Ebizmarts_MailChimp`: «Your merge fields were invalid» /
 		# «field [FNAME] : Please enter a value» /
 		# «field [LNAME] : Please enter a value»": https://github.com/thehcginstitute-com/m1/issues/507
-		$d = $this->_mailChimpTags; /** @var array(string => string) $d */
+		$d = $this->_d; /** @var array(string => string) $d */
 		if (!dfa($d, 'FNAME')) {
 			df_log('`FNAME` is missing in the merge fields', $this, [
 				'Merge Fields' => $d
@@ -99,7 +99,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
  	 * @used-by self::processAttribute()
 	 * @param $v
 	 */
-	private function set(string $k, $v):void {$this->_mailChimpTags[$k] = $v;}
+	private function set(string $k, $v):void {$this->_d[$k] = $v;}
 
 	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -233,7 +233,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			'mailchimp_merge_field_send_after',
 			array(
 				'subscriber' => $this->sub(),
-				'vars' => $this->_mailChimpTags,
+				'vars' => $this->_d,
 				'new_vars' => &$newVars
 			)
 		);
@@ -430,7 +430,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::buildCustomerAttributes()
 	 * @used-by self::customizedAttributes()
 	 */
-	private function getMailChimpTagValue(string $k) {return dfa($this->_mailChimpTags, $k);}
+	private function getMailChimpTagValue(string $k) {return dfa($this->_d, $k);}
 
 	/**
 	 * @return Varien_Object
@@ -484,7 +484,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function mergeMailchimpTags($mailchimpTags) {
 		if (is_array($mailchimpTags)) {
-			$this->_mailChimpTags = array_merge($this->_mailChimpTags, $mailchimpTags);
+			$this->_d = array_merge($this->_d, $mailchimpTags);
 			return true;
 		} else {
 			return false;
@@ -522,7 +522,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			case 'gender':
 				if ($v = $this->getCustomerGroupLabel($a, $c)) {
-					$this->set($k, $this->getGenderLabel($this->_mailChimpTags, $k, $v));
+					$this->set($k, $this->getGenderLabel($this->_d, $k, $v));
 				}
 				break;
 			case 'group_id':

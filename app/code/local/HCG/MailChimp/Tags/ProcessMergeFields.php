@@ -21,7 +21,7 @@ final class ProcessMergeFields {
 		$listId = $data['list_id'];
 		$STATUS_SUBSCRIBED = \Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED;
 		$storeId = $helper->getMagentoStoreIdsByListId($listId)[0];
-		$t->_mailChimpTags = $helper->unserialize($helper->getMapFields($storeId));
+		$t->_d = $helper->unserialize($helper->getMapFields($storeId));
 		if ($i->customer()) {
 			$i->_setMailchimpTagsToCustomer();
 		}
@@ -86,7 +86,7 @@ final class ProcessMergeFields {
 	private function _getFName() {
 		$attrId = self::_getAttrbuteId('firstname');
 		$magentoTag = '';
-		foreach ($this->_t->_mailChimpTags as $tag) {
+		foreach ($this->_t->_d as $tag) {
 			if ($tag['magento'] == $attrId) {
 				$magentoTag = $tag['mailchimp'];
 				break;
@@ -103,7 +103,7 @@ final class ProcessMergeFields {
 	private function _getLName() {
 		$attrId = self::_getAttrbuteId('lastname');
 		$magentoTag = '';
-		foreach ($this->_t->_mailChimpTags as $tag) {
+		foreach ($this->_t->_d as $tag) {
 			if ($tag['magento'] == $attrId) {
 				$magentoTag = $tag['mailchimp'];
 				break;
@@ -121,9 +121,9 @@ final class ProcessMergeFields {
 		$customer = $this->customer();
 		foreach ($this->_d['merges'] as $key => $value) {
 			if (!empty($value)) {
-				if (is_array($this->_t->_mailChimpTags)) {
+				if (is_array($this->_t->_d)) {
 					if ($key !== 'GROUPINGS') {
-						self::_setMailchimpTagToCustomer($key, $value, $this->_t->_mailChimpTags, $customer);
+						self::_setMailchimpTagToCustomer($key, $value, $this->_t->_d, $customer);
 					}
 				}
 			}
