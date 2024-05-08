@@ -126,23 +126,19 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function customizedAttributes(string $a, string $k) {
 		$r = null;
 		$c = $this->customer();
-		$setFromAddress = function(Closure $f) use($a, $k):void {
-			if ($addr = $this->addressC($a, $this->customer())) {/** @var AddressC $addr */
-				$this->set($k, $f($addr));
+		$setFromAddress = function($f) use($a, $k):void {/** @var string|Closure $f */
+			if ($ad = $this->addressC($a, $this->customer())) {/** @var AddressC $ad */
+				$this->set($k, !is_string($f) ? $f($ad) : (df_starts_with($f, 'get') ? call_user_func([$ad, $f]) : $ad[$f]));
 			}
 		};
 		switch ($a) {
 			case 'billing_company':
 			case 'shipping_company':
-				if (($address = $this->addressC($a, $c)) && ($v = $address->getCompany())) {
-					$this->set($k, $v);
-				}
+				$setFromAddress('company');
 				break;
 			case 'billing_telephone':
 			case 'shipping_telephone':
-				if (($address = $this->addressC($a, $c)) && ($v = $address->getTelephone())) {
-					$this->set($k, $v);
-				}
+				$setFromAddress('telephone');
 				break;
 			case 'billing_country':
 			case 'shipping_country':
