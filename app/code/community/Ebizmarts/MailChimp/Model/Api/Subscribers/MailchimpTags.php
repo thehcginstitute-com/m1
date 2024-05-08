@@ -291,13 +291,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::customizedAttributes()
 	 */
-	private function getAddressForCustomizedAttributes(string $att, C $c):?AddressC {
-		$address = $this->addressO();
-		if (!empty($address)) {
-			$address = $c->getPrimaryAddress('default_' . df_first(explode('_', $att)));
-		}
-		return $address;
-	}
+	private function getAddressForCustomizedAttributes(string $att, C $c):?AddressC {return
+		!$this->addressO() ? null : $c->getPrimaryAddress('default_' . df_first(explode('_', $att)))
+	;}
 
 	/**
 	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
