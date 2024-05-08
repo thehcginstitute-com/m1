@@ -129,31 +129,31 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		switch ($a) {
 			case 'billing_company':
 			case 'shipping_company':
-				if (($address = $this->getAddressForCustomizedAttributes($a, $c)) && ($v = $address->getCompany())) {
+				if (($address = $this->addressC($a, $c)) && ($v = $address->getCompany())) {
 					$this->set($k, $v);
 				}
 				break;
 			case 'billing_telephone':
 			case 'shipping_telephone':
-				if (($address = $this->getAddressForCustomizedAttributes($a, $c)) && ($v = $address->getTelephone())) {
+				if (($address = $this->addressC($a, $c)) && ($v = $address->getTelephone())) {
 					$this->set($k, $v);
 				}
 				break;
 			case 'billing_country':
 			case 'shipping_country':
-				if (($address = $this->getAddressForCustomizedAttributes($a, $c)) && ($v = $address->getCountry())) {
+				if (($address = $this->addressC($a, $c)) && ($v = $address->getCountry())) {
 					$this->set($k, Mage::getModel('directory/country')->loadByCode($v)->getName());
 				}
 				break;
 			case 'billing_zipcode':
 			case 'shipping_zipcode':
-				if (($address = $this->getAddressForCustomizedAttributes($a, $c)) && ($v = $address->getPostcode())) {
+				if (($address = $this->addressC($a, $c)) && ($v = $address->getPostcode())) {
 					$this->set($k, $v);
 				}
 				break;
 			case 'billing_state':
 			case 'shipping_state':
-				if (($address = $this->getAddressForCustomizedAttributes($a, $c)) && ($v = $address->getRegion())) {
+				if (($address = $this->addressC($a, $c)) && ($v = $address->getRegion())) {
 					$this->set($k, $v);
 				}
 				break;
@@ -291,7 +291,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::customizedAttributes()
 	 */
-	private function getAddressForCustomizedAttributes(string $att, C $c):?AddressC {return
+	private function addressC(string $att, C $c):?AddressC {return
 		!$this->addressO() ? null : $c->getPrimaryAddress('default_' . df_first(explode('_', $att)))
 	;}
 
@@ -299,7 +299,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::getAddressData()
-	 * @used-by self::getAddressForCustomizedAttributes()
+	 * @used-by self::addressC()
 	 */
 	private function addressO():?AddressO {return dfc($this, function() {return
 		($o = $this->o()) ? df_ftn($o->getShippingAddress()) : null
@@ -470,7 +470,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::getAddressData()
-	 * @used-by self::getAddressForCustomizedAttributes()
+	 * @used-by self::addressC()
 	 * @used-by self::getFirstName()
 	 * @used-by self::getLastDateOfPurchase()
 	 * @used-by self::getLastName()
