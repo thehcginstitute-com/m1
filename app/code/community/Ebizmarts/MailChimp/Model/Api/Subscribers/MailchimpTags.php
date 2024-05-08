@@ -90,7 +90,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 	 * https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::addStateFromCustomizedAttribute()
 	 * @used-by self::addStoreCodeFromCustomizedAttribute()
 	 * @used-by self::addUnknownMergeField()
 	 * @used-by self::addWebsiteId()
@@ -100,21 +99,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param $v
 	 */
 	private function set(string $k, $v):void {$this->_d[$k] = $v;}
-
-	/**
-	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::customizedAttributes()
-	 */
-	private function addStateFromCustomizedAttribute($customAtt, $key, $customer):void {
-		$address = $this->getAddressForCustomizedAttributes($customAtt, $customer);
-		if ($address) {
-			$state = $address->getRegion();
-			if ($state) {
-				$this->set($key, $state);
-			}
-		}
-	}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -168,7 +152,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			case 'billing_state':
 			case 'shipping_state':
-				$this->addStateFromCustomizedAttribute($a, $k, $c);
+				if (($address = $this->getAddressForCustomizedAttributes($a, $c)) && ($v = $address->getRegion())) {
+					$this->set($k, $v);
+				}
 				break;
 			case 'dop':
 				if ($v = $this->getLastDateOfPurchase()) {
