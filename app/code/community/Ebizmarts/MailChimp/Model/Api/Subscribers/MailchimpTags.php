@@ -194,10 +194,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @param $customAtt
-	 * @param $key
+	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_p()
 	 */
-	private function buildCustomizedAttributes($customAtt, $key):void
+	private function buildCustomizedAttributes($customAtt, string $key):void
 	{
 		$eventValue = null;
 		$eventValue = $this->customizedAttributes(
