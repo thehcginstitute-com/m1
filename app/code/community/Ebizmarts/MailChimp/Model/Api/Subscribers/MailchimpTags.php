@@ -145,9 +145,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			case 'billing_country':
 			case 'shipping_country':
-				$setFromAddress(function(AddressC $a):?string {return !($c = $a->getCountry()) ? null :
-					Mage::getModel('directory/country')->loadByCode($c)->getName()
-				;});
+				$setFromAddress(function(AddressC $a):?string {return !($c = $a->getCountry()) ? null : df_country_ctn($c);});
 				break;
 			case 'billing_zipcode':
 			case 'shipping_zipcode':
