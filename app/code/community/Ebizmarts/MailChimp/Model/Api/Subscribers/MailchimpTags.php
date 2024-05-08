@@ -64,7 +64,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$key = strtoupper($chimpTag);
 				if (is_numeric($customAtt)) {
 					$this->buildCustomerAttributes($attrSetId, $customAtt, $key);
-				} else {
+				}
+				else {
 					$this->buildCustomizedAttributes($customAtt, $key);
 				}
 			}
