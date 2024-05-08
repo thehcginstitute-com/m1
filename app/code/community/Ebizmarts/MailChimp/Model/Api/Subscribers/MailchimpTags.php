@@ -49,9 +49,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::p()
 	 */
 	private function _p():void {
-		$helper = hcg_mc_h();
 		$storeId = $this->getStoreId();
-		$mapFields = $helper->getMapFields($storeId);
+		$mapFields = hcg_mc_h()->getMapFields($storeId);
 		$maps = $this->unserializeMapFields($mapFields);
 		$attrSetId = $this->getEntityAttributeCollection()
 			->setEntityTypeFilter(1)
