@@ -305,7 +305,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::getAddressData()
 	 * @used-by self::getAddressForCustomizedAttributes()
 	 */
-	private function getAddressFromLastOrder():?Address {return ($o = $this->order()) ? df_ftn($o->getShippingAddress()) : null;}
+	private function getAddressFromLastOrder():?Address {return dfc($this, function() {return
+		($o = $this->order()) ? df_ftn($o->getShippingAddress()) : null
+	;});}
 
 	/**
 	 * @param $attributeCode
