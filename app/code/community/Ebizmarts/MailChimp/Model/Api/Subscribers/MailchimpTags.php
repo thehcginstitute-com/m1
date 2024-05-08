@@ -292,8 +292,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::customizedAttributes()
 	 */
 	private function getAddressForCustomizedAttributes($customAtt, C $c) {
-		$lastOrder = $this->order();
-		$address = $this->getAddressFromLastOrder($lastOrder);
+		$address = $this->getAddressFromLastOrder($this->order());
 		if (!empty($address)) {
 			$addr = explode('_', $customAtt);
 			$address = $c->getPrimaryAddress('default_' . $addr[0]);
