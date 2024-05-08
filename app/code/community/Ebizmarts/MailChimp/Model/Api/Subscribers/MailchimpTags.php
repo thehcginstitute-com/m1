@@ -125,7 +125,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function customizedAttributes(string $a, string $k) {
 		$r = null;
-		$c = $this->customer();
 		$addressGet = function($f) use($a, $k):void {/** @var string|Closure $f */
 			if (
 				($ad = $this->addressC($a, $this->customer())) /** @var AddressC $ad */
