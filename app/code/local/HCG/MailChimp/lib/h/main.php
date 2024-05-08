@@ -2,6 +2,7 @@
 use Ebizmarts_MailChimp_Helper_Data as H;
 /**
  * 2024-04-14
+ * @used-by hcg_mc_cfg_fields()
  * @used-by hcg_mc_cfg_scope()
  * @used-by Ebizmarts_MailChimp_Adminhtml_EcommerceController::makeHelper()
  * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimpController::preDispatch()

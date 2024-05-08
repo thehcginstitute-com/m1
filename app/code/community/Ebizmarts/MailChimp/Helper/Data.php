@@ -492,12 +492,9 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * Get map fields configured for the given scope.
-	 *
-	 * @param       $scopeId
-	 * @param null  $scope
-	 * @return mixed
-	 * @throws Mage_Core_Exception
+	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
+	 * @used-by self::STUB()
 	 */
 	function getMapFields($scopeId, $scope = null)
 	{
@@ -1218,7 +1215,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	{
 		$success = 0;
 		$listId = $this->getGeneralList($scopeId, $scope);
-		$maps = $this->unserialize($this->getMapFields($scopeId, $scope));
+		$maps = hcg_mc_cfg_fields();
 		$customFieldTypes = $this->unserialize($this->getCustomMergeFieldsSerialized($scopeId, $scope));
 
 		if (count($maps) > 30) {

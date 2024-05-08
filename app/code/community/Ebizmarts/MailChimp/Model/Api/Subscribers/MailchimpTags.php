@@ -538,12 +538,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function sub():Sub {return $this->_sub;}
 
 	/**
-	 * @param $mapFields
-	 * @return mixed
-	 */
-	private function unserializeMapFields($mapFields) {return hcg_mc_h()->unserialize($mapFields);}
-
-	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::getGenderLabel()
