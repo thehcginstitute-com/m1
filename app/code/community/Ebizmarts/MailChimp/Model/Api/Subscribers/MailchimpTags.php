@@ -287,19 +287,17 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @param $customAtt
-	 * @param $customer
-	 * @return array
+	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::customizedAttributes()
 	 */
-	private function getAddressForCustomizedAttributes($customAtt, $customer)
-	{
+	private function getAddressForCustomizedAttributes($customAtt, C $c) {
 		$lastOrder = $this->order();
 		$address = $this->getAddressFromLastOrder($lastOrder);
 		if (!empty($address)) {
 			$addr = explode('_', $customAtt);
-			$address = $customer->getPrimaryAddress('default_' . $addr[0]);
+			$address = $c->getPrimaryAddress('default_' . $addr[0]);
 		}
-
 		return $address;
 	}
 
