@@ -198,13 +198,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
 	 */
-	private function buildCustomizedAttributes($customAtt, string $key):void
-	{
-		$eventValue = null;
-		$eventValue = $this->customizedAttributes(
-			$customAtt, $key
-		);
-
+	private function buildCustomizedAttributes($customAtt, string $key):void {
+		$eventValue = $this->customizedAttributes($customAtt, $key);
 		$this->dispatchMergeVarBefore($customAtt, $eventValue);
 		if ($eventValue !== null) {
 			$this->set($key, $eventValue);
