@@ -2,6 +2,7 @@
 use Mage_Customer_Model_Customer as C;
 use Mage_Newsletter_Model_Subscriber as Sub;
 use Mage_Sales_Model_Order as O;
+use Mage_Sales_Model_Order_Address as Address;
 use Mage_Sales_Model_Resource_Order_Collection as OC;
 # 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
@@ -304,10 +305,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::getAddressData()
 	 * @used-by self::getAddressForCustomizedAttributes()
 	 */
-	private function getAddressFromLastOrder():array {
-		$r = [];
+	private function getAddressFromLastOrder():?Address {
+		$r = null;
 		if (($o = $this->order()) && $o->getShippingAddress()) {/** @var O $o */
-			$r = $o->getShippingAddress();
+			$r = df_ftn($o->getShippingAddress());
 		}
 		return $r;
 	}
