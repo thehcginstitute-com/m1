@@ -2,7 +2,7 @@
 use Mage_Customer_Model_Customer as C;
 use Mage_Newsletter_Model_Subscriber as Sub;
 use Mage_Sales_Model_Order as O;
-use Mage_Sales_Model_Order_Address as OAddress;
+use Mage_Sales_Model_Order_Address as AddressO;
 use Mage_Sales_Model_Resource_Order_Collection as OC;
 # 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
@@ -249,7 +249,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return array
 	 */
 	private function getAddressData($address) {
-		$addressData = $this->getAddressFromLastOrder();
+		$addressData = $this->addressO();
 		if (!empty($addressData)) {
 			if ($address) {
 				$street = $address->getStreet();
@@ -291,7 +291,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::customizedAttributes()
 	 */
 	private function getAddressForCustomizedAttributes(string $att, C $c) {
-		$address = $this->getAddressFromLastOrder();
+		$address = $this->addressO();
 		if (!empty($address)) {
 			$address = $c->getPrimaryAddress('default_' . df_first(explode('_', $att)));
 		}
@@ -304,7 +304,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::getAddressData()
 	 * @used-by self::getAddressForCustomizedAttributes()
 	 */
-	private function getAddressFromLastOrder():?OAddress {return dfc($this, function() {return
+	private function addressO():?AddressO {return dfc($this, function() {return
 		($o = $this->order()) ? df_ftn($o->getShippingAddress()) : null
 	;});}
 
