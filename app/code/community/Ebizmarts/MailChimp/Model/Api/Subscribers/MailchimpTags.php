@@ -112,8 +112,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function customer():C {return dfc($this, function() {
 		$r = Mage::getModel('customer/customer'); /** @var C $r */
 		$r->setWebsiteId(df_store($this->getStoreId())->getWebsiteId());
-		$r->load($this->sub()->getCustomerId());
-		return $r;
+		return $r->load($this->sub()->getCustomerId());
 	});}
 
 	/**
