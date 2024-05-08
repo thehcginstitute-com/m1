@@ -127,8 +127,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$r = null;
 		$addressGet = function($f) use($a, $k):void {/** @var string|Closure $f */
 			if (
-				($ad = $this->addressC($a, $this->customer())) /** @var AddressC $ad */
+				($ad = !$this->addressO() ? null : $this->customer()->getPrimaryAddress('default_' . df_first(explode('_', $a))))
+				/** @var AddressC $ad */
 				&& 	($v = !is_string($f) ? $f($ad) : (df_starts_with($f, 'get') ? call_user_func([$ad, $f]) : $ad[$f]))
+				/** @var mixed $v */
 			) {
 				$this->set($k, $v);
 			}
@@ -287,16 +289,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::customizedAttributes()
-	 */
-	private function addressC(string $att, C $c):?AddressC {return
-		!$this->addressO() ? null : $c->getPrimaryAddress('default_' . df_first(explode('_', $att)))
-	;}
-
-	/**
-	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::getAddressData()
-	 * @used-by self::addressC()
 	 */
 	private function addressO():?AddressO {return dfc($this, function() {return
 		($o = $this->o()) ? df_ftn($o->getShippingAddress()) : null
