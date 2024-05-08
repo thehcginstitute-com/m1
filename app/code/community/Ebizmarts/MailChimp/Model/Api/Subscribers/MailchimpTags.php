@@ -1,4 +1,5 @@
 <?php
+use Mage_Customer_Model_Address as AddressC;
 use Mage_Customer_Model_Customer as C;
 use Mage_Newsletter_Model_Subscriber as Sub;
 use Mage_Sales_Model_Order as O;
@@ -290,7 +291,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::customizedAttributes()
 	 */
-	private function getAddressForCustomizedAttributes(string $att, C $c) {
+	private function getAddressForCustomizedAttributes(string $att, C $c):?AddressC {
 		$address = $this->addressO();
 		if (!empty($address)) {
 			$address = $c->getPrimaryAddress('default_' . df_first(explode('_', $att)));
@@ -304,7 +305,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::getAddressData()
 	 * @used-by self::getAddressForCustomizedAttributes()
 	 */
-	private function addressO():?AddressO {return dfc($this, function() {return 
+	private function addressO():?AddressO {return dfc($this, function() {return
 		($o = $this->o()) ? df_ftn($o->getShippingAddress()) : null
 	;});}
 
