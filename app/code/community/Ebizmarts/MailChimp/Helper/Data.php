@@ -492,20 +492,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
-	 * @used-by self::STUB()
-	 */
-	function getMapFields($scopeId, $scope = null)
-	{
-		return $this->getConfigValueForScope(
-			Ebizmarts_MailChimp_Model_Config::GENERAL_MAP_FIELDS,
-			$scopeId,
-			$scope
-		);
-	}
-
-	/**
 	 * Get custom merge fields configured for the given scope.
 	 *
 	 * @param       $scopeId

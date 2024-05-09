@@ -32,7 +32,6 @@ class Ebizmarts_MailChimp_Model_Config
     const GENERAL_WEBHOOK_ID                    = 'mailchimp/general/webhook_id';
     const GENERAL_LOG                           = 'mailchimp/general/enable_log';
     const GENERAL_ORDER_GRID                    = 'mailchimp/general/order_grid';
-    const GENERAL_MAP_FIELDS                    = 'mailchimp/general/map_fields';
     const GENERAL_CUSTOM_MAP_FIELDS             = 'mailchimp/general/customer_map_fields';
     const GENERAL_MIGRATE_FROM_115              = 'mailchimp/general/migrate_from_115';
     const GENERAL_MIGRATE_FROM_116              = 'mailchimp/general/migrate_from_116';
