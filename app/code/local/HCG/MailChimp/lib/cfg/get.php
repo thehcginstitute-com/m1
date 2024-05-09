@@ -7,4 +7,4 @@ use Ebizmarts_MailChimp_Model_Config as C;
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::_p()
  * @used-by STUB()
  */
-function hcg_mc_cfg_fields() {return hcg_mc_h()->unserialize(Mage::getStoreConfig(C::GENERAL_MAP_FIELDS));}
+function hcg_mc_cfg_fields() {return hcg_mc_h()->unserialize(Mage::getStoreConfig('mailchimp/general/map_fields'));}
