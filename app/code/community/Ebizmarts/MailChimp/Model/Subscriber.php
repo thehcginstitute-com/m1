@@ -30,8 +30,8 @@ class Ebizmarts_MailChimp_Model_Subscriber extends Mage_Newsletter_Model_Subscri
      */
     function sendConfirmationRequestEmail()
     {
-        if (Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_ACTIVE)
-            && Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_MAGENTO_MAIL) != 1
+        if (df_cfg(Ebizmarts_MailChimp_Model_Config::GENERAL_ACTIVE)
+            && df_cfg(Ebizmarts_MailChimp_Model_Config::GENERAL_MAGENTO_MAIL) != 1
         ) {
             return $this;
         } else {
