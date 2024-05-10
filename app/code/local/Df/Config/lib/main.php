@@ -2,8 +2,8 @@
 use Mage_Core_Model_Store as S;
 /**
  * 2024-05-10 "Port `df_cfg()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/592
- * @used-by STUB()
- * @used-by STUB()
+ * @used-by HCG\MailChimp\Batch\Subscriber::p()
+ * @used-by HCG\MagePsycho\Helper::cfg()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()

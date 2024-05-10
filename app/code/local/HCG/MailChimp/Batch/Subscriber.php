@@ -12,7 +12,7 @@ final class Subscriber {
 	 * @used-by Ebizmarts_MailChimp_Model_Cron::syncSubscriberBatchData()
 	 */
 	static function p():void {
-		$limit = (int)\Mage::getStoreConfig(Cfg::GENERAL_SUBSCRIBER_AMOUNT, 0); /** @var int $limit */
+		$limit = (int)df_cfg(Cfg::GENERAL_SUBSCRIBER_AMOUNT, 0); /** @var int $limit */
 		# 2024-04-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# https://3v4l.org/AF1Vc
 		foreach (\Mage::app()->getStores() as $s) {
