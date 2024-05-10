@@ -21,4 +21,4 @@ use Mage_Core_Model_Store as S;
  * @param null|string|bool|int|S $s
  * @return mixed
  */
-function df_cfg(string $k, $s = null) {return Mage::getStoreConfig($k, $s = null);}
+function df_cfg(string $k, $s = null) {return Mage::getStoreConfig($k, $s);}
