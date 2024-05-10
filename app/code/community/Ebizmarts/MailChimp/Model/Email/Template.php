@@ -322,7 +322,7 @@ class Ebizmarts_MailChimp_Model_Email_Template extends Ebizmarts_MailChimp_Model
      */
     protected function getGeneralEmail()
     {
-        return Mage::getStoreConfig('trans_email/ident_general/email');
+        return df_cfg('trans_email/ident_general/email');
     }
 
     /**
