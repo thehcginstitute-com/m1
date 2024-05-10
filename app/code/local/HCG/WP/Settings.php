@@ -7,7 +7,5 @@ final class HCG_WP_Settings {
 	 * @used-by app/design/frontend/default/mobileshoppe/template/page/html/header.phtml
 	 * @used-by app/design/frontend/default/mobileshoppe/template/page/html/topmenu.phtml
 	 */
-	static function url():string {return
-		(trim(Mage::getStoreConfig('hcg_wp/primary/url'), '/ ') ?: 'https://www.thehcginstitute.com') . '/'
-	;}
+	static function url():string {return (trim(df_cfg('hcg_wp/primary/url'), '/ ') ?: 'https://www.thehcginstitute.com') . '/';}
 }
