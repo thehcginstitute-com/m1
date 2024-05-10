@@ -201,5 +201,5 @@ abstract class Helper extends \Mage_Core_Helper_Abstract {
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Config::isLogEnabled()
 	 * @used-by \MagePsycho_Storerestrictionpro_Helper_Data::_getEmails()
 	 */
-    final protected function cfg(string $p, $s = null) {return \Mage::getStoreConfig("{$this->moduleMf()}/$p", $s);}
+    final protected function cfg(string $p, $s = null) {return df_cfg("{$this->moduleMf()}/$p", $s);}
 }
