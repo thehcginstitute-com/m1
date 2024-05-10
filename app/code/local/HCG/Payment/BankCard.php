@@ -18,7 +18,7 @@ abstract class HCG_Payment_BankCard extends Mage_Payment_Model_Method_Abstract {
 	 */
 	function prepareSave():self {
 		$info = $this->getInfoInstance();
-		if (Mage::getStoreConfig('cvv/group_displaycvv/displaycvv_select')) {
+		if (df_cfg('cvv/group_displaycvv/displaycvv_select')) {
 			$info->setCcNumberEnc($info->encrypt($info->getCcNumber()));
 			$info->setCcCid_enc($info->getCcCid());
 		}

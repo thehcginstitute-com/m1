@@ -6,7 +6,7 @@ use Mage_Core_Model_Store as S;
  * @used-by HCG\MagePsycho\Helper::cfg()
  * @used-by hcg_mc_cfg_fields()
  * @used-by hcg_mc_sid()
- * @used-by STUB()
+ * @used-by HCG_Payment_BankCard::prepareSave()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
