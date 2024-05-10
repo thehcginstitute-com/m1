@@ -331,7 +331,7 @@ class Ebizmarts_MailChimp_Model_Email_Template extends Ebizmarts_MailChimp_Model
      */
     protected function isMandrillEnabled($storeId)
     {
-        return Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::MANDRILL_ACTIVE, $storeId);
+        return df_cfg(Ebizmarts_MailChimp_Model_Config::MANDRILL_ACTIVE, $storeId);
     }
 
     /**

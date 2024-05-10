@@ -17,7 +17,7 @@ use Mage_Core_Model_Store as S;
  * @used-by Ebizmarts_MailChimp_Model_Email_Template::getSendingSetReturnPath()
  * @used-by Ebizmarts_MailChimp_Model_Email_Template::getSendingReturnPathEmail()
  * @used-by Ebizmarts_MailChimp_Model_Email_Template::getGeneralEmail()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Model_Email_Template::isMandrillEnabled()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
