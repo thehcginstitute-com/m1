@@ -11,6 +11,14 @@
 				<Mage_Admin/>
 			</depends>
 		</Df_Backend>
+<!-- 2024-05-10 "Port `df_cfg()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/592 -->
+		<Df_Config>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<Df_Core/>
+			</depends>
+		</Df_Config>
 		<Df_Core>
 			<active>true</active>
 			<codePool>local</codePool>
