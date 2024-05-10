@@ -6,4 +6,4 @@ use Ebizmarts_MailChimp_Model_Config as C;
  * @used-by Ebizmarts_MailChimp_Helper_Data::createMergeFields()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::_p()
  */
-function hcg_mc_cfg_fields() {return hcg_mc_h()->unserialize(Mage::getStoreConfig('mailchimp/general/map_fields'));}
+function hcg_mc_cfg_fields() {return hcg_mc_h()->unserialize(df_cfg('mailchimp/general/map_fields'));}
