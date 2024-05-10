@@ -272,7 +272,7 @@ class Ebizmarts_MailChimp_Model_Email_Template extends Ebizmarts_MailChimp_Model
      */
     protected function getSendingSetReturnPath()
     {
-        return Mage::getStoreConfig(self::XML_PATH_SENDING_SET_RETURN_PATH);
+        return df_cfg(self::XML_PATH_SENDING_SET_RETURN_PATH);
     }
 
     /**
@@ -314,7 +314,7 @@ class Ebizmarts_MailChimp_Model_Email_Template extends Ebizmarts_MailChimp_Model
      */
     protected function getSendingReturnPathEmail()
     {
-        return Mage::getStoreConfig(self::XML_PATH_SENDING_RETURN_PATH_EMAIL);
+        return df_cfg(self::XML_PATH_SENDING_RETURN_PATH_EMAIL);
     }
 
     /**
