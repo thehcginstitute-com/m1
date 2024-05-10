@@ -19,7 +19,7 @@ use Mage_Core_Model_Store as S;
  * @used-by Ebizmarts_MailChimp_Model_Email_Template::getGeneralEmail()
  * @used-by Ebizmarts_MailChimp_Model_Email_Template::isMandrillEnabled()
  * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_unsubscribe()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Model_Subscriber::sendUnsubscriptionEmail()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
