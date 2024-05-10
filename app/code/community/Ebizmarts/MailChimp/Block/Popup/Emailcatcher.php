@@ -39,21 +39,21 @@ class Ebizmarts_MailChimp_Block_Popup_Emailcatcher extends Mage_Core_Block_Templ
 	{
 		$storeId = Mage::app()->getStore()->getId();
 
-		return Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::POPUP_HEADING, $storeId);
+		return df_cfg(Ebizmarts_MailChimp_Model_Config::POPUP_HEADING, $storeId);
 	}
 
 	protected function _popupMessage()
 	{
 		$storeId = Mage::app()->getStore()->getId();
 
-		return Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::POPUP_TEXT, $storeId);
+		return df_cfg(Ebizmarts_MailChimp_Model_Config::POPUP_TEXT, $storeId);
 	}
 
 	protected function _modalSubscribe()
 	{
 		$storeId = Mage::app()->getStore()->getId();
 
-		return Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::POPUP_SUBSCRIPTION, $storeId);
+		return df_cfg(Ebizmarts_MailChimp_Model_Config::POPUP_SUBSCRIPTION, $storeId);
 	}
 
 	protected function _getStoreId()
