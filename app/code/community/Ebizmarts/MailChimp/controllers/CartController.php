@@ -28,7 +28,7 @@ class Ebizmarts_MailChimp_CartController extends Mage_Checkout_CartController
 				Ebizmarts_MailChimp_Model_Config::IS_QUOTE,
 				hcg_mc_sid($storeId)
 			);
-            $url = Mage::getUrl(Mage::getStoreConfig(Ebizmarts_MailChimp_Model_Config::ABANDONEDCART_PAGE, $storeId));
+            $url = Mage::getUrl(df_cfg(Ebizmarts_MailChimp_Model_Config::ABANDONEDCART_PAGE, $storeId));
 
             if (isset($params['mc_cid'])) {
                 $url .= '?mc_cid=' . $params['mc_cid'];
