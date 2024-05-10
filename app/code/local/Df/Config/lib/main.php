@@ -5,7 +5,7 @@ use Mage_Core_Model_Store as S;
  * @used-by HCG\MailChimp\Batch\Subscriber::p()
  * @used-by HCG\MagePsycho\Helper::cfg()
  * @used-by hcg_mc_cfg_fields()
- * @used-by STUB()
+ * @used-by hcg_mc_sid()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
