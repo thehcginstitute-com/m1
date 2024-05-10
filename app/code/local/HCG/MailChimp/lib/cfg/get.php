@@ -1,5 +1,4 @@
 <?php
-use Ebizmarts_MailChimp_Model_Config as C;
 /**
  * 2024-05-08
  * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
