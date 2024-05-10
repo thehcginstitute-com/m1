@@ -100,9 +100,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 		if ($scope == 'websites') {
 			$configValue = $this->getMageApp()->getWebsite($scopeId)->getConfig($path);
 		} else {
-			$configValue = Mage::getStoreConfig($path, $scopeId);
+			$configValue = df_cfg($path, $scopeId);
 		}
-
 		return $configValue;
 	}
 

@@ -13,7 +13,7 @@ use Mage_Core_Model_Store as S;
  * @used-by Ebizmarts_MailChimp_Block_Popup_Emailcatcher::_popupMessage()
  * @used-by Ebizmarts_MailChimp_Block_Popup_Emailcatcher::_modalSubscribe()
  * @used-by Ebizmarts_MailChimp_CartController::loadquoteAction()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Helper_Data::getConfigValueForScope()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
