@@ -169,7 +169,7 @@ class Mage_Core_Model_Design_Package
 				 * 5) @see self::getTheme() for another part of the solution.
 				 */
 				$d = df_design(); /** @var D $d */
-				$d->loadChange($this->getStore());
+				$d->loadChange($this->getStore()->getId());
                 $this->_name = $d->hasData()
 					? $d->getPackage()
 					: Mage::getStoreConfig('design/package/name', $this->getStore())
@@ -281,7 +281,7 @@ class Mage_Core_Model_Design_Package
 			 * 5) @see self::setPackageName() for another part of the solution.
 			 */
 			$d = df_design(); /** @var D $d */
-			$d->loadChange($this->getStore());
+			$d->loadChange($this->getStore()->getId());
             $this->_theme[$type] = $d->hasData()
 				? $d->getTheme()
 				: Mage::getStoreConfig('design/theme/' . $type, $this->getStore())
