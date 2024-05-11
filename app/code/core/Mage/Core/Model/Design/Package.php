@@ -167,9 +167,9 @@ class Mage_Core_Model_Design_Package
 				 * 4) I implemented a solution by analogy with @see Mage_Core_Model_App_Area::_initDesign():
 				 * https://github.com/OpenMage/magento-lts/blob/v19.5.2/app/code/core/Mage/Core/Model/App/Area.php#L167-L172
 				 */
-				$d = df_design();
+				$d = df_design(); /** @var D $d */
 				$d->loadChange($this->getStore());
-                $this->_name = $d->getData()
+                $this->_name = $d->hasData()
 					? $d->getPackage()
 					: Mage::getStoreConfig('design/package/name', $this->getStore())
 				;
