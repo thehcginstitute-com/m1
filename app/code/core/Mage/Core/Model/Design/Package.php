@@ -166,6 +166,7 @@ class Mage_Core_Model_Design_Package
 				 * 3) It is still not fixed in OpenMage 20.7.0: https://github.com/OpenMage/magento-lts/blob/v20.7.0/app/code/core/Mage/Core/Model/Design/Package.php#L171
 				 * 4) I implemented a solution by analogy with @see Mage_Core_Model_App_Area::_initDesign():
 				 * https://github.com/OpenMage/magento-lts/blob/v19.5.2/app/code/core/Mage/Core/Model/App/Area.php#L167-L172
+				 * 5) @see self::setTheme() for another part of the solution.
 				 */
 				$d = df_design(); /** @var D $d */
 				$d->loadChange($this->getStore());
