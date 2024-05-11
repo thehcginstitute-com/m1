@@ -168,8 +168,24 @@ class Mage_Core_Model_Design_Package
             $customPackage = $this->_checkUserAgentAgainstRegexps('design/package/ua_regexp');
             if ($customPackage) {
                 $this->_name = $customPackage;
-            } else {
-                $this->_name = Mage::getStoreConfig('design/package/name', $this->getStore());
+            }
+			else {
+				/**
+				 * 2024-05-11 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				 * 1) "`Mage_Core_Model_Design_Package::setPackageName()` ignores design changes
+				 * set on the `/admin/system_design` page": https://github.com/thehcginstitute-com/m1/issues/597
+				 * 2) The original code:
+				 * https://github.com/OpenMage/magento-lts/blob/v19.5.2/app/code/core/Mage/Core/Model/Design/Package.php#L172
+				 * 3) It is still not fixed in OpenMage 20.7.0: https://github.com/OpenMage/magento-lts/blob/v20.7.0/app/code/core/Mage/Core/Model/Design/Package.php#L171
+				 * 4) I implemented a solution by analogy with @see Mage_Core_Model_App_Area::_initDesign():
+				 * https://github.com/OpenMage/magento-lts/blob/v19.5.2/app/code/core/Mage/Core/Model/App/Area.php#L167-L172
+				 */
+				$d = Mage::getSingleton('core/design');
+				$d->loadChange($this->getStore());
+                $this->_name = $d->getData()
+					? $d->getPackage()
+					: Mage::getStoreConfig('design/package/name', $this->getStore())
+				;
             }
         } else {
             $this->_name = $name;

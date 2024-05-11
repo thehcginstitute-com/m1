@@ -74,5 +74,13 @@
 			<active>true</active>
 			<codePool>local</codePool>
 		</Df_Store>
+<!-- 2024-05-11 "Port `df_design()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/598 -->
+		<Df_Theme>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<Mage_Core/>
+			</depends>
+		</Df_Theme>
 	</modules>
 </config>
