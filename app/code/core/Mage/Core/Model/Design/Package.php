@@ -1,18 +1,5 @@
 <?php
-/**
- * OpenMage
- *
- * This source file is subject to the Open Software License (OSL 3.0)
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available at https://opensource.org/license/osl-3-0-php
- *
- * @category   Mage
- * @package    Mage_Core
- * @copyright  Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @copyright  Copyright (c) 2017-2023 The OpenMage Contributors (https://www.openmage.org)
- * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */
-
+use Mage_Core_Model_Design as D;
 /**
  * @category   Mage
  * @package    Mage_Core
@@ -180,7 +167,7 @@ class Mage_Core_Model_Design_Package
 				 * 4) I implemented a solution by analogy with @see Mage_Core_Model_App_Area::_initDesign():
 				 * https://github.com/OpenMage/magento-lts/blob/v19.5.2/app/code/core/Mage/Core/Model/App/Area.php#L167-L172
 				 */
-				$d = Mage::getSingleton('core/design');
+				$d = df_design();
 				$d->loadChange($this->getStore());
                 $this->_name = $d->getData()
 					? $d->getPackage()
