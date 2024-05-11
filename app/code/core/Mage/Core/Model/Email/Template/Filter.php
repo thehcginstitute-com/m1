@@ -213,8 +213,18 @@ class Mage_Core_Model_Email_Template_Filter extends Varien_Filter_Template
         /** @var Mage_Core_Model_Layout $layout */
         if (isset($params['area'])) {
             $layout->setArea($params['area']);
-        } else {
-            $layout->setArea(Mage::app()->getLayout()->getArea());
+        }
+		else {
+			$layout->setArea(
+				# 2024-05-11 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# 1) "The ordered items are missing from order confirmation emails":
+				# https://github.com/thehcginstitute-com/m1/issues/479
+				# 2) The original code:
+				# 		Mage::app()->getLayout()->getArea()
+				# https://github.com/OpenMage/magento-lts/blob/v19.5.2/app/code/core/Mage/Core/Model/Email/Template/Filter.php#L217
+				# 3) Another part of the solution: https://github.com/thehcginstitute-com/m1/issues/597
+				Mage::getDesign()->getArea()
+			);
         }
 
         $layout->getUpdate()->addHandle($params['handle']);
