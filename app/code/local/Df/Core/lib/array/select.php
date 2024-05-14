@@ -71,19 +71,6 @@ function dfa(array $a, $k, $d = null) {return
 function dfad(_DO $o, $k = '', $d = null) {return df_nes($k) ? $o : dfa(df_gd($o), $k, $d);}
 
 /**
- * 2015-02-11
- * Из ассоциативного массива $source выбирает элементы с ключами $keys.
- * В отличие от @see dfa_select_ordered() не учитывает порядок ключей $keys
- * и поэтому работает быстрее, чем @see dfa_select_ordered().
- * @param array(string => string)|\Traversable $source
- * @param string[] $keys
- * @return array(string => string)
- */
-function dfa_select($source, array $keys)  {return
-	array_intersect_key(df_ita($source), array_fill_keys($keys, null))
-;}
-
-/**
  * 2015-02-08
  * 2020-01-29
  * 1) It returns a subset of $a with $k keys in the same order as in $k.
