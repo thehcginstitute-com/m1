@@ -62,7 +62,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$mc = strtoupper($mc);
 				if (is_numeric($mg)) {
 					$mg = (int)$mg;
-					$this->buildCustomerAttributes($aa[$mg], $mg, $mc);
+					$this->buildCustomerAttributes($aa[$mg], $mc);
 				}
 				else {
 					$this->buildCustomizedAttributes($mg, $mc);
@@ -160,17 +160,13 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
 	 */
-	private function buildCustomerAttributes(array $aa, int $mg, string $mc):void {
-		foreach ($aa as $a) {
-			if ($a['attribute_id'] == $mg) {
-				$ac = $a['attribute_code'];
-				if ('email' !== $ac) {
-					$this->processAttribute($ac, $this->customer(), $mc, $a);
-				}
-				if (!is_null($v = $this->getMailChimpTagValue($mc))) {
-					$this->set($mc, $v);
-				}
-			}
+	private function buildCustomerAttributes(array $a, string $mc):void {
+		$ac = $a['attribute_code'];
+		if ('email' !== $ac) {
+			$this->processAttribute($ac, $this->customer(), $mc, $a);
+		}
+		if (!is_null($v = $this->getMailChimpTagValue($mc))) {
+			$this->set($mc, $v);
 		}
 	}
 
