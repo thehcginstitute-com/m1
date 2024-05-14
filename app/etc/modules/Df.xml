@@ -82,5 +82,14 @@
 				<Mage_Core/>
 			</depends>
 		</Df_Theme>
+<!-- 2024-05-14 "Port `Df\Zf\Validate\StringT\IntT` from `mage2pro/core`":
+https://github.com/thehcginstitute-com/m1/issues/606 -->
+		<Df_Zf>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<Mage_Core/>
+			</depends>
+		</Df_Zf>
 	</modules>
 </config>
