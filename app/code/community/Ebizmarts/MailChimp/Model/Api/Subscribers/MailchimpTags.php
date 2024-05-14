@@ -103,19 +103,19 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::buildCustomizedAttributes()
 	 * @return mixed
 	 */
-	private function customizedAttributes(string $a, string $k) {
+	private function customizedAttributes(string $mg, string $mc) {
 		$r = null;
-		$addressGet = function($f) use($a, $k):void {/** @var string|Closure $f */
+		$addressGet = function($f) use($mg, $mc):void {/** @var string|Closure $f */
 			if (
-				($ad = !$this->addressO() ? null : $this->customer()->getPrimaryAddress('default_' . df_first(explode('_', $a))))
+				($ad = !$this->addressO() ? null : $this->customer()->getPrimaryAddress('default_' . df_first(explode('_', $mg))))
 				/** @var AddressC $ad */
 				&& 	($v = !is_string($f) ? $f($ad) : (df_starts_with($f, 'get') ? call_user_func([$ad, $f]) : $ad[$f]))
 				/** @var mixed $v */
 			) {
-				$this->set($k, $v);
+				$this->set($mc, $v);
 			}
 		};
-		switch ($a) {
+		switch ($mg) {
 			case 'billing_company':
 			case 'shipping_company':
 				$addressGet('company');
@@ -138,15 +138,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			case 'dop':
 				if ($v = $this->getLastDateOfPurchase()) {
-					$this->set($k, $v);
+					$this->set($mc, $v);
 				}
 				break;
 			case 'store_code':
-				$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
+				$this->set($mc, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
 				break;
 		}
-		if (!df_nes($this->getMailChimpTagValue($k))) {
-			$r = $this->getMailChimpTagValue($k);
+		if (!df_nes($this->getMailChimpTagValue($mc))) {
+			$r = $this->getMailChimpTagValue($mc);
 		}
 		return $r;
 	}
@@ -175,9 +175,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
 	 */
-	private function buildCustomizedAttributes($customAtt, string $k):void {
-		if (!is_null($v = $this->customizedAttributes($customAtt, $k))) {
-			$this->set($k, $v);
+	private function buildCustomizedAttributes(string $mg, string $mc):void {
+		if (!is_null($v = $this->customizedAttributes($mg, $mc))) {
+			$this->set($mc, $v);
 		}
 	}
 
