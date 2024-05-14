@@ -177,8 +177,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::_p()
 	 */
 	private function buildCustomizedAttributes($customAtt, string $k):void {
-		$v = $this->customizedAttributes($customAtt, $k);
-		if ($v !== null) {
+		if (!is_null($v = $this->customizedAttributes($customAtt, $k))) {
 			$this->set($k, $v);
 		}
 	}
