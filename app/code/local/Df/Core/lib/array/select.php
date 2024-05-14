@@ -1,4 +1,6 @@
 <?php
+use Varien_Object as _DO;
+
 /**
  * 2015-02-11
  * Аналог @see array_column() для коллекций.
@@ -57,6 +59,16 @@ function dfa(array $a, $k, $d = null) {return
 		: (isset($a[$k]) ? $a[$k] : (df_contains($k, '/') ? dfa_deep($a, $k, $d) : df_call_if($d, $k)))
 	)
 ;}
+
+/**
+ * 2020-01-29
+ * 2024-05-14 "Port `dfad()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/603
+ * @used-by df_call()
+ * @param string|string[] $k [optional]
+ * @param mixed|callable|null $d [optional]
+ * @return _DO|mixed
+ */
+function dfad(_DO $o, $k = '', $d = null) {return df_nes($k) ? $o : dfa(df_gd($o), $k, $d);}
 
 /**
  * 2015-02-11
