@@ -48,23 +48,20 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::p()
 	 */
 	private function _p():void {
-		$maps = hcg_mc_cfg_fields();
 		$attrSetId = $this->getEntityAttributeCollection()
 			->setEntityTypeFilter(1)
 			->addSetInfo()
 			->getData();
 		# 2024-05-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# https://3v4l.org/akQm0#tabs
-		foreach ($maps as $map) {
-			$a = $map['magento']; /** @var int|string $a */
-			$chimpTag = $map['mailchimp'];
-			if ($chimpTag && $a) {
-				$k = strtoupper($chimpTag);
-				if (is_numeric($a)) {
-					$this->buildCustomerAttributes($attrSetId, (int)$a, $k);
+		foreach (hcg_mc_cfg_fields() as $f) {/** @var array(string => string) $f */
+			if (($mg = dfa($f, 'magento')) && ($mc = dfa($f, 'mailchimp'))) { /** @var string $mg */ /** @var string $mc */
+				$mc = strtoupper($mc);
+				if (is_numeric($mg)) {
+					$this->buildCustomerAttributes($attrSetId, (int)$mg, $mc);
 				}
 				else {
-					$this->buildCustomizedAttributes($a, $k);
+					$this->buildCustomizedAttributes($mg, $mc);
 				}
 			}
 		}
@@ -159,15 +156,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
 	 */
-	private function buildCustomerAttributes($attrSetId, int $customAtt, string $k):void {
+	private function buildCustomerAttributes($attrSetId, int $mg, string $mc):void {
 		foreach ($attrSetId as $a) {
-			if ($a['attribute_id'] == $customAtt) {
+			if ($a['attribute_id'] == $mg) {
 				$ac = $a['attribute_code'];
 				if ('email' !== $ac) {
-					$this->processAttribute($ac, $this->customer(), $k, $a);
+					$this->processAttribute($ac, $this->customer(), $mc, $a);
 				}
-				if (!is_null($v = $this->getMailChimpTagValue($k))) {
-					$this->set($k, $v);
+				if (!is_null($v = $this->getMailChimpTagValue($mc))) {
+					$this->set($mc, $v);
 				}
 			}
 		}
