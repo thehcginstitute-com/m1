@@ -54,7 +54,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			->addSetInfo()
 			->getData();
 		foreach ($maps as $map) {
-			$a = $map['magento'];
+			$a = $map['magento']; /** @var int|string $a */
 			$chimpTag = $map['mailchimp'];
 			if ($chimpTag && $a) {
 				$key = strtoupper($chimpTag);
