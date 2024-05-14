@@ -53,6 +53,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			->setEntityTypeFilter(1)
 			->addSetInfo()
 			->getData();
+		# 2024-05-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# https://3v4l.org/akQm0#tabs
 		foreach ($maps as $map) {
 			$a = $map['magento']; /** @var int|string $a */
 			$chimpTag = $map['mailchimp'];
