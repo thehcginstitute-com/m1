@@ -15,7 +15,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::addGender()
 	 * @used-by self::add()
 	 * @used-by self::_p()
-	 * @used-by self::dispatchEventMergeVarAfter()
 	 * @used-by self::getMailChimpTagValue()
 	 * @used-by self::mergeMailchimpTags()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getFName()
@@ -68,7 +67,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			}
 		}
 		$newVars = $this->getNewVarienObject();
-		$this->dispatchEventMergeVarAfter($newVars);
 		if ($newVars->hasData()) {
 			$this->mergeMailchimpTags($newVars->getData());
 		}
@@ -188,17 +186,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			$this->set($key, $eventValue);
 		}
 	}
-
-	/**
-	 * 2024-05-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::_p()
-	 */
-	private function dispatchEventMergeVarAfter(&$newVars):void {Mage::dispatchEvent('mailchimp_merge_field_send_after', [
-		'subscriber' => $this->sub(),
-		'vars' => $this->_d,
-		'new_vars' => &$newVars
-	]);}
 
 	/**
 	 * Add possibility to change value on certain merge tag
@@ -522,7 +509,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::_p()
 	 * @used-by self::addFirstName()
 	 * @used-by self::addLastName()
-	 * @used-by self::dispatchEventMergeVarAfter()
 	 * @used-by self::dispatchMergeVarBefore()
 	 * @used-by self::o()
 	 * @used-by self::processMergeFields()
