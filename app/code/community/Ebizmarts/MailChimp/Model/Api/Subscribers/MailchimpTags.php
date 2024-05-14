@@ -48,17 +48,18 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::p()
 	 */
 	private function _p():void {
-		$attrSetId = $this->getEntityAttributeCollection()
+		$aa = $this->getEntityAttributeCollection()
 			->setEntityTypeFilter(1)
 			->addSetInfo()
-			->getData();
+			->getData()
+		; /** @var  $f */
 		# 2024-05-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# https://3v4l.org/akQm0#tabs
 		foreach (hcg_mc_cfg_fields() as $f) {/** @var array(string => string) $f */
 			if (($mg = dfa($f, 'magento')) && ($mc = dfa($f, 'mailchimp'))) { /** @var string $mg */ /** @var string $mc */
 				$mc = strtoupper($mc);
 				if (is_numeric($mg)) {
-					$this->buildCustomerAttributes($attrSetId, (int)$mg, $mc);
+					$this->buildCustomerAttributes($aa, (int)$mg, $mc);
 				}
 				else {
 					$this->buildCustomizedAttributes($mg, $mc);
@@ -156,8 +157,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
 	 */
-	private function buildCustomerAttributes($attrSetId, int $mg, string $mc):void {
-		foreach ($attrSetId as $a) {
+	private function buildCustomerAttributes(array $aa, int $mg, string $mc):void {
+		foreach ($aa as $a) {
 			if ($a['attribute_id'] == $mg) {
 				$ac = $a['attribute_code'];
 				if ('email' !== $ac) {
