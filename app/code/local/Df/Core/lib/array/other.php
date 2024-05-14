@@ -88,7 +88,7 @@ function df_first(array $a) {return !$a ? null : reset($a);}
 
 /**
  * 2015-12-30 Преобразует коллекцию или массив в карту.
- * 2024-05-14 "Port `df_index()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/598
+ * 2024-05-14 "Port `df_index()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/600
  * @used-by df_mvars()
  * @param string|Closure $k
  * @param Traversable|array(int|string => _DO) $a
