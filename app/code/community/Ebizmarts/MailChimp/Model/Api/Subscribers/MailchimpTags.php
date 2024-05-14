@@ -87,20 +87,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
-	 * https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::addStoreCodeFromCustomizedAttribute()
-	 * @used-by self::addUnknownMergeField()
-	 * @used-by self::addWebsiteId()
-	 * @used-by self::buildCustomerAttributes()
-	 * @used-by self::buildCustomizedAttributes()
- 	 * @used-by self::processAttribute()
-	 * @param $v
-	 */
-	private function set(string $k, $v):void {$this->_d[$k] = $v;}
-
-	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 	 * https://github.com/cabinetsbay/site/issues/589
@@ -521,6 +507,20 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				}
 		}
 	}
+
+	/**
+	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
+	 * https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::addStoreCodeFromCustomizedAttribute()
+	 * @used-by self::addUnknownMergeField()
+	 * @used-by self::addWebsiteId()
+	 * @used-by self::buildCustomerAttributes()
+	 * @used-by self::buildCustomizedAttributes()
+ 	 * @used-by self::processAttribute()
+	 * @param $v
+	 */
+	private function set(string $k, $v):void {$this->_d[$k] = $v;}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
