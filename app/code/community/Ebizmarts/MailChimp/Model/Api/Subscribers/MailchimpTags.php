@@ -194,17 +194,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
 	 */
-	private function dispatchEventMergeVarAfter(&$newVars):void
-	{
-		Mage::dispatchEvent(
-			'mailchimp_merge_field_send_after',
-			array(
-				'subscriber' => $this->sub(),
-				'vars' => $this->_d,
-				'new_vars' => &$newVars
-			)
-		);
-	}
+	private function dispatchEventMergeVarAfter(&$newVars):void {Mage::dispatchEvent('mailchimp_merge_field_send_after', [
+		'subscriber' => $this->sub(),
+		'vars' => $this->_d,
+		'new_vars' => &$newVars
+	]);}
 
 	/**
 	 * Add possibility to change value on certain merge tag
