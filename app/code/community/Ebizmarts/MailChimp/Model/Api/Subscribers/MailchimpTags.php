@@ -48,18 +48,21 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::p()
 	 */
 	private function _p():void {
-		$aa = $this->getEntityAttributeCollection()
-			->setEntityTypeFilter(1)
-			->addSetInfo()
-			->getData()
-		; /** @var array(array(string => mixed)) $aa */
+		$aa =
+			$this->getEntityAttributeCollection()
+				->setEntityTypeFilter(1)
+				->addSetInfo()
+				->getData()
+		; /** @var array(int => array(string => mixed)) $aa */
+		$aa = array_combine(df_int(df_column($aa, 'attribute_id')), $aa);
 		# 2024-05-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# https://3v4l.org/akQm0#tabs
 		foreach (hcg_mc_cfg_fields() as $f) {/** @var array(string => string) $f */
 			if (($mg = dfa($f, 'magento')) && ($mc = dfa($f, 'mailchimp'))) { /** @var string $mg */ /** @var string $mc */
 				$mc = strtoupper($mc);
 				if (is_numeric($mg)) {
-					$this->buildCustomerAttributes($aa, (int)$mg, $mc);
+					$mg = (int)$mg;
+					$this->buildCustomerAttributes($aa[$mg], $mg, $mc);
 				}
 				else {
 					$this->buildCustomizedAttributes($mg, $mc);
