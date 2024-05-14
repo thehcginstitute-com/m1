@@ -190,9 +190,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * Allow possibility to add new vars in 'new_vars' array
-	 *
-	 * @param $newVars
+	 * 2024-05-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_p()
 	 */
 	private function dispatchEventMergeVarAfter(&$newVars):void
 	{
