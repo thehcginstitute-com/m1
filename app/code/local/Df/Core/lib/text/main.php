@@ -65,3 +65,37 @@ function df_string($v):string {
 	}
 	return strval($v);
 }
+
+/**
+ * 2024-05-14 "Port `df_string_debug()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/608
+ * @used-by \Df\Zf\Validate::message()
+ * @param mixed $v
+ */
+function df_string_debug($v):string {
+	$r = ''; /** @var string $r */
+	if (is_object($v)) {
+		/**
+		 * К сожалению, нельзя здесь для проверки публичности метода использовать @see is_callable(),
+		 * потому что наличие @see \Magento\Framework\DataObject::__call()
+		 * приводит к тому, что @see is_callable всегда возвращает true.
+		 * Обратите внимание, что @uses method_exists(), в отличие от @see is_callable(),
+		 * не гарантирует публичную доступность метода:
+		 * т.е. метод может у класса быть, но вызывать его всё равно извне класса нельзя,
+		 * потому что он имеет доступность private или protected.
+		 * Пока эта проблема никак не решена.
+		 */
+		if (!method_exists($v, '__toString')) {
+			$r = get_class($v);
+		}
+	}
+	elseif (is_array($v)) {
+		$r = sprintf('<an array of %d elements>', count($v));
+	}
+	elseif (is_bool($v)) {
+		$r = $v ? 'logical <yes>' : 'logical <no>';
+	}
+	else {
+		$r = strval($v);
+	}
+	return $r;
+}
