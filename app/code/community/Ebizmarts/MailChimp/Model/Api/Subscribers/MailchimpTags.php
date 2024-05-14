@@ -176,10 +176,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
 	 */
-	private function buildCustomizedAttributes($customAtt, string $key):void {
-		$eventValue = $this->customizedAttributes($customAtt, $key);
-		if ($eventValue !== null) {
-			$this->set($key, $eventValue);
+	private function buildCustomizedAttributes($customAtt, string $k):void {
+		$v = $this->customizedAttributes($customAtt, $k);
+		if ($v !== null) {
+			$this->set($k, $v);
 		}
 	}
 
