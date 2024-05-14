@@ -91,7 +91,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::_p()
 	 * @used-by self::customerAttributes()
 	 * @used-by self::customizedAttributes()
-	 * @used-by self::dispatchMergeVarBefore()
 	 */
 	private function customer():C {return dfc($this, function() {
 		$r = Mage::getModel('customer/customer'); /** @var C $r */
@@ -166,7 +165,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 					$this->processAttribute($ac, $this->customer(), $k, $a);
 				}
 				$v = $this->getMailChimpTagValue($k);
-				$this->dispatchMergeVarBefore($ac, $v);
 				if (!is_null($v)) {
 					$this->set($k, $v);
 				}
@@ -181,29 +179,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function buildCustomizedAttributes($customAtt, string $key):void {
 		$eventValue = $this->customizedAttributes($customAtt, $key);
-		$this->dispatchMergeVarBefore($customAtt, $eventValue);
 		if ($eventValue !== null) {
 			$this->set($key, $eventValue);
 		}
-	}
-
-	/**
-	 * Add possibility to change value on certain merge tag
-	 *
-	 * @param $attributeCode
-	 * @param $eventValue
-	 */
-	private function dispatchMergeVarBefore($attributeCode, &$eventValue):void
-	{
-		Mage::dispatchEvent(
-			'mailchimp_merge_field_send_before',
-			array(
-				'customer_id' => $this->customer()->getId(),
-				'subscriber_email' => $this->sub()->getSubscriberEmail(),
-				'merge_field_tag' => $attributeCode,
-				'merge_field_value' => &$eventValue
-			)
-		);
 	}
 
 	/**
@@ -509,7 +487,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::_p()
 	 * @used-by self::addFirstName()
 	 * @used-by self::addLastName()
-	 * @used-by self::dispatchMergeVarBefore()
 	 * @used-by self::o()
 	 * @used-by self::processMergeFields()
 	 */
