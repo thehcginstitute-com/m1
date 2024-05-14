@@ -164,8 +164,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				if ('email' !== $ac) {
 					$this->processAttribute($ac, $this->customer(), $k, $a);
 				}
-				$v = $this->getMailChimpTagValue($k);
-				if (!is_null($v)) {
+				if (!is_null($v = $this->getMailChimpTagValue($k))) {
 					$this->set($k, $v);
 				}
 			}
