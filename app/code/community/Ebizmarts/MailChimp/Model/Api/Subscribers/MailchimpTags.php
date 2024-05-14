@@ -54,15 +54,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			->addSetInfo()
 			->getData();
 		foreach ($maps as $map) {
-			$customAtt = $map['magento'];
+			$a = $map['magento'];
 			$chimpTag = $map['mailchimp'];
-			if ($chimpTag && $customAtt) {
+			if ($chimpTag && $a) {
 				$key = strtoupper($chimpTag);
-				if (is_numeric($customAtt)) {
-					$this->buildCustomerAttributes($attrSetId, (int)$customAtt, $key);
+				if (is_numeric($a)) {
+					$this->buildCustomerAttributes($attrSetId, (int)$a, $key);
 				}
 				else {
-					$this->buildCustomizedAttributes($customAtt, $key);
+					$this->buildCustomizedAttributes($a, $key);
 				}
 			}
 		}
