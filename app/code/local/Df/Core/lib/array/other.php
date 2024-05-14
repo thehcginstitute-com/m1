@@ -87,6 +87,15 @@ function dfa_group(array $a, $k = null):array {
 function df_first(array $a) {return !$a ? null : reset($a);}
 
 /**
+ * 2015-12-30 Преобразует коллекцию или массив в карту.
+ * 2024-05-14 "Port `df_index()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/598
+ * @used-by df_mvars()
+ * @param string|Closure $k
+ * @param Traversable|array(int|string => _DO) $a
+ */
+function df_index($k, $a):array {return array_combine(df_column($a, $k), df_ita($a));}
+
+/**
  * 2015-02-11
  * Эта функция отличается от @see iterator_to_array() тем, что допускает в качестве параметра
  * не только @see \Traversable, но и массив.
