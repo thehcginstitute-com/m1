@@ -184,23 +184,22 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 	protected function _buildSubscriberData(Sub $s):array {
 		$helper = $this->getMailchimpHelper();
 		$storeId = $s->getStoreId();
-		$data = [];
-		$data["email_address"] = $s->getSubscriberEmail();
+		$r = [];
+		$r["email_address"] = $s->getSubscriberEmail();
 		if ($t = Tags::p($s, (int)$storeId)) {
-			$data["merge_fields"] = $t;
+			$r["merge_fields"] = $t;
 		}
 		$status = $this->translateMagentoStatusToMailchimpStatus($s->getStatus());
-		$data["status_if_new"] = $status;
+		$r["status_if_new"] = $status;
 		if ($s->getMailchimpSyncModified()) {
-			$data["status"] = $status;
+			$r["status"] = $status;
 		}
-		$data["language"] = $helper->getStoreLanguageCode($storeId);
+		$r["language"] = $helper->getStoreLanguageCode($storeId);
 		$interest = $this->_getInterest($s);
-
 		if (!empty($interest)) {
-			$data['interests'] = $interest;
+			$r['interests'] = $interest;
 		}
-		return $data;
+		return $r;
 	}
 
 	/**
