@@ -223,38 +223,20 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * https://github.com/thehcginstitute-com/m1/issues/567
 	 * 4) "`Ebizmarts_MailChimp`: «merge_fields.SHIPPING : Data did not match any of the schemas described in anyOf»":
 	 * https://github.com/thehcginstitute-com/m1/issues/568
+	 * 2024-05-16
+	 * «a JSON object with the required keys `addr1`, `city`, `state`, and `zip`, and the optional keys `addr2` and `country`.
+	 * Values for these fields must be strings.»
+	 * https://mailchimp.com/developer/marketing/docs/merge-fields#add-merge-data-to-contacts
 	 * @used-by self::attCustomer()
 	 */
-	private function address(string $ac):array {
-		$r = $this->addressO(); /** @var AddressO|null $r */
-		if (!empty($r)) {
-			if ($a = $this->c()->getPrimaryAddress($ac)) { /** @var AddressC $a */
-				$street = $address->getStreet();
-				if (count($street) > 1) {
-					$r["addr1"] = $street[0];
-					$r["addr2"] = $street[1];
-				}
-				elseif (!empty($street[0])) {
-					$r["addr1"] = $street[0];
-				}
-				if ($address->getCity()) {
-					$r["city"] = $address->getCity();
-				}
-				if ($address->getRegion()) {
-					$r["state"] = $address->getRegion();
-				}
-				if ($address->getPostcode()) {
-					$r["zip"] = $address->getPostcode();
-				}
-				if ($address->getCountry()) {
-					$r["country"] = Mage::getModel('directory/country')
-						->loadByCode($address->getCountry())
-						->getName();
-				}
-			}
-		}
-		return $r;
-	}
+	private function address(string $ac):array {return [
+		'addr1' => ''
+		,'addr2' => ''
+		,'city' => ''
+		,'country' => ''
+		,'state' => ''
+		,'zip' => ''
+	];}
 
 	/**
 	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
