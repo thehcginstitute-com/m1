@@ -251,7 +251,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return AddressO|AddressC|null
 	 */
 	private function address(string $ac):?AddressA {return dfc($this, function(string $ac):?AddressC {
-		$t = df_assert_in(df_first(explode('_', $ac)), ['billing', 'shipping']); /** @var string $t */
+		$t = df_assert_in(df_first(explode('_', $ac)), [AddressA::TYPE_BILLING, AddressA::TYPE_SHIPPING]); /** @var string $t */
+		if ($o = $this->o()) {/** @var ?O $o */
+			$o->getShippingAddress();
+		}
 		return $this->c()->getPrimaryAddress("default_$t");
 	}, [$ac]);}
 
