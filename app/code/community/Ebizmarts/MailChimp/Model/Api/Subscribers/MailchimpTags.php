@@ -228,10 +228,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				if (count($street) > 1) {
 					$addressData["addr1"] = $street[0];
 					$addressData["addr2"] = $street[1];
-				} else {
-					if (!empty($street[0])) {
-						$addressData["addr1"] = $street[0];
-					}
+				}
+				elseif (!empty($street[0])) {
+					$addressData["addr1"] = $street[0];
 				}
 				if ($address->getCity()) {
 					$addressData["city"] = $address->getCity();
