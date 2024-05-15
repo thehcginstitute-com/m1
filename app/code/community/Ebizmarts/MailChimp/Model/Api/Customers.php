@@ -566,41 +566,27 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 	}
 
 	/**
-	 * Send merge fields for transactional members
-	 *
-	 * @param               $magentoStoreId
-	 * @param Varien_Object $dataCustomer
-	 * @param               $subscriber
-	 * @param               $customer
-	 * @param               $listId
-	 * @param               $counter
-	 * @param array         $customerArray
-	 * @return array
+	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
+	 * @used-by self::createBatchJson()
 	 */
-	protected function sendMailchimpTags(
+	private function sendMailchimpTags(
 		$magentoStoreId,
 		Varien_Object $dataCustomer,
-		$subscriber,
+		Sub $sub,
 		$customer,
 		$listId,
 		$counter,
 		array $customerArray
 	) {
 		if ($dataCustomer->getMailchimpSyncedFlag()) {
-			$batchData = $this->makeMailchimpTagsBatchStructure(
-				$magentoStoreId,
-				$subscriber,
-				$customer,
-				$listId
-			);
-
+			$batchData = $this->makeMailchimpTagsBatchStructure($magentoStoreId, $sub, $customer, $listId);
 			if ($batchData !== null) {
 				$customerArray[$counter] = $batchData;
 				$counter++;
 			}
 		}
-
-		return array($customerArray, $counter);
+		return [$customerArray, $counter];
 	}
 
 	/**
