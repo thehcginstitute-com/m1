@@ -39,6 +39,14 @@
 				<Mage_Directory/>
 			</depends>
 		</Df_Directory>
+<!-- 2024-05-15 "Port `df_eav_config()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/610 -->
+		<Df_Eav>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+				<Mage_Eav/>
+			</depends>
+		</Df_Eav>
 		<Df_Framework>
 			<active>true</active>
 			<codePool>local</codePool>

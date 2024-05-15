@@ -1,0 +1,10 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+<!-- 2024-05-15 "Port `df_eav_config()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/610 -->
+		<Df_Eav>
+			<version>1.0.0</version>
+			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
+		</Df_Eav>
+	</modules>
+</config>
