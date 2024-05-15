@@ -7,7 +7,6 @@ use Df\Zf\Validate\StringT\IntT;
  * @used-by df_product_id()
  * @used-by df_rgb2hex()
  * @used-by dfa_key_int()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::_p() (https://github.com/cabinetsbay/site/issues/589)
  * @param mixed|mixed[] $v
  * @return int|int[]
  * @throws DFE
