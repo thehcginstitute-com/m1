@@ -232,19 +232,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 						$addressData["addr1"] = $street[0];
 					}
 				}
-
 				if ($address->getCity()) {
 					$addressData["city"] = $address->getCity();
 				}
-
 				if ($address->getRegion()) {
 					$addressData["state"] = $address->getRegion();
 				}
-
 				if ($address->getPostcode()) {
 					$addressData["zip"] = $address->getPostcode();
 				}
-
 				if ($address->getCountry()) {
 					$addressData["country"] = Mage::getModel('directory/country')
 						->loadByCode($address->getCountry())
@@ -252,7 +248,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				}
 			}
 		}
-
 		return $addressData;
 	}
 
