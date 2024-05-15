@@ -178,27 +178,24 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 	}
 
 	/**
-	 * @param $subscriber
-	 * @return array
-	 * @throws Mage_Core_Exception
-	 * @throws Mage_Core_Model_Store_Exception
+	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
 	 */
-	protected function _buildSubscriberData($subscriber)
-	{
+	protected function _buildSubscriberData(Sub $s):array {
 		$helper = $this->getMailchimpHelper();
-		$storeId = $subscriber->getStoreId();
-		$data = array();
-		$data["email_address"] = $subscriber->getSubscriberEmail();
-		if ($t = Tags::p($subscriber, (int)$storeId)) {
+		$storeId = $s->getStoreId();
+		$data = [];
+		$data["email_address"] = $s->getSubscriberEmail();
+		if ($t = Tags::p($s, (int)$storeId)) {
 			$data["merge_fields"] = $t;
 		}
-		$status = $this->translateMagentoStatusToMailchimpStatus($subscriber->getStatus());
+		$status = $this->translateMagentoStatusToMailchimpStatus($s->getStatus());
 		$data["status_if_new"] = $status;
-		if ($subscriber->getMailchimpSyncModified()) {
+		if ($s->getMailchimpSyncModified()) {
 			$data["status"] = $status;
 		}
 		$data["language"] = $helper->getStoreLanguageCode($storeId);
-		$interest = $this->_getInterest($subscriber);
+		$interest = $this->_getInterest($s);
 
 		if (!empty($interest)) {
 			$data['interests'] = $interest;
