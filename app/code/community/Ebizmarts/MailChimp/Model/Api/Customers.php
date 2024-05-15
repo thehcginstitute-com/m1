@@ -87,7 +87,6 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 		$customerArray = array();
 		$this->makeBatchId();
 		$this->setOptInStatusForStore($this->getOptIn($this->getBatchMagentoStoreId()));
-		$sub = Mage::getModel('newsletter/subscriber'); /** @var Sub $sub */
 		$listId = $helper->getGeneralList($magentoStoreId);
 		$counter = 0;
 		foreach ($customersCollection as $customer) {
@@ -95,6 +94,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 			$customerJson = json_encode($data);
 			if (false !== $customerJson) {
 				if (!empty($customerJson)) {
+					$sub = Mage::getModel('newsletter/subscriber'); /** @var Sub $sub */
 					$isSubscribed = $this->isSubscribed($sub, $customer);
 					$dataCustomer = hcg_mc_syncd_get(
 						(int)$customer->getId(),
