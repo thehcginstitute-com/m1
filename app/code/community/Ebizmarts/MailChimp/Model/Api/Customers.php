@@ -540,8 +540,9 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 	/**
 	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
+	 * @used-by self::sendMailchimpTags()
 	 */
-	protected function makeMailchimpTagsBatchStructure($magentoStoreId, Sub $s, $customer, $listId) {
+	private function makeMailchimpTagsBatchStructure($magentoStoreId, Sub $s, $customer, $listId) {
 		$s->setSubscriberEmail($customer->getEmail());
 		$s->setCustomerId($customer->getId());
 		$mergeFields["merge_fields"] = Tags::p($s, (int)$magentoStoreId);
