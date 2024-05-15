@@ -1,6 +1,6 @@
 <?php
 use Df\Core\Exception as DFE;
-use Throwable as Th; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
+use Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 
 /**
  * 2017-01-14 Отныне функция возвращает $v: это позволяет нам значительно сократить код вызова функции.
@@ -8,7 +8,7 @@ use Throwable as Th; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": 
  * @used-by df_date_from_timestamp_14()
  * @param string|float|int|bool|null $v
  * @param array(string|float|int|bool|null) $a
- * @param string|Th $m [optional]
+ * @param string|T $m [optional]
  * @return string|float|int|bool|null
  * @throws DFE
  */
