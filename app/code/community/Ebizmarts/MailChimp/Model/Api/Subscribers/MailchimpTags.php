@@ -108,7 +108,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				);
 				break;
 			case 'firstname':
-				if ($v = $this->getFirstName($this->sub(), $c)) {
+				if ($v = $this->nameFirst()) {
 					$this->set($k, $v);
 				}
 				break;
@@ -298,20 +298,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function getEntityAttributeCollection() {return Mage::getResourceModel('eav/entity_attribute_collection');}
 
 	/**
-	 * @return string
+	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::attCustomer()
 	 */
-	private function getFirstName() {
-		$lastOrder = $this->o();
-		$firstName = $this->customer()->getFirstname();
-		if (!$firstName) {
-			if ($this->sub()->getSubscriberFirstname()) {
-				$firstName = $this->sub()->getSubscriberFirstname();
-			} elseif ($lastOrder && $lastOrder->getCustomerFirstname()) {
-				$firstName = $lastOrder->getCustomerFirstname();
-			}
-		}
-		return $firstName;
-	}
+	private function nameFirst():string {return $this->customer()->getFirstname() ?: (
+		$this->sub()->getSubscriberFirstname() ?: (
+			($o = $this->o()) ? $o->getCustomerFirstname() : df_error('')
+		)
+	);}
 
 	/**
 	 * @param $mergeVars
