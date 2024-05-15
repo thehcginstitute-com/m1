@@ -65,11 +65,11 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 	}
 
 	/**
-	 * @return array
-	 * @throws Mage_Core_Exception
+	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
+	 * @used-by \HCG\MailChimp\Batch\Commerce\Send::p()
 	 */
-	function createBatchJson()
-	{
+	function createBatchJson() {
 		$mailchimpStoreId = $this->getMailchimpStoreId();
 		$magentoStoreId = $this->getMagentoStoreId();
 
