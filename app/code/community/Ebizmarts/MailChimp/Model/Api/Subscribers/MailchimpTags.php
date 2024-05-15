@@ -220,35 +220,35 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::attCustomer()
 	 */
-	private function address($address) {
-		$addressData = $this->addressO();
-		if (!empty($addressData)) {
+	private function address($address):array {
+		$r = $this->addressO();
+		if (!empty($r)) {
 			if ($address) {
 				$street = $address->getStreet();
 				if (count($street) > 1) {
-					$addressData["addr1"] = $street[0];
-					$addressData["addr2"] = $street[1];
+					$r["addr1"] = $street[0];
+					$r["addr2"] = $street[1];
 				}
 				elseif (!empty($street[0])) {
-					$addressData["addr1"] = $street[0];
+					$r["addr1"] = $street[0];
 				}
 				if ($address->getCity()) {
-					$addressData["city"] = $address->getCity();
+					$r["city"] = $address->getCity();
 				}
 				if ($address->getRegion()) {
-					$addressData["state"] = $address->getRegion();
+					$r["state"] = $address->getRegion();
 				}
 				if ($address->getPostcode()) {
-					$addressData["zip"] = $address->getPostcode();
+					$r["zip"] = $address->getPostcode();
 				}
 				if ($address->getCountry()) {
-					$addressData["country"] = Mage::getModel('directory/country')
+					$r["country"] = Mage::getModel('directory/country')
 						->loadByCode($address->getCountry())
 						->getName();
 				}
 			}
 		}
-		return $addressData;
+		return $r;
 	}
 
 	/**
