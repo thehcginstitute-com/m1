@@ -228,19 +228,18 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 	}
 
 	/**
-	 * @param       $subscriber
-	 * @param bool  $updateStatus If set to true, it will force the status update even for those already subscribed.
+	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
 	 */
-	function updateSubscriber($subscriber, $updateStatus = false)
-	{
+	function updateSubscriber(Sub $s, $updateStatus = false) {
 		$saveSubscriber = false;
 		$isAdmin = Mage::app()->getStore()->isAdmin();
 		$helper = $this->getMailchimpHelper();
-		$storeId = $subscriber->getStoreId();
+		$storeId = $s->getStoreId();
 		$subscriptionEnabled = $helper->isSubscriptionEnabled($storeId);
 		if ($subscriptionEnabled) {
 			$listId = $helper->getGeneralList($storeId);
-			$newStatus = $this->translateMagentoStatusToMailchimpStatus($subscriber->getStatus());
+			$newStatus = $this->translateMagentoStatusToMailchimpStatus($s->getStatus());
 			$forceStatus = ($updateStatus) ? $newStatus : null;
 			try {
 				$api = $helper->getApi($storeId);
@@ -250,14 +249,14 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 				return;
 			}
 			$language = $helper->getStoreLanguageCode($storeId);
-			$interest = $this->_getInterest($subscriber);
-			$emailHash = hash('md5', strtolower($subscriber->getSubscriberEmail()));
-			$t = Tags::p($subscriber, (int)$storeId); /** @var array $t */
+			$interest = $this->_getInterest($s);
+			$emailHash = hash('md5', strtolower($s->getSubscriberEmail()));
+			$t = Tags::p($s, (int)$storeId); /** @var array $t */
 			try {
 				$api->lists->members->addOrUpdate(
 					$listId,
 					$emailHash,
-					$subscriber->getSubscriberEmail(),
+					$s->getSubscriberEmail(),
 					$newStatus,
 					null,
 					$forceStatus,
@@ -267,40 +266,40 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 					null,
 					null
 				);
-				$subscriber->setData("mailchimp_sync_delta", hcg_mc_h_date()->formatDate(null, 'Y-m-d H:i:s'));
-				$subscriber->setData("mailchimp_sync_error", "");
-				$subscriber->setData("mailchimp_sync_modified", 0);
+				$s->setData("mailchimp_sync_delta", hcg_mc_h_date()->formatDate(null, 'Y-m-d H:i:s'));
+				$s->setData("mailchimp_sync_error", "");
+				$s->setData("mailchimp_sync_modified", 0);
 				$saveSubscriber = true;
 			} catch (MailChimp_Error $e) {
-				if ($this->isSubscribed($newStatus) && $subscriber->getIsStatusChanged()
+				if ($this->isSubscribed($newStatus) && $s->getIsStatusChanged()
 					&& !$helper->isSubscriptionConfirmationEnabled($storeId)
 				) {
 					if (strstr($e->getMailchimpDetails(), 'is in a compliance state')) {
 						try {
 							$this->_catchMailchimpNewstellerConfirm(
-								$api, $listId, $emailHash, $t, $subscriber, $interest
+								$api, $listId, $emailHash, $t, $s, $interest
 							);
 							$saveSubscriber = true;
 						} catch (MailChimp_Error $e) {
-							$this->_catchMailchimpException($e, $subscriber, $isAdmin);
+							$this->_catchMailchimpException($e, $s, $isAdmin);
 							$saveSubscriber = true;
 						} catch (Exception $e) {
 							$helper->logError($e->getMessage());
 						}
 					} else {
-						$this->_catchMailchimpSubsNotAppliedIf($e, $isAdmin, $subscriber);
+						$this->_catchMailchimpSubsNotAppliedIf($e, $isAdmin, $s);
 						$saveSubscriber = true;
 					}
 				} else {
-					$this->_catchMailchimpSubsNotAppliedElse($e, $isAdmin, $subscriber);
+					$this->_catchMailchimpSubsNotAppliedElse($e, $isAdmin, $s);
 				}
 			} catch (Exception $e) {
 				$helper->logError($e->getMessage());
 			}
 
 			if ($saveSubscriber) {
-				$subscriber->setSubscriberSource(Ebizmarts_MailChimp_Model_Subscriber::MAILCHIMP_SUBSCRIBE);
-				$subscriber->save();
+				$s->setSubscriberSource(Ebizmarts_MailChimp_Model_Subscriber::MAILCHIMP_SUBSCRIBE);
+				$s->save();
 			}
 		}
 	}
