@@ -108,14 +108,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				);
 				break;
 			case 'firstname':
-				if ($v = $this->nameFirst()) {
-					$this->set($k, $v);
-				}
-				break;
 			case 'lastname':
-				if ($v = $this->getLastName($this->sub(), $c)) {
-					$this->set($k, $v);
-				}
+				$this->set($k, $this->name($ac));
 				break;
 			case 'store_id':
 				$this->set($k, $this->getStoreId());
@@ -148,6 +142,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::_p()
 	 * @used-by self::customerAttributes()
 	 * @used-by self::customizedAttributes()
+	 * @used-by self::name()
 	 */
 	private function customer():C {return dfc($this, function() {
 		$r = Mage::getModel('customer/customer'); /** @var C $r */
@@ -295,22 +290,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::nameFirst()
+	 * @used-by self::attCustomer()
 	 */
 	private function name(string $k):string {return $this->customer()[$k] ?: ($this->sub()["subscriber_$k"] ?: (
 		($o = $this->o()) ? $o["customer_$k"] : df_error("Unable to find out `{$k}` for the customer.")
 	));}
-
-	/**
-	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::attCustomer()
-	 */
-	private function nameFirst():string {return $this->customer()->getFirstname() ?: (
-		$this->sub()->getSubscriberFirstname() ?: (
-			($o = $this->o()) ? $o->getCustomerFirstname() : df_error('')
-		)
-	);}
 
 	/**
 	 * @param $mergeVars
@@ -432,11 +416,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::getAddressData()
 	 * @used-by self::addressC()
-	 * @used-by self::getFirstName()
+	 * @used-by self::getAddressData()
 	 * @used-by self::getLastDateOfPurchase()
-	 * @used-by self::getLastName()
+	 * @used-by self::name()
 	 */
 	private function o():?O {return dfc($this, function() {/** @var OC $c */ return !count(
 		$c = df_order_c()
@@ -463,8 +446,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
-	 * @used-by self::getFirstName()
-	 * @used-by self::getLastName()
+	 * @used-by self::name()
 	 * @used-by self::o()
 	 * @used-by self::processMergeFields()
 	 */
