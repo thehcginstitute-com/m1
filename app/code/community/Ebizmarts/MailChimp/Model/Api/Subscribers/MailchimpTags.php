@@ -293,9 +293,13 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @return Object
+	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::nameFirst()
 	 */
-	private function getEntityAttributeCollection() {return Mage::getResourceModel('eav/entity_attribute_collection');}
+	private function name(string $k):string {return $this->customer()[$k] ?: ($this->sub()["subscriber_$k"] ?: (
+		($o = $this->o()) ? $o["customer_$k"] : df_error("Unable to find out `{$k}` for the customer.")
+	));}
 
 	/**
 	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
