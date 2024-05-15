@@ -48,21 +48,13 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::p()
 	 */
 	private function _p():void {
-		$aa =
-			$this->getEntityAttributeCollection()
-				->setEntityTypeFilter(1)
-				->addSetInfo()
-				->getData()
-		;
-		$aa = array_combine(df_int(df_column($aa, 'attribute_id')), $aa); /** @var array(int => array(string => mixed)) $aa */
 		# 2024-05-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# https://3v4l.org/akQm0#tabs
 		foreach (hcg_mc_cfg_fields() as $f) {/** @var array(string => string) $f */
 			if (($mg = dfa($f, 'magento')) && ($mc = dfa($f, 'mailchimp'))) { /** @var string $mg */ /** @var string $mc */
 				$mc = strtoupper($mc);
 				if (is_numeric($mg)) {
-					$mg = (int)$mg;
-					$this->buildCustomerAttributes($aa[$mg], $mc);
+					$this->attCustomer((int)$mg, $mc);
 				}
 				else {
 					$this->buildCustomizedAttributes($mg, $mc);
@@ -84,6 +76,21 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				,'Customer' => $this->customer()
 				,'Subscriber' => $this->sub()
 			]);
+		}
+	}
+
+	/**
+	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_p()
+	 */
+	private function attCustomer(int $mg, string $mc):void {
+		$ac = $a['attribute_code'];
+		if ('email' !== $ac) {
+			$this->processAttribute($ac, $this->customer(), $mc, $a);
+		}
+		if (!is_null($v = $this->getMailChimpTagValue($mc))) {
+			$this->set($mc, $v);
 		}
 	}
 
@@ -153,21 +160,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			$r = $this->getMailChimpTagValue($mc);
 		}
 		return $r;
-	}
-
-	/**
-	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::_p()
-	 */
-	private function buildCustomerAttributes(array $a, string $mc):void {
-		$ac = $a['attribute_code'];
-		if ('email' !== $ac) {
-			$this->processAttribute($ac, $this->customer(), $mc, $a);
-		}
-		if (!is_null($v = $this->getMailChimpTagValue($mc))) {
-			$this->set($mc, $v);
-		}
 	}
 
 	/**
@@ -329,7 +321,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::buildCustomerAttributes()
+	 * @used-by self::attCustomer()
 	 * @used-by self::customizedAttributes()
 	 */
 	private function getMailChimpTagValue(string $k) {return dfa($this->_d, $k);}
@@ -412,7 +404,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::buildCustomerAttributes()
+	 * @used-by self::attCustomer()
 	 */
 	private function processAttribute(string $a, C $c, $k, $attribute):void {
 		switch ($a) {
@@ -471,7 +463,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::addStoreCodeFromCustomizedAttribute()
 	 * @used-by self::addUnknownMergeField()
 	 * @used-by self::addWebsiteId()
-	 * @used-by self::buildCustomerAttributes()
+	 * @used-by self::attCustomer()
 	 * @used-by self::buildCustomizedAttributes()
  	 * @used-by self::processAttribute()
 	 * @param $v
