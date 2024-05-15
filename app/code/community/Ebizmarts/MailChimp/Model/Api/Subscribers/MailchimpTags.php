@@ -75,7 +75,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		if (!dfa($d, 'FNAME')) {
 			df_log('`FNAME` is missing in the merge fields', $this, [
 				'Merge Fields' => $d
-				,'Customer' => $this->customer()
+				,'Customer' => $this->с()
 				,'Subscriber' => $this->sub()
 			]);
 		}
@@ -144,7 +144,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::customizedAttributes()
 	 * @used-by self::name()
 	 */
-	private function customer():C {return dfc($this, function() {
+	private function с():C {return dfc($this, function() {
 		$r = Mage::getModel('customer/customer'); /** @var C $r */
 		$r->setWebsiteId(df_store($this->getStoreId())->getWebsiteId());
 		return $r->load($this->sub()->getCustomerId());
@@ -160,7 +160,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$r = null;
 		$addressGet = function($f) use($mg, $mc):void {/** @var string|Closure $f */
 			if (
-				($ad = !$this->addressO() ? null : $this->customer()->getPrimaryAddress('default_' . df_first(explode('_', $mg))))
+				($ad = !$this->addressO() ? null : $this->с()->getPrimaryAddress('default_' . df_first(explode('_', $mg))))
 				/** @var AddressC $ad */
 				&& 	($v = !is_string($f) ? $f($ad) : (df_starts_with($f, 'get') ? call_user_func([$ad, $f]) : $ad[$f]))
 				/** @var mixed $v */
@@ -340,7 +340,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::addStoreCodeFromCustomizedAttribute()
 	 * @used-by self::addWebsiteId()
 	 * @used-by self::_p()
-	 * @used-by self::customer()
+	 * @used-by self::с()
 	 */
 	private function getStoreId():int {return $this->_storeId;}
 
@@ -391,7 +391,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::attCustomer()
 	 */
-	private function name(string $k):string {return $this->customer()[$k] ?: ($this->sub()["subscriber_$k"] ?: (
+	private function name(string $k):string {return $this->с()[$k] ?: ($this->sub()["subscriber_$k"] ?: (
 		($o = $this->o()) ? $o["customer_$k"] : df_error("Unable to find out `{$k}` for the customer.")
 	));}
 
