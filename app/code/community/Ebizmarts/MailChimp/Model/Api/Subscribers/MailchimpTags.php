@@ -54,7 +54,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			if (($mg = dfa($f, 'magento')) && ($mc = dfa($f, 'mailchimp'))) { /** @var string $mg */ /** @var string $mc */
 				$mc = strtoupper($mc);
 				if (is_numeric($mg)) {
-					$this->attCustomer((int)$mg, $mc);
+					$this->attCustomer(df_customer_att($mg), $mc);
 				}
 				else {
 					$this->buildCustomizedAttributes($mg, $mc);
