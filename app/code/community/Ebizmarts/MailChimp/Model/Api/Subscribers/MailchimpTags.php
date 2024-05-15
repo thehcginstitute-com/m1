@@ -88,7 +88,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::_p()
 	 */
 	private function attCustomer(IA $a, string $mc):void {
-		$c = $this->customer(); /** @var C $c */
 		$k = $a->getId(); /** @var int $k */
 		switch ($ac = $a->getAttributeCode()) {/** @var string $ac */
 			case 'default_billing':
@@ -299,16 +298,14 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function getEntityAttributeCollection() {return Mage::getResourceModel('eav/entity_attribute_collection');}
 
 	/**
-	 * @param $subscriber
-	 * @param $customer
 	 * @return string
 	 */
-	private function getFirstName($subscriber, $customer) {
+	private function getFirstName() {
 		$lastOrder = $this->o();
-		$firstName = $customer->getFirstname();
+		$firstName = $this->customer()->getFirstname();
 		if (!$firstName) {
-			if ($subscriber->getSubscriberFirstname()) {
-				$firstName = $subscriber->getSubscriberFirstname();
+			if ($this->sub()->getSubscriberFirstname()) {
+				$firstName = $this->sub()->getSubscriberFirstname();
 			} elseif ($lastOrder && $lastOrder->getCustomerFirstname()) {
 				$firstName = $lastOrder->getCustomerFirstname();
 			}
