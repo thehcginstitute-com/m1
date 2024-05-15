@@ -288,15 +288,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::attCustomer()
-	 */
-	private function name(string $k):string {return $this->customer()[$k] ?: ($this->sub()["subscriber_$k"] ?: (
-		($o = $this->o()) ? $o["customer_$k"] : df_error("Unable to find out `{$k}` for the customer.")
-	));}
-
-	/**
 	 * @param $mergeVars
 	 * @param $key
 	 * @param $genderValue
@@ -326,24 +317,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		}
 
 		return $lastDateOfPurchase;
-	}
-
-	/**
-	 * @param $subscriber
-	 * @param $customer
-	 * @return string
-	 */
-	private function getLastName($subscriber, $customer) {
-		$lastOrder = $this->o();
-		$lastName = $customer->getLastname();
-		if (!$lastName) {
-			if ($subscriber->getSubscriberLastname()) {
-				$lastName = $subscriber->getSubscriberLastname();
-			} elseif ($lastOrder && $lastOrder->getCustomerLastname()) {
-				$lastName = $lastOrder->getCustomerLastname();
-			}
-		}
-		return $lastName;
 	}
 
 	/**
@@ -412,6 +385,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			return false;
 		}
 	}
+
+	/**
+	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::attCustomer()
+	 */
+	private function name(string $k):string {return $this->customer()[$k] ?: ($this->sub()["subscriber_$k"] ?: (
+		($o = $this->o()) ? $o["customer_$k"] : df_error("Unable to find out `{$k}` for the customer.")
+	));}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
