@@ -5,6 +5,7 @@
  * 		df_csv(['aaa', 'bbb', 'ccc']) → 'aaa,bbb,ccc'
  * 		df_csv_pretty(['aaa', 'bbb']) → 'aaa, bbb, ccc'
  * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax will reject arrays: https://3v4l.org/jFdPm
+ * 2024-05-16 "Port `df_csv_pretty()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/614
  * @see df_csv()
  * @used-by dfe_modules_log()
  * @used-by \Df\Framework\Validator\Currency::message()
