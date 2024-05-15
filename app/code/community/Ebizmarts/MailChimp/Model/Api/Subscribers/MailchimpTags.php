@@ -1,5 +1,6 @@
 <?php
 use Mage_Customer_Model_Address as AddressC;
+use Mage_Customer_Model_Address_Abstract as AddressA;
 use Mage_Customer_Model_Customer as C;
 use Mage_Eav_Model_Entity_Attribute_Abstract as A;
 use Mage_Eav_Model_Entity_Attribute_Interface as IA;
@@ -92,7 +93,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		switch ($ac = $a->getAttributeCode()) {/** @var string $ac */
 			case 'default_billing':
 			case 'default_shipping':
-				if ($v = $this->address($ac)) {
+				if ($v = $this->vAddress($ac)) {
 					$this->set($k, $v);
 				}
 				break;
@@ -140,6 +141,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
 	 * https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
+	 * @used-by self::address()
 	 * @used-by self::customerAttributes()
 	 * @used-by self::customizedAttributes()
 	 * @used-by self::name()
@@ -156,7 +158,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$r = null;
 		$addressGet = function($f) use($mg, $mc):void {/** @var string|Closure $f */
 			if (
-				($ad = !$this->addressO() ? null : $this->c()->getPrimaryAddress('default_' . df_first(explode('_', $mg))))
+				($ad = !$this->addressO() ? null : $this->address($mg))
 				/** @var AddressC $ad */
 				&& 	($v = !is_string($f) ? $f($ad) : (df_starts_with($f, 'get') ? call_user_func([$ad, $f]) : $ad[$f]))
 				/** @var mixed $v */
@@ -225,9 +227,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * https://mailchimp.com/developer/marketing/docs/merge-fields#add-merge-data-to-contacts
 	 * @used-by self::attCustomer()
 	 */
-	private function address(string $ac):array {
+	private function vAddress(string $ac):array {
 		$o = $this->o(); /** @var O $o */
 		$c = $this->c(); /** @var C $c */
+		$c->getPrimaryShippingAddress();
+		$c->getDefaultShippingAddress();
+		$a = $this->address($ac); /** @var ?AddressC $a */
 		return [
 			'addr1' => ''
 			,'addr2' => ''
@@ -237,6 +242,18 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			,'zip' => ''
 		];
 	}
+
+	/**
+	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::customizedAttributes()
+	 * @used-by self::vAddress()
+	 * @return AddressO|AddressC|null
+	 */
+	private function address(string $ac):?AddressA {return dfc($this, function(string $ac):?AddressC {
+		$t = df_first(explode('_', $ac)); /** @var string $ac */
+		return $this->c()->getPrimaryAddress('default_' . df_first(explode('_', $ac)));
+	}, [$ac]);}
 
 	/**
 	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
