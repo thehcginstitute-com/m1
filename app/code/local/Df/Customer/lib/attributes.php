@@ -8,7 +8,7 @@ use Mage_Eav_Model_Entity_Attribute_Interface as IA;
  * 2.1) "Improve `df_customer_att()`": https://github.com/mage2pro/core/issues/371
  * 2.2) `print_r([2 => 'numeric', '2' => 'literal']);` => «Array ([2] => literal)»: https://3v4l.org/jatMt
  * @used-by df_customer_att_is_required()
- * @used-by \Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::_p() (https://github.com/cabinetsbay/site/issues/589)
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::_p() (https://github.com/cabinetsbay/site/issues/589)
  * @param string|int|IA $a
  * @return IA|A
  */
