@@ -1,7 +1,9 @@
 <?php
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as Tags;
-class Ebizmarts_MailChimp_Model_Api_Subscribers
-{
+use Mage_Newsletter_Model_Subscriber as Sub;
+# 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
+class Ebizmarts_MailChimp_Model_Api_Subscribers {
 	const BATCH_LIMIT = 100;
 
 	/**
