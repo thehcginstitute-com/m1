@@ -92,7 +92,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		switch ($ac = $a->getAttributeCode()) {/** @var string $ac */
 			case 'default_billing':
 			case 'default_shipping':
-				if ($v = $this->getAddressData($c->getPrimaryAddress($ac))) {
+				if ($v = $this->address($c->getPrimaryAddress($ac))) {
 					$this->set($k, $v);
 				}
 				break;
@@ -216,10 +216,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
-	 * @param $address
-	 * @return array
+	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::attCustomer()
 	 */
-	private function getAddressData($address) {
+	private function address($address) {
 		$addressData = $this->addressO();
 		if (!empty($addressData)) {
 			if ($address) {
