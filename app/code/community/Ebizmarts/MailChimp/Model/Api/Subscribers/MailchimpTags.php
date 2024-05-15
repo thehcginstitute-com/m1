@@ -92,7 +92,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		switch ($ac = $a->getAttributeCode()) {/** @var string $ac */
 			case 'default_billing':
 			case 'default_shipping':
-				if ($v = $this->address($c->getPrimaryAddress($ac))) {
+				if ($v = $this->address($ac)) {
 					$this->set($k, $v);
 				}
 				break;
@@ -217,13 +217,18 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 	/**
 	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * 1) "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * 2) https://mailchimp.com/developer/marketing/docs/merge-fields#add-merge-data-to-contacts
+	 * 3) "`Ebizmarts_MailChimp`: «merge_fields.BILLING : Data did not match any of the schemas described in anyOf»":
+	 * https://github.com/thehcginstitute-com/m1/issues/567
+	 * 4) "`Ebizmarts_MailChimp`: «merge_fields.SHIPPING : Data did not match any of the schemas described in anyOf»":
+	 * https://github.com/thehcginstitute-com/m1/issues/568
 	 * @used-by self::attCustomer()
 	 */
-	private function address($address):array {
-		$r = $this->addressO();
+	private function address(string $ac):array {
+		$r = $this->addressO(); /** @var AddressO|null $r */
 		if (!empty($r)) {
-			if ($address) {
+			if ($a = $this->c()->getPrimaryAddress($ac)) { /** @var AddressC $a */
 				$street = $address->getStreet();
 				if (count($street) > 1) {
 					$r["addr1"] = $street[0];
