@@ -144,7 +144,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::customizedAttributes()
 	 * @used-by self::name()
 	 */
-	private function c():C {return dfc($this, function() {return df_customer($this->sub()->getCustomerId());});}
+	private function c():C {return dfc($this, function() {return df_customer($this->sub());});}
 
 	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro

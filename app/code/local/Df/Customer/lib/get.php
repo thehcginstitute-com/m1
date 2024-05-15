@@ -1,5 +1,6 @@
 <?php
 use Mage_Customer_Model_Customer as C;
+use Mage_Newsletter_Model_Subscriber as Sub;
 use Mage_Sales_Model_Order as O;
 
 /**
@@ -17,7 +18,7 @@ use Mage_Sales_Model_Order as O;
  * @used-by df_customer()
  * @used-by df_sentry_m()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::c() (https://github.com/cabinetsbay/site/issues/589)
- * @param string|int|C|null $c [optional]
+ * @param string|int|C|Sub|null $c [optional]
  * @param Closure|bool|mixed $onE [optional]
  * @return C|null
  */
@@ -35,7 +36,7 @@ function df_customer($c = null, $onE = null) {return df_try(function() use($c) {
 	) : ($c instanceof C ? $c : (
 		($id =
 			$c instanceof O ? $c->getCustomerId() : (
-				is_int($c) || is_string($c) ? $c : null
+				is_int($c) || is_string($c) ? $c : ($c instanceof Sub ? $c->getCustomerId() : null)
 			)
 		)
 			? Mage::getModel('customer/customer')->load($id)
