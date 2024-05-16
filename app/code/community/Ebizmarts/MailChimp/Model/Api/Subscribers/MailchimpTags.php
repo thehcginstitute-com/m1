@@ -36,7 +36,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	static function p(Sub $sub, int $sid):array {
 		$i = new self;
 		$i->_sub = $sub;
-		$i->_storeId = $sid;
+		$i->_sid = $sid;
 		$i->_p();
 		return $i->_d;
 	}
@@ -229,7 +229,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::_p()
 	 * @used-by self::c()
 	 */
-	private function sid():int {return $this->_storeId;}
+	private function sid():int {return $this->_sid;}
 
 	/**
 	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -268,7 +268,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @var int
 	 */
-	private $_storeId;
+	private $_sid;
 
 	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
