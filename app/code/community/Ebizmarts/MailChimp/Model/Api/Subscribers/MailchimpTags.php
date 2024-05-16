@@ -157,12 +157,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function customizedAttributes(string $mg, string $mc) {
 		$r = null;
 		$addressGet = function($f) use($mg, $mc):void {/** @var string|Closure $f */
-			if (
-				($ad = !$this->addressO() ? null : $this->address($mg))
-				/** @var AddressC $ad */
-				&& 	($v = !is_string($f) ? $f($ad) : (df_starts_with($f, 'get') ? call_user_func([$ad, $f]) : $ad[$f]))
+			if ($v = $this->addressGet($mg, $f)) {
 				/** @var mixed $v */
-			) {
 				$this->set($mc, $v);
 			}
 		};
@@ -246,8 +242,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::customizedAttributes()
-	 * @used-by self::vAddress()
+	 * @used-by self::addressGet()
 	 * @return AddressO|AddressC|null
 	 */
 	private function address(string $ac):?AddressA {return dfc($this, function(string $ac):?AddressC {
@@ -258,6 +253,16 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		}
 		return $r ?: df_ftn($this->c()->getPrimaryAddress("default_$t"));
 	}, [$ac]);}
+
+	/**
+	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @param string|Closure $k
+	 * @return mixed|null
+	 */
+	private function addressGet(string $ac, $k) {return !($a = $this->address($ac)) ? null : (
+		!is_string($k) ? $k($a) : (df_starts_with($k, 'get') ? call_user_func([$a, $k]) : $a[$k])
+	);}
 
 	/**
 	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro

@@ -38,6 +38,7 @@ function df_ends_with(string $haystack, $n):bool {return is_array($n)
  * @used-by df_starts_with()
  * @used-by df_zf_http_last_req()
  * @used-by \Df\Qa\Trace::__construct()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::addressGet() (https://github.com/cabinetsbay/site/issues/589)
  * @param string $haystack
  * @param string|string[] $n
  * @return bool
