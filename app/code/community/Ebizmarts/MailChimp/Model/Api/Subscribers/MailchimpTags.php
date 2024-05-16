@@ -152,12 +152,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function customizedAttributes(string $mg, string $mc) {
 		$r = null;
-		$addressGet = function($f) use($mg, $mc):void {/** @var string|Closure $f */
-			if ($v = $this->addressGet($mg, $f)) {
-				/** @var mixed $v */
-				$this->set($mc, $v);
-			}
-		};
+		$addressGet = function($f) use($mg, $mc):void {/** @var string|Closure $f */$this->set($mc, $this->addressGet($mg, $f));};
 		switch ($mg) {
 			case 'billing_company':
 			case 'shipping_company':
