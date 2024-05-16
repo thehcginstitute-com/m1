@@ -123,36 +123,37 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::buildattOther()
 	 * @return string|null
 	 */
-	private function attOther(string $mg, string $mc) {
-		$addressGet = function($f) use($mg, $mc):void {/** @var string|Closure $f */$this->set($mc, $this->addressGet($mg, $f));};
+	private function attOther(string $mg) {
+		$r = null; /** @var string|null|array(string => string) $r */
+		$addressGet = function($f) use($mg) {/** @var string|Closure $f */return $this->addressGet($mg, $f);};
 		switch ($mg) {
 			case 'billing_company':
 			case 'shipping_company':
-				$addressGet('company');
+				$r = $addressGet('company');
 				break;
 			case 'billing_telephone':
 			case 'shipping_telephone':
-				$addressGet('telephone');
+				$r = $addressGet('telephone');
 				break;
 			case 'billing_country':
 			case 'shipping_country':
-				$addressGet(function(AddressA $a):string {return df_country_ctn($a->getCountry(), '');});
+				$r = $addressGet(function(AddressA $a):string {return df_country_ctn($a->getCountry(), '');});
 				break;
 			case 'billing_zipcode':
 			case 'shipping_zipcode':
-				$addressGet('postcode');
+				$r = $addressGet('postcode');
 				break;
 			case 'billing_state':
 			case 'shipping_state':
-				$addressGet('getRegion'); /** @uses Mage_Customer_Model_Address_Abstract::getRegion() */
+				$r = $addressGet('getRegion'); /** @uses Mage_Customer_Model_Address_Abstract::getRegion() */
 				break;
 			case 'dop':
-				$this->set($mc, ($o = $this->o()) ? $o->getCreatedAt() : '');
+				$r = !($o = $this->o()) ? null : $o->getCreatedAt();
 				break;
 			case 'store_code':
-				$this->set($mc, df_store($this->getStoreId())->getCode());
-				break;
+				$r = df_store($this->getStoreId())->getCode();
 		}
+		return $r;
 	}
 
 	/**
