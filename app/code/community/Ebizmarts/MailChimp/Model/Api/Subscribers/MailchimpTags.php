@@ -203,7 +203,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			,'addr2' => ''
 			,'city' => $a->getCity()
 			,'country' => ''
-			,'state' => ''
+			,'state' => $a->getRegion()
 			,'zip' => $a->getPostcode()
 		];
 	}
