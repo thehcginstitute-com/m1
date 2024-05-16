@@ -257,22 +257,14 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::customizedAttributes()
+	 * @used-by self::vAddress()
 	 * @param string|Closure $k
 	 * @return mixed|null
 	 */
 	private function addressGet(string $ac, $k) {return !($a = $this->address($ac)) ? null : (
 		!is_string($k) ? $k($a) : (df_starts_with($k, 'get') ? call_user_func([$a, $k]) : $a[$k])
 	);}
-
-	/**
-	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::customizedAttributes()
-	 * @used-by self::getAddressData()
-	 */
-	private function addressO():?AddressO {return dfc($this, function() {return
-		($o = $this->o()) ? df_ftn($o->getShippingAddress()) : null
-	;});}
 
 	/**
 	 * @param $attributeCode
