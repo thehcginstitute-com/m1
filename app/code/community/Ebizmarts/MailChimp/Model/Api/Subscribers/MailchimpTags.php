@@ -96,12 +96,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($k, $this->vAddress($ac));
 				break;
 			case 'gender':
-				if ($v = $this->getCustomerGroupLabel($a, $this->c())) {
+				if ($v = $this->getCustomerGroupLabel($a)) {
 					$this->set($k, $this->getGenderLabel($this->_d, $k, $v));
 				}
 				break;
 			case 'group_id':
-				$this->set($k, ($v = (int)$this->getCustomerGroupLabel($a, $this->c()))
+				$this->set($k, ($v = (int)$this->getCustomerGroupLabel($a))
 					? Mage::helper('customer')->getGroups()->toOptionHash()[$v]
 					: 'NOT LOGGED IN'
 				);
@@ -120,7 +120,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getName());
 				break;
 			case 'dob':
-				if ($this->getCustomerGroupLabel($a, $this->c())) {
+				if ($this->getCustomerGroupLabel($a)) {
 					$this->set($k, $this->getDateOfBirth($a, $this->c()));
 				}
 				break;
@@ -247,23 +247,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * @param $attributeCode
 	 * @param $customer
-	 * @return string
-	 */
-	private function getCustomerGroupLabel($attributeCode, $customer) {return $customer->getData($attributeCode);}
-
-	/**
-	 * @param $attributeCode
-	 * @param $customer
 	 * @return mixed
 	 * @throws Mage_Core_Model_Store_Exception
 	 */
-	private function getDateOfBirth($attributeCode, $customer)
-	{
-		return hcg_mc_h_date()->formatDate(
-			$this->getCustomerGroupLabel($attributeCode, $customer),
-			'm/d', 1
-		);
-	}
+	private function getDateOfBirth($attributeCode) {return hcg_mc_h_date()->formatDate($this->c()[$attributeCode], 'm/d', 1);}
 
 	/**
 	 * @param $mergeVars
