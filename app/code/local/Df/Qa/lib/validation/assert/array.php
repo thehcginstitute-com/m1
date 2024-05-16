@@ -5,8 +5,8 @@ use Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": h
 /**
  * 2017-01-14 Отныне функция возвращает $v: это позволяет нам значительно сократить код вызова функции.
  * 2024-05-16 "Port `df_assert_in()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/613
+ * @used-by df_assert_address_type()
  * @used-by df_date_from_timestamp_14()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::address() (https://github.com/cabinetsbay/site/issues/589)
  * @param string|float|int|bool|null $v
  * @param array(string|float|int|bool|null) $a
  * @param string|T $m [optional]
