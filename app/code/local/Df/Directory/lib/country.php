@@ -1,5 +1,7 @@
 <?php
+use Closure as F;
 use Mage_Directory_Model_Country as C;
+
 /**
  * 2016-05-20
  * It returns the country name name for an ISO 3166-1 alpha-2 2-characher code and locale
@@ -8,9 +10,12 @@ use Mage_Directory_Model_Country as C;
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::attOther() (https://github.com/cabinetsbay/site/issues/589)
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::vAddress() (https://github.com/cabinetsbay/site/issues/589)
  * @used-by IWD_OrderManager_Adminhtml_Sales_AddressController::format() (https://github.com/thehcginstitute-com/m1/issues/533)
+ * @param F|bool|mixed $onE [optional]
  */
-function df_country_ctn(string $iso2):string {
-	$c = Mage::getModel('directory/country'); /** @var C $c */
-	$c->loadByCode($iso2);
-	return $c->getName();
-}
+function df_country_ctn(string $c, $onE = true):string { return df_try(
+	function() use($c):string {
+		$o = Mage::getModel('directory/country'); /** @var C $o */
+		$o->loadByCode($c);
+		return $o->getName();
+	}, $onE
+);}
