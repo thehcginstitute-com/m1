@@ -3,6 +3,16 @@ use Closure as F;
 use Mage_Customer_Model_Customer as C;
 use Mage_Customer_Model_Group as G;
 /**
+ * 2020-02-06
+ * 2024-05-16 "Port `df_customer_group()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/618
+ * @used-by df_customer_group_name()
+ * @param C|G|int $v
+ */
+function df_customer_group($v):G {return $v instanceof G ? $v : df_customer_group_reg()->retrieve(
+	$v instanceof C ? $v->getGroupId() : $v
+);}
+
+/**
  * 2024-03-03
  * "Implement the `df_customer_group_id()` function": https://github.com/thehcginstitute-com/m1/issues/446
  * @used-by df_customer_is_anon()
