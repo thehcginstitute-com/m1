@@ -7,7 +7,7 @@
  * @used-by app/design/frontend/default/mobileshoppe/template/checkout/onepage/payment.phtml
  * @used-by app/design/frontend/default/mobileshoppe/template/customer/account/navigation.phtml
  */
-function hcg_customer_is_new():bool {return 4 === df_customer_group();}
+function hcg_customer_is_new():bool {return 4 === df_customer_group_id();}
 
 /**
  * 2024-03-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -15,4 +15,4 @@ function hcg_customer_is_new():bool {return 4 === df_customer_group();}
  * @used-by app/design/frontend/default/mobileshoppe/template/catalog/category/view.phtml
  * @used-by app/design/frontend/default/mobileshoppe/template/customer/account/dashboard/hello.phtml
  */
-function hcg_is_patient():bool {return 1 === df_customer_group();}
+function hcg_is_patient():bool {return 1 === df_customer_group_id();}
