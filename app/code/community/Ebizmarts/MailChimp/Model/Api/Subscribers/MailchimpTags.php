@@ -121,7 +121,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			default:
 				if ('email' !== $a->getAttributeCode()) {
-					$this->set($k, $this->getUnknownMergeField($a, $this->c(), $attribute));
+					$this->set($k, $this->getUnknown($a, $this->c(), $attribute));
 				}
 		}
 		$this->set($mc, $this->getMailChimpTagValue($mc));
@@ -282,26 +282,22 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function getStoreId():int {return $this->_storeId;}
 
 	/**
-	 * @param $attributeCode
-	 * @param $customer
-	 * @param $attribute
-	 * @return mixed
+	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::STUB()
 	 */
-	private function getUnknownMergeField($attributeCode, $customer, $attribute)
-	{
-		$optionValue = null;
-
+	private function getUnknown($attributeCode, $customer, $attribute) {
+		$r = null;
 		$attrValue = $this->getCustomerGroupLabel($attributeCode, $customer);
 		if ($attrValue !== null) {
 			if ($attribute['frontend_input'] == 'select' && $attrValue) {
 				$attr = $customer->getResource()->getAttribute($attributeCode);
-				$optionValue = $attr->getSource()->getOptionText($attrValue);
+				$r = $attr->getSource()->getOptionText($attrValue);
 			} elseif ($attrValue) {
-				$optionValue = $attrValue;
+				$r = $attrValue;
 			}
 		}
-
-		return $optionValue;
+		return $r;
 	}
 
 	/**
