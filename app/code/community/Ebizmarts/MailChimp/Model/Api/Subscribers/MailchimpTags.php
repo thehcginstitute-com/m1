@@ -197,16 +197,16 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2) https://3v4l.org/ebbhT
 	 * @used-by self::attCustomer()
 	 */
-	private function vAddress(string $ac):?array {
-		return !($a = $this->address($ac)  /** @var AddressO|AddressC|null $a */) ? null : [
+	private function vAddress(string $ac):?array {return
+		!($a = $this->address($ac)  /** @var AddressO|AddressC|null $a */) ? null : [
 			'addr1' => $a->getStreet(1)
 			,'addr2' => $a->getStreet(2)
 			,'city' => $a->getCity()
 			,'country' => df_country_ctn($a->getCountry())
 			,'state' => $a->getRegion()
 			,'zip' => $a->getPostcode()
-		];
-	}
+		]
+	;}
 
 	/**
 	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
