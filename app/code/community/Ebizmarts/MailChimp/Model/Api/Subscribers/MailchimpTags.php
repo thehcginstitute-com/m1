@@ -122,7 +122,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			case 'firstname':
 			case 'lastname':
-				$r = $this->name($ac);
+				$r = $this->c()[$ac] ?: ($this->sub()["subscriber_$ac"] ?: (
+					($o = $this->o()) ? $o["customer_$ac"] : df_error("Unable to find out `{$ac}` for the customer.")
+				));
 				break;
 			case 'store_id':
 				$r = $this->sid();
@@ -194,21 +196,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function c():C {return dfc($this, function() {return df_customer($this->sub());});}
 
 	/**
-	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::attCustomer()
-	 */
-	private function name(string $k):string {return $this->c()[$k] ?: ($this->sub()["subscriber_$k"] ?: (
-		($o = $this->o()) ? $o["customer_$k"] : df_error("Unable to find out `{$k}` for the customer.")
-	));}
-
-	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::addressC()
+	 * @used-by self::attCustomer()
 	 * @used-by self::attOther()
 	 * @used-by self::getAddressData()
-	 * @used-by self::name()
 	 */
 	private function o():?O {return dfc($this, function() {/** @var OC $c */ return !count(
 		$c = df_order_c()
