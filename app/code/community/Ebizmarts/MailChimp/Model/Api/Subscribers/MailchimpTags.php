@@ -96,9 +96,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($k, $this->vAddress($ac));
 				break;
 			case 'gender':
-				if ($v = $this->c()->getGender()) {
-					$this->set($k, $this->getGenderLabel($this->_d, $k, $v));
-				}
+				$this->set($k, df_tr($this->c()->getGender(), [1 => 'Male', 2 => 'Female']));
 				break;
 			case 'group_id':
 				$this->set($k, ($v = (int)$this->getCustomerGroupLabel($a))
@@ -245,21 +243,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	);}
 
 	/**
-	 * @param $mergeVars
-	 * @param $key
-	 * @param $genderValue
-	 * @return string
-	 */
-	private function getGenderLabel($mergeVars, $key, $genderValue) {
-		if ($genderValue == self::MALE) {
-			$mergeVars[$key] = 'Male';
-		} elseif ($genderValue == self::FEMALE) {
-			$mergeVars[$key] = 'Female';
-		}
-		return $mergeVars[$key];
-	}
-
-	/**
 	 * If orders with the given email exists, returns the date of the last order made.
 	 *
 	 * @param  $subscriberEmail
@@ -394,22 +377,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::processMergeFields()
 	 */
 	private function sub():Sub {return $this->_sub;}
-
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::getGenderLabel()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::gender()
-	 */
-	const MALE = 1;
-
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::getGenderLabel()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::getGenderValue()
-	 */
-	const FEMALE = 2;
 
 	/**
 	 * @var int
