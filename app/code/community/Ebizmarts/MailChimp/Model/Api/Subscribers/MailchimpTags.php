@@ -51,21 +51,22 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		# 2024-05-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# https://3v4l.org/akQm0#tabs
 		foreach (hcg_mc_cfg_fields() as $f) {/** @var array(string => string) $f */
-			if (($mg = dfa($f, 'magento')) && ($mc = dfa($f, 'mailchimp'))) { /** @var string $mg */ /** @var string $mc */
+			if (
+				($mg = dfa($f, 'magento')) /** @var string $mg */
+				&& ($mc = dfa($f, 'mailchimp')) /** @var string $mc */
 				/** @var string|null|array(string => string) $v */
-				if (!df_nes($v = is_numeric($mg) ? $this->attCustomer(df_customer_att($mg)) : $this->attOther($mg))) {
-					$this->_d[strtoupper($mc)] = $v;
-				}
+				&& !df_nes($v = is_numeric($mg) ? $this->attCustomer(df_customer_att($mg)) : $this->attOther($mg))
+			) {
+				$this->_d[strtoupper($mc)] = $v;
 			}
 		}
 		# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "`Ebizmarts_MailChimp`: «Your merge fields were invalid» /
 		# «field [FNAME] : Please enter a value» /
 		# «field [LNAME] : Please enter a value»": https://github.com/thehcginstitute-com/m1/issues/507
-		$d = $this->_d; /** @var array(string => string) $d */
-		if (!dfa($d, 'FNAME')) {
+		if (!dfa($this->_d, 'FNAME')) {
 			df_log('`FNAME` is missing in the merge fields', $this, [
-				'Merge Fields' => $d
+				'Merge Fields' => $this->_d
 				,'Customer' => $this->c()
 				,'Subscriber' => $this->sub()
 			]);
