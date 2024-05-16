@@ -130,9 +130,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::buildattOther()
-	 * @return mixed
 	 */
-	private function attOther(string $mg, string $mc) {
+	private function attOther(string $mg, string $mc):void {
 		$addressGet = function($f) use($mg, $mc):void {/** @var string|Closure $f */$this->set($mc, $this->addressGet($mg, $f));};
 		switch ($mg) {
 			case 'billing_company':
