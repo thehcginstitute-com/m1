@@ -120,8 +120,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				}
 				break;
 			default:
-				if ('email' !== $a->getAttributeCode()) {
-					$this->set($k, $this->getUnknown($a, $this->c(), $attribute));
+				if ('email' !== $ac) {
+					$this->set($k, $this->getUnknown($a));
 				}
 		}
 		$this->set($mc, $this->getMailChimpTagValue($mc));
@@ -284,9 +284,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::STUB()
+	 * @used-by self::attCustomer()
 	 */
-	private function getUnknown(string $ac, $attribute) {
+	private function getUnknown(IA $a) {
+		$ac = $a->getAttributeCode(); /** @var string $ac */
 		$r = null;
 		$attrValue = $this->c()[$ac];
 		if ($attrValue !== null) {
