@@ -4,6 +4,7 @@ use Mage_Customer_Helper_Data as H;
 
 /**
  * 2024-05-16
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::attCustomer() (https://github.com/cabinetsbay/site/issues/589)
  */
 function df_customer_h():H {return Mage::helper('customer');}
 
