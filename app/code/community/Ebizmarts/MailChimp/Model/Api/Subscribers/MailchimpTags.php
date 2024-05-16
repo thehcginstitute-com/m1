@@ -191,24 +191,20 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 4) "`Ebizmarts_MailChimp`: «merge_fields.SHIPPING : Data did not match any of the schemas described in anyOf»":
 	 * https://github.com/thehcginstitute-com/m1/issues/568
 	 * 2024-05-16
-	 * «a JSON object with the required keys `addr1`, `city`, `state`, and `zip`, and the optional keys `addr2` and `country`.
+	 * 1) «a JSON object with the required keys `addr1`, `city`, `state`, and `zip`, and the optional keys `addr2` and `country`.
 	 * Values for these fields must be strings.»
 	 * https://mailchimp.com/developer/marketing/docs/merge-fields#add-merge-data-to-contacts
+	 * 2) https://3v4l.org/ebbhT
 	 * @used-by self::attCustomer()
 	 */
-	private function vAddress(string $ac):array {
-		$o = $this->o(); /** @var O $o */
-		$c = $this->c(); /** @var C $c */
-		$c->getPrimaryShippingAddress();
-		$c->getDefaultShippingAddress();
-		$a = $this->address($ac); /** @var ?AddressC $a */
-		return [
+	private function vAddress(string $ac):?array {
+		return !($a = $this->address($ac)  /** @var AddressO|AddressC|null $a */) ? null : [
 			'addr1' => ''
 			,'addr2' => ''
-			,'city' => ''
+			,'city' => $a->getCity()
 			,'country' => ''
 			,'state' => ''
-			,'zip' => ''
+			,'zip' => $a->getPostcode()
 		];
 	}
 
@@ -216,6 +212,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::addressGet()
+	 * @used-by self::vAddress()
 	 * @return AddressO|AddressC|null
 	 */
 	private function address(string $ac):?AddressA {return dfc($this, function(string $ac):?AddressC {
