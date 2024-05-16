@@ -286,12 +286,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::STUB()
 	 */
-	private function getUnknown($attributeCode, $customer, $attribute) {
+	private function getUnknown(string $ac, $attribute) {
 		$r = null;
-		$attrValue = $this->getCustomerGroupLabel($attributeCode, $customer);
+		$attrValue = $this->c()[$ac];
 		if ($attrValue !== null) {
 			if ($attribute['frontend_input'] == 'select' && $attrValue) {
-				$attr = $customer->getResource()->getAttribute($attributeCode);
+				$attr = $this->c()->getResource()->getAttribute($ac);
 				$r = $attr->getSource()->getOptionText($attrValue);
 			} elseif ($attrValue) {
 				$r = $attrValue;
