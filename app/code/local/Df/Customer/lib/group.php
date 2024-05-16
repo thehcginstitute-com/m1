@@ -8,9 +8,16 @@ use Mage_Customer_Model_Group as G;
  * @used-by df_customer_group_name()
  * @param C|G|int $v
  */
-function df_customer_group($v):G {return $v instanceof G ? $v : df_customer_group_reg()->retrieve(
-	$v instanceof C ? $v->getGroupId() : $v
-);}
+function df_customer_group($v):G {/** @var G $r */
+	if ($v instanceof G) {
+		$r = $v;
+	}
+	else {
+		$r = Mage::getModel('customer/group');
+		$r->load($v instanceof C ? $v->getGroupId() : $v);
+	}
+	return $r;
+}
 
 /**
  * 2024-03-03
