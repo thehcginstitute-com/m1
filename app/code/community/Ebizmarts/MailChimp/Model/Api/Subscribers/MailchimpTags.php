@@ -228,7 +228,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::_p()
 	 * @used-by self::attCustomer()
 	 * @used-by self::o()
-	 * @used-by self::processMergeFields()
 	 */
 	private function sub():Sub {return $this->_sub;}
 
