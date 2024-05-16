@@ -230,19 +230,16 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	);}
 
 	/**
-	 * If orders with the given email exists, returns the date of the last order made.
-	 *
-	 * @param  $subscriberEmail
-	 * @return null
+	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::STUB()
 	 */
-	private function getLastDateOfPurchase()
-	{
+	private function getLastDateOfPurchase() {
 		$lastDateOfPurchase = null;
 		$lastOrder = $this->o();
 		if ($lastOrder !== null) {
 			$lastDateOfPurchase = $lastOrder->getCreatedAt();
 		}
-
 		return $lastDateOfPurchase;
 	}
 
