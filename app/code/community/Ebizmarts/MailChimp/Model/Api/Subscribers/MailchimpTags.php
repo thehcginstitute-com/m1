@@ -55,8 +55,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		# https://3v4l.org/akQm0#tabs
 		foreach (hcg_mc_cfg_fields() as $f) {/** @var array(string => string) $f */
 			if (($mg = dfa($f, 'magento')) && ($mc = dfa($f, 'mailchimp'))) { /** @var string $mg */ /** @var string $mc */
-				$mc = strtoupper($mc);
-				is_numeric($mg) ? $this->attCustomer(df_customer_att($mg), $mc) : $this->attOther($mg, $mc);
+				$this->set(strtoupper($mc), is_numeric($mg) ? $this->attCustomer(df_customer_att($mg)) : $this->attOther($mg));
 			}
 		}
 		$newVars = $this->getNewVarienObject();
@@ -82,51 +81,49 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
 	 * @param IA|A $a
+	 * @return string|null|array(string => string)
 	 */
-	private function attCustomer(IA $a, string $mc):void {
-		$k = $a->getId(); /** @var int $k */
+	private function attCustomer(IA $a) { /** @var string|null|array(string => string) $r */
 		switch ($ac = $a->getAttributeCode()) {/** @var string $ac */
 			case 'default_billing':
 			case 'default_shipping':
-				$this->set($k, $this->vAddress($ac));
+				$r = $this->vAddress($ac);
 				break;
 			case 'gender':
-				$this->set($k, df_tr($this->c()->getGender(), [1 => 'Male', 2 => 'Female']));
+				$r = df_tr($this->c()->getGender(), [1 => 'Male', 2 => 'Female']);
 				break;
 			case 'group_id':
-				$this->set($k, df_customer_group_name($this->c()));
+				$r = df_customer_group_name($this->c());
 				break;
 			case 'firstname':
 			case 'lastname':
-				$this->set($k, $this->name($ac));
+				$r = $this->name($ac);
 				break;
 			case 'store_id':
-				$this->set($k, $this->getStoreId());
+				$r = $this->getStoreId();
 				break;
 			case 'website_id':
-				$this->set($k, df_store($this->getStoreId())->getWebsiteId());
+				$r = df_store($this->getStoreId())->getWebsiteId();
 				break;
 			case 'created_in':
-				$this->set($k, df_store($this->getStoreId())->getName());
+				$r = df_store($this->getStoreId())->getName();
 				break;
 			case 'dob':
-				if ($v = $this->c()->getDob()) {
-					$this->set($k, hcg_mc_h_date()->formatDate($v, 'm/d', 1));
-				}
+				$r = !($v = $this->c()->getDob()) ? null : hcg_mc_h_date()->formatDate($v, 'm/d', 1);
 				break;
 			default:
-				if ('email' !== $ac) {
-					$this->set($k, df_att_val($this->c(), $a));
-				}
+				$r = 'email' === $ac ? null : df_att_val($this->c(), $a);
 		}
+		return $r;
 	}
 
 	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::buildattOther()
+	 * @return string|null
 	 */
-	private function attOther(string $mg, string $mc):void {
+	private function attOther(string $mg, string $mc) {
 		$addressGet = function($f) use($mg, $mc):void {/** @var string|Closure $f */$this->set($mc, $this->addressGet($mg, $f));};
 		switch ($mg) {
 			case 'billing_company':
