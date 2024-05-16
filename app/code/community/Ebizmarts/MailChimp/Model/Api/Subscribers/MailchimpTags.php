@@ -16,11 +16,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::addGender()
-	 * @used-by self::add()
 	 * @used-by self::_p()
 	 * @used-by self::p()
 	 * @used-by self::get()
-	 * @used-by self::mergeMailchimpTags()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getFName()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getLName()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_setMailchimpTagsToCustomer()
@@ -61,10 +59,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 					$this->_d[strtoupper($mc)] = $v;
 				}
 			}
-		}
-		$newVars = $this->getNewVarienObject();
-		if ($newVars->hasData()) {
-			$this->mergeMailchimpTags($newVars->getData());
 		}
 		# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "`Ebizmarts_MailChimp`: «Your merge fields were invalid» /
@@ -235,11 +229,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function get(string $k) {return dfa($this->_d, $k);}
 
 	/**
-	 * @return Varien_Object
-	 */
-	private function getNewVarienObject() {return new Varien_Object;}
-
-	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::attCustomer()
@@ -250,19 +239,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::c()
 	 */
 	private function getStoreId():int {return $this->_storeId;}
-
-	/**
-	 * @param $mailchimpTags
-	 * @return bool
-	 */
-	private function mergeMailchimpTags($mailchimpTags) {
-		if (is_array($mailchimpTags)) {
-			$this->_d = array_merge($this->_d, $mailchimpTags);
-			return true;
-		} else {
-			return false;
-		}
-	}
 
 	/**
 	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
