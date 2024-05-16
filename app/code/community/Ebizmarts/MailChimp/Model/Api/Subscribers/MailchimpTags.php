@@ -193,9 +193,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::_p()
 	 */
 	private function buildCustomizedAttributes(string $mg, string $mc):void {
-		if (!is_null($v = $this->customizedAttributes($mg, $mc))) {
-			$this->set($mc, $v);
-		}
+		$this->set($mc, $this->customizedAttributes($mg, $mc));
 	}
 
 	/**
