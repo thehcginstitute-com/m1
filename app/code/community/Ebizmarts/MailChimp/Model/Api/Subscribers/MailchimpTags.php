@@ -146,7 +146,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			case 'billing_country':
 			case 'shipping_country':
-				$addressGet(function(AddressC $a):string {return df_country_ctn($a->getCountry(), '');});
+				$addressGet(function(AddressA $a):string {return df_country_ctn($a->getCountry(), '');});
 				break;
 			case 'billing_zipcode':
 			case 'shipping_zipcode':
@@ -198,7 +198,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			'addr1' => $a->getStreet(1)
 			,'addr2' => $a->getStreet(2)
 			,'city' => $a->getCity()
-			,'country' => df_country_ctn($a->getCountry())
+			,'country' => df_country_ctn($a->getCountry(), '')
 			,'state' => $a->getRegion()
 			,'zip' => $a->getPostcode()
 		]
