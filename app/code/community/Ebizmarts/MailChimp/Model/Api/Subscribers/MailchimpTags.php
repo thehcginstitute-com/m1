@@ -99,7 +99,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($k, df_tr($this->c()->getGender(), [1 => 'Male', 2 => 'Female']));
 				break;
 			case 'group_id':
-				$this->set($k, dfa(df_customer_h()->getGroups()->toOptionHash(), (int)$this->c()->getGroupId()));
+				$this->set($k, df_customer_group_name($this->c()));
 				break;
 			case 'firstname':
 			case 'lastname':
