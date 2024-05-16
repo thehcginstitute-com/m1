@@ -120,8 +120,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getName());
 				break;
 			case 'dob':
-				if ($this->getCustomerGroupLabel($a)) {
-					$this->set($k, $this->getDateOfBirth($a, $this->c()));
+				if ($v = $this->c()->getDob()) {
+					$this->set($k, hcg_mc_h_date()->formatDate($v, 'm/d', 1));
 				}
 				break;
 			default:
@@ -243,14 +243,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function addressGet(string $ac, $k) {return !($a = $this->address($ac)) ? null : (
 		!is_string($k) ? $k($a) : (df_starts_with($k, 'get') ? call_user_func([$a, $k]) : $a[$k])
 	);}
-
-	/**
-	 * @param $attributeCode
-	 * @param $customer
-	 * @return mixed
-	 * @throws Mage_Core_Model_Store_Exception
-	 */
-	private function getDateOfBirth($attributeCode) {return hcg_mc_h_date()->formatDate($this->c()[$attributeCode], 'm/d', 1);}
 
 	/**
 	 * @param $mergeVars
