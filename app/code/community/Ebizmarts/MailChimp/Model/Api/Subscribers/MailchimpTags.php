@@ -56,12 +56,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		foreach (hcg_mc_cfg_fields() as $f) {/** @var array(string => string) $f */
 			if (($mg = dfa($f, 'magento')) && ($mc = dfa($f, 'mailchimp'))) { /** @var string $mg */ /** @var string $mc */
 				$mc = strtoupper($mc);
-				if (is_numeric($mg)) {
-					$this->attCustomer(df_customer_att($mg), $mc);
-				}
-				else {
-					$this->attOther($mg, $mc);
-				}
+				is_numeric($mg) ? $this->attCustomer(df_customer_att($mg), $mc) : $this->attOther($mg, $mc);
 			}
 		}
 		$newVars = $this->getNewVarienObject();
@@ -155,7 +150,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$addressGet('getRegion'); /** @uses Mage_Customer_Model_Address_Abstract::getRegion() */
 				break;
 			case 'dop':
-				$this->set($mc, $this->getLastDateOfPurchase());
+				$this->set($mc, ($o = $this->o()) ? $o->getCreatedAt() : '');
 				break;
 			case 'store_code':
 				$this->set($mc, df_store($this->getStoreId())->getCode());
@@ -230,20 +225,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	);}
 
 	/**
-	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::STUB()
-	 */
-	private function getLastDateOfPurchase() {
-		$lastDateOfPurchase = null;
-		$lastOrder = $this->o();
-		if ($lastOrder !== null) {
-			$lastDateOfPurchase = $lastOrder->getCreatedAt();
-		}
-		return $lastDateOfPurchase;
-	}
-
-	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::attCustomer()
@@ -294,8 +275,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::addressC()
+	 * @used-by self::attOther()
 	 * @used-by self::getAddressData()
-	 * @used-by self::getLastDateOfPurchase()
 	 * @used-by self::name()
 	 */
 	private function o():?O {return dfc($this, function() {/** @var OC $c */ return !count(
