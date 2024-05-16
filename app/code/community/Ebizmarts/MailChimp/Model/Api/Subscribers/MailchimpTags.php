@@ -55,7 +55,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		# https://3v4l.org/akQm0#tabs
 		foreach (hcg_mc_cfg_fields() as $f) {/** @var array(string => string) $f */
 			if (($mg = dfa($f, 'magento')) && ($mc = dfa($f, 'mailchimp'))) { /** @var string $mg */ /** @var string $mc */
-				$this->set(strtoupper($mc), is_numeric($mg) ? $this->attCustomer(df_customer_att($mg)) : $this->attOther($mg));
+				/** @var string|null|array(string => string) $v */
+				if (!df_nes($v = is_numeric($mg) ? $this->attCustomer(df_customer_att($mg)) : $this->attOther($mg))) {
+					$this->_d[strtoupper($mc)] = $v;
+				}
 			}
 		}
 		$newVars = $this->getNewVarienObject();
@@ -283,24 +286,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			->setOrder('created_at', 'DESC')
 			->setPageSize(1)
 	) ? null : $c->getLastItem();});}
-
-	/**
-	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
-	 * https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::addStoreCodeFromCustomizedAttribute()
-	 * @used-by self::addUnknownMergeField()
-	 * @used-by self::addWebsiteId()
-	 * @used-by self::attCustomer()
-	 * @used-by self::buildattOther()
-	 * @param int|string $k
-	 * @param $v
-	 */
-	private function set($k, $v):void {
-		if (!df_nes($v)) {
-			$this->_d[$k] = $v;
-		}
-	}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
