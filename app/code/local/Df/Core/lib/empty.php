@@ -66,6 +66,7 @@ function df_ets($v) {return $v ?: '';}
 /**
  * 2024-03-23 "Port `df_ftn()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/STUB
  * @used-by df_fetch_one()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::address() (https://github.com/cabinetsbay/site/issues/589)
  * @param mixed|false $v
  * @return mixed|null
  */
