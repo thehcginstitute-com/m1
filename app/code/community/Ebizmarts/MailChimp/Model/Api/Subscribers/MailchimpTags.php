@@ -93,17 +93,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		switch ($ac = $a->getAttributeCode()) {/** @var string $ac */
 			case 'default_billing':
 			case 'default_shipping':
-				if ($v = $this->vAddress($ac)) {
-					$this->set($k, $v);
-				}
+				$this->set($k, $this->vAddress($ac));
 				break;
 			case 'gender':
-				if ($v = $this->getCustomerGroupLabel($a, $c)) {
+				if ($v = $this->getCustomerGroupLabel($a, $this->c())) {
 					$this->set($k, $this->getGenderLabel($this->_d, $k, $v));
 				}
 				break;
 			case 'group_id':
-				$this->set($k, ($v = (int)$this->getCustomerGroupLabel($a, $c))
+				$this->set($k, ($v = (int)$this->getCustomerGroupLabel($a, $this->c()))
 					? Mage::helper('customer')->getGroups()->toOptionHash()[$v]
 					: 'NOT LOGGED IN'
 				);
@@ -122,18 +120,16 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getName());
 				break;
 			case 'dob':
-				if ($this->getCustomerGroupLabel($a, $c)) {
-					$this->set($k, $this->getDateOfBirth($a, $c));
+				if ($this->getCustomerGroupLabel($a, $this->c())) {
+					$this->set($k, $this->getDateOfBirth($a, $this->c()));
 				}
 				break;
 			default:
-				if ('email' !== $a->getAttributeCode() && !is_null($v = $this->getUnknownMergeField($a, $c, $attribute))) {
+				if ('email' !== $a->getAttributeCode() && !is_null($v = $this->getUnknownMergeField($a, $this->c(), $attribute))) {
 					$this->set($k, $v);
 				}
 		}
-		if (!is_null($v = $this->getMailChimpTagValue($mc))) {
-			$this->set($mc, $v);
-		}
+		$this->set($mc, $this->getMailChimpTagValue($mc));
 	}
 
 	/**
