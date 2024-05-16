@@ -64,6 +64,14 @@ function df_etn($v) {return $v ?: null;}
 function df_ets($v) {return $v ?: '';}
 
 /**
+ * 2024-05-16
+ * 1) "Implement `df_fnes()`": https://github.com/mage2pro/core/issues/374
+ * 2) "Port `df_fnes()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/620
+ * @used-by df_att_val()
+ */
+function df_fnes($v):bool {return is_null($v) || '' === $v || false === $v;}
+
+/**
  * 2024-03-23 "Port `df_ftn()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/STUB
  * @used-by df_fetch_one()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::address() (https://github.com/cabinetsbay/site/issues/589)
