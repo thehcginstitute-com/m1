@@ -202,7 +202,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			'addr1' => ''
 			,'addr2' => ''
 			,'city' => $a->getCity()
-			,'country' => ''
+			,'country' => df_country_ctn($a->getCountry())
 			,'state' => $a->getRegion()
 			,'zip' => $a->getPostcode()
 		];
