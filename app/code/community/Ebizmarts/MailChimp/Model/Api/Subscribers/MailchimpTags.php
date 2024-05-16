@@ -99,10 +99,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($k, df_tr($this->c()->getGender(), [1 => 'Male', 2 => 'Female']));
 				break;
 			case 'group_id':
-				$this->set($k, ($v = (int)$this->getCustomerGroupLabel($a))
-					? Mage::helper('customer')->getGroups()->toOptionHash()[$v]
-					: 'NOT LOGGED IN'
-				);
+				$this->set($k, dfa(Mage::helper('customer')->getGroups()->toOptionHash(), (int)$this->c()->getGroupId()));
 				break;
 			case 'firstname':
 			case 'lastname':
