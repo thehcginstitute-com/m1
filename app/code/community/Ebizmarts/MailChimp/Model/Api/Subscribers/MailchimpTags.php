@@ -287,16 +287,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::attCustomer()
 	 * @param IA|A $a
 	 */
-	private function getUnknown(IA $a) {
+	private function getUnknown(IA $a) {/** @var string|null $r */
 		$ac = $a->getAttributeCode(); /** @var string $ac */
-		$r = null;
-		$v = $this->c()[$ac];
-		if ($v !== null) {
-			if ($a->getFrontendInput() == 'select' && $v) {
-				$attr = $this->c()->getResource()->getAttribute($ac);
-				$r = $attr->getSource()->getOptionText($v);
-			} elseif ($v) {
-				$r = $v;
+		if ($r = $this->c()[$ac]) {
+			if ('select' === $a->getFrontendInput()) {
+				$r = $a->getSource()->getOptionText($r);		
 			}
 		}
 		return $r;
