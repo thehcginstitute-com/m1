@@ -60,7 +60,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 					$this->attCustomer(df_customer_att($mg), $mc);
 				}
 				else {
-					$this->set($mc, $this->attOther($mg, $mc));
+					$this->attOther($mg, $mc);
 				}
 			}
 		}
@@ -162,7 +162,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($mc, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
 				break;
 		}
-		return $this->get($mc);
 	}
 
 	/**
