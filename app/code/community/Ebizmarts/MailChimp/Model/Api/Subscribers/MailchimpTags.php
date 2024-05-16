@@ -134,7 +134,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @return mixed
 	 */
 	private function attOther(string $mg, string $mc) {
-		$r = null;
 		$addressGet = function($f) use($mg, $mc):void {/** @var string|Closure $f */$this->set($mc, $this->addressGet($mg, $f));};
 		switch ($mg) {
 			case 'billing_company':
@@ -164,10 +163,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($mc, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
 				break;
 		}
-		if (!df_nes($this->getMailChimpTagValue($mc))) {
-			$r = $this->getMailChimpTagValue($mc);
-		}
-		return $r;
+		return $this->getMailChimpTagValue($mc);
 	}
 
 	/**
