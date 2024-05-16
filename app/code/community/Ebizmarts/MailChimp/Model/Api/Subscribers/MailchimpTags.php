@@ -203,6 +203,31 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	));}
 
 	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::addressC()
+	 * @used-by self::attOther()
+	 * @used-by self::getAddressData()
+	 * @used-by self::name()
+	 */
+	private function o():?O {return dfc($this, function() {/** @var OC $c */ return !count(
+		$c = df_order_c()
+			->addFieldToFilter('customer_email', ['eq' => $this->sub()->getSubscriberEmail()])
+			->setOrder('created_at', 'DESC')
+			->setPageSize(1)
+	) ? null : $c->getLastItem();});}
+
+	/**
+	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::_p()
+	 * @used-by self::name()
+	 * @used-by self::o()
+	 * @used-by self::processMergeFields()
+	 */
+	private function sub():Sub {return $this->_sub;}
+
+	/**
 	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * 1) "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * 2) https://mailchimp.com/developer/marketing/docs/merge-fields#add-merge-data-to-contacts
@@ -239,31 +264,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::c()
 	 */
 	private function sid():int {return $this->_sid;}
-
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::addressC()
-	 * @used-by self::attOther()
-	 * @used-by self::getAddressData()
-	 * @used-by self::name()
-	 */
-	private function o():?O {return dfc($this, function() {/** @var OC $c */ return !count(
-		$c = df_order_c()
-			->addFieldToFilter('customer_email', ['eq' => $this->sub()->getSubscriberEmail()])
-			->setOrder('created_at', 'DESC')
-			->setPageSize(1)
-	) ? null : $c->getLastItem();});}
-
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::_p()
-	 * @used-by self::name()
-	 * @used-by self::o()
-	 * @used-by self::processMergeFields()
-	 */
-	private function sub():Sub {return $this->_sub;}
 
 	/**
 	 * @var int
