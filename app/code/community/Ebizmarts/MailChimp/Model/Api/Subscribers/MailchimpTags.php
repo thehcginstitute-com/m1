@@ -175,9 +175,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$addressGet('getRegion'); /** @uses Mage_Customer_Model_Address_Abstract::getRegion() */
 				break;
 			case 'dop':
-				if ($v = $this->getLastDateOfPurchase()) {
-					$this->set($mc, $v);
-				}
+				$this->set($mc, $this->getLastDateOfPurchase());
 				break;
 			case 'store_code':
 				$this->set($mc, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
