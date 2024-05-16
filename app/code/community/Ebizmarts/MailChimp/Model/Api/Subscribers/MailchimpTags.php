@@ -218,6 +218,18 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	) ? null : $c->getLastItem();});}
 
 	/**
+	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::attCustomer()
+	 * @used-by self::addCreatedIn()
+	 * @used-by self::addStoreCodeFromCustomizedAttribute()
+	 * @used-by self::addWebsiteId()
+	 * @used-by self::_p()
+	 * @used-by self::c()
+	 */
+	private function sid():int {return $this->_sid;}
+
+	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
@@ -252,18 +264,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			,'zip' => $a->getPostcode()
 		]
 	;}
-
-	/**
-	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::attCustomer()
-	 * @used-by self::addCreatedIn()
-	 * @used-by self::addStoreCodeFromCustomizedAttribute()
-	 * @used-by self::addWebsiteId()
-	 * @used-by self::_p()
-	 * @used-by self::c()
-	 */
-	private function sid():int {return $this->_sid;}
 
 	/**
 	 * @var int
