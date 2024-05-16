@@ -60,7 +60,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 					$this->attCustomer(df_customer_att($mg), $mc);
 				}
 				else {
-					$this->set($mc, $this->attCustom($mg, $mc));
+					$this->set($mc, $this->attOther($mg, $mc));
 				}
 			}
 		}
@@ -139,7 +139,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::_p()
 	 * @used-by self::address()
 	 * @used-by self::customerAttributes()
-	 * @used-by self::attCustom()
+	 * @used-by self::attOther()
 	 * @used-by self::name()
 	 */
 	private function c():C {return dfc($this, function() {return df_customer($this->sub());});}
@@ -147,10 +147,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::buildattCustom()
+	 * @used-by self::buildattOther()
 	 * @return mixed
 	 */
-	private function attCustom(string $mg, string $mc) {
+	private function attOther(string $mg, string $mc) {
 		$r = null;
 		$addressGet = function($f) use($mg, $mc):void {/** @var string|Closure $f */$this->set($mc, $this->addressGet($mg, $f));};
 		switch ($mg) {
@@ -235,7 +235,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::attCustom()
+	 * @used-by self::attOther()
 	 * @used-by self::vAddress()
 	 * @param string|Closure $k
 	 * @return mixed|null
@@ -301,7 +301,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::attCustomer()
-	 * @used-by self::attCustom()
+	 * @used-by self::attOther()
 	 */
 	private function getMailChimpTagValue(string $k) {return dfa($this->_d, $k);}
 
@@ -396,7 +396,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::addUnknownMergeField()
 	 * @used-by self::addWebsiteId()
 	 * @used-by self::attCustomer()
-	 * @used-by self::buildattCustom()
+	 * @used-by self::buildattOther()
 	 * @param int|string $k
 	 * @param $v
 	 */
