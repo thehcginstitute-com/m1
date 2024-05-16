@@ -12,10 +12,8 @@ use Mage_Directory_Model_Country as C;
  * @used-by IWD_OrderManager_Adminhtml_Sales_AddressController::format() (https://github.com/thehcginstitute-com/m1/issues/533)
  * @param F|bool|mixed $onE [optional]
  */
-function df_country_ctn(string $c, $onE = true):string { return df_try(
-	function() use($c):string {
-		$o = Mage::getModel('directory/country'); /** @var C $o */
-		$o->loadByCode($c);
-		return $o->getName();
-	}, $onE
-);}
+function df_country_ctn(string $c, $onE = true):string { return df_try(function() use($c):string {
+	$o = Mage::getModel('directory/country'); /** @var C $o */
+	$o->loadByCode($c);
+	return $o->getName();
+}, $onE);}
