@@ -189,9 +189,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
 	 * @used-by self::address()
-	 * @used-by self::customerAttributes()
+	 * @used-by self::attCustomer()
 	 * @used-by self::attOther()
-	 * @used-by self::name()
 	 */
 	private function c():C {return dfc($this, function() {return df_customer($this->sub());});}
 
