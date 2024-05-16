@@ -18,7 +18,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::addGender()
 	 * @used-by self::add()
 	 * @used-by self::_p()
-	 * @used-by self::getMailChimpTagValue()
+	 * @used-by self::get()
 	 * @used-by self::mergeMailchimpTags()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getFName()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getLName()
@@ -124,7 +124,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 					$this->set($k, df_att_val($this->c(), $a));
 				}
 		}
-		$this->set($mc, $this->getMailChimpTagValue($mc));
+		$this->set($mc, $this->get($mc));
 	}
 
 	/**
@@ -163,7 +163,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($mc, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
 				break;
 		}
-		return $this->getMailChimpTagValue($mc);
+		return $this->get($mc);
 	}
 
 	/**
@@ -255,7 +255,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::attCustomer()
 	 * @used-by self::attOther()
 	 */
-	private function getMailChimpTagValue(string $k) {return dfa($this->_d, $k);}
+	private function get(string $k) {return dfa($this->_d, $k);}
 
 	/**
 	 * @return Varien_Object
