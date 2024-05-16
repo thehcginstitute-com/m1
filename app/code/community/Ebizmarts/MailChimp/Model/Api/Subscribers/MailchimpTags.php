@@ -74,6 +74,34 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	}
 
 	/**
+	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::addressGet()
+	 * @used-by self::vAddress()
+	 * @return AddressO|AddressC|null
+	 */
+	private function address(string $ac):?AddressA {return dfc($this, function(string $ac):?AddressC {
+		$r = null; /** @var AddressA $r */
+		$t = df_assert_address_type(df_first(explode('_', $ac))); /** @var string $t */
+		if ($o = $this->o()) {/** @var ?O $o */
+			$r = df_oa($o, $t);
+		}
+		return $r ?: df_ftn($this->c()->getPrimaryAddress("default_$t"));
+	}, [$ac]);}
+
+	/**
+	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::attOther()
+	 * @used-by self::vAddress()
+	 * @param string|Closure $k
+	 * @return mixed|null
+	 */
+	private function addressGet(string $ac, $k) {return !($a = $this->address($ac)) ? null : (
+		!is_string($k) ? $k($a) : (df_starts_with($k, 'get') ? call_user_func([$a, $k]) : $a[$k])
+	);}
+
+	/**
 	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
@@ -167,6 +195,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 	/**
 	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by self::attCustomer()
+	 */
+	private function name(string $k):string {return $this->c()[$k] ?: ($this->sub()["subscriber_$k"] ?: (
+		($o = $this->o()) ? $o["customer_$k"] : df_error("Unable to find out `{$k}` for the customer.")
+	));}
+
+	/**
+	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * 1) "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * 2) https://mailchimp.com/developer/marketing/docs/merge-fields#add-merge-data-to-contacts
 	 * 3) "`Ebizmarts_MailChimp`: «merge_fields.BILLING : Data did not match any of the schemas described in anyOf»":
@@ -192,34 +229,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	;}
 
 	/**
-	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::addressGet()
-	 * @used-by self::vAddress()
-	 * @return AddressO|AddressC|null
-	 */
-	private function address(string $ac):?AddressA {return dfc($this, function(string $ac):?AddressC {
-		$r = null; /** @var AddressA $r */
-		$t = df_assert_address_type(df_first(explode('_', $ac))); /** @var string $t */
-		if ($o = $this->o()) {/** @var ?O $o */
-			$r = df_oa($o, $t);
-		}
-		return $r ?: df_ftn($this->c()->getPrimaryAddress("default_$t"));
-	}, [$ac]);}
-
-	/**
-	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::attOther()
-	 * @used-by self::vAddress()
-	 * @param string|Closure $k
-	 * @return mixed|null
-	 */
-	private function addressGet(string $ac, $k) {return !($a = $this->address($ac)) ? null : (
-		!is_string($k) ? $k($a) : (df_starts_with($k, 'get') ? call_user_func([$a, $k]) : $a[$k])
-	);}
-
-	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::attCustomer()
@@ -230,15 +239,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::c()
 	 */
 	private function sid():int {return $this->_sid;}
-
-	/**
-	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::attCustomer()
-	 */
-	private function name(string $k):string {return $this->c()[$k] ?: ($this->sub()["subscriber_$k"] ?: (
-		($o = $this->o()) ? $o["customer_$k"] : df_error("Unable to find out `{$k}` for the customer.")
-	));}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
