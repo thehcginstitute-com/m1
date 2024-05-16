@@ -10,6 +10,7 @@ use Exception as E;
  * @used-by df_handle_prefix()
  * @used-by df_is()
  * @used-by df_modules_my()
+ * @used-by df_oa()
  * @used-by df_oq_sa()
  * @used-by df_sales_email_sending()
  * @used-by df_starts_with()
