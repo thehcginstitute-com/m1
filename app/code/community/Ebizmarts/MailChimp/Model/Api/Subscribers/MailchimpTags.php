@@ -97,13 +97,13 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$r = $this->name($ac);
 				break;
 			case 'store_id':
-				$r = $this->getStoreId();
+				$r = $this->sid();
 				break;
 			case 'website_id':
-				$r = df_store($this->getStoreId())->getWebsiteId();
+				$r = df_store($this->sid())->getWebsiteId();
 				break;
 			case 'created_in':
-				$r = df_store($this->getStoreId())->getName();
+				$r = df_store($this->sid())->getName();
 				break;
 			case 'dob':
 				$r = !($v = $this->c()->getDob()) ? null : hcg_mc_h_date()->formatDate($v, 'm/d', 1);
@@ -148,7 +148,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$r = !($o = $this->o()) ? null : $o->getCreatedAt();
 				break;
 			case 'store_code':
-				$r = df_store($this->getStoreId())->getCode();
+				$r = df_store($this->sid())->getCode();
 		}
 		return $r;
 	}
@@ -229,7 +229,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::_p()
 	 * @used-by self::c()
 	 */
-	private function getStoreId():int {return $this->_storeId;}
+	private function sid():int {return $this->_storeId;}
 
 	/**
 	 * 2024-05-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
