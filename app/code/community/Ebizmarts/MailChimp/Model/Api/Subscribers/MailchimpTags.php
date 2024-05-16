@@ -120,8 +120,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				}
 				break;
 			default:
-				if ('email' !== $a->getAttributeCode() && !is_null($v = $this->getUnknownMergeField($a, $this->c(), $attribute))) {
-					$this->set($k, $v);
+				if ('email' !== $a->getAttributeCode()) {
+					$this->set($k, $this->getUnknownMergeField($a, $this->c(), $attribute));
 				}
 		}
 		$this->set($mc, $this->getMailChimpTagValue($mc));
