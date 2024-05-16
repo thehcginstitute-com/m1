@@ -80,7 +80,7 @@ function df_ftn($v) {return false === $v ? null : $v;}
  * @used-by dfa_strict()
  * @used-by dfad()
  * @used-by dftr()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::customizedAttributes() (https://github.com/cabinetsbay/site/issues/589)
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::set() (https://github.com/cabinetsbay/site/issues/589)
  * @param mixed $v
  * @return bool
  */

@@ -422,7 +422,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @param int|string $k
 	 * @param $v
 	 */
-	private function set($k, $v):void {$this->_d[$k] = $v;}
+	private function set($k, $v):void {
+		if (!df_nes($v)) {
+			$this->_d[$k] = $v;
+		}
+	}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
