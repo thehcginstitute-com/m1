@@ -85,8 +85,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @param IA|A $a
 	 * @used-by self::_p()
+	 * @param IA|A $a
 	 */
 	private function attCustomer(IA $a, string $mc):void {
 		$k = $a->getId(); /** @var int $k */
@@ -285,17 +285,18 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::attCustomer()
+	 * @param IA|A $a
 	 */
 	private function getUnknown(IA $a) {
 		$ac = $a->getAttributeCode(); /** @var string $ac */
 		$r = null;
-		$attrValue = $this->c()[$ac];
-		if ($attrValue !== null) {
-			if ($attribute['frontend_input'] == 'select' && $attrValue) {
+		$v = $this->c()[$ac];
+		if ($v !== null) {
+			if ($a->getFrontendInput() == 'select' && $v) {
 				$attr = $this->c()->getResource()->getAttribute($ac);
-				$r = $attr->getSource()->getOptionText($attrValue);
-			} elseif ($attrValue) {
-				$r = $attrValue;
+				$r = $attr->getSource()->getOptionText($v);
+			} elseif ($v) {
+				$r = $v;
 			}
 		}
 		return $r;
