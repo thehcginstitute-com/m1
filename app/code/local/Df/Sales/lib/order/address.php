@@ -4,7 +4,8 @@ use Mage_Sales_Model_Order_Address as A;
 /**
  * 2025-05-16 "Implement `df_oa()`": https://github.com/thehcginstitute-com/m1/issues/616
  * @see Mage_Sales_Model_Order::getBillingAddress()
- * @see \Mage_Sales_Model_Order::getShippingAddress()
+ * @see Mage_Sales_Model_Order::getShippingAddress()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::address() (https://github.com/cabinetsbay/site/issues/589)
  */
 function df_oa(O $o, string $t):?A {
 	df_assert_address_type($t);
