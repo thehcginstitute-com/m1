@@ -159,7 +159,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($mc, $this->getLastDateOfPurchase());
 				break;
 			case 'store_code':
-				$this->set($mc, Mage::getModel('core/store')->load($this->getStoreId())->getCode());
+				$this->set($mc, df_store($this->getStoreId())->getCode());
 				break;
 		}
 	}
