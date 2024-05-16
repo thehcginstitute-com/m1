@@ -1,5 +1,6 @@
 <?php
 use Closure as F;
+use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 /**
  * 2016-02-09 Осуществляет ленивое ветвление только для первой ветки.
  * @used-by df_leaf()
@@ -15,13 +16,11 @@ function df_if1($cond, $onTrue, $onFalse = null) {return $cond ? df_call_if($onT
  * 2017-04-15
  * @used-by df_country_ctn()
  * @param F $try
- * @param F|bool|mixed $onError [optional]
+ * @param F|bool|mixed $onE [optional]
  * @return mixed
- * @throws \Exception
+ * @throws T
  */
-function df_try(F $try, $onError = null) {
+function df_try(F $try, $onE = null) {
 	try {return $try();}
-	catch(\Exception $e) {return $onError instanceof F ? $onError($e) : (
-		true === $onError ? df_error($e) : $onError
-	);}
+	catch(T $t) {return $onE instanceof F ? $onE($t) : (true === $onE ? df_error($t) : $onE);}
 }
