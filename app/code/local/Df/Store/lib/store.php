@@ -36,7 +36,7 @@ use Mage_Sales_Model_Order as O;
  * @used-by df_store_url()
  * @used-by df_url_frontend()
  * @used-by hcg_mc_cfg_scope() (https://github.com/thehcginstitute-com/m1/issues/524)
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::customer() (https://github.com/cabinetsbay/site/issues/589)
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::attCustomer() (https://github.com/cabinetsbay/site/issues/589)
  * @used-by Mage_Core_Model_Design_Package::setPackageName() (https://github.com/thehcginstitute-com/m1/issues/597)
  * @used-by Mage_Core_Model_Design_Package::getTheme() (https://github.com/thehcginstitute-com/m1/issues/597
  * @param int|string|null|bool|S|O $v [optional]

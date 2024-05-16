@@ -109,7 +109,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($k, $this->getStoreId());
 				break;
 			case 'website_id':
-				$this->set($k, $this->getWebSiteByStoreId($this->getStoreId()));
+				$this->set($k, df_store($this->getStoreId())->getWebsiteId());
 				break;
 			case 'created_in':
 				$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getName());
@@ -303,12 +303,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 		return $optionValue;
 	}
-
-	/**
-	 * @param $storeId
-	 * @return mixed
-	 */
-	private function getWebSiteByStoreId($storeId) {return Mage::getModel('core/store')->load($storeId)->getWebsiteId();}
 
 	/**
 	 * @param $mailchimpTags
