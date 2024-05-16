@@ -96,7 +96,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($k, $this->vAddress($ac));
 				break;
 			case 'gender':
-				if ($v = $this->getCustomerGroupLabel($a)) {
+				if ($v = $this->c()->getGender()) {
 					$this->set($k, $this->getGenderLabel($this->_d, $k, $v));
 				}
 				break;
