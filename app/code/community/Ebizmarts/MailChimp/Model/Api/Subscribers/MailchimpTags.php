@@ -121,7 +121,8 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			default:
 				if ('email' !== $ac) {
-					$this->set($k, $this->getUnknown($a));
+					$v = $this->c()[$ac];
+					$this->set($k, df_nes($v) || !$a->usesSource() ? $v : $a->getSource()->getOptionText($v));
 				}
 		}
 		$this->set($mc, $this->getMailChimpTagValue($mc));
@@ -280,22 +281,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::c()
 	 */
 	private function getStoreId():int {return $this->_storeId;}
-
-	/**
-	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::attCustomer()
-	 * @param IA|A $a
-	 */
-	private function getUnknown(IA $a) {/** @var string|null $r */
-		$ac = $a->getAttributeCode(); /** @var string $ac */
-		if ($r = $this->c()[$ac]) {
-			if ('select' === $a->getFrontendInput()) {
-				$r = $a->getSource()->getOptionText($r);		
-			}
-		}
-		return $r;
-	}
 
 	/**
 	 * @param $mailchimpTags
