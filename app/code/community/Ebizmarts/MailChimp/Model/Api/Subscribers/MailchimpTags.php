@@ -18,6 +18,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::addGender()
 	 * @used-by self::add()
 	 * @used-by self::_p()
+	 * @used-by self::p()
 	 * @used-by self::get()
 	 * @used-by self::mergeMailchimpTags()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getFName()
