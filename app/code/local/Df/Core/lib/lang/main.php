@@ -16,11 +16,11 @@ function df_if1($cond, $onTrue, $onFalse = null) {return $cond ? df_call_if($onT
  * 2017-04-15
  * @used-by df_country_ctn()
  * @param F $try
- * @param F|bool|mixed $onE [optional]
+ * @param F|T|bool|mixed $onE [optional]
  * @return mixed
  * @throws T
  */
 function df_try(F $try, $onE = null) {
 	try {return $try();}
-	catch(T $t) {return $onE instanceof F ? $onE($t) : (true === $onE ? df_error($t) : $onE);}
+	catch(T $t) {return $onE instanceof F ? $onE($t) : (df_is_th($onE) || true === $onE ? df_error($t) : $onE);}
 }
