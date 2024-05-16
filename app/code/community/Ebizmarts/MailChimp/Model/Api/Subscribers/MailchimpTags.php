@@ -121,8 +121,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				break;
 			default:
 				if ('email' !== $ac) {
-					$v = $this->c()[$ac];
-					$this->set($k, df_nes($v) || !$a->usesSource() ? $v : $a->getSource()->getOptionText($v));
+					$this->set($k, df_att_val($this->c(), $a));
 				}
 		}
 		$this->set($mc, $this->getMailChimpTagValue($mc));

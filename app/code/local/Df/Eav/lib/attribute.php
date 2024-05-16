@@ -7,6 +7,7 @@ use Mage_Eav_Model_Entity_Attribute_Abstract as A;
  * 2) "Port `df_att_val()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/619
  * @uses Mage_Eav_Model_Entity_Attribute_Source_Abstract::getOptionText()
  * @used-by df_product_att_val()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::attCustomer() (https://github.com/cabinetsbay/site/issues/589)
  */
 function df_att_val(M $m, A $a, string $d = ''):string {return df_fnes($r = $m[$a->getAttributeCode()]) ? $d : (
 	!$a->usesSource() ? $r : (
