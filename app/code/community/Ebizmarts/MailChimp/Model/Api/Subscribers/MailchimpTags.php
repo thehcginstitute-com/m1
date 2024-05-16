@@ -112,7 +112,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->set($k, df_store($this->getStoreId())->getWebsiteId());
 				break;
 			case 'created_in':
-				$this->set($k, Mage::getModel('core/store')->load($this->getStoreId())->getName());
+				$this->set($k, df_store($this->getStoreId())->getName());
 				break;
 			case 'dob':
 				if ($v = $this->c()->getDob()) {
