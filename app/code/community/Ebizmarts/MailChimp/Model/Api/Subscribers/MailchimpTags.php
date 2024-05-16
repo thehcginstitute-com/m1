@@ -124,7 +124,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 					$this->set($k, df_att_val($this->c(), $a));
 				}
 		}
-		$this->set($mc, $this->get($mc));
 	}
 
 	/**
