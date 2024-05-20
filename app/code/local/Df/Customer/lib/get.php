@@ -40,6 +40,6 @@ function df_customer($c = null, $onE = null) {return df_try(function() use($c) {
 			)
 		)
 			? Mage::getModel('customer/customer')->load($id)
-			: df_error('df_customer(): the argument of type %s is unrecognizable.', df_type($c))
+			: df_error('df_customer(): unable to detect the customer ID from the argument of type `%s`.', df_type($c))
 	))
 ;}, $onE);}
