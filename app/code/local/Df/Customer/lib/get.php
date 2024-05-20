@@ -32,7 +32,7 @@ function df_customer($c = null, $onE = null) {return df_try(function() use($c) {
 	!$c ? (
 		df_customer_session()->isLoggedIn()
 			? df_customer(df_customer_id())
-			: df_error('df_customer(): the argument is null and the visitor is anonymous.')
+			: df_error('df_customer(): the argument is `null` and the visitor is anonymous.')
 	) : ($c instanceof C ? $c : (
 		($id =
 			$c instanceof O ? $c->getCustomerId() : (
