@@ -1,4 +1,5 @@
 <?php
+use Df\Core\Exception as DFE;
 use Mage_Customer_Model_Address as AddressC;
 use Mage_Customer_Model_Address_Abstract as AddressA;
 use Mage_Customer_Model_Customer as C;
@@ -60,17 +61,16 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->_d[strtoupper($mc)] = $v;
 			}
 		}
-		# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-		# "`Ebizmarts_MailChimp`: «Your merge fields were invalid» /
-		# «field [FNAME] : Please enter a value» /
-		# «field [LNAME] : Please enter a value»": https://github.com/thehcginstitute-com/m1/issues/507
-		# 2024-05-20 https://us7.admin.mailchimp.com/lists/settings/merge-tags?id=146033
-		if (!dfa($this->_d, 'FNAME')) {
-			df_log('`FNAME` is missing in the merge fields', $this, [
-				'Merge Fields' => $this->_d
-				,'Customer' => $this->c()
-				,'Subscriber' => $this->sub()
-			]);
+
+		$kk = array_keys($this->_d); /** @var string[] $kk */
+		foreach (['FNAME', 'LNAME'] as $k) {/** @var string $k */
+			if (!dfa($this->_d, $k)) {
+				df_log("The required field `{$k}` is missing in the merge fields", $this, [
+					'Merge Fields' => $this->_d
+					,'Customer' => $this->c()
+					,'Subscriber' => $this->sub()
+				]);
+			}
 		}
 	}
 
@@ -124,8 +124,18 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			case 'firstname':
 			case 'lastname':
 				$r = $this->c()[$ac] ?: ($this->sub()["subscriber_$ac"] ?: (
-					($o = $this->o()) ? $o["customer_$ac"] : df_error("Unable to find out `{$ac}` for the customer.")
+					($o = $this->o()) ? $o["customer_$ac"] : null
 				));
+				# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "`Ebizmarts_MailChimp`: «Your merge fields were invalid» /
+				# «field [FNAME] : Please enter a value» /
+				# «field [LNAME] : Please enter a value»": https://github.com/thehcginstitute-com/m1/issues/507
+				# 2024-05-20 https://us7.admin.mailchimp.com/lists/settings/merge-tags?id=146033
+				if (!$r) {
+					$m = "The required field `{$ac}` is empty for the customer"; /** @var string $m */
+					df_log($m, $this, ['Customer' => $this->c(), 'Subscriber' => $this->sub()]);
+					df_error($m);
+				}
 				break;
 			case 'store_id':
 				$r = $this->sid();

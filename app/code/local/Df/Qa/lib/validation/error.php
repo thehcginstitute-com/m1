@@ -1,6 +1,5 @@
 <?php
 use Df\Core\Exception as DFE;
-use Exception as E;
 use Throwable as Th; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 
 /**
