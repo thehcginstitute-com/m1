@@ -61,17 +61,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$this->_d[strtoupper($mc)] = $v;
 			}
 		}
-
-		$kk = array_keys($this->_d); /** @var string[] $kk */
-		foreach (['FNAME', 'LNAME'] as $k) {/** @var string $k */
-			if (!dfa($this->_d, $k)) {
-				df_log("The required field `{$k}` is missing in the merge fields", $this, [
-					'Merge Fields' => $this->_d
-					,'Customer' => $this->c()
-					,'Subscriber' => $this->sub()
-				]);
-			}
-		}
 	}
 
 	/**
