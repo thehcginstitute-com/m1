@@ -64,6 +64,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		# "`Ebizmarts_MailChimp`: «Your merge fields were invalid» /
 		# «field [FNAME] : Please enter a value» /
 		# «field [LNAME] : Please enter a value»": https://github.com/thehcginstitute-com/m1/issues/507
+		# 2024-05-20 https://us7.admin.mailchimp.com/lists/settings/merge-tags?id=146033
 		if (!dfa($this->_d, 'FNAME')) {
 			df_log('`FNAME` is missing in the merge fields', $this, [
 				'Merge Fields' => $this->_d
