@@ -121,9 +121,12 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				# «field [LNAME] : Please enter a value»": https://github.com/thehcginstitute-com/m1/issues/507
 				# 2024-05-20 https://us7.admin.mailchimp.com/lists/settings/merge-tags?id=146033
 				if (!$r) {
-					$m = "The required field `{$ac}` is empty for the customer"; /** @var string $m */
-					df_log($m, $this, ['Customer' => $this->c(), 'Subscriber' => $this->sub()]);
-					df_error($m);
+					# 2024-05-20
+					# "Provide an ability to specify a context for a `Df\Core\Exception` instance":
+					# https://github.com/mage2pro/core/issues/375
+					df_error(new DFE("The required field `{$ac}` is empty for the customer", [
+						'Customer' => $this->c(), 'Subscriber' => $this->sub()
+					]));
 				}
 				break;
 			case 'store_id':
