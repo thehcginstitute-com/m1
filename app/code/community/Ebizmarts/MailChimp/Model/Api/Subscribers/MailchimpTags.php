@@ -124,9 +124,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 					# 2024-05-20
 					# "Provide an ability to specify a context for a `Df\Core\Exception` instance":
 					# https://github.com/mage2pro/core/issues/375
-					df_error(new DFE("The required field `{$ac}` is empty for the customer", [
+					df_error("The required field `{$ac}` is empty for the customer", [
 						'Customer' => $this->c(), 'Subscriber' => $this->sub()
-					]));
+					]);
 				}
 				break;
 			case 'store_id':
