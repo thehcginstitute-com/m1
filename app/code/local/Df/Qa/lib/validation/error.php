@@ -1,6 +1,6 @@
 <?php
 use Df\Core\Exception as DFE;
-use Throwable as Th; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
+use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 
 /**
  * 2024-03-16 "Port `df_error` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/487
@@ -126,7 +126,7 @@ use Throwable as Th; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": 
  * @used-by \RWCandy\Captcha\Observer\CustomerAccountCreatePost::execute()
  * @used-by \RWCandy\Captcha\Observer\CustomerSaveBefore::execute()
  * @used-by \Sharapov\Cabinetsbay\Block\Category\View::l3p() (https://github.com/cabinetsbay/catalog/issues/6)
- * @param string|string[]|mixed|Th|Phrase|null ...$a
+ * @param string|string[]|mixed|T|null ...$a
  * @throws DFE
  */
 function df_error(...$a):void {
@@ -177,6 +177,6 @@ function df_error(...$a):void {
  * 2024-03-16 "Port `df_error_create` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/488
  * @used-by df_error()
  * @used-by df_error_html()
- * @param string|array(string|Th)|mixed|Th|null ...$a
+ * @param string|array(string|T)|mixed|T|null ...$a
  */
 function df_error_create(...$a):DFE {return df_is_th($a0 = dfa($a, 0)) ? DFE::wrap($a0) : new DFE(...$a);}
