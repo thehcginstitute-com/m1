@@ -109,14 +109,6 @@ class Exception extends E {
 	function messageD():string {return $this->message();}
 
 	/**
-	 * Цель этого метода — предоставить потомкам возможность
-	 * указывать тип предыдущей исключительной ситуации в комментарии PHPDoc для потомка.
-	 * Метод @uses E::getPrevious() объявлен как final,
-	 * поэтому потомки не могут в комментариях PHPDoc указывать его тип: IntelliJ IDEA ругается.
-	 */
-	protected function prev():E {return $this->getPrevious();}
-
-	/**
 	 * 2024-05-22 "Implement `Df\Core\Exception::throw_()`": https://github.com/mage2pro/core/issues/386
 	 * @see df_xts()
 	 * @used-by df_error()
@@ -135,6 +127,14 @@ class Exception extends E {
 		$this->message = $this->message();
 		throw $this;
 	}
+
+	/**
+	 * Цель этого метода — предоставить потомкам возможность
+	 * указывать тип предыдущей исключительной ситуации в комментарии PHPDoc для потомка.
+	 * Метод @uses E::getPrevious() объявлен как final,
+	 * поэтому потомки не могут в комментариях PHPDoc указывать его тип: IntelliJ IDEA ругается.
+	 */
+	protected function prev():E {return $this->getPrevious();}
 
 	/**
 	 * 2016-07-31
