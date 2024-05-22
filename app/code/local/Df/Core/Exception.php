@@ -15,9 +15,11 @@ class Exception extends E {
 		$a0 = dfa($a, 0); /** @var string|E|array(string => mixed)|null $a0 */
 		$prev = null; /** @var E|null $prev */
 		$m = null;  /** @var string|null $m */
-		# 2015-10-10
-		if (is_array($a0)) {
-			$this->_data = $a0;
+		# 2024-05-22
+		# "Provide an ability to specify a context for a `Df\Core\Exception` instance":
+		# https://github.com/mage2pro/core/issues/375
+		if (df_is_assoc($a0)) {
+			$this->context($a0);
 		}
 		elseif (is_string($a0)) {
 			$m = $a0;
