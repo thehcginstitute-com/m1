@@ -128,8 +128,43 @@ function df_error(...$a):void {
 /**
  * 2016-07-31
  * 2024-03-16 "Port `df_error_create` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/488
+ * 2024-05-20 "Provide an ability to specify a context for a `Df\Core\Exception` instance":
+ * https://github.com/mage2pro/core/issues/375
  * @used-by df_error()
  * @used-by df_error_html()
- * @param string|array(string|T)|mixed|T|null ...$a
+ * @param mixed ...$a
  */
-function df_error_create(...$a):DFE {return df_is_th($a0 = dfa($a, 0)) ? DFE::wrap($a0) : new DFE(...$a);}
+function df_error_create(...$a):DFE {/** @var DFE $r */
+	$a0 = dfa($a, 0); /** @var string|string[]|mixed|T|null $a0 */
+	$tail = df_tail($a); /** @var mixed[] $tail */
+	$tailC = count($tail); /** @var int $tailC */
+	/** @var mixed|null|array(string => mixed) $a1 */ /** @var bool $hasContext */
+	if (!df_is_assoc($a0)) {
+		$a1 = df_first($tail);
+		$hasContext = 2 > $tailC && (is_null($a1) || df_is_assoc($a1));
+	}
+	else {
+		df_assert_eq(0, $tailC);
+		[$a0, $a1] = [null, $a0];
+		$hasContext = true;
+	}
+	/** @var array(string => mixed)|null $context */
+	$context = !$hasContext ? [] : df_eta($a1);  /** @var array(string => mixed) $context */
+	if (df_is_th($a0)) {
+		df_assert($hasContext);
+		$r = DFE::wrap($a0, $context);
+	}
+	else {
+		if (is_array($a0)) {
+			$a0 = df_cc_n($a0);
+		}
+		if (is_string($a0) && !$hasContext) {
+			$a0 = df_format($a);
+		}
+		$r = new DFE($a0);
+		if ($hasContext) {
+			$r->context($context);
+		}
+	}
+	return $r;
+}
