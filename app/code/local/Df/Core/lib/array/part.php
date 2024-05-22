@@ -17,6 +17,7 @@ function df_slice(array $a, $offset, $length = 0) {return array_slice($a, $offse
  * 2024-02-03 "Port `df_tail()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/351
  * @see df_first()
  * @see df_last()
+ * @used-by df_error_create()
  * @used-by df_sprintf_strict()
  */
 function df_tail(array $a):array {return array_slice($a, 1);}
