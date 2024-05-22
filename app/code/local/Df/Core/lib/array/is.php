@@ -50,6 +50,7 @@ if (!function_exists('array_is_list')) {
  * @used-by df_clean()
  * @used-by df_filter_f()
  * @used-by df_ksort()
+ * @used-by \Df\Core\Exception::__construct()
  * @param array(int|string => mixed) $a
  */
 function df_is_assoc(array $a):bool {return !$a || !array_is_list($a);}
