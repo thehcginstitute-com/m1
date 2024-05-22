@@ -6,6 +6,7 @@
  * @used-by df_n_set()
  * @used-by df_prop()
  * @used-by df_prop_k()
+ * @used-by \Df\Core\Exception::context()
  * @used-by \Df\Core\Json::bSort()
  */
 const DF_N = 'df-null';
@@ -16,6 +17,7 @@ const DF_N = 'df-null';
  * 2023-12-31 For static properties, pass `null` as the first argument, e.g.:
  * 		@see \Df\Core\Json::bSort()
  * 2024-01-11 "Port `df_prop` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/189
+ * @used-by \Df\Core\Exception::context()
  * @used-by \Df\Core\Json::bSort()
  * @see dfc()
  * @param object|null|ArrayAccess $o
