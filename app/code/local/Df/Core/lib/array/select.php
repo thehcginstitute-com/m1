@@ -26,6 +26,7 @@ function df_column($c, $fv, $fk = null):array {return df_map_kr($c, function($k,
 
 /**
  * 2021-01-29
+ * @used-by df_error_create()
  * @used-by df_region_name()
  * @used-by dfa_try()
  * @used-by hcg_mc_cfg_scope() (https://github.com/thehcginstitute-com/m1/issues/524)
