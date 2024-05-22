@@ -28,16 +28,16 @@ class Exception extends E {
 		elseif (is_string($a0)) {
 			$m = __($a0);
 		}
-		$arg1 = dfa($a, 1); /** @var int|string|E|null $arg1 */
-		if (!is_null($arg1)) {
-			if (df_is_th($arg1)) {
-				$prev = $arg1;
+		$a1 = dfa($a, 1); /** @var int|string|E|null $a1 */
+		if (!is_null($a1)) {
+			if (df_is_th($a1)) {
+				$prev = $a1;
 			}
 			elseif (is_int($prev)) {
-				$this->_stackLevelsCountToSkip = $arg1;
+				$this->_stackLevelsCountToSkip = $a1;
 			}
-			elseif (is_string($arg1)) {
-				$this->comment((string)$arg1);
+			elseif (is_string($a1)) {
+				$this->comment((string)$a1);
 			}
 		}
 		if (is_null($m)) {
