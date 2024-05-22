@@ -38,9 +38,6 @@ class Exception extends E {
 			elseif (is_int($prev)) {
 				$this->_stackLevelsCountToSkip = $a1;
 			}
-			elseif (is_string($a1)) {
-				$this->comment((string)$a1);
-			}
 		}
 		if (null == $m) {
 			$m = __($prev ? df_xts($prev) : 'No message');
