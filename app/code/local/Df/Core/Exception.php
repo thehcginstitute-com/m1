@@ -109,47 +109,6 @@ class Exception extends E {
 	function messageD():string {return $this->message();}
 
 	/**
-	 * 2015-10-10
-	 * @override
-	 * @see \ArrayAccess::offsetExists()
-	 * @param string $offset
-	 */
-	function offsetExists($offset):bool {return isset($this->_data[$offset]);}
-
-	/**
-	 * 2015-10-10
-	 * 2022-10-24
-	 * 1) `mixed` as a return type is not supported by PHP < 8:
-	 * https://github.com/mage2pro/core/issues/168#user-content-mixed
-	 * 2) `ReturnTypeWillChange` allows us to suppress the return type absence notice:
-	 * https://github.com/mage2pro/core/issues/168#user-content-absent-return-type-deprecation
-	 * https://github.com/mage2pro/core/issues/168#user-content-returntypewillchange
-	 * @override
-	 * @see \ArrayAccess::offsetGet()
-	 * @param string $offset
-	 * @return mixed
-	 */
-	#[\ReturnTypeWillChange]
-	function offsetGet($offset) {return dfa($this->_data, $offset);}
-
-	/**
-	 * 2015-10-10
-	 * @override
-	 * @see \ArrayAccess::offsetSet()
-	 * @param string $offset
-	 * @param mixed $value
-	 */
-	function offsetSet($offset, $value):void {$this->_data[$offset] = $value;}
-
-	/**
-	 * 2015-10-10
-	 * @override
-	 * @see \ArrayAccess::offsetUnset()
-	 * @param string $offset
-	 */
-	function offsetUnset($offset):void {unset($this->_data[$offset]);}
-
-	/**
 	 * Цель этого метода — предоставить потомкам возможность
 	 * указывать тип предыдущей исключительной ситуации в комментарии PHPDoc для потомка.
 	 * Метод @uses E::getPrevious() объявлен как final,
@@ -162,16 +121,6 @@ class Exception extends E {
 	 * @var string[]
 	 */
 	private $_comments = [];
-
-	/**
-	 * 2015-10-10
-	 * @used-by self::__construct()
-	 * @used-by self::offsetExists()
-	 * @used-by self::offsetGet()
-	 * @used-by self::offsetUnset()
-	 * @var array(string => mixed)
-	 */
-	private $_data = [];
 
 	/**
 	 * 2016-07-31
