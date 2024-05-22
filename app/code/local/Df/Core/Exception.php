@@ -9,24 +9,24 @@ class Exception extends E {
 	 * http://3v4l.org/qQdJ3
 	 * @used-by self::wrap()
 	 * @used-by df_error_create()
-	 * @param mixed ...$args
+	 * @param mixed ...$a
 	 */
 	function __construct(...$a) {
-		$arg0 = dfa($a, 0); /** @var string|E|array(string => mixed)|null $arg0 */
+		$a0 = dfa($a, 0); /** @var string|E|array(string => mixed)|null $a0 */
 		$prev = null; /** @var E|null $prev */
 		$m = null;  /** @var string|null $m */
 		# 2015-10-10
-		if (is_array($arg0)) {
-			$this->_data = $arg0;
+		if (is_array($a0)) {
+			$this->_data = $a0;
 		}
-		elseif (is_string($arg0)) {
-			$m = $arg0;
+		elseif (is_string($a0)) {
+			$m = $a0;
 		}
-		elseif (df_is_th($arg0)) {
-			$prev = df_th2x($arg0);
+		elseif (df_is_th($a0)) {
+			$prev = df_th2x($a0);
 		}
-		elseif (is_string($arg0)) {
-			$m = __($arg0);
+		elseif (is_string($a0)) {
+			$m = __($a0);
 		}
 		$arg1 = dfa($a, 1); /** @var int|string|E|null $arg1 */
 		if (!is_null($arg1)) {
