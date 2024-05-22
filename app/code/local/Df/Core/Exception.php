@@ -31,7 +31,7 @@ class Exception extends E {
 			$m = __($a0);
 		}
 		$a1 = dfa($a, 1); /** @var int|string|E|null $a1 */
-		if (!is_null($a1)) {
+		if (null !== $a1) {
 			if (df_is_th($a1)) {
 				$prev = $a1;
 			}
@@ -42,7 +42,7 @@ class Exception extends E {
 				$this->comment((string)$a1);
 			}
 		}
-		if (is_null($m)) {
+		if (null == $m) {
 			$m = __($prev ? df_xts($prev) : 'No message');
 			# 2017-02-20 To facilite the «No message» diagnostics.
 			if (!$prev) {
