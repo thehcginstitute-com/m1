@@ -51,18 +51,6 @@ class Exception extends E {
 	}
 
 	/**
-	 * @used-by self::__construct()
-	 * @param mixed ...$a
-	 */
-	final function comment(...$a):void {$this->_comments[]= df_format($a);}
-
-	/**
-	 * @used-by \Df\Qa\Failure\Exception::preface()
-	 * @return string[]
-	 */
-	final function comments():array {return $this->_comments;}
-
-	/**
 	 * @used-by \Df\Qa\Failure\Exception::stackLevel()
 	 */
 	final function getStackLevelsCountToSkip():int {return $this->_stackLevelsCountToSkip;}
@@ -115,12 +103,6 @@ class Exception extends E {
 	 * поэтому потомки не могут в комментариях PHPDoc указывать его тип: IntelliJ IDEA ругается.
 	 */
 	protected function prev():E {return $this->getPrevious();}
-
-	/**
-	 * @used-by self::comments()
-	 * @var string[]
-	 */
-	private $_comments = [];
 
 	/**
 	 * 2016-07-31
