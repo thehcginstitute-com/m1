@@ -11,8 +11,8 @@ class Exception extends E {
 	 * @used-by df_error_create()
 	 * @param mixed ...$args
 	 */
-	function __construct(...$args) {
-		$arg0 = dfa($args, 0); /** @var string|E|array(string => mixed)|null $arg0 */
+	function __construct(...$a) {
+		$arg0 = dfa($a, 0); /** @var string|E|array(string => mixed)|null $arg0 */
 		$prev = null; /** @var E|null $prev */
 		$m = null;  /** @var string|null $m */
 		# 2015-10-10
@@ -28,7 +28,7 @@ class Exception extends E {
 		elseif (is_string($arg0)) {
 			$m = __($arg0);
 		}
-		$arg1 = dfa($args, 1); /** @var int|string|E|null $arg1 */
+		$arg1 = dfa($a, 1); /** @var int|string|E|null $arg1 */
 		if (!is_null($arg1)) {
 			if (df_is_th($arg1)) {
 				$prev = $arg1;
