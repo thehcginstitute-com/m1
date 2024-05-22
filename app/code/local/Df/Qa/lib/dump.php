@@ -24,6 +24,7 @@ function df_dump($v):string {return Dumper::i()->dump($v);}
  * 2023-08-04
  * 2024-01-11 "Port `df_dump_ds` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/178
  * @used-by df_log_l()
+ * @used-by \Df\Qa\Failure\Exception::postface()
  */
 function df_dump_ds($v):string {return df_json_dont_sort(function() use($v):string {return df_dump($v);});}
 

@@ -19,7 +19,7 @@ final class Exception extends \Df\Qa\Failure {
 	 * @see \Df\Qa\Failure::postface()
 	 * @used-by \Df\Qa\Failure::report()
 	 */
-	protected function postface():string {return $this->sections($this->sections(...$this->_e->comments()), parent::postface());}
+	protected function postface():string {return $this->sections(df_dump_ds($this->_e->context()), parent::postface());}
 
 	/**
 	 * @override
