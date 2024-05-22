@@ -117,6 +117,26 @@ class Exception extends E {
 	protected function prev():E {return $this->getPrevious();}
 
 	/**
+	 * 2024-05-22 "Implement `Df\Core\Exception::throw_()`": https://github.com/mage2pro/core/issues/386
+	 * @see df_xts()
+	 * @used-by df_error()
+	 * @throws self
+	 */
+	final function throw_():void {
+		/**
+		 * 2015-11-27
+		 * Мы не можем перекрыть метод @see \Exception::getMessage(), потому что он финальный.
+		 * С другой стороны, наш метод @see self::message()
+		 * не будет понят стандартной средой, и мы в стандартной среде не будем иметь диагностического сообщения вовсе.
+		 * 2024-05-22
+		 * Normally, we do not need because of @see \Df\Framework\Plugin\AppInterface::beforeCatchException()
+		 * But I preserved it for some extra cases.
+		 */
+		$this->message = $this->message();
+		throw $this;
+	}
+
+	/**
 	 * 2016-07-31
 	 * @used-by self::isMessageHtml()
 	 * @used-by self::markMessageAsHtml()
