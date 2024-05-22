@@ -1,7 +1,7 @@
 <?php
 namespace Df\Core;
 use \Exception as E;
-use \Throwable as Th; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
+use \Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 class Exception extends E {
 	/**
 	 * Обратите внимание, что PHP разрешает сигнатуре конструктора класса-потомка
@@ -134,7 +134,7 @@ class Exception extends E {
 	 * Метод @uses E::getPrevious() объявлен как final,
 	 * поэтому потомки не могут в комментариях PHPDoc указывать его тип: IntelliJ IDEA ругается.
 	 */
-	protected function prev():E {return $this->getPrevious();}
+	protected function prev():T {return $this->getPrevious();}
 
 	/**
 	 * 2016-07-31
@@ -159,5 +159,5 @@ class Exception extends E {
 	 * @used-by df_error_create()
 	 * @used-by \Df\Qa\Failure\Exception::i()
 	 */
-	final static function wrap(Th $th):self {return $th instanceof self ? $th : new self($th);}
+	final static function wrap(T $t):self {return $t instanceof self ? $t : new self($t);}
 }
