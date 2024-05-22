@@ -119,15 +119,13 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				# "`Ebizmarts_MailChimp`: «Your merge fields were invalid» /
 				# «field [FNAME] : Please enter a value» /
 				# «field [LNAME] : Please enter a value»": https://github.com/thehcginstitute-com/m1/issues/507
-				# 2024-05-20 https://us7.admin.mailchimp.com/lists/settings/merge-tags?id=146033
-				if (!$r) {
-					# 2024-05-20
-					# "Provide an ability to specify a context for a `Df\Core\Exception` instance":
-					# https://github.com/mage2pro/core/issues/375
-					df_error("The required field `{$ac}` is empty for the customer", [
-						'Customer' => $this->c(), 'Subscriber' => $this->sub()
-					]);
-				}
+				# 2024-05-20
+				# 1) https://us7.admin.mailchimp.com/lists/settings/merge-tags?id=146033
+				# 2) "Provide an ability to specify a context for a `Df\Core\Exception` instance":
+				# https://github.com/mage2pro/core/issues/375
+				df_assert($r, df_error_create("The required field `{$ac}` is empty for the customer", [
+					'Customer' => $this->c(), 'Subscriber' => $this->sub()
+				]));
 				break;
 			case 'store_id':
 				$r = $this->sid();

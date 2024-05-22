@@ -78,7 +78,6 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by dfpm()
  * @used-by dfs_con()
  * @used-by Df\Qa\Method::throwException()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::attCustomer()
  * @used-by Mage_Eav_Model_Attribute_Data_Abstract::_applyInputFilter()
  * @used-by Varien_Data_Form_Filter_Date::inputFilter()
  * @param string|string[]|mixed|T|null ...$a
@@ -133,6 +132,7 @@ function df_error(...$a):void {
  * https://github.com/mage2pro/core/issues/375
  * @used-by df_error()
  * @used-by df_error_html()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::attCustomer() (https://github.com/cabinetsbay/site/issues/589)
  * @param mixed ...$a
  */
 function df_error_create(...$a):DFE {/** @var DFE $r */
