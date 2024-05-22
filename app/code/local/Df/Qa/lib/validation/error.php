@@ -80,6 +80,7 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by Df\Qa\Method::throwException()
  * @used-by Mage_Eav_Model_Attribute_Data_Abstract::_applyInputFilter()
  * @used-by Varien_Data_Form_Filter_Date::inputFilter()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::attCustomer()
  * @param string|string[]|mixed|T|null ...$a
  * @throws DFE
  */
