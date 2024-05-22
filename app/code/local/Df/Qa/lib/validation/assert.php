@@ -6,6 +6,7 @@ use Throwable as Th; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": 
 
 /**
  * 2020-01-21
+ * @used-by df_error_create()
  * @param mixed $cond
  * @param null $m
  * @return mixed
