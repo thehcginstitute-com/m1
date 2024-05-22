@@ -5,12 +5,49 @@ use Exception as E;
 use Throwable as Th; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 
 /**
- * 2020-01-21
+ * 2019-12-14
+ * If you do not want the exception to be logged via @see df_bt_log(),
+ * then you can pass an empty string (instead of `null`) as the second argument:
+ * @see \Df\Core\Exception::__construct():
+ *		if (is_null($m)) {
+ *			$m = __($prev ? df_xts($prev) : 'No message');
+ *			# 2017-02-20 To facilite the «No message» diagnostics.
+ *			if (!$prev) {
+ *				df_bt_log();
+ *			}
+ *		}
+ * https://github.com/mage2pro/core/blob/5.5.7/Core/Exception.php#L61-L67
+ * @used-by df_assert_module_enabled()
+ * @used-by df_assert_qty_supported()
+ * @used-by df_call_parent()
+ * @used-by df_caller_m()
+ * @used-by df_caller_mf()
+ * @used-by df_catalog_locator()
+ * @used-by df_config_field()
+ * @used-by df_configurable_children()
+ * @used-by df_date_from_timestamp_14()
+ * @used-by df_dtss()
  * @used-by df_error_create()
+ * @used-by df_eta()
+ * @used-by df_fe_fs()
+ * @used-by df_float()
+ * @used-by df_id()
+ * @used-by df_layout_update()
+ * @used-by df_module_dir()
+ * @used-by df_module_file_name()
+ * @used-by df_oqi_amount()
+ * @used-by df_oqi_amount()
+ * @used-by df_xml_child()
+ * @used-by dfaf()
+ * @used-by dfp_oq()
+ * @used-by dfr_prop()
+ * @used-by \Df\Core\Html\Tag::openTagWithAttributesAsText()
+ * @used-by \Df\Qa\Trace\Frame::methodParameter()
+ * @used-by \Df\Qa\Trace\Frame::url()
  * @param mixed $cond
- * @param null $m
+ * @param string|Th|null $m [optional]
  * @return mixed
- * @throws E
+ * @throws DFE
  */
 function df_assert($cond, $m = null) {return $cond ?: df_error($m);}
 
