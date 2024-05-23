@@ -101,6 +101,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	private function attCustomer(IA $a) { /** @var string|null|array(string => string) $r */
 		$c = $this->c(); /** @var C $c */
 		$sid = $this->sid(); /** @var int $sid */
+		$sub = $this->sub(); /** @var Sub $sub */
 		switch ($ac = $a->getAttributeCode()) {/** @var string $ac */
 			case 'default_billing':
 			case 'default_shipping':
@@ -123,11 +124,11 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				# 2) "Provide an ability to specify a context for a `Df\Core\Exception` instance":
 				# https://github.com/mage2pro/core/issues/375
 				df_assert(
-					$r = $c[$ac] ?: ($this->sub()["subscriber_$ac"] ?: (
+					$r = $c[$ac] ?: ($sub["subscriber_$ac"] ?: (
 						($o = $this->o()) ? $o["customer_$ac"] : null
 					))
 					,df_error_create("The required field `{$ac}` is empty for the customer", [
-						'Customer' => $c, 'Subscriber' => $this->sub()
+						'Customer' => $c, 'Subscriber' => $sub
 					])
 				);
 				break;
