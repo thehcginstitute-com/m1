@@ -69,7 +69,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::vAddress()
 	 * @return AddressO|AddressC|null
 	 */
-	private function address(string $ac):?AddressA {return dfc($this, function(string $ac):?AddressC {
+	private function address(string $ac):?AddressA {return dfc($this, function(string $ac):?AddressA {
 		$r = null; /** @var AddressA $r */
 		$t = df_assert_address_type(df_first(explode('_', $ac))); /** @var string $t */
 		if ($o = $this->o()) {/** @var ?O $o */
