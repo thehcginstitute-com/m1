@@ -100,6 +100,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 */
 	private function attCustomer(IA $a) { /** @var string|null|array(string => string) $r */
 		$c = $this->c(); /** @var C $c */
+		$sid = $this->sid(); /** @var int $sid */
 		switch ($ac = $a->getAttributeCode()) {/** @var string $ac */
 			case 'default_billing':
 			case 'default_shipping':
@@ -131,13 +132,13 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				);
 				break;
 			case 'store_id':
-				$r = $this->sid();
+				$r = $sid;
 				break;
 			case 'website_id':
-				$r = df_store($this->sid())->getWebsiteId();
+				$r = df_store($sid)->getWebsiteId();
 				break;
 			case 'created_in':
-				$r = df_store($this->sid())->getName();
+				$r = df_store($sid)->getName();
 				break;
 			case 'dob':
 				$r = !($v = $c->getDob()) ? null : hcg_mc_h_date()->formatDate($v, 'm/d', 1);
