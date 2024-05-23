@@ -1,5 +1,4 @@
 <?php
-use Df\Core\Exception as DFE;
 use Mage_Customer_Model_Address as AddressC;
 use Mage_Customer_Model_Address_Abstract as AddressA;
 use Mage_Customer_Model_Customer as C;
