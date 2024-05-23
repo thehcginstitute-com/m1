@@ -202,10 +202,9 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::addressC()
+	 * @used-by self::address()
 	 * @used-by self::attCustomer()
 	 * @used-by self::attOther()
-	 * @used-by self::getAddressData()
 	 */
 	private function o():?O {return dfc($this, function() {/** @var OC $c */ return !count(
 		$c = df_order_c()
