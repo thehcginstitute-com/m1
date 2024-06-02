@@ -14,31 +14,29 @@ function hcg_mc_sub($listId, string $email):?S {
 	$storeIds = hcg_mc_h()->getMagentoStoreIdsByListId($listId);
 	//add store id 0 for those created from the back end.
 	$storeIds[] = 0;
-	if (!empty($storeIds)) {
-		$r = Mage::getModel('newsletter/subscriber')->getCollection()
-			->addFieldToFilter('store_id', array('in' => $storeIds))
-			->addFieldToFilter('subscriber_email', $email)
-			->setPageSize(1)->getLastItem();
-		if (!$r->getId()) {
+	$r = Mage::getModel('newsletter/subscriber')->getCollection()
+		->addFieldToFilter('store_id', array('in' => $storeIds))
+		->addFieldToFilter('subscriber_email', $email)
+		->setPageSize(1)->getLastItem();
+	if (!$r->getId()) {
+		/**
+		 * No subscriber exists. Try to find a customer based
+		 * on email address for the given stores instead.
+		 */
+		$r = Mage::getModel('newsletter/subscriber');
+		$r->setEmail($email);
+		$customer = hcg_mc_h()->loadListCustomer($listId, $email);
+		if ($customer) {
+			$r->setStoreId($customer->getStoreId());
+			$r->setCustomerId($customer->getId());
+		} else {
 			/**
-			 * No subscriber exists. Try to find a customer based
-			 * on email address for the given stores instead.
+			 * No customer with that address. Just assume the first
+			 * store ID is the correct one as there is no other way
+			 * to tell which store this mailchimp list guest subscriber
+			 * belongs to.
 			 */
-			$r = Mage::getModel('newsletter/subscriber');
-			$r->setEmail($email);
-			$customer = hcg_mc_h()->loadListCustomer($listId, $email);
-			if ($customer) {
-				$r->setStoreId($customer->getStoreId());
-				$r->setCustomerId($customer->getId());
-			} else {
-				/**
-				 * No customer with that address. Just assume the first
-				 * store ID is the correct one as there is no other way
-				 * to tell which store this mailchimp list guest subscriber
-				 * belongs to.
-				 */
-				$r->setStoreId($storeIds[0]);
-			}
+			$r->setStoreId($storeIds[0]);
 		}
 	}
 	return $r;
