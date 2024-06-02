@@ -11,23 +11,11 @@ use Mage_Newsletter_Model_Subscriber as S;
  */
 function hcg_mc_sub($listId, string $email):S {
 	$storeIds = array_merge(hcg_mc_h()->getMagentoStoreIdsByListId($listId), [0]);
-	$r = df_subscriber_c()
-		->addFieldToFilter('store_id', ['in' => $storeIds])
-		->addFieldToFilter('subscriber_email', $email)
-		->setPageSize(1)->getLastItem(); /** @var S $r */
+	$r = df_subscriber()->loadByEmail($email); /** @var S $r */
 	if (!$r->getId()) {
-		/**
-		 * No subscriber exists. Try to find a customer based
-		 * on email address for the given stores instead.
-		 */
-		$r = Mage::getModel('newsletter/subscriber');
 		$r->setEmail($email);
 		$customer = hcg_mc_h()->loadListCustomer($listId, $email);
-		if ($customer) {
-			$r->setStoreId($customer->getStoreId());
-			$r->setCustomerId($customer->getId());
-		}
-		else {
+		if (!$customer) {
 			/**
 			 * No customer with that address. Just assume the first
 			 * store ID is the correct one as there is no other way
@@ -35,6 +23,10 @@ function hcg_mc_sub($listId, string $email):S {
 			 * belongs to.
 			 */
 			$r->setStoreId($storeIds[0]);
+		}
+		else {
+			$r->setStoreId($customer->getStoreId());
+			$r->setCustomerId($customer->getId());
 		}
 	}
 	return $r;

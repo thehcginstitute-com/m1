@@ -17,7 +17,6 @@ function df_subscriber():S {return Mage::getModel('newsletter/subscriber');}
 
 /**
  * 2024-06-02 "Implement `df_subscriber_c()`": https://github.com/thehcginstitute-com/m1/issues/626
- * @used-by hcg_mc_sub()
  * @used-by Glew_Service_Model_Types_Subscribers::load()
  */
 function df_subscriber_c():C {return df_subscriber()->getCollection();}
