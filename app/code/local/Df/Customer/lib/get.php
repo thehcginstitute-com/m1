@@ -29,10 +29,11 @@ function df_customer($v = null, $onE = null):?C {return df_try(function() use($v
 		$r = $v;
 	}
 	elseif (!$v) {
-		$r = df_customer_session()->isLoggedIn()
-			? df_customer(df_customer_id())
-			: df_error('df_customer(): the argument is `null` and the visitor is anonymous.')
-		;
+		df_assert(!df_is_backend());
+		$s = df_customer_session();
+		$r = $s->isLoggedIn() ? df_customer($s->getId()) : df_error(
+			'df_customer(): the argument is `null` and the visitor is anonymous.'
+		);
 	}
 	else {
 		$r = Mage::getModel('customer/customer');
