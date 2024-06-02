@@ -9,13 +9,12 @@ use Mage_Newsletter_Model_Subscriber as S;
  * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_unsubscribe()
  * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
  */
-function hcg_mc_sub($listId, string $email):?S {
-	$r = null; /** @var ?S $r */
+function hcg_mc_sub($listId, string $email):S {
 	$storeIds = array_merge(hcg_mc_h()->getMagentoStoreIdsByListId($listId), [0]);
 	$r = Mage::getModel('newsletter/subscriber')->getCollection()
 		->addFieldToFilter('store_id', ['in' => $storeIds])
 		->addFieldToFilter('subscriber_email', $email)
-		->setPageSize(1)->getLastItem();
+		->setPageSize(1)->getLastItem(); /** @var S $r */
 	if (!$r->getId()) {
 		/**
 		 * No subscriber exists. Try to find a customer based
@@ -27,7 +26,8 @@ function hcg_mc_sub($listId, string $email):?S {
 		if ($customer) {
 			$r->setStoreId($customer->getStoreId());
 			$r->setCustomerId($customer->getId());
-		} else {
+		}
+		else {
 			/**
 			 * No customer with that address. Just assume the first
 			 * store ID is the correct one as there is no other way
