@@ -23,7 +23,7 @@ final class ProcessMergeFields {
 		if ($i->customer()) {
 			$i->_setMailchimpTagsToCustomer();
 		}
-		$subscriber = hcg_mc_h()->loadListSubscriber($listId, $email);
+		$subscriber = hcg_mc_sub($listId, $email);
 		$fname = $i->mcByCA('firstname');
 		$lname = $i->mcByCA('lastname');
 		if ($subscriber->getId()) {
