@@ -1,4 +1,5 @@
 <?php
+namespace HCG\MailChimp;
 use Mage_Customer_Model_Address as AddressC;
 use Mage_Customer_Model_Address_Abstract as AddressA;
 use Mage_Customer_Model_Customer as C;
@@ -10,28 +11,28 @@ use Mage_Sales_Model_Order_Address as AddressO;
 use Mage_Sales_Model_Resource_Order_Collection as OC;
 # 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/thehcginstitute-com/m1/issues/589
-final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
+final class Tags {
 	/**
 	 * 2024-06-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * 1) "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/thehcginstitute-com/m1/issues/589
 	 * 2) https://3v4l.org/akQm0#tabs
 	 * @used-by self::p()
 	 * @used-by self::mcByMG()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_setMailchimpTagsToCustomer()
+	 * @used-by \HCG\MailChimp\Tags\ProcessMergeFields::_setMailchimpTagsToCustomer()
 	 * @return array(string => array(string => string)
 	 */
 	function get():array {return $this->_d;}
 
 	/**
 	 * 2024-06-02
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::mcByCA()
+	 * @used-by \HCG\MailChimp\Tags\ProcessMergeFields::mcByCA()
 	 */
 	function mcByCA(string $a):?string {return $this->mcByMG(df_att_code2id($a));}
 
 	/**
 	 * 2024-06-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/thehcginstitute-com/m1/issues/589
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
+	 * @used-by \HCG\MailChimp\Tags\ProcessMergeFields::p()
 	 */
 	function set():void {$this->_d = hcg_mc_cfg_fields();}
 
@@ -91,7 +92,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/thehcginstitute-com/m1/issues/589
 	 * @used-by self::attOther()
 	 * @used-by self::vAddress()
-	 * @param string|Closure $k
+	 * @param string|\Closure $k
 	 * @return mixed|null
 	 */
 	private function addressGet(string $ac, $k) {return !($a = $this->address($ac)) ? null : (
