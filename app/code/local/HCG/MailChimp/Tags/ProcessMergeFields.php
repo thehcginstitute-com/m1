@@ -72,9 +72,7 @@ final class ProcessMergeFields {
 	 * @used-by self::_setMailchimpTagsToCustomer()
 	 * @used-by self::p()
 	 */
-	private function customer():?C {return dfc($this, function() {return hcg_mc_h()->loadListCustomer(
-		$this->_d['list_id'], $this->_d['email']
-	);});}
+	private function customer():?C {return dfc($this, function():?C {return df_customer($this->_d['email']);});}
 
 	/**
 	 * 2024-06-02

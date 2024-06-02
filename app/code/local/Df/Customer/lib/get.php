@@ -21,6 +21,7 @@ use Mage_Sales_Model_Order as O;
  * @used-by df_sentry_m()
  * @used-by hcg_mc_sub()
  * @used-by HCG\MailChimp\Tags::c() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by HCG\MailChimp\Tags\ProcessMergeFields::customer()
  * @param string|int|C|Sub|null $v [optional]
  * @param Closure|bool|mixed $onE [optional]
  */
