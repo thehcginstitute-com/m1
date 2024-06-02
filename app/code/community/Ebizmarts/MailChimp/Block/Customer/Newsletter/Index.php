@@ -39,8 +39,7 @@ class Ebizmarts_MailChimp_Block_Customer_Newsletter_Index extends Mage_Customer_
      */
     function getInterest()
     {
-        $subscriber = df_subscriber();
-        $subscriber->loadByEmail($this->_getEmail());
+        $subscriber = df_subscriber($this->_getEmail());
         $helper = $this->getMailChimpHelper();
         $customerSession = $this->getCustomerSession();
         if (!$helper->isAdmin() && $customerSession->isLoggedIn()) {
