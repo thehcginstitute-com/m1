@@ -29,20 +29,24 @@ function df_customer($v = null, $onE = null):?C {return df_try(function() use($v
 		$r = $v;
 	}
 	elseif (!$v) {
-		$r =
-			df_customer_session()->isLoggedIn()
-				? df_customer(df_customer_id())
-				: df_error('df_customer(): the argument is `null` and the visitor is anonymous.')
+		$r = df_customer_session()->isLoggedIn()
+			? df_customer(df_customer_id())
+			: df_error('df_customer(): the argument is `null` and the visitor is anonymous.')
 		;
 	}
 	else {
 		$r = Mage::getModel('customer/customer');
-		$r->load(df_assert(
-			$v instanceof O ? $v->getCustomerId() : (
-				is_int($v) || is_string($v) ? $v : ($v instanceof Sub ? $v->getCustomerId() : null)
-			)
-			,['v' => $v]
-		));
+		if (df_is_email($v)) {
+			$r->loadByEmail($v);
+		}
+		else {
+			$r->load(df_assert(
+				$v instanceof O ? $v->getCustomerId() : (
+					is_int($v) || is_string($v) ? $v : ($v instanceof Sub ? $v->getCustomerId() : null)
+				)
+				,['v' => $v]
+			));
+		}
 		df_assert($r->getId());
 	}
 	return $r
