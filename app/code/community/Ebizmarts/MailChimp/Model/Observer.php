@@ -340,7 +340,7 @@ class Ebizmarts_MailChimp_Model_Observer {
 						$apiSubscriber->deleteSubscriber($subscriber);
 
 						// subscribe new email address
-						$subscriberModel = $this->getSubscriberModel();
+						$subscriberModel = df_subscriber();
 						$subscriber = $subscriberModel->loadByCustomer($customer);
 						$subscriber->setSubscriberEmail($customerEmail); // make sure we set the new email address
 						$subscriber->save();
