@@ -11,7 +11,6 @@ use Mage_Newsletter_Model_Subscriber as S;
  * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
  */
 function hcg_mc_sub($listId, string $email):S {
-	$storeIds = array_merge(hcg_mc_h()->getMagentoStoreIdsByListId($listId), [0]);
 	$r = df_subscriber($email); /** @var S $r */
 	if (!$r->getId()) {
 		$r->setEmail($email);
@@ -20,7 +19,7 @@ function hcg_mc_sub($listId, string $email):S {
 			# No customer with that address.
 			# Just assume the first store ID is the correct one
 			# (as there is no other way to tell which store this MailChimp list guest subscriber belongs to).
-			$r->setStoreId($storeIds[0]);
+			$r->setStoreId(df_first(array_merge(hcg_mc_h()->getMagentoStoreIdsByListId($listId), [0])));
 		}
 		else {
 			$r->setStoreId($c->getStoreId());
