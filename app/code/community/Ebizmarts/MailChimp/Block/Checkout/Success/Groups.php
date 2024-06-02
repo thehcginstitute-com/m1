@@ -98,14 +98,6 @@ class Ebizmarts_MailChimp_Block_Checkout_Success_Groups extends Mage_Core_Block_
         return $this->_helper;
     }
 
-    /**
-     * @return false|Mage_Core_Model_Abstract
-     */
-    protected function getSubscriberModel()
-    {
-        return Mage::getModel('newsletter/subscriber');
-    }
-
     protected function _getStoreId()
     {
         return Mage::app()->getStore()->getId();

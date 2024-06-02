@@ -57,7 +57,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Subscribe extends Mage_Core_Block_Templ
         $helper = $this->_helper;
         $storeId = $this->_storeId;
 
-        $alreadySubscribed = Mage::getModel('newsletter/subscriber')
+        $alreadySubscribed = df_subscriber()
             ->loadByEmail($this->getQuote()->getCustomerEmail())
             ->isSubscribed();
 
