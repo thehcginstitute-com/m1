@@ -23,10 +23,10 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()
 	 * @used-by self::p()
+	 * @used-by self::set()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getFName()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getLName()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_setMailchimpTagsToCustomer()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
 	 * @var array
 	 */
 	public $_d;
