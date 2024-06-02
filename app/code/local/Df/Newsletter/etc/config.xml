@@ -1,0 +1,11 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+<!-- 2024-06-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524 -->
+		<Df_Newsletter>
+			<version>1.0.0</version>
+			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
+		</Df_Newsletter>
+	</modules>
+</config>
