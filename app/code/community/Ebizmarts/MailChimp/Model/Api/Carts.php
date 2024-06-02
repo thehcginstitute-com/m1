@@ -150,11 +150,9 @@ class Ebizmarts_MailChimp_Model_Api_Carts extends Ebizmarts_MailChimp_Model_Api_
 			$customer->setWebsiteId($this->getWebSiteIdFromMagentoStoreId($magentoStoreId));
 			$cartCustomerEmail = $cart->getCustomerEmail();
 			$customer->loadByEmail($cartCustomerEmail);
-
 			$customerEmail = $customer->getEmail();
 			if ($customerEmail != $cartCustomerEmail) {
 				$allCartsForEmail = $this->getAllCartsByEmail($cartCustomerEmail);
-
 				foreach ($allCartsForEmail as $cartForEmail) {
 					$alreadySentCartId = $cartForEmail->getEntityId();
 					$counter = $this->getCounter();

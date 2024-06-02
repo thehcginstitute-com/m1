@@ -82,8 +82,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
 	/**
 	 * @return Mage_Newsletter_Model_Subscriber
 	 */
-	function getSubscriber()
-	{
+	function getSubscriber() {
 		if ($this->_subscriber === null) {
 			$this->setSubscriber(df_subscriber($this->_customer));
 		}
