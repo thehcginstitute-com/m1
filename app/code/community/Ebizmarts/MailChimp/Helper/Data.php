@@ -1846,36 +1846,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * Return the customer model for the given subscriber email
-	 * address for magento stores subscribed to the given Mailchimp List ID.
-	 *
-	 * @param  $listId
-	 * @param  $email
-	 * @return Mage_Core_Model_Abstract|null
-	 * @throws Mage_Core_Exception
-	 */
-	function loadListCustomer($listId, $email)
-	{
-		$customer = null;
-		$storeIds = $this->getMagentoStoreIdsByListId($listId);
-
-		if (!empty($storeIds)) {
-			$customer = Mage::getResourceModel('customer/customer_collection')
-				->addFieldToFilter('store_id', array('in' => $storeIds))
-				->addFieldToFilter('email', array('eq' => $email))
-				->setPageSize(1)->getLastItem();
-
-			if ($customer->getId()) {
-				$customer = Mage::getModel('customer/customer')->load($customer->getId());
-			} else {
-				$customer = null;
-			}
-		}
-
-		return $customer;
-	}
-
-	/**
 	 * Return true if the configPath has been saved specifically for the given scope.
 	 *
 	 * @param           $configPath
