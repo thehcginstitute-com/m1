@@ -9,27 +9,27 @@ use Mage_Newsletter_Model_Subscriber as S;
  * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_unsubscribe()
  * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
  */
-function hcg_mc_sub($listId, string $email) {
-	$subscriber = null;
+function hcg_mc_sub($listId, string $email):?S {
+	$r = null;
 	$storeIds = hcg_mc_h()->getMagentoStoreIdsByListId($listId);
 	//add store id 0 for those created from the back end.
 	$storeIds[] = 0;
 	if (!empty($storeIds)) {
-		$subscriber = Mage::getModel('newsletter/subscriber')->getCollection()
+		$r = Mage::getModel('newsletter/subscriber')->getCollection()
 			->addFieldToFilter('store_id', array('in' => $storeIds))
 			->addFieldToFilter('subscriber_email', $email)
 			->setPageSize(1)->getLastItem();
-		if (!$subscriber->getId()) {
+		if (!$r->getId()) {
 			/**
 			 * No subscriber exists. Try to find a customer based
 			 * on email address for the given stores instead.
 			 */
-			$subscriber = Mage::getModel('newsletter/subscriber');
-			$subscriber->setEmail($email);
+			$r = Mage::getModel('newsletter/subscriber');
+			$r->setEmail($email);
 			$customer = hcg_mc_h()->loadListCustomer($listId, $email);
 			if ($customer) {
-				$subscriber->setStoreId($customer->getStoreId());
-				$subscriber->setCustomerId($customer->getId());
+				$r->setStoreId($customer->getStoreId());
+				$r->setCustomerId($customer->getId());
 			} else {
 				/**
 				 * No customer with that address. Just assume the first
@@ -37,10 +37,9 @@ function hcg_mc_sub($listId, string $email) {
 				 * to tell which store this mailchimp list guest subscriber
 				 * belongs to.
 				 */
-				$subscriber->setStoreId($storeIds[0]);
+				$r->setStoreId($storeIds[0]);
 			}
 		}
 	}
-
-	return $subscriber;
+	return $r;
 }
