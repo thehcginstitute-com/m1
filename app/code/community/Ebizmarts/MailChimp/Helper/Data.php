@@ -1846,13 +1846,9 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * Return the newsletter subscriber model for the given subscriber email
-	 * address for magento stores subscribed to the given Mailchimp List ID.
-	 *
-	 * @param  $listId
-	 * @param  $email
-	 * @return false|Mage_Core_Model_Abstract|null
-	 * @throws Mage_Core_Exception
+	 * 2024-06-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
+	 * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
 	 */
 	function loadListSubscriber($listId, $email)
 	{
