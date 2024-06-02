@@ -11,7 +11,7 @@ use Mage_Newsletter_Model_Subscriber as S;
  */
 function hcg_mc_sub($listId, string $email):S {
 	$storeIds = array_merge(hcg_mc_h()->getMagentoStoreIdsByListId($listId), [0]);
-	$r = Mage::getModel('newsletter/subscriber')->getCollection()
+	$r = df_subscriber_c()
 		->addFieldToFilter('store_id', ['in' => $storeIds])
 		->addFieldToFilter('subscriber_email', $email)
 		->setPageSize(1)->getLastItem(); /** @var S $r */
