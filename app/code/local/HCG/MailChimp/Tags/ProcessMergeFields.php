@@ -85,7 +85,7 @@ final class ProcessMergeFields {
 	private function _getFName() {
 		$attrId = self::_getAttrbuteId('firstname');
 		$magentoTag = '';
-		foreach ($this->_t->_d as $tag) {
+		foreach ($this->_t->get() as $tag) {
 			if ($tag['magento'] == $attrId) {
 				$magentoTag = $tag['mailchimp'];
 				break;
