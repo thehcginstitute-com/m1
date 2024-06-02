@@ -1988,7 +1988,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 		$syncModified = 0,
 		$syncDeleted = null
 	) {
-		$subscriber = Mage::getModel('newsletter/subscriber')->load($itemId);
+		$subscriber = df_subscriber()->load($itemId);
 
 		if ($subscriber->getId()) {
 			if ($syncDelta) {
