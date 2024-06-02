@@ -19,7 +19,6 @@ final class ProcessMergeFields {
 		$i = new self($data, $t); /** @var self $i */
 		$email = $data['email'];
 		$listId = $data['list_id'];
-		$STATUS_SUBSCRIBED = Sub::STATUS_SUBSCRIBED;
 		$t->set();
 		if ($i->customer()) {
 			$i->_setMailchimpTagsToCustomer();
@@ -28,8 +27,8 @@ final class ProcessMergeFields {
 		$fname = $i->_getFName();
 		$lname = $i->_getLName();
 		if ($subscriber->getId()) {
-			if ($subscriber->getStatus() != $STATUS_SUBSCRIBED && $subscribe) {
-				$subscriber->setStatus($STATUS_SUBSCRIBED);
+			if ($subscriber->getStatus() != Sub::STATUS_SUBSCRIBED && $subscribe) {
+				$subscriber->setStatus(Sub::STATUS_SUBSCRIBED);
 				$subscriber->setSubscriberFirstname($fname);
 				$subscriber->setSubscriberLastname($lname);
 			}
