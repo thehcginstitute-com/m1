@@ -3,6 +3,7 @@ use Mage_Customer_Model_Customer as C;
 use Mage_Newsletter_Model_Resource_Subscriber_Collection as SC;
 use Mage_Newsletter_Model_Subscriber as S;
 use Mage_Sales_Model_Order as O;
+use Mage_Sales_Model_Quote as Q;
 
 /**
  * 2024-06-02
