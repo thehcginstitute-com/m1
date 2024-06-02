@@ -1,5 +1,18 @@
 <?php
 use Varien_Db_Select as S;
+/**
+ * 2015-04-13
+ * 2024-06-02 "Port `df_fetch_col_int()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/622
+ * @used-by df_att_code2id()
+ * @used-by df_fetch_col_int_unique()
+ * @param string|null|array(string => mixed) $compareK [optional]
+ * @param int|string|int[]|string[]|null $compareV [optional]
+ * @return int[]|string[]
+ */
+function df_fetch_col_int(string $t, string $cSelect, $compareK = null, $compareV = null, bool $distinct = false):array {return
+	/** I do not use @see df_int() to make the function faster */
+	df_int_simple(df_fetch_col($t, $cSelect, $compareK, $compareV, $distinct))
+;}
 
 /**
  * 2015-11-03
