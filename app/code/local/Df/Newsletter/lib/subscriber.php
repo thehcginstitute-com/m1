@@ -1,6 +1,7 @@
 <?php
+use Mage_Customer_Model_Customer as C;
+use Mage_Newsletter_Model_Resource_Subscriber_Collection as SC;
 use Mage_Newsletter_Model_Subscriber as S;
-use Mage_Newsletter_Model_Resource_Subscriber_Collection as C;
 /**
  * 2024-06-02
  * 1) "Implement `df_subscriber()`": https://github.com/thehcginstitute-com/m1/issues/627
@@ -15,14 +16,16 @@ use Mage_Newsletter_Model_Resource_Subscriber_Collection as C;
  * @used-by Ebizmarts_MailChimp_Model_Api_Customers::createBatchJson()
  * @used-by Ebizmarts_MailChimp_Model_Api_Orders::GeneratePOSTPayload()
  * @used-by Ebizmarts_MailChimp_Model_Observer::createCreditmemo()
+ * @param string|C|null $id [optional]
  */
-function df_subscriber(?string $email = ''):S {
+function df_subscriber($id = null):S {
 	$r = Mage::getModel('newsletter/subscriber'); /** @var S $r */
-	return !$email ? $r : $r->loadByEmail($email);
+	//$r->loadByCustomer();
+	return !$id ? $r : $r->loadByEmail($id);
 }
 
 /**
  * 2024-06-02 "Implement `df_subscriber_c()`": https://github.com/thehcginstitute-com/m1/issues/626
  * @used-by Glew_Service_Model_Types_Subscribers::load()
  */
-function df_subscriber_c():C {return df_subscriber()->getCollection();}
+function df_subscriber_c():SC {return df_subscriber()->getCollection();}
