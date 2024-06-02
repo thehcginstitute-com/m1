@@ -24,7 +24,7 @@ use Mage_Sales_Model_Order as O;
  * @param Closure|bool|mixed $onE [optional]
  * @return C|null
  */
-function df_customer($v = null, $onE = null) {return df_try(function() use($v) {
+function df_customer($v = null, $onE = null):?C {return df_try(function() use($v, $onE):?C {
 	$r =
 		/** @var int|string|null $id */
 		/**
