@@ -148,7 +148,7 @@ function df_last(array $array) {return !$array ? null : end($array);}
  */
 function dfa_flatten(array $a) {
 	$r = []; /** @var mixed[] $r */
-	array_walk_recursive($a, function($a) use(&$r) {$r[]= $a;});
+	array_walk_recursive($a, function($a) use(&$r):void {$r[]= $a;});
 	return $r;
 }
 
