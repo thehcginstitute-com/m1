@@ -13,6 +13,4 @@ use Mage_Newsletter_Model_Subscriber as S;
  * @used-by STUB()
  * @used-by STUB()
  */
-function hcg_mc_customer($listId, string $email):?C {/** @var ?C $r */
-	return null;
-}
+function hcg_mc_customer($listId, string $email):?C {return df_customer($email);}
