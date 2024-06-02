@@ -1095,23 +1095,22 @@ class Ebizmarts_MailChimp_Model_Observer {
 	function handleCustomerGroups($subscriberEmail, $params, $storeId, $customerId = null)
 	{
 		$helper = $this->makeHelper();
-		$subscriberModel = df_subscriber();
-		$subscriber = $subscriberModel->loadByEmail($subscriberEmail);
-
+		$subscriber = df_subscriber($subscriberEmail);
 		if ($subscriber->getId()) {
 			$helper->saveInterestGroupData($params, $storeId, $customerId, $subscriber);
-		} elseif (isset($params['customer_id'])) {
+		}
+		elseif (isset($params['customer_id'])) {
 			$groups = $helper->getInterestGroupsIfAvailable($params);
 
 			if ($groups) {
 				$helper->saveInterestGroupData($params, $storeId, $customerId);
 				$this->getWarningMessageAdminHtmlSession($helper);
 			}
-		} else {
+		}
+		else {
 			//save frontend groupdata when customer is not subscribed.
 			$helper->saveInterestGroupData($params, $storeId, $customerId);
 		}
-
 		return $subscriber;
 	}
 
