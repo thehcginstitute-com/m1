@@ -193,7 +193,7 @@ final class ProcessMergeFields {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_setMailchimpTagToCustomer()
 	 */
-	private static function gender($s):int {return dfa(['Male' => T::MALE, 'Female' => T::FEMALE], $s, 0);}
+	private static function gender($s):int {return df_gender_s2i($s);}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
