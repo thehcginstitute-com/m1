@@ -1,5 +1,7 @@
 <?php
 use Mage_Sales_Model_Order as O;
+use Mage_Sales_Model_Quote as Q;
+
 /**
  * 2017-04-10
  * 2024-04-14 "Port `df_is_o()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/562
@@ -32,3 +34,15 @@ function df_is_o($v):bool {return $v instanceof O;}
  * @param mixed $v
  */
 function df_is_oq($v):bool {return df_is_o($v) || df_is_q($v);}
+
+/**
+ * 2017-04-10
+ * 2024-06-02 "Port `df_is_q()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/630
+ * @used-by df_is_oq()
+ * @used-by df_oq_currency_c()
+ * @used-by df_oq_sa()
+ * @used-by df_quote_id()
+ * @used-by dfp_due()
+ * @param mixed $v
+ */
+function df_is_q($v):bool {return $v instanceof Q;}
