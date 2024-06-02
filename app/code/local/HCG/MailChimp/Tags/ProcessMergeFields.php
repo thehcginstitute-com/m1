@@ -1,8 +1,8 @@
 <?php
 namespace HCG\MailChimp\Tags;
 use Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle as InterestGroupHandle;
-use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as T;
 use Ebizmarts_MailChimp_Model_Config as Cfg;
+use HCG\MailChimp\Tags as T;
 use Mage_Customer_Model_Customer as C;
 use Mage_Newsletter_Model_Subscriber as Sub;
 # 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
