@@ -15,6 +15,7 @@ function df_if1($cond, $onTrue, $onFalse = null) {return $cond ? df_call_if($onT
 /**
  * 2017-04-15
  * @used-by df_country_ctn()
+ * @used-by df_customer_id()
  * @param F $try
  * @param F|T|bool|mixed $onE [optional]
  * @return mixed

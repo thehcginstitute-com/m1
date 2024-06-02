@@ -1,5 +1,6 @@
 <?php
 use Mage_Customer_Model_Customer as C;
+use Mage_Newsletter_Model_Subscriber as Sub;
 
 /**
  * 2016-12-04
@@ -8,8 +9,9 @@ use Mage_Customer_Model_Customer as C;
  * @used-by df_context()
  * @used-by df_customer_is_need_confirm()
  * @used-by vendor/inkifi/mediaclip-legacy/view/frontend/templates/savedproject.phtml
- * @param C|int|null $v [optional]
+ * @param string|int|C|Sub|null $v [optional]
+ * @param Closure|bool|mixed $onE [optional]
  */
-function df_customer_id($v = null):?int {return !$v && !df_is_backend() ? df_customer_session()->getId() : (
-	$v instanceof C ? $v->getId() : $v
-);}
+function df_customer_id($v = null, $onE = null):?int {return df_try(function() use($v, $onE):?int {return
+	df_customer($v, $onE)->getId()
+;}, $onE);}

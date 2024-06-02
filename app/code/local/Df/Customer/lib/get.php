@@ -17,6 +17,7 @@ use Mage_Sales_Model_Order as O;
  * @used-by df_ci_get()
  * @used-by df_ci_save()
  * @used-by df_customer()
+ * @used-by df_customer_id()
  * @used-by df_sentry_m()
  * @used-by hcg_mc_customer()
  * @used-by \HCG\MailChimp\Tags::c() (https://github.com/thehcginstitute-com/m1/issues/589)
