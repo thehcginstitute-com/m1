@@ -11,200 +11,200 @@
 
 class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
 {
-    /**
-     * @var Ebizmarts_MailChimp_Helper_Data
-     */
-    protected $_helper;
+	/**
+	 * @var Ebizmarts_MailChimp_Helper_Data
+	 */
+	protected $_helper;
 
-    /**
-     * @var Array
-     */
-    protected $_groupings;
+	/**
+	 * @var Array
+	 */
+	protected $_groupings;
 
-    /**
-     * @var Mage_Customer_Model_Customer
-     */
-    protected $_customer;
+	/**
+	 * @var Mage_Customer_Model_Customer
+	 */
+	protected $_customer;
 
-    /**
-     * @var Mage_Newsletter_Model_Subscriber
-     */
-    protected $_subscriber;
+	/**
+	 * @var Mage_Newsletter_Model_Subscriber
+	 */
+	protected $_subscriber;
 
-    /**
-     * @var String
-     */
-    protected $_listId;
+	/**
+	 * @var String
+	 */
+	protected $_listId;
 
-    function __construct()
-    {
-        $this->_helper = hcg_mc_h();
-    }
+	function __construct()
+	{
+		$this->_helper = hcg_mc_h();
+	}
 
-    /**
-     * @throws Ebizmarts_MailChimp_Helper_Data_ApiKeyException
-     * @throws MailChimp_Error
-     * @throws MailChimp_HttpError
-     */
-    function processGroupsData()
-    {
-        $groups = array();
-        $helper = $this->getHelper();
-        $subscriber = $this->getSubscriber();
-        $storeId = $subscriber->getStoreId();
+	/**
+	 * @throws Ebizmarts_MailChimp_Helper_Data_ApiKeyException
+	 * @throws MailChimp_Error
+	 * @throws MailChimp_HttpError
+	 */
+	function processGroupsData()
+	{
+		$groups = array();
+		$helper = $this->getHelper();
+		$subscriber = $this->getSubscriber();
+		$storeId = $subscriber->getStoreId();
 
-        try {
-            $api = $helper->getApi($storeId);
-        } catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-            $helper->logError($e->getMessage());
-            return;
-        }
+		try {
+			$api = $helper->getApi($storeId);
+		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+			$helper->logError($e->getMessage());
+			return;
+		}
 
-        $groups = $this->_getSubscribedGroups($api);
+		$groups = $this->_getSubscribedGroups($api);
 
-        $customerId = $this->_getCustomerId();
-        $interestGroup = $this->getInterestGroupModel();
+		$customerId = $this->_getCustomerId();
+		$interestGroup = $this->getInterestGroupModel();
 
-        $subscriberId = $subscriber->getSubscriberId();
-        $interestGroup->getByRelatedIdStoreId($customerId, $subscriberId, $storeId);
-        $encodedGroups = $helper->arrayEncode($groups);
+		$subscriberId = $subscriber->getSubscriberId();
+		$interestGroup->getByRelatedIdStoreId($customerId, $subscriberId, $storeId);
+		$encodedGroups = $helper->arrayEncode($groups);
 
-        $interestGroup->setGroupdata($encodedGroups);
-        $interestGroup->setSubscriberId($subscriberId);
-        $interestGroup->setCustomerId($customerId);
-        $interestGroup->setStoreId($storeId);
-        $interestGroup->setUpdatedAt(hcg_mc_h_date()->getCurrentDateTime());
-        $interestGroup->save();
+		$interestGroup->setGroupdata($encodedGroups);
+		$interestGroup->setSubscriberId($subscriberId);
+		$interestGroup->setCustomerId($customerId);
+		$interestGroup->setStoreId($storeId);
+		$interestGroup->setUpdatedAt(hcg_mc_h_date()->getCurrentDateTime());
+		$interestGroup->save();
 
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * @return Mage_Newsletter_Model_Subscriber
-     */
-    function getSubscriber()
-    {
-        if ($this->_subscriber === null) {
-            $this->setSubscriber(df_subscriber($this->_customer));
-        }
-        return $this->_subscriber;
-    }
+	/**
+	 * @return Mage_Newsletter_Model_Subscriber
+	 */
+	function getSubscriber()
+	{
+		if ($this->_subscriber === null) {
+			$this->setSubscriber(df_subscriber($this->_customer));
+		}
+		return $this->_subscriber;
+	}
 
-    /**
-     * @return int
-     */
-    protected function _getCustomerId()
-    {
-        if ($this->_subscriber === null) {
-            $customerId = $this->_customer->getId();
-        } else {
-            $customerId = $this->_subscriber->getCustomerId();
-        }
+	/**
+	 * @return int
+	 */
+	protected function _getCustomerId()
+	{
+		if ($this->_subscriber === null) {
+			$customerId = $this->_customer->getId();
+		} else {
+			$customerId = $this->_subscriber->getCustomerId();
+		}
 
-        return $customerId;
-    }
+		return $customerId;
+	}
 
-    /**
-     * @param $interests
-     * @param $grouping
-     * @return array
-     */
-    protected function _getCustomerGroups($interests, $grouping)
-    {
-        $groups = array();
-        $groupsSave = array();
+	/**
+	 * @param $interests
+	 * @param $grouping
+	 * @return array
+	 */
+	protected function _getCustomerGroups($interests, $grouping)
+	{
+		$groups = array();
+		$groupsSave = array();
 
-        foreach ($interests['interests'] as $mcGroup) {
-            if (strpos($grouping['groups'], $mcGroup['name']) !== false) {
-                $groupsSave [$mcGroup['id']] = $mcGroup['id'];
-            }
-        }
+		foreach ($interests['interests'] as $mcGroup) {
+			if (strpos($grouping['groups'], $mcGroup['name']) !== false) {
+				$groupsSave [$mcGroup['id']] = $mcGroup['id'];
+			}
+		}
 
-        $groups [$grouping['unique_id']]= $groupsSave;
+		$groups [$grouping['unique_id']]= $groupsSave;
 
-        return $groups;
-    }
+		return $groups;
+	}
 
-    /**
-     * @param $api
-     * @return array
-     */
-    protected function _getSubscribedGroups($api)
-    {
-        $groups = array();
-        $helper = $this->getHelper();
+	/**
+	 * @param $api
+	 * @return array
+	 */
+	protected function _getSubscribedGroups($api)
+	{
+		$groups = array();
+		$helper = $this->getHelper();
 
-        try
-        {
-            $apiInterests = $api->getLists()->getInterestCategory()->getInterests();
+		try
+		{
+			$apiInterests = $api->getLists()->getInterestCategory()->getInterests();
 
-            foreach ($this->_groupings as $grouping) {
-                $interests = $apiInterests->getAll($this->_listId, $grouping['unique_id']);
-                $groups = $this->_getCustomerGroups($interests, $grouping);
-            }
-        } catch (MailChimp_Error $e) {
-            $helper->logError($e->getFriendlyMessage());
-            Mage::getSingleton('adminhtml/session')->addError($e->getFriendlyMessage());
-        } catch (Exception $e) {
-            $helper->logError($e->getMessage());
-        }
+			foreach ($this->_groupings as $grouping) {
+				$interests = $apiInterests->getAll($this->_listId, $grouping['unique_id']);
+				$groups = $this->_getCustomerGroups($interests, $grouping);
+			}
+		} catch (MailChimp_Error $e) {
+			$helper->logError($e->getFriendlyMessage());
+			Mage::getSingleton('adminhtml/session')->addError($e->getFriendlyMessage());
+		} catch (Exception $e) {
+			$helper->logError($e->getMessage());
+		}
 
-        return $groups;
-    }
+		return $groups;
+	}
 
-    /**
-     * @param $groupings
-     * @return $this
-     */
-    function setGroupings($groupings)
-    {
-        $this->_groupings = $groupings;
-        return $this;
-    }
+	/**
+	 * @param $groupings
+	 * @return $this
+	 */
+	function setGroupings($groupings)
+	{
+		$this->_groupings = $groupings;
+		return $this;
+	}
 
-    /**
-     * @param $customer
-     * @return $this
-     */
-    function setCustomer($customer)
-    {
-        $this->_customer = $customer;
-        return $this;
-    }
+	/**
+	 * @param $customer
+	 * @return $this
+	 */
+	function setCustomer($customer)
+	{
+		$this->_customer = $customer;
+		return $this;
+	}
 
-    /**
-     * @param $subscriber
-     * @return $this
-     */
-    function setSubscriber($subscriber)
-    {
-        $this->_subscriber = $subscriber;
-        return $this;
-    }
+	/**
+	 * @param $subscriber
+	 * @return $this
+	 */
+	function setSubscriber($subscriber)
+	{
+		$this->_subscriber = $subscriber;
+		return $this;
+	}
 
-    /**
-     * @param $listId
-     * @return $this
-     */
-    function setListId($listId)
-    {
-        $this->_listId = $listId;
-        return $this;
-    }
+	/**
+	 * @param $listId
+	 * @return $this
+	 */
+	function setListId($listId)
+	{
+		$this->_listId = $listId;
+		return $this;
+	}
 
-    /**
-     * @return Ebizmarts_MailChimp_Model_Interestgroup
-     */
-    protected function getInterestGroupModel()
-    {
-        return Mage::getModel('mailchimp/interestgroup');
-    }
+	/**
+	 * @return Ebizmarts_MailChimp_Model_Interestgroup
+	 */
+	protected function getInterestGroupModel()
+	{
+		return Mage::getModel('mailchimp/interestgroup');
+	}
 
-    /**
-     * @return Ebizmarts_MailChimp_Helper_Data
-     */
-    protected function getHelper($type='')
-    {
-        return $this->_helper;
-    }
+	/**
+	 * @return Ebizmarts_MailChimp_Helper_Data
+	 */
+	protected function getHelper($type='')
+	{
+		return $this->_helper;
+	}
 }
