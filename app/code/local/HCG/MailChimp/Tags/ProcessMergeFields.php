@@ -24,8 +24,8 @@ final class ProcessMergeFields {
 			$i->_setMailchimpTagsToCustomer();
 		}
 		$subscriber = hcg_mc_h()->loadListSubscriber($listId, $email);
-		$fname = $i->_getFName();
-		$lname = $i->_getLName();
+		$fname = $i->mcByCA('firstname');
+		$lname = $i->mcByCA('lastname');
 		if ($subscriber->getId()) {
 			if ($subscriber->getStatus() != Sub::STATUS_SUBSCRIBED && $subscribe) {
 				$subscriber->setStatus(Sub::STATUS_SUBSCRIBED);
@@ -75,20 +75,6 @@ final class ProcessMergeFields {
 	private function customer():?C {return dfc($this, function() {return hcg_mc_h()->loadListCustomer(
 		$this->_d['list_id'], $this->_d['email']
 	);});}
-
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/thehcginstitute-com/m1/issues/589
-	 * @used-by self::p()
-	 */
-	private function _getFName() {return $this->mcByCA('firstname');}
-
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/thehcginstitute-com/m1/issues/589
-	 * @used-by self::p()
-	 */
-	private function _getLName() {return $this->mcByCA('lastname');}
 
 	/**
 	 * 2024-06-02

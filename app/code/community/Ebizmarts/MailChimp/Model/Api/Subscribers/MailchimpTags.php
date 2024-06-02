@@ -24,8 +24,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 
 	/**
 	 * 2024-06-02
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getFName()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getLName()
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
 	 */
 	function mcByCA(string $a):?string {return $this->mcByMG(df_att_code2id($a));}
 
