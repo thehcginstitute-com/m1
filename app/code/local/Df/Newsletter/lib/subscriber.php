@@ -6,7 +6,7 @@ use Mage_Newsletter_Model_Resource_Subscriber_Collection as C;
  * @used-by df_subscriber_c()
  * @used-by Ebizmarts_MailChimp_Block_Checkout_Subscribe::_toHtml()
  * @used-by Ebizmarts_MailChimp_Block_Popup_Emailcatcher::_handleCookie()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Model_Api_Customers::createBatchJson()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
