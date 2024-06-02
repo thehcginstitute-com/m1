@@ -2,6 +2,28 @@
 use Varien_Db_Select as S;
 /**
  * 2015-04-13
+ * 2024-06-02 "Port `df_fetch_col()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/624
+ * @used-by df_fetch_col_int()
+ * @param string|null|array(string => mixed) $compareK [optional]
+ * @param int|string|int[]|string[]|null $compareV [optional]
+ * @return int[]|string[]
+ */
+function df_fetch_col(string $t, string $col, $compareK = null, $compareV = null, bool $distinct = false):array {
+	$s = df_db_from($t, $col); /** @var S $s */
+	if (is_array($compareK)) {
+		foreach ($compareK as $c => $v) {/** @var string $c */ /** @var string $v */
+			$s->where('? = ' . $c, $v);
+		}
+	}
+	elseif (!is_null($compareV)) {
+		$s->where(($compareK ?: $col) . ' ' . df_sql_predicate_simple($compareV), $compareV);
+	}
+	$s->distinct($distinct);
+	return df_conn()->fetchCol($s, $col);
+}
+
+/**
+ * 2015-04-13
  * 2024-06-02 "Port `df_fetch_col_int()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/622
  * @used-by df_att_code2id()
  * @used-by df_fetch_col_int_unique()
