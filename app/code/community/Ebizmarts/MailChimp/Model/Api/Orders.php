@@ -271,7 +271,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 		$data["customer"]["email_address"] = $order->getCustomerEmail();
 		$data["customer"]["opt_in_status"] = false;
 
-		$subscriber = $this->getSubscriberModel();
+		$subscriber = df_subscriber();
 
 		if ($subscriber->getOptIn($magentoStoreId)) {
 			$isSubscribed = $subscriber->loadByEmail($order->getCustomerEmail())->getSubscriberId();
