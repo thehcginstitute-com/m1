@@ -81,14 +81,21 @@ final class ProcessMergeFields {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/thehcginstitute-com/m1/issues/589
 	 * @used-by self::p()
 	 */
-	private function _getFName() {return $this->_d['merges'][df_assert($this->_t->mcByCA('firstname'))];}
+	private function _getFName() {return $this->mcByCA('firstname');}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/thehcginstitute-com/m1/issues/589
 	 * @used-by self::p()
 	 */
-	private function _getLName() {return $this->_d['merges'][df_assert($this->_t->mcByCA('lastname'))];}
+	private function _getLName() {return $this->mcByCA('lastname');}
+
+	/**
+	 * 2024-06-02
+	 * @used-by self::_getFName()
+	 * @used-by self::_getLName()
+	 */
+	private function mcByCA(string $a) {return $this->_d['merges'][df_assert($this->_t->mcByCA($a))];}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro

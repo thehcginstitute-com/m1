@@ -30,15 +30,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	function mcByCA(string $a):?string {return $this->mcByMG(df_att_code2id($a));}
 
 	/**
-	 * 2024-06-02 https://3v4l.org/p0kkb
-	 * @used-by self::mcByCA()
-	 */
-	private function mcByMG(string $mg):?string {return dfa(
-		df_find($this->get(), function(array $a) use($mg):bool {return $mg === (string)dfa($a, 'magento');})
-		,'mailchimp'
-	);}
-
-	/**
 	 * 2024-06-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/thehcginstitute-com/m1/issues/589
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
@@ -229,6 +220,15 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 			->setOrder('created_at', 'DESC')
 			->setPageSize(1)
 	) ? null : $c->getLastItem();});}
+
+	/**
+	 * 2024-06-02 https://3v4l.org/p0kkb
+	 * @used-by self::mcByCA()
+	 */
+	private function mcByMG(string $mg):?string {return dfa(
+		df_find($this->get(), function(array $a) use($mg):bool {return $mg === (string)dfa($a, 'magento');})
+		,'mailchimp'
+	);}
 
 	/**
 	 * 2024-05-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
