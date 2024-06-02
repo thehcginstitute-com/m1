@@ -11,82 +11,82 @@
 class Ebizmarts_MailChimp_Block_Customer_Newsletter_Index extends Mage_Customer_Block_Newsletter
 {
 
-    protected $_lists = array();
-    protected $_info = array();
-    protected $_myLists = array();
-    protected $_generalList = array();
-    protected $_form;
-    protected $_api;
-    protected $_template = "ebizmarts/mailchimp/customer/newsletter/index.phtml";
-    /**
-     * @var Ebizmarts_MailChimp_Helper_Data
-     */
-    protected $_helper;
-    protected $_storeId;
+	protected $_lists = array();
+	protected $_info = array();
+	protected $_myLists = array();
+	protected $_generalList = array();
+	protected $_form;
+	protected $_api;
+	protected $_template = "ebizmarts/mailchimp/customer/newsletter/index.phtml";
+	/**
+	 * @var Ebizmarts_MailChimp_Helper_Data
+	 */
+	protected $_helper;
+	protected $_storeId;
 
-    function __construct()
-    {
-        $this->setTemplate('ebizmarts/mailchimp/customer/newsletter/index.phtml');
-        $this->_helper = hcg_mc_h();
-        $this->_storeId = Mage::app()->getStore()->getId();
-    }
+	function __construct()
+	{
+		$this->setTemplate('ebizmarts/mailchimp/customer/newsletter/index.phtml');
+		$this->_helper = hcg_mc_h();
+		$this->_storeId = Mage::app()->getStore()->getId();
+	}
 
-    /**
-     * @return array|null
-     * @throws Mage_Core_Exception
-     * @throws Mage_Core_Model_Store_Exception
-     * @throws MailChimp_Error
-     */
-    function getInterest()
-    {
-        $subscriber = df_subscriber($this->_getEmail());
-        $helper = $this->getMailChimpHelper();
-        $customerSession = $this->getCustomerSession();
-        if (!$helper->isAdmin() && $customerSession->isLoggedIn()) {
-            $customer = $customerSession->getCustomer();
-            $customerId = $customer->getId();
-            $storeId = ($subscriber->getStoreId()) ? $subscriber->getStoreId() : $customer->getStoreId();
-        } else {
-            $customerId = null;
-            $storeId = $subscriber->getStoreId();
-        }
+	/**
+	 * @return array|null
+	 * @throws Mage_Core_Exception
+	 * @throws Mage_Core_Model_Store_Exception
+	 * @throws MailChimp_Error
+	 */
+	function getInterest()
+	{
+		$subscriber = df_subscriber($this->_getEmail());
+		$helper = $this->getMailChimpHelper();
+		$customerSession = $this->getCustomerSession();
+		if (!$helper->isAdmin() && $customerSession->isLoggedIn()) {
+			$customer = $customerSession->getCustomer();
+			$customerId = $customer->getId();
+			$storeId = ($subscriber->getStoreId()) ? $subscriber->getStoreId() : $customer->getStoreId();
+		} else {
+			$customerId = null;
+			$storeId = $subscriber->getStoreId();
+		}
 
-        $interest = $helper->getInterestGroups($customerId, $subscriber->getSubscriberId(), $storeId);
-        return $interest;
-    }
+		$interest = $helper->getInterestGroups($customerId, $subscriber->getSubscriberId(), $storeId);
+		return $interest;
+	}
 
-    /**
-     * @param $data
-     * @return string
-     */
-    function escapeQuote($data)
-    {
-        return $this->getMailChimpHelper()->mcEscapeQuote($data);
-    }
+	/**
+	 * @param $data
+	 * @return string
+	 */
+	function escapeQuote($data)
+	{
+		return $this->getMailChimpHelper()->mcEscapeQuote($data);
+	}
 
-    /**
-     * @return Ebizmarts_MailChimp_Helper_Data
-     */
-    function getMailChimpHelper()
-    {
-        return $this->_helper;
-    }
+	/**
+	 * @return Ebizmarts_MailChimp_Helper_Data
+	 */
+	function getMailChimpHelper()
+	{
+		return $this->_helper;
+	}
 
-    /**
-     * Retrieve email from Customer object in session
-     *
-     * @return string Email address
-     */
-    protected function _getEmail()
-    {
-        return $this->getCustomerSession()->getCustomer()->getEmail();
-    }
+	/**
+	 * Retrieve email from Customer object in session
+	 *
+	 * @return string Email address
+	 */
+	protected function _getEmail()
+	{
+		return $this->getCustomerSession()->getCustomer()->getEmail();
+	}
 
-    /**
-     * @return Mage_Customer_Model_Session
-     */
-    protected function getCustomerSession()
-    {
-        return Mage::getSingleton('customer/session');
-    }
+	/**
+	 * @return Mage_Customer_Model_Session
+	 */
+	protected function getCustomerSession()
+	{
+		return Mage::getSingleton('customer/session');
+	}
 }
