@@ -469,8 +469,7 @@ class Ebizmarts_MailChimp_Model_Api_Customers extends Ebizmarts_MailChimp_Model_
 	 * @param $customer
 	 * @return mixed
 	 */
-	protected function isSubscribed($subscriber, $customer)
-	{
+	protected function isSubscribed($subscriber, $customer) {
 		if ($subscriber->loadByEmail($customer->getEmail())->getSubscriberId()
 			&& $subscriber->getStatus() == Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED) {
 			return true;
