@@ -65,13 +65,12 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @used-by self::p()
 	 */
 	private function _updateEmail(array $data):void {
-		$helper = hcg_mc_h();
 		$listId = $data['list_id'];
 		$old = $data['old_email'];
 		$new = $data['new_email'];
 
-		$oldSubscriber = $helper->loadListSubscriber($listId, $old);
-		$newSubscriber = $helper->loadListSubscriber($listId, $new);
+		$oldSubscriber = hcg_mc_sub($listId, $old);
+		$newSubscriber = hcg_mc_sub($listId, $new);
 
 		if ($oldSubscriber) {
 			if (!$newSubscriber->getId()) {
@@ -80,7 +79,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 					$oldSubscriber->setSubscriberSource(Ebizmarts_MailChimp_Model_Subscriber::MAILCHIMP_SUBSCRIBE);
 					$oldSubscriber->save();
 				} else {
-					$helper->subscribeMember($newSubscriber);
+					hcg_mc_h()->subscribeMember($newSubscriber);
 				}
 			}
 		}
