@@ -44,7 +44,10 @@ function df_customer($v = null, $onE = null):?C {return df_try(function() use($v
 				$v instanceof O ? $v->getCustomerId() : (
 					is_int($v) || is_string($v) ? $v : ($v instanceof Sub ? $v->getCustomerId() : null)
 				)
-				,['v' => $v]
+				# 2024-05-20
+				# "Provide an ability to specify a context for a `Df\Core\Exception` instance":
+				# https://github.com/mage2pro/core/issues/375
+				,df_error_create("Unable to detect the customer's ID", ['v' => $v])
 			));
 		}
 		df_assert($r->getId());
