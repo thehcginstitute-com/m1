@@ -90,12 +90,4 @@ class Ebizmarts_MailChimp_Block_Customer_Newsletter_Index extends Mage_Customer_
     {
         return Mage::getSingleton('customer/session');
     }
-
-    /**
-     * @return Mage_Newsletter_Model_Subscriber
-     */
-    protected function getSubscriberModel()
-    {
-        return Mage::getModel('newsletter/subscriber');
-    }
 }
