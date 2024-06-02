@@ -102,14 +102,6 @@ class Ebizmarts_MailChimp_GroupController extends Mage_Core_Controller_Front_Act
     }
 
     /**
-     * @return Mage_Newsletter_Model_Subscriber
-     */
-    protected function getSubscriberModel()
-    {
-        return Mage::getModel('newsletter/subscriber');
-    }
-
-    /**
      * @return string
      */
     protected function getCurrentDateTime()
