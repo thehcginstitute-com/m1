@@ -52,8 +52,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Subscribe extends Mage_Core_Block_Templ
 	 *
 	 * @return string
 	 */
-	protected function _toHtml()
-	{
+	protected function _toHtml() {
 		$helper = $this->_helper;
 		$storeId = $this->_storeId;
 		$alreadySubscribed = df_subscriber($this->getQuote())->isSubscribed();
