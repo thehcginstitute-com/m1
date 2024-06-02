@@ -10,7 +10,7 @@ use Mage_Newsletter_Model_Subscriber as S;
  * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
  */
 function hcg_mc_sub($listId, string $email):?S {
-	$r = null;
+	$r = null; /** @var ?S $r */
 	$storeIds = hcg_mc_h()->getMagentoStoreIdsByListId($listId);
 	//add store id 0 for those created from the back end.
 	$storeIds[] = 0;
