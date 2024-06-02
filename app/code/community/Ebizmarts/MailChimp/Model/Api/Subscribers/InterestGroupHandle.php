@@ -86,7 +86,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
     {
         if ($this->_subscriber === null) {
             $customerEmail = $this->_customer->getEmail();
-            $this->setSubscriber($this->getSubscriberModel()->loadByEmail($customerEmail));
+            $this->setSubscriber(df_subscriber()->loadByEmail($customerEmail));
         }
 
         return $this->_subscriber;
