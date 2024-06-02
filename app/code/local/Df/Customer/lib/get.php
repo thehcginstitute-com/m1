@@ -36,12 +36,12 @@ function df_customer($v = null, $onE = null):?C {return df_try(function() use($v
 		;
 	}
 	else {
-		$id =
-			$v instanceof O ? $v->getCustomerId() : (
+		df_assert(
+			$id = $v instanceof O ? $v->getCustomerId() : (
 				is_int($v) || is_string($v) ? $v : ($v instanceof Sub ? $v->getCustomerId() : null)
 			)
-		;
-		df_assert($id, ['v' => $v]);
+			,['v' => $v]
+		);
 		$r = Mage::getModel('customer/customer')->load($id);
 		df_assert($r->getId());
 	}
