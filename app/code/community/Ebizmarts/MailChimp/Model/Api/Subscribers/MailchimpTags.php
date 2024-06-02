@@ -17,6 +17,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2) https://3v4l.org/akQm0#tabs
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getFName()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getLName()
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_setMailchimpTagsToCustomer()
 	 * @return array(string => array(string => string)
 	 */
 	function get():array {return $this->_d;}
@@ -62,7 +63,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * @used-by self::_p()
 	 * @used-by self::p()
 	 * @used-by self::set()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_setMailchimpTagsToCustomer()
 	 * @var array(string => array(string => string)
 	 */
 	public $_d;

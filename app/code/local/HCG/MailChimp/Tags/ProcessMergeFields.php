@@ -120,7 +120,7 @@ final class ProcessMergeFields {
 		$customer = $this->customer();
 		foreach ($this->_d['merges'] as $key => $value) {
 			if (!empty($value)) {
-				if (is_array($this->_t->_d)) {
+				if (is_array($this->_t->get())) {
 					if ($key !== 'GROUPINGS') {
 						self::_setMailchimpTagToCustomer($key, $value, $this->_t->_d, $customer);
 					}
