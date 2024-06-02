@@ -23,7 +23,6 @@ use Mage_Sales_Model_Order as O;
  * @used-by \HCG\MailChimp\Tags::c() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param string|int|C|Sub|null $v [optional]
  * @param Closure|bool|mixed $onE [optional]
- * @return C|null
  */
 function df_customer($v = null, $onE = null):?C {return df_try(function() use($v):?C {/** @var ?C $r */
 	if ($v instanceof C) {
