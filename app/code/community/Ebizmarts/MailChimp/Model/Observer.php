@@ -749,10 +749,8 @@ class Ebizmarts_MailChimp_Model_Observer {
 	 * @param  Varien_Event_Observer $observer
 	 * @return Varien_Event_Observer
 	 */
-	function createCreditmemo($observer)
-	{
+	function createCreditmemo($observer) {
 		$mailchimpUnsubscribe = $this->getRequest()->getParam('mailchimp_unsubscribe');
-
 		if ($this->isUnsubscribeChecked($mailchimpUnsubscribe)) {
 			$creditMemo = $observer->getEvent()->getCreditmemo();
 			$helper = $this->makeHelper();
@@ -760,7 +758,6 @@ class Ebizmarts_MailChimp_Model_Observer {
 			$email = $order->getCustomerEmail();
 			$helper->unsubscribeMember(df_subscriber($email));
 		}
-
 		return $observer;
 	}
 
