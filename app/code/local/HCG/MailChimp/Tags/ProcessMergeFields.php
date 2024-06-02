@@ -4,6 +4,7 @@ use Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle as InterestGro
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as T;
 use Ebizmarts_MailChimp_Model_Config as Cfg;
 use Mage_Customer_Model_Customer as C;
+use Mage_Newsletter_Model_Subscriber as Sub;
 # 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 final class ProcessMergeFields {
@@ -18,7 +19,7 @@ final class ProcessMergeFields {
 		$i = new self($data, $t); /** @var self $i */
 		$email = $data['email'];
 		$listId = $data['list_id'];
-		$STATUS_SUBSCRIBED = \Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED;
+		$STATUS_SUBSCRIBED = Sub::STATUS_SUBSCRIBED;
 		$t->set();
 		if ($i->customer()) {
 			$i->_setMailchimpTagsToCustomer();
