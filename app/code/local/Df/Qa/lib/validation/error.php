@@ -64,6 +64,7 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by df_sentry_m()
  * @used-by df_sprintf_strict()
  * @used-by df_string()
+ * @used-by df_subscriber()
  * @used-by df_try()
  * @used-by df_xml_children()
  * @used-by df_xml_parse()
