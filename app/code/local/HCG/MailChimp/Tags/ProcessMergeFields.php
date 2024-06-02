@@ -23,28 +23,28 @@ final class ProcessMergeFields {
 		if ($i->customer()) {
 			$i->_setMailchimpTagsToCustomer();
 		}
-		$subscriber = hcg_mc_sub($listId, $email);
+		$sub = hcg_mc_sub($listId, $email); /** @var Sub $sub */
 		$fname = $i->mcByCA('firstname');
 		$lname = $i->mcByCA('lastname');
-		if ($subscriber->getId()) {
-			if ($subscriber->getStatus() != Sub::STATUS_SUBSCRIBED && $subscribe) {
-				$subscriber->setStatus(Sub::STATUS_SUBSCRIBED);
-				$subscriber->setSubscriberFirstname($fname);
-				$subscriber->setSubscriberLastname($lname);
+		if ($sub->getId()) {
+			if ($sub->getStatus() != Sub::STATUS_SUBSCRIBED && $subscribe) {
+				$sub->setStatus(Sub::STATUS_SUBSCRIBED);
+				$sub->setSubscriberFirstname($fname);
+				$sub->setSubscriberLastname($lname);
 			}
 		}
 		elseif ($subscribe) {
-			hcg_mc_h()->subscribeMember($subscriber);
+			hcg_mc_h()->subscribeMember($sub);
 		}
 		else {
 			/**
 			 * Mailchimp subscriber not currently in magento newsletter subscribers.
 			 * Get mailchimp subscriber status and add missing newsletter subscriber.
 			 */
-			self::_addSubscriberData($subscriber, $fname, $lname, $email, $listId);
+			self::_addSubscriberData($sub, $fname, $lname, $email, $listId);
 		}
-		$subscriber->save();
-		$t->setSubscriber($subscriber);
+		$sub->save();
+		$t->setSubscriber($sub);
 		if (isset($data['merges']['GROUPINGS'])) {
 			$igh = new InterestGroupHandle; /** @var InterestGroupHandle $igh */
 			if ($t->getSubscriber() === null) {
