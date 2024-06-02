@@ -11,7 +11,7 @@ use Mage_Newsletter_Model_Resource_Subscriber_Collection as C;
  * @used-by Ebizmarts_MailChimp_Block_Customer_Newsletter_Index::getInterest()
  * @used-by Ebizmarts_MailChimp_GroupController::indexAction()
  * @used-by Ebizmarts_MailChimp_Model_Api_Orders::GeneratePOSTPayload()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Model_Observer::createCreditmemo()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
