@@ -20,8 +20,7 @@ use Mage_Newsletter_Model_Subscriber as S;
  */
 function df_subscriber($id = null):S {
 	$r = Mage::getModel('newsletter/subscriber'); /** @var S $r */
-	//$r->loadByCustomer();
-	return !$id ? $r : $r->loadByEmail($id);
+	return !$id ? $r : (df_is_email($id) ? $r->loadByEmail($id) : ($id instanceof C ? $r->loadByCustomer($id) : df_error()));
 }
 
 /**
