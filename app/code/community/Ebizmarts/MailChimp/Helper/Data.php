@@ -1859,13 +1859,11 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 		$storeIds = $this->getMagentoStoreIdsByListId($listId);
 		//add store id 0 for those created from the back end.
 		$storeIds[] = 0;
-
 		if (!empty($storeIds)) {
 			$subscriber = Mage::getModel('newsletter/subscriber')->getCollection()
 				->addFieldToFilter('store_id', array('in' => $storeIds))
 				->addFieldToFilter('subscriber_email', $email)
 				->setPageSize(1)->getLastItem();
-
 			if (!$subscriber->getId()) {
 				/**
 				 * No subscriber exists. Try to find a customer based
@@ -1874,7 +1872,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 				$subscriber = Mage::getModel('newsletter/subscriber');
 				$subscriber->setEmail($email);
 				$customer = $this->loadListCustomer($listId, $email);
-
 				if ($customer) {
 					$subscriber->setStoreId($customer->getStoreId());
 					$subscriber->setCustomerId($customer->getId());
