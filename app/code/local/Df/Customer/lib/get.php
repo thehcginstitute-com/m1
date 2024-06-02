@@ -24,24 +24,27 @@ use Mage_Sales_Model_Order as O;
  * @param Closure|bool|mixed $onE [optional]
  * @return C|null
  */
-function df_customer($v = null, $onE = null) {return df_try(function() use($v) {return
-	/** @var int|string|null $id */
-	/**
-	 * 2016-08-22
-	 * I do not use @see \Magento\Customer\Model\Session::getCustomer()
-	 * because it does not use the customers repository, and loads a customer directly from the database.
-	 */
-	!$v ? (
-		df_customer_session()->isLoggedIn()
-			? df_customer(df_customer_id())
-			: df_error('df_customer(): the argument is `null` and the visitor is anonymous.')
-	) : ($v instanceof C ? $v : (
-		($id =
-			$v instanceof O ? $v->getCustomerId() : (
-				is_int($v) || is_string($v) ? $v : ($v instanceof Sub ? $v->getCustomerId() : null)
+function df_customer($v = null, $onE = null) {return df_try(function() use($v) {
+	$r =
+		/** @var int|string|null $id */
+		/**
+		 * 2016-08-22
+		 * I do not use @see \Magento\Customer\Model\Session::getCustomer()
+		 * because it does not use the customers repository, and loads a customer directly from the database.
+		 */
+		!$v ? (
+			df_customer_session()->isLoggedIn()
+				? df_customer(df_customer_id())
+				: df_error('df_customer(): the argument is `null` and the visitor is anonymous.')
+		) : ($v instanceof C ? $v : (
+			($id =
+				$v instanceof O ? $v->getCustomerId() : (
+					is_int($v) || is_string($v) ? $v : ($v instanceof Sub ? $v->getCustomerId() : null)
+				)
 			)
-		)
-			? Mage::getModel('customer/customer')->load($id)
-			: df_error(['v' => $v])
-	))
+				? Mage::getModel('customer/customer')->load($id)
+				: df_error(['v' => $v])
+		))
+	; /** @var ?C $r */
+	return $r
 ;}, $onE);}
