@@ -996,14 +996,6 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 	}
 
 	/**
-	 * @return false|Mage_Newsletter_Model_Subscriber
-	 */
-	protected function getSubscriberModel()
-	{
-		return Mage::getModel('newsletter/subscriber');
-	}
-
-	/**
 	 * @return string
 	 */
 	protected function getItemType()
