@@ -92,7 +92,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 */
 	private function _unsubscribe(array $data):void {
 		$helper = hcg_mc_h();
-		$subscriber = $helper->loadListSubscriber($data['list_id'], $data['email']);
+		$subscriber = hcg_mc_sub($data['list_id'], $data['email']);
 		if ($subscriber && $subscriber->getId()) {
 			try {
 				$action = isset($data['action']) ? $data['action'] : 'delete';
