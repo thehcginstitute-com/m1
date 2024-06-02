@@ -2,7 +2,7 @@
 
 class Glew_Service_Model_Types_AbandonedCart
 {
-    public function parse($cart)
+    function parse($cart)
     {
         $products = array();
 

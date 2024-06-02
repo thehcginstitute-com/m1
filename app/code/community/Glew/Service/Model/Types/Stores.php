@@ -5,7 +5,7 @@ class Glew_Service_Model_Types_Stores
     public $stores = array();
     private $pageNum;
 
-    public function load($pageSize, $pageNum)
+    function load($pageSize, $pageNum)
     {
         $helper = Mage::helper('glew');
         $config = $helper->getConfig();

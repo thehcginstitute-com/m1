@@ -9,22 +9,22 @@ class Glew_Service_Helper_Data extends Mage_Core_Helper_Abstract
     private $_config;
     protected $_store = null;
 
-    public function getBaseDir()
+    function getBaseDir()
     {
         return Mage::getBaseDir().'/app/code/community/Glew/';
     }
 
-    public function getDatabaseConnection()
+    function getDatabaseConnection()
     {
         return Mage::getSingleton('core/resource')->getConnection('glew_write');
     }
 
-    public function getDatabaseReadConnection()
+    function getDatabaseReadConnection()
     {
         return Mage::getSingleton('core/resource')->getConnection('glew_read');
     }
 
-    public function getConfig()
+    function getConfig()
     {
         $config = array();
         $config['enabled'] = Mage::getStoreConfig('glew_settings/general/enabled');
@@ -35,7 +35,7 @@ class Glew_Service_Helper_Data extends Mage_Core_Helper_Abstract
         return $config;
     }
 
-    public function formatDate($str)
+    function formatDate($str)
     {
         if ($str) {
             if (stripos($str, ' ') !== false) {
@@ -46,7 +46,7 @@ class Glew_Service_Helper_Data extends Mage_Core_Helper_Abstract
         return $str;
     }
 
-    public function toArray($value, $create = false)
+    function toArray($value, $create = false)
     {
         if ($value !== false) {
             return is_array($value) ? $value : array($value);
@@ -55,23 +55,23 @@ class Glew_Service_Helper_Data extends Mage_Core_Helper_Abstract
         }
     }
 
-    public function logException($ex, $msg)
+    function logException($ex, $msg)
     {
         Mage::log(print_r($ex, true), null, self::$filename);
 
         return false;
     }
 
-    public function log($msg)
+    function log($msg)
     {
         return Mage::log($msg, null, self::$filename);
     }
 
-    public function getLog() {
+    function getLog() {
         return Mage::getBaseDir('log') . DS . self::$filename;
     }
 
-    public function getStore()
+    function getStore()
     {
         if ($this->_store == null) {
             $this->_store = Mage::app()->getStore();
@@ -80,7 +80,7 @@ class Glew_Service_Helper_Data extends Mage_Core_Helper_Abstract
         return $this->_store;
     }
 
-    public function paginate($array, $pageNumber, $pageSize)
+    function paginate($array, $pageNumber, $pageSize)
     {
         $start = $pageNumber * $pageSize;
 

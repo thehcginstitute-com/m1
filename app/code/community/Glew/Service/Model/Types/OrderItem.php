@@ -2,7 +2,7 @@
 
 class Glew_Service_Model_Types_OrderItem
 {
-    public function parse($orderItem)
+    function parse($orderItem)
     {
         $this->order_item_id = $orderItem->getId();
         $this->order_id = $orderItem->getOrderId();

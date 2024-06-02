@@ -6,7 +6,7 @@ class Glew_Service_Model_Types_Products
     private $productAttributes = array();
     private $pageNum;
 
-    public function load($pageSize, $pageNum, $startDate = null, $endDate = null, $sortDir, $filterBy, $id)
+    function load($pageSize, $pageNum, $startDate = null, $endDate = null, $sortDir, $filterBy, $id)
     {
         $helper = Mage::helper('glew');
         $config = $helper->getConfig();

@@ -46,12 +46,12 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function gotoglewAction()
+    function gotoglewAction()
     {
         $this->_redirectUrl('https://app.glew.io');
     }
 
-    public function abandoned_cartsAction()
+    function abandoned_cartsAction()
     {
         try {
             $this->_initRequest();
@@ -73,7 +73,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function customersAction()
+    function customersAction()
     {
         try {
             $this->_initRequest();
@@ -95,7 +95,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function ordersAction()
+    function ordersAction()
     {
         try {
             $this->_initRequest();
@@ -117,7 +117,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function order_itemsAction()
+    function order_itemsAction()
     {
         try {
             $this->_initRequest();
@@ -139,7 +139,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function storesAction()
+    function storesAction()
     {
         try {
             $this->_initRequest();
@@ -156,7 +156,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function newsletter_subscribersAction()
+    function newsletter_subscribersAction()
     {
         try {
             $this->_initRequest();
@@ -176,7 +176,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function productsAction()
+    function productsAction()
     {
         try {
             $this->_initRequest();
@@ -198,7 +198,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function product_alertsAction()
+    function product_alertsAction()
     {
         try {
             $this->_initRequest();
@@ -220,7 +220,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function categoriesAction()
+    function categoriesAction()
     {
         try {
             $this->_initRequest();
@@ -242,7 +242,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function inventoryAction()
+    function inventoryAction()
     {
         try {
             $this->_initRequest();
@@ -259,7 +259,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function versionAction()
+    function versionAction()
     {
         try {
             $obj = new stdClass();
@@ -275,7 +275,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function extensionsAction()
+    function extensionsAction()
     {
         try {
             $this->_initRequest();
@@ -294,7 +294,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function refund_itemsAction()
+    function refund_itemsAction()
     {
         try {
             $this->_initRequest();
@@ -316,7 +316,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function refundsAction()
+    function refundsAction()
     {
         try {
             $this->_initRequest();
@@ -338,7 +338,7 @@ class Glew_Service_ModuleController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function get_logAction()
+    function get_logAction()
     {
         try {
             $this->_initRequest();

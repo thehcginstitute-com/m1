@@ -2,7 +2,7 @@
 
 class Glew_Service_Model_Types_Customer
 {
-    public function parse($customer)
+    function parse($customer)
     {
         if (!$customer) {
             return $this;

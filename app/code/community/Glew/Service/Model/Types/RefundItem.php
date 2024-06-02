@@ -2,7 +2,7 @@
 
 class Glew_Service_Model_Types_RefundItem
 {
-    public function parse($refund)
+    function parse($refund)
     {
         $this->refund_item_id = $refund->getId();
         $this->parent_id = $refund->getData('parent_id');

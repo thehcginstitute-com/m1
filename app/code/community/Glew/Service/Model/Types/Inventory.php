@@ -5,7 +5,7 @@ class Glew_Service_Model_Types_Inventory
     public $inventory = array();
     private $pageNum;
 
-    public function load($pageSize, $pageNum, $sortDir, $filterBy, $id)
+    function load($pageSize, $pageNum, $sortDir, $filterBy, $id)
     {
         $helper = Mage::helper('glew');
         $config = $helper->getConfig();

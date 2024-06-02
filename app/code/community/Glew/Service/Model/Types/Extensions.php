@@ -5,7 +5,7 @@ class Glew_Service_Model_Types_Extensions
     public $extensions = array();
     private $pageNum;
 
-    public function load($pageSize, $pageNum, $sortDir, $filterBy)
+    function load($pageSize, $pageNum, $sortDir, $filterBy)
     {
         $helper = Mage::helper('glew');
         $config = $helper->getConfig();

@@ -2,7 +2,7 @@
 
 class Glew_Service_Model_Types_Order
 {
-    public function parse($order)
+    function parse($order)
     {
         $this->id = $order->getId();
         $this->email = $order->getCustomerEmail();

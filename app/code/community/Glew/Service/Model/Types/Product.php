@@ -2,7 +2,7 @@
 
 class Glew_Service_Model_Types_Product
 {
-    public function parse($productId, $productAttributes)
+    function parse($productId, $productAttributes)
     {
         $product = Mage::getModel('catalog/product')->load($productId);
         $this->product_id = $productId;
