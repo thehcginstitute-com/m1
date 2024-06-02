@@ -1819,14 +1819,11 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return array|mixed|null
 	 * @throws Mage_Core_Exception
 	 */
-	function getMagentoStoreIdsByListId($listId)
-	{
+	function getMagentoStoreIdsByListId($listId) {
 		$storeIds = Mage::registry('mailchimp_store_ids_for_list_' . $listId);
-
 		if ($storeIds === null) {
 			$stores = $this->getMageApp()->getStores();
 			$storeIds = array();
-
 			foreach ($stores as $storeId => $store) {
 				if ($this->isSubscriptionEnabled($storeId)) {
 					$storeListId = $this->getConfigValueForScope(
@@ -1838,10 +1835,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 					}
 				}
 			}
-
 			Mage::register('mailchimp_store_ids_for_list_' . $listId, $storeIds);
 		}
-
 		return $storeIds;
 	}
 
