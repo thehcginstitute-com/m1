@@ -31,9 +31,8 @@ function df_customer($v = null, $onE = null):?C {return df_try(function() use($v
 	elseif (!$v) {
 		df_assert(!df_is_backend());
 		$s = df_customer_session();
-		$r = $s->isLoggedIn() ? df_customer($s->getId()) : df_error(
-			'df_customer(): the argument is `null` and the visitor is anonymous.'
-		);
+		df_assert($s->isLoggedIn());
+		$r = df_customer($s->getId());
 	}
 	else {
 		$r = Mage::getModel('customer/customer');

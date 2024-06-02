@@ -34,7 +34,6 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by df_contents()
  * @used-by df_country()
  * @used-by df_country_ctn()
- * @used-by df_customer()
  * @used-by df_date_from_db()
  * @used-by df_fe_m()
  * @used-by df_file_name()
