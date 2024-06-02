@@ -45,6 +45,7 @@ use Throwable as Th; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": 
  * @used-by Df\Qa\Trace\Frame::methodParameter()
  * @used-by Df\Qa\Trace\Frame::url()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::attCustomer() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by HCG\MailChimp\Tags\ProcessMergeFields::mcByCA() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param mixed $cond
  * @param string|Th|null $m [optional]
  * @return mixed
