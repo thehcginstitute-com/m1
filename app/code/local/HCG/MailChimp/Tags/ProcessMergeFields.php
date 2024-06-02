@@ -82,7 +82,7 @@ final class ProcessMergeFields {
 	 * @used-by self::p()
 	 */
 	private function _getFName() {
-		$attrId = self::_getAttrbuteId('firstname');
+		$attrId = df_att_code2id('firstname');
 		$magentoTag = '';
 		foreach ($this->_t->get() as $tag) {
 			if ($tag['magento'] == $attrId) {
@@ -99,7 +99,7 @@ final class ProcessMergeFields {
 	 * @used-by self::p()
 	 */
 	private function _getLName() {
-		$attrId = self::_getAttrbuteId('lastname');
+		$attrId = df_att_code2id('lastname');
 		$magentoTag = '';
 		foreach ($this->_t->get() as $tag) {
 			if ($tag['magento'] == $attrId) {
@@ -195,20 +195,6 @@ final class ProcessMergeFields {
 	private static function _getAttrbuteCode($attrId) {return
 		\Mage::getModel('eav/entity_attribute')->load($attrId)->getAttributeCode()
 	;}
-
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::_getFName()
-	 * @used-by self::_getLName()
-	 */
-	private static function _getAttrbuteId($attrCode) {
-		$attribute = \Mage::getModel('eav/entity_attribute')
-			->getCollection()
-			->addFieldToFilter('attribute_code', $attrCode)
-			->getFirstItem();
-		return $attribute->getId();
-	}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
