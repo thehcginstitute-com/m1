@@ -12,7 +12,7 @@ use Mage_Newsletter_Model_Subscriber as S;
  */
 function hcg_mc_sub($listId, string $email):S {
 	$storeIds = array_merge(hcg_mc_h()->getMagentoStoreIdsByListId($listId), [0]);
-	$r = df_subscriber()->loadByEmail($email); /** @var S $r */
+	$r = df_subscriber($email); /** @var S $r */
 	if (!$r->getId()) {
 		$r->setEmail($email);
 		/** @var ?C $c */
