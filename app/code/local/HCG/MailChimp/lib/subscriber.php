@@ -11,9 +11,7 @@ use Mage_Newsletter_Model_Subscriber as S;
  */
 function hcg_mc_sub($listId, string $email):?S {
 	$r = null; /** @var ?S $r */
-	$storeIds = hcg_mc_h()->getMagentoStoreIdsByListId($listId);
-	//add store id 0 for those created from the back end.
-	$storeIds[] = 0;
+	$storeIds = array_merge(hcg_mc_h()->getMagentoStoreIdsByListId($listId), [0]);
 	$r = Mage::getModel('newsletter/subscriber')->getCollection()
 		->addFieldToFilter('store_id', array('in' => $storeIds))
 		->addFieldToFilter('subscriber_email', $email)
