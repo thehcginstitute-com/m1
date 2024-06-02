@@ -17,7 +17,7 @@ use Mage_Sales_Model_Order as O;
  * @used-by df_ci_save()
  * @used-by df_customer()
  * @used-by df_sentry_m()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::c() (https://github.com/cabinetsbay/site/issues/589)
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::c() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param string|int|C|Sub|null $c [optional]
  * @param Closure|bool|mixed $onE [optional]
  * @return C|null

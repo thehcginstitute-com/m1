@@ -1,11 +1,11 @@
 <?php
 use HCG\MailChimp\Tags\ProcessMergeFields;
 # 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
+# "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/thehcginstitute-com/m1/issues/590
 final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	/**
 	 * 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
+	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/thehcginstitute-com/m1/issues/590
 	 * @used-by Aoe_Scheduler_Model_Observer::dispatch() (app/code/community/Ebizmarts/MailChimp/etc/config.xml)
 	 */
 	function p():void {
@@ -39,7 +39,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
+	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/thehcginstitute-com/m1/issues/590
 	 * @used-by self::p()
 	 */
 	private function _clean(array $data):void {
@@ -63,7 +63,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
+	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/thehcginstitute-com/m1/issues/590
 	 * @used-by self::p()
 	 */
 	private function _updateEmail(array $data):void {
@@ -90,7 +90,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/cabinetsbay/site/issues/590
+	 * "Refactor `Ebizmarts_MailChimp_Model_ProcessWebhook`": https://github.com/thehcginstitute-com/m1/issues/590
 	 * @used-by self::p()
 	 */
 	private function _unsubscribe(array $data):void {

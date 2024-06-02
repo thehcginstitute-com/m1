@@ -86,7 +86,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * @used-by Ebizmarts_MailChimp_WebhookController::saveWebhookRequest()
  * @used-by HCG\MailChimp\Batch\HandleErrorItem::p()
  * @used-by HCG\MailChimp\Observer\AddTabToCustomer::p() (https://github.com/thehcginstitute-com/m1/issues/580)
- * @used-by HCG\MailChimp\Tags\ProcessMergeFields::customer() (https://github.com/cabinetsbay/site/issues/589)
+ * @used-by HCG\MailChimp\Tags\ProcessMergeFields::customer() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @used-by app/design/adminhtml/default/default/template/ebizmarts/mailchimp/customer/tab/mailchimp.phtml
  * @used-by app/design/adminhtml/default/default/template/ebizmarts/mailchimp/system/config/fieldset/hint.phtml
  * @used-by app/design/adminhtml/default/default/template/ebizmarts/mandrill/system/config/fieldset/hint.phtml

@@ -81,7 +81,7 @@ function dfa_group(array $a, $k = null):array {
  * 2021-01-29
  * @used-by df_error_create()
  * @used-by dfa_try()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::address() (https://github.com/cabinetsbay/site/issues/589)
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::address() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @used-by IWD_OrderManager_Helper_Data::CheckTableEngine()
  * @param array $a
  * @return mixed|null
@@ -164,7 +164,7 @@ function dfa_unset(array $a, array $keys) {return array_diff_key($a, array_flip(
 
 /**
  * 2021-01-29
- * @used-by df_gender_s() (https://github.com/cabinetsbay/site/issues/589)
+ * @used-by df_gender_s() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param int|string $v
  * @param array(int|string => mixed) $map
  * @return int|string|mixed

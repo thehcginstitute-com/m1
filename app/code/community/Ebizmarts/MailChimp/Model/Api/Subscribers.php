@@ -2,7 +2,7 @@
 use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as Tags;
 use Mage_Newsletter_Model_Subscriber as Sub;
 # 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
+# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 class Ebizmarts_MailChimp_Model_Api_Subscribers {
 	const BATCH_LIMIT = 100;
 
@@ -179,7 +179,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 
 	/**
 	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 */
 	protected function _buildSubscriberData(Sub $s):array {
 		$helper = $this->getMailchimpHelper();
@@ -229,7 +229,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 
 	/**
 	 * 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 */
 	function updateSubscriber(Sub $s, $updateStatus = false) {
 		$saveSubscriber = false;

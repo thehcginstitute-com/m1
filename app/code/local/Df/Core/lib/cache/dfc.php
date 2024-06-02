@@ -29,9 +29,9 @@ use Df\Core\RAM;
  * @used-by dfaoc()
  * @see df_prop()
  * @see dfaoc()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::customer() (https://github.com/cabinetsbay/site/issues/589)
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::o() (https://github.com/cabinetsbay/site/issues/589)
- * @used-by HCG\MailChimp\Tags\ProcessMergeFields::customer() (https://github.com/cabinetsbay/site/issues/589)
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::customer() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::o() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by HCG\MailChimp\Tags\ProcessMergeFields::customer() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param object $o
  * @param bool $unique
  * @param int $offset
