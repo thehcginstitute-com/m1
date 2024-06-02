@@ -195,14 +195,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
     }
 
     /**
-     * @return false|Mage_Core_Model_Abstract
-     */
-    protected function getSubscriberModel()
-    {
-        return Mage::getModel('newsletter/subscriber');
-    }
-
-    /**
      * @return Ebizmarts_MailChimp_Model_Interestgroup
      */
     protected function getInterestGroupModel()
