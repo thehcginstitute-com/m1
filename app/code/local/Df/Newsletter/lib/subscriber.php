@@ -28,7 +28,7 @@ function df_subscriber($v = null):S {
 			$v instanceof C ? $r->loadByCustomer($v) : (
 				/**
 				 * 2024-06-02
-				 * @used-by Mage_Sales_Model_Order::getCustomerEmail()
+				 * @uses Mage_Sales_Model_Order::getCustomerEmail()
 				 * @uses Mage_Sales_Model_Quote::getCustomerEmail()
 				 */
 				df_is_oq($v) ? $r->loadByEmail($v->getCustomerEmail()) : df_error(['v' => $v])
