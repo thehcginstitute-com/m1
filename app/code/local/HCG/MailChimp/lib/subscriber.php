@@ -14,7 +14,7 @@ function hcg_mc_sub($listId, string $email):S {/** @var S $r */
 	if (!($r = df_subscriber($email))->getId()) {
 		$r->setEmail($email);
 		/** @var ?C $c */
-		if (!($c = hcg_mc_h()->loadListCustomer($listId, $email))) {
+		if (!($c = df_customer($email))) {
 			# No customer with that address.
 			# Just assume the first store ID is the correct one
 			# (as there is no other way to tell which store this MailChimp list guest subscriber belongs to).
