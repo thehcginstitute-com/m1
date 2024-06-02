@@ -24,8 +24,7 @@ final class Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp exte
 	function interests() {
 		$c = Mage::getModel('customer/customer'); /** @var C $c */
 		$c->load((int)df_request('id'));
-		$s = new S; /** @var S $s */
-		$s->loadByEmail($c->getEmail());
+		$s = df_subscriber($c->getEmail()); /** @var S $s */
 		# 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# 1) "Delete the `->getMailchimpStoreView()` / `mailchimp_store_view` calls for `Mage_Customer_Model_Customer`
 		# because it always returns `NULL`": https://github.com/thehcginstitute-com/m1/issues/578
