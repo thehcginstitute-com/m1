@@ -26,12 +26,7 @@ function df_subscriber($v = null):S {
 	return !$v ? $r : (
 		df_is_email($v) ? $r->loadByEmail($v) : (
 			$v instanceof C ? $r->loadByCustomer($v) : (
-				/**
-				 * 2024-06-02
-				 * @uses Mage_Sales_Model_Order::getCustomerEmail()
-				 * @uses Mage_Sales_Model_Quote::getCustomerEmail()
-				 */
-				df_is_oq($v) ? $r->loadByEmail($v->getCustomerEmail()) : df_error(['v' => $v])
+				df_is_oq($v) ? $r->loadByEmail(df_oq_email($v)) : df_error(['v' => $v])
 			)
 		)
 	);
