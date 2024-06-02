@@ -758,9 +758,7 @@ class Ebizmarts_MailChimp_Model_Observer {
 			$helper = $this->makeHelper();
 			$order = $creditMemo->getOrder();
 			$email = $order->getCustomerEmail();
-			$subscriberModel = df_subscriber();
-			$subscriber = $subscriberModel->loadByEmail($email);
-			$helper->unsubscribeMember($subscriber);
+			$helper->unsubscribeMember(df_subscriber($email));
 		}
 
 		return $observer;
