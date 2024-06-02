@@ -54,15 +54,6 @@ function dfa_group(array $a, $k = null):array {
 function df_index($k, $a):array {return array_combine(df_column($a, $k), df_ita($a));}
 
 /**
- * 2015-02-11
- * Эта функция отличается от @see iterator_to_array() тем, что допускает в качестве параметра
- * не только @see \Traversable, но и массив.
- * @param \Traversable|array $t
- * @return array
- */
-function df_ita($t) {return is_array($t) ? $t : iterator_to_array($t);}
-
-/**
  * 2016-03-25 http://stackoverflow.com/a/1320156
  * @used-by df_action_is()
  * @used-by df_c()
