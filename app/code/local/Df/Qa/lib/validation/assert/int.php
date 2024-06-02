@@ -32,3 +32,16 @@ function df_int($v, bool $allowNull = true) {/** @var int|int[] $r */
 	}
 	return $r;
 }
+
+/**
+ * 2015-04-13
+ * 2024-06-02 "Port `df_int_simple()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/623
+ * 1) It does not validate item types (unlike @see df_int() )
+ * 2) It works only with arrays.
+ * 3) Keys are preserved: http://3v4l.org/NHgdK
+ * @see dfa_key_int()
+ * @used-by df_fetch_col_int()
+ * @used-by df_products_update()
+ * @return int[]
+ */
+function df_int_simple(array $v):array {return array_map('intval', $v);}
