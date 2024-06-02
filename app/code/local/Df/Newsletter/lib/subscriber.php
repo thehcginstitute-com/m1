@@ -9,7 +9,7 @@ use Mage_Newsletter_Model_Resource_Subscriber_Collection as C;
  * @used-by Ebizmarts_MailChimp_Model_Api_Customers::createBatchJson()
  * @used-by Ebizmarts_MailChimp_Block_Checkout_Success_Groups::getInterest()
  * @used-by Ebizmarts_MailChimp_Block_Customer_Newsletter_Index::getInterest()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_GroupController::indexAction()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
