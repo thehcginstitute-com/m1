@@ -122,7 +122,7 @@ final class ProcessMergeFields {
 			if (!empty($value)) {
 				if (is_array($this->_t->get())) {
 					if ($key !== 'GROUPINGS') {
-						self::_setMailchimpTagToCustomer($key, $value, $this->_t->_d, $customer);
+						self::_setMailchimpTagToCustomer($key, $value, $this->_t->get(), $customer);
 					}
 				}
 			}
