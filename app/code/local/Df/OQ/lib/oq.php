@@ -11,6 +11,7 @@ use Mage_Sales_Model_Order as O;
  * @used-by df_order()
  * @used-by df_quote_id()
  * @used-by df_store()
+ * @used-by df_subscriber()
  * @used-by df_visitor()
  * @used-by dfp_due()
  * @param mixed $v

@@ -2,6 +2,8 @@
 use Mage_Customer_Model_Customer as C;
 use Mage_Newsletter_Model_Resource_Subscriber_Collection as SC;
 use Mage_Newsletter_Model_Subscriber as S;
+use Mage_Sales_Model_Order as O;
+
 /**
  * 2024-06-02
  * 1) "Implement `df_subscriber()`": https://github.com/thehcginstitute-com/m1/issues/627
@@ -16,13 +18,15 @@ use Mage_Newsletter_Model_Subscriber as S;
  * @used-by Ebizmarts_MailChimp_Model_Api_Customers::createBatchJson()
  * @used-by Ebizmarts_MailChimp_Model_Api_Orders::GeneratePOSTPayload()
  * @used-by Ebizmarts_MailChimp_Model_Observer::createCreditmemo()
- * @param string|C|null $id [optional]
+ * @param string|C|O|null $v [optional]
  */
-function df_subscriber($id = null):S {
+function df_subscriber($v = null):S {
 	$r = Mage::getModel('newsletter/subscriber'); /** @var S $r */
-	return !$id ? $r : (
-		df_is_email($id) ? $r->loadByEmail($id) : (
-			$id instanceof C ? $r->loadByCustomer($id) : df_error(['id' => $id])
+	return !$v ? $r : (
+		df_is_email($v) ? $r->loadByEmail($v) : (
+			$v instanceof C ? $r->loadByCustomer($v) : (
+				df_is_o($v) ? $r->loadByEmail($v->getCustomerEmail()) : df_error(['v' => $v])
+			)
 		)
 	);
 }
