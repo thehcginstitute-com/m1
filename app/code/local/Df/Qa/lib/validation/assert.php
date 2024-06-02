@@ -25,6 +25,7 @@ use Throwable as Th; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": 
  * @used-by df_catalog_locator()
  * @used-by df_config_field()
  * @used-by df_configurable_children()
+ * @used-by df_customer()
  * @used-by df_date_from_timestamp_14()
  * @used-by df_dtss()
  * @used-by df_error_create()
@@ -47,7 +48,7 @@ use Throwable as Th; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": 
  * @used-by \HCG\MailChimp\Tags::attCustomer() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @used-by HCG\MailChimp\Tags\ProcessMergeFields::mcByCA() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param mixed $cond
- * @param string|Th|null $m [optional]
+ * @param string|Th|array(string => mixed)|null $m [optional]
  * @return mixed
  * @throws DFE
  */

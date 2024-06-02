@@ -81,7 +81,7 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by Df\Qa\Method::throwException()
  * @used-by Mage_Eav_Model_Attribute_Data_Abstract::_applyInputFilter()
  * @used-by Varien_Data_Form_Filter_Date::inputFilter()
- * @param string|string[]|mixed|T|null ...$a
+ * @param string|string[]|array(string => mixed)|mixed|T|null ...$a
  * @throws DFE
  */
 function df_error(...$a):void {
