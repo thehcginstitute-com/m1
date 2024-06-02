@@ -15,6 +15,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 2024-06-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * 1) "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * 2) https://3v4l.org/akQm0#tabs
+	 * @used-by self::p()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getFName()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getLName()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_setMailchimpTagsToCustomer()
@@ -41,7 +42,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 		$i->_sub = $sub;
 		$i->_sid = $sid;
 		$i->_p();
-		return $i->_d;
+		return $i->get();
 	}
 
 	/**
@@ -294,7 +295,6 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 *		}
 	 * @used-by self::_p()
 	 * @used-by self::get()
-	 * @used-by self::p()
 	 * @used-by self::set()
 	 * @var array(string => array(string => string)
 	 */
