@@ -1850,7 +1850,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
 	 * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
 	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_clean()
-	 * @used-by STUB()
+	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_updateEmail()
 	 * @used-by STUB()
 	 * @used-by STUB()
 	 */
