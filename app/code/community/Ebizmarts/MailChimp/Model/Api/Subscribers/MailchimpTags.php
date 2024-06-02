@@ -12,6 +12,13 @@ use Mage_Sales_Model_Resource_Order_Collection as OC;
 # "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
+	 * 2024-06-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
+	 */
+	function set():void {$this->_d = hcg_mc_cfg_fields();}
+
+	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_p()

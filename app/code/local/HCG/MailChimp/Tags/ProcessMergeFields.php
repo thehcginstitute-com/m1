@@ -20,7 +20,7 @@ final class ProcessMergeFields {
 		$email = $data['email'];
 		$listId = $data['list_id'];
 		$STATUS_SUBSCRIBED = \Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED;
-		$t->_d = hcg_mc_cfg_fields();
+		$t->set();
 		if ($i->customer()) {
 			$i->_setMailchimpTagsToCustomer();
 		}
