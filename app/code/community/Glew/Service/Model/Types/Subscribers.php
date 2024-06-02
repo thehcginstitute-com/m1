@@ -8,7 +8,6 @@ class Glew_Service_Model_Types_Subscribers
     public function load($pageSize, $pageNum, $sortDir, $filterBy, $id)
     {
         $helper = Mage::helper('glew');
-        $config = $helper->getConfig();
         $this->pageNum = $pageNum;
         if ($id) {
             $subscribers = df_subscriber_c()->addFieldToFilter('main_table.subscriber_id', $id);
