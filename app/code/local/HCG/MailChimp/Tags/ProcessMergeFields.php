@@ -81,34 +81,14 @@ final class ProcessMergeFields {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::p()
 	 */
-	private function _getFName() {
-		$attrId = df_att_code2id('firstname');
-		$magentoTag = '';
-		foreach ($this->_t->get() as $tag) {
-			if ($tag['magento'] == $attrId) {
-				$magentoTag = $tag['mailchimp'];
-				break;
-			}
-		}
-		return $this->_d['merges'][$magentoTag];
-	}
+	private function _getFName() {return $this->_d['merges'][df_assert($this->_t->mcByCA('firstname'))];}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::p()
 	 */
-	private function _getLName() {
-		$attrId = df_att_code2id('lastname');
-		$magentoTag = '';
-		foreach ($this->_t->get() as $tag) {
-			if ($tag['magento'] == $attrId) {
-				$magentoTag = $tag['mailchimp'];
-				break;
-			}
-		}
-		return $this->_d['merges'][$magentoTag];
-	}
+	private function _getLName() {return $this->_d['merges'][df_assert($this->_t->mcByCA('lastname'))];}
 
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro

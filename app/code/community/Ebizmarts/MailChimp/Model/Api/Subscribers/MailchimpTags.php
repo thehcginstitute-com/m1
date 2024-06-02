@@ -16,12 +16,27 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	 * 1) "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * 2) https://3v4l.org/akQm0#tabs
 	 * @used-by self::p()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getFName()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getLName()
+	 * @used-by self::mcByMG()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_setMailchimpTagsToCustomer()
 	 * @return array(string => array(string => string)
 	 */
 	function get():array {return $this->_d;}
+
+	/**
+	 * 2024-06-02
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getFName()
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getLName()
+	 */
+	function mcByCA(string $a):?string {return $this->mcByMG(df_att_code2id($a));}
+
+	/**
+	 * 2024-06-02 https://3v4l.org/p0kkb
+	 * @used-by self::mcByCA()
+	 */
+	private function mcByMG(string $mg):?string {return dfa(
+		df_find($this->get(), function(array $a) use($mg):bool {return $mg === (string)dfa($a, 'magento');})
+		,'mailchimp'
+	);}
 
 	/**
 	 * 2024-06-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
