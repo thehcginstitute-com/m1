@@ -110,7 +110,7 @@ final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 				$r = $this->vAddress($ac);
 				break;
 			case 'gender':
-				$r = df_tr($c->getGender(), df_genders());
+				$r = df_gender_s($c);
 				break;
 			case 'group_id':
 				$r = df_customer_group_name($c);
