@@ -411,7 +411,7 @@ class Ebizmarts_MailChimp_Model_Observer {
 		if ($subEnabled) {
 			if (isset($post)) {
 				$email = $order->getCustomerEmail();
-				$subscriber = $helper->loadListSubscriber($post, $email);
+				$subscriber = hcg_mc_sub($post, $email);
 
 				if ($subscriber) {
 					if (!$subscriber->getCustomerId()) {

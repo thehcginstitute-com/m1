@@ -44,9 +44,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 */
 	private function _clean(array $data):void {
 		//Delete subscriber from Magento
-		$helper = hcg_mc_h();
-		$s = $helper->loadListSubscriber($data['list_id'], $data['email']);
-
+		$s = hcg_mc_sub($data['list_id'], $data['email']);
 		if ($s && $s->getId()) {
 			try {
 				$s->delete();
