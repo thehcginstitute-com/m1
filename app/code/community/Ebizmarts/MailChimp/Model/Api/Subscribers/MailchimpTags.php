@@ -9,8 +9,7 @@ use Mage_Sales_Model_Order as O;
 use Mage_Sales_Model_Order_Address as AddressO;
 use Mage_Sales_Model_Resource_Order_Collection as OC;
 # 2024-05-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`":
-# https://github.com/cabinetsbay/site/issues/589
+# "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
