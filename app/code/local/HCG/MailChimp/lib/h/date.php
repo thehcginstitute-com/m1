@@ -27,7 +27,7 @@ use Ebizmarts_MailChimp_Helper_Date as H;
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::createBatchJson()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::updateSubscriber()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle::processGroupsData()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::getDateOfBirth()
+ * @used-by \HCG\MailChimp\Tags::getDateOfBirth()
  * @used-by Ebizmarts_MailChimp_Model_ClearEcommerce::getPromoCodeItems()
  * @used-by Ebizmarts_MailChimp_Model_Email_Queue::_saveMessage()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_List::_afterSave()

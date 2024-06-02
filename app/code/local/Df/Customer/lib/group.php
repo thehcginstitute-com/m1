@@ -33,7 +33,7 @@ function df_customer_group_id():int {return (int)df_customer_session()->getCusto
  * 2024-05-16
  * 1) "Port `df_customer_group_name()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/617
  * 2) @see Mage_Adminhtml_Block_Customer_Edit_Tab_View::getGroupName()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::attCustomer() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by \HCG\MailChimp\Tags::attCustomer() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param C|G|int $v
  * @param F|bool|mixed string [optional]
  */

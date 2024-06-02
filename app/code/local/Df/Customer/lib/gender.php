@@ -3,7 +3,7 @@ use Mage_Customer_Model_Customer as C;
 
 /**
  * 2024-06-02
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::attCustomer() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by \HCG\MailChimp\Tags::attCustomer() (https://github.com/thehcginstitute-com/m1/issues/589)
  */
 function df_gender_s(C $c):string {return df_tr($c->getGender(), df_genders());}
 

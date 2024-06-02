@@ -30,8 +30,8 @@
  *			"_1472846591374_374": {"mailchimp": "SZIPCODE", "magento": "shipping_zipcode"}
  *		}
  * @used-by Ebizmarts_MailChimp_Helper_Data::createMergeFields()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::_p()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::set()
+ * @used-by \HCG\MailChimp\Tags::_p()
+ * @used-by \HCG\MailChimp\Tags::set()
  * @return array(string => array(string => string)
  */
 function hcg_mc_cfg_fields():array {return hcg_mc_h()->unserialize(df_cfg('mailchimp/general/map_fields'));}

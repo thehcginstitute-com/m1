@@ -8,7 +8,7 @@ use Throwable as T;
  * 1) "Implement `df_assert_address_type()`": https://github.com/mage2pro/core/issues/372
  * 2) "Port `df_assert_address_type()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/615
  * @used-by df_oa()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::address() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by \HCG\MailChimp\Tags::address() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param string|T $m [optional]
  * @throws DFE
  */

@@ -75,7 +75,7 @@ function df_fnes($v):bool {return is_null($v) || '' === $v || false === $v;}
 /**
  * 2024-03-23 "Port `df_ftn()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/STUB
  * @used-by df_fetch_one()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::address() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by \HCG\MailChimp\Tags::address() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param mixed|false $v
  * @return mixed|null
  */

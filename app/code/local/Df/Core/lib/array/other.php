@@ -81,7 +81,7 @@ function dfa_group(array $a, $k = null):array {
  * 2021-01-29
  * @used-by df_error_create()
  * @used-by dfa_try()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::address() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by \HCG\MailChimp\Tags::address() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @used-by IWD_OrderManager_Helper_Data::CheckTableEngine()
  * @param array $a
  * @return mixed|null

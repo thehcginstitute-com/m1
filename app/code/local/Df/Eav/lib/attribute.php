@@ -5,7 +5,7 @@ use Mage_Eav_Model_Entity_Attribute_Abstract as A;
  * 2019-06-15
  * 2024-06-02 "Port `df_att_code2id()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/621
  * @used-by df_customer_att_pos_set()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::mcByCA() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by \HCG\MailChimp\Tags::mcByCA() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @see df_product_attrs_r()
  */
 function df_att_code2id(string $c):int {return df_first(df_fetch_col_int(
@@ -18,7 +18,7 @@ function df_att_code2id(string $c):int {return df_first(df_fetch_col_int(
  * 2) "Port `df_att_val()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/619
  * @uses Mage_Eav_Model_Entity_Attribute_Source_Abstract::getOptionText()
  * @used-by df_product_att_val()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::attCustomer() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by \HCG\MailChimp\Tags::attCustomer() (https://github.com/thehcginstitute-com/m1/issues/589)
  */
 function df_att_val(M $m, A $a, string $d = ''):string {return df_fnes($r = $m[$a->getAttributeCode()]) ? $d : (
 	!$a->usesSource() ? $r : (

@@ -16,7 +16,7 @@ use Exception as E;
  * @used-by df_starts_with()
  * @used-by ikf_oi_pid()
  * @used-by mnr_recurring()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::mcByMG() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by \HCG\MailChimp\Tags::mcByMG() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param array|callable|Traversable $a1
  * @param array|callable|Traversable $a2
  * @param mixed|mixed[] $pAppend [optional]

@@ -132,7 +132,7 @@ function df_error(...$a):void {
  * https://github.com/mage2pro/core/issues/375
  * @used-by df_error()
  * @used-by df_error_html()
- * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::attCustomer() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by \HCG\MailChimp\Tags::attCustomer() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param mixed ...$a
  */
 function df_error_create(...$a):DFE {/** @var DFE $r */
