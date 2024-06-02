@@ -10,9 +10,8 @@ use Mage_Newsletter_Model_Subscriber as S;
  * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_unsubscribe()
  * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
  */
-function hcg_mc_sub($listId, string $email):S {
-	$r = df_subscriber($email); /** @var S $r */
-	if (!$r->getId()) {
+function hcg_mc_sub($listId, string $email):S {/** @var S $r */
+	if (!($r = df_subscriber($email))->getId()) {
 		$r->setEmail($email);
 		/** @var ?C $c */
 		if (!($c = hcg_mc_h()->loadListCustomer($listId, $email))) {
