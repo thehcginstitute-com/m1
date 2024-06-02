@@ -105,8 +105,7 @@ final class ProcessMergeFields {
 	/**
 	 * 2024-05-04
 	 * @used-by self::__construct()
-	 * @used-by self::_getFName()
-	 * @used-by self::_getLName()
+	 * @used-by self::mcByCA()
 	 * @used-by self::_setMailchimpTagsToCustomer()
 	 * @used-by self::customer()
 	 * @var array
@@ -116,8 +115,7 @@ final class ProcessMergeFields {
 	/**
 	 * 2024-05-04
 	 * @used-by self::__construct()
-	 * @used-by self::_getFName()
-	 * @used-by self::_getLName()
+	 * @used-by self::mcByCA()
 	 * @used-by self::_setMailchimpTagsToCustomer()
 	 * @var T
 	 */
