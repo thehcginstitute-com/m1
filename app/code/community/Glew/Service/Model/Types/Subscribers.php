@@ -11,10 +11,10 @@ class Glew_Service_Model_Types_Subscribers
         $config = $helper->getConfig();
         $this->pageNum = $pageNum;
         if ($id) {
-            $subscribers = Mage::getModel('newsletter/subscriber')->getCollection()
-                ->addFieldToFilter('main_table.subscriber_id', $id);
-        } else {
-            $subscribers = Mage::getModel('newsletter/subscriber')->getCollection();
+            $subscribers = df_subscriber_c()->addFieldToFilter('main_table.subscriber_id', $id);
+        }
+		else {
+            $subscribers = df_subscriber_c();
         }
         $subscribers->addFilter('store_id', 'store_id = '.$helper->getStore()->getStoreId(), 'string');
         $subscribers->setOrder('subscriber_id', $sortDir);
