@@ -2,7 +2,7 @@
 <config>
 	<modules>
 <!-- 2024-06-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524 -->
+"Implement `df_subscriber_c()`": https://github.com/thehcginstitute-com/m1/issues/626 -->
 		<Df_Newsletter>
 			<version>1.0.0</version>
 			<author>Dmitrii Fediuk https://upwork.com/fl/mage2pro</author>
