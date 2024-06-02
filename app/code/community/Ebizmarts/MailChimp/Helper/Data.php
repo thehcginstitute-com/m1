@@ -1851,8 +1851,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
 	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_clean()
 	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_updateEmail()
-	 * @used-by STUB()
-	 * @used-by STUB()
+	 * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_unsubscribe()
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
 	 */
 	function loadListSubscriber($listId, $email)
 	{
