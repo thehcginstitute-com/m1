@@ -49,7 +49,7 @@ class Ebizmarts_MailChimp_Block_Checkout_Success_Groups extends Mage_Core_Block_
      */
     function getInterest()
     {
-        $subscriber = $this->getSubscriberModel();
+        $subscriber = df_subscriber();
         $order = $this->getSessionLastRealOrder();
         $subscriber->loadByEmail($order->getCustomerEmail());
         $subscriberId = $subscriber->getSubscriberId();
