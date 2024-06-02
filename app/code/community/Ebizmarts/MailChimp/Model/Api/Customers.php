@@ -1,5 +1,5 @@
 <?php
-use Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags as Tags;
+use HCG\MailChimp\Tags;
 use Mage_Newsletter_Model_Subscriber as Sub;
 # 2024-05-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
