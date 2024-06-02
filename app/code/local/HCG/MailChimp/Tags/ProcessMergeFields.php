@@ -191,13 +191,6 @@ final class ProcessMergeFields {
 	/**
 	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @used-by self::_setMailchimpTagToCustomer()
-	 */
-	private static function gender($s):int {return df_gender_s2i($s);}
-
-	/**
-	 * 2024-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
 	 * @used-by self::_isAddress()
 	 */
 	private static function _getAttrbuteCode($attrId) {return
@@ -251,7 +244,7 @@ final class ProcessMergeFields {
 					if ($key != 'GENDER') {
 						$customer->setData($map['magento'], $value);
 					} else {
-						$customer->setData('gender', self::gender($value));
+						$customer->setData('gender', df_gender_s2i($value));
 					}
 				}
 			}
