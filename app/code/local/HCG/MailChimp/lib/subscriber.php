@@ -13,7 +13,7 @@ function hcg_mc_sub($listId, string $email):?S {
 	$r = null; /** @var ?S $r */
 	$storeIds = array_merge(hcg_mc_h()->getMagentoStoreIdsByListId($listId), [0]);
 	$r = Mage::getModel('newsletter/subscriber')->getCollection()
-		->addFieldToFilter('store_id', array('in' => $storeIds))
+		->addFieldToFilter('store_id', ['in' => $storeIds])
 		->addFieldToFilter('subscriber_email', $email)
 		->setPageSize(1)->getLastItem();
 	if (!$r->getId()) {
