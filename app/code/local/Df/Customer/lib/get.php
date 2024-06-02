@@ -52,5 +52,5 @@ function df_customer($v = null, $onE = null):?C {return df_try(function() use($v
 		}
 		df_assert($r->getId());
 	}
-	return $r
-;}, $onE);}
+	return $r;
+}, $onE);}
