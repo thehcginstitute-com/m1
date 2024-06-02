@@ -4,6 +4,7 @@ use Mage_Customer_Model_Customer as C;
 /**
  * 2016-12-04
  * 2024-03-17 "Port `df_customer_id()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/498
+ * 2024-06-02 "Improve `df_customer_id()`": https://github.com/thehcginstitute-com/m1/issues/634
  * @used-by df_context()
  * @used-by df_customer()
  * @used-by df_customer_is_need_confirm()
