@@ -13,7 +13,6 @@ use Mage_Sales_Model_Quote as Q;
  * @used-by df_order()
  * @used-by df_quote_id()
  * @used-by df_store()
- * @used-by df_subscriber()
  * @used-by df_visitor()
  * @used-by dfp_due()
  * @param mixed $v
@@ -28,6 +27,7 @@ function df_is_o($v):bool {return $v instanceof O;}
  * @used-by df_currency_base()
  * @used-by df_is_sales_doc()
  * @used-by df_oq()
+ * @used-by df_subscriber()
  * @used-by dfp()
  * @used-by dfpex_args()
  * @used-by dfpm()

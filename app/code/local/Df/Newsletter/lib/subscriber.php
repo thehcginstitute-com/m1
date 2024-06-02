@@ -19,14 +19,19 @@ use Mage_Sales_Model_Quote as Q;
  * @used-by Ebizmarts_MailChimp_Model_Api_Customers::createBatchJson()
  * @used-by Ebizmarts_MailChimp_Model_Api_Orders::GeneratePOSTPayload()
  * @used-by Ebizmarts_MailChimp_Model_Observer::createCreditmemo()
- * @param string|C|O|null $v [optional]
+ * @param string|C|O|Q|null $v [optional]
  */
 function df_subscriber($v = null):S {
 	$r = Mage::getModel('newsletter/subscriber'); /** @var S $r */
 	return !$v ? $r : (
 		df_is_email($v) ? $r->loadByEmail($v) : (
 			$v instanceof C ? $r->loadByCustomer($v) : (
-				df_is_o($v) ? $r->loadByEmail($v->getCustomerEmail()) : df_error(['v' => $v])
+				/**
+				 * 2024-06-02
+				 * @used-by Mage_Sales_Model_Order::getCustomerEmail()
+				 * @uses Mage_Sales_Model_Quote::getCustomerEmail()
+				 */
+				df_is_oq($v) ? $r->loadByEmail($v->getCustomerEmail()) : df_error(['v' => $v])
 			)
 		)
 	);
