@@ -2,7 +2,7 @@
 use Df\Core\Exception as DFE;
 use Df\Qa\Method as Q;
 use Exception as E;
-use Throwable as Th; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
+use Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 
 /**
  * 2019-12-14
@@ -48,11 +48,11 @@ use Throwable as Th; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": 
  * @used-by HCG\MailChimp\Tags::attCustomer() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @used-by HCG\MailChimp\Tags\ProcessMergeFields::mcByCA() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param mixed $cond
- * @param string|Th|array(string => mixed)|null $m [optional]
+ * @param string|string[]|array(string => mixed)|mixed|T|null ...$a
  * @return mixed
  * @throws DFE
  */
-function df_assert($cond, $m = null) {return $cond ?: df_error($m);}
+function df_assert($cond,  ...$a) {return $cond ?: df_error( ...$a);}
 
 /**
  * 2017-02-18
@@ -83,7 +83,7 @@ function df_assert_sne($v, $sl = 0) {
  * 2024-03-05 "Port `df_assert_traversable()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/459
  * @used-by dfaf()
  * @param Traversable|array $v
- * @param string|Th $m [optional]
+ * @param string|T $m [optional]
  * @return Traversable|array
  * @throws E
  */
