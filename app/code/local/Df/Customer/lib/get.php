@@ -42,6 +42,6 @@ function df_customer($v = null, $onE = null) {return df_try(function() use($v) {
 			)
 		)
 			? Mage::getModel('customer/customer')->load($id)
-			: df_error("df_customer(): unable to detect the customer's ID from the argument of type `%s`.", df_type($v))
+			: df_error(['v' => $v])
 	))
 ;}, $onE);}
