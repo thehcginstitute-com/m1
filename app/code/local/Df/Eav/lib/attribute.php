@@ -5,8 +5,7 @@ use Mage_Eav_Model_Entity_Attribute_Abstract as A;
  * 2019-06-15
  * 2024-06-02 "Port `df_att_code2id()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/621
  * @used-by df_customer_att_pos_set()
- * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getFName() (https://github.com/cabinetsbay/site/issues/589)
- * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_getLName() (https://github.com/cabinetsbay/site/issues/589)
+ * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags::mcByCA() (https://github.com/cabinetsbay/site/issues/589)
  * @see df_product_attrs_r()
  */
 function df_att_code2id(string $c):int {return df_first(df_fetch_col_int(
