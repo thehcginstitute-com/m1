@@ -16,12 +16,9 @@ function hcg_mc_sub($listId, string $email):S {
 		$r->setEmail($email);
 		$customer = hcg_mc_h()->loadListCustomer($listId, $email);
 		if (!$customer) {
-			/**
-			 * No customer with that address. Just assume the first
-			 * store ID is the correct one as there is no other way
-			 * to tell which store this mailchimp list guest subscriber
-			 * belongs to.
-			 */
+			# No customer with that address.
+			# Just assume the first store ID is the correct one
+			# (as there is no other way to tell which store this MailChimp list guest subscriber belongs to).
 			$r->setStoreId($storeIds[0]);
 		}
 		else {
