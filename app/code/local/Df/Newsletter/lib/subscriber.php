@@ -5,7 +5,7 @@ use Mage_Newsletter_Model_Resource_Subscriber_Collection as C;
  * 2024-06-02 "Implement `df_subscriber()`": https://github.com/thehcginstitute-com/m1/issues/627
  * @used-by df_subscriber_c()
  * @used-by Ebizmarts_MailChimp_Block_Checkout_Subscribe::_toHtml()
- * @used-by STUB()
+ * @used-by Ebizmarts_MailChimp_Block_Popup_Emailcatcher::_handleCookie()
  * @used-by STUB()
  * @used-by STUB()
  * @used-by STUB()
