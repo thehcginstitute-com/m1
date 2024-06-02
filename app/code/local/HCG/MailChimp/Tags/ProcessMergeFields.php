@@ -16,7 +16,6 @@ final class ProcessMergeFields {
 	static function p(array $data, bool $subscribe = false):void {
 		$t = new T; /** @var T $t */
 		$i = new self($data, $t); /** @var self $i */
-		$helper = hcg_mc_h();
 		$email = $data['email'];
 		$listId = $data['list_id'];
 		$STATUS_SUBSCRIBED = \Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED;
@@ -24,7 +23,7 @@ final class ProcessMergeFields {
 		if ($i->customer()) {
 			$i->_setMailchimpTagsToCustomer();
 		}
-		$subscriber = $helper->loadListSubscriber($listId, $email);
+		$subscriber = hcg_mc_h()->loadListSubscriber($listId, $email);
 		$fname = $i->_getFName();
 		$lname = $i->_getLName();
 		if ($subscriber->getId()) {
@@ -35,7 +34,7 @@ final class ProcessMergeFields {
 			}
 		}
 		elseif ($subscribe) {
-			$helper->subscribeMember($subscriber);
+			hcg_mc_h()->subscribeMember($subscriber);
 		}
 		else {
 			/**
