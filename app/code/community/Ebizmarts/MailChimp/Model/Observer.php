@@ -1100,7 +1100,7 @@ class Ebizmarts_MailChimp_Model_Observer {
 	function handleCustomerGroups($subscriberEmail, $params, $storeId, $customerId = null)
 	{
 		$helper = $this->makeHelper();
-		$subscriberModel = $this->getSubscriberModel();
+		$subscriberModel = df_subscriber();
 		$subscriber = $subscriberModel->loadByEmail($subscriberEmail);
 
 		if ($subscriber->getId()) {
