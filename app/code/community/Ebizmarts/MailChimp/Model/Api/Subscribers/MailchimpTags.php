@@ -13,8 +13,9 @@ use Mage_Sales_Model_Resource_Order_Collection as OC;
 final class Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags {
 	/**
 	 * 2024-06-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
-	 * @return array(string => string)
+	 * 1) "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/cabinetsbay/site/issues/589
+	 * 2) https://3v4l.org/akQm0#tabs
+	 * @return array(string => array(string => string)
 	 */
 	function get():array {return $this->_d;}
 
