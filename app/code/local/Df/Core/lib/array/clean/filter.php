@@ -66,3 +66,29 @@ function df_filter_f($a1, $a2, callable $fA):array {/** @var array $r */
 	 */
 	return df_is_assoc($a) ? $r : array_values($r);
 }
+
+/**
+ * 2023-07-26 "Implement `df_filter_head()`": https://github.com/mage2pro/core/issues/264
+ * 2024-06-03
+ * 1.1) "Use the `iterable` type": https://github.com/mage2pro/core/issues/403
+ * 1.2) `iterable` is supported by PHP ≥ 7.1: https://3v4l.org/qNX1j
+ * 1.3) https://php.net/manual/en/language.types.iterable.php
+ * 2) We still can not use «Union Types» (e.g. `callable|iterable`) because they require PHP ≥ 8 (we need to support PHP ≥ 7.1):
+ * 2.1) https://php.watch/versions/8.0/union-types
+ * 2.2) https://3v4l.org/AOWmO
+ * 3) "Port `df_filter_head()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/638
+ * @used-by df_bt_filter_head()
+ * @param callable|iterable $a1
+ * @param callable|iterable $a2
+ * @return array(int|string => mixed)
+ */
+function df_filter_head($a1, $a2):array {return df_filter_f($a1, $a2, function(array $a, callable $f):array {
+	$r = [];
+	foreach ($a as $k => $v) {/** @var int|string $k */ /** @var mixed $v */
+		if (!$r && call_user_func($f, $v)) {
+			continue;
+		}
+		$r[$k] = $v;
+	}
+	return $r;
+});}
