@@ -31,8 +31,9 @@ function df_filter($a1, $a2):array {return df_filter_f($a1, $a2, 'array_filter')
  * 1.2) `iterable` is supported by PHP ≥ 7.1: https://3v4l.org/qNX1j
  * 1.3) https://php.net/manual/en/language.types.iterable.php
  * 2) We still can not use «Union Types» (e.g. `callable|iterable`) because they require PHP ≥ 8 (we need to support PHP ≥ 7.1):
- * https://php.watch/versions/8.0/union-types
- * https://3v4l.org/AOWmO
+ * 2.1) https://php.watch/versions/8.0/union-types
+ * 2.2) https://3v4l.org/AOWmO
+ * 3) "Use the `callable` type": https://github.com/mage2pro/core/issues/404
  * @used-by df_filter()
  * @used-by df_filter_head()
  * @used-by df_filter_tail()
@@ -41,7 +42,7 @@ function df_filter($a1, $a2):array {return df_filter_f($a1, $a2, 'array_filter')
  * @param callable $fA
  * @return array(int|string => mixed)
  */
-function df_filter_f($a1, $a2, $fA):array {/** @var array $r */
+function df_filter_f($a1, $a2, callable $fA):array {/** @var array $r */
 	# 2020-03-02, 2022-10-31
 	# 1) Symmetric array destructuring requires PHP ≥ 7.1:
 	#		[$a, $b] = [1, 2];
