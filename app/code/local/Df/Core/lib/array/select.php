@@ -13,6 +13,10 @@ use Varien_Object as _DO;
  * array_column() misses the keys: https://3v4l.org/llMrL
  * df_column() preserves the keys.
  * 2024-05-14 "Port `df_column()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/601
+ * 2024-06-03
+ * 1) "Use the `iterable` type": https://github.com/mage2pro/core/issues/403
+ * 2) `iterable` is supported by PHP ≥ 7.1: https://3v4l.org/qNX1j
+ * 3) https://php.net/manual/en/language.types.iterable.php
  * @used-by df_index()
  * @used-by df_product_images_additional()
  * @param Traversable|array(int|string => _DO|array(string => mixed)) $c
@@ -20,7 +24,7 @@ use Varien_Object as _DO;
  * @param string|null $fk [optional]
  * @return array(int|string => mixed)
  */
-function df_column($c, $fv, $fk = null):array {return df_map_kr($c, function($k, $v) use($fv, $fk) {return [
+function df_column(iterable $c, $fv, $fk = null):array {return df_map_kr($c, function($k, $v) use($fv, $fk):array {return [
 	!$fk ? $k : df_call($v, $fk), df_call($v, $fv)
 ];});}
 
