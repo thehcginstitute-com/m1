@@ -23,7 +23,7 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by df_assert_ne()
  * @used-by df_assert_nef()
  * @used-by df_assert_oq()
- * @used-by df_assert_traversable()
+ * @used-by df_assert_iterable()
  * @used-by df_asset_url()
  * @used-by df_bool()
  * @used-by df_call()
