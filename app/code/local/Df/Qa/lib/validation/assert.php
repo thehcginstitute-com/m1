@@ -80,16 +80,13 @@ function df_assert_sne($v, $sl = 0) {
 
 /**
  * 2016-08-09
- * 2024-03-05 "Port `df_assert_iterable()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/459
+ * 2024-06-03
+ * 1) "Use the `iterable` type": https://github.com/mage2pro/core/issues/403
+ * 2) `iterable` is supported by PHP ≥ 7.1: https://3v4l.org/qNX1j
+ * 3) https://php.net/manual/en/language.types.iterable.php
  * @used-by dfaf()
- * @param Traversable|array $v
- * @param string|T $m [optional]
- * @return Traversable|array
- * @throws E
  */
-function df_assert_iterable($v, $m = null) {return is_iterable($v) ? $v : df_error($m ?:
-	'A variable is expected to be a Traversable or an array, ' . 'but actually it is %s.', df_type($v)
-);}
+function df_assert_iterable(iterable $v):iterable {return $v;}
 
 /**
  * @used-by \HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation::removeLinkByName()
