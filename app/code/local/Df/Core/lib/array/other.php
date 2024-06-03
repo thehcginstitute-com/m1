@@ -26,13 +26,3 @@ function dfa_flatten(array $a) {
 	array_walk_recursive($a, function($a) use(&$r):void {$r[]= $a;});
 	return $r;
 }
-
-/**
- * 2016-09-02
- * @see dfa_deep_unset()
- * @uses array_flip() корректно работает с пустыми массивами.
- * @param array(string => mixed) $a
- * @param string[] $keys
- * @return array(string => mixed)
- */
-function dfa_unset(array $a, array $keys) {return array_diff_key($a, array_flip($keys));}
