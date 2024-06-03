@@ -16,54 +16,69 @@ const DF_BEFORE = -1;
  *		df_map('Df_Cms_Model_ContentsMenu_Applicator::i', $this->getCmsRootNodes())
  * эквивалентно
  *		$this->getCmsRootNodes()->walk('Df_Cms_Model_ContentsMenu_Applicator::i')
- * @param callable|array(int|string => mixed)|array[]\Traversable $a1
- * @param callable|array(int|string => mixed)|array[]|\Traversable $a2
+ * 2024-05-08
+ * 1) `array_map([__CLASS__, 'f'], [1, 2, 3])` for a private `f` is allowed: https://3v4l.org/29Zim
+ * 2) `is_callable([__CLASS__, 'f'])` for a private `f` is allowed too: https://3v4l.org/ctZJG
+ * 2024-06-03
+ * 1.1) "Use the `iterable` type": https://github.com/mage2pro/core/issues/403
+ * 1.2) `iterable` is supported by PHP ≥ 7.1: https://3v4l.org/qNX1j
+ * 1.3) https://php.net/manual/en/language.types.iterable.php
+ * 2) We still can not use «Union Types» (e.g. `callable|iterable`) because they require PHP ≥ 8 (we need to support PHP ≥ 7.1):
+ * 2.1) https://php.watch/versions/8.0/union-types
+ * 2.2) https://3v4l.org/AOWmO
+ * @used-by df_clean_r()
+ * @used-by df_db_credentials()
+ * @used-by df_mail()
+ * @used-by df_mvar_n()
+ * @used-by df_prices()
+ * @used-by df_qty()
+ * @used-by df_trim_text_left()
+ * @param callable|iterable $a1
+ * @param callable|iterable $a2
  * @param mixed|mixed[] $pAppend [optional]
  * @param mixed|mixed[] $pPrepend [optional]
  * @param int $keyPosition [optional]
  * @param bool $returnKey [optional]
  * @return array(int|string => mixed)
  */
-function df_map($a1, $a2, $pAppend = [], $pPrepend = [], $keyPosition = 0, $returnKey = false) {
-	/** @var callable $callback */
-	/** @var array(int|string => mixed)|\Traversable $array */
-	list($array, $callback) = dfaf($a1, $a2);
-	$array = df_ita($array);
-	/** @var array(int|string => mixed) $result */
+function df_map($a1, $a2, $pAppend = [], $pPrepend = [], int $keyPosition = 0, bool $returnKey = false):array {
+	# 2020-03-02, 2022-10-31
+	# 1) Symmetric array destructuring requires PHP ≥ 7.1:
+	#		[$a, $b] = [1, 2];
+	# https://github.com/mage2pro/core/issues/96#issuecomment-593392100
+	# We should support PHP 7.0.
+	# https://3v4l.org/3O92j
+	# https://php.net/manual/migration71.new-features.php#migration71.new-features.symmetric-array-destructuring
+	# https://stackoverflow.com/a/28233499
+	list($a, $f) = dfaf($a1, $a2); /** @var iterable $a */ /** @var callable $f */
+	/** @var array(int|string => mixed) $r */
 	if (!$pAppend && !$pPrepend && 0 === $keyPosition && !$returnKey) {
-		$result = array_map($callback, $array);
+		$r = array_map($f, df_ita($a));
 	}
 	else {
-		$pAppend = df_array($pAppend);
-		$pPrepend = df_array($pPrepend);
-		$result = [];
-		foreach ($array as $key => $item) {
-			/** @var int|string $key */
-			/** @var mixed $item */
-			/** @var mixed[] $primaryArgument */
+		$pAppend = df_array($pAppend); $pPrepend = df_array($pPrepend);
+		$r = [];
+		foreach ($a as $k => $v) {/** @var int|string $k */ /** @var mixed $v */ /** @var mixed[] $primaryArgument */
 			switch ($keyPosition) {
 				case DF_BEFORE:
-					$primaryArgument = [$key, $item];
+					$primaryArgument = [$k, $v];
 					break;
 				case DF_AFTER:
-					$primaryArgument = [$item, $key];
+					$primaryArgument = [$v, $k];
 					break;
 				default:
-					$primaryArgument = [$item];
+					$primaryArgument = [$v];
 			}
-			/** @var mixed[] $arguments */
-			$arguments = array_merge($pPrepend, $primaryArgument, $pAppend);
-			/** @var mixed $item */
-			$item = call_user_func_array($callback, $arguments);
+			$fr = call_user_func_array($f, array_merge($pPrepend, $primaryArgument, $pAppend)); /** @var mixed $fr */
 			if (!$returnKey) {
-				$result[$key] = $item;
+				$r[$k] = $fr;
 			}
 			else {
-				$result[$item[0]] = $item[1]; // 2016-10-25 It allows to return custom keys.
+				$r[$fr[0]] = $fr[1]; # 2016-10-25 It allows to return custom keys.
 			}
 		}
 	}
-	return $result;
+	return $r;
 }
 
 /**
