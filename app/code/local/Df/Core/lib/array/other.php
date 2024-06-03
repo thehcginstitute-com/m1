@@ -36,12 +36,3 @@ function dfa_flatten(array $a) {
  * @return array(string => mixed)
  */
 function dfa_unset(array $a, array $keys) {return array_diff_key($a, array_flip($keys));}
-
-/**
- * 2021-01-29
- * @used-by df_gender_s() (https://github.com/thehcginstitute-com/m1/issues/589)
- * @param int|string $v
- * @param array(int|string => mixed) $map
- * @return int|string|mixed
- */
-function df_tr($v, array $map) {return dfa($map, $v, $v);}
