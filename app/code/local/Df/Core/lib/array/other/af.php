@@ -1,19 +1,22 @@
 <?php
 /**
  * 2017-02-18 [array|callable, array|callable] => [array, callable]
- * 2024-03-05 "Port `dfaf()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/461
  * @used-by df_filter_f()
  * @used-by df_find()
  * @used-by df_map()
  * @used-by dfak_transform()
- * @param array|callable|Traversable $a
- * @param array|callable|Traversable $b
+ * @param iterable|callable $a
+ * @param iterable|callable $b
  * @return array(int|string => mixed)
  */
 function dfaf($a, $b):array {
 	# 2020-02-15
 	# "A variable is expected to be a traversable or an array, but actually it is a «object»":
 	# https://github.com/tradefurniturecompany/site/issues/36
+	# 2024-05-08
+	# 1) https://php.watch/versions/8.2/partially-supported-callable-deprecation
+	# 2.1) `is_callable([__CLASS__, 'f'])` for a private `f` is allowed: https://3v4l.org/ctZJG
+	# 2.2) `array_map([__CLASS__, 'f'], [1, 2, 3])` for a private `f` is allowed too: https://3v4l.org/29Zim
 	$ca = is_callable($a); /** @var bool $ca */
 	$cb = is_callable($b); /** @var bool $ca */
 	if (!$ca || !$cb) {
