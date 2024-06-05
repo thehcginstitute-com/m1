@@ -27,7 +27,7 @@ final class ProcessMergeFields {
 		# 2024-06-06 "Use the «Symmetric array destructuring» PHP 7.1 feature": https://github.com/mage2pro/core/issues/379
 		[$fname, $lname] = [$i->mcByCA('firstname'), $i->mcByCA('lastname')]; /** @var string $fname */ /** @var string $lname */
 		if ($sub->getId()) {
-			if ($subscribe && Sub::STATUS_SUBSCRIBED !== $sub->getStatus()) {
+			if ($subscribe && !$sub->isSubscribed()) {
 				$sub->setStatus(Sub::STATUS_SUBSCRIBED);
 				$sub->addData(['subscriber_firstname' => $fname, 'subscriber_lastname' => $lname]);
 			}
