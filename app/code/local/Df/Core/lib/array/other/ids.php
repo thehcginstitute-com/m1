@@ -1,6 +1,4 @@
 <?php
-use Varien_Object as _DO;
-
 /**
  * 2016-07-31
  * 2024-06-03
@@ -10,7 +8,7 @@ use Varien_Object as _DO;
  * 2) "Port `dfa_ids()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/635
  * @uses df_id()
  * @used-by hcg_mc_stores() (https://github.com/thehcginstitute-com/m1/issues/524)
- * @param Traversable|array(int|string => _DO) $c
+ * @param Traversable|array(int|string => Varien_Object) $c
  * @return int[]|string[]
  */
 function dfa_ids(iterable $c):array {return df_map('df_id', $c);}
