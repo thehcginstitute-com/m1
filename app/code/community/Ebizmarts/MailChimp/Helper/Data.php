@@ -313,12 +313,10 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by hcg_mc_store_id() (https://github.com/thehcginstitute-com/m1/issues/524)
 	 */
-	function isSubscriptionEnabled($scopeId, $scope = null)
-	{
+	function isSubscriptionEnabled($scopeId, $scope = null) {
 		$apiKeyValid = $this->validateApiKey($scopeId, $scope);
 		$mailChimpEnabled = $this->isMailChimpEnabled($scopeId, $scope);
 		$generalList = $this->getGeneralList($scopeId, $scope);
-
 		return $apiKeyValid && $mailChimpEnabled && $generalList;
 	}
 
