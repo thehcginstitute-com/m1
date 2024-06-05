@@ -7,7 +7,6 @@
  * 1.3) https://php.net/manual/en/language.types.iterable.php
  * 2) "Port `dfa_ids()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/635
  * @uses df_id()
- * @used-by hcg_mc_stores() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @param Traversable|array(int|string => Varien_Object) $c
  * @return int[]|string[]
  */

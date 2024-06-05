@@ -4,7 +4,7 @@ use Ebizmarts_MailChimp_Helper_Data as H;
  * 2024-04-14
  * @used-by hcg_mc_cfg_fields()
  * @used-by hcg_mc_cfg_scope()
- * @used-by hcg_mc_stores() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by hcg_mc_store_id() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by hcg_mc_sub()
  * @used-by Ebizmarts_MailChimp_Adminhtml_EcommerceController::makeHelper()
  * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimpController::preDispatch()

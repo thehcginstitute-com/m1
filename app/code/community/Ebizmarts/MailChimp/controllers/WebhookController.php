@@ -41,9 +41,8 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
 		if ($moduleName == 'monkey') {
 			if (isset($data['data']['list_id'])) {
 				$listId = $data['data']['list_id'];
-				$storeIds = hcg_mc_stores($listId);
-				if (!empty($storeIds)) {
-					$this->_deleteWebhook($storeIds[0], $listId);
+				if ($storeId = hcg_mc_store_id($listId)) {
+					$this->_deleteWebhook($storeId, $listId);
 				}
 			}
 		}

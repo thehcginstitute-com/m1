@@ -18,7 +18,7 @@ function hcg_mc_sub($listId, string $email):S {/** @var S $r */
 			# No customer with that address.
 			# Just assume the first store ID is the correct one
 			# (as there is no other way to tell which store this MailChimp list guest subscriber belongs to).
-			$r->setStoreId(df_first(array_merge(hcg_mc_stores($listId), [0])));
+			$r->setStoreId(hcg_mc_store_id($listId) ?: 0);
 		}
 		else {
 			$r->setStoreId($c->getStoreId());
