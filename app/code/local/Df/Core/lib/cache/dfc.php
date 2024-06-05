@@ -125,6 +125,7 @@ function dfc($o, Closure $f, array $a = [], $unique = true, $offset = 0) {
  * @used-by df_product_images_path_rel()
  * @used-by df_table()
  * @used-by dfac()
+ * @used-by hcg_mc_stores() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @param bool $unique
  * @param int $offset
  * @return mixed
