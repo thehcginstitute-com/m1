@@ -3,7 +3,7 @@ use Mage_Customer_Model_Customer as C;
 use Mage_Newsletter_Model_Subscriber as S;
 /**
  * 2024-06-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
- * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
+ * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
  * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder()
  * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_clean()
  * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_updateEmail()
