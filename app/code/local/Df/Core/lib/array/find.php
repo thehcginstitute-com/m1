@@ -28,6 +28,7 @@ use Df\Core\Exception as DFE;
  * @used-by df_sales_email_sending()
  * @used-by df_starts_with()
  * @used-by dfa_has_objects()
+ * @used-by hcg_mc_stores() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by HCG\MailChimp\Tags::mcByMG() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param callable|iterable $a1
  * @param callable|iterable $a2
