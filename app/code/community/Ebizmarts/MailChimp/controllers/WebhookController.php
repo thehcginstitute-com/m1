@@ -43,8 +43,7 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
 		if ($moduleName == 'monkey') {
 			if (isset($data['data']['list_id'])) {
 				$listId = $data['data']['list_id'];
-				$storeIds = $helper->getMagentoStoreIdsByListId($listId);
-
+				$storeIds = hcg_mc_stores($listId);
 				if (!empty($storeIds)) {
 					$storeId = $storeIds[0];
 

@@ -1810,35 +1810,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * Return the list of magento store IDs configured to synchronise to
-	 * the given mailchimp list ID.
-	 *
-	 * @param  $listId
-	 * @return array|mixed|null
-	 * @throws Mage_Core_Exception
-	 */
-	function getMagentoStoreIdsByListId($listId) {
-		$storeIds = Mage::registry('mailchimp_store_ids_for_list_' . $listId);
-		if ($storeIds === null) {
-			$stores = $this->getMageApp()->getStores();
-			$storeIds = array();
-			foreach ($stores as $storeId => $store) {
-				if ($this->isSubscriptionEnabled($storeId)) {
-					$storeListId = $this->getConfigValueForScope(
-						Ebizmarts_MailChimp_Model_Config::GENERAL_LIST,
-						$storeId
-					);
-					if ($storeListId == $listId) {
-						$storeIds[] = $storeId;
-					}
-				}
-			}
-			Mage::register('mailchimp_store_ids_for_list_' . $listId, $storeIds);
-		}
-		return $storeIds;
-	}
-
-	/**
 	 * Return true if the configPath has been saved specifically for the given scope.
 	 *
 	 * @param           $configPath
