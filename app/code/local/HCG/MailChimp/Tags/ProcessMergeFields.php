@@ -24,8 +24,8 @@ final class ProcessMergeFields {
 			$i->_setMailchimpTagsToCustomer();
 		}
 		$sub = hcg_mc_sub($listId, $email); /** @var Sub $sub */
-		$fname = $i->mcByCA('firstname');
-		$lname = $i->mcByCA('lastname');
+		$fname = $i->mcByCA('firstname'); /** @var string $fname */
+		$lname = $i->mcByCA('lastname'); /** @var string $lname */
 		if ($sub->getId()) {
 			if ($sub->getStatus() != Sub::STATUS_SUBSCRIBED && $subscribe) {
 				$sub->setStatus(Sub::STATUS_SUBSCRIBED);
