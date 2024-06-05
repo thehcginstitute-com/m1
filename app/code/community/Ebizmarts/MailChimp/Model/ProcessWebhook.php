@@ -92,27 +92,25 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 	 * @used-by self::p()
 	 */
 	private function _unsubscribe(array $data):void {
-		$helper = hcg_mc_h();
 		$subscriber = hcg_mc_sub($data['list_id'], $data['email']);
 		if ($subscriber && $subscriber->getId()) {
 			try {
 				$action = isset($data['action']) ? $data['action'] : 'delete';
 				$subscriberStatus = $subscriber->getSubscriberStatus();
 				$statusUnsubscribed = Mage_Newsletter_Model_Subscriber::STATUS_UNSUBSCRIBED;
-
 				switch ($action) {
 				case 'delete':
 					//if config setting "Webhooks Delete action" is set as "Delete customer account"
-
 					if (df_cfg(Ebizmarts_MailChimp_Model_Config::GENERAL_UNSUBSCRIBE, $subscriber->getStoreId())) {
 						$subscriber->delete();
-					} elseif ($subscriberStatus != $statusUnsubscribed) {
-						$helper->unsubscribeMember($subscriber);
+					}
+					elseif ($subscriberStatus != $statusUnsubscribed) {
+						hcg_mc_unsubscribe($subscriber);
 					}
 					break;
 				case 'unsub':
 					if ($subscriberStatus != $statusUnsubscribed) {
-						$helper->unsubscribeMember($subscriber);
+						hcg_mc_unsubscribe($subscriber);
 					}
 					break;
 				}
