@@ -29,8 +29,7 @@ final class ProcessMergeFields {
 		if ($sub->getId()) {
 			if ($sub->getStatus() != Sub::STATUS_SUBSCRIBED && $subscribe) {
 				$sub->setStatus(Sub::STATUS_SUBSCRIBED);
-				$sub->setSubscriberFirstname($fname);
-				$sub->setSubscriberLastname($lname);			
+				$sub->addData(['subscriber_firstname' => $fname, 'subscriber_lastname'	=> $lname]);
 			}
 		}
 		elseif ($subscribe) {
