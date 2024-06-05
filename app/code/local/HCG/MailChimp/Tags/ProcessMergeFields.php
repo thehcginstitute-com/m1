@@ -140,7 +140,7 @@ final class ProcessMergeFields {
 				'unsubscribed' === $member['status']
 				&& !hcg_mc_h_webhook()->getWebhookDeleteAction($subscriber->getStoreId())
 			) {
-				$h->unsubscribeMember($subscriber);
+				hcg_mc_unsubscribe($subscriber);
 			}
 		}
 		catch (\MailChimp_Error $e) {

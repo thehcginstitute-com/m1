@@ -58,11 +58,6 @@ function hcg_mc_subscribe(S $s):void {
  * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
  * @used-by Ebizmarts_MailChimp_Model_Observer::createCreditmemo()
  * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_unsubscribe()
- * @used-by STUB
- * @used-by STUB
- * @used-by STUB
+ * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_addSubscriberData()
  */
-function hcg_mc_unsubscribe(S $s):void {
-	$s->setStatus(S::STATUS_UNSUBSCRIBED);
-	hcg_mc_sub_update($s);
-}
+function hcg_mc_unsubscribe(S $s):void {hcg_mc_sub_update($s->setStatus(S::STATUS_UNSUBSCRIBED));}
