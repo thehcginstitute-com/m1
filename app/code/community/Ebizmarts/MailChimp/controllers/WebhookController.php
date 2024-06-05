@@ -31,28 +31,23 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
 	/**
 	 * Entry point for all webhook operations
 	 */
-	function indexAction()
-	{
+	function indexAction() {
 		$request = $this->getRequest();
 		$requestKey = $request->getParam('wkey');
 		$moduleName = $request->getModuleName();
 		$data = $request->getPost();
 		$helper = $this->getHelper();
 		$webhookHelper = $this->getWebhookHelper();
-
 		if ($moduleName == 'monkey') {
 			if (isset($data['data']['list_id'])) {
 				$listId = $data['data']['list_id'];
 				$storeIds = hcg_mc_stores($listId);
 				if (!empty($storeIds)) {
-					$storeId = $storeIds[0];
-
-					if ($helper->isSubscriptionEnabled($storeId)) {
-						$this->_deleteWebhook($storeId, $listId);
-					}
+					$this->_deleteWebhook($storeIds[0], $listId);
 				}
 			}
-		} else {
+		}
+		else {
 			//Checking if "wkey" para is present on request, we cannot check for !isPost()
 			//because Mailchimp pings the URL (GET request) to validate webhook
 			if (!$requestKey) {
