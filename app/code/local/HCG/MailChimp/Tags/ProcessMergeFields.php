@@ -33,7 +33,7 @@ final class ProcessMergeFields {
 			}
 		}
 		elseif ($subscribe) {
-			hcg_mc_h()->subscribeMember($sub);
+			hcg_mc_subscribe($sub);
 		}
 		else {
 			# Mailchimp subscriber not currently in magento newsletter subscribers.

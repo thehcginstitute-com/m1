@@ -27,3 +27,15 @@ function hcg_mc_sub($listId, string $email):S {/** @var S $r */
 	}
 	return $r;
 }
+
+/**
+ * 2024-06-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+ * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
+ * @used-by Ebizmarts_MailChimp_Model_ProcessWebhook::_updateEmail()
+ */
+function hcg_mc_subscribe(S $s):void {
+	$s->setStatus(Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED);
+	$s->setSubscriberConfirmCode($s->randomSequence());
+	hcg_mc_h()->setMemberGeneralData($s);
+}

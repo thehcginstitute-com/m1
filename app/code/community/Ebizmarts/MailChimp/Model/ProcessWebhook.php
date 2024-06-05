@@ -80,7 +80,7 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 					$oldSubscriber->save();
 				}
 				else {
-					hcg_mc_h()->subscribeMember($newSubscriber);
+					hcg_mc_subscribe($newSubscriber);
 				}
 			}
 		}
