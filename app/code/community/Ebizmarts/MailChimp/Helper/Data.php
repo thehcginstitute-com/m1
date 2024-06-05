@@ -2688,7 +2688,10 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * @param $subscriber
+	 * 2024-06-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by hcg_mc_subscribe()
+	 * @used-by self::unsubscribeMember()
 	 */
 	function setMemberGeneralData($subscriber) {
 		$subscriber->setImportMode(true);
