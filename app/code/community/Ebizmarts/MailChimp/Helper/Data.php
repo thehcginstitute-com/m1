@@ -2679,15 +2679,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * @param $subscriber
-	 */
-	function unsubscribeMember($subscriber)
-	{
-		$subscriber->setStatus(Mage_Newsletter_Model_Subscriber::STATUS_UNSUBSCRIBED);
-		hcg_mc_sub_update($subscriber);
-	}
-
-	/**
 	 * @param $config
 	 * @param $scope
 	 * @param $scopeId

@@ -56,7 +56,7 @@ function hcg_mc_subscribe(S $s):void {
 /**
  * 2024-06-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
  * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
- * @used-by STUB
+ * @used-by Ebizmarts_MailChimp_Model_Observer::createCreditmemo()
  * @used-by STUB
  * @used-by STUB
  * @used-by STUB

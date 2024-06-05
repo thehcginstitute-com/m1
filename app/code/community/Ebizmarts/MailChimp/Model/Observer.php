@@ -753,10 +753,7 @@ class Ebizmarts_MailChimp_Model_Observer {
 		$mailchimpUnsubscribe = $this->getRequest()->getParam('mailchimp_unsubscribe');
 		if ($this->isUnsubscribeChecked($mailchimpUnsubscribe)) {
 			$creditMemo = $observer->getEvent()->getCreditmemo();
-			$helper = $this->makeHelper();
-			$order = $creditMemo->getOrder();
-			$email = $order->getCustomerEmail();
-			$helper->unsubscribeMember(df_subscriber($email));
+			hcg_mc_unsubscribe(df_subscriber($creditMemo->getOrder()->getCustomerEmail()));
 		}
 		return $observer;
 	}
