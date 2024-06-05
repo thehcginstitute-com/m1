@@ -309,11 +309,9 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * Return if module is enabled and list selected for given scope.
-	 *
-	 * @param       $scopeId
-	 * @param null  $scope
-	 * @return mixed
+	 * 2024-06-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by hcg_mc_stores() (https://github.com/thehcginstitute-com/m1/issues/524)
 	 */
 	function isSubscriptionEnabled($scopeId, $scope = null)
 	{
