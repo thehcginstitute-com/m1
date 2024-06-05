@@ -2679,18 +2679,16 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * @param       $subscriber
-	 * @param bool  $forceUpdateStatus
+	 * 2024-06-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::p()
 	 */
-	function subscribeMember($subscriber, $forceUpdateStatus = false)
-	{
+	function subscribeMember($subscriber, $forceUpdateStatus = false) {
 		$subscriber->setStatus(Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED);
 		$subscriber->setSubscriberConfirmCode($subscriber->randomSequence());
-
 		if ($forceUpdateStatus) {
 			$subscriber->setMailchimpSyncModified(1);
 		}
-
 		$this->setMemberGeneralData($subscriber);
 	}
 
