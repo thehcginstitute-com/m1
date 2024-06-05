@@ -15,12 +15,12 @@ use Mage_Core_Model_Abstract as M;
  * потому что он имеет доступность `private` или `protected`.
  * Пока эта проблема никак не решена.
  * 2016-09-05
- * 1) Этот код прекрасно работает с объектами классов типа @see \Magento\Directory\Model\Currency
+ * 1) Этот код прекрасно работает с объектами классов типа @see Mage_Directory_Model_Currency
  * благодаря тому, что @uses Mage_Core_Model_Abstract::getId() не просто тупо считывает значение поля id,
  * а вызывает метод @see Mage_Core_Model_Abstract::getIdFieldName()
  * который, в свою очередь, узнаёт имя идентифицирующего поля из своего ресурса:
  * @see Mage_Core_Model_Abstract::_init()
- * @see \Magento\Directory\Model\ResourceModel\Currency::_construct()
+ * @see Mage_Directory_Model_Resource_Currency::_construct()
  * 2) @see df_hash_o() использует тот же алгоритм, но не вызывает @see df_id() ради ускорения.
  * 2024-06-05 "Port `df_id()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/639
  * @used-by df_idn()
