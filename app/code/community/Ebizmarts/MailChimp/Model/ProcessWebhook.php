@@ -78,7 +78,8 @@ final class Ebizmarts_MailChimp_Model_ProcessWebhook {
 					$oldSubscriber->setSubscriberEmail($new);
 					$oldSubscriber->setSubscriberSource(Ebizmarts_MailChimp_Model_Subscriber::MAILCHIMP_SUBSCRIBE);
 					$oldSubscriber->save();
-				} else {
+				}
+				else {
 					hcg_mc_h()->subscribeMember($newSubscriber);
 				}
 			}
