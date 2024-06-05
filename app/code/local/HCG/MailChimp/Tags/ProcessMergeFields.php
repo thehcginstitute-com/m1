@@ -29,7 +29,7 @@ final class ProcessMergeFields {
 		if ($sub->getId()) {
 			if ($sub->getStatus() != Sub::STATUS_SUBSCRIBED && $subscribe) {
 				$sub->setStatus(Sub::STATUS_SUBSCRIBED);
-				$sub->addData(['subscriber_firstname' => $fname, 'subscriber_lastname'	=> $lname]);
+				$sub->addData(['subscriber_firstname' => $fname, 'subscriber_lastname' => $lname]);
 			}
 		}
 		elseif ($subscribe) {
@@ -125,8 +125,7 @@ final class ProcessMergeFields {
 		$scopeArray = $h->getFirstScopeFromConfig(Cfg::GENERAL_LIST, $listId);
 		$api = $h->getApi($scopeArray['scope_id'], $scopeArray['scope']);
 		try {
-			$subscriber->setSubscriberFirstname($fname);
-			$subscriber->setSubscriberLastname($lname);
+			$subscriber->addData(['subscriber_firstname' => $fname, 'subscriber_lastname' => $lname]);
 			$md5HashEmail = hash('md5', strtolower($email));
 			$member = $api->getLists()->getMembers()->get(
 				$listId,
