@@ -30,9 +30,7 @@ use Mage_Core_Model_Abstract as M;
  * @return int|string|null
  */
 function df_id($o, bool $allowNull = false) {/** @var int|string|null $r */
-	$r = !is_object($o) ? $o : ($o instanceof M || method_exists($o, 'getId') ? $o->getId() : (
-		$o instanceof AI ? $o->id() : null
-	));
+	$r = !is_object($o) ? $o : ($o instanceof M || method_exists($o, 'getId') ? $o->getId() :null);
 	df_assert($allowNull || $r);
 	return $r;
 }
