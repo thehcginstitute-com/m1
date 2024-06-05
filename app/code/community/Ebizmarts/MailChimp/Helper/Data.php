@@ -2684,20 +2684,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	function unsubscribeMember($subscriber)
 	{
 		$subscriber->setStatus(Mage_Newsletter_Model_Subscriber::STATUS_UNSUBSCRIBED);
-		$this->setMemberGeneralData($subscriber);
-	}
-
-	/**
-	 * 2024-06-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 * @used-by hcg_mc_subscribe()
-	 * @used-by self::unsubscribeMember()
-	 */
-	function setMemberGeneralData($subscriber) {
-		$subscriber->setImportMode(true);
-		$subscriber->setSubscriberSource(Ebizmarts_MailChimp_Model_Subscriber::MAILCHIMP_SUBSCRIBE);
-		$subscriber->setIsStatusChanged(true);
-		$subscriber->save();
+		hcg_mc_sub_update($subscriber);
 	}
 
 	/**
