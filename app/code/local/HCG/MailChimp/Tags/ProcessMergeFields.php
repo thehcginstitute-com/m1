@@ -30,17 +30,15 @@ final class ProcessMergeFields {
 			if ($sub->getStatus() != Sub::STATUS_SUBSCRIBED && $subscribe) {
 				$sub->setStatus(Sub::STATUS_SUBSCRIBED);
 				$sub->setSubscriberFirstname($fname);
-				$sub->setSubscriberLastname($lname);
+				$sub->setSubscriberLastname($lname);			
 			}
 		}
 		elseif ($subscribe) {
 			hcg_mc_h()->subscribeMember($sub);
 		}
 		else {
-			/**
-			 * Mailchimp subscriber not currently in magento newsletter subscribers.
-			 * Get mailchimp subscriber status and add missing newsletter subscriber.
-			 */
+			# Mailchimp subscriber not currently in magento newsletter subscribers.
+			# Get mailchimp subscriber status and add missing newsletter subscriber.
 			self::_addSubscriberData($sub, $fname, $lname, $email, $listId);
 		}
 		$sub->save();
