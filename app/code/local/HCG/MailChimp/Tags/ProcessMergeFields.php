@@ -76,8 +76,7 @@ final class ProcessMergeFields {
 
 	/**
 	 * 2024-06-02
-	 * @used-by self::_getFName()
-	 * @used-by self::_getLName()
+	 * @used-by self::p()
 	 */
 	private function mcByCA(string $a) {return $this->_d['merges'][df_assert($this->_t->mcByCA($a))];}
 
