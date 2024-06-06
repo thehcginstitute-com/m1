@@ -160,16 +160,12 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
 			try {
 				$root = $api->getRoot()->info();
 				$stores = $api->getEcommerce()->getStores()->get(null, null, null, 100);
-			} catch (MailChimp_Error $e) {
-				$helper->logError($e->getFriendlyMessage());
-				continue;
-			} catch (Exception $e) {
-				$helper->logError($e->getMessage());
+			}
+			catch (Exception $e) {
+				df_log($e);
 				continue;
 			}
-
 			$apiKey = $helper->encryptData($apiKey);
-
 			foreach ($stores['stores'] as $store) {
 				if ($store['platform'] == 'Magento') {
 					try {
