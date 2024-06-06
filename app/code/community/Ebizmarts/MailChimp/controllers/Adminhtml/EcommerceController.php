@@ -19,30 +19,26 @@ class Ebizmarts_MailChimp_Adminhtml_EcommerceController extends Mage_Adminhtml_C
 		$this->renderLayout();
 	}
 
-	function resetLocalErrorsAction()
-	{
+	function resetLocalErrorsAction() {
 		$helper = $this->makeHelper();
 		$mageApp = $helper->getMageApp();
 		$request = $mageApp->getRequest();
 		$scope = $request->getParam('scope');
 		$scopeId = $request->getParam('scope_id');
 		$success = 1;
-
 		try {
 			$stores = $mageApp->getStores();
-
 			if ($scopeId == 0) {
 				foreach ($stores as $store) {
 					$helper->resetErrors($store->getId());
 				}
 			}
-
 			$helper->resetErrors($scopeId, $scope);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$helper->logError($e->getMessage());
 			$success = 0;
 		}
-
 		$mageApp->getResponse()->setBody($success);
 	}
 
