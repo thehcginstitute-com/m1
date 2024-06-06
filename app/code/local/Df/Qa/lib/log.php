@@ -13,6 +13,7 @@ use Varien_Object as _DO;
  * @used-by Df\Qa\Failure\Error::log()
  * @used-by Df_Core_Model_Layout::_getBlockInstance()
  * @used-by Ebizmarts_MailChimp::call()
+ * @used-by Ebizmarts_MailChimp_Adminhtml_EcommerceController::resetLocalErrorsAction() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Ebizmarts_MailChimp_Helper_Data::logError()
  * @used-by Ebizmarts_MailChimp_Model_Api_ItemSynchronizer::logSyncError()
  * @used-by HCG\MailChimp\Batch\HandleErrorItem::p() (https://github.com/thehcginstitute-com/m1/issues/565)
