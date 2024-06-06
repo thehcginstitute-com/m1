@@ -1,21 +1,8 @@
 <?php
-/**
- * mc-magento Magento Component
- *
- * @category  Ebizmarts
- * @package   mc-magento
- * @author    Ebizmarts Team <info@ebizmarts.com>
- * @copyright Ebizmarts (http://ebizmarts.com)
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @date:     7/6/16 10:14 AM
- * @file:     GroupController.php
- */
-
-
-class Ebizmarts_MailChimp_GroupController extends Mage_Core_Controller_Front_Action
-{
-	function indexAction()
-	{
+# 2024-06-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+class Ebizmarts_MailChimp_GroupController extends Mage_Core_Controller_Front_Action {
+	function indexAction() {
 		$helper = $this->getHelper();
 		$order = $this->getSessionLastRealOrder();
 		$session = $this->getCoreSession();
@@ -32,7 +19,6 @@ class Ebizmarts_MailChimp_GroupController extends Mage_Core_Controller_Front_Act
 				$subscriber->setSubscriberLastname($order->getCustomerLastname());
 				$subscriber->subscribe($customerEmail);
 			}
-
 			$subscriberId = $subscriber->getSubscriberId();
 			$interestGroup->getByRelatedIdStoreId($customerId, $subscriberId, $storeId);
 			$encodedGroups = $helper->arrayEncode($params);
@@ -42,12 +28,11 @@ class Ebizmarts_MailChimp_GroupController extends Mage_Core_Controller_Front_Act
 			$interestGroup->setStoreId($storeId);
 			$interestGroup->setUpdatedAt($this->getCurrentDateTime());
 			$interestGroup->save();
-
 			$this->getApiSubscriber()->update($subscriber->getSubscriberEmail(), $storeId, '', 1);
-
 			$session->addSuccess($this->__('Thanks for sharing your interest with us.'));
-		} catch (Exception $e) {
-			$helper->logError($e->getMessage());
+		}
+		catch (Exception $e) {
+			df_log($e);
 			$session->addWarning(
 				$this->__(
 					'Something went wrong with the interests subscription. '
@@ -55,7 +40,6 @@ class Ebizmarts_MailChimp_GroupController extends Mage_Core_Controller_Front_Act
 				)
 			);
 		}
-
 		$this->_redirect('/');
 	}
 
