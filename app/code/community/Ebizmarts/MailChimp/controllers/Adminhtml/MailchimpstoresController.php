@@ -223,14 +223,9 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
 			$api = $helper->getApiByKey($apiKey);
 			$lists = $api->getLists()->getLists();
 			$data = array();
-
 			foreach ($lists['lists'] as $list) {
 				$data[$list['id']] = array('id' => $list['id'], 'name' => $list['name']);
 			}
-		}
-		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-			$data = array('error' => 1, 'message' => $e->getMessage());
-			$helper->logError($e->getMessage());
 		}
 		catch (Exception $e) {
 			$data = ['error' => 1, 'message' => $e->getMessage()];
@@ -242,24 +237,25 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
 		$response->setBody($jsonData);
 	}
 
-	function deleteAction()
-	{
+	function deleteAction() {
 		$helper = $this->getMailchimpHelper();
 		$id = $this->getRequest()->getParam('id');
 		$store = $this->loadMailchimpStore($id);
 		$mailchimpStoreId = $store->getStoreid();
 		$apiKey = $helper->decryptData($store->getApikey());
-
 		if ($store->getId()) {
 			try {
 				$apiStore = $helper->getApiStores();
 				$apiStore->deleteMailChimpStore($mailchimpStoreId, $apiKey);
 				$helper->deleteAllMCStoreData($mailchimpStoreId);
-			} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+			}
+			catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 				$helper->logError($e->getMessage());
-			} catch (MailChimp_Error $e) {
+			}
+			catch (MailChimp_Error $e) {
 				$helper->logError($e->getFriendlyMessage());
-			} catch (Exception $e) {
+			}
+			catch (Exception $e) {
 				$helper->logError($e->getMessage());
 			}
 		}
