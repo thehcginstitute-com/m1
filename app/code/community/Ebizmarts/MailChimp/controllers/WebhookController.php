@@ -36,7 +36,6 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
 		$requestKey = $request->getParam('wkey');
 		$moduleName = $request->getModuleName();
 		$data = $request->getPost();
-		$helper = $this->getHelper();
 		$webhookHelper = $this->getWebhookHelper();
 		if ($moduleName == 'monkey') {
 			if (isset($data['data']['list_id'])) {
@@ -65,7 +64,7 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
 				# https://github.com/thehcginstitute-com/m1/issues/480
 			}
 			else {
-				df_log('Webhook Key is invalid!', ['myKey' => $myKey, 'requestKey' => $requestKey]);
+				df_log('Webhook Key is invalid!', null, ['myKey' => $myKey, 'requestKey' => $requestKey]);
 			}
 		}
 	}
