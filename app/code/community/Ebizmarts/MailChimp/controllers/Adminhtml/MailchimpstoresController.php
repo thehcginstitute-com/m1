@@ -251,7 +251,6 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
 			}
 			catch (Exception $e) {df_log($e);}
 		}
-
 		$this->_redirect('*/*/index');
 	}
 
