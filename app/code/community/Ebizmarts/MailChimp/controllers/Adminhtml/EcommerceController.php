@@ -63,11 +63,9 @@ class Ebizmarts_MailChimp_Adminhtml_EcommerceController extends Mage_Adminhtml_C
 				$this->addSuccess($helper->__('Ecommerce data resent succesfully'));
 				$success = $helper->__('Redirecting... ')
 					. '<script type="text/javascript">window.top.location.reload();</script>';
-			} catch (MailChimp_Error $e) {
-				$helper->logError($e->getFriendlyMessage());
-				$this->addError($e->getFriendlyMessage());
-			} catch (Exception $e) {
-				$helper->logError($e->getMessage());
+			}
+			catch (Exception $e) {
+				df_log($e);
 				$this->addError($e->getMessage());
 			}
 		}
