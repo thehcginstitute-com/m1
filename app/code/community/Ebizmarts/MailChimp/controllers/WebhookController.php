@@ -31,7 +31,7 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
 	/**
 	 * Entry point for all webhook operations
 	 */
-	function indexAction() {
+	function indexAction():void {
 		$request = $this->getRequest();
 		$requestKey = $request->getParam('wkey');
 		$moduleName = $request->getModuleName();
@@ -53,7 +53,6 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
 				$this->getResponse()
 					->setHeader('HTTP/1.1', '403 Forbidden')
 					->sendResponse();
-				return $this;
 			}
 			$myKey = $webhookHelper->getWebhooksKey();
 			//Validate "wkey" GET parameter
@@ -66,8 +65,7 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
 				# https://github.com/thehcginstitute-com/m1/issues/480
 			}
 			else {
-				$helper->logError($this->__('Webhook Key invalid! Key Request: %s - My Key: %s', $requestKey, $myKey));
-				$helper->logError($this->__('Webhook call ended'));
+				df_log('Webhook Key is invalid!', ['myKey' => $myKey, 'requestKey' => $requestKey]);
 			}
 		}
 	}
