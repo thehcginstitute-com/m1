@@ -120,7 +120,7 @@ final class ProcessMergeFields {
 	 * "Refactor `Ebizmarts_MailChimp_Model_Api_Subscribers_MailchimpTags`": https://github.com/thehcginstitute-com/m1/issues/589
 	 * @used-by self::p()
 	 */
-	private static function _addSubscriberData($subscriber, $fname, $lname, $email, $listId):void {
+	private static function _addSubscriberData(Sub $subscriber, $fname, $lname, $email, $listId):void {
 		$h = hcg_mc_h();
 		$scopeArray = $h->getFirstScopeFromConfig(Cfg::GENERAL_LIST, $listId);
 		$api = $h->getApi($scopeArray['scope_id'], $scopeArray['scope']);
