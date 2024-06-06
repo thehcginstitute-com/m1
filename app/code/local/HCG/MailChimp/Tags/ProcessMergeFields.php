@@ -134,7 +134,7 @@ final class ProcessMergeFields {
 				null
 			);
 			if ($member['status'] == 'subscribed') {
-				$h->subscribeMember($s);
+				hcg_mc_subscribe($s);
 			}
 			elseif (
 				'unsubscribed' === $member['status']
