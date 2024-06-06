@@ -143,12 +143,8 @@ final class ProcessMergeFields {
 				hcg_mc_unsubscribe($s);
 			}
 		}
-		catch (\MailChimp_Error $e) {
-			$h->logError($e->getFriendlyMessage());
-		}
-		catch (\Exception $e) {
-			$h->logError($e->getMessage());
-		}
+		catch (\MailChimp_Error $e) {df_log($e->getFriendlyMessage());}
+		catch (\Exception $e) {df_log($e->getMessage());}
 	}
 
 	/**
