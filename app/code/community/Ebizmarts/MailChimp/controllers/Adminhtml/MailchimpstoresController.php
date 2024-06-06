@@ -149,7 +149,6 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
 		$connection = $resource->getConnection('core_write');
 		$tableName = $resource->getTableName('mailchimp/stores');
 		$connection->delete($tableName);
-
 		foreach ($allApiKeys as $apiKey) {
 			try {
 				$api = $helper->getApiByKey($apiKey);
