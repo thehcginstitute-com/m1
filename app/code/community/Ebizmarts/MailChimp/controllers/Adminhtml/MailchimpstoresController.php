@@ -249,14 +249,8 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
 				$apiStore->deleteMailChimpStore($mailchimpStoreId, $apiKey);
 				$helper->deleteAllMCStoreData($mailchimpStoreId);
 			}
-			catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-				$helper->logError($e->getMessage());
-			}
-			catch (MailChimp_Error $e) {
-				$helper->logError($e->getFriendlyMessage());
-			}
 			catch (Exception $e) {
-				$helper->logError($e->getMessage());
+				df_log($e);
 			}
 		}
 
