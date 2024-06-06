@@ -216,11 +216,9 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
 			->save();
 	}
 
-	function getstoresAction()
-	{
+	function getstoresAction() {
 		$helper = $this->getMailchimpHelper();
 		$apiKey = $helper->decryptData($this->getRequest()->getParam('api_key'));
-
 		try {
 			$api = $helper->getApiByKey($apiKey);
 			$lists = $api->getLists()->getLists();
@@ -229,17 +227,15 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
 			foreach ($lists['lists'] as $list) {
 				$data[$list['id']] = array('id' => $list['id'], 'name' => $list['name']);
 			}
-		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-			$data = array('error' => 1, 'message' => $e->getMessage());
-			$helper->logError($e->getMessage());
-		} catch (MailChimp_Error $e) {
-			$data = array('error' => 1, 'message' => $e->getFriendlyMessage());
-			$helper->logError($e->getFriendlyMessage());
-		} catch (Exception $e) {
+		}
+		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 			$data = array('error' => 1, 'message' => $e->getMessage());
 			$helper->logError($e->getMessage());
 		}
-
+		catch (Exception $e) {
+			$data = ['error' => 1, 'message' => $e->getMessage()];
+			df_log($e);
+		}
 		$jsonData = json_encode($data);
 		$response = $this->getResponse();
 		$response->setHeader('Content-type', 'application/json');
