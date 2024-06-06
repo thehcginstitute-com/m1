@@ -153,11 +153,11 @@ class Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController extends Mage_Admin
 		foreach ($allApiKeys as $apiKey) {
 			try {
 				$api = $helper->getApiByKey($apiKey);
-			} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-				$helper->logError($e->getMessage());
+			}
+			catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+				df_log($e);
 				continue;
 			}
-
 			try {
 				$root = $api->getRoot()->info();
 				$stores = $api->getEcommerce()->getStores()->get(null, null, null, 100);
