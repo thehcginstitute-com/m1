@@ -1,34 +1,4 @@
 <?php
-/**
- * mailchimp-lib Magento Component
- *
- * @category  Ebizmarts
- * @package   mailchimp-lib
- * @author    Ebizmarts Team <info@ebizmarts.com>
- * @copyright Ebizmarts (http://ebizmarts.com)
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @date:     4/27/16 4:45 PM
- * @file:     Exceptions.php
- */
-
-class MailChimp_Error extends Exception
-{
-
-	/**
-	 * @var string
-	 */
-	protected $_mailchimpMessage;
-
-	function __construct($message = "")
-	{
-		$this->_mailchimpMessage = $message;
-		parent::__construct($message);
-	}
-
-	function getFriendlyMessage()
-	{
-		$friendlyMessage = "Mailchimp error with the next message: " . $this->_mailchimpMessage;
-
-		return $friendlyMessage;
-	}
-}
+# 2024-06-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+class MailChimp_Error extends Exception {}
