@@ -74,18 +74,15 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
 	 * @param $listId
 	 * @throws Exception
 	 */
-	protected function _deleteWebhook($storeId, $listId)
-	{
+	protected function _deleteWebhook($storeId, $listId) {
 		$helper = $this->getHelper();
 		$webhookHelper = $this->getWebhookHelper();
-
 		try {
 			$api = $helper->getApi($storeId);
 		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 			$helper->logError($e->getMessage());
 			$api = null;
 		}
-
 		if (!$api) {
 			try {
 				$webhooks = $api->getLists()->getWebhooks()->getAll($listId);
