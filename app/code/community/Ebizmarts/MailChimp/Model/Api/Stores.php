@@ -233,7 +233,7 @@ class Ebizmarts_MailChimp_Model_Api_Stores
             $adminSession->addError($errorMessage);
         }
 		catch (MailChimp_Error $e) {
-            $response = $errorMessage = $e->getFriendlyMessage();
+            $response = $errorMessage = df_xts($e);
             df_log($e);
             $adminSession = $this->getAdminSession();
             $adminSession->addError($errorMessage);
