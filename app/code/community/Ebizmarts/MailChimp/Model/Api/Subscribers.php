@@ -306,8 +306,8 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 	 */
 	protected function _catchMailchimpSubsNotAppliedIf($e, $isAdmin, $subscriber) {
 		$helper = $this->getMailchimpHelper();
-		$errorMessage = $e->getFriendlyMessage();
-		df_log($errorMessage);
+		$errorMessage = df_xts($e);
+		df_log($e);
 		if ($isAdmin) {
 			$this->addError($errorMessage);
 		}
