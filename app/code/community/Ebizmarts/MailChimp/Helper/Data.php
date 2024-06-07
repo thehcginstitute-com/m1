@@ -1389,25 +1389,20 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param  $scope
 	 * @return mixed
 	 */
-	function addStoresToFilter($collection, $scopeId, $scope)
-	{
+	function addStoresToFilter($collection, $scopeId, $scope) {
 		$filterArray = array();
 		$storesForScope = $this->getMagentoStoresForMCStoreIdByScope($scopeId, $scope);
-
 		if ($storesForScope) {
 			if ($scopeId === 0) {
 				$filterArray[] = array('eq' => 0);
 			}
-
 			foreach ($storesForScope as $storeId) {
 				$filterArray[] = array('eq' => $storeId);
 			}
 		}
-
 		if (!empty($filterArray)) {
 			$collection->addFieldToFilter('store_id', $filterArray);
 		}
-
 		return $collection;
 	}
 
@@ -1765,15 +1760,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 				$mcJsUrlSaved = true;
 			}
 		}
-		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-			$this->logError($e->getMessage());
-		}
-		catch (MailChimp_Error $e) {
-			$this->logError($e->getFriendlyMessage());
-		}
-		catch (Exception $e) {
-			$this->logError($e->getMessage());
-		}
+		catch (Exception $e) {df_log($e);}
 		return $mcJsUrlSaved;
 	}
 
