@@ -94,15 +94,12 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
      * @param $listId
      * @throws Mage_Core_Exception
      */
-    protected function deleteCurrentWebhook($scopeId, $scope, $listId)
-    {
+    protected function deleteCurrentWebhook($scopeId, $scope, $listId) {
         $helper = $this->getHelper();
-
         try {
             $api = $helper->getApi($scopeId, $scope);
             $webhookId = $this->getWebhookId($scopeId, $scope);
             $apiKey = $helper->getApiKey($scopeId, $scope);
-
             if ($webhookId && $apiKey && $listId) {
                 try {
                     $api->getLists()->getWebhooks()->delete($listId, $webhookId);
