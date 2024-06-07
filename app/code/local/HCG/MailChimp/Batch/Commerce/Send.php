@@ -85,25 +85,15 @@ final class Send {
 				}
 				catch (EApiKey $e) {df_log($e);}
 				catch (\MailChimp_Error $e) {
-					$h->logError($e->getFriendlyMessage());
-
+					df_log($e);
 					if ($batchJson && !isset($batchResponse['id'])) {
 						$h->logRequest($batchJson);
 					}
 				}
-				catch (\Exception $e) {
-					$h->logError($e->getMessage());
-					$h->logError("Json encode fails");
-					$h->logError($batchArray);
-				}
+				catch (\Exception $e) {df_log($e, null, $batchArray);}
 			}
 		}
-		catch (\MailChimp_Error $e) {
-			$h->logError($e->getFriendlyMessage());
-		}
-		catch (\Exception $e) {
-			$h->logError($e->getMessage());
-		}
+		catch (\Exception $e) {df_log($e);}
 	}
 
 	/**
