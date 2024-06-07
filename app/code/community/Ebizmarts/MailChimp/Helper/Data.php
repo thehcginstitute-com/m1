@@ -2748,14 +2748,13 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param  $newApiKey
 	 * @return bool
 	 */
-	function isNewApiKeyForSameAccount($oldApiKey, $newApiKey)
-	{
+	function isNewApiKeyForSameAccount($oldApiKey, $newApiKey) {
 		$isNewApiKeyForSameAccount = false;
-
 		if ($oldApiKey && $newApiKey) {
 			if ($oldApiKey == $newApiKey) {
 				$isNewApiKeyForSameAccount = true;
-			} else {
+			}
+			else {
 				try {
 					$api = $this->getApiByKey($oldApiKey);
 					$oldInfo = $api->getRoot()->info('account_id');
@@ -2763,7 +2762,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 					$api = $this->getApiByKey($newApiKey);
 					$newInfo = $api->getRoot()->info('account_id');
 					$newAccountId = $newInfo['account_id'];
-
 					if ($oldAccountId == $newAccountId) {
 						$isNewApiKeyForSameAccount = true;
 					}
@@ -2771,7 +2769,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 				catch (Exception $e) {df_log($e);}
 			}
 		}
-
 		return $isNewApiKeyForSameAccount;
 	}
 
