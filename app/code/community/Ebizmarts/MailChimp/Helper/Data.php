@@ -2479,10 +2479,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param string    $scope
 	 * @return null
 	 */
-	function getMailChimpCampaignNameById($campaignId, $scopeId, $scope = 'stores')
-	{
+	function getMailChimpCampaignNameById($campaignId, $scopeId, $scope = 'stores') {
 		$campaignName = null;
-
 		try {
 			$api = $this->getApi($scopeId, $scope);
 			$campaignData = $api->campaigns->get($campaignId);
@@ -2496,14 +2494,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 					$campaignName = $campaignData['settings']['subject_line'];
 				}
 			}
-		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-			$this->logError($e->getMessage());
-		} catch (MailChimp_Error $e) {
-			$this->logError($e->getFriendlyMessage());
-		} catch (Exception $e) {
-			$this->logError($e->getMessage());
 		}
-
+		catch (Exception $e) {df_log($e);}
 		return $campaignName;
 	}
 
