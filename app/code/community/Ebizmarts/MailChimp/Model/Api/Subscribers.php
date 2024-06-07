@@ -448,7 +448,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 		}
 		catch (MailChimp_Error $e) {
 			df_log($e);
-			Mage::getSingleton('adminhtml/session')->addError($e->getFriendlyMessage());
+			Mage::getSingleton('adminhtml/session')->addError(df_xts($e));
 		}
 		catch (Exception $e) {df_log($e);}
 	}
