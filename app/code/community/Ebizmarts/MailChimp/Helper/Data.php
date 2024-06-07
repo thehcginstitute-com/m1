@@ -3023,24 +3023,19 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return array
 	 * @throws Exception
 	 */
-	function getListInterestGroups($scopeId, $scope = 'stores')
-	{
+	function getListInterestGroups($scopeId, $scope = 'stores') {
 		$interestGroupsArray = array();
 		$api = $this->getApi($scopeId, $scope);
 		$listId = $this->getGeneralList($scopeId, $scope);
-
 		try {
 			$apiInterestCategory = $api->getLists()->getInterestCategory();
 			$interestCategories = $apiInterestCategory->getAll($listId, 'categories');
-
 			foreach ($interestCategories['categories'] as $interestCategory) {
 				$interestGroups = $apiInterestCategory->getInterests()->getAll($listId, $interestCategory['id']);
 				$groups = array();
-
 				foreach ($interestGroups['interests'] as $interestGroup) {
 					$groups[$interestGroup['id']] = $interestGroup['name'];
 				}
-
 				$interestGroupsArray[] = array(
 					'id' => $interestCategory['id'],
 					'title' => $interestCategory['title'],
