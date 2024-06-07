@@ -1,4 +1,5 @@
 <?php
+use Df\Core\Exception as DFE;
 use Exception as X;
 use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 
@@ -88,4 +89,6 @@ function df_xf(T $t):T {while ($t->getPrevious()) {$t = $t->getPrevious();} retu
  * @param X|string $e
  * @return string
  */
-function df_xts($e) {return df_adjust_paths_in_message(!$e instanceof X ? $e : $e->getMessage());}
+function df_xts($t):string {return df_adjust_paths_in_message(
+	!df_is_th($t) ? $t : ($t instanceof DFE ? $t->message() : $t->getMessage())
+);}
