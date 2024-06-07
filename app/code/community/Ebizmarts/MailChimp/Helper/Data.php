@@ -1208,9 +1208,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 				if (!empty($mailchimpFields)) {
 					$success = $this->_mapFieldsIteration($maps, $mailchimpFields, $customFieldTypes, $api, $listId);
 				}
-			} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-				$this->logError($e->getMessage());
 			}
+			catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {df_log($e);}
 		}
 
 		return $success;
@@ -1254,10 +1253,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param $listId
 	 * @param $chimpTag
 	 */
-	protected function _createCustomFieldTypes($customFieldTypes, $api, $customAtt, $listId, $chimpTag)
-	{
+	protected function _createCustomFieldTypes($customFieldTypes, $api, $customAtt, $listId, $chimpTag) {
 		$created = false;
-
 		foreach ($customFieldTypes as $customFieldType) {
 			if ($customFieldType['value'] == $customAtt) {
 				try {
@@ -1268,27 +1265,22 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 						null,
 						$chimpTag
 					);
-				} catch (MailChimp_Error $e) {
-					$this->logError($e->getFriendlyMessage());
 				}
-
+				catch (Exception $e) {df_log($e);}
 				$created = true;
 			}
 		}
-
 		if (!$created) {
 			$attrSetId = Mage::getResourceModel('eav/entity_attribute_collection')
 				->setEntityTypeFilter(1)
 				->addSetInfo()
 				->getData();
 			$label = null;
-
 			foreach ($attrSetId as $option) {
 				if ($option['attribute_id'] == $customAtt && $option['frontend_label']) {
 					$label = $option['frontend_label'];
 				}
 			}
-
 			$this->_addMergeFieldByLabel($api, $label, $customAtt, $listId, $chimpTag);
 		}
 	}
