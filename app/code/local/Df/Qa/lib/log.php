@@ -58,7 +58,7 @@ use Varien_Object as _DO;
  * @used-by HCG\MailChimp\Batch\Commerce::p() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by HCG\MailChimp\Batch\Commerce::handleSyncingValue() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by HCG\MailChimp\Batch\GetBatchResponse::p() (https://github.com/thehcginstitute-com/m1/issues/524)
- * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by HCG\MailChimp\Batch\Subscriber::sendStoreSubscriberBatch() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)

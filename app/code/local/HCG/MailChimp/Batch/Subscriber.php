@@ -67,12 +67,10 @@ final class Subscriber {
 							self::_showResumeSubscriber($batchResponse['id'], $sid);
 							return $limit;
 						}
-						catch (EApiKey $e) {
-							$h->logError($e->getMessage());
-						}
+						catch (EApiKey $e) {df_log($e);}
 						catch (\MailChimp_Error $e) {
 							$h->logRequest($batchJson);
-							$h->logError($e->getFriendlyMessage());
+							df_log($e);
 						}
 					}
 				}
