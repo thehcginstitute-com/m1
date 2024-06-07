@@ -99,7 +99,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
 
         // send most recently created first
         $newPromoCodes = $this->buildEcommerceCollectionToSync(Ebizmarts_MailChimp_Model_Config::IS_PROMO_CODE, $where);
-        $helper->logError((string) $newPromoCodes->getSelect());
+		df_log((string)$newPromoCodes->getSelect());
         $counter = 0;
 
         foreach ($newPromoCodes as $promoCode) {
