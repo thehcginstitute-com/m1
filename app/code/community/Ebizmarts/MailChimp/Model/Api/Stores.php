@@ -143,20 +143,22 @@ class Ebizmarts_MailChimp_Model_Api_Stores
             $successMessage = $helper->__("The Mailchimp store was successfully edited.");
             $adminSession = $this->getAdminSession();
             $adminSession->addSuccess($successMessage);
-        } catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+        }
+		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
             $response = $errorMessage = $e->getMessage();
-            $helper->logError($errorMessage);
+            df_log($e);
             $adminSession = $this->getAdminSession();
             $adminSession->addError($errorMessage);
-        } catch (MailChimp_Error $e) {
+        }
+		catch (MailChimp_Error $e) {
             $adminSession = $this->getAdminSession();
-            $response = $errorMessage = $e->getFriendlyMessage();
-            $helper->logError($errorMessage);
+            df_log($e);
             $errorMessage = $this->getUserFriendlyMessage($e);
             $adminSession->addError($errorMessage);
-        } catch (Exception $e) {
+        }
+		catch (Exception $e) {
             $response = $errorMessage = $e->getMessage();
-            $helper->logError($errorMessage);
+            df_log($e);
             $adminSession = $this->getAdminSession();
             $adminSession->addError($errorMessage);
         }
