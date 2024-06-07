@@ -48,7 +48,7 @@ final class GetBatchResponse {
 		}
 		catch (\MailChimp_Error $e) {
 			self::deleteBatchItems($batchId);
-			$r['error'] = $e->getFriendlyMessage();
+			$r['error'] = df_xts($e);
 			df_log($e);
 		}
 		catch (\Exception $e) {
