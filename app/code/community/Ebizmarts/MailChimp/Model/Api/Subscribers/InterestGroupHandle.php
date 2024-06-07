@@ -126,13 +126,9 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
 	 * @param $api
 	 * @return array
 	 */
-	protected function _getSubscribedGroups($api)
-	{
+	protected function _getSubscribedGroups($api) {
 		$groups = array();
-		$helper = $this->getHelper();
-
-		try
-		{
+		try  {
 			$apiInterests = $api->getLists()->getInterestCategory()->getInterests();
 
 			foreach ($this->_groupings as $grouping) {
@@ -142,7 +138,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
 		}
 		catch (MailChimp_Error $e) {
 			df_log($e);
-			Mage::getSingleton('adminhtml/session')->addError($e->getFriendlyMessage());
+			Mage::getSingleton('adminhtml/session')->addError(df_xts($e));
 		}
 		catch (Exception $e) {df_log($e);}
 		return $groups;
