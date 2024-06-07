@@ -276,13 +276,14 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 								$api, $listId, $emailHash, $t, $s, $interest
 							);
 							$saveSubscriber = true;
-						} catch (MailChimp_Error $e) {
+						}
+						catch (MailChimp_Error $e) {
 							$this->_catchMailchimpException($e, $s, $isAdmin);
 							$saveSubscriber = true;
-						} catch (Exception $e) {
-							$helper->logError($e->getMessage());
 						}
-					} else {
+						catch (Exception $e) {df_log($e)}
+					}
+					else {
 						$this->_catchMailchimpSubsNotAppliedIf($e, $isAdmin, $s);
 						$saveSubscriber = true;
 					}
