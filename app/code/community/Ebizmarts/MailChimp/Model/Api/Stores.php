@@ -217,10 +217,8 @@ class Ebizmarts_MailChimp_Model_Api_Stores
      * @throws Mage_Core_Exception
      * @throws Ebizmarts_MailChimp_Helper_Data_ApiKeyException
      */
-    function deleteMailChimpStore($mailchimpStoreId, $apiKey)
-    {
+    function deleteMailChimpStore($mailchimpStoreId, $apiKey) {
         $helper = $this->makeHelper();
-
         try {
             $api = $helper->getApiByKey($apiKey);
             $response = $api->getEcommerce()->getStores()->delete($mailchimpStoreId);
@@ -228,19 +226,22 @@ class Ebizmarts_MailChimp_Model_Api_Stores
             $successMessage = $helper->__("The Mailchimp store was successfully deleted.");
             $adminSession = $this->getAdminSession();
             $adminSession->addSuccess($successMessage);
-        } catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+        }
+		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
             $response = $errorMessage = $e->getMessage();
-            $helper->logError($errorMessage);
+            df_log($e);
             $adminSession = $this->getAdminSession();
             $adminSession->addError($errorMessage);
-        } catch (MailChimp_Error $e) {
+        }
+		catch (MailChimp_Error $e) {
             $response = $errorMessage = $e->getFriendlyMessage();
-            $helper->logError($errorMessage);
+            df_log($e);
             $adminSession = $this->getAdminSession();
             $adminSession->addError($errorMessage);
-        } catch (Exception $e) {
+        }
+		catch (Exception $e) {
             $response = $errorMessage = $e->getMessage();
-            $helper->logError($errorMessage);
+            df_log($e);
             $adminSession = $this->getAdminSession();
             $adminSession->addError($errorMessage);
         }

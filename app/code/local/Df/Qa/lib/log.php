@@ -43,7 +43,7 @@ use Varien_Object as _DO;
  * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::_getNewPromoCodes() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Ebizmarts_MailChimp_Model_Api_Stores::createMailChimpStore() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Ebizmarts_MailChimp_Model_Api_Stores::editMailChimpStore() (https://github.com/thehcginstitute-com/m1/issues/524)
- * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by Ebizmarts_MailChimp_Model_Api_Stores::deleteMailChimpStore() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
