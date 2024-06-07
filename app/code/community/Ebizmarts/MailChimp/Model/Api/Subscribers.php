@@ -434,23 +434,24 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 	 * @param $subscriber
 	 * @throws Mage_Core_Exception
 	 */
-	function deleteSubscriber($subscriber)
-	{
+	function deleteSubscriber($subscriber) {
 		$helper = $this->getMailchimpHelper();
 		$storeId = $subscriber->getStoreId();
 		$listId = $helper->getGeneralList($storeId);
-
 		try {
 			$api = $helper->getApi($storeId);
 			$emailHash = hash('md5', strtolower($subscriber->getSubscriberEmail()));
 			$api->getLists()->getMembers()->update($listId, $emailHash, null, 'unsubscribed');
-		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-			$helper->logError($e->getMessage());
-		} catch (MailChimp_Error $e) {
-			$helper->logError($e->getFriendlyMessage());
+		}
+		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+			df_log($e);
+		}
+		catch (MailChimp_Error $e) {
+			df_log($e);
 			Mage::getSingleton('adminhtml/session')->addError($e->getFriendlyMessage());
-		} catch (Exception $e) {
-			$helper->logError($e->getMessage());
+		}
+		catch (Exception $e) {
+			df_log($e);
 		}
 	}
 
