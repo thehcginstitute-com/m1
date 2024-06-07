@@ -40,11 +40,8 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Store
                 try {
                     $api = $helper->getApiByKey($apiKey);
                     $this->_stores = $api->getEcommerce()->getStores()->get(null, null, null, 100);
-                } catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-                    $helper->logError($e->getMessage());
-                } catch (MailChimp_Error $e) {
-                    $helper->logError($e->getMessage());
                 }
+				catch (Exception $e) {df_log($e);}
             }
         }
     }
