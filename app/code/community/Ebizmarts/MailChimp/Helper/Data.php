@@ -744,31 +744,27 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param bool  $deleteErrorsOnly
 	 * @param null  $filters
 	 */
-	function removeEcommerceSyncDataByMCStore($mailchimpStoreId, $deleteErrorsOnly = false, $filters = null)
-	{
+	function removeEcommerceSyncDataByMCStore($mailchimpStoreId, $deleteErrorsOnly = false, $filters = null) {
 		$resource = $this->getCoreResource();
 		$connection = $resource->getConnection('core_write');
 		$tableName = $resource->getTableName('mailchimp/ecommercesyncdata');
 		$where = array();
-
 		if ($deleteErrorsOnly) {
 			$where[] = $connection->quoteInto(
 				"mailchimp_store_id = ? AND mailchimp_sync_error != ''",
 				$mailchimpStoreId
 			);
-		} else {
+		}
+		else {
 			$where[] = $connection->quoteInto("mailchimp_store_id = ?", $mailchimpStoreId);
 		}
-
 		if ($filters !== null) {
 			$where[] = $connection->quoteInto('type IN (?)', $filters);
 		}
-
 		try {
 			$connection->delete($tableName, $where);
-		} catch (Exception $e) {
-			$this->logError($e->getMessage());
 		}
+		catch (Exception $e) {df_log($e);}
 	}
 
 	/**
