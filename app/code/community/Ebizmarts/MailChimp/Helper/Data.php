@@ -2767,11 +2767,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 					if ($oldAccountId == $newAccountId) {
 						$isNewApiKeyForSameAccount = true;
 					}
-				} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-					$this->logError($e->getMessage());
-				} catch (MailChimp_Error $e) {
-					$this->logError($e->getFriendlyMessage());
 				}
+				catch (Exception $e) {df_log($e);}
 			}
 		}
 
