@@ -225,9 +225,8 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
                 }
 
                 return $helper->__($errorMessage);
-            } catch (Exception $e) {
-                $helper->logError($e->getMessage());
             }
+			catch (Exception $e) {df_log($e);}
         } catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
             $helper->logError($e->getMessage());
         }
