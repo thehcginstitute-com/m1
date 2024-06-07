@@ -222,7 +222,7 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
                         . 'Please confirm the URL: ' . $hookUrl
                         . ' is accessible externally to allow the webhook creation.';
                 }
-                return $helper->__($errorMessage);
+                return $errorMessage;
             }
 			catch (Exception $e) {df_log($e);}
         }

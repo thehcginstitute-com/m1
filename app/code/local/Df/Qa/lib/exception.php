@@ -71,6 +71,16 @@ function df_xf(T $t):T {while ($t->getPrevious()) {$t = $t->getPrevious();} retu
  * @used-by \Df\Qa\Failure\Error::check()
  * @used-by \Df\Qa\Failure\Error::log()
  * @used-by \Df\Qa\Trace\Formatter::frame()
+ * @used-by Ebizmarts_MailChimp_Helper_Webhook::createNewWebhook() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @param X|string $e
  * @return string
  */
