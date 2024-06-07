@@ -1184,20 +1184,18 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param  $scope
 	 * @throws Exception
 	 */
-	function createMergeFields($scopeId, $scope)
-	{
+	function createMergeFields($scopeId, $scope) {
 		$success = 0;
 		$listId = $this->getGeneralList($scopeId, $scope);
 		$maps = hcg_mc_cfg_fields();
 		$customFieldTypes = $this->unserialize($this->getCustomMergeFieldsSerialized($scopeId, $scope));
-
 		if (count($maps) > 30) {
 			$success = 2;
-		} else {
+		}
+		else {
 			try {
 				$api = $this->getApi($scopeId, $scope);
 				$mailchimpFields = array();
-
 				try {
 					$mailchimpFields = $api->getLists()->getMergeFields()->getAll(
 						$listId,
@@ -1207,7 +1205,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 					);
 				}
 				catch (Exception $e) {df_log($e);}
-
 				if (!empty($mailchimpFields)) {
 					$success = $this->_mapFieldsIteration($maps, $mailchimpFields, $customFieldTypes, $api, $listId);
 				}
