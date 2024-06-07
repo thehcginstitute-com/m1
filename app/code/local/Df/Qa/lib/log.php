@@ -18,6 +18,7 @@ use Varien_Object as _DO;
  * @used-by Ebizmarts_MailChimp_Adminhtml_MailchimpstoresController::getstoresAction() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Ebizmarts_MailChimp_Helper_Data::logError()
  * @used-by Ebizmarts_MailChimp_Model_Api_ItemSynchronizer::logSyncError()
+ * @used-by Ebizmarts_MailChimp_WebhookController::_deleteWebhook() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by HCG\MailChimp\Batch\HandleErrorItem::p() (https://github.com/thehcginstitute-com/m1/issues/565)
  * @used-by HCG\MailChimp\Batch\Subscriber::sendStoreSubscriberBatch()
  * @used-by HCG\MailChimp\Tags::_p()
