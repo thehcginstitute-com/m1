@@ -304,19 +304,17 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 	 * @param $isAdmin
 	 * @param $subscriber
 	 */
-	protected function _catchMailchimpSubsNotAppliedIf($e, $isAdmin, $subscriber)
-	{
+	protected function _catchMailchimpSubsNotAppliedIf($e, $isAdmin, $subscriber) {
 		$helper = $this->getMailchimpHelper();
 		$errorMessage = $e->getFriendlyMessage();
-		$helper->logError($errorMessage);
-
+		df_log($errorMessage);
 		if ($isAdmin) {
 			$this->addError($errorMessage);
-		} else {
+		}
+		else {
 			$errorMessage = $helper->__("The subscription could not be applied.");
 			$this->addError($errorMessage);
 		}
-
 		$subscriber->setSubscriberStatus(Mage_Newsletter_Model_Subscriber::STATUS_UNSUBSCRIBED);
 	}
 
