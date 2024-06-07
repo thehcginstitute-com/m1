@@ -241,7 +241,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 				$api = $helper->getApi($storeId);
 			}
 			catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-				$helper->logError($e->getMessage());
+				df_log($e);
 				return;
 			}
 			$language = $helper->getStoreLanguageCode($storeId);
