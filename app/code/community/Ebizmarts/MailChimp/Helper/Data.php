@@ -2738,7 +2738,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 			$api = null;
 			df_log($e);
 		}
-
 		return $api;
 	}
 
