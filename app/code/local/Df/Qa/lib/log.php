@@ -54,7 +54,7 @@ use Varien_Object as _DO;
  * @used-by Ebizmarts_MailChimp_WebhookController::_deleteWebhook() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_Store::__construct() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Ebizmarts_MailChimp_Model_Observer::newOrder() (https://github.com/thehcginstitute-com/m1/issues/524)
- * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by HCG\MailChimp\Batch\Commerce\Send::p() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)

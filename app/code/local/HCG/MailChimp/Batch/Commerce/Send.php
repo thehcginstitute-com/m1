@@ -83,9 +83,7 @@ final class Send {
 					Send\Process::p($batchArray, $mcStore, $mgStore);
 					self::_updateSyncingFlag($mcStore, $mgStore);
 				}
-				catch (EApiKey $e) {
-					$h->logError($e->getMessage());
-				}
+				catch (EApiKey $e) {df_log($e);}
 				catch (\MailChimp_Error $e) {
 					$h->logError($e->getFriendlyMessage());
 
