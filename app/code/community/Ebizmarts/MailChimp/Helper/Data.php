@@ -1375,8 +1375,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 				. (string)$this->getConfig()->getNode('modules/Ebizmarts_MailChimp/version')
 			);
 		} else {
-			$e = new Ebizmarts_MailChimp_Helper_Data_ApiKeyException('You must provide a MailChimp API key');
-			throw $e;
+			throw new Ebizmarts_MailChimp_Helper_Data_ApiKeyException('You must provide a MailChimp API key');
 		}
 
 		return $api;
