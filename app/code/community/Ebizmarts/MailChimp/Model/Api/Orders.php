@@ -957,7 +957,7 @@ class Ebizmarts_MailChimp_Model_Api_Orders extends Ebizmarts_MailChimp_Model_Api
 			} catch (MailChimp_Error $e) {
 				$this->_listsCampaignIds[$apiKey][$listId][$mailchimpCampaignId] = $isCampaingFromCurrentList = false;
 				$this->logSyncError(
-					$e->getFriendlyMessage(),
+					df_xts($e),
 					Ebizmarts_MailChimp_Model_Config::IS_ORDER,
 					$magentoStoreId,
 					'magento_side_error',

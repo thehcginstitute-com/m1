@@ -476,7 +476,7 @@ class Ebizmarts_MailChimp_Model_Api_PromoCodes extends Ebizmarts_MailChimp_Model
                     }
                 } catch (MailChimp_Error $e) {
                     $this->logSyncError(
-                        $e->getFriendlyMessage(),
+                        df_xts($e),
                         Ebizmarts_MailChimp_Model_Config::IS_PROMO_RULE,
                         $this->getMagentoStoreId(),
                         'magento_side_error',
