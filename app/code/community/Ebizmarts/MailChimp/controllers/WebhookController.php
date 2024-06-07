@@ -79,8 +79,9 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
 		$webhookHelper = $this->getWebhookHelper();
 		try {
 			$api = $helper->getApi($storeId);
-		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-			$helper->logError($e->getMessage());
+		}
+		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+			df_log($e);
 			$api = null;
 		}
 		if (!$api) {
