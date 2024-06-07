@@ -1205,9 +1205,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 						null,
 						50
 					);
-				} catch (MailChimp_Error $e) {
-					$this->logError($e->getFriendlyMessage());
 				}
+				catch (Exception $e) {df_log($e);}
 
 				if (!empty($mailchimpFields)) {
 					$success = $this->_mapFieldsIteration($maps, $mailchimpFields, $customFieldTypes, $api, $listId);
