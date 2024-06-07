@@ -214,7 +214,7 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
             }
 			catch (MailChimp_Error $e) {
 				df_log($e);
-                $errorMessage = $e->getFriendlyMessage();
+                $errorMessage = df_xts($e);
                 $textToCompare = 'The resource submitted could not be validated. '
                     . 'For field-specific details, see the \'errors\' array.';
                 if ($e->getMailchimpDetails() == $textToCompare) {
