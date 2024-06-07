@@ -51,7 +51,7 @@ use Varien_Object as _DO;
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_catchMailchimpException() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::deleteSubscriber() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_Account::__construct() (https://github.com/thehcginstitute-com/m1/issues/524)
- * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by Ebizmarts_MailChimp_Model_System_Config_Source_List::__construct() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)

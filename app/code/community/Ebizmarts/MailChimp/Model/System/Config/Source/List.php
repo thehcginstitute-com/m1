@@ -66,11 +66,8 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_List
                         $message = 'Please create an audience at ' . $htmlAnchor;
                         Mage::getSingleton('adminhtml/session')->addWarning($message);
                     }
-                } catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-                    $helper->logError($e->getMessage());
-                } catch (MailChimp_Error $e) {
-                    $helper->logError($e->getFriendlyMessage());
                 }
+				catch (Exception $e) {df_log($e);}
             }
         }
     }
