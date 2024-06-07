@@ -366,7 +366,7 @@ class Ebizmarts_MailChimp
 			# 2) "`Ebizmarts_MailChimp`: «Member In Compliance State for Api Call»":
 			# https://github.com/thehcginstitute-com/m1/issues/505
 			if ('Member In Compliance State' !== $e->getMailchimpTitle()) {
-				df_log($e, $this, ['message' => $e->getFriendlyMessage()], 'api');
+				df_log($e, $this, [], 'api');
 			}
 			throw $e;
 		}
