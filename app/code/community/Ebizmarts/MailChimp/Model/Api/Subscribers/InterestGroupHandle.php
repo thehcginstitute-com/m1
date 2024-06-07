@@ -46,20 +46,18 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
 	 * @throws MailChimp_Error
 	 * @throws MailChimp_HttpError
 	 */
-	function processGroupsData()
-	{
+	function processGroupsData() {
 		$groups = array();
 		$helper = $this->getHelper();
 		$subscriber = $this->getSubscriber();
 		$storeId = $subscriber->getStoreId();
-
 		try {
 			$api = $helper->getApi($storeId);
-		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-			$helper->logError($e->getMessage());
+		}
+		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+			df_log($e);
 			return;
 		}
-
 		$groups = $this->_getSubscribedGroups($api);
 
 		$customerId = $this->_getCustomerId();
