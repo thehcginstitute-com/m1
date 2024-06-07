@@ -32,7 +32,7 @@ use Varien_Object as _DO;
  * @used-by Ebizmarts_MailChimp_Helper_Data::getApiByMailChimpStoreId() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Ebizmarts_MailChimp_Helper_Data::isNewApiKeyForSameAccount() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Ebizmarts_MailChimp_Helper_Data::getListIdByApiKeyAndMCStoreId() (https://github.com/thehcginstitute-com/m1/issues/524)
- * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by Ebizmarts_MailChimp_Helper_Data::getListInterestCategoriesByKeyAndList() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)

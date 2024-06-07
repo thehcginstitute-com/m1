@@ -3000,14 +3000,11 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param $listId
 	 * @return array
 	 */
-	function getListInterestCategoriesByKeyAndList($apiKey, $listId)
-	{
+	function getListInterestCategoriesByKeyAndList($apiKey, $listId) {
 		$interestGroupsArray = array();
-
 		try {
 			$api = $this->getApiByKey($apiKey);
 			$interestCategories = $api->getLists()->getInterestCategory()->getAll($listId, 'categories');
-
 			foreach ($interestCategories['categories'] as $interestCategory) {
 				$interestGroupsArray[] = array(
 					'id' => $interestCategory['id'],
@@ -3015,14 +3012,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 					'type' => $interestCategory['type']
 				);
 			}
-		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-			$this->logError($e->getMessage());
-		} catch (MailChimp_Error $e) {
-			$this->logError($e->getFriendlyMessage());
-		} catch (Exception $e) {
-			$this->logError($e->getMessage());
 		}
-
+		catch (Exception $e) {df_log($e);}
 		return $interestGroupsArray;
 	}
 
