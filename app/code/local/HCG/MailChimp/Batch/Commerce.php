@@ -99,15 +99,7 @@ final class Commerce {
 						hcg_mc_cfg_save(Cfg::ECOMMERCE_SYNC_DATE . "_$mcStore", $date);
 					}
 				}
-				catch (EApiKey $e) {
-					$h->logError($e->getMessage());
-				}
-				catch (\MailChimp_Error $e) {
-					$h->logError($e->getFriendlyMessage());
-				}
-				catch (\Exception $e) {
-					$h->logError($e->getMessage());
-				}
+				catch (\Exception $e) {df_log($e);}
 			}
 		}
 	}
