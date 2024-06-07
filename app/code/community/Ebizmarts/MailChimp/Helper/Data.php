@@ -738,9 +738,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 		try {
 			$connection->delete($tableName, $where);
-		} catch (Exception $e) {
-			$this->logError($e->getMessage());
 		}
+		catch (Exception $e) {df_log($e);}
 	}
 
 	/**
