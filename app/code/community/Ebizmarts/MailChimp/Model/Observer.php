@@ -441,11 +441,9 @@ class Ebizmarts_MailChimp_Model_Observer {
 						$apiProducts->update($productId);
 					}
 				}
-			} catch (Exception $e) {
-				$helper->logError($e->getMessage());
 			}
+			catch (Exception $e) {df_log($e);}
 		}
-
 		return $observer;
 	}
 
