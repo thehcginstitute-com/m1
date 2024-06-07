@@ -143,19 +143,15 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 						true
 					);
 				}
-			} else {
+			}
+			else {
 				//json encode failed
 				$jsonErrorMsg = json_last_error_msg();
-				$errorMessage = "Subscriber " . $subscriber->getSubscriberId()
-					. " json encode failed (" . $jsonErrorMsg . ")";
-				$h->logError($errorMessage);
-
+				df_log("Subscriber " . $subscriber->getSubscriberId() . " json encode failed (" . $jsonErrorMsg . ")");
 				$this->_saveSubscriber($subscriber, $jsonErrorMsg);
 			}
-
 			$counter++;
 		}
-
 		return $subscriberArray;
 	}
 
