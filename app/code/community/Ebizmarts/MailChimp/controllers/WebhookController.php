@@ -94,9 +94,8 @@ class Ebizmarts_MailChimp_WebhookController extends Mage_Core_Controller_Front_A
 						$webhookHelper->deleteWebhookFromList($api->getLists()->getWebhooks(), $listId, $webhook['id']);
 					}
 				}
-			} catch (MailChimp_Error $e) {
-				$helper->logError($e->getFriendlyMessage());
 			}
+			catch (Exception $e) {df_log($e);}
 		}
 	}
 
