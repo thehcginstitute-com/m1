@@ -139,13 +139,12 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle
 				$interests = $apiInterests->getAll($this->_listId, $grouping['unique_id']);
 				$groups = $this->_getCustomerGroups($interests, $grouping);
 			}
-		} catch (MailChimp_Error $e) {
-			$helper->logError($e->getFriendlyMessage());
-			Mage::getSingleton('adminhtml/session')->addError($e->getFriendlyMessage());
-		} catch (Exception $e) {
-			$helper->logError($e->getMessage());
 		}
-
+		catch (MailChimp_Error $e) {
+			df_log($e);
+			Mage::getSingleton('adminhtml/session')->addError($e->getFriendlyMessage());
+		}
+		catch (Exception $e) {df_log($e);}
 		return $groups;
 	}
 
