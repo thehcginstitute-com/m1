@@ -1995,9 +1995,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 				$this->getApiStores()->editIsSyncing($mailchimpApi, $syncValue, $mcStore);
 			}
 		}
-		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-			$this->logError($e->getMessage());
-		}
+		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {df_log($e);}
 	}
 
 	/**
