@@ -112,18 +112,20 @@ class Ebizmarts_MailChimp_Model_System_Config_Source_Account
                             $totalCarts = $ecommerceApi->getCarts()->getAll($mcStoreId, 'total_items');
                             $this->_accountDetails['total_carts'] = $totalCarts['total_items'];
                         }
-                    } catch (MailChimp_Error $e) {
-                        $helper->logError($e->getMessage());
                     }
-                } catch (MailChimp_Error $e) {
-                    $this->_accountDetails = self::INVALID_KEY_MSG;
-                    $helper->logError($e->getMessage());
+					catch (Exception $e) {df_log($e);}
                 }
-            } catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-                $this->_accountDetails = self::INVALID_KEY_MSG;
-                $helper->logError($e->getMessage());
+				catch (MailChimp_Error $e) {
+                    $this->_accountDetails = self::INVALID_KEY_MSG;
+                    df_log($e);
+                }
             }
-        } else {
+			catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
+                $this->_accountDetails = self::INVALID_KEY_MSG;
+                df_log($e);
+            }
+        }
+		else {
             $this->_accountDetails = self::INVALID_KEY_MSG;
         }
     }
