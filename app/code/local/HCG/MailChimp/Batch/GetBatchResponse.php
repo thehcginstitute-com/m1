@@ -43,17 +43,17 @@ final class GetBatchResponse {
 			}
 		}
 		catch (\Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-			$h->logError($e->getMessage());
+			df_log($e);
 			$r['error'] = $e->getMessage();
 		}
 		catch (\MailChimp_Error $e) {
 			self::deleteBatchItems($batchId);
 			$r['error'] = $e->getFriendlyMessage();
-			$h->logError($e->getFriendlyMessage());
+			df_log($e);
 		}
 		catch (\Exception $e) {
 			$r['error'] = $e->getMessage();
-			$h->logError($e->getMessage());
+			df_log($e);
 		}
 		return $r;
 	}
