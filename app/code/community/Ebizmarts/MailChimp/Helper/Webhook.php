@@ -106,14 +106,9 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
             if ($webhookId && $apiKey && $listId) {
                 try {
                     $api->getLists()->getWebhooks()->delete($listId, $webhookId);
-                } catch (MailChimp_Error $e) {
-                    $helper->logError($e->getFriendlyMessage());
-                } catch (Exception $e) {
-                    $helper->logError($e->getMessage());
                 }
-
-                $helper->getConfig()
-                    ->deleteConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_WEBHOOK_ID, $scope, $scopeId);
+				catch (Exception $e) {df_log($e);}
+                $helper->getConfig()->deleteConfig(Ebizmarts_MailChimp_Model_Config::GENERAL_WEBHOOK_ID, $scope, $scopeId);
             } else {
                 $webhookUrl = $this->getWebhookUrl($scopeId, $scope);
                 try {
