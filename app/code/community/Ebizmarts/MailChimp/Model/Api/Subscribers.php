@@ -281,7 +281,7 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 							$this->_catchMailchimpException($e, $s, $isAdmin);
 							$saveSubscriber = true;
 						}
-						catch (Exception $e) {df_log($e)}
+						catch (Exception $e) {df_log($e);}
 					}
 					else {
 						$this->_catchMailchimpSubsNotAppliedIf($e, $isAdmin, $s);
@@ -333,7 +333,6 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 			$errorMessage = $helper->__("The subscription could not be applied.");
 			$this->addError($errorMessage);
 		}
-
 		$subscriber->setSubscriberStatus(Mage_Newsletter_Model_Subscriber::STATUS_UNSUBSCRIBED);
 	}
 
@@ -364,19 +363,17 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 	 * @param $subscriber
 	 * @param $isAdmin
 	 */
-	protected function _catchMailchimpException($e, $subscriber, $isAdmin)
-	{
+	protected function _catchMailchimpException($e, $subscriber, $isAdmin) {
 		$helper = $this->getMailchimpHelper();
 		$errorMessage = $e->getFriendlyMessage();
-		$helper->logError($errorMessage);
-
+		df_log($errorMessage);
 		if ($isAdmin) {
 			$this->addError($errorMessage);
-		} else {
+		}
+		else {
 			$errorMessage = $helper->__("The subscription could not be applied.");
 			$this->addError($errorMessage);
 		}
-
 		$subscriber->setSubscriberStatus(Mage_Newsletter_Model_Subscriber::STATUS_UNSUBSCRIBED);
 	}
 
