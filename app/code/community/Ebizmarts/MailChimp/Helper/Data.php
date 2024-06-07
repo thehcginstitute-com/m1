@@ -2992,14 +2992,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 			if (isset($mcStore['list_id'])) {
 				$listId = $mcStore['list_id'];
 			}
-		} catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
-			$this->logError($e->getMessage());
-		} catch (MailChimp_Error $e) {
-			$this->logError($e->getFriendlyMessage());
-		} catch (Exception $e) {
-			$this->logError($e->getMessage());
 		}
-
+		catch (Exception $e) {df_log($e);}
 		return $listId;
 	}
 
