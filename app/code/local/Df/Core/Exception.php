@@ -101,6 +101,7 @@ class Exception extends E {
 	 * 2) https://3v4l.org/RSCUM
 	 * @used-by df_xts()
 	 * @used-by self::throw_()
+	 * @see \MailChimp_HttpError::message() (https://github.com/thehcginstitute-com/m1/issues/524)
 	 */
 	function message():string {return $this->getMessage();}
 
