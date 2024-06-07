@@ -213,18 +213,15 @@ class Ebizmarts_MailChimp_Helper_Webhook extends Mage_Core_Helper_Abstract
                 }
             }
 			catch (MailChimp_Error $e) {
+				df_log($e);
                 $errorMessage = $e->getFriendlyMessage();
-                $helper->logError($errorMessage);
                 $textToCompare = 'The resource submitted could not be validated. '
                     . 'For field-specific details, see the \'errors\' array.';
-
                 if ($e->getMailchimpDetails() == $textToCompare) {
                     $errorMessage = 'Your store could not be accessed by MailChimp\'s Api. '
                         . 'Please confirm the URL: ' . $hookUrl
                         . ' is accessible externally to allow the webhook creation.';
-                    df_log($e);
                 }
-
                 return $helper->__($errorMessage);
             }
 			catch (Exception $e) {df_log($e);}
