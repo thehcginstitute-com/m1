@@ -290,10 +290,8 @@ class Ebizmarts_MailChimp_Model_Api_Subscribers {
 				} else {
 					$this->_catchMailchimpSubsNotAppliedElse($e, $isAdmin, $s);
 				}
-			} catch (Exception $e) {
-				$helper->logError($e->getMessage());
 			}
-
+			catch (Exception $e) {df_log($e);}
 			if ($saveSubscriber) {
 				$s->setSubscriberSource(Ebizmarts_MailChimp_Model_Subscriber::MAILCHIMP_SUBSCRIBE);
 				$s->save();
