@@ -724,18 +724,15 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param null $filters
 	 * @throws Mage_Core_Exception
 	 */
-	function removeAllEcommerceSyncDataErrors($filters = null)
-	{
+	function removeAllEcommerceSyncDataErrors($filters = null) {
 		$resource = $this->getCoreResource();
 		$connection = $resource->getConnection('core_write');
 		$tableName = $resource->getTableName('mailchimp/ecommercesyncdata');
 		$where = array();
 		$where[] = "mailchimp_sync_error != ''";
-
 		if ($filters !== null) {
 			$where[] = $connection->quoteInto('type IN (?)', $filters);
 		}
-
 		try {
 			$connection->delete($tableName, $where);
 		}
