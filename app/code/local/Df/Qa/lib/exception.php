@@ -75,7 +75,7 @@ function df_xf(T $t):T {while ($t->getPrevious()) {$t = $t->getPrevious();} retu
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle::_getSubscribedGroups() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Ebizmarts_MailChimp_Model_Api_Orders::shouldSendCampaignId() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Ebizmarts_MailChimp_Model_Api_PromoCodes::getPromoCodesForRule() (https://github.com/thehcginstitute-com/m1/issues/524)
- * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by Ebizmarts_MailChimp_Model_Api_Stores::getUserFriendlyMessage() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)

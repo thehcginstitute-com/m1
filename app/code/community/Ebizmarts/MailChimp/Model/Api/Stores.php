@@ -173,8 +173,7 @@ class Ebizmarts_MailChimp_Model_Api_Stores
     protected function getUserFriendlyMessage($e)
     {
         $helper = $this->makeHelper();
-        $errorMessage = $e->getFriendlyMessage();
-
+        $errorMessage = df_xts($e);
         if (strstr($errorMessage, 'A store with the domain')) {
             $errorMessage = $helper->__(
                 'A Mailchimp store with the same domain already exists in this account. '
