@@ -2,6 +2,10 @@
 namespace Df\Core;
 use \Exception as E;
 use \Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
+/**
+ * 2024-06-07
+ * @see \MailChimp_Error (https://github.com/thehcginstitute-com/m1/issues/524)
+ */
 class Exception extends E {
 	/**
 	 * Обратите внимание, что PHP разрешает сигнатуре конструктора класса-потомка
