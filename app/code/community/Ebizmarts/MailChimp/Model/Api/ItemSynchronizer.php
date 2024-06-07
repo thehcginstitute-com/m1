@@ -223,9 +223,8 @@ class Ebizmarts_MailChimp_Model_Api_ItemSynchronizer
 				$error, $type, $title,
 				$status, $originalId, $batchId, $storeId, $regType
 			);
-		} catch (Exception $e) {
-			$this->getHelper()->logError($e->getMessage());
 		}
+		catch (Exception $e) {df_log($e);}
 	}
 
 	/**
