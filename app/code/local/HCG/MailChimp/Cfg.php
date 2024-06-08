@@ -30,9 +30,20 @@ final class Cfg {
 	 * @used-by \HCG\MailChimp\Tags\ProcessMergeFields::_addSubscriberData()
 	 * @return ?array(string => string|int)
 	 */
-	static function scopeByPathV(string $p, string $v):?array {return /** @var ?array(string => string|int) $d */
+	static function scopeByPathV(string $p, string $v):?array {return
+		/**
+		 * 2024-06-08
+		 *	{
+		 *		"config_id": "1600",
+		 *		"path": "ewcore/_system/last_messages_updated_server_time",
+		 *		"scope": "stores",
+		 *		"scope_id": "1",
+		 *		"updated_at": null,
+		 *		"value": "1673841330"
+		 *	}
+		 * @var ?array(string => string|null) $d
+		 */
 		!($d = df_fetch_one('core_config_data', '*', ['path' => $p, 'value' => $v]))
-			? null
-			: dfa($d, ['scope', 'scope_id'])
+			? null : ['scope' => dfa($d, 'scope'), 'scope_id' => (int)dfa($d, 'scope_id')]
 	;}
 }
