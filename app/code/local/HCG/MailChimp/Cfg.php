@@ -1,5 +1,6 @@
 <?php
 namespace HCG\MailChimp;
+use Mage_Adminhtml_Block_System_Config_Form as F;
 use Mage_Core_Model_Config_Data as C;
 # 2024-06-08
 # Transfer the configuration code from `Ebizmarts_MailChimp_Helper_Data`
