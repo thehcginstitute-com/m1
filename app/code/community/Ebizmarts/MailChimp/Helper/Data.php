@@ -1836,7 +1836,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 */
 	function getFirstScopeFromConfig(string $path, $value):?array {
 		$r = null; /** @var ?array(string => mixed) $r */
-		$collection = Mage::getResourceModel('core/config_data_collection')
+		$collection = df_config_c()
 			->addFieldToFilter('path', ['eq' => $path])
 			->addFieldToFilter('value', ['eq' => $value])
 			->setPageSize(1);
