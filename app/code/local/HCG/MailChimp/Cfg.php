@@ -12,9 +12,10 @@ final class Cfg {
 	 */
 	static function isExtraEntry(C $c, $scope, $scopeId, $websiteId):bool {
 		$h = hcg_mc_h();
-		return $h->isNotDefaultScope($c)
-			&& ($h->isIncorrectScope($c, $scope)
-				|| $h->isDifferentWebsite($c, $scope, $websiteId)
-				|| $h->isDifferentStoreView($c, $scope, $scopeId));
+		return
+			$h->isNotDefaultScope($c) && ($h->isIncorrectScope($c, $scope)
+			|| $h->isDifferentWebsite($c, $scope, $websiteId)
+			|| $h->isDifferentStoreView($c, $scope, $scopeId))
+		;
 	}
 }
