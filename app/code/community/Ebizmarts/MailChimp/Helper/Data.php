@@ -2612,15 +2612,13 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * @param $config
-	 * @param $scope
-	 * @param $websiteId
-	 * @return bool
+	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by HCG\MailChimp\Cfg::isExtraEntry() (https://github.com/thehcginstitute-com/m1/issues/641)
 	 */
-	protected function isDifferentWebsite($config, $scope, $websiteId)
-	{
-		return ($config->getScope() == 'websites' && $scope == 'stores' && $config->getScopeId() != $websiteId);
-	}
+	function isDifferentWebsite($config, $scope, $websiteId) {return
+		($config->getScope() == 'websites' && $scope == 'stores' && $config->getScopeId() != $websiteId)
+	;}
 
 	/**
 	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
