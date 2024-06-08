@@ -13,19 +13,11 @@ final class Cfg {
 	 * @used-by \Ebizmarts_MailChimp_Helper_Data::getApiByMailChimpStoreId()
 	 * @used-by \HCG\MailChimp\Tags\ProcessMergeFields::_addSubscriberData()
 	 */
-	static function firstScopeFromConfig(string $p, string $v):?array {
-		$r = null; /** @var ?array(string => mixed) $r */
-		$collection = df_config_c()
-			->addFieldToFilter('path', ['eq' => $p])
-			->addFieldToFilter('value', ['eq' => $v])
-			->setPageSize(1)
-		;
-		if ($collection->getSize()) {
-			$configEntry = $collection->getLastItem();
-			$r = ['scope' => $configEntry->getScope(), 'scope_id' => $configEntry->getScopeId()];
-		}
-		return $r;
-	}
+	static function firstScopeFromConfig(string $p, string $v):?array {return
+		!($d = df_fetch_one('core_config_data', '*', ['path' => $p, 'value' => $v]))
+			? null
+			: dfa($d, ['scope', 'scope_id'])
+	;}
 
 	/**
 	 * 2024-06-08
