@@ -40,7 +40,6 @@ final class ProcessMergeFields {
 			# Mailchimp subscriber not currently in magento newsletter subscribers.
 			# Get mailchimp subscriber status and add missing newsletter subscriber.
 			self::_addSubscriberData($sub, $fname, $lname, $email, $listId);
-			$sub->save();
 		}
 		$t->setSubscriber($sub);
 		if (isset($data['merges']['GROUPINGS'])) {
@@ -134,6 +133,9 @@ final class ProcessMergeFields {
 			}
 			elseif ('unsubscribed' === $member['status'] && !hcg_mc_h_webhook()->getWebhookDeleteAction($s->getStoreId())) {
 				hcg_mc_unsubscribe($s);
+			}
+			else {
+				$s->save();
 			}
 		}
 		catch (\Exception $e) {df_log($e);}
