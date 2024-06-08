@@ -1317,15 +1317,11 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * Get Api object for given scope.
-	 *
-	 * @param       $scopeId
-	 * @param null  $scope
-	 * @return Ebizmarts_MailChimp|null
-	 * @throws Ebizmarts_MailChimp_Helper_Data_ApiKeyException
+	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by self::STUB()
 	 */
-	function getApi($scopeId, $scope = null):?Ebizmarts_MailChimp
-	{
+	function getApi($scopeId, $scope = null):?Api {
 		$apiKey = $this->getApiKey($scopeId, $scope);
 		$api = null;
 
