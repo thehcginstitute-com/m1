@@ -18,7 +18,8 @@ final class Cfg {
 		$collection = df_config_c()
 			->addFieldToFilter('path', ['eq' => $p])
 			->addFieldToFilter('value', ['eq' => $v])
-			->setPageSize(1);
+			->setPageSize(1)
+		;
 		if ($collection->getSize()) {
 			$configEntry = $collection->getLastItem();
 			$r = ['scope' => $configEntry->getScope(), 'scope_id' => $configEntry->getScopeId()];
