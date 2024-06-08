@@ -1407,10 +1407,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return mixed
 	 * @throws Mage_Core_Exception
 	 */
-	function getDefaultStoreIdForMailChimpScope($magentoStoreId)
-	{
-		$scopeArray = $this->getMailChimpScopeByStoreId($magentoStoreId);
-
+	function getDefaultStoreIdForMailChimpScope($magentoStoreId) {
+		$scopeArray = hCfg::scopeByStoreId($magentoStoreId);
 		if ($scopeArray) {
 			if ($scopeArray['scope'] == 'websites') {
 				$magentoStoreId = $this->getMageApp()
