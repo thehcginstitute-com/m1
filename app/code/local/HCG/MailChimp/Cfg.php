@@ -48,13 +48,4 @@ final class Cfg {
 		!($d = df_fetch_one('core_config_data', '*', ['path' => $p, 'value' => $v]))
 			? null : ['scope_id' => (int)dfa($d, 'scope_id'), 'scope' => dfa($d, 'scope')]
 	;}
-
-	/**
-	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * Transfer the configuration code from `Ebizmarts_MailChimp_Helper_Data`
-	 * to a dedicated class (`HCG\MailChimp\Cfg`) and `hcg_mc_cfg_*` functions: https://github.com/thehcginstitute-com/m1/issues/641
-	 * @used-by \Ebizmarts_MailChimp_Helper_Data::getDefaultStoreIdForMailChimpScope()
-	 * @return ?array(string => string|int)
-	 */
-	static function scopeByStoreId(int $sid):?array {return self::scopeByPathV(eC::GENERAL_MCSTOREID, hcg_mc_sid($sid));}
 }
