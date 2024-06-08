@@ -2623,7 +2623,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by HCG\MailChimp\Cfg::isExtraEntry() (https://github.com/thehcginstitute-com/m1/issues/641)
 	 */
-	function isIncorrectScope($config, $scope) {return ($config->getScope() == 'stores' && $scope != 'stores');}
+	function isIncorrectScope($config, $scope) {return $config->getScope() == 'stores' && $scope != 'stores';}
 
 	/**
 	 * @param $date
