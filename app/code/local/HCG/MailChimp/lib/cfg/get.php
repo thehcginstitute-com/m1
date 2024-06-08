@@ -29,6 +29,9 @@
  *			"_1472846587534_534": {"mailchimp": "STELEPHONE", "magento": "shipping_telephone"},
  *			"_1472846591374_374": {"mailchimp": "SZIPCODE", "magento": "shipping_zipcode"}
  *		}
+ * 2024-06-08
+ * Transfer the configuration code from `Ebizmarts_MailChimp_Helper_Data`
+ * to a dedicated class (`HCG\MailChimp\Cfg`) and `hcg_mc_cfg_*` functions: https://github.com/thehcginstitute-com/m1/issues/641
  * @used-by Ebizmarts_MailChimp_Helper_Data::createMergeFields()
  * @used-by \HCG\MailChimp\Tags::_p()
  * @used-by \HCG\MailChimp\Tags::set()
