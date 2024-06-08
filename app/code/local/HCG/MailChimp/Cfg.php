@@ -28,8 +28,9 @@ final class Cfg {
 	 * @used-by \Ebizmarts_MailChimp_Helper_Data::::getMailChimpScopeByStoreId()
 	 * @used-by \Ebizmarts_MailChimp_Helper_Data::getApiByMailChimpStoreId()
 	 * @used-by \HCG\MailChimp\Tags\ProcessMergeFields::_addSubscriberData()
+	 * @return ?array(string => string|int)
 	 */
-	static function scopeByPathV(string $p, string $v):?array {return
+	static function scopeByPathV(string $p, string $v):?array {return /** @var ?array(string => string|int) $d */
 		!($d = df_fetch_one('core_config_data', '*', ['path' => $p, 'value' => $v]))
 			? null
 			: dfa($d, ['scope', 'scope_id'])
