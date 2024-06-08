@@ -17,7 +17,7 @@ final class Cfg {
 		return $c->getScopeId() && (
 			F::SCOPE_STORES === $c->getScope() && $s !== $c->getScope()
 			|| F::SCOPE_WEBSITES === $c->getScope() && F::SCOPE_STORES === $s && $wid !== (int)$c->getScopeId()
-			|| ($c->getScope() == F::SCOPE_STORES && $s == F::SCOPE_STORES && $sid != $c->getScopeId())
+			|| $c->getScope() == F::SCOPE_STORES && $s == F::SCOPE_STORES && $sid != $c->getScopeId()
 		);
 	}
 }
