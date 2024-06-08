@@ -2633,7 +2633,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @throws Exception
 	 */
 	function getApiByMailChimpStoreId($mailchimpStoreId) {
-		$scopeArray = $this->getFirstScopeFromConfig(
+		$scopeArray = hCfg::firstScopeFromConfig(
 			Ebizmarts_MailChimp_Model_Config::GENERAL_MCSTOREID,
 			$mailchimpStoreId
 		);
