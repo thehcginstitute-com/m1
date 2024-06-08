@@ -132,10 +132,7 @@ final class ProcessMergeFields {
 			if ($member['status'] == 'subscribed') {
 				hcg_mc_subscribe($s);
 			}
-			elseif (
-				'unsubscribed' === $member['status']
-				&& !hcg_mc_h_webhook()->getWebhookDeleteAction($s->getStoreId())
-			) {
+			elseif ('unsubscribed' === $member['status'] && !hcg_mc_h_webhook()->getWebhookDeleteAction($s->getStoreId())) {
 				hcg_mc_unsubscribe($s);
 			}
 		}
