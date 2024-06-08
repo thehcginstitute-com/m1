@@ -1401,34 +1401,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * Return default store id for the configured scope on MailChimp.
-	 *
-	 * @param  $magentoStoreId
-	 * @return mixed
-	 * @throws Mage_Core_Exception
-	 */
-	function getDefaultStoreIdForMailChimpScope($magentoStoreId) {
-		$scopeArray = hCfg::scopeByStoreId($magentoStoreId);
-		if ($scopeArray) {
-			if ($scopeArray['scope'] == 'websites') {
-				$magentoStoreId = $this->getMageApp()
-					->getWebsite($scopeArray['scope_id'])
-					->getDefaultGroup()
-					->getDefaultStoreId();
-			} elseif ($scopeArray['scope'] == 'default') {
-				$magentoStoreId = $this->getMageApp()
-					->getWebsite(true)
-					->getDefaultGroup()
-					->getDefaultStoreId();
-			}
-		} else {
-			$magentoStoreId = null;
-		}
-
-		return $magentoStoreId;
-	}
-
-	/**
 	 * If $productImageUrl not null returns it, else return $parentImageUrl.
 	 * Both parameters could be null.
 	 *
