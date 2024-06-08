@@ -27,14 +27,6 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, string $scope = 'stores'):
 			continue;
 		}
 		switch ($c->getScope()) {
-			case F::SCOPE_STORES:
-				$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
-				break;
-			case F::SCOPE_WEBSITES:
-				if (!$r || F::SCOPE_DEFAULT === $r['scope']) {
-					$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
-				}
-				break;
 			case F::SCOPE_DEFAULT:
 				# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				# «Trying to access array offset on value of type null
@@ -44,6 +36,13 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, string $scope = 'stores'):
 					$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
 				}
 				break;
+			case F::SCOPE_STORES:
+				$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
+				break;
+			case F::SCOPE_WEBSITES:
+				if (!$r || F::SCOPE_DEFAULT === $r['scope']) {
+					$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
+				}
 		}
 	}
 	# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
