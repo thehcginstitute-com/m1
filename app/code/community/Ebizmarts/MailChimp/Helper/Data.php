@@ -1852,7 +1852,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by hcg_mc_cfg_scope()
 	 */
-	function isExtraEntry($config, $scope, $scopeId, $websiteId) {
+	function isExtraEntry($config, $scope, $scopeId, $websiteId):bool {
 		return $this->isNotDefaultScope($config)
 			&& ($this->isIncorrectScope($config, $scope)
 				|| $this->isDifferentWebsite($config, $scope, $websiteId)
