@@ -32,7 +32,7 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, string $scope = 'stores'):
 				# «Trying to access array offset on value of type null
 				# in app/code/community/Ebizmarts/MailChimp/Helper/Data.php on line 2134»:
 				# https://github.com/thehcginstitute-com/m1/issues/495
-				if ($r && 'stores' !== dfa($r, 'scope')) {
+				if ($r && F::SCOPE_STORES !== dfa($r, 'scope')) {
 					$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
 				}
 				break;
