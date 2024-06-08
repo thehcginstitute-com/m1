@@ -13,11 +13,11 @@ final class Cfg {
 	 * @used-by self::getApiByMailChimpStoreId()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_addSubscriberData()
 	 */
-	static function firstScopeFromConfig(string $path, string $value):?array {
+	static function firstScopeFromConfig(string $p, string $v):?array {
 		$r = null; /** @var ?array(string => mixed) $r */
 		$collection = df_config_c()
-			->addFieldToFilter('path', ['eq' => $path])
-			->addFieldToFilter('value', ['eq' => $value])
+			->addFieldToFilter('path', ['eq' => $p])
+			->addFieldToFilter('value', ['eq' => $v])
 			->setPageSize(1);
 		if ($collection->getSize()) {
 			$configEntry = $collection->getLastItem();
