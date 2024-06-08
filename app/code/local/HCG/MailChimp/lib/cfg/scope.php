@@ -10,7 +10,7 @@ use Mage_Core_Model_Resource_Config_Data_Collection as CC;
  */
 function hcg_mc_cfg_scope(string $path, int $scopeId, $scope = 'stores'):array {
 	$websiteId = null;
-	$cc = Mage::getResourceModel('core/config_data_collection')
+	$cc = df_config_c()
 		->addFieldToFilter('path', ['eq' => $path])
 		->addFieldToFilter('scope_id', ['in' =>
 			'stores' !== $scope
