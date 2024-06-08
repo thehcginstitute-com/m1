@@ -2672,7 +2672,9 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * @return mixed
+	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by self::STUB()
 	 */
 	protected function getResendTurnConfigCollection() {return df_config_c()->addFieldToFilter('path', [
 		'eq' => Ebizmarts_MailChimp_Model_Config::ECOMMERCE_RESEND_TURN
