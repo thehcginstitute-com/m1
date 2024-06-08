@@ -42,7 +42,7 @@ function hcg_mc_cfg_save(
  * to a dedicated class (`HCG\MailChimp\Cfg`) and `hcg_mc_cfg_*` functions: https://github.com/thehcginstitute-com/m1/issues/641
  * @used-by Ebizmarts_MailChimp_Helper_Data::saveLastItemsSent()
  */
-function hcg_mc_cfg_save_a(array $vv, int $scopeId = 0, string $scope = 'default', bool $cleanCache = true):void {
+function hcg_mc_cfg_save_a(array $vv, int $scopeId = 0, string $scope = F::SCOPE_DEFAULT, bool $cleanCache = true):void {
 	$c = Mage::getConfig(); /** @var Cfg $c */
 	foreach ($vv as $v) {/** @var string[] $v */
 		$c->saveConfig($v[0], $v[1], $scope, $scopeId);
