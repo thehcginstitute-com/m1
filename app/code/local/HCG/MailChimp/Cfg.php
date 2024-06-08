@@ -12,12 +12,9 @@ final class Cfg {
 	 * to a dedicated class (`HCG\MailChimp\Cfg`) and `hcg_mc_cfg_*` functions: https://github.com/thehcginstitute-com/m1/issues/641
 	 * @used-by hcg_mc_cfg_scope()
 	 */
-	static function isExtraEntry(C $c, string $s, int $sid, int $wid):bool {
-		$h = hcg_mc_h();
-		return $c->getScopeId() && (
-			F::SCOPE_STORES === $c->getScope() && $s !== $c->getScope()
-			|| F::SCOPE_WEBSITES === $c->getScope() && F::SCOPE_STORES === $s && $wid !== (int)$c->getScopeId()
-			|| F::SCOPE_STORES === $c->getScope() && F::SCOPE_STORES === $s && $sid != $c->getScopeId()
-		);
-	}
+	static function isExtraEntry(C $c, string $s, int $sid, int $wid):bool {return $c->getScopeId() && (
+		F::SCOPE_STORES === $c->getScope() && $s !== $c->getScope()
+		|| F::SCOPE_WEBSITES === $c->getScope() && F::SCOPE_STORES === $s && $wid !== (int)$c->getScopeId()
+		|| F::SCOPE_STORES === $c->getScope() && F::SCOPE_STORES === $s && $sid != $c->getScopeId()
+	);}
 }
