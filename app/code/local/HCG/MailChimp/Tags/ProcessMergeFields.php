@@ -121,9 +121,8 @@ final class ProcessMergeFields {
 	 * @used-by self::p()
 	 */
 	private static function _addSubscriberData(Sub $s, string $fname, string $lname, string $email, string $listId):void {
-		$h = hcg_mc_h();
-		$scopeArray = $h->getFirstScopeFromConfig(Cfg::GENERAL_LIST, $listId);
-		$api = $h->getApi($scopeArray['scope_id'], $scopeArray['scope']);
+		$scopeArray = hcg_mc_h()->getFirstScopeFromConfig(Cfg::GENERAL_LIST, $listId);
+		$api = hcg_mc_h()->getApi($scopeArray['scope_id'], $scopeArray['scope']);
 		try {
 			$s->addData(['subscriber_firstname' => $fname, 'subscriber_lastname' => $lname]);
 			$md5HashEmail = hash('md5', strtolower($email));
