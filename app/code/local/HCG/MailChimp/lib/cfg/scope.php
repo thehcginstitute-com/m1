@@ -17,7 +17,7 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, string $scope = 'stores'):
 	$cc = df_config_c()
 		->addFieldToFilter('path', ['eq' => $path])
 		->addFieldToFilter('scope_id', ['in' =>
-			'stores' !== $scope
+			F::SCOPE_STORES !== $scope
 				? [$scopeId, 0]
 				: [$scopeId, $websiteId = df_store($scopeId)->getWebsiteId(), 0]
 		]); /** @var CC $cc */
