@@ -35,7 +35,7 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, string $scope = 'stores'):
 					$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
 				}
 				break;
-			case 'default':
+			case F::SCOPE_DEFAULT:
 				# 2024-03-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				# «Trying to access array offset on value of type null
 				# in app/code/community/Ebizmarts/MailChimp/Helper/Data.php on line 2134»:
