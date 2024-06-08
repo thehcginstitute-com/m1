@@ -1,4 +1,5 @@
 <?php
+use Ebizmarts_MailChimp_Model_Config as Cfg;
 use HCG\MailChimp\Cfg as hCfg;
 # 2024-06-08
 # Transfer the configuration code from `Ebizmarts_MailChimp_Helper_Data`
