@@ -128,12 +128,7 @@ final class ProcessMergeFields {
 		try {
 			$s->addData(['subscriber_firstname' => $fname, 'subscriber_lastname' => $lname]);
 			$md5HashEmail = hash('md5', strtolower($email));
-			$member = $api->getLists()->getMembers()->get(
-				$listId,
-				$md5HashEmail,
-				null,
-				null
-			);
+			$member = $api->getLists()->getMembers()->get($listId, $md5HashEmail, null, null);
 			if ($member['status'] == 'subscribed') {
 				hcg_mc_subscribe($s);
 			}
