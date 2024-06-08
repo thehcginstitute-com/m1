@@ -1837,15 +1837,13 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	function getFirstScopeFromConfig($path, $value) {
 		$mailchimpScope = null;
 		$collection = Mage::getResourceModel('core/config_data_collection')
-			->addFieldToFilter('path', array('eq' => $path))
-			->addFieldToFilter('value', array('eq' => $value))
+			->addFieldToFilter('path', ['eq' => $path])
+			->addFieldToFilter('value', ['eq' => $value])
 			->setPageSize(1);
-
 		if ($collection->getSize()) {
 			$configEntry = $collection->getLastItem();
 			$mailchimpScope = array('scope' => $configEntry->getScope(), 'scope_id' => $configEntry->getScopeId());
 		}
-
 		return $mailchimpScope;
 	}
 
