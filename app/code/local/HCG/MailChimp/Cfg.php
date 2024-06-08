@@ -27,7 +27,6 @@ final class Cfg {
 	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * Transfer the configuration code from `Ebizmarts_MailChimp_Helper_Data`
 	 * to a dedicated class (`HCG\MailChimp\Cfg`) and `hcg_mc_cfg_*` functions: https://github.com/thehcginstitute-com/m1/issues/641
-	 * @used-by self::scopeByStoreId()
 	 * @used-by \Ebizmarts_MailChimp_Helper_Data::getApiByMailChimpStoreId()
 	 * @used-by \HCG\MailChimp\Tags\ProcessMergeFields::_addSubscriberData()
 	 * @return ?array(string => string|int)
