@@ -2608,7 +2608,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	function isDifferentStoreView($config, $scope, $scopeId) {return
 		$config->getScope() == 'stores' && $scope == 'stores' && $scopeId != $config->getScopeId()
 	;}
-	
+
 	/**
 	 * @param $date
 	 * @param string $format
