@@ -10,7 +10,7 @@ final class Cfg {
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by hcg_mc_cfg_scope()
 	 */
-	static function isExtraEntry($config, $scope, $scopeId, $websiteId):bool {
+	static function isExtraEntry(C $config, $scope, $scopeId, $websiteId):bool {
 		$h = hcg_mc_h();
 		return $h->isNotDefaultScope($config)
 			&& ($h->isIncorrectScope($config, $scope)
