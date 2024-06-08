@@ -5,17 +5,6 @@ use Mage_Core_Model_Resource_Config_Data_Collection as C;
  * "Implement `df_config_c()`": https://github.com/thehcginstitute-com/m1/issues/640
  * @used-by Ebizmarts_MailChimp_Helper_Data::getIfConfigExistsForScope()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getScopeByMailChimpStoreId()
- * @used-by Ebizmarts_MailChimp_Helper_Data::getFirstScopeFromConfig()
- * @used-by STUB()
- * @used-by STUB()
- * @used-by STUB()
- * @used-by STUB()
- * @used-by STUB()
- * @used-by STUB()
- * @used-by STUB()
- * @used-by STUB()
- * @used-by STUB()
- * @used-by STUB()
- * @used-by STUB()
+ * @used-by HCG\MailChimp\Cfg::firstScopeFromConfig()
  */
 function df_config_c():C {return Mage::getResourceModel('core/config_data_collection');}
