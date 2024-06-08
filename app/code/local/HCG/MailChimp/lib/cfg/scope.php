@@ -54,5 +54,5 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, string $scope = 'stores'):
 	# «`Ebizmarts_MailChimp`: «Column 'scope' cannot be null, query was:
 	# INSERT INTO `core_config_data` (`scope`, `scope_id`, `path`, `value`) VALUES (?, ?, ?, ?)»:
 	# https://github.com/thehcginstitute-com/m1/issues/508
-	return $r ?: [0, 'default'];
+	return $r ?: [0, F::SCOPE_DEFAULT];
 }
