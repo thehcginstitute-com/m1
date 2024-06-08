@@ -1834,17 +1834,17 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @used-by self::getApiByMailChimpStoreId()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_addSubscriberData()
 	 */
-	function getFirstScopeFromConfig(string $path, $value) {
-		$mailchimpScope = null;
+	function getFirstScopeFromConfig(string $path, $value):?array {
+		$r = null; /** @var ?array(string => mixed) $r */
 		$collection = Mage::getResourceModel('core/config_data_collection')
 			->addFieldToFilter('path', ['eq' => $path])
 			->addFieldToFilter('value', ['eq' => $value])
 			->setPageSize(1);
 		if ($collection->getSize()) {
 			$configEntry = $collection->getLastItem();
-			$mailchimpScope =['scope' => $configEntry->getScope(), 'scope_id' => $configEntry->getScopeId()];
+			$r = ['scope' => $configEntry->getScope(), 'scope_id' => $configEntry->getScopeId()];
 		}
-		return $mailchimpScope;
+		return $r;
 	}
 
 	/**
