@@ -1780,7 +1780,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 		if ($configAssociatedToScope === null) {
 			$configAssociatedToScope = false;
-			$collection = Mage::getResourceModel('core/config_data_collection')
+			$collection = df_config_c()
 				->addFieldToFilter('path', array('eq' => $configPath))
 				->addFieldToFilter('scope', array('eq' => $scope))
 				->addFieldToFilter('scope_id', array('eq' => $scopeId));
