@@ -24,7 +24,9 @@ use Mage_Core_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_List::_afterSave()
  * @used-by Ebizmarts_MailChimp_Model_System_Config_Backend_Store::_afterSave()
  */
-function hcg_mc_cfg_save(string $path, string $v, int $scopeId = 0, string $scope = 'default', bool $cleanCache = true):void {
+function hcg_mc_cfg_save(
+	string $path, string $v, int $scopeId = 0, string $scope = F::SCOPE_DEFAULT, bool $cleanCache = true
+):void {
 	$c = Mage::getConfig(); /** @var Cfg $c */
 	$c->saveConfig($path, $v, $scope, $scopeId);
 	if ($cleanCache) {
