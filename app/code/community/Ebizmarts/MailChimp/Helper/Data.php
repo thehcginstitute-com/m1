@@ -1834,7 +1834,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @used-by self::getApiByMailChimpStoreId()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_addSubscriberData()
 	 */
-	function getFirstScopeFromConfig($path, $value) {
+	function getFirstScopeFromConfig(string $path, $value) {
 		$mailchimpScope = null;
 		$collection = Mage::getResourceModel('core/config_data_collection')
 			->addFieldToFilter('path', ['eq' => $path])
