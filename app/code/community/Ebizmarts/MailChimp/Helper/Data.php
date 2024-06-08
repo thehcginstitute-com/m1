@@ -2603,8 +2603,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 */
 	function getAllMailChimpStoreIds()
 	{
-		$collection = Mage::getResourceModel('core/config_data_collection')
-			->addFieldToFilter('path', array('eq' => Ebizmarts_MailChimp_Model_Config::GENERAL_MCSTOREID));
+		$collection = df_config_c()->addFieldToFilter('path', array('eq' => Ebizmarts_MailChimp_Model_Config::GENERAL_MCSTOREID));
 		$mailchimpStoreIdsArray = array();
 
 		foreach ($collection as $row) {
