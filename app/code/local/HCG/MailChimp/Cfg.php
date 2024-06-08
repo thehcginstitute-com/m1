@@ -44,6 +44,6 @@ final class Cfg {
 		 * @var ?array(string => string|null) $d
 		 */
 		!($d = df_fetch_one('core_config_data', '*', ['path' => $p, 'value' => $v]))
-			? null : ['scope' => dfa($d, 'scope'), 'scope_id' => (int)dfa($d, 'scope_id')]
+			? null : ['scope_id' => (int)dfa($d, 'scope_id'), 'scope' => dfa($d, 'scope')]
 	;}
 }
