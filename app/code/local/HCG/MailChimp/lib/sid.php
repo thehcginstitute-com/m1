@@ -17,7 +17,6 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by Ebizmarts_MailChimp_Helper_Data::getLastPromoCodeSent()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getMCJs()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getMagentoStoresForMCStoreIdByScope()
- * @used-by Ebizmarts_MailChimp_Helper_Data::getMailChimpScopeByStoreId()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getStoreRelation()
  * @used-by Ebizmarts_MailChimp_Helper_Data::handleOldErrors()
  * @used-by Ebizmarts_MailChimp_Helper_Data::isEcomSyncDataEnabled()
@@ -45,5 +44,6 @@ use Ebizmarts_MailChimp_Model_Config as Cfg;
  * @used-by HCG\MailChimp\Batch\Commerce::addSyncValueToArray()
  * @used-by HCG\MailChimp\Batch\Commerce\Send::p()
  * @used-by HCG\MailChimp\Batch\GetResults::p()
+ * @used-by HCG\MailChimp\Cfg::scopeByStoreId()
  */
 function hcg_mc_sid(int $mgStore = null):?string {return df_cfg(Cfg::GENERAL_MCSTOREID, $mgStore);}
