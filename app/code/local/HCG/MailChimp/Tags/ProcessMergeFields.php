@@ -2,6 +2,7 @@
 namespace HCG\MailChimp\Tags;
 use Ebizmarts_MailChimp_Model_Api_Subscribers_InterestGroupHandle as InterestGroupHandle;
 use Ebizmarts_MailChimp_Model_Config as Cfg;
+use HCG\MailChimp\Cfg as hCfg;
 use HCG\MailChimp\Tags as T;
 use Mage_Customer_Model_Customer as C;
 use Mage_Newsletter_Model_Subscriber as Sub;
@@ -121,7 +122,7 @@ final class ProcessMergeFields {
 	 * @used-by self::p()
 	 */
 	private static function _addSubscriberData(Sub $s, string $fname, string $lname, string $email, string $listId):void {
-		$scopeArray = hcg_mc_h()->getFirstScopeFromConfig(Cfg::GENERAL_LIST, $listId);
+		$scopeArray = hCfg::firstScopeFromConfig(Cfg::GENERAL_LIST, $listId);
 		$api = hcg_mc_h()->getApi($scopeArray['scope_id'], $scopeArray['scope']);
 		try {
 			$s->addData(['subscriber_firstname' => $fname, 'subscriber_lastname' => $lname]);

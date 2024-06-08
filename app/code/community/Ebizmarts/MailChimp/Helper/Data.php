@@ -1830,26 +1830,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 		return $mailchimpScope;
 	}
 
-	/**
-	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 * @used-by self::::getMailChimpScopeByStoreId()
-	 * @used-by self::getApiByMailChimpStoreId()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_addSubscriberData()
-	 */
-	function getFirstScopeFromConfig(string $path, $value):?array {
-		$r = null; /** @var ?array(string => mixed) $r */
-		$collection = df_config_c()
-			->addFieldToFilter('path', ['eq' => $path])
-			->addFieldToFilter('value', ['eq' => $value])
-			->setPageSize(1);
-		if ($collection->getSize()) {
-			$configEntry = $collection->getLastItem();
-			$r = ['scope' => $configEntry->getScope(), 'scope_id' => $configEntry->getScopeId()];
-		}
-		return $r;
-	}
-
 	function updateSubscriberSyndData(
 		$itemId,
 		$syncDelta = null,

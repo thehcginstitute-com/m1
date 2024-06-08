@@ -7,6 +7,26 @@ use Mage_Core_Model_Config_Data as C;
 # to a dedicated class (`HCG\MailChimp\Cfg`) and `hcg_mc_cfg_*` functions: https://github.com/thehcginstitute-com/m1/issues/641
 final class Cfg {
 	/**
+	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by self::::getMailChimpScopeByStoreId()
+	 * @used-by self::getApiByMailChimpStoreId()
+	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_addSubscriberData()
+	 */
+	static function firstScopeFromConfig(string $path, $value):?array {
+		$r = null; /** @var ?array(string => mixed) $r */
+		$collection = df_config_c()
+			->addFieldToFilter('path', ['eq' => $path])
+			->addFieldToFilter('value', ['eq' => $value])
+			->setPageSize(1);
+		if ($collection->getSize()) {
+			$configEntry = $collection->getLastItem();
+			$r = ['scope' => $configEntry->getScope(), 'scope_id' => $configEntry->getScopeId()];
+		}
+		return $r;
+	}
+
+	/**
 	 * 2024-06-08
 	 * Transfer the configuration code from `Ebizmarts_MailChimp_Helper_Data`
 	 * to a dedicated class (`HCG\MailChimp\Cfg`) and `hcg_mc_cfg_*` functions: https://github.com/thehcginstitute-com/m1/issues/641
