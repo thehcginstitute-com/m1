@@ -83,9 +83,6 @@ function df_xf(T $t):T {while ($t->getPrevious()) {$t = $t->getPrevious();} retu
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::_catchMailchimpException() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::deleteSubscriber() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by HCG\MailChimp\Batch\GetBatchResponse::p() (https://github.com/thehcginstitute-com/m1/issues/524)
- * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
- * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
- * @used-by STUB() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @param X|string $e
  * @return string
  */
