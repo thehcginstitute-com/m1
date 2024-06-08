@@ -1842,7 +1842,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 			->setPageSize(1);
 		if ($collection->getSize()) {
 			$configEntry = $collection->getLastItem();
-			$mailchimpScope = array('scope' => $configEntry->getScope(), 'scope_id' => $configEntry->getScopeId());
+			$mailchimpScope =['scope' => $configEntry->getScope(), 'scope_id' => $configEntry->getScopeId()];
 		}
 		return $mailchimpScope;
 	}
