@@ -11,11 +11,11 @@ final class Cfg {
 	 * to a dedicated class (`HCG\MailChimp\Cfg`) and `hcg_mc_cfg_*` functions: https://github.com/thehcginstitute-com/m1/issues/641
 	 * @used-by hcg_mc_cfg_scope()
 	 */
-	static function isExtraEntry(C $c, string $s, int $sid, int $websiteId):bool {
+	static function isExtraEntry(C $c, string $s, int $sid, int $wid):bool {
 		$h = hcg_mc_h();
 		return $c->getScopeId() && (
 			('stores' === $c->getScope() && $s !== $c->getScope())
-			|| $h->isDifferentWebsite($c, $s, $websiteId)
+			|| ($c->getScope() == 'websites' && $s == 'stores' && $c->getScopeId() != $wid)
 			|| $h->isDifferentStoreView($c, $s, $sid)
 		);
 	}
