@@ -14,7 +14,7 @@ final class Cfg {
 	static function isExtraEntry(C $c, string $s, int $sid, int $websiteId):bool {
 		$h = hcg_mc_h();
 		return $c->getScopeId() && (
-			('stores' === $c->getScope() && 'stores' !== $s)
+			('stores' === $c->getScope() && $s !== $c->getScope())
 			|| $h->isDifferentWebsite($c, $s, $websiteId)
 			|| $h->isDifferentStoreView($c, $s, $sid)
 		);
