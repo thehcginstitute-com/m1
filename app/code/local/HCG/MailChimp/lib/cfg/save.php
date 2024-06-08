@@ -3,6 +3,9 @@ use Mage_Core_Model_Config as Cfg;
 /**
  * 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
  * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+ * 2024-06-08
+ * Transfer the configuration code from `Ebizmarts_MailChimp_Helper_Data`
+ * to a dedicated class (`HCG\MailChimp\Cfg`) and `hcg_mc_cfg_*` functions: https://github.com/thehcginstitute-com/m1/issues/641
  * @used-by Ebizmarts_MailChimp_Adminhtml_MergevarsController::saveaddAction()
  * @used-by Ebizmarts_MailChimp_Helper_Data::deleteAllConfiguredMCStoreLocalData()
  * @used-by Ebizmarts_MailChimp_Helper_Data::getMCIsSyncing()
