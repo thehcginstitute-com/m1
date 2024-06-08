@@ -2674,13 +2674,9 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	/**
 	 * @return mixed
 	 */
-	protected function getResendTurnConfigCollection()
-	{
-		$configCollection = Mage::getResourceModel('core/config_data_collection')
-			->addFieldToFilter('path', array('eq' => Ebizmarts_MailChimp_Model_Config::ECOMMERCE_RESEND_TURN));
-
-		return $configCollection;
-	}
+	protected function getResendTurnConfigCollection() {return df_config_c()->addFieldToFilter('path', [
+		'eq' => Ebizmarts_MailChimp_Model_Config::ECOMMERCE_RESEND_TURN
+	]);}
 
 	/**
 	 * @return Mage_Core_Model_Config
