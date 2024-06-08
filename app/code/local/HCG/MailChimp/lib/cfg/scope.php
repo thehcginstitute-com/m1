@@ -1,5 +1,6 @@
 <?php
 use HCG\MailChimp\Cfg as hCfg;
+use Mage_Adminhtml_Block_System_Config_Form as F;
 use Mage_Core_Model_Config_Data as C;
 use Mage_Core_Model_Resource_Config_Data_Collection as CC;
 /**
