@@ -15,7 +15,7 @@ final class Cfg {
 		$h = hcg_mc_h();
 		return $c->getScopeId() && (
 			('stores' === $c->getScope() && $s !== $c->getScope())
-			|| ($c->getScope() === 'websites' && $s === 'stores' && (int)$c->getScopeId() !== $wid)
+			|| ('websites' === $c->getScope() && 'stores' === $s && $wid !== (int)$c->getScopeId())
 			|| $h->isDifferentStoreView($c, $s, $sid)
 		);
 	}
