@@ -13,7 +13,7 @@ final class Cfg {
 	 * @used-by self::getApiByMailChimpStoreId()
 	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_addSubscriberData()
 	 */
-	static function firstScopeFromConfig(string $path, $value):?array {
+	static function firstScopeFromConfig(string $path, string $value):?array {
 		$r = null; /** @var ?array(string => mixed) $r */
 		$collection = df_config_c()
 			->addFieldToFilter('path', ['eq' => $path])
