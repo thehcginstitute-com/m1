@@ -1828,14 +1828,13 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * Will return the first scope it finds,from core_config_data.
-	 *
-	 * @param  $path
-	 * @param  $value
-	 * @return array|null
+	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
+	 * @used-by self::STUB()
 	 */
-	function getFirstScopeFromConfig($path, $value)
-	{
+	function getFirstScopeFromConfig($path, $value) {
 		$mailchimpScope = null;
 		$collection = Mage::getResourceModel('core/config_data_collection')
 			->addFieldToFilter('path', array('eq' => $path))
