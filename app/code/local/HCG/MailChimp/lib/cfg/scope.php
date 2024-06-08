@@ -1,5 +1,6 @@
 <?php
 use Ebizmarts_MailChimp_Helper_Data as H;
+use HCG\MailChimp\Cfg as hCfg;
 use Mage_Core_Model_Config_Data as C;
 use Mage_Core_Model_Resource_Config_Data_Collection as CC;
 /**
@@ -24,7 +25,7 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, $scope = 'stores'):array {
 	$h = hcg_mc_h(); /** @var H $h */
 	foreach ($cc as $c) { /** @var C $c */
 		// Discard possible extra website or store
-		if ($h->isExtraEntry($c, $scope, $scopeId, $websiteId)) {
+		if (hCfg::isExtraEntry($c, $scope, $scopeId, $websiteId)) {
 			continue;
 		}
 		switch ($c->getScope()) {
