@@ -1814,7 +1814,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	function getScopeByMailChimpStoreId($mailChimpStoreId)
 	{
 		$mailchimpScope = null;
-		$collection = Mage::getResourceModel('core/config_data_collection')
+		$collection = df_config_c()
 			->addFieldToFilter('path', array('eq' => Ebizmarts_MailChimp_Model_Config::GENERAL_MCSTOREID))
 			->addFieldToFilter('value', array('eq' => $mailChimpStoreId))
 			->setPageSize(1);
