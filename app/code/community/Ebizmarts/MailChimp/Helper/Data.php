@@ -1848,16 +1848,11 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * Return true if the config entry does not belong to the store required or website that contains that store.
-	 *
-	 * @param  $config
-	 * @param  $scope
-	 * @param  $scopeId
-	 * @param  $websiteId
-	 * @return bool
+	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by hcg_mc_cfg_scope()
 	 */
-	function isExtraEntry($config, $scope, $scopeId, $websiteId)
-	{
+	function isExtraEntry($config, $scope, $scopeId, $websiteId) {
 		return $this->isNotDefaultScope($config)
 			&& ($this->isIncorrectScope($config, $scope)
 				|| $this->isDifferentWebsite($config, $scope, $websiteId)
