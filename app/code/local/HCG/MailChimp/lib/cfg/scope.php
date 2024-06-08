@@ -11,7 +11,7 @@ use Mage_Core_Model_Resource_Config_Data_Collection as CC;
  * @used-by Ebizmarts_MailChimp_Helper_Webhook::handleWebhookChange()
  * @used-by Ebizmarts_MailChimp_Model_Api_Subscribers::createBatchJson()
  */
-function hcg_mc_cfg_scope(string $path, int $scopeId, $scope = 'stores'):array {
+function hcg_mc_cfg_scope(string $path, int $scopeId, string $scope = 'stores'):array {
 	$websiteId = null;
 	$cc = df_config_c()
 		->addFieldToFilter('path', ['eq' => $path])
