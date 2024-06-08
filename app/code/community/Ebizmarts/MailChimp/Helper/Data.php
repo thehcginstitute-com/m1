@@ -1850,18 +1850,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 		return $r;
 	}
 
-	/**
-	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 * @used-by hcg_mc_cfg_scope()
-	 */
-	function isExtraEntry($config, $scope, $scopeId, $websiteId):bool {
-		return $this->isNotDefaultScope($config)
-			&& ($this->isIncorrectScope($config, $scope)
-				|| $this->isDifferentWebsite($config, $scope, $websiteId)
-				|| $this->isDifferentStoreView($config, $scope, $scopeId));
-	}
-
 	function updateSubscriberSyndData(
 		$itemId,
 		$syncDelta = null,
@@ -2645,13 +2633,11 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * @param $config
-	 * @return bool
+	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by HCG\MailChimp\Cfg::isExtraEntry() (https://github.com/thehcginstitute-com/m1/issues/641)
 	 */
-	protected function isNotDefaultScope($config)
-	{
-		return $config->getScopeId() != 0;
-	}
+	function isNotDefaultScope($config) {return $config->getScopeId() != 0;}
 
 	/**
 	 * @param $date
