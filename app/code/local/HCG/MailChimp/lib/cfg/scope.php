@@ -22,7 +22,6 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, $scope = 'stores'):array {
 				: [$scopeId, $websiteId = df_store($scopeId)->getWebsiteId(), 0]
 		]); /** @var CC $cc */
 	$r = []; /** @var array $r */
-	$h = hcg_mc_h(); /** @var H $h */
 	foreach ($cc as $c) { /** @var C $c */
 		// Discard possible extra website or store
 		if (hCfg::isExtraEntry($c, $scope, $scopeId, $websiteId)) {
