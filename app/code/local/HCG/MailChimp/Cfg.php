@@ -1,5 +1,6 @@
 <?php
 namespace HCG\MailChimp;
+use Ebizmarts_MailChimp_Model_Config as eC;
 use Mage_Adminhtml_Block_System_Config_Form as F;
 use Mage_Core_Model_Config_Data as C;
 # 2024-06-08
@@ -24,8 +25,9 @@ final class Cfg {
 
 	/**
 	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 * @used-by \Ebizmarts_MailChimp_Helper_Data::::getMailChimpScopeByStoreId()
+	 * Transfer the configuration code from `Ebizmarts_MailChimp_Helper_Data`
+	 * to a dedicated class (`HCG\MailChimp\Cfg`) and `hcg_mc_cfg_*` functions: https://github.com/thehcginstitute-com/m1/issues/641
+	 * @used-by self::scopeByStoreId()
 	 * @used-by \Ebizmarts_MailChimp_Helper_Data::getApiByMailChimpStoreId()
 	 * @used-by \HCG\MailChimp\Tags\ProcessMergeFields::_addSubscriberData()
 	 * @return ?array(string => string|int)
@@ -46,4 +48,13 @@ final class Cfg {
 		!($d = df_fetch_one('core_config_data', '*', ['path' => $p, 'value' => $v]))
 			? null : ['scope_id' => (int)dfa($d, 'scope_id'), 'scope' => dfa($d, 'scope')]
 	;}
+
+	/**
+	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * Transfer the configuration code from `Ebizmarts_MailChimp_Helper_Data`
+	 * to a dedicated class (`HCG\MailChimp\Cfg`) and `hcg_mc_cfg_*` functions: https://github.com/thehcginstitute-com/m1/issues/641
+	 * @used-by self::STUB()
+	 * @return ?array(string => string|int)
+	 */
+	static function scopeByStoreId(int $sid):?array {return self::scopeByPathV(eC::GENERAL_MCSTOREID, hcg_mc_sid($sid));}
 }

@@ -1401,14 +1401,6 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
-	 * @used-by self::STUB()
-	 * @return ?array(string => string|int)
-	 */
-	function getMailChimpScopeByStoreId(int $sid):?array {return hCfg::scopeByPathV(Cfg::GENERAL_MCSTOREID, hcg_mc_sid($sid));}
-
-	/**
 	 * Return default store id for the configured scope on MailChimp.
 	 *
 	 * @param  $magentoStoreId
