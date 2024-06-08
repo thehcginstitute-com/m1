@@ -1,5 +1,4 @@
 <?php
-use Ebizmarts_MailChimp_Helper_Data as H;
 use HCG\MailChimp\Cfg as hCfg;
 use Mage_Core_Model_Config_Data as C;
 use Mage_Core_Model_Resource_Config_Data_Collection as CC;
