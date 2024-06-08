@@ -1403,7 +1403,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * Get actual scope where the MailChimp store was created if exists.
 	 * @return array|null
 	 */
-	function getMailChimpScopeByStoreId(int $storeId) {return hCfg::firstScopeFromConfig(
+	function getMailChimpScopeByStoreId(int $storeId) {return hCfg::scopeByPathV(
 		Ebizmarts_MailChimp_Model_Config::GENERAL_MCSTOREID,
 		hcg_mc_sid($storeId)
 	);}
@@ -2633,7 +2633,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @throws Exception
 	 */
 	function getApiByMailChimpStoreId($mailchimpStoreId) {
-		$scopeArray = hCfg::firstScopeFromConfig(
+		$scopeArray = hCfg::scopeByPathV(
 			Ebizmarts_MailChimp_Model_Config::GENERAL_MCSTOREID,
 			$mailchimpStoreId
 		);
