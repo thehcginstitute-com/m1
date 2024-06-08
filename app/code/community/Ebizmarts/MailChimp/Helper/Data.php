@@ -1401,13 +1401,12 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * Get actual scope where the MailChimp store was created if exists.
-	 * @return array|null
+	 * 2024-06-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
+	 * @used-by self::STUB()
+	 * @return ?array(string => string|int)
 	 */
-	function getMailChimpScopeByStoreId(int $storeId) {return hCfg::scopeByPathV(
-		Cfg::GENERAL_MCSTOREID,
-		hcg_mc_sid($storeId)
-	);}
+	function getMailChimpScopeByStoreId(int $sid):?array {return hCfg::scopeByPathV(Cfg::GENERAL_MCSTOREID, hcg_mc_sid($sid));}
 
 	/**
 	 * Return default store id for the configured scope on MailChimp.
@@ -2634,12 +2633,8 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @throws Exception
 	 */
 	function getApiByMailChimpStoreId($mailchimpStoreId) {
-		$scopeArray = hCfg::scopeByPathV(
-			Cfg::GENERAL_MCSTOREID,
-			$mailchimpStoreId
-		);
 		try {
-			$api = $this->getApi($scopeArray['scope_id'], $scopeArray['scope']);
+			$api = $this->getApi(...hCfg::scopeByPathV(Cfg::GENERAL_MCSTOREID, $mailchimpStoreId));
 		}
 		catch (Ebizmarts_MailChimp_Helper_Data_ApiKeyException $e) {
 			# 2024-03-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
