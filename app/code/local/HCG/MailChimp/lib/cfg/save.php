@@ -1,4 +1,5 @@
 <?php
+use Mage_Adminhtml_Block_System_Config_Form as F;
 use Mage_Core_Model_Config as Cfg;
 /**
  * 2024-04-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
