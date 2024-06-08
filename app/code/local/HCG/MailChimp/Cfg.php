@@ -11,7 +11,7 @@ final class Cfg {
 	 * "Refactor the `Ebizmarts_MailChimp` module": https://github.com/thehcginstitute-com/m1/issues/524
 	 * @used-by self::::getMailChimpScopeByStoreId()
 	 * @used-by self::getApiByMailChimpStoreId()
-	 * @used-by HCG\MailChimp\Tags\ProcessMergeFields::_addSubscriberData()
+	 * @used-by \HCG\MailChimp\Tags\ProcessMergeFields::_addSubscriberData()
 	 */
 	static function firstScopeFromConfig(string $p, string $v):?array {
 		$r = null; /** @var ?array(string => mixed) $r */
