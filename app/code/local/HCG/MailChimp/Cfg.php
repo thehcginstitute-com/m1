@@ -13,7 +13,7 @@ final class Cfg {
 	 */
 	static function isExtraEntry(C $c, string $s, int $sid, int $websiteId):bool {
 		$h = hcg_mc_h();
-		return $h->isNotDefaultScope($c) && (
+		return $c->getScopeId() && (
 			$h->isIncorrectScope($c, $s) || $h->isDifferentWebsite($c, $s, $websiteId) || $h->isDifferentStoreView($c, $s, $sid)
 		);
 	}
