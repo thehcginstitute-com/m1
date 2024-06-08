@@ -13,11 +13,12 @@ final class Cfg {
 	 * @used-by hcg_mc_cfg_scope()
 	 */
 	static function isExtraEntry(C $c, string $s, int $sid, int $wid):bool {
+		$cS = $c->getScope(); /** @var string $cS */
 		$cSid = (int)$c->getScopeId(); /** @var int$cSid */
 		return $cSid && (
-			F::SCOPE_STORES === $c->getScope() && $s !== $c->getScope()
-			|| F::SCOPE_WEBSITES === $c->getScope() && F::SCOPE_STORES === $s && $wid !== $cSid
-			|| F::SCOPE_STORES === $c->getScope() && F::SCOPE_STORES === $s && $sid !== $cSid
+			F::SCOPE_STORES === $cS && $s !== $cS
+			|| F::SCOPE_WEBSITES === $cS && F::SCOPE_STORES === $s && $wid !== $cSid
+			|| F::SCOPE_STORES === $cS && F::SCOPE_STORES === $s && $sid !== $cSid
 		);
 	}
 }
