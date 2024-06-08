@@ -27,7 +27,7 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, string $scope = 'stores'):
 			continue;
 		}
 		switch ($c->getScope()) {
-			case 'stores':
+			case F::SCOPE_STORES:
 				$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
 				break;
 			case 'websites':
