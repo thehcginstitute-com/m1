@@ -30,7 +30,7 @@ function hcg_mc_cfg_scope(string $path, int $scopeId, string $scope = 'stores'):
 			case F::SCOPE_STORES:
 				$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
 				break;
-			case 'websites':
+			case F::SCOPE_WEBSITES:
 				if (!$r || $r['scope'] == 'default') {
 					$r = ['scope_id' => $c->getScopeId(), 'scope' => $c->getScope()];
 				}
