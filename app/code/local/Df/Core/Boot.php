@@ -37,6 +37,7 @@ class Boot {
 	 * Вероятно, часть этих вызовов уже избыточны,
 	 * потому что инициализация за последние годы развития Российской сборки Magento
 	 * стала более «умной»: @see self::resource_get_tablename()
+	 * @used-by self::controller_front_init_before()
 	 * @used-by self::resource_get_tablename()
 	 */
 	public static function run() {
