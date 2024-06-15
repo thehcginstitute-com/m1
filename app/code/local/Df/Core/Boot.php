@@ -115,10 +115,8 @@ class Boot {
 	 * при работе стороронних установочных скриптов
 	 * удовлетворительно решается методом @see Df_Core_Helper_DataM::useDbCompatibleMode()
 	 * @used-by self::resource_get_tablename()
-	 * @param string $t
-	 * @return bool
 	 */
-	private static function needInitNow($t) {return
+	private static function needInitNow(string $t):bool {return
 		'core_website' === $t || 'index_process' === $t && self::isCompilationFromCommandLine();
 	}
 
