@@ -27,12 +27,6 @@ class Boot {
 	}
 
 	/**
-	 * @used-by self::resource_get_tablename()
-	 * @return bool
-	 */
-	private static function done() {return self::$_done;}
-
-	/**
 	 * 2015-03-06
 	 * Вероятно, часть этих вызовов уже избыточны,
 	 * потому что инициализация за последние годы развития Российской сборки Magento
