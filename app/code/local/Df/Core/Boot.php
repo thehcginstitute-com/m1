@@ -63,7 +63,7 @@ class Boot {
 	}
 
 	/** 
-	 * @used-by self::needInitNow()
+	 * @used-by self::resource_get_tablename()
 	 * @return bool 
 	 */
 	private static function isCompilationFromCommandLine() {static $r; return $r ?: $r =
