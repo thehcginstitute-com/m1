@@ -1,5 +1,6 @@
 <?php
 namespace Df\Core;
+use Varien_Event_Observer as O;
 # # 2023-07-10 https://github.com/magento-russia/3/blob/2023-07-10/app/code/local/Df/Core/Boot.php
 class Boot {
 	/**
@@ -17,10 +18,8 @@ class Boot {
 
 	/**
 	 * @used-by Mage_Core_Model_App::_callObserverMethod()
-	 * @param \Varien_Event_Observer $observer
-	 * @return void
 	 */
-	function resource_get_tablename(\Varien_Event_Observer $observer) {
+	function resource_get_tablename(O $o) {
 		if (!self::$_done && self::needInitNow($observer['table_name'])) {
 			self::run();
 		}
