@@ -30,7 +30,7 @@ class Boot {
 	 * @used-by self::resource_get_tablename()
 	 * @return bool
 	 */
-	public static function done() {return self::$_done;}
+	static function done() {return self::$_done;}
 
 	/**
 	 * 2015-03-06
@@ -41,7 +41,7 @@ class Boot {
 	 * @used-by self::controller_front_init_before()
 	 * @used-by self::resource_get_tablename()
 	 */
-	public static function run() {
+	static function run() {
 		if (!self::$_done) {
 			self::init();
 			self::$_done = true;
