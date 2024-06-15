@@ -20,8 +20,17 @@ class Boot {
 	 * @used-by Mage_Core_Model_App::_callObserverMethod()
 	 */
 	function resource_get_tablename(O $o):void {
-		if (!self::$_done && self::needInitNow($o['table_name'])) {
-			self::run();
+		if (!self::$_done) {
+			$t = $o['table_name']; /** @var string $t; */
+			/**
+			 * 1) Мы бы рады инициализировать нашу библиотеку при загрузке таблицы «core_resource»,
+			 * однако в тот момент система оповещений о событиях ещё не работает, и мы сюда всё равно не попадём.
+			 * 2) Проблема инициализации Российской сборки Magento при работе стороронних установочных скриптов
+			 * удовлетворительно решается методом @see Df_Core_Helper_DataM::useDbCompatibleMode()
+			 */
+			if ('core_website' === $t || 'index_process' === $t && self::isCompilationFromCommandLine()) {
+				self::run();
+			}
 		}
 	}
 
@@ -93,19 +102,6 @@ class Boot {
 		# "Support the `lib` functions autoloading for the `HCG_*` modules":
 		# https://github.com/thehcginstitute-com/m1/issues/334
 		$iterate($p = dirname(dirname(dirname(__FILE__))) . '/HCG/', scandir($p));
-	}
-
-	/**
-	 * Мы бы рады инициализировать нашу библиотеку при загрузке таблицы «core_resource»,
-	 * однако в тот момент система оповещений о событиях ещё не работает,
-	 * и мы сюда всё равно не попадём.
-	 * Обратите внимание, что проблема инициализации Российской сборки Magento
-	 * при работе стороронних установочных скриптов
-	 * удовлетворительно решается методом @see Df_Core_Helper_DataM::useDbCompatibleMode()
-	 * @used-by self::resource_get_tablename()
-	 */
-	private static function needInitNow(string $t):bool {return
-		'core_website' === $t || 'index_process' === $t && self::isCompilationFromCommandLine();
 	}
 
 	/**
