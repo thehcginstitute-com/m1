@@ -78,8 +78,7 @@ class Boot {
 		# Today I have added the subdirectories support inside the `lib` folders,
 		# because some lib/*.php files became too big, and I want to split them.
 		$requireFiles = function(string $libDir) use(&$requireFiles):void {
-			# 2015-02-06
-			# array_slice removes «.» and «..».
+			# 2015-02-06 array_slice removes «.» and «..».
 			# https://php.net/manual/function.scandir.php#107215
 			foreach (array_slice(scandir($libDir), 2) as $c) {  /** @var string $resource */
 				is_dir($resource = "{$libDir}/{$c}") ? $requireFiles($resource) : require_once "{$libDir}/{$c}";
