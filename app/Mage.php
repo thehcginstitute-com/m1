@@ -985,12 +985,17 @@ final class Mage
 			!$e instanceof Zend_Http_Client_Adapter_Exception
 			|| !df_contains($e->getMessage(), 'Unable to Connect to ssl://www.mlx-store.com:443')
 		) {
-			# 2024-06-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# «Call to undefined function df_log() in app/Mage.php:990»: https://github.com/thehcginstitute-com/m1/issues/657
-			Df\Core\Boot::run();
-			# 2024-02-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			# "Log `var/report` reports to `var/log/mage2.pro`": https://github.com/thehcginstitute-com/m1/issues/429
-			df_log($e);
+			/**
+			 * 2024-06-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			 * 1) «Call to undefined function df_log() in app/Mage.php:990»: https://github.com/thehcginstitute-com/m1/issues/657
+			 * 2) @see Df\Core\Boot::run() is useless here, because if Magento is failed on so early stage,
+			 * then it is not properly initialized, and @see df_log() will not work anyway.
+			 */
+			if (function_exists('df_log')) {
+				# 2024-02-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Log `var/report` reports to `var/log/mage2.pro`": https://github.com/thehcginstitute-com/m1/issues/429
+				df_log($e);
+			}
 			if (self::$_isDeveloperMode) {
 				print '<pre>';
 
