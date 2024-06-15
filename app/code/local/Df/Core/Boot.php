@@ -19,8 +19,8 @@ class Boot {
 	/**
 	 * @used-by Mage_Core_Model_App::_callObserverMethod()
 	 */
-	function resource_get_tablename(O $o) {
-		if (!self::$_done && self::needInitNow($observer['table_name'])) {
+	function resource_get_tablename(O $o):void {
+		if (!self::$_done && self::needInitNow($o['table_name'])) {
 			self::run();
 		}
 	}
