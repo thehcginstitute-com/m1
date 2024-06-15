@@ -21,7 +21,7 @@ class Boot {
 	 * @return void
 	 */
 	function resource_get_tablename(\Varien_Event_Observer $observer) {
-		if (!self::done() && self::needInitNow($observer['table_name'])) {
+		if (!self::$_done && self::needInitNow($observer['table_name'])) {
 			self::run();
 		}
 	}
@@ -123,7 +123,7 @@ class Boot {
 	}
 
 	/**
-	 * @used-by self::done()
+	 * @used-by self::resource_get_tablename()
 	 * @used-by self::run()
 	 * @var bool
 	 */
