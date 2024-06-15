@@ -64,9 +64,8 @@ class Boot {
 
 	/** 
 	 * @used-by self::resource_get_tablename()
-	 * @return bool 
 	 */
-	private static function isCompilationFromCommandLine() {static $r; return $r ?: $r =
+	private static function isCompilationFromCommandLine():bool {static $r; return $r ?: $r =
 		# 2024-01-10 I removed `@` by analogy with https://github.com/thehcginstitute-com/m1/commit/6815ccd0
 		class_exists('Mage_Shell_Compiler', false)
 	;}
