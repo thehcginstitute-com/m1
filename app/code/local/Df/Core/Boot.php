@@ -30,7 +30,7 @@ class Boot {
 	 * @used-by self::resource_get_tablename()
 	 * @return bool
 	 */
-	static function done() {return self::$_done;}
+	private static function done() {return self::$_done;}
 
 	/**
 	 * 2015-03-06
