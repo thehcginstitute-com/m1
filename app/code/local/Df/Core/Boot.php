@@ -87,8 +87,7 @@ class Boot {
 		};
 		$iterate = function(string $base, array $mm) use($requireFiles):void  {
 			foreach ($mm as $m) {/** @var string $m */
-				# 2016-11-23
-				# It gets rid of the ['..', '.'] and the root files (non-directories).
+				# 2016-11-23 It gets rid of the ['..', '.'] and the root files (non-directories).
 				/** @var string $baseM */
 				if (ctype_upper($m[0]) && is_dir($baseM = $base . $m)) {
 					/** @var string $libDir */
