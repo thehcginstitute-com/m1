@@ -53,7 +53,12 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
         Mage::getSingleton('adminhtml/session')->addNotice($message);
     }
 
-    protected function editItems() {
+	/**
+	 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
+	 * @used-by self::updateOrderItems()
+	 */
+    private function editItems() {
         $orderId = isset($this->params['order_id']) ? $this->params['order_id'] : null;
 		/**
 		 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
