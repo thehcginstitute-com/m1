@@ -46,6 +46,39 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		return $this->needUpdateStock && Mage::helper('iwd_ordermanager')->isMultiInventoryEnable();
 	}
 
+	/**
+	 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 1) "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
+	 * 2) `$items` is an array like:
+	 *	{
+	 *		"23371": {
+	 *			"description": "",
+	 *			"discount_amount": "0.00",
+	 *			"discount_percent": "0.00",
+	 *			"fact_qty": "1",
+	 *			"hidden_tax_amount": "0.00",
+	 *			"original_price": "379.00",
+	 *			"price": "379.00",
+	 *			"price_incl_tax": "379.00",
+	 *			"product_id": "75",
+	 *			"product_options": "",
+	 *			"row_total": "379.00",
+	 *			"sku": "ULT10-Immune-Vit-C-10mL-ULT10-Immune-Vit-C-SQ-3x-10mL",
+	 *			"subtotal": "379.00",
+	 *			"subtotal_incl_tax": "379.00",
+	 *			"tax_amount": "0.00",
+	 *			"tax_percent": "0.00"
+	 *		},
+	 *		"23378": {
+	 *			"hidden_tax_amount": "0.00",
+	 *			"original_price": "249.00",
+	 *			"product_id": "161",
+	 *			"product_options": "",
+	 *			"remove": "1",
+	 *			"sku": "b-complex-injections-x-30mL-sq-syringes"
+	 *		}
+	 *	}
+	 */
 	function editItems($orderId, array $items)
 	{
 		/* event */
