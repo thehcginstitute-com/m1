@@ -37,21 +37,21 @@ class IWD_OrderManager_Adminhtml_Sales_OrderrController extends IWD_OrderManager
      * edit: edit ordered items
      */
     function editOrderedItemsAction() {
-        $result = ['status' => 1];
+        $r = ['status' => 1];
         Mage::dispatchEvent('iwd_ordermanager_update_order_before', ['order_id' => $this->getRequest()->getParam('order_id', 0)]);
         try {
             $params = $this->getRequest()->getParams();
             $m = Mage::getModel('iwd_ordermanager/order_items'); /** @var IWD_OrderManager_Model_Order_Items $m */
             $m->updateOrderItems($params);
             $needUpdateStock = $m->getNeedUpdateStock();
-            $result['form'] = $this->logicAfterEditOrderItems($needUpdateStock);
+            $r['form'] = $this->logicAfterEditOrderItems($needUpdateStock);
         }
 		catch (Exception $e) {
             IWD_OrderManager_Model_Logger::log($e->getMessage());
-            $result = ['status' => 0, 'error' => $e->getMessage()];
+            $r = ['status' => 0, 'error' => $e->getMessage()];
         }
         Mage::dispatchEvent('iwd_ordermanager_update_order_after', ['order_id' => $this->getRequest()->getParam('order_id', 0)]);
-        $this->prepareResponse($result);
+        $this->prepareResponse($r);
     }
 
     /**
