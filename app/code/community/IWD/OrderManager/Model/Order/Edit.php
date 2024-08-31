@@ -1,6 +1,7 @@
 <?php
 # 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
+use Mage_Sales_Model_Order as O;
 use Mage_Sales_Model_Order_Item as OI;
 class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 {
