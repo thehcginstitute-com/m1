@@ -1027,27 +1027,19 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 */
 	private function removeOrderItem(OI $oi) {
 		$product_type = $oi->getProductType();
-
-		/* return to stock */
 		$this->reduceProduct($oi, 0);
-
-		/* delete children items */
 		if ($product_type == Mage_Catalog_Model_Product_Type::TYPE_BUNDLE || $product_type == Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE) {
 			$children_items = $oi->getChildrenItems();
 			foreach ($children_items as $children_item) {
 				$this->deleteItem($children_item);
 			}
 		}
-
-		/* delete download items */
 		if ($product_type == Mage_Downloadable_Model_Product_Type::TYPE_DOWNLOADABLE) {
 			$collection = Mage::getModel('downloadable/link_purchased_item')->getCollection()->addFieldToFilter('order_item_id', $oi->getId());
 			foreach ($collection as $item) {
 				$item->delete();
 			}
 		}
-
-		/* delete shipping items */
 		$shipment_items = Mage::getModel('sales/order_shipment_item')->getCollection()
 			->addFieldToFilter('order_item_id', $oi->getItemId());
 		foreach ($shipment_items as $shipment_item) {
@@ -1056,17 +1048,12 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			$shipment->setTotalQty($qty)->save();
 			$shipment_item->delete();
 		}
-
-		/* delete creditmemo items */
 		$creditmemo_items = Mage::getModel('sales/order_creditmemo_item')->getCollection()
 			->addFieldToFilter('order_item_id', $oi->getItemId());
 		foreach ($creditmemo_items as $creditmemo_item) {
 			$creditmemo_item->delete();
 		}
-
-		/* delete from tax table */
 		$this->deleteItemFromOrderTaxItemTable($oi);
-
 		$this->deleteItem($oi);
 		$this->addToLogAboutDeleteOrderItem($oi);
 	}
