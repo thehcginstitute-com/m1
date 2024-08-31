@@ -434,112 +434,90 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 * "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
 	 * @used-by self::updateOrderItems()
 	 */
-	private function editOrderItem(OI $orderItem, $item):void {
+	private function editOrderItem(OI $i, array $item):void {
 		$logger = $this->getLogger();
-		$old_row_total = $orderItem->getRowTotal();
-		$old_base_row_total = $orderItem->getBaseRowTotal();
-		$old_tax_amount = $orderItem->getTaxAmount();
-		$old_tax_percent = $orderItem->getTaxPercent();
-		$old_base_tax_amount = $orderItem->getBaseTaxAmount();
-		$old_hidden_tax_amount = $orderItem->getHiddenTaxAmount();
-		$old_base_hidden_tax_amount = $orderItem->getBaseHiddenTaxAmount();
-		$old_discount_amount = $orderItem->getDiscountAmount();
-		$old_base_discount_amount = $orderItem->getBaseDiscountAmount();
-
+		$old_row_total = $i->getRowTotal();
+		$old_base_row_total = $i->getBaseRowTotal();
+		$old_tax_amount = $i->getTaxAmount();
+		$old_tax_percent = $i->getTaxPercent();
+		$old_base_tax_amount = $i->getBaseTaxAmount();
+		$old_hidden_tax_amount = $i->getHiddenTaxAmount();
+		$old_base_hidden_tax_amount = $i->getBaseHiddenTaxAmount();
+		$old_discount_amount = $i->getDiscountAmount();
+		$old_base_discount_amount = $i->getBaseDiscountAmount();
 		if (isset($item['attribute_value'])) {
 			foreach ($item['attribute_value'] as $key => $val) {
-				$options = $this->updateItemAttribute($orderItem, $key, $val, 'value');
-				$orderItem->setProductOptions($options);
+				$options = $this->updateItemAttribute($i, $key, $val, 'value');
+				$i->setProductOptions($options);
 			}
 		}
-
 		if (isset($item['attribute_label'])) {
 			foreach ($item['attribute_label'] as $key => $val) {
-				$options = $this->updateItemAttribute($orderItem, $key, $val, 'label');
-				$orderItem->setProductOptions($options);
+				$options = $this->updateItemAttribute($i, $key, $val, 'label');
+				$i->setProductOptions($options);
 			}
 		}
-
 		if (isset($item['option_value'])) {
 			foreach ($item['option_value'] as $key => $val) {
-				$options = $this->updateItemOptions($orderItem, $key, $val, 'value');
-				$orderItem->setProductOptions($options);
+				$options = $this->updateItemOptions($i, $key, $val, 'value');
+				$i->setProductOptions($options);
 			}
 		}
-
 		if (isset($item['option_label'])) {
 			foreach ($item['option_label'] as $key => $val) {
-				$options = $this->updateItemOptions($orderItem, $key, $val, 'label');
-				$orderItem->setProductOptions($options);
+				$options = $this->updateItemOptions($i, $key, $val, 'label');
+				$i->setProductOptions($options);
 			}
 		}
-
 		if (isset($item['bundle_option_label'])) {
-			$options = $orderItem->getProductOptions();
+			$options = $i->getProductOptions();
 			$bundleSelectionAttributes = $options['bundle_selection_attributes'];
 			$bundleSelectionAttributes = is_array($bundleSelectionAttributes) ? $bundleSelectionAttributes : unserialize($bundleSelectionAttributes);
 			if (isset($bundleSelectionAttributes['option_label'])) {
-				$this->getLogger()->addOrderItemEdit($orderItem, 'Bundle Option Label', $bundleSelectionAttributes['option_label'], $item['bundle_option_label']);
+				$this->getLogger()->addOrderItemEdit($i, 'Bundle Option Label', $bundleSelectionAttributes['option_label'], $item['bundle_option_label']);
 				$bundleSelectionAttributes['option_label'] = $item['bundle_option_label'];
 				$bundleSelectionAttributes = serialize($bundleSelectionAttributes);
 				$options['bundle_selection_attributes'] = $bundleSelectionAttributes;
-				$orderItem->setProductOptions($options);
+				$i->setProductOptions($options);
 			}
 		}
-
-		// product_name
 		if (isset($item['product_name'])) {
-			$logger->addOrderItemEdit($orderItem, 'Product Name', $orderItem->getName(), $item['product_name']);
-			$orderItem->setName($item['product_name']);
+			$logger->addOrderItemEdit($i, 'Product Name', $i->getName(), $item['product_name']);
+			$i->setName($item['product_name']);
 		}
-
-		// description
 		if (isset($item['description'])) {
-			$logger->addOrderItemEdit($orderItem, 'Description', $orderItem->getDescription(), $item['description']);
-			$orderItem->setDescription($item['description']);
+			$logger->addOrderItemEdit($i, 'Description', $i->getDescription(), $item['description']);
+			$i->setDescription($item['description']);
 		}
-
 		if (!$this->checkItemData($item)) {
 			Mage::getSingleton('adminhtml/session')->addError(
-				Mage::helper('iwd_ordermanager')->__("Enter the correct data for product with sku [{$orderItem->getSku()}]")
+				Mage::helper('iwd_ordermanager')->__("Enter the correct data for product with sku [{$i->getSku()}]")
 			);
 			return;
 		}
-
-		// qty ordered
-		$old_qty_ordered = $orderItem->getQtyOrdered() - $orderItem->getQtyRefunded();
+		$old_qty_ordered = $i->getQtyOrdered() - $i->getQtyRefunded();
 		$fact_qty = isset($item['fact_qty']) ? $item['fact_qty'] : $old_qty_ordered;
-
-		$this->updateQty($orderItem, $fact_qty);
-		$logger->addOrderItemEdit($orderItem, 'Qty', number_format($old_qty_ordered, 2), number_format($fact_qty, 2));
-
-		$this->updateAmounts($orderItem, $item);
-
-		// product options
-		$this->updateProductOptions($orderItem, $item);
-
-		// support_date
-		$this->updateSupportDate($orderItem, $item);
-
-		$orderItem->save();
-		$this->updateOrderTaxItemTable($orderItem, $old_tax_amount, $old_base_tax_amount, $old_tax_percent);
-
-		$new_row_total = $this->getOrderItemRowTotal($orderItem);
-
+		$this->updateQty($i, $fact_qty);
+		$logger->addOrderItemEdit($i, 'Qty', number_format($old_qty_ordered, 2), number_format($fact_qty, 2));
+		$this->updateAmounts($i, $item);
+		$this->updateProductOptions($i, $item);
+		$this->updateSupportDate($i, $item);
+		$i->save();
+		$this->updateOrderTaxItemTable($i, $old_tax_amount, $old_base_tax_amount, $old_tax_percent);
+		$new_row_total = $this->getOrderItemRowTotal($i);
 		if (abs($old_row_total - $new_row_total) >= $this->delta) {
-			$this->editItems[$orderItem->getId()] = array(
-				'row_total' => $old_row_total - $orderItem->getRowTotal(),
-				'base_row_total' => $old_base_row_total - $orderItem->getBaseRowTotal(),
-				'tax_refunded' => $old_tax_amount - $orderItem->getTaxAmount(),
-				'base_tax_amount' => $old_base_tax_amount - $orderItem->getBaseTaxAmount(),
-				'hidden_tax_amount' => $old_hidden_tax_amount - $orderItem->getHiddenTaxAmount(),
-				'base_hidden_tax_amount' => $old_base_hidden_tax_amount - $orderItem->getBaseHiddenTaxAmount(),
-				'discount_amount' => $old_discount_amount - $orderItem->getDiscountAmount(),
-				'base_discount_amount' => $old_base_discount_amount - $orderItem->getBaseDiscountAmount()
+			$this->editItems[$i->getId()] = array(
+				'row_total' => $old_row_total - $i->getRowTotal(),
+				'base_row_total' => $old_base_row_total - $i->getBaseRowTotal(),
+				'tax_refunded' => $old_tax_amount - $i->getTaxAmount(),
+				'base_tax_amount' => $old_base_tax_amount - $i->getBaseTaxAmount(),
+				'hidden_tax_amount' => $old_hidden_tax_amount - $i->getHiddenTaxAmount(),
+				'base_hidden_tax_amount' => $old_base_hidden_tax_amount - $i->getBaseHiddenTaxAmount(),
+				'discount_amount' => $old_discount_amount - $i->getDiscountAmount(),
+				'base_discount_amount' => $old_base_discount_amount - $i->getBaseDiscountAmount()
 			);
 		}
-
-		Mage::dispatchEvent('iwd_sales_order_item_updated', array('order_item' => $orderItem));
+		Mage::dispatchEvent('iwd_sales_order_item_updated', ['order_item' => $i]);
 	}
 
 	protected function updateItemAttribute($orderItem, $key, $val, $attributeKey)
