@@ -17,22 +17,19 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
 	/**
 	 * @return bool
 	 */
-	function isReferred()
-	{
+	function isReferred() {
 		$order = $this->getCurrentOrder();
 		$ret = false;
 		if ($order->getMailchimpAbandonedcartFlag() || $order->getMailchimpCampaignId()) {
 			$ret = true;
 		}
-
 		return $ret;
 	}
 
 	/**
 	 * @return string
 	 */
-	function getCampaignId()
-	{
+	function getCampaignId() {
 		$order = $this->getCurrentOrder();
 		return $order->getMailchimpCampaignId();
 	}
@@ -40,8 +37,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
 	/**
 	 * @return string
 	 */
-	function getCampaignName()
-	{
+	function getCampaignName() {
 		if (!$this->_campaignName) {
 			$campaignId = $this->getCampaignId();
 			$order = $this->getCurrentOrder();
@@ -52,7 +48,6 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
 				$this->_campaignName = $helper->getMailChimpCampaignNameById($campaignId, $storeId);
 			}
 		}
-
 		return $this->_campaignName;
 	}
 
@@ -60,10 +55,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
 	 * @param $data
 	 * @return string
 	 */
-	function escapeQuote($data)
-	{
-		return $this->getMailChimpHelper()->mcEscapeQuote($data);
-	}
+	function escapeQuote($data) {return $this->getMailChimpHelper()->mcEscapeQuote($data);}
 
 	/**
 	 * @return Ebizmarts_MailChimp_Helper_Data
@@ -73,12 +65,10 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
 	/**
 	 * @return Mage_Sales_Model_Order
 	 */
-	protected function getCurrentOrder()
-	{
+	protected function getCurrentOrder() {
 		if (!$this->_order) {
 			$this->_order = Mage::registry('current_order');
 		}
-
 		return $this->_order;
 	}
 
@@ -87,8 +77,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
 	 *
 	 * @return bool
 	 */
-	function isDataAvailable()
-	{
+	function isDataAvailable() {
 		$dataAvailable = false;
 		$campaignName = $this->getCampaignName();
 
@@ -103,8 +92,7 @@ class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends M
 	 * @return string
 	 * @throws Mage_Core_Model_Store_Exception
 	 */
-	function getStoreCodeFromOrder()
-	{
+	function getStoreCodeFromOrder() {
 		$helper = $this->getMailChimpHelper();
 		$order = $this->getCurrentOrder();
 		$storeId = $order->getStoreId();
