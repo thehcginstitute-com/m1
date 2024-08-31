@@ -60,10 +60,7 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
 	 */
     private function editItems() {
         $orderId = isset($this->params['order_id']) ? $this->params['order_id'] : null;
-        /**
-         * @var $orderEdit IWD_OrderManager_Model_Order_Edit
-         */
-        $orderEdit = Mage::getModel('iwd_ordermanager/order_edit');
+        $orderEdit = Mage::getModel('iwd_ordermanager/order_edit');  /** @var IWD_OrderManager_Model_Order_Edit $orderEdit */
 		/**
 		 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		 * 1) "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
