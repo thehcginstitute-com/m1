@@ -419,12 +419,13 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			$i = $order->getItemById($id); /** @var OI $i */
 			if (dfa($d, 'remove')) {
 				$this->removeOrderItem($i);
-				continue;
 			}
-			if ($qi = dfa($d, 'quote_item')) {
-				$i = $this->addNewOrderItem($qi, $order);
+			else {
+				if ($qi = dfa($d, 'quote_item')) {
+					$i = $this->addNewOrderItem($qi, $order);
+				}
+				$this->editOrderItem($i, $d);
 			}
-			$this->editOrderItem($i, $d);
 		}
 	}
 
