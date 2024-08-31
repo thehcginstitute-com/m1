@@ -508,7 +508,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		$this->updateOrderTaxItemTable($i, $old_tax_amount, $old_base_tax_amount, $old_tax_percent);
 		$new_row_total = $this->getOrderItemRowTotal($i);
 		if (abs($old_row_total - $new_row_total) >= $this->delta) {
-			$this->editItems[$i->getId()] = array(
+			$this->editItems[$i->getId()] = [
 				'row_total' => $old_row_total - $i->getRowTotal(),
 				'base_row_total' => $old_base_row_total - $i->getBaseRowTotal(),
 				'tax_refunded' => $old_tax_amount - $i->getTaxAmount(),
@@ -517,7 +517,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 				'base_hidden_tax_amount' => $old_base_hidden_tax_amount - $i->getBaseHiddenTaxAmount(),
 				'discount_amount' => $old_discount_amount - $i->getDiscountAmount(),
 				'base_discount_amount' => $old_base_discount_amount - $i->getBaseDiscountAmount()
-			);
+			];
 		}
 		Mage::dispatchEvent('iwd_sales_order_item_updated', ['order_item' => $i]);
 	}
