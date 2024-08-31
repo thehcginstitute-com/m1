@@ -81,7 +81,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 * @used-by self::execEditOrderItems()
 	 * @used-by IWD_OrderManager_Model_Order_Items::editItems()
 	 */
-	function editItems(int $orderId, array $items) {
+	function editItems(int $orderId, array $items):int {
 		$order = $this->loadOrder($orderId);
 		$oldOrder = clone $order;
 		Mage::dispatchEvent('iwd_ordermanager_sales_order_edit_before', array('order' => $order, 'order_items' => $order->getItemsCollection()));
