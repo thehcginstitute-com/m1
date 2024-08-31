@@ -85,14 +85,12 @@ class Ebizmarts_MailChimp_Model_Observer {
 
 	/**
 	 * Handle save of System -> Configuration, section <mailchimp>
-	 *
-	 * @param   Varien_Event_Observer $observer
 	 * @return  Varien_Event_Observer
 	 * @throws  Mage_Core_Exception
 	 */
-	function saveConfigBefore(Varien_Event_Observer $observer)
+	function saveConfigBefore(Ob $ob)
 	{
-		$config = $observer->getObject();
+		$config = $ob->getObject();
 
 		if ($config->getSection() == "mailchimp") {
 			$configData = $config->getData();
@@ -148,7 +146,7 @@ class Ebizmarts_MailChimp_Model_Observer {
 			}
 		}
 
-		return $observer;
+		return $ob;
 	}
 
 	/**
