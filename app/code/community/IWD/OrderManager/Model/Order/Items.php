@@ -9,7 +9,8 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
         $this->init($params);
         if (isset($params['confirm_edit']) && !empty($params['confirm_edit'])) {
             $this->addChangesToConfirm();
-        } else {
+        }
+		else {
             $status = $this->editItems();
             $this->addChangesToLog();
             if ($status == 1) {
