@@ -445,63 +445,65 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		$old_base_hidden_tax_amount = $i->getBaseHiddenTaxAmount();
 		$old_discount_amount = $i->getDiscountAmount();
 		$old_base_discount_amount = $i->getBaseDiscountAmount();
-		if (isset($item['attribute_value'])) {
-			foreach ($item['attribute_value'] as $key => $val) {
+		if (isset($d['attribute_value'])) {
+			foreach ($d['attribute_value'] as $key => $val) {
 				$options = $this->updateItemAttribute($i, $key, $val, 'value');
 				$i->setProductOptions($options);
 			}
 		}
-		if (isset($item['attribute_label'])) {
-			foreach ($item['attribute_label'] as $key => $val) {
+		if (isset($d['attribute_label'])) {
+			foreach ($d['attribute_label'] as $key => $val) {
 				$options = $this->updateItemAttribute($i, $key, $val, 'label');
 				$i->setProductOptions($options);
 			}
 		}
-		if (isset($item['option_value'])) {
-			foreach ($item['option_value'] as $key => $val) {
+		if (isset($d['option_value'])) {
+			foreach ($d['option_value'] as $key => $val) {
 				$options = $this->updateItemOptions($i, $key, $val, 'value');
 				$i->setProductOptions($options);
 			}
 		}
-		if (isset($item['option_label'])) {
-			foreach ($item['option_label'] as $key => $val) {
+		if (isset($d['option_label'])) {
+			foreach ($d['option_label'] as $key => $val) {
 				$options = $this->updateItemOptions($i, $key, $val, 'label');
 				$i->setProductOptions($options);
 			}
 		}
-		if (isset($item['bundle_option_label'])) {
+		if (isset($d['bundle_option_label'])) {
 			$options = $i->getProductOptions();
 			$bundleSelectionAttributes = $options['bundle_selection_attributes'];
 			$bundleSelectionAttributes = is_array($bundleSelectionAttributes) ? $bundleSelectionAttributes : unserialize($bundleSelectionAttributes);
 			if (isset($bundleSelectionAttributes['option_label'])) {
-				$this->getLogger()->addOrderItemEdit($i, 'Bundle Option Label', $bundleSelectionAttributes['option_label'], $item['bundle_option_label']);
-				$bundleSelectionAttributes['option_label'] = $item['bundle_option_label'];
+				$this->getLogger()->addOrderItemEdit(
+					$i, 'Bundle Option Label', $bundleSelectionAttributes['option_label'], $d['bundle_option_label']
+				);
+				$bundleSelectionAttributes['option_label'] = $d['bundle_option_label'];
 				$bundleSelectionAttributes = serialize($bundleSelectionAttributes);
 				$options['bundle_selection_attributes'] = $bundleSelectionAttributes;
 				$i->setProductOptions($options);
 			}
 		}
-		if (isset($item['product_name'])) {
-			$logger->addOrderItemEdit($i, 'Product Name', $i->getName(), $item['product_name']);
-			$i->setName($item['product_name']);
+		if (isset($d['product_name'])) {
+			$logger->addOrderItemEdit($i, 'Product Name', $i->getName(), $d['product_name']);
+			$i->setName($d['product_name']);
 		}
-		if (isset($item['description'])) {
-			$logger->addOrderItemEdit($i, 'Description', $i->getDescription(), $item['description']);
-			$i->setDescription($item['description']);
+		if (isset($d['description'])) {
+			$logger->addOrderItemEdit($i, 'Description', $i->getDescription(), $d['description']);
+			$i->setDescription($d['description']);
 		}
-		if (!$this->checkItemData($item)) {
+		if (!$this->checkItemData($d)) {
 			Mage::getSingleton('adminhtml/session')->addError(
 				Mage::helper('iwd_ordermanager')->__("Enter the correct data for product with sku [{$i->getSku()}]")
 			);
 			return;
 		}
 		$old_qty_ordered = $i->getQtyOrdered() - $i->getQtyRefunded();
-		$fact_qty = isset($item['fact_qty']) ? $item['fact_qty'] : $old_qty_ordered;
+		$fact_qty = isset($d['fact_qty']) ? $d['fact_qty'] : $old_qty_ordered;
 		$this->updateQty($i, $fact_qty);
 		$logger->addOrderItemEdit($i, 'Qty', number_format($old_qty_ordered, 2), number_format($fact_qty, 2));
-		$this->updateAmounts($i, $item);
-		$this->updateProductOptions($i, $item);
-		$this->updateSupportDate($i, $item);
+		$this->updateAmounts($i, $d);
+		$this->updateProductOptions($i, $d);
+		$this->updateSupportDate($i, $d);
 		$i->save();
 		$this->updateOrderTaxItemTable($i, $old_tax_amount, $old_base_tax_amount, $old_tax_percent);
 		$new_row_total = $this->getOrderItemRowTotal($i);
