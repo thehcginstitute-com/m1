@@ -50,7 +50,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	/**
 	 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * 1) "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
-	 * 2) `$items` is an array like:
+	 * 2) `$ii` is an array like:
 	 *	{
 	 *		"23371": {
 	 *			"description": "",
@@ -82,7 +82,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 * @used-by self::execEditOrderItems()
 	 * @used-by IWD_OrderManager_Model_Order_Items::editItems()
 	 */
-	function editItems(int $oid, array $items):bool {
+	function editItems(int $oid, array $ii):bool {
 		$o = $this->loadOrder($oid); /** @var O $o */
 		$oldOrder = clone $o;
 		Mage::dispatchEvent('iwd_ordermanager_sales_order_edit_before', [
@@ -95,7 +95,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			);
 		}
 		else {
-			$this->updateOrderItems($o, $items);
+			$this->updateOrderItems($o, $ii);
 			$this->collectOrderTotals($oid);
 			$o = $this->loadOrder($oid);
 			if ($this->isRecalculateShipping() && $o->canShip()) {
