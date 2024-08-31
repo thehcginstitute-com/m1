@@ -37,7 +37,7 @@ class IWD_OrderManager_Adminhtml_Sales_OrderrController extends IWD_OrderManager
      * edit: edit ordered items
      */
     function editOrderedItemsAction() {
-        $result = array('status' => 1);
+        $result = ['status' => 1];
         Mage::dispatchEvent('iwd_ordermanager_update_order_before', ['order_id' => $this->getRequest()->getParam('order_id', 0)]);
         try {
             $params = $this->getRequest()->getParams();
