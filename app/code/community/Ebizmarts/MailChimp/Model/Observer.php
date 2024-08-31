@@ -529,21 +529,16 @@ class Ebizmarts_MailChimp_Model_Observer {
 
 	/**
 	 * Add section in order view with MailChimp campaign data if available.
-	 *
 	 * @param  Varien_Event_Observer $observer
 	 * @return Varien_Event_Observer
 	 */
-	function addOrderViewMonkey(Varien_Event_Observer $observer)
-	{
+	function addOrderViewMonkey(Varien_Event_Observer $observer) {
 		$block = $observer->getBlock();
-		if (($block->getNameInLayout() == 'order_info')
-			&& ($child = $block->getChild('mailchimp.order.info.monkey.block'))
-		) {
+		if (($block->getNameInLayout() == 'order_info') && ($child = $block->getChild('mailchimp.order.info.monkey.block'))) {
 			$order = $block->getOrder();
 			$storeId = $order->getStoreId();
 			$helper = $this->makeHelper();
 			$ecommEnabled = $helper->isEcomSyncDataEnabled($storeId);
-
 			if ($ecommEnabled) {
 				$transport = $observer->getTransport();
 				if ($transport) {
@@ -553,7 +548,6 @@ class Ebizmarts_MailChimp_Model_Observer {
 				}
 			}
 		}
-
 		return $observer;
 	}
 
