@@ -114,8 +114,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		return 1;
 	}
 
-	function execEditOrderItems($orderId, $params)
-	{
+	function execEditOrderItems($orderId, $params) {
 		$notify = isset($params['notify']) ? $params['notify'] : null;
 		/**
 		 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
