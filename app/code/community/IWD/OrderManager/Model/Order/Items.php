@@ -5,7 +5,7 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
     protected $params;
     protected $needUpdateStock = false;
 
-    function updateOrderItems($params) {
+    function updateOrderItems(array $params):void {
         $this->init($params);
         if (isset($params['confirm_edit']) && !empty($params['confirm_edit'])) {
             $this->addChangesToConfirm();
