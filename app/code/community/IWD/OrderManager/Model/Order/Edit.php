@@ -278,7 +278,12 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		return Mage::helper('directory')->currencyConvert($price, $this->baseCurrencyCode, $this->orderCurrencyCode);
 	}
 
-	protected function updateOrderItems($items, $orderId)
+	/**
+	 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
+	 * @used-by self::editItems()
+	 */
+	private function updateOrderItems($items, $orderId)
 	{
 		$order = $this->loadOrder($orderId);
 
