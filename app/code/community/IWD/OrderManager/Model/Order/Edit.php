@@ -434,11 +434,8 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 * "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
 	 * @used-by self::updateOrderItems()
 	 */
-	private function editOrderItem(OI $orderItem, $item)
-	{
+	private function editOrderItem(OI $orderItem, $item):void {
 		$logger = $this->getLogger();
-
-		// old order item values
 		$old_row_total = $orderItem->getRowTotal();
 		$old_base_row_total = $orderItem->getBaseRowTotal();
 		$old_tax_amount = $orderItem->getTaxAmount();
