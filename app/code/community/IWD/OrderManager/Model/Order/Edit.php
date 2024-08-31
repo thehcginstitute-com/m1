@@ -416,7 +416,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			 *	}
 			 * @var array $d
 			 */
-			$i = $order->getItemById($id); /** @var OI $i */
+			$i = $order->getItemById($id); /** @var ?OI $i */
 			if (dfa($d, 'remove')) {
 				$this->removeOrderItem($i);
 			}
