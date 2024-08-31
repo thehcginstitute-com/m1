@@ -81,7 +81,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 * @used-by self::execEditOrderItems()
 	 * @used-by IWD_OrderManager_Model_Order_Items::editItems()
 	 */
-	function editItems(int $oid, array $items):bool {
+	function editItems(int $oid, array $items):bool {/** @var bool $r */
 		$order = $this->loadOrder($oid);
 		$oldOrder = clone $order;
 		Mage::dispatchEvent('iwd_ordermanager_sales_order_edit_before', [
@@ -91,21 +91,24 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			Mage::getSingleton('adminhtml/session')->addError(
 				"Sorry... You can't edit order with current status. Check configuration: IWD >> Order Manager >> Edit Order"
 			);
-			return false;
+			$r = false;
 		}
-		$this->updateOrderItems($items, $oid);
-		$this->collectOrderTotals($oid);
-		$order = $this->loadOrder($oid);
-		if ($this->isRecalculateShipping() && $order->canShip()) {
-			Mage::getModel('iwd_ordermanager/shipping')->recollectShippingAmount($oid);
+		else {
+			$this->updateOrderItems($items, $oid);
+			$this->collectOrderTotals($oid);
+			$order = $this->loadOrder($oid);
+			if ($this->isRecalculateShipping() && $order->canShip()) {
+				Mage::getModel('iwd_ordermanager/shipping')->recollectShippingAmount($oid);
+			}
+			$this->collectOrderTotals($oid);
+			$this->updateOrderPayment($oid, $oldOrder);
+			$order = $this->loadOrder($oid);
+			Mage::dispatchEvent('iwd_ordermanager_sales_order_edit_after', [
+				'order' => $order, 'order_items' => $order->getItemsCollection()
+			]);
+			$r = true;
 		}
-		$this->collectOrderTotals($oid);
-		$this->updateOrderPayment($oid, $oldOrder);
-		$order = $this->loadOrder($oid);
-		Mage::dispatchEvent('iwd_ordermanager_sales_order_edit_after', [
-			'order' => $order, 'order_items' => $order->getItemsCollection()
-		]);
-		return true;
+		return $r;
 	}
 
 	function execEditOrderItems($orderId, $params) {
