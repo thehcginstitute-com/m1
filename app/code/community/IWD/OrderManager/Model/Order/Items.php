@@ -60,10 +60,14 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
 	 */
     private function editItems() {
         $orderId = isset($this->params['order_id']) ? $this->params['order_id'] : null;
+        /**
+         * @var $orderEdit IWD_OrderManager_Model_Order_Edit
+         */
+        $orderEdit = Mage::getModel('iwd_ordermanager/order_edit');
 		/**
 		 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		 * 1) "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
-		 * 2) `$items` is an array like:
+		 * 2) `dfa($this->params, 'items')` is an array like:
 		 *	{
 		 *		"23371": {
 		 *			"description": "",
@@ -93,12 +97,7 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
 		 *		}
 		 *	}
 		 */
-		$items = isset($this->params['items']) ? $this->params['items'] : null;
-        /**
-         * @var $orderEdit IWD_OrderManager_Model_Order_Edit
-         */
-        $orderEdit = Mage::getModel('iwd_ordermanager/order_edit');
-        $status = $orderEdit->editItems($orderId, $items);
+		$status = $orderEdit->editItems($orderId, dfa($this->params, 'items'));
         $this->needUpdateStock = $orderEdit->getNeedUpdateStock();
         $this->updateCoupon();
         return $status;
