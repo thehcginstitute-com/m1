@@ -81,17 +81,17 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 * @used-by self::execEditOrderItems()
 	 * @used-by IWD_OrderManager_Model_Order_Items::editItems()
 	 */
-	function editItems(int $oid, array $items):bool {/** @var bool $r */
+	function editItems(int $oid, array $items):bool {
 		$order = $this->loadOrder($oid);
 		$oldOrder = clone $order;
 		Mage::dispatchEvent('iwd_ordermanager_sales_order_edit_before', [
 			'order' => $order, 'order_items' => $order->getItemsCollection()
 		]);
-		if (!$this->checkOrderStatusForUpdate($order)) {
+		/** @var bool $r */
+		if (!($r = $this->checkOrderStatusForUpdate($order))) {
 			Mage::getSingleton('adminhtml/session')->addError(
 				"Sorry... You can't edit order with current status. Check configuration: IWD >> Order Manager >> Edit Order"
 			);
-			$r = false;
 		}
 		else {
 			$this->updateOrderItems($items, $oid);
@@ -106,7 +106,6 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			Mage::dispatchEvent('iwd_ordermanager_sales_order_edit_after', [
 				'order' => $order, 'order_items' => $order->getItemsCollection()
 			]);
-			$r = true;
 		}
 		return $r;
 	}
