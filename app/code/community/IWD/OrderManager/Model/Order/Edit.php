@@ -378,7 +378,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		$this->deleteOrderShippingTax($order);
 		$this->baseCurrencyCode = $order->getBaseCurrencyCode();
 		$this->orderCurrencyCode = $order->getOrderCurrencyCode();
-		$this->editItems = array();
+		$this->editItems = [];
 		$this->addedItems = false;
 		foreach ($items as $id => $item) {
 			$orderItem = $order->getItemById($id);
