@@ -81,7 +81,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 * @used-by self::execEditOrderItems()
 	 * @used-by IWD_OrderManager_Model_Order_Items::editItems()
 	 */
-	function editItems($orderId, array $items)
+	function editItems(int $orderId, array $items)
 	{
 		/* event */
 		$order = $this->loadOrder($orderId);
