@@ -353,7 +353,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	/**
 	 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * 1) "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
-	 * 2) `$items` is an array like:
+	 * 2) `$ii` is an array like:
 	 *	{
 	 *		"23371": {
 	 *			"description": "",
@@ -384,13 +384,13 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 *	}
 	 * @used-by self::editItems()
 	 */
-	private function updateOrderItems(O $o, array $items) {
+	private function updateOrderItems(O $o, array $ii) {
 		$this->deleteOrderShippingTax($o);
 		$this->baseCurrencyCode = $o->getBaseCurrencyCode();
 		$this->orderCurrencyCode = $o->getOrderCurrencyCode();
 		$this->editItems = [];
 		$this->addedItems = false;
-		foreach ($items as $id => $d) {/** @var int $id */
+		foreach ($ii as $id => $d) {/** @var int $id */
 			/**
 			 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			 * 1) "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
