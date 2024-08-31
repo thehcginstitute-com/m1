@@ -380,11 +380,11 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		$this->orderCurrencyCode = $order->getOrderCurrencyCode();
 		$this->editItems = [];
 		$this->addedItems = false;
-		foreach ($items as $id => $item) {/** @var int $id */
+		foreach ($items as $id => $d) {/** @var int $id */
 			/**
 			 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			 * 1) "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
-			 * 2) `$item` is an array like:
+			 * 2) `$d` is an array like:
 			 * 2.1)
 			 *		{
 			 *			"description": "",
@@ -414,17 +414,17 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			 *			"sku": "b-complex-injections-x-30mL-sq-syringes"
 			 *		}
 			 *	}
-			 * @var array $item
+			 * @var array $d
 			 */
 			$i = $order->getItemById($id); /** @var OI $i */
-			if (isset($item['remove']) && $item['remove'] == 1) {
+			if (isset($d['remove']) && $d['remove'] == 1) {
 				$this->removeOrderItem($i);
 				continue;
 			}
-			if (isset($item['quote_item'])) {
-				$i = $this->addNewOrderItem($item['quote_item'], $order);
+			if (isset($d['quote_item'])) {
+				$i = $this->addNewOrderItem($d['quote_item'], $order);
 			}
-			$this->editOrderItem($i, $item);
+			$this->editOrderItem($i, $d);
 		}
 	}
 
