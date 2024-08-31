@@ -44,21 +44,15 @@ class IWD_OrderManager_Adminhtml_Sales_OrderrController extends IWD_OrderManager
         );
         try {
             $params = $this->getRequest()->getParams();
-            $orderItems = Mage::getModel('iwd_ordermanager/order_items'); /** @var IWD_OrderManager_Model_Order_Items $orderItems */
-            $orderItems->updateOrderItems($params);
-
-            $needUpdateStock = $orderItems->getNeedUpdateStock();
+            $m = Mage::getModel('iwd_ordermanager/order_items'); /** @var IWD_OrderManager_Model_Order_Items $m */
+            $m->updateOrderItems($params);
+            $needUpdateStock = $m->getNeedUpdateStock();
             $result['form'] = $this->logicAfterEditOrderItems($needUpdateStock);
         } catch (Exception $e) {
             IWD_OrderManager_Model_Logger::log($e->getMessage());
             $result = array('status' => 0, 'error' => $e->getMessage());
         }
-
-        Mage::dispatchEvent(
-            'iwd_ordermanager_update_order_after',
-            array('order_id' => $this->getRequest()->getParam('order_id', 0))
-        );
-
+        Mage::dispatchEvent('iwd_ordermanager_update_order_after', ['order_id' => $this->getRequest()->getParam('order_id', 0)]);
         $this->prepareResponse($result);
     }
 
