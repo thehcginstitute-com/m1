@@ -3,9 +3,7 @@
 # 1) "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
 # 2) "Improve the «Yaay! Recovered by Mailchimp's campaign» block of the backend order screen":
 # https://github.com/thehcginstitute-com/m1/issues/668
-class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends Mage_Core_Block_Template
-{
-
+class Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey extends Mage_Core_Block_Template {
 	/**
 	 * @var string $campaignName
 	 */
