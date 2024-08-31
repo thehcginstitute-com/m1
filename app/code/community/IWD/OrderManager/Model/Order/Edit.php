@@ -88,7 +88,9 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			'order' => $order, 'order_items' => $order->getItemsCollection()
 		]);
 		if (!$this->checkOrderStatusForUpdate($order)) {
-			Mage::getSingleton('adminhtml/session')->addError("Sorry... You can't edit order with current status. Check configuration: IWD >> Order Manager >> Edit Order");
+			Mage::getSingleton('adminhtml/session')->addError(
+				"Sorry... You can't edit order with current status. Check configuration: IWD >> Order Manager >> Edit Order"
+			);
 			return 0;
 		}
 		$this->updateOrderItems($items, $orderId);
