@@ -531,17 +531,16 @@ class Ebizmarts_MailChimp_Model_Observer {
 	 * 1) "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
 	 * 2) "Improve the «Yaay! Recovered by Mailchimp's campaign» block of the backend order screen":
 	 * https://github.com/thehcginstitute-com/m1/issues/668
-	 * @return Varien_Event_Observer
 	 */
-	function addOrderViewMonkey(Varien_Event_Observer $observer) {
-		$block = $observer->getBlock();
+	function addOrderViewMonkey(Ob $ob):Ob {
+		$block = $ob->getBlock();
 		if (($block->getNameInLayout() == 'order_info') && ($child = $block->getChild('mailchimp.order.info.monkey.block'))) {
 			$order = $block->getOrder();
 			$storeId = $order->getStoreId();
 			$helper = $this->makeHelper();
 			$ecommEnabled = $helper->isEcomSyncDataEnabled($storeId);
 			if ($ecommEnabled) {
-				$transport = $observer->getTransport();
+				$transport = $ob->getTransport();
 				if ($transport) {
 					$html = $transport->getHtml();
 					$html .= $child->toHtml();
@@ -549,7 +548,7 @@ class Ebizmarts_MailChimp_Model_Observer {
 				}
 			}
 		}
-		return $observer;
+		return $ob;
 	}
 
 	/**
