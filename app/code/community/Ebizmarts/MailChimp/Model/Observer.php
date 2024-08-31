@@ -532,7 +532,6 @@ class Ebizmarts_MailChimp_Model_Observer {
 	 * 1) "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
 	 * 2) "Improve the «Yaay! Recovered by Mailchimp's campaign» block of the backend order screen":
 	 * https://github.com/thehcginstitute-com/m1/issues/668
-	 * @param  Varien_Event_Observer $observer
 	 * @return Varien_Event_Observer
 	 */
 	function addOrderViewMonkey(Varien_Event_Observer $observer) {
