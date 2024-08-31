@@ -159,12 +159,18 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		return $result;
 	}
 
-	function checkOrderStatusForUpdate($order)
-	{
+	/**
+	 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
+	 * @used-by self::editItems()
+	 * @used-by IWD_OrderManager_Model_Order_Estimate::estimateEditItems()
+	 * @used-by app/design/adminhtml/default/default/template/iwd/ordermanager/order/view/tab/info.phtml
+	 * @used-by app/design/adminhtml/default/default/template/sales/order/view/info.phtml
+	 */
+	function checkOrderStatusForUpdate($order):bool {
 		$orderStatus = $order->getStatus();
 		$allowOrderStatuses = $this->getOrderStatusesForUpdateIds();
 		$waitOrderStatus = Mage::getStoreConfig(self::XML_PATH_SALES_STATUS_ORDER, Mage::app()->getStore());
-
 		return in_array($orderStatus, $allowOrderStatuses) || ($waitOrderStatus == $orderStatus);
 	}
 
