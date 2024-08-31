@@ -431,7 +431,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 				# 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				# «Call to a member function getProductType() on null in
 				# app/code/community/IWD/OrderManager/Model/Order/Edit.php:902»: https://github.com/cabinetsbay/site/issues/666
-				df_assert($i, ['id' => $id, 'd' => $d]);
+				df_assert($i, ['id' => $id, 'ii' => $ii]);
 				$this->removeOrderItem($i);
 			}
 			else {
