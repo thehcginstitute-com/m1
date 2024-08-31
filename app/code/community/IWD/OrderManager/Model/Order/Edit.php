@@ -283,32 +283,22 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 * "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
 	 * @used-by self::editItems()
 	 */
-	private function updateOrderItems(array $items, $orderId)
-	{
+	private function updateOrderItems(array $items, $orderId) {
 		$order = $this->loadOrder($orderId);
-
 		$this->deleteOrderShippingTax($order);
-
 		$this->baseCurrencyCode = $order->getBaseCurrencyCode();
 		$this->orderCurrencyCode = $order->getOrderCurrencyCode();
 		$this->editItems = array();
 		$this->addedItems = false;
-
 		foreach ($items as $id => $item) {
 			$orderItem = $order->getItemById($id);
-
-			// remove item
 			if (isset($item['remove']) && $item['remove'] == 1) {
 				$this->removeOrderItem($orderItem);
 				continue;
 			}
-
-			// add new item
 			if (isset($item['quote_item'])) {
 				$orderItem = $this->addNewOrderItem($item['quote_item'], $order);
 			}
-
-			// edit item
 			$this->editOrderItem($orderItem, $item);
 		}
 	}
