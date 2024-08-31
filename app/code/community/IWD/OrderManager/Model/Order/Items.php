@@ -58,7 +58,7 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
 	 * "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
 	 * @used-by self::updateOrderItems()
 	 */
-    private function editItems() {
+    private function editItems():int {
         $orderEdit = Mage::getModel('iwd_ordermanager/order_edit');  /** @var IWD_OrderManager_Model_Order_Edit $orderEdit */
 		/**
 		 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -93,10 +93,10 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
 		 *		}
 		 *	}
 		 */
-		$status = $orderEdit->editItems((int)dfa($this->params, 'order_id'), dfa($this->params, 'items'));
+		$r = $orderEdit->editItems((int)dfa($this->params, 'order_id'), dfa($this->params, 'items')); /** @var int $r */
         $this->needUpdateStock = $orderEdit->getNeedUpdateStock();
         $this->updateCoupon();
-        return $status;
+        return $r;
     }
 
 
