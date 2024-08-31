@@ -5,7 +5,7 @@ class IWD_OrderManager_Model_Shipping extends Mage_Core_Model_Abstract
 
     protected $params;
 
-    public function updateOrderShipping($params)
+    function updateOrderShipping($params)
     {
         $this->init($params);
 
@@ -19,7 +19,7 @@ class IWD_OrderManager_Model_Shipping extends Mage_Core_Model_Abstract
         }
     }
 
-    public function editSipping($orderId, $shipping)
+    function editSipping($orderId, $shipping)
     {
         /** @var $orderEdit IWD_OrderManager_Model_Order_Edit */
         $orderEdit = Mage::getModel('iwd_ordermanager/order_edit');
@@ -42,12 +42,12 @@ class IWD_OrderManager_Model_Shipping extends Mage_Core_Model_Abstract
         return 1;
     }
 
-    public function getLogger()
+    function getLogger()
     {
         return Mage::getSingleton('iwd_ordermanager/logger');
     }
 
-    public function getShippingRates($order)
+    function getShippingRates($order)
     {
         $request = $this->prepareShippingRequest($order);
         $shipping = Mage::getModel('shipping/shipping');
@@ -166,7 +166,7 @@ class IWD_OrderManager_Model_Shipping extends Mage_Core_Model_Abstract
     }
 
     /* edit order  - recollect shipping */
-    public function recollectShippingAmount($orderId)
+    function recollectShippingAmount($orderId)
     {
         $order = Mage::getModel('sales/order')->load($orderId);
 
@@ -224,7 +224,7 @@ class IWD_OrderManager_Model_Shipping extends Mage_Core_Model_Abstract
     }
 
 
-    public function prepareShippingRequest($order)
+    function prepareShippingRequest($order)
     {
         if ($order->getIsVirtual()) {
             return null;
@@ -353,7 +353,7 @@ class IWD_OrderManager_Model_Shipping extends Mage_Core_Model_Abstract
         return $baseSippingInclTax;
     }
 
-    public function prepareShippingObj($params)
+    function prepareShippingObj($params)
     {
         $method = $params['shipping_method_radio'];
         $shipping = new Varien_Object();
@@ -367,7 +367,7 @@ class IWD_OrderManager_Model_Shipping extends Mage_Core_Model_Abstract
         return $shipping;
     }
 
-    public function estimateShippingAmount($order, $request, $estimate=true)
+    function estimateShippingAmount($order, $request, $estimate=true)
     {
         $oldAmount = $order->getBaseShippingInclTax();
         if ($order->getShippingMethod() == self::CUSTOM_METHOD_CODE) {

@@ -14,7 +14,7 @@ class IWD_OrderManager_Model_Api_Orderinfo_v2 extends IWD_OrderManager_Model_Api
      * @param array $data
      * @return array
      */
-    public function changeOrderStatus(array $data)
+    function changeOrderStatus(array $data)
     {
         $response = array();
         $id = md5(time());

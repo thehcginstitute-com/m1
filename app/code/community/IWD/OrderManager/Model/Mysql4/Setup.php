@@ -53,7 +53,7 @@ class IWD_OrderManager_Model_Mysql4_Setup extends Mage_Core_Model_Resource_Setup
         return $this->_writeAdapter;
     }
 
-    public function afterApplyAllUpdates()
+    function afterApplyAllUpdates()
     {
         try {
             if (!Mage::helper('iwd_ordermanager')->isEnterpriseMagentoEdition()) {
@@ -103,7 +103,7 @@ class IWD_OrderManager_Model_Mysql4_Setup extends Mage_Core_Model_Resource_Setup
         }
     }
 
-    public function addColumn($tableName, $columnName, $definition, $schemaName = null)
+    function addColumn($tableName, $columnName, $definition, $schemaName = null)
     {
         $adapter = $this->getConnection();
 
@@ -142,7 +142,7 @@ class IWD_OrderManager_Model_Mysql4_Setup extends Mage_Core_Model_Resource_Setup
         return ($schemaName ? $schemaName . '.' : '') . $tableName;
     }
 
-    public function modifyColumnByDdl($tableName, $columnName, $definition, $flushData = false, $schemaName = null)
+    function modifyColumnByDdl($tableName, $columnName, $definition, $flushData = false, $schemaName = null)
     {
         $definition = array_change_key_case($definition, CASE_UPPER);
         $definition['COLUMN_TYPE'] = $this->_getColumnTypeByDdl($definition);
@@ -157,7 +157,7 @@ class IWD_OrderManager_Model_Mysql4_Setup extends Mage_Core_Model_Resource_Setup
         return $this->modifyColumn($tableName, $columnName, $definition, $flushData);
     }
 
-    public function modifyColumn($tableName, $columnName, $definition, $showStatus = false)
+    function modifyColumn($tableName, $columnName, $definition, $showStatus = false)
     {
         $adapter = $this->getConnection();
 
@@ -438,7 +438,7 @@ class IWD_OrderManager_Model_Mysql4_Setup extends Mage_Core_Model_Resource_Setup
         return $result;
     }
 
-    public function _updateColumnPosition($table, $column, $after, $first)
+    function _updateColumnPosition($table, $column, $after, $first)
     {
         try{
             if ($after && $first && !is_string($after)) {
@@ -477,7 +477,7 @@ class IWD_OrderManager_Model_Mysql4_Setup extends Mage_Core_Model_Resource_Setup
         return $this;
     }
 
-    public function getColumnDefinitionFromDescribe($options, $ddlType = null)
+    function getColumnDefinitionFromDescribe($options, $ddlType = null)
     {
         $columnInfo = $this->getColumnCreateByDescribe($options);
         foreach ($columnInfo['options'] as $key => $value) {
@@ -486,7 +486,7 @@ class IWD_OrderManager_Model_Mysql4_Setup extends Mage_Core_Model_Resource_Setup
         return $this->_getColumnDefinition($columnInfo, $ddlType);
     }
 
-    public function getColumnCreateByDescribe($columnData)
+    function getColumnCreateByDescribe($columnData)
     {
         $adapter = $this->getConnection();
 

@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Form extends Mage_Adminhtml_Block_Sales_Order_Address_Form
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('iwd/ordermanager/address/form.phtml');
@@ -13,7 +13,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Form extends Mage_Adm
         return Mage::getModel('sales/order_address')->load($this->getData('address_id'));
     }
 
-    public function isShippingAddress()
+    function isShippingAddress()
     {
         try {
             $type = Mage::getModel('sales/order_address')->load($this->getAddressId())->getAddressType();
@@ -24,7 +24,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Form extends Mage_Adm
         }
     }
 
-    public function getAddressId()
+    function getAddressId()
     {
         return $this->getData('address_id');
     }
@@ -54,18 +54,18 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Form extends Mage_Adm
         return $this;
     }
 
-    public function getOrder()
+    function getOrder()
     {
         $orderId = $this->_getAddress()->getParentId();
         return Mage::getModel('sales/order')->load($orderId);
     }
 
-    public function getCustomerGroupId()
+    function getCustomerGroupId()
     {
         return $this->getOrder()->getCustomerGroupId();
     }
 
-    public function getOrderDataJson()
+    function getOrderDataJson()
     {
         $address = $this->_getAddress();
         $customerAddressId = $address->getCustomerAddressId();
@@ -82,7 +82,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Address_Form extends Mage_Adm
         return Mage::helper('core')->jsonEncode($data);
     }
 
-    public function getLoadBlockUrl()
+    function getLoadBlockUrl()
     {
         return $this->getUrl('*/*/loadBlock');
     }

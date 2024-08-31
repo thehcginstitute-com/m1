@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Model_Confirm_Api_Logger extends IWD_OrderManager_Model_Confirm_Logger
 {
-    public function addOperationToLog($type, $log, $orderId)
+    function addOperationToLog($type, $log, $orderId)
     {
         $data = array();
 
@@ -20,7 +20,7 @@ class IWD_OrderManager_Model_Confirm_Api_Logger extends IWD_OrderManager_Model_C
         $this->save();
     }
 
-    public function setBaseInfo($data)
+    function setBaseInfo($data)
     {
         $user = Mage::getSingleton('api/session')->getUser();
         if ($user) {

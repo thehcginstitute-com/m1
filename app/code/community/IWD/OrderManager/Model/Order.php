@@ -6,7 +6,7 @@ class IWD_OrderManager_Model_Order extends Mage_Sales_Model_Order
     const XML_PATH_DELETE_DOWNLOADABLE      = 'iwd_ordermanager/iwd_delete_orders/delete_downloadable';
     const XML_PATH_CHANGE_ORDER_STATE       = 'iwd_ordermanager/edit/change_order_state';
 
-    public function getShippingMethod($asObject = false)
+    function getShippingMethod($asObject = false)
     {
         $shippingMethod = $this->getData('shipping_method');
         if (!$asObject) {
@@ -20,12 +20,12 @@ class IWD_OrderManager_Model_Order extends Mage_Sales_Model_Order
         }
     }
 
-    public function isAllowChangeOrderState()
+    function isAllowChangeOrderState()
     {
         return Mage::getStoreConfig(self::XML_PATH_CHANGE_ORDER_STATE);
     }
 
-    public function isAllowDeleteOrders()
+    function isAllowDeleteOrders()
     {
         $confAllowed = Mage::getStoreConfig(self::XML_PATH_SALES_ALLOW_DEL_ORDERS, Mage::app()->getStore());
         $permissionAllowed = Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/actions/delete');
@@ -33,29 +33,29 @@ class IWD_OrderManager_Model_Order extends Mage_Sales_Model_Order
         return ($confAllowed && $permissionAllowed && $engine);
     }
 
-    public function isAllowChangeOrderStatus()
+    function isAllowChangeOrderStatus()
     {
         $confAllowed = 1;
         $permissionAllowed = Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/actions/update_status');
         return ($confAllowed && $permissionAllowed);
     }
 
-    public function getOrderStatusesForDeleteIds()
+    function getOrderStatusesForDeleteIds()
     {
         return explode(',', Mage::getStoreConfig(self::XML_PATH_SALES_STATUS_ORDER));
     }
 
-    public function checkOrderStatusForDeleting()
+    function checkOrderStatusForDeleting()
     {
         return (in_array($this->getStatus(), $this->getOrderStatusesForDeleteIds()));
     }
 
-    public function canDelete()
+    function canDelete()
     {
         return ($this->isAllowDeleteOrders() && $this->checkOrderStatusForDeleting());
     }
 
-    public function deleteOrder()
+    function deleteOrder()
     {
         if (!$this->canDelete()) {
             $message = 'Maybe, you can not delete items with some statuses. Please, check <a href="'
@@ -92,7 +92,7 @@ class IWD_OrderManager_Model_Order extends Mage_Sales_Model_Order
         return true;
     }
 
-    public function deleteInvoices()
+    function deleteInvoices()
     {
         if (!$this->hasInvoices()){
             return;
@@ -116,7 +116,7 @@ class IWD_OrderManager_Model_Order extends Mage_Sales_Model_Order
         }
     }
 
-    public function deleteShipments()
+    function deleteShipments()
     {
         if (!$this->hasShipments()) {
             return;
@@ -136,7 +136,7 @@ class IWD_OrderManager_Model_Order extends Mage_Sales_Model_Order
         }
     }
 
-    public function deleteCreditmemos()
+    function deleteCreditmemos()
     {
         if (!$this->hasCreditmemos()){
             return;
@@ -160,7 +160,7 @@ class IWD_OrderManager_Model_Order extends Mage_Sales_Model_Order
         }
     }
 
-    public function deleteQuote(){
+    function deleteQuote(){
         $quoteId = $this->getQuoteId();
         Mage::getModel('sales/quote')
             ->getCollection()
@@ -169,7 +169,7 @@ class IWD_OrderManager_Model_Order extends Mage_Sales_Model_Order
             ->delete();
     }
 
-    public function deleteDownloadable()
+    function deleteDownloadable()
     {
         if (!Mage::getStoreConfig(self::XML_PATH_DELETE_DOWNLOADABLE)){
             return;
@@ -192,7 +192,7 @@ class IWD_OrderManager_Model_Order extends Mage_Sales_Model_Order
         }
     }
 
-    public function isArchived($order = null){
+    function isArchived($order = null){
         $orderId = null;
 
         if (empty($order)) {

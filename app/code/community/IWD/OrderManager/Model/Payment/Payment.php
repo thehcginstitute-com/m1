@@ -26,7 +26,7 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
     /**
      * @param $params
      */
-    public function updateOrderPayment($params)
+    function updateOrderPayment($params)
     {
         $this->init($params);
 
@@ -44,7 +44,7 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
      * @param $orderId
      * @return bool
      */
-    public function execUpdatePaymentMethod($paymentData, $orderId)
+    function execUpdatePaymentMethod($paymentData, $orderId)
     {
         $this->editPaymentMethod($paymentData, $orderId);
         $this->notifyEmail();
@@ -163,7 +163,7 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
     /**
      * @return mixed
      */
-    public function isAllowEditPayment()
+    function isAllowEditPayment()
     {
         return Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/actions/edit_payment');
     }
@@ -193,7 +193,7 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function GetActivePaymentMethods()
+    function GetActivePaymentMethods()
     {
         $payments = Mage::getModel('payment/config')->getActiveMethods();
         return $this->getMethodsTitle($payments);
@@ -202,7 +202,7 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function getActivePaymentMethodsArray()
+    function getActivePaymentMethodsArray()
     {
         $payments = Mage::getSingleton('payment/config')->getActiveMethods();
         $methods = array(array('value'=>'', 'label'=>Mage::helper('adminhtml')->__('--Please Select--')));
@@ -220,7 +220,7 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function GetAllPaymentMethods()
+    function GetAllPaymentMethods()
     {
         $payments = Mage::getModel('payment/config')->getAllMethods();
         return $this->getMethodsTitle($payments);
@@ -244,7 +244,7 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function GetPaymentMethods()
+    function GetPaymentMethods()
     {
         $resource = Mage::getSingleton('core/resource')->getConnection('core_read');
         $tableName = Mage::getSingleton('core/resource')->getTableName('sales/order_payment');
@@ -264,7 +264,7 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
      * @param $orderId
      * @return bool
      */
-    public function canUpdatePaymentMethod($orderId)
+    function canUpdatePaymentMethod($orderId)
     {
         $order = Mage::getModel('sales/order')->load($orderId);
         if (empty($order)) {
@@ -278,7 +278,7 @@ class IWD_OrderManager_Model_Payment_Payment extends Mage_Core_Model_Abstract
      * @param $orderId
      * @param $paymentData
      */
-    public function estimatePaymentMethod($orderId, $paymentData)
+    function estimatePaymentMethod($orderId, $paymentData)
     {
         $order = Mage::getModel('sales/order')->load($orderId);
 

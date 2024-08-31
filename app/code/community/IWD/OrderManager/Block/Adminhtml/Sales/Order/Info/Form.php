@@ -2,18 +2,18 @@
 
 class IWD_OrderManager_Block_Adminhtml_Sales_Order_Info_Form extends Mage_Adminhtml_Block_Widget
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('iwd/ordermanager/info/form.phtml');
     }
 
-    public function getOrderStatusList()
+    function getOrderStatusList()
     {
         return Mage::getModel('sales/order_status')->getResourceCollection()->getData();
     }
 
-    public function getOrderStateList()
+    function getOrderStateList()
     {
         $helper = Mage::helper('iwd_ordermanager');
         return array('new' => $helper->__('New'),
@@ -27,50 +27,50 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Info_Form extends Mage_Adminh
         );
     }
 
-    public function getInvoiceStatusList()
+    function getInvoiceStatusList()
     {
         return Mage::getModel('sales/order_invoice')->getStates();
     }
 
-    public function getCreditMemoStatusList()
+    function getCreditMemoStatusList()
     {
         return Mage::getModel('sales/order_creditmemo')->getStates();
     }
 
-    public function getInvoiceId()
+    function getInvoiceId()
     {
         return Mage::app()->getRequest()->getParam('invoice_id', null);
     }
 
-    public function getCreditmemoId()
+    function getCreditmemoId()
     {
         return Mage::app()->getRequest()->getParam('creditmemo_id', null);
     }
 
-    public function getShippingId()
+    function getShippingId()
     {
         return Mage::app()->getRequest()->getParam('shipping_id', null);
     }
 
-    public function isInvoicePage()
+    function isInvoicePage()
     {
         $id = $this->getInvoiceId();
         return !empty($id);
     }
 
-    public function isCreditmemoPage()
+    function isCreditmemoPage()
     {
         $id = $this->getCreditmemoId();
         return !empty($id);
     }
 
-    public function isShippingPage()
+    function isShippingPage()
     {
         $id = $this->getShippingId();
         return !empty($id);
     }
 
-    public function getShipping()
+    function getShipping()
     {
         try {
             $id = $this->getShippingId();
@@ -82,7 +82,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Info_Form extends Mage_Adminh
         return null;
     }
 
-    public function getInvoice()
+    function getInvoice()
     {
         try {
             $id = $this->getInvoiceId();
@@ -94,7 +94,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Info_Form extends Mage_Adminh
         return null;
     }
 
-    public function getCreditMemo()
+    function getCreditMemo()
     {
         try {
             $id = $this->getCreditmemoId();

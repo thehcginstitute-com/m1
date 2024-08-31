@@ -16,7 +16,7 @@ class IWD_OrderManager_Model_Confirm_Options_Type extends IWD_OrderManager_Model
     /**
      * @return array
      */
-    public function toOption()
+    function toOption()
     {
         $helper = Mage::helper('iwd_ordermanager');
         return array(

@@ -5,7 +5,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_View_Tab_AdditionalAmount ext
     /**
      * @return string
      */
-    public function getCouponCode()
+    function getCouponCode()
     {
         return $this->getOrder() ? $this->getOrder()->getCouponCode() : '';
     }
@@ -13,7 +13,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_View_Tab_AdditionalAmount ext
     /**
      * @return bool
      */
-    public function isCouponCodeEnabled()
+    function isCouponCodeEnabled()
     {
         return Mage::getStoreConfig('iwd_ordermanager/edit/enable_edit_coupon') &&
             Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/coupon');

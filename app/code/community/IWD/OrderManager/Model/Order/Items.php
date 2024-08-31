@@ -5,7 +5,7 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
     protected $params;
     protected $needUpdateStock = false;
 
-    public function updateOrderItems($params)
+    function updateOrderItems($params)
     {
         $this->init($params);
 
@@ -28,12 +28,12 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
         }
     }
 
-    public function getLogger()
+    function getLogger()
     {
         return Mage::getSingleton('iwd_ordermanager/logger');
     }
 
-    public function getNeedUpdateStock()
+    function getNeedUpdateStock()
     {
         return $this->needUpdateStock;
     }

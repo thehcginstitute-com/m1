@@ -10,7 +10,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Create_Fee extends Mage_Admin
     /**
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         if ($this->_quote == null) {
             $this->_quote = Mage::getSingleton('adminhtml/session_quote')->getQuote();
@@ -22,7 +22,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Create_Fee extends Mage_Admin
     /**
      * @return mixed
      */
-    public function isManageTax()
+    function isManageTax()
     {
         return Mage::helper('iwd_ordermanager')->isManageTaxForCustomFee();
     }
@@ -30,7 +30,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Create_Fee extends Mage_Admin
     /**
      * @return string
      */
-    public function getAdditionalAmount()
+    function getAdditionalAmount()
     {
         $amount = (!$this->getQuote())
             ? 0
@@ -48,7 +48,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Create_Fee extends Mage_Admin
     /**
      * @return string
      */
-    public function getAdditionalAmountInclTax()
+    function getAdditionalAmountInclTax()
     {
         $amount = (!$this->getQuote())
             ? 0
@@ -67,7 +67,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Create_Fee extends Mage_Admin
     /**
      * @return string
      */
-    public function getTaxPercent()
+    function getTaxPercent()
     {
         $amount = (!$this->getQuote())
             ? 0
@@ -85,7 +85,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Create_Fee extends Mage_Admin
     /**
      * @return string
      */
-    public function getAdditionalAmountDescription()
+    function getAdditionalAmountDescription()
     {
         return !$this->getQuote()
             ? ''
@@ -101,7 +101,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Create_Fee extends Mage_Admin
     /**
      * @return bool
      */
-    public function isAdditionalDiscountEnabled()
+    function isAdditionalDiscountEnabled()
     {
         return (bool)Mage::getStoreConfig('iwd_ordermanager/edit/enable_custom_amount')
             && (bool)Mage::getStoreConfig('iwd_ordermanager/edit/enable_custom_amount_new');
@@ -110,7 +110,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Create_Fee extends Mage_Admin
     /**
      * @return float|int
      */
-    public function getMinimalAmount()
+    function getMinimalAmount()
     {
         return $this->getQuote()
             ? (($this->getQuote()->getGrandTotal() - $this->getQuote()->getIwdOmFeeAmount()) * -1)
@@ -120,7 +120,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Create_Fee extends Mage_Admin
     /**
      * @return string
      */
-    public function applyUrl()
+    function applyUrl()
     {
         return '#';
     }
@@ -128,7 +128,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Create_Fee extends Mage_Admin
     /**
      * @return bool
      */
-    public function isCreatingOrder()
+    function isCreatingOrder()
     {
         return 1;
     }

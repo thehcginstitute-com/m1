@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Model_Order_Pdf_Order extends Mage_Sales_Model_Order_Pdf_Abstract
 {
-    public function getPdf($orders = array())
+    function getPdf($orders = array())
     {
         $this->_beforeGetPdf();
         $this->_initRenderer('order');

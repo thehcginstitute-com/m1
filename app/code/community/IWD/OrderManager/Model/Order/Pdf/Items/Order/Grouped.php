@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Model_Order_Pdf_Items_Order_Grouped extends IWD_OrderManager_Model_Order_Pdf_Items_Order_Default
 {
-    public function draw()
+    function draw()
     {
         $type = $this->getItem()->getRealProductType();
         $renderer = $this->getRenderedModel()->getRenderer($type);

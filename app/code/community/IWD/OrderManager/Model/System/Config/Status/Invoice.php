@@ -1,7 +1,7 @@
 <?php
 class IWD_OrderManager_Model_System_Config_Status_Invoice
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         $statuses = Mage::getModel('sales/order_invoice')->getStates();
         

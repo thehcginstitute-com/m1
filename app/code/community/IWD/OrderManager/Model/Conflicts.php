@@ -13,7 +13,7 @@ class IWD_OrderManager_Model_Conflicts extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function getTypes()
+    function getTypes()
     {
         return array(
             'model' => Mage::helper('iwd_ordermanager')->__('Model'),
@@ -25,7 +25,7 @@ class IWD_OrderManager_Model_Conflicts extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function getRewritesClasses()
+    function getRewritesClasses()
     {
         $this->rewritesModules = array();
 

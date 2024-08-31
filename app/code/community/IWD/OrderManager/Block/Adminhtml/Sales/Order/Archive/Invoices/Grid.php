@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Block_Adminhtml_Sales_Order_Archive_Invoices_Grid extends Mage_Adminhtml_Block_Sales_Invoice_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_invoices_grid');
@@ -21,7 +21,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Archive_Invoices_Grid extends
         return Mage_Adminhtml_Block_Widget_Grid::_prepareCollection();
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         if (Mage::getSingleton('admin/session')->isAllowed('sales/order/invoice')) {
             return $this->getUrl('*/sales_invoice/view', array('invoice_id' => $row->getId()));
@@ -29,7 +29,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Archive_Invoices_Grid extends
         return false;
     }
 
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/grid', array('_current' => true));
     }

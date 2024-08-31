@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Block_Adminhtml_Sales_Order_Total_Tax extends Mage_Adminhtml_Block_Sales_Order_Totals_Tax
 {
-    public function getFullTaxInfo()
+    function getFullTaxInfo()
     {
         /** @var $source Mage_Sales_Model_Order */
         $source = $this->getOrder();

@@ -43,7 +43,7 @@ class IWD_OrderManager_Model_Mysql4_Archive extends Mage_Core_Model_Resource_Db_
      * @param $entity
      * @return bool|mixed
      */
-    public function getEntityModel($entity)
+    function getEntityModel($entity)
     {
         $entities = $this->entities;
         return isset($entities[$entity]) ? $entities[$entity] : false;
@@ -53,7 +53,7 @@ class IWD_OrderManager_Model_Mysql4_Archive extends Mage_Core_Model_Resource_Db_
      * @param $entity
      * @return bool|string
      */
-    public function getArchiveTable($entity)
+    function getArchiveTable($entity)
     {
         if (!isset($this->archive_tables[$entity])) {
             return false;
@@ -65,7 +65,7 @@ class IWD_OrderManager_Model_Mysql4_Archive extends Mage_Core_Model_Resource_Db_
      * @param $entity
      * @return bool|string
      */
-    public function getStandardTable($entity)
+    function getStandardTable($entity)
     {
         if (!isset($this->standard_tables[$entity])) {
             return false;
@@ -78,7 +78,7 @@ class IWD_OrderManager_Model_Mysql4_Archive extends Mage_Core_Model_Resource_Db_
      * @param $value
      * @return $this
      */
-    public function setForeignKeyChecks($value)
+    function setForeignKeyChecks($value)
     {
         $adapter = $this->_getWriteAdapter();
         $adapter->query("SET FOREIGN_KEY_CHECKS = {$value};");
@@ -90,7 +90,7 @@ class IWD_OrderManager_Model_Mysql4_Archive extends Mage_Core_Model_Resource_Db_
      * @param $ids
      * @return array
      */
-    public function getIdsInArchive($entity, $ids)
+    function getIdsInArchive($entity, $ids)
     {
         if (!is_array($ids)) {
             $ids = array($ids);
@@ -109,7 +109,7 @@ class IWD_OrderManager_Model_Mysql4_Archive extends Mage_Core_Model_Resource_Db_
      * @param $value
      * @return $this
      */
-    public function addToArchiveFromStandard($entity, $field, $value)
+    function addToArchiveFromStandard($entity, $field, $value)
     {
         $adapter = $this->_getWriteAdapter();
         $sourceTable = $this->getStandardTable($entity);
@@ -135,7 +135,7 @@ class IWD_OrderManager_Model_Mysql4_Archive extends Mage_Core_Model_Resource_Db_
      * @param $value
      * @return $this
      */
-    public function removeFromStandard($entity, $field, $value)
+    function removeFromStandard($entity, $field, $value)
     {
         $adapter = $this->_getWriteAdapter();
         $sourceTable = $this->getStandardTable($entity);
@@ -161,7 +161,7 @@ class IWD_OrderManager_Model_Mysql4_Archive extends Mage_Core_Model_Resource_Db_
      * @param null $value
      * @return $this
      */
-    public function restoreFromArchive($entity, $field = '', $value = null)
+    function restoreFromArchive($entity, $field = '', $value = null)
     {
         $adapter = $this->_getWriteAdapter();
         $sourceTable = $this->getArchiveTable($entity);
@@ -205,7 +205,7 @@ class IWD_OrderManager_Model_Mysql4_Archive extends Mage_Core_Model_Resource_Db_
     /**
      * @return Zend_Db_Expr
      */
-    public function getOrderIdsForArchiveExpression()
+    function getOrderIdsForArchiveExpression()
     {
         $statuses = Mage::getModel('iwd_ordermanager/archive')->getArchiveOrderStatuses();
         $period = Mage::getModel('iwd_ordermanager/archive')->getArchiveAfterDays();
@@ -239,7 +239,7 @@ class IWD_OrderManager_Model_Mysql4_Archive extends Mage_Core_Model_Resource_Db_
      * @param bool $usePeriod
      * @return array
      */
-    public function getOrderIdsForArchive($orderIds = array(), $usePeriod = false)
+    function getOrderIdsForArchive($orderIds = array(), $usePeriod = false)
     {
         $statuses = Mage::getModel('iwd_ordermanager/archive')->getArchiveOrderStatuses();
         $period = Mage::getModel('iwd_ordermanager/archive')->getArchiveAfterDays();
@@ -263,7 +263,7 @@ class IWD_OrderManager_Model_Mysql4_Archive extends Mage_Core_Model_Resource_Db_
      * @param $ids
      * @return $this
      */
-    public function updateGridRecords($entity, $ids)
+    function updateGridRecords($entity, $ids)
     {
         $gridColumns = array_keys($this->_getWriteAdapter()->describeTable($this->getArchiveTable($entity)));
 

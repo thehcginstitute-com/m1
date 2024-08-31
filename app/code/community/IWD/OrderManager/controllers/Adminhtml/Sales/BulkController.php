@@ -18,7 +18,7 @@ class IWD_OrderManager_Adminhtml_Sales_BulkController extends Mage_Adminhtml_Con
     /**
      * @return $this|Mage_Core_Controller_Varien_Action
      */
-    public function resentInvoiceAction()
+    function resentInvoiceAction()
     {
         $orderIds = $this->getOrderIds();
         foreach ($orderIds as $orderId) {
@@ -66,7 +66,7 @@ class IWD_OrderManager_Adminhtml_Sales_BulkController extends Mage_Adminhtml_Con
     /**
      * @return $this|Mage_Core_Controller_Varien_Action
      */
-    public function resentShipmentAction()
+    function resentShipmentAction()
     {
         $orderIds = $this->getOrderIds();
         foreach ($orderIds as $orderId) {
@@ -83,7 +83,7 @@ class IWD_OrderManager_Adminhtml_Sales_BulkController extends Mage_Adminhtml_Con
     /**
      * @param $shipment Mage_Sales_Model_Order_Shipment
      */
-    public function sendEmailWithShipment($shipment)
+    function sendEmailWithShipment($shipment)
     {
         try {
             if ($shipment) {
@@ -113,7 +113,7 @@ class IWD_OrderManager_Adminhtml_Sales_BulkController extends Mage_Adminhtml_Con
         }
     }
 
-    public function createAction()
+    function createAction()
     {
         $orderIds = $this->getOrderIds();
         foreach ($orderIds as $orderId) {
@@ -135,7 +135,7 @@ class IWD_OrderManager_Adminhtml_Sales_BulkController extends Mage_Adminhtml_Con
         return $this->_redirect('*/sales_order/');
     }
 
-    public function printAction()
+    function printAction()
     {
         $orderIds = $this->getOrderIds();
         foreach ($orderIds as $orderId) {

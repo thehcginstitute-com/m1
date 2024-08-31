@@ -8,7 +8,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_OrderController extends Mage_Admi
     /**
      * @return void
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout()
             ->_setActiveMenu('sales')
@@ -24,7 +24,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_OrderController extends Mage_Admi
     }
 
     /**************************** ARCHIVE *********************************/
-    public function archiveAction()
+    function archiveAction()
     {
         $orderIds = $this->getRequest()->getParam('order_ids');
 
@@ -41,7 +41,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_OrderController extends Mage_Admi
     /**
      * @return void
      */
-    public function archiveManuallyAction()
+    function archiveManuallyAction()
     {
         $result = Mage::getModel('iwd_ordermanager/archive')->addSalesToArchive();
         $this->_addResultOfArchiveToLog($result);
@@ -86,7 +86,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_OrderController extends Mage_Admi
 
 
     /**************************** RESTORE *********************************/
-    public function restoreAction()
+    function restoreAction()
     {
         $orderIds = $this->getRequest()->getParam('order_ids');
 
@@ -103,7 +103,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_OrderController extends Mage_Admi
     /**
      * @return void
      */
-    public function restoreManuallyAction()
+    function restoreManuallyAction()
     {
         $result = Mage::getModel('iwd_ordermanager/archive')->restoreSalesFromArchive();
         $this->_addResultOfRestoreToLog($result);
@@ -134,7 +134,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_OrderController extends Mage_Admi
 
 
     /************************** EXPORTS GRIDS ******************************/
-    public function exportCsvAction()
+    function exportCsvAction()
     {
         $fileName = 'archived_orders.csv';
         $grid = $this->getLayout()->createBlock('iwd_ordermanager/adminhtml_sales_order_archive_orders_grid');
@@ -149,7 +149,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_OrderController extends Mage_Admi
     /**
      * @return void
      */
-    public function exportExcelAction()
+    function exportExcelAction()
     {
         $fileName = 'archived_orders.xml';
         $grid = $this->getLayout()->createBlock('iwd_ordermanager/adminhtml_sales_order_archive_orders_grid');
@@ -164,7 +164,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_OrderController extends Mage_Admi
 
 
     /************************** MASS ACTIONS *******************************/
-    public function massCancelAction()
+    function massCancelAction()
     {
         $this->_forward('massCancel', 'sales_order', null, array('origin' => 'archive'));
     }
@@ -172,7 +172,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_OrderController extends Mage_Admi
     /**
      * @return void
      */
-    public function massHoldAction()
+    function massHoldAction()
     {
         $this->_forward('massHold', 'sales_order', null, array('origin' => 'archive'));
     }
@@ -180,7 +180,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_OrderController extends Mage_Admi
     /**
      * @return void
      */
-    public function massUnholdAction()
+    function massUnholdAction()
     {
         $this->_forward('massUnhold', 'sales_order', null, array('origin' => 'archive'));
     }
@@ -188,7 +188,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_OrderController extends Mage_Admi
     /**
      * @return void
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout();
         $this->getResponse()->setBody(

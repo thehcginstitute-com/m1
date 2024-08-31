@@ -6,13 +6,13 @@ class IWD_OrderManager_Model_Confirm_Operations extends Mage_Core_Model_Abstract
     const CONFIG_XML_PATH_CONFIRM_STATUS_SUCCESS = 'iwd_ordermanager/edit/confirm_success_status';
     const CONFIG_XML_PATH_CONFIRM_STATUS_WAIT = 'iwd_ordermanager/edit/confirm_wait_status';
 
-    public function confirmById($id)
+    function confirmById($id)
     {
         $logger = Mage::getModel('iwd_ordermanager/confirm_logger')->load($id);
         return $this->confirm($logger);
     }
 
-    public function confirmByPid($pid)
+    function confirmByPid($pid)
     {
         $logger = $this->getLogItemByPid($pid);
         return $this->confirm($logger);
@@ -62,13 +62,13 @@ class IWD_OrderManager_Model_Confirm_Operations extends Mage_Core_Model_Abstract
         return false;
     }
 
-    public function cancelConfirmById($id)
+    function cancelConfirmById($id)
     {
         $logger = Mage::getModel('iwd_ordermanager/confirm_logger')->load($id);
         return $this->cancelConfirm($logger);
     }
 
-    public function cancelConfirmByPid($pid)
+    function cancelConfirmByPid($pid)
     {
         $logger = $this->getLogItemByPid($pid);
         return $this->cancelConfirm($logger);
@@ -111,7 +111,7 @@ class IWD_OrderManager_Model_Confirm_Operations extends Mage_Core_Model_Abstract
         return false;
     }
 
-    public function getLogItemByPid($pid)
+    function getLogItemByPid($pid)
     {
         $log = Mage::getModel('iwd_ordermanager/confirm_logger')->getCollection()
             ->addFieldToFilter('confirm_link', $pid)

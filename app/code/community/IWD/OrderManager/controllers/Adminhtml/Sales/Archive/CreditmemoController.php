@@ -8,7 +8,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_CreditmemoController extends Mage
     /**
      * @return void
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout()
             ->_setActiveMenu('sales')
@@ -28,7 +28,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_CreditmemoController extends Mage
     /**
      * @return void
      */
-    public function exportCsvAction()
+    function exportCsvAction()
     {
         $fileName = 'archive_credit_memos.csv';
         $grid = $this->getLayout()->createBlock('iwd_ordermanager/adminhtml_sales_order_archive_creditmemos_grid');
@@ -43,7 +43,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_CreditmemoController extends Mage
     /**
      * @return void
      */
-    public function exportExcelAction()
+    function exportExcelAction()
     {
         $fileName = 'archive_credit_memos.xml';
         $grid = $this->getLayout()->createBlock('iwd_ordermanager/adminhtml_sales_order_archive_creditmemos_grid');
@@ -58,7 +58,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_CreditmemoController extends Mage
     /**
      * @return void
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout();
         $this->getResponse()->setBody(

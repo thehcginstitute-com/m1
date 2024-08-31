@@ -62,7 +62,7 @@ class IWD_OrderManager_Model_Order_AdditionalFee
      * @param $amount
      * @return $this
      */
-    public function setAdditionalAmount($amount)
+    function setAdditionalAmount($amount)
     {
         $this->amount = $amount;
         return $this;
@@ -84,7 +84,7 @@ class IWD_OrderManager_Model_Order_AdditionalFee
      * @param $amount
      * @return $this
      */
-    public function setAdditionalAmountInclTax($amount)
+    function setAdditionalAmountInclTax($amount)
     {
         $this->amountInclTax = $amount;
         return $this;
@@ -106,7 +106,7 @@ class IWD_OrderManager_Model_Order_AdditionalFee
      * @param $taxPercent
      * @return $this
      */
-    public function setAdditionalTaxPercent($taxPercent)
+    function setAdditionalTaxPercent($taxPercent)
     {
         $this->taxPercent = $taxPercent;
         return $this;
@@ -124,7 +124,7 @@ class IWD_OrderManager_Model_Order_AdditionalFee
      * @param string $description
      * @return $this
      */
-    public function setFeeDescription($description)
+    function setFeeDescription($description)
     {
         $this->description = $description;
         return $this;
@@ -133,7 +133,7 @@ class IWD_OrderManager_Model_Order_AdditionalFee
     /**
      * @param Mage_Sales_Model_Order $order
      */
-    public function applyAdditionalFeeToOrder($order)
+    function applyAdditionalFeeToOrder($order)
     {
         $this->setOrder($order);
         $this->oldOrder = clone $order;

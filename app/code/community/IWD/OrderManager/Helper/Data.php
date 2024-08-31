@@ -24,7 +24,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isGridExport()
+    function isGridExport()
     {
         /**
          * @var $http Mage_Core_Helper_Http
@@ -41,7 +41,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return string
      */
-    public function isRecalculateOrderAmountChecked()
+    function isRecalculateOrderAmountChecked()
     {
         return Mage::getStoreConfig(self::CONFIG_XML_PATH_RECALCULATE_ORDER_AMOUNT, Mage::app()->getStore())
             ? 'checked="checked"'
@@ -51,7 +51,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return int
      */
-    public function isValidateInventory()
+    function isValidateInventory()
     {
         return Mage::getStoreConfig(self::CONFIG_XML_PATH_VALIDATE_INVENTORY, Mage::app()->getStore()) ? 1 : 0;
     }
@@ -59,7 +59,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return mixed
      */
-    public function getExtensionVersion()
+    function getExtensionVersion()
     {
         return Mage::getConfig()->getModuleConfig("IWD_OrderManager")->version;
     }
@@ -68,7 +68,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
      * @param $table
      * @return bool|string
      */
-    public function CheckTableEngine($table)
+    function CheckTableEngine($table)
     {
         $cache = Mage::app()->getCache();
 
@@ -97,7 +97,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return mixed
      */
-    public function isShowItemImage()
+    function isShowItemImage()
     {
         return Mage::getStoreConfig(self::CONFIG_XML_PATH_SHOW_ITEM_IMAGE, Mage::app()->getStore());
     }
@@ -105,7 +105,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return string
      */
-    public function isConfirmEditChecked()
+    function isConfirmEditChecked()
     {
         return Mage::getStoreConfig(self::CONFIG_XML_CONFIRM_EDIT_CHECKED) ? 'checked="checked"' : "";
     }
@@ -113,7 +113,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return mixed
      */
-    public function isNotifyCustomerCheckedDefault()
+    function isNotifyCustomerCheckedDefault()
     {
         return Mage::getStoreConfig(self::CONFIG_XML_NOTIFY_CUSTOMER_CHECKED);
     }
@@ -121,7 +121,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return string
      */
-    public function isNotifyCustomerChecked()
+    function isNotifyCustomerChecked()
     {
         return $this->isNotifyCustomerCheckedDefault() ? 'checked="checked"' : "";
     }
@@ -129,7 +129,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function enableCustomGrid()
+    function enableCustomGrid()
     {
         return Mage::getStoreConfig(self::CONFIG_XML_CUSTOM_GRID_ENABLE) && $this->isAllowCustomGrid();
     }
@@ -137,7 +137,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isAllowCustomGrid()
+    function isAllowCustomGrid()
     {
         return Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/custom_grid');
     }
@@ -145,7 +145,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return mixed
      */
-    public function isAllowHideOrders()
+    function isAllowHideOrders()
     {
         return Mage::getStoreConfig(self::CONFIG_XML_PATH_ORDER_OPTIONS_HIDE);
     }
@@ -153,7 +153,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool|string
      */
-    public function CheckOrderTableEngine()
+    function CheckOrderTableEngine()
     {
         $table = Mage::getSingleton('core/resource')->getTableName('sales_flat_order');
         return $this->CheckTableEngine($table);
@@ -162,7 +162,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool|string
      */
-    public function CheckCreditmemoTableEngine()
+    function CheckCreditmemoTableEngine()
     {
         $table = Mage::getSingleton('core/resource')->getTableName('sales_flat_creditmemo');
         return $this->CheckTableEngine($table);
@@ -171,7 +171,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool|string
      */
-    public function CheckInvoiceTableEngine()
+    function CheckInvoiceTableEngine()
     {
         $table = Mage::getSingleton('core/resource')->getTableName('sales_flat_invoice');
         return $this->CheckTableEngine($table);
@@ -180,7 +180,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool|string
      */
-    public function CheckShipmentTableEngine()
+    function CheckShipmentTableEngine()
     {
         $table = Mage::getSingleton('core/resource')->getTableName('sales_flat_shipment');
         return $this->CheckTableEngine($table);
@@ -194,7 +194,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isEnterpriseMagentoEdition()
+    function isEnterpriseMagentoEdition()
     {
         return ($this->getEdition() == 'Enterprise');
     }
@@ -202,7 +202,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isAvailableVersion()
+    function isAvailableVersion()
     {
         return !($this->isEnterpriseMagentoEdition() && $this->_version == 'CE');
     }
@@ -210,7 +210,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return string
      */
-    public function getEdition()
+    function getEdition()
     {
         $mage = new Mage();
         $edition = (!is_callable(array($mage, 'getEdition'))) ? 'Community' : Mage::getEdition();
@@ -222,7 +222,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return mixed
      */
-    public function getCurrentIpAddress()
+    function getCurrentIpAddress()
     {
         $ip = $_SERVER['REMOTE_ADDR'];
 
@@ -238,7 +238,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return string
      */
-    public function getDataTimeFormat()
+    function getDataTimeFormat()
     {
         return 'm-d-Y H:i:s';
     }
@@ -247,7 +247,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
      * @param $date
      * @return string
      */
-    public function getDateTime($date)
+    function getDateTime($date)
     {
         $storeId = null;
         $timezone = Mage::getStoreConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_TIMEZONE, $storeId);
@@ -260,7 +260,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return mixed
      */
-    public function isMultiInventoryEnable()
+    function isMultiInventoryEnable()
     {
         /**
          * We have this settings in IWD Multi Inventory.
@@ -273,7 +273,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isMultiInventoryAllowed()
+    function isMultiInventoryAllowed()
     {
         return Mage::getSingleton('admin/session')->isAllowed('catalog/iwd_multiinventory/enabled');
     }
@@ -281,7 +281,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isAutoReAuthorization()
+    function isAutoReAuthorization()
     {
         return (bool)(int)Mage::getStoreConfig(self::CONFIG_XML_PATH_DEFERRED_RE_AUTHORIZATION);
     }
@@ -291,7 +291,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
      * @param $inclPrice
      * @return float|int
      */
-    public function getRoundPercent($exclPrice, $inclPrice)
+    function getRoundPercent($exclPrice, $inclPrice)
     {
         $percent = ($exclPrice != 0) ? ($inclPrice / $exclPrice - 1) * 100 : 0;
 
@@ -312,7 +312,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isManageTaxForCustomFee()
+    function isManageTaxForCustomFee()
     {
         return (bool)(int)Mage::getStoreConfig(self::CONFIG_XML_PATH_MANAGE_CUSTOM_AMOUNT_TAX);
     }
@@ -320,7 +320,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isOrderManagerEnabled()
+    function isOrderManagerEnabled()
     {
         return true && $this->isOrderManagerAllowed();
     }
@@ -328,7 +328,7 @@ class IWD_OrderManager_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isOrderManagerAllowed()
+    function isOrderManagerAllowed()
     {
         return Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager');
     }

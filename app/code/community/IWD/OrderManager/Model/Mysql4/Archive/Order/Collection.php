@@ -8,7 +8,7 @@ class IWD_OrderManager_Model_Mysql4_Archive_Order_Collection extends IWD_OrderMa
     /**
      * {@inheritdoc}
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->_init('iwd_ordermanager/archive_order');
@@ -17,7 +17,7 @@ class IWD_OrderManager_Model_Mysql4_Archive_Order_Collection extends IWD_OrderMa
     /**
      * {@inheritdoc}
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $controllerName = Mage::app()->getRequest()->getControllerName();
 

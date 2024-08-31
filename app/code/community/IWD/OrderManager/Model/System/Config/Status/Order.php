@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Model_System_Config_Status_Order
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         $statuses = Mage::getSingleton('sales/order_config')->getStatuses();
         

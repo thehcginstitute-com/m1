@@ -18,7 +18,7 @@ class IWD_OrderManager_Model_Notify_Notification extends Mage_Core_Model_Abstrac
     protected $template_guest = null;
     protected $email = null;
 
-    public function sendConfirmEmail($orderId, $log, $message = null)
+    function sendConfirmEmail($orderId, $log, $message = null)
     {
         $this->order = Mage::getModel('sales/order')->load($orderId);
         $storeId = $this->order->getStore()->getId();
@@ -39,7 +39,7 @@ class IWD_OrderManager_Model_Notify_Notification extends Mage_Core_Model_Abstrac
         return $this->sendEmailBase();
     }
 
-    public function sendNotifyEmail($orderId, $email, $message = "")
+    function sendNotifyEmail($orderId, $email, $message = "")
     {
         $this->order = Mage::getModel('sales/order')->load($orderId);
         $this->message = $message;

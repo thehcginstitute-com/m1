@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Block_Adminhtml_Sales_Order_Archive_Shipments_Grid extends Mage_Adminhtml_Block_Sales_Shipment_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_shipments_archive_grid');
@@ -21,7 +21,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Archive_Shipments_Grid extend
         return Mage_Adminhtml_Block_Widget_Grid::_prepareCollection();
     }
 
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/grid', array('_current' => true));
     }

@@ -4,7 +4,7 @@ class IWD_OrderManager_Model_Shipment extends Mage_Sales_Model_Order_Shipment
 {
     const XML_PATH_SALES_ALLOW_DEL_SHIPMENTS = 'iwd_ordermanager/iwd_delete_shipments/allow_del_shipments';
 
-    public function isAllowDeleteShipments()
+    function isAllowDeleteShipments()
     {
         $confAllow = Mage::getStoreConfig(self::XML_PATH_SALES_ALLOW_DEL_SHIPMENTS, Mage::app()->getStore());
         $permissionAllow = Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/shipment/actions/delete');
@@ -13,7 +13,7 @@ class IWD_OrderManager_Model_Shipment extends Mage_Sales_Model_Order_Shipment
         return ($confAllow && $permissionAllow && $engine);
     }
 
-    public function deleteShipment()
+    function deleteShipment()
     {
         if (!$this->isAllowDeleteShipments()) {
             Mage::getSingleton('iwd_ordermanager/logger')->itemDeleteError('shipment', $this->getIncrementId());
@@ -48,7 +48,7 @@ class IWD_OrderManager_Model_Shipment extends Mage_Sales_Model_Order_Shipment
      * @param null $shipmentId
      * @return bool
      */
-    public function deleteFromGrid($shipmentId = null)
+    function deleteFromGrid($shipmentId = null)
     {
         try {
             $shipmentId = ($shipmentId == null) ? $this->getEntityId() : $shipmentId;

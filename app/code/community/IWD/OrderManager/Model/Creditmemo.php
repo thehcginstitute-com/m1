@@ -13,7 +13,7 @@ class IWD_OrderManager_Model_Creditmemo extends Mage_Sales_Model_Order_Creditmem
     /**
      * @return bool
      */
-    public function isAllowDeleteCreditmemos()
+    function isAllowDeleteCreditmemos()
     {
         $confAllowed = Mage::getStoreConfig(self::XML_PATH_SALES_ALLOW_DEL_CREDITMEMOS, Mage::app()->getStore());
         $permissionAllowed = Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/creditmemo/actions/delete');
@@ -25,7 +25,7 @@ class IWD_OrderManager_Model_Creditmemo extends Mage_Sales_Model_Order_Creditmem
     /**
      * @return bool
      */
-    public function isAllowCreateCreditmemo()
+    function isAllowCreateCreditmemo()
     {
         return true;
     }
@@ -33,7 +33,7 @@ class IWD_OrderManager_Model_Creditmemo extends Mage_Sales_Model_Order_Creditmem
     /**
      * @return array
      */
-    public function getCreditmemoStatusesForDeleteIds()
+    function getCreditmemoStatusesForDeleteIds()
     {
         return explode(',', Mage::getStoreConfig(self::XML_PATH_SALES_STATUS_CREDITMEMO));
     }
@@ -41,7 +41,7 @@ class IWD_OrderManager_Model_Creditmemo extends Mage_Sales_Model_Order_Creditmem
     /**
      * @return bool
      */
-    public function checkCreditmemoStatusForDeleting()
+    function checkCreditmemoStatusForDeleting()
     {
         return (in_array($this->getState(), $this->getCreditmemoStatusesForDeleteIds()));
     }
@@ -49,7 +49,7 @@ class IWD_OrderManager_Model_Creditmemo extends Mage_Sales_Model_Order_Creditmem
     /**
      * @return bool
      */
-    public function canDelete()
+    function canDelete()
     {
         return ($this->isAllowDeleteCreditmemos() && $this->checkCreditmemoStatusForDeleting());
     }
@@ -57,7 +57,7 @@ class IWD_OrderManager_Model_Creditmemo extends Mage_Sales_Model_Order_Creditmem
     /**
      * @return bool
      */
-    public function deleteCreditmemo()
+    function deleteCreditmemo()
     {
         if (!$this->canDelete()) {
             $message = 'Maybe, you can not delete items with some statuses. Please, check <a href="'
@@ -75,7 +75,7 @@ class IWD_OrderManager_Model_Creditmemo extends Mage_Sales_Model_Order_Creditmem
     /**
      * @return bool
      */
-    public function deleteCreditmemoWithoutCheck()
+    function deleteCreditmemoWithoutCheck()
     {
         Mage::dispatchEvent('iwd_ordermanager_sales_creditmemo_delete_after', array('creditmemo' => $this, 'creditmemo_items' => $this->getItemsCollection()));
         $this->disallowDispatchAfterSave();
@@ -178,7 +178,7 @@ class IWD_OrderManager_Model_Creditmemo extends Mage_Sales_Model_Order_Creditmem
      * @param null $entityId
      * @return bool
      */
-    public function deleteFromGrid($entityId = null)
+    function deleteFromGrid($entityId = null)
     {
         try {
             $entityId = ($entityId == null) ? $this->getEntityId() : $entityId;
@@ -256,7 +256,7 @@ class IWD_OrderManager_Model_Creditmemo extends Mage_Sales_Model_Order_Creditmem
     /**
      * @return $this
      */
-    public function disallowDispatchAfterSave()
+    function disallowDispatchAfterSave()
     {
         $this->allowDispatchAfterSave = false;
         return $this;

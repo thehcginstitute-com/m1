@@ -20,7 +20,7 @@ class IWD_OrderManager_Model_Logger_Creditmemo extends IWD_OrderManager_Model_Lo
      * @param bool|false $status
      * @param bool|false $isCustomerNotified
      */
-    public function addCommentToHistory($orderId, $creditmemoId, $status = false, $isCustomerNotified = false)
+    function addCommentToHistory($orderId, $creditmemoId, $status = false, $isCustomerNotified = false)
     {
         $this->addToLogOutputInfoAboutOrderChanges();
         if (empty($this->logOutput)) {

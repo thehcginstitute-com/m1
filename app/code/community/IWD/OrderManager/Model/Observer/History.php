@@ -5,7 +5,7 @@ class IWD_OrderManager_Model_Observer_History
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function addAdminToOrderComment(Varien_Event_Observer $observer)
+    function addAdminToOrderComment(Varien_Event_Observer $observer)
     {
         if (!Mage::helper('iwd_ordermanager')->isOrderManagerEnabled()) {
             return;
@@ -27,7 +27,7 @@ class IWD_OrderManager_Model_Observer_History
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function changeNewLinesToBr(Varien_Event_Observer $observer)
+    function changeNewLinesToBr(Varien_Event_Observer $observer)
     {
         if (!Mage::helper('iwd_ordermanager')->isOrderManagerEnabled()) {
             return;

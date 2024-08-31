@@ -15,7 +15,7 @@ class IWD_OrderManager_Model_Sales_Pdf_Fee extends Mage_Sales_Model_Order_Pdf_To
      * )
      * @return array
      */
-    public function getTotalsForDisplay()
+    function getTotalsForDisplay()
     {
         if ($this->getOrder()->getIwdOmFeeAmount() == 0) {
             return array();

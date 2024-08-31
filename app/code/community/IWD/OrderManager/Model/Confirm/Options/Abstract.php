@@ -13,7 +13,7 @@ abstract class IWD_OrderManager_Model_Confirm_Options_Abstract
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $optionsArray = array();
 

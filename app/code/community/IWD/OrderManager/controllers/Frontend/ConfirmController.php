@@ -7,7 +7,7 @@ class IWD_OrderManager_Frontend_ConfirmController extends Mage_Core_Controller_F
 {
     /** http://site.com/iwd_order_manager/confirm/edit/action/confirm/pid/000000000000000 **/
     /** http://site.com/iwd_order_manager/confirm/edit/action/cancel/pid/000000000000000 **/
-    public function editAction()
+    function editAction()
     {
         $this->loadLayout();
         $this->getLayout()->getBlock('root')->setTemplate('page/1column.phtml');

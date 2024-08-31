@@ -10,7 +10,7 @@ class IWD_OrderManager_Model_Comment extends Mage_Core_Model_Abstract
      * @param $commentId
      * @return string
      */
-    public function getComment($type, $commentId)
+    function getComment($type, $commentId)
     {
         switch ($type) {
             case "order":
@@ -38,7 +38,7 @@ class IWD_OrderManager_Model_Comment extends Mage_Core_Model_Abstract
      * @param $commentText
      * @return null
      */
-    public function updateComment($type, $id, $commentText)
+    function updateComment($type, $id, $commentText)
     {
         switch ($type) {
             case "order":
@@ -65,7 +65,7 @@ class IWD_OrderManager_Model_Comment extends Mage_Core_Model_Abstract
      * @param $commentId
      * @return int
      */
-    public function deleteComment($type, $commentId)
+    function deleteComment($type, $commentId)
     {
         switch ($type) {
             case "order":

@@ -12,7 +12,7 @@ class IWD_OrderManager_Model_Observer_Sales
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function addFeeToQuote(Varien_Event_Observer $observer)
+    function addFeeToQuote(Varien_Event_Observer $observer)
     {
         $request = $observer->getEvent()->getRequest();
 
@@ -73,7 +73,7 @@ class IWD_OrderManager_Model_Observer_Sales
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function changeOrderStatus(Varien_Event_Observer $observer)
+    function changeOrderStatus(Varien_Event_Observer $observer)
     {
         $status = Mage::getStoreConfig('iwd_ordermanager/inventory/order_outofstock_status');
         if (!$status) {

@@ -9,7 +9,7 @@ class IWD_OrderManager_Helper_Downloadable extends Mage_Core_Helper_Abstract
      * @param $orderItem
      * @return false|null|string
      */
-    public function getSupportPeriodDate($orderItem)
+    function getSupportPeriodDate($orderItem)
     {
         if (!Mage::getConfig()->getModuleConfig('IWD_Downloadable')->is('active', 'true')) {
             return null;
@@ -36,7 +36,7 @@ class IWD_OrderManager_Helper_Downloadable extends Mage_Core_Helper_Abstract
      * @param $orderItem
      * @return null|string
      */
-    public function getSupportPeriod($orderItem)
+    function getSupportPeriod($orderItem)
     {
         if (!Mage::getConfig()->getModuleConfig('IWD_Downloadable')->is('active', 'true')) {
             return null;
@@ -73,7 +73,7 @@ class IWD_OrderManager_Helper_Downloadable extends Mage_Core_Helper_Abstract
      * @param $orderItem
      * @return null|string
      */
-    public function getCountOfDownloads($orderItem)
+    function getCountOfDownloads($orderItem)
     {
         if (!Mage::getConfig()->getModuleConfig('IWD_Downloadable')->is('active', 'true')) {
             return null;
@@ -100,7 +100,7 @@ class IWD_OrderManager_Helper_Downloadable extends Mage_Core_Helper_Abstract
      * @param $supportDate
      * @return void
      */
-    public function updateSupportPeriod($orderItemId, $supportDate)
+    function updateSupportPeriod($orderItemId, $supportDate)
     {
         if (!Mage::getConfig()->getModuleConfig('IWD_Downloadable')->is('active', 'true')) {
             return;

@@ -3,7 +3,7 @@
 class IWD_OrderManager_Model_Observer
 {
     /************************ CHECK REQUIRED MODULES *************************/
-    public function checkRequiredModules()
+    function checkRequiredModules()
     {
         if (Mage::getSingleton('admin/session')->isLoggedIn()) {
             if (!Mage::getConfig()->getModuleConfig('IWD_All')->is('active', 'true')) {
@@ -43,7 +43,7 @@ class IWD_OrderManager_Model_Observer
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function orderManagerObserver(Varien_Event_Observer $observer)
+    function orderManagerObserver(Varien_Event_Observer $observer)
     {
         if (!Mage::helper('iwd_ordermanager')->isOrderManagerEnabled()) {
             return;
@@ -412,7 +412,7 @@ class IWD_OrderManager_Model_Observer
      * @param Varien_Event_Observer $observer
      * @throws Exception
      */
-    public function orderDelete(Varien_Event_Observer $observer)
+    function orderDelete(Varien_Event_Observer $observer)
     {
         $obj = $observer->getEvent()->getOrder();
 		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -426,7 +426,7 @@ class IWD_OrderManager_Model_Observer
      * @param Varien_Event_Observer $observer
      * @throws Exception
      */
-    public function invoiceDelete(Varien_Event_Observer $observer)
+    function invoiceDelete(Varien_Event_Observer $observer)
     {
         $obj = $observer->getEvent()->getInvoice();
 		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -440,7 +440,7 @@ class IWD_OrderManager_Model_Observer
      * @param Varien_Event_Observer $observer
      * @throws Exception
      */
-    public function creditmemoDelete(Varien_Event_Observer $observer)
+    function creditmemoDelete(Varien_Event_Observer $observer)
     {
         $obj = $observer->getEvent()->getCreditmemo();
 		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -454,7 +454,7 @@ class IWD_OrderManager_Model_Observer
      * @param Varien_Event_Observer $observer
      * @throws Exception
      */
-    public function shipmentDelete(Varien_Event_Observer $observer)
+    function shipmentDelete(Varien_Event_Observer $observer)
     {
         $obj = $observer->getEvent()->getShipment();
 		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -473,7 +473,7 @@ class IWD_OrderManager_Model_Observer
     /**
      * @return void
      */
-    public function scheduledArchiveOrders()
+    function scheduledArchiveOrders()
     {
         try {
             if (!Mage::helper('iwd_ordermanager')->isEnterpriseMagentoEdition()) {
@@ -490,7 +490,7 @@ class IWD_OrderManager_Model_Observer
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function salesOrderAfterUpdate(Varien_Event_Observer $observer)
+    function salesOrderAfterUpdate(Varien_Event_Observer $observer)
     {
         try {
             if (Mage::helper('iwd_ordermanager')->isEnterpriseMagentoEdition()) {

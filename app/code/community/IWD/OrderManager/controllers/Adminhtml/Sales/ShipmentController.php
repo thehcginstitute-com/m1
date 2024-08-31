@@ -8,7 +8,7 @@ class IWD_OrderManager_Adminhtml_Sales_ShipmentController extends Mage_Adminhtml
     /**
      * @return void
      */
-    public function deleteAction()
+    function deleteAction()
     {
         if (Mage::getModel('iwd_ordermanager/shipment')->isAllowDeleteShipments()) {
             $checkedShipments = $this->getRequest()->getParam('shipment_ids');

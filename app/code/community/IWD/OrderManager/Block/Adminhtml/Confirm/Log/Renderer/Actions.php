@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Block_Adminhtml_Confirm_Log_Renderer_Actions extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Action
 {
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         if ($this->isShowElement($row)) {
             return parent::render($row);

@@ -11,7 +11,7 @@ class IWD_OrderManager_Model_Observer_Payment
      * @param Varien_Event_Observer $observer
      * @return void
      */
-    public function beforeOrderPaymentSave(Varien_Event_Observer $observer)
+    function beforeOrderPaymentSave(Varien_Event_Observer $observer)
     {
         /** @var Mage_Sales_Model_Order_Payment $payment */
         $payment = $observer->getEvent()->getPayment();

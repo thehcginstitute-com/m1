@@ -10,7 +10,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Payment_Form extends Mage_Adm
     /**
      * IWD_OrderManager_Block_Adminhtml_Sales_Order_Payment_Form constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('iwd/ordermanager/payment/form.phtml');
@@ -19,7 +19,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Payment_Form extends Mage_Adm
     /**
      * @return Mage_Core_Model_Abstract|Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         $orderId = $this->getOrderId();
         return Mage::getModel("sales/order")->load($orderId);
@@ -36,7 +36,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Payment_Form extends Mage_Adm
     /**
      * @return Mage_Sales_Model_Quote|null
      */
-    public function getQuote()
+    function getQuote()
     {
         if ($this->quote !== null) {
             return $this->quote;
@@ -73,7 +73,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Payment_Form extends Mage_Adm
     /**
      * @return string
      */
-    public function getSelectedMethodCode()
+    function getSelectedMethodCode()
     {
         try {
             if ($this->getOrder() && $this->getOrder()->getPayment()) {

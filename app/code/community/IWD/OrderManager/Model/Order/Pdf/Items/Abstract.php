@@ -8,7 +8,7 @@ abstract class IWD_OrderManager_Model_Order_Pdf_Items_Abstract extends Mage_Sale
     /**
      * @return array
      */
-    public function getItemOptions()
+    function getItemOptions()
     {
         $result = array();
 
@@ -33,7 +33,7 @@ abstract class IWD_OrderManager_Model_Order_Pdf_Items_Abstract extends Mage_Sale
      * @param $item
      * @return mixed
      */
-    public function getSku($item)
+    function getSku($item)
     {
         if ($this->getOrderItem($item)->getProductOptionByCode('simple_sku')) {
             return $this->getOrderItem($item)->getProductOptionByCode('simple_sku');

@@ -8,7 +8,7 @@ class IWD_OrderManager_Model_System_Config_Createinvoice
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return array(
             array(

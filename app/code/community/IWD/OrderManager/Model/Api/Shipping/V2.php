@@ -9,7 +9,7 @@ class IWD_OrderManager_Model_Api_Shipping_v2 extends IWD_OrderManager_Model_Api_
      * @param array $data
      * @return array
      */
-    public function changeShippingMethod(array $data)
+    function changeShippingMethod(array $data)
     {
         $response = array();
         $id = md5(time());

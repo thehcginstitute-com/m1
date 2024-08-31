@@ -8,7 +8,7 @@ class IWD_OrderManager_Model_Observer_OrderCollection
     /**
      * @param $observer
      */
-    public function hideOrderOnFront($observer)
+    function hideOrderOnFront($observer)
     {
         if ($this->isFilterHiddenOrders()) {
             $order = $observer->getOrder();
@@ -22,7 +22,7 @@ class IWD_OrderManager_Model_Observer_OrderCollection
     /**
      * @param $observer
      */
-    public function hideOrdersOnFront($observer)
+    function hideOrdersOnFront($observer)
     {
         if ($this->isFilterHiddenOrders()) {
             $collection = $observer->getOrderCollection();

@@ -33,7 +33,7 @@ class IWD_OrderManager_Model_Address
     /**
      * @return array
      */
-    public function getOrderAddressFields()
+    function getOrderAddressFields()
     {
         $helper = Mage::helper('iwd_ordermanager');
 
@@ -63,7 +63,7 @@ class IWD_OrderManager_Model_Address
     /**
      * @return mixed
      */
-    public function isAllowEditAddress()
+    function isAllowEditAddress()
     {
         return Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/actions/edit_address');
     }
@@ -71,7 +71,7 @@ class IWD_OrderManager_Model_Address
     /**
      * @param $newAddress
      */
-    public function updateOrderAddress($newAddress)
+    function updateOrderAddress($newAddress)
     {
         $this->init($newAddress);
 
@@ -87,7 +87,7 @@ class IWD_OrderManager_Model_Address
      * @param null $address
      * @return bool
      */
-    public function editOrderAddress($address = null)
+    function editOrderAddress($address = null)
     {
         if ($address !== null) {
             $this->init($address);
@@ -170,7 +170,7 @@ class IWD_OrderManager_Model_Address
     /**
      * @return void
      */
-    public function addChangesToConfirm()
+    function addChangesToConfirm()
     {
         $logger = Mage::getSingleton('iwd_ordermanager/logger');
         $orderId = Mage::getModel('sales/order_address')->load($this->address['address_id'])->getParentId();
@@ -267,7 +267,7 @@ class IWD_OrderManager_Model_Address
      * @param $orderAddress
      * @return bool
      */
-    public function isNeedRecalculateOrderTotalAmount($address, $orderAddress)
+    function isNeedRecalculateOrderTotalAmount($address, $orderAddress)
     {
         if (isset($address['recalculate_amount']) && $address['recalculate_amount']) {
             $fieldsWhichAffectToTotals = array('street', 'city', 'region', 'country', 'region_id', 'country_id', 'postcode');

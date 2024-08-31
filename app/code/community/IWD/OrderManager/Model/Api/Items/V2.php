@@ -357,7 +357,7 @@ class IWD_OrderManager_Model_Api_Items_v2 extends IWD_OrderManager_Model_Api_Abs
         return $optionsArray;
     }
 
-    public function updateItemQty(array $data)
+    function updateItemQty(array $data)
     {
         $response = array();
         $id = md5(time());
@@ -400,7 +400,7 @@ class IWD_OrderManager_Model_Api_Items_v2 extends IWD_OrderManager_Model_Api_Abs
         return array('result' => $response);
     }
 
-    public function deleteItem(array $data)
+    function deleteItem(array $data)
     {
         $response = array();
         $id = md5(time());
@@ -430,7 +430,7 @@ class IWD_OrderManager_Model_Api_Items_v2 extends IWD_OrderManager_Model_Api_Abs
         return array('result' => $response);
     }
 
-    public function updateItemPrice(array $data)
+    function updateItemPrice(array $data)
     {
         $response = array();
         $id = md5(time());
@@ -485,7 +485,7 @@ class IWD_OrderManager_Model_Api_Items_v2 extends IWD_OrderManager_Model_Api_Abs
         return array('result' => $response);
     }
 
-    public function addItem(array $data)
+    function addItem(array $data)
     {
         $response = array();
         $id = md5(time());

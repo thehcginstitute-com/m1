@@ -16,7 +16,7 @@ class IWD_OrderManager_Model_Logger_Shipment extends IWD_OrderManager_Model_Logg
      * @param bool|false $status
      * @param bool|false $isCustomerNotified
      */
-    public function addCommentToHistory($orderId, $shipmentId, $status = false, $isCustomerNotified = false)
+    function addCommentToHistory($orderId, $shipmentId, $status = false, $isCustomerNotified = false)
     {
         $this->addToLogOutputInfoAboutOrderChanges();
         if (empty($this->logOutput)) {

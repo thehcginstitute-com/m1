@@ -6,7 +6,7 @@ class IWD_OrderManager_Block_Sales_Order_Total_Fee extends Mage_Core_Block_Abstr
      * Get Source Model
      * @return mixed
      */
-    public function getSource()
+    function getSource()
     {
         return $this->getParentBlock()->getSource();
     }
@@ -14,7 +14,7 @@ class IWD_OrderManager_Block_Sales_Order_Total_Fee extends Mage_Core_Block_Abstr
     /**
      * Add this total to parent
      */
-    public function initTotals()
+    function initTotals()
     {
         $amount = $this->getOrder()->getIwdOmFeeAmount();
 
@@ -101,7 +101,7 @@ class IWD_OrderManager_Block_Sales_Order_Total_Fee extends Mage_Core_Block_Abstr
     /**
      * @return mixed
      */
-    public function getOrder()
+    function getOrder()
     {
         $source = $this->getSource();
         if ($source instanceof Mage_Sales_Model_Order) {

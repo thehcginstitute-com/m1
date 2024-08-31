@@ -17,7 +17,7 @@ class IWD_OrderManager_Model_System_Config_Tax_Notification extends Mage_Core_Mo
      *
      * @param array $args
      */
-    public function __construct(array $args = array())
+    function __construct(array $args = array())
     {
         $this->_factory = !empty($args['factory']) ? $args['factory'] : Mage::getSingleton('core/factory');
         parent::__construct($args);

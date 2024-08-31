@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Model_Order_Api_Items extends IWD_OrderManager_Model_Order_Items
 {
-    public function getLogger()
+    function getLogger()
     {
         return Mage::getSingleton('iwd_ordermanager/api_logger');
     }

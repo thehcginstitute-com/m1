@@ -26,7 +26,7 @@ class IWD_OrderManager_Model_Archive
     const XML_PATH_ARCHIVE_ORDER_STATUSES = 'iwd_ordermanager/archive/order_statuses';
     const XML_PATH_AUTO_ARCHIVE_AFTER_DAYS = 'iwd_ordermanager/archive/auto_archive_after_days';
 
-    public function isAllowArchiveOrders()
+    function isAllowArchiveOrders()
     {
         $permissionAllow = Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/actions/archive');
         $enable = $this->isArchiveEnable();
@@ -35,26 +35,26 @@ class IWD_OrderManager_Model_Archive
         return ($permissionAllow && $enable && !$enterprise);
     }
 
-    public function isAllowRestoreOrders()
+    function isAllowRestoreOrders()
     {
         $permissionAllow = Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/actions/archive_restore');
         $enable = $this->isArchiveEnable();
         return ($permissionAllow && $enable);
     }
 
-    public function isArchiveEnable()
+    function isArchiveEnable()
     {
         return Mage::getStoreConfig(self::XML_PATH_ARCHIVE_ORDER_ENABLE) ? 1 : 0;
     }
 
-    public function getArchiveOrderStatuses()
+    function getArchiveOrderStatuses()
     {
         $statuses = Mage::getStoreConfig(self::XML_PATH_ARCHIVE_ORDER_STATUSES);
         $statuses = explode(",", $statuses);
         return empty($statuses) ? array(0) : $statuses;
     }
 
-    public function getArchiveAfterDays()
+    function getArchiveAfterDays()
     {
         return (int) Mage::getStoreConfig(self::XML_PATH_AUTO_ARCHIVE_AFTER_DAYS);
     }
@@ -62,39 +62,39 @@ class IWD_OrderManager_Model_Archive
 
 
     /************************* GET ARCHIVE COLLECTIONS ***********************/
-    public function getArchiveOrdersCollection()
+    function getArchiveOrdersCollection()
     {
         return Mage::getModel('iwd_ordermanager/archive_order')->getCollection();
     }
 
-    public function getArchiveInvoicesCollection()
+    function getArchiveInvoicesCollection()
     {
         return Mage::getModel('iwd_ordermanager/archive_invoice')->getCollection();
     }
 
-    public function getArchiveCreditmemosCollection()
+    function getArchiveCreditmemosCollection()
     {
         return Mage::getModel('iwd_ordermanager/archive_creditmemo')->getCollection();
     }
 
-    public function getArchiveShipmentsCollection()
+    function getArchiveShipmentsCollection()
     {
         return Mage::getModel('iwd_ordermanager/archive_shipment')->getCollection();
     }
     /******************************************* end GET ARCHIVE COLLECTIONS */
 
 
-    public function resultError()
+    function resultError()
     {
         return $this->_result_error;
     }
 
-    public function getNotAllowedOrders()
+    function getNotAllowedOrders()
     {
         return $this->_not_allowed_orders;
     }
 
-    public function getCountOrderIds()
+    function getCountOrderIds()
     {
         return $this->_count_orders;
     }
@@ -104,13 +104,13 @@ class IWD_OrderManager_Model_Archive
         return Mage::getResourceSingleton('iwd_ordermanager/archive');
     }
 
-    public function addSalesToArchive()
+    function addSalesToArchive()
     {
         $ids = $this->_getResource()->getOrderIdsForArchiveExpression();
         return $this->_archive($ids);
     }
 
-    public function addSalesToArchiveByIds($orderIds)
+    function addSalesToArchiveByIds($orderIds)
     {
         if (empty($orderIds)) {
             return $this;
@@ -157,7 +157,7 @@ class IWD_OrderManager_Model_Archive
         return $this;
     }
 
-    public function restoreSalesFromArchiveByIds($orderIds)
+    function restoreSalesFromArchiveByIds($orderIds)
     {
         if (Mage::helper('iwd_ordermanager')->isEnterpriseMagentoEdition()) {
             return $this;
@@ -187,7 +187,7 @@ class IWD_OrderManager_Model_Archive
         return $this;
     }
 
-    public function restoreSalesFromArchive()
+    function restoreSalesFromArchive()
     {
         if (Mage::helper('iwd_ordermanager')->isEnterpriseMagentoEdition()) {
             return $this;
@@ -213,7 +213,7 @@ class IWD_OrderManager_Model_Archive
         return $this;
     }
 
-    public function detectArchiveEntity($object)
+    function detectArchiveEntity($object)
     {
         if (Mage::helper('iwd_ordermanager')->isEnterpriseMagentoEdition()) {
             return false;
@@ -230,7 +230,7 @@ class IWD_OrderManager_Model_Archive
         return false;
     }
 
-    public function updateGridRecords($entity, $ids)
+    function updateGridRecords($entity, $ids)
     {
         $this->_getResource()->updateGridRecords($entity, $ids);
         return $this;

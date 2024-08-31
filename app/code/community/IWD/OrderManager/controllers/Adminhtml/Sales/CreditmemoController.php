@@ -8,7 +8,7 @@ class IWD_OrderManager_Adminhtml_Sales_CreditmemoController extends Mage_Adminht
     /**
      * @return void
      */
-    public function deleteAction()
+    function deleteAction()
     {
         if (Mage::getModel('iwd_ordermanager/creditmemo')->isAllowDeleteCreditmemos()) {
             $checkedCreditMemos = $this->getRequest()->getParam('creditmemo_ids');

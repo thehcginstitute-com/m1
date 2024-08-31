@@ -8,7 +8,7 @@ class IWD_OrderManager_Model_Sales_Order_Invoice_Total_Fee extends Mage_Sales_Mo
      * @param Mage_Sales_Model_Order_Invoice $invoice
      * @return Mage_Sales_Model_Order_Invoice_Total_Abstract
      */
-    public function collect(Mage_Sales_Model_Order_Invoice $invoice)
+    function collect(Mage_Sales_Model_Order_Invoice $invoice)
     {
         $invoice->setIwdOmFeeAmount(0);
         $invoice->setIwdOmFeeBaseAmount(0);

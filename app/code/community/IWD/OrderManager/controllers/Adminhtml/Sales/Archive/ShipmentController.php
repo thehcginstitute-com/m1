@@ -8,7 +8,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_ShipmentController extends Mage_A
     /**
      * @return void
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout()
             ->_setActiveMenu('sales')
@@ -26,7 +26,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_ShipmentController extends Mage_A
     /**
      * @return void
      */
-    public function exportCsvAction()
+    function exportCsvAction()
     {
         $fileName = 'archive_shipments.csv';
         $grid = $this->getLayout()->createBlock('iwd_ordermanager/adminhtml_sales_order_archive_shipments_grid');
@@ -41,7 +41,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_ShipmentController extends Mage_A
     /**
      * @return void
      */
-    public function exportExcelAction()
+    function exportExcelAction()
     {
         $fileName = 'archive_shipments.xml';
         $grid = $this->getLayout()->createBlock('iwd_ordermanager/adminhtml_sales_order_archive_shipments_grid');
@@ -56,7 +56,7 @@ class IWD_OrderManager_Adminhtml_Sales_Archive_ShipmentController extends Mage_A
     /**
      * @return void
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout();
         $this->getResponse()->setBody(

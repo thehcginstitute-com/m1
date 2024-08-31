@@ -22,7 +22,7 @@ class IWD_OrderManager_Model_Order_Info extends IWD_OrderManager_Model_Order
      */
     protected $creditmemo;
 
-    public function updateOrderInfo($params)
+    function updateOrderInfo($params)
     {
         $this->init($params);
         $this->validation();
@@ -41,7 +41,7 @@ class IWD_OrderManager_Model_Order_Info extends IWD_OrderManager_Model_Order
         }
     }
 
-    public function showHideOrderOnFront($order, $status)
+    function showHideOrderOnFront($order, $status)
     {
         $helper = Mage::helper('iwd_ordermanager');
         if ($helper->isAllowHideOrders()) {
@@ -178,7 +178,7 @@ class IWD_OrderManager_Model_Order_Info extends IWD_OrderManager_Model_Order
         }
     }
 
-    public function execUpdateOrderInfo($params)
+    function execUpdateOrderInfo($params)
     {
         $this->init($params);
         $this->editInfo();
@@ -576,7 +576,7 @@ class IWD_OrderManager_Model_Order_Info extends IWD_OrderManager_Model_Order
     /**
      * @return IWD_OrderManager_Model_Logger
      */
-    public function getLogger()
+    function getLogger()
     {
         return Mage::getSingleton('iwd_ordermanager/logger');
     }
@@ -584,7 +584,7 @@ class IWD_OrderManager_Model_Order_Info extends IWD_OrderManager_Model_Order
     /**
      * @return IWD_OrderManager_Model_Logger_Invoice
      */
-    public function getLoggerInvoice()
+    function getLoggerInvoice()
     {
         return Mage::getSingleton('iwd_ordermanager/logger_invoice');
     }
@@ -592,7 +592,7 @@ class IWD_OrderManager_Model_Order_Info extends IWD_OrderManager_Model_Order
     /**
      * @return IWD_OrderManager_Model_Logger_Creditmemo
      */
-    public function getLoggerCreditmemo()
+    function getLoggerCreditmemo()
     {
         return Mage::getSingleton('iwd_ordermanager/logger_creditmemo');
     }
@@ -600,7 +600,7 @@ class IWD_OrderManager_Model_Order_Info extends IWD_OrderManager_Model_Order
     /**
      * @return IWD_OrderManager_Model_Logger_Shipment
      */
-    public function getLoggerShipment()
+    function getLoggerShipment()
     {
         return Mage::getSingleton('iwd_ordermanager/logger_shipment');
     }

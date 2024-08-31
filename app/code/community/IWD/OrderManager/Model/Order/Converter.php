@@ -15,7 +15,7 @@ class IWD_OrderManager_Model_Order_Converter extends Mage_Core_Model_Abstract
      * @return false|Mage_Core_Model_Abstract|Mage_Sales_Model_Quote
      * @throws Exception
      */
-    public function convertOrderToQuote($orderId)
+    function convertOrderToQuote($orderId)
     {
         $order = $this->getOrder($orderId);
 
@@ -136,7 +136,7 @@ class IWD_OrderManager_Model_Order_Converter extends Mage_Core_Model_Abstract
      * @param $items
      * @return array
      */
-    public function createNewQuoteItems($orderId, $items)
+    function createNewQuoteItems($orderId, $items)
     {
         $quote = $this->getQuoteForOrder($orderId);
 
@@ -192,7 +192,7 @@ class IWD_OrderManager_Model_Order_Converter extends Mage_Core_Model_Abstract
      * @param $quote
      * @return mixed
      */
-    public function removeAllQuoteItems($quote)
+    function removeAllQuoteItems($quote)
     {
         $allQuoteItems = $quote->getAllItems();
         foreach ($allQuoteItems as $item) {
@@ -206,7 +206,7 @@ class IWD_OrderManager_Model_Order_Converter extends Mage_Core_Model_Abstract
      * @param $order
      * @return Mage_Sales_Model_Quote
      */
-    public function createQuote($order)
+    function createQuote($order)
     {
         $billingAddress = $order->getBillingAddress();
         $shippingAddress = $order->getShippingAddress();
@@ -269,7 +269,7 @@ class IWD_OrderManager_Model_Order_Converter extends Mage_Core_Model_Abstract
      * @param $params
      * @return null
      */
-    public function addProductToQuote($quote, $productId, $params)
+    function addProductToQuote($quote, $productId, $params)
     {
         $product = Mage::getModel('catalog/product')
             ->setStoreId($quote->getStoreId())
@@ -291,7 +291,7 @@ class IWD_OrderManager_Model_Order_Converter extends Mage_Core_Model_Abstract
      * @param $options
      * @return null
      */
-    public function createNewOrderItem($orderItemId, $options)
+    function createNewOrderItem($orderItemId, $options)
     {
         if (!isset($options['item'][$orderItemId])) {
             return null;
@@ -350,7 +350,7 @@ class IWD_OrderManager_Model_Order_Converter extends Mage_Core_Model_Abstract
      * @return false|Mage_Core_Model_Abstract|Mage_Sales_Model_Quote|null
      * @throws Exception
      */
-    public function getQuoteForOrder($orderId)
+    function getQuoteForOrder($orderId)
     {
         $order = $this->getOrder($orderId);
 
@@ -403,7 +403,7 @@ class IWD_OrderManager_Model_Order_Converter extends Mage_Core_Model_Abstract
     /**
      * @param $order
      */
-    public function syncQuote($order)
+    function syncQuote($order)
     {
         $quoteItemsInUse = array();
         $orderedItems = $order->getAllItems();

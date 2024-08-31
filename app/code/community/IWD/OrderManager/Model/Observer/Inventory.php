@@ -8,7 +8,7 @@ class IWD_OrderManager_Model_Observer_Inventory
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function updateOrderStatus(Varien_Event_Observer $observer)
+    function updateOrderStatus(Varien_Event_Observer $observer)
     {
         if (!Mage::helper('iwd_ordermanager')->isOrderManagerEnabled()) {
             return;

@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Model_Order_Pdf_Items_Order_Default extends IWD_OrderManager_Model_Order_Pdf_Items_Abstract
 {
-    public function draw()
+    function draw()
     {
         $order = $this->getOrder();
         $item = $this->getItem();

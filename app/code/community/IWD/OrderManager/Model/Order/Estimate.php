@@ -78,7 +78,7 @@ class IWD_OrderManager_Model_Order_Estimate extends IWD_OrderManager_Model_Order
         return $newItems;
     }
 
-    public function estimateEditItems($orderId, $items)
+    function estimateEditItems($orderId, $items)
     {
         $order = Mage::getModel('sales/order')->load($orderId);
 

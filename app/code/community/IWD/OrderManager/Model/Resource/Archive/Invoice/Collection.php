@@ -8,7 +8,7 @@ class IWD_OrderManager_Model_Resource_Archive_Invoice_Collection extends Mage_Sa
     /**
      * {@inheritdoc}
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->setMainTable('iwd_ordermanager/archive_invoice');

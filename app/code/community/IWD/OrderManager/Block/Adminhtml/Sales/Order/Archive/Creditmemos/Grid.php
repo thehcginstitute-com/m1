@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Block_Adminhtml_Sales_Order_Archive_Creditmemos_Grid extends Mage_Adminhtml_Block_Sales_Creditmemo_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_creditmemos_grid');
@@ -22,7 +22,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Archive_Creditmemos_Grid exte
         return Mage_Adminhtml_Block_Widget_Grid::_prepareCollection();
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         if (Mage::getSingleton('admin/session')->isAllowed('sales/order/creditmemo')) {
             return $this->getUrl('*/sales_creditmemo/view', array('creditmemo_id' => $row->getId()));
@@ -31,7 +31,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Archive_Creditmemos_Grid exte
         return false;
     }
 
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/grid', array('_current' => true));
     }

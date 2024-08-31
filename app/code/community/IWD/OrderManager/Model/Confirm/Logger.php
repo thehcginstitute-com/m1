@@ -2,12 +2,12 @@
 
 class IWD_OrderManager_Model_Confirm_Logger extends Mage_Core_Model_Abstract
 {
-    public function _construct()
+    function _construct()
     {
         $this->_init('iwd_ordermanager/confirm_logger');
     }
 
-    public function addOperationToLog($type, $log, $orderId)
+    function addOperationToLog($type, $log, $orderId)
     {
         $data = array();
 
@@ -25,7 +25,7 @@ class IWD_OrderManager_Model_Confirm_Logger extends Mage_Core_Model_Abstract
         $this->save();
     }
 
-    public function addOperationForConfirm($type, $log, $params, $orderId = null)
+    function addOperationForConfirm($type, $log, $params, $orderId = null)
     {
         /** save data **/
         $data = array();

@@ -8,7 +8,7 @@ class IWD_OrderManager_Adminhtml_Sales_AdditionalController extends IWD_OrderMan
     /**
      * return void
      */
-    public function applyFeeAction()
+    function applyFeeAction()
     {
         $result = array('status' => 1);
 

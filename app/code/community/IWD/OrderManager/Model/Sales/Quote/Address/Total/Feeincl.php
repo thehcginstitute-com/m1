@@ -9,7 +9,7 @@ class IWD_OrderManager_Model_Sales_Quote_Address_Total_Feeincl extends IWD_Order
     /**
      * {@inheritdoc}
      */
-    public function collect(Mage_Sales_Model_Quote_Address $address)
+    function collect(Mage_Sales_Model_Quote_Address $address)
     {
         return $this;
     }
@@ -18,7 +18,7 @@ class IWD_OrderManager_Model_Sales_Quote_Address_Total_Feeincl extends IWD_Order
      * @param Mage_Sales_Model_Quote_Address $address
      * @return $this
      */
-    public function fetch(Mage_Sales_Model_Quote_Address $address)
+    function fetch(Mage_Sales_Model_Quote_Address $address)
     {
         $this->address = $address;
 
@@ -53,7 +53,7 @@ class IWD_OrderManager_Model_Sales_Quote_Address_Total_Feeincl extends IWD_Order
         }
     }
 
-    public function prepareAppliedTaxes($address)
+    function prepareAppliedTaxes($address)
     {
         $percent = $address->getIwdOmFeeTaxPercent();
         if ($percent != 0) {

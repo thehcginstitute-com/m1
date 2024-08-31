@@ -8,7 +8,7 @@ class IWD_OrderManager_Model_Resource_Archive_Shipment_Collection extends Mage_S
     /**
      * {@inheritdoc}
      */
-    public function _construct(){
+    function _construct(){
         parent::_construct();
         $this->setMainTable('iwd_ordermanager/archive_shipment');
     }

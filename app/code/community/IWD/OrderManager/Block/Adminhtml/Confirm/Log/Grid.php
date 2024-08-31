@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Block_Adminhtml_Confirm_Log_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('orderManagerLogGrid');
@@ -142,17 +142,17 @@ class IWD_OrderManager_Block_Adminhtml_Confirm_Log_Grid extends Mage_Adminhtml_B
         return parent::_prepareColumns();
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return false;
     }
 
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/grid', array('_current' => true));
     }
 
-    public function _toHtml()
+    function _toHtml()
     {
         $appendBlock = $this->getLayout()
             ->createBlock('core/template')

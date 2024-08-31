@@ -8,7 +8,7 @@ class IWD_OrderManager_Model_System_Config_Status_Creditmemo
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $statuses = Mage::getModel('sales/order_creditmemo')->getStates();
         

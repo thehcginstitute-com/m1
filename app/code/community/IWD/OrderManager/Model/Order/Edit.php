@@ -21,32 +21,32 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	/**
 	 * @return IWD_OrderManager_Model_Logger
 	 */
-	public function getLogger()
+	function getLogger()
 	{
 		return Mage::getSingleton('iwd_ordermanager/logger');
 	}
 
-	public function getOrderStatusesForUpdateIds()
+	function getOrderStatusesForUpdateIds()
 	{
 		return explode(',', Mage::getStoreConfig(self::XML_PATH_SALES_STATUS_ORDER));
 	}
 
-	public function getAllowReturnToStock()
+	function getAllowReturnToStock()
 	{
 		return Mage::getStoreConfig(self::XML_PATH_RETURN_TO_STOCK);
 	}
 
-	public function isRecalculateShipping()
+	function isRecalculateShipping()
 	{
 		return Mage::getStoreConfig(self::XML_PATH_RECALCULATE_SHIPPING);
 	}
 
-	public function getNeedUpdateStock()
+	function getNeedUpdateStock()
 	{
 		return $this->needUpdateStock && Mage::helper('iwd_ordermanager')->isMultiInventoryEnable();
 	}
 
-	public function editItems($orderId, $items)
+	function editItems($orderId, $items)
 	{
 		/* event */
 		$order = $this->loadOrder($orderId);
@@ -79,7 +79,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		return 1;
 	}
 
-	public function execEditOrderItems($orderId, $params)
+	function execEditOrderItems($orderId, $params)
 	{
 		$notify = isset($params['notify']) ? $params['notify'] : null;
 		$edited = $this->editItems($orderId, $params['items']);
@@ -94,7 +94,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		return $result;
 	}
 
-	public function checkOrderStatusForUpdate($order)
+	function checkOrderStatusForUpdate($order)
 	{
 		$orderStatus = $order->getStatus();
 		$allowOrderStatuses = $this->getOrderStatusesForUpdateIds();
@@ -103,7 +103,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		return in_array($orderStatus, $allowOrderStatuses) || ($waitOrderStatus == $orderStatus);
 	}
 
-	public function updateOrderPayment($orderId, $oldOrder)
+	function updateOrderPayment($orderId, $oldOrder)
 	{
 		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Delete the unused «Backup Sales» feature of `IWD_OrderManager`": https://github.com/thehcginstitute-com/m1/issues/412
@@ -117,7 +117,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		return 0;
 	}
 
-	public function updateCreditMemos($orderId)
+	function updateCreditMemos($orderId)
 	{
 		try {
 			/** @var $order Mage_Sales_Model_Order */
@@ -138,7 +138,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		return true;
 	}
 
-	public function updateInvoice($orderId)
+	function updateInvoice($orderId)
 	{
 		try {
 			/** @var $order Mage_Sales_Model_Order */
@@ -832,7 +832,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		return $orderItem;
 	}
 
-	public function addItemToOrder($order, $quote_item)
+	function addItemToOrder($order, $quote_item)
 	{
 		try {
 			$optionCollection = Mage::getModel('sales/quote_item_option')->getCollection()
@@ -985,7 +985,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		$this->getLogger()->addOrderItemRemove($orderItem, $is_refunded);
 	}
 
-	public function addOrderTaxItemTable($order_item, $quote_item)
+	function addOrderTaxItemTable($order_item, $quote_item)
 	{
 		if (in_array(round($order_item->getTaxPercent(), 2), $this->appliedTaxes)) {
 			return;
@@ -1169,7 +1169,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		}
 	}
 
-	public function updateOrderTaxTable($order_id)
+	function updateOrderTaxTable($order_id)
 	{
 		$source = Mage::getModel('sales/order')->load($order_id);
 
@@ -1300,7 +1300,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		return $taxConfig->getShippingTaxClass($order->getStore());
 	}
 
-	public function collectOrderTotals($orderId)
+	function collectOrderTotals($orderId)
 	{
 		/** @var $order Mage_Sales_Model_Order */
 		$order = $this->loadOrder($orderId);

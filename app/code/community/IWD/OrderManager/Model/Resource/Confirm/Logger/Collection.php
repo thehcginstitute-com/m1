@@ -8,7 +8,7 @@ class IWD_OrderManager_Model_Resource_Confirm_Logger_Collection extends Mage_Cor
     /**
      * {@inheritdoc}
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->setMainTable('iwd_ordermanager/confirm_logger');

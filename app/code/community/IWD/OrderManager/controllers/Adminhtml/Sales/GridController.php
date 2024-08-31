@@ -8,7 +8,7 @@ class IWD_OrderManager_Adminhtml_Sales_GridController extends Mage_Adminhtml_Con
     /**
      * @return void
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $redirect = $this->getRequest()->getParam('redirect');
         $redirect = (empty($redirect)) ? "*/sales_order/index" : "*/{$redirect}/index";
@@ -47,7 +47,7 @@ class IWD_OrderManager_Adminhtml_Sales_GridController extends Mage_Adminhtml_Con
     /**
      * @return void
      */
-    public function hideAction()
+    function hideAction()
     {
         $redirect = $this->getRequest()->getParam('redirect');
         $redirect = (empty($redirect)) ? "*/sales_order/index" : "*/{$redirect}/index";
@@ -85,7 +85,7 @@ class IWD_OrderManager_Adminhtml_Sales_GridController extends Mage_Adminhtml_Con
     /**
      * @return void
      */
-    public function orderCommentsAction()
+    function orderCommentsAction()
     {
         try {
             $checkedOrders = $this->getCheckedOrderIds();
@@ -117,7 +117,7 @@ class IWD_OrderManager_Adminhtml_Sales_GridController extends Mage_Adminhtml_Con
     /**
      * @param $orderId
      */
-    public function deleteFromOrderGrid($orderId)
+    function deleteFromOrderGrid($orderId)
     {
         $connection = Mage::getSingleton('core/resource')->getConnection('core_write');
 
@@ -149,7 +149,7 @@ class IWD_OrderManager_Adminhtml_Sales_GridController extends Mage_Adminhtml_Con
     /**
      * @return void
      */
-    public function changeStatusAction()
+    function changeStatusAction()
     {
         $redirect = "*/sales_order/index";
 
@@ -188,7 +188,7 @@ class IWD_OrderManager_Adminhtml_Sales_GridController extends Mage_Adminhtml_Con
     /**
      * @return void
      */
-    public function orderedItemsAction()
+    function orderedItemsAction()
     {
         $result = array('status' => 1);
 
@@ -212,7 +212,7 @@ class IWD_OrderManager_Adminhtml_Sales_GridController extends Mage_Adminhtml_Con
     /**
      * @return void
      */
-    public function productItemsAction()
+    function productItemsAction()
     {
         $result = array('status' => 1);
 

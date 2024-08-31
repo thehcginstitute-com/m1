@@ -8,7 +8,7 @@ class IWD_OrderManager_Adminhtml_ConfirmController extends Mage_Adminhtml_Contro
     /**
      * @return void
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->logAction();
     }
@@ -16,7 +16,7 @@ class IWD_OrderManager_Adminhtml_ConfirmController extends Mage_Adminhtml_Contro
     /**
      * @return void
      */
-    public function logAction()
+    function logAction()
     {
         $this->loadLayout()
             ->_setActiveMenu('system')
@@ -34,7 +34,7 @@ class IWD_OrderManager_Adminhtml_ConfirmController extends Mage_Adminhtml_Contro
     /**
      * @return void
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout();
         $this->getResponse()->setBody(
@@ -44,7 +44,7 @@ class IWD_OrderManager_Adminhtml_ConfirmController extends Mage_Adminhtml_Contro
 
     /** http://site.com/admin/iwd_ordermanager/confirm/edit/action/confirm/pid/000000000000000 **/
     /** http://site.com/admin/iwd_ordermanager/confirm/edit/action/cancel/pid/000000000000000 **/
-    public function editAction()
+    function editAction()
     {
 
         $action = $this->getRequest()->getParam('action');

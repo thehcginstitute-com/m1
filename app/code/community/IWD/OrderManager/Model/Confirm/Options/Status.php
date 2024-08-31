@@ -7,7 +7,7 @@ class IWD_OrderManager_Model_Confirm_Options_Status extends IWD_OrderManager_Mod
     const CONFIRMED = 2;
     const CANCELED = 3;
 
-    public function toOption()
+    function toOption()
     {
         $helper = Mage::helper('iwd_ordermanager');
         return array(

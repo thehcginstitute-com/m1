@@ -8,7 +8,7 @@ class IWD_OrderManager_Adminhtml_Sales_OrderrController extends IWD_OrderManager
     /**
      * edit: edit form
      */
-    public function editOrderedItemsFormAction()
+    function editOrderedItemsFormAction()
     {
         $result = array('status' => 1);
 
@@ -36,7 +36,7 @@ class IWD_OrderManager_Adminhtml_Sales_OrderrController extends IWD_OrderManager
     /**
      * edit: edit ordered items
      */
-    public function editOrderedItemsAction()
+    function editOrderedItemsAction()
     {
         $result = array('status' => 1);
 
@@ -81,7 +81,7 @@ class IWD_OrderManager_Adminhtml_Sales_OrderrController extends IWD_OrderManager
     /**
      * add: search items form
      */
-    public function addOrderedItemsFormAction()
+    function addOrderedItemsFormAction()
     {
         try {
             $orderId = $this->getRequest()->getPost('order_id');
@@ -112,7 +112,7 @@ class IWD_OrderManager_Adminhtml_Sales_OrderrController extends IWD_OrderManager
     /**
      * add: add new items
      */
-    public function addOrderedItemsAction()
+    function addOrderedItemsAction()
     {
         try {
             $options = $this->getRequest()->getParam('options');
@@ -143,7 +143,7 @@ class IWD_OrderManager_Adminhtml_Sales_OrderrController extends IWD_OrderManager
     /**
      * edit order items options
      */
-    public function editOrderedItemsOptionsAction()
+    function editOrderedItemsOptionsAction()
     {
         try {
             $params = $this->getRequest()->getParams();
@@ -177,7 +177,7 @@ class IWD_OrderManager_Adminhtml_Sales_OrderrController extends IWD_OrderManager
     /**
      * add: Loading page block (for pagination in search form)
      */
-    public function loadBlockAction()
+    function loadBlockAction()
     {
         $request = $this->getRequest();
 
@@ -215,7 +215,7 @@ class IWD_OrderManager_Adminhtml_Sales_OrderrController extends IWD_OrderManager
     /**
      * @return $this
      */
-    public function configureProductAction()
+    function configureProductAction()
     {
         $result = array('status' => 1);
 
@@ -344,7 +344,7 @@ class IWD_OrderManager_Adminhtml_Sales_OrderrController extends IWD_OrderManager
     /**
      * @param $orderId
      */
-    public function _setQuoteSession($orderId)
+    function _setQuoteSession($orderId)
     {
         $order = Mage::getModel('sales/order')->load($orderId);
 
@@ -368,7 +368,7 @@ class IWD_OrderManager_Adminhtml_Sales_OrderrController extends IWD_OrderManager
     /**
      * @return $this|Mage_Core_Controller_Varien_Action
      */
-    public function pdfordersAction()
+    function pdfordersAction()
     {
         $orderIds = $this->getRequest()->getPost('order_ids');
         if (!empty($orderIds)) {
@@ -397,7 +397,7 @@ class IWD_OrderManager_Adminhtml_Sales_OrderrController extends IWD_OrderManager
     /**
      * @return $this|Mage_Core_Controller_Varien_Action
      */
-    public function printAction()
+    function printAction()
     {
         $order = $this->_initOrder();
         if (!empty($order)) {

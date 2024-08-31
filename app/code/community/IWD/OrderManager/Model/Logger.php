@@ -15,7 +15,7 @@ class IWD_OrderManager_Model_Logger extends IWD_OrderManager_Model_Logger_Abstra
      * @param bool|false $status
      * @param bool|false $isCustomerNotified
      */
-    public function addCommentToOrderHistory($orderId, $status = false, $isCustomerNotified = false)
+    function addCommentToOrderHistory($orderId, $status = false, $isCustomerNotified = false)
     {
         $this->getLogOutput($orderId);
         if (empty($this->logOutput)) {
@@ -29,7 +29,7 @@ class IWD_OrderManager_Model_Logger extends IWD_OrderManager_Model_Logger_Abstra
     /**
      * @param $orderId
      */
-    public function addCommentToOrderHistoryConfirmSuccess($orderId)
+    function addCommentToOrderHistoryConfirmSuccess($orderId)
     {
         $message = Mage::helper('iwd_ordermanager')->__("Changes were applied.");
         $this->addOrderStatusHistoryComment($message, $orderId, "success");
@@ -38,7 +38,7 @@ class IWD_OrderManager_Model_Logger extends IWD_OrderManager_Model_Logger_Abstra
     /**
      * @param $orderId
      */
-    public function addCommentToOrderHistoryConfirmCancel($orderId)
+    function addCommentToOrderHistoryConfirmCancel($orderId)
     {
         $message = Mage::helper('iwd_ordermanager')->__("Changes were canceled.");
         $this->addOrderStatusHistoryComment($message, $orderId, "cancel");
@@ -88,7 +88,7 @@ class IWD_OrderManager_Model_Logger extends IWD_OrderManager_Model_Logger_Abstra
      * @param $orderId
      * @param null $params
      */
-    public function addLogToLogTable($type, $orderId, $params = null)
+    function addLogToLogTable($type, $orderId, $params = null)
     {
         $this->getLogOutput($orderId);
         if (empty($this->logOutput)) {
@@ -103,7 +103,7 @@ class IWD_OrderManager_Model_Logger extends IWD_OrderManager_Model_Logger_Abstra
      * @param $orderId
      * @param null $params
      */
-    public function updateLogs($type, $orderId, $params = null)
+    function updateLogs($type, $orderId, $params = null)
     {
         if (empty($params)) {
             $this->getConfirmLogger()->addOperationToLog($type, $this->logOutput, $orderId);
@@ -115,7 +115,7 @@ class IWD_OrderManager_Model_Logger extends IWD_OrderManager_Model_Logger_Abstra
     /**
      * @return false|Mage_Core_Model_Abstract
      */
-    public function getConfirmLogger()
+    function getConfirmLogger()
     {
         return Mage::getModel('iwd_ordermanager/confirm_logger');
     }
@@ -144,7 +144,7 @@ class IWD_OrderManager_Model_Logger extends IWD_OrderManager_Model_Logger_Abstra
      * @param $statusId
      * @param bool|false $isCustomerNotified
      */
-    public function addCommentToOrderHistoryInGrid($orderId, $statusId, $isCustomerNotified = false)
+    function addCommentToOrderHistoryInGrid($orderId, $statusId, $isCustomerNotified = false)
     {
         $this->getLogOutput($orderId);
         if (empty($this->logOutput)) {

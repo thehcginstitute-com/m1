@@ -49,7 +49,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
      * @param $old
      * @param null $new
      */
-    public function addOrderItemEdit($orderItem, $description, $old, $new = null)
+    function addOrderItemEdit($orderItem, $description, $old, $new = null)
     {
         $description = Mage::helper('iwd_ordermanager')->__($description);
         $id = $orderItem->getId();
@@ -68,7 +68,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
     /**
      * @param $orderItem
      */
-    public function addOrderItemAdd($orderItem)
+    function addOrderItemAdd($orderItem)
     {
         $this->addedOrderItems[$orderItem->getId()] = $orderItem->getName();
         $this->orderedItemsName[$orderItem->getId()] = $orderItem->getName();
@@ -78,7 +78,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
      * @param $orderItem
      * @param bool|false $refund
      */
-    public function addOrderItemRemove($orderItem, $refund = false)
+    function addOrderItemRemove($orderItem, $refund = false)
     {
         $this->removeOrderItems[$orderItem->getId()] = $refund;
         $this->orderedItemsName[$orderItem->getId()] = $orderItem->getName();
@@ -89,7 +89,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
      * @param $oldValue
      * @param $newValue
      */
-    public function addChangesToLog($item, $oldValue, $newValue)
+    function addChangesToLog($item, $oldValue, $newValue)
     {
         if ($newValue != $oldValue) {
             $this->changesLog[$item] = array(
@@ -106,7 +106,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
      * @param $oldValue
      * @param $newValue
      */
-    public function addAddressFieldChangesToLog($addressType, $filed, $title, $oldValue, $newValue)
+    function addAddressFieldChangesToLog($addressType, $filed, $title, $oldValue, $newValue)
     {
         if ($newValue != $oldValue) {
             if ($filed == "region_id") {
@@ -145,7 +145,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
      * @param $item
      * @param $itemIncrementId
      */
-    public function itemDeleteSuccess($item, $itemIncrementId)
+    function itemDeleteSuccess($item, $itemIncrementId)
     {
         $this->deleteLogSuccess[$item][] = $itemIncrementId;
     }
@@ -154,7 +154,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
      * @param $item
      * @param $itemIncrementId
      */
-    public function itemDeleteError($item, $itemIncrementId)
+    function itemDeleteError($item, $itemIncrementId)
     {
         $this->deleteLogError[$item][] = $itemIncrementId;
     }
@@ -163,7 +163,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
      * @param $noticeId
      * @param $message
      */
-    public function addNoticeMessage($noticeId, $message)
+    function addNoticeMessage($noticeId, $message)
     {
         $this->notices[$noticeId] = $message;
     }
@@ -217,7 +217,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
     /**
      * output
      */
-    public function addMessageToPage()
+    function addMessageToPage()
     {
         $items = array('order', 'invoice', 'shipment', 'creditmemo');
         foreach ($items as $item) {
@@ -234,7 +234,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
      * @param null $orderId
      * @return null
      */
-    public function getLogOutput($orderId = null)
+    function getLogOutput($orderId = null)
     {
         if (empty($this->logOutput)) {
             $this->logOutput = "";
@@ -324,7 +324,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
      * @param $orderId
      * @return void
      */
-    public function addtoLogOutputInfoAboutOrderTotals($orderId)
+    function addtoLogOutputInfoAboutOrderTotals($orderId)
     {
         if (empty($orderId) || empty($this->newTotals)) {
             return;
@@ -348,7 +348,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
      * @param $totals
      * @return void
      */
-    public function addNewTotalsToLog($totals)
+    function addNewTotalsToLog($totals)
     {
         $this->newTotals = $totals;
     }
@@ -356,7 +356,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
     /**
      * @param $message
      */
-    public function addNoticeToLog($message)
+    function addNoticeToLog($message)
     {
         $this->logNotices .= $message . self::BR;
     }
@@ -364,7 +364,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function addToLogOutputNotices()
+    function addToLogOutputNotices()
     {
         if (empty($this->logNotices)) {
             return $this->logOutput;
@@ -377,7 +377,7 @@ class IWD_OrderManager_Model_Logger_Abstract extends Mage_Core_Model_Abstract
      * @param $message
      * @return string
      */
-    public function addToLog($message)
+    function addToLog($message)
     {
         return $this->logOutput .= $message;
     }

@@ -42,7 +42,7 @@ class IWD_OrderManager_Model_Report extends Mage_Reports_Model_Resource_Report_A
         ),
     );
 
-    public function addInvoicedPeriod($createdAt, $updatedAt, $orderCreatedAt)
+    function addInvoicedPeriod($createdAt, $updatedAt, $orderCreatedAt)
     {
         $this->addInvoicedCreatedAt($createdAt);
         $this->addInvoicedUpdatedAt($updatedAt);
@@ -50,7 +50,7 @@ class IWD_OrderManager_Model_Report extends Mage_Reports_Model_Resource_Report_A
         return $this;
     }
 
-    public function addRefundedPeriod($createdAt, $updatedAt, $orderCreatedAt)
+    function addRefundedPeriod($createdAt, $updatedAt, $orderCreatedAt)
     {
         $this->addRefundedCreatedAt($createdAt);
         $this->addRefundedUpdatedAt($updatedAt);
@@ -58,7 +58,7 @@ class IWD_OrderManager_Model_Report extends Mage_Reports_Model_Resource_Report_A
         return $this;
     }
 
-    public function addShippingPeriod($createdAt, $updatedAt, $orderCreatedAt)
+    function addShippingPeriod($createdAt, $updatedAt, $orderCreatedAt)
     {
         $this->addShippingCreatedAt($createdAt);
         $this->addShippingUpdatedAt($updatedAt);
@@ -66,84 +66,84 @@ class IWD_OrderManager_Model_Report extends Mage_Reports_Model_Resource_Report_A
         return $this;
     }
 
-    public function addOrderPeriod($createdAt, $updatedAt)
+    function addOrderPeriod($createdAt, $updatedAt)
     {
         $this->addOrderCreatedAt($createdAt);
         $this->addOrderUpdatedAt($updatedAt);
         return $this;
     }
 
-    public function addInvoicedCreatedAt($date)
+    function addInvoicedCreatedAt($date)
     {
         $date = $this->getFormattedDate($date);
         $this->arr['invoiced']['createdAt'][$date] = $date;
         return $this;
     }
 
-    public function addInvoicedUpdatedAt($date)
+    function addInvoicedUpdatedAt($date)
     {
         $date = $this->getFormattedDate($date);
         $this->arr['invoiced']['updatedAt'][$date] = $date;
         return $this;
     }
 
-    public function addInvoicedOrderCreatedAt($date)
+    function addInvoicedOrderCreatedAt($date)
     {
         $date = $this->getFormattedDate($date);
         $this->arr['invoiced']['orderCreatedAt'][$date] = $date;
         return $this;
     }
 
-    public function addShippingCreatedAt($date)
+    function addShippingCreatedAt($date)
     {
         $date = $this->getFormattedDate($date);
         $this->arr['shipping']['createdAt'][$date] = $date;
         return $this;
     }
 
-    public function addShippingUpdatedAt($date)
+    function addShippingUpdatedAt($date)
     {
         $date = $this->getFormattedDate($date);
         $this->arr['shipping']['updatedAt'][$date] = $date;
         return $this;
     }
 
-    public function addShippingOrderCreatedAt($date)
+    function addShippingOrderCreatedAt($date)
     {
         $date = $this->getFormattedDate($date);
         $this->arr['shipping']['orderCreatedAt'][$date] = $date;
         return $this;
     }
 
-    public function addRefundedCreatedAt($date)
+    function addRefundedCreatedAt($date)
     {
         $date = $this->getFormattedDate($date);
         $this->arr['refunded']['createdAt'][$date] = $date;
         return $this;
     }
 
-    public function addRefundedUpdatedAt($date)
+    function addRefundedUpdatedAt($date)
     {
         $date = $this->getFormattedDate($date);
         $this->arr['refunded']['updatedAt'][$date] = $date;
         return $this;
     }
 
-    public function addRefundedOrderCreatedAt($date)
+    function addRefundedOrderCreatedAt($date)
     {
         $date = $this->getFormattedDate($date);
         $this->arr['refunded']['orderCreatedAt'][$date] = $date;
         return $this;
     }
 
-    public function addOrderCreatedAt($date)
+    function addOrderCreatedAt($date)
     {
         $date = $this->getFormattedDate($date);
         $this->arr['order']['createdAt'][$date] = $date;
         return $this;
     }
 
-    public function addOrderUpdatedAt($date)
+    function addOrderUpdatedAt($date)
     {
         $date = $this->getFormattedDate($date);
         $this->arr['order']['updatedAt'][$date] = $date;
@@ -155,7 +155,7 @@ class IWD_OrderManager_Model_Report extends Mage_Reports_Model_Resource_Report_A
         return date('Y-m-d', strtotime($date));
     }
 
-    public function AggregateSales()
+    function AggregateSales()
     {
         foreach($this->arr as $a)
         {

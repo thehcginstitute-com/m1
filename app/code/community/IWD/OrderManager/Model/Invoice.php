@@ -13,7 +13,7 @@ class IWD_OrderManager_Model_Invoice extends Mage_Sales_Model_Order_Invoice
     /**
      * @return bool
      */
-    public function isAllowDeleteInvoices()
+    function isAllowDeleteInvoices()
     {
         $confAllowed = Mage::getStoreConfig(self::XML_PATH_SALES_ALLOW_DEL_INVOICES, Mage::app()->getStore());
         $permissionAllowed = Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/invoice/actions/delete');
@@ -24,7 +24,7 @@ class IWD_OrderManager_Model_Invoice extends Mage_Sales_Model_Order_Invoice
     /**
      * @return array
      */
-    public function getInvoiceStatusesForDeleteIds()
+    function getInvoiceStatusesForDeleteIds()
     {
         return explode(',', Mage::getStoreConfig(self::XML_PATH_SALES_STATUS_INVOICE));
     }
@@ -32,7 +32,7 @@ class IWD_OrderManager_Model_Invoice extends Mage_Sales_Model_Order_Invoice
     /**
      * @return bool
      */
-    public function checkInvoiceStatusForDeleting()
+    function checkInvoiceStatusForDeleting()
     {
         return (in_array($this->getState(), $this->getInvoiceStatusesForDeleteIds()));
     }
@@ -40,7 +40,7 @@ class IWD_OrderManager_Model_Invoice extends Mage_Sales_Model_Order_Invoice
     /**
      * @return bool
      */
-    public function canDelete()
+    function canDelete()
     {
         return ($this->isAllowDeleteInvoices() && $this->checkInvoiceStatusForDeleting());
     }
@@ -48,7 +48,7 @@ class IWD_OrderManager_Model_Invoice extends Mage_Sales_Model_Order_Invoice
     /**
      * @return mixed
      */
-    public function allowDeleteRelatedCreditMemo()
+    function allowDeleteRelatedCreditMemo()
     {
         return Mage::getStoreConfig(self::XML_PATH_SALES_ALLOW_DEL_RELATED_CREDITMEMOS);
     }
@@ -56,7 +56,7 @@ class IWD_OrderManager_Model_Invoice extends Mage_Sales_Model_Order_Invoice
     /**
      * @return bool|string
      */
-    public function deleteInvoice()
+    function deleteInvoice()
     {
         $incrementId = $this->getIncrementId();
 
@@ -127,7 +127,7 @@ class IWD_OrderManager_Model_Invoice extends Mage_Sales_Model_Order_Invoice
      * @param null $entityId
      * @return bool
      */
-    public function deleteFromGrid($entityId = null)
+    function deleteFromGrid($entityId = null)
     {
         try {
             $entityId = ($entityId == null) ? $this->getEntityId() : $entityId;
@@ -149,7 +149,7 @@ class IWD_OrderManager_Model_Invoice extends Mage_Sales_Model_Order_Invoice
      * @param int $baseShippingAmount
      * @param int $baseShippingInclTax
      */
-    public function createInvoice($orderId, $qtys = array(), $baseShippingAmount = 0, $baseShippingInclTax = 0)
+    function createInvoice($orderId, $qtys = array(), $baseShippingAmount = 0, $baseShippingInclTax = 0)
     {
         $order = Mage::getModel("sales/order")->load($orderId);
 
@@ -209,7 +209,7 @@ class IWD_OrderManager_Model_Invoice extends Mage_Sales_Model_Order_Invoice
      * @param $order
      * @return bool
      */
-    public function updateInvoice($order)
+    function updateInvoice($order)
     {
         $orderId = $order->getEntityId();
         $qtys = array();
@@ -227,7 +227,7 @@ class IWD_OrderManager_Model_Invoice extends Mage_Sales_Model_Order_Invoice
      * @param $order
      * @return bool
      */
-    public function cancelInvoices($order)
+    function cancelInvoices($order)
     {
         $deleted = false;
         if ($order->hasInvoices()) {

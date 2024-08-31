@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Block_Adminhtml_Sales_Order_Archive_Orders_Grid extends IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_archive_grid');
@@ -83,12 +83,12 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Archive_Orders_Grid extends I
         return $this;
     }
 
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/grid', array('_current' => true));
     }
 
-    public function _toHtml()
+    function _toHtml()
     {
         $script = '<script type="text/javascript">
                       if(typeof(jQueryIWD) == "undefined"){if(typeof(jQuery) != "undefined") {jQueryIWD = jQuery;}} $ji = jQueryIWD;

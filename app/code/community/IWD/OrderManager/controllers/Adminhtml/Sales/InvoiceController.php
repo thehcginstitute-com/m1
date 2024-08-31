@@ -8,7 +8,7 @@ class IWD_OrderManager_Adminhtml_Sales_InvoiceController extends Mage_Adminhtml_
     /**
      * @return void
      */
-    public function deleteAction()
+    function deleteAction()
     {
         if (Mage::getModel('iwd_ordermanager/invoice')->isAllowDeleteInvoices()) {
             $checkedInvoices = $this->getRequest()->getParam('invoice_ids');

@@ -7,7 +7,7 @@ class IWD_OrderManager_Model_Observer_Tax
      *
      * @param Varien_Event_Observer $observer
      */
-    public function restoreCustomFeeTax($observer)
+    function restoreCustomFeeTax($observer)
     {
         $quoteAddress = $observer->getQuoteAddress();
         Mage::getModel('iwd_ordermanager/sales_quote_address_total_feeincl')->prepareAppliedTaxes($quoteAddress);

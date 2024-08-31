@@ -13,7 +13,7 @@ class IWD_OrderManager_Model_Sales_Quote_Address_Total_Fee extends Mage_Sales_Mo
      * @param Mage_Sales_Model_Quote_Address $address
      * @return $this
      */
-    public function collect(Mage_Sales_Model_Quote_Address $address)
+    function collect(Mage_Sales_Model_Quote_Address $address)
     {
         $this->address = $address;
 
@@ -62,7 +62,7 @@ class IWD_OrderManager_Model_Sales_Quote_Address_Total_Fee extends Mage_Sales_Mo
      * @param Mage_Sales_Model_Quote_Address $address
      * @return $this
      */
-    public function fetch(Mage_Sales_Model_Quote_Address $address)
+    function fetch(Mage_Sales_Model_Quote_Address $address)
     {
         $this->address = $address;
 
@@ -122,7 +122,7 @@ class IWD_OrderManager_Model_Sales_Quote_Address_Total_Fee extends Mage_Sales_Mo
     /**
      * @return unknown
      */
-    public function isAdminArea()
+    function isAdminArea()
     {
         return Mage::app()->getStore()->isAdmin();
     }

@@ -2,7 +2,7 @@
 
 class IWD_OrderManager_Block_Adminhtml_Sales_Order_Items_Form extends Mage_Adminhtml_Block_Widget
 {
-    public function getSelectionAttributes($item)
+    function getSelectionAttributes($item)
     {
         if ($item instanceof Mage_Sales_Model_Order_Item) {
             $options = $item->getProductOptions();
@@ -23,7 +23,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Items_Form extends Mage_Admin
         return null;
     }
 
-    public function isChildCalculated($item)
+    function isChildCalculated($item)
     {
         if ($item) {
             if ($parentItem = $item->getParentItem()) {
@@ -40,13 +40,13 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Items_Form extends Mage_Admin
         return false;
     }
 
-    public function canShowPriceInfo($item)
+    function canShowPriceInfo($item)
     {
         return ($item->getParentItem() && $this->isChildCalculated($item))
             || (!$item->getParentItem() && !$this->isChildCalculated($item));
     }
 
-    public function getOrderDataJson($orderId)
+    function getOrderDataJson($orderId)
     {
         $order = Mage::getModel('sales/order')->load($orderId);
         $data = array();
@@ -64,17 +64,17 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Items_Form extends Mage_Admin
         return Mage::helper('core')->jsonEncode($data);
     }
 
-    public function getLoadBlockUrl()
+    function getLoadBlockUrl()
     {
         return $this->getUrl('*/*/loadBlock');
     }
 
-    public function getCurrencyRowTotal($item)
+    function getCurrencyRowTotal($item)
     {
         return $this->getOrder()->formatBasePrice($this->getBaseRowTotal($item), $this->getRowTotal($item));
     }
 
-    public function getBaseRowTotal($item)
+    function getBaseRowTotal($item)
     {
 		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
@@ -82,19 +82,19 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Items_Form extends Mage_Admin
 			- $item->getBaseDiscountAmount();
     }
 
-    public function getRowTotal($item)
+    function getRowTotal($item)
     {
 		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
         return $item->getRowTotal() + $item->getTaxAmount() + $item->getHiddenTaxAmount() - $item->getDiscountAmount();
     }
 
-    public function getOrder()
+    function getOrder()
     {
         return Mage::getModel('sales/order')->load($this->order_id);
     }
 
-    public function getStockObjectForOrderItem($item)
+    function getStockObjectForOrderItem($item)
     {
         if ($item->getProductType() == Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE) {
             $childOrderItem = Mage::getModel('sales/order_item')
@@ -112,12 +112,12 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Items_Form extends Mage_Admin
         return Mage::getModel('cataloginventory/stock_item')->loadByProduct($product);
     }
 
-    public function hasOptions($item)
+    function hasOptions($item)
     {
         return Mage::getModel('catalog/product')->load($item->getProductId())->canConfigure();
     }
 
-    public function getOrderOptions($item)
+    function getOrderOptions($item)
     {
         $result = array();
         if ($options = $item->getProductOptions()) {
@@ -134,7 +134,7 @@ class IWD_OrderManager_Block_Adminhtml_Sales_Order_Items_Form extends Mage_Admin
         return $result;
     }
 
-    public function getCustomizedOptionValue($optionInfo)
+    function getCustomizedOptionValue($optionInfo)
     {
         // render customized option view
         $_default = $optionInfo['value'];

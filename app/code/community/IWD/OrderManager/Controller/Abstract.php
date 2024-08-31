@@ -8,7 +8,7 @@ class IWD_OrderManager_Controller_Abstract extends Mage_Adminhtml_Controller_Act
     /**
      * @return void
      */
-    public function getFormAction()
+    function getFormAction()
     {
         try {
             $result = $this->getForm();
@@ -23,7 +23,7 @@ class IWD_OrderManager_Controller_Abstract extends Mage_Adminhtml_Controller_Act
     /**
      * @return void
      */
-    public function updateInfoAction()
+    function updateInfoAction()
     {
         Mage::dispatchEvent('iwd_ordermanager_update_order_before', array('order_id' => $this->getOrderId()));
 

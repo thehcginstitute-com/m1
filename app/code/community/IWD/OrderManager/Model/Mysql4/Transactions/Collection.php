@@ -8,7 +8,7 @@ class IWD_OrderManager_Model_Mysql4_Transactions_Collection extends Mage_Core_Mo
     /**
      * {@inheritdoc}
      */
-    public function _construct()
+    function _construct()
     {
         $this->_init('iwd_ordermanager/transactions');
     }
@@ -16,7 +16,7 @@ class IWD_OrderManager_Model_Mysql4_Transactions_Collection extends Mage_Core_Mo
     /**
      * {@inheritdoc}
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $this->_renderFilters();
 

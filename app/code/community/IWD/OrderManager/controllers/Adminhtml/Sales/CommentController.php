@@ -8,7 +8,7 @@ class IWD_OrderManager_Adminhtml_Sales_CommentController extends IWD_OrderManage
     /**
      * @return void
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $type = $this->getType();
         $commentId = $this->getCommentId();
@@ -21,7 +21,7 @@ class IWD_OrderManager_Adminhtml_Sales_CommentController extends IWD_OrderManage
     /**
      * @return void
      */
-    public function updateAction()
+    function updateAction()
     {
         $type = $this->getType();
         $commentId = $this->getCommentId();
@@ -35,7 +35,7 @@ class IWD_OrderManager_Adminhtml_Sales_CommentController extends IWD_OrderManage
     /**
      * @return void
      */
-    public function getCommentAction()
+    function getCommentAction()
     {
         $type = $this->getType();
         $commentId = $this->getCommentId();
