@@ -46,7 +46,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		return $this->needUpdateStock && Mage::helper('iwd_ordermanager')->isMultiInventoryEnable();
 	}
 
-	function editItems($orderId, $items)
+	function editItems($orderId, array $items)
 	{
 		/* event */
 		$order = $this->loadOrder($orderId);
@@ -283,7 +283,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 * "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
 	 * @used-by self::editItems()
 	 */
-	private function updateOrderItems($items, $orderId)
+	private function updateOrderItems(array $items, $orderId)
 	{
 		$order = $this->loadOrder($orderId);
 
