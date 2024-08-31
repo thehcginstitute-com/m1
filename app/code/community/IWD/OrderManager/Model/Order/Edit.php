@@ -416,15 +416,15 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			 *	}
 			 * @var array $item
 			 */
-			$orderItem = $order->getItemById($id);
+			$i = $order->getItemById($id); /** @var OI $i */
 			if (isset($item['remove']) && $item['remove'] == 1) {
-				$this->removeOrderItem($orderItem);
+				$this->removeOrderItem($i);
 				continue;
 			}
 			if (isset($item['quote_item'])) {
-				$orderItem = $this->addNewOrderItem($item['quote_item'], $order);
+				$i = $this->addNewOrderItem($item['quote_item'], $order);
 			}
-			$this->editOrderItem($orderItem, $item);
+			$this->editOrderItem($i, $item);
 		}
 	}
 
