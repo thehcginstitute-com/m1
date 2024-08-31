@@ -1,6 +1,7 @@
 <?php
 # 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
+use Mage_Sales_Model_Order_Item as OI;
 class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 {
 	const XML_PATH_SALES_STATUS_ORDER = 'iwd_ordermanager/edit/order_status';
@@ -898,7 +899,12 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 		}
 	}
 
-	protected function removeOrderItem($orderItem)
+
+	/**
+	 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
+	 */
+	protected function removeOrderItem(OI $orderItem)
 	{
 		$product_type = $orderItem->getProductType();
 
