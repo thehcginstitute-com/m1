@@ -13,7 +13,7 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
 		else {
             $status = $this->editItems();
             $this->addChangesToLog();
-            if ($status == 1) {
+            if ($status) {
                 $this->notifyEmail();
             }
         }
