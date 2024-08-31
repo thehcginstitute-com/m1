@@ -127,8 +127,8 @@ function df_error(...$a):void {
 /**
  * 2016-07-31
  * 2024-03-16 "Port `df_error_create` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/488
- * 2024-05-20 "Provide an ability to specify a context for a `Df\Core\Exception` instance":
- * https://github.com/mage2pro/core/issues/375
+ * 2024-05-20
+ * "Provide an ability to specify a context for a `Df\Core\Exception` instance": https://github.com/mage2pro/core/issues/375
  * @used-by df_customer()
  * @used-by df_error()
  * @used-by df_error_html()

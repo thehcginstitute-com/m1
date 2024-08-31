@@ -418,6 +418,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			 */
 			$i = $order->getItemById($id); /** @var ?OI $i */
 			if (dfa($d, 'remove')) {
+				df_assert($i);
 				$this->removeOrderItem($i);
 			}
 			else {
