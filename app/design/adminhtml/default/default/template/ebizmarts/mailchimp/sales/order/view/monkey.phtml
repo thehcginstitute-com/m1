@@ -1,4 +1,7 @@
-<?php if($this->isReferred()) : ?>
+<?php
+use Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey as B;
+if($this->isReferred()) :
+?>
 <div class="entry-edit box-right">
     <div class="entry-edit-head">
         <h4 class="icon-head"><?php echo $this->escapeQuote($this->__('MailChimp')) ?></h4>
