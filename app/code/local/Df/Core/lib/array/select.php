@@ -42,6 +42,7 @@ function df_column(iterable $c, $fv, $fk = null):array {return df_map_kr($c, fun
  * @used-by HCG\MailChimp\Tags::mcByMG() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @used-by HCG\MailChimp\Tags\ProcessMergeFields::gender() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @used-by IWD_OrderManager_Adminhtml_Sales_AddressController::format() (https://github.com/thehcginstitute-com/m1/issues/533)
+ * @used-by IWD_OrderManager_Model_Order_Items::editItems() (https://github.com/thehcginstitute-com/m1/issues/533)
  * @used-by app/design/frontend/base/default/template/richpanel/head.phtml
  * @param array(int|string => mixed) $a
  * @param string|string[]|int|null $k
