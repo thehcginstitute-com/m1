@@ -95,7 +95,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			);
 		}
 		else {
-			$this->updateOrderItems($items, $oid);
+			$this->updateOrderItems($o, $items);
 			$this->collectOrderTotals($oid);
 			$o = $this->loadOrder($oid);
 			if ($this->isRecalculateShipping() && $o->canShip()) {
@@ -384,11 +384,10 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 *	}
 	 * @used-by self::editItems()
 	 */
-	private function updateOrderItems(array $items, int $oid) {
-		$order = $this->loadOrder($oid);
-		$this->deleteOrderShippingTax($order);
-		$this->baseCurrencyCode = $order->getBaseCurrencyCode();
-		$this->orderCurrencyCode = $order->getOrderCurrencyCode();
+	private function updateOrderItems(O $o, array $items) {
+		$this->deleteOrderShippingTax($o);
+		$this->baseCurrencyCode = $o->getBaseCurrencyCode();
+		$this->orderCurrencyCode = $o->getOrderCurrencyCode();
 		$this->editItems = [];
 		$this->addedItems = false;
 		foreach ($items as $id => $d) {/** @var int $id */
@@ -427,7 +426,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			 *	}
 			 * @var array $d
 			 */
-			$i = $order->getItemById($id); /** @var ?OI $i */
+			$i = $o->getItemById($id); /** @var ?OI $i */
 			if (dfa($d, 'remove')) {
 				# 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				# «Call to a member function getProductType() on null in
@@ -437,7 +436,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			}
 			else {
 				if ($qi = dfa($d, 'quote_item')) {
-					$i = $this->addNewOrderItem($qi, $order);
+					$i = $this->addNewOrderItem($qi, $o);
 				}
 				df_assert($i, ['id' => $id, 'd' => $d]);
 				$this->editOrderItem($i, $d);
