@@ -56,7 +56,7 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
 
     protected function editItems() {
         $orderId = isset($this->params['order_id']) ? $this->params['order_id'] : null;
-	/**
+		/**
 		 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		 * 1) "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
 		 * 2) `$items` is an array like:
