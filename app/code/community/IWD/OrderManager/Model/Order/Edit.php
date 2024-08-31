@@ -905,15 +905,15 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 * "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
 	 * @used-by self::updateOrderItems()
 	 */
-	private function removeOrderItem(OI $orderItem) {
-		$product_type = $orderItem->getProductType();
+	private function removeOrderItem(OI $oi) {
+		$product_type = $oi->getProductType();
 
 		/* return to stock */
-		$this->reduceProduct($orderItem, 0);
+		$this->reduceProduct($oi, 0);
 
 		/* delete children items */
 		if ($product_type == Mage_Catalog_Model_Product_Type::TYPE_BUNDLE || $product_type == Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE) {
-			$children_items = $orderItem->getChildrenItems();
+			$children_items = $oi->getChildrenItems();
 			foreach ($children_items as $children_item) {
 				$this->deleteItem($children_item);
 			}
@@ -921,7 +921,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 
 		/* delete download items */
 		if ($product_type == Mage_Downloadable_Model_Product_Type::TYPE_DOWNLOADABLE) {
-			$collection = Mage::getModel('downloadable/link_purchased_item')->getCollection()->addFieldToFilter('order_item_id', $orderItem->getId());
+			$collection = Mage::getModel('downloadable/link_purchased_item')->getCollection()->addFieldToFilter('order_item_id', $oi->getId());
 			foreach ($collection as $item) {
 				$item->delete();
 			}
@@ -929,7 +929,7 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 
 		/* delete shipping items */
 		$shipment_items = Mage::getModel('sales/order_shipment_item')->getCollection()
-			->addFieldToFilter('order_item_id', $orderItem->getItemId());
+			->addFieldToFilter('order_item_id', $oi->getItemId());
 		foreach ($shipment_items as $shipment_item) {
 			$shipment = Mage::getModel('sales/order_shipment')->load($shipment_item->getParentId());
 			$qty = $shipment->getTotalQty() - $shipment_item->getQty();
@@ -939,16 +939,16 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 
 		/* delete creditmemo items */
 		$creditmemo_items = Mage::getModel('sales/order_creditmemo_item')->getCollection()
-			->addFieldToFilter('order_item_id', $orderItem->getItemId());
+			->addFieldToFilter('order_item_id', $oi->getItemId());
 		foreach ($creditmemo_items as $creditmemo_item) {
 			$creditmemo_item->delete();
 		}
 
 		/* delete from tax table */
-		$this->deleteItemFromOrderTaxItemTable($orderItem);
+		$this->deleteItemFromOrderTaxItemTable($oi);
 
-		$this->deleteItem($orderItem);
-		$this->addToLogAboutDeleteOrderItem($orderItem);
+		$this->deleteItem($oi);
+		$this->addToLogAboutDeleteOrderItem($oi);
 	}
 
 	/**
