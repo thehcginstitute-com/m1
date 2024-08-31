@@ -59,7 +59,7 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
 	 * @used-by self::updateOrderItems()
 	 */
     private function editItems() {
-        $orderId = (int)dfa($this->params, 'order_id'); /** @var int $orderId */
+        $oid = (int)dfa($this->params, 'order_id'); /** @var int $oid */
         $orderEdit = Mage::getModel('iwd_ordermanager/order_edit');  /** @var IWD_OrderManager_Model_Order_Edit $orderEdit */
 		/**
 		 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -94,7 +94,7 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
 		 *		}
 		 *	}
 		 */
-		$status = $orderEdit->editItems($orderId, dfa($this->params, 'items'));
+		$status = $orderEdit->editItems($oid, dfa($this->params, 'items'));
         $this->needUpdateStock = $orderEdit->getNeedUpdateStock();
         $this->updateCoupon();
         return $status;
