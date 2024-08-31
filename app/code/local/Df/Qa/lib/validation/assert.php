@@ -47,6 +47,7 @@ use Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by Df\Qa\Trace\Frame::url()
  * @used-by HCG\MailChimp\Tags::attCustomer() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @used-by HCG\MailChimp\Tags\ProcessMergeFields::mcByCA() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by IWD_OrderManager_Model_Order_Edit::updateOrderItems() (https://github.com/thehcginstitute-com/m1/issues/666)
  * @param mixed $cond
  * @param string|string[]|array(string => mixed)|mixed|T|null ...$a
  * @return mixed

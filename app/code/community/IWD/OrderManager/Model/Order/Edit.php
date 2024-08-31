@@ -418,13 +418,17 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			 */
 			$i = $order->getItemById($id); /** @var ?OI $i */
 			if (dfa($d, 'remove')) {
-				df_assert($i);
+				# 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# «Call to a member function getProductType() on null in
+				# app/code/community/IWD/OrderManager/Model/Order/Edit.php:902»: https://github.com/cabinetsbay/site/issues/666
+				df_assert($i, ['id' => $id, 'd' => $d]);
 				$this->removeOrderItem($i);
 			}
 			else {
 				if ($qi = dfa($d, 'quote_item')) {
 					$i = $this->addNewOrderItem($qi, $order);
 				}
+				df_assert($i, ['id' => $id, 'd' => $d]);
 				$this->editOrderItem($i, $d);
 			}
 		}
