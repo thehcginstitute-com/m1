@@ -81,8 +81,8 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 * @used-by self::execEditOrderItems()
 	 * @used-by IWD_OrderManager_Model_Order_Items::editItems()
 	 */
-	function editItems(int $orderId, array $items):int {
-		$order = $this->loadOrder($orderId);
+	function editItems(int $oid, array $items):int {
+		$order = $this->loadOrder($oid);
 		$oldOrder = clone $order;
 		Mage::dispatchEvent('iwd_ordermanager_sales_order_edit_before', [
 			'order' => $order, 'order_items' => $order->getItemsCollection()
@@ -93,16 +93,18 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 			);
 			return 0;
 		}
-		$this->updateOrderItems($items, $orderId);
-		$this->collectOrderTotals($orderId);
-		$order = $this->loadOrder($orderId);
+		$this->updateOrderItems($items, $oid);
+		$this->collectOrderTotals($oid);
+		$order = $this->loadOrder($oid);
 		if ($this->isRecalculateShipping() && $order->canShip()) {
-			Mage::getModel('iwd_ordermanager/shipping')->recollectShippingAmount($orderId);
+			Mage::getModel('iwd_ordermanager/shipping')->recollectShippingAmount($oid);
 		}
-		$this->collectOrderTotals($orderId);
-		$this->updateOrderPayment($orderId, $oldOrder);
-		$order = $this->loadOrder($orderId);
-		Mage::dispatchEvent('iwd_ordermanager_sales_order_edit_after', array('order' => $order, 'order_items' => $order->getItemsCollection()));
+		$this->collectOrderTotals($oid);
+		$this->updateOrderPayment($oid, $oldOrder);
+		$order = $this->loadOrder($oid);
+		Mage::dispatchEvent('iwd_ordermanager_sales_order_edit_after', [
+			'order' => $order, 'order_items' => $order->getItemsCollection()
+		]);
 		return 1;
 	}
 
