@@ -55,6 +55,10 @@
 	</adminhtml_system_config_edit>
 	<adminhtml_sales_order_view>
 		<reference name="order_info">
+<!-- 2024-09-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+1) "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
+2) "Improve the «Yaay! Recovered by Mailchimp's campaign» block of the backend order screen":
+https://github.com/thehcginstitute-com/m1/issues/668 -->
 			<block
 				before="order_history"
 				name="mailchimp.order.info.monkey.block"
