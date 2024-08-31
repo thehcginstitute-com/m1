@@ -903,8 +903,9 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	/**
 	 * 2024-08-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor the `IWD_OrderManager` module": https://github.com/cabinetsbay/site/issues/533
+	 * @used-by self::updateOrderItems()
 	 */
-	protected function removeOrderItem(OI $orderItem) {
+	private function removeOrderItem(OI $orderItem) {
 		$product_type = $orderItem->getProductType();
 
 		/* return to stock */
