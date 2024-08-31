@@ -21,7 +21,7 @@ if($this->isReferred()) :
 					</td>
 					<td class="value">
 						<?php if ($this->isDataAvailable()): ?>
-							<strong><?= $this->escapeQuote(
+							<strong><?= (
 								$this->__("Yaay! Recovered by Mailchimp's campaign.") .
 									"<br />" .
 									$this->__("Name") .
@@ -29,7 +29,7 @@ if($this->isReferred()) :
 									$this->getCampaignName() .
 									"<br />" .
 								$this->__("Id") . ": " . $this->getCampaignId()
-							); ?>
+							) ?>
 							</strong>
 						<?php else: ?>
 							<strong><?= $this->escapeQuote(
