@@ -6,14 +6,14 @@ if($this->isReferred()) :
 ?>
 <div class="entry-edit box-right">
 	<div class="entry-edit-head">
-		<h4 class="icon-head"><?php echo $this->escapeQuote($this->__('MailChimp')) ?></h4>
+		<h4 class="icon-head"><?= $this->escapeQuote($this->__('MailChimp')) ?></h4>
 	</div>
 	<fieldset>
 		<div id="mailchimp_monkey">
 			<table class="form-list" cellspacing="0">
 				<tr>
 					<td class="label">
-						<img src="<?php echo $this->escapeHtml(
+						<img src="<?= $this->escapeHtml(
 							$this->getSkinUrl('ebizmarts/mailchimp/images/logo-freddie-monocolor-200.png')
 						) ?>"
 							 width="40"
@@ -21,7 +21,7 @@ if($this->isReferred()) :
 					</td>
 					<td class="value">
 						<?php if ($this->isDataAvailable()): ?>
-							<strong><?php echo $this->escapeQuote(
+							<strong><?= $this->escapeQuote(
 								$this->__("Yaay! Recovered by Mailchimp's campaign.") .
 									"<br />" .
 									$this->__("Name") .
@@ -32,7 +32,7 @@ if($this->isReferred()) :
 							); ?>
 							</strong>
 						<?php else: ?>
-							<strong><?php echo $this->escapeQuote(
+							<strong><?= $this->escapeQuote(
 								$this->__("The campaign does not belong to the audience configured for ") .
 									$this->getStoreCodeFromOrder() .
 								$this->__(" view.")
