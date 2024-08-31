@@ -94,16 +94,13 @@ class IWD_OrderManager_Model_Order_Items extends Mage_Sales_Model_Order_Item
 		 *	}
 		 */
 		$items = isset($this->params['items']) ? $this->params['items'] : null;
-
         /**
          * @var $orderEdit IWD_OrderManager_Model_Order_Edit
          */
         $orderEdit = Mage::getModel('iwd_ordermanager/order_edit');
         $status = $orderEdit->editItems($orderId, $items);
         $this->needUpdateStock = $orderEdit->getNeedUpdateStock();
-
         $this->updateCoupon();
-
         return $status;
     }
 
