@@ -373,8 +373,8 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 *	}
 	 * @used-by self::editItems()
 	 */
-	private function updateOrderItems(array $items, int $orderId) {
-		$order = $this->loadOrder($orderId);
+	private function updateOrderItems(array $items, int $oid) {
+		$order = $this->loadOrder($oid);
 		$this->deleteOrderShippingTax($order);
 		$this->baseCurrencyCode = $order->getBaseCurrencyCode();
 		$this->orderCurrencyCode = $order->getOrderCurrencyCode();
