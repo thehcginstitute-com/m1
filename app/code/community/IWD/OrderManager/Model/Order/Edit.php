@@ -78,6 +78,8 @@ class IWD_OrderManager_Model_Order_Edit extends Mage_Sales_Model_Order_Item
 	 *			"sku": "b-complex-injections-x-30mL-sq-syringes"
 	 *		}
 	 *	}
+	 * @used-by self::execEditOrderItems()
+	 * @used-by IWD_OrderManager_Model_Order_Items::editItems()
 	 */
 	function editItems($orderId, array $items)
 	{
