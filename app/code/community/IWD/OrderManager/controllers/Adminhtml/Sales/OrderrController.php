@@ -36,22 +36,15 @@ class IWD_OrderManager_Adminhtml_Sales_OrderrController extends IWD_OrderManager
     /**
      * edit: edit ordered items
      */
-    function editOrderedItemsAction()
-    {
+    function editOrderedItemsAction() {
         $result = array('status' => 1);
-
         Mage::dispatchEvent(
             'iwd_ordermanager_update_order_before',
             array('order_id' => $this->getRequest()->getParam('order_id', 0))
         );
-
         try {
             $params = $this->getRequest()->getParams();
-
-            /**
-             * @var $orderItems IWD_OrderManager_Model_Order_Items
-             */
-            $orderItems = Mage::getModel('iwd_ordermanager/order_items');
+            $orderItems = Mage::getModel('iwd_ordermanager/order_items'); /** @var IWD_OrderManager_Model_Order_Items $orderItems */
             $orderItems->updateOrderItems($params);
 
             $needUpdateStock = $orderItems->getNeedUpdateStock();
