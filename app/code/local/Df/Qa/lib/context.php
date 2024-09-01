@@ -13,6 +13,8 @@ function df_context():array {return
 			'URL' => df_current_url()
 			,'Time' => df_dts(null, 'y-MM-dd HH:mm:ss') # 2023-08-04 https://github.com/mage2pro/core/issues/312
 			,'Referer' => df_referer()
+			# 2024-03-17 "Error reports should include the customer ID": https://github.com/thehcginstitute-com/m1/issues/497
+			,'Customer ID' => df_customer_id()
 			# 2021-04-18 "Include the visitor's IP address to Mage2.PRO reports": https://github.com/mage2pro/core/issues/151
 			,'IP Address' => df_visitor_ip()
 			# 2021-06-05 "Log the request method": https://github.com/mage2pro/core/issues/154
