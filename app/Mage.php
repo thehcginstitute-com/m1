@@ -938,7 +938,23 @@ final class Mage
 		# https://github.com/thehcginstitute-com/m1/issues/387
 		# 2) The original code:
 		# https://github.com/thehcginstitute-com/m1/blob/2024-02-19/app/Mage.php#L936-L937
+		/** @see self::logExceptionOriginal() */
 		df_log($e);
+    }
+
+    /**
+	 * 2024-09-01
+	 * 1) https://github.com/thehcginstitute-com/m1/blob/2024-02-19/app/Mage.php#L936-L937
+	 * 2) "If `df_log()` fails in `Df\Qa\Failure\Error::check()`,
+	 * then `Df\Qa\Failure\Error::check()` should try another method to log the problem":
+	 * https://github.com/mage2pro/core/issues/431
+	 * @see self::logException()
+	 * @used-by \Df\Qa\Failure\Error::check()
+     */
+    static function logExceptionOriginal(Throwable $e):void {
+        if (self::getConfig()) {
+            self::log("\n" . $e->__toString(), Zend_Log::ERR, self::getStoreConfig('dev/log/exception_file'));
+        }
     }
 
     /**
