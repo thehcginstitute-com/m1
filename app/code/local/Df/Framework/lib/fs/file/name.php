@@ -2,13 +2,10 @@
 /**
  * Возвращает неиспользуемое имя файла в заданной папке $directory по заданному шаблону $template.
  * Результатом всегда является непустая строка.
+ * @see df_fs_name()
  * @used-by df_report()
- * @param string $directory
- * @param string $template
- * @param string $ds
- * @return string
  */
-function df_file_name($directory, $template, $ds = '-') { /** @var string $r */
+function df_file_name(string $directory, string $template, string $ds = '-'):string { /** @var string $r */
 	# 2016-11-09 If $template contains the file's path, when it will be removed from $template and added to $directory.
 	$directory = df_path_n($directory);
 	$template = df_path_n($template);
