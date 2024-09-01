@@ -2,9 +2,8 @@
 # 2024-09-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Improve the «Yaay! Recovered by Mailchimp's campaign» block of the backend order screen":
 # https://github.com/thehcginstitute-com/m1/issues/668
-use Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey as bCampaign;
 use Mage_Sales_Model_Order as O;
-$_order = $this->getOrder(); ?>
+$_order = $this->getOrder(); /** @var O $_order */ ?>
 <?php if ($_order != null && $_order->getId() != null) : ?>
 <script type="text/javascript">
     var ORDER_ID = <?php echo $_order->getId(); ?>;
