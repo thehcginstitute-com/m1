@@ -1,5 +1,6 @@
 <?php
 namespace Df\Qa\Failure;
+use \Throwable as Th; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 final class Error extends \Df\Qa\Failure {
 	/**
 	 * 2015-04-04
@@ -17,9 +18,9 @@ final class Error extends \Df\Qa\Failure {
 	 * @used-by \Df\Qa\Failure::report()
 	 * @used-by self::report()
 	 */
-	protected function preface():string {return df_kv(
-		df_context() + ['File' => df_path_rel($this::info('file')), 'Line' => $this::info('line')]
-	);}
+	protected function preface():string {return df_kv(df_context() + [
+		'File' => df_path_rel($this::info('file')), 'Line' => $this::info('line')
+	]);}
 
 	/**
 	 * @override
@@ -41,7 +42,7 @@ final class Error extends \Df\Qa\Failure {
 
 	/**
 	 * @used-by self::check()
-	 * @throws \Exception
+	 * @throws Th
 	 */
 	private function log():void {
 		# 2015-04-04
@@ -53,62 +54,44 @@ final class Error extends \Df\Qa\Failure {
 		# (много таких запросов делает, например, страница оформления заказа),
 		# поэтому try... catch с целью записи отчёта крайне важно:
 		# без этого при сбое асинхроноого запроса диагностичекское сообщение о сбое окажется утраченным.
-		static $inProcess;
-		if (!$inProcess) {
-			$inProcess = true;
-			try {
-				df_report('mage2.pro/{date}--{time}.log', $this->report());
-				$inProcess = false;
+		/** 2024-03-03 A similar code: @see df_sprintf_strict() */
+		df_no_rec(function():void {
+			try {df_report('mage2.pro/{date}--{time}.log', $this->report());}
+			# 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
+			catch (Th $th) {
+				df_log($th);
+				throw $th;
 			}
-			catch (\Exception $e) {
-				df_log(df_xts($e));
-				throw $e;
-			}
-		}
+		});
 	}
 
 	/**
 	 * 2015-04-05 Оборачиваем код в try..catch, чтобы не утратить сообщение о внутреннем сбое при асинхронном запросе.
 	 * @used-by https://github.com/mage2pro/core/blob/5.6.0/registration.php#L28
-	 * @used-by \Df\Core\Boot::init()
 	 */
 	static function check():void {
 		try {
 			if (error_get_last() && self::isFatal()) {
-				self::i()->log();
+				$i = new self;
+				$i->log();
 			}
 		}
-		catch (\Exception $e) {
-			df_log(df_xts($e));
+		# 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
+		catch (Th $th) {
+			df_log($th);
 		}
 	}
-
-	/** @used-by df_throw_last_error() */
-	static function throwLast():void {
-		df_assert(error_get_last());
-		df_error(self::i()->main());
-	}
-
-	/**
-	 * @used-by self::check()
-	 * @used-by self::throwLast()
-	 */
-	private static function i():self {return new self;}
 
 	/**
 	 * @used-by self::main()
 	 * @used-by self::msg()
 	 * @used-by self::type()
-	 * @param string $k
 	 * @return string|int
 	 */
-	private static function info($k) {return dfa(error_get_last(), $k);}
+	private static function info(string $k) {return dfa(error_get_last(), $k);}
 
-	/**
-	 * @used-by self::check()
-	 * @return bool
-	 */
-	private static function isFatal() {
+	/** @used-by self::check() */
+	private static function isFatal():bool {
 		static $r;/** @var array(int => int) $r */
 		if (!$r) {
 			$r = [E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING];
@@ -125,7 +108,7 @@ final class Error extends \Df\Qa\Failure {
 	 * @used-by self::type()
 	 * @return array(int => string)
 	 */
-	private static function map() {
+	private static function map():array {
 		static $r; /** @var array(int => string) $r */
 		if (!$r) {
 			$r = [
@@ -152,25 +135,22 @@ final class Error extends \Df\Qa\Failure {
 	/**
 	 * 2023-01-28 The stack trace returned by @see error_get_last() is chopped.
 	 * @used-by self::main()
-	 * @return string
 	 */
-	private static function msg() {return df_path_rel_g(self::info('message'));}
+	private static function msg():string {return df_path_rel_g(self::info('message'));}
 
 	/**
 	 * @used-by self::isFatal()
 	 * @used-by self::main()
-	 * @param bool $asString [optional]
 	 * @return int|string
 	 */
-	private static function type($asString = false) {
-		$r = (int)self::info('type'); /** @var int|string $r */
+	private static function type(bool $asString = false) {
+		$r = int(self::info('type')); /** @var int|string $r */
 		return !$asString ? $r : dfa(self::map(), $r);
 	}
 
 	/**
 	 * @used-by self::isFatal()
 	 * @used-by self::trace()
-	 * @return bool
 	 */
-	private static function xdebug() {static $r; return $r ? $r : $r = extension_loaded('xdebug');}
+	private static function xdebug():bool {static $r; return $r ? $r : $r = extension_loaded('xdebug');}
 }
