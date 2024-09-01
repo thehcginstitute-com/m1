@@ -156,7 +156,7 @@ final class Error extends \Df\Qa\Failure {
 	 * @used-by self::main()
 	 * @return string
 	 */
-	private static function msg() {return df_adjust_paths_in_message(self::info('message'));}
+	private static function msg() {return df_path_rel_g(self::info('message'));}
 
 	/**
 	 * @used-by self::isFatal()

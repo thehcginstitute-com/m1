@@ -16,7 +16,7 @@ function df_path_abs(string $p):string {
  * Удаляет из сообщений типа
  * «Warning: Division by zero in C:\work\mage2.pro\store\vendor\mage2pro\stripe\Method.php on line 207»
  * файловый путь до папки Magento.
- * 2024-06-09 "`df_adjust_paths_in_message` → `df_path_rel_g`": https://github.com/mage2pro/core/issues/410
+ * 2024-06-09 "`df_path_rel_g` → `df_path_rel_g`": https://github.com/mage2pro/core/issues/410
  * @used-by df_xts()
  * @used-by df_xtsd()
  * @used-by \Df\Qa\Failure\Error::msg()

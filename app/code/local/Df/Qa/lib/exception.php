@@ -86,6 +86,6 @@ function df_xf(T $t):T {while ($t->getPrevious()) {$t = $t->getPrevious();} retu
  * @param X|string $e
  * @return string
  */
-function df_xts($t):string {return df_adjust_paths_in_message(
+function df_xts($t):string {return df_path_rel_g(
 	!df_is_th($t) ? $t : ($t instanceof DFE ? $t->message() : $t->getMessage())
 );}
