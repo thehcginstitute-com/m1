@@ -312,19 +312,6 @@ https://github.com/thehcginstitute-com/m1/issues/573 -->
 					</mailchimp_add_customer_tab>
 				</observers>
 			</core_block_abstract_prepare_layout_after>
-<!-- 2024-09-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-1) "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
-2) "Improve the «Yaay! Recovered by Mailchimp's campaign» block of the backend order screen":
-https://github.com/thehcginstitute-com/m1/issues/668 -->
-			<core_block_abstract_to_html_after>
-				<observers>
-					<mailchimp_order_view_to_html_after>
-						<type>model</type>
-						<class>Ebizmarts_MailChimp_Model_Observer</class>
-						<method>addOrderViewMonkey</method>
-					</mailchimp_order_view_to_html_after>
-				</observers>
-			</core_block_abstract_to_html_after>
 			<core_block_abstract_to_html_before>
 				<observers>
 					<mailchimp_add_synced_to_order_grid>
