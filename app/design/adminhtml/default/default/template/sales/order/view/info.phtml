@@ -267,8 +267,8 @@ $helper = Mage::helper('iwd_ordermanager'); /** @var hIWD $helper */
 							</a>
 						<?php else : ?>
 							<a href="#"
-							   onclick="alert('<?= $helper->__("Sorry, You can not update billing address for order with this status. Check configuration by module IWD_OrderManager.") ?>'); return false;"
-							   title="<?= $helper->__("You can not edit billing address!"); ?>">
+							   onclick="alert('Sorry, You can not update billing address for order with this status. Check configuration by module IWD_OrderManager.'); return false;"
+							   title="You can not edit billing address!">
 								<?= Mage::helper('sales')->__("Edit"); ?>
 							</a>
 						<?php endif ?>
@@ -298,8 +298,8 @@ $helper = Mage::helper('iwd_ordermanager'); /** @var hIWD $helper */
 								</a>
 							<?php else : ?>
 								<a href="#"
-								   onclick="alert('<?= $helper->__("Sorry, You can not update shipping address for order with this status. Check configuration by module IWD_OrderManager.") ?>'); return false;"
-								   title="<?= $helper->__("You can not edit shipping address!"); ?>">
+								   onclick="alert('Sorry, You can not update shipping address for order with this status. Check configuration by module IWD_OrderManager.'); return false;"
+								   title="You can not edit shipping address!">
 									<?= Mage::helper('sales')->__("Edit"); ?>
 								</a>
 							<?php endif ?>
