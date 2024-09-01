@@ -45,20 +45,7 @@ function df_block($c, $data = [], string $t = '', array $vars = []):A {
  * https://github.com/magento/magento2/blob/2.1.2/lib/internal/Magento/Framework/View/TemplateEngine/Php.php#L58
  * 2024-05-23 "Improve `df_block_output()`": https://github.com/mage2pro/core/issues/387
  * @see df_cms_block()
- * @used-by \Dfe\Facebook\I::init()
- * @used-by \Dfe\Moip\Block\Info\Boleto::rCustomerAccount()
- * @used-by \Dfe\Stripe\Block\Multishipping::_toHtml()
- * @used-by \Inkifi\Map\HTML::tiles()
- * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
- * @used-by vendor/cabinetsbay/catalog/view/frontend/templates/category/header.phtml (https://github.com/cabinetsbay/catalog/issues/22)
- * @used-by vendor/cabinetsbay/catalog/view/frontend/templates/category/l2/l3.phtml (https://github.com/cabinetsbay/catalog/issues/18)
- * @used-by vendor/cabinetsbay/catalog/view/frontend/templates/category/l2/l3/items.phtml (https://github.com/cabinetsbay/catalog/issues/18)
- * @used-by vendor/cabinetsbay/catalog/view/frontend/templates/category/l3/tabs.phtml (https://github.com/cabinetsbay/catalog/issues/22)
- * @used-by vendor/cabinetsbay/catalog/view/frontend/templates/category/l3/tabs/matching-styles.phtml (https://github.com/cabinetsbay/catalog/issues/22)
- * @used-by vendor/cabinetsbay/catalog/view/frontend/templates/category/view.phtml (https://github.com/cabinetsbay/catalog/issues/18)
- * @used-by vendor/cabinetsbay/catalog/view/frontend/templates/products.phtml (https://github.com/cabinetsbay/catalog/issues/38)
- * @used-by vendor/cabinetsbay/catalog/view/frontend/templates/products/not-empty.phtml (https://github.com/cabinetsbay/catalog/issues/38)
- * @used-by vendor/cabinetsbay/catalog/view/frontend/templates/products/not-empty.phtml (https://github.com/cabinetsbay/catalog/issues/38)
+ * @used-by app/design/adminhtml/default/default/template/sales/order/view/info.phtml
  * @param string|object|null $c
  * @param array $vars [optional]
  * @param array(string => mixed) $data [optional]
