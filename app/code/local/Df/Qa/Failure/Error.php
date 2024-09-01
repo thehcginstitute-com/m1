@@ -27,9 +27,8 @@ final class Error extends \Df\Qa\Failure {
 	 * @override
 	 * @see \Df\Qa\Failure::stackLevel()
 	 * @used-by \Df\Qa\Failure::postface()
-	 * @return int
 	 */
-	protected function stackLevel() {return 13;}
+	protected function stackLevel():int {return 13;}
 
 	/**
 	 * @see debug_backtrace() не работает в функции-обработчике
