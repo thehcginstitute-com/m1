@@ -6,9 +6,6 @@
 # https://github.com/thehcginstitute-com/m1/issues/669
 use Mage_Sales_Model_Order as O;
 $o = $this->getOrder(); /** @var O $o */
-if (!$o || !$o->getId()) {
-	return;
-}
 ?>
 <script type="text/javascript">
 	var ORDER_ID = <?php echo $o->getId(); ?>;
