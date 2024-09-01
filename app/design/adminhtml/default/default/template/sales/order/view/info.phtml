@@ -5,36 +5,36 @@
 # 2) "Refactor `app/design/adminhtml/default/default/template/sales/order/view/info.phtml`":
 # https://github.com/thehcginstitute-com/m1/issues/669
 use Mage_Sales_Model_Order as O;
-$_order = $this->getOrder(); /** @var O $_order */ ?>
-<?php if ($_order != null && $_order->getId() != null) : ?>
+$o = $this->getOrder(); /** @var O $o */ ?>
+<?php if ($o != null && $o->getId() != null) : ?>
 <script type="text/javascript">
-    var ORDER_ID = <?php echo $_order->getId(); ?>;
+    var ORDER_ID = <?php echo $o->getId(); ?>;
 </script>
 
 <?php
-$orderAdminDate = $this->formatDate($_order->getCreatedAtDate(), 'medium', true);
-$orderStoreDate = $this->formatDate($_order->getCreatedAtStoreDate(), 'medium', true);
+$orderAdminDate = $this->formatDate($o->getCreatedAtDate(), 'medium', true);
+$orderStoreDate = $this->formatDate($o->getCreatedAtStoreDate(), 'medium', true);
 $invoice_id = Mage::app()->getRequest()->getParam('invoice_id', null);
 $shipment_id = Mage::app()->getRequest()->getParam('shipment_id', null);
 $creditmemo_id = Mage::app()->getRequest()->getParam('creditmemo_id', null);
-$isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusForUpdate($_order);
+$isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusForUpdate($o);
 $helper = Mage::helper('iwd_ordermanager');
 ?>
 
 <div class="box-left order-info">
     <!--Order Information-->
     <div class="entry-edit">
-        <?php if ($_order->getEmailSent()):
+        <?php if ($o->getEmailSent()):
             $_email = Mage::helper('sales')->__('the order confirmation email was sent');
         else:
             $_email = Mage::helper('sales')->__('the order confirmation email is not sent');
         endif ?>
         <div class="entry-edit-head order-edit">
             <?php if ($this->getNoUseOrderLink()): ?>
-                <h4 class="icon-head head-account"><?php echo Mage::helper('sales')->__('Order #%s', $_order->getRealOrderId()) ?>
+                <h4 class="icon-head head-account"><?php echo Mage::helper('sales')->__('Order #%s', $o->getRealOrderId()) ?>
                     (<?php echo $_email ?>)</h4>
             <?php else: ?>
-                <a href="<?php echo $this->getViewUrl($_order->getId()) ?>"><?php echo Mage::helper('sales')->__('Order #%s', $_order->getRealOrderId()) ?></a>
+                <a href="<?php echo $this->getViewUrl($o->getId()) ?>"><?php echo Mage::helper('sales')->__('Order #%s', $o->getRealOrderId()) ?></a>
                 <strong>(<?php echo $_email ?>)</strong>
             <?php endif ?>
 
@@ -42,7 +42,7 @@ $helper = Mage::helper('iwd_ordermanager');
                 <?php $isAllow = Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/actions/edit_order_information'); ?>
                 <?php if ($isAllow) : ?>
                     <?php if ($isAllowEdit) : ?>
-                        <a id="order_information_edit_<?php echo $_order->getEntityId(); ?>"
+                        <a id="order_information_edit_<?php echo $o->getEntityId(); ?>"
                            class="order_information_edit" href="#"
                            <?php if(!empty($invoice_id)): ?>data-invoice-id="<?php echo $invoice_id; ?>"<?php endif ?>
                            <?php if(!empty($shipment_id)): ?>data-shipping-id="<?php echo $shipment_id; ?>"<?php endif ?>
@@ -69,7 +69,7 @@ $helper = Mage::helper('iwd_ordermanager');
                 <?php if ($orderAdminDate != $orderStoreDate): ?>
                     <tr>
                         <td class="label">
-                            <label><?php echo Mage::helper('sales')->__('Order Date (%s)', $_order->getCreatedAtStoreDate()->getTimezone()) ?></label>
+                            <label><?php echo Mage::helper('sales')->__('Order Date (%s)', $o->getCreatedAtStoreDate()->getTimezone()) ?></label>
                         </td>
                         <td class="value"><strong><?php echo $orderStoreDate ?></strong></td>
                     </tr>
@@ -77,35 +77,35 @@ $helper = Mage::helper('iwd_ordermanager');
                 <tr>
                     <td class="label"><label><?php echo Mage::helper('sales')->__('Order Status') ?></label></td>
                     <td class="value"><strong><span
-                                    id="order_status"><?php echo $_order->getStatusLabel() ?></span></strong></td>
+                                    id="order_status"><?php echo $o->getStatusLabel() ?></span></strong></td>
                 </tr>
                 <tr>
                     <td class="label"><label><?php echo Mage::helper('sales')->__('Purchased From') ?></label></td>
                     <td class="value"><strong><?php echo $this->getOrderStoreName() ?></strong></td>
                 </tr>
-                <?php if ($_order->getRelationChildId()): ?>
+                <?php if ($o->getRelationChildId()): ?>
                     <tr>
                         <td class="label">
                             <label><?php echo Mage::helper('sales')->__('Link to the New Order') ?></label></td>
-                        <td class="value"><a href="<?php echo $this->getViewUrl($_order->getRelationChildId()) ?>">
-                                <?php echo $_order->getRelationChildRealId() ?>
+                        <td class="value"><a href="<?php echo $this->getViewUrl($o->getRelationChildId()) ?>">
+                                <?php echo $o->getRelationChildRealId() ?>
                             </a></td>
                     </tr>
                 <?php endif ?>
-                <?php if ($_order->getRelationParentId()): ?>
+                <?php if ($o->getRelationParentId()): ?>
                     <tr>
                         <td class="label">
                             <label><?php echo Mage::helper('sales')->__('Link to the Previous Order') ?></label></td>
-                        <td class="value"><a href="<?php echo $this->getViewUrl($_order->getRelationParentId()) ?>">
-                                <?php echo $_order->getRelationParentRealId() ?>
+                        <td class="value"><a href="<?php echo $this->getViewUrl($o->getRelationParentId()) ?>">
+                                <?php echo $o->getRelationParentRealId() ?>
                             </a></td>
                     </tr>
                 <?php endif ?>
-                <?php if ($_order->getRemoteIp()): ?>
+                <?php if ($o->getRemoteIp()): ?>
                     <tr>
                         <td class="label"><label><?php echo Mage::helper('sales')->__('Placed from IP') ?></label></td>
-                        <td class="value"><strong><?php echo $_order->getRemoteIp();
-                                echo ($_order->getXForwardedFor()) ? ' (' . $this->escapeHtml($_order->getXForwardedFor()) . ')' : ''; ?></strong>
+                        <td class="value"><strong><?php echo $o->getRemoteIp();
+                                echo ($o->getXForwardedFor()) ? ' (' . $this->escapeHtml($o->getXForwardedFor()) . ')' : ''; ?></strong>
                         </td>
                     </tr>
                 <?php endif ?>
@@ -116,10 +116,10 @@ $helper = Mage::helper('iwd_ordermanager');
 					 * 2) "Improve the «Yaay! Recovered by Mailchimp's campaign» block of the backend order screen":
 					 * https://github.com/thehcginstitute-com/m1/issues/668
 					 */
-					if (hcg_mc_h()->isEcomSyncDataEnabled($_order->getStoreId())) {
-						$cid = $_order['mailchimp_campaign_id']; /** @var ?string $cid */
+					if (hcg_mc_h()->isEcomSyncDataEnabled($o->getStoreId())) {
+						$cid = $o['mailchimp_campaign_id']; /** @var ?string $cid */
 						if ($cid) {
-							$cn = hcg_mc_h()->getMailChimpCampaignNameById($cid, $_order->getStoreId());
+							$cn = hcg_mc_h()->getMailChimpCampaignNameById($cid, $o->getStoreId());
 						}
 						echo df_tag('tr', [], [
 							df_tag('td', 'label', 'Mailchimp Campaign')
@@ -127,24 +127,24 @@ $helper = Mage::helper('iwd_ordermanager');
 						]);
 					}
 				?>
-                <?php if ($_order->getGlobalCurrencyCode() != $_order->getBaseCurrencyCode()): ?>
+                <?php if ($o->getGlobalCurrencyCode() != $o->getBaseCurrencyCode()): ?>
                     <tr>
                         <td class="label">
-                            <label><?php echo Mage::helper('sales')->__('%s / %s rate:', $_order->getGlobalCurrencyCode(), $_order->getBaseCurrencyCode()) ?></label>
+                            <label><?php echo Mage::helper('sales')->__('%s / %s rate:', $o->getGlobalCurrencyCode(), $o->getBaseCurrencyCode()) ?></label>
                         </td>
-                        <td class="value"><strong><?php echo $_order->getBaseToGlobalRate() ?></strong></td>
+                        <td class="value"><strong><?php echo $o->getBaseToGlobalRate() ?></strong></td>
                     </tr>
                 <?php endif ?>
-                <?php if ($_order->getBaseCurrencyCode() != $_order->getOrderCurrencyCode()): ?>
+                <?php if ($o->getBaseCurrencyCode() != $o->getOrderCurrencyCode()): ?>
                     <tr>
                         <td class="label">
-                            <label><?php echo Mage::helper('sales')->__('%s / %s rate:', $_order->getOrderCurrencyCode(), $_order->getBaseCurrencyCode()) ?></label>
+                            <label><?php echo Mage::helper('sales')->__('%s / %s rate:', $o->getOrderCurrencyCode(), $o->getBaseCurrencyCode()) ?></label>
                         </td>
-                        <td class="value"><strong><?php echo $_order->getBaseToOrderRate() ?></strong></td>
+                        <td class="value"><strong><?php echo $o->getBaseToOrderRate() ?></strong></td>
                     </tr>
                 <?php endif ?>
 
-                <?php if (Mage::helper('iwd_ordermanager')->isAllowHideOrders() && $_order->getIwdOmStatus() == 1): ?>
+                <?php if (Mage::helper('iwd_ordermanager')->isAllowHideOrders() && $o->getIwdOmStatus() == 1): ?>
                     <tr>
                         <td class="label">
                             <label><strong style="color:#e22b00!important"><?php echo Mage::helper('sales')->__('Hide On Front') ?></strong></label>
@@ -152,7 +152,7 @@ $helper = Mage::helper('iwd_ordermanager');
                         <td class="value">
                             <strong style="color:#e22b00!important">
                                 <?php echo Mage::helper('sales')->__('This order is hidden in customer account on front') ?><br>
-                                <a id="order_information_edit_<?php echo $_order->getEntityId(); ?>"
+                                <a id="order_information_edit_<?php echo $o->getEntityId(); ?>"
                                    class="order_information_edit" href="#"
                                    <?php if(!empty($invoice_id)): ?>data-invoice-id="<?php echo $invoice_id; ?>"<?php endif ?>
                                    <?php if(!empty($shipment_id)): ?>data-shipping-id="<?php echo $shipment_id; ?>"<?php endif ?>
@@ -178,7 +178,7 @@ $helper = Mage::helper('iwd_ordermanager');
                 <?php $isAllow = Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/actions/edit_account_information'); ?>
                 <?php if ($isAllow): ?>
                     <?php if ($isAllowEdit) : ?>
-                        <a id="account_information_edit_<?php echo $_order->getEntityId(); ?>"
+                        <a id="account_information_edit_<?php echo $o->getEntityId(); ?>"
                            class="account_information_edit" href="#"
                            title="<?php echo Mage::helper('sales')->__('Edit account information for order only'); ?>">
                             <?php echo Mage::helper('sales')->__('Edit'); ?>
@@ -195,23 +195,23 @@ $helper = Mage::helper('iwd_ordermanager');
         </div>
         <div class="fieldset">
             <div class="hor-scroll">
-                <div class="hor-scroll" id="account_information_<?php echo $_order->getEntityId(); ?>">
+                <div class="hor-scroll" id="account_information_<?php echo $o->getEntityId(); ?>">
                     <table cellspacing="0" class="form-list">
                         <tr>
                             <td class="label"><label><?php echo Mage::helper('sales')->__('Customer Name') ?></label></td>
                             <td class="value">
                                 <?php if ($_customerUrl = $this->getCustomerViewUrl()) : ?>
                                     <a href="<?php echo $_customerUrl ?>"
-                                       target="_blank"><strong><?php echo $this->htmlEscape($_order->getCustomerName()) ?></strong></a>
+                                       target="_blank"><strong><?php echo $this->htmlEscape($o->getCustomerName()) ?></strong></a>
                                 <?php else: ?>
-                                    <strong><?php echo $this->htmlEscape($_order->getCustomerName()) ?></strong>
+                                    <strong><?php echo $this->htmlEscape($o->getCustomerName()) ?></strong>
                                 <?php endif ?>
                             </td>
                         </tr>
                         <tr>
                             <td class="label"><label><?php echo Mage::helper('sales')->__('Email') ?></label></td>
                             <td class="value"><a
-                                        href="mailto:<?php echo $_order->getCustomerEmail() ?>"><strong><?php echo $_order->getCustomerEmail() ?></strong></a>
+                                        href="mailto:<?php echo $o->getCustomerEmail() ?>"><strong><?php echo $o->getCustomerEmail() ?></strong></a>
                             </td>
                         </tr>
                         <?php if ($_groupName = $this->getCustomerGroupName()) : ?>
@@ -237,7 +237,7 @@ $helper = Mage::helper('iwd_ordermanager');
 							# of `Mage_Adminhtml_Block_Sales_Order_View_Info`":
 							# https://github.com/thehcginstitute-com/m1/issues/327
 							$p = 'hcg/sales/order/view/info/'; /** @var string $p */
-							echo df_render_simple("{$p}IWD_OnepageCheckoutSignature.phtml", [], ['_order' => $_order]);
+							echo df_render_simple("{$p}IWD_OnepageCheckoutSignature.phtml", [], ['_order' => $o]);
 							# 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 							# "Delete the unused `Webkul_CustomField` module":
 							# https://github.com/thehcginstitute-com/m1/issues/382
@@ -261,7 +261,7 @@ $helper = Mage::helper('iwd_ordermanager');
                     <?php $isAllow = Mage::getModel('iwd_ordermanager/address')->isAllowEditAddress(); ?>
                     <?php if ($isAllow): ?>
                         <?php if ($isAllowEdit) : ?>
-                            <a id="billing_address_edit_<?php echo $_order->getBillingAddress()->getId() ?>"
+                            <a id="billing_address_edit_<?php echo $o->getBillingAddress()->getId() ?>"
                                class="order_address_edit" href="#"
                                title="<?php echo Mage::helper('sales')->__('Edit billing address for order only'); ?>">
                                 <?php echo Mage::helper('sales')->__('Edit'); ?>
@@ -277,7 +277,7 @@ $helper = Mage::helper('iwd_ordermanager');
                 </div>
             </div>
             <fieldset>
-                <address id="order_address_<?php echo $_order->getBillingAddress()->getId() ?>"><?php echo $_order->getBillingAddress()->getFormated(true) ?></address>
+                <address id="order_address_<?php echo $o->getBillingAddress()->getId() ?>"><?php echo $o->getBillingAddress()->getFormated(true) ?></address>
             </fieldset>
         </div>
     </div>
@@ -292,7 +292,7 @@ $helper = Mage::helper('iwd_ordermanager');
                     <div class="tools" style="float:right">
                         <?php if ($isAllow): ?>
                             <?php if ($isAllowEdit) : ?>
-                                <a id="shipping_address_edit_<?php echo $_order->getShippingAddress()->getId() ?>"
+                                <a id="shipping_address_edit_<?php echo $o->getShippingAddress()->getId() ?>"
                                    class="order_address_edit" href="#"
                                    title="<?php echo Mage::helper('sales')->__('Edit shipping address for order only') ?>">
                                     <?php echo Mage::helper('sales')->__('Edit'); ?>
@@ -308,7 +308,7 @@ $helper = Mage::helper('iwd_ordermanager');
                     </div>
                 </div>
                 <fieldset>
-                    <address id="order_address_<?php echo $_order->getShippingAddress()->getId() ?>"><?php echo $this->maliciousCodeFilter($_order->getShippingAddress()->getFormated(true)) ?></address>
+                    <address id="order_address_<?php echo $o->getShippingAddress()->getId() ?>"><?php echo $this->maliciousCodeFilter($o->getShippingAddress()->getFormated(true)) ?></address>
                 </fieldset>
             </div>
         </div>
