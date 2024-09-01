@@ -31,3 +31,10 @@ function df_explode_class_camel($c):array {return dfa_flatten(df_explode_camel(e
  * @return string[]
  */
 function df_explode_class_lc_camel($c):array {return df_lcfirst(df_explode_class_camel($c));}
+
+/**
+ * 2021-02-24
+ * @used-by df_caller_c()
+ * @return string[]
+ */
+function df_explode_method(string $m):array {return explode('::', $m);}
