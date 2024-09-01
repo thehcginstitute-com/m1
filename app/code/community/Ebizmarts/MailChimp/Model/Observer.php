@@ -1,6 +1,7 @@
 <?php
 # 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Observer`": https://github.com/thehcginstitute-com/m1/issues/580
+use Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey as bCampaign;
 use Mage_Sales_Model_Order as O;
 use Varien_Event_Observer as Ob;
 use Varien_Object as _DO;
@@ -558,7 +559,7 @@ class Ebizmarts_MailChimp_Model_Observer {
 		$b = $ob['block']; /** @var Mage_Core_Block_Abstract|Mage_Adminhtml_Block_Sales_Order_View_Info $b */
 		if (($b->getNameInLayout() == 'order_info') && ($child = $b->getChild('mailchimp.order.info.monkey.block'))) {
 			$o = $b->getOrder(); /** @var O $o */
-			/** @var Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey $child */
+			/** @var bCampaign $child */
 			if ($this->makeHelper()->isEcomSyncDataEnabled($o->getStoreId())) {
 				/**
 				 * 2024-09-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -574,7 +575,10 @@ class Ebizmarts_MailChimp_Model_Observer {
 				 * https://github.com/thehcginstitute-com/m1/blob/2024-09-01/app/code/core/Mage/Core/Block/Abstract.php#L946-L950
 				 */
 				$do = $ob['transport']; /** @var _DO $do */
-				$do['html'] = $do['html'] . $child->toHtml();
+				#$do['html'] = $do['html'] . $child->toHtml();
+				$do['html'] = $do['html'] . df_render(bCampaign::class, ['template' =>
+					'ebizmarts/mailchimp/sales/order/view/monkey.phtml'
+				]);
 			}
 		}
 		return $ob;
