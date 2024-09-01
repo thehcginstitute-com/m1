@@ -18,7 +18,6 @@ $invoice_id = df_request('invoice_id');
 $shipment_id = df_request('shipment_id');
 $creditmemo_id = df_request('creditmemo_id');
 $isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusForUpdate($o);
-$helper = Mage::helper('iwd_ordermanager'); /** @var hIWD $helper */
 ?>
 <div class="box-left order-info">
 	<!--Order Information-->
