@@ -2,6 +2,13 @@
 use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 
 /**
+ * 2017-11-19
+ * @used-by df_abstract()
+ * @used-by df_sentry_ext_f()
+ */
+function df_caller_c(int $o = 0):string {return df_first(df_explode_method(df_caller_m(++$o)));}
+
+/**
  * 2016-08-10
  * The original (not used now) implementation: https://github.com/mage2pro/core/blob/6.7.3/Core/lib/caller.php#L109-L111
  * 2017-01-12
