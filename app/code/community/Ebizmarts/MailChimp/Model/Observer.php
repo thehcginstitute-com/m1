@@ -559,8 +559,7 @@ class Ebizmarts_MailChimp_Model_Observer {
 			/** @var Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey $child */
 			$order = $b->getOrder();
 			$storeId = $order->getStoreId();
-			$helper = $this->makeHelper();
-			if ($helper->isEcomSyncDataEnabled($storeId)) {
+			if ($this->makeHelper()->isEcomSyncDataEnabled($storeId)) {
 				/**
 				 * 2024-09-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				 * @used-by Mage_Core_Block_Abstract::toHtml():
