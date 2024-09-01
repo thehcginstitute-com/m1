@@ -81,6 +81,7 @@ function df_log($v, $m = null, array $d = [], string $suf = ''):void {
  * @used-by df_log()
  * @used-by df_log_e()
  * @used-by dfp_report()
+ * @used-by Df_Core_Model_Layout::_getBlockInstance()
  * @param string|object|null $m
  * @param string|mixed[]|E $p2
  * @param string|mixed[]|E $p3 [optional]
