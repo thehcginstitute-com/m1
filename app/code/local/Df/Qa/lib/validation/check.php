@@ -21,3 +21,12 @@ function df_between($v, $min, $max, bool $inclusive = true):bool {return
  * @param mixed $v
  */
 function df_is_email($v):bool {return !!filter_var($v, FILTER_VALIDATE_EMAIL);}
+
+/**
+ * We need `==` here, not `===`: https://php.net/manual/function.is-int.php#35820
+ * @see \Df\Zf\Validate\StringT\IntT::isValid()
+ * @used-by df_is_nat()
+ * @used-by \Df\Core\Text\Regex::matchInt()
+ * @param mixed $v
+ */
+function df_is_int($v):bool {return is_numeric($v) && ($v == (int)$v);}
