@@ -7,7 +7,7 @@ class Df_Core_Model_Layout extends Mage_Core_Model_Layout {
 	 * @param array(string => mixed) $attributes
 	 * @return Mage_Core_Block_Abstract
 	 */
-	function getBlockInstance(B $b, array $data = []) {return $this->_getBlockInstance($b, $data);}
+	function getBlockInstance(B $b, array $data = []):B {return $this->_getBlockInstance($b, $data);}
 
 	/**
 	 * Этот метод реализует очень важное дополнение к родительскому методу:
