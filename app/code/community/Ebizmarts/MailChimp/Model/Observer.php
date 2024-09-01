@@ -554,7 +554,7 @@ class Ebizmarts_MailChimp_Model_Observer {
 			$helper = $this->makeHelper();
 			$ecommEnabled = $helper->isEcomSyncDataEnabled($storeId);
 			if ($ecommEnabled) {
-				$transport = $ob['transport'];
+				$transport = $ob['transport']; /** @var _DO $transport */
 				if ($transport) {
 					$html = $transport->getHtml();
 					$html .= $child->toHtml();
