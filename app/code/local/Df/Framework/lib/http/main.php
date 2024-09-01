@@ -117,3 +117,20 @@ function df_request_method() {return dfa($_SERVER, 'REQUEST_METHOD');}
  * @used-by INT\DisplayCvv\B::_prepareSpecificInformation() (https://github.com/thehcginstitute-com/m1/issues/142)
  */
 function df_request_o():Req {return Mage::app()->getRequest();}
+
+/**
+ * 2022-02-23
+ * 1) Sometimes @see df_action_has() does not work because the following methods are not yet called by Magento:
+ * @see \Magento\Framework\App\Request\Http::setRouteName()
+ * @see \Magento\Framework\HTTP\PhpEnvironment\Request::setActionName()
+ * @see \Magento\Framework\HTTP\PhpEnvironment\Request::setControllerName()
+ * In this case, use df_rp_has().
+ * 2) @uses \Magento\Framework\App\Request\Http::getPathInfo() starts with `/`.
+ * 3) Synonym: @see df_url_path_contains()
+ * 4) `df_request_o()->getPathInfo()` seems to be the same as `dfa($_SERVER, 'REQUEST_URI')`:
+ * 5) 2018-05-11
+ * df_contains(df_url(), $s)) does not work properly for some requests.
+ * E.g.: df_url() for the `/us/stores/store/switch/___store/uk` request will return `<website>/us/`
+ * @used-by df_url_path_contains()
+ */
+function df_rp_has(string ...$s):bool {return df_contains(df_request_o()->getPathInfo(), ...$s);}
