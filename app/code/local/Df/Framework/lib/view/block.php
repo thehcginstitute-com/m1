@@ -2,15 +2,16 @@
 use Mage_Core_Block_Abstract as A;
 use Mage_Core_Block_Template as T;
 /**
- * В качестве параметра $block можно передавать:
- * 1) объект-блок
- * 2) класс блока в стандартном формате
- * 3) класс блока в формате Magento
- * 4) пустое значение: в таком случае будет создан блок типа @see Mage_Core_Block_Template
- * @used-by df_block_l()
- * @used-by df_render()
- * @param string|Mage_Core_Block_Abstract|null $block [optional]
- * @param string|array(string => mixed) $params [optional]
+ * @param string|A|null $c
+ * 2015-12-14
+ * $c может быть как объектом, так и строкой: https://3v4l.org/udMMH
+ * @param string|array(string => mixed) $data [optional]
+ * 2016-11-22
+ * @param array(string => mixed) $vars [optional]
+ * Параметры $vars будут доступны в шаблоне в качестве переменных:
+ * @see \Magento\Framework\View\TemplateEngine\Php::render()
+ *		extract($dictionary, EXTR_SKIP);
+ * https://github.com/magento/magento2/blob/2.1.2/lib/internal/Magento/Framework/View/TemplateEngine/Php.php#L58
  * @return A|T
  * @throws Exception
  */
