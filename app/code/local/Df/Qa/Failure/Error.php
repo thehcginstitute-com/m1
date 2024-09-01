@@ -46,7 +46,7 @@ final class Error extends \Df\Qa\Failure {
 	 * @used-by self::check()
 	 * @throws \Exception
 	 */
-	private function log() {
+	private function log():void {
 		# 2015-04-04
 		# Нам нужно правильно обработать ситуацию, когда при формировании диагностического отчёта о сбое происходит новый сбой.
 		# 1) Статическая переменная `$inProcess` предотвращает нас от бесконечной рекурсии.
