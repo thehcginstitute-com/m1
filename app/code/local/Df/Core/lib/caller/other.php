@@ -66,3 +66,10 @@ function df_caller_module($p = 0):string {return !($e = df_caller_entry_m(df_bt_
  * @used-by df_no_rec()
  */
 function df_caller_mf(int $o = 0):string {return df_cc_method(df_assert(df_caller_entry(++$o)));}
+
+/**
+ * 2016-08-29
+ * @used-by df_abstract()
+ * @used-by df_should_not_be_here()
+ */
+function df_caller_mh():string {return df_tag('b', [], df_caller_ml(1));}
