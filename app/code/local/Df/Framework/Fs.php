@@ -2,6 +2,7 @@
 namespace Df\Framework;
 final class Fs {
 	/**
+	 * @used-by df_mkdir()
 	 * @used-by df_file_write()
 	 * @param string $path
 	 * @param bool $isDir [optional]

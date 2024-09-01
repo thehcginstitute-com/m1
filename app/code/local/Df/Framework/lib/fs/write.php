@@ -8,7 +8,7 @@ use Df\Framework\Fs;
  * @used-by df_report()
  */
 function df_file_write(string $p, string $contents, bool $append = false):void {
-	Fs::createAndMakeWritable($p);
+	df_mkdir($p);
 	$abs = BP . "/$p"; /** #var string $abs */
 	$append = $append && file_exists($abs) && 0 !== filesize($abs);
 	/**
