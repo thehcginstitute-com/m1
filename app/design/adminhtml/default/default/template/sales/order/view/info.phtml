@@ -23,9 +23,9 @@ $isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusFo
 	<!--Order Information-->
 	<div class="entry-edit">
 		<?php if ($o->getEmailSent()):
-			$_email = Mage::helper('sales')->__('the order confirmation email was sent');
+			$_email = 'the order confirmation email was sent';
 		else:
-			$_email = Mage::helper('sales')->__('the order confirmation email is not sent');
+			$_email = 'the order confirmation email is not sent';
 		endif ?>
 		<div class="entry-edit-head order-edit">
 			<?php if ($this->getNoUseOrderLink()): ?>
