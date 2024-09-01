@@ -52,7 +52,7 @@ $helper = Mage::helper('iwd_ordermanager'); /** @var hIWD $helper */
 					<?php else : ?>
 						<a href="#"
 						   onclick="alert('Sorry, You can not update order information for order with this status. Check configuration by module IWD_OrderManager.'); return false;"
-						   title="<?= $helper->__("You can not edit order information!"); ?>">
+						   title="You can not edit order information!">
 							<?= Mage::helper('sales')->__("Edit"); ?>
 						</a>
 					<?php endif ?>
