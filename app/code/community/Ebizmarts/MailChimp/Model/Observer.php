@@ -546,6 +546,7 @@ class Ebizmarts_MailChimp_Model_Observer {
 	 */
 	function addOrderViewMonkey(Ob $ob):Ob {
 		$block = $ob->getBlock();
+		/** @var Mage_Core_Block_Abstract|Mage_Adminhtml_Block_Sales_Order_View_Info $block */
 		if (($block->getNameInLayout() == 'order_info') && ($child = $block->getChild('mailchimp.order.info.monkey.block'))) {
 			$order = $block->getOrder();
 			$storeId = $order->getStoreId();
