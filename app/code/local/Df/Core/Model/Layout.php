@@ -25,14 +25,10 @@ class Df_Core_Model_Layout extends Mage_Core_Model_Layout {
 	 * @throws Exception
 	 */
 	protected function _getBlockInstance($b, array $attributes=[]):B {/** @var B $r */
-		try {
-			$r = parent::_getBlockInstance($b, $attributes);
-		}
+		try {$r = parent::_getBlockInstance($b, $attributes);}
 		catch (Exception $e) {
 			df_log($e);
-			df_error(is_string($b) ? "Не могу создать блок класса «{$b}»" : (
-				is_object($b) ? sprintf("Класс «%s» недопустим для блока", get_class($b)) : $e
-			));
+			throw $e;
 		}
 		return $r;
 	}
