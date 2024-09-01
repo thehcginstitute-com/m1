@@ -11,6 +11,41 @@
 function df_header_utf():void {df_is_cli() || headers_sent() ?: header('Content-Type: text/html; charset=UTF-8');}
 
 /**
+ * 2015-11-27
+ * Note 1.
+ * Google API в случае сбоя возвращает корректный JSON, но с кодом HTTP 403,
+ * что приводит к тому, что @uses file_get_contents() не просто возвращает JSON,
+ * а создаёт при этом @see E_WARNING.
+ * Чтобы при коде 403 warning не создавался, использую ключ «ignore_errors»:
+ * https://php.net/manual/context.http.php#context.http.ignore-errors
+ * http://stackoverflow.com/a/21976746
+ * Note 2.
+ * Обратите внимание, что для использования @uses file_get_contents
+ * с адресами https требуется расширение php_openssl интерпретатора PHP,
+ * однако оно является системным требованием Magento 2:
+ * http://devdocs.magento.com/guides/v2.0/install-gde/system-requirements.html#required-php-extensions
+ * Поэтому мы вправе использовать здесь @uses file_get_contents
+ * Note 3. The function returns the read data or FALSE on failure. https://php.net/manual/function.file-get-contents.php
+ * 2016-05-31
+ * Стандартное время ожидание ответа сервера задаётся опцией default_socket_timeout:
+ * https://php.net/manual/filesystem.configuration.php#ini.default-socket-timeout
+ * Её значение по-умолчанию равно 60 секундам.
+ * Конечно, при оформлении заказа негоже заставлять покупателя ждать 60 секунд
+ * только ради узнавания его страны вызовом @see df_visitor()
+ * Поэтому добавил возможность задавать нестандартное время ожидания ответа сервера:
+ * http://stackoverflow.com/a/10236480
+ * https://amitabhkant.com/2011/08/21/using-timeouts-with-file_get_contents-in-php/
+ * @used-by df_http_json()
+ * @param array(string => string) $query [optional]
+ * @param Closure|bool|mixed $onE [optional]
+ */
+function df_http_get(string $url, array $query = [], int $timeout = 0, $onE = true):string {return df_contents(
+	!$query ? $url : $url . '?' . http_build_query($query)
+	,$onE
+	,stream_context_create(['http' => df_clean(['ignore_errors' => true, 'timeout' => $timeout])])
+);}
+
+/**
  * 2024-01-09 "Port `df_request()`": https://github.com/thehcginstitute-com/m1/issues/141
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp::interests() (https://github.com/thehcginstitute-com/m1/issues/579)
  * @used-by Ebizmarts_MailChimp_Model_Observer::addCustomerTab() (https://github.com/thehcginstitute-com/m1/issues/524)
