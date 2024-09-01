@@ -26,7 +26,14 @@ function df_is_email($v):bool {return !!filter_var($v, FILTER_VALIDATE_EMAIL);}
  * We need `==` here, not `===`: https://php.net/manual/function.is-int.php#35820
  * @see \Df\Zf\Validate\StringT\IntT::isValid()
  * @used-by df_is_nat()
- * @used-by \Df\Core\Text\Regex::matchInt()
  * @param mixed $v
  */
 function df_is_int($v):bool {return is_numeric($v) && ($v == (int)$v);}
+
+/**
+ * 2020-02-03
+ * @see df_nat()
+ * @used-by dfp()
+ * @param mixed $v
+ */
+function df_is_nat($v):bool {return df_is_int($v) && 0 < $v;}
