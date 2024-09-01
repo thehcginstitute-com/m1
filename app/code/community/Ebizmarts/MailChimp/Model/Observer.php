@@ -575,9 +575,9 @@ class Ebizmarts_MailChimp_Model_Observer {
 				 * https://github.com/thehcginstitute-com/m1/blob/2024-09-01/app/code/core/Mage/Core/Block/Abstract.php#L946-L950
 				 */
 				$do = $ob['transport']; /** @var _DO $do */
-				$do['html'] = $do['html'] . df_render(bCampaign::class, ['template' =>
+				/*$do['html'] = $do['html'] . df_render(bCampaign::class, ['template' =>
 					'ebizmarts/mailchimp/sales/order/view/monkey.phtml'
-				]);
+				]);*/
 			}
 		}
 		return $ob;
