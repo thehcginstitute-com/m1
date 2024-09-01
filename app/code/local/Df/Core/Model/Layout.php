@@ -20,22 +20,22 @@ class Df_Core_Model_Layout extends Mage_Core_Model_Layout {
 	 * При стандартном поведении Magento просто записывает сообщение о сбое в журнал сбоев.
 	 * Там это сообщение остаётся, как правило, незамеченным администратором и разработчиком!
 	 * @override
+	 * @param B|string $b
 	 * @param array(string => mixed) $attributes
 	 * @throws Exception
 	 */
-	protected function _getBlockInstance($block, array $attributes=[]):B {/** @var B $r */
+	protected function _getBlockInstance($b, array $attributes=[]):B {/** @var B $r */
 		try {
-			$r = parent::_getBlockInstance($block, $attributes);
+			$r = parent::_getBlockInstance($b, $attributes);
 		}
 		catch (Exception $e) {
 			df_log($e);
-			/** @var string $commonPart */
-			$commonPart = "\nСмотрите отчёт в папке var/log.";
-			if (is_string($block)) {
-				df_error("Не могу создать блок класса «{$block}».{$commonPart}");
+			$commonPart = "\nСмотрите отчёт в папке var/log."; /** @var string $commonPart */
+			if (is_string($b)) {
+				df_error("Не могу создать блок класса «{$b}».{$commonPart}");
 			}
-			elseif (is_object($block)) {
-				df_error("Класс «%s» недопустим для блока.{$commonPart}", get_class($block));
+			elseif (is_object($b)) {
+				df_error("Класс «%s» недопустим для блока.{$commonPart}", get_class($b));
 			}
 			else {
 				throw $e;
