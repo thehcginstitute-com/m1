@@ -73,3 +73,10 @@ function df_caller_mf(int $o = 0):string {return df_cc_method(df_assert(df_calle
  * @used-by df_should_not_be_here()
  */
 function df_caller_mh():string {return df_tag('b', [], df_caller_ml(1));}
+
+/**
+ * 2016-08-31
+ * @used-by df_abstract()
+ * @used-by df_caller_mh()
+ */
+function df_caller_ml(int $o = 0):string {return df_caller_m(++$o) . '()';}
