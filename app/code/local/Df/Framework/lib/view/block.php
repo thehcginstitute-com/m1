@@ -22,18 +22,7 @@ function df_block($c, $data = [], string $t = '', array $vars = []):A {
 	if (!$c) {
 		$c = T::class;
 	}
-	if (!is_object($c)) {
-		$r = df_layout()->b($c, $data);
-	}
-	else {
-		/**
-		 * @uses Mage_Core_Model_Layout::createBlock() не добавит параметры к блоку,
-		 * если в этот метод передать не тип блока, а еще созданный объект-блок.
-		 */
-		df_assert($c instanceof A);
-		$c->addData($data);
-		$r = $c;
-	}
+	$r = df_layout()->b($c ?: T::class)->addData($data);
 	if ($r instanceof T) { # 2019-06-11
 		$r->assign($vars); # 2016-11-22
 	}
