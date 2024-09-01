@@ -248,7 +248,13 @@ HTML;
                 &&
                 ($this->_viewDir == Mage::getBaseDir('design') || strpos(realpath($this->_viewDir), realpath(Mage::getBaseDir('design'))) === 0)
             ) {
-                include $this->_viewDir . DS . $fileName;
+				# 2024-09-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "Magento should log the error instead of failing with the `net::ERR_CONNECTION_RESET` code
+				# («This site can’t be reached» / «The connection was reset») on an invalid path of a block's template":
+				# https://github.com/cabinetsbay/site/issues/670
+				/** @var string $f */
+				df_assert(file_exists($f = df_cc_path($this->_viewDir, $fileName)), "The template is absent: `{$f}`.");
+                include $f;
             } else {
                 $thisClass = get_class($this);
                 Mage::log('Not valid template file:' . $fileName . ' class: ' . $thisClass, Zend_Log::CRIT, null, true);
