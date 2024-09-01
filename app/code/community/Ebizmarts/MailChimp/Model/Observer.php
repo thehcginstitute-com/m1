@@ -575,8 +575,8 @@ class Ebizmarts_MailChimp_Model_Observer {
 			 *		$html = self::$_transportObject->getHtml();
 			 * https://github.com/thehcginstitute-com/m1/blob/2024-09-01/app/code/core/Mage/Core/Block/Abstract.php#L946-L950
 			 */
-				$transport = $ob['transport']; /** @var _DO $transport */
-				$transport['html'] = $transport['html'] . $child->toHtml();
+				$do = $ob['transport']; /** @var _DO $do */
+				$do['html'] = $do['html'] . $child->toHtml();
 			}
 		}
 		return $ob;
