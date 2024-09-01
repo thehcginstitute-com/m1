@@ -5,9 +5,10 @@ class Df_Core_Model_Layout extends Mage_Core_Model_Layout {
 	/**
 	 * Публичный доступ к системному методу @uses _getBlockInstance()
 	 * @used-by df_block()
+	 * @param B|string $b
 	 * @param array(string => mixed) $d
 	 */
-	function b(B $b, array $d = []):B {return $this->_getBlockInstance($b, $d);}
+	function b($b, array $d = []):B {return $this->_getBlockInstance($b, $d);}
 
 	/**
 	 * Оповещает разработчика о сбоях при создании блоков.
