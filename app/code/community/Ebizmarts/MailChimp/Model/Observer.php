@@ -543,6 +543,11 @@ class Ebizmarts_MailChimp_Model_Observer {
 	 *			</observers>
 	 *		</core_block_abstract_to_html_after>
 	 * https://github.com/thehcginstitute-com/m1/blob/2024-09-01/app/code/community/Ebizmarts/MailChimp/etc/config.xml#L319-L327
+	 * 4)
+	 *		self::$_transportObject->setHtml($html);
+	 *		Mage::dispatchEvent('core_block_abstract_to_html_after', ['block' => $this, 'transport' => self::$_transportObject]);
+	 *		$html = self::$_transportObject->getHtml();
+	 * https://github.com/thehcginstitute-com/m1/blob/2024-09-01/app/code/core/Mage/Core/Block/Abstract.php#L949-L954
 	 * @used-by Mage_Core_Model_App::_callObserverMethod()
 	 */
 	function addOrderViewMonkey(Ob $ob):Ob {
