@@ -12,6 +12,20 @@ function df_path_abs(string $p):string {
 }
 
 /**
+ * 2015-12-06 It trims the ending «/».
+ * 2024-06-09 "`df_path_relative()` → `df_path_rel()`": https://github.com/mage2pro/core/issues/407
+ * @used-by df_file_write()
+ * @used-by df_media_path_rel()
+ * @used-by df_module_name_by_path()
+ * @used-by df_product_images_path_rel()
+ * @used-by \Df\Qa\Failure\Error::preface()
+ * @used-by \Df\Qa\Trace\Frame::file()
+ */
+function df_path_rel(string $p):string {return df_trim_text_left(
+	df_trim_ds_left(df_path_n($p)), df_trim_ds_left(df_path_n(BP . '/'))
+);}
+
+/**
  * 2016-12-23
  * Удаляет из сообщений типа
  * «Warning: Division by zero in C:\work\mage2.pro\store\vendor\mage2pro\stripe\Method.php on line 207»
