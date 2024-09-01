@@ -73,6 +73,13 @@ function df_request($k = '', $d = null) {$o = df_request_o(); return df_nes($k) 
 );}
 
 /**
+ * 2017-03-09
+ * @used-by df_context()
+ * @used-by df_request_body_json()
+ */
+function df_request_body():string {return df_contents('php://input');}
+
+/**
  * 2016-12-25
  * The @uses \Laminas\Http\Request::getHeader() method is insensitive to the argument's letter case:
  * @see \Laminas\Http\Headers::createKey()
