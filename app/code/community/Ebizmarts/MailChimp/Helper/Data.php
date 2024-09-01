@@ -775,6 +775,7 @@ class Ebizmarts_MailChimp_Helper_Data extends Mage_Core_Helper_Abstract {
 
 	/**
 	 * Check if Ecommerce data is configured to be sent.
+	 * @used-by Ebizmarts_MailChimp_Model_Observer::addOrderViewMonkey()
 	 * @param null  $scope
 	 * @param bool  $isStoreCreation
 	 * @return bool
