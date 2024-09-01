@@ -2,6 +2,7 @@
 # 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Observer`": https://github.com/thehcginstitute-com/m1/issues/580
 use Varien_Event_Observer as Ob;
+use Varien_Object as _DO;
 class Ebizmarts_MailChimp_Model_Observer {
 
 	const PRODUCT_IS_ENABLED = 1;
@@ -553,7 +554,7 @@ class Ebizmarts_MailChimp_Model_Observer {
 			$helper = $this->makeHelper();
 			$ecommEnabled = $helper->isEcomSyncDataEnabled($storeId);
 			if ($ecommEnabled) {
-				$transport = $ob->getTransport();
+				$transport = $ob['transport'];
 				if ($transport) {
 					$html = $transport->getHtml();
 					$html .= $child->toHtml();
