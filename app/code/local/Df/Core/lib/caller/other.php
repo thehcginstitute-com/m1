@@ -30,7 +30,6 @@ function df_caller_f(int $o = 0):string {return df_caller_entry(++$o)['function'
  * https://github.com/mage2pro/core/issues/257
  * 2) The pevious error handling never worked correctly:
  * https://github.com/mage2pro/core/tree/9.8.4/Core/lib/caller.php#L114
- * 2024-01-11 "Port `df_caller_m` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/192
  * @used-by df_cache_get_simple()
  * @used-by df_caller_c()
  * @used-by df_caller_ml()
