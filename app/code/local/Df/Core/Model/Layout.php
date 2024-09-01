@@ -20,6 +20,7 @@ class Df_Core_Model_Layout extends Mage_Core_Model_Layout {
 	 * При стандартном поведении Magento просто записывает сообщение о сбое в журнал сбоев.
 	 * Там это сообщение остаётся, как правило, незамеченным администратором и разработчиком!
 	 * @override
+	 * @see Mage_Core_Model_Layout::_getBlockInstance()
 	 * @param B|string $b
 	 * @param array(string => mixed) $attributes
 	 * @throws Exception
