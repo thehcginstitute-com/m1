@@ -1,5 +1,6 @@
 <?php
 use Mage_Core_Block_Abstract as B;
+use Throwable as T;
 class Df_Core_Model_Layout extends Mage_Core_Model_Layout {
 	/**
 	 * Публичный доступ к системному методу @uses _getBlockInstance()
@@ -23,14 +24,10 @@ class Df_Core_Model_Layout extends Mage_Core_Model_Layout {
 	 * @see Mage_Core_Model_Layout::_getBlockInstance()
 	 * @param B|string $b
 	 * @param array(string => mixed) $attributes
-	 * @throws Exception
+	 * @throws T
 	 */
-	protected function _getBlockInstance($b, array $d = []):B {/** @var B $r */
-		try {$r = parent::_getBlockInstance($b, $d);}
-		catch (Exception $e) {
-			df_log($e);
-			throw $e;
-		}
-		return $r;
-	}
+	protected function _getBlockInstance($b, array $d = []):B {return df_try(
+		function() use($b, $d) {return parent::_getBlockInstance($b, $d);}
+		,function(T $t) {df_log($t); throw $t;}
+	);}
 }
