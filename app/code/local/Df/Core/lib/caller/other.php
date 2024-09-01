@@ -43,23 +43,6 @@ function df_caller_m(int $o = 0):string {return df_cc_method(df_assert(df_caller
 	'df_bt_entry_is_method' /** @uses df_bt_entry_is_method() */
 )));}
 
-/**
- * 2023-07-25
- * 2023-07-26
- * The previous implementation:
- * 		return df_module_name(df_caller_c(++$o))
- * https://github.com/mage2pro/core/blob/9.9.5/Core/lib/caller.php#L147
- * 2024-01-10 "Port `df_caller_module` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/172
- * @used-by df_log()
- * @used-by df_log_l()
- * @used-by df_sentry()
- * @used-by df_sentry_m()
- * @param T|int $p
- */
-function df_caller_module($p = 0):string {return !($e = df_caller_entry_m(df_bt_inc($p))) ? 'Df_Core' : (
-	# 2023-08-05 «Module 'Monolog_Logger::addRecord' is not correctly registered»: https://github.com/mage2pro/core/issues/317
-	df_bt_entry_is_method($e) ? df_module_name(df_bt_entry_class($e)) : df_module_name_by_path(df_bt_entry_file($e))
-);}
 
 /**
  * 2024-03-03
@@ -80,3 +63,21 @@ function df_caller_mh():string {return df_tag('b', [], df_caller_ml(1));}
  * @used-by df_caller_mh()
  */
 function df_caller_ml(int $o = 0):string {return df_caller_m(++$o) . '()';}
+
+/**
+ * 2023-07-25
+ * 2023-07-26
+ * The previous implementation:
+ * 		return df_module_name(df_caller_c(++$o))
+ * https://github.com/mage2pro/core/blob/9.9.5/Core/lib/caller.php#L147
+ * @used-by df_log()
+ * @used-by df_log_l()
+ * @used-by df_sentry()
+ * @used-by df_sentry_m()
+ * @used-by \Df\Framework\Log\Handler\Info::lb()
+ * @param T|int $p
+ */
+function df_caller_module($p = 0):string {return !($e = df_caller_entry_m(df_bt_inc($p))) ? 'Df_Core' : (
+	# 2023-08-05 «Module 'Monolog_Logger::addRecord' is not correctly registered»: https://github.com/mage2pro/core/issues/317
+	df_bt_entry_is_method($e) ? df_module_name(df_bt_entry_class($e)) : df_module_name_by_path(df_bt_entry_file($e))
+);}
