@@ -46,6 +46,18 @@ function df_http_get(string $url, array $query = [], int $timeout = 0, $onE = tr
 );}
 
 /**
+ * 2016-04-13
+ * @see df_request_body_json()
+ * @used-by \Df\Core\Visitor::r()
+ * @param array(string => string) $query [optional]
+ * @param Closure|bool|mixed $onE [optional]
+ * @return array(string => mixed)
+ */
+function df_http_json(string $url, array $query = [], int $timeout = 0, $onE = true):array {return
+	!is_array($r = df_json_decode(df_http_get($url, $query, $timeout, $onE))) ? [] : $r
+;}
+
+/**
  * 2024-01-09 "Port `df_request()`": https://github.com/thehcginstitute-com/m1/issues/141
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp::interests() (https://github.com/thehcginstitute-com/m1/issues/579)
  * @used-by Ebizmarts_MailChimp_Model_Observer::addCustomerTab() (https://github.com/thehcginstitute-com/m1/issues/524)
