@@ -14,9 +14,9 @@ use Mage_Core_Block_Template as T;
  * @return A|T
  * @throws Exception
  */
-function df_block($c, $data = [], string $template = '', array $vars = []):A {
+function df_block($c, $data = [], string $t = '', array $vars = []):A {
 	if (is_string($data)) {
-		$template = $data;
+		$t = $data;
 		$data = [];
 	}
 	if (!$c) {
@@ -39,8 +39,8 @@ function df_block($c, $data = [], string $template = '', array $vars = []):A {
 		# 2016-11-22
 		$r->assign($vars);
 	}
-	if ($template && $r instanceof T) {
-		$r->setTemplate($template);
+	if ($t && $r instanceof T) {
+		$r->setTemplate($t);
 	}
 	return $r;
 }
