@@ -531,6 +531,7 @@ class Ebizmarts_MailChimp_Model_Observer {
 	 * 1) "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
 	 * 2) "Improve the «Yaay! Recovered by Mailchimp's campaign» block of the backend order screen":
 	 * https://github.com/thehcginstitute-com/m1/issues/668
+	 * @used-by Mage_Core_Model_App::_callObserverMethod()
 	 */
 	function addOrderViewMonkey(Ob $ob):Ob {
 		$block = $ob->getBlock();
