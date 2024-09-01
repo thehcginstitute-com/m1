@@ -1,4 +1,6 @@
 <?php
+use Mage_Core_Controller_Request_Http as Req;
+
 /**
  * 2015-01-28
  * 2016-07-31
@@ -113,6 +115,5 @@ function df_request_method() {return dfa($_SERVER, 'REQUEST_METHOD');}
  * @used-by df_rp_has()
  * @used-by HCG\MailChimp\Observer\AddTabToCustomer::p() (https://github.com/thehcginstitute-com/m1/issues/580)
  * @used-by INT\DisplayCvv\B::_prepareSpecificInformation() (https://github.com/thehcginstitute-com/m1/issues/142)
- * @return Mage_Core_Controller_Request_Http
  */
-function df_request_o() {return Mage::app()->getRequest();}
+function df_request_o():Req {return Mage::app()->getRequest();}
