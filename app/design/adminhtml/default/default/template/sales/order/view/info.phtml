@@ -18,7 +18,7 @@ $invoice_id = df_request('invoice_id');
 $shipment_id = df_request('shipment_id');
 $creditmemo_id = df_request('creditmemo_id');
 $isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusForUpdate($o);
-$helper = Mage::helper('iwd_ordermanager');
+$helper = Mage::helper('iwd_ordermanager'); /** @var hIWD $helper */
 ?>
 <div class="box-left order-info">
 	<!--Order Information-->
@@ -51,7 +51,7 @@ $helper = Mage::helper('iwd_ordermanager');
 						</a>
 					<?php else : ?>
 						<a href="#"
-						   onclick="alert('<?= $helper->__("Sorry, You can not update order information for order with this status. Check configuration by module IWD_OrderManager.") ?>'); return false;"
+						   onclick="alert('Sorry, You can not update order information for order with this status. Check configuration by module IWD_OrderManager.'); return false;"
 						   title="<?= $helper->__("You can not edit order information!"); ?>">
 							<?= Mage::helper('sales')->__("Edit"); ?>
 						</a>
