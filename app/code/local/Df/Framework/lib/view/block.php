@@ -27,7 +27,7 @@ function df_block($c, $data = [], string $t = '', array $vars = []):A {
 		$r->assign($vars); # 2016-11-22
 	}
 	if ($t && $r instanceof T) {
-		$r->setTemplate($t);
+		$r->setTemplate(df_phtml_add_ext($t));
 	}
 	return $r;
 }
