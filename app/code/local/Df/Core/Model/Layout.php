@@ -30,9 +30,8 @@ class Df_Core_Model_Layout extends Mage_Core_Model_Layout {
 		}
 		catch (Exception $e) {
 			df_log($e);
-			$commonPart = "\nСмотрите отчёт в папке var/log."; /** @var string $commonPart */
-			df_error(is_string($b) ? "Не могу создать блок класса «{$b}».{$commonPart}" : (
-				is_object($b) ? sprintf("Класс «%s» недопустим для блока.{$commonPart}", get_class($b)) : $e
+			df_error(is_string($b) ? "Не могу создать блок класса «{$b}»" : (
+				is_object($b) ? sprintf("Класс «%s» недопустим для блока", get_class($b)) : $e
 			));
 		}
 		return $r;
