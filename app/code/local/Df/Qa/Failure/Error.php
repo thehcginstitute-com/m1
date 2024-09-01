@@ -75,7 +75,7 @@ final class Error extends \Df\Qa\Failure {
 	 * @used-by https://github.com/mage2pro/core/blob/5.6.0/registration.php#L28
 	 * @used-by \Df\Core\Boot::init()
 	 */
-	static function check() {
+	static function check():void {
 		try {
 			if (error_get_last() && self::isFatal()) {
 				self::i()->log();
