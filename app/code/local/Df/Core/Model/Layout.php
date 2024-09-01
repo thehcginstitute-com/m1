@@ -4,10 +4,9 @@ class Df_Core_Model_Layout extends Mage_Core_Model_Layout {
 	/**
 	 * Публичный доступ к системному методу @uses _getBlockInstance()
 	 * @used-by df_block()
-	 * @param array(string => mixed) $attributes
-	 * @return Mage_Core_Block_Abstract
+	 * @param array(string => mixed) $d
 	 */
-	function getBlockInstance(B $b, array $data = []):B {return $this->_getBlockInstance($b, $data);}
+	function getBlockInstance(B $b, array $d = []):B {return $this->_getBlockInstance($b, $d);}
 
 	/**
 	 * Этот метод реализует очень важное дополнение к родительскому методу:
