@@ -13,7 +13,7 @@ function df_path_abs(string $p):string {
 
 /**
  * 2015-12-06 It trims the ending «/».
- * 2024-06-09 "`df_path_relative()` → `df_path_rel()`": https://github.com/mage2pro/core/issues/407
+ * 2024-06-09 "`df_path_rel()` → `df_path_rel()`": https://github.com/mage2pro/core/issues/407
  * @used-by df_file_write()
  * @used-by df_media_path_rel()
  * @used-by df_module_name_by_path()

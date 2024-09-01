@@ -115,7 +115,7 @@ function df_trim_right($s, $charlist = '') {return rtrim($s, $charlist ?: " \t\n
  * @used-by df_magento_version_remote()
  * @used-by df_media_url2path()
  * @used-by df_oqi_amount()
- * @used-by df_path_relative()
+ * @used-by df_path_rel()
  * @used-by df_product_image_path2rel()
  * @used-by df_replace_store_code_in_url()
  * @used-by df_trim_text_left_right()

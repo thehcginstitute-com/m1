@@ -8,7 +8,7 @@
  * @used-by df_caller_module()
  */
 function df_module_name_by_path(string $f):string {/** @var string $r */
-	$f = df_path_relative($f);
+	$f = df_path_rel($f);
 	$f2 = df_trim_ds_left(df_trim_text_left(df_trim_text_left($f, 'app/code/'), ['community', 'core', 'local']));
 	$err = "Unable to detect the module for the file: `$f`"; /** @var string $err */
 	df_assert_ne($f, $f2, $err);
