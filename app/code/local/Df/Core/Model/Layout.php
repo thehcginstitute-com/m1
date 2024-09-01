@@ -9,9 +9,8 @@ class Df_Core_Model_Layout extends Mage_Core_Model_Layout {
 	function getBlockInstance(B $b, array $d = []):B {return $this->_getBlockInstance($b, $d);}
 
 	/**
-	 * Этот метод реализует очень важное дополнение к родительскому методу:
-	 * он оповещает разработчика о сбоях при создании блоков.
-	 * Обратите внимание на метод @see Mage_Core_Model_Layout::createBlock:
+	 * Этот метод реализует очень важное дополнение к родительскому методу: он оповещает разработчика о сбоях при создании блоков.
+	 * @see Mage_Core_Model_Layout::createBlock:
 	 *	 try {
 	 *		 $block = $this->_getBlockInstance($type, $attributes);
 	 *	 } catch (Exception $e) {
