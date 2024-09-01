@@ -5,6 +5,7 @@
  * @used-by Ebizmarts_MailChimp_Model_Observer::addCustomerTab() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by app/code/community/INT/DisplayCvv/Block/Payment/Info/Ccsave.php
  * @used-by HCG\MailChimp\Observer\AddTabToCustomer::p() (https://github.com/thehcginstitute-com/m1/issues/580)
+ * @used-by app/design/adminhtml/default/default/template/sales/order/view/info.phtml (https://github.com/thehcginstitute-com/m1/issues/669)
  * @param string|string[] $k [optional]
  * @param string|null|callable $d [optional]
  * @return string|array(string => string)
