@@ -5,8 +5,11 @@
 # 2) "Refactor `app/design/adminhtml/default/default/template/sales/order/view/info.phtml`":
 # https://github.com/thehcginstitute-com/m1/issues/669
 use Mage_Sales_Model_Order as O;
-$o = $this->getOrder(); /** @var O $o */ ?>
-<?php if ($o != null && $o->getId() != null) : ?>
+$o = $this->getOrder(); /** @var O $o */
+if (!$o || !$o->getId()) {
+	return;
+}
+?>
 <script type="text/javascript">
 	var ORDER_ID = <?php echo $o->getId(); ?>;
 </script>
@@ -314,5 +317,4 @@ $helper = Mage::helper('iwd_ordermanager');
 		</div>
 	</div>
 	<div class="clear"></div>
-<?php endif ?>
 <?php endif ?>
