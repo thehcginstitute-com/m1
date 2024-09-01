@@ -1,5 +1,16 @@
 <?php
 /**
+ * 2015-01-28
+ * 2016-07-31
+ * К сожалению, мы не можем указывать кодировку в обработчике, установленном @see set_exception_handler(),
+ * потому что @see set_exception_handler() в Magento работать не будет
+ * из-за глобального try..catch в методе @see Mage::run()
+ * @used-by df_error()
+ * @used-by df_error_html()
+ */
+function df_header_utf():void {df_is_cli() || headers_sent() ?: header('Content-Type: text/html; charset=UTF-8');}
+
+/**
  * 2024-01-09 "Port `df_request()`": https://github.com/thehcginstitute-com/m1/issues/141
  * @used-by Ebizmarts_MailChimp_Block_Adminhtml_Customer_Edit_Tab_Mailchimp::interests() (https://github.com/thehcginstitute-com/m1/issues/579)
  * @used-by Ebizmarts_MailChimp_Model_Observer::addCustomerTab() (https://github.com/thehcginstitute-com/m1/issues/524)
