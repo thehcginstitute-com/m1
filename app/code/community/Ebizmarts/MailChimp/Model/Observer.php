@@ -562,19 +562,19 @@ class Ebizmarts_MailChimp_Model_Observer {
 			$helper = $this->makeHelper();
 			$ecommEnabled = $helper->isEcomSyncDataEnabled($storeId);
 			if ($ecommEnabled) {
-			/**
-			 * 2024-09-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			 * @used-by Mage_Core_Block_Abstract::toHtml():
-			 *		if (self::$_transportObject === null) {
-			 *			self::$_transportObject = new Varien_Object();
-			 *		}
-			 *		self::$_transportObject->setHtml($html);
-			 *		Mage::dispatchEvent('core_block_abstract_to_html_after', [
-			 * 			'block' => $this, 'transport' => self::$_transportObject
-			 * 		]);
-			 *		$html = self::$_transportObject->getHtml();
-			 * https://github.com/thehcginstitute-com/m1/blob/2024-09-01/app/code/core/Mage/Core/Block/Abstract.php#L946-L950
-			 */
+				/**
+				 * 2024-09-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				 * @used-by Mage_Core_Block_Abstract::toHtml():
+				 *		if (self::$_transportObject === null) {
+				 *			self::$_transportObject = new Varien_Object();
+				 *		}
+				 *		self::$_transportObject->setHtml($html);
+				 *		Mage::dispatchEvent('core_block_abstract_to_html_after', [
+				 * 			'block' => $this, 'transport' => self::$_transportObject
+				 * 		]);
+				 *		$html = self::$_transportObject->getHtml();
+				 * https://github.com/thehcginstitute-com/m1/blob/2024-09-01/app/code/core/Mage/Core/Block/Abstract.php#L946-L950
+				 */
 				$do = $ob['transport']; /** @var _DO $do */
 				$do['html'] = $do['html'] . $child->toHtml();
 			}
