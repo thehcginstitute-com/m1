@@ -23,7 +23,7 @@ function df_block($c, $data = [], string $t = '', array $vars = []):A {
 		$c = T::class;
 	}
 	if (!is_object($c)) {
-		$r = df_layout()->getBlockInstance($c, $data);
+		$r = df_layout()->b($c, $data);
 	}
 	else {
 		/**
