@@ -1,7 +1,9 @@
 <?php
 # 2024-09-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-# "Improve the «Yaay! Recovered by Mailchimp's campaign» block of the backend order screen":
+# 1) "Improve the «Yaay! Recovered by Mailchimp's campaign» block of the backend order screen":
 # https://github.com/thehcginstitute-com/m1/issues/668
+# 2) "Refactor `app/design/adminhtml/default/default/template/sales/order/view/info.phtml`":
+# https://github.com/thehcginstitute-com/m1/issues/669
 use Mage_Sales_Model_Order as O;
 $_order = $this->getOrder(); /** @var O $_order */ ?>
 <?php if ($_order != null && $_order->getId() != null) : ?>
