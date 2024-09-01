@@ -545,11 +545,11 @@ class Ebizmarts_MailChimp_Model_Observer {
 	 * @used-by Mage_Core_Model_App::_callObserverMethod()
 	 */
 	function addOrderViewMonkey(Ob $ob):Ob {
-		$block = $ob->getBlock();
-		/** @var Mage_Core_Block_Abstract|Mage_Adminhtml_Block_Sales_Order_View_Info $block */
-		if (($block->getNameInLayout() == 'order_info') && ($child = $block->getChild('mailchimp.order.info.monkey.block'))) {
+		$b = $ob->getBlock();
+		/** @var Mage_Core_Block_Abstract|Mage_Adminhtml_Block_Sales_Order_View_Info $b */
+		if (($b->getNameInLayout() == 'order_info') && ($child = $b->getChild('mailchimp.order.info.monkey.block'))) {
 			/** @var Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey $child */
-			$order = $block->getOrder();
+			$order = $b->getOrder();
 			$storeId = $order->getStoreId();
 			$helper = $this->makeHelper();
 			$ecommEnabled = $helper->isEcomSyncDataEnabled($storeId);
