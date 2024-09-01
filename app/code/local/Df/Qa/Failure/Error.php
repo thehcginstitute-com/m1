@@ -73,6 +73,7 @@ final class Error extends \Df\Qa\Failure {
 	/**
 	 * 2015-04-05 Оборачиваем код в try..catch, чтобы не утратить сообщение о внутреннем сбое при асинхронном запросе.
 	 * @used-by https://github.com/mage2pro/core/blob/5.6.0/registration.php#L28
+	 * @used-by \Df\Core\Boot::init()
 	 */
 	static function check() {
 		try {
