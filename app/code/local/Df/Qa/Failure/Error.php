@@ -40,7 +40,7 @@ final class Error extends \Df\Qa\Failure {
 	 * @used-by \Df\Qa\Failure::postface()
 	 * @return array(array(string => string|int))
 	 */
-	protected function trace() {return self::xdebug() ? array_reverse(xdebug_get_function_stack()) : [];}
+	protected function trace():array {return self::xdebug() ? array_reverse(xdebug_get_function_stack()) : [];}
 
 	/**
 	 * @used-by self::check()
