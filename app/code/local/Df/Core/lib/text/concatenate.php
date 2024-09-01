@@ -37,23 +37,6 @@ function df_cc_br(...$a):string {return df_ccc("<br>", dfa_flatten($a));}
 function df_cc_n(...$a) {return df_ccc("\n", ...$a);}
 
 /**
- * 2015-12-01 Отныне всегда используем / вместо DIRECTORY_SEPARATOR.
- * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax will reject arrays: https://3v4l.org/jFdPm
- * @used-by df_config_e()
- * @used-by df_db_credentials()
- * @used-by df_fs_etc()
- * @used-by df_img_resize()
- * @used-by df_js()
- * @used-by df_js_x()
- * @used-by df_product_image_path2abs()
- * @used-by df_replace_store_code_in_url()
- * @used-by hcg_mc_batches_path() (https://github.com/thehcginstitute-com/m1/issues/569)
- * @param string|string[] $a
- * @return string
- */
-function df_cc_path(...$a) {return df_ccc('/', dfa_flatten($a));}
-
-/**
  * 2016-08-10
  * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax will reject arrays: https://3v4l.org/jFdPm
  * @used-by df_block_output()
