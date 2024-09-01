@@ -12,12 +12,12 @@ class Df_Core_Model_Layout extends Mage_Core_Model_Layout {
 	 * Этот метод реализует очень важное дополнение к родительскому методу:
 	 * он оповещает разработчика о сбоях при создании блоков.
 	 * Обратите внимание на метод @see Mage_Core_Model_Layout::createBlock:
-		 try {
-			 $block = $this->_getBlockInstance($type, $attributes);
-		 } catch (Exception $e) {
-			 Mage::logException($e);
-			 return false;
-		 }
+	 *	 try {
+	 *		 $block = $this->_getBlockInstance($type, $attributes);
+	 *	 } catch (Exception $e) {
+	 *		 Mage::logException($e);
+	 *		 return false;
+	 *	 }
 	 * При стандартном поведении Magento просто записывает сообщение о сбое в журнал сбоев.
 	 * Там это сообщение остаётся, как правило, незамеченным администратором и разработчиком!
 	 * @override
