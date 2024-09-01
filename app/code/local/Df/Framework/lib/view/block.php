@@ -30,7 +30,7 @@ function df_block($c, $data = [], string $t = '', array $vars = []):A {
 		 * @uses Mage_Core_Model_Layout::createBlock() не добавит параметры к блоку,
 		 * если в этот метод передать не тип блока, а еще созданный объект-блок.
 		 */
-		df_assert($c instanceof Mage_Core_Block_Abstract);
+		df_assert($c instanceof A);
 		$c->addData($data);
 		$r = $c;
 	}
