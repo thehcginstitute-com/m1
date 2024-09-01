@@ -1,10 +1,7 @@
 <?php
 # 2024-04-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Refactor `Ebizmarts_MailChimp_Model_Observer`": https://github.com/thehcginstitute-com/m1/issues/580
-use Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey as bCampaign;
-use Mage_Sales_Model_Order as O;
 use Varien_Event_Observer as Ob;
-use Varien_Object as _DO;
 class Ebizmarts_MailChimp_Model_Observer {
 
 	const PRODUCT_IS_ENABLED = 1;
@@ -527,60 +524,6 @@ class Ebizmarts_MailChimp_Model_Observer {
 	protected function _getLandingCookie()
 	{
 		return Mage::getModel('core/cookie')->get('mailchimp_landing_page');
-	}
-
-	/**
-	 * 2024-09-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * 1) "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
-	 * 2) "Improve the «Yaay! Recovered by Mailchimp's campaign» block of the backend order screen":
-	 * https://github.com/thehcginstitute-com/m1/issues/668
-	 * 3)
-	 *		<core_block_abstract_to_html_after>
-	 *			<observers>
-	 *				<mailchimp_order_view_to_html_after>
-	 *					<type>model</type>
-	 *					<class>Ebizmarts_MailChimp_Model_Observer</class>
-	 *					<method>addOrderViewMonkey</method>
-	 *				</mailchimp_order_view_to_html_after>
-	 *			</observers>
-	 *		</core_block_abstract_to_html_after>
-	 * https://github.com/thehcginstitute-com/m1/blob/2024-09-01/app/code/community/Ebizmarts/MailChimp/etc/config.xml#L319-L327
-	 * 4) @used-by Mage_Core_Block_Abstract::toHtml():
-	 *		if (self::$_transportObject === null) {
-	 *			self::$_transportObject = new Varien_Object();
-	 *		}
-	 *		self::$_transportObject->setHtml($html);
-	 *		Mage::dispatchEvent('core_block_abstract_to_html_after', ['block' => $this, 'transport' => self::$_transportObject]);
-	 *		$html = self::$_transportObject->getHtml();
-	 * https://github.com/thehcginstitute-com/m1/blob/2024-09-01/app/code/core/Mage/Core/Block/Abstract.php#L946-L954
-	 * @used-by Mage_Core_Model_App::_callObserverMethod()
-	 */
-	function addOrderViewMonkey(Ob $ob):Ob {
-		$b = $ob['block']; /** @var Mage_Core_Block_Abstract|Mage_Adminhtml_Block_Sales_Order_View_Info $b */
-		if (($b->getNameInLayout() == 'order_info') && ($child = $b->getChild('mailchimp.order.info.monkey.block'))) {
-			$o = $b->getOrder(); /** @var O $o */
-			/** @var bCampaign $child */
-			if ($this->makeHelper()->isEcomSyncDataEnabled($o->getStoreId())) {
-				/**
-				 * 2024-09-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				 * @used-by Mage_Core_Block_Abstract::toHtml():
-				 *		if (self::$_transportObject === null) {
-				 *			self::$_transportObject = new Varien_Object();
-				 *		}
-				 *		self::$_transportObject->setHtml($html);
-				 *		Mage::dispatchEvent('core_block_abstract_to_html_after', [
-				 * 			'block' => $this, 'transport' => self::$_transportObject
-				 * 		]);
-				 *		$html = self::$_transportObject->getHtml();
-				 * https://github.com/thehcginstitute-com/m1/blob/2024-09-01/app/code/core/Mage/Core/Block/Abstract.php#L946-L950
-				 */
-				$do = $ob['transport']; /** @var _DO $do */
-				/*$do['html'] = $do['html'] . df_render(bCampaign::class, ['template' =>
-					'ebizmarts/mailchimp/sales/order/view/monkey.phtml'
-				]);*/
-			}
-		}
-		return $ob;
 	}
 
 	/**
