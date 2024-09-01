@@ -20,15 +20,12 @@ class Df_Core_Model_Layout extends Mage_Core_Model_Layout {
 	 * При стандартном поведении Magento просто записывает сообщение о сбое в журнал сбоев.
 	 * Там это сообщение остаётся, как правило, незамеченным администратором и разработчиком!
 	 * @override
-	 * @param string|Mage_Core_Block_Abstract $block
 	 * @param array(string => mixed) $attributes
-	 * @return Mage_Core_Block_Abstract
 	 * @throws Exception
 	 */
-	protected function _getBlockInstance($block, array $attributes=[]) {
-		/** @var Mage_Core_Block_Abstract $result */
+	protected function _getBlockInstance($block, array $attributes=[]):B {/** @var B $r */
 		try {
-			$result = parent::_getBlockInstance($block, $attributes);
+			$r = parent::_getBlockInstance($block, $attributes);
 		}
 		catch (Exception $e) {
 			df_log($e);
@@ -44,6 +41,6 @@ class Df_Core_Model_Layout extends Mage_Core_Model_Layout {
 				throw $e;
 			}
 		}
-		return $result;
+		return $r;
 	}
 }
