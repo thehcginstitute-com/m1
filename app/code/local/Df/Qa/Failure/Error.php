@@ -17,9 +17,8 @@ final class Error extends \Df\Qa\Failure {
 	 * @see \Df\Qa\Failure::preface()
 	 * @used-by \Df\Qa\Failure::report()
 	 * @used-by self::report()
-	 * @return string
 	 */
-	protected function preface() {return df_kv(
+	protected function preface():string {return df_kv(
 		df_context() + ['File' => df_path_rel($this::info('file')), 'Line' => $this::info('line')]
 	);}
 
