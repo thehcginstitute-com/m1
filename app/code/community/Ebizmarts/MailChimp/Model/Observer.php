@@ -557,9 +557,9 @@ class Ebizmarts_MailChimp_Model_Observer {
 	function addOrderViewMonkey(Ob $ob):Ob {
 		$b = $ob['block']; /** @var Mage_Core_Block_Abstract|Mage_Adminhtml_Block_Sales_Order_View_Info $b */
 		if (($b->getNameInLayout() == 'order_info') && ($child = $b->getChild('mailchimp.order.info.monkey.block'))) {
-			$o = $b->getOrder();
+			$o = $b->getOrder(); /** @var O $o */
 			/** @var Ebizmarts_MailChimp_Block_Adminhtml_Sales_Order_View_Info_Monkey $child */
-			if ($this->makeHelper()->isEcomSyncDataEnabled($b->getOrder()->getStoreId())) {
+			if ($this->makeHelper()->isEcomSyncDataEnabled($o->getStoreId())) {
 				/**
 				 * 2024-09-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				 * @used-by Mage_Core_Block_Abstract::toHtml():
