@@ -53,20 +53,6 @@
 			</action>
 		</reference>
 	</adminhtml_system_config_edit>
-<!-- 2024-09-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-1) "Refactor the `Ebizmarts_MailChimp` module": https://github.com/cabinetsbay/site/issues/524
-2) "Improve the «Yaay! Recovered by Mailchimp's campaign» block of the backend order screen":
-https://github.com/thehcginstitute-com/m1/issues/668 -->	
-	<adminhtml_sales_order_view>
-		<reference name='order_info'>
-			<block
-				before='order_history'
-				name='mailchimp.order.info.monkey.block'
-				template='ebizmarts/mailchimp/sales/order/view/monkey.phtml'
-				type='mailchimp/adminhtml_sales_order_view_info_monkey'
-			/>
-		</reference>
-	</adminhtml_sales_order_view>
 	<adminhtml_sales_order_creditmemo_new>
 		<reference name="submit_before">
 			<block type="mailchimp/adminhtml_sales_order_creditmemo_unsubscribe" name="mailchimp.creditmemo.unsubscribe" template="ebizmarts/mailchimp/sales/order/creditmemo/create/unsubscribe.phtml" />
