@@ -10,6 +10,13 @@
 function df_file_ext($f) {return pathinfo($f, PATHINFO_EXTENSION);}
 
 /**
+ * 2020-06-28
+ * @see df_strip_ext()
+ * @used-by df_module_file_name()
+ */
+function df_file_ext_add(string $f, string $ext = ''):string {return !$ext ? $f : df_append($f, ".$ext");}
+
+/**
  * 2018-07-06
  * @used-by df_report()
  * @param string $f
