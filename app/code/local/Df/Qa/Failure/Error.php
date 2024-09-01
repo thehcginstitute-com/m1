@@ -84,7 +84,7 @@ final class Error extends \Df\Qa\Failure {
 	}
 
 	/** @used-by df_throw_last_error() */
-	static function throwLast(:void {
+	static function throwLast():void {
 		df_assert(error_get_last());
 		df_error(self::i()->main());
 	}
