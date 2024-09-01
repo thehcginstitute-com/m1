@@ -4,10 +4,8 @@
  * @used-by df_asset_create()
  * @used-by df_file_ext_def()
  * @used-by df_img_is_jpeg()
- * @param string $f
- * @return string
  */
-function df_file_ext($f) {return pathinfo($f, PATHINFO_EXTENSION);}
+function df_file_ext(string $f):string {return pathinfo($f, PATHINFO_EXTENSION);}
 
 /**
  * 2020-06-28
@@ -19,20 +17,16 @@ function df_file_ext_add(string $f, string $ext = ''):string {return !$ext ? $f 
 /**
  * 2018-07-06
  * @used-by df_report()
- * @param string $f
- * @param string $ext
- * @return string
  */
-function df_file_ext_def($f, $ext) {return df_file_ext($f) ? $f : df_trim_right($f, '.') . ".$ext";}
+function df_file_ext_def(string $f, string $ext):string {return df_file_ext($f) ? $f : df_trim_right($f, '.') . ".$ext";}
 
 /**
  * 2015-04-01
- * Раньше алгоритм был таким: return preg_replace('#\.[^.]*$#', '', $file)
- * Новый вроде должен работать быстрее?
- * http://stackoverflow.com/a/22537165
- * @used-by Df_Adminhtml_Catalog_Product_GalleryController::uploadActionDf()
- * @used-by
- * @param string $file
- * @return mixed
+ * 2019-08-09
+ * 1) `preg_replace('#\.[^.]*$#', '', $file)` preserves the full path.
+ * 2) `pathinfo($file, PATHINFO_FILENAME)` (https://stackoverflow.com/a/22537165)
+ * strips the full path and returns the base name only.
+ * @see df_file_ext_add()
+ * @used-by wolf_u2n()
  */
-function df_strip_ext($file) {return pathinfo($file, PATHINFO_FILENAME);}
+function df_strip_ext(string $s):string {return preg_replace('#\.[^.]*$#', '', $s);}
