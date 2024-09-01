@@ -7,9 +7,8 @@ final class Error extends \Df\Qa\Failure {
 	 * @override
 	 * @see \Df\Qa\Failure::main()
 	 * @used-by \Df\Qa\Failure::report()
-	 * @return string
 	 */
-	protected function main() {return "[{$this::type(true)}] {$this::msg()}";}
+	protected function main():string {return "[{$this::type(true)}] {$this::msg()}";}
 
 	/**
 	 * 2020-09-25 "Enrich data logged by my `register_shutdown_function` handler": https://github.com/mage2pro/core/issues/144
