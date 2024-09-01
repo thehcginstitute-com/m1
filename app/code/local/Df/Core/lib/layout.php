@@ -64,7 +64,6 @@ function df_layout():Df_Core_Model_Layout {return Mage::getSingleton('core/layou
  * 2) класс блока в стандартном формате
  * 3) класс блока в формате Magento
  * 4) пустое значение: в таком случае будет создан блок типа @see Mage_Core_Block_Template
- * @used-by df_render_l()
  * @used-by df_render_simple()
  * @param string|Mage_Core_Block_Abstract|null $block [optional]
  * @param string|array(string => mixed) $params [optional]
