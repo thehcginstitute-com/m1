@@ -24,8 +24,8 @@ class Df_Core_Model_Layout extends Mage_Core_Model_Layout {
 	 * @param array(string => mixed) $attributes
 	 * @throws Exception
 	 */
-	protected function _getBlockInstance($b, array $attributes=[]):B {/** @var B $r */
-		try {$r = parent::_getBlockInstance($b, $attributes);}
+	protected function _getBlockInstance($b, array $d = []):B {/** @var B $r */
+		try {$r = parent::_getBlockInstance($b, $d);}
 		catch (Exception $e) {
 			df_log($e);
 			throw $e;
