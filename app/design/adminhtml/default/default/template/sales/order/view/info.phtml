@@ -4,7 +4,6 @@
 # https://github.com/thehcginstitute-com/m1/issues/668
 # 2) "Refactor `app/design/adminhtml/default/default/template/sales/order/view/info.phtml`":
 # https://github.com/thehcginstitute-com/m1/issues/669
-use IWD_OrderManager_Helper_Data as hIWD;
 use Mage_Sales_Model_Order as O;
 $o = $this->getOrder(); /** @var O $o */
 ?>
@@ -19,6 +18,10 @@ $shipment_id = df_request('shipment_id');
 $creditmemo_id = df_request('creditmemo_id');
 $isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusForUpdate($o);
 $_email = sprintf('the order confirmation email %s sent', $o->getEmailSent() ? 'was' : 'is not');
+$echo = function() use($o):void {
+	$p = 'hcg/sales/order/view/info/'; /** @var string $p */
+	echo df_block_output("{$p}IWD_OnepageCheckoutSignature", ['o' => $o]);
+};
 //$render
 ?>
 <div class="box-left order-info">
