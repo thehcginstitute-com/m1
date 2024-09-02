@@ -231,8 +231,7 @@ $echo = df_block_echo('hcg/sales/order/view/info', ['b' => $b, 'o' => $o]);
 							# because they are all override the template `sales/order/view/info.phtml`
 							# of `Mage_Adminhtml_Block_Sales_Order_View_Info`":
 							# https://github.com/thehcginstitute-com/m1/issues/327
-							$p = 'hcg/sales/order/view/info/'; /** @var string $p */
-							echo df_block_output("{$p}IWD_OnepageCheckoutSignature", ['_order' => $o]);
+							$echo('IWD_OnepageCheckoutSignature');
 							# 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 							# "Delete the unused `Webkul_CustomField` module":
 							# https://github.com/thehcginstitute-com/m1/issues/382
