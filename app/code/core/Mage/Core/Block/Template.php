@@ -252,6 +252,10 @@ HTML;
 				# "Magento should log the error instead of failing with the `net::ERR_CONNECTION_RESET` code
 				# («This site can’t be reached» / «The connection was reset») on an invalid path of a block's template":
 				# https://github.com/cabinetsbay/site/issues/670
+				# 2024-09-02
+				# "How did I force Magento 1 to log the problem instead of failing with the `net::ERR_CONNECTION_RESET` code
+				# («This site can’t be reached» / «The connection was reset») on an invalid path of a block's template?":
+				# https://mage2.pro/t/6483
 				/** @var string $f */
 				df_assert(file_exists($f = df_cc_path($this->_viewDir, $fileName)), "The template is absent: `{$f}`.");
                 include $f;
@@ -268,6 +272,10 @@ HTML;
 			# "Magento should log the error instead of failing with the `net::ERR_CONNECTION_RESET` code
 			# («This site can’t be reached» / «The connection was reset») on an invalid path of a block's template":
 			# https://github.com/cabinetsbay/site/issues/670
+			# 2024-09-02
+			# "How did I force Magento 1 to log the problem instead of failing with the `net::ERR_CONNECTION_RESET` code
+			# («This site can’t be reached» / «The connection was reset») on an invalid path of a block's template?":
+			# https://mage2.pro/t/6483
 			df_log($e);
             if (Mage::getIsDeveloperMode()) {
                 throw $e;
