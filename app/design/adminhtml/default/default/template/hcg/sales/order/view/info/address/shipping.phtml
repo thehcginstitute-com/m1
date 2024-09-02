@@ -1,0 +1,46 @@
+<?php
+# 2024-09-02
+# "Refactor `app/design/adminhtml/default/default/template/sales/order/view/info.phtml`":
+# https://github.com/thehcginstitute-com/m1/issues/669
+use Mage_Adminhtml_Block_Sales_Order_View_Info as B;
+use Mage_Sales_Model_Order as O;
+/**
+ * @var B $b
+ * @var bool $canEdit
+ * @var Closure $echo
+ * @var O $o
+ */
+$isAllow = Mage::getModel('iwd_ordermanager/address')->isAllowEditAddress();
+if (!$b->getOrder()->getIsVirtual()) { ?>
+	<div class="box-right">
+		<!--Shipping Address-->
+		<div class="hor-scroll">
+			<div class="entry-edit">
+				<div class="entry-edit-head order-shipping">
+					<h4 class="icon-head head-shipping-address"><?= Mage::helper('sales')->__('Shipping Address') ?></h4>
+					<div class="tools" style="float:right">
+						<?php if ($isAllow): ?>
+							<?php if ($canEdit) : ?>
+								<a id="shipping_address_edit_<?= $o->getShippingAddress()->getId() ?>"
+								   class="order_address_edit" href="#"
+								   title="<?= Mage::helper('sales')->__('Edit shipping address for order only') ?>">
+									<?= Mage::helper('sales')->__('Edit'); ?>
+								</a>
+							<?php else : ?>
+								<a href="#"
+								   onclick="alert('Sorry, You can not update shipping address for order with this status. Check configuration by module IWD_OrderManager.'); return false;"
+								   title="You can not edit shipping address!">
+									<?= Mage::helper('sales')->__("Edit"); ?>
+								</a>
+							<?php endif ?>
+						<?php endif ?>
+					</div>
+				</div>
+				<fieldset>
+					<address id="order_address_<?= $o->getShippingAddress()->getId() ?>"><?= $b->maliciousCodeFilter($o->getShippingAddress()->getFormated(true)) ?></address>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+<?php } ?>
