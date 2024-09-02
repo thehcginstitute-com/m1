@@ -20,11 +20,6 @@ $shipment_id = df_request('shipment_id');
 $creditmemo_id = df_request('creditmemo_id');
 $isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusForUpdate($o);
 $_email = sprintf('the order confirmation email %s sent', $o->getEmailSent() ? 'was' : 'is not');
-$echo = function(string ...$tt) use($b, $o):void {
-	df_map($tt, function(string $t) use($b, $o):void {
-		echo df_block_output("hcg/sales/order/view/info/$t", ['b' => $b, 'o' => $o]);
-	});
-};
 $echo = df_block_echo('hcg/sales/order/view/info', ['b' => $b, 'o' => $o]);
 ?>
 <div class="box-left order-info">
