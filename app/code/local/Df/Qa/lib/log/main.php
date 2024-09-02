@@ -63,6 +63,7 @@ use Varien_Object as _DO;
  * @used-by Mage::logException()
  * @used-by Mage::printException()
  * @used-by Mage_Adminhtml_CustomerController::validateAction()
+ * @used-by Mage_Core_Block_Template::fetchView() (https://github.com/thehcginstitute-com/m1/issues/670)
  * @used-by Varien_Data_Collection_Db::addItem()
  * @param _DO|mixed[]|mixed|T $v
  * @param string|object|null $m [optional]

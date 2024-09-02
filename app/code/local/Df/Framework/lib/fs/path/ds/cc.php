@@ -14,6 +14,7 @@
  * @used-by df_product_image_path2abs()
  * @used-by df_replace_store_code_in_url()
  * @used-by hcg_mc_batches_path() (https://github.com/thehcginstitute-com/m1/issues/569)
+ * @used-by Mage_Core_Block_Template::fetchView() (https://github.com/thehcginstitute-com/m1/issues/670)
  * @param string|string[] ...$a
  */
 function df_cc_path(...$a):string {
