@@ -63,10 +63,11 @@ function df_explode_url(string $url):array {return explode('/', $url);}
  * Если разделитель отсутствует в строке, то @uses explode() вернёт не строку, а массив со одим элементом — строкой.
  * Это вполне укладывается в наш универсальный алгоритм.
  * @used-by df_explode_path()
+ * @used-by df_module_name_by_path()
  * @used-by dfa_deep()
  * @used-by dfa_deep_set()
  * @used-by dfa_deep_unset()
  * @param string|string[] $p
  * @return string[]
  */
-function df_explode_xpath($p) {return dfa_flatten(array_map(function($s) {return explode('/', $s);}, df_array($p)));}
+function df_explode_xpath($p):array {return dfa_flatten(array_map(function($s) {return explode('/', $s);}, df_array($p)));}
