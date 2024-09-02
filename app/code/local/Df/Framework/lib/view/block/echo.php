@@ -9,10 +9,9 @@ use Closure as F;
  *		])('filters', 'items')
  * https://github.com/cabinetsbay/catalog/blob/0.1.7/view/frontend/templates/category/l2/l3.phtml#L7-L10
  * https://3v4l.org/NNHbU
- * @param string|object|null $m
  */
-function df_block_echo($m = null, string $p = '', array $v = []):F {return function(string ...$tt) use($m, $p, $v):void {
-	df_map($tt, function(string $t) use($m, $p, $v):void {
-		echo df_block_output($m, df_cc_path($p, $t), $v);
+function df_block_echo(string $p = '', array $v = []):F {return function(string ...$tt) use($p, $v):void {
+	df_map($tt, function(string $t) use($p, $v):void {
+		echo df_block_output(df_cc_path($p, $t), $v);
 	});
 };}
