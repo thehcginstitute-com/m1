@@ -19,10 +19,10 @@ function df_explode_multiple(array $delimiters, string $s):array {
  * @used-by df_module_enum()
  * @used-by df_parse_colon()
  * @used-by df_tab_multiline()
- * @param string $s
+ * @used-by df_zf_http_last_req()
  * @return string[]
  */
-function df_explode_n($s) {return explode("\n", df_normalize(df_trim($s)));}
+function df_explode_n(string $s):array {return explode("\n", df_normalize(df_trim($s)));}
 
 /**
  * 2022-11-17
