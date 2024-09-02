@@ -52,7 +52,5 @@ function df_block($c, $data = [], string $t = '', array $vars = []):A {
  * @param array(string => mixed) $data [optional]
  */
 function df_block_output($c, string $t = '', array $vars = [], array $d = []):string {return df_block(...(
-	!$t
-		? [$c, $d, null, $vars]
-		: [null, $d, df_asset_name($t, df_contains($t, '::') ? null : df_module_name($c)), $vars]
+	df_es($t) ? [$c, $d, '', $vars] : [null, $d, $t, $vars]
 ))->toHtml();}

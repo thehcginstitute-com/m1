@@ -15,7 +15,6 @@
  * 		4) `null`: it comes down to the case 1 with the «Df_Core» module name.
  * 2024-01-11 "Port `df_module_name` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/181
  * @used-by df_asset_name()
- * @used-by df_block_output()
  * @used-by df_caller_module()
  * @used-by df_con()
  * @used-by df_fe_init()
