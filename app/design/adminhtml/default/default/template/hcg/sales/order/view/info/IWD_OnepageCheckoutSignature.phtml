@@ -7,13 +7,12 @@
  * and the template `iwd/orderflags/order/view/info.phtml` of `IWD_OrderFlags`, because they are all override
  * the template `sales/order/view/info.phtml` of `Mage_Adminhtml_Block_Sales_Order_View_Info`":
  * https://github.com/thehcginstitute-com/m1/issues/327
- * @var Mage_Core_Block_Template $this
- * @var Mage_Sales_Model_Order $_order
+ * @var Mage_Sales_Model_Order $o
  */
 if(Mage::getStoreConfig('opcsignature/general/enabled')): ?>
 <?php
 	$collection = Mage::getModel('opcsignature/signaturer')->getCollection();
-	$collection->addFieldToFilter('order_id', $_order->getId());
+	$collection->addFieldToFilter('order_id', $o->getId());
 	$json = "";
 	$name = "";
 	foreach( $collection as $item)
@@ -23,7 +22,7 @@ if(Mage::getStoreConfig('opcsignature/general/enabled')): ?>
 	}?>
 	<?php if($json!="" || $name!=""): ?>
 		<tr>
-			 <td class="label"><label><?php echo $this->__("Customer Signature"); ?></label></td>
+			 <td class="label"><label>Customer Signature</label></td>
 
 			 <td class="signature">
 
