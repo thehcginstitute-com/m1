@@ -42,6 +42,7 @@ const DF_BEFORE = -1;
  * 2) We still can not use «Union Types» (e.g. `callable|iterable`) because they require PHP ≥ 8 (we need to support PHP ≥ 7.1):
  * 2.1) https://php.watch/versions/8.0/union-types
  * 2.2) https://3v4l.org/AOWmO
+ * @used-by df_block_echo()
  * @used-by df_clean_r()
  * @used-by df_db_credentials()
  * @used-by df_mail()

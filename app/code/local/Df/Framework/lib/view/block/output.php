@@ -12,7 +12,7 @@
  * https://github.com/magento/magento2/blob/2.1.2/lib/internal/Magento/Framework/View/TemplateEngine/Php.php#L58
  * 2024-05-23 "Improve `df_block_output()`": https://github.com/mage2pro/core/issues/387
  * @see df_cms_block()
- * @used-by app/design/adminhtml/default/default/template/sales/order/view/info.phtml
+ * @used-by df_block_echo()
  * @param string|object $ct
  * @param array $vars [optional]
  * @param array(string => mixed) $data [optional]

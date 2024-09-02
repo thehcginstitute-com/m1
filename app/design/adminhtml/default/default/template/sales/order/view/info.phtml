@@ -25,6 +25,7 @@ $echo = function(string ...$tt) use($b, $o):void {
 		echo df_block_output("hcg/sales/order/view/info/$t", ['b' => $b, 'o' => $o]);
 	});
 };
+$echo = df_block_echo('hcg/sales/order/view/info', ['b' => $b, 'o' => $o]);
 ?>
 <div class="box-left order-info">
 	<!--Order Information-->

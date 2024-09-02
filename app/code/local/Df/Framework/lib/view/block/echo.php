@@ -9,6 +9,7 @@ use Closure as F;
  *		])('filters', 'items')
  * https://github.com/cabinetsbay/catalog/blob/0.1.7/view/frontend/templates/category/l2/l3.phtml#L7-L10
  * https://3v4l.org/NNHbU
+ * @used-by app/design/adminhtml/default/default/template/sales/order/view/info.phtml
  */
 function df_block_echo(string $p = '', array $v = []):F {return function(string ...$tt) use($p, $v):void {
 	df_map($tt, function(string $t) use($p, $v):void {
