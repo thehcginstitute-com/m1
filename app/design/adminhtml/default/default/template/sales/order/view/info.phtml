@@ -4,35 +4,37 @@
 # https://github.com/thehcginstitute-com/m1/issues/668
 # 2) "Refactor `app/design/adminhtml/default/default/template/sales/order/view/info.phtml`":
 # https://github.com/thehcginstitute-com/m1/issues/669
+use Mage_Adminhtml_Block_Sales_Order_View_Info as B;
 use Mage_Sales_Model_Order as O;
-$o = $this->getOrder(); /** @var O $o */
+/** @var B $this */ $b = $this; /** @var B $b */
+$o = $b->getOrder(); /** @var O $o */
 ?>
 <script type="text/javascript">
 	var ORDER_ID = <?= $o->getId(); ?>;
 </script>
 <?php
-$orderAdminDate = $this->formatDate($o->getCreatedAtDate(), 'medium', true);
-$orderStoreDate = $this->formatDate($o->getCreatedAtStoreDate(), 'medium', true);
+$orderAdminDate = $b->formatDate($o->getCreatedAtDate(), 'medium', true);
+$orderStoreDate = $b->formatDate($o->getCreatedAtStoreDate(), 'medium', true);
 $invoice_id = df_request('invoice_id');
 $shipment_id = df_request('shipment_id');
 $creditmemo_id = df_request('creditmemo_id');
 $isAllowEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusForUpdate($o);
 $_email = sprintf('the order confirmation email %s sent', $o->getEmailSent() ? 'was' : 'is not');
-$echo = function() use($o):void {
-	$p = 'hcg/sales/order/view/info/'; /** @var string $p */
-	echo df_block_output("{$p}IWD_OnepageCheckoutSignature", ['o' => $o]);
+$echo = function(string ...$tt) use($b, $o):void {
+	df_map($tt, function(string $t) use($b, $o):void {
+		echo df_block_output("hcg/sales/order/view/info/$t", ['b' => $b, 'o' => $o]);
+	});
 };
-//$render
 ?>
 <div class="box-left order-info">
 	<!--Order Information-->
 	<div class="entry-edit">
 		<div class="entry-edit-head order-edit">
-			<?php if ($this->getNoUseOrderLink()): ?>
+			<?php if ($b->getNoUseOrderLink()): ?>
 				<h4 class="icon-head head-account"><?= Mage::helper('sales')->__('Order #%s', $o->getRealOrderId()) ?>
 					(<?= $_email ?>)</h4>
 			<?php else: ?>
-				<a href="<?= $this->getViewUrl($o->getId()) ?>"><?= Mage::helper('sales')->__('Order #%s', $o->getRealOrderId()) ?></a>
+				<a href="<?= $b->getViewUrl($o->getId()) ?>"><?= Mage::helper('sales')->__('Order #%s', $o->getRealOrderId()) ?></a>
 				<strong>(<?= $_email ?>)</strong>
 			<?php endif ?>
 			<div class="tools" style="float:right">
@@ -78,13 +80,13 @@ $echo = function() use($o):void {
 				</tr>
 				<tr>
 					<td class="label"><label><?= Mage::helper('sales')->__('Purchased From') ?></label></td>
-					<td class="value"><strong><?= $this->getOrderStoreName() ?></strong></td>
+					<td class="value"><strong><?= $b->getOrderStoreName() ?></strong></td>
 				</tr>
 				<?php if ($o->getRelationChildId()): ?>
 					<tr>
 						<td class="label">
 							<label><?= Mage::helper('sales')->__('Link to the New Order') ?></label></td>
-						<td class="value"><a href="<?= $this->getViewUrl($o->getRelationChildId()) ?>">
+						<td class="value"><a href="<?= $b->getViewUrl($o->getRelationChildId()) ?>">
 								<?= $o->getRelationChildRealId() ?>
 							</a></td>
 					</tr>
@@ -93,7 +95,7 @@ $echo = function() use($o):void {
 					<tr>
 						<td class="label">
 							<label><?= Mage::helper('sales')->__('Link to the Previous Order') ?></label></td>
-						<td class="value"><a href="<?= $this->getViewUrl($o->getRelationParentId()) ?>">
+						<td class="value"><a href="<?= $b->getViewUrl($o->getRelationParentId()) ?>">
 								<?= $o->getRelationParentRealId() ?>
 							</a></td>
 					</tr>
@@ -102,7 +104,7 @@ $echo = function() use($o):void {
 					<tr>
 						<td class="label"><label><?= Mage::helper('sales')->__('Placed from IP') ?></label></td>
 						<td class="value"><strong><?= $o->getRemoteIp();
-								echo ($o->getXForwardedFor()) ? ' (' . $this->escapeHtml($o->getXForwardedFor()) . ')' : ''; ?></strong>
+								echo ($o->getXForwardedFor()) ? ' (' . $b->escapeHtml($o->getXForwardedFor()) . ')' : ''; ?></strong>
 						</td>
 					</tr>
 				<?php endif ?>
@@ -197,11 +199,11 @@ $echo = function() use($o):void {
 						<tr>
 							<td class="label"><label><?= Mage::helper('sales')->__('Customer Name') ?></label></td>
 							<td class="value">
-								<?php if ($_customerUrl = $this->getCustomerViewUrl()) : ?>
+								<?php if ($_customerUrl = $b->getCustomerViewUrl()) : ?>
 									<a href="<?= $_customerUrl ?>"
-									   target="_blank"><strong><?= $this->htmlEscape($o->getCustomerName()) ?></strong></a>
+									   target="_blank"><strong><?= $b->htmlEscape($o->getCustomerName()) ?></strong></a>
 								<?php else: ?>
-									<strong><?= $this->htmlEscape($o->getCustomerName()) ?></strong>
+									<strong><?= $b->htmlEscape($o->getCustomerName()) ?></strong>
 								<?php endif ?>
 							</td>
 						</tr>
@@ -211,14 +213,14 @@ $echo = function() use($o):void {
 										href="mailto:<?= $o->getCustomerEmail() ?>"><strong><?= $o->getCustomerEmail() ?></strong></a>
 							</td>
 						</tr>
-						<?php if ($_groupName = $this->getCustomerGroupName()) : ?>
+						<?php if ($_groupName = $b->getCustomerGroupName()) : ?>
 							<tr>
 								<td class="label"><label><?= Mage::helper('sales')->__('Customer Group') ?></label>
 								</td>
 								<td class="value"><strong><?= $_groupName ?></strong></td>
 							</tr>
 						<?php endif ?>
-						<?php foreach ($this->getCustomerAccountData() as $data): ?>
+						<?php foreach ($b->getCustomerAccountData() as $data): ?>
 							<tr>
 								<td class="label"><label><?= $data['label'] ?></label></td>
 								<td class="value"><strong><?= $data['value'] ?></strong></td>
@@ -279,7 +281,7 @@ $echo = function() use($o):void {
 		</div>
 	</div>
 </div>
-<?php if (!$this->getOrder()->getIsVirtual()): ?>
+<?php if (!$b->getOrder()->getIsVirtual()): ?>
 	<div class="box-right">
 		<!--Shipping Address-->
 		<div class="hor-scroll">
@@ -305,7 +307,7 @@ $echo = function() use($o):void {
 					</div>
 				</div>
 				<fieldset>
-					<address id="order_address_<?= $o->getShippingAddress()->getId() ?>"><?= $this->maliciousCodeFilter($o->getShippingAddress()->getFormated(true)) ?></address>
+					<address id="order_address_<?= $o->getShippingAddress()->getId() ?>"><?= $b->maliciousCodeFilter($o->getShippingAddress()->getFormated(true)) ?></address>
 				</fieldset>
 			</div>
 		</div>
