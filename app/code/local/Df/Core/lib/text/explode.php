@@ -54,6 +54,11 @@ function df_explode_space(string $s):array {return
 ;}
 
 /**
+ * @return string[]
+ */
+function df_explode_url(string $url):array {return explode('/', $url);}
+
+/**
  * 2015-02-06
  * Если разделитель отсутствует в строке, то @uses explode() вернёт не строку, а массив со одим элементом — строкой.
  * Это вполне укладывается в наш универсальный алгоритм.
