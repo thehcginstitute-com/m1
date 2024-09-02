@@ -8,7 +8,6 @@ use Closure as F;
  * так и анонимную функцию, которая в качестве аргумента получит $object.
  * https://3v4l.org/pPGtA
  * 2017-07-09 Now the function can accept an array as $object.
- * 2024-05-14 "Port `df_call()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/602
  * @used-by df_column()
  * @used-by df_each()
  * @param object|mixed|array $o
