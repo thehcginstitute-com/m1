@@ -1,6 +1,5 @@
 <?php
 use Df\Qa\Failure\Exception as QE;
-use Exception as E;
 use Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 /**
  * 2017-01-11
@@ -10,8 +9,8 @@ use Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by dfp_report()
  * @used-by Df_Core_Model_Layout::_getBlockInstance()
  * @param string|object|null $m
- * @param string|mixed[]|E $p2
- * @param string|mixed[]|E $p3 [optional]
+ * @param string|mixed[]|T $p2
+ * @param string|mixed[]|T $p3 [optional]
  * @param string|bool|null $p4 [optional]
  */
 function df_log_l($m, $p2, $p3 = [], string $p4 = ''):void {
