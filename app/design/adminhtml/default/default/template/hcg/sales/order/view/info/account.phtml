@@ -14,10 +14,8 @@ use Mage_Sales_Model_Order as O;
 <div class="box-right">
 	<!--Account Information-->
 	<div class="entry-edit">
-
 		<div class="entry-edit-head order-account">
 			<h4 class="icon-head head-account"><?= Mage::helper('sales')->__('Account Information') ?></h4>
-
 			<div class="tools" style="float:right">
 				<?php $isAllow = Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/actions/edit_account_information'); ?>
 				<?php if ($isAllow): ?>
