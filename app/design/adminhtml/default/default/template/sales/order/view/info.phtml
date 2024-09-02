@@ -231,7 +231,7 @@ $_email = sprintf('the order confirmation email %s sent', $o->getEmailSent() ? '
 							# of `Mage_Adminhtml_Block_Sales_Order_View_Info`":
 							# https://github.com/thehcginstitute-com/m1/issues/327
 							$p = 'hcg/sales/order/view/info/'; /** @var string $p */
-							echo df_block_output("{$p}IWD_OnepageCheckoutSignature", [], ['_order' => $o]);
+							echo df_block_output("{$p}IWD_OnepageCheckoutSignature", ['_order' => $o]);
 							# 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 							# "Delete the unused `Webkul_CustomField` module":
 							# https://github.com/thehcginstitute-com/m1/issues/382
