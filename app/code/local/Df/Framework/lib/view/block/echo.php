@@ -11,8 +11,14 @@ use Closure as F;
  * https://3v4l.org/NNHbU
  * @used-by app/design/adminhtml/default/default/template/sales/order/view/info.phtml
  */
-function df_block_echo(string $p = '', array $v = []):F {return function(string ...$tt) use($p, $v):void {
-	df_map($tt, function(string $t) use($p, $v):void {
-		echo df_block_output(df_cc_path($p, $t), $v);
-	});
-};}
+function df_block_echo(string $p = '', array $v = []):F {/** @var Closure $r */
+	# 2024-09-02
+	# 1) https://stackoverflow.com/a/7878017
+	# 2) https://3v4l.org/irLL7
+	$r = function(string ...$tt) use($p, &$r, $v):void {
+		df_map($tt, function(string $t) use($p, $r, $v):void {
+			echo df_block_output(df_cc_path($p, $t), $v + ['echo' => $r]);
+		});
+	};
+	return $r;
+}

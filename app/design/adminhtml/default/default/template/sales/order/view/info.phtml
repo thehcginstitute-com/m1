@@ -15,90 +15,9 @@ $o = $b->getOrder(); /** @var O $o */
 <?php
 $canEdit = Mage::getModel('iwd_ordermanager/order_edit')->checkOrderStatusForUpdate($o);
 $echo = df_block_echo('hcg/sales/order/view/info', ['b' => $b, 'canEdit' => $canEdit, 'o' => $o]);
-$echo('primary');
+$echo('primary', 'account');
 ?>
-<div class="box-right">
-	<!--Account Information-->
-	<div class="entry-edit">
-
-		<div class="entry-edit-head order-account">
-			<h4 class="icon-head head-account"><?= Mage::helper('sales')->__('Account Information') ?></h4>
-
-			<div class="tools" style="float:right">
-				<?php $isAllow = Mage::getSingleton('admin/session')->isAllowed('iwd_ordermanager/order/actions/edit_account_information'); ?>
-				<?php if ($isAllow): ?>
-					<?php if ($canEdit) : ?>
-						<a id="account_information_edit_<?= $o->getEntityId(); ?>"
-						   class="account_information_edit" href="#"
-						   title="<?= Mage::helper('sales')->__('Edit account information for order only'); ?>">
-							<?= Mage::helper('sales')->__('Edit'); ?>
-						</a>
-					<?php else : ?>
-						<a href="#"
-						   onclick="alert('Sorry, You can not update account information for order with this status. Check configuration by module IWD_OrderManager.'); return false;"
-						   title="You can not edit account information!">
-							<?= Mage::helper('sales')->__("Edit"); ?>
-						</a>
-					<?php endif ?>
-				<?php endif ?>
-			</div>
-		</div>
-		<div class="fieldset">
-			<div class="hor-scroll">
-				<div class="hor-scroll" id="account_information_<?= $o->getEntityId(); ?>">
-					<table cellspacing="0" class="form-list">
-						<tr>
-							<td class="label"><label><?= Mage::helper('sales')->__('Customer Name') ?></label></td>
-							<td class="value">
-								<?php if ($_customerUrl = $b->getCustomerViewUrl()) : ?>
-									<a href="<?= $_customerUrl ?>"
-									   target="_blank"><strong><?= $b->htmlEscape($o->getCustomerName()) ?></strong></a>
-								<?php else: ?>
-									<strong><?= $b->htmlEscape($o->getCustomerName()) ?></strong>
-								<?php endif ?>
-							</td>
-						</tr>
-						<tr>
-							<td class="label"><label><?= Mage::helper('sales')->__('Email') ?></label></td>
-							<td class="value"><a
-										href="mailto:<?= $o->getCustomerEmail() ?>"><strong><?= $o->getCustomerEmail() ?></strong></a>
-							</td>
-						</tr>
-						<?php if ($_groupName = $b->getCustomerGroupName()) : ?>
-							<tr>
-								<td class="label"><label><?= Mage::helper('sales')->__('Customer Group') ?></label>
-								</td>
-								<td class="value"><strong><?= $_groupName ?></strong></td>
-							</tr>
-						<?php endif ?>
-						<?php foreach ($b->getCustomerAccountData() as $data): ?>
-							<tr>
-								<td class="label"><label><?= $data['label'] ?></label></td>
-								<td class="value"><strong><?= $data['value'] ?></strong></td>
-							</tr>
-						<?php endforeach;
-							# 2024-01-26 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-							# "The template `opcsignature/sales/order/view/info.phtml`
-							# of `IWD_OnepageCheckoutSignature_Block_Sales_Order_View_Info`
-							# conflicts with the template `customfield/sales/order/view/info.phtml` of `Webkul_CustomField`,
-							# the template `iwd/ordermanager/order/view/info.phtml` of `IWD_OrderManager`,
-							# and the template `iwd/orderflags/order/view/info.phtml` of `IWD_OrderFlags`,
-							# because they are all override the template `sales/order/view/info.phtml`
-							# of `Mage_Adminhtml_Block_Sales_Order_View_Info`":
-							# https://github.com/thehcginstitute-com/m1/issues/327
-							$echo('IWD_OnepageCheckoutSignature');
-							# 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-							# "Delete the unused `Webkul_CustomField` module":
-							# https://github.com/thehcginstitute-com/m1/issues/382
-						?>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 <div class="clear"></div>
-
 <div class="box-left">
 	<!--Billing Address-->
 	<div class="entry-edit">
