@@ -47,10 +47,10 @@ function df_block($c, $data = [], string $t = '', array $vars = []):A {
  * 2024-05-23 "Improve `df_block_output()`": https://github.com/mage2pro/core/issues/387
  * @see df_cms_block()
  * @used-by app/design/adminhtml/default/default/template/sales/order/view/info.phtml
- * @param string|object|null $c
+ * @param string|object $ct
  * @param array $vars [optional]
  * @param array(string => mixed) $data [optional]
  */
-function df_block_output($c, string $t = '', array $vars = [], array $d = []):string {return df_block(...(
-	df_es($t) ? [$c, $d, '', $vars] : [null, $d, $t, $vars]
+function df_block_output($ct, array $vars = [], array $d = []):string {return df_block(...(
+	is_object($ct) || df_class_exists($ct) ? [$ct, $d, '', $vars] : [null, $d, $ct, $vars]
 ))->toHtml();}
