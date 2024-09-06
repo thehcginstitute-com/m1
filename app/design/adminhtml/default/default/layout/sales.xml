@@ -48,9 +48,9 @@
 					<block type="adminhtml/sales_order_view_messages" name="order_messages"></block>
 					<block type="adminhtml/sales_order_view_info" name="order_info" template="sales/order/view/info.phtml"></block>
 					<block
-						type="adminhtml/sales_order_view_items"
 						name="order_items"
 						template="sales/order/view/items.phtml"
+						type="adminhtml/sales_order_view_items"
 					>
 						<action method="addItemRender">
 							<block>adminhtml/sales_order_view_items_renderer_default</block>

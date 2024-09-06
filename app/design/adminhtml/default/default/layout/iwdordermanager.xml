@@ -93,7 +93,11 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 "Replace the contents of unused (overridden) core backend template `sales/order/view/tab/info.phtml`
 with the contents of the really used corresponding custom template `iwd/ordermanager/order/view/tab/info.phtml`
 from `IWD_OrderManager`, and then delete the custom template file": https://github.com/thehcginstitute-com/m1/issues/672 -->
-            <block type="adminhtml/sales_order_view_items" name="order_items" template="iwd/ordermanager/items/items.phtml">
+            <block
+				name="order_items"
+				template="iwd/ordermanager/items/items.phtml"
+				type="adminhtml/sales_order_view_items"
+			>
                 <action method="addItemRender">
                     <type>default</type>
                     <block>adminhtml/sales_order_view_items_renderer_default</block>
