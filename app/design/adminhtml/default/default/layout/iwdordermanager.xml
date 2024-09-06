@@ -84,9 +84,10 @@ of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginsti
             <action method="addJs"><file>mage/directpost.js</file></action>
             <block type="adminhtml/template" name="optional_zip_countries" as="optional_zip_countries" template="directory/js/optional_zip_countries.phtml"/>
         </reference>
-        <reference name="order_history">
-            <action method="setTemplate"><template>iwd/ordermanager/history/order.phtml</template></action>
-        </reference>
+<!-- 2024-09-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Replace the contents of unused (overridden) core backend template `sales/order/view/history.phtml`
+with the contents of the really used corresponding custom template `iwd/ordermanager/history/order.phtml`
+from `IWD_OrderManager`, and then delete the custom template file": https://github.com/thehcginstitute-com/m1/issues/674 -->
         <reference name="order_tab_info">
 <!-- 2024-09-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Replace the contents of unused (overridden) core backend template `sales/order/view/tab/info.phtml`
