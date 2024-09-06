@@ -91,7 +91,7 @@ of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginsti
 <!-- 2024-09-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Replace the contents of unused (overridden) core backend template `sales/order/view/tab/info.phtml`
 with the contents of the really used corresponding custom template `iwd/ordermanager/order/view/tab/info.phtml`
-from `IWD_OrderManager`, and then delete the custom template file": https://github.com/cabinetsbay/site/issues/672 -->
+from `IWD_OrderManager`, and then delete the custom template file": https://github.com/thehcginstitute-com/m1/issues/672 -->
             <block type="adminhtml/sales_order_view_items" name="order_items" template="iwd/ordermanager/items/items.phtml">
                 <action method="addItemRender">
                     <type>default</type>
