@@ -47,11 +47,32 @@
 				<block type="adminhtml/sales_order_view_tab_info" name="order_tab_info" template="sales/order/view/tab/info.phtml">
 					<block type="adminhtml/sales_order_view_messages" name="order_messages"></block>
 					<block type="adminhtml/sales_order_view_info" name="order_info" template="sales/order/view/info.phtml"></block>
-					<block type="adminhtml/sales_order_view_items" name="order_items" template="sales/order/view/items.phtml">
-						<action method="addItemRender"><type>default</type><block>adminhtml/sales_order_view_items_renderer_default</block><template>sales/order/view/items/renderer/default.phtml</template></action>
-						<action method="addColumnRender"><column>qty</column><block>adminhtml/sales_items_column_qty</block><template>sales/items/column/qty.phtml</template></action>
-						<action method="addColumnRender"><column>name</column><block>adminhtml/sales_items_column_name</block><template>sales/items/column/name.phtml</template></action>
-						<action method="addColumnRender"><column>name</column><block>adminhtml/sales_items_column_name_grouped</block><template>sales/items/column/name.phtml</template><type>grouped</type></action>
+					<block
+						type="adminhtml/sales_order_view_items"
+						name="order_items"
+						template="sales/order/view/items.phtml"
+					>
+						<action method="addItemRender">
+							<block>adminhtml/sales_order_view_items_renderer_default</block>
+							<template>sales/order/view/items/renderer/default.phtml</template>
+							<type>default</type>
+						</action>
+						<action method="addColumnRender">
+							<block>adminhtml/sales_items_column_qty</block>
+							<column>qty</column>
+							<template>sales/items/column/qty.phtml</template>
+						</action>
+						<action method="addColumnRender">
+							<block>adminhtml/sales_items_column_name</block>
+							<column>name</column>
+							<template>sales/items/column/name.phtml</template>
+						</action>
+						<action method="addColumnRender">
+							<block>adminhtml/sales_items_column_name_grouped</block>
+							<column>name</column>
+							<template>sales/items/column/name.phtml</template>
+							<type>grouped</type>
+						</action>
 						<block type="core/text_list" name="order_item_extra_info" />
 					</block>
 					<block type="adminhtml/sales_order_payment" name="order_payment"/>
