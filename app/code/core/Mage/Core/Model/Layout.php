@@ -342,7 +342,9 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
             }
 
             Mage::helper('core/security')->validateAgainstBlockMethodBlacklist($block, $method, $args);
-
+			if ('addItemRender' === $method) {
+				xdebug_break();
+			}
             $this->_translateLayoutNode($node, $args);
             call_user_func_array([$block, $method], array_values($args));
         }
