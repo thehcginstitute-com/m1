@@ -99,18 +99,18 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 				type="adminhtml/sales_order_view_items"
 			>
                 <action method="addItemRender">
-                    <type>default</type>
                     <block>adminhtml/sales_order_view_items_renderer_default</block>
                     <template>iwd/ordermanager/items/renderer/default.phtml</template>
+                    <type>default</type>
                 </action>
                 <action method="addColumnRender">
-                    <column>name</column>
                     <block>adminhtml/sales_items_column_name</block>
+                    <column>name</column>
                     <template>iwd/ordermanager/items/renderer/name.phtml</template>
                 </action>
                 <action method="addColumnRender">
-                    <column>name</column>
                     <block>adminhtml/sales_items_column_name_grouped</block>
+                    <column>name</column>
                     <template>iwd/ordermanager/items/renderer/name.phtml</template>
                     <type>grouped</type>
                 </action>
