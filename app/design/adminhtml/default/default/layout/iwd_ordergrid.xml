@@ -33,8 +33,15 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 
     <ordergrid_order_totals_handle>
         <reference name="head">
-            <action method="addCss" ifconfig="iwd_ordermanager/grid_order/order_totals_enable"><name>iwd/ordergrid/totals.css</name></action>
-            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/order_totals_enable"><file>iwd/ordergrid/totals.js</file></action>
+            <action method="addCss" ifconfig="iwd_ordermanager/grid_order/order_totals_enable">
+				<name>iwd/ordergrid/totals.css</name>
+			</action>
+            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/order_totals_enable">
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+				<name>iwd/ordergrid/totals.js</name>
+			</action>
         </reference>
         <reference name="content">
             <block type="iwd_ordergrid/adminhtml_sales_order_grid_totals" name="order-grid-totals" template="iwd/ordergrid/grid/totals.phtml"/>
