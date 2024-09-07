@@ -8,7 +8,6 @@
 
     <ordermanager_handle>
         <reference name="head">
-            <!--<action method="addJs"><file>iwd/ordermanager/jquery-ui-1.10.3.min.js</file></action>-->
             <action method="addJs"><script>iwd/ordermanager/init.js</script></action>
             <action method="addJs"><script>iwd/ordermanager/order.js</script></action>
             <action method="addJs"><script>iwd/ordermanager/fee.js</script></action>
@@ -37,7 +36,6 @@ of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginsti
 
     <ordermanager_order_grid_handle>
         <reference name="head">
-            <!--<action method="addJs"><file>iwd/ordermanager/jquery-ui-1.10.3.min.js</file></action>-->
             <action method="addJs"><file>iwd/ordermanager/jquery.nicescroll.js</file></action>
             <action method="addJs"><file>iwd/all/modal.js</file></action>
             <action method="addCss"><name>iwd/ordermanager/popup.css</name></action>
