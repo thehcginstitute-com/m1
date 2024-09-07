@@ -40,7 +40,10 @@
         <remove name="js_cookie" />
         <block type="page/html" name="root" output="toHtml" template="page/empty.phtml">
             <block type="page/html_head" name="head" as="head" template="oauth/authorize/head-simple.phtml">
-                <action method="addCss"><stylesheet>css/oauth-simple.css</stylesheet></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+                <action method="addCss"><name>css/oauth-simple.css</name></action>
             </block>
             <block type="core/text_list" name="content"/>
         </block>
