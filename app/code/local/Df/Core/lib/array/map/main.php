@@ -2,27 +2,9 @@
 use Df\Core\Exception as DFE;
 
 /**
- * PHP supports global constants since 5.3:
- * http://www.codingforums.com/php/303927-unexpected-t_const-php-version-5-2-17-a.html#post1363452
- * @used-by df_find()
- * @used-by df_map()
- */
-const DF_AFTER = 1;
-
-/**
- * PHP supports global constants since 5.3:
- * http://www.codingforums.com/php/303927-unexpected-t_const-php-version-5-2-17-a.html#post1363452
- * @used-by df_find()
- * @used-by df_map()
- * @used-by df_map_k()
- * @used-by df_map_kr()
- */
-const DF_BEFORE = -1;
-
-/**
  * 2015-02-11
  * Эта функция аналогична @see array_map(), но обладает 3-мя дополнительными возможностями:
- * 1) её можно применять не только к массивам, но и к @see \Traversable.
+ * 1) её можно применять не только к массивам, но и к @see Traversable.
  * 2) она позволяет удобным способом передавать в $callback дополнительные параметры
  * 3) позволяет передавать в $callback ключи массива
  * до и после основного параметра (элемента массива).
@@ -45,17 +27,19 @@ const DF_BEFORE = -1;
  * @used-by df_clean_r()
  * @used-by df_db_credentials()
  * @used-by df_mail()
- * @used-by df_mvar_n()
  * @used-by df_prices()
  * @used-by df_qty()
  * @used-by df_trim_text_left()
+ * @used-by https://github.com/tradefurniturecompany/report/blob/1.0.3/view/frontend/templates/index.phtml#L25
+ * @used-by vendor/cabinetsbay/catalog/view/frontend/templates/category/l2/l3/filters.phtml (https://github.com/cabinetsbay/catalog/issues/18)
+ * @used-by vendor/cabinetsbay/catalog/view/frontend/templates/products/not-empty.phtml (https://github.com/cabinetsbay/catalog/issues/38)
+ * @used-by vendor/mage2pro/color/view/frontend/templates/index.phtml
  * @param callable|iterable $a1
  * @param callable|iterable $a2
  * @param mixed|mixed[] $pAppend [optional]
  * @param mixed|mixed[] $pPrepend [optional]
- * @param int $keyPosition [optional]
- * @param bool $returnKey [optional]
  * @return array(int|string => mixed)
+ * @throws DFE
  */
 function df_map($a1, $a2, $pAppend = [], $pPrepend = [], int $keyPosition = 0, bool $returnKey = false):array {
 	# 2020-03-02, 2022-10-31
