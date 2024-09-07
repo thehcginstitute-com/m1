@@ -120,8 +120,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				</action>
 
                 <action method="addItem">
-					<type>js_css</type>
 					<name>calendar/calendar-win2k-1.css</name>
+					<type>js_css</type>
 				</action>
                 <action method="addItem"><type>js</type><name>calendar/calendar.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
                 <action method="addItem"><type>js</type><name>calendar/calendar-setup.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
