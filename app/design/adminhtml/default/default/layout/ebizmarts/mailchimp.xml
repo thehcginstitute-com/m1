@@ -43,14 +43,16 @@
 	</adminhtml_ecommerce_renderresendecom>
 	<adminhtml_system_config_edit>
 		<reference name="head">
-			<action method="addCss">
-				<stylesheet>ebizmarts/mailchimp/css/mailchimp.css</stylesheet>
-			</action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method="addCss"><name>ebizmarts/mailchimp/css/mailchimp.css</name></action>
 		</reference>
 		<reference name="head">
-			<action method="addCss">
-				<stylesheet>ebizmarts/mandrill/css/mandrill.css</stylesheet>
-			</action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method="addCss"><name>ebizmarts/mandrill/css/mandrill.css</name></action>
 		</reference>
 	</adminhtml_system_config_edit>
 	<adminhtml_sales_order_creditmemo_new>
