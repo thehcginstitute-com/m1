@@ -11,7 +11,10 @@
     </adminhtml_sales_order_create_load_block_data>
     <adminhtml_sales_order_create_index>
         <reference name="head">
-            <action method="addItem" ifconfig="iwd_ordermanager/crate_process/enable"><type>skin_css</type><name>iwd/admincheckout/create.css</name><params/></action>
+            <action method="addItem" ifconfig="iwd_ordermanager/crate_process/enable">
+				<type>skin_css</type>
+				<name>iwd/admincheckout/create.css</name>
+			</action>
             <action method="addItem" ifconfig="iwd_ordermanager/crate_process/enable"><type>js</type><name>iwd/admincheckout/mage/adminhtml/sales.js</name></action>
         </reference>
         <reference name="form">
