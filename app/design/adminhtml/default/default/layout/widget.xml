@@ -40,7 +40,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<name>prototype/window.js</name>
 				<type>js</type>
 			</action>
-            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+            <action method="addItem">
+				<type>js_css</type>
+				<name>prototype/windows/themes/default.css</name>
+			</action>
             <action method="addCss"><name>lib/prototype/windows/themes/magento.css</name></action>
         </reference>
         <reference name="content">
