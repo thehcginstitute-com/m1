@@ -15,18 +15,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</reference>
 		<reference name="content">
 			<block type="aoe_scheduler/adminhtml_timeline" name="aoe_scheduler.timeline" template="aoe_scheduler/timeline.phtml" />
-			<!--<block type="core/text" name="fix.console" as="fix.console">
-				<action method="setText">
-					<text><![CDATA[<script type="text/javascript">
-					iframe = document.createElement('iframe');
-					iframe.style = 'display:none';
-					document.getElementsByTagName('body')[0].appendChild(iframe);
-					window.console = iframe.contentWindow.console;
-					console.firebug = "faketrue";
-					</script>]]></text>
-				</action>
-			</block>
-		--></reference>
+		</reference>
 	</adminhtml_timeline_index>
 
 	<adminhtml_scheduler_index>
