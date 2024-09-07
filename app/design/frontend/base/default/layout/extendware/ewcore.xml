@@ -53,9 +53,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
         	<action method="addCss"><name>extendware/ewcore/css/widgets.css</name></action>
         	<action method="addCss"><name>extendware/ewcore/css/widgets_rwd.css</name></action>
         	<action method="addItem">
-				<type>skin_css</type>
-				<name>extendware/ewcore/css/widgets-ie7less.css</name>
 				<if>lt IE 8</if>
+				<name>extendware/ewcore/css/widgets-ie7less.css</name>
+				<type>skin_css</type>
 			</action>
         	<action method="addCss"><name>extendware/ewcore/css/widgets-custom.css</name></action>
 		</reference>
