@@ -118,7 +118,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<name>extjs/resources/css/ext-all.css</name>
 					<type>js_css</type>
 				</action>
-                <action method="addItem"><type>js_css</type><name>extjs/resources/css/ytheme-magento.css</name><params/><if/><cond>can_load_ext_js</cond></action>
+                <action method="addItem">
+					<cond>can_load_ext_js</cond>
+					<name>extjs/resources/css/ytheme-magento.css</name>
+					<type>js_css</type>
+				</action>
 
                 <action method="addItem"><type>js</type><name>mage/adminhtml/rules.js</name><params/><if/><cond>can_load_rules_js</cond></action>
 
