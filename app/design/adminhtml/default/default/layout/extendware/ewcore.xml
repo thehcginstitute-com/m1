@@ -65,8 +65,14 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
             <action method="addJs"><name>extendware/ewcore/adminhtml/trim.js</name></action>
             <action method="addJs"><name>prototype/window.js</name></action>
             <!--Magento < 1.7.0 --> 
-            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
-            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/magento.css</name></action>
+            <action method="addItem">
+				<type>js_css</type>
+				<name>prototype/windows/themes/default.css</name>
+			</action>
+            <action method="addItem">
+				<type>js_css</type>
+				<name>prototype/windows/themes/magento.css</name>
+			</action>
             <!--Magento > 1.7.0 --> 
             <action method="addCss"><name>lib/prototype/windows/themes/magento.css</name></action>
         </reference>
