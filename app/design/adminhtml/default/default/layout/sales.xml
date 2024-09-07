@@ -479,7 +479,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method="addJs"><name>mage/adminhtml/product/composite/configure.js</name></action>
 			<action method="addJs"><name>varien/configurable.js</name></action>
 			<action method="addJs"><name>mage/adminhtml/giftoptions/tooltip.js</name></action>
-			<block type="adminhtml/template" name="optional_zip_countries" as="optional_zip_countries" template="directory/js/optional_zip_countries.phtml" />
+			<block
+				as="optional_zip_countries"
+				name="optional_zip_countries"
+				template="directory/js/optional_zip_countries.phtml"
+				type="adminhtml/template"
+			/>
 		</reference>
 		<reference name="js">
 			<block type="adminhtml/template" template="sales/order/create/js.phtml" name="create" />
