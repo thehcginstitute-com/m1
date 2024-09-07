@@ -128,7 +128,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<name>mage/adminhtml/rules.js</name>
 					<type>js</type>
 				</action>
-                <action method="addItem"><type>js</type><name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name><params/><if/><cond>can_load_tiny_mce</cond></action>
+                <action method="addItem">
+					<cond>can_load_tiny_mce</cond>
+					<name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name>
+					<type>js</type>
+				</action>
                 <block type="core/html_calendar" name="head.calendar" as="calendar" template="page/js/calendar.phtml"/>
             </block>
 
