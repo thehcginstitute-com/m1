@@ -102,10 +102,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				</action>
 
                 <action method="addItem">
-					<type>js</type>
+					<if>lt IE 7</if>
 					<name>lib/ds-sleight.js</name>
 					<params>defer</params>
-					<if>lt IE 7</if>
+					<type>js</type>
 				</action>
                 <action method="addItem"><type>js</type><name>varien/iehover-fix.js</name><params/><if>lt IE 7</if></action>
 
