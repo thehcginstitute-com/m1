@@ -2,7 +2,10 @@
 <layout>
 	<default>
     	<reference name="head">
-    		<action method="addJs"><script>extendware/ewcore/guide.js</script></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+«`df_call()`: the required argument `name` of the `addJs` method is missed»:
+https://github.com/thehcginstitute-com/m1/issues/679 -->
+    		<action method="addJs"><name>extendware/ewcore/guide.js</name></action>
         	<action method="addItem"><type>skin_css</type><name>extendware/ewcore/css/guide.css</name></action>
         </reference>
         
