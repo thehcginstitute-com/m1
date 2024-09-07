@@ -2,8 +2,11 @@
 <layout>
 	<default>
 		<reference name="head">
-			<action method="addJs"><script>iwd/all/iwd-jquery-3.3.1.min.js</script></action>
-            <action method="addJs"><script>iwd/all/modal.js</script></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method="addJs"><name>iwd/all/iwd-jquery-3.3.1.min.js</name></action>
+            <action method="addJs"><name>iwd/all/modal.js</name></action>
 			<action method="addCss"><name>iwd/all/iwdall.css</name></action>
 		</reference>
 	</default>
