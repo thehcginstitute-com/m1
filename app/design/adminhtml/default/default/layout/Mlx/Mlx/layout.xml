@@ -3,8 +3,8 @@
 	<default>
  		<reference name="head">
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-«`df_call()`: the required argument `name` of the `addJs` method is missed»:
-https://github.com/thehcginstitute-com/m1/issues/679 -->
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method="addJs"><name>Mlx/Mlx/tinybox/tinybox.js</name></action>
 <!-- 2024-02-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 «GET /skin/adminhtml/base/default/Mlx/Mlx/css/style.css net::ERR_ABORTED 404 (Not Found)»: https://github.com/thehcginstitute-com/m1/issues/385 -->

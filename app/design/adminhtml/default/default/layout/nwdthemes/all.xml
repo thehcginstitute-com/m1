@@ -3,16 +3,16 @@
 	<default>
 		<reference name="head">
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-«`df_call()`: the required argument `name` of the `addJs` method is missed»:
-https://github.com/thehcginstitute-com/m1/issues/679 -->
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method="addJs"><name>nwdthemes/widget_heading.js</name></action>
 		</reference>
 	</default>
 	<adminhtml_catalog_category_edit>
 		<reference name="head">
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-«`df_call()`: the required argument `name` of the `addJs` method is missed»:
-https://github.com/thehcginstitute-com/m1/issues/679 -->
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method="addJs"><name>nwdthemes/category_attribute_dependency.js</name></action>
 		</reference>
 	</adminhtml_catalog_category_edit>
