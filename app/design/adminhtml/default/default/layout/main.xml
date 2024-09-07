@@ -113,7 +113,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<type>js</type>
 				</action>
 
-                <action method="addItem"><type>skin_css</type><name>menu.css</name><params>media="screen, projection"</params></action>
+                <action method="addItem">
+					<type>skin_css</type>
+					<name>menu.css</name>
+					<params>media="screen, projection"</params>
+				</action>
 
                 <action method="addItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name><params/><!--<if/><condition>can_load_calendar_js</condition>--></action>
                 <action method="addItem"><type>js</type><name>calendar/calendar.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
