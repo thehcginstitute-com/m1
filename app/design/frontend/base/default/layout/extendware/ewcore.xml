@@ -89,7 +89,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	
 	<ewcore_opentip_handle>
 		<reference name="head">
-			<action method="addJs"><script>extendware/ewcore/opentip/opentip-prototype-excanvas.min.js</script></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method="addJs"><name>extendware/ewcore/opentip/opentip-prototype-excanvas.min.js</name></action>
         	<action method="addItem"><type>skin_css</type><name>extendware/ewcore/css/opentip.css</name></action>
 		</reference>
 	</ewcore_opentip_handle>
