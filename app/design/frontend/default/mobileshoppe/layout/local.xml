@@ -54,7 +54,10 @@
   </catalog_product_view>
   <cms_index_index>
     <reference name="head">
-      <action method="addItem"><type>skin_js</type><name>js/jquery.flexslider.js</name></action>
+      <action method="addItem">
+		  <type>skin_js</type>
+		  <name>js/jquery.flexslider.js</name>
+	  </action>
     </reference>
   </cms_index_index>
   <reviews>
