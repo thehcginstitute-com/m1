@@ -13,7 +13,10 @@
 		  <type>skin_js</type>
 		  <name>js/respond.min.js</name>
 	  </action>
-	<action method="removeItem"><type>skin_css</type><name>css/print.css</name></action>
+	<action method="removeItem">
+		<type>skin_css</type>
+		<name>css/print.css</name>
+	</action>
 	</reference>
     <reference name="header">
       <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
