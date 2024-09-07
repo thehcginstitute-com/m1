@@ -18,9 +18,10 @@
 <layout>
     <adminhtml_input_counter_handle>
         <reference name="head">
-            <action method="addJs">
-                <script>mage/adminhtml/input-counter.js</script>
-            </action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+«`df_call()`: the required argument `name` of the `addJs` method is missed»:
+https://github.com/thehcginstitute-com/m1/issues/679 -->
+            <action method="addJs"><name>mage/adminhtml/input-counter.js</name></action>
         </reference>
     </adminhtml_input_counter_handle>
 
