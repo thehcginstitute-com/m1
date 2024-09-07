@@ -101,8 +101,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
                 <action method="addItem">
 					<type>js</type>
 					<name>extjs/ext-tree.js</name>
-					<params/>
-					<if/>
 					<cond>can_load_ext_js</cond>
 				</action>
                 <action method="addItem">
