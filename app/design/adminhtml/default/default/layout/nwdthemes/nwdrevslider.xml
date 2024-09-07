@@ -48,12 +48,15 @@
 			<action method="addCss"><name>lib/prototype/windows/themes/magento.css</name></action>
 			<action method="addItem"><type>js_css</type><name>extjs/resources/css/ext-all.css</name></action>
 			<action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
-			<action method="addJs"><script>extjs/ext-tree.js</script></action>
-			<action method="addJs"><script>extjs/fix-defer.js</script></action>
-			<action method="addJs"><script>extjs/ext-tree-checkbox.js</script></action>
-			<action method="addJs"><script>lib/flex.js</script></action>
-			<action method="addJs"><script>lib/FABridge.js</script></action>
-			<action method="addJs"><script>mage/adminhtml/flexuploader.js</script></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+«`df_call()`: the required argument `name` of the `addJs` method is missed»:
+https://github.com/thehcginstitute-com/m1/issues/679 -->
+			<action method="addJs"><name>extjs/ext-tree.js</name></action>
+			<action method="addJs"><name>extjs/fix-defer.js</name></action>
+			<action method="addJs"><name>extjs/ext-tree-checkbox.js</name></action>
+			<action method="addJs"><name>lib/flex.js</name></action>
+			<action method="addJs"><name>lib/FABridge.js</name></action>
+			<action method="addJs"><name>mage/adminhtml/flexuploader.js</name></action>
 			<action method="addItem"><type>skin_js</type><name>js/nwdthemes/revslider/browser.js</name></action>
 		</reference>
 	</nwdrevslider_images_common>
