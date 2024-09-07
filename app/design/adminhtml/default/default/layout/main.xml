@@ -81,9 +81,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
                 <action method="addCss"><name>custom.css</name></action>
 
                 <action method="addItem">
-					<type>skin_css</type>
-					<name>iestyles.css</name>
 					<if>lt IE 8</if>
+					<name>iestyles.css</name>
+					<type>skin_css</type>
 				</action>
                 <action method="addItem"><type>skin_css</type><name>below_ie7.css</name><params/><if>lt IE 7</if></action>
                 <action method="addItem"><type>skin_css</type><name>ie7.css</name><params/><if>IE 7</if></action>
