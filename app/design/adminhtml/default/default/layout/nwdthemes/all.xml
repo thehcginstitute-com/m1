@@ -2,13 +2,18 @@
 <layout version="0.1.1">
 	<default>
 		<reference name="head">
-			<action method="addJs"><file>nwdthemes/widget_heading.js</file></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+«`df_call()`: the required argument `name` of the `addJs` method is missed»:
+https://github.com/thehcginstitute-com/m1/issues/679 -->
+			<action method="addJs"><name>nwdthemes/widget_heading.js</name></action>
 		</reference>
 	</default>
-
 	<adminhtml_catalog_category_edit>
 		<reference name="head">
-			<action method="addJs"><file>nwdthemes/category_attribute_dependency.js</file></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+«`df_call()`: the required argument `name` of the `addJs` method is missed»:
+https://github.com/thehcginstitute-com/m1/issues/679 -->
+			<action method="addJs"><name>nwdthemes/category_attribute_dependency.js</name></action>
 		</reference>
 	</adminhtml_catalog_category_edit>
 
