@@ -7,9 +7,12 @@
 https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method="addJs"><name>Mlx/Mlx/tinybox/tinybox.js</name></action>
 <!-- 2024-02-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-«GET /skin/adminhtml/base/default/Mlx/Mlx/css/style.css net::ERR_ABORTED 404 (Not Found)»: https://github.com/thehcginstitute-com/m1/issues/385 -->
-			<action method="addCss"><stylesheet>Mlx/css/tinybox/style.css</stylesheet></action>
-			<action method="addCss"><stylesheet>Mlx/css/style.css</stylesheet></action>
+«GET /skin/adminhtml/base/default/Mlx/Mlx/css/style.css net::ERR_ABORTED 404 (Not Found)»: https://github.com/thehcginstitute-com/m1/issues/385
+2024-09-07
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method="addCss"><name>Mlx/css/tinybox/style.css</name></action>
+			<action method="addCss"><name>Mlx/css/style.css</name></action>
 		</reference>
 	</default>	
 <!-- 2024-02-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
