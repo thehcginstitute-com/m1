@@ -168,7 +168,10 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 				<type>js</type>
 				<name>calendar/calendar.js</name>
 			</action>
-            <action method="addItem"><type>js</type><name>calendar/calendar-setup.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
+            <action method="addItem">
+				<type>js</type>
+				<name>calendar/calendar-setup.js</name>
+			</action>
         </reference>
         <reference name="content">
             <block type="catalog/product_view" name="product.info" template="catalog/product/view.phtml">
