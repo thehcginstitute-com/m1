@@ -43,9 +43,12 @@ https://github.com/thehcginstitute-com/m1/issues/679 -->
     
     <ewcore_chooser>
         <reference name="head">
-            <action method="addJs"><script>mage/adminhtml/wysiwyg/widget.js</script></action>
-            <action method="addJs"><script>extendware/ewcore/adminhtml/trim.js</script></action>
-            <action method="addJs"><script>prototype/window.js</script></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+«`df_call()`: the required argument `name` of the `addJs` method is missed»:
+https://github.com/thehcginstitute-com/m1/issues/679 -->
+            <action method="addJs"><name>mage/adminhtml/wysiwyg/widget.js</name></action>
+            <action method="addJs"><name>extendware/ewcore/adminhtml/trim.js</name></action>
+            <action method="addJs"><name>prototype/window.js</name></action>
             <!--Magento < 1.7.0 --> 
             <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
             <action method="addItem"><type>js_css</type><name>prototype/windows/themes/magento.css</name></action>
