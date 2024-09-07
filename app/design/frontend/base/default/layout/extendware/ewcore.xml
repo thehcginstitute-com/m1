@@ -74,7 +74,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
         	<action method="addJs"><name>extendware/ewcore/widget.js</name></action>
         	<action method="addCss"><name>extendware/ewcore/css/widgets.css</name></action>
         	<action method="addItem"><type>skin_js</type><name>extendware/ewcore/js/widgets.js</name></action>
-        	<action method="addItem"><type>skin_css</type><name>extendware/ewcore/css/widgets-ie7less.css</name><params/><if>lt IE 8</if></action>
+        	<action method="addItem">
+				<type>skin_css</type>
+				<name>extendware/ewcore/css/widgets-ie7less.css</name>
+				<params/>
+				<if>lt IE 8</if>
+			</action>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
