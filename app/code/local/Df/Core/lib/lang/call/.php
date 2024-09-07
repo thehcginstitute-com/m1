@@ -69,8 +69,7 @@ function df_call($o, $m, array $p = []) {/** @var mixed $r */
 						function(string $n) use($p, $rp, $rfa, $isMethod) {return $rp->isOptional() ? $rp->getDefaultValue() :
 							df_error(
 								sprintf(
-									"The `df_call()` call is invalid because the %s `{$rfa->getName()}`"
-									. " requires the `{$n}` argument but it is not provided."
+									"`df_call()`: the required argument `{$n}` of the `{$rfa->getName()}` %s is missed."
 									,$isMethod ? 'method' : 'function'
 								)
 								,$p
