@@ -6,7 +6,10 @@
 "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
     		<action method="addJs"><name>extendware/ewcore/guide.js</name></action>
-        	<action method="addItem"><type>skin_css</type><name>extendware/ewcore/css/guide.css</name></action>
+        	<action method="addItem">
+				<type>skin_css</type>
+				<name>extendware/ewcore/css/guide.css</name>
+			</action>
         </reference>
         
         <reference name="js">
