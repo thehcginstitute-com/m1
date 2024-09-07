@@ -22,7 +22,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
             </action>
             <action method="addItem" ifconfig="mailchimp/emailcatcher/popup_general">
                 <type>js_css</type>
-                <script>ebizmarts/mailchimp/popup.css</script>
+                <name>ebizmarts/mailchimp/popup.css</name>
             </action>
             <block type="core/text" name="addMCJs">
                 <action method="setText">
