@@ -54,10 +54,13 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
             <action method="addCss"><name>iwd/ordergrid/jquery-ui.css</name></action>
             <action method="addCss"><name>iwd/ordergrid/ui.multiselect.css</name></action>
             <action method="addCss"><name>iwd/ordergrid/system.css</name></action>
-            <action method="addJs"><script>iwd/ordergrid/jquery-ui-1.10.3.min.js</script></action>
-            <action method="addJs"><script>iwd/ordergrid/ui.multiselect.js</script></action>
-            <action method="addJs"><script>iwd/ordergrid/colpick.js</script></action>
-            <action method="addJs"><script>iwd/ordergrid/system.js</script></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+            <action method="addJs"><name>iwd/ordergrid/jquery-ui-1.10.3.min.js</name></action>
+            <action method="addJs"><name>iwd/ordergrid/ui.multiselect.js</name></action>
+            <action method="addJs"><name>iwd/ordergrid/colpick.js</name></action>
+            <action method="addJs"><name>iwd/ordergrid/system.js</name></action>
         </reference>
     </adminhtml_system_config_edit>
 
