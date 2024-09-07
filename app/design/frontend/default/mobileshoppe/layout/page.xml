@@ -132,11 +132,14 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
         <label>All Pages (Print Version)</label>
         <block type="page/html" name="root" output="toHtml" template="page/print.phtml">
             <block type="page/html_head" name="head" as="head">
-                <action method="addJs"><script>prototype/prototype.js</script><group>global</group></action>
-                <action method="addJs"><script>mage/translate.js</script><group>global</group></action>
-                <action method="addJs"><script>lib/ccard.js</script><group>global</group></action>
-                <action method="addJs"><script>prototype/validation.js</script><group>global</group></action>
-                <action method="addJs"><script>varien/js.js</script><group>global</group></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+                <action method="addJs"><name>prototype/prototype.js</name><group>global</group></action>
+                <action method="addJs"><name>mage/translate.js</name><group>global</group></action>
+                <action method="addJs"><name>lib/ccard.js</name><group>global</group></action>
+                <action method="addJs"><name>prototype/validation.js</name><group>global</group></action>
+                <action method="addJs"><name>varien/js.js</name><group>global</group></action>
                 <action method="addCss"><stylesheet>css/styles.css</stylesheet></action>
                 <action method="addCss"><stylesheet>css/widgets.css</stylesheet></action>
                 <action method="addItem"><type>js</type><name>lib/ds-sleight.js</name><group>global</group><params/><if>lt IE 7</if></action>
