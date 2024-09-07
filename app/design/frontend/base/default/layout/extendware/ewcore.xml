@@ -34,23 +34,26 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name="head">
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->				
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method="addJs"><name>extendware/ewcore/center.js</name></action>
 		</reference>
 	</ewcore_center_handle>
 	
 	<ewcore_frontend_widget_grid_handle>
 		<reference name="head">
-			<action method="addJs"><script>mage/adminhtml/tools.js</script></action>
-			<action method="addJs"><script>mage/adminhtml/hash.js</script></action>
-        	<action method="addJs"><script>mage/adminhtml/grid.js</script></action>
-        	<action method="addJs"><script>mage/adminhtml/events.js</script></action>
-        	<action method="addJs"><script>mage/adminhtml/form.js</script></action>
-        	<action method="addJs"><script>extendware/ewcore/widget.js</script></action>
-        	<action method="addCss"><script>extendware/ewcore/css/widgets.css</script></action>
-        	<action method="addCss"><script>extendware/ewcore/css/widgets_rwd.css</script></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->				
+			<action method="addJs"><name>mage/adminhtml/tools.js</name></action>
+			<action method="addJs"><name>mage/adminhtml/hash.js</name></action>
+        	<action method="addJs"><name>mage/adminhtml/grid.js</name></action>
+        	<action method="addJs"><name>mage/adminhtml/events.js</name></action>
+        	<action method="addJs"><name>mage/adminhtml/form.js</name></action>
+        	<action method="addJs"><name>extendware/ewcore/widget.js</name></action>
+        	<action method="addCss"><name>extendware/ewcore/css/widgets.css</name></action>
+        	<action method="addCss"><name>extendware/ewcore/css/widgets_rwd.css</name></action>
         	<action method="addItem"><type>skin_css</type><name>extendware/ewcore/css/widgets-ie7less.css</name><params/><if>lt IE 8</if></action>
-        	<action method="addCss"><script>extendware/ewcore/css/widgets-custom.css</script></action>
+        	<action method="addCss"><name>extendware/ewcore/css/widgets-custom.css</name></action>
 		</reference>
 	</ewcore_frontend_widget_grid_handle>
 	
