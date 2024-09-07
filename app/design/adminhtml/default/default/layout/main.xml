@@ -99,16 +99,22 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
                 <action method="addItem">
-					<type>js</type><name>extjs/ext-tree.js</name><params/><if/><cond>can_load_ext_js</cond>
+					<type>js</type>
+					<name>extjs/ext-tree.js</name>
+					<params/>
+					<if/>
+					<cond>can_load_ext_js</cond>
 				</action>
-                <action method="addItem"><type>js</type><name>extjs/fix-defer.js</name><params/><if/><condition>can_load_ext_js</condition></action>
-                <action method="addItem"><type>js</type><name>extjs/ext-tree-checkbox.js</name><params/><if/><condition>can_load_ext_js</condition></action>
-                <action method="addItem"><type>js_css</type><name>extjs/resources/css/ext-all.css</name><params/><if/><condition>can_load_ext_js</condition></action>
-                <action method="addItem"><type>js_css</type><name>extjs/resources/css/ytheme-magento.css</name><params/><if/><condition>can_load_ext_js</condition></action>
+                <action method="addItem">
+					<type>js</type><name>extjs/fix-defer.js</name><params/><if/><cond>can_load_ext_js</cond>
+				</action>
+                <action method="addItem"><type>js</type><name>extjs/ext-tree-checkbox.js</name><params/><if/><cond>can_load_ext_js</cond></action>
+                <action method="addItem"><type>js_css</type><name>extjs/resources/css/ext-all.css</name><params/><if/><cond>can_load_ext_js</cond></action>
+                <action method="addItem"><type>js_css</type><name>extjs/resources/css/ytheme-magento.css</name><params/><if/><cond>can_load_ext_js</cond></action>
 
-                <action method="addItem"><type>js</type><name>mage/adminhtml/rules.js</name><params/><if/><condition>can_load_rules_js</condition></action>
+                <action method="addItem"><type>js</type><name>mage/adminhtml/rules.js</name><params/><if/><cond>can_load_rules_js</cond></action>
 
-                <action method="addItem"><type>js</type><name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name><params/><if/><condition>can_load_tiny_mce</condition></action>
+                <action method="addItem"><type>js</type><name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name><params/><if/><cond>can_load_tiny_mce</cond></action>
 
                 <block type="core/html_calendar" name="head.calendar" as="calendar" template="page/js/calendar.phtml"/>
             </block>
