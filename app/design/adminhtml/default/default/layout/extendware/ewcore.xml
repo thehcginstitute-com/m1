@@ -28,7 +28,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 https://github.com/thehcginstitute-com/m1/issues/680 -->
         	<action method="addJs"><name>extendware/ewcore/adminhtml/general.js</name></action>
         	<action method="addJs"><name>extendware/ewcore/opentip/opentip-native-excanvas.min.js</name></action>
-        	<action method="addItem"><type>skin_css</type><name>extendware/ewcore/css/opentip.css</name></action>
+        	<action method="addItem">
+				<type>skin_css</type>
+				<name>extendware/ewcore/css/opentip.css</name>
+			</action>
         </reference>
         
         <update handle="admin_menu_highlight_handle" ewifhelper="ewcore/layout/isAdminMenuHighlightingEnabled"/>
