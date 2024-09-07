@@ -13,6 +13,7 @@ use ReflectionParameter as RP;
  * 2024-09-06 "Provide an ability to pass named arguments to `df_call()`": https://github.com/mage2pro/core/issues/433
  * @used-by df_column()
  * @used-by df_each()
+ * @used-by Mage_Core_Model_Layout::_generateAction() (https://github.com/thehcginstitute-com/m1/issues/676))
  * @param object|mixed|array $o
  * @param string|callable $m
  * @return mixed

@@ -346,7 +346,13 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
 				xdebug_break();
 			}
             $this->_translateLayoutNode($node, $args);
-            call_user_func_array([$block, $method], array_values($args));
+			# 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# 1) "`Mage_Core_Model_Layout::_generateAction()` ignores the names of the `method`'s arguments":
+			# https://github.com/thehcginstitute-com/m1/issues/676
+			# 2) The original code:
+			#		call_user_func_array([$block, $method], array_values($args));
+			# https://github.com/thehcginstitute-com/m1/blob/2024-09-06/app/code/core/Mage/Core/Model/Layout.php#L347
+			df_call($block, $method, $args);
         }
 
         Varien_Profiler::stop($_profilerKey);
