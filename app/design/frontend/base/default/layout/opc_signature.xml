@@ -12,7 +12,8 @@
 			</action>
 			<action method="addItem" ifconfig="opcsignature/general/enabled">
 				<type>skin_js</type>
-				<name>js/signature/jquery.signaturepad.min.js</name></action>
+				<name>js/signature/jquery.signaturepad.min.js</name>
+			</action>
 			<action method="addItem" ifconfig="opcsignature/general/enabled">
 				<type>skin_js</type>
 				<name>js/signature/json2.min.js</name>
