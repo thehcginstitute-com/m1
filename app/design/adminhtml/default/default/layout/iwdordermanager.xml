@@ -90,10 +90,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
             <action method="addJs"><name>iwd/ordermanager/configure.js</name></action>
             <action method="addJs"><name>mage/directpost.js</name></action>
             <block
-				type="adminhtml/template"
-				name="optional_zip_countries"
 				as="optional_zip_countries"
+				name="optional_zip_countries"
 				template="directory/js/optional_zip_countries.phtml"
+				type="adminhtml/template"
 			/>
         </reference>
 <!-- 2024-09-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
