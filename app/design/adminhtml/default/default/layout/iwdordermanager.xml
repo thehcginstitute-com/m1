@@ -317,7 +317,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
             <action method="addItem" ifconfig="iwd_ordermanager/edit/enable_custom_amount_new">
 				<type>skin_css</type>
 				<name>iwd/ordermanager/fee.css</name>
-				<params/>
 			</action>
             <action method="addItem" ifconfig="iwd_ordermanager/edit/enable_custom_amount_new"><type>js</type><name>iwd/ordermanager/fee.js</name></action>
         </reference>
