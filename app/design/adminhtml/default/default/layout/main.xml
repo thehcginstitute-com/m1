@@ -56,7 +56,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				</action>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->				   
+https://github.com/thehcginstitute-com/m1/issues/680 -->
                 <action method="addJs"><name>prototype/window.js</name></action>
                 <action method="addJs"><name>scriptaculous/builder.js</name></action>
                 <action method="addJs"><name>scriptaculous/effects.js</name></action>
@@ -167,14 +167,17 @@ Layout for editor element
     <editor>
         <reference name="head">
             <action method="setCanLoadExtJs"><flag>1</flag></action>
-            <action method="addJs"><script>mage/adminhtml/variables.js</script></action>
-            <action method="addJs"><script>mage/adminhtml/wysiwyg/widget.js</script></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+            <action method="addJs"><name>mage/adminhtml/variables.js</name></action>
+            <action method="addJs"><name>mage/adminhtml/wysiwyg/widget.js</name></action>
             <action method="addJs"><name>lib/uploader/flow.min.js</name></action>
             <action method="addJs"><name>lib/uploader/fusty-flow.js</name></action>
             <action method="addJs"><name>lib/uploader/fusty-flow-factory.js</name></action>
             <action method="addJs"><name>mage/adminhtml/uploader/instance.js</name></action>
-            <action method="addJs"><script>mage/adminhtml/browser.js</script></action>
-            <action method="addJs"><script>prototype/window.js</script></action>
+            <action method="addJs"><name>mage/adminhtml/browser.js</name></action>
+            <action method="addJs"><name>prototype/window.js</name></action>
             <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
             <action method="addCss"><name>lib/prototype/windows/themes/magento.css</name></action>
         </reference>
