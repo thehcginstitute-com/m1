@@ -107,7 +107,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<params>defer</params>
 					<type>js</type>
 				</action>
-                <action method="addItem"><type>js</type><name>varien/iehover-fix.js</name><params/><if>lt IE 7</if></action>
+                <action method="addItem">
+					<if>lt IE 7</if>
+					<name>varien/iehover-fix.js</name>
+					<type>js</type>
+				</action>
 
                 <action method="addItem"><type>skin_css</type><name>menu.css</name><params>media="screen, projection"</params></action>
 
