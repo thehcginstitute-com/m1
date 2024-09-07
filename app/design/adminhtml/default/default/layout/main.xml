@@ -205,7 +205,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
             <action method="addJs"><name>mage/adminhtml/uploader/instance.js</name></action>
             <action method="addJs"><name>mage/adminhtml/browser.js</name></action>
             <action method="addJs"><name>prototype/window.js</name></action>
-            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+            <action method="addItem">
+				<name>prototype/windows/themes/default.css</name>
+				<type>js_css</type>
+			</action>
             <action method="addCss"><name>lib/prototype/windows/themes/magento.css</name></action>
         </reference>
     </editor>
