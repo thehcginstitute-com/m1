@@ -53,7 +53,10 @@
 	</checkout_onepage_index>
 	<checkout_multishipping_overview>
 		<reference name="head">
-			<action method="addItem" ifconfig="opcsignature/general/jquery"><type>skin_js</type><name>js/signature/jquery-1.7.2.js</name></action>
+			<action method="addItem" ifconfig="opcsignature/general/jquery">
+				<type>skin_js</type>
+				<name>js/signature/jquery-1.7.2.js</name>
+			</action>
 			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_css</type><name>css/signature/jquery.signaturepad.css</name></action>
 			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_js</type><name>js/signature/jquery.signaturepad.min.js</name></action>
 			<action method="addItem" ifconfig="opcsignature/general/enabled"><type>skin_js</type><name>js/signature/json2.min.js</name></action>
