@@ -132,7 +132,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
             <block type="core/text_list" name="sendfriend.send.form.additional.info">
                 <block type="captcha/captcha" name="captcha">
                     <reference name="head">
-                        <action method="addJs" ifconfig="customer/captcha/enable"><file>mage/captcha.js</file></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+                        <action method="addJs" ifconfig="customer/captcha/enable"><name>mage/captcha.js</name></action>
                     </reference>
                     <action method="setFormId"><formId>sendfriend_send</formId></action>
                     <action method="setImgWidth"><width>230</width></action>
