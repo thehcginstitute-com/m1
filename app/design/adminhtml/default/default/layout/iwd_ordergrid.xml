@@ -8,14 +8,17 @@
 
     <ordergrid_order_grid_handle>
         <reference name="head">
-            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><file>iwd/ordergrid/jquery-ui-1.10.3.min.js</file></action>
-            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><file>iwd/ordergrid/stickytableheaders.js</file></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><name>iwd/ordergrid/jquery-ui-1.10.3.min.js</name></action>
+            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><name>iwd/ordergrid/stickytableheaders.js</name></action>
 <!-- 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Upgrade `HemantNegi/jquery.sumoselect`": https://github.com/thehcginstitute-com/m1/issues/553 -->
-            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><file>iwd/ordergrid/jquery.sumoselect.js</file></action>
-            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><file>iwd/all/modal.js</file></action>
-            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><file>iwd/ordergrid/grid.js</file></action>
-            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><file>iwd/ordergrid/massaction.js</file></action>
+            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><name>iwd/ordergrid/jquery.sumoselect.js</name></action>
+            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><name>iwd/all/modal.js</name></action>
+            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><name>iwd/ordergrid/grid.js</name></action>
+            <action method="addJs" ifconfig="iwd_ordermanager/grid_order/enable"><name>iwd/ordergrid/massaction.js</name></action>
             <action method="addCss" ifconfig="iwd_ordermanager/grid_order/enable"><name>iwd/ordergrid/order_grid.css</name></action>
             <action method="addCss" ifconfig="iwd_ordermanager/grid_order/enable">
 <!-- 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
