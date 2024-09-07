@@ -33,7 +33,10 @@
 			<action method="addItem"><type>skin_js</type><name>js/nwdthemes/revslider/farbtastic/my-farbtastic.js</name></action>
 			<action method="addItem"><type>skin_js</type><name>js/nwdthemes/revslider/codemirror/codemirror.js</name></action>
 			<action method="addItem"><type>skin_js</type><name>js/nwdthemes/revslider/codemirror/css.js</name></action>
-			<action method="addItem"><type>skin_js</type><name>js/nwdthemes/revslider/dropdownchecklist/ui.dropdownchecklist-1.4-min.js</name></action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/nwdthemes/revslider/dropdownchecklist/ui.dropdownchecklist-1.4-min.js</name>
+			</action>
 			<action method="addItem"><type>skin_js</type><name>js/nwdthemes/revslider/edit_layers.js</name></action>
 			<action method="addItem"><type>skin_js</type><name>js/nwdthemes/revslider/css_editor.js</name></action>
 			<action method="addItem"><type>skin_js</type><name>js/nwdthemes/revslider/rev_admin.js</name></action>
