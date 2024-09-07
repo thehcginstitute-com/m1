@@ -175,11 +175,6 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
         </reference>
         <reference name="content">
             <block type="catalog/product_view" name="product.info" template="catalog/product/view.phtml">
-                <!--
-                <action method="addReviewSummaryTemplate"><type>default</type><template>review/helper/summary.phtml</template></action>
-                <action method="addReviewSummaryTemplate"><type>short</type><template>review/helper/summary_short.phtml</template></action>
-                <action method="addReviewSummaryTemplate"><type>...</type><template>...</template></action>
-                -->
                 <block type="catalog/product_view_media" name="product.info.media" as="media" template="catalog/product/view/media.phtml"/>
                 <block type="core/text_list" name="alert.urls" as="alert_urls" translate="label">
                     <label>Alert Urls</label>
