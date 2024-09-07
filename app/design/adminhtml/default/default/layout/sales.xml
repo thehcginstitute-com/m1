@@ -471,11 +471,14 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method="setIsCollapsed"><value>true</value></action>
 		</reference>
 		<reference name="head">
-			<action method="addJs"><file>mage/adminhtml/sales.js</file></action>
-			<action method="addJs"><file>mage/adminhtml/giftmessage.js</file></action>
-			<action method="addJs"><file>mage/adminhtml/product/composite/configure.js</file></action>
-			<action method="addJs"><file>varien/configurable.js</file></action>
-			<action method="addJs"><file>mage/adminhtml/giftoptions/tooltip.js</file></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method="addJs"><name>mage/adminhtml/sales.js</name></action>
+			<action method="addJs"><name>mage/adminhtml/giftmessage.js</name></action>
+			<action method="addJs"><name>mage/adminhtml/product/composite/configure.js</name></action>
+			<action method="addJs"><name>varien/configurable.js</name></action>
+			<action method="addJs"><name>mage/adminhtml/giftoptions/tooltip.js</name></action>
 			<block type="adminhtml/template" name="optional_zip_countries" as="optional_zip_countries" template="directory/js/optional_zip_countries.phtml" />
 		</reference>
 		<reference name="js">
