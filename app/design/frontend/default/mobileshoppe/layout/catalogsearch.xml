@@ -80,7 +80,10 @@
 				<type>js</type>
 				<name>calendar/calendar.js</name>
 			</action>
-            <action method="addItem"><type>js</type><name>calendar/calendar-setup.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
+            <action method="addItem">
+				<type>js</type>
+				<name>calendar/calendar-setup.js</name>
+			</action>
         </reference>
         <reference name="content">
             <block type="catalogsearch/advanced_form" name="catalogsearch_advanced_form" template="catalogsearch/advanced/form.phtml"/>
