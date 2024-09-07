@@ -8,10 +8,22 @@
 https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method="addCss"><name>aoe_scheduler/StyleSheet/timeline.css</name></action>
 			<action method="addCss"><name>aoe_scheduler/StyleSheet/bars.css</name></action>
-			<action method="addItem"><type>skin_js</type><name>aoe_scheduler/JavaScript/jquery-1.6.2.min.js</name></action>
-			<action method="addItem"><type>skin_js</type><name>aoe_scheduler/JavaScript/tooltip.js</name></action>
-			<action method="addItem"><type>skin_js</type><name>aoe_scheduler/JavaScript/tooltip.dynamic.js</name></action>
-			<action method="addItem"><type>skin_js</type><name>aoe_scheduler/JavaScript/common.js</name></action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>aoe_scheduler/JavaScript/jquery-1.6.2.min.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>aoe_scheduler/JavaScript/tooltip.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>aoe_scheduler/JavaScript/tooltip.dynamic.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>aoe_scheduler/JavaScript/common.js</name>
+			</action>
 		</reference>
 		<reference name="content">
 			<block type="aoe_scheduler/adminhtml_timeline" name="aoe_scheduler.timeline" template="aoe_scheduler/timeline.phtml" />
