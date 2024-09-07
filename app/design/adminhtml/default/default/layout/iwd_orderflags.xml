@@ -70,8 +70,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
     <orderflags_edit_flags_handle>
         <reference name="head">
             <action method="addCss"><name>iwd/orderflags/colpick.css</name></action>
-            <action method="addJs"><script>iwd/orderflags/colpick.js</script></action>
-            <action method="addJs"><script>iwd/orderflags/flags.js</script></action>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+            <action method="addJs"><name>iwd/orderflags/colpick.js</name></action>
+            <action method="addJs"><name>iwd/orderflags/flags.js</name></action>
         </reference>
     </orderflags_edit_flags_handle>
     <orderflags_edit_flags_css_handle>
