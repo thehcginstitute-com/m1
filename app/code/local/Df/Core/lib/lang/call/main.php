@@ -16,7 +16,7 @@ function df_call($o, $m, array $p = []) {/** @var mixed $r */
 	if (df_is_assoc($o)) {
 		$r = dfa($o, $m);
 	}
-	elseif (!is_string($m)) {# $m — инлайновая функция
+	elseif ($m instanceof Closure) {
 		$r = call_user_func_array($m, array_merge([$o], $p));
 	}
 	else {
