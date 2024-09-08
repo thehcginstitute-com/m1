@@ -9,8 +9,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method="addCss"><name>aoe_scheduler/StyleSheet/timeline.css</name></action>
 			<action method="addCss"><name>aoe_scheduler/StyleSheet/bars.css</name></action>
 			<action method="addItem">
-				<type>skin_js</type>
 				<name>aoe_scheduler/JavaScript/jquery-1.6.2.min.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method="addItem">
 				<type>skin_js</type>
