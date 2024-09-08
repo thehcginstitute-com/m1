@@ -547,7 +547,10 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
      */
-    function addColumnCountLayoutDepend(string $layout, int $count):void {$this->_columnCountLayoutDepend[$layout] = $count;}
+    function addColumnCountLayoutDepend(string $layout, int $count):self {
+		$this->_columnCountLayoutDepend[$layout] = $count;
+		return $this;
+	}
 
     /**
      * Remove row size depends on page layout
