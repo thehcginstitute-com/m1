@@ -21,8 +21,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
                 <type>js_css</type>
             </action>
             <action method="addItem" ifconfig="mailchimp/emailcatcher/popup_general">
-                <type>js_css</type>
                 <name>ebizmarts/mailchimp/popup.css</name>
+                <type>js_css</type>
             </action>
             <block type="core/text" name="addMCJs">
                 <action method="setText">
