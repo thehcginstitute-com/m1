@@ -36,16 +36,16 @@
   <catalog_product_view>
     <reference name="head">
       <action method="addItem">
-		  <type>skin_js</type>
 		  <name>js/galleria-1.2.7.min.js</name>
-	  </action>
-      <action method="addItem">
 		  <type>skin_js</type>
-		  <name>js/galleria.classic.min.js</name>
 	  </action>
       <action method="addItem">
-		  <type>skin_css</type>
+		  <name>js/galleria.classic.min.js</name>
+		  <type>skin_js</type>
+	  </action>
+      <action method="addItem">
 		  <name>css/galleria.classic.css</name>
+		  <type>skin_css</type>
 	  </action>
     </reference>
     <reference name="root">
