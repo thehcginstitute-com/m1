@@ -6,17 +6,21 @@
 
 	<!-- Search Results page -->
 	<catalogsearch_result_index>
-	  <reference name="head">
-		 <action method="setRobots"><value>NOINDEX,NOFOLLOW</value></action>
-	  </reference>
-   </catalogsearch_result_index>
+		<reference name="head">
+			<action method="setRobots">
+				<value>NOINDEX,NOFOLLOW</value>
+			</action>
+		</reference>
+	</catalogsearch_result_index>
 
 	<!-- Advanced Search page -->
 	<catalogsearch_advanced_result>
-	  <reference name="head">
-		 <action method="setRobots"><value>NOINDEX,NOFOLLOW</value></action>
-	  </reference>
-   </catalogsearch_advanced_result>
+		<reference name="head">
+			<action method="setRobots">
+				<value>NOINDEX,NOFOLLOW</value>
+			</action>
+		</reference>
+	</catalogsearch_advanced_result>
 	<default>
 		<reference name="top.bar">
 			<block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
@@ -24,12 +28,12 @@
 		<reference name="footer_links">
 			<action method="addLink" translate="label title" module="catalogsearch" ifconfig="catalog/seo/search_terms">
 				<label>Search Terms</label>
-				<url helper="catalogsearch/getSearchTermUrl" />
+				<url helper="catalogsearch/getSearchTermUrl"/>
 				<title>Search Terms</title>
 			</action>
 			<action method="addLink" translate="label title" module="catalogsearch">
 				<label>Advanced Search</label>
-				<url helper="catalogsearch/getAdvancedSearchUrl" />
+				<url helper="catalogsearch/getAdvancedSearchUrl"/>
 				<title>Advanced Search</title>
 			</action>
 		</reference>
@@ -37,9 +41,11 @@
 
 	<catalogsearch_result_index translate="label">
 		<label>Quick Search Form</label>
-		<update handle="page_two_columns_left" />
+		<update handle="page_two_columns_left"/>
 		<reference name="root">
-			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+			<action method="setTemplate">
+				<template>page/2columns-left.phtml</template>
+			</action>
 		</reference>
 		<reference name="left">
 			<block type="catalogsearch/layer" name="catalogsearch.leftnav" after="currency" template="catalog/layer/view.phtml"/>
@@ -47,15 +53,33 @@
 		<reference name="content">
 			<block type="catalogsearch/result" name="search.result" template="catalogsearch/result.phtml">
 				<block type="catalog/product_list" name="search_result_list" template="catalog/product/list.phtml">
-					<block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+					<block type="catalog/product_list_toolbar" name="product_list_toolbar"
+						   template="catalog/product/list/toolbar.phtml">
 						<block type="page/html_pager" name="product_list_toolbar_pager"/>
 					</block>
-					<action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
-					<action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
-					<action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
-					<action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
-					<action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
-					<action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+					<action method="addColumnCountLayoutDepend">
+						<layout>empty</layout>
+						<count>6</count>
+					</action>
+					<action method="addColumnCountLayoutDepend">
+						<layout>one_column</layout>
+						<count>5</count>
+					</action>
+					<action method="addColumnCountLayoutDepend">
+						<layout>two_columns_left</layout>
+						<count>4</count>
+					</action>
+					<action method="addColumnCountLayoutDepend">
+						<layout>two_columns_right</layout>
+						<count>4</count>
+					</action>
+					<action method="addColumnCountLayoutDepend">
+						<layout>three_columns</layout>
+						<count>3</count>
+					</action>
+					<action method="setToolbarBlockName">
+						<name>product_list_toolbar</name>
+					</action>
 				</block>
 				<action method="setListOrders"/>
 				<action method="setListModes"/>
@@ -68,10 +92,14 @@
 		<label>Advanced Search Form</label>
 		<!-- Mage_Catalogsearch -->
 		<reference name="root">
-			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+			<action method="setTemplate">
+				<template>page/2columns-left.phtml</template>
+			</action>
 		</reference>
 		<reference name="head">
-			<action method="setTitle" translate="title" module="catalogsearch"><title>Advanced Search</title></action>
+			<action method="setTitle" translate="title" module="catalogsearch">
+				<title>Advanced Search</title>
+			</action>
 			<action method="addItem">
 				<name>calendar/calendar-win2k-1.css</name>
 				<type>js_css</type>
@@ -86,34 +114,56 @@
 			</action>
 		</reference>
 		<reference name="content">
-			<block type="catalogsearch/advanced_form" name="catalogsearch_advanced_form" template="catalogsearch/advanced/form.phtml"/>
+			<block type="catalogsearch/advanced_form" name="catalogsearch_advanced_form"
+				   template="catalogsearch/advanced/form.phtml"/>
 			<block type="core/html_calendar" name="html_calendar" as="html_calendar" template="page/js/calendar.phtml"/>
 		</reference>
 	</catalogsearch_advanced_index>
 
-<!--
-Advanced search results
--->
+	<!--
+	Advanced search results
+	-->
 
 	<catalogsearch_advanced_result translate="label">
 		<label>Advanced Search Result</label>
-		<update handle="page_two_columns_left" />
+		<update handle="page_two_columns_left"/>
 		<!-- Mage_Catalogsearch -->
 		<reference name="root">
-			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+			<action method="setTemplate">
+				<template>page/2columns-left.phtml</template>
+			</action>
 		</reference>
 		<reference name="content">
-			<block type="catalogsearch/advanced_result" name="catalogsearch_advanced_result" template="catalogsearch/advanced/result.phtml">
+			<block type="catalogsearch/advanced_result" name="catalogsearch_advanced_result"
+				   template="catalogsearch/advanced/result.phtml">
 				<block type="catalog/product_list" name="search_result_list" template="catalog/product/list.phtml">
-					<block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+					<block type="catalog/product_list_toolbar" name="product_list_toolbar"
+						   template="catalog/product/list/toolbar.phtml">
 						<block type="page/html_pager" name="product_list_toolbar_pager"/>
 					</block>
-					<action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
-					<action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
-					<action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
-					<action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
-					<action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
-					<action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+					<action method="addColumnCountLayoutDepend">
+						<layout>empty</layout>
+						<count>6</count>
+					</action>
+					<action method="addColumnCountLayoutDepend">
+						<layout>one_column</layout>
+						<count>5</count>
+					</action>
+					<action method="addColumnCountLayoutDepend">
+						<layout>two_columns_left</layout>
+						<count>4</count>
+					</action>
+					<action method="addColumnCountLayoutDepend">
+						<layout>two_columns_right</layout>
+						<count>4</count>
+					</action>
+					<action method="addColumnCountLayoutDepend">
+						<layout>three_columns</layout>
+						<count>3</count>
+					</action>
+					<action method="setToolbarBlockName">
+						<name>product_list_toolbar</name>
+					</action>
 				</block>
 				<action method="setListOrders"/>
 				<action method="setListModes"/>
@@ -128,10 +178,14 @@ Advanced search results
 		<remove name="left"/>
 
 		<reference name="head">
-			<action method="setTitle" translate="title" module="catalogsearch"><title>Search Terms</title></action>
+			<action method="setTitle" translate="title" module="catalogsearch">
+				<title>Search Terms</title>
+			</action>
 		</reference>
 		<reference name="root">
-			<action method="setTemplate"><template>page/1column.phtml</template></action>
+			<action method="setTemplate">
+				<template>page/1column.phtml</template>
+			</action>
 		</reference>
 		<reference name="content">
 			<block type="catalogsearch/term" name="seo.searchterm" template="catalogsearch/term.phtml"/>
