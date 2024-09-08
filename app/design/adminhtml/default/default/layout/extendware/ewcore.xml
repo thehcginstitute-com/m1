@@ -46,8 +46,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
     <admin_menu_highlight_handle>
     	<reference name="head">
         	<action method="addItem">
-				<type>skin_css</type>
 				<name>extendware/ewcore/css/menu-highlight.css</name>
+				<type>skin_css</type>
 			</action>
         	<action method="addItem">
 				<type>skin_js</type>
