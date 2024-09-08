@@ -50,8 +50,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<type>skin_css</type>
 			</action>
         	<action method="addItem">
-				<type>skin_js</type>
 				<name>extendware/ewcore/js/general.js</name>
+				<type>skin_js</type>
 			</action>
         </reference>
     </admin_menu_highlight_handle>
