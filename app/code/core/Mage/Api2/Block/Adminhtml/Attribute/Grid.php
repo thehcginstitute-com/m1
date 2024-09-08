@@ -27,7 +27,7 @@ class Mage_Api2_Block_Adminhtml_Attribute_Grid extends Mage_Adminhtml_Block_Widg
      *
      * @param array $attributes
      */
-    public function __construct($attributes = [])
+    function __construct($attributes = [])
     {
         parent::__construct($attributes);
         $this->setId('api2_attributes');
@@ -72,7 +72,7 @@ class Mage_Api2_Block_Adminhtml_Attribute_Grid extends Mage_Adminhtml_Block_Widg
      *
      * @return $this
      */
-    public function _prepareLayout()
+    function _prepareLayout()
     {
         $this->setFilterVisibility(false);
         $this->setPagerVisibility(false);
@@ -86,7 +86,7 @@ class Mage_Api2_Block_Adminhtml_Attribute_Grid extends Mage_Adminhtml_Block_Widg
      * @param Varien_Object $row
      * @return string|null
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         /** @var Mage_Admin_Model_Session $session */
         $session = Mage::getSingleton('admin/session');

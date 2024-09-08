@@ -28,7 +28,7 @@ abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Main_Abstract extends Mag
      * @param Mage_Catalog_Model_Resource_Eav_Attribute $attribute
      * @return $this
      */
-    public function setAttributeObject($attribute)
+    function setAttributeObject($attribute)
     {
         $this->_attribute = $attribute;
         return $this;
@@ -37,7 +37,7 @@ abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Main_Abstract extends Mag
     /**
      * @return Mage_Catalog_Model_Resource_Eav_Attribute
      */
-    public function getAttributeObject()
+    function getAttributeObject()
     {
         return $this->_attribute ?? Mage::registry('entity_attribute');
     }

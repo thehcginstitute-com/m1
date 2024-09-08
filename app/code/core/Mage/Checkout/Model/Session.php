@@ -128,7 +128,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Class constructor. Initialize checkout session namespace
      */
-    public function __construct()
+    function __construct()
     {
         $this->init('checkout');
     }
@@ -136,7 +136,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Unset all data associated with object
      */
-    public function unsetAll()
+    function unsetAll()
     {
         parent::unsetAll();
         $this->_quote = null;
@@ -149,7 +149,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param Mage_Customer_Model_Customer|null $customer
      * @return $this
      */
-    public function setCustomer($customer)
+    function setCustomer($customer)
     {
         $this->_customer = $customer;
         return $this;
@@ -160,7 +160,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      *
      * @return bool
      */
-    public function hasQuote()
+    function hasQuote()
     {
         return isset($this->_quote);
     }
@@ -171,7 +171,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param bool $load
      * @return $this
      */
-    public function setLoadInactive($load = true)
+    function setLoadInactive($load = true)
     {
         $this->_loadInactive = $load;
         return $this;
@@ -182,7 +182,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         Mage::dispatchEvent('custom_quote_process', ['checkout_session' => $this]);
 
@@ -260,7 +260,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * @param int $quoteId
      */
-    public function setQuoteId($quoteId)
+    function setQuoteId($quoteId)
     {
         $this->setData($this->_getQuoteIdKey(), $quoteId);
     }
@@ -268,7 +268,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * @return int
      */
-    public function getQuoteId()
+    function getQuoteId()
     {
         return $this->getData($this->_getQuoteIdKey());
     }
@@ -278,7 +278,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      *
      * @return $this
      */
-    public function loadCustomerQuote()
+    function loadCustomerQuote()
     {
         if (!Mage::getSingleton('customer/session')->getCustomerId()) {
             return $this;
@@ -324,7 +324,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param mixed|null $value
      * @return $this
      */
-    public function setStepData($step, $data, $value = null)
+    function setStepData($step, $data, $value = null)
     {
         $steps = $this->getSteps();
         if (is_null($value)) {
@@ -352,7 +352,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param string|null $data
      * @return array|mixed|false
      */
-    public function getStepData($step = null, $data = null)
+    function getStepData($step = null, $data = null)
     {
         $steps = $this->getSteps();
         if (is_null($step)) {
@@ -379,7 +379,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      *
      * @return array
      */
-    public function getAdditionalMessages($clear = false)
+    function getAdditionalMessages($clear = false)
     {
         $additionalMessages = $this->getData('additional_messages');
         if (!$additionalMessages) {
@@ -400,7 +400,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      *
      * @return null|Mage_Core_Model_Message_Collection
      */
-    public function getItemAdditionalMessages($itemKey, $clear = false)
+    function getItemAdditionalMessages($itemKey, $clear = false)
     {
         $allMessages = $this->getAdditionalMessages();
         if (!isset($allMessages[$itemKey])) {
@@ -424,7 +424,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      *
      * @return $this
      */
-    public function addItemAdditionalMessage($itemKey, $message)
+    function addItemAdditionalMessage($itemKey, $message)
     {
         $allMessages = $this->getAdditionalMessages();
         if (!isset($allMessages[$itemKey])) {
@@ -443,7 +443,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      *
      * @return null|Mage_Core_Model_Message_Collection
      */
-    public function getQuoteItemMessages($itemId, $clear = false)
+    function getQuoteItemMessages($itemId, $clear = false)
     {
         return $this->getItemAdditionalMessages('quote_item' . $itemId, $clear);
     }
@@ -456,7 +456,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      *
      * @return $this
      */
-    public function addQuoteItemMessage($itemId, $message)
+    function addQuoteItemMessage($itemId, $message)
     {
         return $this->addItemAdditionalMessage('quote_item' . $itemId, $message);
     }
@@ -464,7 +464,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * @return Mage_Core_Model_Session_Abstract|void
      */
-    public function clear()
+    function clear()
     {
         Mage::dispatchEvent('checkout_quote_destroy', ['quote' => $this->getQuote()]);
         $this->_quote = null;
@@ -475,7 +475,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Clear misc checkout parameters
      */
-    public function clearHelperData()
+    function clearHelperData()
     {
 		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# 1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
@@ -490,7 +490,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * @return $this
      */
-    public function resetCheckout()
+    function resetCheckout()
     {
         $this->setCheckoutState(self::CHECKOUT_STATE_BEGIN);
         return $this;
@@ -500,7 +500,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param Mage_Sales_Model_Quote $quote
      * @return $this
      */
-    public function replaceQuote($quote)
+    function replaceQuote($quote)
     {
         $this->_quote = $quote;
         $this->setQuoteId($quote->getId());
@@ -512,7 +512,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getLastRealOrder()
+    function getLastRealOrder()
     {
         $orderId = $this->getLastRealOrderId();
         if ($this->_order !== null && $orderId == $this->_order->getIncrementId()) {

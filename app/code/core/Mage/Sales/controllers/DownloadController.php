@@ -109,7 +109,7 @@ class Mage_Sales_DownloadController extends Mage_Core_Controller_Front_Action
     /**
      * Custom options download action
      */
-    public function downloadCustomOptionAction()
+    function downloadCustomOptionAction()
     {
         $quoteItemOptionId = $this->getRequest()->getParam('id');
         /** @var Mage_Sales_Model_Quote_Item_Option $option */

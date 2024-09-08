@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Report_Review_Detail_Grid extends Mage_Adminhtml_Bloc
     /**
      * Mage_Adminhtml_Block_Report_Review_Detail_Grid constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('reviews_grid');

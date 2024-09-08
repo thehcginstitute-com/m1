@@ -48,7 +48,7 @@ class Mage_Sales_Model_Resource_Order_Grid_Collection extends Mage_Sales_Model_R
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         if ($this->getIsCustomerMode()) {
             $this->_renderFilters();
@@ -75,7 +75,7 @@ class Mage_Sales_Model_Resource_Order_Grid_Collection extends Mage_Sales_Model_R
      * @param bool $value
      * @return $this
      */
-    public function setIsCustomerMode($value)
+    function setIsCustomerMode($value)
     {
         $this->_customerModeFlag = (bool)$value;
         return $this;
@@ -86,7 +86,7 @@ class Mage_Sales_Model_Resource_Order_Grid_Collection extends Mage_Sales_Model_R
      *
      * @return bool
      */
-    public function getIsCustomerMode()
+    function getIsCustomerMode()
     {
         return $this->_customerModeFlag;
     }

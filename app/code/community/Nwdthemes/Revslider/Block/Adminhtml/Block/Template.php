@@ -18,7 +18,7 @@ class Nwdthemes_Revslider_Block_Adminhtml_Block_Template extends Mage_Adminhtml_
 	 * Constructor
 	 */
 
-	public function __construct() {
+	function __construct() {
 		parent::__construct();
 		$this->_revSliderAdmin = Mage::getSingleton('RevSliderAdmin');
 	}
@@ -29,7 +29,7 @@ class Nwdthemes_Revslider_Block_Adminhtml_Block_Template extends Mage_Adminhtml_
 	 * @param $key
 	 */
 
-	public function getSettings($key) {
+	function getSettings($key) {
 		return $this->_revSliderAdmin->getSettings($key);
 	}
 
@@ -39,7 +39,7 @@ class Nwdthemes_Revslider_Block_Adminhtml_Block_Template extends Mage_Adminhtml_
 	 * @param $name
 	 */
 
-	public function getSettingsFilePath($name) {
+	function getSettingsFilePath($name) {
 		return $this->_revSliderAdmin->getSettingsFilePath($name);
 	}
 
@@ -51,7 +51,7 @@ class Nwdthemes_Revslider_Block_Adminhtml_Block_Template extends Mage_Adminhtml_
 	 * @return string view url
 	 */
 
-	public function getViewUrl($view, $params = '') {
+	function getViewUrl($view, $params = '') {
 		return $this->_revSliderAdmin->getViewUrl($view, $params);
 	}
 
@@ -62,7 +62,7 @@ class Nwdthemes_Revslider_Block_Adminhtml_Block_Template extends Mage_Adminhtml_
 	 * @param array $settings
 	 */
 
-	public function storeSettings($name, $settings) {
+	function storeSettings($name, $settings) {
 		$this->_revSliderAdmin->storeSettings($name, $settings);
 	}
 

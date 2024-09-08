@@ -39,7 +39,7 @@ class Mage_Checkout_Helper_Cart extends Mage_Core_Helper_Url
      *
      * @return Mage_Checkout_Model_Cart
      */
-    public function getCart()
+    function getCart()
     {
         return Mage::getSingleton('checkout/cart');
     }
@@ -51,7 +51,7 @@ class Mage_Checkout_Helper_Cart extends Mage_Core_Helper_Url
      * @param array $additional
      * @return string
      */
-    public function getAddUrl($product, $additional = [])
+    function getAddUrl($product, $additional = [])
     {
         return $this->getAddUrlCustom($product, $additional);
     }
@@ -73,7 +73,7 @@ class Mage_Checkout_Helper_Cart extends Mage_Core_Helper_Url
      * @param   Mage_Sales_Model_Quote_Item $item
      * @return  string
      */
-    public function getRemoveUrl($item)
+    function getRemoveUrl($item)
     {
         $params = [
             'id' => $item->getId(),
@@ -87,7 +87,7 @@ class Mage_Checkout_Helper_Cart extends Mage_Core_Helper_Url
      *
      * @return string
      */
-    public function getCartUrl()
+    function getCartUrl()
     {
         return $this->_getUrl('checkout/cart');
     }
@@ -97,7 +97,7 @@ class Mage_Checkout_Helper_Cart extends Mage_Core_Helper_Url
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return Mage::getSingleton('checkout/session')->getQuote();
     }
@@ -107,7 +107,7 @@ class Mage_Checkout_Helper_Cart extends Mage_Core_Helper_Url
      *
      * @return int
      */
-    public function getItemsCount()
+    function getItemsCount()
     {
         return $this->getCart()->getItemsCount();
     }
@@ -117,7 +117,7 @@ class Mage_Checkout_Helper_Cart extends Mage_Core_Helper_Url
      *
      * @return float
      */
-    public function getItemsQty()
+    function getItemsQty()
     {
         return $this->getCart()->getItemsQty();
     }
@@ -127,7 +127,7 @@ class Mage_Checkout_Helper_Cart extends Mage_Core_Helper_Url
      *
      * @return float
      */
-    public function getSummaryCount()
+    function getSummaryCount()
     {
         return $this->getCart()->getSummaryQty();
     }
@@ -137,7 +137,7 @@ class Mage_Checkout_Helper_Cart extends Mage_Core_Helper_Url
      *
      * @return bool
      */
-    public function getIsVirtualQuote()
+    function getIsVirtualQuote()
     {
         return $this->getQuote()->isVirtual();
     }
@@ -148,7 +148,7 @@ class Mage_Checkout_Helper_Cart extends Mage_Core_Helper_Url
      * @param int|string|Mage_Core_Model_Store $store
      * @return bool
      */
-    public function getShouldRedirectToCart($store = null)
+    function getShouldRedirectToCart($store = null)
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_REDIRECT_TO_CART, $store);
     }
@@ -161,7 +161,7 @@ class Mage_Checkout_Helper_Cart extends Mage_Core_Helper_Url
      * @param bool $addFormKey
      * @return string
      */
-    public function getAddUrlCustom($product, $additional = [], $addFormKey = true)
+    function getAddUrlCustom($product, $additional = [], $addFormKey = true)
     {
         $routeParams = [
             Mage_Core_Controller_Front_Action::PARAM_NAME_URL_ENCODED => $this->_getHelperInstance('core')

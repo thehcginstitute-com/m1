@@ -56,7 +56,7 @@ class Mage_SalesRule_Helper_Coupon extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getFormatsList()
+    function getFormatsList()
     {
         return [
             self::COUPON_FORMAT_ALPHANUMERIC => $this->__('Alphanumeric'),
@@ -70,7 +70,7 @@ class Mage_SalesRule_Helper_Coupon extends Mage_Core_Helper_Abstract
      *
      * @return int
      */
-    public function getDefaultLength()
+    function getDefaultLength()
     {
         return (int)Mage::getStoreConfig(self::XML_PATH_SALES_RULE_COUPON_LENGTH);
     }
@@ -80,7 +80,7 @@ class Mage_SalesRule_Helper_Coupon extends Mage_Core_Helper_Abstract
      *
      * @return int
      */
-    public function getDefaultFormat()
+    function getDefaultFormat()
     {
         return Mage::getStoreConfig(self::XML_PATH_SALES_RULE_COUPON_FORMAT);
     }
@@ -90,7 +90,7 @@ class Mage_SalesRule_Helper_Coupon extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getDefaultPrefix()
+    function getDefaultPrefix()
     {
         return Mage::getStoreConfig(self::XML_PATH_SALES_RULE_COUPON_PREFIX);
     }
@@ -100,7 +100,7 @@ class Mage_SalesRule_Helper_Coupon extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getDefaultSuffix()
+    function getDefaultSuffix()
     {
         return Mage::getStoreConfig(self::XML_PATH_SALES_RULE_COUPON_SUFFIX);
     }
@@ -110,7 +110,7 @@ class Mage_SalesRule_Helper_Coupon extends Mage_Core_Helper_Abstract
      *
      * @return int
      */
-    public function getDefaultDashInterval()
+    function getDefaultDashInterval()
     {
         return (int)Mage::getStoreConfig(self::XML_PATH_SALES_RULE_COUPON_DASH_INTERVAL);
     }
@@ -121,7 +121,7 @@ class Mage_SalesRule_Helper_Coupon extends Mage_Core_Helper_Abstract
      * @param string $format
      * @return array
      */
-    public function getCharset($format)
+    function getCharset($format)
     {
         return str_split((string) Mage::app()->getConfig()->getNode(sprintf(self::XML_CHARSET_NODE, $format)));
     }
@@ -131,7 +131,7 @@ class Mage_SalesRule_Helper_Coupon extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getCodeSeparator()
+    function getCodeSeparator()
     {
         return (string)Mage::app()->getConfig()->getNode(self::XML_CHARSET_SEPARATOR);
     }

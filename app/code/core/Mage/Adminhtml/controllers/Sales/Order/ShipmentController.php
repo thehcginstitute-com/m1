@@ -116,7 +116,7 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
     /**
      * Shipment information page
      */
-    public function viewAction()
+    function viewAction()
     {
         $shipment = $this->_initShipment();
         if ($shipment) {
@@ -138,7 +138,7 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
     /**
      * Start create shipment action
      */
-    public function startAction()
+    function startAction()
     {
         /**
          * Clear old values for shipment qty's
@@ -149,7 +149,7 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
     /**
      * Shipment create page
      */
-    public function newAction()
+    function newAction()
     {
         if ($shipment = $this->_initShipment()) {
             $this->_title($this->__('New Shipment'));
@@ -171,7 +171,7 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
      * Save shipment
      * We can save only new shipment. Existing shipments are not editable
      */
-    public function saveAction()
+    function saveAction()
     {
         $data = $this->getRequest()->getPost('shipment');
         if (!empty($data['comment_text'])) {
@@ -245,7 +245,7 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
     /**
      * Send email with shipment data to customer
      */
-    public function emailAction()
+    function emailAction()
     {
         try {
             $shipment = $this->_initShipment();
@@ -274,7 +274,7 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
     /**
      * Add new tracking number action
      */
-    public function addTrackAction()
+    function addTrackAction()
     {
         try {
             $carrier = $this->getRequest()->getPost('carrier');
@@ -323,7 +323,7 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
     /**
      * Remove tracking number from shipment
      */
-    public function removeTrackAction()
+    function removeTrackAction()
     {
         $trackId    = $this->getRequest()->getParam('track_id');
         $shipmentId = $this->getRequest()->getParam('shipment_id');
@@ -362,7 +362,7 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
     /**
      * View shipment tracking information
      */
-    public function viewTrackAction()
+    function viewTrackAction()
     {
         $trackId    = $this->getRequest()->getParam('track_id');
         $shipmentId = $this->getRequest()->getParam('shipment_id');
@@ -405,7 +405,7 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
     /**
      * Add comment to shipment history
      */
-    public function addCommentAction()
+    function addCommentAction()
     {
         try {
             $this->getRequest()->setParam(

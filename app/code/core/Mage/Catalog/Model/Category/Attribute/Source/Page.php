@@ -25,7 +25,7 @@ class Mage_Catalog_Model_Category_Attribute_Source_Page extends Mage_Eav_Model_E
     /**
      * @return array
      */
-    public function getAllOptions()
+    function getAllOptions()
     {
         if (!$this->_options) {
             $this->_options = Mage::getResourceModel('cms/block_collection')

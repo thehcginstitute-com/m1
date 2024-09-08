@@ -32,7 +32,7 @@ class Mage_Eav_Model_Entity extends Mage_Eav_Model_Entity_Abstract
     public const DEFAULT_ENTITY_ID_FIELD   = 'entity_id';
     public const DEFAULT_VALUE_TABLE_PREFIX = 'eav/entity_attribute';
 
-    public function __construct()
+    function __construct()
     {
         $resource = Mage::getSingleton('core/resource');
         $this->setConnection($resource->getConnection('eav_read'));

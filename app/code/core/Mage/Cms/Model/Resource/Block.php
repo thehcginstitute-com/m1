@@ -101,7 +101,7 @@ class Mage_Cms_Model_Resource_Block extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * @inheritDoc
      */
-    public function load(Mage_Core_Model_Abstract $object, $value, $field = null)
+    function load(Mage_Core_Model_Abstract $object, $value, $field = null)
     {
         if (!is_numeric($value) && is_null($field)) {
             $field = 'identifier';
@@ -161,7 +161,7 @@ class Mage_Cms_Model_Resource_Block extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Core_Model_Abstract $object
      * @return bool
      */
-    public function getIsUniqueBlockToStores(Mage_Core_Model_Abstract $object)
+    function getIsUniqueBlockToStores(Mage_Core_Model_Abstract $object)
     {
         if (Mage::app()->isSingleStoreMode()) {
             $stores = [Mage_Core_Model_App::ADMIN_STORE_ID];
@@ -195,7 +195,7 @@ class Mage_Cms_Model_Resource_Block extends Mage_Core_Model_Resource_Db_Abstract
      * @param int $id
      * @return array
      */
-    public function lookupStoreIds($id)
+    function lookupStoreIds($id)
     {
         $adapter = $this->_getReadAdapter();
 

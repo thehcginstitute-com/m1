@@ -22,7 +22,7 @@ class Lesti_Fpc_Core_Block_Messages extends Mage_Core_Block_Messages
      * @param   string $type
      * @return  string
      */
-    public function getGroupedHtml()
+    function getGroupedHtml()
     {
         $html = parent::getGroupedHtml();
 

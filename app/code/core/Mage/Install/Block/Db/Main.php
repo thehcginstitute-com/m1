@@ -37,7 +37,7 @@ class Mage_Install_Block_Db_Main extends Mage_Core_Block_Template
      * @param  string $template
      * @return $this
      */
-    public function addDatabaseBlock($type, $block, $template)
+    function addDatabaseBlock($type, $block, $template)
     {
         $this->_databases[$type] = [
             'block'     => $block,
@@ -54,7 +54,7 @@ class Mage_Install_Block_Db_Main extends Mage_Core_Block_Template
      * @param  string $type database model type
      * @return bool | Mage_Core_Block_Template
      */
-    public function getDatabaseBlock($type)
+    function getDatabaseBlock($type)
     {
         $block = false;
         if (isset($this->_databases[$type])) {
@@ -75,7 +75,7 @@ class Mage_Install_Block_Db_Main extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getDatabaseBlocks()
+    function getDatabaseBlocks()
     {
         $databases = [];
         foreach ($this->_databases as $type => $blockData) {
@@ -89,7 +89,7 @@ class Mage_Install_Block_Db_Main extends Mage_Core_Block_Template
      *
      * @return Varien_Object
      */
-    public function getFormData()
+    function getFormData()
     {
         $data = $this->getData('form_data');
         if (is_null($data)) {

@@ -41,7 +41,7 @@ class Mage_Api_Model_Server_Wsi_Adapter_Soap extends Mage_Api_Model_Server_Adapt
      * @return $this
      * @throws SoapFault
      */
-    public function run()
+    function run()
     {
         $apiConfigCharset = Mage::getStoreConfig("api/config/charset");
 

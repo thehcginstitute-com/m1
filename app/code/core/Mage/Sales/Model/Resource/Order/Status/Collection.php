@@ -38,7 +38,7 @@ class Mage_Sales_Model_Resource_Order_Status_Collection extends Mage_Core_Model_
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->_toOptionArray('status', 'label');
     }
@@ -48,7 +48,7 @@ class Mage_Sales_Model_Resource_Order_Status_Collection extends Mage_Core_Model_
      *
      * @return array
      */
-    public function toOptionHash()
+    function toOptionHash()
     {
         return $this->_toOptionHash('status', 'label');
     }
@@ -56,7 +56,7 @@ class Mage_Sales_Model_Resource_Order_Status_Collection extends Mage_Core_Model_
     /**
      * Join order states table
      */
-    public function joinStates()
+    function joinStates()
     {
         if (!$this->getFlag('states_joined')) {
             $this->_idFieldName = 'status_state';
@@ -76,7 +76,7 @@ class Mage_Sales_Model_Resource_Order_Status_Collection extends Mage_Core_Model_
      * @param string $state
      * @return $this
      */
-    public function addStateFilter($state)
+    function addStateFilter($state)
     {
         $this->joinStates();
         $this->getSelect()->where('state_table.state=?', $state);
@@ -89,7 +89,7 @@ class Mage_Sales_Model_Resource_Order_Status_Collection extends Mage_Core_Model_
      * @param string $status
      * @return $this
      */
-    public function addStatusFilter($status)
+    function addStatusFilter($status)
     {
         $this->joinStates();
         $this->getSelect()->where('state_table.status=?', $status);
@@ -102,7 +102,7 @@ class Mage_Sales_Model_Resource_Order_Status_Collection extends Mage_Core_Model_
      * @param string $dir
      * @return $this
      */
-    public function orderByLabel($dir = 'ASC')
+    function orderByLabel($dir = 'ASC')
     {
         $this->getSelect()->order('main_table.label ' . $dir);
         return $this;

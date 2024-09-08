@@ -12,7 +12,7 @@
 
 class Nwdthemes_Revslider_Model_Observer
 {
-    public function setHandle(Varien_Event_Observer $observer)
+    function setHandle(Varien_Event_Observer $observer)
     {
 		if ( Mage::helper('nwdall')->getCfg('general/enabled', 'nwdrevslider_config') )
 		{

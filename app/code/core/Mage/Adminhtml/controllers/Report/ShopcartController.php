@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Report_ShopcartController extends Mage_Adminhtml_Controller_Action
 {
-    public function _initAction()
+    function _initAction()
     {
         $act = $this->getRequest()->getActionName();
         $this->loadLayout()
@@ -31,7 +31,7 @@ class Mage_Adminhtml_Report_ShopcartController extends Mage_Adminhtml_Controller
         return $this;
     }
 
-    public function customerAction()
+    function customerAction()
     {
         $this->_title($this->__('Reports'))
              ->_title($this->__('Shopping Cart'))
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Report_ShopcartController extends Mage_Adminhtml_Controller
     /**
      * Export shopcart customer report to CSV format
      */
-    public function exportCustomerCsvAction()
+    function exportCustomerCsvAction()
     {
         $fileName   = 'shopcart_customer.csv';
         $content    = $this->getLayout()->createBlock('adminhtml/report_shopcart_customer_grid')
@@ -59,7 +59,7 @@ class Mage_Adminhtml_Report_ShopcartController extends Mage_Adminhtml_Controller
     /**
      * Export shopcart customer report to Excel XML format
      */
-    public function exportCustomerExcelAction()
+    function exportCustomerExcelAction()
     {
         $fileName   = 'shopcart_customer.xml';
         $content    = $this->getLayout()->createBlock('adminhtml/report_shopcart_customer_grid')
@@ -68,7 +68,7 @@ class Mage_Adminhtml_Report_ShopcartController extends Mage_Adminhtml_Controller
         $this->_prepareDownloadResponse($fileName, $content);
     }
 
-    public function productAction()
+    function productAction()
     {
         $this->_title($this->__('Reports'))
              ->_title($this->__('Shopping Cart'))
@@ -84,7 +84,7 @@ class Mage_Adminhtml_Report_ShopcartController extends Mage_Adminhtml_Controller
     /**
      * Export products report grid to CSV format
      */
-    public function exportProductCsvAction()
+    function exportProductCsvAction()
     {
         $fileName   = 'shopcart_product.csv';
         $content    = $this->getLayout()->createBlock('adminhtml/report_shopcart_product_grid')
@@ -96,7 +96,7 @@ class Mage_Adminhtml_Report_ShopcartController extends Mage_Adminhtml_Controller
     /**
      * Export products report to Excel XML format
      */
-    public function exportProductExcelAction()
+    function exportProductExcelAction()
     {
         $fileName   = 'shopcart_product.xml';
         $content    = $this->getLayout()->createBlock('adminhtml/report_shopcart_product_grid')
@@ -105,7 +105,7 @@ class Mage_Adminhtml_Report_ShopcartController extends Mage_Adminhtml_Controller
         $this->_prepareDownloadResponse($fileName, $content);
     }
 
-    public function abandonedAction()
+    function abandonedAction()
     {
         $this->_title($this->__('Reports'))
              ->_title($this->__('Shopping Cart'))
@@ -121,7 +121,7 @@ class Mage_Adminhtml_Report_ShopcartController extends Mage_Adminhtml_Controller
     /**
      * Export abandoned carts report grid to CSV format
      */
-    public function exportAbandonedCsvAction()
+    function exportAbandonedCsvAction()
     {
         $fileName   = 'shopcart_abandoned.csv';
         $content    = $this->getLayout()->createBlock('adminhtml/report_shopcart_abandoned_grid')
@@ -133,7 +133,7 @@ class Mage_Adminhtml_Report_ShopcartController extends Mage_Adminhtml_Controller
     /**
      * Export abandoned carts report to Excel XML format
      */
-    public function exportAbandonedExcelAction()
+    function exportAbandonedExcelAction()
     {
         $fileName   = 'shopcart_abandoned.xml';
         $content    = $this->getLayout()->createBlock('adminhtml/report_shopcart_abandoned_grid')

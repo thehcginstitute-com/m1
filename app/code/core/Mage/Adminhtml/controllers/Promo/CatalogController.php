@@ -40,7 +40,7 @@ class Mage_Adminhtml_Promo_CatalogController extends Mage_Adminhtml_Controller_A
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         return parent::preDispatch();
@@ -57,7 +57,7 @@ class Mage_Adminhtml_Promo_CatalogController extends Mage_Adminhtml_Controller_A
         return $this;
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Promotions'))->_title($this->__('Catalog Price Rules'));
 
@@ -74,12 +74,12 @@ class Mage_Adminhtml_Promo_CatalogController extends Mage_Adminhtml_Controller_A
             ->renderLayout();
     }
 
-    public function newAction()
+    function newAction()
     {
         $this->_forward('edit');
     }
 
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('Promotions'))->_title($this->__('Catalog Price Rules'));
 
@@ -117,7 +117,7 @@ class Mage_Adminhtml_Promo_CatalogController extends Mage_Adminhtml_Controller_A
         $this->_addBreadcrumb($breadcrumb, $breadcrumb)->renderLayout();
     }
 
-    public function saveAction()
+    function saveAction()
     {
         if ($this->getRequest()->getPost()) {
             try {
@@ -196,7 +196,7 @@ class Mage_Adminhtml_Promo_CatalogController extends Mage_Adminhtml_Controller_A
         $this->_redirect('*/*/');
     }
 
-    public function deleteAction()
+    function deleteAction()
     {
         if ($id = $this->getRequest()->getParam('id')) {
             try {
@@ -235,7 +235,7 @@ class Mage_Adminhtml_Promo_CatalogController extends Mage_Adminhtml_Controller_A
         $this->_redirect('*/*/');
     }
 
-    public function newConditionHtmlAction()
+    function newConditionHtmlAction()
     {
         $id = $this->getRequest()->getParam('id');
         $typeArr = explode('|', str_replace('-', '/', $this->getRequest()->getParam('type')));
@@ -259,7 +259,7 @@ class Mage_Adminhtml_Promo_CatalogController extends Mage_Adminhtml_Controller_A
         $this->getResponse()->setBody($html);
     }
 
-    public function chooserAction()
+    function chooserAction()
     {
         switch ($this->getRequest()->getParam('attribute')) {
             case 'sku':
@@ -278,7 +278,7 @@ class Mage_Adminhtml_Promo_CatalogController extends Mage_Adminhtml_Controller_A
         }
     }
 
-    public function newActionHtmlAction()
+    function newActionHtmlAction()
     {
         $id = $this->getRequest()->getParam('id');
         $typeArr = explode('|', str_replace('-', '/', $this->getRequest()->getParam('type')));
@@ -305,7 +305,7 @@ class Mage_Adminhtml_Promo_CatalogController extends Mage_Adminhtml_Controller_A
     /**
      * Apply all active catalog price rules
      */
-    public function applyRulesAction()
+    function applyRulesAction()
     {
         $errorMessage = Mage::helper('catalogrule')->__('Unable to apply rules.');
         try {
@@ -326,7 +326,7 @@ class Mage_Adminhtml_Promo_CatalogController extends Mage_Adminhtml_Controller_A
     /**
      * @deprecated since 1.5.0.0
      */
-    public function addToAlersAction()
+    function addToAlersAction()
     {
     }
 
@@ -335,7 +335,7 @@ class Mage_Adminhtml_Promo_CatalogController extends Mage_Adminhtml_Controller_A
      *
      * @param string $dirtyRulesNoticeMessage
      */
-    public function setDirtyRulesNoticeMessage($dirtyRulesNoticeMessage)
+    function setDirtyRulesNoticeMessage($dirtyRulesNoticeMessage)
     {
         $this->_dirtyRulesNoticeMessage = $dirtyRulesNoticeMessage;
     }
@@ -345,7 +345,7 @@ class Mage_Adminhtml_Promo_CatalogController extends Mage_Adminhtml_Controller_A
      *
      * @return string
      */
-    public function getDirtyRulesNoticeMessage()
+    function getDirtyRulesNoticeMessage()
     {
         $defaultMessage = Mage::helper('catalogrule')->__('There are rules that have been changed but were not applied. Please, click Apply Rules in order to see immediate effect in the catalog.');
         return $this->_dirtyRulesNoticeMessage ? $this->_dirtyRulesNoticeMessage : $defaultMessage;

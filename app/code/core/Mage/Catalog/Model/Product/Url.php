@@ -55,7 +55,7 @@ class Mage_Catalog_Model_Product_Url extends Varien_Object
      *
      * @param array $args
      */
-    public function __construct(array $args = [])
+    function __construct(array $args = [])
     {
         $this->_factory = !empty($args['factory']) ? $args['factory'] : Mage::getSingleton('catalog/factory');
         $this->_store = !empty($args['store']) ? $args['store'] : Mage::app()->getStore();
@@ -66,7 +66,7 @@ class Mage_Catalog_Model_Product_Url extends Varien_Object
      *
      * @return Mage_Core_Model_Url
      */
-    public function getUrlInstance()
+    function getUrlInstance()
     {
         if ($this->_url === null) {
             $this->_url = Mage::getModel('core/url');
@@ -79,7 +79,7 @@ class Mage_Catalog_Model_Product_Url extends Varien_Object
      *
      * @return Mage_Core_Model_Url_Rewrite
      */
-    public function getUrlRewrite()
+    function getUrlRewrite()
     {
         if ($this->_urlRewrite === null) {
             $this->_urlRewrite = $this->_factory->getUrlRewriteInstance();
@@ -108,7 +108,7 @@ class Mage_Catalog_Model_Product_Url extends Varien_Object
      * @param array $params the URL route params
      * @return string
      */
-    public function getUrlInStore(Mage_Catalog_Model_Product $product, $params = [])
+    function getUrlInStore(Mage_Catalog_Model_Product $product, $params = [])
     {
         $params['_store_to_url'] = true;
         return $this->getUrl($product, $params);
@@ -121,7 +121,7 @@ class Mage_Catalog_Model_Product_Url extends Varien_Object
      * @param  bool $useSid forced SID mode
      * @return string
      */
-    public function getProductUrl($product, $useSid = null)
+    function getProductUrl($product, $useSid = null)
     {
         if ($useSid === null) {
             $useSid = Mage::app()->getUseSessionInUrl();
@@ -141,7 +141,7 @@ class Mage_Catalog_Model_Product_Url extends Varien_Object
      * @param string $str
      * @return string
      */
-    public function formatUrlKey($str)
+    function formatUrlKey($str)
     {
         $urlKey = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format($str));
         $urlKey = strtolower($urlKey);
@@ -158,7 +158,7 @@ class Mage_Catalog_Model_Product_Url extends Varien_Object
      *
      * @return string
      */
-    public function getUrlPath($product, $category = null)
+    function getUrlPath($product, $category = null)
     {
         $path = $product->getData('url_path');
 
@@ -180,7 +180,7 @@ class Mage_Catalog_Model_Product_Url extends Varien_Object
      * @param array $params
      * @return string
      */
-    public function getUrl(Mage_Catalog_Model_Product $product, $params = [])
+    function getUrl(Mage_Catalog_Model_Product $product, $params = [])
     {
         $url = $product->getData('url');
         if (!empty($url)) {

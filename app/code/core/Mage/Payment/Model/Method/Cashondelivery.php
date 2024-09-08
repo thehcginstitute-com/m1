@@ -42,7 +42,7 @@ class Mage_Payment_Model_Method_Cashondelivery extends Mage_Payment_Model_Method
      *
      * @return string
      */
-    public function getInstructions()
+    function getInstructions()
     {
         return trim($this->getConfigData('instructions'));
     }
@@ -52,7 +52,7 @@ class Mage_Payment_Model_Method_Cashondelivery extends Mage_Payment_Model_Method
      *
      * {@inheritDoc}
      */
-    public function isApplicableToQuote($quote, $checksBitMask)
+    function isApplicableToQuote($quote, $checksBitMask)
     {
         if ($quote->getIsVirtual()) {
             return false;

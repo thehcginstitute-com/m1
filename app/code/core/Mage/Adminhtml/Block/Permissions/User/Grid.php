@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Permissions_User_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('permissionsUserGrid');
@@ -80,12 +80,12 @@ class Mage_Adminhtml_Block_Permissions_User_Grid extends Mage_Adminhtml_Block_Wi
         return parent::_prepareColumns();
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', ['user_id' => $row->getId()]);
     }
 
-    public function getGridUrl()
+    function getGridUrl()
     {
         //$uid = $this->getRequest()->getParam('user_id');
         return $this->getUrl('*/*/roleGrid', []);

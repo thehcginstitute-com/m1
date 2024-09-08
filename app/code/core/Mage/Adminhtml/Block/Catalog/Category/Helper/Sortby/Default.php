@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Helper_Sortby_Default extends Varien
      *
      * @return string
      */
-    public function getToggleCode()
+    function getToggleCode()
     {
         $htmlId = 'use_config_' . $this->getHtmlId();
         return "toggleValueElements(this, this.parentNode.parentNode);"
@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Helper_Sortby_Default extends Varien
      *
      * @return string
      */
-    public function getElementHtml()
+    function getElementHtml()
     {
         $elementDisabled = $this->getDisabled() == 'disabled';
         $disabled = false;

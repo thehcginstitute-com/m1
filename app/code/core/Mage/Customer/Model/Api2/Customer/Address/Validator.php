@@ -33,7 +33,7 @@ class Mage_Customer_Model_Api2_Customer_Address_Validator extends Mage_Api2_Mode
      * @param  array $data
      * @return array Filtered data
      */
-    public function filter(array $data)
+    function filter(array $data)
     {
         $filteredData = parent::filter($data);
 
@@ -59,7 +59,7 @@ class Mage_Customer_Model_Api2_Customer_Address_Validator extends Mage_Api2_Mode
      * @param array $data
      * @return bool
      */
-    public function isValidDataForCreateAssociationWithCountry(array $data)
+    function isValidDataForCreateAssociationWithCountry(array $data)
     {
         return $this->_checkRegion($data, Mage::getModel('directory/country')->loadByCode($data['country_id']));
     }
@@ -71,7 +71,7 @@ class Mage_Customer_Model_Api2_Customer_Address_Validator extends Mage_Api2_Mode
      * @param array $data
      * @return bool
      */
-    public function isValidDataForChangeAssociationWithCountry(Mage_Customer_Model_Address $address, array $data)
+    function isValidDataForChangeAssociationWithCountry(Mage_Customer_Model_Address $address, array $data)
     {
         if (!isset($data['country_id']) && !isset($data['region'])) {
             return true;

@@ -24,7 +24,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Totals extends Mage_Adminhtml_
 {
     protected $_creditmemo;
 
-    public function getCreditmemo()
+    function getCreditmemo()
     {
         if ($this->_creditmemo === null) {
             if ($this->hasData('creditmemo')) {
@@ -38,7 +38,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Totals extends Mage_Adminhtml_
         return $this->_creditmemo;
     }
 
-    public function getSource()
+    function getSource()
     {
         return $this->getCreditmemo();
     }

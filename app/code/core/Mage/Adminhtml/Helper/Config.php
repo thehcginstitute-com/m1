@@ -32,7 +32,7 @@ class Mage_Adminhtml_Helper_Config extends Mage_Core_Helper_Abstract
      * @param string $inputType
      * @return array
      */
-    public function getInputTypes(string $inputType = null): array
+    function getInputTypes(string $inputType = null): array
     {
         $inputTypes = [
             'color' => [
@@ -54,7 +54,7 @@ class Mage_Adminhtml_Helper_Config extends Mage_Core_Helper_Abstract
      * @param string $inputType
      * @return string|null
      */
-    public function getBackendModelByInputType(string $inputType): ?string
+    function getBackendModelByInputType(string $inputType): ?string
     {
         $inputTypes = $this->getInputTypes();
         if (!empty($inputTypes[$inputType]['backend_model'])) {
@@ -69,7 +69,7 @@ class Mage_Adminhtml_Helper_Config extends Mage_Core_Helper_Abstract
      * @param Varien_Simplexml_Element $fieldConfig
      * @return string|null
      */
-    public function getBackendModelByFieldConfig(Varien_Simplexml_Element $fieldConfig): ?string
+    function getBackendModelByFieldConfig(Varien_Simplexml_Element $fieldConfig): ?string
     {
         if (isset($fieldConfig->backend_model)) {
             return (string)$fieldConfig->backend_model;

@@ -42,7 +42,7 @@ class Mage_Admin_Model_Block extends Mage_Core_Model_Abstract
      * @throws Exception
      * @throws Zend_Validate_Exception
      */
-    public function validate()
+    function validate()
     {
         $errors = [];
 
@@ -73,7 +73,7 @@ class Mage_Admin_Model_Block extends Mage_Core_Model_Abstract
      * @param string $type
      * @return bool
      */
-    public function isTypeAllowed($type)
+    function isTypeAllowed($type)
     {
         return Mage::helper('admin/block')->isTypeAllowed($type);
     }

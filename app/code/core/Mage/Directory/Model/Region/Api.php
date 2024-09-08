@@ -28,7 +28,7 @@ class Mage_Directory_Model_Region_Api extends Mage_Api_Model_Resource_Abstract
      * @param string $country
      * @return array
      */
-    public function items($country)
+    function items($country)
     {
         try {
             $country = Mage::getModel('directory/country')->loadByCode($country);

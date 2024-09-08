@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Tax_Rate_Toolbar_Save extends Mage_Adminhtml_Block_Te
     /**
      * Mage_Adminhtml_Block_Tax_Rate_Toolbar_Save constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->assign('createUrl', $this->getUrl('*/tax_rate/save'));
@@ -85,7 +85,7 @@ class Mage_Adminhtml_Block_Tax_Rate_Toolbar_Save extends Mage_Adminhtml_Block_Te
     /**
      * @return string
      */
-    public function getBackButtonHtml()
+    function getBackButtonHtml()
     {
         return $this->getChildHtml('backButton');
     }
@@ -93,7 +93,7 @@ class Mage_Adminhtml_Block_Tax_Rate_Toolbar_Save extends Mage_Adminhtml_Block_Te
     /**
      * @return string
      */
-    public function getResetButtonHtml()
+    function getResetButtonHtml()
     {
         return $this->getChildHtml('resetButton');
     }
@@ -101,7 +101,7 @@ class Mage_Adminhtml_Block_Tax_Rate_Toolbar_Save extends Mage_Adminhtml_Block_Te
     /**
      * @return string
      */
-    public function getSaveButtonHtml()
+    function getSaveButtonHtml()
     {
         return $this->getChildHtml('saveButton');
     }
@@ -110,7 +110,7 @@ class Mage_Adminhtml_Block_Tax_Rate_Toolbar_Save extends Mage_Adminhtml_Block_Te
      * @return string|void
      * @throws Exception
      */
-    public function getDeleteButtonHtml()
+    function getDeleteButtonHtml()
     {
         if ((int) $this->getRequest()->getParam('rate') == 0) {
             return;

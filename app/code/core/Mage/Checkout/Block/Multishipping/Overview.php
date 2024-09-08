@@ -40,7 +40,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      *
      * @return Mage_Checkout_Model_Type_Multishipping
      */
-    public function getCheckout()
+    function getCheckout()
     {
         return Mage::getSingleton('checkout/type_multishipping');
     }
@@ -61,7 +61,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
     /**
      * @return Mage_Sales_Model_Quote_Address
      */
-    public function getBillingAddress()
+    function getBillingAddress()
     {
         return $this->getCheckout()->getQuote()->getBillingAddress();
     }
@@ -69,7 +69,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
     /**
      * @return string
      */
-    public function getPaymentHtml()
+    function getPaymentHtml()
     {
         return $this->getChildHtml('payment_info');
     }
@@ -80,7 +80,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      * @return Varien_Object
      * @throws Exception
      */
-    public function getPayment()
+    function getPayment()
     {
         if (!$this->hasData('payment')) {
             $payment = new Varien_Object($this->getRequest()->getPost('payment'));
@@ -92,7 +92,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
     /**
      * @return Mage_Sales_Model_Quote_Address[]
      */
-    public function getShippingAddresses()
+    function getShippingAddresses()
     {
         return $this->getCheckout()->getQuote()->getAllShippingAddresses();
     }
@@ -100,7 +100,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
     /**
      * @return int
      */
-    public function getShippingAddressCount()
+    function getShippingAddressCount()
     {
         $count = $this->getData('shipping_address_count');
         if (is_null($count)) {
@@ -114,7 +114,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      * @param Mage_Sales_Model_Quote_Address $address
      * @return Mage_Sales_Model_Quote_Address_Rate|false
      */
-    public function getShippingAddressRate($address)
+    function getShippingAddressRate($address)
     {
         if ($rate = $address->getShippingRateByCode($address->getShippingMethod())) {
             return $rate;
@@ -126,7 +126,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      * @param Mage_Sales_Model_Quote_Address $address
      * @return string
      */
-    public function getShippingPriceInclTax($address)
+    function getShippingPriceInclTax($address)
     {
         $exclTax = $address->getShippingAmount();
         $taxAmount = $address->getShippingTaxAmount();
@@ -137,7 +137,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      * @param Mage_Sales_Model_Quote_Address $address
      * @return string
      */
-    public function getShippingPriceExclTax($address)
+    function getShippingPriceExclTax($address)
     {
         return $this->formatPrice($address->getShippingAmount());
     }
@@ -146,7 +146,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      * @param float $price
      * @return string
      */
-    public function formatPrice($price)
+    function formatPrice($price)
     {
         return $this->getQuote()->getStore()->formatPrice($price);
     }
@@ -155,7 +155,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      * @param Mage_Sales_Model_Quote_Address $address
      * @return Mage_Sales_Model_Quote_Address_Item[]
      */
-    public function getShippingAddressItems($address)
+    function getShippingAddressItems($address)
     {
         return $address->getAllVisibleItems();
     }
@@ -164,7 +164,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      * @param Mage_Sales_Model_Quote_Address $address
      * @return Mage_Sales_Model_Quote_Address_Total[]
      */
-    public function getShippingAddressTotals($address)
+    function getShippingAddressTotals($address)
     {
         $totals = $address->getTotals();
         foreach ($totals as $total) {
@@ -182,7 +182,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
     /**
      * @return float
      */
-    public function getTotal()
+    function getTotal()
     {
         return $this->getCheckout()->getQuote()->getGrandTotal();
     }
@@ -190,7 +190,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
     /**
      * @return string
      */
-    public function getAddressesEditUrl()
+    function getAddressesEditUrl()
     {
         return $this->getUrl('*/*/backtoaddresses');
     }
@@ -199,7 +199,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      * @param Mage_Sales_Model_Quote_Address $address
      * @return string
      */
-    public function getEditShippingAddressUrl($address)
+    function getEditShippingAddressUrl($address)
     {
         return $this->getUrl('*/multishipping_address/editShipping', ['id' => $address->getCustomerAddressId()]);
     }
@@ -208,7 +208,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      * @param Mage_Sales_Model_Quote_Address $address
      * @return string
      */
-    public function getEditBillingAddressUrl($address)
+    function getEditBillingAddressUrl($address)
     {
         return $this->getUrl('*/multishipping_address/editBilling', ['id' => $address->getCustomerAddressId()]);
     }
@@ -216,7 +216,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
     /**
      * @return string
      */
-    public function getEditShippingUrl()
+    function getEditShippingUrl()
     {
         return $this->getUrl('*/*/backtoshipping');
     }
@@ -224,7 +224,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
     /**
      * @return string
      */
-    public function getPostActionUrl()
+    function getPostActionUrl()
     {
         return $this->getUrl('*/*/overviewPost');
     }
@@ -232,7 +232,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
     /**
      * @return string
      */
-    public function getEditBillingUrl()
+    function getEditBillingUrl()
     {
         return $this->getUrl('*/*/backtobilling');
     }
@@ -240,7 +240,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
     /**
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl('*/*/backtobilling');
     }
@@ -250,7 +250,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      *
      * @return string
      */
-    public function getVirtualProductEditUrl()
+    function getVirtualProductEditUrl()
     {
         return $this->getUrl('*/cart');
     }
@@ -260,7 +260,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      *
      * @return array
      */
-    public function getVirtualItems()
+    function getVirtualItems()
     {
         $items = [];
         foreach ($this->getBillingAddress()->getItemsCollection() as $_item) {
@@ -279,7 +279,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return $this->getCheckout()->getQuote();
     }
@@ -287,7 +287,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
     /**
      * @return mixed
      */
-    public function getBillinAddressTotals()
+    function getBillinAddressTotals()
     {
         $_address = $this->getQuote()->getBillingAddress();
         return $this->getShippingAddressTotals($_address);
@@ -298,7 +298,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      * @param int|null $colspan
      * @return string
      */
-    public function renderTotals($totals, $colspan = null)
+    function renderTotals($totals, $colspan = null)
     {
         if ($colspan === null) {
             /** @var Mage_Tax_Helper_Data $helper */
@@ -318,7 +318,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      * @param   string $template Block template
      * @return  Mage_Checkout_Block_Multishipping_Overview
      */
-    public function addRowItemRender($type, $block, $template)
+    function addRowItemRender($type, $block, $template)
     {
         $type = $this->_getRowItemType($type);
         parent::addItemRender($this->_getRowItemType($type), $block, $template);
@@ -331,7 +331,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      * @param Varien_Object $item
      * @return string
      */
-    public function getRowItemHtml(Varien_Object $item)
+    function getRowItemHtml(Varien_Object $item)
     {
         $type = $this->_getItemType($item);
         $block = $this->_getRowItemRenderer($type)
@@ -346,7 +346,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
      * @param string $type
      * @return Mage_Core_Block_Abstract
      */
-    public function _getRowItemRenderer($type)
+    function _getRowItemRenderer($type)
     {
         $type = $this->_getRowItemType($type);
         $type = isset($this->_itemRenders[$type]) ? $type : $this->_getRowItemType('default');

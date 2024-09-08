@@ -52,7 +52,7 @@ class Mage_Core_Model_Encryption
      * @param Mage_Core_Helper_Data $helper
      * @return $this
      */
-    public function setHelper($helper)
+    function setHelper($helper)
     {
         $this->_helper = $helper;
         return $this;
@@ -70,7 +70,7 @@ class Mage_Core_Model_Encryption
      * @param mixed $salt
      * @return string
      */
-    public function getHash($password, $salt = false)
+    function getHash($password, $salt = false)
     {
         if (is_int($salt)) {
             $salt = $this->_helper->getRandomString($salt);
@@ -87,7 +87,7 @@ class Mage_Core_Model_Encryption
      * @param mixed $salt
      * @return string
      */
-    public function getHashPassword($password, $salt = null)
+    function getHashPassword($password, $salt = null)
     {
         if (is_int($salt)) {
             $salt = $this->_helper->getRandomString($salt);
@@ -104,7 +104,7 @@ class Mage_Core_Model_Encryption
      * @param int $version
      * @return bool|string
      */
-    public function hash($data, $version = self::HASH_VERSION_MD5)
+    function hash($data, $version = self::HASH_VERSION_MD5)
     {
         if (self::HASH_VERSION_LATEST === $version && $version === $this->_helper->getVersionHash($this)) {
             return password_hash($data, PASSWORD_DEFAULT);
@@ -124,7 +124,7 @@ class Mage_Core_Model_Encryption
      * @return bool
      * @throws Exception
      */
-    public function validateHash($password, $hash)
+    function validateHash($password, $hash)
     {
         if (strlen($password) > self::MAXIMUM_PASSWORD_LENGTH) {
             return false;
@@ -144,7 +144,7 @@ class Mage_Core_Model_Encryption
      * @param int $version
      * @return bool
      */
-    public function validateHashByVersion($password, $hash, $version = self::HASH_VERSION_MD5)
+    function validateHashByVersion($password, $hash, $version = self::HASH_VERSION_MD5)
     {
         if ($version == self::HASH_VERSION_LATEST && $version == $this->_helper->getVersionHash($this)) {
             return password_verify($password, $hash);
@@ -181,7 +181,7 @@ class Mage_Core_Model_Encryption
      * @param string $data
      * @return string
      */
-    public function encrypt($data)
+    function encrypt($data)
     {
         return base64_encode($this->_getCrypt()->encrypt((string)$data));
     }
@@ -192,7 +192,7 @@ class Mage_Core_Model_Encryption
      * @param string $data
      * @return string
      */
-    public function decrypt($data)
+    function decrypt($data)
     {
         return str_replace("\x0", '', trim($this->_getCrypt()->decrypt(base64_decode((string)$data))));
     }
@@ -203,7 +203,7 @@ class Mage_Core_Model_Encryption
      * @param string $key
      * @return Varien_Crypt_Mcrypt
      */
-    public function validateKey($key)
+    function validateKey($key)
     {
         return $this->_getCrypt($key);
     }

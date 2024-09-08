@@ -61,7 +61,7 @@ class Mage_Adminhtml_Model_Config_Data extends Varien_Object
      *
      * @return $this
      */
-    public function save()
+    function save()
     {
         $this->_validate();
         $this->_getScope();
@@ -221,7 +221,7 @@ class Mage_Adminhtml_Model_Config_Data extends Varien_Object
      *
      * @return array
      */
-    public function load()
+    function load()
     {
         if (is_null($this->_configData)) {
             $this->_validate();
@@ -239,7 +239,7 @@ class Mage_Adminhtml_Model_Config_Data extends Varien_Object
      * @param array $oldConfig Config data to extend
      * @return array
      */
-    public function extendConfig($path, $full = true, $oldConfig = [])
+    function extendConfig($path, $full = true, $oldConfig = [])
     {
         $extended = $this->_getPathConfig($path, $full);
         if (is_array($oldConfig) && !empty($oldConfig)) {
@@ -360,7 +360,7 @@ class Mage_Adminhtml_Model_Config_Data extends Varien_Object
      * @param null|array $configData
      * @return Varien_Simplexml_Element
      */
-    public function getConfigDataValue($path, &$inherit = null, $configData = null)
+    function getConfigDataValue($path, &$inherit = null, $configData = null)
     {
         $this->load();
         if (is_null($configData)) {
@@ -382,7 +382,7 @@ class Mage_Adminhtml_Model_Config_Data extends Varien_Object
      *
      * @return Mage_Core_Model_Config_Element
      */
-    public function getConfigRoot()
+    function getConfigRoot()
     {
         if (is_null($this->_configRoot)) {
             $this->load();
@@ -398,7 +398,7 @@ class Mage_Adminhtml_Model_Config_Data extends Varien_Object
      * @return Mage_Adminhtml_Model_Config_Data
      * @throws Mage_Core_Exception
      */
-    public function setGroupsSecure($groups)
+    function setGroupsSecure($groups)
     {
         $this->_validate();
         $this->_getScope();
@@ -476,7 +476,7 @@ class Mage_Adminhtml_Model_Config_Data extends Varien_Object
      * @return Mage_Adminhtml_Model_Config_Data
      * @throws Mage_Core_Exception
      */
-    public function setGroupsSelector($groups)
+    function setGroupsSelector($groups)
     {
         if (Mage::getStoreConfigFlag('admin/security/secure_system_configuration_save_disabled')) {
             return $this->setGroups($groups);

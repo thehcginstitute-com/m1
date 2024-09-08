@@ -48,7 +48,7 @@ class Mage_Adminhtml_Block_Sales_Order_Totalbar extends Mage_Adminhtml_Block_Sal
         return $this->_totals;
     }
 
-    public function addTotal($label, $value, $grand = false)
+    function addTotal($label, $value, $grand = false)
     {
         $this->_totals[] = [
             'label' => $label,

@@ -67,7 +67,7 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getCacheKeyInfo()
+    function getCacheKeyInfo()
     {
         $shortCacheId = [
             'CATALOG_NAVIGATION',
@@ -96,7 +96,7 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
      *
      * @return mixed
      */
-    public function getCurrenCategoryKey()
+    function getCurrenCategoryKey()
     {
         if (!$this->_currentCategoryKey) {
             $category = Mage::registry('current_category');
@@ -115,7 +115,7 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
      *
      * @return Varien_Data_Tree_Node_Collection
      */
-    public function getStoreCategories()
+    function getStoreCategories()
     {
         $helper = Mage::helper('catalog/category');
         return $helper->getStoreCategories();
@@ -126,7 +126,7 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
      *
      * @return Mage_Catalog_Model_Resource_Category_Collection
      */
-    public function getCurrentChildCategories()
+    function getCurrentChildCategories()
     {
         if ($this->_currentChildCategories === null) {
             $layer = Mage::getSingleton('catalog/layer');
@@ -145,7 +145,7 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
      * @param Varien_Object $category
      * @return bool
      */
-    public function isCategoryActive($category)
+    function isCategoryActive($category)
     {
         return $this->getCurrentCategory()
             ? in_array($category->getId(), $this->getCurrentCategory()->getPathIds()) : false;
@@ -170,7 +170,7 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
      * @param Mage_Catalog_Model_Category $category
      * @return string
      */
-    public function getCategoryUrl($category)
+    function getCategoryUrl($category)
     {
         if ($category instanceof Mage_Catalog_Model_Category) {
             $url = $category->getUrl();
@@ -347,7 +347,7 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
      * @param bool $last Whether ot not this item is last, affects list item class
      * @return string
      */
-    public function drawItem($category, $level = 0, $last = false)
+    function drawItem($category, $level = 0, $last = false)
     {
         return $this->_renderCategoryMenuItemHtml($category, $level, $last);
     }
@@ -355,7 +355,7 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
     /**
      * @return Mage_Catalog_Model_Category|false
      */
-    public function getCurrentCategory()
+    function getCurrentCategory()
     {
         if (Mage::getSingleton('catalog/layer')) {
             return Mage::getSingleton('catalog/layer')->getCurrentCategory();
@@ -366,7 +366,7 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
     /**
      * @return array
      */
-    public function getCurrentCategoryPath()
+    function getCurrentCategoryPath()
     {
         if ($this->getCurrentCategory()) {
             return explode(',', $this->getCurrentCategory()->getPathInStore());
@@ -378,7 +378,7 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
      * @param Mage_Catalog_Model_Category $category
      * @return string
      */
-    public function drawOpenCategoryItem($category)
+    function drawOpenCategoryItem($category)
     {
         $html = '';
         if (!$category->getIsActive()) {
@@ -423,7 +423,7 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
      * @param string $childrenWrapClass If specified wraps children list in div with this class
      * @return string
      */
-    public function renderCategoriesMenuHtml($level = 0, $outermostItemClass = '', $childrenWrapClass = '')
+    function renderCategoriesMenuHtml($level = 0, $outermostItemClass = '', $childrenWrapClass = '')
     {
         $activeCategories = [];
         foreach ($this->getStoreCategories() as $child) {

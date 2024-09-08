@@ -28,7 +28,7 @@ class Mage_Bundle_Adminhtml_Bundle_Product_EditController extends Mage_Adminhtml
         $this->setUsedModuleName('Mage_Bundle');
     }
 
-    public function formAction()
+    function formAction()
     {
         $product = $this->_initProduct();
         $this->getResponse()->setBody(

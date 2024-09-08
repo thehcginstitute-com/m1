@@ -75,7 +75,7 @@ class Mage_CatalogSearch_Model_Query extends Mage_Core_Model_Abstract
      *
      * @return Mage_CatalogSearch_Model_Resource_Search_Collection
      */
-    public function getSearchCollection()
+    function getSearchCollection()
     {
         return Mage::getResourceModel('catalogsearch/search_collection');
     }
@@ -85,7 +85,7 @@ class Mage_CatalogSearch_Model_Query extends Mage_Core_Model_Abstract
      *
      * @return Mage_Eav_Model_Entity_Collection_Abstract
      */
-    public function getResultCollection()
+    function getResultCollection()
     {
         $collection = $this->getData('result_collection');
         if (is_null($collection)) {
@@ -110,7 +110,7 @@ class Mage_CatalogSearch_Model_Query extends Mage_Core_Model_Abstract
      *
      * @return Mage_CatalogSearch_Model_Resource_Query_Collection
      */
-    public function getSuggestCollection()
+    function getSuggestCollection()
     {
         $collection = $this->getData('suggest_collection');
         if (is_null($collection)) {
@@ -128,7 +128,7 @@ class Mage_CatalogSearch_Model_Query extends Mage_Core_Model_Abstract
      * @param string $text
      * @return $this
      */
-    public function loadByQuery($text)
+    function loadByQuery($text)
     {
         $this->_getResource()->loadByQuery($this, $text);
         $this->_afterLoad();
@@ -142,7 +142,7 @@ class Mage_CatalogSearch_Model_Query extends Mage_Core_Model_Abstract
      * @param string $text
      * @return $this
      */
-    public function loadByQueryText($text)
+    function loadByQueryText($text)
     {
         $this->_getResource()->loadByQueryText($this, $text);
         $this->_afterLoad();
@@ -155,7 +155,7 @@ class Mage_CatalogSearch_Model_Query extends Mage_Core_Model_Abstract
      *
      * @param int $storeId
      */
-    public function setStoreId($storeId)
+    function setStoreId($storeId)
     {
         $this->setData('store_id', $storeId);
     }
@@ -165,7 +165,7 @@ class Mage_CatalogSearch_Model_Query extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         if (!$storeId = $this->getData('store_id')) {
             $storeId = Mage::app()->getStore()->getId();
@@ -178,7 +178,7 @@ class Mage_CatalogSearch_Model_Query extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function prepare()
+    function prepare()
     {
         if (!$this->getId()) {
             $this->setIsActive(0);
@@ -196,7 +196,7 @@ class Mage_CatalogSearch_Model_Query extends Mage_Core_Model_Abstract
      * @deprecated after 1.3.2.3 use getMinQueryLength() instead
      * @return int
      */
-    public function getMinQueryLenght()
+    function getMinQueryLenght()
     {
         return Mage::getStoreConfig(self::XML_PATH_MIN_QUERY_LENGTH, $this->getStoreId());
     }
@@ -206,7 +206,7 @@ class Mage_CatalogSearch_Model_Query extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getMinQueryLength()
+    function getMinQueryLength()
     {
         return $this->getMinQueryLenght();
     }
@@ -217,7 +217,7 @@ class Mage_CatalogSearch_Model_Query extends Mage_Core_Model_Abstract
      * @deprecated after 1.3.2.3 use getMaxQueryLength() instead
      * @return int
      */
-    public function getMaxQueryLenght()
+    function getMaxQueryLenght()
     {
         return 0;
     }
@@ -227,7 +227,7 @@ class Mage_CatalogSearch_Model_Query extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getMaxQueryLength()
+    function getMaxQueryLength()
     {
         return Mage::getStoreConfig(self::XML_PATH_MAX_QUERY_LENGTH, $this->getStoreId());
     }
@@ -237,7 +237,7 @@ class Mage_CatalogSearch_Model_Query extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getMaxQueryWords()
+    function getMaxQueryWords()
     {
         return Mage::getStoreConfig(self::XML_PATH_MAX_QUERY_WORDS, $this->getStoreId());
     }

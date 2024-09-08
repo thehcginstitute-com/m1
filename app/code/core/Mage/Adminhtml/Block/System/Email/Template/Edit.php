@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Block_Widget
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('system/email/template/edit.phtml');
@@ -151,7 +151,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
     /**
      * @return string
      */
-    public function getBackButtonHtml()
+    function getBackButtonHtml()
     {
         return $this->getChildHtml('back_button');
     }
@@ -159,7 +159,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
     /**
      * @return string
      */
-    public function getToggleButtonHtml()
+    function getToggleButtonHtml()
     {
         return $this->getChildHtml('toggle_button');
     }
@@ -167,7 +167,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
     /**
      * @return string
      */
-    public function getResetButtonHtml()
+    function getResetButtonHtml()
     {
         return $this->getChildHtml('reset_button');
     }
@@ -175,7 +175,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
     /**
      * @return string
      */
-    public function getToPlainButtonHtml()
+    function getToPlainButtonHtml()
     {
         return $this->getChildHtml('to_plain_button');
     }
@@ -183,7 +183,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
     /**
      * @return string
      */
-    public function getToHtmlButtonHtml()
+    function getToHtmlButtonHtml()
     {
         return $this->getChildHtml('to_html_button');
     }
@@ -191,7 +191,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
     /**
      * @return string
      */
-    public function getSaveButtonHtml()
+    function getSaveButtonHtml()
     {
         return $this->getChildHtml('save_button');
     }
@@ -199,7 +199,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
     /**
      * @return string
      */
-    public function getPreviewButtonHtml()
+    function getPreviewButtonHtml()
     {
         return $this->getChildHtml('preview_button');
     }
@@ -207,7 +207,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
     /**
      * @return string
      */
-    public function getDeleteButtonHtml()
+    function getDeleteButtonHtml()
     {
         return $this->getChildHtml('delete_button');
     }
@@ -215,7 +215,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
     /**
      * @return string
      */
-    public function getLoadButtonHtml()
+    function getLoadButtonHtml()
     {
         return $this->getChildHtml('load_button');
     }
@@ -225,7 +225,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
      *
      * @return int|string
      */
-    public function getEditMode()
+    function getEditMode()
     {
         return $this->getEmailTemplate()->getId();
     }
@@ -235,7 +235,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if ($this->getEditMode()) {
             return Mage::helper('adminhtml')->__('Edit Email Template');
@@ -248,7 +248,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getFormHtml()
+    function getFormHtml()
     {
         return $this->getChildHtml('form');
     }
@@ -258,7 +258,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return $this->getUrl('*/*/save', ['_current' => true]);
     }
@@ -268,7 +268,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getPreviewUrl()
+    function getPreviewUrl()
     {
         return $this->getUrl('*/*/preview');
     }
@@ -276,7 +276,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
     /**
      * @return bool
      */
-    public function isTextType()
+    function isTextType()
     {
         return $this->getEmailTemplate()->isPlain();
     }
@@ -286,7 +286,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getDeleteUrl()
+    function getDeleteUrl()
     {
         return $this->getUrlSecure('*/*/delete', ['_current' => true]);
     }
@@ -296,22 +296,22 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
      *
      * @return Mage_Core_Model_Email_Template
      */
-    public function getEmailTemplate()
+    function getEmailTemplate()
     {
         return Mage::registry('current_email_template');
     }
 
-    public function getLocaleOptions()
+    function getLocaleOptions()
     {
         return Mage::app()->getLocale()->getOptionLocales();
     }
 
-    public function getTemplateOptions()
+    function getTemplateOptions()
     {
         return Mage_Core_Model_Email_Template::getDefaultTemplatesAsOptionsArray();
     }
 
-    public function getCurrentLocale()
+    function getCurrentLocale()
     {
         return Mage::app()->getLocale()->getLocaleCode();
     }
@@ -321,7 +321,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getLoadUrl()
+    function getLoadUrl()
     {
         return $this->getUrl('*/*/defaultTemplate');
     }
@@ -332,7 +332,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
      * @param bool $asJSON
      * @return string|array
      */
-    public function getUsedDefaultForPaths($asJSON = true)
+    function getUsedDefaultForPaths($asJSON = true)
     {
         $paths = $this->getEmailTemplate()->getSystemConfigPathsWhereUsedAsDefault();
         $pathsParts = $this->_getSystemConfigPathsParts($paths);
@@ -348,7 +348,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
      * @param bool $asJSON
      * @return string|array
      */
-    public function getUsedCurrentlyForPaths($asJSON = true)
+    function getUsedCurrentlyForPaths($asJSON = true)
     {
         $paths = $this->getEmailTemplate()->getSystemConfigPathsWhereUsedCurrently();
         $pathsParts = $this->_getSystemConfigPathsParts($paths);
@@ -426,7 +426,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getOrigTemplateCode()
+    function getOrigTemplateCode()
     {
         return $this->getEmailTemplate()->getOrigTemplateCode();
     }

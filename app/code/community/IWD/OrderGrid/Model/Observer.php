@@ -6,7 +6,7 @@
 class IWD_OrderGrid_Model_Observer
 {
     /************************ CHECK REQUIRED MODULES *************************/
-    public function checkRequiredModules()
+    function checkRequiredModules()
     {
         if (Mage::getSingleton('admin/session')->isLoggedIn()) {
             if (!Mage::getConfig()->getModuleConfig('IWD_All')->is('active', 'true')) {
@@ -44,7 +44,7 @@ class IWD_OrderGrid_Model_Observer
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function addMassactionsToOrderGrid(Varien_Event_Observer $observer)
+    function addMassactionsToOrderGrid(Varien_Event_Observer $observer)
     {
         $block = $observer->getEvent()->getBlock();
 

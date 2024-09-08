@@ -28,7 +28,7 @@ class Mage_Core_Model_Resource_Type_Db_Mysqli extends Mage_Core_Model_Resource_T
      * @param array $config
      * @return Varien_Db_Adapter_Mysqli
      */
-    public function getConnection($config)
+    function getConnection($config)
     {
         $configArr = (array)$config;
         $configArr['profiler'] = !empty($configArr['profiler']) && $configArr['profiler'] !== 'false';

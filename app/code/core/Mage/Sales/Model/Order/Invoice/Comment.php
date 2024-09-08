@@ -52,7 +52,7 @@ class Mage_Sales_Model_Order_Invoice_Comment extends Mage_Sales_Model_Abstract
      * @param   Mage_Sales_Model_Order_Invoice $invoice
      * @return  Mage_Sales_Model_Order_Invoice_Comment
      */
-    public function setInvoice(Mage_Sales_Model_Order_Invoice $invoice)
+    function setInvoice(Mage_Sales_Model_Order_Invoice $invoice)
     {
         $this->_invoice = $invoice;
         return $this;
@@ -63,7 +63,7 @@ class Mage_Sales_Model_Order_Invoice_Comment extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Invoice
      */
-    public function getInvoice()
+    function getInvoice()
     {
         return $this->_invoice;
     }
@@ -73,7 +73,7 @@ class Mage_Sales_Model_Order_Invoice_Comment extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         if ($this->getInvoice()) {
             return $this->getInvoice()->getStore();

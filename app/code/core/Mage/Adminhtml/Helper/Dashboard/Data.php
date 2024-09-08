@@ -32,7 +32,7 @@ class Mage_Adminhtml_Helper_Dashboard_Data extends Mage_Core_Helper_Data
      *
      * @return array
      */
-    public function getStores()
+    function getStores()
     {
         if (!$this->_stores) {
             $this->_stores = Mage::app()->getStore()->getResourceCollection()->load();
@@ -46,7 +46,7 @@ class Mage_Adminhtml_Helper_Dashboard_Data extends Mage_Core_Helper_Data
      *
      * @return int
      */
-    public function countStores()
+    function countStores()
     {
         return count($this->_stores->getItems());
     }
@@ -56,7 +56,7 @@ class Mage_Adminhtml_Helper_Dashboard_Data extends Mage_Core_Helper_Data
      *
      * @return array
      */
-    public function getDatePeriods()
+    function getDatePeriods()
     {
         return [
             '24h' => $this->__('Last 24 Hours'),
@@ -74,7 +74,7 @@ class Mage_Adminhtml_Helper_Dashboard_Data extends Mage_Core_Helper_Data
      * @param string $data
      * @return string
      */
-    public function getChartDataHash($data)
+    function getChartDataHash($data)
     {
         $secret = (string)Mage::getConfig()->getNode(Mage_Core_Model_App::XML_PATH_INSTALL_DATE);
         return md5($data . $secret);

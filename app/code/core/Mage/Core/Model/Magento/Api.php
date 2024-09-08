@@ -27,7 +27,7 @@ class Mage_Core_Model_Magento_Api extends Mage_Api_Model_Resource_Abstract
      *
      * @return array
      */
-    public function info()
+    function info()
     {
         $result = [];
         $result['magento_edition'] = Mage::getEdition();

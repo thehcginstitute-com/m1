@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Concat extends Mage_Admin
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $dataArr = [];
         foreach ($this->getColumn()->getIndex() as $index) {

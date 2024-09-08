@@ -63,7 +63,7 @@ abstract class Mage_Eav_Model_Resource_Attribute_Collection extends Mage_Eav_Mod
      *
      * @return Mage_Eav_Model_Entity_Type
      */
-    public function getEntityType()
+    function getEntityType()
     {
         if ($this->_entityType === null) {
             $this->_entityType = Mage::getSingleton('eav/config')->getEntityType($this->_getEntityTypeCode());
@@ -77,7 +77,7 @@ abstract class Mage_Eav_Model_Resource_Attribute_Collection extends Mage_Eav_Mod
      * @param Mage_Core_Model_Website|int $website
      * @return $this
      */
-    public function setWebsite($website)
+    function setWebsite($website)
     {
         $this->_website = Mage::app()->getWebsite($website);
         $this->addBindParam('scope_website_id', $this->_website->getId());
@@ -89,7 +89,7 @@ abstract class Mage_Eav_Model_Resource_Attribute_Collection extends Mage_Eav_Mod
      *
      * @return Mage_Core_Model_Website
      */
-    public function getWebsite()
+    function getWebsite()
     {
         if ($this->_website === null) {
             $this->_website = Mage::app()->getStore()->getWebsite();
@@ -187,7 +187,7 @@ abstract class Mage_Eav_Model_Resource_Attribute_Collection extends Mage_Eav_Mod
      * @param  int $type
      * @return $this
      */
-    public function setEntityTypeFilter($type)
+    function setEntityTypeFilter($type)
     {
         return $this;
     }
@@ -197,7 +197,7 @@ abstract class Mage_Eav_Model_Resource_Attribute_Collection extends Mage_Eav_Mod
      *
      * @return $this
      */
-    public function addVisibleFilter()
+    function addVisibleFilter()
     {
         return $this->addFieldToFilter('is_visible', 1);
     }
@@ -207,7 +207,7 @@ abstract class Mage_Eav_Model_Resource_Attribute_Collection extends Mage_Eav_Mod
      *
      * @return $this
      */
-    public function addSystemHiddenFilter()
+    function addSystemHiddenFilter()
     {
         $field = '(CASE WHEN additional_table.is_system = 1 AND additional_table.is_visible = 0 THEN 1 ELSE 0 END)';
         $resultCondition = $this->_getConditionSql($field, 0);
@@ -220,7 +220,7 @@ abstract class Mage_Eav_Model_Resource_Attribute_Collection extends Mage_Eav_Mod
      *
      * @return $this
      */
-    public function addSystemHiddenFilterWithPasswordHash()
+    function addSystemHiddenFilterWithPasswordHash()
     {
         $field = '(CASE WHEN additional_table.is_system = 1 AND additional_table.is_visible = 0
             AND main_table.attribute_code != "' . self::EAV_CODE_PASSWORD_HASH . '" THEN 1 ELSE 0 END)';
@@ -234,7 +234,7 @@ abstract class Mage_Eav_Model_Resource_Attribute_Collection extends Mage_Eav_Mod
      *
      * @return $this
      */
-    public function addExcludeHiddenFrontendFilter()
+    function addExcludeHiddenFrontendFilter()
     {
         return $this->addFieldToFilter('main_table.frontend_input', ['neq' => 'hidden']);
     }

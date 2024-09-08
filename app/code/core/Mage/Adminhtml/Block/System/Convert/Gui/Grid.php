@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_System_Convert_Gui_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('convertProfileGrid');
@@ -104,7 +104,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Grid extends Mage_Adminhtml_Block_
         return parent::_prepareColumns();
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', ['id' => $row->getId()]);
     }

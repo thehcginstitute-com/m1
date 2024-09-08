@@ -57,7 +57,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Attribute_Collection
      *
      * @return Mage_Catalog_Helper_Data
      */
-    public function getHelper()
+    function getHelper()
     {
         return Mage::helper('catalog');
     }
@@ -68,7 +68,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Attribute_Collection
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function setProductFilter($product)
+    function setProductFilter($product)
     {
         $this->_product = $product;
         return $this->addFieldToFilter('product_id', $product->getId());
@@ -80,7 +80,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Attribute_Collection
      * @param string $dir
      * @return $this
      */
-    public function orderByPosition($dir = self::SORT_ORDER_ASC)
+    function orderByPosition($dir = self::SORT_ORDER_ASC)
     {
         $this->setOrder('position ', $dir);
         return $this;
@@ -91,7 +91,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Attribute_Collection
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return (int)$this->_product->getStoreId();
     }
@@ -139,7 +139,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Attribute_Collection
      *
      * @return $this
      */
-    public function _addAssociatedProductFilters()
+    function _addAssociatedProductFilters()
     {
         /** @var Mage_Catalog_Model_Product_Type_Configurable $productType */
         $productType = $this->getProduct()->getTypeInstance(true);
@@ -308,7 +308,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Attribute_Collection
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return $this->_product;
     }

@@ -44,7 +44,7 @@ class Mage_Adminhtml_Block_System_Config_Tabs extends Mage_Adminhtml_Block_Widge
         return (int)$a->sort_order < (int)$b->sort_order ? -1 : ((int)$a->sort_order > (int)$b->sort_order ? 1 : 0);
     }
 
-    public function initTabs()
+    function initTabs()
     {
         $current = $this->getRequest()->getParam('section');
         $websiteCode = $this->getRequest()->getParam('website');
@@ -129,7 +129,7 @@ class Mage_Adminhtml_Block_System_Config_Tabs extends Mage_Adminhtml_Block_Widge
      * @param array $config
      * @return $this
      */
-    public function addTab($code, $config)
+    function addTab($code, $config)
     {
         $tab = new Varien_Object($config);
         $tab->setId($code);
@@ -143,7 +143,7 @@ class Mage_Adminhtml_Block_System_Config_Tabs extends Mage_Adminhtml_Block_Widge
      * @param string $code
      * @return Varien_Object
      */
-    public function getTab($code)
+    function getTab($code)
     {
         return $this->_tabs[$code] ?? null;
     }
@@ -154,7 +154,7 @@ class Mage_Adminhtml_Block_System_Config_Tabs extends Mage_Adminhtml_Block_Widge
      * @param array $config
      * @return $this
      */
-    public function addSection($code, $tabCode, $config)
+    function addSection($code, $tabCode, $config)
     {
         if ($tab = $this->getTab($tabCode)) {
             if (!$tab->getSections()) {
@@ -172,7 +172,7 @@ class Mage_Adminhtml_Block_System_Config_Tabs extends Mage_Adminhtml_Block_Widge
      *
      * @return array
      */
-    public function getTabs()
+    function getTabs()
     {
         return $this->_tabs;
     }
@@ -180,7 +180,7 @@ class Mage_Adminhtml_Block_System_Config_Tabs extends Mage_Adminhtml_Block_Widge
     /**
      * @return array
      */
-    public function getStoreSelectOptions()
+    function getStoreSelectOptions()
     {
         $section = $this->getRequest()->getParam('section');
 
@@ -252,7 +252,7 @@ class Mage_Adminhtml_Block_System_Config_Tabs extends Mage_Adminhtml_Block_Widge
     /**
      * @return string
      */
-    public function getStoreButtonsHtml()
+    function getStoreButtonsHtml()
     {
         $curWebsite = $this->getRequest()->getParam('website');
         $curStore = $this->getRequest()->getParam('store');
@@ -299,7 +299,7 @@ class Mage_Adminhtml_Block_System_Config_Tabs extends Mage_Adminhtml_Block_Widge
      * @param string $code
      * @return bool
      */
-    public function checkSectionPermissions($code = null)
+    function checkSectionPermissions($code = null)
     {
         static $permissions;
 

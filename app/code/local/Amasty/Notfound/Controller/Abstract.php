@@ -9,7 +9,7 @@ class Amasty_Notfound_Controller_Abstract extends Mage_Adminhtml_Controller_Acti
     protected $_title     = 'Not found pages';
     protected $_modelName = 'log';
     
-	public function indexAction() 
+	function indexAction()
 	{
 	    try {
             $result = Mage::getModel('amnotfound/' . $this->_modelName)->collect();
@@ -34,7 +34,7 @@ class Amasty_Notfound_Controller_Abstract extends Mage_Adminhtml_Controller_Acti
             $this->renderLayout();
 	}
 	
-    public function clearAction() 
+    function clearAction()
 	{
 	    Mage::getModel('amnotfound/' . $this->_modelName)->clear();
 	    Mage::getSingleton('adminhtml/session')->addSuccess(

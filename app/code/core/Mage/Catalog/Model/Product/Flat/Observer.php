@@ -48,7 +48,7 @@ class Mage_Catalog_Model_Product_Flat_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogEntityAttributeSaveAfter(Varien_Event_Observer $observer)
+    function catalogEntityAttributeSaveAfter(Varien_Event_Observer $observer)
     {
         if (!$this->_getHelper()->isAvailable() || !$this->_getHelper()->isBuilt()) {
             return $this;
@@ -86,7 +86,7 @@ class Mage_Catalog_Model_Product_Flat_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductStatusUpdate(Varien_Event_Observer $observer)
+    function catalogProductStatusUpdate(Varien_Event_Observer $observer)
     {
         if (!$this->_getHelper()->isAvailable() || !$this->_getHelper()->isBuilt()) {
             return $this;
@@ -108,7 +108,7 @@ class Mage_Catalog_Model_Product_Flat_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductWebsiteUpdate(Varien_Event_Observer $observer)
+    function catalogProductWebsiteUpdate(Varien_Event_Observer $observer)
     {
         if (!$this->_getHelper()->isAvailable() || !$this->_getHelper()->isBuilt()) {
             return $this;
@@ -137,7 +137,7 @@ class Mage_Catalog_Model_Product_Flat_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductSaveAfter(Varien_Event_Observer $observer)
+    function catalogProductSaveAfter(Varien_Event_Observer $observer)
     {
         if (!$this->_getHelper()->isAvailable() || !$this->_getHelper()->isBuilt()) {
             return $this;
@@ -157,7 +157,7 @@ class Mage_Catalog_Model_Product_Flat_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function storeAdd(Varien_Event_Observer $observer)
+    function storeAdd(Varien_Event_Observer $observer)
     {
         if (!$this->_getHelper()->isAvailable() || !$this->_getHelper()->isBuilt()) {
             return $this;
@@ -176,7 +176,7 @@ class Mage_Catalog_Model_Product_Flat_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function storeEdit(Varien_Event_Observer $observer)
+    function storeEdit(Varien_Event_Observer $observer)
     {
         if (!$this->_getHelper()->isAvailable() || !$this->_getHelper()->isBuilt()) {
             return $this;
@@ -197,7 +197,7 @@ class Mage_Catalog_Model_Product_Flat_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function storeDelete(Varien_Event_Observer $observer)
+    function storeDelete(Varien_Event_Observer $observer)
     {
         if (!$this->_getHelper()->isAvailable() || !$this->_getHelper()->isBuilt()) {
             return $this;
@@ -217,7 +217,7 @@ class Mage_Catalog_Model_Product_Flat_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function storeGroupSave(Varien_Event_Observer $observer)
+    function storeGroupSave(Varien_Event_Observer $observer)
     {
         if (!$this->_getHelper()->isAvailable() || !$this->_getHelper()->isBuilt()) {
             return $this;
@@ -242,7 +242,7 @@ class Mage_Catalog_Model_Product_Flat_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductImportAfter(Varien_Event_Observer $observer)
+    function catalogProductImportAfter(Varien_Event_Observer $observer)
     {
         if (!$this->_getHelper()->isAvailable() || !$this->_getHelper()->isBuilt()) {
             return $this;
@@ -259,7 +259,7 @@ class Mage_Catalog_Model_Product_Flat_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function customerGroupSaveAfter(Varien_Event_Observer $observer)
+    function customerGroupSaveAfter(Varien_Event_Observer $observer)
     {
         if (!$this->_getHelper()->isAvailable() || !$this->_getHelper()->isBuilt()) {
             return $this;
@@ -282,7 +282,7 @@ class Mage_Catalog_Model_Product_Flat_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogCategoryChangeProducts(Varien_Event_Observer $observer)
+    function catalogCategoryChangeProducts(Varien_Event_Observer $observer)
     {
         return $this;
     }

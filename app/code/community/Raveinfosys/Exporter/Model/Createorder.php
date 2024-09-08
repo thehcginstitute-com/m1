@@ -19,12 +19,12 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
 	public $invoice_created_at = '';
 	public $shipment_created_at = '';
 	
-    public function _construct()
+    function _construct()
     {
 	    $this->setLastOrderItemId();
 	}
 	
-    public function setItemData()
+    function setItemData()
     {
 	   $order = $this->getOrderModel($this->last_order_increment_id);
 	   $shipped_item = array();
@@ -58,7 +58,7 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
 	   $this->canceled_item = $canceled_item;
 	}
 	
-	public function setGlobalData($last_order_increment_id,$order_items,$sales_order_arr)
+	function setGlobalData($last_order_increment_id,$order_items,$sales_order_arr)
 	{
 	  $this->last_order_increment_id = $last_order_increment_id;
 	  $this->order_items = $order_items;
@@ -70,7 +70,7 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
 	  $this->setItemData();
 	}
 	
-	public function setTime($last_order_increment_id,$sales_order_arr)
+	function setTime($last_order_increment_id,$sales_order_arr)
 	{
 	  Mage::getModel('sales/order')->loadByIncrementId($last_order_increment_id)
 										->setCreatedAt($sales_order_arr['created_at'])
@@ -79,7 +79,7 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
 										->unsetData();
 	}
 	
-	public function setLastOrderItemId()
+	function setLastOrderItemId()
 	{
 	   $resource = Mage::getSingleton('core/resource');
 	   $conn = $resource->getConnection('core_read');
@@ -90,7 +90,7 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
 	
 	
 	 //To create order
-    public function createOrder($sales_order_arr,$sales_order_item_arr,$store_id)
+    function createOrder($sales_order_arr,$sales_order_item_arr,$store_id)
     {
 	     $this->store_id = $store_id;
 		 if(!$this->orderIdStatus($sales_order_arr['increment_id']))
@@ -289,7 +289,7 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
     }
 	
 	
-	public function setProcessing()
+	function setProcessing()
 	{
 	   if($this->partial_invoiced)
 	   $resp = $this->getInvoiceObj()->createInvoice($this->last_order_increment_id,$this->invoiced_item,$this->invoice_created_at);
@@ -304,7 +304,7 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
 	   return 1;
 	}
 	
-	public function setHolded()
+	function setHolded()
 	{
 	  try
 	  {
@@ -320,7 +320,7 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
 		 Mage::helper('exporter')->footer();return 1;}
 	}
 	
-	public function setPaymentReview()
+	function setPaymentReview()
 	{
 	  try
 	  {
@@ -337,7 +337,7 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
 	}
 	
 	
-	public function setCanceled()
+	function setCanceled()
 	{
 	  try
 	  {
@@ -354,7 +354,7 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
 		 Mage::helper('exporter')->footer();return 1;}
 	}
 	
-	public function setClosed()
+	function setClosed()
 	{
 	  try
 	  {
@@ -371,7 +371,7 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
 	}
 	
 	
-	public function updateCanceledQTY()
+	function updateCanceledQTY()
 	{ 
 	  $items = $this->canceled_item;
 	  foreach($items as $itemid => $itemqty)
@@ -382,13 +382,13 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
 	  } 
 	}	
 	
-   public function getOrderModel($last_order_increment_id)
+   function getOrderModel($last_order_increment_id)
    {
      $order = Mage::getModel('sales/order')->loadByIncrementId($last_order_increment_id);
 	 return $order;
    }
    
-   public function orderIdStatus($last_order_increment_id)
+   function orderIdStatus($last_order_increment_id)
    {
      $order = Mage::getModel('sales/order')->loadByIncrementId($last_order_increment_id);
 	 
@@ -398,7 +398,7 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
 	 return true;
    }
    
-   public function unsetAllData()
+   function unsetAllData()
    {
      $this->shipped_item = array() ;
      $this->invoiced_item = array() ;
@@ -410,22 +410,22 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
 	 $this->order_detai_arr = false;
    }
    
-   public function getInvoiceObj()
+   function getInvoiceObj()
    {
      return Mage::getModel('exporter/operations_invoice');
    }
    
-   public function getShipmentObj()
+   function getShipmentObj()
    {
      return Mage::getModel('exporter/operations_shipment');
    }
    
-   public function getCreditmemoObj()
+   function getCreditmemoObj()
    {
      return Mage::getModel('exporter/operations_creditmemo');
    }
    
-   public function getCustomerInfo($email)
+   function getCustomerInfo($email)
    {
       $customer = Mage::getModel("customer/customer");
 	  $customer->setWebsiteId(Mage::getModel('core/store')->load($this->store_id)->getWebsiteId());
@@ -435,7 +435,7 @@ class Raveinfosys_Exporter_Model_Createorder extends Mage_Core_Model_Abstract
 	  return false;
    }
    
-   public function removeOrderStatusHistory()
+   function removeOrderStatusHistory()
    {
      $coll = Mage::getModel('sales/order_status_history')->getCollection()->addFieldToFilter('parent_id',Mage::getSingleton("sales/order")->getCollection()->getLastItem()->getId());
 	 foreach($coll as $history)

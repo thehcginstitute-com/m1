@@ -21,7 +21,7 @@ class IWD_AdminCheckout_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isEnterpriseMagentoEdition()
+    function isEnterpriseMagentoEdition()
     {
         return ($this->getEdition() == 'Enterprise');
     }
@@ -29,7 +29,7 @@ class IWD_AdminCheckout_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isAvailableVersion()
+    function isAvailableVersion()
     {
         return !($this->isEnterpriseMagentoEdition() && $this->_version == 'CE');
     }
@@ -37,7 +37,7 @@ class IWD_AdminCheckout_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return string
      */
-    public function getEdition()
+    function getEdition()
     {
         $mage = new Mage();
         $edition = (!is_callable(array($mage, 'getEdition'))) ? 'Community' : Mage::getEdition();
@@ -49,7 +49,7 @@ class IWD_AdminCheckout_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return string
      */
-    public function getExtensionVersion()
+    function getExtensionVersion()
     {
         return Mage::getConfig()->getModuleConfig("IWD_AdminCheckout")->version;
     }
@@ -57,7 +57,7 @@ class IWD_AdminCheckout_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isCustomCreationProcess()
+    function isCustomCreationProcess()
     {
         return Mage::getStoreConfig(self::CONFIG_XML_PATH_CUSTOM_CREATE_PROCESS)
             && $this->isCustomCreationProcessAllowed();
@@ -66,7 +66,7 @@ class IWD_AdminCheckout_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isCustomCreationProcessAllowed()
+    function isCustomCreationProcessAllowed()
     {
         return Mage::getSingleton('admin/session')->isAllowed('iwd_admin_checkout/enabled');
     }
@@ -74,7 +74,7 @@ class IWD_AdminCheckout_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return string
      */
-    public function getDefaultShippingMethod()
+    function getDefaultShippingMethod()
     {
         return Mage::getStoreConfig(self::CONFIG_XML_PATH_DEFAULT_SHIPPING_METHOD);
     }
@@ -82,7 +82,7 @@ class IWD_AdminCheckout_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return int
      */
-    public function getDefaultStoreView()
+    function getDefaultStoreView()
     {
         return Mage::getStoreConfig(self::CONFIG_XML_PATH_DEFAULT_STORE_VIEW);
     }

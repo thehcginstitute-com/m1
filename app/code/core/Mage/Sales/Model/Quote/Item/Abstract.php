@@ -197,14 +197,14 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return Mage_Sales_Model_Quote
      */
-    abstract public function getQuote();
+    abstract function getQuote();
 
     /**
      * Retrieve product model object associated with item
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         $product = $this->_getData('product');
         if ($product === null && $this->getProductId()) {
@@ -231,7 +231,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return null|Varien_Object
      */
-    public function getFileDownloadParams()
+    function getFileDownloadParams()
     {
         return null;
     }
@@ -256,7 +256,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * @param  Mage_Sales_Model_Quote_Item $parentItem
      * @return $this
      */
-    public function setParentItem($parentItem)
+    function setParentItem($parentItem)
     {
         if ($parentItem) {
             $this->_parentItem = $parentItem;
@@ -273,7 +273,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return Mage_Sales_Model_Quote_Item_Abstract|null
      */
-    public function getParentItem()
+    function getParentItem()
     {
         return $this->_parentItem;
     }
@@ -283,7 +283,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return Mage_Sales_Model_Quote_Item_Abstract[]
      */
-    public function getChildren()
+    function getChildren()
     {
         return $this->_children;
     }
@@ -294,7 +294,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * @param  Mage_Sales_Model_Quote_Item_Abstract $child
      * @return $this
      */
-    public function addChild($child)
+    function addChild($child)
     {
         $this->setHasChildren(true);
         $this->_children[] = $child;
@@ -307,7 +307,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * @param  array|string $messages
      * @return $this
      */
-    public function setMessage($messages)
+    function setMessage($messages)
     {
         $messagesExists = $this->getMessage(false);
         if (!is_array($messages)) {
@@ -327,7 +327,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * @param   string $message
      * @return  $this
      */
-    public function addMessage($message)
+    function addMessage($message)
     {
         $this->_messages[] = $message;
         return $this;
@@ -339,7 +339,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * @param   bool $string flag for converting messages to string
      * @return  array|string
      */
-    public function getMessage($string = true)
+    function getMessage($string = true)
     {
         if ($string) {
             return implode("\n", $this->_messages);
@@ -353,7 +353,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * @param string $text
      * @return $this
      */
-    public function removeMessageByText($text)
+    function removeMessageByText($text)
     {
         foreach ($this->_messages as $key => $message) {
             if ($message == $text) {
@@ -368,7 +368,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return $this
      */
-    public function clearMessage()
+    function clearMessage()
     {
         $this->unsMessage(); // For older compatibility, when we kept message inside data array
         $this->_messages = [];
@@ -380,7 +380,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return $this->getQuote()->getStore();
     }
@@ -390,7 +390,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return $this
      */
-    public function checkData()
+    function checkData()
     {
         $this->setHasError(false);
         $this->clearMessage();
@@ -444,7 +444,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return  int|float
      */
-    public function getQty()
+    function getQty()
     {
         return $this->_getData('qty');
     }
@@ -454,7 +454,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return  int|float
      */
-    public function getTotalQty()
+    function getTotalQty()
     {
         if ($this->getParentItem()) {
             return $this->getQty() * $this->getParentItem()->getQty();
@@ -467,7 +467,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return $this
      */
-    public function calcRowTotal()
+    function calcRowTotal()
     {
         $qty        = $this->getTotalQty();
         // Round unit price before multiplying to prevent losing 1 cent on subtotal
@@ -485,7 +485,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return float
      */
-    public function getCalculationPrice()
+    function getCalculationPrice()
     {
         $price = $this->_getData('calculation_price');
         if (is_null($price)) {
@@ -505,7 +505,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return float
      */
-    public function getCalculationPriceOriginal()
+    function getCalculationPriceOriginal()
     {
         $price = $this->_getData('calculation_price');
         if (is_null($price)) {
@@ -524,7 +524,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return float
      */
-    public function getBaseCalculationPrice()
+    function getBaseCalculationPrice()
     {
         if (!$this->hasBaseCalculationPrice()) {
             if ($this->hasCustomPrice()) {
@@ -546,7 +546,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return float
      */
-    public function getBaseCalculationPriceOriginal()
+    function getBaseCalculationPriceOriginal()
     {
         if (!$this->hasBaseCalculationPrice()) {
             if ($this->hasOriginalCustomPrice()) {
@@ -572,7 +572,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return float
      */
-    public function getOriginalPrice()
+    function getOriginalPrice()
     {
         $price = $this->_getData('original_price');
         if (is_null($price)) {
@@ -588,7 +588,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * @param   float $price
      * @return  $this
      */
-    public function setOriginalPrice($price)
+    function setOriginalPrice($price)
     {
         return $this->setData('original_price', $price);
     }
@@ -598,7 +598,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return float
      */
-    public function getBaseOriginalPrice()
+    function getBaseOriginalPrice()
     {
         return $this->_getData('base_original_price');
     }
@@ -609,7 +609,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * @param   float $value
      * @return  $this
      */
-    public function setCustomPrice($value)
+    function setCustomPrice($value)
     {
         $this->setCalculationPrice($value);
         $this->setBaseCalculationPrice(null);
@@ -621,7 +621,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return float
      */
-    public function getPrice()
+    function getPrice()
     {
         return $this->_getData('price');
     }
@@ -632,7 +632,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * @param   float $value
      * @return  $this
      */
-    public function setPrice($value)
+    function setPrice($value)
     {
         $this->setBaseCalculationPrice(null);
         $this->setConvertedPrice(null);
@@ -643,7 +643,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * Get item price converted to quote currency
      * @return float
      */
-    public function getConvertedPrice()
+    function getConvertedPrice()
     {
         $price = $this->_getData('converted_price');
         if (is_null($price)) {
@@ -658,7 +658,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * @param float $value
      * @return $this
      */
-    public function setConvertedPrice($value)
+    function setConvertedPrice($value)
     {
         $this->setCalculationPrice(null);
         $this->setData('converted_price', $value);
@@ -670,7 +670,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return $this
      */
-    public function __clone()
+    function __clone()
     {
         $this->setId(null);
         $this->_parentItem  = null;
@@ -685,7 +685,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return bool
      */
-    public function isChildrenCalculated()
+    function isChildrenCalculated()
     {
         if ($this->getParentItem()) {
             $calculate = $this->getParentItem()->getProduct()->getPriceType();
@@ -705,7 +705,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      *
      * @return bool
      */
-    public function isShipSeparately()
+    function isShipSeparately()
     {
         if ($this->getParentItem()) {
             $shipmentType = $this->getParentItem()->getProduct()->getShipmentType();
@@ -727,7 +727,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * @deprecated logic moved to tax totals calculation model
      * @return  $this
      */
-    public function calcTaxAmount()
+    function calcTaxAmount()
     {
         $store = $this->getStore();
 
@@ -786,7 +786,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * @deprecated
      * @return  float
      */
-    public function getTaxAmount()
+    function getTaxAmount()
     {
         return $this->_getData('tax_amount');
     }
@@ -797,7 +797,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * @deprecated
      * @return float
      */
-    public function getBaseTaxAmount()
+    function getBaseTaxAmount()
     {
         return $this->_getData('base_tax_amount');
     }

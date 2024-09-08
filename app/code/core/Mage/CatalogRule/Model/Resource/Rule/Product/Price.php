@@ -39,7 +39,7 @@ class Mage_CatalogRule_Model_Resource_Rule_Product_Price extends Mage_Core_Model
      * @param string $websiteDate
      * @return $this
      */
-    public function applyPriceRuleToIndexTable(
+    function applyPriceRuleToIndexTable(
         Varien_Db_Select $select,
         $indexTable,
         $entityId,

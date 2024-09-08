@@ -27,7 +27,7 @@ class Mage_Oauth_Block_Authorize extends Mage_Oauth_Block_AuthorizeBaseAbstract
      *
      * @return string
      */
-    public function getPostActionUrl()
+    function getPostActionUrl()
     {
         /** @var Mage_Customer_Helper_Data $helper */
         $helper = $this->helper('customer');
@@ -47,7 +47,7 @@ class Mage_Oauth_Block_Authorize extends Mage_Oauth_Block_AuthorizeBaseAbstract
      *
      * @return string
      */
-    public function getIdentityLabel()
+    function getIdentityLabel()
     {
         return $this->__('Email Address');
     }
@@ -57,7 +57,7 @@ class Mage_Oauth_Block_Authorize extends Mage_Oauth_Block_AuthorizeBaseAbstract
      *
      * @return string
      */
-    public function getFormTitle()
+    function getFormTitle()
     {
         return $this->__('Log in as customer');
     }
@@ -67,7 +67,7 @@ class Mage_Oauth_Block_Authorize extends Mage_Oauth_Block_AuthorizeBaseAbstract
      *
      * @return string
      */
-    public function getRejectUrlPath()
+    function getRejectUrlPath()
     {
         return 'oauth/authorize/reject';
     }

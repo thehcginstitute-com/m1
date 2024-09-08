@@ -39,7 +39,7 @@ class Mage_CatalogIndex_Model_Resource_Abstract extends Mage_Core_Model_Resource
      *
      * @param int $storeId
      */
-    public function setStoreId($storeId)
+    function setStoreId($storeId)
     {
         $this->_storeId = $storeId;
     }
@@ -49,7 +49,7 @@ class Mage_CatalogIndex_Model_Resource_Abstract extends Mage_Core_Model_Resource
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_storeId;
     }
@@ -59,7 +59,7 @@ class Mage_CatalogIndex_Model_Resource_Abstract extends Mage_Core_Model_Resource
      *
      * @return int
      */
-    public function getWebsiteId()
+    function getWebsiteId()
     {
         if (is_null($this->_websiteId)) {
             $result = Mage::app()->getStore($this->getStoreId())->getWebsiteId();

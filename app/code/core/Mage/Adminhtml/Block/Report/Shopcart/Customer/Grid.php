@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Report_Shopcart_Customer_Grid extends Mage_Adminhtml_
     /**
      * Mage_Adminhtml_Block_Report_Shopcart_Customer_Grid constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('grid');

@@ -27,7 +27,7 @@ abstract class Mage_Checkout_Model_Type_Abstract extends Varien_Object
      *
      * @return Mage_Checkout_Model_Session
      */
-    public function getCheckoutSession()
+    function getCheckoutSession()
     {
         $checkout = $this->getData('checkout_session');
         if (is_null($checkout)) {
@@ -42,7 +42,7 @@ abstract class Mage_Checkout_Model_Type_Abstract extends Varien_Object
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return $this->getCheckoutSession()->getQuote();
     }
@@ -52,7 +52,7 @@ abstract class Mage_Checkout_Model_Type_Abstract extends Varien_Object
      *
      * @return Mage_Sales_Model_Quote_Item[]
      */
-    public function getQuoteItems()
+    function getQuoteItems()
     {
         return $this->getQuote()->getAllItems();
     }
@@ -62,7 +62,7 @@ abstract class Mage_Checkout_Model_Type_Abstract extends Varien_Object
      *
      * @return Mage_Customer_Model_Session
      */
-    public function getCustomerSession()
+    function getCustomerSession()
     {
         $customer = $this->getData('customer_session');
         if (is_null($customer)) {
@@ -77,7 +77,7 @@ abstract class Mage_Checkout_Model_Type_Abstract extends Varien_Object
      *
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         return $this->getCustomerSession()->getCustomer();
     }
@@ -87,7 +87,7 @@ abstract class Mage_Checkout_Model_Type_Abstract extends Varien_Object
      *
      * @return Mage_Customer_Model_Address | false
      */
-    public function getCustomerDefaultShippingAddress()
+    function getCustomerDefaultShippingAddress()
     {
         $address = $this->getData('customer_default_shipping_address');
         if (is_null($address)) {
@@ -109,7 +109,7 @@ abstract class Mage_Checkout_Model_Type_Abstract extends Varien_Object
      *
      * @return Mage_Customer_Model_Address|false
      */
-    public function getCustomerDefaultBillingAddress()
+    function getCustomerDefaultBillingAddress()
     {
         $address = $this->getData('customer_default_billing_address');
         if (is_null($address)) {

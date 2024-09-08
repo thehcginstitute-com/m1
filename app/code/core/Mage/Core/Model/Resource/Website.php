@@ -95,7 +95,7 @@ class Mage_Core_Model_Resource_Website extends Mage_Core_Model_Resource_Db_Abstr
      * @param bool $withDefault include/exclude default admin website
      * @return Varien_Db_Select
      */
-    public function getDefaultStoresSelect($withDefault = false)
+    function getDefaultStoresSelect($withDefault = false)
     {
         $ifNull  = $this->_getReadAdapter()
             ->getCheckSql('store_group_table.default_store_id IS NULL', '0', 'store_group_table.default_store_id');

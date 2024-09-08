@@ -24,7 +24,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Websites extends Mage_Adminh
 {
     protected $_storeFromHtml;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/product/edit/websites.phtml');
@@ -35,7 +35,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Websites extends Mage_Adminh
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return Mage::registry('product');
     }
@@ -45,7 +45,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Websites extends Mage_Adminh
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->getProduct()->getStoreId();
     }
@@ -55,7 +55,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Websites extends Mage_Adminh
      *
      * @return int
      */
-    public function getProductId()
+    function getProductId()
     {
         return $this->getProduct()->getId();
     }
@@ -65,7 +65,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Websites extends Mage_Adminh
      *
      * @return array
      */
-    public function getWebsites()
+    function getWebsites()
     {
         return $this->getProduct()->getWebsiteIds();
     }
@@ -76,7 +76,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Websites extends Mage_Adminh
      * @param int $websiteId
      * @return bool
      */
-    public function hasWebsite($websiteId)
+    function hasWebsite($websiteId)
     {
         return in_array($websiteId, $this->getProduct()->getWebsiteIds());
     }
@@ -86,7 +86,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Websites extends Mage_Adminh
      *
      * @return bool
      */
-    public function isReadonly()
+    function isReadonly()
     {
         return $this->getProduct()->getWebsitesReadonly();
     }
@@ -97,7 +97,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Websites extends Mage_Adminh
      * @param int $storeId
      * @return null|string
      */
-    public function getStoreName($storeId)
+    function getStoreName($storeId)
     {
         return Mage::app()->getStore($storeId)->getName();
     }
@@ -108,7 +108,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Websites extends Mage_Adminh
      * @param Mage_Core_Model_Store $storeTo
      * @return string
      */
-    public function getChooseFromStoreHtml($storeTo)
+    function getChooseFromStoreHtml($storeTo)
     {
         if (!$this->_storeFromHtml) {
             $this->_storeFromHtml = '<select name="copy_to_stores[__store_identifier__]" disabled="disabled">';

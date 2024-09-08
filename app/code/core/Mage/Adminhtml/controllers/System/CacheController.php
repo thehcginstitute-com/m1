@@ -41,7 +41,7 @@ class Mage_Adminhtml_System_CacheController extends Mage_Adminhtml_Controller_Ac
     /**
      * Display cache management form
      */
-    public function indexAction()
+    function indexAction()
     {
         /** @var Mage_Adminhtml_Block_System_Cache_Edit $block */
         $block = $this->getLayout()->createBlock('adminhtml/system_cache_edit');
@@ -54,7 +54,7 @@ class Mage_Adminhtml_System_CacheController extends Mage_Adminhtml_Controller_Ac
     /**
      * Seva cache settings
      */
-    public function saveAction()
+    function saveAction()
     {
         /**
          * Protect empty post data
@@ -258,7 +258,7 @@ class Mage_Adminhtml_System_CacheController extends Mage_Adminhtml_Controller_Ac
         $this->_redirect('*/*');
     }
 
-    public function refreshCatalogRewritesAction()
+    function refreshCatalogRewritesAction()
     {
         try {
             Mage::getSingleton('catalog/url')->refreshRewrites();
@@ -274,7 +274,7 @@ class Mage_Adminhtml_System_CacheController extends Mage_Adminhtml_Controller_Ac
         $this->_redirect('*/*');
     }
 
-    public function clearImagesCacheAction()
+    function clearImagesCacheAction()
     {
         try {
             Mage::getModel('catalog/product_image')->clearCache();
@@ -290,7 +290,7 @@ class Mage_Adminhtml_System_CacheController extends Mage_Adminhtml_Controller_Ac
         $this->_redirect('*/*');
     }
 
-    public function refreshLayeredNavigationAction()
+    function refreshLayeredNavigationAction()
     {
         try {
             Mage::getSingleton('catalogindex/indexer')->plainReindex();

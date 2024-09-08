@@ -20,7 +20,7 @@
  */
 class Mage_Adminhtml_Block_Tax_Rate_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setDefaultSort('region_name');
@@ -107,7 +107,7 @@ class Mage_Adminhtml_Block_Tax_Rate_Grid extends Mage_Adminhtml_Block_Widget_Gri
      * @param Mage_Tax_Model_Calculation_Rate $row
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', ['rate' => $row->getTaxCalculationRateId()]);
     }

@@ -25,7 +25,7 @@
  */
 class Mage_Sales_Block_Order_Recent extends Mage_Core_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -73,7 +73,7 @@ class Mage_Sales_Block_Order_Recent extends Mage_Core_Block_Template
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function getViewUrl($order)
+    function getViewUrl($order)
     {
         return $this->getUrl('sales/order/view', ['order_id' => $order->getId()]);
     }
@@ -82,7 +82,7 @@ class Mage_Sales_Block_Order_Recent extends Mage_Core_Block_Template
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function getTrackUrl($order)
+    function getTrackUrl($order)
     {
         return $this->getUrl('sales/order/track', ['order_id' => $order->getId()]);
     }
@@ -102,7 +102,7 @@ class Mage_Sales_Block_Order_Recent extends Mage_Core_Block_Template
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function getReorderUrl($order)
+    function getReorderUrl($order)
     {
         return $this->getUrl('sales/order/reorder', ['order_id' => $order->getId()]);
     }

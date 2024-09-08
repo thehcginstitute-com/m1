@@ -22,13 +22,13 @@
  */
 class Mage_Install_Block_End extends Mage_Install_Block_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('install/end.phtml');
     }
 
-    public function getEncryptionKey()
+    function getEncryptionKey()
     {
         $key = $this->getData('encryption_key');
         if (is_null($key)) {

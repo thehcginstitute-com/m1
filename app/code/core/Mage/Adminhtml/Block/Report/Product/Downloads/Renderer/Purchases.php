@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Report_Product_Downloads_Renderer_Purchases extends M
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         if (($value = $row->getData($this->getColumn()->getIndex())) > 0) {
             return $value;

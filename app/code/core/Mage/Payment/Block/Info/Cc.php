@@ -27,7 +27,7 @@ class Mage_Payment_Block_Info_Cc extends Mage_Payment_Block_Info
      *
      * @return string
      */
-    public function getCcTypeName()
+    function getCcTypeName()
     {
         $types = Mage::getSingleton('payment/config')->getCcTypes();
         $ccType = $this->getInfo()->getCcType();
@@ -39,7 +39,7 @@ class Mage_Payment_Block_Info_Cc extends Mage_Payment_Block_Info
      *
      * @return bool
      */
-    public function hasCcExpDate()
+    function hasCcExpDate()
     {
         return (int)$this->getInfo()->getCcExpMonth() || (int)$this->getInfo()->getCcExpYear();
     }
@@ -49,7 +49,7 @@ class Mage_Payment_Block_Info_Cc extends Mage_Payment_Block_Info
      *
      * @return string
      */
-    public function getCcExpMonth()
+    function getCcExpMonth()
     {
         $month = $this->getInfo()->getCcExpMonth();
         if ($month < 10) {
@@ -63,7 +63,7 @@ class Mage_Payment_Block_Info_Cc extends Mage_Payment_Block_Info
      *
      * @return Zend_Date
      */
-    public function getCcExpDate()
+    function getCcExpDate()
     {
         $date = Mage::app()->getLocale()->date(0);
         $date->setYear($this->getInfo()->getCcExpYear());

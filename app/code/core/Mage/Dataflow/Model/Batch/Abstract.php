@@ -29,7 +29,7 @@ abstract class Mage_Dataflow_Model_Batch_Abstract extends Mage_Core_Model_Abstra
      * @param mixed $data
      * @return Mage_Dataflow_Model_Batch_Abstract
      */
-    public function setBatchData($data)
+    function setBatchData($data)
     {
         if ('"libiconv"' == ICONV_IMPL) {
             foreach ($data as &$value) {
@@ -48,7 +48,7 @@ abstract class Mage_Dataflow_Model_Batch_Abstract extends Mage_Core_Model_Abstra
      *
      * @return mixed
      */
-    public function getBatchData()
+    function getBatchData()
     {
         $data = $this->_data['batch_data'];
         $data = unserialize($data, ['allowed_classes' => false]);
@@ -61,7 +61,7 @@ abstract class Mage_Dataflow_Model_Batch_Abstract extends Mage_Core_Model_Abstra
      * @param int $batchId
      * @return array
      */
-    public function getIdCollection($batchId = null)
+    function getIdCollection($batchId = null)
     {
         if (!is_null($batchId)) {
             $this->setBatchId($batchId);
@@ -69,7 +69,7 @@ abstract class Mage_Dataflow_Model_Batch_Abstract extends Mage_Core_Model_Abstra
         return $this->getResource()->getIdCollection($this);
     }
 
-    public function deleteCollection($batchId = null)
+    function deleteCollection($batchId = null)
     {
         if (!is_null($batchId)) {
             $this->setBatchId($batchId);

@@ -26,21 +26,21 @@ abstract class Mage_Oauth_Block_Authorize_ButtonBaseAbstract extends Mage_Oauth_
      *
      * @return string
      */
-    abstract public function getConfirmUrlPath();
+    abstract function getConfirmUrlPath();
 
     /**
      * Get reject url path
      *
      * @return string
      */
-    abstract public function getRejectUrlPath();
+    abstract function getRejectUrlPath();
 
     /**
      * Retrieve reject authorization url
      *
      * @return string
      */
-    public function getConfirmUrl()
+    function getConfirmUrl()
     {
         return $this->getUrl($this->getConfirmUrlPath() . ($this->getIsSimple() ? 'Simple' : ''));
     }
@@ -50,7 +50,7 @@ abstract class Mage_Oauth_Block_Authorize_ButtonBaseAbstract extends Mage_Oauth_
      *
      * @return string
      */
-    public function getRejectUrl()
+    function getRejectUrl()
     {
         return $this->getUrl($this->getRejectUrlPath() . ($this->getIsSimple() ? 'Simple' : ''));
     }

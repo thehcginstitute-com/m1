@@ -42,7 +42,7 @@ class Mage_Adminhtml_Helper_Js extends Mage_Core_Helper_Js
      * @param   string $encoded
      * @return  array
      */
-    public function decodeGridSerializedInput($encoded)
+    function decodeGridSerializedInput($encoded)
     {
         $isSimplified = (strpos($encoded, '=') === false);
         $result = [];

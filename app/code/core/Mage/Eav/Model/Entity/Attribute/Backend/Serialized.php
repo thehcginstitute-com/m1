@@ -28,7 +28,7 @@ class Mage_Eav_Model_Entity_Attribute_Backend_Serialized extends Mage_Eav_Model_
      * @param Varien_Object $object
      * @return $this
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         // parent::beforeSave() is not called intentionally
         $attrCode = $this->getAttribute()->getAttributeCode();
@@ -45,7 +45,7 @@ class Mage_Eav_Model_Entity_Attribute_Backend_Serialized extends Mage_Eav_Model_
      * @param Varien_Object $object
      * @return $this
      */
-    public function afterSave($object)
+    function afterSave($object)
     {
         parent::afterSave($object);
         $this->_unserialize($object);
@@ -58,7 +58,7 @@ class Mage_Eav_Model_Entity_Attribute_Backend_Serialized extends Mage_Eav_Model_
      * @param Varien_Object $object
      * @return $this
      */
-    public function afterLoad($object)
+    function afterLoad($object)
     {
         parent::afterLoad($object);
         $this->_unserialize($object);

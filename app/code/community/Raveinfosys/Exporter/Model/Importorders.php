@@ -9,7 +9,7 @@ class Raveinfosys_Exporter_Model_Importorders extends Mage_Core_Model_Abstract
     public $import_limit = 0;
     
 	
-	public function readCSV($csvFile,$data)
+	function readCSV($csvFile,$data)
     {
 		$this->import_limit = $data['import_limit'];
 	    $this->store_id = $data['store_id'];
@@ -91,7 +91,7 @@ class Raveinfosys_Exporter_Model_Importorders extends Mage_Core_Model_Abstract
 		return array($success,$decline);
     }
    
-   public function insertOrderData($orders_data)
+   function insertOrderData($orders_data)
    {
 	 $sales_order_arr = array();
 	 $sales_order_item_arr = array();
@@ -139,7 +139,7 @@ class Raveinfosys_Exporter_Model_Importorders extends Mage_Core_Model_Abstract
 	 $this->order_item_flag++;
    }
    
-   public function insertOrderItem($orders_data)
+   function insertOrderItem($orders_data)
    {
      $sales_order_item_arr = array();
 	 $sales_order_item = $this->getSalesItem();
@@ -155,7 +155,7 @@ class Raveinfosys_Exporter_Model_Importorders extends Mage_Core_Model_Abstract
    }
    
   
-   public function getSalesTable()
+   function getSalesTable()
    {
      return array(
 	 'increment_id',
@@ -222,7 +222,7 @@ class Raveinfosys_Exporter_Model_Importorders extends Mage_Core_Model_Abstract
 	 'total_invoiced');
    }
    
-   public function getSalesBilling()
+   function getSalesBilling()
    {
      return array(
 	    'customer_address_id',
@@ -242,13 +242,13 @@ class Raveinfosys_Exporter_Model_Importorders extends Mage_Core_Model_Abstract
    }
    
    
-   public function getSalesPayment()
+   function getSalesPayment()
    {
      return array('method');
    }
    
    
-   public function getSalesItem()
+   function getSalesItem()
    {
      return array(
 					'product_sku',

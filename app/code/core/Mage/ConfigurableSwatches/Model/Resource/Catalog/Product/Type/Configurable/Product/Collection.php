@@ -25,7 +25,7 @@ class Mage_ConfigurableSwatches_Model_Resource_Catalog_Product_Type_Configurable
      *
      * @param array $productIds
      */
-    public function addProductSetFilter(array $productIds)
+    function addProductSetFilter(array $productIds)
     {
         $this->getSelect()->where('link_table.parent_id in (?)', $productIds);
     }
@@ -38,7 +38,7 @@ class Mage_ConfigurableSwatches_Model_Resource_Catalog_Product_Type_Configurable
      * @throws Exception
      * @return $this
      */
-    public function _loadEntities($printQuery = false, $logQuery = false)
+    function _loadEntities($printQuery = false, $logQuery = false)
     {
         if ($this->_pageSize) {
             $this->getSelect()->limitPage($this->getCurPage(), $this->_pageSize);

@@ -35,7 +35,7 @@ class Mage_ConfigurableSwatches_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isEnabled()
+    function isEnabled()
     {
         if (is_null($this->_enabled)) {
             $this->_enabled = (
@@ -52,7 +52,7 @@ class Mage_ConfigurableSwatches_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $str
      * @return string
      */
-    public function getHyphenatedString($str)
+    function getHyphenatedString($str)
     {
         $result = false;
         if (function_exists('iconv')) {
@@ -89,7 +89,7 @@ class Mage_ConfigurableSwatches_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getSwatchAttributeIds()
+    function getSwatchAttributeIds()
     {
         if (is_null($this->_configAttributeIds)) {
             $this->_configAttributeIds = [];
@@ -106,7 +106,7 @@ class Mage_ConfigurableSwatches_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int|Mage_Eav_Model_Attribute $attr
      * @return bool
      */
-    public function attrIsSwatchType($attr)
+    function attrIsSwatchType($attr)
     {
         if ($attr instanceof Varien_Object) {
             $attr = $attr->getId();
@@ -120,7 +120,7 @@ class Mage_ConfigurableSwatches_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string|null
      */
-    public function getSwatchesProductJs()
+    function getSwatchesProductJs()
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = Mage::registry('current_product');

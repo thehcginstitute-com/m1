@@ -74,7 +74,7 @@ class Nwdthemes_Revslider_Adminhtml_NwdrevsliderController extends Mage_Adminhtm
 	 * Default page
 	 */
 
-	public function indexAction() {
+	function indexAction() {
 		if ( ! $this->_checkTablesErrors() )
 		{
 		    $this->slidersAction();
@@ -89,7 +89,7 @@ class Nwdthemes_Revslider_Adminhtml_NwdrevsliderController extends Mage_Adminhtm
 	 * Sliders page
 	 */
 
-	public function slidersAction() {
+	function slidersAction() {
 		$this->_initPage();
 		$this->_setTitle(Mage::helper('nwdrevslider')->__('Sliders Dashboard'));
 		$this->renderLayout();
@@ -99,7 +99,7 @@ class Nwdthemes_Revslider_Adminhtml_NwdrevsliderController extends Mage_Adminhtm
 	 * Slider page
 	 */
 
-	public function sliderAction() {
+	function sliderAction() {
 		$this->_initPage();
 		$this->_setTitle(Mage::helper('nwdrevslider')->__('Slider Settings'));
 		$this->renderLayout();
@@ -109,7 +109,7 @@ class Nwdthemes_Revslider_Adminhtml_NwdrevsliderController extends Mage_Adminhtm
 	 * Slider template page
 	 */
 
-	public function slidertemplateAction() {
+	function slidertemplateAction() {
 		$this->_initPage();
 		$this->_setTitle(Mage::helper('nwdrevslider')->__('Template Settings'));
 		$this->renderLayout();
@@ -119,7 +119,7 @@ class Nwdthemes_Revslider_Adminhtml_NwdrevsliderController extends Mage_Adminhtm
 	 * Slides page
 	 */
 
-	public function slidesAction() {
+	function slidesAction() {
 		$this->_initPage();
 		$this->_setTitle(Mage::helper('nwdrevslider')->__('Slides List'));
 		$this->renderLayout();
@@ -129,7 +129,7 @@ class Nwdthemes_Revslider_Adminhtml_NwdrevsliderController extends Mage_Adminhtm
 	 * Slide page
 	 */
 
-	public function slideAction() {
+	function slideAction() {
 		$this->_initPage();
 		$this->_setTitle(Mage::helper('nwdrevslider')->__('Edit Slide'));
 		$this->renderLayout();
@@ -139,7 +139,7 @@ class Nwdthemes_Revslider_Adminhtml_NwdrevsliderController extends Mage_Adminhtm
 	 * Error page
 	 */
 
-	public function errorAction() {
+	function errorAction() {
 		if ( ! $strError = $this->_checkTablesErrors() )
 		{
 			$this->_redirect('*/*/index');
@@ -157,7 +157,7 @@ class Nwdthemes_Revslider_Adminhtml_NwdrevsliderController extends Mage_Adminhtm
 	 * Admin Ajax actions
 	 */
 
-	public function ajaxAction() {
+	function ajaxAction() {
 		$this->_initAction();
 		$this->_revSliderAdmin->onAjaxAction();
 	}

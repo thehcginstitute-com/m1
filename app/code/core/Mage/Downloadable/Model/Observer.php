@@ -30,7 +30,7 @@ class Mage_Downloadable_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_Downloadable_Model_Observer
      */
-    public function prepareProductSave($observer)
+    function prepareProductSave($observer)
     {
         $request = $observer->getEvent()->getRequest();
         /** @var Mage_Catalog_Model_Product $product */
@@ -49,7 +49,7 @@ class Mage_Downloadable_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function saveDownloadableOrderItem(Varien_Event_Observer $observer)
+    function saveDownloadableOrderItem(Varien_Event_Observer $observer)
     {
         /** @var Mage_Sales_Model_Order_Item $orderItem */
         $orderItem = $observer->getEvent()->getItem();
@@ -128,7 +128,7 @@ class Mage_Downloadable_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function setHasDownloadableProducts($observer)
+    function setHasDownloadableProducts($observer)
     {
         $session = Mage::getSingleton('checkout/session');
         if (!$session->getHasDownloadableProducts()) {
@@ -154,7 +154,7 @@ class Mage_Downloadable_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function setLinkStatus($observer)
+    function setLinkStatus($observer)
     {
         /** @var Mage_Sales_Model_Order $order */
         $order = $observer->getEvent()->getOrder();
@@ -256,7 +256,7 @@ class Mage_Downloadable_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function isAllowedGuestCheckout(Varien_Event_Observer $observer)
+    function isAllowedGuestCheckout(Varien_Event_Observer $observer)
     {
         $quote  = $observer->getEvent()->getQuote();
         /** @var Mage_Sales_Model_Quote $quote */
@@ -286,7 +286,7 @@ class Mage_Downloadable_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function initOptionRenderer(Varien_Event_Observer $observer)
+    function initOptionRenderer(Varien_Event_Observer $observer)
     {
         $block = $observer->getBlock();
         $block->addOptionsRenderCfg('downloadable', 'downloadable/catalog_product_configuration');

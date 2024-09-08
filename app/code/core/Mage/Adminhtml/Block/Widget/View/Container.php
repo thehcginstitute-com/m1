@@ -24,7 +24,7 @@ class Mage_Adminhtml_Block_Widget_View_Container extends Mage_Adminhtml_Block_Wi
 {
     protected $_objectId = 'id';
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -49,12 +49,12 @@ class Mage_Adminhtml_Block_Widget_View_Container extends Mage_Adminhtml_Block_Wi
         return parent::_prepareLayout();
     }
 
-    public function getEditUrl()
+    function getEditUrl()
     {
         return $this->getUrl('*/*/edit', [$this->_objectId => $this->getRequest()->getParam($this->_objectId)]);
     }
 
-    public function getViewHtml()
+    function getViewHtml()
     {
         return $this->getChildHtml('plane');
     }

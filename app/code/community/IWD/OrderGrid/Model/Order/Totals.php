@@ -22,7 +22,7 @@ class IWD_OrderGrid_Model_Order_Totals extends Mage_Core_Model_Abstract
     /**
      * @param $collection Varien_Data_Collection
      */
-    public function prepareTotals($collection)
+    function prepareTotals($collection)
     {
         if (!$this->isTotalsEnabled()) {
             return;
@@ -53,7 +53,7 @@ class IWD_OrderGrid_Model_Order_Totals extends Mage_Core_Model_Abstract
     /**
      * @return bool
      */
-    public function isTotalsEnabled()
+    function isTotalsEnabled()
     {
         return Mage::getStoreConfig(IWD_OrderGrid_Helper_Data::CONFIG_XPATH_ORDER_GRID_TOTALS);
     }
@@ -90,7 +90,7 @@ class IWD_OrderGrid_Model_Order_Totals extends Mage_Core_Model_Abstract
     /**
      * @param $collection Varien_Data_Collection
      */
-    public function prepareTotalsForPage($collection)
+    function prepareTotalsForPage($collection)
     {
         $fields = $this->getSumFields();
         $select = $this->prepareSelect($collection);
@@ -199,7 +199,7 @@ class IWD_OrderGrid_Model_Order_Totals extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function getTotals()
+    function getTotals()
     {
         return Mage::registry('iwd_om_grid_totals');
     }
@@ -224,7 +224,7 @@ class IWD_OrderGrid_Model_Order_Totals extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function getGridOptions()
+    function getGridOptions()
     {
         return Mage::registry('iwd_om_grid_options');
     }

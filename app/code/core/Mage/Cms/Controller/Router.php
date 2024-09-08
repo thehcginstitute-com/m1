@@ -27,7 +27,7 @@ class Mage_Cms_Controller_Router extends Mage_Core_Controller_Varien_Router_Abst
      *
      * @param Varien_Event_Observer $observer
      */
-    public function initControllerRouters($observer)
+    function initControllerRouters($observer)
     {
         /** @var Mage_Core_Controller_Varien_Front $front */
         $front = $observer->getEvent()->getFront();
@@ -41,7 +41,7 @@ class Mage_Cms_Controller_Router extends Mage_Core_Controller_Varien_Router_Abst
      * @param Zend_Controller_Request_Http $request
      * @return bool
      */
-    public function match(Zend_Controller_Request_Http $request)
+    function match(Zend_Controller_Request_Http $request)
     {
         if (!Mage::isInstalled()) {
             Mage::app()->getFrontController()->getResponse()

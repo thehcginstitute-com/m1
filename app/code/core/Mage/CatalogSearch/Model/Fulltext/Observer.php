@@ -38,7 +38,7 @@ class Mage_CatalogSearch_Model_Fulltext_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function refreshProductIndex(Varien_Event_Observer $observer)
+    function refreshProductIndex(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
@@ -56,7 +56,7 @@ class Mage_CatalogSearch_Model_Fulltext_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function cleanProductIndex(Varien_Event_Observer $observer)
+    function cleanProductIndex(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
@@ -74,7 +74,7 @@ class Mage_CatalogSearch_Model_Fulltext_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function eavAttributeChange(Varien_Event_Observer $observer)
+    function eavAttributeChange(Varien_Event_Observer $observer)
     {
         $attribute = $observer->getEvent()->getAttribute();
         /** @var Mage_Eav_Model_Entity_Attribute $attribute */
@@ -114,7 +114,7 @@ class Mage_CatalogSearch_Model_Fulltext_Observer
      *
      * @return $this
      */
-    public function refreshIndexAfterImport()
+    function refreshIndexAfterImport()
     {
         $this->_getFulltextModel()
             ->rebuildIndex();
@@ -127,7 +127,7 @@ class Mage_CatalogSearch_Model_Fulltext_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogSearch_Model_Fulltext_Observer
      */
-    public function refreshStoreIndex(Varien_Event_Observer $observer)
+    function refreshStoreIndex(Varien_Event_Observer $observer)
     {
         $storeId = $observer->getEvent()->getStore()->getId();
         $this->_getFulltextModel()->rebuildIndex($storeId);
@@ -140,7 +140,7 @@ class Mage_CatalogSearch_Model_Fulltext_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductWebsiteUpdate(Varien_Event_Observer $observer)
+    function catalogProductWebsiteUpdate(Varien_Event_Observer $observer)
     {
         $websiteIds = $observer->getEvent()->getWebsiteIds();
         $productIds = $observer->getEvent()->getProductIds();
@@ -169,7 +169,7 @@ class Mage_CatalogSearch_Model_Fulltext_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function cleanStoreIndex(Varien_Event_Observer $observer)
+    function cleanStoreIndex(Varien_Event_Observer $observer)
     {
         $store = $observer->getEvent()->getStore();
         /** @var Mage_Core_Model_Store $store */

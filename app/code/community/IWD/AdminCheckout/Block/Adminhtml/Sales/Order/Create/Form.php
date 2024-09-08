@@ -8,7 +8,7 @@ class IWD_AdminCheckout_Block_Adminhtml_Sales_Order_Create_Form extends Mage_Adm
     /**
      * @return string
      */
-    public function _toHtml()
+    function _toHtml()
     {
         if (Mage::helper('iwd_admin_checkout')->isCustomCreationProcess()) {
             $this->insert('top_actions', 'form');
@@ -21,7 +21,7 @@ class IWD_AdminCheckout_Block_Adminhtml_Sales_Order_Create_Form extends Mage_Adm
     /**
      * @return int
      */
-    public function getDefaultStoreView()
+    function getDefaultStoreView()
     {
         return Mage::helper('iwd_admin_checkout')->getDefaultStoreView();
     }

@@ -71,7 +71,7 @@ class Mage_CatalogIndex_Model_Data_Abstract extends Mage_Core_Model_Abstract
      * @param int|array $parentIds
      * @return array|false
      */
-    public function getChildProductIds($store, $parentIds)
+    function getChildProductIds($store, $parentIds)
     {
         if (!$this->_haveChildren) {
             return false;
@@ -91,7 +91,7 @@ class Mage_CatalogIndex_Model_Data_Abstract extends Mage_Core_Model_Abstract
      * @param int|array $childIds
      * @return array|false
      */
-    public function getParentProductIds($store, $childIds)
+    function getParentProductIds($store, $childIds)
     {
         if (!$this->_haveParents) {
             return false;
@@ -143,7 +143,7 @@ class Mage_CatalogIndex_Model_Data_Abstract extends Mage_Core_Model_Abstract
      * @param Mage_Customer_Model_Group $group
      * @return float
      */
-    public function getFinalPrice($product, $store, $group)
+    function getFinalPrice($product, $store, $group)
     {
         $basePrice = $specialPrice = $specialPriceFrom = $specialPriceTo = null;
         $priceId = Mage::getSingleton('eav/entity_attribute')->getIdByCode(Mage_Catalog_Model_Product::ENTITY, 'price');
@@ -183,7 +183,7 @@ class Mage_CatalogIndex_Model_Data_Abstract extends Mage_Core_Model_Abstract
      * @param Mage_Core_Model_Store $store
      * @return array
      */
-    public function getMinimalPrice($products, $store)
+    function getMinimalPrice($products, $store)
     {
         $priceAttributes = [
             Mage::getSingleton('eav/entity_attribute')->getIdByCode(Mage_Catalog_Model_Product::ENTITY, 'tier_price'),
@@ -206,7 +206,7 @@ class Mage_CatalogIndex_Model_Data_Abstract extends Mage_Core_Model_Abstract
      * @param Mage_Core_Model_Store $store
      * @return int
      */
-    public function getTaxClassId($productId, $store)
+    function getTaxClassId($productId, $store)
     {
         $attributeId = Mage::getSingleton('eav/entity_attribute')->getIdByCode(Mage_Catalog_Model_Product::ENTITY, 'tax_class_id');
         $taxClassId  = $this->getResource()->getAttributeData([$productId], [$attributeId], $store->getId());
@@ -225,7 +225,7 @@ class Mage_CatalogIndex_Model_Data_Abstract extends Mage_Core_Model_Abstract
      * @param Mage_Core_Model_Store $store
      * @return mixed
      */
-    public function getTierPrices($products, $store)
+    function getTierPrices($products, $store)
     {
         return $this->getResource()->getTierPrices($products, $store->getWebsiteId());
     }
@@ -238,7 +238,7 @@ class Mage_CatalogIndex_Model_Data_Abstract extends Mage_Core_Model_Abstract
      * @param Mage_Core_Model_Store $store
      * @return array
      */
-    public function getAttributeData($products, $attributes, $store)
+    function getAttributeData($products, $attributes, $store)
     {
         return $this->getResource()->getAttributeData($products, $attributes, $store->getId());
     }
@@ -248,7 +248,7 @@ class Mage_CatalogIndex_Model_Data_Abstract extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getTypeCode()
+    function getTypeCode()
     {
         Mage::throwException('Define custom data retreiver with getTypeCode function');
     }
@@ -269,7 +269,7 @@ class Mage_CatalogIndex_Model_Data_Abstract extends Mage_Core_Model_Abstract
      * @param int $type
      * @return bool
      */
-    public function areChildrenIndexable($type)
+    function areChildrenIndexable($type)
     {
         if (!$this->_haveChildren || !isset($this->_haveChildren[$type]) || !$this->_haveChildren[$type]) {
             return false;
@@ -282,7 +282,7 @@ class Mage_CatalogIndex_Model_Data_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Mage_Catalog_Model_Product_Type_Abstract
      */
-    public function getTypeInstance()
+    function getTypeInstance()
     {
         if (is_null($this->_typeInstance)) {
             $product = new Varien_Object();

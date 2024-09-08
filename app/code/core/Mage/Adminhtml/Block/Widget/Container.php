@@ -83,7 +83,7 @@ class Mage_Adminhtml_Block_Widget_Container extends Mage_Adminhtml_Block_Templat
      * @param string|null $area area, that button should be displayed in ('header', 'footer', null)
      * @return $this
      */
-    public function addButton($id, $data, $level = 0, $sortOrder = 0, $area = 'header')
+    function addButton($id, $data, $level = 0, $sortOrder = 0, $area = 'header')
     {
         return $this->_addButton($id, $data, $level, $sortOrder, $area);
     }
@@ -110,7 +110,7 @@ class Mage_Adminhtml_Block_Widget_Container extends Mage_Adminhtml_Block_Templat
      * @param string $id
      * @return $this
      */
-    public function removeButton($id)
+    function removeButton($id)
     {
         return $this->_removeButton($id);
     }
@@ -154,7 +154,7 @@ class Mage_Adminhtml_Block_Widget_Container extends Mage_Adminhtml_Block_Templat
      * @param mixed $data
      * @return $this
      */
-    public function updateButton($id, $key, $data)
+    function updateButton($id, $key, $data)
     {
         return $this->_updateButton($id, $key, $data);
     }
@@ -203,7 +203,7 @@ class Mage_Adminhtml_Block_Widget_Container extends Mage_Adminhtml_Block_Templat
      * @param string $area
      * @return string
      */
-    public function getButtonsHtml($area = null)
+    function getButtonsHtml($area = null)
     {
         $out = '';
         foreach ($this->_buttons as $level => $buttons) {
@@ -241,7 +241,7 @@ class Mage_Adminhtml_Block_Widget_Container extends Mage_Adminhtml_Block_Templat
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return $this->_headerText;
     }
@@ -251,7 +251,7 @@ class Mage_Adminhtml_Block_Widget_Container extends Mage_Adminhtml_Block_Templat
      *
      * @return string
      */
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'head-' . strtr($this->_controller, '_', '-');
     }
@@ -261,7 +261,7 @@ class Mage_Adminhtml_Block_Widget_Container extends Mage_Adminhtml_Block_Templat
      *
      * @return string
      */
-    public function getHeaderHtml()
+    function getHeaderHtml()
     {
         return '<h3 class="' . $this->getHeaderCssClass() . '">' . $this->getHeaderText() . '</h3>';
     }
@@ -271,7 +271,7 @@ class Mage_Adminhtml_Block_Widget_Container extends Mage_Adminhtml_Block_Templat
      *
      * @return bool
      */
-    public function hasFooterButtons()
+    function hasFooterButtons()
     {
         foreach ($this->_buttons as $level => $buttons) {
             foreach ($buttons as $id => $data) {

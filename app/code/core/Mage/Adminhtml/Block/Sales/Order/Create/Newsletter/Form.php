@@ -21,7 +21,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_Create_Newsletter_Form extends Mage_Adminhtml_Block_Widget
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_create_newsletter_form');

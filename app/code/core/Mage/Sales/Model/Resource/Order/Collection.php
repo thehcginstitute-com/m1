@@ -46,7 +46,7 @@ class Mage_Sales_Model_Resource_Order_Collection extends Mage_Sales_Model_Resour
      *
      * @return $this
      */
-    public function addItemCountExpr()
+    function addItemCountExpr()
     {
         if (is_null($this->_fieldsToSelect)) {
             // If we select all fields from table, we need to add column alias
@@ -62,7 +62,7 @@ class Mage_Sales_Model_Resource_Order_Collection extends Mage_Sales_Model_Resour
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $countSelect = parent::getSelectCountSql();
         $countSelect->resetJoinLeft();
@@ -147,7 +147,7 @@ class Mage_Sales_Model_Resource_Order_Collection extends Mage_Sales_Model_Resour
      *
      * @return Mage_Sales_Model_Resource_Collection_Abstract
      */
-    public function addAddressFields()
+    function addAddressFields()
     {
         return $this->_addAddressFields();
     }
@@ -161,7 +161,7 @@ class Mage_Sales_Model_Resource_Order_Collection extends Mage_Sales_Model_Resour
      * @param null|string|array $condition
      * @return $this
      */
-    public function addFieldToSearchFilter($field, $condition = null)
+    function addFieldToSearchFilter($field, $condition = null)
     {
         $field = $this->_getMappedField($field);
         $this->_select->orWhere($this->_getConditionSql($field, $condition));
@@ -175,7 +175,7 @@ class Mage_Sales_Model_Resource_Order_Collection extends Mage_Sales_Model_Resour
      * @param array|int|string|null $condition
      * @return $this
      */
-    public function addAttributeToSearchFilter($attributes, $condition = null)
+    function addAttributeToSearchFilter($attributes, $condition = null)
     {
         if (is_array($attributes) && !empty($attributes)) {
             $this->_addAddressFields();

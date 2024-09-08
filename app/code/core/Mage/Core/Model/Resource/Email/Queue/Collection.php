@@ -46,7 +46,7 @@ class Mage_Core_Model_Resource_Email_Queue_Collection extends Mage_Core_Model_Re
      *
      * @return $this
      */
-    public function addOnlyForSendingFilter()
+    function addOnlyForSendingFilter()
     {
         $this->getSelect()->where('main_table.processed_at IS NULL');
         return $this;

@@ -25,7 +25,7 @@ class Mage_Sales_Model_Order_Api extends Mage_Sales_Model_Api_Resource
     /**
      * Initialize attributes map
      */
-    public function __construct()
+    function __construct()
     {
         $this->_attributesMap = [
             'order' => ['order_id' => 'entity_id'],
@@ -61,7 +61,7 @@ class Mage_Sales_Model_Order_Api extends Mage_Sales_Model_Api_Resource
      * @param null|object|array $filters
      * @return array
      */
-    public function items($filters = null)
+    function items($filters = null)
     {
         $orders = [];
 
@@ -129,7 +129,7 @@ class Mage_Sales_Model_Order_Api extends Mage_Sales_Model_Api_Resource
      * @param string $orderIncrementId
      * @return array
      */
-    public function info($orderIncrementId)
+    function info($orderIncrementId)
     {
         $order = $this->_initOrder($orderIncrementId);
 
@@ -175,7 +175,7 @@ class Mage_Sales_Model_Order_Api extends Mage_Sales_Model_Api_Resource
      * @param bool $notify
      * @return bool
      */
-    public function addComment($orderIncrementId, $status, $comment = '', $notify = false)
+    function addComment($orderIncrementId, $status, $comment = '', $notify = false)
     {
         $order = $this->_initOrder($orderIncrementId);
 
@@ -209,7 +209,7 @@ class Mage_Sales_Model_Order_Api extends Mage_Sales_Model_Api_Resource
      * @param string $orderIncrementId
      * @return bool
      */
-    public function hold($orderIncrementId)
+    function hold($orderIncrementId)
     {
         $order = $this->_initOrder($orderIncrementId);
 
@@ -229,7 +229,7 @@ class Mage_Sales_Model_Order_Api extends Mage_Sales_Model_Api_Resource
      * @param string $orderIncrementId
      * @return bool
      */
-    public function unhold($orderIncrementId)
+    function unhold($orderIncrementId)
     {
         $order = $this->_initOrder($orderIncrementId);
 
@@ -249,7 +249,7 @@ class Mage_Sales_Model_Order_Api extends Mage_Sales_Model_Api_Resource
      * @param string $orderIncrementId
      * @return bool
      */
-    public function cancel($orderIncrementId)
+    function cancel($orderIncrementId)
     {
         $order = $this->_initOrder($orderIncrementId);
 

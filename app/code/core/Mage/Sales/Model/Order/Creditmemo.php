@@ -224,7 +224,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Creditmemo_Config
      */
-    public function getConfig()
+    function getConfig()
     {
         return Mage::getSingleton('sales/order_creditmemo_config');
     }
@@ -234,7 +234,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return $this->getOrder()->getStore();
     }
@@ -245,7 +245,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      * @param   Mage_Sales_Model_Order $order
      * @return  $this
      */
-    public function setOrder(Mage_Sales_Model_Order $order)
+    function setOrder(Mage_Sales_Model_Order $order)
     {
         $this->_order = $order;
         $this->setOrderId($order->getId())
@@ -258,7 +258,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         if (!$this->_order instanceof Mage_Sales_Model_Order) {
             $this->_order = Mage::getModel('sales/order')->load($this->getOrderId());
@@ -271,7 +271,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Address
      */
-    public function getBillingAddress()
+    function getBillingAddress()
     {
         return $this->getOrder()->getBillingAddress();
     }
@@ -281,7 +281,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Address
      */
-    public function getShippingAddress()
+    function getShippingAddress()
     {
         return $this->getOrder()->getShippingAddress();
     }
@@ -289,7 +289,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     /**
      * @return Mage_Sales_Model_Resource_Order_Creditmemo_Item_Collection
      */
-    public function getItemsCollection()
+    function getItemsCollection()
     {
         if (empty($this->_items)) {
             $this->_items = Mage::getResourceModel('sales/order_creditmemo_item_collection')
@@ -307,7 +307,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     /**
      * @return Mage_Sales_Model_Order_Creditmemo_Item[]
      */
-    public function getAllItems()
+    function getAllItems()
     {
         $items = [];
         foreach ($this->getItemsCollection() as $item) {
@@ -322,7 +322,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      * @param int $itemId
      * @return bool
      */
-    public function getItemById($itemId)
+    function getItemById($itemId)
     {
         foreach ($this->getItemsCollection() as $item) {
             if ($item->getId() == $itemId) {
@@ -338,7 +338,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      * @param int $orderId
      * @return Mage_Sales_Model_Order_Creditmemo_Item|bool
      */
-    public function getItemByOrderId($orderId)
+    function getItemByOrderId($orderId)
     {
         foreach ($this->getItemsCollection() as $item) {
             if ($item->getOrderItemId() == $orderId) {
@@ -353,7 +353,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      * @return $this
      * @throws Exception
      */
-    public function addItem(Mage_Sales_Model_Order_Creditmemo_Item $item)
+    function addItem(Mage_Sales_Model_Order_Creditmemo_Item $item)
     {
         $item->setCreditmemo($this)
             ->setParentId($this->getId())
@@ -369,7 +369,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      *
      * @return $this
      */
-    public function collectTotals()
+    function collectTotals()
     {
         foreach ($this->getConfig()->getTotalModels() as $model) {
             $model->collect($this);
@@ -385,7 +385,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      * @param bool $negative Indicates if we perform addition (true) or subtraction (false) of rounded value
      * @return float
      */
-    public function roundPrice($price, $type = 'regular', $negative = false)
+    function roundPrice($price, $type = 'regular', $negative = false)
     {
         if ($price) {
             if (!isset($this->_calculators[$type])) {
@@ -399,7 +399,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     /**
      * @return bool
      */
-    public function canRefund()
+    function canRefund()
     {
         if ($this->getState() != self::STATE_CANCELED
             && $this->getState() != self::STATE_REFUNDED
@@ -415,7 +415,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      *
      * @return bool
      */
-    public function canCancel()
+    function canCancel()
     {
         return $this->getState() == self::STATE_OPEN;
     }
@@ -425,7 +425,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      *
      * @return false
      */
-    public function canVoid()
+    function canVoid()
     {
         return false;
     }
@@ -435,7 +435,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      * @throws Mage_Core_Exception
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function refund()
+    function refund()
     {
         Mage::dispatchEvent('sales_order_creditmemo_refund_before', [$this->_eventObject => $this]);
 
@@ -502,7 +502,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      *
      * @return $this
      */
-    public function cancel()
+    function cancel()
     {
         $this->setState(self::STATE_CANCELED);
         foreach ($this->getAllItems() as $item) {
@@ -550,7 +550,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      *
      * @return $this
      */
-    public function register()
+    function register()
     {
         if ($this->getId()) {
             Mage::throwException(
@@ -622,7 +622,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      * @param   int $stateId
      * @return  string
      */
-    public function getStateName($stateId = null)
+    function getStateName($stateId = null)
     {
         if (is_null($stateId)) {
             $stateId = $this->getState();
@@ -638,7 +638,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      * @param float $amount
      * @return $this
      */
-    public function setShippingAmount($amount)
+    function setShippingAmount($amount)
     {
         $this->setData('shipping_amount', $amount);
         return $this;
@@ -648,7 +648,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      * @param float $amount
      * @return $this
      */
-    public function setAdjustmentPositive($amount)
+    function setAdjustmentPositive($amount)
     {
         $amount = trim($amount);
         if (substr($amount, -1) === '%') {
@@ -670,7 +670,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      * @param float $amount
      * @return $this
      */
-    public function setAdjustmentNegative($amount)
+    function setAdjustmentNegative($amount)
     {
         $amount = trim($amount);
         if (substr($amount, -1) === '%') {
@@ -698,7 +698,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      *
      * @return $this
      */
-    public function addComment($comment, $notify = false, $visibleOnFront = false)
+    function addComment($comment, $notify = false, $visibleOnFront = false)
     {
         if (!($comment instanceof Mage_Sales_Model_Order_Creditmemo_Comment)) {
             $comment = Mage::getModel('sales/order_creditmemo_comment')
@@ -720,7 +720,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      * @param bool $reload
      * @return Mage_Sales_Model_Resource_Order_Comment_Collection_Abstract
      */
-    public function getCommentsCollection($reload = false)
+    function getCommentsCollection($reload = false)
     {
         if (is_null($this->_comments) || $reload) {
             $this->_comments = Mage::getResourceModel('sales/order_creditmemo_comment_collection')
@@ -748,7 +748,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      * @param string $comment
      * @return $this
      */
-    public function sendEmail($notifyCustomer = true, $comment = '')
+    function sendEmail($notifyCustomer = true, $comment = '')
     {
         $order = $this->getOrder();
         $storeId = $order->getStore()->getId();
@@ -848,7 +848,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      * @param string $comment
      * @return $this
      */
-    public function sendUpdateEmail($notifyCustomer = true, $comment = '')
+    function sendUpdateEmail($notifyCustomer = true, $comment = '')
     {
         $order = $this->getOrder();
         $storeId = $order->getStore()->getId();
@@ -978,7 +978,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      * @param array|null $filter
      * @return Mage_Sales_Model_Resource_Order_Creditmemo_Collection
      */
-    public function getFilteredCollectionItems($filter = null)
+    function getFilteredCollectionItems($filter = null)
     {
         return $this->getResourceCollection()->getFiltered($filter);
     }
@@ -988,7 +988,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      *
      * @return bool
      */
-    public function isLast()
+    function isLast()
     {
         foreach ($this->getAllItems() as $item) {
             if (!$item->isLast()) {

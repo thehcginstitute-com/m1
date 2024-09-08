@@ -19,7 +19,7 @@
 class AddThis_SharingTool_Model_Source_Languages
 {
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return array(
             array('value' => 'auto', 'label'=>'Auto-detect'),

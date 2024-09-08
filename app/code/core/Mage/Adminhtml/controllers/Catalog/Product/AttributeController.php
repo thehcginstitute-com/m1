@@ -45,7 +45,7 @@ class Mage_Adminhtml_Catalog_Product_AttributeController extends Mage_Adminhtml_
         return explode(',', Mage::getStoreConfig(self::XML_PATH_ALLOWED_TAGS));
     }
 
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         parent::preDispatch();
@@ -74,19 +74,19 @@ class Mage_Adminhtml_Catalog_Product_AttributeController extends Mage_Adminhtml_
         return $this;
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_initAction()
             ->_addContent($this->getLayout()->createBlock('adminhtml/catalog_product_attribute'))
             ->renderLayout();
     }
 
-    public function newAction()
+    function newAction()
     {
         $this->_forward('edit');
     }
 
-    public function editAction()
+    function editAction()
     {
         $id = $this->getRequest()->getParam('attribute_id');
         $model = Mage::getModel('catalog/resource_eav_attribute')
@@ -135,7 +135,7 @@ class Mage_Adminhtml_Catalog_Product_AttributeController extends Mage_Adminhtml_
         $this->renderLayout();
     }
 
-    public function validateAction()
+    function validateAction()
     {
         $response = new Varien_Object();
         $response->setError(false);
@@ -190,7 +190,7 @@ class Mage_Adminhtml_Catalog_Product_AttributeController extends Mage_Adminhtml_
         return $data;
     }
 
-    public function saveAction()
+    function saveAction()
     {
         $data = $this->getRequest()->getPost();
         if ($data) {
@@ -339,7 +339,7 @@ class Mage_Adminhtml_Catalog_Product_AttributeController extends Mage_Adminhtml_
         $this->_redirect('*/*/');
     }
 
-    public function deleteAction()
+    function deleteAction()
     {
         if ($id = $this->getRequest()->getParam('attribute_id')) {
             $model = Mage::getModel('catalog/resource_eav_attribute');

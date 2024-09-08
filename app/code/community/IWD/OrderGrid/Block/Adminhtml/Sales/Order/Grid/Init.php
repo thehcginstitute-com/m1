@@ -8,7 +8,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Init extends Mage_Core_Bloc
     /**
      * @return bool
      */
-    public function isLimitPeriod()
+    function isLimitPeriod()
     {
         return $this->getOrderGridModel()->isLimitPeriod();
     }
@@ -16,7 +16,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Init extends Mage_Core_Bloc
     /**
      * @return bool
      */
-    public function isFixHeaderEnabled()
+    function isFixHeaderEnabled()
     {
         return $this->getOrderGridModel()->isFixGridHeader();
     }
@@ -32,7 +32,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Init extends Mage_Core_Bloc
     /**
      * @return string
      */
-    public function getCreatedAtFrom()
+    function getCreatedAtFrom()
     {
         return $this->getSession()->getData("created_at_from");
     }
@@ -40,7 +40,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Init extends Mage_Core_Bloc
     /**
      * @return string
      */
-    public function getCreatedAtTo()
+    function getCreatedAtTo()
     {
         return $this->getSession()->getData("created_at_to");
     }
@@ -56,7 +56,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Init extends Mage_Core_Bloc
     /**
      * @return bool
      */
-    public function isTotalsEnabled()
+    function isTotalsEnabled()
     {
         return $this->getTotalsBlock()->isTotalsEnabled();
     }
@@ -64,7 +64,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Init extends Mage_Core_Bloc
     /**
      * @return string
      */
-    public function getTotalsGridOptionsJson()
+    function getTotalsGridOptionsJson()
     {
         return $this->getTotalsBlock()->getGridOptionsJson();
     }
@@ -72,7 +72,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Init extends Mage_Core_Bloc
     /**
      * @return string
      */
-    public function getTotalsJson()
+    function getTotalsJson()
     {
         return $this->getTotalsBlock()->getTotalsJson();
     }
@@ -88,7 +88,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Init extends Mage_Core_Bloc
     /**
      * @return bool
      */
-    public function isAllowedEditMassaction()
+    function isAllowedEditMassaction()
     {
         return Mage::getSingleton('admin/session')->isAllowed('iwd_ordergrid/manage_massaction');
     }

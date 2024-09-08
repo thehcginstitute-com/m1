@@ -2,7 +2,7 @@
 
 class Raveinfosys_Exporter_Model_Operations_Invoice extends Mage_Core_Model_Abstract
 {
-    public function createInvoice($order_id,$invoice_item,$date)
+    function createInvoice($order_id,$invoice_item,$date)
 	{	
 	    $order = $this->getOrderModel($order_id);
 		try{
@@ -30,7 +30,7 @@ class Raveinfosys_Exporter_Model_Operations_Invoice extends Mage_Core_Model_Abst
 		return $invoiceId;
 	} 
 	
-	public function updateInvoiceQTY($invoice_item)
+	function updateInvoiceQTY($invoice_item)
 	{ 
 	  foreach($invoice_item as $itemid => $itemqty)
 	  {
@@ -40,7 +40,7 @@ class Raveinfosys_Exporter_Model_Operations_Invoice extends Mage_Core_Model_Abst
 	  } 
 	}
 	
-	public function getOrderModel($last_order_increment_id)
+	function getOrderModel($last_order_increment_id)
     {
      $order = Mage::getModel('sales/order')->loadByIncrementId($last_order_increment_id);
 	 return $order;

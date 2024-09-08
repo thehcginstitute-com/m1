@@ -28,7 +28,7 @@ class Mage_Page_Block_Switch extends Mage_Core_Block_Template
      * @return int|string|null
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getCurrentWebsiteId()
+    function getCurrentWebsiteId()
     {
         return Mage::app()->getStore()->getWebsiteId();
     }
@@ -37,7 +37,7 @@ class Mage_Page_Block_Switch extends Mage_Core_Block_Template
      * @return int|string|null
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getCurrentGroupId()
+    function getCurrentGroupId()
     {
         return Mage::app()->getStore()->getGroupId();
     }
@@ -46,7 +46,7 @@ class Mage_Page_Block_Switch extends Mage_Core_Block_Template
      * @return int
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getCurrentStoreId()
+    function getCurrentStoreId()
     {
         return Mage::app()->getStore()->getId();
     }
@@ -55,7 +55,7 @@ class Mage_Page_Block_Switch extends Mage_Core_Block_Template
      * @return Mage_Core_Model_Store_Group[]
      * @throws Mage_Core_Exception
      */
-    public function getRawGroups()
+    function getRawGroups()
     {
         if (!$this->hasData('raw_groups')) {
             $websiteGroups = Mage::app()->getWebsite()->getGroups();
@@ -73,7 +73,7 @@ class Mage_Page_Block_Switch extends Mage_Core_Block_Template
      * @return Mage_Core_Model_Store[]
      * @throws Mage_Core_Exception
      */
-    public function getRawStores()
+    function getRawStores()
     {
         if (!$this->hasData('raw_stores')) {
             $websiteStores = Mage::app()->getWebsite()->getStores();
@@ -105,7 +105,7 @@ class Mage_Page_Block_Switch extends Mage_Core_Block_Template
      *
      * @return Mage_Core_Model_Store_Group[]
      */
-    public function getGroups()
+    function getGroups()
     {
         if (!$this->hasData('groups')) {
             $rawGroups = $this->getRawGroups();
@@ -137,7 +137,7 @@ class Mage_Page_Block_Switch extends Mage_Core_Block_Template
     /**
      * @return Mage_Core_Model_Store[]
      */
-    public function getStores()
+    function getStores()
     {
         if (!$this->getData('stores')) {
             $rawStores = $this->getRawStores();
@@ -157,7 +157,7 @@ class Mage_Page_Block_Switch extends Mage_Core_Block_Template
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getCurrentStoreCode()
+    function getCurrentStoreCode()
     {
         return Mage::app()->getStore()->getCode();
     }
@@ -165,7 +165,7 @@ class Mage_Page_Block_Switch extends Mage_Core_Block_Template
     /**
      * @return bool
      */
-    public function isStoreInUrl()
+    function isStoreInUrl()
     {
         if (is_null($this->_storeInUrl)) {
             $this->_storeInUrl = Mage::getStoreConfigFlag(Mage_Core_Model_Store::XML_PATH_STORE_IN_URL);

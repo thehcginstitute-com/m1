@@ -42,7 +42,7 @@ class Mage_Sales_Model_Order_Pdf_Total_Default extends Varien_Object
      * )
      * @return array
      */
-    public function getTotalsForDisplay()
+    function getTotalsForDisplay()
     {
         $amount = $this->getOrder()->formatPriceTxt($this->getAmount());
         if ($this->getAmountPrefix()) {
@@ -83,7 +83,7 @@ class Mage_Sales_Model_Order_Pdf_Total_Default extends Varien_Object
      * )
      * @return array
      */
-    public function getFullTaxInfo()
+    function getFullTaxInfo()
     {
         $fontSize       = $this->getFontSize() ? $this->getFontSize() : 7;
         $taxClassAmount = $this->_getCalculatedTaxes();
@@ -170,7 +170,7 @@ class Mage_Sales_Model_Order_Pdf_Total_Default extends Varien_Object
      *
      * @return bool
      */
-    public function canDisplay()
+    function canDisplay()
     {
         $amount = $this->getAmount();
         return $this->getDisplayZero() || ($amount != 0);
@@ -181,7 +181,7 @@ class Mage_Sales_Model_Order_Pdf_Total_Default extends Varien_Object
      *
      * @return float
      */
-    public function getAmount()
+    function getAmount()
     {
         return $this->getSource()->getDataUsingMethod($this->getSourceField());
     }
@@ -191,7 +191,7 @@ class Mage_Sales_Model_Order_Pdf_Total_Default extends Varien_Object
      *
      * @return mixed
      */
-    public function getTitleDescription()
+    function getTitleDescription()
     {
         return $this->getSource()->getDataUsingMethod($this->getTitleSourceField());
     }

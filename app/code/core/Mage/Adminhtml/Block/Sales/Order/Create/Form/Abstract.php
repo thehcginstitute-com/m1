@@ -57,7 +57,7 @@ abstract class Mage_Adminhtml_Block_Sales_Order_Create_Form_Abstract extends Mag
      *
      * @return Varien_Data_Form
      */
-    public function getForm()
+    function getForm()
     {
         if (is_null($this->_form)) {
             $this->_form = new Varien_Data_Form();
@@ -168,7 +168,7 @@ abstract class Mage_Adminhtml_Block_Sales_Order_Create_Form_Abstract extends Mag
      *
      * @return array
      */
-    public function getFormValues()
+    function getFormValues()
     {
         return [];
     }

@@ -49,7 +49,7 @@ class Mage_Reports_Model_Product_Index_Compared extends Mage_Reports_Model_Produ
      *
      * @return array
      */
-    public function getExcludeProductIds()
+    function getExcludeProductIds()
     {
         $productIds = [];
 

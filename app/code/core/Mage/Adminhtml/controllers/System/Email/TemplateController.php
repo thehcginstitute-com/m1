@@ -31,7 +31,7 @@ class Mage_Adminhtml_System_Email_TemplateController extends Mage_Adminhtml_Cont
     /**
      * Index action
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('System'))->_title($this->__('Transactional Emails'));
 
@@ -54,7 +54,7 @@ class Mage_Adminhtml_System_Email_TemplateController extends Mage_Adminhtml_Cont
     /**
      * Grid action
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->getResponse()->setBody(
             $this->getLayout()->createBlock('adminhtml/system_email_template_grid')->toHtml()
@@ -64,7 +64,7 @@ class Mage_Adminhtml_System_Email_TemplateController extends Mage_Adminhtml_Cont
     /**
      * New transactional email action
      */
-    public function newAction()
+    function newAction()
     {
         $this->_forward('edit');
     }
@@ -72,7 +72,7 @@ class Mage_Adminhtml_System_Email_TemplateController extends Mage_Adminhtml_Cont
     /**
      * Edit transactional email action
      */
-    public function editAction()
+    function editAction()
     {
         $this->loadLayout();
         $template = $this->_initTemplate('id');
@@ -109,7 +109,7 @@ class Mage_Adminhtml_System_Email_TemplateController extends Mage_Adminhtml_Cont
      *
      * @throws Mage_Core_Exception
      */
-    public function saveAction()
+    function saveAction()
     {
         $request = $this->getRequest();
         $id = $this->getRequest()->getParam('id');
@@ -166,7 +166,7 @@ class Mage_Adminhtml_System_Email_TemplateController extends Mage_Adminhtml_Cont
     /**
      * Delete action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $template = $this->_initTemplate('id');
         if ($template->getId()) {
@@ -197,7 +197,7 @@ class Mage_Adminhtml_System_Email_TemplateController extends Mage_Adminhtml_Cont
     /**
      * Preview action
      */
-    public function previewAction()
+    function previewAction()
     {
         $this->loadLayout('systemPreview');
         $this->renderLayout();
@@ -206,7 +206,7 @@ class Mage_Adminhtml_System_Email_TemplateController extends Mage_Adminhtml_Cont
     /**
      * Set template data to retrieve it in template info form
      */
-    public function defaultTemplateAction()
+    function defaultTemplateAction()
     {
         $template = $this->_initTemplate('id');
         $templateCode = $this->getRequest()->getParam('code');
@@ -226,7 +226,7 @@ class Mage_Adminhtml_System_Email_TemplateController extends Mage_Adminhtml_Cont
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         return parent::preDispatch();

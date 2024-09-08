@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_Address extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'sales_order';
         $this->_mode       = 'address';
@@ -36,7 +36,7 @@ class Mage_Adminhtml_Block_Sales_Order_Address extends Mage_Adminhtml_Block_Widg
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         $address = Mage::registry('order_address');
         $orderId = $address->getOrder()->getIncrementId();
@@ -53,7 +53,7 @@ class Mage_Adminhtml_Block_Sales_Order_Address extends Mage_Adminhtml_Block_Widg
      *
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl(
             '*/*/view',

@@ -71,7 +71,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
      *
      * @return Mage_Customer_Model_Customer|object
      */
-    public function getCustomerModel()
+    function getCustomerModel()
     {
         if (is_null($this->_customerModel)) {
             $object = Mage::getModel('customer/customer');
@@ -85,7 +85,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
      *
      * @return Mage_Customer_Model_Address|object
      */
-    public function getBillingAddressModel()
+    function getBillingAddressModel()
     {
         if (is_null($this->_billingAddressModel)) {
             $object = Mage::getModel('customer/address');
@@ -99,7 +99,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
      *
      * @return Mage_Customer_Model_Address|object
      */
-    public function getShippingAddressModel()
+    function getShippingAddressModel()
     {
         if (is_null($this->_shippingAddressModel)) {
             $object = Mage::getModel('customer/address');
@@ -114,7 +114,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
      * @param string $store
      * @return Mage_Core_Model_Store|false
      */
-    public function getStoreByCode($store)
+    function getStoreByCode($store)
     {
         if (is_null($this->_stores)) {
             $this->_stores = Mage::app()->getStores(true, true);
@@ -131,7 +131,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
      * @param string $websiteCode
      * @return Mage_Core_Model_Website|false
      */
-    public function getWebsiteByCode($websiteCode)
+    function getWebsiteByCode($websiteCode)
     {
         if (is_null($this->_websites)) {
             $this->_websites = Mage::app()->getWebsites(true, true);
@@ -148,7 +148,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
      * @param string $code
      * @return Mage_Eav_Model_Entity_Attribute
      */
-    public function getAttribute($code)
+    function getAttribute($code)
     {
         if (!isset($this->_attributes[$code])) {
             $this->_attributes[$code] = $this->getCustomerModel()->getResource()->getAttribute($code);
@@ -163,7 +163,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
      * @param string $regionName
      * @return int
      */
-    public function getRegionId($country, $regionName)
+    function getRegionId($country, $regionName)
     {
         if (is_null($this->_regions)) {
             $this->_regions = [];
@@ -188,7 +188,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
      *
      * @return array
      */
-    public function getCustomerGroups()
+    function getCustomerGroups()
     {
         if (is_null($this->_customerGroups)) {
             $this->_customerGroups = [];
@@ -208,12 +208,12 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
      *
      * @return array
      */
-    public function getCustomerGoups()
+    function getCustomerGoups()
     {
         return $this->getCustomerGroups();
     }
 
-    public function __construct()
+    function __construct()
     {
         $this->setVar('entity_type', 'customer/customer');
 
@@ -268,7 +268,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
      * @throws Mage_Core_Model_Store_Exception
      * @throws Varien_Convert_Exception
      */
-    public function load()
+    function load()
     {
         $addressType = $this->getVar('filter/adressType'); //error in key filter addressType
         if ($addressType == 'both') {
@@ -331,7 +331,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
     /**
      * Not use :(
      */
-    public function parse()
+    function parse()
     {
         $batchModel = Mage::getSingleton('dataflow/batch');
         /** @var Mage_Dataflow_Model_Batch $batchModel */
@@ -352,7 +352,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
      * @throws Mage_Core_Exception
      * @throws Varien_Exception
      */
-    public function setCustomer(Mage_Customer_Model_Customer $customer)
+    function setCustomer(Mage_Customer_Model_Customer $customer)
     {
         $id = Mage::objects()->save($customer);
         Mage::register('Object_Cache_Customer', $id);
@@ -361,7 +361,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
     /**
      * @return Mage_Customer_Model_Customer|object
      */
-    public function getCustomer()
+    function getCustomer()
     {
         return Mage::objects()->load(Mage::registry('Object_Cache_Customer'));
     }
@@ -370,7 +370,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function save()
+    function save()
     {
         $stores = [];
         foreach (Mage::getConfig()->getNode('stores')->children() as $storeNode) {
@@ -423,7 +423,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
      * @param array $importData
      * @return $this
      */
-    public function saveRow($importData)
+    function saveRow($importData)
     {
         $customer = $this->getCustomerModel();
         $customer->setId(null);
@@ -719,7 +719,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
     /**
      * @return string
      */
-    public function getCustomerId()
+    function getCustomerId()
     {
         return $this->_customerId;
     }

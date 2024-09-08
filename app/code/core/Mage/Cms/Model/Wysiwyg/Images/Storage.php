@@ -46,7 +46,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      * @param string $path Parent directory path
      * @return Varien_Data_Collection_Filesystem
      */
-    public function getDirsCollection($path)
+    function getDirsCollection($path)
     {
         if (Mage::helper('core/file_storage_database')->checkDbUsage()) {
             $subDirectories = Mage::getModel('core/file_storage_directory_database')->getSubdirectories($path);
@@ -97,7 +97,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function getFilesCollection($path, $type = null)
+    function getFilesCollection($path, $type = null)
     {
         if (Mage::helper('core/file_storage_database')->checkDbUsage()) {
             $files = Mage::getModel('core/file_storage_database')->getDirectoryFiles($path);
@@ -159,7 +159,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      * @param string $path Path to the directory
      * @return Varien_Data_Collection_Filesystem
      */
-    public function getCollection($path = null)
+    function getCollection($path = null)
     {
         $collection = Mage::getModel('cms/wysiwyg_images_storage_collection');
         if ($path !== null) {
@@ -176,7 +176,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      * @throws Mage_Core_Exception
      * @return array New directory info
      */
-    public function createDirectory($name, $path)
+    function createDirectory($name, $path)
     {
         if (!preg_match(self::DIRECTORY_NAME_REGEXP, $name)) {
             Mage::throwException(Mage::helper('cms')->__('Invalid folder name. Please, use alphanumeric characters, underscores and dashes.'));
@@ -213,7 +213,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      *
      * @param string $path Target dir
      */
-    public function deleteDirectory($path)
+    function deleteDirectory($path)
     {
         // prevent accidental root directory deleting
         $rootCmp = rtrim($this->getHelper()->getStorageRoot(), DS);
@@ -251,7 +251,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      * @param string $target File path to be deleted
      * @return $this
      */
-    public function deleteFile($target)
+    function deleteFile($target)
     {
         $io = new Varien_Io_File();
         $io->rm($target);
@@ -273,7 +273,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      * @return array|bool|void
      *@throws Mage_Core_Exception
      */
-    public function uploadFile($targetPath, $type = null)
+    function uploadFile($targetPath, $type = null)
     {
         $uploader = new Mage_Core_Model_File_Uploader('image');
         if ($allowed = $this->getAllowedExtensions($type)) {
@@ -316,7 +316,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      * @param bool $checkFile OPTIONAL is it necessary to check file availability
      * @return string | false
      */
-    public function getThumbnailPath($filePath, $checkFile = false)
+    function getThumbnailPath($filePath, $checkFile = false)
     {
         $mediaRootDir = $this->getHelper()->getStorageRoot();
 
@@ -338,7 +338,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      * @param bool $checkFile OPTIONAL is it necessary to check file availability
      * @return string|false
      */
-    public function getThumbnailUrl($filePath, $checkFile = false)
+    function getThumbnailUrl($filePath, $checkFile = false)
     {
         $mediaRootDir = Mage::getConfig()->getOptions()->getMediaDir() . DS;
         if (strpos($filePath, $mediaRootDir) === 0) {
@@ -360,7 +360,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      * @param bool $keepRation Keep aspect ratio or not
      * @return bool|string Resized filepath or false if errors were occurred
      */
-    public function resizeFile($source, $keepRation = true)
+    function resizeFile($source, $keepRation = true)
     {
         if (!is_file($source) || !is_readable($source)) {
             return false;
@@ -401,7 +401,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      * @param string $filename File basename
      * @return bool|string Thumbnail path or false for errors
      */
-    public function resizeOnTheFly($filename)
+    function resizeOnTheFly($filename)
     {
         $path = $this->getSession()->getCurrentPath();
         if (!$path) {
@@ -416,7 +416,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      * @param false|string $filePath Path to the file
      * @return string
      */
-    public function getThumbsPath($filePath = false)
+    function getThumbsPath($filePath = false)
     {
         $mediaRootDir = Mage::getConfig()->getOptions()->getMediaDir();
         $thumbnailDir = $this->getThumbnailRoot();
@@ -432,7 +432,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      * Media Storage Helper getter
      * @return Mage_Cms_Helper_Wysiwyg_Images
      */
-    public function getHelper()
+    function getHelper()
     {
         return Mage::helper('cms/wysiwyg_images');
     }
@@ -442,7 +442,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      *
      * @return Mage_Adminhtml_Model_Session
      */
-    public function getSession()
+    function getSession()
     {
         return Mage::getSingleton('adminhtml/session');
     }
@@ -452,7 +452,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      *
      * @return Mage_Core_Model_Config_Element
      */
-    public function getConfig()
+    function getConfig()
     {
         if (!$this->_config) {
             $this->_config = Mage::getConfig()->getNode('cms/browser', 'adminhtml');
@@ -466,7 +466,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      *
      * @return array|string
      */
-    public function getConfigAsArray()
+    function getConfigAsArray()
     {
         if (!$this->_configAsArray) {
             $this->_configAsArray = $this->getConfig()->asCanonicalArray();
@@ -482,7 +482,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      * @param mixed $default
      * @return mixed
      */
-    public function getConfigData($key, $default = false)
+    function getConfigData($key, $default = false)
     {
         $configArray = $this->getConfigAsArray();
         $key = (string) $key;
@@ -496,7 +496,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      * @param string $type Type of storage, e.g. image, media etc.
      * @return array Array of allowed file extensions
      */
-    public function getAllowedExtensions($type = null)
+    function getAllowedExtensions($type = null)
     {
         $extensions = $this->getConfigData('extensions');
 
@@ -514,7 +514,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      *
      * @return string
      */
-    public function getThumbnailRoot()
+    function getThumbnailRoot()
     {
         return $this->getHelper()->getStorageRoot() . self::THUMBS_DIRECTORY_NAME;
     }
@@ -525,7 +525,7 @@ class Mage_Cms_Model_Wysiwyg_Images_Storage extends Varien_Object
      * @param string $filename
      * @return bool
      */
-    public function isImage($filename)
+    function isImage($filename)
     {
         if (!$this->hasData('_image_extensions')) {
             $this->setData('_image_extensions', $this->getAllowedExtensions('image'));

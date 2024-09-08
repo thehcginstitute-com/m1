@@ -9,7 +9,7 @@
 
 class Magazento_Orderexport2_Model_Wysiwyg_Config extends Mage_Cms_Model_Wysiwyg_Config {
 
-    public function getConfig($data = array()) {
+    function getConfig($data = array()) {
 
 
         $config = parent::getConfig($data);

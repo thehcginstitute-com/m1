@@ -30,7 +30,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Ip extends Mage_Adminhtml
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         /**
          * The output of the "inet_ntop" function was disabled to prevent an error throwing

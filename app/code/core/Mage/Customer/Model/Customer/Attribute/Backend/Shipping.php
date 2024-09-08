@@ -26,7 +26,7 @@ class Mage_Customer_Model_Customer_Attribute_Backend_Shipping extends Mage_Eav_M
      * @param Mage_Customer_Model_Customer $object
      * @return $this
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         $defaultShipping = $object->getDefaultShipping();
         if (is_null($defaultShipping)) {
@@ -39,7 +39,7 @@ class Mage_Customer_Model_Customer_Attribute_Backend_Shipping extends Mage_Eav_M
      * @param Mage_Customer_Model_Customer $object
      * @return $this
      */
-    public function afterSave($object)
+    function afterSave($object)
     {
         if ($defaultShipping = $object->getDefaultShipping()) {
             $addressId = false;

@@ -41,7 +41,7 @@ class Mage_Catalog_Helper_Product_Url_Rewrite implements Mage_Catalog_Helper_Pro
      *
      * @param array $args
      */
-    public function __construct(array $args = [])
+    function __construct(array $args = [])
     {
         $this->_resource = Mage::getSingleton('core/resource');
         $this->_connection = !empty($args['connection']) ? $args['connection'] : $this->_resource
@@ -56,7 +56,7 @@ class Mage_Catalog_Helper_Product_Url_Rewrite implements Mage_Catalog_Helper_Pro
      * @param int $storeId
      * @return Varien_Db_Select
      */
-    public function getTableSelect(array $productIds, $categoryId, $storeId)
+    function getTableSelect(array $productIds, $categoryId, $storeId)
     {
         return $this->_connection->select()
             ->from($this->_resource->getTableName('core/url_rewrite'), ['product_id', 'request_path'])
@@ -74,7 +74,7 @@ class Mage_Catalog_Helper_Product_Url_Rewrite implements Mage_Catalog_Helper_Pro
      * @param int $storeId
      * @return Mage_Catalog_Helper_Product_Url_Rewrite_Interface
      */
-    public function joinTableToSelect(Varien_Db_Select $select, $storeId)
+    function joinTableToSelect(Varien_Db_Select $select, $storeId)
     {
         $select->joinLeft(
             ['url_rewrite' => $this->_resource->getTableName('core/url_rewrite')],

@@ -46,7 +46,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
      *
      * @return $this
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->useIdxTable(true);
         $this->beginTransaction();
@@ -66,7 +66,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
      * @param int|array $entityIds
      * @return $this
      */
-    public function reindexEntity($entityIds)
+    function reindexEntity($entityIds)
     {
         $this->_updateIndex($entityIds);
         return $this;
@@ -78,7 +78,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
      * @param string $typeId
      * @return $this
      */
-    public function setTypeId($typeId)
+    function setTypeId($typeId)
     {
         $this->_typeId = $typeId;
         return $this;
@@ -91,7 +91,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
      *
      * @return string
      */
-    public function getTypeId()
+    function getTypeId()
     {
         if (is_null($this->_typeId)) {
             Mage::throwException(Mage::helper('cataloginventory')->__('Undefined product type.'));
@@ -105,7 +105,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
      * @param bool $flag
      * @return $this
      */
-    public function setIsComposite($flag)
+    function setIsComposite($flag)
     {
         $this->_isComposite = (bool)$flag;
         return $this;
@@ -116,7 +116,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
      *
      * @return bool
      */
-    public function getIsComposite()
+    function getIsComposite()
     {
         return $this->_isComposite;
     }
@@ -264,7 +264,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
      * @param string $table
      * @return string
      */
-    public function getIdxTable($table = null)
+    function getIdxTable($table = null)
     {
         if ($this->useIdxTable()) {
             return $this->getTable('cataloginventory/stock_status_indexer_idx');

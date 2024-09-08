@@ -83,7 +83,7 @@ class Mage_Core_Model_Resource_Url_Rewrite extends Mage_Core_Model_Resource_Db_A
      * @param int|Mage_Core_Model_Store $store
      * @return string|false
      */
-    public function getRequestPathByIdPath($idPath, $store)
+    function getRequestPathByIdPath($idPath, $store)
     {
         if ($store instanceof Mage_Core_Model_Store) {
             $storeId = (int)$store->getId();
@@ -113,7 +113,7 @@ class Mage_Core_Model_Resource_Url_Rewrite extends Mage_Core_Model_Resource_Db_A
      * @param   array|string $path
      * @return  Mage_Core_Model_Resource_Url_Rewrite
      */
-    public function loadByRequestPath(Mage_Core_Model_Url_Rewrite $object, $path)
+    function loadByRequestPath(Mage_Core_Model_Url_Rewrite $object, $path)
     {
         if (!is_array($path)) {
             $path = [strtolower($path)];

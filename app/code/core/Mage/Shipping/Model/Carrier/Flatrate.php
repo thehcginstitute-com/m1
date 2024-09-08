@@ -32,7 +32,7 @@ class Mage_Shipping_Model_Carrier_Flatrate extends Mage_Shipping_Model_Carrier_A
      * @param Mage_Shipping_Model_Rate_Request $request
      * @return Mage_Shipping_Model_Rate_Result|false
      */
-    public function collectRates(Mage_Shipping_Model_Rate_Request $request)
+    function collectRates(Mage_Shipping_Model_Rate_Request $request)
     {
         if (!$this->getConfigFlag('active')) {
             return false;
@@ -95,7 +95,7 @@ class Mage_Shipping_Model_Carrier_Flatrate extends Mage_Shipping_Model_Carrier_A
     /**
      * @return array
      */
-    public function getAllowedMethods()
+    function getAllowedMethods()
     {
         return ['flatrate' => $this->getConfigData('name')];
     }

@@ -33,7 +33,7 @@ class Mage_Newsletter_Model_Resource_Queue extends Mage_Core_Model_Resource_Db_A
      * @param Mage_Newsletter_Model_Queue $queue
      * @param array $subscriberIds
      */
-    public function addSubscribersToQueue(Mage_Newsletter_Model_Queue $queue, array $subscriberIds)
+    function addSubscribersToQueue(Mage_Newsletter_Model_Queue $queue, array $subscriberIds)
     {
         if (count($subscriberIds) == 0) {
             Mage::throwException(Mage::helper('newsletter')->__('No subscribers selected.'));
@@ -73,7 +73,7 @@ class Mage_Newsletter_Model_Resource_Queue extends Mage_Core_Model_Resource_Db_A
      *
      * @param Mage_Newsletter_Model_Queue $queue
      */
-    public function removeSubscribersFromQueue(Mage_Newsletter_Model_Queue $queue)
+    function removeSubscribersFromQueue(Mage_Newsletter_Model_Queue $queue)
     {
         $adapter = $this->_getWriteAdapter();
         try {
@@ -97,7 +97,7 @@ class Mage_Newsletter_Model_Resource_Queue extends Mage_Core_Model_Resource_Db_A
      * @param Mage_Newsletter_Model_Queue $queue
      * @return $this
      */
-    public function setStores(Mage_Newsletter_Model_Queue $queue)
+    function setStores(Mage_Newsletter_Model_Queue $queue)
     {
         $adapter = $this->_getWriteAdapter();
         $adapter->delete(
@@ -147,7 +147,7 @@ class Mage_Newsletter_Model_Resource_Queue extends Mage_Core_Model_Resource_Db_A
      * @param Mage_Newsletter_Model_Queue $queue
      * @return array
      */
-    public function getStores(Mage_Newsletter_Model_Queue $queue)
+    function getStores(Mage_Newsletter_Model_Queue $queue)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()->from($this->getTable('newsletter/queue_store_link'), 'store_id')

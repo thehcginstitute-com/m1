@@ -162,7 +162,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Product_Option_Value $value
      * @return $this
      */
-    public function addValue(Mage_Catalog_Model_Product_Option_Value $value)
+    function addValue(Mage_Catalog_Model_Product_Option_Value $value)
     {
         $this->_values[$value->getId()] = $value;
         return $this;
@@ -174,7 +174,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      * @param int $valueId
      * @return Mage_Catalog_Model_Product_Option_Value
      */
-    public function getValueById($valueId)
+    function getValueById($valueId)
     {
         return $this->_values[$valueId] ?? null;
     }
@@ -184,7 +184,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      *
      * @return Mage_Catalog_Model_Product_Option_Value[]
      */
-    public function getValues()
+    function getValues()
     {
         return $this->_values;
     }
@@ -194,7 +194,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      *
      * @return Mage_Catalog_Model_Product_Option_Value
      */
-    public function getValueInstance()
+    function getValueInstance()
     {
         if (!$this->_valueInstance) {
             $this->_valueInstance = Mage::getSingleton('catalog/product_option_value');
@@ -208,7 +208,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      * @param array $option
      * @return $this
      */
-    public function addOption($option)
+    function addOption($option)
     {
         $this->_options[] = $option;
         return $this;
@@ -219,7 +219,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getOptions()
+    function getOptions()
     {
         return $this->_options;
     }
@@ -230,7 +230,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      * @param array $options
      * @return $this
      */
-    public function setOptions($options)
+    function setOptions($options)
     {
         $this->_options = $options;
         return $this;
@@ -241,7 +241,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function unsetOptions()
+    function unsetOptions()
     {
         $this->_options = [];
         return $this;
@@ -252,7 +252,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return $this->_product;
     }
@@ -263,7 +263,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Product|null $product
      * @return $this
      */
-    public function setProduct(Mage_Catalog_Model_Product $product = null)
+    function setProduct(Mage_Catalog_Model_Product $product = null)
     {
         $this->_product = $product;
         return $this;
@@ -275,7 +275,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      * @param string $type
      * @return string
      */
-    public function getGroupByType($type = null)
+    function getGroupByType($type = null)
     {
         if (is_null($type)) {
             $type = $this->getType();
@@ -302,7 +302,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      * @param string $type Option type
      * @return Mage_Catalog_Model_Product_Option_Type_Default
      */
-    public function groupFactory($type)
+    function groupFactory($type)
     {
         $group = $this->getGroupByType($type);
         if (!empty($group)) {
@@ -316,7 +316,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function saveOptions()
+    function saveOptions()
     {
         foreach ($this->getOptions() as $option) {
             $this->setData($option)
@@ -409,7 +409,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      * @param bool $flag
      * @return float
      */
-    public function getPrice($flag = false)
+    function getPrice($flag = false)
     {
         if ($flag && $this->getPriceType() == 'percent') {
             $basePrice = $this->getProduct()->getFinalPrice();
@@ -424,7 +424,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      * @param int $option_id
      * @return $this
      */
-    public function deletePrices($option_id)
+    function deletePrices($option_id)
     {
         $this->getResource()->deletePrices($option_id);
         return $this;
@@ -436,7 +436,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      * @param int $option_id
      * @return $this
      */
-    public function deleteTitles($option_id)
+    function deleteTitles($option_id)
     {
         $this->getResource()->deleteTitles($option_id);
         return $this;
@@ -448,7 +448,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Product $product
      * @return Mage_Catalog_Model_Resource_Product_Option_Collection
      */
-    public function getProductOptionCollection(Mage_Catalog_Model_Product $product)
+    function getProductOptionCollection(Mage_Catalog_Model_Product $product)
     {
         $collection = $this->getCollection()
             ->addFieldToFilter('product_id', $product->getId())
@@ -470,7 +470,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Eav_Mysql4_Product_Option_Value_Collection
      */
-    public function getValuesCollection()
+    function getValuesCollection()
     {
         return $this->getValueInstance()
             ->getValuesCollection($this);
@@ -483,7 +483,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      * @param int $store_id
      * @return Mage_Catalog_Model_Resource_Product_Option_Value_Collection
      */
-    public function getOptionValuesByOptionId($optionIds, $store_id)
+    function getOptionValuesByOptionId($optionIds, $store_id)
     {
         return Mage::getModel('catalog/product_option_value')
             ->getValuesByOption($optionIds, $this->getId(), $store_id);
@@ -494,7 +494,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function prepareOptionForDuplicate()
+    function prepareOptionForDuplicate()
     {
         $this->setProductId(null);
         $this->setOptionId(null);
@@ -518,7 +518,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      * @param int $newProductId
      * @return $this
      */
-    public function duplicate($oldProductId, $newProductId)
+    function duplicate($oldProductId, $newProductId)
     {
         $this->getResource()->duplicate($this, $oldProductId, $newProductId);
 
@@ -532,7 +532,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      * @param int $storeId
      * @return array
      */
-    public function getSearchableData($productId, $storeId)
+    function getSearchableData($productId, $storeId)
     {
         return $this->_getResource()->getSearchableData($productId, $storeId);
     }
@@ -569,7 +569,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isMultipleType()
+    function isMultipleType()
     {
         switch ($this->getType()) {
             case self::OPTION_TYPE_MULTIPLE:

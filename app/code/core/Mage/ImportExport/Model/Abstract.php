@@ -66,7 +66,7 @@ abstract class Mage_ImportExport_Model_Abstract extends Varien_Object
      * @param mixed $debugData
      * @return Mage_ImportExport_Model_Abstract
      */
-    public function addLogComment($debugData)
+    function addLogComment($debugData)
     {
         if (is_array($debugData)) {
             $this->_logTrace = array_merge($this->_logTrace, $debugData);
@@ -104,7 +104,7 @@ abstract class Mage_ImportExport_Model_Abstract extends Varien_Object
      *
      * @return string
      */
-    public function getFormatedLogTrace()
+    function getFormatedLogTrace()
     {
         $trace = '';
         $lineNumber = 1;
@@ -120,7 +120,7 @@ abstract class Mage_ImportExport_Model_Abstract extends Varien_Object
      * @param bool $mode
      * @return Mage_ImportExport_Model_Abstract
      */
-    public function setDebugMode($mode = true)
+    function setDebugMode($mode = true)
     {
         $this->_debugMode = (bool)$mode;
         return $this;

@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Price extends Varien_Data
     /**
      * @param array $attributes
      */
-    public function __construct($attributes = [])
+    function __construct($attributes = [])
     {
         parent::__construct($attributes);
         $this->addClass('validate-zero-or-greater');
@@ -35,7 +35,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Price extends Varien_Data
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getAfterElementHtml()
+    function getAfterElementHtml()
     {
         $html = parent::getAfterElementHtml();
         /**
@@ -77,7 +77,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Price extends Varien_Data
      * @param null $index deprecated
      * @return string|null
      */
-    public function getEscapedValue($index = null)
+    function getEscapedValue($index = null)
     {
         $value = $this->getValue();
 

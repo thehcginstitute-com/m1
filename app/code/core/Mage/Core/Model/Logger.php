@@ -30,7 +30,7 @@ class Mage_Core_Model_Logger
      * @param string $file
      * @param bool $forceLog
      */
-    public function log($message, $level = null, $file = '', $forceLog = false)
+    function log($message, $level = null, $file = '', $forceLog = false)
     {
         Mage::log($message, $level, $file, $forceLog);
     }
@@ -40,7 +40,7 @@ class Mage_Core_Model_Logger
      *
      * @param Exception $e
      */
-    public function logException(Exception $e)
+    function logException(Exception $e)
     {
         Mage::logException($e);
     }

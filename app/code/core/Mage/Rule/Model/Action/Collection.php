@@ -27,7 +27,7 @@
  */
 class Mage_Rule_Model_Action_Collection extends Mage_Rule_Model_Action_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setActions([]);
@@ -46,7 +46,7 @@ class Mage_Rule_Model_Action_Collection extends Mage_Rule_Model_Action_Abstract
      * @param array $arrAttributes
      * @return array
      */
-    public function asArray(array $arrAttributes = [])
+    function asArray(array $arrAttributes = [])
     {
         $out = parent::asArray();
 
@@ -60,7 +60,7 @@ class Mage_Rule_Model_Action_Collection extends Mage_Rule_Model_Action_Abstract
      * @param array $arr
      * @return $this|Mage_Rule_Model_Action_Abstract
      */
-    public function loadArray(array $arr)
+    function loadArray(array $arr)
     {
         if (!empty($arr['actions']) && is_array($arr['actions'])) {
             foreach ($arr['actions'] as $actArr) {
@@ -79,7 +79,7 @@ class Mage_Rule_Model_Action_Collection extends Mage_Rule_Model_Action_Abstract
      * @param Mage_Rule_Model_Action_Interface $action
      * @return $this
      */
-    public function addAction(Mage_Rule_Model_Action_Interface $action)
+    function addAction(Mage_Rule_Model_Action_Interface $action)
     {
         $actions = $this->getActions();
 
@@ -97,7 +97,7 @@ class Mage_Rule_Model_Action_Collection extends Mage_Rule_Model_Action_Abstract
     /**
      * @return string
      */
-    public function asHtml()
+    function asHtml()
     {
         $html = $this->getTypeElement()->toHtml() . 'Perform following actions: ';
         if ($this->getId() != '1') {
@@ -109,7 +109,7 @@ class Mage_Rule_Model_Action_Collection extends Mage_Rule_Model_Action_Abstract
     /**
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function getNewChildElement()
+    function getNewChildElement()
     {
         return $this->getForm()->addField('action:' . $this->getId() . ':new_child', 'select', [
            'name' => 'rule[actions][' . $this->getId() . '][new_child]',
@@ -121,7 +121,7 @@ class Mage_Rule_Model_Action_Collection extends Mage_Rule_Model_Action_Abstract
     /**
      * @return string
      */
-    public function asHtmlRecursive()
+    function asHtmlRecursive()
     {
         $html = $this->asHtml() . '<ul id="action:' . $this->getId() . ':children">';
         foreach ($this->getActions() as $cond) {
@@ -135,7 +135,7 @@ class Mage_Rule_Model_Action_Collection extends Mage_Rule_Model_Action_Abstract
      * @param string $format
      * @return string
      */
-    public function asString($format = '')
+    function asString($format = '')
     {
         return Mage::helper('rule')->__("Perform following actions");
     }
@@ -144,7 +144,7 @@ class Mage_Rule_Model_Action_Collection extends Mage_Rule_Model_Action_Abstract
      * @param int $level
      * @return string
      */
-    public function asStringRecursive($level = 0)
+    function asStringRecursive($level = 0)
     {
         $str = $this->asString();
         foreach ($this->getActions() as $action) {
@@ -156,7 +156,7 @@ class Mage_Rule_Model_Action_Collection extends Mage_Rule_Model_Action_Abstract
     /**
      * @return $this|Mage_Rule_Model_Action_Abstract
      */
-    public function process()
+    function process()
     {
         foreach ($this->getActions() as $action) {
             $action->process();

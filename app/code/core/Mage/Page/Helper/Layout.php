@@ -30,7 +30,7 @@ class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract
      * @param string $pageLayout
      * @return $this
      */
-    public function applyHandle($pageLayout)
+    function applyHandle($pageLayout)
     {
         $pageLayout = $this->_getConfig()->getPageLayout($pageLayout);
 
@@ -52,7 +52,7 @@ class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract
      * @param string $pageLayout
      * @return $this
      */
-    public function applyTemplate($pageLayout = null)
+    function applyTemplate($pageLayout = null)
     {
         if ($pageLayout === null) {
             $pageLayout = $this->getCurrentPageLayout();
@@ -81,7 +81,7 @@ class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract
      *
      * @return Varien_Object|false
      */
-    public function getCurrentPageLayout()
+    function getCurrentPageLayout()
     {
         if ($this->getLayout()->getBlock('root') &&
             $this->getLayout()->getBlock('root')->getLayoutCode()

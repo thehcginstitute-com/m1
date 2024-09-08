@@ -22,13 +22,13 @@
  */
 class Mage_Adminhtml_Block_System_Convert_Profile_Edit_Tab_Run extends Mage_Adminhtml_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('system/convert/profile/run.phtml');
     }
 
-    public function getRunButtonHtml()
+    function getRunButtonHtml()
     {
         $html = $this->getLayout()->createBlock('adminhtml/widget_button')->setType('button')
             ->setClass('save')->setLabel($this->__('Run Profile in Popup'))
@@ -38,12 +38,12 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Edit_Tab_Run extends Mage_Admi
         return $html;
     }
 
-    public function getProfileId()
+    function getProfileId()
     {
         return Mage::registry('current_convert_profile')->getId();
     }
 
-    public function getImportedFiles()
+    function getImportedFiles()
     {
         $files = [];
         $path = Mage::app()->getConfig()->getTempVarDir() . '/import';
@@ -64,7 +64,7 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Edit_Tab_Run extends Mage_Admi
         return $files;
     }
 
-    public function getParseType()
+    function getParseType()
     {
         $data = Mage::registry('current_convert_profile')->getGuiData();
         if ($data) {

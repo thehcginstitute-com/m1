@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Permissions_Role_Grid_User extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setDefaultSort('role_user_id');
@@ -134,7 +134,7 @@ class Mage_Adminhtml_Block_Permissions_Role_Grid_User extends Mage_Adminhtml_Blo
         return parent::_prepareColumns();
     }
 
-    public function getGridUrl()
+    function getGridUrl()
     {
         $roleId = $this->getRequest()->getParam('rid');
         return $this->getUrl('*/*/editrolegrid', ['rid' => $roleId]);

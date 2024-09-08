@@ -44,7 +44,7 @@ class Mage_CatalogIndex_Model_Attribute extends Mage_Core_Model_Abstract
      * @param int|array $entityFilter
      * @return array
      */
-    public function getFilteredEntities($attribute, $filter, $entityFilter)
+    function getFilteredEntities($attribute, $filter, $entityFilter)
     {
         return $this->_getResource()->getFilteredEntities($attribute, $filter, $entityFilter);
     }
@@ -54,7 +54,7 @@ class Mage_CatalogIndex_Model_Attribute extends Mage_Core_Model_Abstract
      * @param Zend_Db_Select $entityFilter
      * @return array
      */
-    public function getCount($attribute, $entityFilter)
+    function getCount($attribute, $entityFilter)
     {
         return $this->_getResource()->getCount($attribute, $entityFilter);
     }
@@ -65,7 +65,7 @@ class Mage_CatalogIndex_Model_Attribute extends Mage_Core_Model_Abstract
      * @param mixed $entityFilter
      * @return mixed
      */
-    public function checkCount($optionIds, $attribute, $entityFilter)
+    function checkCount($optionIds, $attribute, $entityFilter)
     {
         return $this->_getResource()->checkCount($optionIds, $attribute, $entityFilter);
     }
@@ -76,7 +76,7 @@ class Mage_CatalogIndex_Model_Attribute extends Mage_Core_Model_Abstract
      * @param string $value
      * @return $this
      */
-    public function applyFilterToCollection($collection, $attribute, $value)
+    function applyFilterToCollection($collection, $attribute, $value)
     {
         $this->_getResource()->applyFilterToCollection($collection, $attribute, $value);
         return $this;

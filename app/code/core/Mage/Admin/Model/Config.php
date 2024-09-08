@@ -32,7 +32,7 @@ class Mage_Admin_Model_Config extends Varien_Simplexml_Config
     /**
      * Load config from merged adminhtml.xml files
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setCacheId('adminhtml_acl_menu_config');
@@ -77,7 +77,7 @@ class Mage_Admin_Model_Config extends Varien_Simplexml_Config
      * @param string $parentName
      * @return $this
      */
-    public function loadAclResources(Mage_Admin_Model_Acl $acl, $resource = null, $parentName = null)
+    function loadAclResources(Mage_Admin_Model_Acl $acl, $resource = null, $parentName = null)
     {
         if (is_null($resource)) {
             $resource = $this->getAdminhtmlConfig()->getNode("acl/resources");
@@ -116,7 +116,7 @@ class Mage_Admin_Model_Config extends Varien_Simplexml_Config
      * @param string $name
      * @return false|SimpleXMLElement|Varien_Simplexml_Element|Mage_Core_Model_Config_Element
      */
-    public function getAclAssert($name = '')
+    function getAclAssert($name = '')
     {
         $asserts = $this->getNode("admin/acl/asserts");
         if ($name === '') {
@@ -132,7 +132,7 @@ class Mage_Admin_Model_Config extends Varien_Simplexml_Config
      * @param string $name
      * @return false|SimpleXMLElement|Varien_Simplexml_Element
      */
-    public function getAclPrivilegeSet($name = '')
+    function getAclPrivilegeSet($name = '')
     {
         $sets = $this->getNode("admin/acl/privilegeSets");
         if ($name === '') {
@@ -147,7 +147,7 @@ class Mage_Admin_Model_Config extends Varien_Simplexml_Config
      *
      * @return Varien_Simplexml_Config
      */
-    public function getAdminhtmlConfig()
+    function getAdminhtmlConfig()
     {
         return $this->_adminhtmlConfig;
     }
@@ -158,7 +158,7 @@ class Mage_Admin_Model_Config extends Varien_Simplexml_Config
      * @param string $path
      * @return string
      */
-    public function getMenuItemLabel($path)
+    function getMenuItemLabel($path)
     {
         $moduleName = 'adminhtml';
         $menuNode = $this->getAdminhtmlConfig()->getNode('menu/' . str_replace('/', '/children/', trim($path, '/')));

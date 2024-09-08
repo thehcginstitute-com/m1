@@ -66,7 +66,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer extends Mage_Core_Model_Resource_
      * @param Mage_Catalog_Model_Product|Mage_Catalog_Model_Product_Condition_Interface|int|array|null $products applicable products
      * @param mixed $store applicable stores
      */
-    public function clear(
+    function clear(
         $eav = true,
         $price = true,
         $minimal = true,
@@ -179,7 +179,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer extends Mage_Core_Model_Resource_
      * @param int | null $forcedId identifier of "parent" product
      * @return $this
      */
-    public function reindexTiers($products, $store, $forcedId = null)
+    function reindexTiers($products, $store, $forcedId = null)
     {
         $websiteId = $store->getWebsiteId();
         $attribute = Mage::getSingleton('eav/entity_attribute')->getIdByCode(Mage_Catalog_Model_Product::ENTITY, 'tier_price');
@@ -249,7 +249,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer extends Mage_Core_Model_Resource_
      * @param Mage_Core_Model_Store $store
      * @return $this
      */
-    public function reindexPrices($products, $attributeIds, $store)
+    function reindexPrices($products, $attributeIds, $store)
     {
         $this->reindexAttributes($products, $attributeIds, $store, null, 'catalogindex/price', true);
         return $this;
@@ -263,7 +263,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer extends Mage_Core_Model_Resource_
      * @param int | null $forcedId identifier of "parent" product
      * @return $this
      */
-    public function reindexFinalPrices($products, $store, $forcedId = null)
+    function reindexFinalPrices($products, $store, $forcedId = null)
     {
         $priceAttribute = Mage::getSingleton('eav/entity_attribute')->getIdByCode(Mage_Catalog_Model_Product::ENTITY, 'price');
         $this->_beginInsert('catalogindex/price', [
@@ -319,7 +319,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer extends Mage_Core_Model_Resource_
      * @param Mage_Core_Model_Store $store
      * @return $this
      */
-    public function reindexMinimalPrices($products, $store)
+    function reindexMinimalPrices($products, $store)
     {
         $this->_beginInsert('catalogindex/minimal_price', [
             'website_id',
@@ -377,7 +377,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer extends Mage_Core_Model_Resource_
      * @param bool $storeIsWebsite
      * @return $this
      */
-    public function reindexAttributes(
+    function reindexAttributes(
         $products,
         $attributeIds,
         $store,
@@ -456,7 +456,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer extends Mage_Core_Model_Resource_
      * @param Mage_Core_Model_Store $store
      * @return array
      */
-    public function getTierData($products, $store)
+    function getTierData($products, $store)
     {
         $result = [];
         foreach ($products as $type => $typeIds) {
@@ -476,7 +476,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer extends Mage_Core_Model_Resource_
      * @param Mage_Core_Model_Store $store
      * @return array
      */
-    public function getMinimalPrice($products, $store)
+    function getMinimalPrice($products, $store)
     {
         $result = [];
         foreach ($products as $type => $typeIds) {
@@ -497,7 +497,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer extends Mage_Core_Model_Resource_
      * @param Mage_Core_Model_Store $store
      * @return array
      */
-    public function getProductData($products, $attributeIds, $store)
+    function getProductData($products, $attributeIds, $store)
     {
         $result = [];
         foreach ($products as $type => $typeIds) {
@@ -566,7 +566,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer extends Mage_Core_Model_Resource_
      * @param Varien_Object $object
      * @return $this
      */
-    public function prepareCatalogProductFlatColumns(Varien_Object $object)
+    function prepareCatalogProductFlatColumns(Varien_Object $object)
     {
         $columns = $object->getColumns();
 
@@ -593,7 +593,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer extends Mage_Core_Model_Resource_
      * @param Varien_Object $object
      * @return $this
      */
-    public function prepareCatalogProductFlatIndexes(Varien_Object $object)
+    function prepareCatalogProductFlatIndexes(Varien_Object $object)
     {
         $indexes = $object->getIndexes();
 
@@ -619,7 +619,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer extends Mage_Core_Model_Resource_
      * @param string $tableName
      * @return $this
      */
-    public function updateCatalogProductFlat($storeId, $productIds = null, $tableName = null)
+    function updateCatalogProductFlat($storeId, $productIds = null, $tableName = null)
     {
         if (is_null($tableName)) {
             $tableName = $this->getTable('catalog/product_flat') . '_' . $storeId;

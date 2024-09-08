@@ -26,7 +26,7 @@ class Mage_Reports_Model_Resource_Tax_Collection extends Mage_Sales_Model_Entity
      * Set row identifier field name
      *
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->setRowIdFieldName('tax_id');
@@ -39,7 +39,7 @@ class Mage_Reports_Model_Resource_Tax_Collection extends Mage_Sales_Model_Entity
      * @param string $to
      * @return $this
      */
-    public function setDateRange($from, $to)
+    function setDateRange($from, $to)
     {
         $this->_reset();
 
@@ -66,7 +66,7 @@ class Mage_Reports_Model_Resource_Tax_Collection extends Mage_Sales_Model_Entity
      * @param array $storeIds
      * @return $this
      */
-    public function setStoreIds($storeIds)
+    function setStoreIds($storeIds)
     {
         if ($storeIds) {
             $this->getSelect()
@@ -88,7 +88,7 @@ class Mage_Reports_Model_Resource_Tax_Collection extends Mage_Sales_Model_Entity
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $countSelect = clone $this->getSelect();
         $countSelect->reset(Zend_Db_Select::ORDER);

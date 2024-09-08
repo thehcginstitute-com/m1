@@ -36,7 +36,7 @@ class Mage_Adminhtml_Block_Permissions_Tab_Rolesedit extends Mage_Adminhtml_Bloc
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('adminhtml')->__('Role Resources');
     }
@@ -46,7 +46,7 @@ class Mage_Adminhtml_Block_Permissions_Tab_Rolesedit extends Mage_Adminhtml_Bloc
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return $this->getTabLabel();
     }
@@ -56,7 +56,7 @@ class Mage_Adminhtml_Block_Permissions_Tab_Rolesedit extends Mage_Adminhtml_Bloc
      *
      * @return bool
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -66,7 +66,7 @@ class Mage_Adminhtml_Block_Permissions_Tab_Rolesedit extends Mage_Adminhtml_Bloc
      *
      * @return bool
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }
@@ -75,7 +75,7 @@ class Mage_Adminhtml_Block_Permissions_Tab_Rolesedit extends Mage_Adminhtml_Bloc
      * Class constructor
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -122,7 +122,7 @@ class Mage_Adminhtml_Block_Permissions_Tab_Rolesedit extends Mage_Adminhtml_Bloc
      *
      * @return bool
      */
-    public function getEverythingAllowed()
+    function getEverythingAllowed()
     {
         return in_array('all', $this->getSelectedResources());
     }
@@ -132,7 +132,7 @@ class Mage_Adminhtml_Block_Permissions_Tab_Rolesedit extends Mage_Adminhtml_Bloc
      *
      * @return string
      */
-    public function getResTreeJson()
+    function getResTreeJson()
     {
         $rid = Mage::app()->getRequest()->getParam('rid', false);
         $resources = Mage::getModel('admin/roles')->getResourcesTree();

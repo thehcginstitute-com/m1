@@ -51,7 +51,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * @return Mage_Checkout_Model_Session
      */
-    public function getCheckoutSession()
+    function getCheckoutSession()
     {
         return Mage::getSingleton('checkout/session');
     }
@@ -61,7 +61,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * @return Mage_Customer_Model_Session
      */
-    public function getCustomerSession()
+    function getCustomerSession()
     {
         return Mage::getSingleton('customer/session');
     }
@@ -71,7 +71,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * @return Mage_Sales_Model_Resource_Quote_Item_Collection|array
      */
-    public function getItems()
+    function getItems()
     {
         if (!$this->getQuote()->getId()) {
             return [];
@@ -84,7 +84,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * @return array
      */
-    public function getQuoteProductIds()
+    function getQuoteProductIds()
     {
         $products = $this->getData('product_ids');
         if (is_null($products)) {
@@ -103,7 +103,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         if (!$this->hasData('quote')) {
             $this->setData('quote', $this->getCheckoutSession()->getQuote());
@@ -117,7 +117,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      * @param Mage_Sales_Model_Quote $quote
      * @return $this
      */
-    public function setQuote(Mage_Sales_Model_Quote $quote)
+    function setQuote(Mage_Sales_Model_Quote $quote)
     {
         $this->setData('quote', $quote);
         return $this;
@@ -128,7 +128,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * @return $this
      */
-    public function init()
+    function init()
     {
         $quote = $this->getQuote()->setCheckoutMethod('');
 
@@ -152,7 +152,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      * @param mixed $qtyFlag if is null set product qty like in order
      * @return $this
      */
-    public function addOrderItem($orderItem, $qtyFlag = null)
+    function addOrderItem($orderItem, $qtyFlag = null)
     {
         if (is_null($orderItem->getParentItem())) {
             $product = Mage::getModel('catalog/product')
@@ -228,7 +228,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      * @param   mixed $requestInfo
      * @return  Mage_Checkout_Model_Cart
      */
-    public function addProduct($productInfo, $requestInfo = null)
+    function addProduct($productInfo, $requestInfo = null)
     {
         $product = $this->_getProduct($productInfo);
         $request = $this->_getProductRequest($requestInfo);
@@ -292,7 +292,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      * @param   array $productIds
      * @return  Mage_Checkout_Model_Cart
      */
-    public function addProductsByIds($productIds)
+    function addProductsByIds($productIds)
     {
         $allAvailable = true;
         $allAdded     = true;
@@ -339,7 +339,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      * @param   array $data
      * @return  array
      */
-    public function suggestItemsQty($data)
+    function suggestItemsQty($data)
     {
         foreach ($data as $itemId => $itemInfo) {
             if (!isset($itemInfo['qty'])) {
@@ -378,7 +378,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      * @param   array $data
      * @return  Mage_Checkout_Model_Cart
      */
-    public function updateItems($data)
+    function updateItems($data)
     {
         Mage::dispatchEvent('checkout_cart_update_items_before', ['cart' => $this, 'info' => $data]);
 
@@ -430,7 +430,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      * @param   int $itemId
      * @return  Mage_Checkout_Model_Cart
      */
-    public function removeItem($itemId)
+    function removeItem($itemId)
     {
         $this->getQuote()->removeItem($itemId);
         return $this;
@@ -441,7 +441,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * @return $this
      */
-    public function save()
+    function save()
     {
         Mage::dispatchEvent('checkout_cart_save_before', ['cart' => $this]);
 
@@ -460,7 +460,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     /**
      * Save cart (implement interface method)
      */
-    public function saveQuote()
+    function saveQuote()
     {
         $this->save();
         return $this;
@@ -471,7 +471,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * @return $this
      */
-    public function truncate()
+    function truncate()
     {
         $this->getQuote()->removeAllItems();
         return $this;
@@ -480,7 +480,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     /**
      * @return array|null
      */
-    public function getProductIds()
+    function getProductIds()
     {
         $quoteId = Mage::getSingleton('checkout/session')->getQuoteId();
         if ($this->_productIds === null) {
@@ -500,7 +500,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * @return int|float
      */
-    public function getSummaryQty()
+    function getSummaryQty()
     {
         $quoteId = Mage::getSingleton('checkout/session')->getQuoteId();
 
@@ -527,7 +527,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * @return int
      */
-    public function getItemsCount()
+    function getItemsCount()
     {
         return $this->getQuote()->getItemsCount() * 1;
     }
@@ -537,7 +537,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * @return int|float
      */
-    public function getItemsQty()
+    function getItemsQty()
     {
         return $this->getQuote()->getItemsQty() * 1;
     }
@@ -554,7 +554,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * @see Mage_Sales_Model_Quote::updateItem()
      */
-    public function updateItem($itemId, $requestInfo = null, $updatingParams = null)
+    function updateItem($itemId, $requestInfo = null, $updatingParams = null)
     {
         try {
             $item = $this->getQuote()->getItemById($itemId);

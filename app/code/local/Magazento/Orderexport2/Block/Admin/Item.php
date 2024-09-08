@@ -11,7 +11,7 @@ class Magazento_Orderexport2_Block_Admin_Item extends Mage_Adminhtml_Block_Widge
 {
 
     
-    public function __construct()
+    function __construct()
     {
         
         $this->_controller = 'admin_item';

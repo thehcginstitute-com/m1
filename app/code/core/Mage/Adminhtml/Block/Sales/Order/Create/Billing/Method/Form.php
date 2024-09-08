@@ -38,7 +38,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Billing_Method_Form extends Mage_P
      *
      * @return bool
      */
-    public function hasMethods()
+    function hasMethods()
     {
         $methods = $this->getMethods();
         if (is_array($methods) && count($methods)) {
@@ -52,7 +52,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Billing_Method_Form extends Mage_P
      *
      * @return string|false
      */
-    public function getSelectedMethodCode()
+    function getSelectedMethodCode()
     {
         // One available method. Return this method as selected, because no other variant is possible.
         $methods = $this->getMethods();
@@ -75,7 +75,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Billing_Method_Form extends Mage_P
     /**
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return Mage::getSingleton('adminhtml/session_quote')->getQuote();
     }
@@ -83,7 +83,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Billing_Method_Form extends Mage_P
     /*
     * Whether switch/solo card type available
     */
-    public function hasSsCardType()
+    function hasSsCardType()
     {
         $availableTypes = explode(',', $this->getQuote()->getPayment()->getMethod()->getConfigData('cctypes'));
         $ssPresenations = array_intersect(['SS', 'SM', 'SO'], $availableTypes);

@@ -121,7 +121,7 @@ class Mage_Log_Model_Resource_Visitor_Collection extends Mage_Core_Model_Resourc
      *
      * @return $this
      */
-    public function showCustomersOnly()
+    function showCustomersOnly()
     {
         $this->getSelect()
             ->where('customer_table.customer_id > 0')
@@ -181,7 +181,7 @@ class Mage_Log_Model_Resource_Visitor_Collection extends Mage_Core_Model_Resourc
      *
      * @inheritDoc
      */
-    public function addFieldToFilter($fieldName, $condition = null)
+    function addFieldToFilter($fieldName, $condition = null)
     {
         if ($fieldName == 'type' && is_array($condition) && isset($condition['eq'])) {
             $fieldName = 'customer_id';
@@ -212,7 +212,7 @@ class Mage_Log_Model_Resource_Visitor_Collection extends Mage_Core_Model_Resourc
      * @param bool $logQuery
      * @return Mage_Core_Model_Resource_Db_Collection_Abstract
      */
-    public function load($printQuery = false, $logQuery = false)
+    function load($printQuery = false, $logQuery = false)
     {
         if ($this->isLoaded()) {
             return $this;
@@ -226,7 +226,7 @@ class Mage_Log_Model_Resource_Visitor_Collection extends Mage_Core_Model_Resourc
      *
      * @return bool
      */
-    public function getIsOnlineFilterUsed()
+    function getIsOnlineFilterUsed()
     {
         return $this->_isOnlineFilterUsed;
     }
@@ -236,7 +236,7 @@ class Mage_Log_Model_Resource_Visitor_Collection extends Mage_Core_Model_Resourc
      *
      * @param array|int $storeIds
      */
-    public function addVisitorStoreFilter($storeIds)
+    function addVisitorStoreFilter($storeIds)
     {
         $this->getSelect()->where('visitor_table.store_id IN (?)', $storeIds);
     }

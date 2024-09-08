@@ -38,7 +38,7 @@ class Mage_Reports_Block_Product_Compared extends Mage_Reports_Block_Product_Abs
      *
      * @return int
      */
-    public function getPageSize()
+    function getPageSize()
     {
         if ($this->hasData('page_size')) {
             return $this->getData('page_size');
@@ -68,7 +68,7 @@ class Mage_Reports_Block_Product_Compared extends Mage_Reports_Block_Product_Abs
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         return array_merge(
             parent::getCacheTags(),

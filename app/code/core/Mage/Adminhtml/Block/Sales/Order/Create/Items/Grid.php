@@ -32,7 +32,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_create_search_grid');
@@ -43,7 +43,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      *
      * @return array
      */
-    public function getItems()
+    function getItems()
     {
         $items = $this->getParentBlock()->getItems();
         $oldSuperMode = $this->getQuote()->getIsSuperMode();
@@ -74,7 +74,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      *
      * @return Mage_Persistent_Helper_Session
      */
-    public function getSession()
+    function getSession()
     {
         return $this->getParentBlock()->getSession();
     }
@@ -85,7 +85,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param Mage_Sales_Model_Quote_Item $item
      * @return float
      */
-    public function getItemEditablePrice($item)
+    function getItemEditablePrice($item)
     {
         return $item->getCalculationPrice() * 1;
     }
@@ -96,7 +96,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param Mage_Sales_Model_Quote_Item $item
      * @return float
      */
-    public function getOriginalEditablePrice($item)
+    function getOriginalEditablePrice($item)
     {
         if ($item->hasOriginalCustomPrice()) {
             $result = $item->getOriginalCustomPrice() * 1;
@@ -116,7 +116,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param Mage_Sales_Model_Quote_Item $item
      * @return double
      */
-    public function getItemOrigPrice($item)
+    function getItemOrigPrice($item)
     {
         return $this->convertPrice($item->getPrice());
     }
@@ -127,7 +127,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param null|Mage_Sales_Model_Quote_Item $item
      * @return bool
      */
-    public function isGiftMessagesAvailable($item = null)
+    function isGiftMessagesAvailable($item = null)
     {
         /** @var Mage_GiftMessage_Helper_Message $helper */
         $helper = $this->helper('giftmessage/message');
@@ -145,7 +145,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param Mage_Sales_Model_Quote_Item $item
      * @return bool
      */
-    public function isAllowedForGiftMessage($item)
+    function isAllowedForGiftMessage($item)
     {
         return Mage::getSingleton('adminhtml/giftmessage_save')->getIsAllowedQuoteItem($item);
     }
@@ -155,7 +155,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      *
      * @return bool
      */
-    public function displayTotalsIncludeTax()
+    function displayTotalsIncludeTax()
     {
         return Mage::getSingleton('tax/config')->displayCartSubtotalInclTax($this->getStore())
             || Mage::getSingleton('tax/config')->displayCartSubtotalBoth($this->getStore());
@@ -166,7 +166,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      *
      * @return float
      */
-    public function getSubtotal()
+    function getSubtotal()
     {
         $address = $this->getQuoteAddress();
         if ($this->displayTotalsIncludeTax()) {
@@ -184,7 +184,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      *
      * @return float
      */
-    public function getSubtotalWithDiscount()
+    function getSubtotalWithDiscount()
     {
         $address = $this->getQuoteAddress();
         if ($this->displayTotalsIncludeTax()) {
@@ -200,7 +200,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      *
      * @return bool
      */
-    public function getIsPriceInclTax()
+    function getIsPriceInclTax()
     {
         return Mage::getSingleton('tax/config')->priceIncludesTax($this->getStore());
     }
@@ -210,7 +210,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      *
      * @return float
      */
-    public function getDiscountAmount()
+    function getDiscountAmount()
     {
         return $this->getQuote()->getShippingAddress()->getDiscountAmount();
     }
@@ -220,7 +220,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      *
      * @return Mage_Sales_Model_Quote_Address
      */
-    public function getQuoteAddress()
+    function getQuoteAddress()
     {
         if ($this->getQuote()->isVirtual()) {
             return $this->getQuote()->getBillingAddress();
@@ -235,7 +235,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param Mage_Sales_Model_Quote_Item $item
      * @return bool
      */
-    public function usedCustomPriceForItem($item)
+    function usedCustomPriceForItem($item)
     {
         return $item->hasCustomPrice();
     }
@@ -246,7 +246,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param Mage_Sales_Model_Quote_Item $item
      * @return bool
      */
-    public function canApplyCustomPrice($item)
+    function canApplyCustomPrice($item)
     {
         return !$item->isChildrenCalculated();
     }
@@ -257,7 +257,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param Mage_Sales_Model_Quote_Item $item
      * @return string
      */
-    public function getQtyTitle($item)
+    function getQtyTitle($item)
     {
         $prices = $item->getProduct()->getTierPrice();
         if ($prices) {
@@ -279,7 +279,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param Mage_Sales_Model_Quote_Item $item
      * @return string
      */
-    public function getTierHtml($item)
+    function getTierHtml($item)
     {
         $html = '';
         $prices = $item->getProduct()->getTierPrice();
@@ -301,7 +301,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param Mage_Sales_Model_Quote_Item $item
      * @return string
      */
-    public function getCustomOptions(Mage_Sales_Model_Quote_Item $item)
+    function getCustomOptions(Mage_Sales_Model_Quote_Item $item)
     {
         $optionStr = '';
         $this->_moveToCustomerStorage = true;
@@ -332,7 +332,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      *
      * @return bool
      */
-    public function getMoveToCustomerStorage()
+    function getMoveToCustomerStorage()
     {
         return $this->_moveToCustomerStorage;
     }
@@ -343,7 +343,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param Mage_Sales_Model_Quote_Item $item
      * @return string
      */
-    public function displaySubtotalInclTax($item)
+    function displaySubtotalInclTax($item)
     {
         if ($item->getTaxBeforeDiscount()) {
             $tax = $item->getTaxBeforeDiscount();
@@ -359,7 +359,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param Mage_Sales_Model_Quote_Item $item
      * @return double
      */
-    public function displayOriginalPriceInclTax($item)
+    function displayOriginalPriceInclTax($item)
     {
         $tax = 0;
         if ($item->getTaxPercent()) {
@@ -374,7 +374,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param Mage_Sales_Model_Quote_Item $item
      * @return string
      */
-    public function displayRowTotalWithDiscountInclTax($item)
+    function displayRowTotalWithDiscountInclTax($item)
     {
         $tax = ($item->getTaxAmount() ?: 0);
         return $this->formatPrice($item->getRowTotal() - $item->getDiscountAmount() + $tax);
@@ -385,7 +385,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      *
      * @return string
      */
-    public function getInclExclTaxMessage()
+    function getInclExclTaxMessage()
     {
         if (Mage::helper('tax')->priceIncludesTax($this->getStore())) {
             return Mage::helper('sales')->__('* - Enter custom price including tax');
@@ -399,7 +399,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return $this->getQuote()->getStore();
     }
@@ -410,7 +410,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param  Mage_Sales_Model_Quote_Item $item
      * @return string
      */
-    public function getConfigureButtonHtml($item)
+    function getConfigureButtonHtml($item)
     {
         $product = $item->getProduct();
 
@@ -433,7 +433,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param Mage_Sales_Model_Quote_Item $item
      * @return Mage_Core_Block_Abstract
      */
-    public function getItemExtraInfo($item)
+    function getItemExtraInfo($item)
     {
         return $this->getLayout()
             ->getBlock('order_item_extra_info')
@@ -446,7 +446,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @param Mage_Sales_Model_Quote_Item $item
      * @return bool
      */
-    public function isMoveToWishlistAllowed($item)
+    function isMoveToWishlistAllowed($item)
     {
         return Mage::helper('wishlist')->isAllow() && $item->getProduct()->isVisibleInSiteVisibility();
     }
@@ -457,7 +457,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      * @return Mage_Wishlist_Model_Resource_Wishlist_Collection
      * @throws Mage_Core_Exception
      */
-    public function getCustomerWishlists()
+    function getCustomerWishlists()
     {
         return Mage::getModel("wishlist/wishlist")->getCollection()
             ->filterByCustomerId($this->getCustomerId());

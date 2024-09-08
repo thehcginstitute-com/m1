@@ -33,7 +33,7 @@ class Mage_Adminhtml_Model_Email_Template extends Mage_Core_Model_Email_Template
      *
      * @return array
      */
-    public function getSystemConfigPathsWhereUsedAsDefault()
+    function getSystemConfigPathsWhereUsedAsDefault()
     {
         $templateCode = $this->getOrigTemplateCode();
         if (!$templateCode) {
@@ -64,7 +64,7 @@ class Mage_Adminhtml_Model_Email_Template extends Mage_Core_Model_Email_Template
      *
      * @return array
      */
-    public function getSystemConfigPathsWhereUsedCurrently()
+    function getSystemConfigPathsWhereUsedCurrently()
     {
         $templateId = $this->getId();
         if (!$templateId) {

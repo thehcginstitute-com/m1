@@ -252,7 +252,7 @@ class Mage_Dataflow_Model_Profile extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function run()
+    function run()
     {
         /**
          * Save history
@@ -290,7 +290,7 @@ class Mage_Dataflow_Model_Profile extends Mage_Core_Model_Abstract
         return $this;
     }
 
-    public function _parseGuiData()
+    function _parseGuiData()
     {
         $nl = "\r\n";
         $import = $this->getDirection() === 'import';

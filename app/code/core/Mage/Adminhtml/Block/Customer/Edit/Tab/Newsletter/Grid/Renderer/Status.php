@@ -24,7 +24,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Newsletter_Grid_Renderer_Status ext
 {
     protected static $_statuses;
 
-    public function __construct()
+    function __construct()
     {
         self::$_statuses = [
                 Mage_Newsletter_Model_Queue::STATUS_SENT    => Mage::helper('customer')->__('Sent'),
@@ -36,7 +36,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Newsletter_Grid_Renderer_Status ext
         parent::__construct();
     }
 
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         return Mage::helper('customer')->__(self::getStatus($row->getQueueStatus()));
     }

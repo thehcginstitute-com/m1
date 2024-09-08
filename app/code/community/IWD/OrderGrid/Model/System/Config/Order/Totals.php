@@ -8,7 +8,7 @@ class IWD_OrderGrid_Model_System_Config_Order_Totals
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $sets = Mage::getBlockSingleton('iwd_ordergrid/adminhtml_sales_order_grid_totals')->getTotalSets();
 

@@ -43,7 +43,7 @@ class Mage_Sales_Model_Service_Order
      *
      * @param Mage_Sales_Model_Order $order
      */
-    public function __construct(Mage_Sales_Model_Order $order)
+    function __construct(Mage_Sales_Model_Order $order)
     {
         $this->_order       = $order;
         $this->_convertor   = Mage::getModel('sales/convert_order');
@@ -55,7 +55,7 @@ class Mage_Sales_Model_Service_Order
      * @param   Mage_Sales_Model_Convert_Order $convertor
      * @return  Mage_Sales_Model_Service_Order
      */
-    public function setConvertor(Mage_Sales_Model_Convert_Order $convertor)
+    function setConvertor(Mage_Sales_Model_Convert_Order $convertor)
     {
         $this->_convertor = $convertor;
         return $this;
@@ -66,7 +66,7 @@ class Mage_Sales_Model_Service_Order
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->_order;
     }
@@ -77,7 +77,7 @@ class Mage_Sales_Model_Service_Order
      * @param array $data
      * @return $this
      */
-    public function updateLocaleNumbers(&$data)
+    function updateLocaleNumbers(&$data)
     {
         if (is_array($data)) {
             foreach ($data as $key => $value) {
@@ -107,7 +107,7 @@ class Mage_Sales_Model_Service_Order
      * @param array $qtys
      * @return Mage_Sales_Model_Order_Invoice
      */
-    public function prepareInvoice($qtys = [])
+    function prepareInvoice($qtys = [])
     {
         $this->updateLocaleNumbers($qtys);
         $invoice = $this->_convertor->toInvoice($this->_order);
@@ -147,7 +147,7 @@ class Mage_Sales_Model_Service_Order
      * @param array $qtys
      * @return Mage_Sales_Model_Order_Shipment
      */
-    public function prepareShipment($qtys = [])
+    function prepareShipment($qtys = [])
     {
         $this->updateLocaleNumbers($qtys);
         $totalQty = 0;
@@ -204,7 +204,7 @@ class Mage_Sales_Model_Service_Order
      * @param array $data
      * @return Mage_Sales_Model_Order_Creditmemo
      */
-    public function prepareCreditmemo($data = [])
+    function prepareCreditmemo($data = [])
     {
         $totalQty = 0;
         $creditmemo = $this->_convertor->toCreditmemo($this->_order);
@@ -248,7 +248,7 @@ class Mage_Sales_Model_Service_Order
      * @param array $data
      * @return Mage_Sales_Model_Order_Creditmemo
      */
-    public function prepareInvoiceCreditmemo($invoice, $data = [])
+    function prepareInvoiceCreditmemo($invoice, $data = [])
     {
         $totalQty = 0;
         $qtys = $data['qtys'] ?? [];

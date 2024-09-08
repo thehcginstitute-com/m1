@@ -43,7 +43,7 @@ class Mage_Reports_Model_Resource_Coupons_Collection extends Mage_Sales_Model_En
      * @param string $to
      * @return $this
      */
-    public function setDateRange($from, $to)
+    function setDateRange($from, $to)
     {
         $this->_from = $from;
         $this->_to   = $to;
@@ -57,7 +57,7 @@ class Mage_Reports_Model_Resource_Coupons_Collection extends Mage_Sales_Model_En
      * @param array $storeIds
      * @return $this
      */
-    public function setStoreIds($storeIds)
+    function setStoreIds($storeIds)
     {
         $this->joinFields($this->_from, $this->_to, $storeIds);
         return $this;
@@ -70,7 +70,7 @@ class Mage_Reports_Model_Resource_Coupons_Collection extends Mage_Sales_Model_En
      * @param string $to
      * @param array $storeIds
      */
-    public function joinFields($from, $to, $storeIds = [])
+    function joinFields($from, $to, $storeIds = [])
     {
         $this->groupByAttribute('coupon_code')
             ->addAttributeToFilter('created_at', ['from' => $from, 'to' => $to, 'datetime' => true])
@@ -121,7 +121,7 @@ class Mage_Reports_Model_Resource_Coupons_Collection extends Mage_Sales_Model_En
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $countSelect = clone $this->getSelect();
         $countSelect->reset(Zend_Db_Select::ORDER);

@@ -84,7 +84,7 @@ class Mage_CatalogIndex_Model_Retreiver extends Mage_Core_Model_Abstract
      * @return Mage_CatalogIndex_Model_Data_Abstract|false
      * @throws Mage_Core_Exception
      */
-    public function getRetreiver($type)
+    function getRetreiver($type)
     {
         if (isset($this->_retreivers[$type])) {
             return Mage::getSingleton($this->_retreivers[$type]);
@@ -98,7 +98,7 @@ class Mage_CatalogIndex_Model_Retreiver extends Mage_Core_Model_Abstract
      *
      * @return Mage_Customer_Model_Resource_Group_Collection
      */
-    public function getCustomerGroups()
+    function getCustomerGroups()
     {
         if (is_null($this->_customerGroups)) {
             $this->_customerGroups = Mage::getModel('customer/group')->getCollection();
@@ -112,7 +112,7 @@ class Mage_CatalogIndex_Model_Retreiver extends Mage_Core_Model_Abstract
      * @param array $products
      * @return array
      */
-    public function assignProductTypes($products)
+    function assignProductTypes($products)
     {
         $flat = $this->_getResource()->getProductTypes($products);
         $result = [];

@@ -6,7 +6,7 @@
  */   
 class Amasty_Notfound_Block_Adminhtml_Error extends Amasty_Notfound_Block_Adminhtml_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         $this->_header    = 'System Errors';
         $this->_modelName = 'error';

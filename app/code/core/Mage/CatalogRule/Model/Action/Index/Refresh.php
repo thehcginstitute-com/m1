@@ -60,7 +60,7 @@ class Mage_CatalogRule_Model_Action_Index_Refresh
      *
      * @param array $args
      */
-    public function __construct(array $args)
+    function __construct(array $args)
     {
         $this->_setConnection($args['connection']);
         $this->_setFactory($args['factory']);
@@ -101,7 +101,7 @@ class Mage_CatalogRule_Model_Action_Index_Refresh
     /**
      * Run reindex
      */
-    public function execute()
+    function execute()
     {
         $this->_app->dispatchEvent('catalogrule_before_apply', ['resource' => $this->_resource]);
 

@@ -24,13 +24,13 @@ class Mage_Adminhtml_Block_Report_Sales_Sales_Grid extends Mage_Adminhtml_Block_
 {
     protected $_columnGroupBy = 'period';
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setCountTotals(true);
     }
 
-    public function getResourceCollectionName()
+    function getResourceCollectionName()
     {
         return ($this->getFilterData()->getData('report_type') == 'updated_at_order')
             ? 'sales/report_order_updatedat_collection'

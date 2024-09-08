@@ -29,7 +29,7 @@ class Mage_Catalog_Model_Product_Option_Value_Api extends Mage_Catalog_Model_Api
      * @param int|string|null $store
      * @return array
      */
-    public function items($optionId, $store = null)
+    function items($optionId, $store = null)
     {
         $option = $this->_prepareOption($optionId, $store);
         $productOptionValues = $option->getValuesCollection();
@@ -54,7 +54,7 @@ class Mage_Catalog_Model_Product_Option_Value_Api extends Mage_Catalog_Model_Api
      * @param int|string|null $store
      * @return array
      */
-    public function info($valueId, $store = null)
+    function info($valueId, $store = null)
     {
         /** @var Mage_Catalog_Model_Product_Option_Value $productOptionValue */
         $productOptionValue = Mage::getModel('catalog/product_option_value')->load($valueId);
@@ -91,7 +91,7 @@ class Mage_Catalog_Model_Product_Option_Value_Api extends Mage_Catalog_Model_Api
      * @param int|string|null $store
      * @return bool
      */
-    public function add($optionId, $data, $store = null)
+    function add($optionId, $data, $store = null)
     {
         $option = $this->_prepareOption($optionId, $store);
         /** @var Mage_Catalog_Model_Product_Option_Value $optionValueModel */
@@ -119,7 +119,7 @@ class Mage_Catalog_Model_Product_Option_Value_Api extends Mage_Catalog_Model_Api
      * @param int|string|null $store
      * @return bool
      */
-    public function update($valueId, $data, $store = null)
+    function update($valueId, $data, $store = null)
     {
         /** @var Mage_Catalog_Model_Product_Option_Value $productOptionValue */
         $productOptionValue = Mage::getModel('catalog/product_option_value')->load($valueId);
@@ -159,7 +159,7 @@ class Mage_Catalog_Model_Product_Option_Value_Api extends Mage_Catalog_Model_Api
      * @param int $valueId
      * @return bool
      */
-    public function remove($valueId)
+    function remove($valueId)
     {
         /** @var Mage_Catalog_Model_Product_Option_Value $optionValue */
         $optionValue = Mage::getModel('catalog/product_option_value')->load($valueId);

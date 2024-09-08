@@ -34,7 +34,7 @@ class Mage_Reports_Helper_Data extends Mage_Core_Helper_Abstract
      * @return bool
      */
 
-    public function isReportsEnabled()
+    function isReportsEnabled()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_REPORTS_ENABLED);
     }
@@ -47,7 +47,7 @@ class Mage_Reports_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $period
      * @return array
      */
-    public function getIntervals($from, $to, $period = self::REPORT_PERIOD_TYPE_DAY)
+    function getIntervals($from, $to, $period = self::REPORT_PERIOD_TYPE_DAY)
     {
         $intervals = [];
         if (!$from && !$to) {
@@ -96,7 +96,7 @@ class Mage_Reports_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $to
      * @param string $periodType
      */
-    public function prepareIntervalsCollection($collection, $from, $to, $periodType = self::REPORT_PERIOD_TYPE_DAY)
+    function prepareIntervalsCollection($collection, $from, $to, $periodType = self::REPORT_PERIOD_TYPE_DAY)
     {
         $intervals = $this->getIntervals($from, $to, $periodType);
 

@@ -165,7 +165,7 @@ class Mage_Bundle_Block_Catalog_Product_View_Type_Bundle_Option extends Mage_Bun
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!$this->hasData('product')) {
             $this->setData('product', Mage::registry('current_product'));
@@ -181,7 +181,7 @@ class Mage_Bundle_Block_Catalog_Product_View_Type_Bundle_Option extends Mage_Bun
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getSelectionQtyTitlePrice($_selection, $includeContainer = true)
+    function getSelectionQtyTitlePrice($_selection, $includeContainer = true)
     {
         $price = $this->getProduct()->getPriceModel()->getSelectionPreFinalPrice($this->getProduct(), $_selection);
         $this->setFormatProduct($_selection);
@@ -200,7 +200,7 @@ class Mage_Bundle_Block_Catalog_Product_View_Type_Bundle_Option extends Mage_Bun
      * @param Mage_Catalog_Model_Product $_selection
      * @return int|float
      */
-    public function getSelectionPrice($_selection)
+    function getSelectionPrice($_selection)
     {
         $price = 0;
         $store = $this->getProduct()->getStore();
@@ -223,7 +223,7 @@ class Mage_Bundle_Block_Catalog_Product_View_Type_Bundle_Option extends Mage_Bun
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getSelectionTitlePrice($_selection, $includeContainer = true)
+    function getSelectionTitlePrice($_selection, $includeContainer = true)
     {
         $price = $this->getProduct()->getPriceModel()->getSelectionPreFinalPrice($this->getProduct(), $_selection, 1);
         $this->setFormatProduct($_selection);
@@ -241,7 +241,7 @@ class Mage_Bundle_Block_Catalog_Product_View_Type_Bundle_Option extends Mage_Bun
      * @param int $containerId
      * @return string
      */
-    public function setValidationContainer($elementId, $containerId)
+    function setValidationContainer($elementId, $containerId)
     {
         return '<script type="text/javascript">
             $(\'' . $elementId . '\').advaiceContainer = \'' . $containerId . '\';
@@ -257,7 +257,7 @@ class Mage_Bundle_Block_Catalog_Product_View_Type_Bundle_Option extends Mage_Bun
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function formatPriceString($price, $includeContainer = true)
+    function formatPriceString($price, $includeContainer = true)
     {
         $taxHelper  = Mage::helper('tax');
         /** @var Mage_Core_Helper_Data $coreHelper */

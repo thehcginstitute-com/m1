@@ -126,7 +126,7 @@ abstract class Mage_Core_Helper_Abstract
      * @param string $moduleName Full module name
      * @return bool
      */
-    public function isModuleOutputEnabled($moduleName = null)
+    function isModuleOutputEnabled($moduleName = null)
     {
         if ($moduleName === null) {
             $moduleName = $this->_getModuleName();
@@ -148,7 +148,7 @@ abstract class Mage_Core_Helper_Abstract
      * @param string $moduleName the full module name, example Mage_Core
      * @return bool
      */
-    public function isModuleEnabled($moduleName = null)
+    function isModuleEnabled($moduleName = null)
     {
         if ($moduleName === null) {
             $moduleName = $this->_getModuleName();
@@ -170,7 +170,7 @@ abstract class Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function __()
+    function __()
     {
         $args = func_get_args();
         $expr = new Mage_Core_Model_Translate_Expr(array_shift($args), $this->_getModuleName());
@@ -185,7 +185,7 @@ abstract class Mage_Core_Helper_Abstract
      * @see self::escapeHtml()
      * @deprecated after 1.4.0.0-rc1
      */
-    public function htmlEscape($data, $allowedTags = null)
+    function htmlEscape($data, $allowedTags = null)
     {
         return $this->escapeHtml($data, $allowedTags);
     }
@@ -197,7 +197,7 @@ abstract class Mage_Core_Helper_Abstract
      * @param   array $allowedTags
      * @return  mixed
      */
-    public function escapeHtml($data, $allowedTags = null)
+    function escapeHtml($data, $allowedTags = null)
     {
         if (is_array($data)) {
             $result = [];
@@ -228,7 +228,7 @@ abstract class Mage_Core_Helper_Abstract
      * @param   string $html
      * @return  string
      */
-    public function removeTags($html)
+    function removeTags($html)
     {
         $html = preg_replace_callback(
             "# <(?![/a-z]) | (?<=\s)>(?![a-z]) #xi",
@@ -249,7 +249,7 @@ abstract class Mage_Core_Helper_Abstract
      * @param bool $escape
      * @return string
      */
-    public function stripTags($data, $allowableTags = null, $escape = false)
+    function stripTags($data, $allowableTags = null, $escape = false)
     {
         $result = strip_tags($data, $allowableTags);
         return $escape ? $this->escapeHtml($result, $allowableTags) : $result;
@@ -261,7 +261,7 @@ abstract class Mage_Core_Helper_Abstract
      * @deprecated after 1.4.0.0-rc1
      * @see self::escapeHtml()
      */
-    public function urlEscape($data)
+    function urlEscape($data)
     {
         return $this->escapeUrl($data);
     }
@@ -272,7 +272,7 @@ abstract class Mage_Core_Helper_Abstract
      * @param string $data
      * @return string
      */
-    public function escapeUrl($data)
+    function escapeUrl($data)
     {
         return htmlspecialchars(
             $this->escapeScriptIdentifiers((string) $data),
@@ -287,7 +287,7 @@ abstract class Mage_Core_Helper_Abstract
      * @param string $data
      * @return string
      */
-    public function escapeSpecial($data)
+    function escapeSpecial($data)
     {
         $specialSymbolsFiltrationPattern = '/[\t\n\r\0\x0B]+/';
 
@@ -300,7 +300,7 @@ abstract class Mage_Core_Helper_Abstract
      * @param string $data
      * @return string
      */
-    public function escapeScriptIdentifiers($data)
+    function escapeScriptIdentifiers($data)
     {
         $scripIdentifiersFiltrationPattern = '/((javascript(\\\\x3a|:|%3A))|(data(\\\\x3a|:|%3A))|(vbscript:))|'
             . '((\\\\x6A\\\\x61\\\\x76\\\\x61\\\\x73\\\\x63\\\\x72\\\\x69\\\\x70\\\\x74(\\\\x3a|:|%3A))|'
@@ -322,7 +322,7 @@ abstract class Mage_Core_Helper_Abstract
      * @param string $quote
      * @return mixed
      */
-    public function jsQuoteEscape($data, $quote = '\'')
+    function jsQuoteEscape($data, $quote = '\'')
     {
         if (is_array($data)) {
             $result = [];
@@ -342,7 +342,7 @@ abstract class Mage_Core_Helper_Abstract
      * @param bool $addSlashes
      * @return string
      */
-    public function quoteEscape($data, $addSlashes = false)
+    function quoteEscape($data, $addSlashes = false)
     {
         if ($addSlashes === true) {
             $data = addslashes($data);
@@ -368,7 +368,7 @@ abstract class Mage_Core_Helper_Abstract
      * @param   Mage_Core_Model_Layout $layout
      * @return  Mage_Core_Helper_Abstract
      */
-    public function setLayout($layout)
+    function setLayout($layout)
     {
         $this->_layout = $layout;
         return $this;
@@ -379,7 +379,7 @@ abstract class Mage_Core_Helper_Abstract
      *
      * @return Mage_Core_Model_Layout
      */
-    public function getLayout()
+    function getLayout()
     {
         return $this->_layout;
     }
@@ -390,7 +390,7 @@ abstract class Mage_Core_Helper_Abstract
      *  @param    string $url
      *  @return   string
      */
-    public function urlEncode($url)
+    function urlEncode($url)
     {
         return strtr(base64_encode($url), '+/=', '-_,');
     }
@@ -401,7 +401,7 @@ abstract class Mage_Core_Helper_Abstract
      *  @param    string $url
      *  @return   string
      */
-    public function urlDecode($url)
+    function urlDecode($url)
     {
         $url = base64_decode(strtr($url, '-_,', '+/='));
         return Mage::getSingleton('core/url')->sessionUrlVar($url);
@@ -413,7 +413,7 @@ abstract class Mage_Core_Helper_Abstract
      *  @param    string $url
      *  @return   string
      */
-    public function urlDecodeAndEscape($url)
+    function urlDecodeAndEscape($url)
     {
         $url = $this->urlDecode($url);
         $quote = ['\'', '"'];
@@ -428,7 +428,7 @@ abstract class Mage_Core_Helper_Abstract
      *  @param    array $arr
      *  @return   array
      */
-    public function translateArray($arr = [])
+    function translateArray($arr = [])
     {
         foreach ($arr as $k => $v) {
             if (is_array($v)) {
@@ -449,7 +449,7 @@ abstract class Mage_Core_Helper_Abstract
      * @param bool $skipTags skip transferred array keys, if false then check only them
      * @return bool
      */
-    public function hasTags($data, array $arrayKeys = [], $skipTags = true)
+    function hasTags($data, array $arrayKeys = [], $skipTags = true)
     {
         if (is_array($data)) {
             foreach ($data as $key => $item) {

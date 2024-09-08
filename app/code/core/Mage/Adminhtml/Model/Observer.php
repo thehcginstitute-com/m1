@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Model_Observer
 {
-    public function bindLocale($observer)
+    function bindLocale($observer)
     {
         if ($locale = $observer->getEvent()->getLocale()) {
             if ($choosedLocale = Mage::getSingleton('adminhtml/session')->getLocale()) {
@@ -32,7 +32,7 @@ class Mage_Adminhtml_Model_Observer
         return $this;
     }
 
-    public function bindStore()
+    function bindStore()
     {
         Mage::app()->setCurrentStore('admin');
         return $this;
@@ -43,7 +43,7 @@ class Mage_Adminhtml_Model_Observer
      *
      * @return $this
      */
-    public function massactionPrepareKey()
+    function massactionPrepareKey()
     {
         $request = Mage::app()->getFrontController()->getRequest();
         if ($key = $request->getPost('massaction_prepare_key')) {
@@ -58,7 +58,7 @@ class Mage_Adminhtml_Model_Observer
      *
      * @return $this
      */
-    public function clearCacheConfigurationFilesAccessLevelVerification()
+    function clearCacheConfigurationFilesAccessLevelVerification()
     {
         Mage::app()->removeCache(Mage_Adminhtml_Block_Notification_Security::VERIFICATION_RESULT_CACHE_KEY);
         return $this;

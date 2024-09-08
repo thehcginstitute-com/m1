@@ -48,7 +48,7 @@ class Mage_Wishlist_Block_Customer_Sharing extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getSendUrl()
+    function getSendUrl()
     {
         return $this->getUrl('*/*/send');
     }
@@ -59,7 +59,7 @@ class Mage_Wishlist_Block_Customer_Sharing extends Mage_Core_Block_Template
      * @param string $key
      * @return mixed
      */
-    public function getEnteredData($key)
+    function getEnteredData($key)
     {
         if (is_null($this->_enteredData)) {
             $this->_enteredData = Mage::getSingleton('wishlist/session')
@@ -78,7 +78,7 @@ class Mage_Wishlist_Block_Customer_Sharing extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl('*/*/index');
     }

@@ -39,7 +39,7 @@ class Mage_Core_Model_Resource_Config_Data_Collection extends Mage_Core_Model_Re
      * @param string $section
      * @return $this
      */
-    public function addScopeFilter($scope, $scopeId, $section)
+    function addScopeFilter($scope, $scopeId, $section)
     {
         $this->addFieldToFilter('scope', $scope);
         $this->addFieldToFilter('scope_id', $scopeId);
@@ -53,7 +53,7 @@ class Mage_Core_Model_Resource_Config_Data_Collection extends Mage_Core_Model_Re
      * @param string $section
      * @return $this
      */
-    public function addPathFilter($section)
+    function addPathFilter($section)
     {
         $this->addFieldToFilter('path', ['like' => $section . '/%']);
         return $this;
@@ -65,7 +65,7 @@ class Mage_Core_Model_Resource_Config_Data_Collection extends Mage_Core_Model_Re
      * @param int|string $value
      * @return $this
      */
-    public function addValueFilter($value)
+    function addValueFilter($value)
     {
         $this->addFieldToFilter('value', ['like' => $value]);
         return $this;

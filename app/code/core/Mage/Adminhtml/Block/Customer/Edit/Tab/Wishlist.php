@@ -48,7 +48,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Wishlist extends Mage_Adminhtml_Blo
      * Initialize Grid
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('wishlistGrid');
@@ -174,7 +174,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Wishlist extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/wishlist', ['_current' => true]);
     }
@@ -235,7 +235,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Wishlist extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getGridParentHtml()
+    function getGridParentHtml()
     {
         $templateName = Mage::getDesign()->getTemplateFilename($this->_parentTemplate, ['_relative' => true]);
         return $this->fetchView($templateName);
@@ -246,7 +246,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Wishlist extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/catalog_product/edit', ['id' => $row->getProductId()]);
     }
@@ -259,7 +259,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Wishlist extends Mage_Adminhtml_Blo
      *
      * @return $this
      */
-    public function addProductConfigurationHelper($productType, $helperName)
+    function addProductConfigurationHelper($productType, $helperName)
     {
         $this->_productHelpers[$productType] = $helperName;
         return $this;
@@ -270,7 +270,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Wishlist extends Mage_Adminhtml_Blo
      *
      * @return array
      */
-    public function getProductConfigurationHelpers()
+    function getProductConfigurationHelpers()
     {
         return $this->_productHelpers;
     }

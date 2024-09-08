@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Orders extends Mage_Adminhtml_Block
     /**
      * Mage_Adminhtml_Block_Customer_Edit_Tab_Orders constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('customer_orders_grid');
@@ -117,7 +117,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Orders extends Mage_Adminhtml_Block
      * @param Varien_Object $row
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/sales_order/view', ['order_id' => $row->getId()]);
     }
@@ -125,7 +125,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Orders extends Mage_Adminhtml_Block
     /**
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/orders', ['_current' => true]);
     }

@@ -28,7 +28,7 @@ class Mage_Eav_Model_Attribute_Data_Select extends Mage_Eav_Model_Attribute_Data
      * @param Zend_Controller_Request_Http $request
      * @return array|string
      */
-    public function extractValue(Zend_Controller_Request_Http $request)
+    function extractValue(Zend_Controller_Request_Http $request)
     {
         return $this->_getRequestValue($request);
     }
@@ -40,7 +40,7 @@ class Mage_Eav_Model_Attribute_Data_Select extends Mage_Eav_Model_Attribute_Data
      * @param array|string $value
      * @return bool|array
      */
-    public function validateValue($value)
+    function validateValue($value)
     {
         $errors     = [];
         $attribute  = $this->getAttribute();
@@ -72,7 +72,7 @@ class Mage_Eav_Model_Attribute_Data_Select extends Mage_Eav_Model_Attribute_Data
      * @param array|string $value
      * @return $this
      */
-    public function compactValue($value)
+    function compactValue($value)
     {
         if ($value !== false) {
             $this->getEntity()->setData($this->getAttribute()->getAttributeCode(), $value);
@@ -86,7 +86,7 @@ class Mage_Eav_Model_Attribute_Data_Select extends Mage_Eav_Model_Attribute_Data
      * @param array|string $value
      * @return $this
      */
-    public function restoreValue($value)
+    function restoreValue($value)
     {
         return $this->compactValue($value);
     }
@@ -109,7 +109,7 @@ class Mage_Eav_Model_Attribute_Data_Select extends Mage_Eav_Model_Attribute_Data
      * @return string|array
      * @throws Mage_Core_Exception
      */
-    public function outputValue($format = Mage_Eav_Model_Attribute_Data::OUTPUT_FORMAT_TEXT)
+    function outputValue($format = Mage_Eav_Model_Attribute_Data::OUTPUT_FORMAT_TEXT)
     {
         $value = $this->getEntity()->getData($this->getAttribute()->getAttributeCode());
         switch ($format) {

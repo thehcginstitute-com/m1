@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Group extends Mage_Adm
     /**
      * Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Group constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('super_product_grid');
@@ -42,7 +42,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Group extends Mage_Adm
     /**
      * @return string
      */
-    public function getTabUrl()
+    function getTabUrl()
     {
         return $this->getUrl('*/*/superGroup', ['_current' => true]);
     }
@@ -50,7 +50,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Group extends Mage_Adm
     /**
      * @return string
      */
-    public function getTabClass()
+    function getTabClass()
     {
         return 'ajax';
     }
@@ -183,7 +183,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Group extends Mage_Adm
      *
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->_getData('grid_url') ?: $this->getUrl('*/*/superGroupGridOnly', ['_current' => true]);
     }
@@ -207,7 +207,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Group extends Mage_Adm
      *
      * @return array
      */
-    public function getSelectedGroupedProducts()
+    function getSelectedGroupedProducts()
     {
         $associatedProducts = Mage::registry('current_product')->getTypeInstance(true)
             ->getAssociatedProducts(Mage::registry('current_product'));
@@ -221,19 +221,19 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Group extends Mage_Adm
         return $products;
     }
 
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('catalog')->__('Associated Products');
     }
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('catalog')->__('Associated Products');
     }
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }

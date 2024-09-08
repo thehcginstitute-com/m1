@@ -29,7 +29,7 @@ class Mage_Catalog_Helper_Map extends Mage_Core_Helper_Abstract
     /**
      * @return string
      */
-    public function getCategoryUrl()
+    function getCategoryUrl()
     {
         return $this->_getUrl('catalog/seo_sitemap/category');
     }
@@ -37,7 +37,7 @@ class Mage_Catalog_Helper_Map extends Mage_Core_Helper_Abstract
     /**
      * @return string
      */
-    public function getProductUrl()
+    function getProductUrl()
     {
         return $this->_getUrl('catalog/seo_sitemap/product');
     }
@@ -47,7 +47,7 @@ class Mage_Catalog_Helper_Map extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function getIsUseCategoryTreeMode()
+    function getIsUseCategoryTreeMode()
     {
         return (bool) Mage::getStoreConfigFlag(self::XML_PATH_USE_TREE_MODE);
     }

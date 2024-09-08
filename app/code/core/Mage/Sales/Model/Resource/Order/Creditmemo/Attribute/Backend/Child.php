@@ -28,7 +28,7 @@ class Mage_Sales_Model_Resource_Order_Creditmemo_Attribute_Backend_Child extends
      * @param Varien_Object $object
      * @return Mage_Eav_Model_Entity_Attribute_Backend_Abstract
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         if ($object->getCreditmemo()) {
             $object->setParentId($object->getCreditmemo()->getId());

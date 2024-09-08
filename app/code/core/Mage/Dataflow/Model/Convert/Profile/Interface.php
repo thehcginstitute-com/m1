@@ -27,5 +27,5 @@ interface Mage_Dataflow_Model_Convert_Profile_Interface
      *
      * @return Mage_Dataflow_Model_Convert_Profile_Abstract
      */
-    public function run();
+    function run();
 }

@@ -20,7 +20,7 @@
  */
 class Mage_SalesRule_Model_Rule_Condition_Combine extends Mage_Rule_Model_Condition_Combine
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setType('salesrule/rule_condition_combine');
@@ -29,7 +29,7 @@ class Mage_SalesRule_Model_Rule_Condition_Combine extends Mage_Rule_Model_Condit
     /**
      * @return array
      */
-    public function getNewChildSelectOptions()
+    function getNewChildSelectOptions()
     {
         $addressCondition = Mage::getModel('salesrule/rule_condition_address');
         $addressAttributes = $addressCondition->loadAttributeOptions()->getAttributeOption();

@@ -75,7 +75,7 @@ class Mage_Catalog_Block_Product_List_Related extends Mage_Catalog_Block_Product
     /**
      * @return mixed
      */
-    public function getItems()
+    function getItems()
     {
         return $this->_itemCollection;
     }
@@ -85,7 +85,7 @@ class Mage_Catalog_Block_Product_List_Related extends Mage_Catalog_Block_Product
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         return array_merge(parent::getCacheTags(), $this->getItemsTags($this->getItems()));
     }

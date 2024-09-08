@@ -86,7 +86,7 @@ class Mage_CatalogInventory_Model_Indexer_Stock extends Mage_Index_Model_Indexer
      *
      * @return string
      */
-    public function getName()
+    function getName()
     {
         return Mage::helper('cataloginventory')->__('Stock Status');
     }
@@ -96,7 +96,7 @@ class Mage_CatalogInventory_Model_Indexer_Stock extends Mage_Index_Model_Indexer
      *
      * @return string
      */
-    public function getDescription()
+    function getDescription()
     {
         return Mage::helper('cataloginventory')->__('Index Product Stock Status');
     }
@@ -108,7 +108,7 @@ class Mage_CatalogInventory_Model_Indexer_Stock extends Mage_Index_Model_Indexer
      * @param Mage_Index_Model_Event $event
      * @return bool
      */
-    public function matchEvent(Mage_Index_Model_Event $event)
+    function matchEvent(Mage_Index_Model_Event $event)
     {
         $data = $event->getNewData();
         if (isset($data[self::EVENT_MATCH_RESULT_KEY])) {

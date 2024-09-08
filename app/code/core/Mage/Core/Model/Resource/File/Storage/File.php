@@ -50,7 +50,7 @@ class Mage_Core_Model_Resource_File_Storage_File
      *
      * @return string
      */
-    public function getMediaBaseDirectory()
+    function getMediaBaseDirectory()
     {
         if (is_null($this->_mediaBaseDirectory)) {
             $this->_mediaBaseDirectory = Mage::helper('core/file_storage_database')->getMediaBaseDir();
@@ -65,7 +65,7 @@ class Mage_Core_Model_Resource_File_Storage_File
      * @param string $dir
      * @return array
      */
-    public function getStorageData($dir = '')
+    function getStorageData($dir = '')
     {
         $files          = [];
         $directories    = [];
@@ -110,7 +110,7 @@ class Mage_Core_Model_Resource_File_Storage_File
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function clear($dir = '')
+    function clear($dir = '')
     {
         $currentDir = $this->getMediaBaseDirectory() . $dir;
         $ignoredFiles = array_merge(['.', '..'], $this->_getIgnoredFiles());
@@ -160,7 +160,7 @@ class Mage_Core_Model_Resource_File_Storage_File
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function saveDir($dir)
+    function saveDir($dir)
     {
         if (!isset($dir['name']) || !strlen($dir['name'])
             || !isset($dir['path'])
@@ -193,7 +193,7 @@ class Mage_Core_Model_Resource_File_Storage_File
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function saveFile($filePath, $content, $overwrite = false)
+    function saveFile($filePath, $content, $overwrite = false)
     {
         $filename = basename($filePath);
         $path = $this->getMediaBaseDirectory() . DS . str_replace('/', DS, dirname($filePath));
@@ -239,7 +239,7 @@ class Mage_Core_Model_Resource_File_Storage_File
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function lockCreateFile($filePath)
+    function lockCreateFile($filePath)
     {
         $filename = basename($filePath);
         $path = $this->getMediaBaseDirectory() . DS . str_replace('/', DS, dirname($filePath));
@@ -284,7 +284,7 @@ class Mage_Core_Model_Resource_File_Storage_File
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function removeLockedFile($filePath)
+    function removeLockedFile($filePath)
     {
         $filename = basename($filePath);
         $path = $this->getMediaBaseDirectory() . DS . str_replace('/', DS, dirname($filePath));

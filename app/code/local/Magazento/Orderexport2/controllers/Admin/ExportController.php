@@ -19,7 +19,7 @@ class Magazento_Orderexport2_Admin_ExportController extends Mage_Adminhtml_Contr
     }
 
 
-    public function indexAction() {
+    function indexAction() {
 
         if ($id = $this->getRequest()->getParam('item_id')) {
 

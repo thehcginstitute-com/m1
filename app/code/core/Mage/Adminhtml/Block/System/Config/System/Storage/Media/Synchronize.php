@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_System_Config_System_Storage_Media_Synchronize extend
      * @param  Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         $element->unsScope()->unsCanUseWebsiteValue()->unsCanUseDefaultValue();
         return parent::render($element);
@@ -59,7 +59,7 @@ class Mage_Adminhtml_Block_System_Config_System_Storage_Media_Synchronize extend
      *
      * @return string
      */
-    public function getAjaxSyncUrl()
+    function getAjaxSyncUrl()
     {
         return Mage::getSingleton('adminhtml/url')->getUrl('*/system_config_system_storage/synchronize');
     }
@@ -69,7 +69,7 @@ class Mage_Adminhtml_Block_System_Config_System_Storage_Media_Synchronize extend
      *
      * @return string
      */
-    public function getAjaxStatusUpdateUrl()
+    function getAjaxStatusUpdateUrl()
     {
         return Mage::getSingleton('adminhtml/url')->getUrl('*/system_config_system_storage/status');
     }
@@ -79,7 +79,7 @@ class Mage_Adminhtml_Block_System_Config_System_Storage_Media_Synchronize extend
      *
      * @return string
      */
-    public function getButtonHtml()
+    function getButtonHtml()
     {
         $button = $this->getLayout()->createBlock('adminhtml/widget_button')
             ->setData([
@@ -102,7 +102,7 @@ class Mage_Adminhtml_Block_System_Config_System_Storage_Media_Synchronize extend
      *
      * @return array
      */
-    public function getSyncStorageParams()
+    function getSyncStorageParams()
     {
         $flag = Mage::getSingleton('core/file_storage')->getSyncFlag();
         $flagData = $flag->getFlagData();

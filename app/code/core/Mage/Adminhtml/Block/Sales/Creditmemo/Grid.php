@@ -24,7 +24,7 @@ use Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract as MassAction;
  */
 class Mage_Adminhtml_Block_Sales_Creditmemo_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_creditmemo_grid');
@@ -151,7 +151,7 @@ class Mage_Adminhtml_Block_Sales_Creditmemo_Grid extends Mage_Adminhtml_Block_Wi
      * @param Mage_Sales_Model_Order_Creditmemo $row
      * @return false|string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         if (!Mage::getSingleton('admin/session')->isAllowed('sales/order/creditmemo')) {
             return false;
@@ -168,7 +168,7 @@ class Mage_Adminhtml_Block_Sales_Creditmemo_Grid extends Mage_Adminhtml_Block_Wi
     /**
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/*', ['_current' => true]);
     }

@@ -27,7 +27,7 @@ class Mage_Catalog_Model_Entity_Product_Attribute_Frontend_Image extends Mage_Ea
      * @param string $size
      * @return bool|string
      */
-    public function getUrl($object, $size = null)
+    function getUrl($object, $size = null)
     {
         $url = false;
         $image = $object->getData($this->getAttribute()->getAttributeCode());

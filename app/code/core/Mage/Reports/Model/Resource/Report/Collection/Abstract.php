@@ -84,7 +84,7 @@ class Mage_Reports_Model_Resource_Report_Collection_Abstract extends Mage_Core_M
      * @param array $columns
      * @return $this
      */
-    public function setAggregatedColumns(array $columns)
+    function setAggregatedColumns(array $columns)
     {
         $this->_aggregatedColumns = $columns;
         return $this;
@@ -95,7 +95,7 @@ class Mage_Reports_Model_Resource_Report_Collection_Abstract extends Mage_Core_M
      *
      * @return array
      */
-    public function getAggregatedColumns()
+    function getAggregatedColumns()
     {
         return $this->_aggregatedColumns;
     }
@@ -107,7 +107,7 @@ class Mage_Reports_Model_Resource_Report_Collection_Abstract extends Mage_Core_M
      * @param mixed $to
      * @return $this
      */
-    public function setDateRange($from = null, $to = null)
+    function setDateRange($from = null, $to = null)
     {
         $this->_from = $from;
         $this->_to   = $to;
@@ -120,7 +120,7 @@ class Mage_Reports_Model_Resource_Report_Collection_Abstract extends Mage_Core_M
      * @param string $period
      * @return $this
      */
-    public function setPeriod($period)
+    function setPeriod($period)
     {
         $this->_period = $period;
         return $this;
@@ -150,7 +150,7 @@ class Mage_Reports_Model_Resource_Report_Collection_Abstract extends Mage_Core_M
      * @param mixed $storeIds (null, int|string, array, array may contain null)
      * @return $this
      */
-    public function addStoreFilter($storeIds)
+    function addStoreFilter($storeIds)
     {
         $this->_storesIds = $storeIds;
         return $this;
@@ -205,7 +205,7 @@ class Mage_Reports_Model_Resource_Report_Collection_Abstract extends Mage_Core_M
      * @param bool $flag
      * @return $this
      */
-    public function setApplyFilters($flag)
+    function setApplyFilters($flag)
     {
         $this->_applyFilters = $flag;
         return $this;
@@ -217,7 +217,7 @@ class Mage_Reports_Model_Resource_Report_Collection_Abstract extends Mage_Core_M
      * @param null|bool $flag
      * @return $this|bool
      */
-    public function isTotals($flag = null)
+    function isTotals($flag = null)
     {
         if (is_null($flag)) {
             return $this->_isTotals;
@@ -232,7 +232,7 @@ class Mage_Reports_Model_Resource_Report_Collection_Abstract extends Mage_Core_M
      * @param null|bool $flag
      * @return $this|bool
      */
-    public function isSubTotals($flag = null)
+    function isSubTotals($flag = null)
     {
         if (is_null($flag)) {
             return $this->_isSubTotals;
@@ -257,7 +257,7 @@ class Mage_Reports_Model_Resource_Report_Collection_Abstract extends Mage_Core_M
      *
      * @inheritDoc
      */
-    public function load($printQuery = false, $logQuery = false)
+    function load($printQuery = false, $logQuery = false)
     {
         if ($this->isLoaded()) {
             return $this;

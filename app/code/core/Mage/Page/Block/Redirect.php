@@ -34,7 +34,7 @@ class Mage_Page_Block_Redirect extends Mage_Core_Block_Template
      *
      *  @return   string URL
      */
-    public function getTargetURL()
+    function getTargetURL()
     {
         return '';
     }
@@ -44,7 +44,7 @@ class Mage_Page_Block_Redirect extends Mage_Core_Block_Template
      *
      *  @return   string Output message
      */
-    public function getMessage()
+    function getMessage()
     {
         return '';
     }
@@ -54,7 +54,7 @@ class Mage_Page_Block_Redirect extends Mage_Core_Block_Template
      *
      *  @return   string
      */
-    public function getRedirectOutput()
+    function getRedirectOutput()
     {
         if ($this->isHtmlFormRedirect()) {
             return $this->getHtmlFormRedirect();
@@ -68,7 +68,7 @@ class Mage_Page_Block_Redirect extends Mage_Core_Block_Template
      *
      *  @return   string
      */
-    public function getJsRedirect()
+    function getJsRedirect()
     {
         $js  = '<script type="text/javascript">';
         $js .= 'document.location.href="' . $this->getTargetURL() . '";';
@@ -81,7 +81,7 @@ class Mage_Page_Block_Redirect extends Mage_Core_Block_Template
      *
      *  @return   string
      */
-    public function getHtmlFormRedirect()
+    function getHtmlFormRedirect()
     {
         $form = new Varien_Data_Form();
         $form->setAction($this->getTargetURL())
@@ -102,7 +102,7 @@ class Mage_Page_Block_Redirect extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function isHtmlFormRedirect()
+    function isHtmlFormRedirect()
     {
         return is_array($this->_getFormFields()) && count($this->_getFormFields()) > 0;
     }
@@ -112,7 +112,7 @@ class Mage_Page_Block_Redirect extends Mage_Core_Block_Template
      *
      *  @return   string Id/name
      */
-    public function getFormId()
+    function getFormId()
     {
         return '';
     }
@@ -122,7 +122,7 @@ class Mage_Page_Block_Redirect extends Mage_Core_Block_Template
      *
      *  @return   string Method
      */
-    public function getFormMethod()
+    function getFormMethod()
     {
         return 'POST';
     }
@@ -132,7 +132,7 @@ class Mage_Page_Block_Redirect extends Mage_Core_Block_Template
      *
      *  @return   array
      */
-    public function getFormFields()
+    function getFormFields()
     {
         return [];
     }

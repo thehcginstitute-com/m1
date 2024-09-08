@@ -32,7 +32,7 @@ class Mage_Adminhtml_Block_System_Store_Tree extends Mage_Adminhtml_Block_Widget
     /**
      * Internal constructor, that is called from real constructor
      */
-    public function _construct()
+    function _construct()
     {
         $this->setTemplate('system/store/tree.phtml');
         parent::_construct();
@@ -56,7 +56,7 @@ class Mage_Adminhtml_Block_System_Store_Tree extends Mage_Adminhtml_Block_Widget
      *
      * @return array
      */
-    public function getTableData()
+    function getTableData()
     {
         $data = [];
         foreach (Mage::getModel('core/website')->getCollection() as $website) {
@@ -115,7 +115,7 @@ class Mage_Adminhtml_Block_System_Store_Tree extends Mage_Adminhtml_Block_Widget
      * @param Mage_Core_Model_Website $website
      * @return string
      */
-    public function renderWebsite(Mage_Core_Model_Website $website)
+    function renderWebsite(Mage_Core_Model_Website $website)
     {
         return $this->_createCellTemplate()
             ->setObject($website)
@@ -130,7 +130,7 @@ class Mage_Adminhtml_Block_System_Store_Tree extends Mage_Adminhtml_Block_Widget
      * @param Mage_Core_Model_Store_Group $storeGroup
      * @return string
      */
-    public function renderStoreGroup(Mage_Core_Model_Store_Group $storeGroup)
+    function renderStoreGroup(Mage_Core_Model_Store_Group $storeGroup)
     {
         $rootCategory = Mage::getModel('catalog/category')->load($storeGroup->getRootCategoryId());
         return $this->_createCellTemplate()
@@ -146,7 +146,7 @@ class Mage_Adminhtml_Block_System_Store_Tree extends Mage_Adminhtml_Block_Widget
      * @param Mage_Core_Model_Store $store
      * @return string
      */
-    public function renderStore(Mage_Core_Model_Store $store)
+    function renderStore(Mage_Core_Model_Store $store)
     {
         $cell = $this->_createCellTemplate()
             ->setObject($store)

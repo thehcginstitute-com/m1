@@ -28,13 +28,13 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Config_Grid_Renderer_C
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $result = parent::render($row);
         return $result . '<input type="hidden" class="value-json" value="' . htmlspecialchars($this->getAttributesJson($row)) . '" />';
     }
 
-    public function getAttributesJson(Varien_Object $row)
+    function getAttributesJson(Varien_Object $row)
     {
         if (!$this->getColumn()->getAttributes()) {
             return '[]';

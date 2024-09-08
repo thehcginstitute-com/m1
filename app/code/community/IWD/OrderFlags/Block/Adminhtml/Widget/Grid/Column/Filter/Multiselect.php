@@ -9,7 +9,7 @@ class IWD_OrderFlags_Block_Adminhtml_Widget_Grid_Column_Filter_Multiselect
     /**
      * {@inheritdoc}
      */
-    public function getHtml()
+    function getHtml()
     {
         $html = '<select name="' . $this->_getHtmlName() . '" id="' . $this->_getHtmlId() . '" class="no-changes" multiple>';
         $value = $this->getValue();

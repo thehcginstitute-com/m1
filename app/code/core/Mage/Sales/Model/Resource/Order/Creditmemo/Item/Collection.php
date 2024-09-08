@@ -43,7 +43,7 @@ class Mage_Sales_Model_Resource_Order_Creditmemo_Item_Collection extends Mage_Sa
      * @param int $creditmemoId
      * @return $this
      */
-    public function setCreditmemoFilter($creditmemoId)
+    function setCreditmemoFilter($creditmemoId)
     {
         $this->addFieldToFilter('parent_id', $creditmemoId);
         return $this;

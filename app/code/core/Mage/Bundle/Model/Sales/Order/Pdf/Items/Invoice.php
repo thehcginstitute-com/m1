@@ -25,7 +25,7 @@ class Mage_Bundle_Model_Sales_Order_Pdf_Items_Invoice extends Mage_Bundle_Model_
     /**
      * Draw item line
      */
-    public function draw()
+    function draw()
     {
         /** @var Mage_Tax_Helper_Data $taxHelper */
         $taxHelper = Mage::helper('tax');

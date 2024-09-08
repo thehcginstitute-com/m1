@@ -6,7 +6,7 @@
  */    
 class Amasty_Notfound_Block_Adminhtml_Attempt_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('logGrid');
@@ -47,7 +47,7 @@ class Amasty_Notfound_Block_Adminhtml_Attempt_Grid extends Mage_Adminhtml_Block_
         return parent::_prepareColumns();
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
   {
       return false;
   }

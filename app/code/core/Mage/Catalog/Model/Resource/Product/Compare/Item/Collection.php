@@ -58,7 +58,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item_Collection extends Mage_C
      * @param int $customerId
      * @return $this
      */
-    public function setCustomerId($customerId)
+    function setCustomerId($customerId)
     {
         $this->_customerId = (int)$customerId;
         $this->_addJoinToSelect();
@@ -71,7 +71,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item_Collection extends Mage_C
      * @param int $visitorId
      * @return $this
      */
-    public function setVisitorId($visitorId)
+    function setVisitorId($visitorId)
     {
         $this->_visitorId = (int)$visitorId;
         $this->_addJoinToSelect();
@@ -83,7 +83,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item_Collection extends Mage_C
      *
      * @return int
      */
-    public function getCustomerId()
+    function getCustomerId()
     {
         return $this->_customerId;
     }
@@ -93,7 +93,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item_Collection extends Mage_C
      *
      * @return int
      */
-    public function getVisitorId()
+    function getVisitorId()
     {
         return $this->_visitorId;
     }
@@ -103,7 +103,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item_Collection extends Mage_C
      *
      * @return array
      */
-    public function getConditionForJoin()
+    function getConditionForJoin()
     {
         if ($this->getCustomerId()) {
             return ['customer_id' => $this->getCustomerId()];
@@ -121,7 +121,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item_Collection extends Mage_C
      *
      * @return $this
      */
-    public function _addJoinToSelect()
+    function _addJoinToSelect()
     {
         $this->joinTable(
             ['t_compare' => 'catalog/compare_item'],
@@ -207,7 +207,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item_Collection extends Mage_C
      *
      * @return array
      */
-    public function getComparableAttributes()
+    function getComparableAttributes()
     {
         if (is_null($this->_comparableAttributes)) {
             $this->_comparableAttributes = [];
@@ -253,7 +253,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item_Collection extends Mage_C
      *
      * @return $this
      */
-    public function loadComparableAttributes()
+    function loadComparableAttributes()
     {
         $comparableAttributes = $this->getComparableAttributes();
         $attributes = [];
@@ -270,7 +270,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item_Collection extends Mage_C
      *
      * @return $this
      */
-    public function useProductItem()
+    function useProductItem()
     {
         $this->setObject('catalog/product');
 
@@ -285,7 +285,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item_Collection extends Mage_C
      *
      * @return array
      */
-    public function getProductIds()
+    function getProductIds()
     {
         $ids = [];
         foreach ($this->getItems() as $item) {
@@ -300,7 +300,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item_Collection extends Mage_C
      *
      * @return $this
      */
-    public function clear()
+    function clear()
     {
         Mage::getResourceSingleton('catalog/product_compare_item')
             ->clearItems($this->getVisitorId(), $this->getCustomerId());
@@ -315,7 +315,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item_Collection extends Mage_C
      *
      * @return bool
      */
-    public function isEnabledFlat()
+    function isEnabledFlat()
     {
         if (!Mage::helper('catalog/product_compare')->getAllowUsedFlat()) {
             return false;

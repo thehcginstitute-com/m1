@@ -52,7 +52,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Attribute extends Ma
      *
      * @return Mage_Catalog_Helper_Data
      */
-    public function getCatalogHelper()
+    function getCatalogHelper()
     {
         return Mage::helper('catalog');
     }
@@ -64,7 +64,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Attribute extends Ma
      * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return $this
      */
-    public function loadLabel($attribute)
+    function loadLabel($attribute)
     {
         return $this;
     }
@@ -76,7 +76,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Attribute extends Ma
      * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return $this
      */
-    public function loadPrices($attribute)
+    function loadPrices($attribute)
     {
         return $this;
     }
@@ -87,7 +87,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Attribute extends Ma
      * @param Mage_Catalog_Model_Product_Type_Configurable_Attribute $attribute
      * @return $this
      */
-    public function saveLabel($attribute)
+    function saveLabel($attribute)
     {
         $adapter = $this->_getWriteAdapter();
 
@@ -129,7 +129,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Attribute extends Ma
      * @param Mage_Catalog_Model_Product_Type_Configurable_Attribute $attribute
      * @return $this
      */
-    public function savePrices($attribute)
+    function savePrices($attribute)
     {
         $write      = $this->_getWriteAdapter();
         // define website id scope
@@ -267,7 +267,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Attribute extends Ma
      * @param int $setId The specific attribute set
      * @return array
      */
-    public function getUsedAttributes($setId)
+    function getUsedAttributes($setId)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()

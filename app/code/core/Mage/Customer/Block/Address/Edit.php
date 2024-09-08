@@ -70,7 +70,7 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
      *
      * @return string
      */
-    public function getNameBlockHtml()
+    function getNameBlockHtml()
     {
         $nameBlock = $this->getLayout()
             ->createBlock('customer/widget_name')
@@ -82,7 +82,7 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
     /**
      * @return string
      */
-    public function getTitle()
+    function getTitle()
     {
         if ($title = $this->getData('title')) {
             return $title;
@@ -98,7 +98,7 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
     /**
      * @return mixed|string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         if ($this->getData('back_url')) {
             return $this->getData('back_url');
@@ -114,7 +114,7 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
     /**
      * @return string
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return Mage::getUrl('customer/address/formPost', ['_secure' => true, 'id' => $this->getAddress()->getId()]);
     }
@@ -122,7 +122,7 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
     /**
      * @return Mage_Customer_Model_Address
      */
-    public function getAddress()
+    function getAddress()
     {
         return $this->_address;
     }
@@ -130,7 +130,7 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
     /**
      * @return int
      */
-    public function getCountryId()
+    function getCountryId()
     {
         if ($countryId = $this->getAddress()->getCountryId()) {
             return $countryId;
@@ -141,7 +141,7 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
     /**
      * @return int
      */
-    public function getRegionId()
+    function getRegionId()
     {
         return $this->getAddress()->getRegionId();
     }
@@ -149,7 +149,7 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
     /**
      * @return int
      */
-    public function getCustomerAddressCount()
+    function getCustomerAddressCount()
     {
         return count(Mage::getSingleton('customer/session')->getCustomer()->getAddresses());
     }
@@ -157,7 +157,7 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
     /**
      * @return bool|int
      */
-    public function canSetAsDefaultBilling()
+    function canSetAsDefaultBilling()
     {
         if (!$this->getAddress()->getId()) {
             return $this->getCustomerAddressCount();
@@ -168,7 +168,7 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
     /**
      * @return bool|int
      */
-    public function canSetAsDefaultShipping()
+    function canSetAsDefaultShipping()
     {
         if (!$this->getAddress()->getId()) {
             return $this->getCustomerAddressCount();
@@ -179,7 +179,7 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
     /**
      * @return bool
      */
-    public function isDefaultBilling()
+    function isDefaultBilling()
     {
         $defaultBilling = Mage::getSingleton('customer/session')->getCustomer()->getDefaultBilling();
         return $this->getAddress()->getId() && $this->getAddress()->getId() == $defaultBilling;
@@ -188,7 +188,7 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
     /**
      * @return bool
      */
-    public function isDefaultShipping()
+    function isDefaultShipping()
     {
         $defaultShipping = Mage::getSingleton('customer/session')->getCustomer()->getDefaultShipping();
         return $this->getAddress()->getId() && $this->getAddress()->getId() == $defaultShipping;
@@ -197,7 +197,7 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
     /**
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         return Mage::getSingleton('customer/session')->getCustomer();
     }
@@ -205,7 +205,7 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
     /**
      * @return string
      */
-    public function getBackButtonUrl()
+    function getBackButtonUrl()
     {
         if ($this->getCustomerAddressCount()) {
             return $this->getUrl('customer/address');

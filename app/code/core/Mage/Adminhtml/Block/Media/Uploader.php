@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Media_Uploader extends Mage_Uploader_Block_Multiple
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->getUploaderConfig()->setTarget(Mage::getModel('adminhtml/url')->addSessionParam()->getUrl('*/*/upload'));

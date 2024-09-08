@@ -29,7 +29,7 @@ class Mage_Core_Model_Design_Source_Design extends Mage_Eav_Model_Entity_Attribu
      * @param bool $isFullLabel
      * @return $this
      */
-    public function setIsFullLabel($isFullLabel)
+    function setIsFullLabel($isFullLabel)
     {
         $this->_isFullLabel = $isFullLabel;
         return $this;
@@ -40,7 +40,7 @@ class Mage_Core_Model_Design_Source_Design extends Mage_Eav_Model_Entity_Attribu
      *
      * @return bool
      */
-    public function getIsFullLabel()
+    function getIsFullLabel()
     {
         return $this->_isFullLabel;
     }
@@ -51,7 +51,7 @@ class Mage_Core_Model_Design_Source_Design extends Mage_Eav_Model_Entity_Attribu
      * @param bool $withEmpty add empty (please select) values to result
      * @return array
      */
-    public function getAllOptions($withEmpty = true)
+    function getAllOptions($withEmpty = true)
     {
         if (is_null($this->_options)) {
             $design = Mage::getModel('core/design_package')->getThemeList();
@@ -88,7 +88,7 @@ class Mage_Core_Model_Design_Source_Design extends Mage_Eav_Model_Entity_Attribu
      * @param string|int $value
      * @return string
      */
-    public function getOptionText($value)
+    function getOptionText($value)
     {
         $options = $this->getAllOptions(false);
 

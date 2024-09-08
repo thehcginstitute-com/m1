@@ -28,7 +28,7 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Cart extends Mage_Wishli
      * @param Mage_Wishlist_Model_Item $item
      * @return float
      */
-    public function getAddToCartQty(Mage_Wishlist_Model_Item $item)
+    function getAddToCartQty(Mage_Wishlist_Model_Item $item)
     {
         $qty = $item->getQty();
         return $qty ? $qty : 1;
@@ -39,7 +39,7 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Cart extends Mage_Wishli
      *
      * @return string
      */
-    public function getJs()
+    function getJs()
     {
         $js = "
             function addWItemToCart(itemId) {

@@ -27,7 +27,7 @@ class Mage_Page_Block_Html_CookieNotice extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getCookieRestrictionBlockContent()
+    function getCookieRestrictionBlockContent()
     {
         $blockIdentifier = Mage::helper('core/cookie')->getCookieRestrictionNoticeCmsBlockIdentifier();
         $block = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId());

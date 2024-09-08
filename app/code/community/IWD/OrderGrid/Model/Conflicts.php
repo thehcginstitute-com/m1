@@ -13,7 +13,7 @@ class IWD_OrderGrid_Model_Conflicts extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function getTypes()
+    function getTypes()
     {
         return array(
             'model' => Mage::helper('iwd_ordergrid')->__('Model'),
@@ -25,7 +25,7 @@ class IWD_OrderGrid_Model_Conflicts extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function getRewritesClasses()
+    function getRewritesClasses()
     {
         $this->_rewritesModules = array();
 

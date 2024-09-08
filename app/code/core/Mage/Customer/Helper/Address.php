@@ -58,19 +58,19 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
     /**
      * Addresses url
      */
-    public function getBookUrl()
+    function getBookUrl()
     {
     }
 
-    public function getEditUrl()
+    function getEditUrl()
     {
     }
 
-    public function getDeleteUrl()
+    function getDeleteUrl()
     {
     }
 
-    public function getCreateUrl()
+    function getCreateUrl()
     {
     }
 
@@ -78,7 +78,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      * @param mixed $renderer
      * @return mixed
      */
-    public function getRenderer($renderer)
+    function getRenderer($renderer)
     {
         if (is_string($renderer) && $className = Mage::getConfig()->getBlockClassName($renderer)) {
             return new $className();
@@ -94,7 +94,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Store|int|string $store
      * @return string|null
      */
-    public function getConfig($key, $store = null)
+    function getConfig($key, $store = null)
     {
         $websiteId = Mage::app()->getStore($store)->getWebsiteId();
 
@@ -110,7 +110,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Store|int|string $store
      * @return int
      */
-    public function getStreetLines($store = null)
+    function getStreetLines($store = null)
     {
         $websiteId = Mage::app()->getStore($store)->getWebsiteId();
         if (!isset($this->_streetLines[$websiteId])) {
@@ -130,7 +130,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      * @param string $code
      * @return string
      */
-    public function getFormat($code)
+    function getFormat($code)
     {
         $format = Mage::getSingleton('customer/address_config')->getFormatByCode($code);
         return $format->getRenderer() ? $format->getRenderer()->getFormat() : '';
@@ -142,7 +142,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      * @param string $key
      * @return bool
      */
-    public function canShowConfig($key)
+    function canShowConfig($key)
     {
         return (bool)$this->getConfig($key);
     }
@@ -152,7 +152,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getAttributes()
+    function getAttributes()
     {
         if (is_null($this->_attributes)) {
             $this->_attributes = [];
@@ -171,7 +171,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      * @param string $attributeCode
      * @return string
      */
-    public function getAttributeValidationClass($attributeCode)
+    function getAttributeValidationClass($attributeCode)
     {
         /** @var Mage_Customer_Model_Attribute $attribute */
         $attribute = $this->_attributes[$attributeCode] ?? Mage::getSingleton('eav/config')->getAttribute('customer_address', $attributeCode);
@@ -207,7 +207,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      * @param int   $toCount
      * @return array
      */
-    public function convertStreetLines($origStreets, $toCount)
+    function convertStreetLines($origStreets, $toCount)
     {
         $lines = [];
         if (!empty($origStreets) && $toCount > 0) {
@@ -236,7 +236,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Store|string|int $store
      * @return bool
      */
-    public function isVatValidationEnabled($store = null)
+    function isVatValidationEnabled($store = null)
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_VAT_VALIDATION_ENABLED, $store);
     }
@@ -246,7 +246,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function getDisableAutoGroupAssignDefaultValue()
+    function getDisableAutoGroupAssignDefaultValue()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_VIV_DISABLE_AUTO_ASSIGN_DEFAULT);
     }
@@ -257,7 +257,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Store|string|int $store
      * @return bool
      */
-    public function getValidateOnEachTransaction($store = null)
+    function getValidateOnEachTransaction($store = null)
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_VIV_ON_EACH_TRANSACTION, $store);
     }
@@ -268,7 +268,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Store|string|int|null $store
      * @return string
      */
-    public function getTaxCalculationAddressType($store = null)
+    function getTaxCalculationAddressType($store = null)
     {
         return (string)Mage::getStoreConfig(self::XML_PATH_VIV_TAX_CALCULATION_ADDRESS_TYPE, $store);
     }
@@ -278,7 +278,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isVatAttributeVisible()
+    function isVatAttributeVisible()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_VAT_FRONTEND_VISIBILITY);
     }

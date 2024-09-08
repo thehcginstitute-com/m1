@@ -107,7 +107,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isLoggedIn()
+    function isLoggedIn()
     {
         return Mage::getSingleton('customer/session')->isLoggedIn();
     }
@@ -117,7 +117,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         if (empty($this->_customer)) {
             $this->_customer = Mage::getSingleton('customer/session')->getCustomer();
@@ -130,7 +130,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Customer_Model_Entity_Group_Collection
      */
-    public function getGroups()
+    function getGroups()
     {
         if (empty($this->_groups)) {
             $this->_groups = Mage::getModel('customer/group')->getResourceCollection()
@@ -145,7 +145,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Customer_Model_Customer
      */
-    public function getCurrentCustomer()
+    function getCurrentCustomer()
     {
         return $this->getCustomer();
     }
@@ -156,7 +156,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Newsletter_Model_Subscriber|Mage_Sales_Model_Order|Mage_Sales_Model_Quote $object
      * @return string
      */
-    public function getFullCustomerName($object = null)
+    function getFullCustomerName($object = null)
     {
         $name = '';
         if (is_null($object)) {
@@ -194,7 +194,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getCustomerName()
+    function getCustomerName()
     {
         return $this->getCustomer()->getName();
     }
@@ -204,7 +204,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function customerHasAddresses()
+    function customerHasAddresses()
     {
         return count($this->getCustomer()->getAddresses()) > 0;
     }
@@ -218,7 +218,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getLoginUrl()
+    function getLoginUrl()
     {
         return $this->_getUrl(self::ROUTE_ACCOUNT_LOGIN, $this->getLoginUrlParams());
     }
@@ -228,7 +228,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getLoginUrlParams()
+    function getLoginUrlParams()
     {
         $params = [];
 
@@ -253,7 +253,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getLoginPostUrl()
+    function getLoginPostUrl()
     {
         $params = [];
         if ($this->_getRequest()->getParam(self::REFERER_QUERY_PARAM_NAME)) {
@@ -269,7 +269,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getLogoutUrl()
+    function getLogoutUrl()
     {
         return $this->_getUrl('customer/account/logout');
     }
@@ -279,7 +279,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getDashboardUrl()
+    function getDashboardUrl()
     {
         return $this->_getUrl('customer/account');
     }
@@ -289,7 +289,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getAccountUrl()
+    function getAccountUrl()
     {
         return $this->_getUrl('customer/account');
     }
@@ -299,7 +299,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getRegisterUrl()
+    function getRegisterUrl()
     {
         return $this->_getUrl('customer/account/create');
     }
@@ -309,7 +309,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getRegisterPostUrl()
+    function getRegisterPostUrl()
     {
         return $this->_getUrl('customer/account/createpost');
     }
@@ -319,7 +319,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getEditUrl()
+    function getEditUrl()
     {
         return $this->_getUrl('customer/account/edit');
     }
@@ -329,7 +329,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getEditPostUrl()
+    function getEditPostUrl()
     {
         return $this->_getUrl('customer/account/editpost');
     }
@@ -339,7 +339,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getForgotPasswordUrl()
+    function getForgotPasswordUrl()
     {
         return $this->_getUrl('customer/account/forgotpassword');
     }
@@ -349,7 +349,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isConfirmationRequired()
+    function isConfirmationRequired()
     {
         return $this->getCustomer()->isConfirmationRequired();
     }
@@ -360,7 +360,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $email
      * @return string
      */
-    public function getEmailConfirmationUrl($email = null)
+    function getEmailConfirmationUrl($email = null)
     {
         return $this->_getUrl('customer/account/confirmation', ['email' => $email]);
     }
@@ -370,7 +370,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isRegistrationAllowed()
+    function isRegistrationAllowed()
     {
         $result = new Varien_Object(['is_allowed' => true]);
         Mage::dispatchEvent('customer_registration_is_allowed', ['result' => $result]);
@@ -383,7 +383,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Store|int|string|null $store
      * @return array|bool
      */
-    public function getNamePrefixOptions($store = null)
+    function getNamePrefixOptions($store = null)
     {
         return $this->_prepareNamePrefixSuffixOptions(
             Mage::helper('customer/address')->getConfig('prefix_options', $store)
@@ -396,7 +396,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Store|int|string|null $store
      * @return array|bool
      */
-    public function getNameSuffixOptions($store = null)
+    function getNameSuffixOptions($store = null)
     {
         return $this->_prepareNamePrefixSuffixOptions(
             Mage::helper('customer/address')->getConfig('suffix_options', $store)
@@ -429,7 +429,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function generateResetPasswordLinkToken()
+    function generateResetPasswordLinkToken()
     {
         return Mage::helper('core')->uniqHash();
     }
@@ -440,7 +440,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $customerId
      * @return string
      */
-    public function generateResetPasswordLinkCustomerId($customerId)
+    function generateResetPasswordLinkCustomerId($customerId)
     {
         return md5(uniqid($customerId . microtime() . mt_rand(), true));
     }
@@ -450,7 +450,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return int
      */
-    public function getResetPasswordLinkExpirationPeriod()
+    function getResetPasswordLinkExpirationPeriod()
     {
         return (int) Mage::getConfig()->getNode(self::XML_PATH_CUSTOMER_RESET_PASSWORD_LINK_EXPIRATION_PERIOD);
     }
@@ -460,7 +460,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function getIsRequireAdminUserToChangeUserPassword()
+    function getIsRequireAdminUserToChangeUserPassword()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_CUSTOMER_REQUIRE_ADMIN_USER_TO_CHANGE_USER_PASSWORD);
     }
@@ -471,7 +471,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Store|string|int $store
      * @return int
      */
-    public function getDefaultCustomerGroupId($store = null)
+    function getDefaultCustomerGroupId($store = null)
     {
         return (int)Mage::getStoreConfig(Mage_Customer_Model_Group::XML_PATH_DEFAULT_ID, $store);
     }
@@ -481,7 +481,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return int
      */
-    public function getCustomerForgotPasswordFlowSecure()
+    function getCustomerForgotPasswordFlowSecure()
     {
         return (int)Mage::getStoreConfig(self::XML_PATH_CUSTOMER_FORGOT_PASSWORD_FLOW_SECURE);
     }
@@ -491,7 +491,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return int
      */
-    public function getCustomerForgotPasswordEmailTimes()
+    function getCustomerForgotPasswordEmailTimes()
     {
         return (int)Mage::getStoreConfig(self::XML_PATH_CUSTOMER_FORGOT_PASSWORD_EMAIL_TIMES);
     }
@@ -501,7 +501,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return int
      */
-    public function getCustomerForgotPasswordIpTimes()
+    function getCustomerForgotPasswordIpTimes()
     {
         return (int)Mage::getStoreConfig(self::XML_PATH_CUSTOMER_FORGOT_PASSWORD_IP_TIMES);
     }
@@ -514,7 +514,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Store|string|int $store
      * @return null|int
      */
-    public function getCustomerGroupIdBasedOnVatNumber($customerCountryCode, $vatValidationResult, $store = null)
+    function getCustomerGroupIdBasedOnVatNumber($customerCountryCode, $vatValidationResult, $store = null)
     {
         $groupId = null;
 
@@ -544,7 +544,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return Varien_Object
      */
-    public function checkVatNumber($countryCode, $vatNumber, $requesterCountryCode = '', $requesterVatNumber = '')
+    function checkVatNumber($countryCode, $vatNumber, $requesterCountryCode = '', $requesterVatNumber = '')
     {
         // Default response
         $gatewayResponse = new Varien_Object([
@@ -604,7 +604,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function canCheckVatNumber($countryCode, $vatNumber, $requesterCountryCode, $requesterVatNumber)
+    function canCheckVatNumber($countryCode, $vatNumber, $requesterCountryCode, $requesterVatNumber)
     {
         $result = true;
         /** @var Mage_Core_Helper_Data $coreHelper */
@@ -635,7 +635,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Store|string|int|null $store
      * @return null|string
      */
-    public function getCustomerVatClass($customerCountryCode, $vatValidationResult, $store = null)
+    function getCustomerVatClass($customerCountryCode, $vatValidationResult, $store = null)
     {
         $vatClass = null;
 
@@ -668,7 +668,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Varien_Object $validationResult
      * @return Varien_Object
      */
-    public function getVatValidationUserMessage($customerAddress, $customerGroupAutoAssignDisabled, $validationResult)
+    function getVatValidationUserMessage($customerAddress, $customerGroupAutoAssignDisabled, $validationResult)
     {
         $message = '';
         $isError = true;
@@ -720,7 +720,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $customerId
      * @return int
      */
-    public function getPasswordTimestamp($customerId)
+    function getPasswordTimestamp($customerId)
     {
         return Mage::getResourceModel('customer/customer')->getPasswordTimestamp($customerId);
     }

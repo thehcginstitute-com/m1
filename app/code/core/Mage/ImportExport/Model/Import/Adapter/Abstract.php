@@ -63,7 +63,7 @@ abstract class Mage_ImportExport_Model_Import_Adapter_Abstract implements Seekab
      * @param string $source Source file path.
      * @throws Mage_Core_Exception
      */
-    final public function __construct($source)
+    final function __construct($source)
     {
         register_shutdown_function([$this, 'destruct']);
 
@@ -92,7 +92,7 @@ abstract class Mage_ImportExport_Model_Import_Adapter_Abstract implements Seekab
     /**
      * Destruct method on shutdown
      */
-    public function destruct()
+    function destruct()
     {
     }
 
@@ -112,7 +112,7 @@ abstract class Mage_ImportExport_Model_Import_Adapter_Abstract implements Seekab
      * @return array
      */
     #[\ReturnTypeWillChange]
-    public function current()
+    function current()
     {
         return array_combine(
             $this->_colNames,
@@ -127,7 +127,7 @@ abstract class Mage_ImportExport_Model_Import_Adapter_Abstract implements Seekab
      *
      * @return array
      */
-    public function getColNames()
+    function getColNames()
     {
         return $this->_colNames;
     }
@@ -138,7 +138,7 @@ abstract class Mage_ImportExport_Model_Import_Adapter_Abstract implements Seekab
      * @return int More than 0 integer on success, integer 0 on failure.
      */
     #[\ReturnTypeWillChange]
-    public function key()
+    function key()
     {
         return $this->_currentKey;
     }
@@ -149,7 +149,7 @@ abstract class Mage_ImportExport_Model_Import_Adapter_Abstract implements Seekab
      * @param int $position The position to seek to.
      */
     #[\ReturnTypeWillChange]
-    public function seek($position)
+    function seek($position)
     {
         Mage::throwException(Mage::helper('importexport')->__('Not implemented yet'));
     }
@@ -160,7 +160,7 @@ abstract class Mage_ImportExport_Model_Import_Adapter_Abstract implements Seekab
      * @return bool Returns true on success or false on failure.
      */
     #[\ReturnTypeWillChange]
-    public function valid()
+    function valid()
     {
         return !empty($this->_currentRow);
     }
@@ -170,7 +170,7 @@ abstract class Mage_ImportExport_Model_Import_Adapter_Abstract implements Seekab
      *
      * @return Mage_ImportExport_Model_Import_Adapter_Abstract
      */
-    public function validateSource()
+    function validateSource()
     {
         return $this;
     }
@@ -180,7 +180,7 @@ abstract class Mage_ImportExport_Model_Import_Adapter_Abstract implements Seekab
      *
      * @return string
      */
-    public function getSource()
+    function getSource()
     {
         return $this->_source;
     }

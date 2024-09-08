@@ -33,7 +33,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
      *
      * @deprecated after 1.7.0.2
      */
-    public function prepareItemUrls()
+    function prepareItemUrls()
     {
         $products = [];
         foreach ($this->getItems() as $item) {
@@ -69,7 +69,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
         }
     }
 
-    public function chooseTemplate()
+    function chooseTemplate()
     {
         $itemsCount = $this->getItemsCount() ?: $this->getQuote()->getItemsCount();
         if ($itemsCount) {
@@ -82,7 +82,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
     /**
      * @return bool
      */
-    public function hasError()
+    function hasError()
     {
         return $this->getQuote()->getHasError();
     }
@@ -90,7 +90,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
     /**
      * @return float|int|mixed
      */
-    public function getItemsSummaryQty()
+    function getItemsSummaryQty()
     {
         return $this->getQuote()->getItemsSummaryQty();
     }
@@ -98,7 +98,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
     /**
      * @return bool|mixed
      */
-    public function isWishlistActive()
+    function isWishlistActive()
     {
         $isActive = $this->_getData('is_wishlist_active');
         if ($isActive === null) {
@@ -112,7 +112,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
     /**
      * @return string
      */
-    public function getCheckoutUrl()
+    function getCheckoutUrl()
     {
         return $this->getUrl('checkout/onepage', ['_secure' => true]);
     }
@@ -122,7 +122,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
      *
      * @return string
      */
-    public function getFormActionUrl()
+    function getFormActionUrl()
     {
         return $this->getUrl('checkout/cart/updatePost', ['_secure' => $this->_isSecure()]);
     }
@@ -130,7 +130,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
     /**
      * @return mixed|string
      */
-    public function getContinueShoppingUrl()
+    function getContinueShoppingUrl()
     {
         $url = $this->getData('continue_shopping_url');
         if (is_null($url)) {
@@ -146,7 +146,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
     /**
      * @return bool
      */
-    public function getIsVirtual()
+    function getIsVirtual()
     {
         /** @var Mage_Checkout_Helper_Cart $helper */
         $helper = $this->helper('checkout/cart');
@@ -159,7 +159,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
      * @param string $nameInLayout Container block alias in layout
      * @return array
      */
-    public function getMethods($nameInLayout)
+    function getMethods($nameInLayout)
     {
         if ($this->getChild($nameInLayout) instanceof Mage_Core_Block_Abstract) {
             return $this->getChild($nameInLayout)->getSortedChildren();
@@ -174,7 +174,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
      * @return string
      * @throws Mage_Core_Exception
      */
-    public function getMethodHtml($name)
+    function getMethodHtml($name)
     {
         $block = $this->getLayout()->getBlock($name);
         if (!$block) {
@@ -188,7 +188,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
      *
      * @return Mage_Sales_Model_Quote_Item[]
      */
-    public function getItems()
+    function getItems()
     {
         if ($this->getCustomItems()) {
             return $this->getCustomItems();

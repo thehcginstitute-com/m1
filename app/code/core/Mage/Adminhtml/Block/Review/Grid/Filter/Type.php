@@ -38,7 +38,7 @@ class Mage_Adminhtml_Block_Review_Grid_Filter_Type extends Mage_Adminhtml_Block_
     /**
      * @return int
      */
-    public function getCondition()
+    function getCondition()
     {
         if ($this->getValue() == 1) {
             return 1;

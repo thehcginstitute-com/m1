@@ -9,7 +9,7 @@
 
 class Magazento_Orderexport2_Helper_Data extends Mage_Core_Helper_Abstract {
 
-    public function versionUseAdminTitle() {
+    function versionUseAdminTitle() {
         $info = explode('.', Mage::getVersion());
         if ($info[0] > 1) {
             return true;
@@ -20,7 +20,7 @@ class Magazento_Orderexport2_Helper_Data extends Mage_Core_Helper_Abstract {
         return false;
     }
 
-    public function versionUseWysiwig() {
+    function versionUseWysiwig() {
         $info = explode('.', Mage::getVersion());
         if ($info[0] > 1) {
             return true;

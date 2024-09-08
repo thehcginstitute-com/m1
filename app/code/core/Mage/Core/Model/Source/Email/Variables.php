@@ -29,7 +29,7 @@ class Mage_Core_Model_Source_Email_Variables
      */
     protected $_configVariables = [];
 
-    public function __construct()
+    function __construct()
     {
         $this->_configVariables = [
             [
@@ -93,7 +93,7 @@ class Mage_Core_Model_Source_Email_Variables
      * @param bool $withGroup
      * @return array
      */
-    public function toOptionArray($withGroup = false)
+    function toOptionArray($withGroup = false)
     {
         $optionArray = [];
         foreach ($this->_configVariables as $variable) {

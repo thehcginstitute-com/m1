@@ -35,7 +35,7 @@ class Mage_Catalog_Model_Layer_Filter_Item extends Varien_Object
      *
      * @return Mage_Catalog_Model_Layer_Filter_Abstract
      */
-    public function getFilter()
+    function getFilter()
     {
         $filter = $this->getData('filter');
         if (!is_object($filter)) {
@@ -51,7 +51,7 @@ class Mage_Catalog_Model_Layer_Filter_Item extends Varien_Object
      *
      * @return string
      */
-    public function getUrl()
+    function getUrl()
     {
         $query = [
             $this->getFilter()->getRequestVar() => $this->getValue(),
@@ -65,7 +65,7 @@ class Mage_Catalog_Model_Layer_Filter_Item extends Varien_Object
      *
      * @return string
      */
-    public function getRemoveUrl()
+    function getRemoveUrl()
     {
         $query = [$this->getFilter()->getRequestVar() => $this->getFilter()->getResetValue()];
         $params['_current']     = true;
@@ -80,7 +80,7 @@ class Mage_Catalog_Model_Layer_Filter_Item extends Varien_Object
      *
      * @return false|string
      */
-    public function getClearLinkUrl()
+    function getClearLinkUrl()
     {
         $clearLinkText = $this->getFilter()->getClearLinkText();
         if (!$clearLinkText) {
@@ -101,7 +101,7 @@ class Mage_Catalog_Model_Layer_Filter_Item extends Varien_Object
      *
      * @return string
      */
-    public function getName()
+    function getName()
     {
         return $this->getFilter()->getName();
     }
@@ -111,7 +111,7 @@ class Mage_Catalog_Model_Layer_Filter_Item extends Varien_Object
      *
      * @return string
      */
-    public function getValueString()
+    function getValueString()
     {
         $value = $this->getValue();
         if (is_array($value)) {

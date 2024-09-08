@@ -8,7 +8,7 @@
  */
 class Zoho_Salesiq_Helper_Data extends Mage_Core_Helper_Abstract {
 
-    public function getConfig($field, $section = 'option', $default = null) {
+    function getConfig($field, $section = 'option', $default = null) {
         $value = Mage::getStoreConfig('salesiq/' . $section . '/' . $field);
         if (!isset($value) or trim($value) == '') {
             return $default;
@@ -17,7 +17,7 @@ class Zoho_Salesiq_Helper_Data extends Mage_Core_Helper_Abstract {
         }
     }
 
-    public function log($data) {
+    function log($data) {
 		    if (!$this->getConfig('enable_log')) {
 			      return;
 		    }
@@ -29,19 +29,19 @@ class Zoho_Salesiq_Helper_Data extends Mage_Core_Helper_Abstract {
         Mage::log($data, null, 'salesiq.log');
     }
 
-  	public function getWidgetcode() {
+  	function getWidgetcode() {
     		return $this->getConfig('widget_code');
 	  }
 
-  	public function isChatWindowEnabled() {
+  	function isChatWindowEnabled() {
     		return $this->getConfig('chat_window');
 	  }
 
-    public function getIncludedPages() {
+    function getIncludedPages() {
         return explode(',', $this->getConfig('include_in', 'option', 'all_pages'));
     }
 
-    public function isQuickChatEnabled() {
+    function isQuickChatEnabled() {
         return $this->getConfig('quick_chat_button');
     }
 

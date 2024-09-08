@@ -31,7 +31,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser extends Mage_Adminhtml
      *
      * @param array $arguments Object data
      */
-    public function __construct($arguments = [])
+    function __construct($arguments = [])
     {
         parent::__construct($arguments);
         $this->setDefaultSort('name');
@@ -44,7 +44,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser extends Mage_Adminhtml
      * @param Varien_Data_Form_Element_Abstract $element Form Element
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function prepareElementHtml(Varien_Data_Form_Element_Abstract $element)
+    function prepareElementHtml(Varien_Data_Form_Element_Abstract $element)
     {
         $uniqId = Mage::helper('core')->uniqHash($element->getId());
         $sourceUrl = $this->getUrl('*/catalog_product_widget/chooser', [
@@ -88,7 +88,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser extends Mage_Adminhtml
      *
      * @return string
      */
-    public function getCheckboxCheckCallback()
+    function getCheckboxCheckCallback()
     {
         if ($this->getUseMassaction()) {
             return "function (grid, element) {
@@ -103,7 +103,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser extends Mage_Adminhtml
      *
      * @return string
      */
-    public function getRowClickCallback()
+    function getRowClickCallback()
     {
         if (!$this->getUseMassaction()) {
             $chooserJsObject = $this->getId();
@@ -134,7 +134,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser extends Mage_Adminhtml
      *
      * @return string
      */
-    public function getCategoryClickListenerJs()
+    function getCategoryClickListenerJs()
     {
         $js = '
             function (node, e) {
@@ -249,7 +249,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser extends Mage_Adminhtml
      *
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/catalog_product_widget/chooser', [
             'products_grid' => true,
@@ -266,7 +266,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser extends Mage_Adminhtml
      * @param array $selectedProducts
      * @return $this
      */
-    public function setSelectedProducts($selectedProducts)
+    function setSelectedProducts($selectedProducts)
     {
         $this->_selectedProducts = $selectedProducts;
         return $this;
@@ -277,7 +277,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser extends Mage_Adminhtml
      *
      * @return array
      */
-    public function getSelectedProducts()
+    function getSelectedProducts()
     {
         if ($selectedProducts = $this->getRequest()->getParam('selected_products', null)) {
             $this->setSelectedProducts($selectedProducts);

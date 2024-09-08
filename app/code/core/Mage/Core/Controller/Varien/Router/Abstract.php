@@ -26,7 +26,7 @@ abstract class Mage_Core_Controller_Varien_Router_Abstract
      * @param Mage_Core_Controller_Varien_Front $front
      * @return $this
      */
-    public function setFront($front)
+    function setFront($front)
     {
         $this->_front = $front;
         return $this;
@@ -35,7 +35,7 @@ abstract class Mage_Core_Controller_Varien_Router_Abstract
     /**
      * @return Mage_Core_Controller_Varien_Front
      */
-    public function getFront()
+    function getFront()
     {
         return $this->_front;
     }
@@ -44,7 +44,7 @@ abstract class Mage_Core_Controller_Varien_Router_Abstract
      * @param string $routeName
      * @return string
      */
-    public function getFrontNameByRoute($routeName)
+    function getFrontNameByRoute($routeName)
     {
         return $routeName;
     }
@@ -53,7 +53,7 @@ abstract class Mage_Core_Controller_Varien_Router_Abstract
      * @param string $frontName
      * @return string
      */
-    public function getRouteByFrontName($frontName)
+    function getRouteByFrontName($frontName)
     {
         return $frontName;
     }
@@ -62,5 +62,5 @@ abstract class Mage_Core_Controller_Varien_Router_Abstract
      * @param Zend_Controller_Request_Http $request
      * @return bool
      */
-    abstract public function match(Zend_Controller_Request_Http $request);
+    abstract function match(Zend_Controller_Request_Http $request);
 }

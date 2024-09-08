@@ -19,7 +19,7 @@
  */
 class Mage_Adminhtml_Block_Permissions_UsernRoles extends Mage_Adminhtml_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $userCollection = Mage::getModel("permissions/users")->getCollection()->load();

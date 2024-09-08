@@ -32,7 +32,7 @@ class Mage_Api_Model_Resource_Rules extends Mage_Core_Model_Resource_Db_Abstract
      *
      * @param Mage_Api_Model_Rules $rule
      */
-    public function saveRel(Mage_Api_Model_Rules $rule)
+    function saveRel(Mage_Api_Model_Rules $rule)
     {
         $permission = '';
         $adapter = $this->_getWriteAdapter();

@@ -36,7 +36,7 @@ class Mage_Core_Model_Message_Collection
      * @param   Mage_Core_Model_Message_Abstract $message
      * @return  Mage_Core_Model_Message_Collection
      */
-    public function add(Mage_Core_Model_Message_Abstract $message)
+    function add(Mage_Core_Model_Message_Abstract $message)
     {
         return $this->addMessage($message);
     }
@@ -47,7 +47,7 @@ class Mage_Core_Model_Message_Collection
      * @param   Mage_Core_Model_Message_Abstract $message
      * @return  Mage_Core_Model_Message_Collection
      */
-    public function addMessage(Mage_Core_Model_Message_Abstract $message)
+    function addMessage(Mage_Core_Model_Message_Abstract $message)
     {
         if (!isset($this->_messages[$message->getType()])) {
             $this->_messages[$message->getType()] = [];
@@ -62,7 +62,7 @@ class Mage_Core_Model_Message_Collection
      *
      * @return $this
      */
-    public function clear()
+    function clear()
     {
         foreach ($this->_messages as $type => $messages) {
             foreach ($messages as $id => $message) {
@@ -82,7 +82,7 @@ class Mage_Core_Model_Message_Collection
      *
      * @return Mage_Core_Model_Message_Abstract|null
      */
-    public function getLastAddedMessage()
+    function getLastAddedMessage()
     {
         return $this->_lastAddedMessage;
     }
@@ -93,7 +93,7 @@ class Mage_Core_Model_Message_Collection
      * @param string $identifier
      * @return Mage_Core_Model_Message_Abstract|null
      */
-    public function getMessageByIdentifier($identifier)
+    function getMessageByIdentifier($identifier)
     {
         foreach ($this->_messages as $type => $messages) {
             foreach ($messages as $id => $message) {
@@ -107,7 +107,7 @@ class Mage_Core_Model_Message_Collection
     /**
      * @param string $identifier
      */
-    public function deleteMessageByIdentifier($identifier)
+    function deleteMessageByIdentifier($identifier)
     {
         foreach ($this->_messages as $type => $messages) {
             foreach ($messages as $id => $message) {
@@ -127,7 +127,7 @@ class Mage_Core_Model_Message_Collection
      * @param   string $type
      * @return  array
      */
-    public function getItems($type = null)
+    function getItems($type = null)
     {
         if ($type) {
             return $this->_messages[$type] ?? [];
@@ -147,7 +147,7 @@ class Mage_Core_Model_Message_Collection
      * @param   string $type
      * @return  array
      */
-    public function getItemsByType($type)
+    function getItemsByType($type)
     {
         return $this->_messages[$type] ?? [];
     }
@@ -157,7 +157,7 @@ class Mage_Core_Model_Message_Collection
      *
      * @return array
      */
-    public function getErrors()
+    function getErrors()
     {
         return $this->getItemsByType(Mage_Core_Model_Message::ERROR);
     }
@@ -165,7 +165,7 @@ class Mage_Core_Model_Message_Collection
     /**
      * @return string
      */
-    public function toString()
+    function toString()
     {
         $out = '';
         $arrItems = $this->getItems();
@@ -182,7 +182,7 @@ class Mage_Core_Model_Message_Collection
      * @param string|null $type
      * @return int
      */
-    public function count($type = null)
+    function count($type = null)
     {
         if ($type) {
             if (isset($this->_messages[$type])) {

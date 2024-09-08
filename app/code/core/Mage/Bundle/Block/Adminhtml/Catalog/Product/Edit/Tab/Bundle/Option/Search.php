@@ -36,7 +36,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Search 
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('bundle')->__('Please Select Products to Add');
     }
@@ -70,7 +70,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Search 
     /**
      * @return string
      */
-    public function getButtonsHtml()
+    function getButtonsHtml()
     {
         $addButtonData = [
             'id'    => 'add_button_' . $this->getIndex(),
@@ -84,7 +84,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Search 
     /**
      * @return string
      */
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'head-catalog-product';
     }

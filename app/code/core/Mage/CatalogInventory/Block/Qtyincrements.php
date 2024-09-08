@@ -44,7 +44,7 @@ class Mage_CatalogInventory_Block_Qtyincrements extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getProductName()
+    function getProductName()
     {
         return $this->_getProduct()->getName();
     }
@@ -54,7 +54,7 @@ class Mage_CatalogInventory_Block_Qtyincrements extends Mage_Core_Block_Template
      *
      * @return float|false
      */
-    public function getProductQtyIncrements()
+    function getProductQtyIncrements()
     {
         if ($this->_qtyIncrements === null) {
             $this->_qtyIncrements = $this->_getProduct()->getStockItem()->getQtyIncrements();
@@ -70,7 +70,7 @@ class Mage_CatalogInventory_Block_Qtyincrements extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         return array_merge(parent::getCacheTags(), $this->_getProduct()->getCacheIdTags());
     }

@@ -22,7 +22,7 @@
  */
 class Mage_Sales_Model_Entity_Quote extends Mage_Eav_Model_Entity_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         $resource = Mage::getSingleton('core/resource');
         $this->setType('quote')->setConnection(
@@ -54,7 +54,7 @@ class Mage_Sales_Model_Entity_Quote extends Mage_Eav_Model_Entity_Abstract
      * @param int $customerId
      * @return $this
      */
-    public function loadByCustomerId($quote, $customerId)
+    function loadByCustomerId($quote, $customerId)
     {
         $collection = Mage::getResourceModel('sales/quote_collection')
             ->addAttributeToSelect('entity_id')
@@ -85,7 +85,7 @@ class Mage_Sales_Model_Entity_Quote extends Mage_Eav_Model_Entity_Abstract
      * @param int $quoteId
      * @return $this
      */
-    public function loadByIdWithoutStore($quote, $quoteId)
+    function loadByIdWithoutStore($quote, $quoteId)
     {
         $collection = Mage::getResourceModel('sales/quote_collection')
             ->addAttributeToSelect('entity_id')
@@ -108,7 +108,7 @@ class Mage_Sales_Model_Entity_Quote extends Mage_Eav_Model_Entity_Abstract
      * @return string
      * @throws Exception
      */
-    public function getReservedOrderId($quote)
+    function getReservedOrderId($quote)
     {
         return Mage::getSingleton('eav/config')->getEntityType('order')->fetchNewIncrementId($quote->getStoreId());
     }

@@ -11,26 +11,26 @@ class Raveinfosys_Exporter_Adminhtml_ExporterController extends Mage_Adminhtml_C
 		return $this;
 	}   
  
-	public function indexAction() 
+	function indexAction()
 	{
 		$this->_initAction()
 			->renderLayout();
 	}
 	
-	public function gridAction() 
+	function gridAction()
 	{
 		$this->_initAction()
 			->renderLayout();
 	}
 
 	
-	public function newAction() 
+	function newAction()
 	{
 		$this->_forward('exportall');
 		
 	}
 	
-	public function exportallAction()
+	function exportallAction()
 	{
 	  $orders = Mage::getModel('sales/order')->getCollection()
 		->addAttributeToSelect('entity_id');
@@ -42,14 +42,14 @@ class Raveinfosys_Exporter_Adminhtml_ExporterController extends Mage_Adminhtml_C
 	    $this->_prepareDownloadResponse($file, file_get_contents(Mage::getBaseDir('export').'/'.$file));
 	}
 
-	public function exportCsvAction()
+	function exportCsvAction()
     {
        $orders = $this->getRequest()->getPost('order_ids', array());
 	   $file = Mage::getModel('exporter/exportorders')->exportOrders($orders);
 	   $this->_prepareDownloadResponse($file, file_get_contents(Mage::getBaseDir('export').'/'.$file));
     }
 
-	public function exportLogAction()
+	function exportLogAction()
 	{
 	  $file = 'order_exception_log.htm';
 	  $this->_prepareDownloadResponse($file, file_get_contents(Mage::getBaseDir('var') .'/raveinfosys/exporter/'.$file));

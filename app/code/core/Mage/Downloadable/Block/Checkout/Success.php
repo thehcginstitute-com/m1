@@ -27,7 +27,7 @@ class Mage_Downloadable_Block_Checkout_Success extends Mage_Checkout_Block_Onepa
      *
      * @return bool
      */
-    public function getOrderHasDownloadable()
+    function getOrderHasDownloadable()
     {
         $hasDownloadableFlag = Mage::getSingleton('checkout/session')
             ->getHasDownloadableProducts(true);
@@ -48,7 +48,7 @@ class Mage_Downloadable_Block_Checkout_Success extends Mage_Checkout_Block_Onepa
      *
      * @return string
      */
-    public function getDownloadableProductsUrl()
+    function getDownloadableProductsUrl()
     {
         return $this->getUrl('downloadable/customer/products', ['_secure' => true]);
     }

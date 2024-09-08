@@ -46,7 +46,7 @@ class Mage_Catalog_Model_Api2_Product_Validator_Product extends Mage_Api2_Model_
      * @param array $options
      * @throws Exception
      */
-    public function __construct($options)
+    function __construct($options)
     {
         if (isset($options['product'])) {
             if ($options['product'] instanceof Mage_Catalog_Model_Product) {
@@ -88,7 +88,7 @@ class Mage_Catalog_Model_Api2_Product_Validator_Product extends Mage_Api2_Model_
      * @param array $data
      * @return bool
      */
-    public function isValidData(array $data)
+    function isValidData(array $data)
     {
         if ($this->_isUpdate()) {
             $product = $this->_getProduct();

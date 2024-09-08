@@ -35,7 +35,7 @@ class Mage_Tax_Model_Resource_Calculation_Rate_Title_Collection extends Mage_Cor
      * @param int $rateId
      * @return $this
      */
-    public function loadByRateId($rateId)
+    function loadByRateId($rateId)
     {
         $this->addFieldToFilter('main_table.tax_calculation_rate_id', $rateId);
         return $this->load();

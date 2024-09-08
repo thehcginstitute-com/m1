@@ -79,7 +79,7 @@ class Mage_Core_Model_Design_Package
      */
     protected $_shouldFallback = true;
 
-    public function __construct()
+    function __construct()
     {
         if (is_null($this->_config)) {
             $this->_config = Mage::getSingleton('core/design_config');
@@ -97,7 +97,7 @@ class Mage_Core_Model_Design_Package
      * @param  string|int|Mage_Core_Model_Store $store
      * @return $this
      */
-    public function setStore($store)
+    function setStore($store)
     {
         if ($this->_fallback) {
             $this->_fallback->setStore($store);
@@ -111,7 +111,7 @@ class Mage_Core_Model_Design_Package
      *
      * @return string|integer|Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return $this->_store ?? Mage::app()->getStore();
     }
@@ -122,7 +122,7 @@ class Mage_Core_Model_Design_Package
      * @param  string $area
      * @return $this
      */
-    public function setArea($area)
+    function setArea($area)
     {
         $this->_area = $area;
         return $this;
@@ -133,7 +133,7 @@ class Mage_Core_Model_Design_Package
      *
      * @return string
      */
-    public function getArea()
+    function getArea()
     {
         if (is_null($this->_area)) {
             $this->_area = self::DEFAULT_AREA;
@@ -148,7 +148,7 @@ class Mage_Core_Model_Design_Package
      * @param  string $name
      * @return $this
      */
-    public function setPackageName($name = '')
+    function setPackageName($name = '')
     {
         if (empty($name)) {
             // see, if exceptions for user-agents defined in config
@@ -194,7 +194,7 @@ class Mage_Core_Model_Design_Package
      * @param array $storePackageArea
      * @return array
      */
-    public function setAllGetOld($storePackageArea)
+    function setAllGetOld($storePackageArea)
     {
         $oldValues = [];
         if (array_key_exists('store', $storePackageArea)) {
@@ -217,7 +217,7 @@ class Mage_Core_Model_Design_Package
      *
      * @return string
      */
-    public function getPackageName()
+    function getPackageName()
     {
         if ($this->_name === null) {
             $this->setPackageName();
@@ -230,7 +230,7 @@ class Mage_Core_Model_Design_Package
      * @param string $area
      * @return bool
      */
-    public function designPackageExists($packageName, $area = self::DEFAULT_AREA)
+    function designPackageExists($packageName, $area = self::DEFAULT_AREA)
     {
         return is_dir(Mage::getBaseDir('design') . DS . $area . DS . $packageName);
     }
@@ -243,7 +243,7 @@ class Mage_Core_Model_Design_Package
      *
      * @return $this
      */
-    public function setTheme()
+    function setTheme()
     {
         switch (func_num_args()) {
             case 1:
@@ -266,7 +266,7 @@ class Mage_Core_Model_Design_Package
      * @param string $type
      * @return string
      */
-    public function getTheme($type)
+    function getTheme($type)
     {
         if (empty($this->_theme[$type])) {
 			/**
@@ -308,7 +308,7 @@ class Mage_Core_Model_Design_Package
     /**
      * @return string
      */
-    public function getDefaultTheme()
+    function getDefaultTheme()
     {
         return self::DEFAULT_THEME;
     }
@@ -317,7 +317,7 @@ class Mage_Core_Model_Design_Package
      * @param array $params
      * @return $this
      */
-    public function updateParamDefaults(array &$params)
+    function updateParamDefaults(array &$params)
     {
         if ($this->getStore()) {
             $params['_store'] = $this->getStore();
@@ -341,7 +341,7 @@ class Mage_Core_Model_Design_Package
      * @param array $params
      * @return string
      */
-    public function getBaseDir(array $params)
+    function getBaseDir(array $params)
     {
         $this->updateParamDefaults($params);
         return (empty($params['_relative']) ? Mage::getBaseDir('design') . DS : '') .
@@ -352,7 +352,7 @@ class Mage_Core_Model_Design_Package
      * @param array $params
      * @return string
      */
-    public function getSkinBaseDir(array $params = [])
+    function getSkinBaseDir(array $params = [])
     {
         $params['_type'] = 'skin';
         $this->updateParamDefaults($params);
@@ -364,7 +364,7 @@ class Mage_Core_Model_Design_Package
      * @param array $params
      * @return string
      */
-    public function getLocaleBaseDir(array $params = [])
+    function getLocaleBaseDir(array $params = [])
     {
         $params['_type'] = 'locale';
         $this->updateParamDefaults($params);
@@ -377,7 +377,7 @@ class Mage_Core_Model_Design_Package
      * @param array $params
      * @return string
      */
-    public function getSkinBaseUrl(array $params = [])
+    function getSkinBaseUrl(array $params = [])
     {
         $params['_type'] = 'skin';
         $this->updateParamDefaults($params);
@@ -399,7 +399,7 @@ class Mage_Core_Model_Design_Package
      * @param array $params
      * @return string|false
      */
-    public function validateFile($file, array $params)
+    function validateFile($file, array $params)
     {
         $fileName = $this->_renderFilename($file, $params);
         $testFile = (empty($params['_relative']) ? '' : Mage::getBaseDir('design') . DS) . $fileName;
@@ -472,7 +472,7 @@ class Mage_Core_Model_Design_Package
      * @return string
      * @throws Exception
      */
-    public function getFilename($file, array $params)
+    function getFilename($file, array $params)
     {
         Varien_Profiler::start(__METHOD__);
 
@@ -501,7 +501,7 @@ class Mage_Core_Model_Design_Package
      * @param array $params
      * @return string
      */
-    public function getLayoutFilename($file, array $params = [])
+    function getLayoutFilename($file, array $params = [])
     {
         $params['_type'] = 'layout';
         return $this->getFilename($file, $params);
@@ -512,7 +512,7 @@ class Mage_Core_Model_Design_Package
      * @param array $params
      * @return string
      */
-    public function getTemplateFilename($file, array $params = [])
+    function getTemplateFilename($file, array $params = [])
     {
         $params['_type'] = 'template';
         return $this->getFilename($file, $params);
@@ -523,7 +523,7 @@ class Mage_Core_Model_Design_Package
      * @param array $params
      * @return string
      */
-    public function getLocaleFileName($file, array $params = [])
+    function getLocaleFileName($file, array $params = [])
     {
         $params['_type'] = 'locale';
         return $this->getFilename($file, $params);
@@ -537,7 +537,7 @@ class Mage_Core_Model_Design_Package
      * @return string
      * @throws Exception
      */
-    public function getSkinUrl($file = null, array $params = [])
+    function getSkinUrl($file = null, array $params = [])
     {
         Varien_Profiler::start(__METHOD__);
 
@@ -574,7 +574,7 @@ class Mage_Core_Model_Design_Package
      * Design packages list getter
      * @return array
      */
-    public function getPackageList()
+    function getPackageList()
     {
         $directory = Mage::getBaseDir('design') . DS . 'frontend';
         return $this->_listDirectories($directory);
@@ -585,7 +585,7 @@ class Mage_Core_Model_Design_Package
      * @param string $package
      * @return array
      */
-    public function getThemeList($package = null)
+    function getThemeList($package = null)
     {
         $result = [];
 
@@ -703,7 +703,7 @@ class Mage_Core_Model_Design_Package
      * @param array $files
      * @return string
      */
-    public function getMergedJsUrl($files)
+    function getMergedJsUrl($files)
     {
         $targetFilename = md5(implode(',', $files)) . '.js';
         $targetDir = $this->_initMergerDir('js');
@@ -722,7 +722,7 @@ class Mage_Core_Model_Design_Package
      * @param array $files
      * @return string
      */
-    public function getMergedCssUrl($files)
+    function getMergedCssUrl($files)
     {
         // secure or unsecure
         $isSecure = Mage::app()->getRequest()->isSecure();
@@ -809,7 +809,7 @@ class Mage_Core_Model_Design_Package
      *
      * @return  bool
      */
-    public function cleanMergedJsCss()
+    function cleanMergedJsCss()
     {
         $result = (bool)$this->_initMergerDir('js', true);
         $result = (bool)$this->_initMergerDir('css', true) && $result;
@@ -850,7 +850,7 @@ class Mage_Core_Model_Design_Package
      * @param string $contents
      * @return string
      */
-    public function beforeMergeCss($file, $contents)
+    function beforeMergeCss($file, $contents)
     {
         $this->_setCallbackFileDir($file);
 
@@ -959,7 +959,7 @@ class Mage_Core_Model_Design_Package
      * @return string
      * @deprecated since 1.8.2.0
      */
-    public function getFallbackTheme()
+    function getFallbackTheme()
     {
         return Mage::getStoreConfig('design/theme/default', $this->getStore());
     }

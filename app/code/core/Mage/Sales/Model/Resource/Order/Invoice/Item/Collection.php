@@ -43,7 +43,7 @@ class Mage_Sales_Model_Resource_Order_Invoice_Item_Collection extends Mage_Sales
      * @param int $invoiceId
      * @return $this
      */
-    public function setInvoiceFilter($invoiceId)
+    function setInvoiceFilter($invoiceId)
     {
         $this->addFieldToFilter('parent_id', $invoiceId);
         return $this;

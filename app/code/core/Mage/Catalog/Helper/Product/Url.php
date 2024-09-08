@@ -88,7 +88,7 @@ class Mage_Catalog_Helper_Product_Url extends Mage_Core_Helper_Url
     /**
      * Check additional instruction for convertation table in configuration
      */
-    public function __construct()
+    function __construct()
     {
         $convertNode = Mage::getConfig()->getNode('default/url/convert');
         if ($convertNode) {
@@ -103,7 +103,7 @@ class Mage_Catalog_Helper_Product_Url extends Mage_Core_Helper_Url
      *
      * @return array
      */
-    public function getConvertTable()
+    function getConvertTable()
     {
         return $this->_convertTable;
     }
@@ -114,7 +114,7 @@ class Mage_Catalog_Helper_Product_Url extends Mage_Core_Helper_Url
      * @param   string $string
      * @return  string
      */
-    public function format($string)
+    function format($string)
     {
         return strtr($string, $this->getConvertTable());
     }

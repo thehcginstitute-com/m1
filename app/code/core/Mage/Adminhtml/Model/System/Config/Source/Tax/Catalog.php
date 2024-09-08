@@ -20,7 +20,7 @@
  */
 class Mage_Adminhtml_Model_System_Config_Source_Tax_Catalog
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             ['value' => 0, 'label' => Mage::helper('adminhtml')->__('No (price without tax)')],

@@ -30,7 +30,7 @@ class Mage_Payment_Model_Method_Checkmo extends Mage_Payment_Model_Method_Abstra
      * @param   mixed $data
      * @return  Mage_Payment_Model_Method_Checkmo
      */
-    public function assignData($data)
+    function assignData($data)
     {
         $details = [];
         if ($this->getPayableTo()) {
@@ -48,7 +48,7 @@ class Mage_Payment_Model_Method_Checkmo extends Mage_Payment_Model_Method_Abstra
     /**
      * @return string
      */
-    public function getPayableTo()
+    function getPayableTo()
     {
         return $this->getConfigData('payable_to');
     }
@@ -56,7 +56,7 @@ class Mage_Payment_Model_Method_Checkmo extends Mage_Payment_Model_Method_Abstra
     /**
      * @return string
      */
-    public function getMailingAddress()
+    function getMailingAddress()
     {
         return $this->getConfigData('mailing_address');
     }

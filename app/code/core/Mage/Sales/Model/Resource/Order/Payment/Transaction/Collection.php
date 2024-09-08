@@ -93,7 +93,7 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction_Collection extends Mag
      * @param array $keys
      * @return $this
      */
-    public function addOrderInformation(array $keys)
+    function addOrderInformation(array $keys)
     {
         $this->_addOrderInformation = array_merge($this->_addOrderInformation, $keys);
         $this->addFilterToMap('created_at', 'main_table.created_at');
@@ -106,7 +106,7 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction_Collection extends Mag
      * @param array $keys
      * @return $this
      */
-    public function addPaymentInformation(array $keys)
+    function addPaymentInformation(array $keys)
     {
         $this->_addPaymentInformation = array_merge($this->_addPaymentInformation, $keys);
         return $this;
@@ -118,7 +118,7 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction_Collection extends Mag
      * @param int $orderId
      * @return $this
      */
-    public function addOrderIdFilter($orderId)
+    function addOrderIdFilter($orderId)
     {
         $this->_orderId = (int)$orderId;
         return $this;
@@ -131,7 +131,7 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction_Collection extends Mag
      * @param Mage_Sales_Model_Order_Payment|int $payment
      * @return $this
      */
-    public function addPaymentIdFilter($payment)
+    function addPaymentIdFilter($payment)
     {
         $id = $payment;
         if (is_object($payment)) {
@@ -147,7 +147,7 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction_Collection extends Mag
      * @param int $parentId
      * @return $this
      */
-    public function addParentIdFilter($parentId)
+    function addParentIdFilter($parentId)
     {
         $this->_parentId = (int)$parentId;
         return $this;
@@ -159,7 +159,7 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction_Collection extends Mag
      * @param array|string $txnType
      * @return $this
      */
-    public function addTxnTypeFilter($txnType)
+    function addTxnTypeFilter($txnType)
     {
         if (!is_array($txnType)) {
             $txnType = [$txnType];
@@ -174,7 +174,7 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction_Collection extends Mag
      * @param int|array $storeIds
      * @return $this
      */
-    public function addStoreFilter($storeIds)
+    function addStoreFilter($storeIds)
     {
         $storeIds = (is_array($storeIds)) ? $storeIds : [$storeIds];
         $this->_storeIds = array_merge($this->_storeIds, $storeIds);

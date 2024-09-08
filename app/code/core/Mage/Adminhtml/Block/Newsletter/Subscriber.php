@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Newsletter_Subscriber extends Mage_Adminhtml_Block_Te
      */
     protected $_queueCollection = null;
 
-    public function __construct()
+    function __construct()
     {
         $this->setTemplate('newsletter/subscriber/list.phtml');
     }
@@ -48,7 +48,7 @@ class Mage_Adminhtml_Block_Newsletter_Subscriber extends Mage_Adminhtml_Block_Te
      *
      * @return Mage_Newsletter_Model_Resource_Queue_Collection
      */
-    public function getQueueCollection()
+    function getQueueCollection()
     {
         if (is_null($this->_queueCollection)) {
             $this->_queueCollection = Mage::getResourceSingleton('newsletter/queue_collection')
@@ -60,7 +60,7 @@ class Mage_Adminhtml_Block_Newsletter_Subscriber extends Mage_Adminhtml_Block_Te
         return $this->_queueCollection;
     }
 
-    public function getShowQueueAdd()
+    function getShowQueueAdd()
     {
         return $this->getChild('grid')->getShowQueueAdd();
     }
@@ -70,7 +70,7 @@ class Mage_Adminhtml_Block_Newsletter_Subscriber extends Mage_Adminhtml_Block_Te
      *
      * @return array
      */
-    public function getQueueAsOptions()
+    function getQueueAsOptions()
     {
         return $this->getQueueCollection()->toOptionArray();
     }

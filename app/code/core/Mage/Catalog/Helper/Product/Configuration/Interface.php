@@ -27,5 +27,5 @@ interface Mage_Catalog_Helper_Product_Configuration_Interface
      * @param Mage_Catalog_Model_Product_Configuration_Item_Interface $item
      * @return array
      */
-    public function getOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item);
+    function getOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item);
 }

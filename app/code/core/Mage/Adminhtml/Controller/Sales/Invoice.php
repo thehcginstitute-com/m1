@@ -53,7 +53,7 @@ class Mage_Adminhtml_Controller_Sales_Invoice extends Mage_Adminhtml_Controller_
     /**
      * Order grid
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout();
         $this->getResponse()->setBody(
@@ -64,7 +64,7 @@ class Mage_Adminhtml_Controller_Sales_Invoice extends Mage_Adminhtml_Controller_
     /**
      * Invoices grid
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Sales'))->_title($this->__('Invoices'));
 
@@ -76,7 +76,7 @@ class Mage_Adminhtml_Controller_Sales_Invoice extends Mage_Adminhtml_Controller_
     /**
      * Invoice information page
      */
-    public function viewAction()
+    function viewAction()
     {
         if ($invoiceId = $this->getRequest()->getParam('invoice_id')) {
             $this->_forward('view', 'sales_order_invoice', null, ['come_from' => 'invoice']);
@@ -88,7 +88,7 @@ class Mage_Adminhtml_Controller_Sales_Invoice extends Mage_Adminhtml_Controller_
     /**
      * Notify user
      */
-    public function emailAction()
+    function emailAction()
     {
         if ($invoiceId = $this->getRequest()->getParam('invoice_id')) {
             if ($invoice = Mage::getModel('sales/order_invoice')->load($invoiceId)) {
@@ -108,7 +108,7 @@ class Mage_Adminhtml_Controller_Sales_Invoice extends Mage_Adminhtml_Controller_
         }
     }
 
-    public function printAction()
+    function printAction()
     {
         if ($invoiceId = $this->getRequest()->getParam('invoice_id')) {
             if ($invoice = Mage::getModel('sales/order_invoice')->load($invoiceId)) {
@@ -121,7 +121,7 @@ class Mage_Adminhtml_Controller_Sales_Invoice extends Mage_Adminhtml_Controller_
         }
     }
 
-    public function pdfinvoicesAction()
+    function pdfinvoicesAction()
     {
         $invoicesIds = $this->getRequest()->getPost('invoice_ids');
         if (!empty($invoicesIds)) {

@@ -46,7 +46,7 @@ class Mage_Sales_Block_Order_Print_Invoice extends Mage_Sales_Block_Items_Abstra
     /**
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return Mage::getUrl('*/*/history');
     }
@@ -54,7 +54,7 @@ class Mage_Sales_Block_Order_Print_Invoice extends Mage_Sales_Block_Items_Abstra
     /**
      * @return string
      */
-    public function getPrintUrl()
+    function getPrintUrl()
     {
         return Mage::getUrl('*/*/print');
     }
@@ -62,7 +62,7 @@ class Mage_Sales_Block_Order_Print_Invoice extends Mage_Sales_Block_Items_Abstra
     /**
      * @return string
      */
-    public function getPaymentInfoHtml()
+    function getPaymentInfoHtml()
     {
         return $this->getChildHtml('payment_info');
     }
@@ -70,7 +70,7 @@ class Mage_Sales_Block_Order_Print_Invoice extends Mage_Sales_Block_Items_Abstra
     /**
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }
@@ -78,7 +78,7 @@ class Mage_Sales_Block_Order_Print_Invoice extends Mage_Sales_Block_Items_Abstra
     /**
      * @return Mage_Sales_Model_Order_Invoice
      */
-    public function getInvoice()
+    function getInvoice()
     {
         return Mage::registry('current_invoice');
     }
@@ -99,7 +99,7 @@ class Mage_Sales_Block_Order_Print_Invoice extends Mage_Sales_Block_Items_Abstra
      * @param   Mage_Sales_Model_Order_Invoice $invoice
      * @return  string
      */
-    public function getInvoiceTotalsHtml($invoice)
+    function getInvoiceTotalsHtml($invoice)
     {
         $html = '';
         $totals = $this->getChild('invoice_totals');

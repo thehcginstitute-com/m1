@@ -33,7 +33,7 @@ class Mage_Directory_Model_Currency_Import_Webservicex extends Mage_Directory_Mo
      */
     protected $_httpClient;
 
-    public function __construct()
+    function __construct()
     {
         $this->_httpClient = new Varien_Http_Client();
     }

@@ -113,7 +113,7 @@ class Mage_Core_Model_Resource_Setup
      *
      * @param string $resourceName the setup resource name
      */
-    public function __construct($resourceName)
+    function __construct($resourceName)
     {
         $config = Mage::getConfig();
         $this->_resourceName = $resourceName;
@@ -142,7 +142,7 @@ class Mage_Core_Model_Resource_Setup
      *
      * @return Varien_Db_Adapter_Interface|Varien_Db_Adapter_Pdo_Mysql
      */
-    public function getConnection()
+    function getConnection()
     {
         return $this->_conn;
     }
@@ -154,7 +154,7 @@ class Mage_Core_Model_Resource_Setup
      * @param string $realTableName
      * @return $this
      */
-    public function setTable($tableName, $realTableName)
+    function setTable($tableName, $realTableName)
     {
         $this->_tables[$tableName] = $realTableName;
         return $this;
@@ -166,7 +166,7 @@ class Mage_Core_Model_Resource_Setup
      * @param string|array $tableName
      * @return string
      */
-    public function getTable($tableName)
+    function getTable($tableName)
     {
         $cacheKey = $this->_getTableCacheName($tableName);
         if (!isset($this->_tables[$cacheKey])) {
@@ -265,7 +265,7 @@ class Mage_Core_Model_Resource_Setup
      *
      * @return $this
      */
-    public function applyDataUpdates()
+    function applyDataUpdates()
     {
         $dataVer = $this->_getResource()->getDataVersion($this->_resourceName);
         $configVer = (string)$this->_moduleConfig->version;
@@ -285,7 +285,7 @@ class Mage_Core_Model_Resource_Setup
      *
      * @return $this|true
      */
-    public function applyUpdates()
+    function applyUpdates()
     {
         $dbVer = $this->_getResource()->getDbVersion($this->_resourceName);
         $configVer = (string)$this->_moduleConfig->version;
@@ -361,7 +361,7 @@ class Mage_Core_Model_Resource_Setup
      * @param array $bind
      * @return $this
      */
-    public function callbackQueryHook(&$sql, &$bind)
+    function callbackQueryHook(&$sql, &$bind)
     {
         Mage::getSingleton('core/resource_setup_query_modifier', [$this->getConnection()])
             ->processQuery($sql, $bind);
@@ -706,7 +706,7 @@ class Mage_Core_Model_Resource_Setup
      * @param string|int $parentId
      * @return mixed|boolean
      */
-    public function getTableRow($table, $idField, $id, $field = null, $parentField = null, $parentId = 0)
+    function getTableRow($table, $idField, $id, $field = null, $parentField = null, $parentId = 0)
     {
         if (strpos($table, '/') !== false) {
             $table = $this->getTable($table);
@@ -741,7 +741,7 @@ class Mage_Core_Model_Resource_Setup
     * @param int|string $parentId
     * @return $this
     */
-    public function deleteTableRow($table, $idField, $id, $parentField = null, $parentId = 0)
+    function deleteTableRow($table, $idField, $id, $parentField = null, $parentId = 0)
     {
         if (strpos($table, '/') !== false) {
             $table = $this->getTable($table);
@@ -774,7 +774,7 @@ class Mage_Core_Model_Resource_Setup
      * @param string|int $parentId
      * @return $this
      */
-    public function updateTableRow($table, $idField, $id, $field, $value = null, $parentField = null, $parentId = 0)
+    function updateTableRow($table, $idField, $id, $field, $value = null, $parentField = null, $parentId = 0)
     {
         if (strpos($table, '/') !== false) {
             $table = $this->getTable($table);
@@ -812,7 +812,7 @@ class Mage_Core_Model_Resource_Setup
      *
      * @deprecated since 1.4.0.1
      */
-    public function updateTable($table, $conditionExpr, $valueExpr)
+    function updateTable($table, $conditionExpr, $valueExpr)
     {
         if (strpos($table, '/') !== false) {
             $table = $this->getTable($table);
@@ -835,7 +835,7 @@ class Mage_Core_Model_Resource_Setup
      * @param string $table
      * @return bool
      */
-    public function tableExists($table)
+    function tableExists($table)
     {
         if (strpos($table, '/') !== false) {
             $table = $this->getTable($table);
@@ -856,7 +856,7 @@ class Mage_Core_Model_Resource_Setup
      * @return $this
      * @deprecated since 1.4.0.1
      */
-    public function addConfigField($path, $label, array $data = [], $default = null)
+    function addConfigField($path, $label, array $data = [], $default = null)
     {
         return $this;
     }
@@ -871,7 +871,7 @@ class Mage_Core_Model_Resource_Setup
      * @param int $inherit
      * @return $this
      */
-    public function setConfigData($path, $value, $scope = 'default', $scopeId = 0, $inherit = 0)
+    function setConfigData($path, $value, $scope = 'default', $scopeId = 0, $inherit = 0)
     {
         $table = $this->getTable('core/config_data');
         // this is a fix for mysql 4.1
@@ -894,7 +894,7 @@ class Mage_Core_Model_Resource_Setup
      * @param string $scope (default|stores|websites|config)
      * @return $this
      */
-    public function deleteConfigData($path, $scope = null)
+    function deleteConfigData($path, $scope = null)
     {
         $where = ['path = ?' => $path];
         if (!is_null($scope)) {
@@ -910,7 +910,7 @@ class Mage_Core_Model_Resource_Setup
      * @param string $sql
      * @return $this
      */
-    public function run($sql)
+    function run($sql)
     {
         $this->getConnection()->multiQuery($sql);
         return $this;
@@ -921,7 +921,7 @@ class Mage_Core_Model_Resource_Setup
      *
      * @return $this
      */
-    public function startSetup()
+    function startSetup()
     {
         $this->getConnection()->startSetup();
         return $this;
@@ -932,7 +932,7 @@ class Mage_Core_Model_Resource_Setup
      *
      * @return $this
      */
-    public function endSetup()
+    function endSetup()
     {
         $this->getConnection()->endSetup();
         return $this;
@@ -946,7 +946,7 @@ class Mage_Core_Model_Resource_Setup
      * @param string $indexType
      * @return string
      */
-    public function getIdxName($tableName, $fields, $indexType = '')
+    function getIdxName($tableName, $fields, $indexType = '')
     {
         return Mage::getSingleton('core/resource')->getIdxName($tableName, $fields, $indexType);
     }
@@ -960,7 +960,7 @@ class Mage_Core_Model_Resource_Setup
      * @param string $refColumnName the reference table column name
      * @return string
      */
-    public function getFkName($priTableName, $priColumnName, $refTableName, $refColumnName)
+    function getFkName($priTableName, $priColumnName, $refTableName, $refColumnName)
     {
         return Mage::getSingleton('core/resource')
             ->getFkName($priTableName, $priColumnName, $refTableName, $refColumnName);
@@ -971,7 +971,7 @@ class Mage_Core_Model_Resource_Setup
      *
      * @return bool
      */
-    public function getCallAfterApplyAllUpdates()
+    function getCallAfterApplyAllUpdates()
     {
         return $this->_callAfterApplyAllUpdates;
     }
@@ -982,7 +982,7 @@ class Mage_Core_Model_Resource_Setup
      *
      * @return $this
      */
-    public function afterApplyAllUpdates()
+    function afterApplyAllUpdates()
     {
         return $this;
     }

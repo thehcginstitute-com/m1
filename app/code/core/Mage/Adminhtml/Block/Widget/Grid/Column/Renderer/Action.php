@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Action extends Mage_Admin
      * @param Varien_Object $row
      * @return string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $actions = $this->getColumn()->getActions();
         if (empty($actions) || !is_array($actions)) {

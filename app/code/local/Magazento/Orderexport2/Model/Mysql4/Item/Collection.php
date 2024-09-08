@@ -13,11 +13,11 @@ class Magazento_Orderexport2_Model_Mysql4_Item_Collection extends Mage_Core_Mode
         $this->_init('orderexport2/item');
     }
 
-    public function toOptionArray() {
+    function toOptionArray() {
         return $this->_toOptionArray('item_id', 'name');
     }
     
-    public function addStoreFilter($store, $withAdmin = true) {
+    function addStoreFilter($store, $withAdmin = true) {
         if ($store instanceof Mage_Core_Model_Store) {
             $store = array($store->getId());
         }
@@ -32,7 +32,7 @@ class Magazento_Orderexport2_Model_Mysql4_Item_Collection extends Mage_Core_Mode
         return $this;
     }
 
-    public function addRelatedFilter($related) {
+    function addRelatedFilter($related) {
 
         $this->getSelect()->joinleft(
                         array('item_related' => $this->getTable('orderexport2/item_related')),
@@ -45,7 +45,7 @@ class Magazento_Orderexport2_Model_Mysql4_Item_Collection extends Mage_Core_Mode
         return $this;
     }
 
-    public function addNowFilter() {
+    function addNowFilter() {
         $now = Mage::getSingleton('core/date')->gmtDate();
         $where = "time_from < '" . $now . "' AND ((time_to > '" . $now . "') OR (time_to IS NULL))";
         $this->getSelect()->where($where);

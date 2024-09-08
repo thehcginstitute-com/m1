@@ -16,7 +16,7 @@ class Nwdthemes_All_Lib_Varien_Data_Form_Element_Googlefont extends Varien_Data_
 	 * Constructor
 	 */
 
-    public function __construct($attributes=array()) {
+    function __construct($attributes=array()) {
         parent::__construct($attributes);
     }
 
@@ -24,7 +24,7 @@ class Nwdthemes_All_Lib_Varien_Data_Form_Element_Googlefont extends Varien_Data_
 	 * Get element html
 	 */
 
-	public function getElementHtml() {
+	function getElementHtml() {
         $html = parent::getElementHtml();
 		$html .= '<br/>
 		<div id="nwdthemes_gfont_preview' . $this->getHtmlId() . '" class="nwdthemes_gfont_preview" style="font-size:20px; margin-top:5px;">The quick brown fox jumps over the lazy dog</div>

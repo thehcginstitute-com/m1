@@ -34,7 +34,7 @@ abstract class Mage_ConfigurableSwatches_Block_Catalog_Media_Js_Abstract extends
      *
      * @return array
      */
-    abstract public function getProducts();
+    abstract function getProducts();
 
     /**
      * json encode image fallback array
@@ -64,7 +64,7 @@ abstract class Mage_ConfigurableSwatches_Block_Catalog_Media_Js_Abstract extends
      * @param bool|null $keepFrame
      * @return array
      */
-    public function getProductImageFallbacks($keepFrame = null)
+    function getProductImageFallbacks($keepFrame = null)
     {
         /** @var Mage_ConfigurableSwatches_Helper_Mediafallback $helper */
         $helper = Mage::helper('configurableswatches/mediafallback');
@@ -95,7 +95,7 @@ abstract class Mage_ConfigurableSwatches_Block_Catalog_Media_Js_Abstract extends
      *
      * @return bool
      */
-    public function isKeepFrame()
+    function isKeepFrame()
     {
         $keepFrame = false;
         foreach ($this->_productListBlocks as $blockName) {
@@ -114,7 +114,7 @@ abstract class Mage_ConfigurableSwatches_Block_Catalog_Media_Js_Abstract extends
      *
      * @return string
      */
-    public function getImageType()
+    function getImageType()
     {
         return parent::getImageType();
     }

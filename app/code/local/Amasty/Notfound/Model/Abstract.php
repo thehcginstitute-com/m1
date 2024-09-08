@@ -8,17 +8,17 @@ class Amasty_Notfound_Model_Abstract extends Mage_Core_Model_Abstract
 {
     protected $modelName = 'log';
     
-    public function _construct()
+    function _construct()
     {    
         $this->_init('amnotfound/' . $this->modelName);
     }
     
-    public function clear()
+    function clear()
     {
         return $this->getResource()->clear();
     }
     
-    public function getCountFrom($lastRun=0)
+    function getCountFrom($lastRun=0)
     {
         $this->collect($lastRun);
         $collection = $this->getCollection()
@@ -26,7 +26,7 @@ class Amasty_Notfound_Model_Abstract extends Mage_Core_Model_Abstract
         return $collection->count();        
     }
     
-    public function collect($lastRun=0)
+    function collect($lastRun=0)
     {
         return $this->getResource()->collect($lastRun);
     }    

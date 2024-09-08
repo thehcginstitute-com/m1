@@ -25,7 +25,7 @@ class Mage_Oauth_InitiateController extends Mage_Core_Controller_Front_Action
      *
      * @inheritDoc
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->setFlag('', self::FLAG_NO_START_SESSION, 1);
         $this->setFlag('', self::FLAG_NO_CHECK_INSTALLATION, 1);
@@ -38,7 +38,7 @@ class Mage_Oauth_InitiateController extends Mage_Core_Controller_Front_Action
     /**
      * Index action. Receive initiate request and response OAuth token
      */
-    public function indexAction()
+    function indexAction()
     {
         /** @var Mage_Oauth_Model_Server $server */
         $server = Mage::getModel('oauth/server');

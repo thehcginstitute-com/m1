@@ -25,7 +25,7 @@ class IWD_OrderFlags_Model_Flags_Types extends Mage_Core_Model_Abstract
     /**
      * @return bool
      */
-    public function isTypeActive()
+    function isTypeActive()
     {
         $helper = Mage::helper('iwd_orderflags');
         if ($helper->isIwdOrderGridEnabled()) {
@@ -39,7 +39,7 @@ class IWD_OrderFlags_Model_Flags_Types extends Mage_Core_Model_Abstract
     /**
      * @return bool|string
      */
-    public function getColumnAfter()
+    function getColumnAfter()
     {
         $helper = Mage::helper('iwd_orderflags');
         if ($helper->isIwdOrderGridEnabled()) {
@@ -62,7 +62,7 @@ class IWD_OrderFlags_Model_Flags_Types extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $options = array(
             array(
@@ -85,7 +85,7 @@ class IWD_OrderFlags_Model_Flags_Types extends Mage_Core_Model_Abstract
     /**
      * @return void
      */
-    public function assignFlags()
+    function assignFlags()
     {
         $flags = Mage::getModel('iwd_orderflags/flags_flag_type')->getCollection()
             ->addFieldToFilter('type_id', $this->getId())
@@ -97,7 +97,7 @@ class IWD_OrderFlags_Model_Flags_Types extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function getAssignedFlags()
+    function getAssignedFlags()
     {
         $tableFlags = Mage::getSingleton('core/resource')->getTableName('iwd_om_flags');
 
@@ -121,7 +121,7 @@ class IWD_OrderFlags_Model_Flags_Types extends Mage_Core_Model_Abstract
     /**
      * @param $flags
      */
-    public function assignFlagsToType($flags)
+    function assignFlagsToType($flags)
     {
         $flagsTypes = Mage::getModel('iwd_orderflags/flags_flag_type')->getCollection()
             ->addFieldToFilter('type_id', $this->getId());
@@ -145,7 +145,7 @@ class IWD_OrderFlags_Model_Flags_Types extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getOrderGridId()
+    function getOrderGridId()
     {
         return 'iwd_om_flags_' . $this->getId();
     }

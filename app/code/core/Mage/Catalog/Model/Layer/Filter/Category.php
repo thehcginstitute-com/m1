@@ -39,7 +39,7 @@ class Mage_Catalog_Model_Layer_Filter_Category extends Mage_Catalog_Model_Layer_
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_requestVar = 'cat';
@@ -50,7 +50,7 @@ class Mage_Catalog_Model_Layer_Filter_Category extends Mage_Catalog_Model_Layer_
      *
      * @return mixed
      */
-    public function getResetValue()
+    function getResetValue()
     {
         if ($this->_appliedCategory) {
             /**
@@ -72,7 +72,7 @@ class Mage_Catalog_Model_Layer_Filter_Category extends Mage_Catalog_Model_Layer_
      * @param   null $filterBlock
      * @return  Mage_Catalog_Model_Layer_Filter_Category
      */
-    public function apply(Zend_Controller_Request_Abstract $request, $filterBlock)
+    function apply(Zend_Controller_Request_Abstract $request, $filterBlock)
     {
         $filter = (int) $request->getParam($this->getRequestVar());
         if (!$filter) {
@@ -114,7 +114,7 @@ class Mage_Catalog_Model_Layer_Filter_Category extends Mage_Catalog_Model_Layer_
      *
      * @return string
      */
-    public function getName()
+    function getName()
     {
         return Mage::helper('catalog')->__('Category');
     }
@@ -124,7 +124,7 @@ class Mage_Catalog_Model_Layer_Filter_Category extends Mage_Catalog_Model_Layer_
      *
      * @return Mage_Catalog_Model_Category
      */
-    public function getCategory()
+    function getCategory()
     {
         if (!is_null($this->_categoryId)) {
             $category = Mage::getModel('catalog/category')

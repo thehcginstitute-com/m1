@@ -42,7 +42,7 @@ class Mage_Core_Model_Resource_Setup_Query_Modifier
      *
      * @param Varien_Db_Adapter_Pdo_Mysql|array $args
      */
-    public function __construct($args)
+    function __construct($args)
     {
         $this->_adapter = $args[0];
     }
@@ -256,7 +256,7 @@ class Mage_Core_Model_Resource_Setup_Query_Modifier
      * @param array $bind
      * @return $this
      */
-    public function processQuery(&$sql, &$bind)
+    function processQuery(&$sql, &$bind)
     {
         // Quick test to skip queries without foreign keys
         if (!stripos($sql, 'foreign')) {

@@ -35,7 +35,7 @@ class Mage_Api2_Model_Router
      * @param array $routes
      * @return $this
      */
-    public function setRoutes(array $routes)
+    function setRoutes(array $routes)
     {
         $this->_routes = $routes;
 
@@ -47,7 +47,7 @@ class Mage_Api2_Model_Router
      *
      * @return array
      */
-    public function getRoutes()
+    function getRoutes()
     {
         return $this->_routes;
     }
@@ -60,7 +60,7 @@ class Mage_Api2_Model_Router
      * @return Mage_Api2_Model_Request
      * @throws Mage_Api2_Exception
      */
-    public function route(Mage_Api2_Model_Request $request)
+    function route(Mage_Api2_Model_Request $request)
     {
         $isMatched = false;
 
@@ -92,7 +92,7 @@ class Mage_Api2_Model_Router
      * @return $this
      * @throws Mage_Api2_Exception
      */
-    public function routeApiType(Mage_Api2_Model_Request $request, $trimApiTypePath = true)
+    function routeApiType(Mage_Api2_Model_Request $request, $trimApiTypePath = true)
     {
         /** @var Mage_Api2_Model_Route_ApiType $apiTypeRoute */
         $apiTypeRoute = Mage::getModel('api2/route_apiType');

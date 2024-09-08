@@ -72,7 +72,7 @@ class Mage_Customer_Model_Group extends Mage_Core_Model_Abstract
      * @param string $value
      * @return $this
      */
-    public function setCode($value)
+    function setCode($value)
     {
         return $this->setCustomerGroupCode($value);
     }
@@ -82,7 +82,7 @@ class Mage_Customer_Model_Group extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getCode()
+    function getCode()
     {
         return $this->getCustomerGroupCode();
     }
@@ -91,7 +91,7 @@ class Mage_Customer_Model_Group extends Mage_Core_Model_Abstract
      * @param int|null $groupId
      * @return int
      */
-    public function getTaxClassId($groupId = null)
+    function getTaxClassId($groupId = null)
     {
         if (!is_null($groupId)) {
             if (empty(self::$_taxClassIds[$groupId])) {
@@ -106,7 +106,7 @@ class Mage_Customer_Model_Group extends Mage_Core_Model_Abstract
     /**
      * @return bool
      */
-    public function usesAsDefault()
+    function usesAsDefault()
     {
         $data = Mage::getConfig()->getStoresConfigByPath(self::XML_PATH_DEFAULT_ID);
         if (in_array($this->getId(), $data)) {
@@ -120,7 +120,7 @@ class Mage_Customer_Model_Group extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function afterCommitCallback()
+    function afterCommitCallback()
     {
         parent::afterCommitCallback();
         Mage::getSingleton('index/indexer')->processEntityAction(

@@ -81,7 +81,7 @@ class Mage_Dataflow_Model_Batch extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getFieldList()
+    function getFieldList()
     {
         return $this->_fieldList;
     }
@@ -91,7 +91,7 @@ class Mage_Dataflow_Model_Batch extends Mage_Core_Model_Abstract
      *
      * @param array $row
      */
-    public function parseFieldList($row)
+    function parseFieldList($row)
     {
         foreach ($row as $fieldName => $value) {
             if (!in_array($fieldName, $this->_fieldList)) {
@@ -106,7 +106,7 @@ class Mage_Dataflow_Model_Batch extends Mage_Core_Model_Abstract
      *
      * @return Mage_Dataflow_Model_Batch_Io
      */
-    public function getIoAdapter()
+    function getIoAdapter()
     {
         if (is_null($this->_ioAdapter)) {
             $this->_ioAdapter = Mage::getModel('dataflow/batch_io');
@@ -134,7 +134,7 @@ class Mage_Dataflow_Model_Batch extends Mage_Core_Model_Abstract
      *
      * @return Mage_Dataflow_Model_Batch_Export
      */
-    public function getBatchExportModel()
+    function getBatchExportModel()
     {
         if (is_null($this->_batchExport)) {
             $object = Mage::getModel('dataflow/batch_export');
@@ -149,7 +149,7 @@ class Mage_Dataflow_Model_Batch extends Mage_Core_Model_Abstract
      *
      * @return Mage_Dataflow_Model_Batch_Import
      */
-    public function getBatchImportModel()
+    function getBatchImportModel()
     {
         if (is_null($this->_batchImport)) {
             $object = Mage::getModel('dataflow/batch_import');
@@ -163,7 +163,7 @@ class Mage_Dataflow_Model_Batch extends Mage_Core_Model_Abstract
      * Run finish actions for Adapter
      *
      */
-    public function beforeFinish()
+    function beforeFinish()
     {
         if ($this->getAdapter()) {
             $adapter = Mage::getModel($this->getAdapter());
@@ -180,7 +180,7 @@ class Mage_Dataflow_Model_Batch extends Mage_Core_Model_Abstract
      * @param mixed $data
      * @return Mage_Dataflow_Model_Batch_Abstract
      */
-    public function setParams($data)
+    function setParams($data)
     {
         $this->setData('params', serialize($data));
         return $this;
@@ -192,7 +192,7 @@ class Mage_Dataflow_Model_Batch extends Mage_Core_Model_Abstract
      *
      * @return mixed
      */
-    public function getParams()
+    function getParams()
     {
         $data = $this->_data['params'];
         $data = unserialize($data, ['allowed_classes' => false]);

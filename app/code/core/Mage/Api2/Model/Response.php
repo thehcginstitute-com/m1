@@ -48,7 +48,7 @@ class Mage_Api2_Model_Response extends Zend_Controller_Response_Http
      * @param string $mimeType MIME type
      * @return $this
      */
-    public function setMimeType($mimeType)
+    function setMimeType($mimeType)
     {
         return $this->setHeader('Content-Type', "{$mimeType}; charset=" . self::RESPONSE_CHARSET, true);
     }
@@ -63,7 +63,7 @@ class Mage_Api2_Model_Response extends Zend_Controller_Response_Http
      * return Mage_Api2_Model_Response
      * @return Mage_Api2_Model_Response
      */
-    public function addMessage($message, $code, $params = [], $type = self::MESSAGE_TYPE_ERROR)
+    function addMessage($message, $code, $params = [], $type = self::MESSAGE_TYPE_ERROR)
     {
         $params['message'] = $message;
         $params['code'] = $code;
@@ -76,7 +76,7 @@ class Mage_Api2_Model_Response extends Zend_Controller_Response_Http
      *
      * @return bool
      */
-    public function hasMessages()
+    function hasMessages()
     {
         return (bool)count($this->_messages) > 0;
     }
@@ -86,7 +86,7 @@ class Mage_Api2_Model_Response extends Zend_Controller_Response_Http
      *
      * @return array
      */
-    public function getMessages()
+    function getMessages()
     {
         return $this->_messages;
     }
@@ -96,7 +96,7 @@ class Mage_Api2_Model_Response extends Zend_Controller_Response_Http
      *
      * return Mage_Api2_Model_Response
      */
-    public function clearMessages()
+    function clearMessages()
     {
         $this->_messages = [];
         return $this;

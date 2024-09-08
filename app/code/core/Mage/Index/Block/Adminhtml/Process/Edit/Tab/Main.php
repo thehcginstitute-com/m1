@@ -65,7 +65,7 @@ class Mage_Index_Block_Adminhtml_Process_Edit_Tab_Main extends Mage_Adminhtml_Bl
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('index')->__('Process Information');
     }
@@ -75,7 +75,7 @@ class Mage_Index_Block_Adminhtml_Process_Edit_Tab_Main extends Mage_Adminhtml_Bl
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('index')->__('Process Information');
     }
@@ -85,7 +85,7 @@ class Mage_Index_Block_Adminhtml_Process_Edit_Tab_Main extends Mage_Adminhtml_Bl
      *
      * @return true
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -95,7 +95,7 @@ class Mage_Index_Block_Adminhtml_Process_Edit_Tab_Main extends Mage_Adminhtml_Bl
      *
      * @return false
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }

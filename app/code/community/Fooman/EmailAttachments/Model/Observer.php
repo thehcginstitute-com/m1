@@ -23,7 +23,7 @@ class Fooman_EmailAttachments_Model_Observer
      *
      * @param $observer
      */
-    public function addbutton($observer)
+    function addbutton($observer)
     {
         $block = $observer->getEvent()->getBlock();
         //add button to dropdown
@@ -57,7 +57,7 @@ class Fooman_EmailAttachments_Model_Observer
      *
      * @param $observer
      */
-    public function beforeSendOrder ($observer)
+    function beforeSendOrder ($observer)
     {
         $update = $observer->getEvent()->getUpdate();
         $mailTemplate = $observer->getEvent()->getTemplate();
@@ -92,7 +92,7 @@ class Fooman_EmailAttachments_Model_Observer
      *
      * @param $observer
      */
-    public function sendPackingSlip ($observer)
+    function sendPackingSlip ($observer)
     {
         if (!Mage::registry(self::KEY_PACKING_SLIP_PROCESSED)) {
             Mage::register(self::KEY_PACKING_SLIP_PROCESSED, true);
@@ -136,7 +136,7 @@ class Fooman_EmailAttachments_Model_Observer
      *
      * @param $observer
      */
-    public function beforeSendInvoice ($observer)
+    function beforeSendInvoice ($observer)
     {
         $update = $observer->getEvent()->getUpdate();
         $mailTemplate = $observer->getEvent()->getTemplate();
@@ -168,7 +168,7 @@ class Fooman_EmailAttachments_Model_Observer
      *
      * @param $observer
      */
-    public function beforeSendShipment ($observer)
+    function beforeSendShipment ($observer)
     {
         $update = $observer->getEvent()->getUpdate();
         $mailTemplate = $observer->getEvent()->getTemplate();
@@ -204,7 +204,7 @@ class Fooman_EmailAttachments_Model_Observer
      *
      * @param $observer
      */
-    public function beforeSendCreditmemo ($observer)
+    function beforeSendCreditmemo ($observer)
     {
         $update = $observer->getEvent()->getUpdate();
         $mailTemplate = $observer->getEvent()->getTemplate();

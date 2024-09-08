@@ -26,7 +26,7 @@
  */
 class Mage_Customer_Block_Widget_Taxvat extends Mage_Customer_Block_Widget_Abstract
 {
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->setTemplate('customer/widget/taxvat.phtml');
@@ -35,7 +35,7 @@ class Mage_Customer_Block_Widget_Taxvat extends Mage_Customer_Block_Widget_Abstr
     /**
      * @return bool
      */
-    public function isEnabled()
+    function isEnabled()
     {
         return (bool)$this->_getAttribute('taxvat')->getIsVisible();
     }
@@ -43,7 +43,7 @@ class Mage_Customer_Block_Widget_Taxvat extends Mage_Customer_Block_Widget_Abstr
     /**
      * @return bool
      */
-    public function isRequired()
+    function isRequired()
     {
         return (bool)$this->_getAttribute('taxvat')->getIsRequired();
     }
@@ -51,7 +51,7 @@ class Mage_Customer_Block_Widget_Taxvat extends Mage_Customer_Block_Widget_Abstr
     /**
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         return Mage::getSingleton('customer/session')->getCustomer();
     }

@@ -28,7 +28,7 @@ class Mage_Sales_Model_Resource_Quote_Address_Attribute_Backend_Region extends M
      * @param Varien_Object|Mage_Sales_Model_Quote_Address $object
      * @return $this
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         if (is_numeric($object->getRegion())) {
             $region = Mage::getModel('directory/region')->load((int)$object->getRegion());

@@ -50,12 +50,12 @@ class Mage_Adminhtml_Block_Sales_Order_Comments_View extends Mage_Adminhtml_Bloc
         return parent::_prepareLayout();
     }
 
-    public function getSubmitUrl()
+    function getSubmitUrl()
     {
         return $this->getUrl('*/*/addComment', ['id' => $this->getEntity()->getId()]);
     }
 
-    public function canSendCommentEmail()
+    function canSendCommentEmail()
     {
         switch ($this->getParentType()) {
             case 'invoice':
@@ -82,7 +82,7 @@ class Mage_Adminhtml_Block_Sales_Order_Comments_View extends Mage_Adminhtml_Bloc
      * @param null|array $allowedTags
      * @return string
      */
-    public function escapeHtml($data, $allowedTags = null)
+    function escapeHtml($data, $allowedTags = null)
     {
         return Mage::helper('adminhtml/sales')->escapeHtmlWithLinks($data, $allowedTags);
     }

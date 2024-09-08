@@ -63,7 +63,7 @@ class Mage_Customer_Model_Api_Resource extends Mage_Api_Model_Resource_Abstract
      * @param array|null $filter
      * @return array
      */
-    public function getAllowedAttributes($entity, array $filter = null)
+    function getAllowedAttributes($entity, array $filter = null)
     {
         $attributes = $entity->getResource()
                         ->loadAllAttributes($entity)

@@ -22,7 +22,7 @@
  */
 class Mage_Api2_Block_Adminhtml_Roles_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('rolesGrid');
@@ -86,7 +86,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Grid extends Mage_Adminhtml_Block_Widget_G
      *
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/grid', ['_current' => true]);
     }
@@ -97,7 +97,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Grid extends Mage_Adminhtml_Block_Widget_G
      * @param Mage_Api2_Model_Acl_Global_Role $row
      * @return string|null
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         /** @var Mage_Admin_Model_Session $session */
         $session = Mage::getSingleton('admin/session');
@@ -117,7 +117,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Grid extends Mage_Adminhtml_Block_Widget_G
      * @param bool $isExport
      * @return string
      */
-    public function decorateUserType($renderedValue, $row, $column, $isExport)
+    function decorateUserType($renderedValue, $row, $column, $isExport)
     {
         switch ($row->getEntityId()) {
             case Mage_Api2_Model_Acl_Global_Role::ROLE_GUEST_ID:

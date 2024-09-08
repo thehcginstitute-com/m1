@@ -34,7 +34,7 @@ class Mage_Catalog_Model_Product_Link_Api extends Mage_Catalog_Model_Api_Resourc
         'grouped'       => Mage_Catalog_Model_Product_Link::LINK_TYPE_GROUPED
     ];
 
-    public function __construct()
+    function __construct()
     {
         $this->_storeIdSessionField = 'product_store_id';
     }
@@ -47,7 +47,7 @@ class Mage_Catalog_Model_Product_Link_Api extends Mage_Catalog_Model_Api_Resourc
      * @param  string $identifierType
      * @return array
      */
-    public function items($type, $productId, $identifierType = null)
+    function items($type, $productId, $identifierType = null)
     {
         $typeId = $this->_getTypeId($type);
 
@@ -88,7 +88,7 @@ class Mage_Catalog_Model_Product_Link_Api extends Mage_Catalog_Model_Api_Resourc
      * @param  string $identifierType
      * @return bool
      */
-    public function assign($type, $productId, $linkedProductId, $data = [], $identifierType = null)
+    function assign($type, $productId, $linkedProductId, $data = [], $identifierType = null)
     {
         $typeId = $this->_getTypeId($type);
 
@@ -145,7 +145,7 @@ class Mage_Catalog_Model_Product_Link_Api extends Mage_Catalog_Model_Api_Resourc
      * @param  string $identifierType
      * @return bool
      */
-    public function update($type, $productId, $linkedProductId, $data = [], $identifierType = null)
+    function update($type, $productId, $linkedProductId, $data = [], $identifierType = null)
     {
         $typeId = $this->_getTypeId($type);
 
@@ -200,7 +200,7 @@ class Mage_Catalog_Model_Product_Link_Api extends Mage_Catalog_Model_Api_Resourc
      * @param  string $identifierType
      * @return bool
      */
-    public function remove($type, $productId, $linkedProductId, $identifierType = null)
+    function remove($type, $productId, $linkedProductId, $identifierType = null)
     {
         $typeId = $this->_getTypeId($type);
 
@@ -237,7 +237,7 @@ class Mage_Catalog_Model_Product_Link_Api extends Mage_Catalog_Model_Api_Resourc
      * @param string $type
      * @return array
      */
-    public function attributes($type)
+    function attributes($type)
     {
         $typeId = $this->_getTypeId($type);
 
@@ -261,7 +261,7 @@ class Mage_Catalog_Model_Product_Link_Api extends Mage_Catalog_Model_Api_Resourc
      *
      * @return array
      */
-    public function types()
+    function types()
     {
         return array_keys($this->_typeMap);
     }

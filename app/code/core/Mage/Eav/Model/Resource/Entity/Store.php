@@ -35,7 +35,7 @@ class Mage_Eav_Model_Resource_Entity_Store extends Mage_Core_Model_Resource_Db_A
      * @param int $storeId
      * @return bool
      */
-    public function loadByEntityStore(Mage_Core_Model_Abstract $object, $entityTypeId, $storeId)
+    function loadByEntityStore(Mage_Core_Model_Abstract $object, $entityTypeId, $storeId)
     {
         $adapter = $this->_getWriteAdapter();
         $bind    = [

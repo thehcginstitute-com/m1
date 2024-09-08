@@ -30,7 +30,7 @@ class Mage_Contacts_IndexController extends Mage_Core_Controller_Front_Action
     /**
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
 
@@ -40,7 +40,7 @@ class Mage_Contacts_IndexController extends Mage_Core_Controller_Front_Action
         return $this;
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout();
         $this->getLayout()->getBlock('contactForm')
@@ -51,7 +51,7 @@ class Mage_Contacts_IndexController extends Mage_Core_Controller_Front_Action
         $this->renderLayout();
     }
 
-    public function postAction()
+    function postAction()
     {
         $post = $this->getRequest()->getPost();
         if ($post) {

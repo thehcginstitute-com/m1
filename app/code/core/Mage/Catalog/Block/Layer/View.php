@@ -137,7 +137,7 @@ class Mage_Catalog_Block_Layer_View extends Mage_Core_Block_Template
      *
      * @return Mage_Catalog_Model_Layer
      */
-    public function getLayer()
+    function getLayer()
     {
         return Mage::getSingleton('catalog/layer');
     }
@@ -163,7 +163,7 @@ class Mage_Catalog_Block_Layer_View extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getStateHtml()
+    function getStateHtml()
     {
         return $this->getChildHtml('layer_state');
     }
@@ -173,7 +173,7 @@ class Mage_Catalog_Block_Layer_View extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getFilters()
+    function getFilters()
     {
         $filters = [];
         if ($categoryFilter = $this->_getCategoryFilter()) {
@@ -203,7 +203,7 @@ class Mage_Catalog_Block_Layer_View extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function canShowOptions()
+    function canShowOptions()
     {
         foreach ($this->getFilters() as $filter) {
             if ($filter->getItemsCount()) {
@@ -219,7 +219,7 @@ class Mage_Catalog_Block_Layer_View extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function canShowBlock()
+    function canShowBlock()
     {
         return $this->canShowOptions() || count($this->getLayer()->getState()->getFilters());
     }
@@ -239,7 +239,7 @@ class Mage_Catalog_Block_Layer_View extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getClearUrl()
+    function getClearUrl()
     {
         return $this->getChild('layer_state')->getClearUrl();
     }

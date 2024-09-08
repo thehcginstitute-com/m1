@@ -16,7 +16,7 @@ class Fooman_EmailAttachments_Model_Core_Email_Template_Mailer extends Mage_Core
      *
      * @return Fooman_EmailAttachments_Model_Core_Email_Template_Mailer
      */
-    public function send()
+    function send()
     {
         $emailTemplate = Mage::getModel('core/email_template');
         $helper = Mage::helper('emailattachments');
@@ -49,7 +49,7 @@ class Fooman_EmailAttachments_Model_Core_Email_Template_Mailer extends Mage_Core
      * @param $emailTemplate
      * @param $emailInfo
      */
-    public function dispatchAttachEvent($emailTemplate, $emailInfo)
+    function dispatchAttachEvent($emailTemplate, $emailInfo)
     {
         $storeId = $this->getStoreId();
         $templateParams = $this->getTemplateParams();

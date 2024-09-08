@@ -34,7 +34,7 @@ class Mage_Checkout_Block_Cart_Crosssell extends Mage_Catalog_Block_Product_Abst
      *
      * @return array
      */
-    public function getItems()
+    function getItems()
     {
         $items = $this->getData('items');
         if (is_null($items)) {
@@ -82,7 +82,7 @@ class Mage_Checkout_Block_Cart_Crosssell extends Mage_Catalog_Block_Product_Abst
      *
      * @return int
      */
-    public function getItemCount()
+    function getItemCount()
     {
         return count($this->getItems());
     }
@@ -144,7 +144,7 @@ class Mage_Checkout_Block_Cart_Crosssell extends Mage_Catalog_Block_Product_Abst
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return Mage::getSingleton('checkout/session')->getQuote();
     }

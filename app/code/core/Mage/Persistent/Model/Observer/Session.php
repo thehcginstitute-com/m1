@@ -27,7 +27,7 @@ class Mage_Persistent_Model_Observer_Session
      *
      * @param Varien_Event_Observer $observer
      */
-    public function synchronizePersistentOnLogin(Varien_Event_Observer $observer)
+    function synchronizePersistentOnLogin(Varien_Event_Observer $observer)
     {
         /** @var Mage_Customer_Model_Customer $customer */
         $customer = $observer->getEvent()->getCustomer();
@@ -76,7 +76,7 @@ class Mage_Persistent_Model_Observer_Session
      *
      * @param Varien_Event_Observer $observer
      */
-    public function synchronizePersistentOnLogout(Varien_Event_Observer $observer)
+    function synchronizePersistentOnLogout(Varien_Event_Observer $observer)
     {
         if (!Mage::helper('persistent')->isEnabled() || !Mage::helper('persistent')->getClearOnLogout()) {
             return;
@@ -100,7 +100,7 @@ class Mage_Persistent_Model_Observer_Session
      *
      * @param Varien_Event_Observer $observer
      */
-    public function synchronizePersistentInfo(Varien_Event_Observer $observer)
+    function synchronizePersistentInfo(Varien_Event_Observer $observer)
     {
         if (!Mage::helper('persistent')->isEnabled() || !Mage::helper('persistent/session')->isPersistent()) {
             return;
@@ -124,7 +124,7 @@ class Mage_Persistent_Model_Observer_Session
      *
      * @param Varien_Event_Observer $observer
      */
-    public function setRememberMeCheckedStatus(Varien_Event_Observer $observer)
+    function setRememberMeCheckedStatus(Varien_Event_Observer $observer)
     {
         if (!Mage::helper('persistent')->canProcess($observer)
             || !Mage::helper('persistent')->isEnabled() || !Mage::helper('persistent')->isRememberMeEnabled()
@@ -149,7 +149,7 @@ class Mage_Persistent_Model_Observer_Session
      *
      * @param Varien_Event_Observer $observer
      */
-    public function renewCookie(Varien_Event_Observer $observer)
+    function renewCookie(Varien_Event_Observer $observer)
     {
         if (!Mage::helper('persistent')->canProcess($observer)
             || !Mage::helper('persistent')->isEnabled() || !Mage::helper('persistent/session')->isPersistent()

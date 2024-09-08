@@ -54,7 +54,7 @@ class Mage_Adminhtml_Block_System_Email_Template extends Mage_Adminhtml_Block_Te
      *
      * @return string
      */
-    public function getCreateUrl()
+    function getCreateUrl()
     {
         return $this->getUrl('*/*/new');
     }
@@ -64,7 +64,7 @@ class Mage_Adminhtml_Block_System_Email_Template extends Mage_Adminhtml_Block_Te
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('adminhtml')->__('Transactional Emails');
     }

@@ -33,7 +33,7 @@ class Mage_Adminhtml_System_Convert_GuiController extends Mage_Adminhtml_System_
     /**
      * Profiles list action
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('System'))
              ->_title($this->__('Import and Export'))
@@ -66,7 +66,7 @@ class Mage_Adminhtml_System_Convert_GuiController extends Mage_Adminhtml_System_
         $this->renderLayout();
     }
 
-    public function gridAction()
+    function gridAction()
     {
         $this->getResponse()->setBody($this->getLayout()->createBlock('adminhtml/system_convert_gui_grid')->toHtml());
     }
@@ -74,7 +74,7 @@ class Mage_Adminhtml_System_Convert_GuiController extends Mage_Adminhtml_System_
     /**
      * Profile edit action
      */
-    public function editAction()
+    function editAction()
     {
         $this->_initProfile();
         $this->loadLayout();
@@ -104,19 +104,19 @@ class Mage_Adminhtml_System_Convert_GuiController extends Mage_Adminhtml_System_
         $this->renderLayout();
     }
 
-    public function uploadAction()
+    function uploadAction()
     {
         $this->_initProfile();
         $profile = Mage::registry('current_convert_profile');
     }
 
-    public function uploadPostAction()
+    function uploadPostAction()
     {
         $this->_initProfile();
         $profile = Mage::registry('current_convert_profile');
     }
 
-    public function downloadAction()
+    function downloadAction()
     {
         $filename = $this->getRequest()->getParam('filename');
         if (!$filename || strpos($filename, '..') !== false || $filename[0] === '.') {

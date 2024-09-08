@@ -116,7 +116,7 @@ class Mage_Admin_Model_Resource_Roles extends Mage_Core_Model_Resource_Db_Abstra
      * @param Mage_Admin_Model_Roles $role
      * @return array
      */
-    public function getRoleUsers(Mage_Admin_Model_Roles $role)
+    function getRoleUsers(Mage_Admin_Model_Roles $role)
     {
         $adapter = $this->_getReadAdapter();
         $select  = $adapter->select()

@@ -52,7 +52,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Block extends Mag
      * @param array $allowedBlocks
      * @return $this
      */
-    public function setAllowedBlocks($allowedBlocks)
+    function setAllowedBlocks($allowedBlocks)
     {
         $this->_allowedBlocks = $allowedBlocks;
         return $this;
@@ -64,7 +64,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Block extends Mag
      * @param string $block
      * @return $this
      */
-    public function addAllowedBlock($block)
+    function addAllowedBlock($block)
     {
         $this->_allowedBlocks[] = $block;
         return $this;
@@ -75,7 +75,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Block extends Mag
      *
      * @return array
      */
-    public function getAllowedBlocks()
+    function getAllowedBlocks()
     {
         return $this->_allowedBlocks;
     }
@@ -87,7 +87,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Block extends Mag
      * @param string|array $layoutHandle
      * @return $this
      */
-    public function setLayoutHandle($layoutHandle)
+    function setLayoutHandle($layoutHandle)
     {
         if (is_string($layoutHandle)) {
             $layoutHandle = explode(',', $layoutHandle);
@@ -101,7 +101,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Block extends Mag
      *
      * @return array
      */
-    public function getLayoutHandle()
+    function getLayoutHandle()
     {
         return $this->_layoutHandle;
     }
@@ -111,7 +111,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Block extends Mag
      *
      * @return string
      */
-    public function getArea()
+    function getArea()
     {
         if (!$this->_getData('area')) {
             return Mage_Core_Model_Design_Package::DEFAULT_AREA;
@@ -124,7 +124,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Block extends Mag
      *
      * @return string
      */
-    public function getPackage()
+    function getPackage()
     {
         if (!$this->_getData('package')) {
             return Mage_Core_Model_Design_Package::DEFAULT_PACKAGE;
@@ -137,7 +137,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Block extends Mag
      *
      * @return string
      */
-    public function getTheme()
+    function getTheme()
     {
         if (!$this->_getData('theme')) {
             return Mage_Core_Model_Design_Package::DEFAULT_THEME;
@@ -167,7 +167,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Block extends Mag
      *
      * @return array
      */
-    public function getBlocks()
+    function getBlocks()
     {
         if (empty($this->_blocks)) {
             $update = Mage::getModel('core/layout')->getUpdate();
@@ -203,7 +203,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Block extends Mag
      *
      * @param string $handle
      */
-    public function _mergeLayoutHandles($handle)
+    function _mergeLayoutHandles($handle)
     {
         foreach ($this->_layoutHandlesXml->{$handle} as $updateXml) {
             foreach ($updateXml->children() as $child) {

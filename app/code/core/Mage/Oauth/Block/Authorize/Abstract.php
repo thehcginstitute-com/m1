@@ -47,7 +47,7 @@ abstract class Mage_Oauth_Block_Authorize_Abstract extends Mage_Core_Block_Templ
      */
     protected $_consumer;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_helper = Mage::helper('oauth');
@@ -58,7 +58,7 @@ abstract class Mage_Oauth_Block_Authorize_Abstract extends Mage_Core_Block_Templ
      *
      * @return Mage_Oauth_Model_Consumer
      */
-    public function getConsumer()
+    function getConsumer()
     {
         if ($this->_consumer === null) {
             /** @var Mage_Oauth_Model_Token $token */
@@ -76,7 +76,7 @@ abstract class Mage_Oauth_Block_Authorize_Abstract extends Mage_Core_Block_Templ
      *
      * @return string
      */
-    public function getTemplateFile()
+    function getTemplateFile()
     {
         if (!$this->getIsSimple()) {
             return parent::getTemplateFile();

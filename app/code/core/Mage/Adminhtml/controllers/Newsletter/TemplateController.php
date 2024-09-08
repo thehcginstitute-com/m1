@@ -46,7 +46,7 @@ class Mage_Adminhtml_Newsletter_TemplateController extends Mage_Adminhtml_Contro
      * View Templates list
      *
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_setTitle();
 
@@ -65,7 +65,7 @@ class Mage_Adminhtml_Newsletter_TemplateController extends Mage_Adminhtml_Contro
      * JSON Grid Action
      *
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout();
         $grid = $this->getLayout()->createBlock('adminhtml/newsletter_template_grid')
@@ -77,7 +77,7 @@ class Mage_Adminhtml_Newsletter_TemplateController extends Mage_Adminhtml_Contro
      * Create new Newsletter Template
      *
      */
-    public function newAction()
+    function newAction()
     {
         $this->_forward('edit');
     }
@@ -86,7 +86,7 @@ class Mage_Adminhtml_Newsletter_TemplateController extends Mage_Adminhtml_Contro
      * Edit Newsletter Template
      *
      */
-    public function editAction()
+    function editAction()
     {
         $this->_setTitle();
 
@@ -128,7 +128,7 @@ class Mage_Adminhtml_Newsletter_TemplateController extends Mage_Adminhtml_Contro
      * Drop Newsletter Template
      *
      */
-    public function dropAction()
+    function dropAction()
     {
         $request = $this->getRequest();
         if ($request->getParam('text') && !$request->getPost('text')) {
@@ -142,7 +142,7 @@ class Mage_Adminhtml_Newsletter_TemplateController extends Mage_Adminhtml_Contro
      * Save Newsletter Template
      *
      */
-    public function saveAction()
+    function saveAction()
     {
         $request = $this->getRequest();
         if (!$request->isPost()) {
@@ -198,7 +198,7 @@ class Mage_Adminhtml_Newsletter_TemplateController extends Mage_Adminhtml_Contro
      * Delete newsletter Template
      *
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $template = Mage::getModel('newsletter/template')
             ->load($this->getRequest()->getParam('id'));
@@ -218,7 +218,7 @@ class Mage_Adminhtml_Newsletter_TemplateController extends Mage_Adminhtml_Contro
      * Preview Newsletter template
      *
      */
-    public function previewAction()
+    function previewAction()
     {
         $this->_setTitle();
         $this->loadLayout();
@@ -241,7 +241,7 @@ class Mage_Adminhtml_Newsletter_TemplateController extends Mage_Adminhtml_Contro
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         return parent::preDispatch();

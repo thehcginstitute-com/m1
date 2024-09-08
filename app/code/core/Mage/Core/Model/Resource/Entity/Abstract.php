@@ -33,7 +33,7 @@ abstract class Mage_Core_Model_Resource_Entity_Abstract
      *
      * @param Varien_Simplexml_Config $config
      */
-    public function __construct($config)
+    function __construct($config)
     {
         $this->_config = $config;
     }
@@ -44,7 +44,7 @@ abstract class Mage_Core_Model_Resource_Entity_Abstract
      * @param string $key
      * @return string|boolean
      */
-    public function getConfig($key = '')
+    function getConfig($key = '')
     {
         if ($key === '') {
             return $this->_config;

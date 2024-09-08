@@ -157,7 +157,7 @@ abstract class Mage_Eav_Model_Resource_Attribute extends Mage_Eav_Model_Resource
      * @param Mage_Eav_Model_Attribute $object
      * @return array
      */
-    public function getScopeValues(Mage_Eav_Model_Attribute $object)
+    function getScopeValues(Mage_Eav_Model_Attribute $object)
     {
         $adapter = $this->_getReadAdapter();
         $bind    = [
@@ -184,7 +184,7 @@ abstract class Mage_Eav_Model_Resource_Attribute extends Mage_Eav_Model_Resource
      * @param Mage_Core_Model_Abstract $object
      * @return array
      */
-    public function getUsedInForms(Mage_Core_Model_Abstract $object)
+    function getUsedInForms(Mage_Core_Model_Abstract $object)
     {
         $adapter = $this->_getReadAdapter();
         $bind    = ['attribute_id' => (int)$object->getId()];

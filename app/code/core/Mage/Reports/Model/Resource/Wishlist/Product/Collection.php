@@ -30,7 +30,7 @@ class Mage_Reports_Model_Resource_Wishlist_Product_Collection extends Mage_Wishl
     /**
      * @return $this
      */
-    public function addWishlistCount()
+    function addWishlistCount()
     {
         $wishlistItemTable = $this->getTable('wishlist/item');
         $this->getSelect()
@@ -55,7 +55,7 @@ class Mage_Reports_Model_Resource_Wishlist_Product_Collection extends Mage_Wishl
      *
      * @return $this
      */
-    public function getCustomerCount()
+    function getCustomerCount()
     {
         $this->getSelect()->reset();
 
@@ -76,7 +76,7 @@ class Mage_Reports_Model_Resource_Wishlist_Product_Collection extends Mage_Wishl
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $countSelect = clone $this->getSelect();
         $countSelect->reset(Zend_Db_Select::ORDER);
@@ -96,7 +96,7 @@ class Mage_Reports_Model_Resource_Wishlist_Product_Collection extends Mage_Wishl
      * @param string $dir
      * @return $this
      */
-    public function setOrder($attribute, $dir = self::SORT_ORDER_DESC)
+    function setOrder($attribute, $dir = self::SORT_ORDER_DESC)
     {
         if ($attribute == 'wishlists') {
             $this->getSelect()->order($attribute . ' ' . $dir);

@@ -62,7 +62,7 @@ class Mage_CatalogIndex_Model_Indexer_Minimalprice extends Mage_CatalogIndex_Mod
      * @return Mage_Eav_Model_Entity_Attribute_Abstract|mixed
      * @throws Mage_Core_Exception
      */
-    public function getTierPriceAttribute()
+    function getTierPriceAttribute()
     {
         $data = $this->getData('tier_price_attribute');
         if (is_null($data)) {
@@ -76,7 +76,7 @@ class Mage_CatalogIndex_Model_Indexer_Minimalprice extends Mage_CatalogIndex_Mod
      * @return Mage_Eav_Model_Entity_Attribute_Abstract|mixed
      * @throws Mage_Core_Exception
      */
-    public function getPriceAttribute()
+    function getPriceAttribute()
     {
         $data = $this->getData('price_attribute');
         if (is_null($data)) {
@@ -91,7 +91,7 @@ class Mage_CatalogIndex_Model_Indexer_Minimalprice extends Mage_CatalogIndex_Mod
      * @param Mage_Eav_Model_Entity_Attribute_Abstract|null $attribute
      * @return array|bool
      */
-    public function createIndexData(Mage_Catalog_Model_Product $object, Mage_Eav_Model_Entity_Attribute_Abstract $attribute = null)
+    function createIndexData(Mage_Catalog_Model_Product $object, Mage_Eav_Model_Entity_Attribute_Abstract $attribute = null)
     {
         $searchEntityId = $object->getId();
         $priceAttributeId = $this->getTierPriceAttribute()->getId();
@@ -139,7 +139,7 @@ class Mage_CatalogIndex_Model_Indexer_Minimalprice extends Mage_CatalogIndex_Mod
     /**
      * @return bool
      */
-    public function isAttributeIdUsed()
+    function isAttributeIdUsed()
     {
         return false;
     }

@@ -52,7 +52,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      * @param string $attributeCode
      * @return Mage_Eav_Model_Entity_Attribute_Abstract
      */
-    public function getProductAttribute($attributeCode)
+    function getProductAttribute($attributeCode)
     {
         return $this->_getResource()->getProductAttribute($attributeCode);
     }
@@ -64,7 +64,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      * @param Mage_Eav_Model_Entity_Collection_Abstract $collection
      * @return $this
      */
-    public function addVisibleFilterToCollection(Mage_Eav_Model_Entity_Collection_Abstract $collection)
+    function addVisibleFilterToCollection(Mage_Eav_Model_Entity_Collection_Abstract $collection)
     {
         return $this;
     }
@@ -76,7 +76,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      * @param Mage_Eav_Model_Entity_Collection_Abstract $collection
      * @return $this
      */
-    public function addSaleableFilterToCollection(Mage_Eav_Model_Entity_Collection_Abstract $collection)
+    function addSaleableFilterToCollection(Mage_Eav_Model_Entity_Collection_Abstract $collection)
     {
         return $this;
     }
@@ -86,7 +86,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getVisibleStatusIds()
+    function getVisibleStatusIds()
     {
         return [self::STATUS_ENABLED];
     }
@@ -97,7 +97,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getSaleableStatusIds()
+    function getSaleableStatusIds()
     {
         return [self::STATUS_ENABLED];
     }
@@ -179,7 +179,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      * @param   int $value
      * @return  Mage_Catalog_Model_Product_Status
      */
-    public function updateProductStatus($productId, $storeId, $value)
+    function updateProductStatus($productId, $storeId, $value)
     {
         Mage::getSingleton('catalog/product_action')
             ->updateAttributes([$productId], ['status' => $value], $storeId);
@@ -215,7 +215,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      * @param int $storeId
      * @return array
      */
-    public function getProductStatus($productIds, $storeId = null)
+    function getProductStatus($productIds, $storeId = null)
     {
         return $this->getResource()->getProductStatus($productIds, $storeId);
     }
@@ -229,7 +229,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getFlatColums()
+    function getFlatColums()
     {
         $attributeCode = $this->getAttribute()->getAttributeCode();
         $column = [
@@ -255,7 +255,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getFlatIndexes()
+    function getFlatIndexes()
     {
         $indexes = [];
 
@@ -274,7 +274,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      * @param int $store
      * @return Varien_Db_Select|null
      */
-    public function getFlatUpdateSelect($store)
+    function getFlatUpdateSelect($store)
     {
         return Mage::getResourceSingleton('eav/entity_attribute')
             ->getFlatUpdateSelect($this->getAttribute(), $store);
@@ -286,7 +286,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Resource_Eav_Attribute $attribute
      * @return Mage_Catalog_Model_Product_Status
      */
-    public function setAttribute($attribute)
+    function setAttribute($attribute)
     {
         $this->_attribute = $attribute;
         return $this;
@@ -297,7 +297,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Eav_Attribute
      */
-    public function getAttribute()
+    function getAttribute()
     {
         return $this->_attribute;
     }
@@ -310,7 +310,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      * @return Mage_Catalog_Model_Product_Status
      * @throws Mage_Core_Exception
      */
-    public function addValueSortToCollection($collection, $dir = 'asc')
+    function addValueSortToCollection($collection, $dir = 'asc')
     {
         $attributeCode  = $this->getAttribute()->getAttributeCode();
         $attributeId    = $this->getAttribute()->getId();

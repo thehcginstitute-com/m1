@@ -27,7 +27,7 @@ abstract class Mage_Catalog_Block_Product_View_Abstract extends Mage_Catalog_Blo
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         $product = parent::getProduct();
         if (is_null($product->getTypeInstance(true)->getStoreFilter($product))) {

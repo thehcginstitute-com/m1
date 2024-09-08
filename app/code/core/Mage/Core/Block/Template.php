@@ -89,7 +89,7 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
      *
      * @return string
      */
-    public function getTemplate()
+    function getTemplate()
     {
         return $this->_template;
     }
@@ -100,7 +100,7 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
      * @param string $template
      * @return $this
      */
-    public function setTemplate($template)
+    function setTemplate($template)
     {
         $this->_template = $template;
         return $this;
@@ -111,7 +111,7 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
      *
      * @return string
      */
-    public function getTemplateFile()
+    function getTemplateFile()
     {
         $params = ['_relative' => true];
         $area = $this->getArea();
@@ -125,7 +125,7 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
      * Get design area
      * @return string
      */
-    public function getArea()
+    function getArea()
     {
         return $this->_getData('area');
     }
@@ -137,7 +137,7 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
      * @param   mixed $value
      * @return  $this
      */
-    public function assign($key, $value = null)
+    function assign($key, $value = null)
     {
         if (is_array($key)) {
             foreach ($key as $k => $v) {
@@ -155,7 +155,7 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
      * @param string $dir
      * @return $this
      */
-    public function setScriptPath($dir)
+    function setScriptPath($dir)
     {
         if (strpos($dir, '..') === false && ($dir === Mage::getBaseDir('design') || strpos(realpath($dir), realpath(Mage::getBaseDir('design'))) === 0)) {
             $this->_viewDir = $dir;
@@ -170,7 +170,7 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
      *
      * @return bool
      */
-    public function getDirectOutput()
+    function getDirectOutput()
     {
         if ($this->getLayout()) {
             return $this->getLayout()->getDirectOutput();
@@ -181,7 +181,7 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
     /**
      * @return bool
      */
-    public function getShowTemplateHintsAdmin()
+    function getShowTemplateHintsAdmin()
     {
         if (is_null(self::$_showTemplateHintsAdmin)) {
             self::$_showTemplateHintsAdmin = Mage::getStoreConfig(self::XML_PATH_DEBUG_TEMPLATE_HINTS_ADMIN)
@@ -195,7 +195,7 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
     /**
      * @return bool
      */
-    public function getShowTemplateHints()
+    function getShowTemplateHints()
     {
         if (is_null(self::$_showTemplateHints)) {
             self::$_showTemplateHints = Mage::getStoreConfig(self::XML_PATH_DEBUG_TEMPLATE_HINTS)
@@ -212,7 +212,7 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
      * @param   string $fileName
      * @return  string
      */
-    public function fetchView($fileName)
+    function fetchView($fileName)
     {
         Varien_Profiler::start($fileName);
 
@@ -300,7 +300,7 @@ HTML;
      *
      * @return string
      */
-    public function renderView()
+    function renderView()
     {
         $this->setScriptPath(Mage::getBaseDir('design'));
         return $this->fetchView($this->getTemplateFile());
@@ -324,7 +324,7 @@ HTML;
      *
      * @return string
      */
-    public function getBaseUrl()
+    function getBaseUrl()
     {
         if (!$this->_baseUrl) {
             $this->_baseUrl = Mage::getBaseUrl();
@@ -340,7 +340,7 @@ HTML;
      * @param string $fileName
      * @return string
      */
-    public function getJsUrl($fileName = '')
+    function getJsUrl($fileName = '')
     {
         if (!$this->_jsUrl) {
             $this->_jsUrl = Mage::getBaseUrl('js');
@@ -355,7 +355,7 @@ HTML;
      * @param string $key
      * @return mixed
      */
-    public function getObjectData(Varien_Object $object, $key)
+    function getObjectData(Varien_Object $object, $key)
     {
         return $object->getDataUsingMethod((string)$key);
     }
@@ -363,7 +363,7 @@ HTML;
     /**
      * @inheritDoc
      */
-    public function getCacheKeyInfo()
+    function getCacheKeyInfo()
     {
         return [
             'BLOCK_TPL',

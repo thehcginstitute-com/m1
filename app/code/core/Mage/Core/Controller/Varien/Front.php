@@ -42,7 +42,7 @@ class Mage_Core_Controller_Varien_Front extends Varien_Object
      * @param string|null $value
      * @return $this
      */
-    public function setDefault($key, $value = null)
+    function setDefault($key, $value = null)
     {
         if (is_array($key)) {
             $this->_defaults = $key;
@@ -56,7 +56,7 @@ class Mage_Core_Controller_Varien_Front extends Varien_Object
      * @param string|null $key
      * @return array|false
      */
-    public function getDefault($key = null)
+    function getDefault($key = null)
     {
         if (is_null($key)) {
             return $this->_defaults;
@@ -71,7 +71,7 @@ class Mage_Core_Controller_Varien_Front extends Varien_Object
      *
      * @return Mage_Core_Controller_Request_Http
      */
-    public function getRequest()
+    function getRequest()
     {
         return Mage::app()->getRequest();
     }
@@ -81,7 +81,7 @@ class Mage_Core_Controller_Varien_Front extends Varien_Object
      *
      * @return Mage_Core_Controller_Response_Http
      */
-    public function getResponse()
+    function getResponse()
     {
         return Mage::app()->getResponse();
     }
@@ -93,7 +93,7 @@ class Mage_Core_Controller_Varien_Front extends Varien_Object
      * @param   Mage_Core_Controller_Varien_Router_Abstract $router
      * @return  Mage_Core_Controller_Varien_Front
      */
-    public function addRouter($name, Mage_Core_Controller_Varien_Router_Abstract $router)
+    function addRouter($name, Mage_Core_Controller_Varien_Router_Abstract $router)
     {
         $router->setFront($this);
         $this->_routers[$name] = $router;
@@ -106,7 +106,7 @@ class Mage_Core_Controller_Varien_Front extends Varien_Object
      * @param   string $name
      * @return  Mage_Core_Controller_Varien_Router_Abstract|false
      */
-    public function getRouter($name)
+    function getRouter($name)
     {
         return $this->_routers[$name] ?? false;
     }
@@ -116,7 +116,7 @@ class Mage_Core_Controller_Varien_Front extends Varien_Object
      *
      * @return array
      */
-    public function getRouters()
+    function getRouters()
     {
         return $this->_routers;
     }
@@ -126,7 +126,7 @@ class Mage_Core_Controller_Varien_Front extends Varien_Object
      *
      * @return $this
      */
-    public function init()
+    function init()
     {
         Mage::dispatchEvent('controller_front_init_before', ['front' => $this]);
 
@@ -161,7 +161,7 @@ class Mage_Core_Controller_Varien_Front extends Varien_Object
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function dispatch()
+    function dispatch()
     {
         $request = $this->getRequest();
 
@@ -217,7 +217,7 @@ class Mage_Core_Controller_Varien_Front extends Varien_Object
      * @param string $routeName
      * @return Mage_Core_Controller_Varien_Router_Abstract
      */
-    public function getRouterByRoute($routeName)
+    function getRouterByRoute($routeName)
     {
         // empty route supplied - return base url
         if (empty($routeName)) {
@@ -242,7 +242,7 @@ class Mage_Core_Controller_Varien_Front extends Varien_Object
      * @param string $frontName
      * @return false|Mage_Core_Controller_Varien_Router_Standard
      */
-    public function getRouterByFrontName($frontName)
+    function getRouterByFrontName($frontName)
     {
         // empty route supplied - return base url
         if (empty($frontName)) {
@@ -268,7 +268,7 @@ class Mage_Core_Controller_Varien_Front extends Varien_Object
      *
      * @deprecated since 1.7.0.2. Refactored and moved to Mage_Core_Controller_Request_Rewrite
      */
-    public function rewrite()
+    function rewrite()
     {
         $request = $this->getRequest();
         $config = Mage::getConfig()->getNode('global/rewrite');

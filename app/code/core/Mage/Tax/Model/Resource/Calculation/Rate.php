@@ -46,7 +46,7 @@ class Mage_Tax_Model_Resource_Calculation_Rate extends Mage_Core_Model_Resource_
      *
      * @return $this
      */
-    public function deleteAllRates()
+    function deleteAllRates()
     {
         $this->_getWriteAdapter()->delete($this->getMainTable());
         return $this;
@@ -58,7 +58,7 @@ class Mage_Tax_Model_Resource_Calculation_Rate extends Mage_Core_Model_Resource_
      * @param  int $rateId
      * @return array
      */
-    public function isInRule($rateId)
+    function isInRule($rateId)
     {
         $adapter = $this->_getReadAdapter();
         $select  = $adapter->select()

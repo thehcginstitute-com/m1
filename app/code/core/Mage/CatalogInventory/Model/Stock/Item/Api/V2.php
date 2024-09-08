@@ -29,7 +29,7 @@ class Mage_CatalogInventory_Model_Stock_Item_Api_V2 extends Mage_CatalogInventor
      * @param array $data
      * @return bool
      */
-    public function update($productId, $data)
+    function update($productId, $data)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = Mage::getModel('catalog/product');
@@ -63,7 +63,7 @@ class Mage_CatalogInventory_Model_Stock_Item_Api_V2 extends Mage_CatalogInventor
      * @param array $productData
      * @return bool
      */
-    public function multiUpdate($productIds, $productData)
+    function multiUpdate($productIds, $productData)
     {
         if (count($productIds) != count($productData)) {
             $this->_fault('multi_update_not_match');

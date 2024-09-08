@@ -47,7 +47,7 @@ class Mage_Review_Block_Product_View extends Mage_Catalog_Block_Product_View
      * @return string
      * @throws Mage_Core_Model_Store_Exception|Mage_Core_Exception
      */
-    public function getReviewsSummaryHtml(Mage_Catalog_Model_Product $product, $templateType = false, $displayIfNoReviews = false)
+    function getReviewsSummaryHtml(Mage_Catalog_Model_Product $product, $templateType = false, $displayIfNoReviews = false)
     {
         /** @var Mage_Core_Block_Template $reviewContBlock */
         $reviewContBlock = $this->getLayout()->getBlock('product_review_list.count');
@@ -66,7 +66,7 @@ class Mage_Review_Block_Product_View extends Mage_Catalog_Block_Product_View
      * @return Mage_Review_Model_Resource_Review_Collection
      * @throws Mage_Core_Model_Store_Exception|Mage_Core_Exception
      */
-    public function getReviewsCollection()
+    function getReviewsCollection()
     {
         if ($this->_reviewsCollection === null) {
             $this->_reviewsCollection = Mage::getModel('review/review')->getCollection()
@@ -83,7 +83,7 @@ class Mage_Review_Block_Product_View extends Mage_Catalog_Block_Product_View
      *
      * @return false
      */
-    public function hasOptions()
+    function hasOptions()
     {
         return false;
     }

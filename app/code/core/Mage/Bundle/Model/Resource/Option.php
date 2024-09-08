@@ -88,7 +88,7 @@ class Mage_Bundle_Model_Resource_Option extends Mage_Core_Model_Resource_Db_Abst
      * @param int $storeId
      * @return array
      */
-    public function getSearchableData($productId, $storeId)
+    function getSearchableData($productId, $storeId)
     {
         $adapter = $this->_getReadAdapter();
 

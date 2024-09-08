@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Notification_Baseurl extends Mage_Adminhtml_Block_Tem
      *
      * @return string|false
      */
-    public function getConfigUrl()
+    function getConfigUrl()
     {
         $defaultUnsecure = (string) Mage::getConfig()->getNode('default/' . Mage_Core_Model_Store::XML_PATH_UNSECURE_BASE_URL);
         $defaultSecure  = (string) Mage::getConfig()->getNode('default/' . Mage_Core_Model_Store::XML_PATH_SECURE_BASE_URL);

@@ -97,7 +97,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Grid extends Mage_Adminhtml_Bl
      *
      * @return array
      */
-    public function getTypesOptionsArray()
+    function getTypesOptionsArray()
     {
         $widgets = [];
         $widgetsOptionsArr = Mage::getModel('widget/widget_instance')->getWidgetsOptionArray();
@@ -112,7 +112,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Grid extends Mage_Adminhtml_Bl
      *
      * @return array
      */
-    public function getPackageThemeOptionsArray()
+    function getPackageThemeOptionsArray()
     {
         $packageThemeArray = [];
         $packageThemeOptions = Mage::getModel('core/design_source_design')
@@ -135,7 +135,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Grid extends Mage_Adminhtml_Bl
      * @param Mage_Widget_Model_Widget_Instance $row
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', ['instance_id' => $row->getId()]);
     }

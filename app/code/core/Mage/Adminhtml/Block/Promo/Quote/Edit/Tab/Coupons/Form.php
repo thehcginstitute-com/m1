@@ -127,7 +127,7 @@ class Mage_Adminhtml_Block_Promo_Quote_Edit_Tab_Coupons_Form extends Mage_Adminh
      *
      * @return string
      */
-    public function getGenerateUrl()
+    function getGenerateUrl()
     {
         return $this->getUrl('*/*/generate');
     }

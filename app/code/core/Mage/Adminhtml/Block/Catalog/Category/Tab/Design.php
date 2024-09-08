@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Design extends Mage_Adminhtml_Bl
     /**
      * Mage_Adminhtml_Block_Catalog_Category_Tab_Design constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setShowGlobalIcon(true);
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Design extends Mage_Adminhtml_Bl
     /**
      * @return Mage_Catalog_Model_Category
      */
-    public function getCategory()
+    function getCategory()
     {
         if (!$this->_category) {
             $this->_category = Mage::registry('category');
@@ -48,7 +48,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Design extends Mage_Adminhtml_Bl
     /**
      * @return $this
      */
-    public function _prepareLayout()
+    function _prepareLayout()
     {
         parent::_prepareLayout();
         $form = new Varien_Data_Form();

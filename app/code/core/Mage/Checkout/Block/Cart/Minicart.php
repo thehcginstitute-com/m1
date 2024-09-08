@@ -27,7 +27,7 @@ class Mage_Checkout_Block_Cart_Minicart extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return int | float
      */
-    public function getSummaryCount()
+    function getSummaryCount()
     {
         if ($this->getData('summary_qty')) {
             return $this->getData('summary_qty');

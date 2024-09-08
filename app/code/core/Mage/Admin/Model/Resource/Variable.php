@@ -46,7 +46,7 @@ class Mage_Admin_Model_Resource_Variable extends Mage_Core_Model_Resource_Db_Abs
     /**
      * Get allowed types
      */
-    public function getAllowedPaths()
+    function getAllowedPaths()
     {
         $data = Mage::app()->getCacheInstance()->load(self::CACHE_ID);
         if ($data === false) {

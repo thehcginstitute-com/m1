@@ -31,7 +31,7 @@ class Mage_Downloadable_FileController extends Mage_Downloadable_Adminhtml_Downl
      *
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_forward('defaultIndex', 'cms_index');
 

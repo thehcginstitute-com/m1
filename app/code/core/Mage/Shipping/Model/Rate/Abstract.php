@@ -29,7 +29,7 @@ abstract class Mage_Shipping_Model_Rate_Abstract extends Mage_Core_Model_Abstrac
     /**
      * @return Mage_Shipping_Model_Carrier_Abstract
      */
-    public function getCarrierInstance()
+    function getCarrierInstance()
     {
         $code = $this->getCarrier();
         if (!isset(self::$_instances[$code])) {

@@ -24,7 +24,7 @@ use Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract as MassAction;
  */
 class Mage_Adminhtml_Block_Review_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('reviwGrid');
@@ -245,7 +245,7 @@ class Mage_Adminhtml_Block_Review_Grid extends Mage_Adminhtml_Block_Widget_Grid
         return parent::_prepareMassaction();
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/catalog_product_review/edit', [
             'id' => $row->getReviewId(),
@@ -258,7 +258,7 @@ class Mage_Adminhtml_Block_Review_Grid extends Mage_Adminhtml_Block_Widget_Grid
     /**
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         if ($this->getProductId() || $this->getCustomerId()) {
             return $this->getUrl(

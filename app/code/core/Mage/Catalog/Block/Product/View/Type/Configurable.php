@@ -53,7 +53,7 @@ class Mage_Catalog_Block_Product_View_Type_Configurable extends Mage_Catalog_Blo
      *
      * @return array
      */
-    public function getAllowAttributes()
+    function getAllowAttributes()
     {
         /** @var Mage_Catalog_Model_Product_Type_Configurable $productType */
         $productType = $this->getProduct()->getTypeInstance(true);
@@ -65,7 +65,7 @@ class Mage_Catalog_Block_Product_View_Type_Configurable extends Mage_Catalog_Blo
      *
      * @return bool
      */
-    public function hasOptions()
+    function hasOptions()
     {
         $attributes = $this->getAllowAttributes();
         if (count($attributes)) {
@@ -84,7 +84,7 @@ class Mage_Catalog_Block_Product_View_Type_Configurable extends Mage_Catalog_Blo
      *
      * @return array
      */
-    public function getAllowProducts()
+    function getAllowProducts()
     {
         if (!$this->hasAllowProducts()) {
             $products = [];
@@ -112,7 +112,7 @@ class Mage_Catalog_Block_Product_View_Type_Configurable extends Mage_Catalog_Blo
      * @deprecated
      * @return Mage_Core_Model_Store
      */
-    public function getCurrentStore()
+    function getCurrentStore()
     {
         return $this->_getHelper()->getCurrentStore();
     }
@@ -132,7 +132,7 @@ class Mage_Catalog_Block_Product_View_Type_Configurable extends Mage_Catalog_Blo
      *
      * @return string
      */
-    public function getJsonConfig()
+    function getJsonConfig()
     {
         $attributes = [];
         $options    = [];

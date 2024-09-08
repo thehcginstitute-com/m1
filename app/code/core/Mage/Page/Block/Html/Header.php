@@ -25,7 +25,7 @@
  */
 class Mage_Page_Block_Html_Header extends Mage_Core_Block_Template
 {
-    public function _construct()
+    function _construct()
     {
         $this->setTemplate('page/html/header.phtml');
     }
@@ -35,7 +35,7 @@ class Mage_Page_Block_Html_Header extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function getIsHomePage()
+    function getIsHomePage()
     {
         return $this->getUrl('') == $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]);
     }
@@ -45,7 +45,7 @@ class Mage_Page_Block_Html_Header extends Mage_Core_Block_Template
      * @param string $logo_alt
      * @return $this
      */
-    public function setLogo($logo_src, $logo_alt)
+    function setLogo($logo_src, $logo_alt)
     {
         $this->setLogoSrc($logo_src);
         $this->setLogoAlt($logo_alt);
@@ -55,7 +55,7 @@ class Mage_Page_Block_Html_Header extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getLogoSrc()
+    function getLogoSrc()
     {
         if (empty($this->_data['logo_src'])) {
             $this->_data['logo_src'] = Mage::getStoreConfig('design/header/logo_src');
@@ -66,7 +66,7 @@ class Mage_Page_Block_Html_Header extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getLogoSrcSmall()
+    function getLogoSrcSmall()
     {
         if (empty($this->_data['logo_src_small'])) {
             $this->_data['logo_src_small'] = Mage::getStoreConfig('design/header/logo_src_small');
@@ -77,7 +77,7 @@ class Mage_Page_Block_Html_Header extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getLogoAlt()
+    function getLogoAlt()
     {
         if (empty($this->_data['logo_alt'])) {
             $this->_data['logo_alt'] = Mage::getStoreConfig('design/header/logo_alt');
@@ -92,7 +92,7 @@ class Mage_Page_Block_Html_Header extends Mage_Core_Block_Template
      * @see Mage_Page_Block_Html_Welcome
      * @return mixed
      */
-    public function getWelcome()
+    function getWelcome()
     {
         if (empty($this->_data['welcome'])) {
             if (Mage::isInstalled() && Mage::getSingleton('customer/session')->isLoggedIn()) {

@@ -38,7 +38,7 @@ abstract class Mage_Catalog_Block_Product_Compare_Abstract extends Mage_Catalog_
      * @param Mage_Catalog_Model_Product $item
      * @return string
      */
-    public function getRemoveUrl($item)
+    function getRemoveUrl($item)
     {
         return $this->_getHelper()->getRemoveUrl($item);
     }

@@ -57,7 +57,7 @@ class Mage_Adminhtml_System_Convert_ProfileController extends Mage_Adminhtml_Con
     /**
      * Profiles list action
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('System'))
              ->_title($this->__('Import and Export'))
@@ -96,7 +96,7 @@ class Mage_Adminhtml_System_Convert_ProfileController extends Mage_Adminhtml_Con
         $this->renderLayout();
     }
 
-    public function gridAction()
+    function gridAction()
     {
         $this->getResponse()->setBody(
             $this->getLayout()->createBlock('adminhtml/system_convert_profile_grid')->toHtml()
@@ -106,7 +106,7 @@ class Mage_Adminhtml_System_Convert_ProfileController extends Mage_Adminhtml_Con
     /**
      * Profile edit action
      */
-    public function editAction()
+    function editAction()
     {
         $this->_initProfile();
         $this->loadLayout();
@@ -139,7 +139,7 @@ class Mage_Adminhtml_System_Convert_ProfileController extends Mage_Adminhtml_Con
     /**
      * Create new profile action
      */
-    public function newAction()
+    function newAction()
     {
         $this->_forward('edit');
     }
@@ -147,7 +147,7 @@ class Mage_Adminhtml_System_Convert_ProfileController extends Mage_Adminhtml_Con
     /**
      * Delete profile action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $this->_initProfile();
         $profile = Mage::registry('current_convert_profile');
@@ -167,7 +167,7 @@ class Mage_Adminhtml_System_Convert_ProfileController extends Mage_Adminhtml_Con
     /**
      * Save profile action
      */
-    public function saveAction()
+    function saveAction()
     {
         if ($data = $this->getRequest()->getPost()) {
             if (!$this->_initProfile('profile_id')) {
@@ -205,14 +205,14 @@ class Mage_Adminhtml_System_Convert_ProfileController extends Mage_Adminhtml_Con
         }
     }
 
-    public function runAction()
+    function runAction()
     {
         $this->_initProfile();
         $this->loadLayout();
         $this->renderLayout();
     }
 
-    public function batchRunAction()
+    function batchRunAction()
     {
         if ($this->getRequest()->isPost()) {
             $batchId = $this->getRequest()->getPost('batch_id', 0);
@@ -279,7 +279,7 @@ class Mage_Adminhtml_System_Convert_ProfileController extends Mage_Adminhtml_Con
         }
     }
 
-    public function batchFinishAction()
+    function batchFinishAction()
     {
         $batchId = $this->getRequest()->getParam('id');
         if ($batchId) {
@@ -304,7 +304,7 @@ class Mage_Adminhtml_System_Convert_ProfileController extends Mage_Adminhtml_Con
     /**
      * Customer orders grid
      */
-    public function historyAction()
+    function historyAction()
     {
         $this->_initProfile();
         $this->getResponse()->setBody(

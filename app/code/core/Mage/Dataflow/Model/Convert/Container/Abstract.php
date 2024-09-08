@@ -45,7 +45,7 @@ abstract class Mage_Dataflow_Model_Convert_Container_Abstract implements Mage_Da
         return Mage::helper('core/string')->isSerializedArrayOrObject($data);
     }
 
-    public function getVar($key, $default = null)
+    function getVar($key, $default = null)
     {
         if (!isset($this->_vars[$key]) || (!is_array($this->_vars[$key]) && strlen($this->_vars[$key]) == 0)) {
             return $default;
@@ -53,12 +53,12 @@ abstract class Mage_Dataflow_Model_Convert_Container_Abstract implements Mage_Da
         return $this->_vars[$key];
     }
 
-    public function getVars()
+    function getVars()
     {
         return $this->_vars;
     }
 
-    public function setVar($key, $value = null)
+    function setVar($key, $value = null)
     {
         if (is_array($key) && is_null($value)) {
             $this->_vars = $key;
@@ -68,29 +68,29 @@ abstract class Mage_Dataflow_Model_Convert_Container_Abstract implements Mage_Da
         return $this;
     }
 
-    public function getAction()
+    function getAction()
     {
         return $this->_action;
     }
 
-    public function setAction(Mage_Dataflow_Model_Convert_Action_Interface $action)
+    function setAction(Mage_Dataflow_Model_Convert_Action_Interface $action)
     {
         $this->_action = $action;
         return $this;
     }
 
-    public function getProfile()
+    function getProfile()
     {
         return $this->_profile;
     }
 
-    public function setProfile(Mage_Dataflow_Model_Convert_Profile_Interface $profile)
+    function setProfile(Mage_Dataflow_Model_Convert_Profile_Interface $profile)
     {
         $this->_profile = $profile;
         return $this;
     }
 
-    public function getData()
+    function getData()
     {
         if (is_null($this->_data) && $this->getProfile()) {
             $this->_data = $this->getProfile()->getContainer()->getData();
@@ -98,7 +98,7 @@ abstract class Mage_Dataflow_Model_Convert_Container_Abstract implements Mage_Da
         return $this->_data;
     }
 
-    public function setData($data)
+    function setData($data)
     {
         if ($this->validateDataSerialized($data)) {
             if ($this->getProfile()) {
@@ -117,7 +117,7 @@ abstract class Mage_Dataflow_Model_Convert_Container_Abstract implements Mage_Da
      * @param mixed $data
      * @return bool
      */
-    public function validateDataSerialized($data = null)
+    function validateDataSerialized($data = null)
     {
         if (is_null($data)) {
             $data = $this->getData();
@@ -139,7 +139,7 @@ abstract class Mage_Dataflow_Model_Convert_Container_Abstract implements Mage_Da
         return $result;
     }
 
-    public function validateDataString($data = null)
+    function validateDataString($data = null)
     {
         if (is_null($data)) {
             $data = $this->getData();
@@ -150,7 +150,7 @@ abstract class Mage_Dataflow_Model_Convert_Container_Abstract implements Mage_Da
         return true;
     }
 
-    public function validateDataArray($data = null)
+    function validateDataArray($data = null)
     {
         if (is_null($data)) {
             $data = $this->getData();
@@ -161,7 +161,7 @@ abstract class Mage_Dataflow_Model_Convert_Container_Abstract implements Mage_Da
         return true;
     }
 
-    public function validateDataGrid($data = null)
+    function validateDataGrid($data = null)
     {
         if (is_null($data)) {
             $data = $this->getData();
@@ -178,7 +178,7 @@ abstract class Mage_Dataflow_Model_Convert_Container_Abstract implements Mage_Da
         return true;
     }
 
-    public function getGridFields($grid)
+    function getGridFields($grid)
     {
         $fields = [];
         foreach ($grid as $i => $row) {
@@ -191,7 +191,7 @@ abstract class Mage_Dataflow_Model_Convert_Container_Abstract implements Mage_Da
         return $fields;
     }
 
-    public function addException($error, $level = null)
+    function addException($error, $level = null)
     {
         $e = new Mage_Dataflow_Model_Convert_Exception($error);
         $e->setLevel(!is_null($level) ? $level : Mage_Dataflow_Model_Convert_Exception::NOTICE);
@@ -205,18 +205,18 @@ abstract class Mage_Dataflow_Model_Convert_Container_Abstract implements Mage_Da
         return $e;
     }
 
-    public function getPosition()
+    function getPosition()
     {
         return $this->_position;
     }
 
-    public function setPosition($position)
+    function setPosition($position)
     {
         $this->_position = $position;
         return $this;
     }
 
-    public function setBatchParams($data)
+    function setBatchParams($data)
     {
         if (is_array($data)) {
             $this->_batchParams = $data;
@@ -224,7 +224,7 @@ abstract class Mage_Dataflow_Model_Convert_Container_Abstract implements Mage_Da
         return $this;
     }
 
-    public function getBatchParams($key = null)
+    function getBatchParams($key = null)
     {
         if (!empty($key)) {
             return $this->_batchParams[$key] ?? null;

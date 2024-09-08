@@ -27,7 +27,7 @@ class Mage_Reports_Model_Event_Observer
     /**
      * Object initialization
      */
-    public function __construct()
+    function __construct()
     {
         $this->_enabledReports = Mage::helper('reports')->isReportsEnabled();
     }
@@ -74,7 +74,7 @@ class Mage_Reports_Model_Event_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function customerLogin(Varien_Event_Observer $observer)
+    function customerLogin(Varien_Event_Observer $observer)
     {
         if (!Mage::getSingleton('customer/session')->isLoggedIn() || !$this->_enabledReports) {
             return $this;
@@ -101,7 +101,7 @@ class Mage_Reports_Model_Event_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function customerLogout(Varien_Event_Observer $observer)
+    function customerLogout(Varien_Event_Observer $observer)
     {
         if ($this->_enabledReports) {
             Mage::getModel('reports/product_index_compared')
@@ -121,7 +121,7 @@ class Mage_Reports_Model_Event_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductView(Varien_Event_Observer $observer)
+    function catalogProductView(Varien_Event_Observer $observer)
     {
         if (!$this->_enabledReports) {
             return $this;
@@ -143,7 +143,7 @@ class Mage_Reports_Model_Event_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function sendfriendProduct(Varien_Event_Observer $observer)
+    function sendfriendProduct(Varien_Event_Observer $observer)
     {
         if (!$this->_enabledReports) {
             return $this;
@@ -163,7 +163,7 @@ class Mage_Reports_Model_Event_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductCompareRemoveProduct(Varien_Event_Observer $observer)
+    function catalogProductCompareRemoveProduct(Varien_Event_Observer $observer)
     {
         if ($this->_enabledReports) {
             Mage::getModel('reports/product_index_compared')->calculate();
@@ -180,7 +180,7 @@ class Mage_Reports_Model_Event_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductCompareClear(Varien_Event_Observer $observer)
+    function catalogProductCompareClear(Varien_Event_Observer $observer)
     {
         if ($this->_enabledReports) {
             Mage::getModel('reports/product_index_compared')->calculate();
@@ -197,7 +197,7 @@ class Mage_Reports_Model_Event_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductCompareAddProduct(Varien_Event_Observer $observer)
+    function catalogProductCompareAddProduct(Varien_Event_Observer $observer)
     {
         if (!$this->_enabledReports) {
             return $this;
@@ -219,7 +219,7 @@ class Mage_Reports_Model_Event_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function checkoutCartAddProduct(Varien_Event_Observer $observer)
+    function checkoutCartAddProduct(Varien_Event_Observer $observer)
     {
         if ($this->_enabledReports) {
             /** @var Mage_Sales_Model_Quote_Item $quoteItem */
@@ -239,7 +239,7 @@ class Mage_Reports_Model_Event_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function wishlistAddProduct(Varien_Event_Observer $observer)
+    function wishlistAddProduct(Varien_Event_Observer $observer)
     {
         if (!$this->_enabledReports) {
             return $this;
@@ -257,7 +257,7 @@ class Mage_Reports_Model_Event_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function wishlistShare(Varien_Event_Observer $observer)
+    function wishlistShare(Varien_Event_Observer $observer)
     {
         if (!$this->_enabledReports) {
             return $this;
@@ -277,7 +277,7 @@ class Mage_Reports_Model_Event_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function eventClean(Varien_Event_Observer $observer)
+    function eventClean(Varien_Event_Observer $observer)
     {
         /** @var Mage_Reports_Model_Event $event */
         $event = Mage::getModel('reports/event');

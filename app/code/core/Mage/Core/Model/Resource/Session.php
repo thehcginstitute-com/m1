@@ -64,7 +64,7 @@ class Mage_Core_Model_Resource_Session implements Zend_Session_SaveHandler_Inter
      */
     protected $_automaticCleaningFactor    = 50;
 
-    public function __construct()
+    function __construct()
     {
         $resource = Mage::getSingleton('core/resource');
         $this->_sessionTable = $resource->getTableName('core/session');
@@ -76,7 +76,7 @@ class Mage_Core_Model_Resource_Session implements Zend_Session_SaveHandler_Inter
      * Destrucor
      *
      */
-    public function __destruct()
+    function __destruct()
     {
         session_write_close();
     }
@@ -86,7 +86,7 @@ class Mage_Core_Model_Resource_Session implements Zend_Session_SaveHandler_Inter
      *
      * @return int
      */
-    public function getLifeTime()
+    function getLifeTime()
     {
         if (is_null($this->_lifeTime)) {
             $configNode = Mage::app()->getStore()->isAdmin() ?
@@ -113,7 +113,7 @@ class Mage_Core_Model_Resource_Session implements Zend_Session_SaveHandler_Inter
      *
      * @return bool
      */
-    public function hasConnection()
+    function hasConnection()
     {
         if (!$this->_read) {
             return false;
@@ -130,7 +130,7 @@ class Mage_Core_Model_Resource_Session implements Zend_Session_SaveHandler_Inter
      *
      * @return $this
      */
-    public function setSaveHandler()
+    function setSaveHandler()
     {
         if ($this->hasConnection()) {
             session_set_save_handler(
@@ -163,7 +163,7 @@ class Mage_Core_Model_Resource_Session implements Zend_Session_SaveHandler_Inter
      * @param string $sessName ignored
      * @return bool
      */
-    public function open($savePath, $sessName)
+    function open($savePath, $sessName)
     {
         return true;
     }
@@ -173,7 +173,7 @@ class Mage_Core_Model_Resource_Session implements Zend_Session_SaveHandler_Inter
      *
      * @return bool
      */
-    public function close()
+    function close()
     {
         $this->gc($this->getLifeTime());
 
@@ -186,7 +186,7 @@ class Mage_Core_Model_Resource_Session implements Zend_Session_SaveHandler_Inter
      * @param string $sessId
      * @return string
      */
-    public function read($sessId)
+    function read($sessId)
     {
         $select = $this->_read->select()
                 ->from($this->_sessionTable, ['session_data'])
@@ -209,7 +209,7 @@ class Mage_Core_Model_Resource_Session implements Zend_Session_SaveHandler_Inter
      * @param string $sessData
      * @return bool
      */
-    public function write($sessId, $sessData)
+    function write($sessId, $sessData)
     {
         $bindValues = [
             'session_id'      => $sessId
@@ -242,7 +242,7 @@ class Mage_Core_Model_Resource_Session implements Zend_Session_SaveHandler_Inter
      * @param string $sessId
      * @return bool
      */
-    public function destroy($sessId)
+    function destroy($sessId)
     {
         $where = ['session_id = ?' => $sessId];
         $this->_write->delete($this->_sessionTable, $where);
@@ -255,7 +255,7 @@ class Mage_Core_Model_Resource_Session implements Zend_Session_SaveHandler_Inter
      * @param int $sessMaxLifeTime ignored
      * @return bool
      */
-    public function gc($sessMaxLifeTime)
+    function gc($sessMaxLifeTime)
     {
         if ($this->_automaticCleaningFactor > 0) {
             if ($this->_automaticCleaningFactor == 1 ||

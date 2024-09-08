@@ -8,7 +8,7 @@ class IWD_OrderFlags_Block_Adminhtml_Flags_Order_Grid extends Mage_Adminhtml_Blo
     /**
      * @return mixed|string|void
      */
-    public function getFlagsForTypes()
+    function getFlagsForTypes()
     {
         $collection = Mage::getModel('iwd_orderflags/flags_flag_type')->getCollection()
             ->addFieldToSelect(
@@ -30,7 +30,7 @@ class IWD_OrderFlags_Block_Adminhtml_Flags_Order_Grid extends Mage_Adminhtml_Blo
     /**
      * @return bool
      */
-    public function isEnabled()
+    function isEnabled()
     {
         return Mage::getSingleton('admin/session')->isAllowed('iwd_orderflags/assign_flags');
     }

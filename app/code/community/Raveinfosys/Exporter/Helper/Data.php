@@ -4,7 +4,7 @@ class Raveinfosys_Exporter_Helper_Data extends Mage_Core_Helper_Abstract
 {
    public $error_file = '';
    
-    public function __construct()
+    function __construct()
     {
 		$this->error_file = Mage::getBaseDir('var') .'/raveinfosys/exporter/order_exception_log.htm';
         # 2023-01-14 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
@@ -18,7 +18,7 @@ class Raveinfosys_Exporter_Helper_Data extends Mage_Core_Helper_Abstract
 		chmod($this->error_file, 0777);
     }
    
-   public function logException(Exception $exception,$order_id,$type,$line_nuber = '') 
+   function logException(Exception $exception,$order_id,$type,$line_nuber = '')
    {
         $message = $exception->getMessage();
         $code = $exception->getCode();
@@ -56,7 +56,7 @@ class Raveinfosys_Exporter_Helper_Data extends Mage_Core_Helper_Abstract
         file_put_contents($this->error_file, $content.$log_message);
     }
 	
-	public function logAvailable($order_id,$type,$line_nuber) 
+	function logAvailable($order_id,$type,$line_nuber)
     {
         $message = "Order id already exist";
         $log_message = "<p><strong>Order Id:</strong> {$order_id}</p>
@@ -70,29 +70,29 @@ class Raveinfosys_Exporter_Helper_Data extends Mage_Core_Helper_Abstract
         file_put_contents($this->error_file, $content.$log_message);
     }
 	
-	public function header()
+	function header()
 	{
 	  file_put_contents($this->error_file, '<h3 style="text-align:center;">Error information:</h3><hr /><br />');
 	}
 	
-	public function isPrintable()
+	function isPrintable()
 	{
 	  if(filesize($this->error_file)>67)
 	  return true;
 	}
 	
-	public function footer()
+	function footer()
 	{
 	  $content = file_get_contents($this->error_file);
       file_put_contents($this->error_file, $content.'<br /><hr /><br /><br />');
 	}
 	
-	public function unlinkFile()
+	function unlinkFile()
 	{
 	  unlink($this->error_file);
 	}
 	
-	public function getVersion()
+	function getVersion()
 	{
 	  $m= new Mage;
 	  $version=$m->getVersion();

@@ -22,7 +22,7 @@
  */
 class Mage_Checkout_Model_Cart_Customer_Api extends Mage_Checkout_Model_Api_Resource_Customer
 {
-    public function __construct()
+    function __construct()
     {
         $this->_storeIdSessionField = "cart_store_id";
 
@@ -39,7 +39,7 @@ class Mage_Checkout_Model_Cart_Customer_Api extends Mage_Checkout_Model_Api_Reso
      * @param int|string $store
      * @return true
      */
-    public function set($quoteId, $customerData, $store = null)
+    function set($quoteId, $customerData, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
 
@@ -93,7 +93,7 @@ class Mage_Checkout_Model_Cart_Customer_Api extends Mage_Checkout_Model_Api_Reso
      * @param  int|string $store
      * @return true
      */
-    public function setAddresses($quoteId, $customerAddressData, $store = null)
+    function setAddresses($quoteId, $customerAddressData, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
 

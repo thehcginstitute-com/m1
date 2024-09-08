@@ -62,7 +62,7 @@ class Mage_Api2_Model_Auth_Adapter
      * @param Mage_Api2_Model_Request $request
      * @return stdClass
      */
-    public function getUserParams(Mage_Api2_Model_Request $request)
+    function getUserParams(Mage_Api2_Model_Request $request)
     {
         $this->_initAdapters();
 

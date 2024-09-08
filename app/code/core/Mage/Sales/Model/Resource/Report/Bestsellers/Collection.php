@@ -40,7 +40,7 @@ class Mage_Sales_Model_Resource_Report_Bestsellers_Collection extends Mage_Sales
      * Initialize custom resource model
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::_construct();
         $this->setModel('adminhtml/report_item');
@@ -163,7 +163,7 @@ class Mage_Sales_Model_Resource_Report_Bestsellers_Collection extends Mage_Sales
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $this->_renderFilters();
         $select = clone $this->getSelect();
@@ -177,7 +177,7 @@ class Mage_Sales_Model_Resource_Report_Bestsellers_Collection extends Mage_Sales
      * @param  array $storeIds
      * @return $this
      */
-    public function addStoreRestrictions($storeIds)
+    function addStoreRestrictions($storeIds)
     {
         if (!is_array($storeIds)) {
             $storeIds = [$storeIds];

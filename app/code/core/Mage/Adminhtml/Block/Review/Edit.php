@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Review_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -115,7 +115,7 @@ class Mage_Adminhtml_Block_Review_Edit extends Mage_Adminhtml_Block_Widget_Form_
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if (Mage::registry('review_data') && Mage::registry('review_data')->getId()) {
             return Mage::helper('review')->__("Edit Review '%s'", $this->escapeHtml(Mage::registry('review_data')->getTitle()));

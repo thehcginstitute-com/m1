@@ -2,7 +2,7 @@
 
 class SocialShare_OpenGraphTags_Model_System_Config_Source_Dropdown_Localization
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         return array(
             array('value'=>'af_ZA', 'label'=>Mage::helper('opengraphtags')->__('Afrikaans')),

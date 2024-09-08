@@ -72,7 +72,7 @@ class Mage_Rating_Model_Rating extends Mage_Core_Model_Abstract
      * @param string $entityPkValue
      * @return $this
      */
-    public function addOptionVote($optionId, $entityPkValue)
+    function addOptionVote($optionId, $entityPkValue)
     {
         Mage::getModel('rating/rating_option')->setOptionId($optionId)
             ->setRatingId($this->getId())
@@ -86,7 +86,7 @@ class Mage_Rating_Model_Rating extends Mage_Core_Model_Abstract
      * @param int $optionId
      * @return $this
      */
-    public function updateOptionVote($optionId)
+    function updateOptionVote($optionId)
     {
         Mage::getModel('rating/rating_option')->setOptionId($optionId)
             ->setVoteId($this->getVoteId())
@@ -101,7 +101,7 @@ class Mage_Rating_Model_Rating extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getOptions()
+    function getOptions()
     {
         if ($options = $this->getData('options')) {
             return $options;
@@ -123,7 +123,7 @@ class Mage_Rating_Model_Rating extends Mage_Core_Model_Abstract
      * @return array|Mage_Rating_Model_Rating
      */
 
-    public function getEntitySummary($entityPkValue, $onlyForCurrentStore = true)
+    function getEntitySummary($entityPkValue, $onlyForCurrentStore = true)
     {
         $this->setEntityPkValue($entityPkValue);
         return $this->_getResource()->getEntitySummary($this, $onlyForCurrentStore);
@@ -134,7 +134,7 @@ class Mage_Rating_Model_Rating extends Mage_Core_Model_Abstract
      * @param bool $onlyForCurrentStore
      * @return array
      */
-    public function getReviewSummary($reviewId, $onlyForCurrentStore = true)
+    function getReviewSummary($reviewId, $onlyForCurrentStore = true)
     {
         $this->setReviewId($reviewId);
         return $this->_getResource()->getReviewSummary($this, $onlyForCurrentStore);
@@ -146,7 +146,7 @@ class Mage_Rating_Model_Rating extends Mage_Core_Model_Abstract
      * @param string $entityCode
      * @return int
      */
-    public function getEntityIdByCode($entityCode)
+    function getEntityIdByCode($entityCode)
     {
         return $this->getResource()->getEntityIdByCode($entityCode);
     }

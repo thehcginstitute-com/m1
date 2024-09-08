@@ -24,7 +24,7 @@ class Mage_Catalog_Model_Product_Attribute_Tierprice_Api extends Mage_Catalog_Mo
 {
     public const ATTRIBUTE_CODE = 'tier_price';
 
-    public function __construct()
+    function __construct()
     {
         $this->_storeIdSessionField = 'product_store_id';
     }
@@ -35,7 +35,7 @@ class Mage_Catalog_Model_Product_Attribute_Tierprice_Api extends Mage_Catalog_Mo
      * @return array
      * @throws Mage_Core_Exception
      */
-    public function info($productId, $identifierType = null)
+    function info($productId, $identifierType = null)
     {
         $product = $this->_initProduct($productId, $identifierType);
         $tierPrices = $product->getData(self::ATTRIBUTE_CODE);
@@ -72,7 +72,7 @@ class Mage_Catalog_Model_Product_Attribute_Tierprice_Api extends Mage_Catalog_Mo
      * @return bool
      * @throws Mage_Api_Exception
      */
-    public function update($productId, $tierPrices, $identifierType = null)
+    function update($productId, $tierPrices, $identifierType = null)
     {
         $product = $this->_initProduct($productId, $identifierType);
 
@@ -110,7 +110,7 @@ class Mage_Catalog_Model_Product_Attribute_Tierprice_Api extends Mage_Catalog_Mo
      *  @param      array $tierPrices
      *  @return     array|null
      */
-    public function prepareTierPrices($product, $tierPrices = null)
+    function prepareTierPrices($product, $tierPrices = null)
     {
         if (!is_array($tierPrices)) {
             return null;

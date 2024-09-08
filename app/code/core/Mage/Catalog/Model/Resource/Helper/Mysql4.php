@@ -29,7 +29,7 @@ class Mage_Catalog_Model_Resource_Helper_Mysql4 extends Mage_Eav_Model_Resource_
      * @param string $eavType
      * @return string
      */
-    public function attributeSelectFields($tableAlias, $eavType)
+    function attributeSelectFields($tableAlias, $eavType)
     {
         return '*';
     }
@@ -42,7 +42,7 @@ class Mage_Catalog_Model_Resource_Helper_Mysql4 extends Mage_Eav_Model_Resource_
      * @param array $describe
      * @return bool
      */
-    public function compareIndexColumnProperties($column, $describe)
+    function compareIndexColumnProperties($column, $describe)
     {
         $type = $column['type'];
         if (isset($column['length'])) {
@@ -86,7 +86,7 @@ class Mage_Catalog_Model_Resource_Helper_Mysql4 extends Mage_Eav_Model_Resource_
      * @param string $field2
      * @return string
      */
-    public function getIsNullNotNullCondition($field1, $field2)
+    function getIsNullNotNullCondition($field1, $field2)
     {
         return sprintf('%s IS NOT NULL', $this->_getReadAdapter()->getIfNullSql($field1, $field2));
     }

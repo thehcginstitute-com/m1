@@ -29,7 +29,7 @@ class Mage_Checkout_Helper_Url extends Mage_Core_Helper_Url
      *
      * @return string
      */
-    public function getCartUrl()
+    function getCartUrl()
     {
         return $this->_getUrl('checkout/cart');
     }
@@ -39,7 +39,7 @@ class Mage_Checkout_Helper_Url extends Mage_Core_Helper_Url
      *
      * @return string
      */
-    public function getCheckoutUrl()
+    function getCheckoutUrl()
     {
         return $this->_getUrl('checkout/onepage');
     }
@@ -53,7 +53,7 @@ class Mage_Checkout_Helper_Url extends Mage_Core_Helper_Url
      *
      * @return string
      */
-    public function getMSCheckoutUrl()
+    function getMSCheckoutUrl()
     {
         return $this->_getUrl('checkout/multishipping');
     }
@@ -61,7 +61,7 @@ class Mage_Checkout_Helper_Url extends Mage_Core_Helper_Url
     /**
      * @return string
      */
-    public function getMSLoginUrl()
+    function getMSLoginUrl()
     {
         return $this->_getUrl('checkout/multishipping/login', ['_secure' => true, '_current' => true]);
     }
@@ -69,7 +69,7 @@ class Mage_Checkout_Helper_Url extends Mage_Core_Helper_Url
     /**
      * @return string
      */
-    public function getMSAddressesUrl()
+    function getMSAddressesUrl()
     {
         return $this->_getUrl('checkout/multishipping/addresses');
     }
@@ -77,7 +77,7 @@ class Mage_Checkout_Helper_Url extends Mage_Core_Helper_Url
     /**
      * @return string
      */
-    public function getMSShippingAddressSavedUrl()
+    function getMSShippingAddressSavedUrl()
     {
         return $this->_getUrl('checkout/multishipping_address/shippingSaved');
     }
@@ -85,7 +85,7 @@ class Mage_Checkout_Helper_Url extends Mage_Core_Helper_Url
     /**
      * @return string
      */
-    public function getMSRegisterUrl()
+    function getMSRegisterUrl()
     {
         return $this->_getUrl('checkout/multishipping/register');
     }
@@ -93,7 +93,7 @@ class Mage_Checkout_Helper_Url extends Mage_Core_Helper_Url
     /**
      * One Page (OP) checkout urls
      */
-    public function getOPCheckoutUrl()
+    function getOPCheckoutUrl()
     {
         return $this->_getUrl('checkout/onepage');
     }
@@ -103,7 +103,7 @@ class Mage_Checkout_Helper_Url extends Mage_Core_Helper_Url
      *
      * @return string
      */
-    public function getRegistrationUrl()
+    function getRegistrationUrl()
     {
         return $this->_getUrl('customer/account/create');
     }

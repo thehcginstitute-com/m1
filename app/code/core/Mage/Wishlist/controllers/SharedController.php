@@ -54,7 +54,7 @@ class Mage_Wishlist_SharedController extends Mage_Wishlist_Controller_Abstract
      * Shared wishlist view page
      *
      */
-    public function indexAction()
+    function indexAction()
     {
         $wishlist   = $this->_getWishlist();
         $customerId = Mage::getSingleton('customer/session')->getCustomerId();
@@ -79,7 +79,7 @@ class Mage_Wishlist_SharedController extends Mage_Wishlist_Controller_Abstract
      * to product view page with message about needed defined required options
      *
      */
-    public function cartAction()
+    function cartAction()
     {
         $itemId = (int) $this->getRequest()->getParam('item');
         $code = $this->getRequest()->getParam('code');

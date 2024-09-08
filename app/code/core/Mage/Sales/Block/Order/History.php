@@ -25,7 +25,7 @@
  */
 class Mage_Sales_Block_Order_History extends Mage_Core_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('sales/order/history.phtml');
@@ -59,7 +59,7 @@ class Mage_Sales_Block_Order_History extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getPagerHtml()
+    function getPagerHtml()
     {
         return $this->getChildHtml('pager');
     }
@@ -68,7 +68,7 @@ class Mage_Sales_Block_Order_History extends Mage_Core_Block_Template
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function getViewUrl($order)
+    function getViewUrl($order)
     {
         return $this->getUrl('*/*/view', ['order_id' => $order->getId()]);
     }
@@ -77,7 +77,7 @@ class Mage_Sales_Block_Order_History extends Mage_Core_Block_Template
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function getTrackUrl($order)
+    function getTrackUrl($order)
     {
         return $this->getUrl('*/*/track', ['order_id' => $order->getId()]);
     }
@@ -86,7 +86,7 @@ class Mage_Sales_Block_Order_History extends Mage_Core_Block_Template
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function getReorderUrl($order)
+    function getReorderUrl($order)
     {
         return $this->getUrl('*/*/reorder', ['order_id' => $order->getId()]);
     }
@@ -94,7 +94,7 @@ class Mage_Sales_Block_Order_History extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl('customer/account/');
     }

@@ -29,7 +29,7 @@ class Mage_Bundle_Block_Catalog_Product_Price extends Mage_Catalog_Block_Product
     /**
      * @return bool
      */
-    public function isRatesGraterThenZero()
+    function isRatesGraterThenZero()
     {
         $_request = Mage::getSingleton('tax/calculation')->getDefaultRateRequest();
         $_request->setProductClassId($this->getProduct()->getTaxClassId());
@@ -49,7 +49,7 @@ class Mage_Bundle_Block_Catalog_Product_Price extends Mage_Catalog_Block_Product
      * @return bool
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function displayBothPrices()
+    function displayBothPrices()
     {
         $product = $this->getProduct();
         if ($product->getPriceType() == Mage_Bundle_Model_Product_Price::PRICE_TYPE_DYNAMIC &&

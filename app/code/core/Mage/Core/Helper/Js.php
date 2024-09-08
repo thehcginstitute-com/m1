@@ -53,7 +53,7 @@ class Mage_Core_Helper_Js extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getTranslateJson()
+    function getTranslateJson()
     {
         return Mage::helper('core')->jsonEncode($this->_getTranslateData());
     }
@@ -63,7 +63,7 @@ class Mage_Core_Helper_Js extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getTranslatorScript()
+    function getTranslatorScript()
     {
         $script = 'var Translator = new Translate(' . $this->getTranslateJson() . ');';
         return $this->getScript($script);
@@ -75,7 +75,7 @@ class Mage_Core_Helper_Js extends Mage_Core_Helper_Abstract
      * @param   string $script
      * @return  string script
      */
-    public function getScript($script)
+    function getScript($script)
     {
         return '<script type="text/javascript">//<![CDATA[
         ' . $script . '
@@ -88,7 +88,7 @@ class Mage_Core_Helper_Js extends Mage_Core_Helper_Abstract
      * @param   string $file
      * @return  string
      */
-    public function includeScript($file)
+    function includeScript($file)
     {
         return '<script type="text/javascript" src="' . $this->getJsUrl($file) . '"></script>' . "\n";
     }
@@ -99,7 +99,7 @@ class Mage_Core_Helper_Js extends Mage_Core_Helper_Abstract
      * @param   string $file
      * @return  string
      */
-    public function includeSkinScript($file)
+    function includeSkinScript($file)
     {
         return '<script type="text/javascript" src="' . $this->getJsSkinUrl($file) . '"></script>';
     }
@@ -110,7 +110,7 @@ class Mage_Core_Helper_Js extends Mage_Core_Helper_Abstract
      * @param   string $file
      * @return  string
      */
-    public function getJsUrl($file)
+    function getJsUrl($file)
     {
         return Mage::getBaseUrl('js') . $file;
     }
@@ -121,7 +121,7 @@ class Mage_Core_Helper_Js extends Mage_Core_Helper_Abstract
      * @param   string $file
      * @return  string
      */
-    public function getJsSkinUrl($file)
+    function getJsSkinUrl($file)
     {
         return Mage::getDesign()->getSkinUrl($file, []);
     }
@@ -191,7 +191,7 @@ class Mage_Core_Helper_Js extends Mage_Core_Helper_Abstract
      * @return string
      * @uses Mage_Core_Helper_Abstract::jsQuoteEscape()
      */
-    public function getDeleteConfirmJs(string $url, ?string $message = null): string
+    function getDeleteConfirmJs(string $url, ?string $message = null): string
     {
         if (is_null($message)) {
             $message = Mage::helper('adminhtml')->__('Are you sure you want to do this?');
@@ -209,7 +209,7 @@ class Mage_Core_Helper_Js extends Mage_Core_Helper_Abstract
      * @return string
      * @uses Mage_Core_Helper_Abstract::jsQuoteEscape()
      */
-    public function getConfirmSetLocationJs(string $url, ?string $message = null): string
+    function getConfirmSetLocationJs(string $url, ?string $message = null): string
     {
         if (is_null($message)) {
             $message = Mage::helper('adminhtml')->__('Are you sure you want to do this?');
@@ -225,7 +225,7 @@ class Mage_Core_Helper_Js extends Mage_Core_Helper_Abstract
      * @param string $url
      * @return string
      */
-    public function getSetLocationJs(string $url): string
+    function getSetLocationJs(string $url): string
     {
         return 'setLocation(\'' . $url . '\')';
     }
@@ -236,7 +236,7 @@ class Mage_Core_Helper_Js extends Mage_Core_Helper_Abstract
      * @param string $url
      * @return string
      */
-    public function getSaveAndContinueEditJs(string $url): string
+    function getSaveAndContinueEditJs(string $url): string
     {
         return 'saveAndContinueEdit(\'' . $url . '\')';
     }

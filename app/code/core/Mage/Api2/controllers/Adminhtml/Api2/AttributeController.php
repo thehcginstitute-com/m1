@@ -33,7 +33,7 @@ class Mage_Api2_Adminhtml_Api2_AttributeController extends Mage_Adminhtml_Contro
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions(['save']);
         return parent::preDispatch();
@@ -42,7 +42,7 @@ class Mage_Api2_Adminhtml_Api2_AttributeController extends Mage_Adminhtml_Contro
     /**
      * Show user types grid
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('System'))
              ->_title($this->__('Web Services'))
@@ -60,7 +60,7 @@ class Mage_Api2_Adminhtml_Api2_AttributeController extends Mage_Adminhtml_Contro
     /**
      * Edit role
      */
-    public function editAction()
+    function editAction()
     {
         $this->loadLayout()
             ->_setActiveMenu('system/services/attributes');
@@ -88,7 +88,7 @@ class Mage_Api2_Adminhtml_Api2_AttributeController extends Mage_Adminhtml_Contro
     /**
      * Save role
      */
-    public function saveAction()
+    function saveAction()
     {
         $request = $this->getRequest();
 

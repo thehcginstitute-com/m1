@@ -34,7 +34,7 @@ abstract class Mage_Core_Model_Message_Abstract
      * @param string $type
      * @param string $code
      */
-    public function __construct($type, $code = '')
+    function __construct($type, $code = '')
     {
         $this->_type = $type;
         $this->_code = $code;
@@ -43,7 +43,7 @@ abstract class Mage_Core_Model_Message_Abstract
     /**
      * @return string
      */
-    public function getCode()
+    function getCode()
     {
         return $this->_code;
     }
@@ -51,7 +51,7 @@ abstract class Mage_Core_Model_Message_Abstract
     /**
      * @return string
      */
-    public function getText()
+    function getText()
     {
         return $this->getCode();
     }
@@ -59,7 +59,7 @@ abstract class Mage_Core_Model_Message_Abstract
     /**
      * @return string
      */
-    public function getType()
+    function getType()
     {
         return $this->_type;
     }
@@ -68,7 +68,7 @@ abstract class Mage_Core_Model_Message_Abstract
      * @param string $class
      * @return $this
      */
-    public function setClass($class)
+    function setClass($class)
     {
         $this->_class = $class;
         return $this;
@@ -78,7 +78,7 @@ abstract class Mage_Core_Model_Message_Abstract
      * @param string $method
      * @return $this
      */
-    public function setMethod($method)
+    function setMethod($method)
     {
         $this->_method = $method;
         return $this;
@@ -87,7 +87,7 @@ abstract class Mage_Core_Model_Message_Abstract
     /**
      * @return string
      */
-    public function toString()
+    function toString()
     {
         return $this->getType() . ': ' . $this->getText();
     }
@@ -98,7 +98,7 @@ abstract class Mage_Core_Model_Message_Abstract
      * @param string $id
      * @return Mage_Core_Model_Message_Abstract
      */
-    public function setIdentifier($id)
+    function setIdentifier($id)
     {
         $this->_identifier = $id;
         return $this;
@@ -109,7 +109,7 @@ abstract class Mage_Core_Model_Message_Abstract
      *
      *  @return string
      */
-    public function getIdentifier()
+    function getIdentifier()
     {
         return $this->_identifier;
     }
@@ -120,7 +120,7 @@ abstract class Mage_Core_Model_Message_Abstract
      * @param bool $isSticky
      * @return Mage_Core_Model_Message_Abstract
      */
-    public function setIsSticky($isSticky = true)
+    function setIsSticky($isSticky = true)
     {
         $this->_isSticky = $isSticky;
         return $this;
@@ -131,7 +131,7 @@ abstract class Mage_Core_Model_Message_Abstract
      *
      * @return bool
      */
-    public function getIsSticky()
+    function getIsSticky()
     {
         return $this->_isSticky;
     }
@@ -142,7 +142,7 @@ abstract class Mage_Core_Model_Message_Abstract
      * @param string $code
      * @return Mage_Core_Model_Message_Abstract
      */
-    public function setCode($code)
+    function setCode($code)
     {
         $this->_code = $code;
         return $this;

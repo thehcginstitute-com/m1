@@ -22,7 +22,7 @@ class Mage_Adminhtml_Model_System_Config_Source_Website
 {
     protected $_options;
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         if (!$this->_options) {
             $this->_options = [];

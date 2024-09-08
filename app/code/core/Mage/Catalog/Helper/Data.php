@@ -69,7 +69,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $store
      * @return $this
      */
-    public function setStoreId($store)
+    function setStoreId($store)
     {
         $this->_storeId = $store;
         return $this;
@@ -81,7 +81,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getBreadcrumbPath()
+    function getBreadcrumbPath()
     {
         if (!$this->_categoryPath) {
             $path = [];
@@ -133,7 +133,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Catalog_Model_Category|null
      */
-    public function getCategory()
+    function getCategory()
     {
         return Mage::registry('current_category');
     }
@@ -143,7 +143,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Catalog_Model_Product|null
      */
-    public function getProduct()
+    function getProduct()
     {
         return Mage::registry('current_product');
     }
@@ -153,7 +153,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getLastViewedUrl()
+    function getLastViewedUrl()
     {
         if ($productId = Mage::getSingleton('catalog/session')->getLastViewedProductId()) {
             $product = Mage::getModel('catalog/product')->load($productId);
@@ -181,7 +181,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $length
      * @return array
      */
-    public function splitSku($sku, $length = 30)
+    function splitSku($sku, $length = 30)
     {
         return Mage::helper('core/string')->str_split($sku, $length, true, false, '[\-\s]');
     }
@@ -191,7 +191,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getAttributeHiddenFields()
+    function getAttributeHiddenFields()
     {
         if (Mage::registry('attribute_type_hidden_fields')) {
             return Mage::registry('attribute_type_hidden_fields');
@@ -205,7 +205,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getAttributeDisabledTypes()
+    function getAttributeDisabledTypes()
     {
         if (Mage::registry('attribute_type_disabled_types')) {
             return Mage::registry('attribute_type_disabled_types');
@@ -219,7 +219,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return int
      */
-    public function getPriceScope()
+    function getPriceScope()
     {
         return Mage::getStoreConfig(self::XML_PATH_PRICE_SCOPE);
     }
@@ -229,7 +229,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isPriceGlobal()
+    function isPriceGlobal()
     {
         return $this->getPriceScope() == self::PRICE_SCOPE_GLOBAL;
     }
@@ -240,7 +240,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $storeId Store View
      * @return bool
      */
-    public function shouldSaveUrlRewritesHistory($storeId = null)
+    function shouldSaveUrlRewritesHistory($storeId = null)
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_SEO_SAVE_HISTORY, $storeId);
     }
@@ -250,7 +250,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isUsingStaticUrlsAllowed()
+    function isUsingStaticUrlsAllowed()
     {
         return Mage::getStoreConfigFlag(self::CONFIG_USE_STATIC_URLS, $this->_storeId);
     }
@@ -260,7 +260,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isUrlDirectivesParsingAllowed()
+    function isUrlDirectivesParsingAllowed()
     {
         return Mage::getStoreConfigFlag(self::CONFIG_PARSE_URL_DIRECTIVES, $this->_storeId);
     }
@@ -270,7 +270,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return false|Mage_Core_Model_Abstract
      */
-    public function getPageTemplateProcessor()
+    function getPageTemplateProcessor()
     {
         $model = (string)Mage::getConfig()->getNode(self::XML_PATH_CONTENT_TEMPLATE_FILTER);
         return Mage::getModel($model);
@@ -281,7 +281,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
     *
     * @return array
     */
-    public function getOldFieldMap()
+    function getOldFieldMap()
     {
         $node = Mage::getConfig()->getNode('global/catalog_product/old_fields_map');
         if ($node === false) {
@@ -294,7 +294,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isMsrpEnabled()
+    function isMsrpEnabled()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_MSRP_ENABLED, $this->_storeId);
     }
@@ -304,7 +304,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return null|string
      */
-    public function getMsrpDisplayActualPriceType()
+    function getMsrpDisplayActualPriceType()
     {
         return Mage::getStoreConfig(self::XML_PATH_MSRP_DISPLAY_ACTUAL_PRICE_TYPE, $this->_storeId);
     }
@@ -314,7 +314,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isMsrpApplyToAll()
+    function isMsrpApplyToAll()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_MSRP_APPLY_TO_ALL, $this->_storeId);
     }
@@ -324,7 +324,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getMsrpExplanationMessage()
+    function getMsrpExplanationMessage()
     {
         return $this->escapeHtml(
             Mage::getStoreConfig(self::XML_PATH_MSRP_EXPLANATION_MESSAGE, $this->_storeId),
@@ -337,7 +337,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getMsrpExplanationMessageWhatsThis()
+    function getMsrpExplanationMessageWhatsThis()
     {
         return $this->escapeHtml(
             Mage::getStoreConfig(self::XML_PATH_MSRP_EXPLANATION_MESSAGE_WHATS_THIS, $this->_storeId),
@@ -354,7 +354,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      * @param bool $checkAssociatedItems
      * @return bool
      */
-    public function canApplyMsrp($product, $visibility = null, $checkAssociatedItems = true)
+    function canApplyMsrp($product, $visibility = null, $checkAssociatedItems = true)
     {
         if (!$this->isMsrpEnabled()) {
             return false;
@@ -406,7 +406,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Catalog_Model_Product $product
      * @return bool
      */
-    public function canApplyMsrpToProductType($product)
+    function canApplyMsrpToProductType($product)
     {
         if ($this->_mapApplyToProductType === null) {
             /** @var Mage_Catalog_Model_Resource_Eav_Attribute $attribute */
@@ -423,7 +423,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Catalog_Model_Product $product
      * @return string
      */
-    public function getMsrpPriceMessage($product)
+    function getMsrpPriceMessage($product)
     {
         $message = "";
         if ($this->canApplyMsrp($product, Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type::TYPE_IN_CART)) {
@@ -440,7 +440,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Catalog_Model_Product $product
      * @return bool
      */
-    public function isShowPriceOnGesture($product)
+    function isShowPriceOnGesture($product)
     {
         return $this->canApplyMsrp(
             $product,
@@ -453,7 +453,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $storeId Store view ID
      * @return bool
      */
-    public function shouldDisplayProductCountOnLayer($storeId = null)
+    function shouldDisplayProductCountOnLayer($storeId = null)
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_DISPLAY_PRODUCT_COUNT, $storeId);
     }

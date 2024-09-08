@@ -35,7 +35,7 @@ class Mage_Sales_Model_Resource_Report_Collection_Abstract extends Mage_Reports_
      * @param string $orderStatus
      * @return $this
      */
-    public function addOrderStatusFilter($orderStatus)
+    function addOrderStatusFilter($orderStatus)
     {
         $this->_orderStatus = $orderStatus;
         return $this;

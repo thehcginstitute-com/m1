@@ -25,7 +25,7 @@ class Mage_Oauth_Block_Adminhtml_Oauth_Consumer extends Mage_Adminhtml_Block_Wid
     /**
      * Construct grid container
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 

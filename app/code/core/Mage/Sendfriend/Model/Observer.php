@@ -28,7 +28,7 @@ class Mage_Sendfriend_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function register(Varien_Event_Observer $observer)
+    function register(Varien_Event_Observer $observer)
     {
         Mage::getModel('sendfriend/sendfriend')->register();
         return $this;

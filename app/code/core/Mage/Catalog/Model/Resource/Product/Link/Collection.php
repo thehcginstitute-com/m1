@@ -54,7 +54,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Collection extends Mage_Core_Mode
      * @param Mage_Catalog_Model_Product_Link $linkModel
      * @return $this
      */
-    public function setLinkModel(Mage_Catalog_Model_Product_Link $linkModel)
+    function setLinkModel(Mage_Catalog_Model_Product_Link $linkModel)
     {
         $this->_linkModel = $linkModel;
         if ($linkModel->hasLinkTypeId()) {
@@ -68,7 +68,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Collection extends Mage_Core_Mode
      *
      * @return Mage_Catalog_Model_Product_Link
      */
-    public function getLinkModel()
+    function getLinkModel()
     {
         return $this->_linkModel;
     }
@@ -79,7 +79,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Collection extends Mage_Core_Mode
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function setProduct(Mage_Catalog_Model_Product $product)
+    function setProduct(Mage_Catalog_Model_Product $product)
     {
         $this->_product = $product;
         return $this;
@@ -90,7 +90,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Collection extends Mage_Core_Mode
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return $this->_product;
     }
@@ -100,7 +100,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function addLinkTypeIdFilter()
+    function addLinkTypeIdFilter()
     {
         if ($this->_linkTypeId) {
             $this->addFieldToFilter('link_type_id', ['eq' => $this->_linkTypeId]);
@@ -113,7 +113,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function addProductIdFilter()
+    function addProductIdFilter()
     {
         if ($this->getProduct() && $this->getProduct()->getId()) {
             $this->addFieldToFilter('product_id', ['eq' => $this->getProduct()->getId()]);
@@ -126,7 +126,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function joinAttributes()
+    function joinAttributes()
     {
         if (!$this->getLinkModel()) {
             return $this;

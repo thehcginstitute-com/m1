@@ -70,7 +70,7 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction extends Mage_Sales_Mod
      *
      * @param Mage_Sales_Model_Order_Payment_Transaction $transaction
      */
-    public function injectAsParent(Mage_Sales_Model_Order_Payment_Transaction $transaction)
+    function injectAsParent(Mage_Sales_Model_Order_Payment_Transaction $transaction)
     {
         $txnId = $transaction->getTxnId();
         if ($txnId && Mage_Sales_Model_Order_Payment_Transaction::TYPE_PAYMENT === $transaction->getTxnType()
@@ -112,7 +112,7 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction extends Mage_Sales_Mod
      * @param int $paymentId
      * @param string $txnId
      */
-    public function loadObjectByTxnId(
+    function loadObjectByTxnId(
         Mage_Sales_Model_Order_Payment_Transaction $transaction,
         $orderId,
         $paymentId,
@@ -131,7 +131,7 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction extends Mage_Sales_Mod
      * @param int $orderId
      * @return string
      */
-    public function getOrderWebsiteId($orderId)
+    function getOrderWebsiteId($orderId)
     {
         $adapter = $this->_getReadAdapter();
         $bind    = [':entity_id' => $orderId];

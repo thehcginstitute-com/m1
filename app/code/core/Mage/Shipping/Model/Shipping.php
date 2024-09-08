@@ -56,7 +56,7 @@ class Mage_Shipping_Model_Shipping
      *
      * @return Mage_Shipping_Model_Rate_Result
      */
-    public function getResult()
+    function getResult()
     {
         if (empty($this->_result)) {
             $this->_result = Mage::getModel('shipping/rate_result');
@@ -69,7 +69,7 @@ class Mage_Shipping_Model_Shipping
      *
      * @param array $data
      */
-    public function setOrigData($data)
+    function setOrigData($data)
     {
         $this->_orig = $data;
     }
@@ -79,7 +79,7 @@ class Mage_Shipping_Model_Shipping
      *
      * @return $this
      */
-    public function resetResult()
+    function resetResult()
     {
         $this->getResult()->reset();
         return $this;
@@ -90,7 +90,7 @@ class Mage_Shipping_Model_Shipping
      *
      * @return Mage_Shipping_Model_Config
      */
-    public function getConfig()
+    function getConfig()
     {
         return Mage::getSingleton('shipping/config');
     }
@@ -102,7 +102,7 @@ class Mage_Shipping_Model_Shipping
      * @return $this
      * @todo make it ordered
      */
-    public function collectRates(Mage_Shipping_Model_Rate_Request $request)
+    function collectRates(Mage_Shipping_Model_Rate_Request $request)
     {
         $storeId = $request->getStoreId();
         if (!$request->getOrig()) {
@@ -143,7 +143,7 @@ class Mage_Shipping_Model_Shipping
      * @param Mage_Shipping_Model_Rate_Request $request
      * @return $this
      */
-    public function collectCarrierRates($carrierCode, $request)
+    function collectCarrierRates($carrierCode, $request)
     {
         /** @var Mage_Shipping_Model_Carrier_Abstract $carrier */
         $carrier = $this->getCarrierByCode($carrierCode, $request->getStoreId());
@@ -224,7 +224,7 @@ class Mage_Shipping_Model_Shipping
      * @param Mage_Shipping_Model_Rate_Request $request
      * @return array [int, float]
      */
-    public function composePackagesForCarrier($carrier, $request)
+    function composePackagesForCarrier($carrier, $request)
     {
         $allItems   = $request->getAllItems();
         $fullItems  = [];
@@ -359,7 +359,7 @@ class Mage_Shipping_Model_Shipping
      * @param null|bool|array $limitCarrier
      * @return $this
      */
-    public function collectRatesByAddress(Varien_Object $address, $limitCarrier = null)
+    function collectRatesByAddress(Varien_Object $address, $limitCarrier = null)
     {
         /** @var Mage_Shipping_Model_Rate_Request $request */
         $request = Mage::getModel('shipping/rate_request');
@@ -390,7 +390,7 @@ class Mage_Shipping_Model_Shipping
      * @param string $code
      * @return $this
      */
-    public function setCarrierAvailabilityConfigField($code = 'active')
+    function setCarrierAvailabilityConfigField($code = 'active')
     {
         $this->_availabilityConfigField = $code;
         return $this;
@@ -403,7 +403,7 @@ class Mage_Shipping_Model_Shipping
      * @param null|int $storeId
      * @return bool|Mage_Core_Model_Abstract
      */
-    public function getCarrierByCode($carrierCode, $storeId = null)
+    function getCarrierByCode($carrierCode, $storeId = null)
     {
         if (!Mage::getStoreConfigFlag('carriers/' . $carrierCode . '/' . $this->_availabilityConfigField, $storeId)) {
             return false;
@@ -425,7 +425,7 @@ class Mage_Shipping_Model_Shipping
      * @param Mage_Sales_Model_Order_Shipment $orderShipment
      * @return Varien_Object
      */
-    public function requestToShipment(Mage_Sales_Model_Order_Shipment $orderShipment)
+    function requestToShipment(Mage_Sales_Model_Order_Shipment $orderShipment)
     {
         $admin = Mage::getSingleton('admin/session')->getUser();
         $order = $orderShipment->getOrder();

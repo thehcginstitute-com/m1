@@ -69,7 +69,7 @@ class Mage_Reports_Model_Resource_Customer_Collection extends Mage_Customer_Mode
      *
      * @return $this
      */
-    public function addCartInfo()
+    function addCartInfo()
     {
         foreach ($this->getItems() as $item) {
             $quote = Mage::getModel('sales/quote')->loadByCustomer($item->getId());
@@ -92,7 +92,7 @@ class Mage_Reports_Model_Resource_Customer_Collection extends Mage_Customer_Mode
      *
      * @return $this
      */
-    public function addCustomerName()
+    function addCustomerName()
     {
         $this->addNameToSelect();
         return $this;
@@ -105,7 +105,7 @@ class Mage_Reports_Model_Resource_Customer_Collection extends Mage_Customer_Mode
      * @param string $to
      * @return $this
      */
-    public function joinOrders($from = '', $to = '')
+    function joinOrders($from = '', $to = '')
     {
         if ($from != '' && $to != '') {
             $dateFilter = " AND orders.created_at BETWEEN '{$from}' AND '{$to}'";
@@ -128,7 +128,7 @@ class Mage_Reports_Model_Resource_Customer_Collection extends Mage_Customer_Mode
      *
      * @return $this
      */
-    public function addOrdersCount()
+    function addOrdersCount()
     {
         $this->getSelect()
             ->columns(["orders_count" => "COUNT(orders.entity_id)"])
@@ -145,7 +145,7 @@ class Mage_Reports_Model_Resource_Customer_Collection extends Mage_Customer_Mode
      * @param int $storeId
      * @return $this
      */
-    public function addSumAvgTotals($storeId = 0)
+    function addSumAvgTotals($storeId = 0)
     {
         $adapter = $this->getConnection();
         $baseSubtotalRefunded   = $adapter->getIfNullSql('orders.base_subtotal_refunded', 0);
@@ -171,7 +171,7 @@ class Mage_Reports_Model_Resource_Customer_Collection extends Mage_Customer_Mode
      * @param string $dir
      * @return $this
      */
-    public function orderByTotalAmount($dir = self::SORT_ORDER_DESC)
+    function orderByTotalAmount($dir = self::SORT_ORDER_DESC)
     {
         $this->getSelect()
             ->order("orders_sum_amount {$dir}");
@@ -184,7 +184,7 @@ class Mage_Reports_Model_Resource_Customer_Collection extends Mage_Customer_Mode
      * @param int|bool $isFilter
      * @return $this
      */
-    public function addOrdersStatistics($isFilter = false)
+    function addOrdersStatistics($isFilter = false)
     {
         $this->_addOrderStatistics          = true;
         $this->_addOrderStatisticsIsFilter  = (bool)$isFilter;
@@ -252,7 +252,7 @@ class Mage_Reports_Model_Resource_Customer_Collection extends Mage_Customer_Mode
      * @param string $dir
      * @return $this
      */
-    public function orderByCustomerRegistration($dir = self::SORT_ORDER_DESC)
+    function orderByCustomerRegistration($dir = self::SORT_ORDER_DESC)
     {
         $this->addAttributeToSort('entity_id', $dir);
         return $this;
@@ -263,7 +263,7 @@ class Mage_Reports_Model_Resource_Customer_Collection extends Mage_Customer_Mode
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $countSelect = clone $this->getSelect();
         $countSelect->reset(Zend_Db_Select::ORDER);

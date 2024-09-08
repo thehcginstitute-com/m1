@@ -32,7 +32,7 @@ class Mage_Adminhtml_Helper_Addresses extends Mage_Core_Helper_Abstract
      * @param Mage_Customer_Model_Attribute $attribute
      * @return Mage_Customer_Model_Attribute
      */
-    public function processStreetAttribute(Mage_Customer_Model_Attribute $attribute)
+    function processStreetAttribute(Mage_Customer_Model_Attribute $attribute)
     {
         if ($attribute->getScopeMultilineCount() <= 0) {
             $attribute->setScopeMultilineCount(self::DEFAULT_STREET_LINES_COUNT);

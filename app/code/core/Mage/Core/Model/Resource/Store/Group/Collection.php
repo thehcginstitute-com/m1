@@ -47,7 +47,7 @@ class Mage_Core_Model_Resource_Store_Group_Collection extends Mage_Core_Model_Re
      *
      * @return $this
      */
-    public function setLoadDefault($loadDefault)
+    function setLoadDefault($loadDefault)
     {
         return $this->setFlag('load_default_store_group', (bool)$loadDefault);
     }
@@ -57,7 +57,7 @@ class Mage_Core_Model_Resource_Store_Group_Collection extends Mage_Core_Model_Re
      *
      * @return bool
      */
-    public function getLoadDefault()
+    function getLoadDefault()
     {
         return $this->getFlag('load_default_store_group');
     }
@@ -67,7 +67,7 @@ class Mage_Core_Model_Resource_Store_Group_Collection extends Mage_Core_Model_Re
      *
      * @return $this
      */
-    public function setWithoutDefaultFilter()
+    function setWithoutDefaultFilter()
     {
         return $this->addFieldToFilter('main_table.group_id', ['gt' => 0]);
     }
@@ -77,7 +77,7 @@ class Mage_Core_Model_Resource_Store_Group_Collection extends Mage_Core_Model_Re
      *
      * @return $this
      */
-    public function setWithoutStoreViewFilter()
+    function setWithoutStoreViewFilter()
     {
         return $this->addFieldToFilter('main_table.default_store_id', ['gt' => 0]);
     }
@@ -85,7 +85,7 @@ class Mage_Core_Model_Resource_Store_Group_Collection extends Mage_Core_Model_Re
     /**
      * @inheritDoc
      */
-    public function _beforeLoad()
+    function _beforeLoad()
     {
         if (!$this->getLoadDefault()) {
             $this->setWithoutDefaultFilter();
@@ -99,7 +99,7 @@ class Mage_Core_Model_Resource_Store_Group_Collection extends Mage_Core_Model_Re
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->_toOptionArray('group_id', 'name');
     }
@@ -111,7 +111,7 @@ class Mage_Core_Model_Resource_Store_Group_Collection extends Mage_Core_Model_Re
      *
      * @return $this
      */
-    public function addWebsiteFilter($website)
+    function addWebsiteFilter($website)
     {
         return $this->addFieldToFilter('main_table.website_id', ['in' => $website]);
     }

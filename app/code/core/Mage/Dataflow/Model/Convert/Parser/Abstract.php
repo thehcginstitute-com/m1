@@ -55,7 +55,7 @@ abstract class Mage_Dataflow_Model_Convert_Parser_Abstract extends Mage_Dataflow
      *
      * @return Mage_Dataflow_Model_Batch
      */
-    public function getBatchModel()
+    function getBatchModel()
     {
         if (is_null($this->_batch)) {
             $this->_batch = Mage::getSingleton('dataflow/batch');
@@ -68,7 +68,7 @@ abstract class Mage_Dataflow_Model_Convert_Parser_Abstract extends Mage_Dataflow
      *
      * @return Mage_Dataflow_Model_Batch_Export
      */
-    public function getBatchExportModel()
+    function getBatchExportModel()
     {
         if (is_null($this->_batchExport)) {
             $object = Mage::getModel('dataflow/batch_export');
@@ -82,7 +82,7 @@ abstract class Mage_Dataflow_Model_Convert_Parser_Abstract extends Mage_Dataflow
      *
      * @return Mage_Dataflow_Model_Batch_Import
      */
-    public function getBatchImportModel()
+    function getBatchImportModel()
     {
         if (is_null($this->_batchImport)) {
             $object = Mage::getModel('dataflow/batch_import');

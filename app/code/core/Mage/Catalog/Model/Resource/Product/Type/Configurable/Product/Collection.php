@@ -60,7 +60,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Product_Collection e
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function setProductFilter($product)
+    function setProductFilter($product)
     {
         $this->getSelect()->where('link_table.parent_id = ?', (int) $product->getId());
         return $this;
@@ -72,7 +72,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Product_Collection e
      *
      * @return bool
      */
-    public function isEnabledFlat()
+    function isEnabledFlat()
     {
         return false;
     }

@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Transactions_Grid extends Mage_Adminhtml_Block_
     /**
      * Set grid params
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('order_transactions');
@@ -129,7 +129,7 @@ class Mage_Adminhtml_Block_Sales_Transactions_Grid extends Mage_Adminhtml_Block_
      *
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/grid', ['_current' => true]);
     }
@@ -139,7 +139,7 @@ class Mage_Adminhtml_Block_Sales_Transactions_Grid extends Mage_Adminhtml_Block_
      *
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/view', ['txn_id' => $row->getId()]);
     }

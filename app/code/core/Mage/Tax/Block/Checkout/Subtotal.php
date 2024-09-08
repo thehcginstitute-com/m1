@@ -42,7 +42,7 @@ class Mage_Tax_Block_Checkout_Subtotal extends Mage_Checkout_Block_Total_Default
      *
      * @param array $args
      */
-    public function __construct(array $args = [])
+    function __construct(array $args = [])
     {
         $this->_factory = !empty($args['factory']) ? $args['factory'] : Mage::getSingleton('core/factory');
     }
@@ -50,7 +50,7 @@ class Mage_Tax_Block_Checkout_Subtotal extends Mage_Checkout_Block_Total_Default
     /**
      * @return bool
      */
-    public function displayBoth()
+    function displayBoth()
     {
         return Mage::getSingleton('tax/config')->displayCartSubtotalBoth($this->getStore());
     }

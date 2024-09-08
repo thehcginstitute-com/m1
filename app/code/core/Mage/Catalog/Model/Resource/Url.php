@@ -72,7 +72,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $storeId
      * @return Mage_Core_Model_Store|Mage_Core_Model_Store[]
      */
-    public function getStores($storeId = null)
+    function getStores($storeId = null)
     {
         if ($this->_stores === null) {
             $this->_stores = $this->_prepareStoreRootCategories(Mage::app()->getStores());
@@ -88,7 +88,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      *
      * @return Mage_Catalog_Model_Category
      */
-    public function getCategoryModel()
+    function getCategoryModel()
     {
         return Mage::getSingleton('catalog/category');
     }
@@ -98,7 +98,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProductModel()
+    function getProductModel()
     {
         return Mage::getSingleton('catalog/product');
     }
@@ -110,7 +110,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $storeId
      * @return Varien_Object|false
      */
-    public function getRewriteByIdPath($idPath, $storeId)
+    function getRewriteByIdPath($idPath, $storeId)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()
@@ -139,7 +139,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $storeId
      * @return Varien_Object|false
      */
-    public function getRewriteByRequestPath($requestPath, $storeId)
+    function getRewriteByRequestPath($requestPath, $storeId)
     {
         $adapter = $this->_getWriteAdapter();
         $select = $adapter->select()
@@ -169,7 +169,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $storeId
      * @return int
      */
-    public function getLastUsedRewriteRequestIncrement($prefix, $suffix, $storeId)
+    function getLastUsedRewriteRequestIncrement($prefix, $suffix, $storeId)
     {
         $adapter = $this->_getWriteAdapter();
         $requestPathField = new Zend_Db_Expr($adapter->quoteIdentifier('request_path'));
@@ -204,7 +204,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $storeId
      * @return false | string
      */
-    public function checkRequestPaths($paths, $storeId)
+    function checkRequestPaths($paths, $storeId)
     {
         $adapter = $this->_getWriteAdapter();
         $select = $adapter->select()
@@ -229,7 +229,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int|array $productIds
      * @return array
      */
-    public function prepareRewrites($storeId, $categoryIds = null, $productIds = null)
+    function prepareRewrites($storeId, $categoryIds = null, $productIds = null)
     {
         $rewrites   = [];
         $adapter    = $this->_getWriteAdapter();
@@ -283,7 +283,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param Varien_Object|Mage_Core_Model_Url_Rewrite $rewrite
      * @return $this
      */
-    public function saveRewrite($rewriteData, $rewrite)
+    function saveRewrite($rewriteData, $rewrite)
     {
         $adapter = $this->_getWriteAdapter();
         try {
@@ -318,7 +318,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param array $rewriteData
      * @return $this
      */
-    public function saveRewriteHistory($rewriteData)
+    function saveRewriteHistory($rewriteData)
     {
         $rewriteData = new Varien_Object($rewriteData);
         // check if rewrite exists with save request_path
@@ -338,7 +338,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param string $attributeCode
      * @return $this
      */
-    public function saveCategoryAttribute(Varien_Object $category, $attributeCode)
+    function saveCategoryAttribute(Varien_Object $category, $attributeCode)
     {
         $adapter = $this->_getWriteAdapter();
         if (!isset($this->_categoryAttributes[$attributeCode])) {
@@ -492,7 +492,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param string $attributeCode
      * @return $this
      */
-    public function saveProductAttribute(Varien_Object $product, $attributeCode)
+    function saveProductAttribute(Varien_Object $product, $attributeCode)
     {
         $adapter = $this->_getWriteAdapter();
         if (!isset($this->_productAttributes[$attributeCode])) {
@@ -566,7 +566,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param string $storeId
      * @return array
      */
-    public function _getProductAttribute($attributeCode, $productIds, $storeId)
+    function _getProductAttribute($attributeCode, $productIds, $storeId)
     {
         $adapter = $this->_getReadAdapter();
         if (!isset($this->_productAttributes[$attributeCode])) {
@@ -782,7 +782,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $storeId
      * @return Varien_Object|false
      */
-    public function getCategory($categoryId, $storeId)
+    function getCategory($categoryId, $storeId)
     {
         if (!$categoryId || !$storeId) {
             return false;
@@ -799,7 +799,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $storeId
      * @return Mage_Catalog_Model_Category[]|false
      */
-    public function getCategories($categoryIds, $storeId)
+    function getCategories($categoryIds, $storeId)
     {
         if (!$categoryIds || !$storeId) {
             return false;
@@ -814,7 +814,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param Varien_Object $category
      * @return Varien_Object
      */
-    public function loadCategoryChilds(Varien_Object $category)
+    function loadCategoryChilds(Varien_Object $category)
     {
         if ($category->getId() === null || $category->getStoreId() === null) {
             return $category;
@@ -854,7 +854,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param bool $includeStart
      * @return Varien_Object
      */
-    public function getRootChildrenIds($categoryId, $categoryPath, $includeStart = true)
+    function getRootChildrenIds($categoryId, $categoryPath, $includeStart = true)
     {
         if (!isset($this->_rootChildrenIds[$categoryId])) {
             // Select all descedant category ids
@@ -884,7 +884,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param Varien_Object $category
      * @return string
      */
-    public function getCategoryParentPath(Varien_Object $category)
+    function getCategoryParentPath(Varien_Object $category)
     {
         $store = Mage::app()->getStore($category->getStoreId());
 
@@ -904,7 +904,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param Varien_Object|int $category
      * @return array
      */
-    public function getProductIdsByCategory($category)
+    function getProductIdsByCategory($category)
     {
         if ($category instanceof Varien_Object) {
             $categoryId = $category->getId();
@@ -1004,7 +1004,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $storeId
      * @return Varien_Object|false
      */
-    public function getProduct($productId, $storeId)
+    function getProduct($productId, $storeId)
     {
         $entityId = 0;
         $products = $this->_getProducts($productId, $storeId, 0, $entityId);
@@ -1018,7 +1018,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $lastEntityId
      * @return Mage_Catalog_Model_Product[]
      */
-    public function getProductsByStore($storeId, &$lastEntityId)
+    function getProductsByStore($storeId, &$lastEntityId)
     {
         return $this->_getProducts(null, $storeId, $lastEntityId, $lastEntityId);
     }
@@ -1030,7 +1030,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $lastEntityId
      * @return array
      */
-    public function getProductsByCategory(Varien_Object $category, &$lastEntityId)
+    function getProductsByCategory(Varien_Object $category, &$lastEntityId)
     {
         $productIds = $this->getProductIdsByCategory($category);
         if (!$productIds) {
@@ -1046,7 +1046,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $storeId
      * @return $this
      */
-    public function clearCategoryProduct($storeId)
+    function clearCategoryProduct($storeId)
     {
         $adapter = $this->_getWriteAdapter();
         $select = $adapter->select()
@@ -1081,7 +1081,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param array $excludeCategoryIds Array of category Ids that should be skipped
      * @return $this
      */
-    public function clearProductRewrites($productId, $storeId, $excludeCategoryIds = [])
+    function clearProductRewrites($productId, $storeId, $excludeCategoryIds = [])
     {
         $where = [
             'product_id = ?' => $productId,
@@ -1106,7 +1106,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $storeId
      * @return $this
      */
-    public function clearStoreCategoriesInvalidRewrites($storeId)
+    function clearStoreCategoriesInvalidRewrites($storeId)
     {
         // Form a list of all current store categories ids
         $store          = $this->getStores($storeId);
@@ -1140,7 +1140,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int|array|null $productId
      * @return $this
      */
-    public function clearStoreProductsInvalidRewrites($storeId, $productId = null)
+    function clearStoreProductsInvalidRewrites($storeId, $productId = null)
     {
         $store   = $this->getStores($storeId);
         $adapter = $this->_getReadAdapter();
@@ -1180,7 +1180,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $storeId
      * @return $this
      */
-    public function clearStoreInvalidRewrites($storeId)
+    function clearStoreInvalidRewrites($storeId)
     {
         $this->clearStoreCategoriesInvalidRewrites($storeId);
         $this->clearStoreProductsInvalidRewrites($storeId);
@@ -1194,7 +1194,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param array $productIds
      * @return $this
      */
-    public function deleteCategoryProductRewrites($categoryId, $productIds)
+    function deleteCategoryProductRewrites($categoryId, $productIds)
     {
         $this->deleteCategoryProductStoreRewrites($categoryId, $productIds);
         return $this;
@@ -1208,7 +1208,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param null|int $storeId
      * @return $this
      */
-    public function deleteCategoryProductStoreRewrites($categoryId, $productIds = null, $storeId = null)
+    function deleteCategoryProductStoreRewrites($categoryId, $productIds = null, $storeId = null)
     {
         // Notice that we don't include category_id = NULL in case of root category,
         // because product removed from all categories but assigned to store's website is still
@@ -1240,7 +1240,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param array $products
      * @return array
      */
-    public function getRewriteByProductStore(array $products)
+    function getRewriteByProductStore(array $products)
     {
         $result = [];
 
@@ -1298,7 +1298,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param array $_checkedPaths internal varible to prevent infinite loops.
      * @return string | bool
      */
-    public function findFinalTargetPath($requestPath, $storeId, &$_checkedPaths = [])
+    function findFinalTargetPath($requestPath, $storeId, &$_checkedPaths = [])
     {
         if (in_array($requestPath, $_checkedPaths)) {
             return false;
@@ -1329,7 +1329,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param string $requestPath
      * @param int $storeId
      */
-    public function deleteRewrite($requestPath, $storeId)
+    function deleteRewrite($requestPath, $storeId)
     {
         $this->deleteRewriteRecord($requestPath, $storeId);
     }
@@ -1341,7 +1341,7 @@ class Mage_Catalog_Model_Resource_Url extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $storeId
      * @param bool $rp whether check rewrite option to be "Redirect = Permanent"
      */
-    public function deleteRewriteRecord($requestPath, $storeId, $rp = false)
+    function deleteRewriteRecord($requestPath, $storeId, $rp = false)
     {
         $conditions =  [
             'store_id = ?' => $storeId,

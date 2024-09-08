@@ -61,7 +61,7 @@ class Mage_Sales_Model_Resource_Order_Creditmemo_Collection extends Mage_Sales_M
      * @param array|null $filter
      * @return $this
      */
-    public function getFiltered($filter = null)
+    function getFiltered($filter = null)
     {
         if (is_array($filter)) {
             foreach ($filter as $field => $value) {

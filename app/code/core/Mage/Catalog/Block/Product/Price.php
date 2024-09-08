@@ -46,7 +46,7 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         $product = $this->_getData('product');
         if (!$product) {
@@ -60,7 +60,7 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
      *
      * @return float
      */
-    public function getDisplayMinimalPrice()
+    function getDisplayMinimalPrice()
     {
         return $this->_getData('display_minimal_price');
     }
@@ -71,7 +71,7 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
      * @param string $idSuffix
      * @return $this
      */
-    public function setIdSuffix($idSuffix)
+    function setIdSuffix($idSuffix)
     {
         $this->_idSuffix = $idSuffix;
         return $this;
@@ -82,7 +82,7 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
      *
      * @return string
      */
-    public function getIdSuffix()
+    function getIdSuffix()
     {
         return $this->_idSuffix;
     }
@@ -94,7 +94,7 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
      * @param Mage_Catalog_Model_Product $parent
      * @return array
      */
-    public function getTierPrices($product = null, $parent = null)
+    function getTierPrices($product = null, $parent = null)
     {
         if (is_null($product)) {
             $product = $this->getProduct();
@@ -171,7 +171,7 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
      * @param array $additional
      * @return string
      */
-    public function getAddToCartUrl($product, $additional = [])
+    function getAddToCartUrl($product, $additional = [])
     {
         return $this->getAddToCartUrlCustom($product, $additional);
     }
@@ -195,7 +195,7 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
      * @param Mage_Catalog_Model_Product $product
      * @return string
      */
-    public function getRealPriceJs($product)
+    function getRealPriceJs($product)
     {
         $html = $this->hasRealPriceHtml() ? $this->getRealPriceHtml() : $product->getRealPriceHtml();
         return Mage::helper('core')->jsonEncode($html);
@@ -206,7 +206,7 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         return array_merge(parent::getCacheTags(), $this->getProduct()->getCacheIdTags());
     }
@@ -219,7 +219,7 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
      * @param string|int|Mage_Core_Model_Config_Element $attribute
      * @return Mage_Eav_Model_Entity_Attribute_Abstract | false
      */
-    public function getProductAttribute($attribute)
+    function getProductAttribute($attribute)
     {
         return $this->getProduct()->getResource()->getAttribute($attribute);
     }
@@ -232,7 +232,7 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
      * @param bool $addFormKey
      * @return string
      */
-    public function getAddToCartUrlCustom($product, $additional = [], $addFormKey = true)
+    function getAddToCartUrlCustom($product, $additional = [], $addFormKey = true)
     {
         /** @var Mage_Checkout_Helper_Cart $helper */
         $helper = $this->helper('checkout/cart');

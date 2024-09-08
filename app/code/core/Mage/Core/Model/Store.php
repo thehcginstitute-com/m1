@@ -285,7 +285,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
     /**
      * @inheritDoc
      */
-    public function load($id, $field = null)
+    function load($id, $field = null)
     {
         if (!is_numeric($id) && is_null($field)) {
             $this->_getResource()->load($this, $id, 'code');
@@ -300,7 +300,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * @param   string $code
      * @return  $this
      */
-    public function loadConfig($code)
+    function loadConfig($code)
     {
         if (is_numeric($code)) {
             foreach (Mage::getConfig()->getNode()->stores->children() as $storeCode => $store) {
@@ -326,7 +326,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getCode()
+    function getCode()
     {
         return $this->_getData('code');
     }
@@ -337,7 +337,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * @param   string $path
      * @return  string|null
      */
-    public function getConfig($path)
+    function getConfig($path)
     {
         if (isset($this->_configCache[$path])) {
             return $this->_configCache[$path];
@@ -363,7 +363,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function initConfigCache()
+    function initConfigCache()
     {
         /**
          * Funtionality related with config separation
@@ -397,7 +397,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * Get the basic configuration nodes for this store view
      * @return array
      */
-    public function getConfigCache()
+    function getConfigCache()
     {
         $data = [];
 
@@ -413,7 +413,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * @param array $data
      * @return $this
      */
-    public function setConfigCache($data)
+    function setConfigCache($data)
     {
         $this->_configCache = $data;
         return $this;
@@ -428,7 +428,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * @param mixed $value
      * @return $this
      */
-    public function setConfig($path, $value)
+    function setConfig($path, $value)
     {
         if (isset($this->_configCache[$path])) {
             $this->_configCache[$path] = $value;
@@ -444,7 +444,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @param Mage_Core_Model_Website $website
      */
-    public function setWebsite(Mage_Core_Model_Website $website)
+    function setWebsite(Mage_Core_Model_Website $website)
     {
         $this->_website = $website;
     }
@@ -454,7 +454,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_Website|false
      */
-    public function getWebsite()
+    function getWebsite()
     {
         if (is_null($this->getWebsiteId())) {
             return false;
@@ -519,7 +519,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * @param string $value
      * @return string
      */
-    public function processSubst($value)
+    function processSubst($value)
     {
         if (!is_string($value)) {
             return $value;
@@ -542,7 +542,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getDefaultBasePath()
+    function getDefaultBasePath()
     {
         if (!isset($_SERVER['SCRIPT_NAME'])) {
             return '/';
@@ -557,7 +557,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * @param   array $params
      * @return  string
      */
-    public function getUrl($route = '', $params = [])
+    function getUrl($route = '', $params = [])
     {
         /** @var Mage_Core_Model_Url $url */
         $url = Mage::getModel('core/url')
@@ -576,7 +576,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * @param bool|null $secure
      * @return string
      */
-    public function getBaseUrl($type = self::URL_TYPE_LINK, $secure = null)
+    function getBaseUrl($type = self::URL_TYPE_LINK, $secure = null)
     {
         $cacheKey = $type . '/' . (is_null($secure) ? 'null' : ($secure ? 'true' : 'false'));
         if (!isset($this->_baseUrlCache[$cacheKey])) {
@@ -692,7 +692,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function getStoreInUrl()
+    function getStoreInUrl()
     {
         return Mage::isInstalled() && $this->getConfig(self::XML_PATH_STORE_IN_URL);
     }
@@ -702,7 +702,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return  int
      */
-    public function getId()
+    function getId()
     {
         return $this->_getData('store_id');
     }
@@ -712,7 +712,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isAdmin()
+    function isAdmin()
     {
         return $this->getId() == Mage_Core_Model_App::ADMIN_STORE_ID;
     }
@@ -722,7 +722,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isAdminUrlSecure()
+    function isAdminUrlSecure()
     {
         if ($this->_isAdminSecure === null) {
             $this->_isAdminSecure = (bool) (int) (string) Mage::getConfig()
@@ -736,7 +736,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isFrontUrlSecure()
+    function isFrontUrlSecure()
     {
         if ($this->_isFrontSecure === null) {
             $this->_isFrontSecure = Mage::getStoreConfigFlag(
@@ -752,7 +752,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isCurrentlySecure()
+    function isCurrentlySecure()
     {
         if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
             return true;
@@ -789,7 +789,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getBaseCurrencyCode()
+    function getBaseCurrencyCode()
     {
         $configValue = $this->getConfig(self::XML_PATH_PRICE_SCOPE);
         if ($configValue == self::PRICE_SCOPE_GLOBAL) {
@@ -804,7 +804,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return Mage_Directory_Model_Currency
      */
-    public function getBaseCurrency()
+    function getBaseCurrency()
     {
         $currency = $this->getData('base_currency');
         if (is_null($currency)) {
@@ -819,7 +819,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getDefaultCurrencyCode()
+    function getDefaultCurrencyCode()
     {
         return $this->getConfig(Mage_Directory_Model_Currency::XML_PATH_CURRENCY_DEFAULT);
     }
@@ -829,7 +829,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return Mage_Directory_Model_Currency
      */
-    public function getDefaultCurrency()
+    function getDefaultCurrency()
     {
         $currency = $this->getData('default_currency');
         if (is_null($currency)) {
@@ -845,7 +845,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * @param   string $code
      * @return  $this
      */
-    public function setCurrentCurrencyCode($code)
+    function setCurrentCurrencyCode($code)
     {
         $code = strtoupper($code);
         if (in_array($code, $this->getAvailableCurrencyCodes())) {
@@ -864,7 +864,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getCurrentCurrencyCode()
+    function getCurrentCurrencyCode()
     {
         // try to get currently set code among allowed
         $code = $this->_getSession()->getCurrencyCode();
@@ -893,7 +893,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * @param bool $skipBaseNotAllowed
      * @return array
      */
-    public function getAvailableCurrencyCodes($skipBaseNotAllowed = false)
+    function getAvailableCurrencyCodes($skipBaseNotAllowed = false)
     {
         $codes = $this->getData('available_currency_codes');
         if (is_null($codes)) {
@@ -926,7 +926,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return Mage_Directory_Model_Currency
      */
-    public function getCurrentCurrency()
+    function getCurrentCurrency()
     {
         $currency = $this->getData('current_currency');
 
@@ -950,7 +950,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return float
      */
-    public function getCurrentCurrencyRate()
+    function getCurrentCurrencyRate()
     {
         return $this->getBaseCurrency()->getRate($this->getCurrentCurrency());
     }
@@ -963,7 +963,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * @param   bool $includeContainer   Enclose into <span class="price"><span>
      * @return  double
      */
-    public function convertPrice($price, $format = false, $includeContainer = true)
+    function convertPrice($price, $format = false, $includeContainer = true)
     {
         if ($this->getCurrentCurrency() && $this->getBaseCurrency()) {
             $value = $this->getBaseCurrency()->convert($price, $this->getCurrentCurrency());
@@ -983,7 +983,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * @param mixed $price
      * @return double
      */
-    public function roundPrice($price)
+    function roundPrice($price)
     {
         return round((float)$price, 2);
     }
@@ -995,7 +995,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * @param   bool $includeContainer
      * @return  string
      */
-    public function formatPrice($price, $includeContainer = true)
+    function formatPrice($price, $includeContainer = true)
     {
         if ($this->getCurrentCurrency()) {
             return $this->getCurrentCurrency()->format($price, [], $includeContainer);
@@ -1008,7 +1008,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return Varien_Filter_Sprintf
      */
-    public function getPriceFilter()
+    function getPriceFilter()
     {
         if (!$this->_priceFilter) {
             if ($this->getBaseCurrency() && $this->getCurrentCurrency()) {
@@ -1028,7 +1028,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getRootCategoryId()
+    function getRootCategoryId()
     {
         if (!$this->getGroup()) {
             return 0;
@@ -1041,7 +1041,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @param Mage_Core_Model_Store_Group $group
      */
-    public function setGroup($group)
+    function setGroup($group)
     {
         $this->_group = $group;
     }
@@ -1051,7 +1051,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_Store_Group|false
      */
-    public function getGroup()
+    function getGroup()
     {
         if (is_null($this->getGroupId())) {
             return false;
@@ -1067,7 +1067,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return int|string|null
      */
-    public function getWebsiteId()
+    function getWebsiteId()
     {
         return $this->_getData('website_id');
     }
@@ -1077,7 +1077,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return int|string|null
      */
-    public function getGroupId()
+    function getGroupId()
     {
         return $this->_getData('group_id');
     }
@@ -1087,7 +1087,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return int|string|null
      */
-    public function getDefaultGroupId()
+    function getDefaultGroupId()
     {
         return $this->_getData('default_group_id');
     }
@@ -1097,7 +1097,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isCanDelete()
+    function isCanDelete()
     {
         if (!$this->getId()) {
             return false;
@@ -1112,7 +1112,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * @param bool|string $fromStore
      * @return string
      */
-    public function getCurrentUrl($fromStore = true)
+    function getCurrentUrl($fromStore = true)
     {
         $sidQueryParam = $this->_getSession()->getSessionIdQueryParam();
         $requestString = Mage::getSingleton('core/url')->escape(
@@ -1158,7 +1158,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return bool|null
      */
-    public function getIsActive()
+    function getIsActive()
     {
         return $this->_getData('is_active');
     }
@@ -1168,7 +1168,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return string|null
      */
-    public function getName()
+    function getName()
     {
         return $this->_getData('name');
     }
@@ -1216,7 +1216,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function resetConfig()
+    function resetConfig()
     {
         Mage::getConfig()->reinit();
         $this->_dirCache        = [];
@@ -1233,7 +1233,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      * @param bool $value
      * @return bool
      */
-    public function isReadOnly($value = null)
+    function isReadOnly($value = null)
     {
         if ($value !== null) {
             $this->_isReadOnly = (bool) $value;
@@ -1246,7 +1246,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getFrontendName()
+    function getFrontendName()
     {
         if (is_null($this->_frontendName)) {
             $storeGroupName = (string) Mage::getStoreConfig(self::XML_PATH_STORE_STORE_NAME, $this);

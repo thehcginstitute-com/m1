@@ -182,7 +182,7 @@ class Mage_Oauth_Model_Server
      * @param Zend_Controller_Request_Http $request OPTIONAL Request object (If not specified - use singleton)
      * @throws Exception
      */
-    public function __construct($request = null)
+    function __construct($request = null)
     {
         if (is_object($request)) {
             if (!$request instanceof Zend_Controller_Request_Http) {
@@ -567,7 +567,7 @@ class Mage_Oauth_Model_Server
     /**
      * Process request for permanent access token
      */
-    public function accessToken()
+    function accessToken()
     {
         try {
             $this->_processRequest(self::REQUEST_TOKEN);
@@ -586,7 +586,7 @@ class Mage_Oauth_Model_Server
      * @param string $userType Authorization user type
      * @return Mage_Oauth_Model_Token
      */
-    public function authorizeToken($userId, $userType)
+    function authorizeToken($userId, $userType)
     {
         $token = $this->checkAuthorizeRequest();
 
@@ -600,7 +600,7 @@ class Mage_Oauth_Model_Server
      *
      * @return Mage_Oauth_Model_Token
      */
-    public function checkAccessRequest()
+    function checkAccessRequest()
     {
         $this->_processRequest(self::REQUEST_RESOURCE);
 
@@ -612,7 +612,7 @@ class Mage_Oauth_Model_Server
      *
      * @return Mage_Oauth_Model_Token
      */
-    public function checkAuthorizeRequest()
+    function checkAuthorizeRequest()
     {
         if (!$this->_request->isGet()) {
             Mage::throwException('Request is not GET');
@@ -638,7 +638,7 @@ class Mage_Oauth_Model_Server
     /**
      * Process request for temporary (initiative) token
      */
-    public function initiateToken()
+    function initiateToken()
     {
         try {
             $this->_processRequest(self::REQUEST_INITIATE);
@@ -658,7 +658,7 @@ class Mage_Oauth_Model_Server
      * @return string
      * @throws Zend_Controller_Response_Exception
      */
-    public function reportProblem(Exception $e, Zend_Controller_Response_Http $response = null)
+    function reportProblem(Exception $e, Zend_Controller_Response_Http $response = null)
     {
         $eMsg = $e->getMessage();
 
@@ -695,7 +695,7 @@ class Mage_Oauth_Model_Server
      * @param Zend_Controller_Response_Http $response
      * @return $this
      */
-    public function setResponse(Zend_Controller_Response_Http $response)
+    function setResponse(Zend_Controller_Response_Http $response)
     {
         $this->_response = $response;
 

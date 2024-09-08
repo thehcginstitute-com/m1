@@ -62,7 +62,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @param Mage_Catalog_Model_Product_Option $option
      * @return $this
      */
-    public function setOption($option)
+    function setOption($option)
     {
         $this->_option = $option;
         return $this;
@@ -74,7 +74,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @return Mage_Catalog_Model_Product_Option
      * @throws Mage_Core_Exception
      */
-    public function getOption()
+    function getOption()
     {
         if ($this->_option instanceof Mage_Catalog_Model_Product_Option) {
             return $this->_option;
@@ -88,7 +88,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function setProduct($product)
+    function setProduct($product)
     {
         $this->_product = $product;
         return $this;
@@ -100,7 +100,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @throws Mage_Core_Exception
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         if ($this->_product instanceof Mage_Catalog_Model_Product) {
             return $this->_product;
@@ -113,7 +113,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      *
      * @return Mage_Catalog_Model_Product_Configuration_Item_Option_Interface
      */
-    public function getConfigurationItemOption()
+    function getConfigurationItemOption()
     {
         if ($this->_getData('configuration_item_option') instanceof Mage_Catalog_Model_Product_Configuration_Item_Option_Interface) {
             return $this->_getData('configuration_item_option');
@@ -134,7 +134,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @return Mage_Catalog_Model_Product_Configuration_Item_Option_Interface
      * @deprecated after 1.4.2.0
      */
-    public function getQuoteItemOption()
+    function getQuoteItemOption()
     {
         return $this->getConfigurationItemOption();
     }
@@ -144,7 +144,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      *
      * @return Mage_Catalog_Model_Product_Configuration_Item_Interface
      */
-    public function getConfigurationItem()
+    function getConfigurationItem()
     {
         if ($this->_getData('configuration_item') instanceof Mage_Catalog_Model_Product_Configuration_Item_Interface) {
             return $this->_getData('configuration_item');
@@ -165,7 +165,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @return Mage_Catalog_Model_Product_Configuration_Item_Interface
      * @deprecated after 1.4.2.0
      */
-    public function getQuoteItem()
+    function getQuoteItem()
     {
         return $this->getConfigurationItem();
     }
@@ -175,7 +175,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      *
      * @return Varien_Object
      */
-    public function getRequest()
+    function getRequest()
     {
         if ($this->_getData('request') instanceof Varien_Object) {
             return $this->_getData('request');
@@ -189,7 +189,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @param string $key Config value key
      * @return string
      */
-    public function getConfigData($key)
+    function getConfigData($key)
     {
         return Mage::getStoreConfig('catalog/custom_options/' . $key);
     }
@@ -201,7 +201,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @param array $values All product option values, i.e. array (option_id => mixed, option_id => mixed...)
      * @return $this
      */
-    public function validateUserValue($values)
+    function validateUserValue($values)
     {
         Mage::getSingleton('checkout/session')->setUseNotice(false);
 
@@ -222,7 +222,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      *
      * @return bool
      */
-    public function getSkipCheckRequiredOption()
+    function getSkipCheckRequiredOption()
     {
         return $this->getProduct()->getSkipCheckRequiredOption() ||
             $this->getProcessMode() == Mage_Catalog_Model_Product_Type_Abstract::PROCESS_MODE_LITE;
@@ -234,7 +234,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @throws Mage_Core_Exception
      * @return mixed Prepared option value
      */
-    public function prepareForCart()
+    function prepareForCart()
     {
         if ($this->getIsValid()) {
             return $this->getUserValue();
@@ -247,7 +247,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      *
      * @return bool
      */
-    public function isCustomizedView()
+    function isCustomizedView()
     {
         return false;
     }
@@ -258,7 +258,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @param string $optionValue Prepared for cart option value
      * @return string
      */
-    public function getFormattedOptionValue($optionValue)
+    function getFormattedOptionValue($optionValue)
     {
         return $optionValue;
     }
@@ -269,7 +269,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @param array $optionInfo
      * @return string|array
      */
-    public function getCustomizedView($optionInfo)
+    function getCustomizedView($optionInfo)
     {
         return $optionInfo['value'] ?? $optionInfo;
     }
@@ -280,7 +280,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @param string $optionValue Prepared for cart option value
      * @return string
      */
-    public function getPrintableOptionValue($optionValue)
+    function getPrintableOptionValue($optionValue)
     {
         return $optionValue;
     }
@@ -292,7 +292,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @param string $optionValue Prepared for cart option value
      * @return string
      */
-    public function getEditableOptionValue($optionValue)
+    function getEditableOptionValue($optionValue)
     {
         return $optionValue;
     }
@@ -304,7 +304,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @param array $productOptionValues Values for product option
      * @return string|null
      */
-    public function parseOptionValue($optionValue, $productOptionValues)
+    function parseOptionValue($optionValue, $productOptionValues)
     {
         return $optionValue;
     }
@@ -315,7 +315,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @param string $optionValue
      * @return mixed
      */
-    public function prepareOptionValueForRequest($optionValue)
+    function prepareOptionValueForRequest($optionValue)
     {
         return $optionValue;
     }
@@ -327,7 +327,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @param float $basePrice For percent price type
      * @return float
      */
-    public function getOptionPrice($optionValue, $basePrice)
+    function getOptionPrice($optionValue, $basePrice)
     {
         $option = $this->getOption();
 
@@ -345,7 +345,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @param string $skuDelimiter Delimiter for Sku parts
      * @return string
      */
-    public function getOptionSku($optionValue, $skuDelimiter)
+    function getOptionSku($optionValue, $skuDelimiter)
     {
         return $this->getOption()->getSku();
     }
@@ -355,7 +355,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      *
      * @return array Array of Product custom options, reversing option values and option ids
      */
-    public function getProductOptions()
+    function getProductOptions()
     {
         if (!isset($this->_productOptions[$this->getProduct()->getId()])) {
             foreach ($this->getProduct()->getOptions() as $_option) {

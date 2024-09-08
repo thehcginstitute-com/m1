@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Model_System_Config_Source_Product_Options_Price
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             ['value' => 'fixed', 'label' => Mage::helper('adminhtml')->__('Fixed')],

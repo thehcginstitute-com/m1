@@ -42,7 +42,7 @@ class Mage_Wishlist_Model_Observer extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  Mage_Wishlist_Model_Observer
      */
-    public function processCartUpdateBefore($observer)
+    function processCartUpdateBefore($observer)
     {
         $cart = $observer->getEvent()->getCart();
         $data = $observer->getEvent()->getInfo();
@@ -83,7 +83,7 @@ class Mage_Wishlist_Model_Observer extends Mage_Core_Model_Abstract
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function processAddToCart($observer)
+    function processAddToCart($observer)
     {
         /** @var Mage_Core_Controller_Request_Http $request */
         $request = $observer->getEvent()->getRequest();
@@ -140,7 +140,7 @@ class Mage_Wishlist_Model_Observer extends Mage_Core_Model_Abstract
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function customerLogin(Varien_Event_Observer $observer)
+    function customerLogin(Varien_Event_Observer $observer)
     {
         Mage::helper('wishlist')->calculate();
 
@@ -153,7 +153,7 @@ class Mage_Wishlist_Model_Observer extends Mage_Core_Model_Abstract
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function customerLogout(Varien_Event_Observer $observer)
+    function customerLogout(Varien_Event_Observer $observer)
     {
         Mage::getSingleton('customer/session')->setWishlistItemCount(0);
 

@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Items_Column_Default extends Mage_Adminhtml_Block_Template
 {
-    public function getItem()
+    function getItem()
     {
         if ($this->_getData('item') instanceof Mage_Sales_Model_Order_Item) {
             return $this->_getData('item');
@@ -31,7 +31,7 @@ class Mage_Adminhtml_Block_Sales_Items_Column_Default extends Mage_Adminhtml_Blo
         }
     }
 
-    public function getOrderOptions()
+    function getOrderOptions()
     {
         $result = [];
         if ($options = $this->getItem()->getProductOptions()) {
@@ -54,7 +54,7 @@ class Mage_Adminhtml_Block_Sales_Items_Column_Default extends Mage_Adminhtml_Blo
      * @param array $optionInfo
      * @return string
      */
-    public function getCustomizedOptionValue($optionInfo)
+    function getCustomizedOptionValue($optionInfo)
     {
         // render customized option view
         $_default = $optionInfo['value'];
@@ -69,7 +69,7 @@ class Mage_Adminhtml_Block_Sales_Items_Column_Default extends Mage_Adminhtml_Blo
         return $_default;
     }
 
-    public function getSku()
+    function getSku()
     {
         /*if ($this->getItem()->getProductType() == Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE) {
             return $this->getItem()->getProductOptionByCode('simple_sku');

@@ -1,7 +1,7 @@
 <?php
 class PS_Webhook_Model_CustomerObserver
 {
-	public function sendWebhook(Varien_Event_Observer $observer)
+	function sendWebhook(Varien_Event_Observer $observer)
 	{
 		$customer = $observer->getEvent()->getCustomer();
 		if (!$customer->getOrigData('entity_id')) {
@@ -9,7 +9,7 @@ class PS_Webhook_Model_CustomerObserver
 		}
 	}
 
-	public function sendToWebhook($customer)
+	function sendToWebhook($customer)
 	{
 		$data = array(
 			'first_name' => $customer->getFirstname(),

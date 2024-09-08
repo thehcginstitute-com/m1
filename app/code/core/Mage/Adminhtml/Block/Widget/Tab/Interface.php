@@ -27,26 +27,26 @@ interface Mage_Adminhtml_Block_Widget_Tab_Interface
      *
      * @return string
      */
-    public function getTabLabel();
+    function getTabLabel();
 
     /**
      * Return Tab title
      *
      * @return string
      */
-    public function getTabTitle();
+    function getTabTitle();
 
     /**
      * Can show tab in tabs
      *
      * @return bool
      */
-    public function canShowTab();
+    function canShowTab();
 
     /**
      * Tab is hidden
      *
      * @return bool
      */
-    public function isHidden();
+    function isHidden();
 }

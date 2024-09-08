@@ -22,7 +22,7 @@
  */
 class Mage_Sales_Model_Entity_Order_Shipment_Track_Collection extends Mage_Eav_Model_Entity_Collection_Abstract
 {
-    public function _construct()
+    function _construct()
     {
         $this->_init('sales/order_shipment_track');
     }
@@ -31,7 +31,7 @@ class Mage_Sales_Model_Entity_Order_Shipment_Track_Collection extends Mage_Eav_M
      * @param int $shipmentId
      * @return $this
      */
-    public function setShipmentFilter($shipmentId)
+    function setShipmentFilter($shipmentId)
     {
         $this->addAttributeToFilter('parent_id', $shipmentId);
         return $this;
@@ -41,7 +41,7 @@ class Mage_Sales_Model_Entity_Order_Shipment_Track_Collection extends Mage_Eav_M
      * @param int $orderId
      * @return $this
      */
-    public function setOrderFilter($orderId)
+    function setOrderFilter($orderId)
     {
         $this->addAttributeToFilter('order_id', $orderId);
         return $this;

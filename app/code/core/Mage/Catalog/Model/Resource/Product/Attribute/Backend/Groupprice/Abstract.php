@@ -29,7 +29,7 @@ abstract class Mage_Catalog_Model_Resource_Product_Attribute_Backend_Groupprice_
      * @param int $websiteId
      * @return array
      */
-    public function loadPriceData($productId, $websiteId = null)
+    function loadPriceData($productId, $websiteId = null)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -90,7 +90,7 @@ abstract class Mage_Catalog_Model_Resource_Product_Attribute_Backend_Groupprice_
      * @param int $priceId
      * @return int The number of affected rows
      */
-    public function deletePriceData($productId, $websiteId = null, $priceId = null)
+    function deletePriceData($productId, $websiteId = null, $priceId = null)
     {
         $adapter = $this->_getWriteAdapter();
 
@@ -117,7 +117,7 @@ abstract class Mage_Catalog_Model_Resource_Product_Attribute_Backend_Groupprice_
      * @param Varien_Object $priceObject
      * @return $this
      */
-    public function savePriceData(Varien_Object $priceObject)
+    function savePriceData(Varien_Object $priceObject)
     {
         $adapter = $this->_getWriteAdapter();
         $data    = $this->_prepareDataForTable($priceObject, $this->getMainTable());

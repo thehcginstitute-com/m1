@@ -41,7 +41,7 @@ class Mage_Tax_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Templa
      *
      * @param array $args
      */
-    public function __construct(array $args = [])
+    function __construct(array $args = [])
     {
         $this->_factory = !empty($args['factory']) ? $args['factory'] : Mage::getSingleton('core/factory');
         $this->_app = !empty($args['app']) ? $args['app'] : Mage::app();
@@ -55,7 +55,7 @@ class Mage_Tax_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Templa
      *
      * @return bool|array
      */
-    public function getStoresWithWrongDisplaySettings()
+    function getStoresWithWrongDisplaySettings()
     {
         $defaultStoreId = Mage_Catalog_Model_Abstract::DEFAULT_STORE_ID;
         //check default store first
@@ -84,7 +84,7 @@ class Mage_Tax_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Templa
      * @param mixed $store
      * @return bool
      */
-    public function checkDisplaySettings($store = null)
+    function checkDisplaySettings($store = null)
     {
         /** @var Mage_Tax_Model_Config $model */
         $model = $this->_factory->getSingleton('tax/config');
@@ -97,7 +97,7 @@ class Mage_Tax_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Templa
      *
      * @return bool|array
      */
-    public function getWebsitesWithWrongDiscountSettings()
+    function getWebsitesWithWrongDiscountSettings()
     {
         /** @var Mage_Tax_Model_Config $model */
         $model = $this->_factory->getSingleton('tax/config');
@@ -124,7 +124,7 @@ class Mage_Tax_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Templa
      * @param string $section
      * @return string
      */
-    public function getIgnoreTaxNotificationUrl($section)
+    function getIgnoreTaxNotificationUrl($section)
     {
         return $this->getUrl('adminhtml/tax/ignoreTaxNotification', ['section' => $section]);
     }
@@ -135,7 +135,7 @@ class Mage_Tax_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Templa
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getInfoUrl()
+    function getInfoUrl()
     {
         return $this->_app->getStore()->getConfig(Mage_Tax_Model_Config::XML_PATH_TAX_NOTIFICATION_URL);
     }
@@ -145,7 +145,7 @@ class Mage_Tax_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Templa
      *
      * @return string
      */
-    public function getManageUrl()
+    function getManageUrl()
     {
         return $this->getUrl('adminhtml/system_config/edit/section/tax');
     }

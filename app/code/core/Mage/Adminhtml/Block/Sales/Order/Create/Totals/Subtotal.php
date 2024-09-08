@@ -34,7 +34,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Totals_Subtotal extends Mage_Admin
      *
      * @return bool
      */
-    public function displayBoth()
+    function displayBoth()
     {
         // Check without store parameter - we will get admin configuration value
         $displayBoth = Mage::getSingleton('tax/config')->displayCartSubtotalBoth();

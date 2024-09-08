@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form_Account extends Mage_Adminhtm
      *
      * @return string
      */
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'head-account';
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form_Account extends Mage_Adminhtm
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Account Information');
     }
@@ -112,7 +112,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form_Account extends Mage_Adminhtm
      * @deprecated since 1.4.0.1
      * @return array
      */
-    public function getCustomerData()
+    function getCustomerData()
     {
         return $this->getFormValues();
     }
@@ -122,7 +122,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form_Account extends Mage_Adminhtm
      *
      * @return array
      */
-    public function getFormValues()
+    function getFormValues()
     {
         $data = $this->getCustomer()->getData();
         foreach ($this->getQuote()->getData() as $key => $value) {

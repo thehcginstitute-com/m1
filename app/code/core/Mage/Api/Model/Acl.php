@@ -83,7 +83,7 @@ class Mage_Api_Model_Acl extends Zend_Acl
      * @param array|Zend_Acl_Role_Interface|string $parent
      * @return $this
      */
-    public function addRoleParent($role, $parent)
+    function addRoleParent($role, $parent)
     {
         $this->_getRoleRegistry()->addParent($role, $parent);
         return $this;

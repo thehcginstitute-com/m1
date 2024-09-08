@@ -67,7 +67,7 @@ class Mage_Newsletter_Model_Resource_Subscriber extends Mage_Core_Model_Resource
      *
      * @param string $scope
      */
-    public function setMessagesScope($scope)
+    function setMessagesScope($scope)
     {
         $this->_messagesScope = $scope;
     }
@@ -78,7 +78,7 @@ class Mage_Newsletter_Model_Resource_Subscriber extends Mage_Core_Model_Resource
      * @param string $subscriberEmail
      * @return array
      */
-    public function loadByEmail($subscriberEmail)
+    function loadByEmail($subscriberEmail)
     {
         $select = $this->_read->select()
             ->from($this->getMainTable())
@@ -99,7 +99,7 @@ class Mage_Newsletter_Model_Resource_Subscriber extends Mage_Core_Model_Resource
      * @param Mage_Customer_Model_Customer $customer
      * @return array
      */
-    public function loadByCustomer(Mage_Customer_Model_Customer $customer)
+    function loadByCustomer(Mage_Customer_Model_Customer $customer)
     {
         $select = $this->_read->select()
             ->from($this->getMainTable())
@@ -145,7 +145,7 @@ class Mage_Newsletter_Model_Resource_Subscriber extends Mage_Core_Model_Resource
      * @param Mage_Newsletter_Model_Queue $queue
      * @return $this
      */
-    public function received(Mage_Newsletter_Model_Subscriber $subscriber, Mage_Newsletter_Model_Queue $queue)
+    function received(Mage_Newsletter_Model_Subscriber $subscriber, Mage_Newsletter_Model_Queue $queue)
     {
         $this->_write->beginTransaction();
         try {

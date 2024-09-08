@@ -75,7 +75,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
      *
      * @return bool
      */
-    public function getDisableSubmitButton()
+    function getDisableSubmitButton()
     {
         return $this->_disableSubmitButton;
     }
@@ -85,7 +85,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->getInvoice()->getOrder();
     }
@@ -95,7 +95,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
      *
      * @return Mage_Sales_Model_Order_Invoice
      */
-    public function getSource()
+    function getSource()
     {
         return $this->getInvoice();
     }
@@ -105,7 +105,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
      *
      * @return Mage_Sales_Model_Order_Invoice
      */
-    public function getInvoice()
+    function getInvoice()
     {
         return Mage::registry('current_invoice');
     }
@@ -115,7 +115,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
      *
      * @return array
      */
-    public function getOrderTotalData()
+    function getOrderTotalData()
     {
         return [];
     }
@@ -125,7 +125,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
      *
      * @return array
      */
-    public function getOrderTotalbarData()
+    function getOrderTotalbarData()
     {
         $totalbarData = [];
         $this->setPriceDataObject($this->getInvoice()->getOrder());
@@ -138,17 +138,17 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
         return $totalbarData;
     }
 
-    public function formatPrice($price)
+    function formatPrice($price)
     {
         return $this->getInvoice()->getOrder()->formatPrice($price);
     }
 
-    public function getUpdateButtonHtml()
+    function getUpdateButtonHtml()
     {
         return $this->getChildHtml('update_button');
     }
 
-    public function getUpdateUrl()
+    function getUpdateUrl()
     {
         return $this->getUrl('*/*/updateQty', ['order_id' => $this->getInvoice()->getOrderId()]);
     }
@@ -158,7 +158,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
      *
      * @return bool
      */
-    public function canCreateShipment()
+    function canCreateShipment()
     {
         foreach ($this->getInvoice()->getAllItems() as $item) {
             if ($item->getOrderItem()->getQtyToShip()) {
@@ -168,7 +168,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
         return false;
     }
 
-    public function canEditQty()
+    function canEditQty()
     {
         if ($this->getInvoice()->getOrder()->getPayment()->canCapture()) {
             return $this->getInvoice()->getOrder()->getPayment()->canCapturePartial();
@@ -180,7 +180,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
      * Check if capture operation is allowed in ACL
      * @return bool
      */
-    public function isCaptureAllowed()
+    function isCaptureAllowed()
     {
         return Mage::getSingleton('admin/session')->isAllowed('sales/order/actions/capture');
     }
@@ -189,7 +189,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
      * Check if invoice can be captured
      * @return bool
      */
-    public function canCapture()
+    function canCapture()
     {
         return $this->getInvoice()->canCapture();
     }
@@ -198,12 +198,12 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
      * Check if gateway is associated with invoice order
      * @return bool
      */
-    public function isGatewayUsed()
+    function isGatewayUsed()
     {
         return $this->getInvoice()->getOrder()->getPayment()->getMethodInstance()->isGateway();
     }
 
-    public function canSendInvoiceEmail()
+    function canSendInvoiceEmail()
     {
         return Mage::helper('sales')->canSendNewInvoiceEmail($this->getOrder()->getStore()->getId());
     }

@@ -50,7 +50,7 @@ class Mage_Bundle_Model_Resource_Bundle extends Mage_CatalogIndex_Model_Resource
      * @param int $productId
      * @return array
      */
-    public function getSelectionsData($productId)
+    function getSelectionsData($productId)
     {
         return $this->_getReadAdapter()->fetchAll($this->_getSelect(
             $productId,
@@ -63,7 +63,7 @@ class Mage_Bundle_Model_Resource_Bundle extends Mage_CatalogIndex_Model_Resource
      *
      * @param int $productId
      */
-    public function dropAllQuoteChildItems($productId)
+    function dropAllQuoteChildItems($productId)
     {
         $quoteItemIds = $this->_getReadAdapter()->fetchCol(
             $this->_getReadAdapter()->select()
@@ -86,7 +86,7 @@ class Mage_Bundle_Model_Resource_Bundle extends Mage_CatalogIndex_Model_Resource
      * @param int $productId
      * @param array $ids
      */
-    public function dropAllUnneededSelections($productId, $ids)
+    function dropAllUnneededSelections($productId, $ids)
     {
         $where = [
             'parent_product_id = ?' => $productId
@@ -105,7 +105,7 @@ class Mage_Bundle_Model_Resource_Bundle extends Mage_CatalogIndex_Model_Resource
      * @param array $childIds
      * @return $this
      */
-    public function saveProductRelations($parentId, $childIds)
+    function saveProductRelations($parentId, $childIds)
     {
         Mage::getResourceSingleton('catalog/product_relation')
             ->processRelations($parentId, $childIds);

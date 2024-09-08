@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Report_Sales_Refunded extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'report_sales_refunded';
         $this->_headerText = Mage::helper('reports')->__('Total Refunded Report');
@@ -35,13 +35,13 @@ class Mage_Adminhtml_Block_Report_Sales_Refunded extends Mage_Adminhtml_Block_Wi
         ]);
     }
 
-    public function getFilterUrl()
+    function getFilterUrl()
     {
         $this->getRequest()->setParam('filter', null);
         return $this->getUrl('*/*/refunded', ['_current' => true]);
     }
 
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head head-report';
     }

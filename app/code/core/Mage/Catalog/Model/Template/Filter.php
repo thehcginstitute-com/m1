@@ -43,7 +43,7 @@ class Mage_Catalog_Model_Template_Filter extends Varien_Filter_Template
      * @param bool $flag
      * @return Mage_Catalog_Model_Template_Filter
      */
-    public function setUseAbsoluteLinks($flag)
+    function setUseAbsoluteLinks($flag)
     {
         $this->_useAbsoluteLinks = $flag;
         return $this;
@@ -56,7 +56,7 @@ class Mage_Catalog_Model_Template_Filter extends Varien_Filter_Template
      * @param bool $flag
      * @return Mage_Catalog_Model_Template_Filter
      */
-    public function setUseSessionInUrl($flag)
+    function setUseSessionInUrl($flag)
     {
         $this->_useSessionInUrl = $flag;
         return $this;
@@ -69,7 +69,7 @@ class Mage_Catalog_Model_Template_Filter extends Varien_Filter_Template
      * @return string
      * @see Mage_Core_Model_Email_Template_Filter::skinDirective() method has been copypasted
      */
-    public function skinDirective($construction)
+    function skinDirective($construction)
     {
         $params = $this->_getIncludeParameters($construction[2]);
         $params['_absolute'] = $this->_useAbsoluteLinks;
@@ -84,7 +84,7 @@ class Mage_Catalog_Model_Template_Filter extends Varien_Filter_Template
      * @return string
      * @see Mage_Core_Model_Email_Template_Filter::mediaDirective() method has been copypasted
      */
-    public function mediaDirective($construction)
+    function mediaDirective($construction)
     {
         $params = $this->_getIncludeParameters($construction[2]);
         return Mage::getBaseUrl('media') . $params['url'];
@@ -98,7 +98,7 @@ class Mage_Catalog_Model_Template_Filter extends Varien_Filter_Template
      * @return string
      * @see Mage_Core_Model_Email_Template_Filter::storeDirective() method has been copypasted
      */
-    public function storeDirective($construction)
+    function storeDirective($construction)
     {
         $params = $this->_getIncludeParameters($construction[2]);
         if (!isset($params['_query'])) {

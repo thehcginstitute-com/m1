@@ -27,14 +27,14 @@ interface Mage_Customer_Block_Address_Renderer_Interface
      *
      * @param Varien_Object $type
      */
-    public function setType(Varien_Object $type);
+    function setType(Varien_Object $type);
 
     /**
      * Retrieve format type object
      *
      * @return Varien_Object
      */
-    public function getType();
+    function getType();
 
     /**
      * Render address
@@ -42,5 +42,5 @@ interface Mage_Customer_Block_Address_Renderer_Interface
      * @param Mage_Customer_Model_Address_Abstract $address
      * @return mixed
      */
-    public function render(Mage_Customer_Model_Address_Abstract $address);
+    function render(Mage_Customer_Model_Address_Abstract $address);
 }

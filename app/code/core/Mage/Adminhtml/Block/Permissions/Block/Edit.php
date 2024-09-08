@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Permissions_Block_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'block_id';
         $this->_controller = 'permissions_block';
@@ -38,7 +38,7 @@ class Mage_Adminhtml_Block_Permissions_Block_Edit extends Mage_Adminhtml_Block_W
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if (Mage::registry('permissions_block')->getId()) {
             return Mage::helper('adminhtml')->__("Edit Block '%s'", $this->escapeHtml(Mage::registry('permissions_block')->getBlockName()));

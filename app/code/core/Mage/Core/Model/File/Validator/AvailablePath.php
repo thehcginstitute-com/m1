@@ -69,7 +69,7 @@ class Mage_Core_Model_File_Validator_AvailablePath extends Zend_Validate_Abstrac
      */
     protected $_pathsData;
 
-    public function __construct()
+    function __construct()
     {
         $this->_initMessageTemplates();
     }
@@ -101,7 +101,7 @@ class Mage_Core_Model_File_Validator_AvailablePath extends Zend_Validate_Abstrac
      *                      E.g.: array('available' => array(...), 'protected' => array(...))
      * @return $this
      */
-    public function setPaths(array $paths)
+    function setPaths(array $paths)
     {
         if (isset($paths['available']) && is_array($paths['available'])) {
             $this->_availablePaths = $paths['available'];
@@ -118,7 +118,7 @@ class Mage_Core_Model_File_Validator_AvailablePath extends Zend_Validate_Abstrac
      * @param array $paths
      * @return $this
      */
-    public function setProtectedPaths(array $paths)
+    function setProtectedPaths(array $paths)
     {
         $this->_protectedPaths = $paths;
         return $this;
@@ -130,7 +130,7 @@ class Mage_Core_Model_File_Validator_AvailablePath extends Zend_Validate_Abstrac
      * @param string|array $path
      * @return $this
      */
-    public function addProtectedPath($path)
+    function addProtectedPath($path)
     {
         if (is_array($path)) {
             $this->_protectedPaths = array_merge($this->_protectedPaths, $path);
@@ -145,7 +145,7 @@ class Mage_Core_Model_File_Validator_AvailablePath extends Zend_Validate_Abstrac
      *
      * @return array
      */
-    public function getProtectedPaths()
+    function getProtectedPaths()
     {
         return $this->_protectedPaths;
     }
@@ -156,7 +156,7 @@ class Mage_Core_Model_File_Validator_AvailablePath extends Zend_Validate_Abstrac
      * @param array $paths
      * @return $this
      */
-    public function setAvailablePaths(array $paths)
+    function setAvailablePaths(array $paths)
     {
         $this->_availablePaths = $paths;
         return $this;
@@ -168,7 +168,7 @@ class Mage_Core_Model_File_Validator_AvailablePath extends Zend_Validate_Abstrac
      * @param string|array $path
      * @return $this
      */
-    public function addAvailablePath($path)
+    function addAvailablePath($path)
     {
         if (is_array($path)) {
             $this->_availablePaths = array_merge($this->_availablePaths, $path);
@@ -183,7 +183,7 @@ class Mage_Core_Model_File_Validator_AvailablePath extends Zend_Validate_Abstrac
      *
      * @return array
      */
-    public function getAvailablePaths()
+    function getAvailablePaths()
     {
         return $this->_availablePaths;
     }
@@ -199,7 +199,7 @@ class Mage_Core_Model_File_Validator_AvailablePath extends Zend_Validate_Abstrac
      * @param string $value     File/dir path
      * @return bool
      */
-    public function isValid($value)
+    function isValid($value)
     {
         $value = trim($value);
         $this->_setValue($value);

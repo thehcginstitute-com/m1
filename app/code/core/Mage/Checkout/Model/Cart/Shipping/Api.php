@@ -22,7 +22,7 @@
  */
 class Mage_Checkout_Model_Cart_Shipping_Api extends Mage_Checkout_Model_Api_Resource
 {
-    public function __construct()
+    function __construct()
     {
         $this->_ignoredAttributeCodes['quote_shipping_rate'] = ['address_id', 'created_at', 'updated_at', 'rate_id', 'carrier_sort_order'];
     }
@@ -35,7 +35,7 @@ class Mage_Checkout_Model_Cart_Shipping_Api extends Mage_Checkout_Model_Api_Reso
      * @param  string|int $store
      * @return bool
      */
-    public function setShippingMethod($quoteId, $shippingMethod, $store = null)
+    function setShippingMethod($quoteId, $shippingMethod, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
 
@@ -66,7 +66,7 @@ class Mage_Checkout_Model_Cart_Shipping_Api extends Mage_Checkout_Model_Api_Reso
      * @param  int|string $store
      * @return array
      */
-    public function getShippingMethodsList($quoteId, $store = null)
+    function getShippingMethodsList($quoteId, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
 

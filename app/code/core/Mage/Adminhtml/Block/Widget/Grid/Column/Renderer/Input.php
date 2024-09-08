@@ -30,7 +30,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Input extends Mage_Adminh
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $html = '<input type="text" ';
         $html .= 'name="' . $this->getColumn()->getId() . '" ';

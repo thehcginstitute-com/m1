@@ -203,7 +203,7 @@ class Magazento_Orderexport2_Model_Import
     /*
      * Import Items
      */
-    public function importFromFile($xmlFile, $importInvoice = true, $importCreditmemo = true, $importShipment = true)
+    function importFromFile($xmlFile, $importInvoice = true, $importCreditmemo = true, $importShipment = true)
     {
         $total = 0;
         $xmlContents = file_get_contents($xmlFile);

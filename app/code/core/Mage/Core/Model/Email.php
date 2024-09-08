@@ -49,7 +49,7 @@ class Mage_Core_Model_Email extends Varien_Object
      */
     protected $_block;
 
-    public function __construct()
+    function __construct()
     {
         // TODO: move to config
         $this->setFromName('Magento');
@@ -62,7 +62,7 @@ class Mage_Core_Model_Email extends Varien_Object
      * @param string|null $value
      * @return $this
      */
-    public function setTemplateVar($var, $value = null)
+    function setTemplateVar($var, $value = null)
     {
         if (is_array($var)) {
             foreach ($var as $index => $value) {
@@ -77,7 +77,7 @@ class Mage_Core_Model_Email extends Varien_Object
     /**
      * @return array
      */
-    public function getTemplateVars()
+    function getTemplateVars()
     {
         return $this->_tplVars;
     }
@@ -85,7 +85,7 @@ class Mage_Core_Model_Email extends Varien_Object
     /**
      * @return string
      */
-    public function getBody()
+    function getBody()
     {
         $body = $this->getData('body');
         if (empty($body) && $this->getTemplate()) {
@@ -105,7 +105,7 @@ class Mage_Core_Model_Email extends Varien_Object
     /**
      * @return string
      */
-    public function getSubject()
+    function getSubject()
     {
         $subject = $this->getData('subject');
         if (empty($subject) && $this->_block) {
@@ -119,7 +119,7 @@ class Mage_Core_Model_Email extends Varien_Object
      * @return $this
      * @throws Zend_Mail_Exception
      */
-    public function send()
+    function send()
     {
         if (Mage::getStoreConfigFlag('system/smtp/disable')) {
             return $this;

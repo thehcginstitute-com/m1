@@ -38,7 +38,7 @@ class Lesti_Fpc_Helper_Data extends Lesti_Fpc_Helper_Abstract
     /**
      * @return array
      */
-    public function getCacheableActions()
+    function getCacheableActions()
     {
         return $this->getCSStoreConfigs(self::XML_PATH_CACHEABLE_ACTIONS);
     }
@@ -46,7 +46,7 @@ class Lesti_Fpc_Helper_Data extends Lesti_Fpc_Helper_Abstract
     /**
      * @return array
      */
-    public function getBypassHandles()
+    function getBypassHandles()
     {
         return $this->getCSStoreConfigs(self::XML_PATH_BYPASS_HANDLES);
     }
@@ -54,7 +54,7 @@ class Lesti_Fpc_Helper_Data extends Lesti_Fpc_Helper_Abstract
     /**
      * @return array
      */
-    public function getRefreshActions()
+    function getRefreshActions()
     {
         return $this->getCSStoreConfigs(self::XML_PATH_REFRESH_ACTIONS);
     }
@@ -63,7 +63,7 @@ class Lesti_Fpc_Helper_Data extends Lesti_Fpc_Helper_Abstract
      * @param string $postfix
      * @return string
      */
-    public function getKey($postfix = '_page')
+    function getKey($postfix = '_page')
     {
         return sha1($this->_getParams()) . $postfix;
     }
@@ -136,7 +136,7 @@ class Lesti_Fpc_Helper_Data extends Lesti_Fpc_Helper_Abstract
     /**
      * @return array
      */
-    public function _getUriParams()
+    function _getUriParams()
     {
         $configParams = $this->getCSStoreConfigs(self::XML_PATH_URI_PARAMS);
 
@@ -206,7 +206,7 @@ class Lesti_Fpc_Helper_Data extends Lesti_Fpc_Helper_Abstract
     /**
      * @return bool
      */
-    public function canCacheRequest()
+    function canCacheRequest()
     {
         $request = Mage::app()->getRequest();
         if (strtoupper($request->getMethod()) != 'GET') {
@@ -235,7 +235,7 @@ class Lesti_Fpc_Helper_Data extends Lesti_Fpc_Helper_Abstract
     /**
      * @return string
      */
-    public function getFullActionName()
+    function getFullActionName()
     {
         $delimiter = '_';
         $request = Mage::app()->getRequest();
@@ -248,7 +248,7 @@ class Lesti_Fpc_Helper_Data extends Lesti_Fpc_Helper_Abstract
      * @param Mage_Core_Controller_Response_Http $response
      * @return string
      */
-    public function getContentType(\Mage_Core_Controller_Response_Http $response)
+    function getContentType(\Mage_Core_Controller_Response_Http $response)
     {
         foreach ($response->getHeaders() as $header) {
             if (isset($header['name']) && $header['name'] === 'Content-Type' && isset($header['value'])) {

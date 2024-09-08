@@ -255,7 +255,7 @@ class Mage_Widget_Model_Resource_Widget_Instance extends Mage_Core_Model_Resourc
      * @param int $id
      * @return array
      */
-    public function lookupStoreIds($id)
+    function lookupStoreIds($id)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()

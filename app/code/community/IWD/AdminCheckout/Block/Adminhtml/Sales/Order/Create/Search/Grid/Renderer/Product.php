@@ -10,7 +10,7 @@ class IWD_AdminCheckout_Block_Adminhtml_Sales_Order_Create_Search_Grid_Renderer_
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $product = Mage::getModel('catalog/product')->load($row->getId());
         if (!$product->isVisibleInSiteVisibility()) {

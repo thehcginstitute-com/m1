@@ -33,7 +33,7 @@ class Mage_Core_Helper_Security
      *
      * @throws Mage_Core_Exception
      */
-    public function validateAgainstBlockMethodBlacklist(Mage_Core_Block_Abstract $block, $method, array $args)
+    function validateAgainstBlockMethodBlacklist(Mage_Core_Block_Abstract $block, $method, array $args)
     {
         foreach ($this->invalidBlockActions as $action) {
             $calledMethod = strtolower($method);

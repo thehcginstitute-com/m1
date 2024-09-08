@@ -94,7 +94,7 @@ class Mage_Adminhtml_Block_Cms_Page_Edit_Tab_Content extends Mage_Adminhtml_Bloc
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('cms')->__('Content');
     }
@@ -104,7 +104,7 @@ class Mage_Adminhtml_Block_Cms_Page_Edit_Tab_Content extends Mage_Adminhtml_Bloc
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('cms')->__('Content');
     }
@@ -114,7 +114,7 @@ class Mage_Adminhtml_Block_Cms_Page_Edit_Tab_Content extends Mage_Adminhtml_Bloc
      *
      * @return true
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -124,7 +124,7 @@ class Mage_Adminhtml_Block_Cms_Page_Edit_Tab_Content extends Mage_Adminhtml_Bloc
      *
      * @return false
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }

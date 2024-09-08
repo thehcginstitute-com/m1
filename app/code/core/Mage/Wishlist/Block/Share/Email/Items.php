@@ -26,7 +26,7 @@ class Mage_Wishlist_Block_Share_Email_Items extends Mage_Wishlist_Block_Abstract
      * Initialize template
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('wishlist/email/items.phtml');
@@ -39,7 +39,7 @@ class Mage_Wishlist_Block_Share_Email_Items extends Mage_Wishlist_Block_Abstract
      * @param array $additional
      * @return string
      */
-    public function getProductUrl($product, $additional = [])
+    function getProductUrl($product, $additional = [])
     {
         $additional['_store_to_url'] = true;
         return parent::getProductUrl($product, $additional);
@@ -52,7 +52,7 @@ class Mage_Wishlist_Block_Share_Email_Items extends Mage_Wishlist_Block_Abstract
      * @param array $additional
      * @return string
      */
-    public function getAddToCartUrl($product, $additional = [])
+    function getAddToCartUrl($product, $additional = [])
     {
         return $this->getAddToCartUrlCustom($product, $additional);
     }
@@ -63,7 +63,7 @@ class Mage_Wishlist_Block_Share_Email_Items extends Mage_Wishlist_Block_Abstract
      * @param Mage_Wishlist_Model_Item $item
      * @return bool
      */
-    public function hasDescription($item)
+    function hasDescription($item)
     {
         $hasDescription = parent::hasDescription($item);
         if ($hasDescription) {
@@ -80,7 +80,7 @@ class Mage_Wishlist_Block_Share_Email_Items extends Mage_Wishlist_Block_Abstract
      * @param bool $addFormKey
      * @return string
      */
-    public function getAddToCartUrlCustom($product, $additional = [], $addFormKey = true)
+    function getAddToCartUrlCustom($product, $additional = [], $addFormKey = true)
     {
         $additional['nocookie'] = 1;
         $additional['_store_to_url'] = true;

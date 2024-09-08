@@ -8,7 +8,7 @@ class IWD_OrderGrid_Model_Sales_Massaction extends Mage_Core_Model_Abstract
     /**
      * @return mixed|string
      */
-    public function getMassactionForCurrentUser()
+    function getMassactionForCurrentUser()
     {
         $massaction = $this->getMassaction();
         $adminId = Mage::getSingleton('admin/session')->getUser()->getUserId();
@@ -19,7 +19,7 @@ class IWD_OrderGrid_Model_Sales_Massaction extends Mage_Core_Model_Abstract
     /**
      * @return array|mixed
      */
-    public function getMassaction()
+    function getMassaction()
     {
         $massaction = Mage::getStoreConfig(IWD_OrderGrid_Helper_Data::CONFIG_XPATH_MASSACTION_SAVE);
         $massaction = unserialize($massaction);
@@ -29,7 +29,7 @@ class IWD_OrderGrid_Model_Sales_Massaction extends Mage_Core_Model_Abstract
     /**
      * @param $massactionData
      */
-    public function saveMassactionForCurrentUser($massactionData)
+    function saveMassactionForCurrentUser($massactionData)
     {
         $massaction = $this->getMassaction();
         $adminId = Mage::getSingleton('admin/session')->getUser()->getUserId();

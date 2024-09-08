@@ -32,7 +32,7 @@ class Mage_Payment_Block_Info_Checkmo extends Mage_Payment_Block_Info
     /**
      * @return string
      */
-    public function getPayableTo()
+    function getPayableTo()
     {
         if (is_null($this->_payableTo)) {
             $this->_convertAdditionalData();
@@ -43,7 +43,7 @@ class Mage_Payment_Block_Info_Checkmo extends Mage_Payment_Block_Info
     /**
      * @return string
      */
-    public function getMailingAddress()
+    function getMailingAddress()
     {
         if (is_null($this->_mailingAddress)) {
             $this->_convertAdditionalData();
@@ -76,7 +76,7 @@ class Mage_Payment_Block_Info_Checkmo extends Mage_Payment_Block_Info
     /**
      * @return string
      */
-    public function toPdf()
+    function toPdf()
     {
         $this->setTemplate('payment/info/pdf/checkmo.phtml');
         return $this->toHtml();

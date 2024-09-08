@@ -60,7 +60,7 @@ class Mage_Admin_Model_Rules extends Mage_Core_Model_Abstract
      * Update rules
      * @return $this
      */
-    public function update()
+    function update()
     {
         $this->getResource()->update($this);
         return $this;
@@ -70,7 +70,7 @@ class Mage_Admin_Model_Rules extends Mage_Core_Model_Abstract
      * Initialize and retrieve permissions collection
      * @return Object
      */
-    public function getCollection()
+    function getCollection()
     {
         return Mage::getResourceModel('admin/permissions_collection');
     }
@@ -79,7 +79,7 @@ class Mage_Admin_Model_Rules extends Mage_Core_Model_Abstract
      * Save rules relations to the database
      * @return $this
      */
-    public function saveRel()
+    function saveRel()
     {
         $this->getResource()->saveRel($this);
         return $this;
@@ -89,7 +89,7 @@ class Mage_Admin_Model_Rules extends Mage_Core_Model_Abstract
      * Check if the current rule is allowed
      * @return bool
      */
-    public function isAllowed()
+    function isAllowed()
     {
         return $this->getPermission() == self::RULE_PERMISSION_ALLOWED;
     }
@@ -97,7 +97,7 @@ class Mage_Admin_Model_Rules extends Mage_Core_Model_Abstract
     /**
      * Check if the current rule is denied
      */
-    public function isDenied()
+    function isDenied()
     {
         return $this->getPermission() == self::RULE_PERMISSION_DENIED;
     }

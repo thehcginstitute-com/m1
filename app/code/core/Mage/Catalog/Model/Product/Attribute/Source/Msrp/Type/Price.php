@@ -32,7 +32,7 @@ class Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type_Price extends Mage_C
      *
      * @return array
      */
-    public function getAllOptions()
+    function getAllOptions()
     {
         if (!$this->_options) {
             $this->_options = parent::getAllOptions();
@@ -49,7 +49,7 @@ class Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type_Price extends Mage_C
      *
      * @return array
      */
-    public function getFlatColums()
+    function getFlatColums()
     {
         $attributeType = $this->getAttribute()->getBackendType();
         $attributeCode = $this->getAttribute()->getAttributeCode();
@@ -78,7 +78,7 @@ class Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type_Price extends Mage_C
      * @param int $store
      * @return Varien_Db_Select|null
      */
-    public function getFlatUpdateSelect($store)
+    function getFlatUpdateSelect($store)
     {
         return Mage::getResourceModel('eav/entity_attribute')
             ->getFlatUpdateSelect($this->getAttribute(), $store);

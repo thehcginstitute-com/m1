@@ -29,7 +29,7 @@ class Mage_ProductAlert_Model_Resource_Price_Customer_Collection extends Mage_Cu
      * @param int $websiteId
      * @return $this
      */
-    public function join($productId, $websiteId)
+    function join($productId, $websiteId)
     {
         $this->getSelect()->join(
             ['alert' => $this->getTable('productalert/price')],

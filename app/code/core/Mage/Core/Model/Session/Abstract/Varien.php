@@ -50,7 +50,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      * @param string $sessionName
      * @return $this
      */
-    public function start($sessionName = null)
+    function start($sessionName = null)
     {
         if (isset($_SESSION) && !$this->getSkipEmptySessionCheck()) {
             return $this;
@@ -210,7 +210,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return array
      */
-    public function getSessionHosts()
+    function getSessionHosts()
     {
         return $this->_sessionHosts;
     }
@@ -221,7 +221,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      * @param array $hosts
      * @return $this
      */
-    public function setSessionHosts(array $hosts)
+    function setSessionHosts(array $hosts)
     {
         $this->_sessionHosts = $hosts;
         return $this;
@@ -232,7 +232,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return Mage_Core_Model_Cookie
      */
-    public function getCookie()
+    function getCookie()
     {
         return Mage::getSingleton('core/cookie');
     }
@@ -242,7 +242,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      * @deprecated after 1.4 cookie renew moved to session start method
      * @return $this
      */
-    public function revalidateCookie()
+    function revalidateCookie()
     {
         return $this;
     }
@@ -254,7 +254,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      * @param string $sessionName
      * @return $this
      */
-    public function init($namespace, $sessionName = null)
+    function init($namespace, $sessionName = null)
     {
         if (!isset($_SESSION)) {
             $this->start($sessionName);
@@ -278,7 +278,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      * @param bool $clear
      * @return mixed
      */
-    public function getData($key = '', $clear = false)
+    function getData($key = '', $clear = false)
     {
         $data = parent::getData($key);
         if ($clear && isset($this->_data[$key])) {
@@ -292,7 +292,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return string
      */
-    public function getSessionId()
+    function getSessionId()
     {
         return session_id();
     }
@@ -303,7 +303,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      * @param string $id
      * @return $this
      */
-    public function setSessionId($id = null)
+    function setSessionId($id = null)
     {
         if (!is_null($id) && preg_match('#^[0-9a-zA-Z,-]+$#', $id)) {
             session_id($id);
@@ -316,7 +316,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return string
      */
-    public function getSessionName()
+    function getSessionName()
     {
         return session_name();
     }
@@ -327,7 +327,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      * @param string $name
      * @return $this
      */
-    public function setSessionName($name)
+    function setSessionName($name)
     {
         session_name($name);
         return $this;
@@ -338,7 +338,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return $this
      */
-    public function unsetAll()
+    function unsetAll()
     {
         $this->unsetData();
         return $this;
@@ -349,7 +349,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return $this
      */
-    public function clear()
+    function clear()
     {
         return $this->unsetAll();
     }
@@ -360,7 +360,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return string
      */
-    public function getSessionSaveMethod()
+    function getSessionSaveMethod()
     {
         return 'files';
     }
@@ -370,7 +370,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return string
      */
-    public function getSessionSavePath()
+    function getSessionSavePath()
     {
         return Mage::getBaseDir('session');
     }
@@ -380,7 +380,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return bool
      */
-    public function useValidateRemoteAddr()
+    function useValidateRemoteAddr()
     {
         return true;
     }
@@ -390,7 +390,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return bool
      */
-    public function useValidateHttpVia()
+    function useValidateHttpVia()
     {
         return true;
     }
@@ -400,7 +400,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return bool
      */
-    public function useValidateHttpXForwardedFor()
+    function useValidateHttpXForwardedFor()
     {
         return true;
     }
@@ -410,7 +410,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return bool
      */
-    public function useValidateHttpUserAgent()
+    function useValidateHttpUserAgent()
     {
         return true;
     }
@@ -420,7 +420,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return bool
      */
-    public function useValidateSessionExpire()
+    function useValidateSessionExpire()
     {
         return $this->getCookie()->getLifetime() > 0;
     }
@@ -430,7 +430,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return bool
      */
-    public function useValidateSessionPasswordTimestamp()
+    function useValidateSessionPasswordTimestamp()
     {
         return true;
     }
@@ -440,7 +440,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return array
      */
-    public function getValidateHttpUserAgentSkip()
+    function getValidateHttpUserAgentSkip()
     {
         return [];
     }
@@ -451,7 +451,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      * @throws Mage_Core_Model_Session_Exception
      * @return $this
      */
-    public function validate()
+    function validate()
     {
         // Backwards compatibility with legacy sessions (validator data stored per-namespace)
         if (isset($this->_data[self::VALIDATOR_KEY])) {
@@ -484,7 +484,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      * @param int $timestamp
      * @return void
      */
-    public function setValidatorSessionRenewTimestamp($timestamp)
+    function setValidatorSessionRenewTimestamp($timestamp)
     {
         $_SESSION[self::VALIDATOR_KEY][self::VALIDATOR_SESSION_RENEW_TIMESTAMP] = $timestamp;
     }
@@ -553,7 +553,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return array
      */
-    public function getValidatorData()
+    function getValidatorData()
     {
         $parts = [
             self::VALIDATOR_REMOTE_ADDR_KEY             => '',
@@ -590,7 +590,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
     /**
      * @return array
      */
-    public function getSessionValidatorData()
+    function getSessionValidatorData()
     {
         return $_SESSION[self::VALIDATOR_KEY];
     }
@@ -600,7 +600,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
      *
      * @return $this
      */
-    public function regenerateSessionId()
+    function regenerateSessionId()
     {
         session_regenerate_id(true);
         return $this;

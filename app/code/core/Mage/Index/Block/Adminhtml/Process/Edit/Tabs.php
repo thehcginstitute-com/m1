@@ -23,7 +23,7 @@ class Mage_Index_Block_Adminhtml_Process_Edit_Tabs extends Mage_Adminhtml_Block_
     /**
      * Mage_Index_Block_Adminhtml_Process_Edit_Tabs constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('process_tabs');

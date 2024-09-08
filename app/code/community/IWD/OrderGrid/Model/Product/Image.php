@@ -4,7 +4,7 @@ class IWD_OrderGrid_Model_Product_Image extends Mage_Catalog_Model_Product_Image
 {
     public $product;
 
-    public function setBaseFile($file)
+    function setBaseFile($file)
     {
         $this->_isBaseFilePlaceholder = false;
 

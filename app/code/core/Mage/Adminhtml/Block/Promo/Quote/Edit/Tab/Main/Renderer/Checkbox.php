@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Promo_Quote_Edit_Tab_Main_Renderer_Checkbox extends M
      * @param Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         $checkbox = new Varien_Data_Form_Element_Checkbox($element->getData());
         $checkbox->setForm($element->getForm());

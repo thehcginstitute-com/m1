@@ -50,7 +50,7 @@ class Mage_Tax_Model_Resource_Calculation_Rule extends Mage_Core_Model_Resource_
      * @param array $productTaxClassId
      * @return array
      */
-    public function fetchRuleCodes($rateId, $customerTaxClassId, $productTaxClassId)
+    function fetchRuleCodes($rateId, $customerTaxClassId, $productTaxClassId)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()

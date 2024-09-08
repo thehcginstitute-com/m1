@@ -191,7 +191,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Edit extends Mage_Adminhtml_Block_Widget_C
      *
      * @return string
      */
-    public function getButtonsHtml($area = null)
+    function getButtonsHtml($area = null)
     {
         if ($this->_buttonsHtml === null) {
             $this->_buttonsHtml = parent::getButtonsHtml();
@@ -209,7 +209,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Edit extends Mage_Adminhtml_Block_Widget_C
      *
      * @return int
      */
-    public function getUrlrewriteId()
+    function getUrlrewriteId()
     {
         return Mage::registry('current_urlrewrite')->getId();
     }
@@ -219,7 +219,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Edit extends Mage_Adminhtml_Block_Widget_C
      *
      * @return int
      */
-    public function getProductId()
+    function getProductId()
     {
         return Mage::registry('current_product')->getId();
     }
@@ -229,7 +229,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Edit extends Mage_Adminhtml_Block_Widget_C
      *
      * @return int
      */
-    public function getCategoryId()
+    function getCategoryId()
     {
         return Mage::registry('current_category')->getId();
     }
@@ -240,7 +240,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Edit extends Mage_Adminhtml_Block_Widget_C
      * @param string $mode
      * @return bool
      */
-    public function isMode($mode)
+    function isMode($mode)
     {
         return $this->getRequest()->has($mode);
     }
@@ -252,7 +252,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Edit extends Mage_Adminhtml_Block_Widget_C
      * @return $this
      * @see Mage_Adminhtml_Block_Urlrewrite_Selector
      */
-    public function updateModeLayout($mode = null)
+    function updateModeLayout($mode = null)
     {
         if (!$mode) {
             $modes = array_keys(Mage::getBlockSingleton('adminhtml/urlrewrite_selector')->getModes());
@@ -273,7 +273,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Edit extends Mage_Adminhtml_Block_Widget_C
     /**
      * @return string
      */
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head head-urlrewrite';
     }

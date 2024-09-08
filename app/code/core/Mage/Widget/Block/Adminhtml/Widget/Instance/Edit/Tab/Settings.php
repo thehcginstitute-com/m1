@@ -33,7 +33,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Settings extends Mage
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('widget')->__('Settings');
     }
@@ -43,7 +43,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Settings extends Mage
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('widget')->__('Settings');
     }
@@ -53,7 +53,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Settings extends Mage
      *
      * @return bool
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return !(bool)$this->getWidgetInstance()->isCompleteToCreate();
     }
@@ -63,7 +63,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Settings extends Mage
      *
      * @return false
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }
@@ -73,7 +73,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Settings extends Mage
      *
      * @return Mage_Widget_Model_Widget_Instance
      */
-    public function getWidgetInstance()
+    function getWidgetInstance()
     {
         return Mage::registry('current_widget_instance');
     }
@@ -135,7 +135,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Settings extends Mage
      *
      * @return string
      */
-    public function getContinueUrl()
+    function getContinueUrl()
     {
         return $this->getUrl('*/*/*', [
             '_current'  => true,
@@ -150,7 +150,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Settings extends Mage
      *
      * @return array
      */
-    public function getTypesOptionsArray()
+    function getTypesOptionsArray()
     {
         $widgets = $this->getWidgetInstance()->getWidgetsOptionArray();
         array_unshift($widgets, [
@@ -177,7 +177,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Settings extends Mage
      *
      * @return array
      */
-    public function getPackegeThemeOptionsArray()
+    function getPackegeThemeOptionsArray()
     {
         return Mage::getModel('core/design_source_design')
             ->setIsFullLabel(true)->getAllOptions(true);

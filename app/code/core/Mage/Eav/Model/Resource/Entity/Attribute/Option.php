@@ -35,7 +35,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Option extends Mage_Core_Model_Re
      * @param Zend_Db_Expr $valueExpr
      * @return $this
      */
-    public function addOptionValueToCollection($collection, $attribute, $valueExpr)
+    function addOptionValueToCollection($collection, $attribute, $valueExpr)
     {
         $adapter        = $this->_getReadAdapter();
         $attributeCode  = $attribute->getAttributeCode();
@@ -76,7 +76,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Option extends Mage_Core_Model_Re
      * @param bool $hasValueField flag which require option value
      * @return Varien_Db_Select
      */
-    public function getFlatUpdateSelect(
+    function getFlatUpdateSelect(
         Mage_Eav_Model_Entity_Attribute_Abstract $attribute,
         $store,
         $hasValueField = true

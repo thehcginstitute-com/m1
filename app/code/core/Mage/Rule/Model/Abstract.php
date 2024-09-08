@@ -80,14 +80,14 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Mage_Rule_Model_Condition_Combine
      */
-    abstract public function getConditionsInstance();
+    abstract function getConditionsInstance();
 
     /**
      * Getter for rule actions collection instance
      *
      * @return Mage_Rule_Model_Action_Collection
      */
-    abstract public function getActionsInstance();
+    abstract function getActionsInstance();
 
     /**
      * Prepare select for condition
@@ -95,7 +95,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      * @param int $storeId
      * @return Varien_Db_Select
      */
-    public function getProductFlatSelect($storeId)
+    function getProductFlatSelect($storeId)
     {
         /** @var Mage_Rule_Model_Resource_Abstract $resource */
         $resource = $this->getResource();
@@ -162,7 +162,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Mage_Rule_Model_Abstract
      */
-    public function setConditions($conditions)
+    function setConditions($conditions)
     {
         $this->_conditions = $conditions;
         return $this;
@@ -173,7 +173,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Mage_Rule_Model_Condition_Combine
      */
-    public function getConditions()
+    function getConditions()
     {
         if (empty($this->_conditions)) {
             $this->_resetConditions();
@@ -201,7 +201,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Mage_Rule_Model_Abstract
      */
-    public function setActions($actions)
+    function setActions($actions)
     {
         $this->_actions = $actions;
         return $this;
@@ -212,7 +212,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Mage_Rule_Model_Action_Collection
      */
-    public function getActions()
+    function getActions()
     {
         if (!$this->_actions) {
             $this->_resetActions();
@@ -274,7 +274,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Varien_Data_Form
      */
-    public function getForm()
+    function getForm()
     {
         if (!$this->_form) {
             $this->_form = new Varien_Data_Form();
@@ -289,7 +289,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Mage_Rule_Model_Abstract
      */
-    public function loadPost(array $data)
+    function loadPost(array $data)
     {
         $arr = $this->_convertFlatToRecursive($data);
         if (isset($arr['conditions'])) {
@@ -355,7 +355,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function validate(Varien_Object $object)
+    function validate(Varien_Object $object)
     {
         return $this->getConditions()->validate($object);
     }
@@ -367,7 +367,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return bool|array - return true if validation passed successfully. Array with errors description otherwise
      */
-    public function validateData(Varien_Object $object)
+    function validateData(Varien_Object $object)
     {
         $result   = [];
         $fromDate = $toDate = null;
@@ -407,7 +407,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isDeleteable()
+    function isDeleteable()
     {
         return $this->_isDeleteable;
     }
@@ -419,7 +419,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Mage_Rule_Model_Abstract
      */
-    public function setIsDeleteable($value)
+    function setIsDeleteable($value)
     {
         $this->_isDeleteable = (bool) $value;
         return $this;
@@ -430,7 +430,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isReadonly()
+    function isReadonly()
     {
         return $this->_isReadonly;
     }
@@ -442,7 +442,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Mage_Rule_Model_Abstract
      */
-    public function setIsReadonly($value)
+    function setIsReadonly($value)
     {
         $this->_isReadonly = (bool) $value;
         return $this;
@@ -453,7 +453,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getWebsiteIds()
+    function getWebsiteIds()
     {
         if (!$this->hasWebsiteIds()) {
             $websiteIds = $this->_getResource()->getWebsiteIds($this->getId());
@@ -469,7 +469,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function asString($format = '')
+    function asString($format = '')
     {
         return '';
     }
@@ -479,7 +479,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function asHtml()
+    function asHtml()
     {
         return '';
     }
@@ -493,7 +493,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function asArray(array $arrAttributes = [])
+    function asArray(array $arrAttributes = [])
     {
         return [];
     }

@@ -29,7 +29,7 @@ class Mage_Adminhtml_Model_Email_PathValidator extends Zend_Validate_Abstract
      * @param  mixed $value
      * @return bool
      */
-    public function isValid($value)
+    function isValid($value)
     {
         $pathNode = is_array($value) ? array_shift($value) : $value;
 

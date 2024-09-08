@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Permissions_Roles extends Mage_Adminhtml_Block_Templa
      *
      * @return string
      */
-    public function getAddNewUrl()
+    function getAddNewUrl()
     {
         return $this->getUrl('*/*/editrole');
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Permissions_Roles extends Mage_Adminhtml_Block_Templa
      *
      * @return string
      */
-    public function getRefreshRolesUrl()
+    function getRefreshRolesUrl()
     {
         return $this->getUrl('*/*/refreshroles');
     }
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Permissions_Roles extends Mage_Adminhtml_Block_Templa
      *
      * @return string
      */
-    public function getGridHtml()
+    function getGridHtml()
     {
         return $this->getChild('grid')->toHtml();
     }

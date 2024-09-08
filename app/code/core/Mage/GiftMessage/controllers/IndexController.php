@@ -21,7 +21,7 @@
  */
 class Mage_GiftMessage_IndexController extends Mage_Core_Controller_Front_Action
 {
-    public function saveAction()
+    function saveAction()
     {
         $giftMessage = Mage::getModel('giftmessage/message');
         if ($this->getRequest()->getParam('message')) {

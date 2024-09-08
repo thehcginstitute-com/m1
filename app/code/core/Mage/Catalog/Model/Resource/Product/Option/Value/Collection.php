@@ -33,7 +33,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Value_Collection extends Mage_C
      * @param int $storeId
      * @return $this
      */
-    public function getValues($storeId)
+    function getValues($storeId)
     {
         $this->addPriceToResult($storeId)
              ->addTitleToResult($storeId);
@@ -47,7 +47,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Value_Collection extends Mage_C
      * @param int $storeId
      * @return $this
      */
-    public function addTitlesToResult($storeId)
+    function addTitlesToResult($storeId)
     {
         $adapter = $this->getConnection();
         $optionTypePriceTable = $this->getTable('catalog/product_option_type_price');
@@ -115,7 +115,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Value_Collection extends Mage_C
      * @param int $storeId
      * @return $this
      */
-    public function addTitleToResult($storeId)
+    function addTitleToResult($storeId)
     {
         $optionTitleTable = $this->getTable('catalog/product_option_type_title');
         $titleExpr = $this->getConnection()
@@ -148,7 +148,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Value_Collection extends Mage_C
      * @param int $storeId
      * @return $this
      */
-    public function addPriceToResult($storeId)
+    function addPriceToResult($storeId)
     {
         $optionTypeTable = $this->getTable('catalog/product_option_type_price');
         $priceExpr = $this->getConnection()
@@ -194,7 +194,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Value_Collection extends Mage_C
      * @param int $storeId
      * @return $this
      */
-    public function getValuesByOption($optionIds, $storeId = null)
+    function getValuesByOption($optionIds, $storeId = null)
     {
         if (!is_array($optionIds)) {
             $optionIds = [$optionIds];
@@ -209,7 +209,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Value_Collection extends Mage_C
      * @param array|Mage_Catalog_Model_Product_Option|int $option
      * @return $this
      */
-    public function addOptionToFilter($option)
+    function addOptionToFilter($option)
     {
         if (empty($option)) {
             $this->addFieldToFilter('option_id', '');

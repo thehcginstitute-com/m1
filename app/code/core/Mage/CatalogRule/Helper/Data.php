@@ -30,7 +30,7 @@ class Mage_CatalogRule_Helper_Data extends Mage_Core_Helper_Abstract
      * @param  float $price
      * @return float|int
      */
-    public function calcPriceRule($actionOperator, $ruleAmount, $price)
+    function calcPriceRule($actionOperator, $ruleAmount, $price)
     {
         $priceRule = 0;
         switch ($actionOperator) {

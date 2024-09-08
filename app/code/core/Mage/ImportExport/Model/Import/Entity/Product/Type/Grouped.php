@@ -43,7 +43,7 @@ class Mage_ImportExport_Model_Import_Entity_Product_Type_Grouped extends Mage_Im
      *
      * @return string
      */
-    public function getBehavior()
+    function getBehavior()
     {
         if (is_null($this->_behavior)) {
             $this->_behavior = Mage_ImportExport_Model_Import::getDataSourceModel()->getBehavior();
@@ -56,7 +56,7 @@ class Mage_ImportExport_Model_Import_Entity_Product_Type_Grouped extends Mage_Im
      *
      * @return Mage_ImportExport_Model_Import_Entity_Product_Type_Abstract
      */
-    public function saveData()
+    function saveData()
     {
         $groupedLinkId = Mage_Catalog_Model_Product_Link::LINK_TYPE_GROUPED;
         $connection    = Mage::getSingleton('core/resource')->getConnection('write');

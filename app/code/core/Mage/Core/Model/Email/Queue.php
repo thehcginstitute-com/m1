@@ -98,7 +98,7 @@ class Mage_Core_Model_Email_Queue extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function addMessageToQueue()
+    function addMessageToQueue()
     {
         if ($this->getIsForceCheck() && $this->_getResource()->wasEmailQueued($this)) {
             return $this;
@@ -122,7 +122,7 @@ class Mage_Core_Model_Email_Queue extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function addRecipients($emails, $names = null, $type = self::EMAIL_TYPE_TO)
+    function addRecipients($emails, $names = null, $type = self::EMAIL_TYPE_TO)
     {
         $_supportedEmailTypes = [
             self::EMAIL_TYPE_TO,
@@ -144,7 +144,7 @@ class Mage_Core_Model_Email_Queue extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function clearRecipients()
+    function clearRecipients()
     {
         $this->_recipients = [];
         return $this;
@@ -157,7 +157,7 @@ class Mage_Core_Model_Email_Queue extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function setRecipients(array $recipients)
+    function setRecipients(array $recipients)
     {
         $this->_recipients = $recipients;
         return $this;
@@ -168,7 +168,7 @@ class Mage_Core_Model_Email_Queue extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getRecipients()
+    function getRecipients()
     {
         return $this->_recipients;
     }
@@ -178,7 +178,7 @@ class Mage_Core_Model_Email_Queue extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function send()
+    function send()
     {
         $collection = Mage::getModel('core/email_queue')->getCollection()
             ->addOnlyForSendingFilter()
@@ -269,7 +269,7 @@ class Mage_Core_Model_Email_Queue extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function cleanQueue()
+    function cleanQueue()
     {
         $this->_getResource()->removeSentMessages();
         return $this;

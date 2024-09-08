@@ -276,7 +276,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Source extends Mage_Catalo
      * @param string $table
      * @return string
      */
-    public function getIdxTable($table = null)
+    function getIdxTable($table = null)
     {
         if ($this->useIdxTable()) {
             return $this->getTable('catalog/product_eav_indexer_idx');

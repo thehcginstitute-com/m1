@@ -31,7 +31,7 @@ class Mage_Widget_Adminhtml_WidgetController extends Mage_Adminhtml_Controller_A
     /**
      * Wysiwyg widget plugin main page
      */
-    public function indexAction()
+    function indexAction()
     {
         // save extra params for widgets insertion form
         $skipped = $this->getRequest()->getParam('skip_widgets');
@@ -45,7 +45,7 @@ class Mage_Widget_Adminhtml_WidgetController extends Mage_Adminhtml_Controller_A
     /**
      * Ajax responder for loading plugin options form
      */
-    public function loadOptionsAction()
+    function loadOptionsAction()
     {
         try {
             $this->loadLayout('empty');
@@ -71,7 +71,7 @@ class Mage_Widget_Adminhtml_WidgetController extends Mage_Adminhtml_Controller_A
     /**
      * Format widget pseudo-code for inserting into wysiwyg editor
      */
-    public function buildWidgetAction()
+    function buildWidgetAction()
     {
         $type = $this->getRequest()->getPost('widget_type');
         $params = $this->getRequest()->getPost('parameters', []);

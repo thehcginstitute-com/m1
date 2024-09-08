@@ -31,7 +31,7 @@ class Mage_Adminhtml_Promo_WidgetController extends Mage_Adminhtml_Controller_Ac
      *
      * @return void
      */
-    public function chooserAction()
+    function chooserAction()
     {
         $request = $this->getRequest();
 
@@ -82,7 +82,7 @@ class Mage_Adminhtml_Promo_WidgetController extends Mage_Adminhtml_Controller_Ac
     /**
      * Get tree node (Ajax version)
      */
-    public function categoriesJsonAction()
+    function categoriesJsonAction()
     {
         if ($categoryId = (int) $this->getRequest()->getPost('id')) {
             $this->getRequest()->setParam('id', $categoryId);

@@ -28,7 +28,7 @@ class Mage_CatalogRule_Model_Rule_Condition_Product extends Mage_Rule_Model_Cond
      * @param Varien_Object $object
      * @return bool
      */
-    public function validate(Varien_Object $object)
+    function validate(Varien_Object $object)
     {
         $attrCode = $this->getAttribute();
         if ($attrCode == 'category_ids') {

@@ -47,7 +47,7 @@ class Mage_Checkout_Block_Onepage_Shipping extends Mage_Checkout_Block_Onepage_A
      *
      * @return string
      */
-    public function getMethod()
+    function getMethod()
     {
         return $this->getQuote()->getCheckoutMethod();
     }
@@ -57,7 +57,7 @@ class Mage_Checkout_Block_Onepage_Shipping extends Mage_Checkout_Block_Onepage_A
      *
      * @return Mage_Sales_Model_Quote_Address
      */
-    public function getAddress()
+    function getAddress()
     {
         if (is_null($this->_address)) {
             $this->_address = $this->getQuote()->getShippingAddress();
@@ -71,7 +71,7 @@ class Mage_Checkout_Block_Onepage_Shipping extends Mage_Checkout_Block_Onepage_A
      *
      * @return bool
      */
-    public function isShow()
+    function isShow()
     {
         return !$this->getQuote()->isVirtual();
     }

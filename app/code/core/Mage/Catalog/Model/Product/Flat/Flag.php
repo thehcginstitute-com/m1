@@ -34,7 +34,7 @@ class Mage_Catalog_Model_Product_Flat_Flag extends Mage_Core_Model_Flag
      *
      * @return array
      */
-    public function getFlagData()
+    function getFlagData()
     {
         $flagData = parent::getFlagData();
         if (!is_array($flagData)) {
@@ -50,7 +50,7 @@ class Mage_Catalog_Model_Product_Flat_Flag extends Mage_Core_Model_Flag
      * @param int $storeId
      * @return bool
      */
-    public function isStoreBuilt($storeId)
+    function isStoreBuilt($storeId)
     {
         $key = 'is_store_built_' . (int)$storeId;
         $flagData = $this->getFlagData();
@@ -68,7 +68,7 @@ class Mage_Catalog_Model_Product_Flat_Flag extends Mage_Core_Model_Flag
      * @param bool $built
      * @return $this
      */
-    public function setStoreBuilt($storeId, $built)
+    function setStoreBuilt($storeId, $built)
     {
         $key = 'is_store_built_' . (int)$storeId;
         $flagData = $this->getFlagData();
@@ -82,7 +82,7 @@ class Mage_Catalog_Model_Product_Flat_Flag extends Mage_Core_Model_Flag
      *
      * @return bool
      */
-    public function getIsBuilt()
+    function getIsBuilt()
     {
         $flagData = $this->getFlagData();
         if (!isset($flagData['is_built'])) {
@@ -99,7 +99,7 @@ class Mage_Catalog_Model_Product_Flat_Flag extends Mage_Core_Model_Flag
      *
      * @return $this
      */
-    public function setIsBuilt($flag)
+    function setIsBuilt($flag)
     {
         $flagData = $this->getFlagData();
         $flagData['is_built'] = (bool)$flag;
@@ -116,7 +116,7 @@ class Mage_Catalog_Model_Product_Flat_Flag extends Mage_Core_Model_Flag
      *
      * @return $this
      */
-    public function setIsBuild($flag)
+    function setIsBuild($flag)
     {
         $this->setIsBuilt($flag);
         return $this;

@@ -38,7 +38,7 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Options extends Mage_Wishlist_B
     /**
      * Initialize block
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         Mage::dispatchEvent('product_option_renderer_init', ['block' => $this]);
@@ -52,7 +52,7 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Options extends Mage_Wishlist_B
      * @param null|string $template
      * @return $this
      */
-    public function addOptionsRenderCfg($productType, $helperName, $template = null)
+    function addOptionsRenderCfg($productType, $helperName, $template = null)
     {
         $this->_optionsCfg[$productType] = ['helper' => $helperName, 'template' => $template];
         return $this;
@@ -64,7 +64,7 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Options extends Mage_Wishlist_B
      * @param string $productType
      * @return array|null
      */
-    public function getOptionsRenderCfg($productType)
+    function getOptionsRenderCfg($productType)
     {
         if (isset($this->_optionsCfg[$productType])) {
             return $this->_optionsCfg[$productType];
@@ -80,7 +80,7 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Options extends Mage_Wishlist_B
      *
      * @return array
      */
-    public function getConfiguredOptions()
+    function getConfiguredOptions()
     {
         $item = $this->getItem();
         $data = $this->getOptionsRenderCfg($item->getProduct()->getTypeId());
@@ -98,7 +98,7 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Options extends Mage_Wishlist_B
      *
      * @return string
      */
-    public function getTemplate()
+    function getTemplate()
     {
         $template = parent::getTemplate();
         if ($template) {

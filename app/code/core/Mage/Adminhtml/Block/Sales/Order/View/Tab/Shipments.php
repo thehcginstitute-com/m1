@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_View_Tab_Shipments extends Mage_Adminhtml_Block_Widget_Grid implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('order_shipments');
@@ -85,12 +85,12 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Shipments extends Mage_Adminhtml
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl(
             '*/sales_order_shipment/view',
@@ -101,7 +101,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Shipments extends Mage_Adminhtml
         );
     }
 
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/shipments', ['_current' => true]);
     }
@@ -109,17 +109,17 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Shipments extends Mage_Adminhtml
     /**
      * ######################## TAB settings #################################
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('sales')->__('Shipments');
     }
 
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('sales')->__('Order Shipments');
     }
 
-    public function canShowTab()
+    function canShowTab()
     {
         if ($this->getOrder()->getIsVirtual()) {
             return false;
@@ -127,7 +127,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Shipments extends Mage_Adminhtml
         return true;
     }
 
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }

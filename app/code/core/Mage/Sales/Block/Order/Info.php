@@ -54,7 +54,7 @@ class Mage_Sales_Block_Order_Info extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getPaymentInfoHtml()
+    function getPaymentInfoHtml()
     {
         return $this->getChildHtml('payment_info');
     }
@@ -64,7 +64,7 @@ class Mage_Sales_Block_Order_Info extends Mage_Core_Block_Template
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }
@@ -75,7 +75,7 @@ class Mage_Sales_Block_Order_Info extends Mage_Core_Block_Template
      * @param string $label
      * @return $this
      */
-    public function addLink($name, $path, $label)
+    function addLink($name, $path, $label)
     {
         $this->_links[$name] = new Varien_Object([
             'name' => $name,
@@ -91,7 +91,7 @@ class Mage_Sales_Block_Order_Info extends Mage_Core_Block_Template
      * @param string $name of the link
      * @return $this
      */
-    public function removeLink($name)
+    function removeLink($name)
     {
         if (isset($this->_links[$name])) {
             unset($this->_links[$name]);
@@ -102,7 +102,7 @@ class Mage_Sales_Block_Order_Info extends Mage_Core_Block_Template
     /**
      * @return array
      */
-    public function getLinks()
+    function getLinks()
     {
         $this->checkLinks();
         return $this->_links;
@@ -129,7 +129,7 @@ class Mage_Sales_Block_Order_Info extends Mage_Core_Block_Template
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function getReorderUrl($order)
+    function getReorderUrl($order)
     {
         if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
             return $this->getUrl('sales/guest/reorder', ['order_id' => $order->getId()]);
@@ -144,7 +144,7 @@ class Mage_Sales_Block_Order_Info extends Mage_Core_Block_Template
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function getPrintUrl($order)
+    function getPrintUrl($order)
     {
         if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
             return $this->getUrl('sales/guest/print', ['order_id' => $order->getId()]);

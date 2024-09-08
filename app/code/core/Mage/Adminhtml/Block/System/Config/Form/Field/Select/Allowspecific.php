@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_System_Config_Form_Field_Select_Allowspecific extends Varien_Data_Form_Element_Select
 {
-    public function getAfterElementHtml()
+    function getAfterElementHtml()
     {
         $javaScript = "
             <script type=\"text/javascript\">
@@ -34,7 +34,7 @@ class Mage_Adminhtml_Block_System_Config_Form_Field_Select_Allowspecific extends
         return $javaScript . parent::getAfterElementHtml();
     }
 
-    public function getHtml()
+    function getHtml()
     {
         if (!$this->getValue() || $this->getValue() != 1) {
             $this->getForm()->getElement($this->_getSpecificCountryElementId())->setDisabled('disabled');

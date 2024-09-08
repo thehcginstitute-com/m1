@@ -72,7 +72,7 @@ class Mage_Core_Model_Flag extends Mage_Core_Model_Abstract
      *
      * @return mixed
      */
-    public function getFlagData()
+    function getFlagData()
     {
         if ($this->hasFlagData()) {
             return unserialize($this->getData('flag_data'), ['allowed_classes' => false]);
@@ -87,7 +87,7 @@ class Mage_Core_Model_Flag extends Mage_Core_Model_Abstract
      * @param mixed $value
      * @return $this
      */
-    public function setFlagData($value)
+    function setFlagData($value)
     {
         return $this->setData('flag_data', serialize($value));
     }
@@ -97,7 +97,7 @@ class Mage_Core_Model_Flag extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function loadSelf()
+    function loadSelf()
     {
         if (is_null($this->_flagCode)) {
             Mage::throwException(Mage::helper('core')->__('Please define flag code.'));

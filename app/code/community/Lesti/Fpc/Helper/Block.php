@@ -25,7 +25,7 @@ class Lesti_Fpc_Helper_Block extends Lesti_Fpc_Helper_Abstract
     /**
      * @return array
      */
-    public function getDynamicBlocks()
+    function getDynamicBlocks()
     {
         return $this->getCSStoreConfigs(self::DYNAMIC_BLOCKS_XML_PATH);
     }
@@ -33,7 +33,7 @@ class Lesti_Fpc_Helper_Block extends Lesti_Fpc_Helper_Abstract
     /**
      * @return array
      */
-    public function getLazyBlocks()
+    function getLazyBlocks()
     {
         return $this->getCSStoreConfigs(self::LAZY_BLOCKS_XML_PATH);
     }
@@ -41,7 +41,7 @@ class Lesti_Fpc_Helper_Block extends Lesti_Fpc_Helper_Abstract
     /**
      * @return bool
      */
-    public function areLazyBlocksValid()
+    function areLazyBlocksValid()
     {
         $hash = $this->_getLazyBlocksValidHash();
         $session = Mage::getSingleton('customer/session');
@@ -87,7 +87,7 @@ class Lesti_Fpc_Helper_Block extends Lesti_Fpc_Helper_Abstract
      * @param $blockName
      * @return string
      */
-    public function getPlaceholderHtml($blockName)
+    function getPlaceholderHtml($blockName)
     {
         return '<!-- fpc ' . sha1($blockName) . ' -->';
     }
@@ -96,7 +96,7 @@ class Lesti_Fpc_Helper_Block extends Lesti_Fpc_Helper_Abstract
      * @param $blockName
      * @return string
      */
-    public function getKey($blockName)
+    function getKey($blockName)
     {
         return sha1($blockName) . '_block';
     }
@@ -104,7 +104,7 @@ class Lesti_Fpc_Helper_Block extends Lesti_Fpc_Helper_Abstract
     /**
      * @return mixed
      */
-    public function useRecentlyViewedProducts()
+    function useRecentlyViewedProducts()
     {
         return (bool)Mage::getStoreConfig(
             self::USE_RECENTLY_VIEWED_PRODUCTS_XML_PATH
@@ -115,7 +115,7 @@ class Lesti_Fpc_Helper_Block extends Lesti_Fpc_Helper_Abstract
      * @param $block
      * @return array
      */
-    public function getCacheTags($block)
+    function getCacheTags($block)
     {
         $cacheTags = array();
         $blockName = $block->getNameInLayout();

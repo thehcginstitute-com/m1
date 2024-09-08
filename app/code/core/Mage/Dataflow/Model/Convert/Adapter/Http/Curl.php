@@ -22,7 +22,7 @@
  */
 class Mage_Dataflow_Model_Convert_Adapter_Http_Curl extends Mage_Dataflow_Model_Convert_Adapter_Abstract
 {
-    public function load()
+    function load()
     {
         // we expect <var name="uri">http://...</var>
         $uri = $this->getVar('uri');
@@ -52,7 +52,7 @@ class Mage_Dataflow_Model_Convert_Adapter_Http_Curl extends Mage_Dataflow_Model_
         return $this;
     }
 
-    public function save()
+    function save()
     {
         // no save implemented
         return $this;

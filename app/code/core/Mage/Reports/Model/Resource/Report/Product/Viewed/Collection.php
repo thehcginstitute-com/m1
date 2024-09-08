@@ -40,7 +40,7 @@ class Mage_Reports_Model_Resource_Report_Product_Viewed_Collection extends Mage_
      * Initialize custom resource model
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::_construct();
         $this->setModel('adminhtml/report_item');
@@ -162,7 +162,7 @@ class Mage_Reports_Model_Resource_Report_Product_Viewed_Collection extends Mage_
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $this->_renderFilters();
         $select = clone $this->getSelect();
@@ -176,7 +176,7 @@ class Mage_Reports_Model_Resource_Report_Product_Viewed_Collection extends Mage_
      * @param  array $storeIds
      * @return $this
      */
-    public function addStoreRestrictions($storeIds)
+    function addStoreRestrictions($storeIds)
     {
         if (!is_array($storeIds)) {
             $storeIds = [$storeIds];

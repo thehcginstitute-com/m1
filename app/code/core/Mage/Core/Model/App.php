@@ -250,7 +250,7 @@ class Mage_Core_Model_App
      */
     protected $_isInstalled = null;
 
-    public function __construct()
+    function __construct()
     {
     }
 
@@ -262,7 +262,7 @@ class Mage_Core_Model_App
      * @param  string|array $options
      * @return $this
      */
-    public function init($code, $type = null, $options = [])
+    function init($code, $type = null, $options = [])
     {
         $this->_initEnvironment();
         if (is_string($options)) {
@@ -294,7 +294,7 @@ class Mage_Core_Model_App
      * @param  string|array $options
      * @return $this
      */
-    public function baseInit($options)
+    function baseInit($options)
     {
         $this->_initEnvironment();
 
@@ -319,7 +319,7 @@ class Mage_Core_Model_App
      * @param  string|array $modules
      * @return $this
      */
-    public function initSpecified($scopeCode, $scopeType = null, $options = [], $modules = [])
+    function initSpecified($scopeCode, $scopeType = null, $options = [], $modules = [])
     {
         $this->baseInit($options);
 
@@ -342,7 +342,7 @@ class Mage_Core_Model_App
      * @param  array $params application run parameters
      * @return $this
      */
-    public function run($params)
+    function run($params)
     {
         $options = $params['options'] ?? [];
         $this->baseInit($options);
@@ -510,7 +510,7 @@ class Mage_Core_Model_App
      *
      * @return Mage_Core_Model_Cookie
      */
-    public function getCookie()
+    function getCookie()
     {
         return Mage::getSingleton('core/cookie');
     }
@@ -602,7 +602,7 @@ class Mage_Core_Model_App
         return $this;
     }
 
-    public function reinitStores()
+    function reinitStores()
     {
         return $this->_initStores();
     }
@@ -697,7 +697,7 @@ class Mage_Core_Model_App
      *
      * @return bool
      */
-    public function isSingleStoreMode()
+    function isSingleStoreMode()
     {
         if ($this->_isInstalled === null) {
             $this->_isInstalled = Mage::isInstalled();
@@ -749,7 +749,7 @@ class Mage_Core_Model_App
      * @param null|string|bool|int|Mage_Core_Model_Store $store
      * @return $this
      */
-    public function setCurrentStore($store)
+    function setCurrentStore($store)
     {
         $this->_currentStore = $store;
         return $this;
@@ -776,7 +776,7 @@ class Mage_Core_Model_App
      * @param   string $handler
      * @return  $this
      */
-    public function setErrorHandler($handler)
+    function setErrorHandler($handler)
     {
         set_error_handler($handler);
         return $this;
@@ -788,7 +788,7 @@ class Mage_Core_Model_App
      * @param   string $code
      * @return  $this
      */
-    public function loadArea($code)
+    function loadArea($code)
     {
         $this->getArea($code)->load();
         return $this;
@@ -801,7 +801,7 @@ class Mage_Core_Model_App
      * @param   string $part
      * @return  $this
      */
-    public function loadAreaPart($area, $part)
+    function loadAreaPart($area, $part)
     {
         $this->getArea($area)->load($part);
         return $this;
@@ -813,7 +813,7 @@ class Mage_Core_Model_App
      * @param   string $code
      * @return  Mage_Core_Model_App_Area
      */
-    public function getArea($code)
+    function getArea($code)
     {
         if (!isset($this->_areas[$code])) {
             $this->_areas[$code] = new Mage_Core_Model_App_Area($code, $this);
@@ -828,7 +828,7 @@ class Mage_Core_Model_App
      * @return Mage_Core_Model_Store|null
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getStore($id = null)
+    function getStore($id = null)
     {
         if ($this->_isInstalled === null) {
             $this->_isInstalled = Mage::isInstalled();
@@ -876,7 +876,7 @@ class Mage_Core_Model_App
      * @param string|int|Mage_Core_Model_Store $id
      * @return Mage_Core_Model_Store|Varien_Object
      */
-    public function getSafeStore($id = null)
+    function getSafeStore($id = null)
     {
         try {
             return $this->getStore($id);
@@ -897,7 +897,7 @@ class Mage_Core_Model_App
      * @param bool $codeKey
      * @return Mage_Core_Model_Store[]
      */
-    public function getStores($withDefault = false, $codeKey = false)
+    function getStores($withDefault = false, $codeKey = false)
     {
         $stores = [];
         foreach ($this->_stores as $store) {
@@ -932,7 +932,7 @@ class Mage_Core_Model_App
      *
      * @return Mage_Core_Model_Store|null
      */
-    public function getDefaultStoreView()
+    function getDefaultStoreView()
     {
         foreach ($this->getWebsites() as $_website) {
             if ($_website->getIsDefault()) {
@@ -948,7 +948,7 @@ class Mage_Core_Model_App
     /**
      * @return string
      */
-    public function getDistroLocaleCode()
+    function getDistroLocaleCode()
     {
         return self::DISTRO_LOCALE_CODE;
     }
@@ -959,7 +959,7 @@ class Mage_Core_Model_App
      * @param null|Mage_Core_Model_Website|true|int|string $id
      * @return Mage_Core_Model_Website
      */
-    public function getWebsite($id = null)
+    function getWebsite($id = null)
     {
         if (is_null($id)) {
             $id = $this->getStore()->getWebsiteId();
@@ -994,7 +994,7 @@ class Mage_Core_Model_App
      * @param bool $codeKey
      * @return Mage_Core_Model_Website[]
      */
-    public function getWebsites($withDefault = false, $codeKey = false)
+    function getWebsites($withDefault = false, $codeKey = false)
     {
         $websites = [];
         if (is_array($this->_websites)) {
@@ -1019,7 +1019,7 @@ class Mage_Core_Model_App
      * @param null|Mage_Core_Model_Store_Group|int|string $id
      * @return Mage_Core_Model_Store_Group
      */
-    public function getGroup($id = null)
+    function getGroup($id = null)
     {
         if (is_null($id)) {
             $id = $this->getStore()->getGroup()->getId();
@@ -1044,7 +1044,7 @@ class Mage_Core_Model_App
      *
      * @return Mage_Core_Model_Locale
      */
-    public function getLocale()
+    function getLocale()
     {
         if (!$this->_locale) {
             $this->_locale = Mage::getSingleton('core/locale');
@@ -1057,7 +1057,7 @@ class Mage_Core_Model_App
      *
      * @return Mage_Core_Model_Layout
      */
-    public function getLayout()
+    function getLayout()
     {
         if (!$this->_layout) {
             if ($this->getFrontController()->getAction()) {
@@ -1074,7 +1074,7 @@ class Mage_Core_Model_App
      *
      * @return Mage_Core_Model_Translate
      */
-    public function getTranslator()
+    function getTranslator()
     {
         if (!$this->_translator) {
             $this->_translator = Mage::getSingleton('core/translate');
@@ -1088,7 +1088,7 @@ class Mage_Core_Model_App
      * @param string $name
      * @return Mage_Core_Helper_Abstract
      */
-    public function getHelper($name)
+    function getHelper($name)
     {
         return Mage::helper($name);
     }
@@ -1098,7 +1098,7 @@ class Mage_Core_Model_App
      *
      * @return string
      */
-    public function getBaseCurrencyCode()
+    function getBaseCurrencyCode()
     {
         //return Mage::getStoreConfig(Mage_Directory_Model_Currency::XML_PATH_CURRENCY_BASE, 0);
         return (string) Mage::app()->getConfig()
@@ -1110,7 +1110,7 @@ class Mage_Core_Model_App
      *
      * @return Mage_Core_Model_Config
      */
-    public function getConfig()
+    function getConfig()
     {
         return $this->_config;
     }
@@ -1120,7 +1120,7 @@ class Mage_Core_Model_App
      *
      * @return Mage_Core_Controller_Varien_Front
      */
-    public function getFrontController()
+    function getFrontController()
     {
         if (!$this->_frontController) {
             $this->_initFrontController();
@@ -1134,7 +1134,7 @@ class Mage_Core_Model_App
      *
      * @return Mage_Core_Model_Cache
      */
-    public function getCacheInstance()
+    function getCacheInstance()
     {
         if (!$this->_cache) {
             $this->_initCache();
@@ -1147,7 +1147,7 @@ class Mage_Core_Model_App
      *
      * @return Zend_Cache_Core
      */
-    public function getCache()
+    function getCache()
     {
         if (!$this->_cache) {
             $this->_initCache();
@@ -1161,7 +1161,7 @@ class Mage_Core_Model_App
      * @param   string $id
      * @return  string|false
      */
-    public function loadCache($id)
+    function loadCache($id)
     {
         return $this->_cache->load($id);
     }
@@ -1175,7 +1175,7 @@ class Mage_Core_Model_App
      * @param null|false|int $lifeTime
      * @return  $this
      */
-    public function saveCache($data, $id, $tags = [], $lifeTime = false)
+    function saveCache($data, $id, $tags = [], $lifeTime = false)
     {
         $this->_cache->save($data, $id, $tags, $lifeTime);
         return $this;
@@ -1187,7 +1187,7 @@ class Mage_Core_Model_App
      * @param   string $id
      * @return  false|int
      */
-    public function testCache($id)
+    function testCache($id)
     {
         return $this->_cache->test($id);
     }
@@ -1198,7 +1198,7 @@ class Mage_Core_Model_App
      * @param   string $id
      * @return  $this
      */
-    public function removeCache($id)
+    function removeCache($id)
     {
         $this->_cache->remove($id);
         return $this;
@@ -1210,7 +1210,7 @@ class Mage_Core_Model_App
      * @param   array $tags
      * @return  $this
      */
-    public function cleanCache($tags = [])
+    function cleanCache($tags = [])
     {
         $this->_cache->clean($tags);
         Mage::dispatchEvent('application_clean_cache', ['tags' => $tags]);
@@ -1223,7 +1223,7 @@ class Mage_Core_Model_App
      * @param null|string $type
      * @return false|array
      */
-    public function useCache($type = null)
+    function useCache($type = null)
     {
         return $this->_cache->canUse($type);
     }
@@ -1234,7 +1234,7 @@ class Mage_Core_Model_App
      * @param array $data
      * @return $this
      */
-    public function saveUseCache($data)
+    function saveUseCache($data)
     {
         $this->_cache->saveOptions($data);
         return $this;
@@ -1244,7 +1244,7 @@ class Mage_Core_Model_App
      * Deletes all session files
      *
      */
-    public function cleanAllSessions()
+    function cleanAllSessions()
     {
         if (session_module_name() == 'files') {
             $dir = session_save_path();
@@ -1258,7 +1258,7 @@ class Mage_Core_Model_App
      *
      * @return Mage_Core_Controller_Request_Http
      */
-    public function getRequest()
+    function getRequest()
     {
         if (empty($this->_request)) {
             $this->_request = new Mage_Core_Controller_Request_Http();
@@ -1272,7 +1272,7 @@ class Mage_Core_Model_App
      * @param Mage_Core_Controller_Request_Http $request
      * @return $this
      */
-    public function setRequest(Mage_Core_Controller_Request_Http $request)
+    function setRequest(Mage_Core_Controller_Request_Http $request)
     {
         $this->_request = $request;
         return $this;
@@ -1283,7 +1283,7 @@ class Mage_Core_Model_App
      *
      * @return Mage_Core_Controller_Response_Http
      */
-    public function getResponse()
+    function getResponse()
     {
         if (empty($this->_response)) {
             $this->_response = new Mage_Core_Controller_Response_Http();
@@ -1299,7 +1299,7 @@ class Mage_Core_Model_App
      * @param Mage_Core_Controller_Response_Http $response
      * @return $this
      */
-    public function setResponse(Mage_Core_Controller_Response_Http $response)
+    function setResponse(Mage_Core_Controller_Response_Http $response)
     {
         $this->_response = $response;
         return $this;
@@ -1309,7 +1309,7 @@ class Mage_Core_Model_App
      * @param string $area
      * @return $this
      */
-    public function addEventArea($area)
+    function addEventArea($area)
     {
         if (!isset($this->_events[$area])) {
             $this->_events[$area] = [];
@@ -1323,7 +1323,7 @@ class Mage_Core_Model_App
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function dispatchEvent($eventName, $args)
+    function dispatchEvent($eventName, $args)
     {
         $eventName = strtolower($eventName);
         foreach ($this->_events as $area => $events) {
@@ -1412,7 +1412,7 @@ class Mage_Core_Model_App
     /**
      * @param bool $value
      */
-    public function setUpdateMode($value)
+    function setUpdateMode($value)
     {
         $this->_updateMode = $value;
     }
@@ -1420,7 +1420,7 @@ class Mage_Core_Model_App
     /**
      * @return bool
      */
-    public function getUpdateMode()
+    function getUpdateMode()
     {
         return $this->_updateMode;
     }
@@ -1430,7 +1430,7 @@ class Mage_Core_Model_App
      * @throws Mage_Core_Model_Store_Exception
      * @return never
      */
-    public function throwStoreException($text = '')
+    function throwStoreException($text = '')
     {
         throw new Mage_Core_Model_Store_Exception($text);
     }
@@ -1441,7 +1441,7 @@ class Mage_Core_Model_App
      * @param bool $var
      * @return $this
      */
-    public function setUseSessionVar($var)
+    function setUseSessionVar($var)
     {
         $this->_useSessionVar = (bool)$var;
         return $this;
@@ -1452,7 +1452,7 @@ class Mage_Core_Model_App
      *
      * @return bool
      */
-    public function getUseSessionVar()
+    function getUseSessionVar()
     {
         return $this->_useSessionVar;
     }
@@ -1462,7 +1462,7 @@ class Mage_Core_Model_App
      *
      * @return Mage_Core_Model_Store
      */
-    public function getAnyStoreView()
+    function getAnyStoreView()
     {
         $store = $this->getDefaultStoreView();
         if ($store) {
@@ -1479,7 +1479,7 @@ class Mage_Core_Model_App
      * @param bool $flag
      * @return $this
      */
-    public function setUseSessionInUrl($flag = true)
+    function setUseSessionInUrl($flag = true)
     {
         $this->_useSessionInUrl = (bool)$flag;
         return $this;
@@ -1490,7 +1490,7 @@ class Mage_Core_Model_App
      *
      * @return bool
      */
-    public function getUseSessionInUrl()
+    function getUseSessionInUrl()
     {
         return $this->_useSessionInUrl;
     }
@@ -1501,7 +1501,7 @@ class Mage_Core_Model_App
      * @param bool $value
      * @return $this
      */
-    public function setIsSingleStoreModeAllowed($value)
+    function setIsSingleStoreModeAllowed($value)
     {
         $this->_isSingleStoreAllowed = (bool)$value;
         return $this;
@@ -1516,7 +1516,7 @@ class Mage_Core_Model_App
      * @param bool $codeKey
      * @return Mage_Core_Model_Store_Group[]
      */
-    public function getGroups($withDefault = false, $codeKey = false)
+    function getGroups($withDefault = false, $codeKey = false)
     {
         $groups = [];
         if (is_array($this->_groups)) {
@@ -1541,7 +1541,7 @@ class Mage_Core_Model_App
      * @deprecated since 1.2
      * @return bool
      */
-    public function isInstalled()
+    function isInstalled()
     {
         return Mage::isInstalled();
     }
@@ -1567,7 +1567,7 @@ class Mage_Core_Model_App
      * @deprecated after 1.4.0.0-alpha3, functionality implemented in Mage_Core_Model_Cache
      * @return string
      */
-    public function getUseCacheFilename()
+    function getUseCacheFilename()
     {
         return $this->_config->getOptions()->getEtcDir() . DS . 'use_cache.ser';
     }
@@ -1594,7 +1594,7 @@ class Mage_Core_Model_App
      * @param   string $id
      * @return  string
      */
-    public function prepareCacheId($id)
+    function prepareCacheId($id)
     {
         $id = strtoupper($id);
         $id = preg_replace('/([^a-zA-Z0-9_]{1,1})/', '_', $id);
@@ -1606,7 +1606,7 @@ class Mage_Core_Model_App
      *
      * @return bool
      */
-    public function getIsCacheLocked()
+    function getIsCacheLocked()
     {
         return (bool)$this->_isCacheLocked;
     }
@@ -1616,7 +1616,7 @@ class Mage_Core_Model_App
      *
      * @param null|bool|int|string|Mage_Core_Model_Website $id
      */
-    public function clearWebsiteCache($id = null)
+    function clearWebsiteCache($id = null)
     {
         if (is_null($id)) {
             $id = $this->getStore()->getWebsiteId();

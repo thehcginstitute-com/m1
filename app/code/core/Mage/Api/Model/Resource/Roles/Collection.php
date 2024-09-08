@@ -48,7 +48,7 @@ class Mage_Api_Model_Resource_Roles_Collection extends Mage_Core_Model_Resource_
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->_toOptionArray('role_id', 'role_name');
     }

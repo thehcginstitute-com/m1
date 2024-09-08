@@ -1,7 +1,7 @@
 <?php
 class OX_AmexSavedCC_Model_System_Config_Source_Payment_Amex
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         $options =  array();
         $options[] = array(

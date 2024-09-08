@@ -24,7 +24,7 @@ class Mage_Rule_Block_Conditions implements Varien_Data_Form_Element_Renderer_In
      * @param Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         if ($element->getRule() && $element->getRule()->getConditions()) {
             return $element->getRule()->getConditions()->asHtmlRecursive();

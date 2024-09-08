@@ -40,7 +40,7 @@ class Mage_Catalog_Model_Resource_Product_Status extends Mage_Core_Model_Resourc
      * @param string $attributeCode
      * @return Mage_Eav_Model_Entity_Attribute_Abstract
      */
-    public function getProductAttribute($attributeCode)
+    function getProductAttribute($attributeCode)
     {
         return $this->_getProductAttribute($attributeCode);
     }
@@ -67,7 +67,7 @@ class Mage_Catalog_Model_Resource_Product_Status extends Mage_Core_Model_Resourc
      * @param int $storeId
      * @return $this
      */
-    public function refreshEnabledIndex($productId, $storeId)
+    function refreshEnabledIndex($productId, $storeId)
     {
         if ($storeId == Mage_Catalog_Model_Abstract::DEFAULT_STORE_ID) {
             foreach (Mage::app()->getStores() as $store) {
@@ -92,7 +92,7 @@ class Mage_Catalog_Model_Resource_Product_Status extends Mage_Core_Model_Resourc
      * @throws Mage_Core_Exception
      * @throws Zend_Db_Adapter_Exception
      */
-    public function updateProductStatus($productId, $storeId, $value)
+    function updateProductStatus($productId, $storeId, $value)
     {
         $statusAttributeId  = $this->_getProductAttribute('status')->getId();
         $statusEntityTypeId = $this->_getProductAttribute('status')->getEntityTypeId();
@@ -144,7 +144,7 @@ class Mage_Catalog_Model_Resource_Product_Status extends Mage_Core_Model_Resourc
      * @param int $storeId
      * @return array
      */
-    public function getProductStatus($productIds, $storeId = null)
+    function getProductStatus($productIds, $storeId = null)
     {
         $statuses = [];
 

@@ -27,12 +27,12 @@ class Mage_Adminhtml_Block_Catalog_Category_Abstract extends Mage_Adminhtml_Bloc
      *
      * @return Mage_Catalog_Model_Category
      */
-    public function getCategory()
+    function getCategory()
     {
         return Mage::registry('category');
     }
 
-    public function getCategoryId()
+    function getCategoryId()
     {
         if ($this->getCategory()) {
             return $this->getCategory()->getId();
@@ -40,12 +40,12 @@ class Mage_Adminhtml_Block_Catalog_Category_Abstract extends Mage_Adminhtml_Bloc
         return Mage_Catalog_Model_Category::TREE_ROOT_ID;
     }
 
-    public function getCategoryName()
+    function getCategoryName()
     {
         return $this->getCategory()->getName();
     }
 
-    public function getCategoryPath()
+    function getCategoryPath()
     {
         if ($this->getCategory()) {
             return $this->getCategory()->getPath();
@@ -53,7 +53,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Abstract extends Mage_Adminhtml_Bloc
         return Mage_Catalog_Model_Category::TREE_ROOT_ID;
     }
 
-    public function hasStoreRootCategory()
+    function hasStoreRootCategory()
     {
         $root = $this->getRoot();
         if ($root && $root->getId()) {
@@ -62,13 +62,13 @@ class Mage_Adminhtml_Block_Catalog_Category_Abstract extends Mage_Adminhtml_Bloc
         return false;
     }
 
-    public function getStore()
+    function getStore()
     {
         $storeId = (int) $this->getRequest()->getParam('store');
         return Mage::app()->getStore($storeId);
     }
 
-    public function getRoot($parentNodeCategory = null, $recursionLevel = 3)
+    function getRoot($parentNodeCategory = null, $recursionLevel = 3)
     {
         if (!is_null($parentNodeCategory) && $parentNodeCategory->getId()) {
             return $this->getNode($parentNodeCategory, $recursionLevel);
@@ -117,7 +117,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Abstract extends Mage_Adminhtml_Bloc
      * @param array $ids
      * @return mixed|Varien_Data_Tree_Node|null
      */
-    public function getRootByIds($ids)
+    function getRootByIds($ids)
     {
         $root = Mage::registry('root');
         if ($root === null) {
@@ -136,7 +136,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Abstract extends Mage_Adminhtml_Bloc
         return $root;
     }
 
-    public function getNode($parentNodeCategory, $recursionLevel = 2)
+    function getNode($parentNodeCategory, $recursionLevel = 2)
     {
         $tree = Mage::getResourceModel('catalog/category_tree');
 
@@ -155,14 +155,14 @@ class Mage_Adminhtml_Block_Catalog_Category_Abstract extends Mage_Adminhtml_Bloc
         return $node;
     }
 
-    public function getSaveUrl(array $args = [])
+    function getSaveUrl(array $args = [])
     {
         $params = ['_current' => true];
         $params = array_merge($params, $args);
         return $this->getUrl('*/*/save', $params);
     }
 
-    public function getEditUrl()
+    function getEditUrl()
     {
         return $this->getUrl("*/catalog_category/edit", ['_current' => true, 'store' => null, '_query' => false, 'id' => null, 'parent' => null]);
     }
@@ -172,7 +172,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Abstract extends Mage_Adminhtml_Bloc
      *
      * @return array
      */
-    public function getRootIds()
+    function getRootIds()
     {
         $ids = $this->getData('root_ids');
         if (is_null($ids)) {

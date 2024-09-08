@@ -27,14 +27,14 @@ abstract class Mage_Oauth_Block_AuthorizeBaseAbstract extends Mage_Oauth_Block_A
      *
      * @return string
      */
-    abstract public function getPostActionUrl();
+    abstract function getPostActionUrl();
 
     /**
      * Retrieve reject authorization url
      *
      * @return string
      */
-    public function getRejectUrl()
+    function getRejectUrl()
     {
         return $this->getUrl(
             $this->getRejectUrlPath() . ($this->getIsSimple() ? 'Simple' : ''),
@@ -47,19 +47,19 @@ abstract class Mage_Oauth_Block_AuthorizeBaseAbstract extends Mage_Oauth_Block_A
      *
      * @return string
      */
-    abstract public function getRejectUrlPath();
+    abstract function getRejectUrlPath();
 
     /**
      * Get form identity label
      *
      * @return string
      */
-    abstract public function getIdentityLabel();
+    abstract function getIdentityLabel();
 
     /**
      * Get form identity label
      *
      * @return string
      */
-    abstract public function getFormTitle();
+    abstract function getFormTitle();
 }

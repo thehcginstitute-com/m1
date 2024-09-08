@@ -64,7 +64,7 @@ class Mage_ImportExport_Model_Export_Entity_Customer extends Mage_ImportExport_M
      */
     protected $_permanentAttributes = [self::COL_EMAIL, self::COL_WEBSITE, self::COL_STORE];
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -107,7 +107,7 @@ class Mage_ImportExport_Model_Export_Entity_Customer extends Mage_ImportExport_M
      *
      * @return string
      */
-    public function export()
+    function export()
     {
         $this->_prepareExport();
 
@@ -126,7 +126,7 @@ class Mage_ImportExport_Model_Export_Entity_Customer extends Mage_ImportExport_M
      *
      * @return array
      */
-    public function exportFile()
+    function exportFile()
     {
         $this->_prepareExport();
 
@@ -311,7 +311,7 @@ class Mage_ImportExport_Model_Export_Entity_Customer extends Mage_ImportExport_M
      * @param Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection
      * @return Mage_Eav_Model_Resource_Entity_Attribute_Collection
      */
-    public function filterAttributeCollection(Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection)
+    function filterAttributeCollection(Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection)
     {
         foreach (parent::filterAttributeCollection($collection) as $attribute) {
             if (!empty($this->_attributeOverrides[$attribute->getAttributeCode()])) {
@@ -331,7 +331,7 @@ class Mage_ImportExport_Model_Export_Entity_Customer extends Mage_ImportExport_M
      *
      * @return Mage_Customer_Model_Resource_Attribute_Collection|Object
      */
-    public function getAttributeCollection()
+    function getAttributeCollection()
     {
         return Mage::getResourceModel('customer/attribute_collection');
     }
@@ -341,7 +341,7 @@ class Mage_ImportExport_Model_Export_Entity_Customer extends Mage_ImportExport_M
      *
      * @return string
      */
-    public function getEntityTypeCode()
+    function getEntityTypeCode()
     {
         return 'customer';
     }

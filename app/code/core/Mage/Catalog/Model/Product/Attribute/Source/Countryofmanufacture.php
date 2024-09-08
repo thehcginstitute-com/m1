@@ -27,7 +27,7 @@ class Mage_Catalog_Model_Product_Attribute_Source_Countryofmanufacture extends M
      *
      * @return mixed
      */
-    public function getAllOptions()
+    function getAllOptions()
     {
         $cacheKey = 'DIRECTORY_COUNTRY_SELECT_STORE_' . Mage::app()->getStore()->getCode();
         if (Mage::app()->useCache('config') && $cache = Mage::app()->loadCache($cacheKey)) {

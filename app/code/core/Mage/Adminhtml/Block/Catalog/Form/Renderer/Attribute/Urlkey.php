@@ -23,7 +23,7 @@
  */
 class Mage_Adminhtml_Block_Catalog_Form_Renderer_Attribute_Urlkey extends Mage_Adminhtml_Block_Catalog_Form_Renderer_Fieldset_Element
 {
-    public function getElementHtml()
+    function getElementHtml()
     {
         $element = $this->getElement();
         if (!$element->getValue()) {

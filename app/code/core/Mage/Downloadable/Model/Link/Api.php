@@ -85,7 +85,7 @@ class Mage_Downloadable_Model_Link_Api extends Mage_Catalog_Model_Api_Resource
      * @param string|null $identifierType ('sku'|'id')
      * @return bool
      */
-    public function add($productId, $resource, $resourceType, $store = null, $identifierType = null)
+    function add($productId, $resource, $resourceType, $store = null, $identifierType = null)
     {
         try {
             $this->_getValidator()->validateType($resourceType);
@@ -139,7 +139,7 @@ class Mage_Downloadable_Model_Link_Api extends Mage_Catalog_Model_Api_Resource
      * @param string $identifierType ('sku'|'id')
      * @return array
      */
-    public function items($productId, $store = null, $identifierType = null)
+    function items($productId, $store = null, $identifierType = null)
     {
         $product = $this->_getProduct($productId, $store, $identifierType);
 
@@ -219,7 +219,7 @@ class Mage_Downloadable_Model_Link_Api extends Mage_Catalog_Model_Api_Resource
      * @param string $resourceType
      * @return bool
      */
-    public function remove($linkId, $resourceType)
+    function remove($linkId, $resourceType)
     {
         try {
             $this->_getValidator()->validateType($resourceType);

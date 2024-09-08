@@ -40,7 +40,7 @@ class Mage_Reports_Model_Resource_Product_Sold_Collection extends Mage_Reports_M
      * @param int $to
      * @return $this
      */
-    public function setDateRange($from, $to)
+    function setDateRange($from, $to)
     {
         $this->_reset()
             ->addOrderedQty($from, $to)
@@ -54,7 +54,7 @@ class Mage_Reports_Model_Resource_Product_Sold_Collection extends Mage_Reports_M
      * @param array $storeIds
      * @return $this
      */
-    public function setStoreIds($storeIds)
+    function setStoreIds($storeIds)
     {
         if ($storeIds) {
             $this->getSelect()->where('order_items.store_id IN (?)', (array)$storeIds);

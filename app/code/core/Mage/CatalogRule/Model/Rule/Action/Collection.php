@@ -20,7 +20,7 @@
  */
 class Mage_CatalogRule_Model_Rule_Action_Collection extends Mage_Rule_Model_Action_Collection
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setType('catalogrule/rule_action_collection');
@@ -29,7 +29,7 @@ class Mage_CatalogRule_Model_Rule_Action_Collection extends Mage_Rule_Model_Acti
     /**
      * @return array
      */
-    public function getNewChildSelectOptions()
+    function getNewChildSelectOptions()
     {
         $actions = parent::getNewChildSelectOptions();
         $actions = array_merge_recursive($actions, [

@@ -22,7 +22,7 @@
  */
 class Mage_Checkout_Model_Cart_Api extends Mage_Checkout_Model_Api_Resource
 {
-    public function __construct()
+    function __construct()
     {
         $this->_storeIdSessionField = "cart_store_id";
         $this->_attributesMap['quote'] = ['quote_id' => 'entity_id'];
@@ -37,7 +37,7 @@ class Mage_Checkout_Model_Cart_Api extends Mage_Checkout_Model_Api_Resource
      * @param int|string $store
      * @return int
      */
-    public function create($store = null)
+    function create($store = null)
     {
         $storeId = $this->_getStoreId($store);
 
@@ -61,7 +61,7 @@ class Mage_Checkout_Model_Cart_Api extends Mage_Checkout_Model_Api_Resource
      * @param  int $store
      * @return array
      */
-    public function info($quoteId, $store = null)
+    function info($quoteId, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
 
@@ -96,7 +96,7 @@ class Mage_Checkout_Model_Cart_Api extends Mage_Checkout_Model_Api_Resource
      * @param string|int $store
      * @return array
      */
-    public function totals($quoteId, $store = null)
+    function totals($quoteId, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
 
@@ -120,7 +120,7 @@ class Mage_Checkout_Model_Cart_Api extends Mage_Checkout_Model_Api_Resource
      * @param  array $agreements
      * @return string
      */
-    public function createOrder($quoteId, $store = null, $agreements = null)
+    function createOrder($quoteId, $store = null, $agreements = null)
     {
         $requiredAgreements = Mage::helper('checkout')->getRequiredAgreementIds();
         if (!empty($requiredAgreements)) {
@@ -188,7 +188,7 @@ class Mage_Checkout_Model_Cart_Api extends Mage_Checkout_Model_Api_Resource
      * @param  int|string $store
      * @return array
      */
-    public function licenseAgreement($quoteId, $store = null)
+    function licenseAgreement($quoteId, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
         $storeId = $quote->getStoreId();

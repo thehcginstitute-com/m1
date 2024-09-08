@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit_Form extends Mage_Adminhtml_
      *
      * @return Mage_Newsletter_Model_Template
      */
-    public function getModel()
+    function getModel()
     {
         return Mage::registry('_current_template');
     }

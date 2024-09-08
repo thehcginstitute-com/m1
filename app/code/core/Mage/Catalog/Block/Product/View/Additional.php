@@ -24,7 +24,7 @@ class Mage_Catalog_Block_Product_View_Additional extends Mage_Core_Block_Templat
 {
     protected $_list;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/product/view/additional.phtml');
@@ -33,7 +33,7 @@ class Mage_Catalog_Block_Product_View_Additional extends Mage_Core_Block_Templat
     /**
      * @return array
      */
-    public function getChildHtmlList()
+    function getChildHtmlList()
     {
         if (is_null($this->_list)) {
             $this->_list = [];

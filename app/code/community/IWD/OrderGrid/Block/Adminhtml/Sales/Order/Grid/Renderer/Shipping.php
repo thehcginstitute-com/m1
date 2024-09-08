@@ -2,7 +2,7 @@
 
 class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Renderer_Shipping extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
 {
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         if (Mage::helper('iwd_ordergrid')->isGridExport()) {
             return $this->Export($row);

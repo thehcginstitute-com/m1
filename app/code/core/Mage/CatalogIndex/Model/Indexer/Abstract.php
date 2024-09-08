@@ -30,7 +30,7 @@ abstract class Mage_CatalogIndex_Model_Indexer_Abstract extends Mage_Core_Model_
      * @param Mage_Catalog_Model_Product $object
      * @param int|string $forceId
      */
-    public function processAfterSave(Mage_Catalog_Model_Product $object, $forceId = null)
+    function processAfterSave(Mage_Catalog_Model_Product $object, $forceId = null)
     {
         $associated = [];
         switch ($object->getTypeId()) {
@@ -98,7 +98,7 @@ abstract class Mage_CatalogIndex_Model_Indexer_Abstract extends Mage_Core_Model_
      * @param int $storeId
      * @param int $productId
      */
-    public function saveIndex($data, $storeId, $productId)
+    function saveIndex($data, $storeId, $productId)
     {
         $this->_getResource()->saveIndex($data, $storeId, $productId);
     }
@@ -108,7 +108,7 @@ abstract class Mage_CatalogIndex_Model_Indexer_Abstract extends Mage_Core_Model_
      * @param int $storeId
      * @param int $productId
      */
-    public function saveIndices(array $data, $storeId, $productId)
+    function saveIndices(array $data, $storeId, $productId)
     {
         $this->_getResource()->saveIndices($data, $storeId, $productId);
     }
@@ -136,7 +136,7 @@ abstract class Mage_CatalogIndex_Model_Indexer_Abstract extends Mage_Core_Model_
      * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return bool
      */
-    public function isAttributeIndexable(Mage_Eav_Model_Entity_Attribute_Abstract $attribute)
+    function isAttributeIndexable(Mage_Eav_Model_Entity_Attribute_Abstract $attribute)
     {
         return $this->_isAttributeIndexable($attribute);
     }
@@ -153,7 +153,7 @@ abstract class Mage_CatalogIndex_Model_Indexer_Abstract extends Mage_Core_Model_
     /**
      * @return array
      */
-    public function getIndexableAttributeCodes()
+    function getIndexableAttributeCodes()
     {
         return $this->_getResource()->loadAttributeCodesByCondition($this->_getIndexableAttributeConditions());
     }
@@ -170,7 +170,7 @@ abstract class Mage_CatalogIndex_Model_Indexer_Abstract extends Mage_Core_Model_
      * @param int $productId
      * @param int $storeId
      */
-    public function cleanup($productId, $storeId = null)
+    function cleanup($productId, $storeId = null)
     {
         $this->_getResource()->cleanup($productId, $storeId);
     }
@@ -178,7 +178,7 @@ abstract class Mage_CatalogIndex_Model_Indexer_Abstract extends Mage_Core_Model_
     /**
      * @return bool
      */
-    public function isAttributeIdUsed()
+    function isAttributeIdUsed()
     {
         return true;
     }

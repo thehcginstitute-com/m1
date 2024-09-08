@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_System_Config_Form_Fieldset extends Mage_Adminhtml_Bl
      * @param Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         $this->setElement($element);
         $html = $this->_getHeaderHtml($element);
@@ -93,7 +93,7 @@ class Mage_Adminhtml_Block_System_Config_Form_Fieldset extends Mage_Adminhtml_Bl
      * @param null|Varien_Data_Form_Element_Abstract $element
      * @return Mage_Core_Model_Config_Element
      */
-    public function getGroup($element = null)
+    function getGroup($element = null)
     {
         if (is_null($element)) {
             $element = $this->getElement();

@@ -31,7 +31,7 @@ class Mage_Core_Helper_Array extends Mage_Core_Helper_Abstract
      * @param array $mergeArray
      * @return array
      */
-    public function mergeRecursiveWithoutOverwriteNumKeys(array $baseArray, array $mergeArray)
+    function mergeRecursiveWithoutOverwriteNumKeys(array $baseArray, array $mergeArray)
     {
         foreach ($mergeArray as $key => $value) {
             if (is_array($value)) {

@@ -30,7 +30,7 @@ class Mage_Customer_Block_Widget_Dob extends Mage_Customer_Block_Widget_Abstract
      */
     protected $_dateInputs = [];
 
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
 
@@ -41,7 +41,7 @@ class Mage_Customer_Block_Widget_Dob extends Mage_Customer_Block_Widget_Abstract
     /**
      * @return bool
      */
-    public function isEnabled()
+    function isEnabled()
     {
         return (bool)$this->_getAttribute('dob')->getIsVisible();
     }
@@ -49,7 +49,7 @@ class Mage_Customer_Block_Widget_Dob extends Mage_Customer_Block_Widget_Abstract
     /**
      * @return bool
      */
-    public function isRequired()
+    function isRequired()
     {
         return (bool)$this->_getAttribute('dob')->getIsRequired();
     }
@@ -58,7 +58,7 @@ class Mage_Customer_Block_Widget_Dob extends Mage_Customer_Block_Widget_Abstract
      * @param string $date
      * @return $this
      */
-    public function setDate($date)
+    function setDate($date)
     {
         if ($date) {
             try {
@@ -77,7 +77,7 @@ class Mage_Customer_Block_Widget_Dob extends Mage_Customer_Block_Widget_Abstract
     /**
      * @return bool
      */
-    public function hasTime()
+    function hasTime()
     {
         return ($this->getTime() instanceof DateTime);
     }
@@ -85,7 +85,7 @@ class Mage_Customer_Block_Widget_Dob extends Mage_Customer_Block_Widget_Abstract
     /**
      * @return string
      */
-    public function getDay()
+    function getDay()
     {
         return ($this->hasTime()) ? $this->getTime()->format('d') : '';
     }
@@ -93,7 +93,7 @@ class Mage_Customer_Block_Widget_Dob extends Mage_Customer_Block_Widget_Abstract
     /**
      * @return string
      */
-    public function getMonth()
+    function getMonth()
     {
         return ($this->hasTime()) ? $this->getTime()->format('m') : '';
     }
@@ -101,7 +101,7 @@ class Mage_Customer_Block_Widget_Dob extends Mage_Customer_Block_Widget_Abstract
     /**
      * @return string
      */
-    public function getYear()
+    function getYear()
     {
         return ($this->hasTime()) ? $this->getTime()->format('o') : '';
     }
@@ -111,7 +111,7 @@ class Mage_Customer_Block_Widget_Dob extends Mage_Customer_Block_Widget_Abstract
      *
      * @return string
      */
-    public function getDateFormat()
+    function getDateFormat()
     {
         return Mage::app()->getLocale()->getDateStrFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT);
     }
@@ -122,7 +122,7 @@ class Mage_Customer_Block_Widget_Dob extends Mage_Customer_Block_Widget_Abstract
      * @param string $code
      * @param string $html
      */
-    public function setDateInput($code, $html)
+    function setDateInput($code, $html)
     {
         $this->_dateInputs[$code] = $html;
     }
@@ -132,7 +132,7 @@ class Mage_Customer_Block_Widget_Dob extends Mage_Customer_Block_Widget_Abstract
      *
      * @return string
      */
-    public function getSortedDateInputs()
+    function getSortedDateInputs()
     {
         $strtr = [
             '%b' => '%1$s',

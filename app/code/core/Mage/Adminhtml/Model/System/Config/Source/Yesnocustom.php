@@ -25,7 +25,7 @@ class Mage_Adminhtml_Model_System_Config_Source_Yesnocustom
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             ['value' => 1, 'label' => Mage::helper('adminhtml')->__('Yes')],

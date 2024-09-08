@@ -35,7 +35,7 @@ class Mage_Catalog_Model_Resource_Layer_Filter_Decimal extends Mage_Core_Model_R
      * @param int $index
      * @return $this
      */
-    public function applyFilterToCollection($filter, $range, $index)
+    function applyFilterToCollection($filter, $range, $index)
     {
         $collection = $filter->getLayer()->getProductCollection();
         $attribute  = $filter->getAttributeModel();
@@ -66,7 +66,7 @@ class Mage_Catalog_Model_Resource_Layer_Filter_Decimal extends Mage_Core_Model_R
      * @param Mage_Catalog_Model_Layer_Filter_Decimal $filter
      * @return array
      */
-    public function getMinMax($filter)
+    function getMinMax($filter)
     {
         $select     = $this->_getSelect($filter);
         $adapter    = $this->_getReadAdapter();
@@ -121,7 +121,7 @@ class Mage_Catalog_Model_Resource_Layer_Filter_Decimal extends Mage_Core_Model_R
      * @param int $range
      * @return array
      */
-    public function getCount($filter, $range)
+    function getCount($filter, $range)
     {
         $select     = $this->_getSelect($filter);
         $adapter    = $this->_getReadAdapter();

@@ -24,7 +24,7 @@ class Mage_Sales_Model_Entity_Quote_Address_Attribute_Frontend_Discount extends 
      * @param Mage_Sales_Model_Quote_Address $address
      * @return $this
      */
-    public function fetchTotals(Mage_Sales_Model_Quote_Address $address)
+    function fetchTotals(Mage_Sales_Model_Quote_Address $address)
     {
         $amount = $address->getDiscountAmount();
         if ($amount != 0) {

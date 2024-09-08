@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Theme extends Mage_Adminhtm
      *
      * @return string
      */
-    public function getHtml()
+    function getHtml()
     {
         $options = $this->getOptions();
         if ($this->getColumn()->getWithEmpty()) {
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Theme extends Mage_Adminhtm
      *
      * @return array
      */
-    public function getOptions()
+    function getOptions()
     {
         $options = $this->getColumn()->getOptions();
         if (empty($options) || !is_array($options)) {
@@ -94,7 +94,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Theme extends Mage_Adminhtm
      *
      * @return mixed
      */
-    public function getCondition()
+    function getCondition()
     {
         if (is_null($this->getValue())) {
             return null;

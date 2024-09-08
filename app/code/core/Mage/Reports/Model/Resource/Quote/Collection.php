@@ -46,7 +46,7 @@ class Mage_Reports_Model_Resource_Quote_Collection extends Mage_Sales_Model_Reso
      * @param int $type
      * @return $this
      */
-    public function setSelectCountSqlType($type)
+    function setSelectCountSqlType($type)
     {
         $this->_selectCountSqlType = $type;
         return $this;
@@ -68,7 +68,7 @@ class Mage_Reports_Model_Resource_Quote_Collection extends Mage_Sales_Model_Reso
      * @param string $filter
      * @return $this
      */
-    public function prepareForAbandonedReport($storeIds, $filter = null)
+    function prepareForAbandonedReport($storeIds, $filter = null)
     {
         $this->addFieldToFilter('items_count', ['neq' => '0'])
             ->addFieldToFilter('main_table.is_active', '1')
@@ -87,7 +87,7 @@ class Mage_Reports_Model_Resource_Quote_Collection extends Mage_Sales_Model_Reso
      *
      * @return $this
      */
-    public function prepareForProductsInCarts()
+    function prepareForProductsInCarts()
     {
         $productEntity          = Mage::getResourceSingleton('catalog/product_collection');
         $productAttrName        = $productEntity->getAttribute('name');
@@ -150,7 +150,7 @@ class Mage_Reports_Model_Resource_Quote_Collection extends Mage_Sales_Model_Reso
      * @param array $storeIds
      * @return $this
      */
-    public function addStoreFilter($storeIds)
+    function addStoreFilter($storeIds)
     {
         $this->addFieldToFilter('store_id', ['in' => $storeIds]);
         return $this;
@@ -162,7 +162,7 @@ class Mage_Reports_Model_Resource_Quote_Collection extends Mage_Sales_Model_Reso
      * @param array|null $filter
      * @return $this
      */
-    public function addCustomerData($filter = null)
+    function addCustomerData($filter = null)
     {
         $customerEntity          = Mage::getResourceSingleton('customer/customer');
         $attrFirstname           = $customerEntity->getAttribute('firstname');
@@ -248,7 +248,7 @@ class Mage_Reports_Model_Resource_Quote_Collection extends Mage_Sales_Model_Reso
      * @param array $filter
      * @return $this
      */
-    public function addSubtotal($storeIds = '', $filter = null)
+    function addSubtotal($storeIds = '', $filter = null)
     {
         if (is_array($storeIds)) {
             $this->getSelect()->columns([
@@ -286,7 +286,7 @@ class Mage_Reports_Model_Resource_Quote_Collection extends Mage_Sales_Model_Reso
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $countSelect = clone $this->getSelect();
         $countSelect->reset(Zend_Db_Select::ORDER);

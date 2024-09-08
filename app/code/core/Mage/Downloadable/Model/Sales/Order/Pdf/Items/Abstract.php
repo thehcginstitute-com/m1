@@ -34,7 +34,7 @@ abstract class Mage_Downloadable_Model_Sales_Order_Pdf_Items_Abstract extends Ma
      *
      * @return Mage_Downloadable_Model_Link_Purchased
      */
-    public function getLinks()
+    function getLinks()
     {
         $this->_purchasedLinks = Mage::getModel('downloadable/link_purchased')
             ->load($this->getOrder()->getId(), 'order_id');
@@ -50,7 +50,7 @@ abstract class Mage_Downloadable_Model_Sales_Order_Pdf_Items_Abstract extends Ma
      *
      * @return string
      */
-    public function getLinksTitle()
+    function getLinksTitle()
     {
         if ($this->_purchasedLinks->getLinkSectionTitle()) {
             return $this->_purchasedLinks->getLinkSectionTitle();

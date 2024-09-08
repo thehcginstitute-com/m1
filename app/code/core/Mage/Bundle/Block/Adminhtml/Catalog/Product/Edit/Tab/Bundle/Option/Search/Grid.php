@@ -26,7 +26,7 @@
  */
 class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Search_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('bundle_selection_search_grid');
@@ -161,7 +161,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Search_
      * @return string
      * @throws Exception
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/bundle_selection/grid', ['index' => $this->getIndex(), 'productss' => implode(',', $this->_getProducts())]);
     }
@@ -194,7 +194,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Search_
      * @return Mage_Core_Model_Store
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getStore()
+    function getStore()
     {
         return Mage::app()->getStore();
     }
@@ -204,7 +204,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Search_
      *
      * @return array
      */
-    public function getAllowedSelectionTypes()
+    function getAllowedSelectionTypes()
     {
         return Mage::helper('bundle')->getAllowedSelectionTypes();
     }

@@ -29,7 +29,7 @@ class Mage_Adminhtml_Block_Sales_Reorder_Renderer_Action extends Mage_Adminhtml_
      */
     protected $_actions = [];
 
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $this->_actions = [];
         if (Mage::helper('sales/reorder')->canReorder($row)) {
@@ -75,7 +75,7 @@ class Mage_Adminhtml_Block_Sales_Reorder_Renderer_Action extends Mage_Adminhtml_
      *
      * @param array $actionArray
      */
-    public function addToActions($actionArray)
+    function addToActions($actionArray)
     {
         $this->_actions[] = $actionArray;
     }

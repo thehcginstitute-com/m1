@@ -42,7 +42,7 @@ class Mage_Api2_Model_Dispatcher
      * @return $this
      * @throws Mage_Api2_Exception
      */
-    public function dispatch(Mage_Api2_Model_Request $request, Mage_Api2_Model_Response $response)
+    function dispatch(Mage_Api2_Model_Request $request, Mage_Api2_Model_Response $response)
     {
         if (!$request->getModel() || !$request->getApiType()) {
             throw new Mage_Api2_Exception(
@@ -101,7 +101,7 @@ class Mage_Api2_Model_Dispatcher
      * @param Mage_Api2_Model_Auth_User_Abstract $apiUser
      * @return $this
      */
-    public function setApiUser(Mage_Api2_Model_Auth_User_Abstract $apiUser)
+    function setApiUser(Mage_Api2_Model_Auth_User_Abstract $apiUser)
     {
         $this->_apiUser = $apiUser;
 
@@ -113,7 +113,7 @@ class Mage_Api2_Model_Dispatcher
      *
      * @return Mage_Api2_Model_Auth_User_Abstract
      */
-    public function getApiUser()
+    function getApiUser()
     {
         if (!$this->_apiUser) {
             throw new Exception('API user is not set.');
@@ -130,7 +130,7 @@ class Mage_Api2_Model_Dispatcher
      * @return int
      * @throws Mage_Api2_Exception
      */
-    public function getVersion($resourceType, $requestedVersion)
+    function getVersion($resourceType, $requestedVersion)
     {
         if ($requestedVersion !== false && !preg_match('/^[1-9]\d*$/', $requestedVersion)) {
             throw new Mage_Api2_Exception(
@@ -146,7 +146,7 @@ class Mage_Api2_Model_Dispatcher
      *
      * @return Mage_Api2_Model_Config
      */
-    public function getConfig()
+    function getConfig()
     {
         return Mage::getModel('api2/config');
     }

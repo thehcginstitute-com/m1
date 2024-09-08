@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_System_Account_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -35,7 +35,7 @@ class Mage_Adminhtml_Block_System_Account_Edit extends Mage_Adminhtml_Block_Widg
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('adminhtml')->__('My Account');
     }

@@ -8,7 +8,7 @@ class IWD_OrderFlags_Block_Adminhtml_Flags_Types_Edit extends Mage_Adminhtml_Blo
     /**
      * {@inheritdoc}
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -33,7 +33,7 @@ class IWD_OrderFlags_Block_Adminhtml_Flags_Types_Edit extends Mage_Adminhtml_Blo
     /**
      * {@inheritdoc}
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if ($this->isEdit()) {
             return Mage::helper('iwd_orderflags')->__("Edit Column '%s'", $this->getFormData()->getName());

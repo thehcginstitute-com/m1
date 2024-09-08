@@ -33,7 +33,7 @@ class Mage_Widget_Model_Resource_Widget extends Mage_Core_Model_Resource_Db_Abst
      * @param int $widgetId
      * @return array|false
      */
-    public function loadPreconfiguredWidget($widgetId)
+    function loadPreconfiguredWidget($widgetId)
     {
         $readAdapter = $this->_getReadAdapter();
         $select = $readAdapter->select()

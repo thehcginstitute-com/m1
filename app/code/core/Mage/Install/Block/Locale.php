@@ -22,7 +22,7 @@
  */
 class Mage_Install_Block_Locale extends Mage_Install_Block_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('install/locale.phtml');
@@ -33,7 +33,7 @@ class Mage_Install_Block_Locale extends Mage_Install_Block_Abstract
      *
      * @return Zend_Locale
      */
-    public function getLocale()
+    function getLocale()
     {
         $locale = $this->getData('locale');
         if (is_null($locale)) {
@@ -48,7 +48,7 @@ class Mage_Install_Block_Locale extends Mage_Install_Block_Abstract
      *
      * @return string
      */
-    public function getPostUrl()
+    function getPostUrl()
     {
         return $this->getCurrentStep()->getNextUrl();
         //return $this->getUrl('*/*/localePost');
@@ -59,7 +59,7 @@ class Mage_Install_Block_Locale extends Mage_Install_Block_Abstract
      *
      * @return string
      */
-    public function getChangeUrl()
+    function getChangeUrl()
     {
         return $this->getUrl('*/*/localeChange');
     }
@@ -69,7 +69,7 @@ class Mage_Install_Block_Locale extends Mage_Install_Block_Abstract
      *
      * @return string
      */
-    public function getLocaleSelect()
+    function getLocaleSelect()
     {
         return $this->getLayout()->createBlock('core/html_select')
             ->setName('config[locale]')
@@ -86,7 +86,7 @@ class Mage_Install_Block_Locale extends Mage_Install_Block_Abstract
      *
      * @return string
      */
-    public function getTimezoneSelect()
+    function getTimezoneSelect()
     {
         return $this->getLayout()->createBlock('core/html_select')
             ->setName('config[timezone]')
@@ -103,7 +103,7 @@ class Mage_Install_Block_Locale extends Mage_Install_Block_Abstract
      *
      * @return string
      */
-    public function getTimezone()
+    function getTimezone()
     {
         $timezone = Mage::getSingleton('install/session')->getTimezone()
             ? Mage::getSingleton('install/session')->getTimezone()
@@ -119,7 +119,7 @@ class Mage_Install_Block_Locale extends Mage_Install_Block_Abstract
      *
      * @return string
      */
-    public function getCurrencySelect()
+    function getCurrencySelect()
     {
         return $this->getLayout()->createBlock('core/html_select')
             ->setName('config[currency]')
@@ -136,14 +136,14 @@ class Mage_Install_Block_Locale extends Mage_Install_Block_Abstract
      *
      * @return string
      */
-    public function getCurrency()
+    function getCurrency()
     {
         return Mage::getSingleton('install/session')->getCurrency()
             ? Mage::getSingleton('install/session')->getCurrency()
             : Mage::app()->getLocale()->getCurrency();
     }
 
-    public function getFormData()
+    function getFormData()
     {
         $data = $this->getData('form_data');
         if (is_null($data)) {

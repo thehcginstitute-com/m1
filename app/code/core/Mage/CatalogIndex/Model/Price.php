@@ -55,7 +55,7 @@ class Mage_CatalogIndex_Model_Price extends Mage_Core_Model_Abstract
      * @param Zend_Db_Select $entityIdsFilter
      * @return float|int
      */
-    public function getMaxValue($attribute, $entityIdsFilter)
+    function getMaxValue($attribute, $entityIdsFilter)
     {
         return $this->_getResource()->getMaxValue($attribute, $entityIdsFilter);
     }
@@ -66,7 +66,7 @@ class Mage_CatalogIndex_Model_Price extends Mage_Core_Model_Abstract
      * @param Zend_Db_Select $entitySelect
      * @return array
      */
-    public function getCount($attribute, $range, $entitySelect)
+    function getCount($attribute, $range, $entitySelect)
     {
         return $this->_getResource()->getCount($range, $attribute, $entitySelect);
     }
@@ -78,7 +78,7 @@ class Mage_CatalogIndex_Model_Price extends Mage_Core_Model_Abstract
      * @param array $entityIdsFilter
      * @return array
      */
-    public function getFilteredEntities($attribute, $range, $index, $entityIdsFilter)
+    function getFilteredEntities($attribute, $range, $index, $entityIdsFilter)
     {
         return $this->_getResource()->getFilteredEntities($range, $index, $attribute, $entityIdsFilter);
     }
@@ -90,7 +90,7 @@ class Mage_CatalogIndex_Model_Price extends Mage_Core_Model_Abstract
      * @param int $index
      * @return Mage_CatalogIndex_Model_Resource_Price
      */
-    public function applyFilterToCollection($collection, $attribute, $range, $index)
+    function applyFilterToCollection($collection, $attribute, $range, $index)
     {
         return $this->_getResource()->applyFilterToCollection($collection, $attribute, $range, $index);
     }
@@ -98,7 +98,7 @@ class Mage_CatalogIndex_Model_Price extends Mage_Core_Model_Abstract
     /**
      * @param Mage_Catalog_Model_Resource_Product_Collection $collection
      */
-    public function addMinimalPrices(Mage_Catalog_Model_Resource_Product_Collection $collection)
+    function addMinimalPrices(Mage_Catalog_Model_Resource_Product_Collection $collection)
     {
         $minimalPrices = $this->_getResource()->getMinimalPrices($collection->getLoadedIds());
 

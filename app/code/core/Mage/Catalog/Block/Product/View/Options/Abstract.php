@@ -42,7 +42,7 @@ abstract class Mage_Catalog_Block_Product_View_Options_Abstract extends Mage_Cor
      * @param Mage_Catalog_Model_Product|null $product
      * @return $this
      */
-    public function setProduct(Mage_Catalog_Model_Product $product = null)
+    function setProduct(Mage_Catalog_Model_Product $product = null)
     {
         $this->_product = $product;
         return $this;
@@ -53,7 +53,7 @@ abstract class Mage_Catalog_Block_Product_View_Options_Abstract extends Mage_Cor
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return $this->_product;
     }
@@ -64,7 +64,7 @@ abstract class Mage_Catalog_Block_Product_View_Options_Abstract extends Mage_Cor
      * @param Mage_Catalog_Model_Product_Option $option
      * @return Mage_Catalog_Block_Product_View_Options_Abstract
      */
-    public function setOption(Mage_Catalog_Model_Product_Option $option)
+    function setOption(Mage_Catalog_Model_Product_Option $option)
     {
         $this->_option = $option;
         return $this;
@@ -75,7 +75,7 @@ abstract class Mage_Catalog_Block_Product_View_Options_Abstract extends Mage_Cor
      *
      * @return Mage_Catalog_Model_Product_Option
      */
-    public function getOption()
+    function getOption()
     {
         return $this->_option;
     }
@@ -84,7 +84,7 @@ abstract class Mage_Catalog_Block_Product_View_Options_Abstract extends Mage_Cor
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getFormatedPrice()
+    function getFormatedPrice()
     {
         if ($option = $this->getOption()) {
             return $this->_formatPrice([
@@ -150,7 +150,7 @@ abstract class Mage_Catalog_Block_Product_View_Options_Abstract extends Mage_Cor
      * @return float
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getPrice($price, $includingTax = null)
+    function getPrice($price, $includingTax = null)
     {
         if (!is_null($includingTax)) {
             $price = Mage::helper('tax')->getPrice($this->getProduct(), $price, true);
@@ -166,7 +166,7 @@ abstract class Mage_Catalog_Block_Product_View_Options_Abstract extends Mage_Cor
      * @param float $price
      * @return float
      */
-    public function getCurrencyPrice($price)
+    function getCurrencyPrice($price)
     {
         /** @var Mage_Core_Helper_Data $helper */
         $helper = $this->helper('core');

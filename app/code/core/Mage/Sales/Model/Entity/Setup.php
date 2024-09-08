@@ -23,7 +23,7 @@ class Mage_Sales_Model_Entity_Setup extends Mage_Eav_Model_Entity_Setup
     /**
      * @return array
      */
-    public function getDefaultEntities()
+    function getDefaultEntities()
     {
         return [
             'quote' => [

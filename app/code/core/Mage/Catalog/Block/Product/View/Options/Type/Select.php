@@ -29,7 +29,7 @@ class Mage_Catalog_Block_Product_View_Options_Type_Select extends Mage_Catalog_B
      *
      * @return string|void
      */
-    public function getValuesHtml()
+    function getValuesHtml()
     {
         $_option = $this->getOption();
         $configValue = $this->getProduct()->getPreconfiguredValues()->getData('options/' . $_option->getId());

@@ -27,7 +27,7 @@ class Mage_Checkout_Block_Cart_Totals extends Mage_Checkout_Block_Cart_Abstract
     /**
      * @return array|null
      */
-    public function getTotals()
+    function getTotals()
     {
         if (is_null($this->_totals)) {
             return parent::getTotals();
@@ -39,7 +39,7 @@ class Mage_Checkout_Block_Cart_Totals extends Mage_Checkout_Block_Cart_Abstract
      * @param array $value
      * @return $this
      */
-    public function setTotals($value)
+    function setTotals($value)
     {
         $this->_totals = $value;
         return $this;
@@ -75,7 +75,7 @@ class Mage_Checkout_Block_Cart_Totals extends Mage_Checkout_Block_Cart_Abstract
      * @param int $colspan
      * @return string
      */
-    public function renderTotal($total, $area = null, $colspan = 1)
+    function renderTotal($total, $area = null, $colspan = 1)
     {
         $code = $total->getCode();
         if ($total->getAs()) {
@@ -95,7 +95,7 @@ class Mage_Checkout_Block_Cart_Totals extends Mage_Checkout_Block_Cart_Abstract
      * @param   int $colspan
      * @return  string
      */
-    public function renderTotals($area = null, $colspan = 1)
+    function renderTotals($area = null, $colspan = 1)
     {
         $html = '';
         foreach ($this->getTotals() as $total) {
@@ -112,7 +112,7 @@ class Mage_Checkout_Block_Cart_Totals extends Mage_Checkout_Block_Cart_Abstract
      *
      * @return bool
      */
-    public function needDisplayBaseGrandtotal()
+    function needDisplayBaseGrandtotal()
     {
         $quote  = $this->getQuote();
         if ($quote->getBaseCurrencyCode() != $quote->getQuoteCurrencyCode()) {
@@ -126,7 +126,7 @@ class Mage_Checkout_Block_Cart_Totals extends Mage_Checkout_Block_Cart_Abstract
      *
      * @return string
      */
-    public function displayBaseGrandtotal()
+    function displayBaseGrandtotal()
     {
         $firstTotal = reset($this->_totals);
         if ($firstTotal) {
@@ -141,7 +141,7 @@ class Mage_Checkout_Block_Cart_Totals extends Mage_Checkout_Block_Cart_Abstract
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         if ($this->getCustomQuote()) {
             return $this->getCustomQuote();

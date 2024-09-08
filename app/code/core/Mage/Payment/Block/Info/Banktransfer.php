@@ -41,7 +41,7 @@ class Mage_Payment_Block_Info_Banktransfer extends Mage_Payment_Block_Info
      *
      * @return string
      */
-    public function getInstructions()
+    function getInstructions()
     {
         if (is_null($this->_instructions)) {
             $this->_instructions = $this->getInfo()->getAdditionalInformation('instructions');

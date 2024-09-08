@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_Create_Customer_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_create_customer_grid');
@@ -101,17 +101,17 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Customer_Grid extends Mage_Adminht
     /**
      * @deprecated since 1.1.7
      */
-    public function getRowId($row)
+    function getRowId($row)
     {
         return $row->getId();
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $row->getId();
     }
 
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/loadBlock', ['block' => 'customer_grid']);
     }

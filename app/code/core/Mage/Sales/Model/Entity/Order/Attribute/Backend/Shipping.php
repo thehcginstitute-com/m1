@@ -26,7 +26,7 @@ class Mage_Sales_Model_Entity_Order_Attribute_Backend_Shipping extends Mage_Eav_
      * @param Varien_Object $object
      * @return $this
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         $shippingAddressId = $object->getShippingAddressId();
         if (is_null($shippingAddressId)) {
@@ -40,7 +40,7 @@ class Mage_Sales_Model_Entity_Order_Attribute_Backend_Shipping extends Mage_Eav_
      * @return $this
      * @throws Exception
      */
-    public function afterSave($object)
+    function afterSave($object)
     {
         $shippingAddressId = false;
         foreach ($object->getAddressesCollection() as $address) {

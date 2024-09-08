@@ -56,7 +56,7 @@ class CustomerParadigm_Datefix_Model_Entity_Attribute_Backend_Time_Created exten
      * @param Mage_Core_Model_Object $object
      * @return Mage_Eav_Model_Entity_Attribute_Backend_Time_Created
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         $attributeCode = $this->getAttribute()->getAttributeCode();
         $date = $object->getData($attributeCode);
@@ -82,7 +82,7 @@ class CustomerParadigm_Datefix_Model_Entity_Attribute_Backend_Time_Created exten
      * @param Varien_Object $object
      * @return Mage_Eav_Model_Entity_Attribute_Backend_Time_Created
      */
-    public function afterLoad($object)
+    function afterLoad($object)
     {
         $attributeCode = $this->getAttribute()->getAttributeCode();
         $date = $object->getData($attributeCode);

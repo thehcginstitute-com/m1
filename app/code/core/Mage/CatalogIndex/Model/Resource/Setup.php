@@ -29,7 +29,7 @@ class Mage_CatalogIndex_Model_Resource_Setup extends Mage_Core_Model_Resource_Se
      * @param string $table
      * @return $this
      */
-    public function convertStoreToWebsite($table)
+    function convertStoreToWebsite($table)
     {
         $assignment = $this->_getStoreToWebsiteAssignments();
         foreach ($assignment as $website => $stores) {

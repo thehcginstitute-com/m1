@@ -43,7 +43,7 @@ class Mage_CatalogRule_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  $this
      */
-    public function applyAllRulesOnProduct($observer)
+    function applyAllRulesOnProduct($observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
@@ -63,7 +63,7 @@ class Mage_CatalogRule_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  $this
      */
-    public function loadProductRules($observer)
+    function loadProductRules($observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
@@ -82,7 +82,7 @@ class Mage_CatalogRule_Model_Observer
      *
      * @return  $this
      */
-    public function applyAllRules($observer)
+    function applyAllRules($observer)
     {
         /** @var Mage_CatalogRule_Model_Resource_Rule $resource */
         $resource = Mage::getResourceSingleton('catalogrule/rule');
@@ -101,7 +101,7 @@ class Mage_CatalogRule_Model_Observer
      *
      * @return  $this
      */
-    public function preloadPriceRules(Varien_Event_Observer $observer)
+    function preloadPriceRules(Varien_Event_Observer $observer)
     {
         /** @var Mage_Sales_Model_Quote $quote */
         $quote = $observer->getQuote();
@@ -136,7 +136,7 @@ class Mage_CatalogRule_Model_Observer
      *
      * @return  $this
      */
-    public function processFrontFinalPrice($observer)
+    function processFrontFinalPrice($observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product    = $observer->getEvent()->getProduct();
@@ -183,7 +183,7 @@ class Mage_CatalogRule_Model_Observer
      *
      * @return  $this
      */
-    public function processAdminFinalPrice($observer)
+    function processAdminFinalPrice($observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
@@ -226,7 +226,7 @@ class Mage_CatalogRule_Model_Observer
      *
      * @return $this
      */
-    public function catalogProductTypeConfigurablePrice(Varien_Event_Observer $observer)
+    function catalogProductTypeConfigurablePrice(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
@@ -253,7 +253,7 @@ class Mage_CatalogRule_Model_Observer
      *
      * @return  $this
      */
-    public function dailyCatalogUpdate($observer)
+    function dailyCatalogUpdate($observer)
     {
         /** @var Mage_CatalogRule_Model_Rule $model */
         $model = Mage::getSingleton('catalogrule/rule');
@@ -265,7 +265,7 @@ class Mage_CatalogRule_Model_Observer
     /**
      * Clean out calculated catalog rule prices for products
      */
-    public function flushPriceCache()
+    function flushPriceCache()
     {
         $this->_rulePrices = [];
     }
@@ -276,7 +276,7 @@ class Mage_CatalogRule_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function prepareCatalogProductPriceIndexTable(Varien_Event_Observer $observer)
+    function prepareCatalogProductPriceIndexTable(Varien_Event_Observer $observer)
     {
         $select             = $observer->getEvent()->getSelect();
 
@@ -366,7 +366,7 @@ class Mage_CatalogRule_Model_Observer
      *
      * @return $this
      */
-    public function catalogAttributeSaveAfter(Varien_Event_Observer $observer)
+    function catalogAttributeSaveAfter(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Entity_Attribute $attribute */
         $attribute = $observer->getEvent()->getAttribute();
@@ -383,7 +383,7 @@ class Mage_CatalogRule_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogAttributeDeleteAfter(Varien_Event_Observer $observer)
+    function catalogAttributeDeleteAfter(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Entity_Attribute $attribute */
         $attribute = $observer->getEvent()->getAttribute();
@@ -399,7 +399,7 @@ class Mage_CatalogRule_Model_Observer
      * @return $this
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function prepareCatalogProductCollectionPrices(Varien_Event_Observer $observer)
+    function prepareCatalogProductCollectionPrices(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Resource_Product_Collection $collection */
         $collection = $observer->getEvent()->getCollection();
@@ -448,7 +448,7 @@ class Mage_CatalogRule_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function createCatalogRulesRelations(Varien_Event_Observer $observer)
+    function createCatalogRulesRelations(Varien_Event_Observer $observer)
     {
         /** @var Mage_ImportExport_Model_Import_Entity_Product $adapter */
         $adapter = $observer->getEvent()->getAdapter();
@@ -473,7 +473,7 @@ class Mage_CatalogRule_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function runCatalogProductPriceReindex(Varien_Event_Observer $observer)
+    function runCatalogProductPriceReindex(Varien_Event_Observer $observer)
     {
         $indexProcess = Mage::getSingleton('index/indexer')->getProcessByCode('catalog_product_price');
         if ($indexProcess) {

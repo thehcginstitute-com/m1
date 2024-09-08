@@ -32,7 +32,7 @@ class Mage_Install_Model_Config extends Varien_Simplexml_Config
         'media'   => 'media_dir',
     ]];
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->loadString('<?xml version="1.0"?><config></config>');
@@ -46,7 +46,7 @@ class Mage_Install_Model_Config extends Varien_Simplexml_Config
      *
      * @return array
      */
-    public function getWizardSteps()
+    function getWizardSteps()
     {
         $steps = [];
         foreach ((array)$this->getNode(self::XML_PATH_WIZARD_STEPS) as $stepName => $step) {
@@ -73,7 +73,7 @@ class Mage_Install_Model_Config extends Varien_Simplexml_Config
      *
      * @return array
      */
-    public function getPathForCheck()
+    function getPathForCheck()
     {
         $res = [];
 
@@ -91,7 +91,7 @@ class Mage_Install_Model_Config extends Varien_Simplexml_Config
      *
      * @return array
      */
-    public function getWritableFullPathsForCheck()
+    function getWritableFullPathsForCheck()
     {
         $paths = [];
         $items = (array) $this->getNode(self::XML_PATH_CHECK_WRITEABLE);
@@ -114,7 +114,7 @@ class Mage_Install_Model_Config extends Varien_Simplexml_Config
      *
      * @return array
      */
-    public function getExtensionsForCheck()
+    function getExtensionsForCheck()
     {
         $res = [];
         $items = (array) $this->getNode(self::XML_PATH_CHECK_EXTENSIONS);

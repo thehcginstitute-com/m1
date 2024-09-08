@@ -27,7 +27,7 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Comment extends Mage_Wis
      *
      * @return string
      */
-    public function getJs()
+    function getJs()
     {
         /** @var Mage_Wishlist_Helper_Data $helper */
         $helper = $this->helper('wishlist');

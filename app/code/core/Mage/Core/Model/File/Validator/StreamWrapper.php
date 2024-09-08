@@ -34,7 +34,7 @@ class Mage_Core_Model_File_Validator_StreamWrapper
      *
      * @param array $allowedStreamWrappers
      */
-    public function __construct($allowedStreamWrappers = [])
+    function __construct($allowedStreamWrappers = [])
     {
         $this->_allowedStreamWrappers = $allowedStreamWrappers;
     }
@@ -45,7 +45,7 @@ class Mage_Core_Model_File_Validator_StreamWrapper
      * @param  string $filePath Path to file
      * @return bool
      */
-    public function validate($filePath)
+    function validate($filePath)
     {
         if (($pos = strpos($filePath, '://')) > 0) {
             $wrapper = substr($filePath, 0, $pos);

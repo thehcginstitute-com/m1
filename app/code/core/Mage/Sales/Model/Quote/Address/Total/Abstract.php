@@ -54,7 +54,7 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
      * @param string $code
      * @return Mage_Sales_Model_Quote_Address_Total_Abstract
      */
-    public function setCode($code)
+    function setCode($code)
     {
         $this->_code = $code;
         return $this;
@@ -65,7 +65,7 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
      *
      * @return string
      */
-    public function getCode()
+    function getCode()
     {
         return $this->_code;
     }
@@ -75,7 +75,7 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
      *
      * @return string
      */
-    public function getLabel()
+    function getLabel()
     {
         return '';
     }
@@ -86,7 +86,7 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
      * @param Mage_Sales_Model_Quote_Address $address
      * @return $this
      */
-    public function collect(Mage_Sales_Model_Quote_Address $address)
+    function collect(Mage_Sales_Model_Quote_Address $address)
     {
         $this->_setAddress($address);
         /**
@@ -103,7 +103,7 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
      * @param Mage_Sales_Model_Quote_Address $address
      * @return array
      */
-    public function fetch(Mage_Sales_Model_Quote_Address $address)
+    function fetch(Mage_Sales_Model_Quote_Address $address)
     {
         $this->_setAddress($address);
         return [];
@@ -215,7 +215,7 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
      * @param Mage_Sales_Model_Quote_Item_Abstract $item
      * @return float
      */
-    public function getItemRowTotal(Mage_Sales_Model_Quote_Item_Abstract $item)
+    function getItemRowTotal(Mage_Sales_Model_Quote_Item_Abstract $item)
     {
         if (!$this->_itemRowTotalKey) {
             return 0;
@@ -229,7 +229,7 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
      * @param Mage_Sales_Model_Quote_Item_Abstract $item
      * @return float
      */
-    public function getItemBaseRowTotal(Mage_Sales_Model_Quote_Item_Abstract $item)
+    function getItemBaseRowTotal(Mage_Sales_Model_Quote_Item_Abstract $item)
     {
         if (!$this->_itemRowTotalKey) {
             return 0;
@@ -243,7 +243,7 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
      * @param Mage_Sales_Model_Quote_Item_Abstract $item
      * @return bool
      */
-    public function getIsItemRowTotalCompoundable(Mage_Sales_Model_Quote_Item_Abstract $item)
+    function getIsItemRowTotalCompoundable(Mage_Sales_Model_Quote_Item_Abstract $item)
     {
         if ($item->getData("skip_compound_{$this->_itemRowTotalKey}")) {
             return false;
@@ -259,7 +259,7 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
      * @param   Mage_Core_Model_Store $store
      * @return  array
      */
-    public function processConfigArray($config, $store)
+    function processConfigArray($config, $store)
     {
         return $config;
     }

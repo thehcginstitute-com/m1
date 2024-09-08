@@ -54,7 +54,7 @@ class Mage_Rating_Model_Resource_Rating_Option_Collection extends Mage_Core_Mode
      * @param   int|array $rating
      * @return  $this
      */
-    public function addRatingFilter($rating)
+    function addRatingFilter($rating)
     {
         if (is_numeric($rating)) {
             $this->addFilter('rating_id', $rating);
@@ -70,7 +70,7 @@ class Mage_Rating_Model_Resource_Rating_Option_Collection extends Mage_Core_Mode
      * @param   string $dir
      * @return  $this
      */
-    public function setPositionOrder($dir = 'ASC')
+    function setPositionOrder($dir = 'ASC')
     {
         $this->setOrder('main_table.position', $dir);
         return $this;

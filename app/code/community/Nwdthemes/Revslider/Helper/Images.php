@@ -21,7 +21,7 @@ class Nwdthemes_Revslider_Helper_Images extends Mage_Cms_Helper_Wysiwyg_Images {
 	 * @return string
 	 */
 	
-	public function getImageDir() {
+	function getImageDir() {
 		return self::IMAGE_DIR;
 	}
 
@@ -31,7 +31,7 @@ class Nwdthemes_Revslider_Helper_Images extends Mage_Cms_Helper_Wysiwyg_Images {
 	 * @return string
 	 */
 	
-	public function getImageThumbDir() {
+	function getImageThumbDir() {
 		return self::IMAGE_THUMB_DIR;
 	}
 	
@@ -40,7 +40,7 @@ class Nwdthemes_Revslider_Helper_Images extends Mage_Cms_Helper_Wysiwyg_Images {
      *
      * @return string
      */
-    public function getStorageRoot() {
+    function getStorageRoot() {
         return Mage::getConfig()->getOptions()->getMediaDir() . DS . self::IMAGE_DIR . DS;
     }
 
@@ -50,7 +50,7 @@ class Nwdthemes_Revslider_Helper_Images extends Mage_Cms_Helper_Wysiwyg_Images {
      *
      * @return boolean
      */
-    public function isUsingStaticUrlsAllowed() {
+    function isUsingStaticUrlsAllowed() {
 		return true;
     }
 
@@ -63,7 +63,7 @@ class Nwdthemes_Revslider_Helper_Images extends Mage_Cms_Helper_Wysiwyg_Images {
 	 * @return string Resized image url
 	 */
 
-	public function resizeImg($fileName, $width, $height = '') {
+	function resizeImg($fileName, $width, $height = '') {
 
 		if ( ! $height)
 		{

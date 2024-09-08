@@ -43,7 +43,7 @@ class Mage_Catalog_Model_Resource_Product_Link extends Mage_Core_Model_Resource_
      * @param int $typeId
      * @return $this
      */
-    public function saveProductLinks($product, $data, $typeId)
+    function saveProductLinks($product, $data, $typeId)
     {
         if (!is_array($data)) {
             $data = [];
@@ -140,7 +140,7 @@ class Mage_Catalog_Model_Resource_Product_Link extends Mage_Core_Model_Resource_
      * @param int $typeId
      * @return array
      */
-    public function getAttributesByType($typeId)
+    function getAttributesByType($typeId)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()
@@ -159,7 +159,7 @@ class Mage_Catalog_Model_Resource_Product_Link extends Mage_Core_Model_Resource_
      * @param string $type
      * @return string
      */
-    public function getAttributeTypeTable($type)
+    function getAttributeTypeTable($type)
     {
         return $this->getTable('catalog/product_link_attribute_' . $type);
     }
@@ -174,7 +174,7 @@ class Mage_Catalog_Model_Resource_Product_Link extends Mage_Core_Model_Resource_
      * @param int $typeId
      * @return array
      */
-    public function getChildrenIds($parentId, $typeId)
+    function getChildrenIds($parentId, $typeId)
     {
         $adapter     = $this->_getReadAdapter();
         $childrenIds = [];
@@ -210,7 +210,7 @@ class Mage_Catalog_Model_Resource_Product_Link extends Mage_Core_Model_Resource_
      * @param int $typeId
      * @return array
      */
-    public function getParentIdsByChild($childId, $typeId)
+    function getParentIdsByChild($childId, $typeId)
     {
         $parentIds  = [];
         $adapter    = $this->_getReadAdapter();
@@ -235,7 +235,7 @@ class Mage_Catalog_Model_Resource_Product_Link extends Mage_Core_Model_Resource_
      * @param int $typeId
      * @return $this
      */
-    public function saveGroupedLinks($product, $data, $typeId)
+    function saveGroupedLinks($product, $data, $typeId)
     {
         $adapter = $this->_getWriteAdapter();
         // check for change relations

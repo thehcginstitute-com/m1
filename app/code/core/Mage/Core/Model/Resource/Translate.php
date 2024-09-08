@@ -34,7 +34,7 @@ class Mage_Core_Model_Resource_Translate extends Mage_Core_Model_Resource_Db_Abs
      * @param string|Zend_Locale $locale
      * @return array
      */
-    public function getTranslationArray($storeId = null, $locale = null)
+    function getTranslationArray($storeId = null, $locale = null)
     {
         if (!Mage::isInstalled()) {
             return [];
@@ -70,7 +70,7 @@ class Mage_Core_Model_Resource_Translate extends Mage_Core_Model_Resource_Db_Abs
      * @param int $storeId
      * @return array
      */
-    public function getTranslationArrayByStrings(array $strings, $storeId = null)
+    function getTranslationArrayByStrings(array $strings, $storeId = null)
     {
         if (!Mage::isInstalled()) {
             return [];
@@ -105,7 +105,7 @@ class Mage_Core_Model_Resource_Translate extends Mage_Core_Model_Resource_Db_Abs
      *
      * @return array|false
      */
-    public function getMainChecksum()
+    function getMainChecksum()
     {
         return $this->getChecksum($this->getMainTable());
     }

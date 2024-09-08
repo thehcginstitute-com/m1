@@ -37,7 +37,7 @@ class Mage_Api2_Model_Resource_Acl_Global_Role extends Mage_Core_Model_Resource_
      * @param int $roleId API2 role id
      * @return $this
      */
-    public function saveAdminToRoleRelation($adminId, $roleId)
+    function saveAdminToRoleRelation($adminId, $roleId)
     {
         if (Mage_Api2_Model_Acl_Global_Role::ROLE_GUEST_ID == $roleId
             || Mage_Api2_Model_Acl_Global_Role::ROLE_CUSTOMER_ID == $roleId
@@ -71,7 +71,7 @@ class Mage_Api2_Model_Resource_Acl_Global_Role extends Mage_Core_Model_Resource_
      * @param int $roleId API2 role id
      * @return $this
      */
-    public function deleteAdminToRoleRelation($adminId, $roleId)
+    function deleteAdminToRoleRelation($adminId, $roleId)
     {
         $write = $this->_getWriteAdapter();
         $table = $this->getTable('api2/acl_user');
@@ -92,7 +92,7 @@ class Mage_Api2_Model_Resource_Acl_Global_Role extends Mage_Core_Model_Resource_
      * @param Mage_Api2_Model_Acl_Global_Role $role
      * @return array
      */
-    public function getRoleUsers(Mage_Api2_Model_Acl_Global_Role $role)
+    function getRoleUsers(Mage_Api2_Model_Acl_Global_Role $role)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()

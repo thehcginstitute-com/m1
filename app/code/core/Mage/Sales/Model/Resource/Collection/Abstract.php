@@ -49,7 +49,7 @@ abstract class Mage_Sales_Model_Resource_Collection_Abstract extends Mage_Core_M
      * @param string $attribute
      * @return $this
      */
-    public function addAttributeToSelect($attribute)
+    function addAttributeToSelect($attribute)
     {
         $this->addFieldToSelect($this->_attributeToField($attribute));
         return $this;
@@ -63,7 +63,7 @@ abstract class Mage_Sales_Model_Resource_Collection_Abstract extends Mage_Core_M
      * @param array|int|string|null $condition
      * @return $this
      */
-    public function addAttributeToFilter($attribute, $condition = null)
+    function addAttributeToFilter($attribute, $condition = null)
     {
         $this->addFieldToFilter($this->_attributeToField($attribute), $condition);
         return $this;
@@ -77,7 +77,7 @@ abstract class Mage_Sales_Model_Resource_Collection_Abstract extends Mage_Core_M
      * @param string $dir
      * @return $this
      */
-    public function addAttributeToSort($attribute, $dir = 'asc')
+    function addAttributeToSort($attribute, $dir = 'asc')
     {
         $this->addOrder($this->_attributeToField($attribute), $dir);
         return $this;
@@ -91,7 +91,7 @@ abstract class Mage_Sales_Model_Resource_Collection_Abstract extends Mage_Core_M
      * @param int $pageSize
      * @return $this
      */
-    public function setPage($pageNum, $pageSize)
+    function setPage($pageNum, $pageSize)
     {
         $this->setCurPage($pageNum)
             ->setPageSize($pageSize);
@@ -126,7 +126,7 @@ abstract class Mage_Sales_Model_Resource_Collection_Abstract extends Mage_Core_M
      * @param int $offset
      * @return array
      */
-    public function getAllIds($limit = null, $offset = null)
+    function getAllIds($limit = null, $offset = null)
     {
         return $this->getConnection()->fetchCol(
             $this->_getAllIdsSelect($limit, $offset),
@@ -147,7 +147,7 @@ abstract class Mage_Sales_Model_Resource_Collection_Abstract extends Mage_Core_M
      * @param int $storeId
      * @return $this
      */
-    public function joinAttribute($alias, $attribute, $bind, $filter = null, $joinType = 'inner', $storeId = null)
+    function joinAttribute($alias, $attribute, $bind, $filter = null, $joinType = 'inner', $storeId = null)
     {
         return $this;
     }

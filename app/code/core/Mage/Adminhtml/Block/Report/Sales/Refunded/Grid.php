@@ -24,13 +24,13 @@ class Mage_Adminhtml_Block_Report_Sales_Refunded_Grid extends Mage_Adminhtml_Blo
 {
     protected $_columnGroupBy = 'period';
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setCountTotals(true);
     }
 
-    public function getResourceCollectionName()
+    function getResourceCollectionName()
     {
         return ($this->getFilterData()->getData('report_type') == 'created_at_refunded')
             ? 'sales/report_refunded_collection_refunded'

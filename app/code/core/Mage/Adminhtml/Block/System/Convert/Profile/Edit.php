@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_System_Convert_Profile_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'id';
         $this->_controller = 'system_convert_profile';
@@ -38,7 +38,7 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Edit extends Mage_Adminhtml_Bl
         ], -100);
     }
 
-    public function getProfileId()
+    function getProfileId()
     {
         return Mage::registry('current_convert_profile')->getId();
     }
@@ -46,7 +46,7 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Edit extends Mage_Adminhtml_Bl
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if (Mage::registry('current_convert_profile')->getId()) {
             return $this->escapeHtml(Mage::registry('current_convert_profile')->getName());

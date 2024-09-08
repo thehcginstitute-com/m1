@@ -29,7 +29,7 @@ class Mage_Install_Model_Wizard
      */
     protected $_steps = [];
 
-    public function __construct()
+    function __construct()
     {
         $this->_steps = Mage::getSingleton('install/config')->getWizardSteps();
 
@@ -63,7 +63,7 @@ class Mage_Install_Model_Wizard
      * @param   Zend_Controller_Request_Abstract $request
      * @return  Varien_Object | false
      */
-    public function getStepByRequest(Zend_Controller_Request_Abstract $request)
+    function getStepByRequest(Zend_Controller_Request_Abstract $request)
     {
         foreach ($this->_steps as $step) {
             if ($step->getController() == $request->getControllerName()
@@ -81,7 +81,7 @@ class Mage_Install_Model_Wizard
      * @param   string $name
      * @return  Varien_Object | false
      */
-    public function getStepByName($name)
+    function getStepByName($name)
     {
         foreach ($this->_steps as $step) {
             if ($step->getName() == $name) {
@@ -96,7 +96,7 @@ class Mage_Install_Model_Wizard
      *
      * @return array
      */
-    public function getSteps()
+    function getSteps()
     {
         return $this->_steps;
     }

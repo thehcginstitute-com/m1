@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_System_Currency_Rate_Matrix extends Mage_Adminhtml_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         $this->setTemplate('system/currency/rate/matrix.phtml');
     }

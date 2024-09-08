@@ -52,7 +52,7 @@ class Mage_Sales_Model_Order_Creditmemo_Comment extends Mage_Sales_Model_Abstrac
      * @param   Mage_Sales_Model_Order_Creditmemo $creditmemo
      * @return  Mage_Sales_Model_Order_Creditmemo_Comment
      */
-    public function setCreditmemo(Mage_Sales_Model_Order_Creditmemo $creditmemo)
+    function setCreditmemo(Mage_Sales_Model_Order_Creditmemo $creditmemo)
     {
         $this->_creditmemo = $creditmemo;
         return $this;
@@ -63,7 +63,7 @@ class Mage_Sales_Model_Order_Creditmemo_Comment extends Mage_Sales_Model_Abstrac
      *
      * @return Mage_Sales_Model_Order_Creditmemo
      */
-    public function getCreditmemo()
+    function getCreditmemo()
     {
         return $this->_creditmemo;
     }
@@ -73,7 +73,7 @@ class Mage_Sales_Model_Order_Creditmemo_Comment extends Mage_Sales_Model_Abstrac
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         if ($this->getCreditmemo()) {
             return $this->getCreditmemo()->getStore();

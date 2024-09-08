@@ -34,7 +34,7 @@ abstract class Mage_Core_Model_File_Storage_Abstract extends Mage_Core_Model_Abs
      *
      * @return string
      */
-    public function getMediaBaseDirectory()
+    function getMediaBaseDirectory()
     {
         if ($this->_mediaBaseDirectory === null) {
             /** @var Mage_Core_Helper_File_Storage_Database $helper */
@@ -60,7 +60,7 @@ abstract class Mage_Core_Model_File_Storage_Abstract extends Mage_Core_Model_Abs
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function collectFileInfo($path)
+    function collectFileInfo($path)
     {
         $path = ltrim($path, '\\/');
         $fullPath = $this->getMediaBaseDirectory() . DS . $path;

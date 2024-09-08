@@ -62,7 +62,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
      *
      * Sets block template and necessary data
      */
-    public function __construct()
+    function __construct()
     {
         $this->setTemplate('bundle/product/edit/bundle/option.phtml');
         $this->setCanReadPrice(true);
@@ -72,7 +72,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
     /**
      * @return string
      */
-    public function getFieldId()
+    function getFieldId()
     {
         return 'bundle_option';
     }
@@ -80,7 +80,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
     /**
      * @return string
      */
-    public function getFieldName()
+    function getFieldName()
     {
         return 'bundle_options';
     }
@@ -90,7 +90,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!$this->getData('product')) {
             $this->setData('product', Mage::registry('product'));
@@ -102,7 +102,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
      * @param Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         $this->setElement($element);
         return $this->toHtml();
@@ -112,7 +112,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
      * @param Varien_Data_Form_Element_Abstract $element
      * @return $this
      */
-    public function setElement(Varien_Data_Form_Element_Abstract $element)
+    function setElement(Varien_Data_Form_Element_Abstract $element)
     {
         $this->_element = $element;
         return $this;
@@ -121,7 +121,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
     /**
      * @return Varien_Data_Form_Element_Abstract|null
      */
-    public function getElement()
+    function getElement()
     {
         return $this->_element;
     }
@@ -129,7 +129,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
     /**
      * @return bool
      */
-    public function isMultiWebsites()
+    function isMultiWebsites()
     {
         return !Mage::app()->isSingleStoreMode();
     }
@@ -182,7 +182,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
     /**
      * @return string
      */
-    public function getAddButtonHtml()
+    function getAddButtonHtml()
     {
         return $this->getChildHtml('add_button');
     }
@@ -190,7 +190,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
     /**
      * @return string
      */
-    public function getCloseSearchButtonHtml()
+    function getCloseSearchButtonHtml()
     {
         return $this->getChildHtml('close_search_button');
     }
@@ -198,7 +198,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
     /**
      * @return string
      */
-    public function getAddSelectionButtonHtml()
+    function getAddSelectionButtonHtml()
     {
         return $this->getChildHtml('add_selection_button');
     }
@@ -208,7 +208,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
      *
      * @return array
      */
-    public function getOptions()
+    function getOptions()
     {
         if (!$this->_options) {
             $product = $this->getProduct();
@@ -247,7 +247,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
     /**
      * @return int
      */
-    public function getAddButtonId()
+    function getAddButtonId()
     {
         return $this->getLayout()
                 ->getBlock('admin.product.bundle.items')
@@ -257,7 +257,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
     /**
      * @return string
      */
-    public function getOptionDeleteButtonHtml()
+    function getOptionDeleteButtonHtml()
     {
         return $this->getChildHtml('option_delete_button');
     }
@@ -265,7 +265,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
     /**
      * @return string
      */
-    public function getSelectionHtml()
+    function getSelectionHtml()
     {
         return $this->getChildHtml('selection_template');
     }
@@ -273,7 +273,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
     /**
      * @return string
      */
-    public function getTypeSelectHtml()
+    function getTypeSelectHtml()
     {
         $select = $this->getLayout()->createBlock('adminhtml/html_select')
             ->setData([
@@ -290,7 +290,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
     /**
      * @return string
      */
-    public function getRequireSelectHtml()
+    function getRequireSelectHtml()
     {
         $select = $this->getLayout()->createBlock('adminhtml/html_select')
             ->setData([
@@ -306,7 +306,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option extends
     /**
      * @return bool
      */
-    public function isDefaultStore()
+    function isDefaultStore()
     {
         return ($this->getProduct()->getStoreId() == '0');
     }

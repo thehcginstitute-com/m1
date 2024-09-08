@@ -8,7 +8,7 @@ class IWD_AdminCheckout_Block_Adminhtml_Sales_Order_Create_Store_Switcher extend
     /**
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         $store = $this->getSessionStoreId();
         if (empty($store)) {
@@ -21,7 +21,7 @@ class IWD_AdminCheckout_Block_Adminhtml_Sales_Order_Create_Store_Switcher extend
     /**
      * @return int
      */
-    public function getDefaultStoreId()
+    function getDefaultStoreId()
     {
         return Mage::helper('iwd_admin_checkout')->getDefaultStoreView();
     }
@@ -29,7 +29,7 @@ class IWD_AdminCheckout_Block_Adminhtml_Sales_Order_Create_Store_Switcher extend
     /**
      * @return int
      */
-    public function getSessionStoreId()
+    function getSessionStoreId()
     {
         return $this->_getSession()->getStoreId();
     }

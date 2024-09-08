@@ -5,7 +5,7 @@ class IWD_OrderGrid_Block_Adminhtml_Customer_Order_Recent extends Mage_Adminhtml
     /**
      * {@inheritdoc}
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -69,7 +69,7 @@ class IWD_OrderGrid_Block_Adminhtml_Customer_Order_Recent extends Mage_Adminhtml
     /**
      * {@inheritdoc}
      */
-    public function _toHtml()
+    function _toHtml()
     {
         $script = '';
 

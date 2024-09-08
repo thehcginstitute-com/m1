@@ -106,7 +106,7 @@ class Mage_Core_Model_Cache
      *
      * @param array $options
      */
-    public function __construct(array $options = [])
+    function __construct(array $options = [])
     {
         $this->_defaultBackendOptions['cache_dir'] = $options['cache_dir'] ?? Mage::getBaseDir('cache');
         /**
@@ -351,7 +351,7 @@ class Mage_Core_Model_Cache
      *
      * @return Varien_Cache_Core|Zend_Cache_Core
      */
-    public function getFrontend()
+    function getFrontend()
     {
         return $this->_frontend;
     }
@@ -362,7 +362,7 @@ class Mage_Core_Model_Cache
      * @param   string $id
      * @return  string|false
      */
-    public function load($id)
+    function load($id)
     {
         return $this->getFrontend()->load($this->_id($id));
     }
@@ -376,7 +376,7 @@ class Mage_Core_Model_Cache
      * @param null|false|int $lifeTime
      * @return bool
      */
-    public function save($data, $id, $tags = [], $lifeTime = null)
+    function save($data, $id, $tags = [], $lifeTime = null)
     {
         if ($this->_disallowSave) {
             return true;
@@ -397,7 +397,7 @@ class Mage_Core_Model_Cache
      * @param string $id
      * @return false|int
      */
-    public function test($id)
+    function test($id)
     {
         return $this->getFrontend()->test($this->_id($id));
     }
@@ -408,7 +408,7 @@ class Mage_Core_Model_Cache
      * @param   string $id
      * @return  bool
      */
-    public function remove($id)
+    function remove($id)
     {
         return $this->getFrontend()->remove($this->_id($id));
     }
@@ -419,7 +419,7 @@ class Mage_Core_Model_Cache
      * @param   array $tags
      * @return  bool
      */
-    public function clean($tags = [])
+    function clean($tags = [])
     {
         $mode = Zend_Cache::CLEANING_MODE_MATCHING_ANY_TAG;
         if (!empty($tags)) {
@@ -439,7 +439,7 @@ class Mage_Core_Model_Cache
      *
      * @return  bool
      */
-    public function flush()
+    function flush()
     {
         return $this->getFrontend()->clean();
     }
@@ -449,7 +449,7 @@ class Mage_Core_Model_Cache
      *
      * @return Zend_Db_Adapter_Abstract
      */
-    public function getDbAdapter()
+    function getDbAdapter()
     {
         return Mage::getSingleton('core/resource')->getConnection($this->_dbConnection);
     }
@@ -499,7 +499,7 @@ class Mage_Core_Model_Cache
      * @param array $options
      * @return $this
      */
-    public function saveOptions($options)
+    function saveOptions($options)
     {
         $this->remove(self::OPTIONS_CACHE_ID);
         $this->_getResource()->saveAllOptions($options);
@@ -512,7 +512,7 @@ class Mage_Core_Model_Cache
      * @param string $typeCode
      * @return bool|array
      */
-    public function canUse($typeCode)
+    function canUse($typeCode)
     {
         if (is_null($this->_allowedCacheOptions)) {
             $this->_initOptions();
@@ -535,7 +535,7 @@ class Mage_Core_Model_Cache
      * @param string $typeCode
      * @return $this
      */
-    public function banUse($typeCode)
+    function banUse($typeCode)
     {
         $this->_allowedCacheOptions[$typeCode] = false;
         return $this;
@@ -547,7 +547,7 @@ class Mage_Core_Model_Cache
      * @param string $type
      * @return array
      */
-    public function getTagsByType($type)
+    function getTagsByType($type)
     {
         $path = self::XML_PATH_TYPES . '/' . $type . '/tags';
         $tagsConfig = Mage::getConfig()->getNode($path);
@@ -565,7 +565,7 @@ class Mage_Core_Model_Cache
      *
      * @return array
      */
-    public function getTypes()
+    function getTypes()
     {
         $types = [];
         $config = Mage::getConfig()->getNode(self::XML_PATH_TYPES);
@@ -616,7 +616,7 @@ class Mage_Core_Model_Cache
      *
      * @return array
      */
-    public function getInvalidatedTypes()
+    function getInvalidatedTypes()
     {
         $invalidatedTypes = [];
         $types = $this->_getInvalidatedTypes();
@@ -637,7 +637,7 @@ class Mage_Core_Model_Cache
      * @param string|array $typeCode
      * @return $this
      */
-    public function invalidateType($typeCode)
+    function invalidateType($typeCode)
     {
         $types = $this->_getInvalidatedTypes();
         if (!is_array($typeCode)) {
@@ -656,7 +656,7 @@ class Mage_Core_Model_Cache
      * @param string $typeCode
      * @return $this
      */
-    public function cleanType($typeCode)
+    function cleanType($typeCode)
     {
         $tags = $this->getTagsByType($typeCode);
         $this->clean($tags);
@@ -672,7 +672,7 @@ class Mage_Core_Model_Cache
      *
      * @return bool
      */
-    public function processRequest()
+    function processRequest()
     {
         if (empty($this->_requestProcessors)) {
             return false;

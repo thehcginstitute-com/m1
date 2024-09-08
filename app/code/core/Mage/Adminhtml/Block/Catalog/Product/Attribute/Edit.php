@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Catalog_Product_Attribute_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'attribute_id';
         $this->_controller = 'catalog_product_attribute';
@@ -65,7 +65,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Edit extends Mage_Adminhtml
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if (Mage::registry('entity_attribute')->getId()) {
             $frontendLabel = Mage::registry('entity_attribute')->getFrontendLabel();
@@ -80,7 +80,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Edit extends Mage_Adminhtml
     /**
      * @return string
      */
-    public function getValidationUrl()
+    function getValidationUrl()
     {
         return $this->getUrl('*/*/validate', ['_current' => true]);
     }
@@ -88,7 +88,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Edit extends Mage_Adminhtml
     /**
      * @return string
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return $this->getUrl('*/' . $this->_controller . '/save', ['_current' => true, 'back' => null]);
     }

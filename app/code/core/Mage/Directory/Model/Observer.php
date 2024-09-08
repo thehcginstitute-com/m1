@@ -33,7 +33,7 @@ class Mage_Directory_Model_Observer
     /**
      * @throws Mage_Core_Exception
      */
-    public function scheduledUpdateCurrencyRates()
+    function scheduledUpdateCurrencyRates()
     {
         $importWarnings = [];
         if (!Mage::getStoreConfig(self::IMPORT_ENABLE) || !Mage::getStoreConfig(self::CRON_STRING_PATH)) {

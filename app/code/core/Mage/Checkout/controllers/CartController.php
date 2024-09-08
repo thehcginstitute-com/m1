@@ -115,7 +115,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
      *
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
         Mage::helper('catalog/product_flat')->disableFlatCollection(true);
@@ -131,7 +131,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     /**
      * Shopping cart display action
      */
-    public function indexAction()
+    function indexAction()
     {
         $cart = $this->_getCart();
         if ($cart->getQuote()->getItemsCount()) {
@@ -195,7 +195,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
      *
      * @throws Mage_Exception
      */
-    public function addAction()
+    function addAction()
     {
         if (!$this->_validateFormKey()) {
             $this->_goBack();
@@ -272,7 +272,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     /**
      * Add products in group to shopping cart action
      */
-    public function addgroupAction()
+    function addgroupAction()
     {
         $orderItemIds = $this->getRequest()->getParam('order_items', []);
         $customerId   = $this->_getCustomerSession()->getCustomerId();
@@ -312,7 +312,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     /**
      * Action to reconfigure cart item
      */
-    public function configureAction()
+    function configureAction()
     {
         // Extract item and product to configure
         $id = (int) $this->getRequest()->getParam('id');
@@ -346,7 +346,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     /**
      * Update product configuration for a cart item
      */
-    public function updateItemOptionsAction()
+    function updateItemOptionsAction()
     {
         if (!$this->_validateFormKey()) {
             $this->_redirect('*/*/');
@@ -428,7 +428,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     /**
      * Update shopping cart data action
      */
-    public function updatePostAction()
+    function updatePostAction()
     {
         if (!$this->_validateFormKey()) {
             $this->_redirect('*/*/');
@@ -503,7 +503,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     /**
      * Delete shoping cart item action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         if ($this->_validateFormKey()) {
             $id = (int)$this->getRequest()->getParam('id');
@@ -526,7 +526,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     /**
      * Initialize shipping information
      */
-    public function estimatePostAction()
+    function estimatePostAction()
     {
         $country    = (string) $this->getRequest()->getParam('country_id');
         $postcode   = (string) $this->getRequest()->getParam('estimate_postcode');
@@ -555,7 +555,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     /**
      * Estimate update action
      */
-    public function estimateUpdatePostAction()
+    function estimateUpdatePostAction()
     {
         $code = (string) $this->getRequest()->getParam('estimate_method');
         if (!empty($code)) {
@@ -567,7 +567,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     /**
      * Initialize coupon
      */
-    public function couponPostAction()
+    function couponPostAction()
     {
         /**
          * No reason continue with empty shopping cart
@@ -625,7 +625,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     /**
      * Minicart delete action
      */
-    public function ajaxDeleteAction()
+    function ajaxDeleteAction()
     {
         if (!$this->_validateFormKey()) {
             Mage::throwException('Invalid form key');
@@ -657,7 +657,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     /**
      * Minicart ajax update qty action
      */
-    public function ajaxUpdateAction()
+    function ajaxUpdateAction()
     {
         if (!$this->_validateFormKey()) {
             Mage::throwException('Invalid form key');

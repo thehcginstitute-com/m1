@@ -36,7 +36,7 @@ class Mage_Catalog_Block_Product_Gallery extends Mage_Core_Block_Template
     /**
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return Mage::registry('product');
     }
@@ -44,7 +44,7 @@ class Mage_Catalog_Block_Product_Gallery extends Mage_Core_Block_Template
     /**
      * @return Varien_Data_Collection
      */
-    public function getGalleryCollection()
+    function getGalleryCollection()
     {
         return $this->getProduct()->getMediaGalleryImages();
     }
@@ -53,7 +53,7 @@ class Mage_Catalog_Block_Product_Gallery extends Mage_Core_Block_Template
      * @return Varien_Object|null
      * @throws Exception
      */
-    public function getCurrentImage()
+    function getCurrentImage()
     {
         $imageId = $this->getRequest()->getParam('image');
         $image = null;
@@ -70,7 +70,7 @@ class Mage_Catalog_Block_Product_Gallery extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getImageUrl()
+    function getImageUrl()
     {
         return $this->getCurrentImage()->getUrl();
     }
@@ -78,7 +78,7 @@ class Mage_Catalog_Block_Product_Gallery extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getImageFile()
+    function getImageFile()
     {
         return $this->getCurrentImage()->getFile();
     }
@@ -88,7 +88,7 @@ class Mage_Catalog_Block_Product_Gallery extends Mage_Core_Block_Template
      *
      * @return false|int
      */
-    public function getImageWidth()
+    function getImageWidth()
     {
         $file = $this->getCurrentImage()->getPath();
         if (file_exists($file)) {
@@ -109,7 +109,7 @@ class Mage_Catalog_Block_Product_Gallery extends Mage_Core_Block_Template
      * @return false|Varien_Object
      * @throws Exception
      */
-    public function getPreviusImage()
+    function getPreviusImage()
     {
         $current = $this->getCurrentImage();
         if (!$current) {
@@ -129,7 +129,7 @@ class Mage_Catalog_Block_Product_Gallery extends Mage_Core_Block_Template
      * @return false|Varien_Object
      * @throws Exception
      */
-    public function getNextImage()
+    function getNextImage()
     {
         $current = $this->getCurrentImage();
         if (!$current) {
@@ -152,7 +152,7 @@ class Mage_Catalog_Block_Product_Gallery extends Mage_Core_Block_Template
     /**
      * @return false|string
      */
-    public function getPreviusImageUrl()
+    function getPreviusImageUrl()
     {
         if ($image = $this->getPreviusImage()) {
             return $this->getUrl('*/*/*', ['_current' => true, 'image' => $image->getValueId()]);
@@ -163,7 +163,7 @@ class Mage_Catalog_Block_Product_Gallery extends Mage_Core_Block_Template
     /**
      * @return false|string
      */
-    public function getNextImageUrl()
+    function getNextImageUrl()
     {
         if ($image = $this->getNextImage()) {
             return $this->getUrl('*/*/*', ['_current' => true, 'image' => $image->getValueId()]);

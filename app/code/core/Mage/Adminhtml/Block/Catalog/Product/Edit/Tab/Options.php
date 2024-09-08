@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options extends Mage_Adminhtml_Block_Widget
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/product/edit/options.phtml');
@@ -48,12 +48,12 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options extends Mage_Adminht
         return parent::_prepareLayout();
     }
 
-    public function getAddButtonHtml()
+    function getAddButtonHtml()
     {
         return $this->getChildHtml('add_button');
     }
 
-    public function getOptionsBoxHtml()
+    function getOptionsBoxHtml()
     {
         return $this->getChildHtml('options_box');
     }

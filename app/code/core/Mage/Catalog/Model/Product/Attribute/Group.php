@@ -25,7 +25,7 @@ class Mage_Catalog_Model_Product_Attribute_Group extends Mage_Eav_Model_Entity_A
      *
      * @return bool
      */
-    public function hasSystemAttributes()
+    function hasSystemAttributes()
     {
         $result = false;
         /** @var Mage_Catalog_Model_Resource_Product_Attribute_Collection $attributesCollection */
@@ -45,7 +45,7 @@ class Mage_Catalog_Model_Product_Attribute_Group extends Mage_Eav_Model_Entity_A
      *
      * @return bool
      */
-    public function hasConfigurableAttributes()
+    function hasConfigurableAttributes()
     {
         $result = false;
         /** @var Mage_Catalog_Model_Resource_Product_Attribute_Collection $attributesCollection */

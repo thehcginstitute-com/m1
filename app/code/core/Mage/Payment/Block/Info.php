@@ -42,7 +42,7 @@ class Mage_Payment_Block_Info extends Mage_Core_Block_Template
      *
      * @return Mage_Payment_Model_Info
      */
-    public function getInfo()
+    function getInfo()
     {
         $info = $this->getData('info');
         if (!($info instanceof Mage_Payment_Model_Info)) {
@@ -56,7 +56,7 @@ class Mage_Payment_Block_Info extends Mage_Core_Block_Template
      *
      * @return Mage_Payment_Model_Method_Abstract
      */
-    public function getMethod()
+    function getMethod()
     {
         return $this->getInfo()->getMethodInstance();
     }
@@ -65,7 +65,7 @@ class Mage_Payment_Block_Info extends Mage_Core_Block_Template
      * Render as PDF
      * @return string
      */
-    public function toPdf()
+    function toPdf()
     {
         $this->setTemplate('payment/info/pdf/default.phtml');
         return $this->toHtml();
@@ -78,7 +78,7 @@ class Mage_Payment_Block_Info extends Mage_Core_Block_Template
      * Known issue: not sorted
      * @return array
      */
-    public function getChildPdfAsArray()
+    function getChildPdfAsArray()
     {
         $result = [];
         foreach ($this->getChild() as $child) {
@@ -94,7 +94,7 @@ class Mage_Payment_Block_Info extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getSpecificInformation()
+    function getSpecificInformation()
     {
         return $this->_prepareSpecificInformation()->getData();
     }
@@ -106,7 +106,7 @@ class Mage_Payment_Block_Info extends Mage_Core_Block_Template
      * @param bool $escapeHtml
      * @return array $array
      */
-    public function getValueAsArray($value, $escapeHtml = false)
+    function getValueAsArray($value, $escapeHtml = false)
     {
         if (empty($value)) {
             return [];
@@ -129,7 +129,7 @@ class Mage_Payment_Block_Info extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function getIsSecureMode()
+    function getIsSecureMode()
     {
         if ($this->hasIsSecureMode()) {
             return (bool)(int)$this->_getData('is_secure_mode');

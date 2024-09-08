@@ -23,7 +23,7 @@
 class Mage_Adminhtml_Block_Review_Rating_Detailed extends Mage_Adminhtml_Block_Template
 {
     protected $_voteCollection = false;
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('rating/detailed.phtml');
@@ -32,7 +32,7 @@ class Mage_Adminhtml_Block_Review_Rating_Detailed extends Mage_Adminhtml_Block_T
         }
     }
 
-    public function getRating()
+    function getRating()
     {
         if (!$this->getRatingCollection()) {
             if (Mage::registry('review_data')) {
@@ -88,13 +88,13 @@ class Mage_Adminhtml_Block_Review_Rating_Detailed extends Mage_Adminhtml_Block_T
         return $this->getRatingCollection();
     }
 
-    public function setIndependentMode()
+    function setIndependentMode()
     {
         $this->setIsIndependentMode(true);
         return $this;
     }
 
-    public function isSelected($option, $rating)
+    function isSelected($option, $rating)
     {
         if ($this->getIsIndependentMode()) {
             $ratings = $this->getRequest()->getParam('ratings');

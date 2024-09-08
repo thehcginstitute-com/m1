@@ -32,7 +32,7 @@ class Mage_Adminhtml_Block_System_Variable_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return Mage_Core_Model_Variable
      */
-    public function getVariable()
+    function getVariable()
     {
         return Mage::registry('current_variable');
     }
@@ -58,7 +58,7 @@ class Mage_Adminhtml_Block_System_Variable_Edit extends Mage_Adminhtml_Block_Wid
      *
      * @return string
      */
-    public function getFormHtml()
+    function getFormHtml()
     {
         $formHtml = parent::getFormHtml();
         if (!Mage::app()->isSingleStoreMode() && $this->getVariable()->getId()) {
@@ -74,7 +74,7 @@ class Mage_Adminhtml_Block_System_Variable_Edit extends Mage_Adminhtml_Block_Wid
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if ($this->getVariable()->getId()) {
             return Mage::helper('adminhtml')->__('Custom Variable "%s"', $this->escapeHtml($this->getVariable()->getName()));
@@ -87,7 +87,7 @@ class Mage_Adminhtml_Block_System_Variable_Edit extends Mage_Adminhtml_Block_Wid
      *
      * @return string
      */
-    public function getValidationUrl()
+    function getValidationUrl()
     {
         return $this->getUrl('*/*/validate', ['_current' => true]);
     }
@@ -97,7 +97,7 @@ class Mage_Adminhtml_Block_System_Variable_Edit extends Mage_Adminhtml_Block_Wid
      *
      * @return string
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return $this->getUrl('*/*/save', ['_current' => true, 'back' => null]);
     }
@@ -107,7 +107,7 @@ class Mage_Adminhtml_Block_System_Variable_Edit extends Mage_Adminhtml_Block_Wid
      *
      * @return string
      */
-    public function getSaveAndContinueUrl()
+    function getSaveAndContinueUrl()
     {
         return $this->getUrl('*/*/save', ['_current' => true, 'back' => 'edit']);
     }

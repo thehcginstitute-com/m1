@@ -10,7 +10,7 @@ class Mage_Reports_Model_Observer
      * @param Mage_Cron_Model_Schedule $schedule
      * @return $this
      */
-    public function aggregateReportsReportProductViewedData($schedule)
+    function aggregateReportsReportProductViewedData($schedule)
     {
         Mage::app()->getLocale()->emulate(0);
         $currentDate = Mage::app()->getLocale()->date();

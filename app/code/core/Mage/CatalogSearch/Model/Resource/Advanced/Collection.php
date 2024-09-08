@@ -28,7 +28,7 @@ class Mage_CatalogSearch_Model_Resource_Advanced_Collection extends Mage_Catalog
      * @param array $fields
      * @return $this
      */
-    public function addFieldsToFilter($fields)
+    function addFieldsToFilter($fields)
     {
         if ($fields) {
             $previousSelect = null;

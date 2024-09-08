@@ -36,7 +36,7 @@ class Mage_Checkout_Block_Onepage_Payment extends Mage_Checkout_Block_Onepage_Ab
      *
      * @return float
      */
-    public function getQuoteBaseGrandTotal()
+    function getQuoteBaseGrandTotal()
     {
         return (float)$this->getQuote()->getBaseGrandTotal();
     }

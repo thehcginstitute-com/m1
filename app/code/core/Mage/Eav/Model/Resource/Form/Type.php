@@ -39,7 +39,7 @@ class Mage_Eav_Model_Resource_Form_Type extends Mage_Core_Model_Resource_Db_Abst
      * @param Mage_Eav_Model_Resource_Form_Type $object
      * @inheritDoc
      */
-    public function load(Mage_Core_Model_Abstract $object, $value, $field = null)
+    function load(Mage_Core_Model_Abstract $object, $value, $field = null)
     {
         if (is_null($field) && !is_numeric($value)) {
             $field = 'code';
@@ -53,7 +53,7 @@ class Mage_Eav_Model_Resource_Form_Type extends Mage_Core_Model_Resource_Db_Abst
      * @param Mage_Eav_Model_Form_Type $object
      * @return array
      */
-    public function getEntityTypes($object)
+    function getEntityTypes($object)
     {
         $objectId = $object->getId();
         if (!$objectId) {
@@ -121,7 +121,7 @@ class Mage_Eav_Model_Resource_Form_Type extends Mage_Core_Model_Resource_Db_Abst
      * @param Mage_Eav_Model_Entity_Attribute_Abstract|int $attribute
      * @return array
      */
-    public function getFormTypesByAttribute($attribute)
+    function getFormTypesByAttribute($attribute)
     {
         if ($attribute instanceof Mage_Eav_Model_Entity_Attribute_Abstract) {
             $attribute = $attribute->getId();

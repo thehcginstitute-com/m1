@@ -20,7 +20,7 @@ class IWD_OrderGrid_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isGridExport()
+    function isGridExport()
     {
         /**
          * @var $http Mage_Core_Helper_Http
@@ -36,7 +36,7 @@ class IWD_OrderGrid_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return mixed
      */
-    public function getExtensionVersion()
+    function getExtensionVersion()
     {
         return Mage::getConfig()->getModuleConfig("IWD_OrderGrid")->version;
     }
@@ -44,7 +44,7 @@ class IWD_OrderGrid_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return mixed
      */
-    public function isNotifyCustomerCheckedDefault()
+    function isNotifyCustomerCheckedDefault()
     {
         return Mage::getStoreConfig(self::CONFIG_XPATH_NOTIFY_CUSTOMER_CHECKED);
     }
@@ -52,7 +52,7 @@ class IWD_OrderGrid_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return string
      */
-    public function isNotifyCustomerChecked()
+    function isNotifyCustomerChecked()
     {
         return $this->isNotifyCustomerCheckedDefault() ? 'checked="checked"' : "";
     }
@@ -60,7 +60,7 @@ class IWD_OrderGrid_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isEnabled()
+    function isEnabled()
     {
         return Mage::getStoreConfig(self::CONFIG_XPATH_CUSTOM_GRID_ENABLE) && $this->isAllowCustomGrid();
     }
@@ -68,7 +68,7 @@ class IWD_OrderGrid_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isAllowCustomGrid()
+    function isAllowCustomGrid()
     {
         return Mage::getSingleton('admin/session')->isAllowed('iwd_ordergrid/custom_grid');
     }
@@ -81,7 +81,7 @@ class IWD_OrderGrid_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isEnterpriseMagentoEdition()
+    function isEnterpriseMagentoEdition()
     {
         return ($this->getEdition() == 'Enterprise');
     }
@@ -89,7 +89,7 @@ class IWD_OrderGrid_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isAvailableVersion()
+    function isAvailableVersion()
     {
         return !($this->isEnterpriseMagentoEdition() && $this->_version == 'CE');
     }
@@ -97,7 +97,7 @@ class IWD_OrderGrid_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return string
      */
-    public function getEdition()
+    function getEdition()
     {
         $mage = new Mage();
         $edition = (!is_callable(array($mage, 'getEdition'))) ? 'Community' : Mage::getEdition();
@@ -109,7 +109,7 @@ class IWD_OrderGrid_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return string
      */
-    public function getDataTimeFormat()
+    function getDataTimeFormat()
     {
         return 'm-d-Y H:i:s';
     }

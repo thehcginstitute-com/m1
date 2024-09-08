@@ -26,7 +26,7 @@ class Mage_GiftMessage_Block_Adminhtml_Sales_Order_View_Giftoptions extends Mage
      *
      * @return Mage_Sales_Model_Order_Item
      */
-    public function getItem()
+    function getItem()
     {
         return $this->getParentBlock()->getData('item');
     }

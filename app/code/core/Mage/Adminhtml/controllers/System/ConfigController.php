@@ -41,7 +41,7 @@ class Mage_Adminhtml_System_ConfigController extends Mage_Adminhtml_Controller_A
      *
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
 
@@ -56,7 +56,7 @@ class Mage_Adminhtml_System_ConfigController extends Mage_Adminhtml_Controller_A
      * Index action
      *
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_forward('edit');
     }
@@ -64,7 +64,7 @@ class Mage_Adminhtml_System_ConfigController extends Mage_Adminhtml_Controller_A
     /**
      * Edit configuration section
      */
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('System'))->_title($this->__('Configuration'));
 
@@ -124,7 +124,7 @@ class Mage_Adminhtml_System_ConfigController extends Mage_Adminhtml_Controller_A
     /**
      * Save configuration
      */
-    public function saveAction()
+    function saveAction()
     {
         $session = Mage::getSingleton('adminhtml/session');
         /** @var Mage_Adminhtml_Model_Session $session */
@@ -227,7 +227,7 @@ class Mage_Adminhtml_System_ConfigController extends Mage_Adminhtml_Controller_A
      * Save fieldset state through AJAX
      *
      */
-    public function stateAction()
+    function stateAction()
     {
         if ($this->getRequest()->getParam('isAjax') == 1
                     && $this->getRequest()->getParam('container') != ''
@@ -245,7 +245,7 @@ class Mage_Adminhtml_System_ConfigController extends Mage_Adminhtml_Controller_A
      * Export shipping table rates in csv format
      *
      */
-    public function exportTableratesAction()
+    function exportTableratesAction()
     {
         $fileName   = 'tablerates.csv';
         /** @var Mage_Adminhtml_Block_Shipping_Carrier_Tablerate_Grid $gridBlock */

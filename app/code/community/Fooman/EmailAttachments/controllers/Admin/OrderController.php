@@ -19,7 +19,7 @@ class Fooman_EmailAttachments_Admin_OrderController extends Mage_Adminhtml_Sales
      *
      * @return Mage_Core_Controller_Varien_Action
      */
-    public function printAction()
+    function printAction()
     {
         $orderId = $this->getRequest()->getParam('order_id');
         if ($orderId) {
@@ -50,7 +50,7 @@ class Fooman_EmailAttachments_Admin_OrderController extends Mage_Adminhtml_Sales
      *
      * @return Mage_Core_Controller_Varien_Action
      */
-    public function pdfordersAction()
+    function pdfordersAction()
     {
         $orderIds = $this->getRequest()->getPost('order_ids');
         $flag = false;
@@ -90,7 +90,7 @@ class Fooman_EmailAttachments_Admin_OrderController extends Mage_Adminhtml_Sales
      *
      * @return Mage_Core_Controller_Varien_Action
      */
-    public function pdfpickingAction()
+    function pdfpickingAction()
     {
         $orderIds = $this->getRequest()->getPost('order_ids');
         $flag = false;

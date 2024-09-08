@@ -58,7 +58,7 @@ class Mage_Newsletter_Model_Problem extends Mage_Core_Model_Abstract
      * @param Mage_Newsletter_Model_Subscriber $subscriber
      * @return $this
      */
-    public function addSubscriberData(Mage_Newsletter_Model_Subscriber $subscriber)
+    function addSubscriberData(Mage_Newsletter_Model_Subscriber $subscriber)
     {
         $this->setSubscriberId($subscriber->getId());
         return $this;
@@ -70,7 +70,7 @@ class Mage_Newsletter_Model_Problem extends Mage_Core_Model_Abstract
      * @param Mage_Newsletter_Model_Queue $queue
      * @return $this
      */
-    public function addQueueData(Mage_Newsletter_Model_Queue $queue)
+    function addQueueData(Mage_Newsletter_Model_Queue $queue)
     {
         $this->setQueueId($queue->getId());
         return $this;
@@ -82,7 +82,7 @@ class Mage_Newsletter_Model_Problem extends Mage_Core_Model_Abstract
      * @param Exception $e
      * @return $this
      */
-    public function addErrorData(Exception $e)
+    function addErrorData(Exception $e)
     {
         $this->setProblemErrorCode($e->getCode());
         $this->setProblemErrorText($e->getMessage());
@@ -94,7 +94,7 @@ class Mage_Newsletter_Model_Problem extends Mage_Core_Model_Abstract
      *
      * @return Mage_Newsletter_Model_Subscriber|null
      */
-    public function getSubscriber()
+    function getSubscriber()
     {
         if (!$this->getSubscriberId()) {
             return null;
@@ -113,7 +113,7 @@ class Mage_Newsletter_Model_Problem extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function unsubscribe()
+    function unsubscribe()
     {
         if ($this->getSubscriber()) {
             $this->getSubscriber()->setSubscriberStatus(Mage_Newsletter_Model_Subscriber::STATUS_UNSUBSCRIBED)

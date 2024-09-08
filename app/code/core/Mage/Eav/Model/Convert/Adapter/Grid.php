@@ -34,7 +34,7 @@ class Mage_Eav_Model_Convert_Adapter_Grid extends Mage_Dataflow_Model_Convert_Ad
     /**
      * @return Mage_Eav_Model_Entity_Interface
      */
-    public function getEntity()
+    function getEntity()
     {
         if (!$this->_entityType) {
             if (!($entityType = $this->getVar('entity_type'))
@@ -50,7 +50,7 @@ class Mage_Eav_Model_Convert_Adapter_Grid extends Mage_Dataflow_Model_Convert_Ad
     /**
      * @return $this
      */
-    public function load()
+    function load()
     {
         try {
             $collection = Mage::getResourceModel($this->getEntity() . '_collection');
@@ -70,7 +70,7 @@ class Mage_Eav_Model_Convert_Adapter_Grid extends Mage_Dataflow_Model_Convert_Ad
     /**
      * @return $this
      */
-    public function save()
+    function save()
     {
         foreach ($this->getData() as $i => $row) {
             $this->setExceptionLocation('Line: ' . $i);

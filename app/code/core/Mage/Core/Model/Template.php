@@ -112,7 +112,7 @@ abstract class Mage_Core_Model_Template extends Mage_Core_Model_Abstract
      * @param   array $config
      * @return  $this
      */
-    public function setDesignConfig(array $config)
+    function setDesignConfig(array $config)
     {
         $this->getDesignConfig()->setData($config);
         return $this;
@@ -125,7 +125,7 @@ abstract class Mage_Core_Model_Template extends Mage_Core_Model_Abstract
      * @param int|string $storeId
      * @param string $area
      */
-    public function emulateDesign($storeId, $area = self::DEFAULT_DESIGN_AREA)
+    function emulateDesign($storeId, $area = self::DEFAULT_DESIGN_AREA)
     {
         if ($storeId) {
             // save current design settings
@@ -142,7 +142,7 @@ abstract class Mage_Core_Model_Template extends Mage_Core_Model_Abstract
     /**
      * Revert to last design config, used before emulation
      */
-    public function revertDesign()
+    function revertDesign()
     {
         if ($this->_emulatedDesignConfig) {
             $this->setDesignConfig($this->_emulatedDesignConfig->getData());
@@ -156,7 +156,7 @@ abstract class Mage_Core_Model_Template extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isPlain()
+    function isPlain()
     {
         return $this->getType() == self::TYPE_TEXT;
     }
@@ -166,5 +166,5 @@ abstract class Mage_Core_Model_Template extends Mage_Core_Model_Abstract
      *
      * @return int|string
      */
-    abstract public function getType();
+    abstract function getType();
 }

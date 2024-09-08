@@ -49,7 +49,7 @@ class Mage_Adminhtml_Helper_Catalog_Product_Edit_Action_Attribute extends Mage_C
      *
      * @return Mage_Catalog_Model_Resource_Product_Collection
      */
-    public function getProducts()
+    function getProducts()
     {
         if (is_null($this->_products)) {
             $productsIds = $this->getProductIds();
@@ -71,7 +71,7 @@ class Mage_Adminhtml_Helper_Catalog_Product_Edit_Action_Attribute extends Mage_C
      *
      * @return array|string|null
      */
-    public function getProductIds()
+    function getProductIds()
     {
         /** @var Mage_Adminhtml_Model_Session $session */
         $session = Mage::getSingleton('adminhtml/session');
@@ -88,7 +88,7 @@ class Mage_Adminhtml_Helper_Catalog_Product_Edit_Action_Attribute extends Mage_C
      *
      * @return int
      */
-    public function getSelectedStoreId()
+    function getSelectedStoreId()
     {
         return (int)$this->_getRequest()->getParam('store', Mage_Core_Model_App::ADMIN_STORE_ID);
     }
@@ -98,7 +98,7 @@ class Mage_Adminhtml_Helper_Catalog_Product_Edit_Action_Attribute extends Mage_C
      *
      * @return array
      */
-    public function getProductsSetIds()
+    function getProductsSetIds()
     {
         return $this->getProducts()->getSetIds();
     }
@@ -108,7 +108,7 @@ class Mage_Adminhtml_Helper_Catalog_Product_Edit_Action_Attribute extends Mage_C
      *
      * @return Mage_Eav_Model_Resource_Entity_Attribute_Collection
      */
-    public function getAttributes()
+    function getAttributes()
     {
         if (is_null($this->_attributes)) {
             $this->_attributes  = Mage::getSingleton('eav/config')
@@ -144,7 +144,7 @@ class Mage_Adminhtml_Helper_Catalog_Product_Edit_Action_Attribute extends Mage_C
      * @deprecated since 1.4.1
      * @return array
      */
-    public function getProductsNotInStoreIds()
+    function getProductsNotInStoreIds()
     {
         return [];
     }

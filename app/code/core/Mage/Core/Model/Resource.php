@@ -72,7 +72,7 @@ class Mage_Core_Model_Resource
      * @param string $name
      * @return Varien_Db_Adapter_Interface|false
      */
-    public function getConnection($name)
+    function getConnection($name)
     {
         if (isset($this->_connections[$name])) {
             $connection = $this->_connections[$name];
@@ -121,7 +121,7 @@ class Mage_Core_Model_Resource
      *
      * @return Varien_Db_Adapter_Interface[]|false
      */
-    public function getConnections()
+    function getConnections()
     {
         return $this->_connections;
     }
@@ -209,7 +209,7 @@ class Mage_Core_Model_Resource
      * @param string $type
      * @return Mage_Core_Model_Resource_Type_Abstract
      */
-    public function getConnectionTypeInstance($type)
+    function getConnectionTypeInstance($type)
     {
         if (!isset($this->_connectionTypes[$type])) {
             $config = Mage::getConfig()->getResourceTypeConfig($type);
@@ -226,7 +226,7 @@ class Mage_Core_Model_Resource
      * @param string $entity
      * @return SimpleXMLElement|Varien_Simplexml_Config
      */
-    public function getEntity($model, $entity)
+    function getEntity($model, $entity)
     {
         $modelsNode = Mage::getConfig()->getNode()->global->models;
         $entityConfig = $modelsNode->$model->entities->{$entity};
@@ -252,7 +252,7 @@ class Mage_Core_Model_Resource
      * @param   string|array $modelEntity
      * @return  string
      */
-    public function getTableName($modelEntity)
+    function getTableName($modelEntity)
     {
         $tableSuffix = null;
         if (is_array($modelEntity)) {
@@ -305,7 +305,7 @@ class Mage_Core_Model_Resource
      * @param string $mappedName
      * @return $this
      */
-    public function setMappedTableName($tableName, $mappedName)
+    function setMappedTableName($tableName, $mappedName)
     {
         $this->_mappedTableNames[$tableName] = $mappedName;
         return $this;
@@ -317,7 +317,7 @@ class Mage_Core_Model_Resource
      * @param string $tableName
      * @return bool|string
      */
-    public function getMappedTableName($tableName)
+    function getMappedTableName($tableName)
     {
         return $this->_mappedTableNames[$tableName] ?? false;
     }
@@ -328,7 +328,7 @@ class Mage_Core_Model_Resource
      * @param array $row
      * @return $this
      */
-    public function cleanDbRow(&$row)
+    function cleanDbRow(&$row)
     {
         $zeroDate = $this->getConnection(self::DEFAULT_READ_RESOURCE)->getSuggestedZeroDate();
         if (!empty($row) && is_array($row)) {
@@ -349,7 +349,7 @@ class Mage_Core_Model_Resource
      * @param array $config
      * @return Varien_Db_Adapter_Interface
      */
-    public function createConnection($name, $type, $config)
+    function createConnection($name, $type, $config)
     {
         if (!isset($this->_connections[$name])) {
             $connection = $this->_newConnection($type, $config);
@@ -359,7 +359,7 @@ class Mage_Core_Model_Resource
         return $this->_connections[$name];
     }
 
-    public function checkDbConnection()
+    function checkDbConnection()
     {
         if (!$this->getConnection('core_read')) {
             //Mage::app()->getResponse()->setRedirect(Mage::getUrl('install'));
@@ -369,7 +369,7 @@ class Mage_Core_Model_Resource
     /**
      * @return int
      */
-    public function getAutoUpdate()
+    function getAutoUpdate()
     {
         return self::AUTO_UPDATE_ALWAYS;
         #return Mage::app()->loadCache(self::AUTO_UPDATE_CACHE_KEY);
@@ -379,7 +379,7 @@ class Mage_Core_Model_Resource
      * @param mixed $value
      * @return $this
      */
-    public function setAutoUpdate($value)
+    function setAutoUpdate($value)
     {
         #Mage::app()->saveCache($value, self::AUTO_UPDATE_CACHE_KEY);
         return $this;
@@ -392,7 +392,7 @@ class Mage_Core_Model_Resource
      * @param string $indexType
      * @return string
      */
-    public function getIdxName($tableName, $fields, $indexType = Varien_Db_Adapter_Interface::INDEX_TYPE_INDEX)
+    function getIdxName($tableName, $fields, $indexType = Varien_Db_Adapter_Interface::INDEX_TYPE_INDEX)
     {
         return $this->getConnection(self::DEFAULT_READ_RESOURCE)
             ->getIndexName($this->getTableName($tableName), $fields, $indexType);
@@ -407,7 +407,7 @@ class Mage_Core_Model_Resource
      * @param string $refColumnName the reference table column name
      * @return string
      */
-    public function getFkName($priTableName, $priColumnName, $refTableName, $refColumnName)
+    function getFkName($priTableName, $priColumnName, $refTableName, $refColumnName)
     {
         return $this->getConnection(self::DEFAULT_READ_RESOURCE)
             ->getForeignKeyName(

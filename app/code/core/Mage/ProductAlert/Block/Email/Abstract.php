@@ -42,7 +42,7 @@ abstract class Mage_ProductAlert_Block_Email_Abstract extends Mage_Core_Block_Te
      * @param int|string|Mage_Core_Model_Website|Mage_Core_Model_Store $store
      * @return Mage_ProductAlert_Block_Email_Abstract
      */
-    public function setStore($store)
+    function setStore($store)
     {
         if ($store instanceof Mage_Core_Model_Website) {
             $store = $store->getDefaultStore();
@@ -61,7 +61,7 @@ abstract class Mage_ProductAlert_Block_Email_Abstract extends Mage_Core_Block_Te
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         if (is_null($this->_store)) {
             $this->_store = Mage::app()->getStore();
@@ -77,7 +77,7 @@ abstract class Mage_ProductAlert_Block_Email_Abstract extends Mage_Core_Block_Te
      * @param bool $includeContainer   Enclose into <span class="price"><span>
      * @return double
      */
-    public function formatPrice($price, $format = true, $includeContainer = true)
+    function formatPrice($price, $format = true, $includeContainer = true)
     {
         return $this->getStore()->convertPrice($price, $format, $includeContainer);
     }
@@ -86,7 +86,7 @@ abstract class Mage_ProductAlert_Block_Email_Abstract extends Mage_Core_Block_Te
      * Reset product collection
      *
      */
-    public function reset()
+    function reset()
     {
         $this->_products = [];
     }
@@ -96,7 +96,7 @@ abstract class Mage_ProductAlert_Block_Email_Abstract extends Mage_Core_Block_Te
      *
      * @param Mage_Catalog_Model_Product $product
      */
-    public function addProduct(Mage_Catalog_Model_Product $product)
+    function addProduct(Mage_Catalog_Model_Product $product)
     {
         $this->_products[$product->getId()] = $product;
     }
@@ -106,7 +106,7 @@ abstract class Mage_ProductAlert_Block_Email_Abstract extends Mage_Core_Block_Te
      *
      * @return array
      */
-    public function getProducts()
+    function getProducts()
     {
         return $this->_products;
     }
@@ -130,7 +130,7 @@ abstract class Mage_ProductAlert_Block_Email_Abstract extends Mage_Core_Block_Te
      * @param Mage_Catalog_Model_Product $product
      * @return string|null
      */
-    public function _getFilteredProductShortDescription(Mage_Catalog_Model_Product $product)
+    function _getFilteredProductShortDescription(Mage_Catalog_Model_Product $product)
     {
         $shortDescription = $product->getShortDescription();
         if ($shortDescription) {

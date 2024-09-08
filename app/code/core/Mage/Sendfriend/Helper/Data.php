@@ -42,7 +42,7 @@ class Mage_Sendfriend_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $store
      * @return bool
      */
-    public function isEnabled($store = null)
+    function isEnabled($store = null)
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_ENABLED, $store);
     }
@@ -53,7 +53,7 @@ class Mage_Sendfriend_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $store
      * @return bool
      */
-    public function isAllowForGuest($store = null)
+    function isAllowForGuest($store = null)
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_ALLOW_FOR_GUEST, $store);
     }
@@ -64,7 +64,7 @@ class Mage_Sendfriend_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $store
      * @return int
      */
-    public function getMaxRecipients($store = null)
+    function getMaxRecipients($store = null)
     {
         return (int)Mage::getStoreConfig(self::XML_PATH_MAX_RECIPIENTS, $store);
     }
@@ -75,7 +75,7 @@ class Mage_Sendfriend_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $store
      * @return int
      */
-    public function getMaxEmailPerPeriod($store = null)
+    function getMaxEmailPerPeriod($store = null)
     {
         return (int)Mage::getStoreConfig(self::XML_PATH_MAX_PER_HOUR, $store);
     }
@@ -85,7 +85,7 @@ class Mage_Sendfriend_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return int
      */
-    public function getPeriod()
+    function getPeriod()
     {
         return 3600;
     }
@@ -96,7 +96,7 @@ class Mage_Sendfriend_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $store
      * @return int
      */
-    public function getLimitBy($store = null)
+    function getLimitBy($store = null)
     {
         return (int)Mage::getStoreConfig(self::XML_PATH_LIMIT_BY, $store);
     }
@@ -107,7 +107,7 @@ class Mage_Sendfriend_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $store
      * @return mixed
      */
-    public function getEmailTemplate($store = null)
+    function getEmailTemplate($store = null)
     {
         return Mage::getStoreConfig(self::XML_PATH_EMAIL_TEMPLATE, $store);
     }
@@ -118,7 +118,7 @@ class Mage_Sendfriend_Helper_Data extends Mage_Core_Helper_Abstract
      * @see self::COOKIE_NAME
      * @return string
      */
-    public function getCookieName()
+    function getCookieName()
     {
         return self::COOKIE_NAME;
     }

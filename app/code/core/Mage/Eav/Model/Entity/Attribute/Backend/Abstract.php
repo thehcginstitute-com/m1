@@ -70,7 +70,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return $this
      */
-    public function setAttribute($attribute)
+    function setAttribute($attribute)
     {
         $this->_attribute = $attribute;
         return $this;
@@ -81,7 +81,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      *
      * @return Mage_Eav_Model_Entity_Attribute_Abstract
      */
-    public function getAttribute()
+    function getAttribute()
     {
         return $this->_attribute;
     }
@@ -91,7 +91,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      *
      * @return string
      */
-    public function getType()
+    function getType()
     {
         return $this->getAttribute()->getBackendType();
     }
@@ -101,7 +101,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      *
      * @return bool
      */
-    public function isStatic()
+    function isStatic()
     {
         return $this->getAttribute()->isStatic();
     }
@@ -111,7 +111,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      *
      * @return string
      */
-    public function getTable()
+    function getTable()
     {
         if (empty($this->_table)) {
             if ($this->isStatic()) {
@@ -133,7 +133,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      *
      * @return string
      */
-    public function getEntityIdField()
+    function getEntityIdField()
     {
         if (empty($this->_entityIdField)) {
             if ($this->getAttribute()->getEntityIdField()) {
@@ -152,7 +152,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      * @param int $valueId
      * @return $this
      */
-    public function setValueId($valueId)
+    function setValueId($valueId)
     {
         $this->_valueId = $valueId;
         return $this;
@@ -165,7 +165,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      * @param int $valueId
      * @return $this
      */
-    public function setEntityValueId($entity, $valueId)
+    function setEntityValueId($entity, $valueId)
     {
         if (!$entity || !$entity->getId()) {
             return $this->setValueId($valueId);
@@ -180,7 +180,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      *
      * @return int
      */
-    public function getValueId()
+    function getValueId()
     {
         return $this->_valueId;
     }
@@ -191,7 +191,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      * @param Varien_Object $entity
      * @return int
      */
-    public function getEntityValueId($entity)
+    function getEntityValueId($entity)
     {
         if (!$entity || !$entity->getId() || !array_key_exists($entity->getId(), $this->_valueIds)) {
             return $this->getValueId();
@@ -205,7 +205,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      *
      * @return mixed
      */
-    public function getDefaultValue()
+    function getDefaultValue()
     {
         if ($this->_defaultValue === null) {
             if ($this->getAttribute()->getDefaultValue()) {
@@ -225,7 +225,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      * @throws Mage_Eav_Exception
      * @return bool
      */
-    public function validate($object)
+    function validate($object)
     {
         $attrCode = $this->getAttribute()->getAttributeCode();
         $value = $object->getData($attrCode);
@@ -268,7 +268,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      * @param Varien_Object $object
      * @return $this
      */
-    public function afterLoad($object)
+    function afterLoad($object)
     {
         return $this;
     }
@@ -279,7 +279,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      * @param Varien_Object $object
      * @return $this
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         $attrCode = $this->getAttribute()->getAttributeCode();
         if (!$object->hasData($attrCode) && $this->getDefaultValue()) {
@@ -295,7 +295,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      * @param Varien_Object $object
      * @return $this
      */
-    public function afterSave($object)
+    function afterSave($object)
     {
         return $this;
     }
@@ -306,7 +306,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      * @param Varien_Object $object
      * @return $this
      */
-    public function beforeDelete($object)
+    function beforeDelete($object)
     {
         return $this;
     }
@@ -316,7 +316,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Backend_Abstract implements Mage_
      * @param Varien_Object $object
      * @return $this
      */
-    public function afterDelete($object)
+    function afterDelete($object)
     {
         return $this;
     }

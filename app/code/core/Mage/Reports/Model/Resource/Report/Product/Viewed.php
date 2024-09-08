@@ -40,7 +40,7 @@ class Mage_Reports_Model_Resource_Report_Product_Viewed extends Mage_Sales_Model
      * @throws Mage_Core_Exception
      * @throws Zend_Db_Select_Exception
      */
-    public function aggregate($from = null, $to = null)
+    function aggregate($from = null, $to = null)
     {
         $mainTable   = $this->getMainTable();
         $adapter = $this->_getWriteAdapter();

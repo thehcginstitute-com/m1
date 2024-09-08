@@ -103,7 +103,7 @@ class Mage_Tax_Model_Sales_Total_Quote_Subtotal extends Mage_Sales_Model_Quote_A
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         $this->setCode('tax_subtotal');
         $this->_helper = Mage::helper('tax');
@@ -120,7 +120,7 @@ class Mage_Tax_Model_Sales_Total_Quote_Subtotal extends Mage_Sales_Model_Quote_A
      *
      * @return  Mage_Tax_Model_Sales_Total_Quote_Subtotal
      */
-    public function collect(Mage_Sales_Model_Quote_Address $address)
+    function collect(Mage_Sales_Model_Quote_Address $address)
     {
         $this->_store = $address->getQuote()->getStore();
         $this->_address = $address;

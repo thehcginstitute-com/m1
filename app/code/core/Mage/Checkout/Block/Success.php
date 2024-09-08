@@ -27,7 +27,7 @@ class Mage_Checkout_Block_Success extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getRealOrderId()
+    function getRealOrderId()
     {
         $order = Mage::getModel('sales/order')->load($this->getLastOrderId());
         return $order->getIncrementId();

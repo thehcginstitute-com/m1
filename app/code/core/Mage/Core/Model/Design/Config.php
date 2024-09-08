@@ -29,7 +29,7 @@ class Mage_Core_Model_Design_Config extends Varien_Simplexml_Config
      * @param array $params
      * @throws Mage_Core_Exception
      */
-    public function __construct(array $params = [])
+    function __construct(array $params = [])
     {
         if (isset($params['designRoot'])) {
             if (!is_dir($params['designRoot'])) {
@@ -62,7 +62,7 @@ class Mage_Core_Model_Design_Config extends Varien_Simplexml_Config
      *
      * @return bool
      */
-    public function loadCache()
+    function loadCache()
     {
         if ($this->_canUseCache()) {
             return parent::loadCache();
@@ -76,7 +76,7 @@ class Mage_Core_Model_Design_Config extends Varien_Simplexml_Config
      * @param array $tags
      * @return $this
      */
-    public function saveCache($tags = null)
+    function saveCache($tags = null)
     {
         if ($this->_canUseCache()) {
             $tags = is_array($tags) ? $tags : [];

@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Catalog_Helper_Form_Wysiwyg extends Varien_Data_Form_
      *
      * @return string
      */
-    public function getAfterElementHtml()
+    function getAfterElementHtml()
     {
         $html = parent::getAfterElementHtml();
         if ($this->getIsWysiwygEnabled()) {
@@ -49,7 +49,7 @@ class Mage_Adminhtml_Block_Catalog_Helper_Form_Wysiwyg extends Varien_Data_Form_
      *
      * @return bool
      */
-    public function getIsWysiwygEnabled()
+    function getIsWysiwygEnabled()
     {
         if (Mage::helper('catalog')->isModuleEnabled('Mage_Cms')) {
             return (bool)(Mage::getSingleton('cms/wysiwyg_config')->isEnabled()

@@ -8,7 +8,7 @@ class IWD_OrderFlags_Adminhtml_Flags_OrderController extends IWD_OrderFlags_Cont
     /**
      * @return $this|Mage_Core_Controller_Varien_Action
      */
-    public function massApplyFlagAction()
+    function massApplyFlagAction()
     {
         try {
             $orderIds = $this->getOrderIds();
@@ -37,7 +37,7 @@ class IWD_OrderFlags_Adminhtml_Flags_OrderController extends IWD_OrderFlags_Cont
     /**
      * @return void
      */
-    public function applyFlagAction()
+    function applyFlagAction()
     {
         try {
             $flagId = $this->getFlagId();

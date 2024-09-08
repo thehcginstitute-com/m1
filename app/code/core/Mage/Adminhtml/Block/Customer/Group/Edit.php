@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Customer_Group_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -41,7 +41,7 @@ class Mage_Adminhtml_Block_Customer_Group_Edit extends Mage_Adminhtml_Block_Widg
      * @return string
      * @throws Exception
      */
-    public function getDeleteUrl()
+    function getDeleteUrl()
     {
         if (!Mage::getSingleton('adminhtml/url')->useSecretKey()) {
             return $this->getUrl('*/*/delete', [
@@ -56,7 +56,7 @@ class Mage_Adminhtml_Block_Customer_Group_Edit extends Mage_Adminhtml_Block_Widg
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if (!is_null(Mage::registry('current_group')->getId())) {
             return Mage::helper('customer')->__('Edit Customer Group "%s"', $this->escapeHtml(Mage::registry('current_group')->getCustomerGroupCode()));
@@ -67,7 +67,7 @@ class Mage_Adminhtml_Block_Customer_Group_Edit extends Mage_Adminhtml_Block_Widg
     /**
      * @return string
      */
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head head-customer-groups';
     }

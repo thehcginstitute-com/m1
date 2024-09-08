@@ -37,7 +37,7 @@ class Mage_Index_Model_Resource_Event_Collection extends Mage_Core_Model_Resourc
      * @param string | array $entity
      * @return $this
      */
-    public function addEntityFilter($entity)
+    function addEntityFilter($entity)
     {
         if (is_array($entity) && !empty($entity)) {
             $this->addFieldToFilter('entity', ['in' => $entity]);
@@ -53,7 +53,7 @@ class Mage_Index_Model_Resource_Event_Collection extends Mage_Core_Model_Resourc
      * @param string | array $type
      * @return $this
      */
-    public function addTypeFilter($type)
+    function addTypeFilter($type)
     {
         if (is_array($type) && !empty($type)) {
             $this->addFieldToFilter('type', ['in' => $type]);
@@ -70,7 +70,7 @@ class Mage_Index_Model_Resource_Event_Collection extends Mage_Core_Model_Resourc
      * @param string $status
      * @return $this
      */
-    public function addProcessFilter($process, $status = null)
+    function addProcessFilter($process, $status = null)
     {
         $this->_joinProcessEventTable();
         if ($process instanceof Mage_Index_Model_Process) {
@@ -114,7 +114,7 @@ class Mage_Index_Model_Resource_Event_Collection extends Mage_Core_Model_Resourc
      *
      * @return $this
      */
-    public function reset()
+    function reset()
     {
         $this->_totalRecords = null;
         $this->_data = null;

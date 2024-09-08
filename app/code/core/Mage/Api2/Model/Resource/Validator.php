@@ -84,7 +84,7 @@ abstract class Mage_Api2_Model_Resource_Validator
      *
      * @return array
      */
-    public function getErrors()
+    function getErrors()
     {
         return $this->_errors;
     }

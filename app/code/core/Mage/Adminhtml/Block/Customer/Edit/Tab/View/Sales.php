@@ -39,13 +39,13 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View_Sales extends Mage_Adminhtml_B
      */
     protected $_currency;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('customer_view_sales_grid');
     }
 
-    public function _beforeToHtml()
+    function _beforeToHtml()
     {
         $this->_currency = Mage::getModel('directory/currency')
             ->load(Mage::getStoreConfig(Mage_Directory_Model_Currency::XML_PATH_CURRENCY_BASE))
@@ -85,17 +85,17 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View_Sales extends Mage_Adminhtml_B
         return parent::_beforeToHtml();
     }
 
-    public function getWebsiteCount($websiteId)
+    function getWebsiteCount($websiteId)
     {
         return $this->_websiteCounts[$websiteId] ?? 0;
     }
 
-    public function getRows()
+    function getRows()
     {
         return $this->_groupedCollection;
     }
 
-    public function getTotals()
+    function getTotals()
     {
         return $this->_collection->getTotals();
     }
@@ -106,7 +106,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View_Sales extends Mage_Adminhtml_B
      * @param float $price
      * @return string
      */
-    public function getPriceFormatted($price)
+    function getPriceFormatted($price)
     {
         return $this->_currency->format($price);
     }
@@ -118,7 +118,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View_Sales extends Mage_Adminhtml_B
      * @param null|int $websiteId
      * @return string
      */
-    public function formatCurrency($price, $websiteId = null)
+    function formatCurrency($price, $websiteId = null)
     {
         return Mage::app()->getWebsite($websiteId)->getBaseCurrency()->format($price);
     }

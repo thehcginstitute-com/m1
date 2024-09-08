@@ -31,7 +31,7 @@ class Mage_Core_Model_Url_Validator extends Zend_Validate_Abstract
     /**
      * Object constructor
      */
-    public function __construct()
+    function __construct()
     {
         // set translated message template
         $this->setMessage(Mage::helper('core')->__("Invalid URL '%value%'."), self::INVALID_URL);
@@ -52,7 +52,7 @@ class Mage_Core_Model_Url_Validator extends Zend_Validate_Abstract
      * @param string $value
      * @return bool
      */
-    public function isValid($value)
+    function isValid($value)
     {
         $this->_setValue($value);
 

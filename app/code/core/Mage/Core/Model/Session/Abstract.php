@@ -74,7 +74,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param string $sessionName
      * @return $this
      */
-    public function init($namespace, $sessionName = null)
+    function init($namespace, $sessionName = null)
     {
         parent::init($namespace, $sessionName);
         $this->addHost(true);
@@ -86,7 +86,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return string
      */
-    public function getCookieDomain()
+    function getCookieDomain()
     {
         return $this->getCookie()->getDomain();
     }
@@ -96,7 +96,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return string
      */
-    public function getCookiePath()
+    function getCookiePath()
     {
         return $this->getCookie()->getPath();
     }
@@ -106,7 +106,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return int
      */
-    public function getCookieLifetime()
+    function getCookieLifetime()
     {
         return $this->getCookie()->getLifetime();
     }
@@ -116,7 +116,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return bool
      */
-    public function useValidateRemoteAddr()
+    function useValidateRemoteAddr()
     {
         $use = Mage::getStoreConfig(self::XML_PATH_USE_REMOTE_ADDR);
         if (is_null($use)) {
@@ -130,7 +130,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return bool
      */
-    public function useValidateHttpVia()
+    function useValidateHttpVia()
     {
         $use = Mage::getStoreConfig(self::XML_PATH_USE_HTTP_VIA);
         if (is_null($use)) {
@@ -144,7 +144,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return bool
      */
-    public function useValidateHttpXForwardedFor()
+    function useValidateHttpXForwardedFor()
     {
         $use = Mage::getStoreConfig(self::XML_PATH_USE_X_FORWARDED);
         if (is_null($use)) {
@@ -158,7 +158,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return bool
      */
-    public function useValidateHttpUserAgent()
+    function useValidateHttpUserAgent()
     {
         $use = Mage::getStoreConfig(self::XML_PATH_USE_USER_AGENT);
         if (is_null($use)) {
@@ -173,7 +173,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return bool
      */
-    public function useSid()
+    function useSid()
     {
         return Mage::app()->getStore()->isAdmin() || Mage::getStoreConfig(self::XML_PATH_USE_FRONTEND_SID);
     }
@@ -183,7 +183,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return array
      */
-    public function getValidateHttpUserAgentSkip()
+    function getValidateHttpUserAgentSkip()
     {
         $userAgents = [];
         $skip = Mage::getConfig()->getNode(self::XML_NODE_USET_AGENT_SKIP);
@@ -199,7 +199,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param   bool $clear
      * @return  Mage_Core_Model_Message_Collection
      */
-    public function getMessages($clear = false)
+    function getMessages($clear = false)
     {
         if (!$this->getData('messages')) {
             $this->setMessages(Mage::getModel('core/message_collection'));
@@ -221,7 +221,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param   string $alternativeText
      * @return  $this
      */
-    public function addException(Exception $exception, $alternativeText)
+    function addException(Exception $exception, $alternativeText)
     {
         Mage::logException($exception);
         $this->addError($alternativeText);
@@ -234,7 +234,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param   Mage_Core_Model_Message_Abstract $message
      * @return  $this
      */
-    public function addMessage(Mage_Core_Model_Message_Abstract $message)
+    function addMessage(Mage_Core_Model_Message_Abstract $message)
     {
         $this->getMessages()->add($message);
         Mage::dispatchEvent('core_session_abstract_add_message');
@@ -247,7 +247,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param   string $message
      * @return  $this
      */
-    public function addError($message)
+    function addError($message)
     {
         $this->addMessage(Mage::getSingleton('core/message')->error($message));
         return $this;
@@ -259,7 +259,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param   string $message
      * @return  $this
      */
-    public function addWarning($message)
+    function addWarning($message)
     {
         $this->addMessage(Mage::getSingleton('core/message')->warning($message));
         return $this;
@@ -271,7 +271,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param   string $message
      * @return  $this
      */
-    public function addNotice($message)
+    function addNotice($message)
     {
         $this->addMessage(Mage::getSingleton('core/message')->notice($message));
         return $this;
@@ -283,7 +283,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param   string $message
      * @return  $this
      */
-    public function addSuccess($message)
+    function addSuccess($message)
     {
         $this->addMessage(Mage::getSingleton('core/message')->success($message));
         return $this;
@@ -295,7 +295,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param   array $messages
      * @return  $this
      */
-    public function addMessages($messages)
+    function addMessages($messages)
     {
         if (is_array($messages)) {
             foreach ($messages as $message) {
@@ -311,7 +311,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param   array|string|Mage_Core_Model_Message_Abstract $messages
      * @return  $this
      */
-    public function addUniqueMessages($messages)
+    function addUniqueMessages($messages)
     {
         if (!is_array($messages)) {
             $messages = [$messages];
@@ -360,7 +360,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @inheritDoc
      */
-    public function setSessionId($id = null)
+    function setSessionId($id = null)
     {
         if (is_null($id) && $this->useSid()) {
             $_queryParam = $this->getSessionIdQueryParam();
@@ -379,7 +379,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return string
      */
-    public function getEncryptedSessionId()
+    function getEncryptedSessionId()
     {
         if (!self::$_encryptedSessionId) {
             self::$_encryptedSessionId = $this->getSessionId();
@@ -390,7 +390,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * @return string
      */
-    public function getSessionIdQueryParam()
+    function getSessionIdQueryParam()
     {
         $_sessionName = $this->getSessionName();
         if ($_sessionName && $queryParam = (string)Mage::getConfig()->getNode($_sessionName . '/session/query_param')) {
@@ -405,7 +405,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param bool $flag
      * @return $this
      */
-    public function setSkipSessionIdFlag($flag)
+    function setSkipSessionIdFlag($flag)
     {
         $this->_skipSessionIdFlag = $flag;
         return $this;
@@ -416,7 +416,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return bool
      */
-    public function getSkipSessionIdFlag()
+    function getSkipSessionIdFlag()
     {
         return $this->_skipSessionIdFlag;
     }
@@ -427,7 +427,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param string $urlHost can be host or url
      * @return string {session_id_key}={session_id_encrypted}
      */
-    public function getSessionIdForHost($urlHost)
+    function getSessionIdForHost($urlHost)
     {
         if ($this->getSkipSessionIdFlag() === true) {
             return '';
@@ -462,7 +462,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param string $host
      * @return bool
      */
-    public function isValidForHost($host)
+    function isValidForHost($host)
     {
         $hostArr = explode(':', $host);
         $hosts = $this->getSessionHosts();
@@ -475,7 +475,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param string $path
      * @return bool
      */
-    public function isValidForPath($path)
+    function isValidForPath($path)
     {
         $cookiePath = trim($this->getCookiePath(), '/') . '/';
         if ($cookiePath == '/') {
@@ -493,7 +493,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param string $host
      * @return $this
      */
-    public function addHost($host)
+    function addHost($host)
     {
         if ($host === true) {
             if (!$host = Mage::app()->getFrontController()->getRequest()->getHttpHost()) {
@@ -516,7 +516,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return array
      */
-    public function getSessionHosts()
+    function getSessionHosts()
     {
         return parent::getSessionHosts();
     }
@@ -526,7 +526,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return string
      */
-    public function getSessionSaveMethod()
+    function getSessionSaveMethod()
     {
         if (Mage::isInstalled() && $sessionSave = Mage::getConfig()->getNode(self::XML_NODE_SESSION_SAVE)) {
             return $sessionSave;
@@ -539,7 +539,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return string
      */
-    public function getSessionSavePath()
+    function getSessionSavePath()
     {
         if (Mage::isInstalled() && $sessionSavePath = Mage::getConfig()->getNode(self::XML_NODE_SESSION_SAVE_PATH)) {
             return $sessionSavePath;
@@ -552,7 +552,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @return $this
      */
-    public function renewSession()
+    function renewSession()
     {
         $this->getCookie()->delete($this->getSessionName());
         $this->regenerateSessionId();

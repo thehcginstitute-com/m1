@@ -37,7 +37,7 @@ class Mage_Sales_Model_Resource_Order_Address extends Mage_Sales_Model_Resource_
      *
      * @return array
      */
-    public function getAllAttributes()
+    function getAllAttributes()
     {
         $attributes = [
             'city'       => Mage::helper('sales')->__('City'),

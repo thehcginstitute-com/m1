@@ -632,7 +632,7 @@ class Mage_Uploader_Helper_File extends Mage_Core_Helper_Abstract
     /**
      * Extend list of MIME types if needed from config
      */
-    public function __construct()
+    function __construct()
     {
         $nodes = Mage::getConfig()->getNode('global/mime/types');
         if ($nodes) {
@@ -649,7 +649,7 @@ class Mage_Uploader_Helper_File extends Mage_Core_Helper_Abstract
      * @param string $ext
      * @return string
      */
-    public function getMimeTypeByExtension($ext)
+    function getMimeTypeByExtension($ext)
     {
         $type = 'x' . $ext;
         return $this->_mimeTypes[$type] ?? 'application/octet-stream';
@@ -660,7 +660,7 @@ class Mage_Uploader_Helper_File extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getMimeTypes()
+    function getMimeTypes()
     {
         return $this->_mimeTypes;
     }
@@ -671,7 +671,7 @@ class Mage_Uploader_Helper_File extends Mage_Core_Helper_Abstract
      * @param array|string $extensionsList
      * @return array
      */
-    public function getMimeTypeFromExtensionList($extensionsList)
+    function getMimeTypeFromExtensionList($extensionsList)
     {
         if (is_string($extensionsList)) {
             $extensionsList = array_map('trim', explode(',', $extensionsList));
@@ -685,7 +685,7 @@ class Mage_Uploader_Helper_File extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getPostMaxSize()
+    function getPostMaxSize()
     {
         return ini_get('post_max_size');
     }
@@ -695,7 +695,7 @@ class Mage_Uploader_Helper_File extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getUploadMaxSize()
+    function getUploadMaxSize()
     {
         return ini_get('upload_max_filesize');
     }
@@ -705,7 +705,7 @@ class Mage_Uploader_Helper_File extends Mage_Core_Helper_Abstract
      *
      * @return mixed
      */
-    public function getDataMaxSize()
+    function getDataMaxSize()
     {
         return min($this->getPostMaxSize(), $this->getUploadMaxSize());
     }
@@ -715,7 +715,7 @@ class Mage_Uploader_Helper_File extends Mage_Core_Helper_Abstract
      *
      * @return int
      */
-    public function getDataMaxSizeInBytes()
+    function getDataMaxSizeInBytes()
     {
         $iniSize = $this->getDataMaxSize();
         $size = substr($iniSize, 0, -1);

@@ -33,12 +33,12 @@ class Mage_Adminhtml_Block_Catalog_Category_Checkboxes_Tree extends Mage_Adminht
         return $this;
     }
 
-    public function getCategoryIds()
+    function getCategoryIds()
     {
         return $this->_selectedIds;
     }
 
-    public function setCategoryIds($ids)
+    function setCategoryIds($ids)
     {
         if (empty($ids)) {
             $ids = [];
@@ -85,7 +85,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Checkboxes_Tree extends Mage_Adminht
         return $item;
     }
 
-    public function getRoot($parentNodeCategory = null, $recursionLevel = 3)
+    function getRoot($parentNodeCategory = null, $recursionLevel = 3)
     {
         return $this->getRootByIds($this->getCategoryIds());
     }

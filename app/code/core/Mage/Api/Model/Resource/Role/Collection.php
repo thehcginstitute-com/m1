@@ -37,7 +37,7 @@ class Mage_Api_Model_Resource_Role_Collection extends Mage_Core_Model_Resource_D
      * @param int|string $userId
      * @return $this
      */
-    public function setUserFilter($userId)
+    function setUserFilter($userId)
     {
         $this->addFieldToFilter('user_id', $userId);
         $this->addFieldToFilter('role_type', Mage_Api_Model_Acl::ROLE_TYPE_GROUP);
@@ -49,7 +49,7 @@ class Mage_Api_Model_Resource_Role_Collection extends Mage_Core_Model_Resource_D
      *
      * @return $this
      */
-    public function setRolesFilter()
+    function setRolesFilter()
     {
         $this->addFieldToFilter('role_type', Mage_Api_Model_Acl::ROLE_TYPE_GROUP);
         return $this;

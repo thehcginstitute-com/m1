@@ -12,7 +12,7 @@
 
 class Nwdthemes_Revslider_Block_Adminhtml_Masterview extends Mage_Adminhtml_Block_Page
 {
-	public function __construct() {
+	function __construct() {
 		$this->_controller = 'adminhtml_nwdrevslider';
 		$this->_blockGroup = 'nwdrevslider';
 		$this->_headerText = Mage::helper('nwdrevslider')->__('Revolution Slider');
@@ -25,7 +25,7 @@ class Nwdthemes_Revslider_Block_Adminhtml_Masterview extends Mage_Adminhtml_Bloc
 	 * @return string Error message if exist
 	 */ 
 	
-	public function checkFolderPermissionsErrors() {
+	function checkFolderPermissionsErrors() {
 		$arrFolders = array(
 			'image_dir'		=> Mage::getConfig()->getOptions()->getMediaDir() . DS . Mage::helper('nwdrevslider/images')->getImageDir(),
 			'thumb_dir'		=> Mage::getConfig()->getOptions()->getMediaDir() . DS . Mage::helper('nwdrevslider/images')->getImageThumbDir(),

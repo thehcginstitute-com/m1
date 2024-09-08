@@ -40,7 +40,7 @@ class Mage_Sales_Block_Order_Comments extends Mage_Core_Block_Template
      * @param Mage_Sales_Model_Abstract $entity
      * @return $this
      */
-    public function setEntity($entity)
+    function setEntity($entity)
     {
         $this->_entity = $entity;
         $this->_commentCollection = null; // Changing model and resource model can lead to change of comment collection
@@ -52,7 +52,7 @@ class Mage_Sales_Block_Order_Comments extends Mage_Core_Block_Template
      *
      * @return Mage_Sales_Model_Abstract
      */
-    public function getEntity()
+    function getEntity()
     {
         return $this->_entity;
     }
@@ -62,7 +62,7 @@ class Mage_Sales_Block_Order_Comments extends Mage_Core_Block_Template
      *
      * @return Mage_Sales_Model_Resource_Order_Comment_Collection_Abstract
      */
-    public function getComments()
+    function getComments()
     {
         if (is_null($this->_commentCollection)) {
             $entity = $this->getEntity();
@@ -90,7 +90,7 @@ class Mage_Sales_Block_Order_Comments extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function hasComments()
+    function hasComments()
     {
         return $this->getComments()->count() > 0;
     }

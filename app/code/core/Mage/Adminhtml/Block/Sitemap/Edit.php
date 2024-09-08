@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Sitemap_Edit extends Mage_Adminhtml_Block_Widget_Form
     /**
      * Init container
      */
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'sitemap_id';
         $this->_controller = 'sitemap';
@@ -44,7 +44,7 @@ class Mage_Adminhtml_Block_Sitemap_Edit extends Mage_Adminhtml_Block_Widget_Form
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if (Mage::registry('sitemap_sitemap')->getId()) {
             return Mage::helper('sitemap')->__('Edit Sitemap');

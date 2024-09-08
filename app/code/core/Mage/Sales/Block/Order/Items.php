@@ -26,7 +26,7 @@ class Mage_Sales_Block_Order_Items extends Mage_Sales_Block_Items_Abstract
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }

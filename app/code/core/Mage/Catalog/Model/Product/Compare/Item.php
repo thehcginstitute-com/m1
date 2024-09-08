@@ -83,7 +83,7 @@ class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function save()
+    function save()
     {
         if ($this->hasCustomerId() || $this->hasVisitorId()) {
             parent::save();
@@ -97,7 +97,7 @@ class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
      * @param Mage_Customer_Model_Customer $customer
      * @return $this
      */
-    public function addCustomerData(Mage_Customer_Model_Customer $customer)
+    function addCustomerData(Mage_Customer_Model_Customer $customer)
     {
         $this->setCustomerId($customer->getId());
         return $this;
@@ -109,7 +109,7 @@ class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
      * @param int $visitorId
      * @return $this
      */
-    public function addVisitorId($visitorId)
+    function addVisitorId($visitorId)
     {
         $this->setVisitorId($visitorId);
         return $this;
@@ -121,7 +121,7 @@ class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
      * @param mixed $product
      * @return $this
      */
-    public function loadByProduct($product)
+    function loadByProduct($product)
     {
         $this->_getResource()->loadByProduct($this, $product);
         return $this;
@@ -133,7 +133,7 @@ class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
      * @param mixed $product
      * @return $this
      */
-    public function addProductData($product)
+    function addProductData($product)
     {
         if ($product instanceof Mage_Catalog_Model_Product) {
             $this->setProductId($product->getId());
@@ -149,7 +149,7 @@ class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getDataForSave()
+    function getDataForSave()
     {
         $data = [];
         $data['customer_id'] = $this->getCustomerId();
@@ -164,7 +164,7 @@ class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function bindCustomerLogin()
+    function bindCustomerLogin()
     {
         $this->_getResource()->updateCustomerFromVisitor($this);
 
@@ -178,7 +178,7 @@ class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
      * @param Varien_Event_Observer|null $observer
      * @return $this
      */
-    public function bindCustomerLogout(Varien_Event_Observer $observer = null)
+    function bindCustomerLogout(Varien_Event_Observer $observer = null)
     {
         $this->_getResource()->purgeVisitorByCustomer($this);
 
@@ -191,7 +191,7 @@ class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function clean()
+    function clean()
     {
         $this->_getResource()->clean($this);
         return $this;
@@ -202,7 +202,7 @@ class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getCustomerId()
+    function getCustomerId()
     {
         if (!$this->hasData('customer_id')) {
             $customerId = Mage::getSingleton('customer/session')->getCustomerId();
@@ -216,7 +216,7 @@ class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getVisitorId()
+    function getVisitorId()
     {
         if (!$this->hasData('visitor_id')) {
             $visitorId = Mage::getSingleton('log/visitor')->getId();

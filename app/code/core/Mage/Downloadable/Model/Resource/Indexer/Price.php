@@ -27,7 +27,7 @@ class Mage_Downloadable_Model_Resource_Indexer_Price extends Mage_Catalog_Model_
      *
      * @return $this
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->useIdxTable(true);
         $this->beginTransaction();
@@ -50,7 +50,7 @@ class Mage_Downloadable_Model_Resource_Indexer_Price extends Mage_Catalog_Model_
      * @param int|array $entityIds
      * @return $this
      */
-    public function reindexEntity($entityIds)
+    function reindexEntity($entityIds)
     {
         $this->_prepareFinalPriceData($entityIds);
         $this->_applyCustomOption();

@@ -47,7 +47,7 @@ class Mage_Customer_Model_Resource_Setup extends Mage_Eav_Model_Entity_Setup
     /**
      * Add customer attributes to customer forms
      */
-    public function installCustomerForms()
+    function installCustomerForms()
     {
         $customer           = (int)$this->getEntityTypeId('customer');
         $customerAddress    = (int)$this->getEntityTypeId('customer_address');
@@ -123,7 +123,7 @@ class Mage_Customer_Model_Resource_Setup extends Mage_Eav_Model_Entity_Setup
      *
      * @return array
      */
-    public function getDefaultEntities()
+    function getDefaultEntities()
     {
         return [
             'customer'                       => [

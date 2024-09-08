@@ -31,7 +31,7 @@ class Mage_Sales_Model_Entity_Order_Status_History_Collection extends Mage_Eav_M
      * @param int $orderId
      * @return $this
      */
-    public function setOrderFilter($orderId)
+    function setOrderFilter($orderId)
     {
         $this->addAttributeToFilter('parent_id', $orderId);
         return $this;

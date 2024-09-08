@@ -9,7 +9,7 @@
 
 class Magazento_Orderexport2_Block_Admin_Item_Grid_Renderer_Action extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Action
 {
-	    public function render(Varien_Object $row)
+	    function render(Varien_Object $row)
 	    {
 	
 	         $actions[] = array(

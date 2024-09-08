@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Promo_Quote_Grid extends Mage_Adminhtml_Block_Widget_
      * Initialize grid
      * Set sort settings
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('promo_quote_grid');
@@ -145,7 +145,7 @@ class Mage_Adminhtml_Block_Promo_Quote_Grid extends Mage_Adminhtml_Block_Widget_
      *
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', ['id' => $row->getRuleId()]);
     }

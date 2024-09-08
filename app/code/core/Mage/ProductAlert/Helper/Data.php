@@ -36,7 +36,7 @@ class Mage_ProductAlert_Helper_Data extends Mage_Core_Helper_Url
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!is_null($this->_product)) {
             return $this->_product;
@@ -50,7 +50,7 @@ class Mage_ProductAlert_Helper_Data extends Mage_Core_Helper_Url
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function setProduct($product)
+    function setProduct($product)
     {
         $this->_product = $product;
         return $this;
@@ -59,7 +59,7 @@ class Mage_ProductAlert_Helper_Data extends Mage_Core_Helper_Url
     /**
      * @return Mage_Customer_Model_Session
      */
-    public function getCustomer()
+    function getCustomer()
     {
         return Mage::getSingleton('customer/session');
     }
@@ -68,7 +68,7 @@ class Mage_ProductAlert_Helper_Data extends Mage_Core_Helper_Url
      * @return Mage_Core_Model_Store
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getStore()
+    function getStore()
     {
         return Mage::app()->getStore();
     }
@@ -77,7 +77,7 @@ class Mage_ProductAlert_Helper_Data extends Mage_Core_Helper_Url
      * @param string $type
      * @return string
      */
-    public function getSaveUrl($type)
+    function getSaveUrl($type)
     {
         return $this->_getUrl('productalert/add/' . $type, [
             'product_id'    => $this->getProduct()->getId(),
@@ -90,7 +90,7 @@ class Mage_ProductAlert_Helper_Data extends Mage_Core_Helper_Url
      * @return Mage_ProductAlert_Block_Email_Price|Mage_ProductAlert_Block_Email_Stock
      * @throws Mage_Core_Exception
      */
-    public function createBlock($block)
+    function createBlock($block)
     {
         $error = Mage::helper('core')->__('Invalid block type: %s', $block);
         if (is_string($block)) {
@@ -116,7 +116,7 @@ class Mage_ProductAlert_Helper_Data extends Mage_Core_Helper_Url
      *
      * @return bool
      */
-    public function isStockAlertAllowed()
+    function isStockAlertAllowed()
     {
         return Mage::getStoreConfigFlag(Mage_ProductAlert_Model_Observer::XML_PATH_STOCK_ALLOW);
     }
@@ -126,7 +126,7 @@ class Mage_ProductAlert_Helper_Data extends Mage_Core_Helper_Url
      *
      * @return bool
      */
-    public function isPriceAlertAllowed()
+    function isPriceAlertAllowed()
     {
         return Mage::getStoreConfigFlag(Mage_ProductAlert_Model_Observer::XML_PATH_PRICE_ALLOW);
     }

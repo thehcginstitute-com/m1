@@ -22,13 +22,13 @@
  */
 class Mage_Adminhtml_Block_Tax_Class extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller      = 'tax_class';
         parent::__construct();
     }
 
-    public function setClassType($classType)
+    function setClassType($classType)
     {
         if ($classType == Mage_Tax_Model_Class::TAX_CLASS_TYPE_PRODUCT) {
             $this->_headerText      = Mage::helper('tax')->__('Product Tax Classes');

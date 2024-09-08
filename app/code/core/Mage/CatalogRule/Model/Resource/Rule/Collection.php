@@ -47,7 +47,7 @@ class Mage_CatalogRule_Model_Resource_Rule_Collection extends Mage_Rule_Model_Re
      * @param string $attributeCode
      * @return $this
      */
-    public function addAttributeInConditionFilter($attributeCode)
+    function addAttributeInConditionFilter($attributeCode)
     {
         $match = sprintf('%%%s%%', substr(serialize(['attribute' => $attributeCode]), 5, -1));
         $this->addFieldToFilter('conditions_serialized', ['like' => $match]);

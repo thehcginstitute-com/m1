@@ -21,7 +21,7 @@
  */
 class Mage_Sales_Model_Order_Pdf_Items_Creditmemo_Grouped extends Mage_Sales_Model_Order_Pdf_Items_Creditmemo_Default
 {
-    public function draw()
+    function draw()
     {
         $type = $this->getItem()->getOrderItem()->getRealProductType();
         $renderer = $this->getRenderedModel()->getRenderer($type);

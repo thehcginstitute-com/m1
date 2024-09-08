@@ -26,7 +26,7 @@ class Mage_Downloadable_Model_Sales_Order_Pdf_Items_Creditmemo extends Mage_Down
      * Draw item line
      *
      */
-    public function draw()
+    function draw()
     {
         $order  = $this->getOrder();
         $item   = $this->getItem();

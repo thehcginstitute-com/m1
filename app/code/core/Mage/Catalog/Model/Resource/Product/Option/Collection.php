@@ -35,7 +35,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Collection extends Mage_Core_Mo
      * @param int $storeId
      * @return $this
      */
-    public function getOptions($storeId)
+    function getOptions($storeId)
     {
         $this->addPriceToResult($storeId)
              ->addTitleToResult($storeId);
@@ -49,7 +49,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Collection extends Mage_Core_Mo
      * @param int $storeId
      * @return $this
      */
-    public function addTitleToResult($storeId)
+    function addTitleToResult($storeId)
     {
         $productOptionTitleTable = $this->getTable('catalog/product_option_title');
         $adapter        = $this->getConnection();
@@ -85,7 +85,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Collection extends Mage_Core_Mo
      * @param int $storeId
      * @return $this
      */
-    public function addPriceToResult($storeId)
+    function addPriceToResult($storeId)
     {
         $productOptionPriceTable = $this->getTable('catalog/product_option_price');
         $adapter        = $this->getConnection();
@@ -134,7 +134,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Collection extends Mage_Core_Mo
      * @param int $storeId
      * @return $this
      */
-    public function addValuesToResult($storeId = null)
+    function addValuesToResult($storeId = null)
     {
         if ($storeId === null) {
             $storeId = Mage::app()->getStore()->getId();
@@ -171,7 +171,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Collection extends Mage_Core_Mo
      * @param array|Mage_Catalog_Model_Product|int $product
      * @return $this
      */
-    public function addProductToFilter($product)
+    function addProductToFilter($product)
     {
         if (empty($product)) {
             $this->addFieldToFilter('product_id', '');
@@ -192,7 +192,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Collection extends Mage_Core_Mo
      * @param bool $required
      * @return $this
      */
-    public function addRequiredFilter($required = true)
+    function addRequiredFilter($required = true)
     {
         $this->addFieldToFilter('main_table.is_require', (string)$required);
         return $this;
@@ -204,7 +204,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Collection extends Mage_Core_Mo
      * @param mixed $optionIds
      * @return $this
      */
-    public function addIdsToFilter($optionIds)
+    function addIdsToFilter($optionIds)
     {
         $this->addFieldToFilter('main_table.option_id', $optionIds);
         return $this;
@@ -215,7 +215,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Collection extends Mage_Core_Mo
      *
      * @return $this
      */
-    public function reset()
+    function reset()
     {
         return $this->_reset();
     }

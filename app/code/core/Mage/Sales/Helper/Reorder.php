@@ -29,7 +29,7 @@ class Mage_Sales_Helper_Reorder extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isAllow()
+    function isAllow()
     {
         return $this->isAllowed();
     }
@@ -40,7 +40,7 @@ class Mage_Sales_Helper_Reorder extends Mage_Core_Helper_Data
      * @param Mage_Core_Model_Store|int|null $store
      * @return bool
      */
-    public function isAllowed($store = null)
+    function isAllowed($store = null)
     {
         if (Mage::getStoreConfig(self::XML_PATH_SALES_REORDER_ALLOW, $store)) {
             return true;
@@ -52,7 +52,7 @@ class Mage_Sales_Helper_Reorder extends Mage_Core_Helper_Data
      * @param Mage_Sales_Model_Order $order
      * @return bool
      */
-    public function canReorder(Mage_Sales_Model_Order $order)
+    function canReorder(Mage_Sales_Model_Order $order)
     {
         if (!$this->isAllowed($order->getStore())) {
             return false;

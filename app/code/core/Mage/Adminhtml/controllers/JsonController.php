@@ -25,7 +25,7 @@ class Mage_Adminhtml_JsonController extends Mage_Adminhtml_Controller_Action
     /**
      * Return JSON-encoded array of country regions
      */
-    public function countryRegionAction()
+    function countryRegionAction()
     {
         $arrRes = [];
 

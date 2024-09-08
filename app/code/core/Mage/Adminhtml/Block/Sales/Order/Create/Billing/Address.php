@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Billing_Address extends Mage_Admin
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Billing Address');
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Billing_Address extends Mage_Admin
      *
      * @return string
      */
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'head-billing-address';
     }
@@ -64,7 +64,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Billing_Address extends Mage_Admin
      *
      * @return array
      */
-    public function getFormValues()
+    function getFormValues()
     {
         return $this->getCreateOrderModel()->getBillingAddress()->getData();
     }
@@ -74,7 +74,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Billing_Address extends Mage_Admin
      *
      * @return int|bool
      */
-    public function getAddressId()
+    function getAddressId()
     {
         return $this->getCreateOrderModel()->getBillingAddress()->getCustomerAddressId();
     }
@@ -84,7 +84,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Billing_Address extends Mage_Admin
      *
      * @return Mage_Customer_Model_Address
      */
-    public function getAddress()
+    function getAddress()
     {
         return $this->getCreateOrderModel()->getBillingAddress();
     }

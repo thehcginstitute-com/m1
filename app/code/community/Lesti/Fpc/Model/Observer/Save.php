@@ -21,7 +21,7 @@ class Lesti_Fpc_Model_Observer_Save
     /**
      * @param $observer
      */
-    public function catalogProductSaveAfter($observer)
+    function catalogProductSaveAfter($observer)
     {
         if ($this->_getFpc()->isActive()) {
             $product = $observer->getEvent()->getProduct();
@@ -46,7 +46,7 @@ class Lesti_Fpc_Model_Observer_Save
     /**
      * @param $observer
      */
-    public function catalogCategorySaveAfter($observer)
+    function catalogCategorySaveAfter($observer)
     {
         if ($this->_getFpc()->isActive()) {
             $category = $observer->getEvent()->getCategory();
@@ -59,7 +59,7 @@ class Lesti_Fpc_Model_Observer_Save
     /**
      * @param $observer
      */
-    public function cmsPageSaveAfter($observer)
+    function cmsPageSaveAfter($observer)
     {
         if ($this->_getFpc()->isActive()) {
             $page = $observer->getEvent()->getObject();
@@ -75,7 +75,7 @@ class Lesti_Fpc_Model_Observer_Save
     /**
      * @param $observer
      */
-    public function modelSaveAfter($observer)
+    function modelSaveAfter($observer)
     {
         if ($this->_getFpc()->isActive()) {
             $object = $observer->getEvent()->getObject();
@@ -97,7 +97,7 @@ class Lesti_Fpc_Model_Observer_Save
     /**
      * @param $observer
      */
-    public function reviewDeleteAfter($observer)
+    function reviewDeleteAfter($observer)
     {
         if ($this->_getFpc()->isActive()) {
             $object = $observer->getEvent()->getObject();
@@ -108,7 +108,7 @@ class Lesti_Fpc_Model_Observer_Save
     /**
      * @param $observer
      */
-    public function reviewSaveAfter($observer)
+    function reviewSaveAfter($observer)
     {
         if ($this->_getFpc()->isActive()) {
             $object = $observer->getEvent()->getObject();
@@ -119,7 +119,7 @@ class Lesti_Fpc_Model_Observer_Save
     /**
      * @param $observer
      */
-    public function cataloginventoryStockItemSaveAfter($observer)
+    function cataloginventoryStockItemSaveAfter($observer)
     {
         $item = $observer->getEvent()->getItem();
         if ($item->getStockStatusChangedAuto()) {

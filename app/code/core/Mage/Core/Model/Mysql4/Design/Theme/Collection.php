@@ -26,7 +26,7 @@ class Mage_Core_Model_Mysql4_Design_Theme_Collection extends Varien_Directory_Co
     /**
      * @return $this
      */
-    public function load()
+    function load()
     {
         $packages = $this->getData('themes');
         if (is_null($packages)) {
@@ -40,7 +40,7 @@ class Mage_Core_Model_Mysql4_Design_Theme_Collection extends Varien_Directory_Co
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $options = [];
         $packages = $this->getData('themes');

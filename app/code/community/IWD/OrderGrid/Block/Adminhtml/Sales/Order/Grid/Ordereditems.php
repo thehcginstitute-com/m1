@@ -2,13 +2,13 @@
 
 class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Ordereditems extends Mage_Adminhtml_Block_Widget
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('iwd/ordergrid/grid/ordered_items.phtml');
     }
 
-    public function getSelectionAttributes($item)
+    function getSelectionAttributes($item)
     {
         if ($item instanceof Mage_Sales_Model_Order_Item) {
             $options = $item->getProductOptions();
@@ -23,7 +23,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Ordereditems extends Mage_A
         return null;
     }
 
-    public function isChildCalculated($item)
+    function isChildCalculated($item)
     {
         if ($item) {
             if ($parentItem = $item->getParentItem()) {
@@ -40,13 +40,13 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Ordereditems extends Mage_A
         return false;
     }
 
-    public function canShowPriceInfo($item)
+    function canShowPriceInfo($item)
     {
         return (($item->getParentItem() && $this->isChildCalculated($item))
             || (!$item->getParentItem() && !$this->isChildCalculated($item)));
     }
 
-    public function getOrderIncrementId()
+    function getOrderIncrementId()
     {
         return $this->getOrder()->getIncrementId();
     }

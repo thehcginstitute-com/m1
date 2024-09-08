@@ -149,7 +149,7 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
      *
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         // get legacy theme choice form backend config
         if (Mage::getStoreConfigFlag('admin/design/use_legacy_theme')) {
@@ -278,7 +278,7 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
         return $this;
     }
 
-    public function deniedAction()
+    function deniedAction()
     {
         $this->getResponse()->setHeader('HTTP/1.1', '403 Forbidden');
         if (!Mage::getSingleton('admin/session')->isLoggedIn()) {
@@ -289,14 +289,14 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
         $this->renderLayout();
     }
 
-    public function loadLayout($ids = null, $generateBlocks = true, $generateXml = true)
+    function loadLayout($ids = null, $generateBlocks = true, $generateXml = true)
     {
         parent::loadLayout($ids, $generateBlocks, $generateXml);
         $this->_initLayoutMessages('adminhtml/session');
         return $this;
     }
 
-    public function norouteAction($coreRoute = null)
+    function norouteAction($coreRoute = null)
     {
         $this->getResponse()->setHeader('HTTP/1.1', '404 Not Found');
         $this->getResponse()->setHeader('Status', '404 File not found');
@@ -309,7 +309,7 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
      *
      * @return string
      */
-    public function getUsedModuleName()
+    function getUsedModuleName()
     {
         return $this->_usedModuleName;
     }
@@ -320,7 +320,7 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
      * @param string $moduleName
      * @return $this
      */
-    public function setUsedModuleName($moduleName)
+    function setUsedModuleName($moduleName)
     {
         $this->_usedModuleName = $moduleName;
         return $this;
@@ -331,7 +331,7 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
      *
      * @return string
      */
-    public function __()
+    function __()
     {
         $args = func_get_args();
         $expr = new Mage_Core_Model_Translate_Expr(array_shift($args), $this->getUsedModuleName());
@@ -381,7 +381,7 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
      * @param   array $params
      * @return  string
      */
-    public function getUrl($route = '', $params = [])
+    function getUrl($route = '', $params = [])
     {
         return Mage::helper('adminhtml')->getUrl($route, $params);
     }

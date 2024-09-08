@@ -21,7 +21,7 @@
  */
 class Mage_Adminhtml_Block_System_Convert_Gui extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'system_convert_gui';
         $this->_headerText = Mage::helper('adminhtml')->__('Profiles');

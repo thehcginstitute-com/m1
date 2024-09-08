@@ -52,7 +52,7 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
      * @param mixed|null $field
      * @return $this
      */
-    public function load(Mage_Media_Model_Image $object, $file, $field = null)
+    function load(Mage_Media_Model_Image $object, $file, $field = null)
     {
         // Do some implementation
         return $this;
@@ -62,7 +62,7 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
      * @param Mage_Media_Model_Image $object
      * @return $this
      */
-    public function save(Mage_Media_Model_Image $object)
+    function save(Mage_Media_Model_Image $object)
     {
         // Do some implementation
         return $this;
@@ -72,7 +72,7 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
      * @param Mage_Media_Model_Image $object
      * @return $this
      */
-    public function delete(Mage_Media_Model_Image $object)
+    function delete(Mage_Media_Model_Image $object)
     {
         return $this;
     }
@@ -84,7 +84,7 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
      * @return bool|false|resource
      * @throws Mage_Core_Exception
      */
-    public function getImage(Mage_Media_Model_Image $object)
+    function getImage(Mage_Media_Model_Image $object)
     {
         $resource = false;
         switch (strtolower($object->getExtension())) {
@@ -115,7 +115,7 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
      * @param Mage_Media_Model_Image $object
      * @return resource
      */
-    public function getTmpImage(Mage_Media_Model_Image $object)
+    function getTmpImage(Mage_Media_Model_Image $object)
     {
         return imagecreatetruecolor($object->getDestanationDimensions()->getWidth(), $object->getDestanationDimensions()->getHeight());
     }
@@ -126,7 +126,7 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
      * @param Mage_Media_Model_Image $object
      * @return $this
      */
-    public function resize(Mage_Media_Model_Image $object)
+    function resize(Mage_Media_Model_Image $object)
     {
         $tmpImage = $object->getTmpImage();
         $sourceImage = $object->getImage();
@@ -153,7 +153,7 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
      * @param Mage_Media_Model_Image $object
      * @return $this
      */
-    public function watermark(Mage_Media_Model_Image $object)
+    function watermark(Mage_Media_Model_Image $object)
     {
         return $this;
     }
@@ -165,7 +165,7 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
      * @param string|null $extension
      * @return $this
      */
-    public function saveAs(Mage_Media_Model_Image $object, $extension = null)
+    function saveAs(Mage_Media_Model_Image $object, $extension = null)
     {
         if (is_null($extension)) {
             $extension = $object->getExtension();
@@ -200,7 +200,7 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function getDimensions(Mage_Media_Model_Image $object)
+    function getDimensions(Mage_Media_Model_Image $object)
     {
         $info = @getimagesize($object->getFilePath());
         if (!$info) {
@@ -217,7 +217,7 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
      * @param resource $resource
      * @return Mage_Media_Model_File_Image
      */
-    public function destroyResource(&$resource)
+    function destroyResource(&$resource)
     {
         imagedestroy($resource);
         return $this;
@@ -229,7 +229,7 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
      * @param Mage_Media_Model_Image $object
      * @return bool
      */
-    public function hasSpecialImage(Mage_Media_Model_Image $object)
+    function hasSpecialImage(Mage_Media_Model_Image $object)
     {
         if (file_exists($object->getFilePath(true))) {
             return true;

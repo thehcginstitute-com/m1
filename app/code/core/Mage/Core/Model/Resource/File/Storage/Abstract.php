@@ -35,7 +35,7 @@ abstract class Mage_Core_Model_Resource_File_Storage_Abstract extends Mage_Core_
      * @param string $name
      * @return Mage_Core_Model_Resource_File_Storage_Abstract
      */
-    public function setConnectionName($name)
+    function setConnectionName($name)
     {
         $this->_connectionName = $name;
         return $this;

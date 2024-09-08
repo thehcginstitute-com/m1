@@ -102,7 +102,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function generateToken()
+    function generateToken()
     {
         return $this->_generateRandomString(Mage_Oauth_Model_Token::LENGTH_TOKEN);
     }
@@ -112,7 +112,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function generateTokenSecret()
+    function generateTokenSecret()
     {
         return $this->_generateRandomString(Mage_Oauth_Model_Token::LENGTH_SECRET);
     }
@@ -122,7 +122,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function generateVerifier()
+    function generateVerifier()
     {
         return $this->_generateRandomString(Mage_Oauth_Model_Token::LENGTH_VERIFIER);
     }
@@ -132,7 +132,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function generateConsumerKey()
+    function generateConsumerKey()
     {
         return $this->_generateRandomString(Mage_Oauth_Model_Consumer::KEY_LENGTH);
     }
@@ -142,7 +142,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function generateConsumerSecret()
+    function generateConsumerSecret()
     {
         return $this->_generateRandomString(Mage_Oauth_Model_Consumer::SECRET_LENGTH);
     }
@@ -154,7 +154,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
      * @param bool $rejected OPTIONAL Add user reject sign
      * @return bool|string
      */
-    public function getFullCallbackUrl(Mage_Oauth_Model_Token $token, $rejected = false)
+    function getFullCallbackUrl(Mage_Oauth_Model_Token $token, $rejected = false)
     {
         $callbackUrl = $token->getCallbackUrl();
 
@@ -185,7 +185,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
      * @return string
      * @throws Exception    Exception when endpoint not found
      */
-    public function getProtocolEndpointUrl($type)
+    function getProtocolEndpointUrl($type)
     {
         if (!in_array($type, $this->_endpoints)) {
             throw new Exception('Invalid endpoint type passed.');
@@ -198,7 +198,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isCleanupProbability()
+    function isCleanupProbability()
     {
         // Safe get cleanup probability value from system configuration
         $configValue = (int) Mage::getStoreConfig(self::XML_PATH_CLEANUP_PROBABILITY);
@@ -210,7 +210,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return int
      */
-    public function getCleanupExpirationPeriod()
+    function getCleanupExpirationPeriod()
     {
         $minutes = (int) Mage::getStoreConfig(self::XML_PATH_CLEANUP_EXPIRATION_PERIOD);
         return $minutes > 0 ? $minutes : self::CLEANUP_EXPIRATION_PERIOD_DEFAULT;
@@ -224,7 +224,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $applicationName
      * @param string $status
      */
-    public function sendNotificationOnTokenStatusChange($userEmail, $userName, $applicationName, $status)
+    function sendNotificationOnTokenStatusChange($userEmail, $userName, $applicationName, $status)
     {
         /** @var Mage_Core_Model_Email_Template $mailTemplate */
         $mailTemplate = Mage::getModel('core/email_template');
@@ -267,7 +267,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $userType
      * @return string
      */
-    public function getAuthorizeUrl($userType)
+    function getAuthorizeUrl($userType)
     {
         $simple = $this->_getIsSimple();
 
@@ -295,7 +295,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string|null
      */
-    public function getOauthToken()
+    function getOauthToken()
     {
         return $this->_getRequest()->getParam('oauth_token', null);
     }

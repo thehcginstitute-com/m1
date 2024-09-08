@@ -45,7 +45,7 @@ class Mage_Core_Helper_File_Storage extends Mage_Core_Helper_Abstract
      *
      * @return int
      */
-    public function getCurrentStorageCode()
+    function getCurrentStorageCode()
     {
         if (is_null($this->_currentStorage)) {
             $this->_currentStorage = (int) Mage::app()
@@ -60,7 +60,7 @@ class Mage_Core_Helper_File_Storage extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Core_Model_File_Storage_File
      */
-    public function getStorageFileModel()
+    function getStorageFileModel()
     {
         return Mage::getSingleton('core/file_storage_file');
     }
@@ -71,7 +71,7 @@ class Mage_Core_Helper_File_Storage extends Mage_Core_Helper_Abstract
      * @param  int|null $storage
      * @return bool
      */
-    public function isInternalStorage($storage = null)
+    function isInternalStorage($storage = null)
     {
         $storage = (!is_null($storage)) ? (int) $storage : $this->getCurrentStorageCode();
 
@@ -85,7 +85,7 @@ class Mage_Core_Helper_File_Storage extends Mage_Core_Helper_Abstract
      * @param  array $params
      * @return Mage_Core_Model_File_Storage_File|Mage_Core_Model_File_Storage_Database
      */
-    public function getStorageModel($storage = null, $params = [])
+    function getStorageModel($storage = null, $params = [])
     {
         return Mage::getSingleton('core/file_storage')->getStorageModel($storage, $params);
     }
@@ -97,7 +97,7 @@ class Mage_Core_Helper_File_Storage extends Mage_Core_Helper_Abstract
      * @param  string $filename
      * @return bool|int
      */
-    public function processStorageFile($filename)
+    function processStorageFile($filename)
     {
         if ($this->isInternalStorage()) {
             return false;
@@ -121,7 +121,7 @@ class Mage_Core_Helper_File_Storage extends Mage_Core_Helper_Abstract
      * @param  Mage_Core_Model_File_Storage_Database $file
      * @return bool|int
      */
-    public function saveFileToFileSystem($file)
+    function saveFileToFileSystem($file)
     {
         return $this->getStorageFileModel()->saveFile($file, true);
     }

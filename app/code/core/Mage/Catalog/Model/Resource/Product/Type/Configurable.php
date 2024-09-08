@@ -38,7 +38,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable extends Mage_Core_Mo
      * @param array $productIds the children id array
      * @return $this
      */
-    public function saveProducts($mainProduct, $productIds)
+    function saveProducts($mainProduct, $productIds)
     {
         $isProductInstance = false;
         if ($mainProduct instanceof Mage_Catalog_Model_Product) {
@@ -93,7 +93,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable extends Mage_Core_Mo
      * @param bool $required
      * @return array
      */
-    public function getChildrenIds($parentId, $required = true)
+    function getChildrenIds($parentId, $required = true)
     {
         $childrenIds = [];
         $select = $this->_getReadAdapter()->select()
@@ -119,7 +119,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable extends Mage_Core_Mo
      * @param int|array $childId
      * @return array
      */
-    public function getParentIdsByChild($childId)
+    function getParentIdsByChild($childId)
     {
         $parentIds = [];
 
@@ -140,7 +140,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable extends Mage_Core_Mo
      * @param array $attributes
      * @return array
      */
-    public function getConfigurableOptions($product, $attributes)
+    function getConfigurableOptions($product, $attributes)
     {
         $attributesOptionsData = [];
         foreach ($attributes as $superAttribute) {

@@ -74,7 +74,7 @@ class Mage_Core_Model_Url_Rewrite_Request
      *
      * @param array $args
      */
-    public function __construct(array $args)
+    function __construct(array $args)
     {
         $this->_factory = !empty($args['factory']) ? $args['factory'] : Mage::getModel('core/factory');
         $this->_app     = !empty($args['app']) ? $args['app'] : Mage::app();
@@ -94,7 +94,7 @@ class Mage_Core_Model_Url_Rewrite_Request
      *
      * @return bool
      */
-    public function rewrite()
+    function rewrite()
     {
         if (!Mage::isInstalled()) {
             return false;

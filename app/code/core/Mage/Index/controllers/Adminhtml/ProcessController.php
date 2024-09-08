@@ -47,7 +47,7 @@ class Mage_Index_Adminhtml_ProcessController extends Mage_Adminhtml_Controller_A
     /**
      * Display processes grid action
      */
-    public function listAction()
+    function listAction()
     {
         $this->_title($this->__('System'))->_title($this->__('Index Management'));
 
@@ -59,7 +59,7 @@ class Mage_Index_Adminhtml_ProcessController extends Mage_Adminhtml_Controller_A
     /**
      * Process detail and edit action
      */
-    public function editAction()
+    function editAction()
     {
         /** @var Mage_Index_Model_Process $process */
         $process = $this->_initProcess();
@@ -84,7 +84,7 @@ class Mage_Index_Adminhtml_ProcessController extends Mage_Adminhtml_Controller_A
     /**
      * Save process data
      */
-    public function saveAction()
+    function saveAction()
     {
         /** @var Mage_Index_Model_Process $process */
         $process = $this->_initProcess();
@@ -118,7 +118,7 @@ class Mage_Index_Adminhtml_ProcessController extends Mage_Adminhtml_Controller_A
     /**
      * Reindex all data what process is responsible
      */
-    public function reindexProcessAction()
+    function reindexProcessAction()
     {
         /** @var Mage_Index_Model_Process $process */
         $process = $this->_initProcess();
@@ -151,14 +151,14 @@ class Mage_Index_Adminhtml_ProcessController extends Mage_Adminhtml_Controller_A
     /**
      * Reindex pending events for index process
      */
-    public function reindexEventsAction()
+    function reindexEventsAction()
     {
     }
 
     /**
      * Rebiuld all processes index
      */
-    public function reindexAllAction()
+    function reindexAllAction()
     {
     }
 
@@ -166,7 +166,7 @@ class Mage_Index_Adminhtml_ProcessController extends Mage_Adminhtml_Controller_A
      * Mass rebuild selected processes index
      *
      */
-    public function massReindexAction()
+    function massReindexAction()
     {
         /** @var Mage_Index_Model_Indexer $indexer */
         $indexer    = Mage::getSingleton('index/indexer');
@@ -201,7 +201,7 @@ class Mage_Index_Adminhtml_ProcessController extends Mage_Adminhtml_Controller_A
      * Mass change index mode of selected processes index
      *
      */
-    public function massChangeModeAction()
+    function massChangeModeAction()
     {
         $processIds = $this->getRequest()->getParam('process');
         if (empty($processIds) || !is_array($processIds)) {

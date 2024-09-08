@@ -35,7 +35,7 @@ class Mage_Tax_Model_Resource_Sales_Order_Tax_Collection extends Mage_Core_Model
      * @param Varien_Object $order
      * @return $this
      */
-    public function loadByOrder($order)
+    function loadByOrder($order)
     {
         $orderId = $order->getId();
         $this->getSelect()

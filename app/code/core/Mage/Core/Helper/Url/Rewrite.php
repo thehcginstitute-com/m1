@@ -74,7 +74,7 @@ class Mage_Core_Helper_Url_Rewrite extends Mage_Core_Helper_Abstract
      * @param string $requestPath
      * @return bool
      */
-    public function validateRequestPath($requestPath)
+    function validateRequestPath($requestPath)
     {
         $this->_validateRequestPath($requestPath);
         return true;
@@ -88,7 +88,7 @@ class Mage_Core_Helper_Url_Rewrite extends Mage_Core_Helper_Abstract
      * @param string $suffix
      * @return bool
      */
-    public function validateSuffix($suffix)
+    function validateSuffix($suffix)
     {
         try {
             $this->_validateRequestPath($suffix); // Suffix itself must be a valid request path

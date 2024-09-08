@@ -39,7 +39,7 @@ class Mage_Customer_Block_Account_Navigation extends Mage_Core_Block_Template
      * @param array $urlParams
      * @return $this
      */
-    public function addLink($name, $path, $label, $urlParams = [])
+    function addLink($name, $path, $label, $urlParams = [])
     {
         $this->_links[$name] = new Varien_Object([
             'name' => $name,
@@ -56,7 +56,7 @@ class Mage_Customer_Block_Account_Navigation extends Mage_Core_Block_Template
      * @param string $name Name of the link
      * @return $this
      */
-    public function removeLink($name)
+    function removeLink($name)
     {
         if (isset($this->_links[$name])) {
             unset($this->_links[$name]);
@@ -68,7 +68,7 @@ class Mage_Customer_Block_Account_Navigation extends Mage_Core_Block_Template
      * @param string $path
      * @return $this
      */
-    public function setActive($path)
+    function setActive($path)
     {
         $this->_activeLink = $this->_completePath($path);
         return $this;
@@ -77,7 +77,7 @@ class Mage_Customer_Block_Account_Navigation extends Mage_Core_Block_Template
     /**
      * @return array
      */
-    public function getLinks()
+    function getLinks()
     {
         return $this->_links;
     }
@@ -86,7 +86,7 @@ class Mage_Customer_Block_Account_Navigation extends Mage_Core_Block_Template
      * @param Varien_Object $link
      * @return bool
      */
-    public function isActive($link)
+    function isActive($link)
     {
         if (empty($this->_activeLink)) {
             $this->_activeLink = $this->getAction()->getFullActionName('/');

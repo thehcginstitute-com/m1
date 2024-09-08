@@ -71,7 +71,7 @@ class Mage_Sales_Model_Order_Total_Config_Base extends Mage_Sales_Model_Config_O
      *
      * @return array
      */
-    public function getTotalModels()
+    function getTotalModels()
     {
         if (empty($this->_totalModels)) {
             $this->_initModels();

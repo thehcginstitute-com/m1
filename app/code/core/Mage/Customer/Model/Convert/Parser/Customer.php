@@ -59,7 +59,7 @@ class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert
     /**
      * @return Mage_Core_Model_Config_Element[]|SimpleXMLElement|null
      */
-    public function getFields()
+    function getFields()
     {
         if (!$this->_fields) {
             $this->_fields = Mage::getConfig()->getFieldset('customer_dataflow', 'admin');
@@ -72,7 +72,7 @@ class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert
      *
      * @return Mage_Customer_Model_Customer|object
      */
-    public function getCustomerModel()
+    function getCustomerModel()
     {
         if (is_null($this->_customerModel)) {
             $object = Mage::getModel('customer/customer');
@@ -86,7 +86,7 @@ class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert
      *
      * @return Mage_Customer_Model_Address|object
      */
-    public function getCustomerAddressModel()
+    function getCustomerAddressModel()
     {
         if (is_null($this->_customerAddressModel)) {
             $object = Mage::getModel('customer/address');
@@ -100,7 +100,7 @@ class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert
      *
      * @return Mage_Newsletter_Model_Subscriber|object
      */
-    public function getNewsletterModel()
+    function getNewsletterModel()
     {
         if (is_null($this->_newsletterModel)) {
             $object = Mage::getModel('newsletter/subscriber');
@@ -114,7 +114,7 @@ class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         if (is_null($this->_store)) {
             try {
@@ -133,7 +133,7 @@ class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         if (is_null($this->_storeId)) {
             $this->_storeId = $this->getStore()->getId();
@@ -145,7 +145,7 @@ class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert
      * @param int $storeId
      * @return Mage_Core_Model_Store|bool
      */
-    public function getStoreById($storeId)
+    function getStoreById($storeId)
     {
         if (is_null($this->_stores)) {
             $this->_stores = Mage::app()->getStores(true);
@@ -162,7 +162,7 @@ class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert
      * @param int $websiteId
      * @return Mage_Core_Model_Website|false
      */
-    public function getWebsiteById($websiteId)
+    function getWebsiteById($websiteId)
     {
         if (is_null($this->_websites)) {
             $this->_websites = Mage::app()->getWebsites(true);
@@ -179,7 +179,7 @@ class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert
      * @param string $code
      * @return Mage_Eav_Model_Entity_Attribute
      */
-    public function getAttribute($code)
+    function getAttribute($code)
     {
         if (!isset($this->_attributes[$code])) {
             $this->_attributes[$code] = $this->getCustomerModel()->getResource()->getAttribute($code);
@@ -190,7 +190,7 @@ class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert
     /**
      * @return Mage_Catalog_Model_Mysql4_Convert
      */
-    public function getResource()
+    function getResource()
     {
         if (!$this->_resource) {
             $this->_resource = Mage::getResourceSingleton('catalog_entity/convert');
@@ -202,7 +202,7 @@ class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert
      * @param int $storeId
      * @return Mage_Customer_Model_Resource_Customer_Collection
      */
-    public function getCollection($storeId)
+    function getCollection($storeId)
     {
         if (!isset($this->_collections[$storeId])) {
             $this->_collections[$storeId] = Mage::getResourceModel('customer/customer_collection');
@@ -215,7 +215,7 @@ class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function unparse()
+    function unparse()
     {
         $systemFields = [];
         foreach ($this->getFields() as $code => $node) {
@@ -353,7 +353,7 @@ class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert
     /**
      * @return array
      */
-    public function getExternalAttributes()
+    function getExternalAttributes()
     {
         $internal = [
             'store_id',
@@ -444,7 +444,7 @@ class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert
     /**
      * @deprecated not used anymore
      */
-    public function parse()
+    function parse()
     {
         $data = $this->getData();
 

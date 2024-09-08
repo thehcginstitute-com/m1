@@ -27,7 +27,7 @@ class Mage_Sales_Block_Order_Shipment_Items extends Mage_Sales_Block_Items_Abstr
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }
@@ -36,7 +36,7 @@ class Mage_Sales_Block_Order_Shipment_Items extends Mage_Sales_Block_Items_Abstr
      * @param Mage_Sales_Model_Order_Shipment $shipment
      * @return string
      */
-    public function getPrintShipmentUrl($shipment)
+    function getPrintShipmentUrl($shipment)
     {
         return Mage::getUrl('*/*/printShipment', ['shipment_id' => $shipment->getId()]);
     }
@@ -45,7 +45,7 @@ class Mage_Sales_Block_Order_Shipment_Items extends Mage_Sales_Block_Items_Abstr
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function getPrintAllShipmentsUrl($order)
+    function getPrintAllShipmentsUrl($order)
     {
         return Mage::getUrl('*/*/printShipment', ['order_id' => $order->getId()]);
     }
@@ -56,7 +56,7 @@ class Mage_Sales_Block_Order_Shipment_Items extends Mage_Sales_Block_Items_Abstr
      * @param   Mage_Sales_Model_Order_Shipment $shipment
      * @return  string
      */
-    public function getCommentsHtml($shipment)
+    function getCommentsHtml($shipment)
     {
         $html = '';
         $comments = $this->getChild('shipment_comments');

@@ -20,7 +20,7 @@
  */
 class Mage_Adminhtml_Block_Report_Product_Ordered_Grid extends Mage_Adminhtml_Block_Report_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('gridOrderedProducts');

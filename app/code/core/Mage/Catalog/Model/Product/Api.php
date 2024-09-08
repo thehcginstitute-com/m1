@@ -62,7 +62,7 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
         'updated_at'
     ];
 
-    public function __construct()
+    function __construct()
     {
         $this->_storeIdSessionField = 'product_store_id';
         $this->_ignoredAttributeTypes[] = 'gallery';
@@ -76,7 +76,7 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
      * @param string|int $store
      * @return array
      */
-    public function items($filters = null, $store = null)
+    function items($filters = null, $store = null)
     {
         $collection = Mage::getModel('catalog/product')->getCollection()
             ->setStoreId($this->_getStoreId($store))
@@ -116,7 +116,7 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
      * @param string     $identifierType
      * @return array
      */
-    public function info($productId, $store = null, $attributes = null, $identifierType = null)
+    function info($productId, $store = null, $attributes = null, $identifierType = null)
     {
         // make sku flag case-insensitive
         if (!empty($identifierType)) {
@@ -155,7 +155,7 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
      * @param string $store
      * @return int
      */
-    public function create($type, $set, $sku, $productData, $store = null)
+    function create($type, $set, $sku, $productData, $store = null)
     {
         if (!$type || !$set || !$sku) {
             $this->_fault('data_invalid');
@@ -218,7 +218,7 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
      * @throws Mage_Api_Exception
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function update($productId, $productData, $store = null, $identifierType = null)
+    function update($productId, $productData, $store = null, $identifierType = null)
     {
         $product = $this->_getProduct($productId, $store, $identifierType);
 
@@ -333,7 +333,7 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
      * @param string|int $store
      * @return bool
      */
-    public function setSpecialPrice($productId, $specialPrice = null, $fromDate = null, $toDate = null, $store = null)
+    function setSpecialPrice($productId, $specialPrice = null, $fromDate = null, $toDate = null, $store = null)
     {
         return $this->update($productId, [
             'special_price'     => $specialPrice,
@@ -349,7 +349,7 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
      * @param string|int $store
      * @return array
      */
-    public function getSpecialPrice($productId, $store = null)
+    function getSpecialPrice($productId, $store = null)
     {
         $product = $this->_getProduct($productId, $store);
 
@@ -368,7 +368,7 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
      * @return bool
      * @throws Mage_Api_Exception
      */
-    public function delete($productId, $identifierType = null)
+    function delete($productId, $identifierType = null)
     {
         $product = $this->_getProduct($productId, null, $identifierType);
 
@@ -388,7 +388,7 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
      * @param  int $attributeSetId
      * @return array
      */
-    public function getAdditionalAttributes($productType, $attributeSetId)
+    function getAdditionalAttributes($productType, $attributeSetId)
     {
         $this->_checkProductTypeExists($productType);
         $this->_checkProductAttributeSet($attributeSetId);

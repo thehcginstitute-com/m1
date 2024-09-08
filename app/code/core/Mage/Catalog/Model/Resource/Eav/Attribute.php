@@ -178,7 +178,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
      *
      * @return int
      */
-    public function getIsGlobal()
+    function getIsGlobal()
     {
         return $this->_getData('is_global');
     }
@@ -188,7 +188,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
      *
      * @return bool
      */
-    public function isScopeGlobal()
+    function isScopeGlobal()
     {
         return $this->getIsGlobal() == self::SCOPE_GLOBAL;
     }
@@ -198,7 +198,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
      *
      * @return bool
      */
-    public function isScopeWebsite()
+    function isScopeWebsite()
     {
         return $this->getIsGlobal() == self::SCOPE_WEBSITE;
     }
@@ -208,7 +208,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
      *
      * @return bool
      */
-    public function isScopeStore()
+    function isScopeStore()
     {
         return !$this->isScopeGlobal() && !$this->isScopeWebsite();
     }
@@ -218,7 +218,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         $dataObject = $this->getDataObject();
         if ($dataObject) {
@@ -233,7 +233,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
      *
      * @return array
      */
-    public function getApplyTo()
+    function getApplyTo()
     {
         if ($this->getData('apply_to')) {
             if (is_array($this->getData('apply_to'))) {
@@ -250,7 +250,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
      *
      * @return string
      */
-    public function getSourceModel()
+    function getSourceModel()
     {
         $model = $this->getData('source_model');
         if (empty($model)) {
@@ -266,7 +266,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
      *
      * @return bool
      */
-    public function isAllowedForRuleCondition()
+    function isAllowedForRuleCondition()
     {
         $allowedInputTypes = ['text', 'multiselect', 'textarea', 'date', 'datetime', 'select', 'boolean', 'price'];
         return $this->getIsVisible() && in_array($this->getFrontendInput(), $allowedInputTypes);
@@ -277,7 +277,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
      *
      * @return string|array
      */
-    public function getFrontendLabel()
+    function getFrontendLabel()
     {
         return $this->_getData('frontend_label');
     }
@@ -323,7 +323,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
      *
      * @return string
      */
-    public function _getDefaultSourceModel()
+    function _getDefaultSourceModel()
     {
         return 'eav/entity_attribute_source_table';
     }
@@ -333,7 +333,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
      *
      * @return bool
      */
-    public function isIndexable()
+    function isIndexable()
     {
         // exclude price attribute
         if ($this->getAttributeCode() == 'price') {
@@ -363,7 +363,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
      *
      * @return string|false
      */
-    public function getIndexType()
+    function getIndexType()
     {
         if (!$this->isIndexable()) {
             return false;
@@ -380,7 +380,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
      *
      * @return $this
      */
-    public function afterCommitCallback()
+    function afterCommitCallback()
     {
         parent::afterCommitCallback();
 

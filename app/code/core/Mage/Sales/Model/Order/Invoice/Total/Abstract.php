@@ -27,7 +27,7 @@ abstract class Mage_Sales_Model_Order_Invoice_Total_Abstract extends Mage_Sales_
      * @param Mage_Sales_Model_Order_Invoice $invoice
      * @return Mage_Sales_Model_Order_Invoice_Total_Abstract
      */
-    public function collect(Mage_Sales_Model_Order_Invoice $invoice)
+    function collect(Mage_Sales_Model_Order_Invoice $invoice)
     {
         return $this;
     }

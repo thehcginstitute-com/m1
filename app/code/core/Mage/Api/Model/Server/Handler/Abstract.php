@@ -24,7 +24,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
 {
     protected $_resourceSuffix = null;
 
-    public function __construct()
+    function __construct()
     {
         set_error_handler([$this, 'handlePhpError'], E_ALL);
         Mage::app()->loadAreaPart(Mage_Core_Model_App_Area::AREA_ADMINHTML, Mage_Core_Model_App_Area::PART_EVENTS);
@@ -36,7 +36,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      * @param string $errorFile
      * @return bool
      */
-    public function handlePhpError($errorCode, $errorMessage, $errorFile)
+    function handlePhpError($errorCode, $errorMessage, $errorFile)
     {
         Mage::log($errorMessage . $errorFile);
         if (in_array($errorCode, [E_ERROR, E_USER_ERROR, E_RECOVERABLE_ERROR])) {
@@ -163,7 +163,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      *
      * @return string
      */
-    public function startSession()
+    function startSession()
     {
         $this->_startSession();
         return $this->_getSession()->getSessionId();
@@ -175,7 +175,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      * @param string $sessionId
      * @return true
      */
-    public function endSession($sessionId)
+    function endSession($sessionId)
     {
         $this->_startSession($sessionId);
         $this->_getSession()->clear();
@@ -201,7 +201,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      * @param string $apiKey
      * @return string
      */
-    public function login($username, $apiKey = null)
+    function login($username, $apiKey = null)
     {
         if (empty($username) || empty($apiKey)) {
             return $this->_fault('invalid_request_param');
@@ -224,7 +224,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      * @param array  $args
      * @return mixed
      */
-    public function call($sessionId, $apiPath, $args = [])
+    function call($sessionId, $apiPath, $args = [])
     {
         $this->_startSession($sessionId);
 
@@ -308,7 +308,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      * @param array $options
      * @return array|void
      */
-    public function multiCall($sessionId, array $calls = [], $options = [])
+    function multiCall($sessionId, array $calls = [], $options = [])
     {
         $this->_startSession($sessionId);
 
@@ -436,7 +436,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      * @param string $sessionId
      * @return array|void
      */
-    public function resources($sessionId)
+    function resources($sessionId)
     {
         $this->_startSession($sessionId);
 
@@ -500,7 +500,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      * @param string $resourceName
      * @return array|void
      */
-    public function resourceFaults($sessionId, $resourceName)
+    function resourceFaults($sessionId, $resourceName)
     {
         $this->_startSession($sessionId);
 
@@ -536,7 +536,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      * @param  string $sessionId
      * @return array
      */
-    public function globalFaults($sessionId)
+    function globalFaults($sessionId)
     {
         $this->_startSession($sessionId);
         return array_values($this->_getConfig()->getFaults());
@@ -550,7 +550,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      * @param mixed $result
      * @return mixed
      */
-    public function processingMethodResult($result)
+    function processingMethodResult($result)
     {
         if (is_null($result) || is_bool($result) || is_numeric($result) || is_object($result)) {
             return $result;
@@ -572,7 +572,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      * @param mixed $row
      * @return mixed
      */
-    public function processingRow($row)
+    function processingRow($row)
     {
         $row = preg_replace_callback(
             '/[^\x{0009}\x{000a}\x{000d}\x{0020}-\x{D7FF}\x{E000}-\x{FFFD}\x{10000}-\x{10FFFF}]/u',

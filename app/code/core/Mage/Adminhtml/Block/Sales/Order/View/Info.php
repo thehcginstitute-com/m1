@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Info extends Mage_Adminhtml_Block_Sa
         return parent::_beforeToHtml();
     }
 
-    public function getOrderStoreName()
+    function getOrderStoreName()
     {
         if ($this->getOrder()) {
             $storeId = $this->getOrder()->getStoreId();
@@ -58,7 +58,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Info extends Mage_Adminhtml_Block_Sa
         return null;
     }
 
-    public function getCustomerGroupName()
+    function getCustomerGroupName()
     {
         if ($this->getOrder()) {
             return Mage::getModel('customer/group')->load((int)$this->getOrder()->getCustomerGroupId())->getCode();
@@ -66,7 +66,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Info extends Mage_Adminhtml_Block_Sa
         return null;
     }
 
-    public function getCustomerViewUrl()
+    function getCustomerViewUrl()
     {
         if (!Mage::getSingleton('admin/session')->isAllowed('customer/manage')) {
             return false;
@@ -77,7 +77,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Info extends Mage_Adminhtml_Block_Sa
         return $this->getUrl('*/customer/edit', ['id' => $this->getOrder()->getCustomerId()]);
     }
 
-    public function getViewUrl($orderId)
+    function getViewUrl($orderId)
     {
         return $this->getUrl('*/sales_order/view', ['order_id' => $orderId]);
     }
@@ -104,7 +104,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Info extends Mage_Adminhtml_Block_Sa
      *
      * @return array
      */
-    public function getCustomerAccountData()
+    function getCustomerAccountData()
     {
         $accountData = [];
 
@@ -145,7 +145,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Info extends Mage_Adminhtml_Block_Sa
      * @param string $label
      * @return string
      */
-    public function getAddressEditLink($address, $label = '')
+    function getAddressEditLink($address, $label = '')
     {
         if (empty($label)) {
             $label = $this->__('Edit');
@@ -158,7 +158,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Info extends Mage_Adminhtml_Block_Sa
      * Whether Customer IP address should be displayed on sales documents
      * @return bool
      */
-    public function shouldDisplayCustomerIp()
+    function shouldDisplayCustomerIp()
     {
         return !Mage::getStoreConfigFlag('sales/general/hide_customer_ip', $this->getOrder()->getStoreId());
     }

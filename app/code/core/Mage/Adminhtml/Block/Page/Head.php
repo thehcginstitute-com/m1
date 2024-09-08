@@ -18,7 +18,7 @@ class Mage_Adminhtml_Block_Page_Head extends HCG_Page_Block_Html_Head
      *
      * @return string
      */
-    public function getFormKey()
+    function getFormKey()
     {
         return Mage::getSingleton('core/session')->getFormKey();
     }
@@ -29,7 +29,7 @@ class Mage_Adminhtml_Block_Page_Head extends HCG_Page_Block_Html_Head
      * @return int
      * @since 19.4.18 / 20.0.16
      */
-    public function getLoadingTimeout()
+    function getLoadingTimeout()
     {
         return (int)Mage::getStoreConfig('admin/design/loading_timeout');
     }

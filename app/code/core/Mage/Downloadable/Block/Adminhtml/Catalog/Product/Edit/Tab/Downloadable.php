@@ -35,7 +35,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable ex
      * Class constructor
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('downloadable/product/edit/downloadable.phtml');
@@ -46,7 +46,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable ex
      *
      * @return bool
      */
-    public function isReadonly()
+    function isReadonly()
     {
         return $this->getProduct()->getDownloadableReadonly();
     }
@@ -56,7 +56,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable ex
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return Mage::registry('current_product');
     }
@@ -66,7 +66,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable ex
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('downloadable')->__('Downloadable Information');
     }
@@ -76,7 +76,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable ex
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('downloadable')->__('Downloadable Information');
     }
@@ -86,7 +86,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable ex
      *
      * @return true
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -96,7 +96,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable ex
      *
      * @return false
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }

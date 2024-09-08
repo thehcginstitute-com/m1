@@ -28,7 +28,7 @@ class Mage_Sales_Model_Order_Creditmemo_Total_Tax extends Mage_Sales_Model_Order
      * @param Mage_Sales_Model_Order_Creditmemo $creditmemo
      * @return $this
      */
-    public function collect(Mage_Sales_Model_Order_Creditmemo $creditmemo)
+    function collect(Mage_Sales_Model_Order_Creditmemo $creditmemo)
     {
         $shippingTaxAmount     = 0;
         $baseShippingTaxAmount = 0;

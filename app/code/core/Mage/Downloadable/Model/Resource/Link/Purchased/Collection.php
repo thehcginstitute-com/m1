@@ -36,7 +36,7 @@ class Mage_Downloadable_Model_Resource_Link_Purchased_Collection extends Mage_Co
      *
      * @return $this
      */
-    public function addPurchasedItemsToResult()
+    function addPurchasedItemsToResult()
     {
         $this->getSelect()
             ->join(

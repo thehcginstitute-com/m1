@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Customer_Group extends Mage_Adminhtml_Block_Widget_Gr
      * Modify header & button labels
      *
      */
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'customer_group';
         $this->_headerText = Mage::helper('customer')->__('Customer Groups');
@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Customer_Group extends Mage_Adminhtml_Block_Widget_Gr
      *
      * @return string
      */
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head head-customer-groups';
     }

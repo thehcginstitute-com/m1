@@ -33,7 +33,7 @@ class Mage_Tax_Model_Resource_Sales_Order_Tax_Item extends Mage_Core_Model_Resou
      * @param int $item_id
      * @return array
      */
-    public function getTaxItemsByItemId($item_id)
+    function getTaxItemsByItemId($item_id)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()

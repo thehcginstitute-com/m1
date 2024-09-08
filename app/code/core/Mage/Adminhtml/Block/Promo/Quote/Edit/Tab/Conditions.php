@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Promo_Quote_Edit_Tab_Conditions extends Mage_Adminhtm
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('salesrule')->__('Conditions');
     }
@@ -35,7 +35,7 @@ class Mage_Adminhtml_Block_Promo_Quote_Edit_Tab_Conditions extends Mage_Adminhtm
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('salesrule')->__('Conditions');
     }
@@ -45,7 +45,7 @@ class Mage_Adminhtml_Block_Promo_Quote_Edit_Tab_Conditions extends Mage_Adminhtm
      *
      * @return true
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -55,7 +55,7 @@ class Mage_Adminhtml_Block_Promo_Quote_Edit_Tab_Conditions extends Mage_Adminhtm
      *
      * @return false
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }

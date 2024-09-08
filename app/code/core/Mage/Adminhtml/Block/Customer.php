@@ -21,7 +21,7 @@
  */
 class Mage_Adminhtml_Block_Customer extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'customer';
         $this->_headerText = Mage::helper('customer')->__('Manage Customers');

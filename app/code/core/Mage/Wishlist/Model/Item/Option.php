@@ -58,7 +58,7 @@ class Mage_Wishlist_Model_Item_Option extends Mage_Core_Model_Abstract implement
      * @param   Mage_Wishlist_Model_Item $item
      * @return  Mage_Wishlist_Model_Item_Option
      */
-    public function setItem($item)
+    function setItem($item)
     {
         $this->setWishlistItemId($item->getId());
         $this->_item = $item;
@@ -70,7 +70,7 @@ class Mage_Wishlist_Model_Item_Option extends Mage_Core_Model_Abstract implement
      *
      * @return Mage_Wishlist_Model_Item
      */
-    public function getItem()
+    function getItem()
     {
         return $this->_item;
     }
@@ -81,7 +81,7 @@ class Mage_Wishlist_Model_Item_Option extends Mage_Core_Model_Abstract implement
      * @param   Mage_Catalog_Model_Product $product
      * @return  Mage_Wishlist_Model_Item_Option
      */
-    public function setProduct($product)
+    function setProduct($product)
     {
         $this->setProductId($product->getId());
         $this->_product = $product;
@@ -93,7 +93,7 @@ class Mage_Wishlist_Model_Item_Option extends Mage_Core_Model_Abstract implement
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return $this->_product;
     }
@@ -103,7 +103,7 @@ class Mage_Wishlist_Model_Item_Option extends Mage_Core_Model_Abstract implement
      *
      * @return mixed
      */
-    public function getValue()
+    function getValue()
     {
         return $this->_getData('value');
     }
@@ -126,7 +126,7 @@ class Mage_Wishlist_Model_Item_Option extends Mage_Core_Model_Abstract implement
      *
      * @return $this
      */
-    public function __clone()
+    function __clone()
     {
         $this->setId(null);
         $this->_item    = null;

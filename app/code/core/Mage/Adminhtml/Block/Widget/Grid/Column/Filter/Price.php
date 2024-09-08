@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Price extends Mage_Adminhtm
     protected $_currencyList = null;
     protected $_currencyModel = null;
 
-    public function getHtml()
+    function getHtml()
     {
         $html  = '<div class="range">';
         $html .= '<div class="range-line"><span class="label">' . Mage::helper('adminhtml')->__('From') . '</span> <input type="text" name="' . $this->_getHtmlName() . '[from]" id="' . $this->_getHtmlId() . '_from" value="' . $this->getEscapedValue('from') . '" class="input-text no-changes"/></div>';
@@ -38,7 +38,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Price extends Mage_Adminhtm
         return $html;
     }
 
-    public function getDisplayCurrencySelect()
+    function getDisplayCurrencySelect()
     {
         if (!is_null($this->getColumn()->getData('display_currency_select'))) {
             return $this->getColumn()->getData('display_currency_select');
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Price extends Mage_Adminhtm
         }
     }
 
-    public function getCurrencyAffect()
+    function getCurrencyAffect()
     {
         if (!is_null($this->getColumn()->getData('currency_affect'))) {
             return $this->getColumn()->getData('currency_affect');
@@ -90,7 +90,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Price extends Mage_Adminhtm
         return $this->_currencyList;
     }
 
-    public function getValue($index = null)
+    function getValue($index = null)
     {
         if ($index) {
             return $this->getData('value', $index);
@@ -104,7 +104,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Price extends Mage_Adminhtm
         return null;
     }
 
-    public function getCondition()
+    function getCondition()
     {
         $value = $this->getValue();
 
@@ -130,7 +130,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Price extends Mage_Adminhtm
         return Mage::getModel('directory/currency')->load($from)->getAnyRate($to);
     }
 
-    public function prepareRates($displayCurrency)
+    function prepareRates($displayCurrency)
     {
         $storeCurrency = $this->getColumn()->getCurrencyCode();
 

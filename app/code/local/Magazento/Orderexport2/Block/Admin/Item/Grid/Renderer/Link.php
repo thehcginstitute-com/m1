@@ -11,7 +11,7 @@ class Magazento_Orderexport2_Block_Admin_Item_Grid_Renderer_Link extends Mage_Ad
 {
     
 
-  public function render(Varien_Object $row)
+  function render(Varien_Object $row)
     {
         $fileName = preg_replace('/^\//', '', $row->getPath() . $row->getFilename().'.xml');
         $url = $this->htmlEscape(Mage::app()->getStore(0)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . $fileName);

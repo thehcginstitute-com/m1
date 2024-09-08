@@ -32,7 +32,7 @@ class Mage_Reports_Model_Resource_Review_Product_Collection extends Mage_Catalog
      *
      * @return $this
      */
-    public function joinReview()
+    function joinReview()
     {
         /** @var Mage_Core_Model_Resource_Helper_Mysql4 $helper */
         $helper    = Mage::getResourceHelper('core');
@@ -83,7 +83,7 @@ class Mage_Reports_Model_Resource_Review_Product_Collection extends Mage_Catalog
      *
      * @inheritDoc
      */
-    public function addAttributeToSort($attribute, $dir = self::SORT_ORDER_ASC)
+    function addAttributeToSort($attribute, $dir = self::SORT_ORDER_ASC)
     {
         if (in_array($attribute, ['review_cnt', 'last_created', 'avg_rating', 'avg_rating_approved'])) {
             $this->getSelect()->order($attribute . ' ' . $dir);
@@ -98,7 +98,7 @@ class Mage_Reports_Model_Resource_Review_Product_Collection extends Mage_Catalog
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $this->_renderFilters();
 

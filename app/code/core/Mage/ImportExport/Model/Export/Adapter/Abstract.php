@@ -53,7 +53,7 @@ abstract class Mage_ImportExport_Model_Export_Adapter_Abstract
      * @param string $destination OPTIONAL Destination file path.
      * @throws Exception
      */
-    final public function __construct($destination = null)
+    final function __construct($destination = null)
     {
         register_shutdown_function([$this, 'destruct']);
 
@@ -79,7 +79,7 @@ abstract class Mage_ImportExport_Model_Export_Adapter_Abstract
     /**
      * Destruct method on shutdown
      */
-    public function destruct()
+    function destruct()
     {
     }
 
@@ -98,7 +98,7 @@ abstract class Mage_ImportExport_Model_Export_Adapter_Abstract
      *
      * @return string
      */
-    public function getContents()
+    function getContents()
     {
         return file_get_contents($this->_destination);
     }
@@ -108,7 +108,7 @@ abstract class Mage_ImportExport_Model_Export_Adapter_Abstract
      *
      * @return string
      */
-    public function getContentType()
+    function getContentType()
     {
         return 'application/octet-stream';
     }
@@ -118,7 +118,7 @@ abstract class Mage_ImportExport_Model_Export_Adapter_Abstract
      *
      * @return string
      */
-    public function getFileExtension()
+    function getFileExtension()
     {
         return '';
     }
@@ -128,7 +128,7 @@ abstract class Mage_ImportExport_Model_Export_Adapter_Abstract
      *
      * @return int
      */
-    public function getRowsCount()
+    function getRowsCount()
     {
         return $this->_rowsCount;
     }
@@ -140,7 +140,7 @@ abstract class Mage_ImportExport_Model_Export_Adapter_Abstract
      * @throws Exception
      * @return Mage_ImportExport_Model_Export_Adapter_Abstract
      */
-    public function setHeaderCols(array $headerCols)
+    function setHeaderCols(array $headerCols)
     {
         if ($this->_headerCols !== null) {
             Mage::throwException(Mage::helper('importexport')->__('Header column names already set'));
@@ -158,7 +158,7 @@ abstract class Mage_ImportExport_Model_Export_Adapter_Abstract
      * Returns destination path
      * @return string
      */
-    public function getDestination()
+    function getDestination()
     {
         return $this->_destination;
     }
@@ -169,5 +169,5 @@ abstract class Mage_ImportExport_Model_Export_Adapter_Abstract
      * @param array $rowData
      * @return Mage_ImportExport_Model_Export_Adapter_Abstract
      */
-    abstract public function writeRow(array $rowData);
+    abstract function writeRow(array $rowData);
 }

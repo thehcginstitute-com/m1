@@ -46,7 +46,7 @@ class Mage_Adminhtml_Helper_Catalog_Product_Composite extends Mage_Core_Helper_A
      * @param Varien_Object $updateResult
      * @return $this
      */
-    public function renderUpdateResult($controller, Varien_Object $updateResult)
+    function renderUpdateResult($controller, Varien_Object $updateResult)
     {
         Mage::register('composite_update_result', $updateResult);
 
@@ -90,7 +90,7 @@ class Mage_Adminhtml_Helper_Catalog_Product_Composite extends Mage_Core_Helper_A
      * @param Varien_Object $configureResult
      * @return $this
      */
-    public function renderConfigureResult($controller, Varien_Object $configureResult)
+    function renderConfigureResult($controller, Varien_Object $configureResult)
     {
         try {
             if (!$configureResult->getOk()) {

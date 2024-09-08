@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_Adminhtml_Block_Sales_Items_Abstract
 {
-    public function getItem()
+    function getItem()
     {
         return $this->_getData('item');
     }
@@ -33,7 +33,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * @param string $id
      * @return string
      */
-    public function getFieldId($id)
+    function getFieldId($id)
     {
         return $this->getFieldIdPrefix() . $id;
     }
@@ -43,7 +43,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      *
      * @return string
      */
-    public function getFieldIdPrefix()
+    function getFieldIdPrefix()
     {
         return 'order_item_' . $this->getItem()->getId() . '_';
     }
@@ -54,7 +54,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * @return bool
      * @throws Exception
      */
-    public function canDisplayContainer()
+    function canDisplayContainer()
     {
         return $this->getRequest()->getParam('reload') != 1;
     }
@@ -73,7 +73,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * @deprecated after 1.4.2.0
      * @return string
      */
-    public function getDefaultSender()
+    function getDefaultSender()
     {
         if (!$this->getItem()) {
             return '';
@@ -92,7 +92,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * @deprecated after 1.4.2.0
      * @return string
      */
-    public function getDefaultRecipient()
+    function getDefaultRecipient()
     {
         if (!$this->getItem()) {
             return '';
@@ -126,7 +126,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * @param string $name
      * @return string
      */
-    public function getFieldName($name)
+    function getFieldName($name)
     {
         return 'giftmessage[' . $this->getItem()->getId() . '][' . $name . ']';
     }
@@ -162,7 +162,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * @deprecated after 1.4.2.0
      * @return Mage_GiftMessage_Model_Message
      */
-    public function getMessage()
+    function getMessage()
     {
         if (!isset($this->_giftMessage[$this->getItem()->getGiftMessageId()])) {
             $this->_initMessage();
@@ -177,7 +177,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * @return string
      * @deprecated after 1.4.2.0
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return $this->getUrl('*/sales_order_view_giftmessage/save', [
             'entity'    => $this->getItem()->getId(),
@@ -192,7 +192,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * @deprecated after 1.4.2.0
      * @return string
      */
-    public function getHtmlId()
+    function getHtmlId()
     {
         return substr($this->getFieldIdPrefix(), 0, -1);
     }
@@ -203,7 +203,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * @deprecated after 1.4.2.0
      * @return bool
      */
-    public function canDisplayGiftmessage()
+    function canDisplayGiftmessage()
     {
         /** @var Mage_GiftMessage_Helper_Message $helper */
         $helper = $this->helper('giftmessage/message');
@@ -220,7 +220,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * @param Mage_Sales_Model_Order_Item $item
      * @return string
      */
-    public function displaySubtotalInclTax($item)
+    function displaySubtotalInclTax($item)
     {
         /** @var Mage_Checkout_Helper_Data $helper */
         $helper = $this->helper('checkout');
@@ -236,7 +236,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * @param Mage_Sales_Model_Order_Item|Varien_Object $item
      * @return string
      */
-    public function displayPriceInclTax(Varien_Object $item)
+    function displayPriceInclTax(Varien_Object $item)
     {
         /** @var Mage_Checkout_Helper_Data $helper */
         $helper = $this->helper('checkout');

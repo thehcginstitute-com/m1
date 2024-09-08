@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Newsletter_Problem extends Mage_Adminhtml_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('newsletter/problem/list.phtml');
@@ -62,17 +62,17 @@ class Mage_Adminhtml_Block_Newsletter_Problem extends Mage_Adminhtml_Block_Templ
         return parent::_prepareLayout();
     }
 
-    public function getUnsubscribeButtonHtml()
+    function getUnsubscribeButtonHtml()
     {
         return $this->getChildHtml('unsubscribeButton');
     }
 
-    public function getDeleteButtonHtml()
+    function getDeleteButtonHtml()
     {
         return $this->getChildHtml('deleteButton');
     }
 
-    public function getShowButtons()
+    function getShowButtons()
     {
         return  Mage::getResourceSingleton('newsletter/problem_collection')->getSize() > 0;
     }

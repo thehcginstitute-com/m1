@@ -40,7 +40,7 @@ class Mage_Core_Model_Date
      * Init offset
      *
      */
-    public function __construct()
+    function __construct()
     {
         $this->_offset = $this->calculateOffset($this->_getConfigTimezone());
         $this->_systemOffset = $this->calculateOffset();
@@ -64,7 +64,7 @@ class Mage_Core_Model_Date
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function calculateOffset($timezone = null)
+    function calculateOffset($timezone = null)
     {
         $result = true;
         $offset = 0;
@@ -92,7 +92,7 @@ class Mage_Core_Model_Date
      * @param  int|string $input date in current timezone
      * @return false|string
      */
-    public function gmtDate($format = null, $input = null)
+    function gmtDate($format = null, $input = null)
     {
         if (is_null($format)) {
             $format = Varien_Date::DATETIME_PHP_FORMAT;
@@ -115,7 +115,7 @@ class Mage_Core_Model_Date
      * @param  int|string $input date in GMT timezone
      * @return string
      */
-    public function date($format = null, $input = null)
+    function date($format = null, $input = null)
     {
         if (is_null($format)) {
             $format = Varien_Date::DATETIME_PHP_FORMAT;
@@ -130,7 +130,7 @@ class Mage_Core_Model_Date
      * @param  int|string $input date in current timezone
      * @return string|false|int
      */
-    public function gmtTimestamp($input = null)
+    function gmtTimestamp($input = null)
     {
         if (is_null($input)) {
             return gmdate('U');
@@ -159,7 +159,7 @@ class Mage_Core_Model_Date
      * @param  int|string $input date in GMT timezone
      * @return int
      */
-    public function timestamp($input = null)
+    function timestamp($input = null)
     {
         if (is_null($input)) {
             $result = $this->gmtTimestamp();
@@ -182,7 +182,7 @@ class Mage_Core_Model_Date
      * @param  string $type
      * @return int
      */
-    public function getGmtOffset($type = 'seconds')
+    function getGmtOffset($type = 'seconds')
     {
         $result = $this->_offset;
         switch ($type) {
@@ -211,7 +211,7 @@ class Mage_Core_Model_Date
      * @return bool
      * @deprecated since 1.1.7
      */
-    public function checkDateTime($year, $month, $day, $hour = 0, $minute = 0, $second = 0)
+    function checkDateTime($year, $month, $day, $hour = 0, $minute = 0, $second = 0)
     {
         if (!checkdate($month, $day, $year)) {
             return false;
@@ -232,7 +232,7 @@ class Mage_Core_Model_Date
      * @throws Mage_Core_Exception
      * @deprecated since 1.1.7
      */
-    public function parseDateTime($dateTimeString, $dateTimeFormat)
+    function parseDateTime($dateTimeString, $dateTimeFormat)
     {
         // look for supported format
         $isSupportedFormatFound = false;

@@ -121,7 +121,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @param Zend_Controller_Response_Abstract $response
      * @param array $invokeArgs
      */
-    public function __construct(Zend_Controller_Request_Abstract $request, Zend_Controller_Response_Abstract $response, array $invokeArgs = [])
+    function __construct(Zend_Controller_Request_Abstract $request, Zend_Controller_Response_Abstract $response, array $invokeArgs = [])
     {
         $this->_request = $request;
         $this->_response = $response;
@@ -139,7 +139,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @param string $action
      * @return bool
      */
-    public function hasAction($action)
+    function hasAction($action)
     {
         return method_exists($this, $this->getActionMethodName($action));
     }
@@ -149,7 +149,7 @@ abstract class Mage_Core_Controller_Varien_Action
      *
      * @return Mage_Core_Controller_Request_Http
      */
-    public function getRequest()
+    function getRequest()
     {
         return $this->_request;
     }
@@ -159,7 +159,7 @@ abstract class Mage_Core_Controller_Varien_Action
      *
      * @return Mage_Core_Controller_Response_Http
      */
-    public function getResponse()
+    function getResponse()
     {
         return $this->_response;
     }
@@ -171,7 +171,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @param   string $flag
      * @return array|bool
      */
-    public function getFlag($action, $flag = '')
+    function getFlag($action, $flag = '')
     {
         if ($action === '') {
             $action = $this->getRequest()->getActionName();
@@ -193,7 +193,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @param   string|int|bool $value
      * @return  $this
      */
-    public function setFlag($action, $flag, $value)
+    function setFlag($action, $flag, $value)
     {
         if ($action === '') {
             $action = $this->getRequest()->getActionName();
@@ -209,7 +209,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @param   string $delimiter
      * @return  string
      */
-    public function getFullActionName($delimiter = '_')
+    function getFullActionName($delimiter = '_')
     {
         return $this->getRequest()->getRequestedRouteName() . $delimiter .
             $this->getRequest()->getRequestedControllerName() . $delimiter .
@@ -221,7 +221,7 @@ abstract class Mage_Core_Controller_Varien_Action
      *
      * @return Mage_Core_Model_Layout
      */
-    public function getLayout()
+    function getLayout()
     {
         return Mage::getSingleton('core/layout');
     }
@@ -234,7 +234,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @param   bool $generateXml
      * @return  $this
      */
-    public function loadLayout($handles = null, $generateBlocks = true, $generateXml = true)
+    function loadLayout($handles = null, $generateBlocks = true, $generateXml = true)
     {
         // if handles were specified in arguments load them first
         if ($handles !== false && $handles !== '') {
@@ -264,7 +264,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @return $this
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function addActionLayoutHandles()
+    function addActionLayoutHandles()
     {
         $update = $this->getLayout()->getUpdate();
 
@@ -287,7 +287,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function loadLayoutUpdates()
+    function loadLayoutUpdates()
     {
         $_profilerKey = self::PROFILER_KEY . '::' . $this->getFullActionName();
 
@@ -308,7 +308,7 @@ abstract class Mage_Core_Controller_Varien_Action
     /**
      * @return $this
      */
-    public function generateLayoutXml()
+    function generateLayoutXml()
     {
         $_profilerKey = self::PROFILER_KEY . '::' . $this->getFullActionName();
         // dispatch event for adding text layouts
@@ -330,7 +330,7 @@ abstract class Mage_Core_Controller_Varien_Action
     /**
      * @return $this
      */
-    public function generateLayoutBlocks()
+    function generateLayoutBlocks()
     {
         $_profilerKey = self::PROFILER_KEY . '::' . $this->getFullActionName();
         // dispatch event for adding xml layout elements
@@ -362,7 +362,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @param   string $output
      * @return  $this|void
      */
-    public function renderLayout($output = '')
+    function renderLayout($output = '')
     {
         $_profilerKey = self::PROFILER_KEY . '::' . $this->getFullActionName();
 
@@ -399,7 +399,7 @@ abstract class Mage_Core_Controller_Varien_Action
     /**
      * @param string $action
      */
-    public function dispatch($action)
+    function dispatch($action)
     {
         try {
             $actionMethodName = $this->getActionMethodName($action);
@@ -459,7 +459,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @param string $action
      * @return string
      */
-    public function getActionMethodName($action)
+    function getActionMethodName($action)
     {
         return $action . 'Action';
     }
@@ -469,7 +469,7 @@ abstract class Mage_Core_Controller_Varien_Action
      *
      * @return void
      */
-    public function preDispatch()
+    function preDispatch()
     {
         if (!$this->getFlag('', self::FLAG_NO_CHECK_INSTALLATION)) {
             if (!Mage::isInstalled()) {
@@ -539,7 +539,7 @@ abstract class Mage_Core_Controller_Varien_Action
     /**
      * Dispatches event after action
      */
-    public function postDispatch()
+    function postDispatch()
     {
         if ($this->getFlag('', self::FLAG_NO_POST_DISPATCH)) {
             return;
@@ -559,7 +559,7 @@ abstract class Mage_Core_Controller_Varien_Action
     /**
      * @param mixed|null $coreRoute
      */
-    public function norouteAction($coreRoute = null)
+    function norouteAction($coreRoute = null)
     {
         $status = ($this->getRequest()->getParam('__status__'))
             ? $this->getRequest()->getParam('__status__')
@@ -583,7 +583,7 @@ abstract class Mage_Core_Controller_Varien_Action
         }
     }
 
-    public function noCookiesAction()
+    function noCookiesAction()
     {
         $redirect = new Varien_Object();
         Mage::dispatchEvent('controller_action_nocookies', [
@@ -667,7 +667,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @param string|array $messagesStorage
      * @return $this
      */
-    public function initLayoutMessages($messagesStorage)
+    function initLayoutMessages($messagesStorage)
     {
         return $this->_initLayoutMessages($messagesStorage);
     }
@@ -704,7 +704,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @param   array $arguments
      * @return  $this
      */
-    public function setRedirectWithCookieCheck($path, array $arguments = [])
+    function setRedirectWithCookieCheck($path, array $arguments = [])
     {
         /** @var Mage_Core_Model_Session $session */
         $session = Mage::getSingleton('core/session', ['name' => $this->_sessionNamespace]);

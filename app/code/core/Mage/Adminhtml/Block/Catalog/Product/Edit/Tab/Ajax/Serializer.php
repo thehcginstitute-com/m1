@@ -20,14 +20,14 @@
  */
 class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Ajax_Serializer extends Mage_Core_Block_Template
 {
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->setTemplate('catalog/product/edit/serializer.phtml');
         return $this;
     }
 
-    public function getProductsJSON()
+    function getProductsJSON()
     {
         $result = [];
         if ($this->getProducts()) {
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Ajax_Serializer extends Mage
      * @param string $getProductFunction
      * @param string $inputName
      */
-    public function initSerializerBlock($blockName, $getProductFunction, $inputName)
+    function initSerializerBlock($blockName, $getProductFunction, $inputName)
     {
         if ($block = $this->getLayout()->getBlock($blockName)) {
             $this->setGridBlock($block)

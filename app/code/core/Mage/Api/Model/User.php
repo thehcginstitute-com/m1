@@ -73,7 +73,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
     /**
      * @return $this
      */
-    public function save()
+    function save()
     {
         $this->_beforeSave();
         $data = [
@@ -115,7 +115,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      * @return $this|Mage_Core_Model_Abstract
      * @throws Mage_Core_Exception
      */
-    public function delete()
+    function delete()
     {
         $this->_beforeDelete();
         $this->_getResource()->delete($this);
@@ -129,7 +129,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function saveRelations()
+    function saveRelations()
     {
         $this->_getResource()->_saveRelations($this);
         return $this;
@@ -140,7 +140,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getRoles()
+    function getRoles()
     {
         return $this->_getResource()->_getRoles($this);
     }
@@ -150,7 +150,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function deleteFromRole()
+    function deleteFromRole()
     {
         $this->_getResource()->deleteFromRole($this);
         return $this;
@@ -161,7 +161,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function roleUserExists()
+    function roleUserExists()
     {
         $result = $this->_getResource()->roleUserExists($this);
         return is_array($result) && count($result) > 0;
@@ -172,7 +172,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function add()
+    function add()
     {
         $this->_getResource()->add($this);
         return $this;
@@ -183,7 +183,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function userExists()
+    function userExists()
     {
         $result = $this->_getResource()->userExists($this);
         return is_array($result) && count($result) > 0;
@@ -194,7 +194,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      *
      * @return Object|Mage_Api_Model_Resource_User_Collection
      */
-    public function getCollection()
+    function getCollection()
     {
         return Mage::getResourceModel('api/user_collection');
     }
@@ -205,7 +205,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      * @param string $separator
      * @return string
      */
-    public function getName($separator = ' ')
+    function getName($separator = ' ')
     {
         return $this->getFirstname() . $separator . $this->getLastname();
     }
@@ -215,7 +215,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getId()
+    function getId()
     {
         return $this->getUserId();
     }
@@ -225,7 +225,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getAclRole()
+    function getAclRole()
     {
         return 'U' . $this->getUserId();
     }
@@ -238,7 +238,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      * @return bool
      * @throws Exception
      */
-    public function authenticate($username, $apiKey)
+    function authenticate($username, $apiKey)
     {
         $this->loadByUsername($username);
         if (!$this->getId()) {
@@ -261,7 +261,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      * @return Mage_Api_Model_User
      * @throws Exception
      */
-    public function login($username, $apiKey)
+    function login($username, $apiKey)
     {
         $sessId = $this->getSessid();
         if ($this->authenticate($username, $apiKey)) {
@@ -283,7 +283,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function reload()
+    function reload()
     {
         $this->load($this->getId());
         return $this;
@@ -295,7 +295,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      * @param string $username
      * @return $this
      */
-    public function loadByUsername($username)
+    function loadByUsername($username)
     {
         $this->setData($this->getResource()->loadByUsername($username));
         return $this;
@@ -307,7 +307,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      * @param string $sessId
      * @return $this
      */
-    public function loadBySessId($sessId)
+    function loadBySessId($sessId)
     {
         $this->setData($this->getResource()->loadBySessId($sessId));
         return $this;
@@ -319,7 +319,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      * @param string $sessid
      * @return $this
      */
-    public function logoutBySessId($sessid)
+    function logoutBySessId($sessid)
     {
         $this->getResource()->clearBySessId($sessid);
         return $this;
@@ -331,7 +331,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      * @param int|Mage_Core_Model_Abstract $user
      * @return array
      */
-    public function hasAssigned2Role($user)
+    function hasAssigned2Role($user)
     {
         return $this->getResource()->hasAssigned2Role($user);
     }
@@ -364,7 +364,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      * @return array|true
      * @throws Zend_Validate_Exception
      */
-    public function validate()
+    function validate()
     {
         $errors = new ArrayObject();
 

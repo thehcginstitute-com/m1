@@ -29,7 +29,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Price extends Mage_Eav_Model_
      * @param Mage_Catalog_Model_Resource_Eav_Attribute $attribute
      * @return $this
      */
-    public function setAttribute($attribute)
+    function setAttribute($attribute)
     {
         parent::setAttribute($attribute);
         $this->setScope($attribute);
@@ -42,7 +42,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Price extends Mage_Eav_Model_
      * @param Mage_Catalog_Model_Resource_Eav_Attribute $attribute
      * @return $this
      */
-    public function setScope($attribute)
+    function setScope($attribute)
     {
         if (Mage::helper('catalog')->isPriceGlobal()) {
             $attribute->setIsGlobal(Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL);
@@ -59,7 +59,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Price extends Mage_Eav_Model_
      * @param Mage_Catalog_Model_Product $object
      * @return $this
      */
-    public function afterSave($object)
+    function afterSave($object)
     {
         $value = $object->getData($this->getAttribute()->getAttributeCode());
         /**

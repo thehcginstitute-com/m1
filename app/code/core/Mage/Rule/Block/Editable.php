@@ -25,7 +25,7 @@ class Mage_Rule_Block_Editable extends Mage_Core_Block_Abstract implements Varie
      * @see Varien_Data_Form_Element_Renderer_Interface::render()
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         $element->addClass('element-value-changer');
         $valueName = $element->getValueName();

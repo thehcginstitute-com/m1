@@ -17,7 +17,7 @@
  */
 class Sharpdot_SharpAdminOnlyPayment_Helper_Data extends Mage_Payment_Helper_Data
 {
-	public function getStoreMethods($store=null, $quote=null)
+	function getStoreMethods($store=null, $quote=null)
     {    	
     	$res = parent::getStoreMethods($store=null, $quote=null);
     	

@@ -24,7 +24,7 @@ class Mage_Catalog_Model_Entity_Product_Attribute_Design_Options_Container exten
 {
     protected $_configNodePath;
 
-    public function __construct()
+    function __construct()
     {
         $this->_configNodePath = 'global/catalog/product/design/options_container';
     }
@@ -35,7 +35,7 @@ class Mage_Catalog_Model_Entity_Product_Attribute_Design_Options_Container exten
      * @param string|int $value
      * @return string|false
      */
-    public function getOptionText($value)
+    function getOptionText($value)
     {
         $options = $this->getAllOptions();
         if (count($options)) {

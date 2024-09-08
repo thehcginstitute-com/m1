@@ -36,7 +36,7 @@ class Mage_Catalog_Product_CompareController extends Mage_Core_Controller_Front_
      */
     protected $_customerId = null;
 
-    public function indexAction()
+    function indexAction()
     {
         $items = $this->getRequest()->getParam('items');
 
@@ -60,7 +60,7 @@ class Mage_Catalog_Product_CompareController extends Mage_Core_Controller_Front_
     /**
      * Add item to compare list
      */
-    public function addAction()
+    function addAction()
     {
         if (!$this->_validateFormKey()) {
             $this->_redirectReferer();
@@ -92,7 +92,7 @@ class Mage_Catalog_Product_CompareController extends Mage_Core_Controller_Front_
     /**
      * Remove item from compare list
      */
-    public function removeAction()
+    function removeAction()
     {
         $productId = (int) $this->getRequest()->getParam('product');
         if ($this->isProductAvailable($productId)) {
@@ -134,7 +134,7 @@ class Mage_Catalog_Product_CompareController extends Mage_Core_Controller_Front_
     /**
      * Remove all items from comparison list
      */
-    public function clearAction()
+    function clearAction()
     {
         $items = Mage::getResourceModel('catalog/product_compare_item_collection');
 
@@ -168,7 +168,7 @@ class Mage_Catalog_Product_CompareController extends Mage_Core_Controller_Front_
      * @param int $id
      * @return $this
      */
-    public function setCustomerId($id)
+    function setCustomerId($id)
     {
         $this->_customerId = $id;
         return $this;
@@ -180,7 +180,7 @@ class Mage_Catalog_Product_CompareController extends Mage_Core_Controller_Front_
      * @param int $productId
      * @return bool
      */
-    public function isProductAvailable($productId)
+    function isProductAvailable($productId)
     {
         return Mage::getModel('catalog/product')->load($productId)->isAvailable();
     }

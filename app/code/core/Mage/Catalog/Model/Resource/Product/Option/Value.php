@@ -223,7 +223,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Value extends Mage_Core_Model_R
      * @param int $optionId
      * @return $this
      */
-    public function deleteValue($optionId)
+    function deleteValue($optionId)
     {
         $statement = $this->_getReadAdapter()->select()
             ->from($this->getTable('catalog/product_option_type_value'))
@@ -250,7 +250,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Value extends Mage_Core_Model_R
      *
      * @param int $optionTypeId
      */
-    public function deleteValues($optionTypeId)
+    function deleteValues($optionTypeId)
     {
         $condition = [
             'option_type_id = ?' => $optionTypeId
@@ -275,7 +275,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Value extends Mage_Core_Model_R
      * @param int $newOptionId
      * @return Mage_Catalog_Model_Product_Option_Value
      */
-    public function duplicate(Mage_Catalog_Model_Product_Option_Value $object, $oldOptionId, $newOptionId)
+    function duplicate(Mage_Catalog_Model_Product_Option_Value $object, $oldOptionId, $newOptionId)
     {
         $writeAdapter = $this->_getWriteAdapter();
         $readAdapter  = $this->_getReadAdapter();

@@ -33,7 +33,7 @@ class Mage_CatalogSearch_Model_Resource_Indexer_Fulltext extends Mage_Core_Model
      * @param int|array $childIds
      * @return array
      */
-    public function getRelationsByChild($childIds)
+    function getRelationsByChild($childIds)
     {
         $write = $this->_getWriteAdapter();
         $select = $write->select()

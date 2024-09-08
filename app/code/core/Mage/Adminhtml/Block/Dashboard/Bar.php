@@ -41,7 +41,7 @@ class Mage_Adminhtml_Block_Dashboard_Bar extends Mage_Adminhtml_Block_Dashboard_
         return $this->_totals;
     }
 
-    public function addTotal($label, $value, $isQuantity = false)
+    function addTotal($label, $value, $isQuantity = false)
     {
         if (!$isQuantity) {
             $value = $this->format($value);
@@ -62,7 +62,7 @@ class Mage_Adminhtml_Block_Dashboard_Bar extends Mage_Adminhtml_Block_Dashboard_
      * @param float $price
      * @return string
      */
-    public function format($price)
+    function format($price)
     {
         return $this->getCurrency()->format($price);
     }
@@ -72,7 +72,7 @@ class Mage_Adminhtml_Block_Dashboard_Bar extends Mage_Adminhtml_Block_Dashboard_
      *
      * @param Mage_Directory_Model_Currency $currency
      */
-    public function setCurrency($currency)
+    function setCurrency($currency)
     {
         $this->_currency = $currency;
     }
@@ -82,7 +82,7 @@ class Mage_Adminhtml_Block_Dashboard_Bar extends Mage_Adminhtml_Block_Dashboard_
      *
      * @return Mage_Directory_Model_Currency
      */
-    public function getCurrency()
+    function getCurrency()
     {
         if (is_null($this->_currentCurrencyCode)) {
             if ($this->getRequest()->getParam('store')) {

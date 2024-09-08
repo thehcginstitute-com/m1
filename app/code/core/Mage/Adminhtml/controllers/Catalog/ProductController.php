@@ -45,7 +45,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions(['delete', 'massDelete']);
         return parent::preDispatch();
@@ -182,7 +182,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * Product list page
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Catalog'))
              ->_title($this->__('Manage Products'));
@@ -194,7 +194,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * Create new product page
      */
-    public function newAction()
+    function newAction()
     {
         $product = $this->_initProduct();
 
@@ -234,7 +234,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * Product edit form
      */
-    public function editAction()
+    function editAction()
     {
         $productId  = (int) $this->getRequest()->getParam('id');
         $product = $this->_initProduct();
@@ -289,7 +289,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      *
      * @throws Mage_Core_Model_Store_Exception|Mage_Core_Exception
      */
-    public function wysiwygAction()
+    function wysiwygAction()
     {
         $elementId = $this->getRequest()->getParam('element_id', md5(microtime()));
         $storeId = $this->getRequest()->getParam('store_id', 0);
@@ -306,7 +306,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * Product grid for AJAX request
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout();
         $this->renderLayout();
@@ -316,7 +316,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * Get specified tab grid
      * @throws Mage_Core_Exception
      */
-    public function gridOnlyAction()
+    function gridOnlyAction()
     {
         $this->_initProduct();
         $this->loadLayout();
@@ -332,7 +332,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      *
      * @throws Mage_Core_Exception
      */
-    public function categoriesAction()
+    function categoriesAction()
     {
         $this->_initProduct();
         $this->loadLayout();
@@ -344,7 +344,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      *
      * @throws Mage_Core_Exception
      */
-    public function optionsAction()
+    function optionsAction()
     {
         $this->_initProduct();
         $this->loadLayout();
@@ -355,7 +355,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * Get related products grid and serializer block
      * @throws Mage_Core_Exception
      */
-    public function relatedAction()
+    function relatedAction()
     {
         $this->_initProduct();
         $this->loadLayout();
@@ -368,7 +368,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * Get upsell products grid and serializer block
      * @throws Mage_Core_Exception
      */
-    public function upsellAction()
+    function upsellAction()
     {
         $this->_initProduct();
         $this->loadLayout();
@@ -381,7 +381,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * Get crosssell products grid and serializer block
      * @throws Mage_Core_Exception
      */
-    public function crosssellAction()
+    function crosssellAction()
     {
         $this->_initProduct();
         $this->loadLayout();
@@ -394,7 +394,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * Get related products grid
      * @throws Mage_Core_Exception
      */
-    public function relatedGridAction()
+    function relatedGridAction()
     {
         $this->_initProduct();
         $this->loadLayout();
@@ -407,7 +407,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * Get upsell products grid
      * @throws Mage_Core_Exception
      */
-    public function upsellGridAction()
+    function upsellGridAction()
     {
         $this->_initProduct();
         $this->loadLayout();
@@ -420,7 +420,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * Get crosssell products grid
      * @throws Mage_Core_Exception
      */
-    public function crosssellGridAction()
+    function crosssellGridAction()
     {
         $this->_initProduct();
         $this->loadLayout();
@@ -433,7 +433,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * Get associated grouped products grid and serializer block
      * @throws Mage_Core_Exception
      */
-    public function superGroupAction()
+    function superGroupAction()
     {
         $this->_initProduct();
         $this->loadLayout();
@@ -447,7 +447,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      *
      * @throws Mage_Core_Exception
      */
-    public function superGroupGridOnlyAction()
+    function superGroupGridOnlyAction()
     {
         $this->_initProduct();
         $this->loadLayout();
@@ -461,7 +461,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      *
      * @throws Mage_Core_Exception
      */
-    public function reviewsAction()
+    function reviewsAction()
     {
         $this->_initProduct();
         $this->loadLayout();
@@ -476,7 +476,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      *
      * @throws Mage_Core_Exception
      */
-    public function superConfigAction()
+    function superConfigAction()
     {
         $this->_initProduct();
         $this->loadLayout(false);
@@ -487,7 +487,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * @throws Mage_Core_Exception
      * @deprecated since 1.2
      */
-    public function bundlesAction()
+    function bundlesAction()
     {
         $product = $this->_initProduct();
         $this->getResponse()->setBody(
@@ -502,7 +502,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * Validate product
      *
      */
-    public function validateAction()
+    function validateAction()
     {
         $response = new Varien_Object();
         $response->setError(false);
@@ -711,7 +711,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
         }
     }
 
-    public function categoriesJsonAction()
+    function categoriesJsonAction()
     {
         $product = $this->_initProduct();
 
@@ -724,7 +724,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * Save product action
      */
-    public function saveAction()
+    function saveAction()
     {
         $storeId        = $this->getRequest()->getParam('store');
         $redirectBack   = $this->getRequest()->getParam('back', false);
@@ -811,7 +811,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * Create product duplicate
      * @throws Mage_Core_Exception
      */
-    public function duplicateAction()
+    function duplicateAction()
     {
         $product = $this->_initProduct();
         try {
@@ -840,7 +840,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * Delete product action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         if ($id = $this->getRequest()->getParam('id')) {
             $product = Mage::getModel('catalog/product')
@@ -862,7 +862,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * Get alerts price grid
      */
-    public function alertsPriceGridAction()
+    function alertsPriceGridAction()
     {
         $this->loadLayout(false);
         $this->renderLayout();
@@ -871,7 +871,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * Get alerts stock grid
      */
-    public function alertsStockGridAction()
+    function alertsStockGridAction()
     {
         $this->loadLayout(false);
         $this->renderLayout();
@@ -881,12 +881,12 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * @deprecated since 1.5.0.0
      * @return $this
      */
-    public function addCustomersToAlertQueueAction()
+    function addCustomersToAlertQueueAction()
     {
         return $this;
     }
 
-    public function addAttributeAction()
+    function addAttributeAction()
     {
         $this->_getSession()->addNotice(
             Mage::helper('catalog')->__('Please click on the Close Window button if it is not closed automatically.')
@@ -899,7 +899,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
         $this->renderLayout();
     }
 
-    public function createdAction()
+    function createdAction()
     {
         $this->_getSession()->addNotice(
             Mage::helper('catalog')->__('Please click on the Close Window button if it is not closed automatically.')
@@ -911,7 +911,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
         $this->renderLayout();
     }
 
-    public function massDeleteAction()
+    function massDeleteAction()
     {
         $productIds = $this->getRequest()->getParam('product');
         if (!is_array($productIds)) {
@@ -939,7 +939,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * Update product(s) status action
      *
      */
-    public function massStatusAction()
+    function massStatusAction()
     {
         $productIds = (array)$this->getRequest()->getParam('product');
         $storeId    = (int)$this->getRequest()->getParam('store', 0);
@@ -971,7 +971,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * @param  array $productIds
      * @param  int $status
      */
-    public function _validateMassStatus(array $productIds, $status)
+    function _validateMassStatus(array $productIds, $status)
     {
         if ($status == Mage_Catalog_Model_Product_Status::STATUS_ENABLED) {
             if (!Mage::getModel('catalog/product')->isProductsHasSku($productIds)) {
@@ -985,7 +985,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
 
-    public function quickCreateAction()
+    function quickCreateAction()
     {
         $result = [];
 
@@ -1106,7 +1106,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * in Wishlist and Cart controllers.
      *
      */
-    public function showUpdateResultAction()
+    function showUpdateResultAction()
     {
         $session = Mage::getSingleton('adminhtml/session');
         if ($session->hasCompositeProductResult() && $session->getCompositeProductResult() instanceof Varien_Object) {

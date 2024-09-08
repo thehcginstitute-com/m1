@@ -48,7 +48,7 @@ class Mage_Customer_Block_Form_Register extends Mage_Directory_Block_Data
      *
      * @return string
      */
-    public function getPostActionUrl()
+    function getPostActionUrl()
     {
         /** @var Mage_Customer_Helper_Data $helper */
         $helper = $this->helper('customer');
@@ -60,7 +60,7 @@ class Mage_Customer_Block_Form_Register extends Mage_Directory_Block_Data
      *
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         $url = $this->getData('back_url');
         if (is_null($url)) {
@@ -76,7 +76,7 @@ class Mage_Customer_Block_Form_Register extends Mage_Directory_Block_Data
      *
      * @return Varien_Object
      */
-    public function getFormData()
+    function getFormData()
     {
         $data = $this->getData('form_data');
         if (is_null($data)) {
@@ -99,7 +99,7 @@ class Mage_Customer_Block_Form_Register extends Mage_Directory_Block_Data
      *
      * @return int
      */
-    public function getCountryId()
+    function getCountryId()
     {
         $countryId = $this->getFormData()->getCountryId();
         if ($countryId) {
@@ -113,7 +113,7 @@ class Mage_Customer_Block_Form_Register extends Mage_Directory_Block_Data
      *
      * @return string|int|null
      */
-    public function getRegion()
+    function getRegion()
     {
         if (($region = $this->getFormData()->getRegion()) !== false) {
             return $region;
@@ -130,7 +130,7 @@ class Mage_Customer_Block_Form_Register extends Mage_Directory_Block_Data
      *
      *  @return bool
      */
-    public function isNewsletterEnabled()
+    function isNewsletterEnabled()
     {
         return Mage::helper('core')->isModuleOutputEnabled('Mage_Newsletter');
     }
@@ -140,7 +140,7 @@ class Mage_Customer_Block_Form_Register extends Mage_Directory_Block_Data
      *
      * @return Mage_Customer_Model_Address
      */
-    public function getAddress()
+    function getAddress()
     {
         if (is_null($this->_address)) {
             $this->_address = Mage::getModel('customer/address');
@@ -157,7 +157,7 @@ class Mage_Customer_Block_Form_Register extends Mage_Directory_Block_Data
      * @param string|null $scope
      * @return $this
      */
-    public function restoreSessionData(Mage_Customer_Model_Form $form, $scope = null)
+    function restoreSessionData(Mage_Customer_Model_Form $form, $scope = null)
     {
         if ($this->getFormData()->getCustomerData()) {
             $request = $form->prepareRequest($this->getFormData()->getData());
@@ -173,7 +173,7 @@ class Mage_Customer_Block_Form_Register extends Mage_Directory_Block_Data
      *
      * @return int
      */
-    public function getMinPasswordLength()
+    function getMinPasswordLength()
     {
         return Mage::getModel('customer/customer')->getMinPasswordLength();
     }

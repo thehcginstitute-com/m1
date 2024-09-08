@@ -31,13 +31,13 @@ class Mage_Adminhtml_System_DesignController extends Mage_Adminhtml_Controller_A
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         return parent::preDispatch();
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('System'))->_title($this->__('Design'));
 
@@ -47,17 +47,17 @@ class Mage_Adminhtml_System_DesignController extends Mage_Adminhtml_Controller_A
         $this->renderLayout();
     }
 
-    public function gridAction()
+    function gridAction()
     {
         $this->getResponse()->setBody($this->getLayout()->createBlock('adminhtml/system_design_grid')->toHtml());
     }
 
-    public function newAction()
+    function newAction()
     {
         $this->_forward('edit');
     }
 
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('System'))->_title($this->__('Design'));
 
@@ -82,7 +82,7 @@ class Mage_Adminhtml_System_DesignController extends Mage_Adminhtml_Controller_A
         $this->renderLayout();
     }
 
-    public function saveAction()
+    function saveAction()
     {
         if ($data = $this->getRequest()->getPost()) {
             if (!empty($data['design'])) {
@@ -116,7 +116,7 @@ class Mage_Adminhtml_System_DesignController extends Mage_Adminhtml_Controller_A
         $this->_redirect('*/*/');
     }
 
-    public function deleteAction()
+    function deleteAction()
     {
         if ($id = $this->getRequest()->getParam('id')) {
             $design = Mage::getModel('core/design')->load($id);

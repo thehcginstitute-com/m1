@@ -98,7 +98,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      *
      * @return bool
      */
-    public function isNew()
+    function isNew()
     {
         return (is_null($this->getQueueStatus()));
     }
@@ -108,7 +108,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      *
      * @return Mage_Newsletter_Model_Resource_Subscriber_Collection
      */
-    public function getSubscribersCollection()
+    function getSubscribersCollection()
     {
         if (is_null($this->_subscribersCollection)) {
             $this->_subscribersCollection = Mage::getResourceModel('newsletter/subscriber_collection')
@@ -125,7 +125,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      * @return $this
      * @deprecated since 1.4.0.1
      */
-    public function addTemplateData($data)
+    function addTemplateData($data)
     {
         $template = $this->getTemplate();
         if ($data->getTemplateId() && $data->getTemplateId() != $template->getId()) {
@@ -141,7 +141,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      * @param string|null $startAt start date of the mailing queue
      * @return $this
      */
-    public function setQueueStartAtByString($startAt)
+    function setQueueStartAtByString($startAt)
     {
         if (is_null($startAt) || $startAt == '') {
             $this->setQueueStartAt(null);
@@ -161,7 +161,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      * @param   array   $additionalVariables
      * @return $this
      */
-    public function sendPerSubscriber($count = 20, array $additionalVariables = [])
+    function sendPerSubscriber($count = 20, array $additionalVariables = [])
     {
         if ($this->getQueueStatus() != self::STATUS_SENDING
             && ($this->getQueueStatus() != self::STATUS_NEVER && $this->getQueueStartAt())
@@ -237,7 +237,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      *
      * @return array
      */
-    public function getDataForSave()
+    function getDataForSave()
     {
         $data = [];
         $data['template_id'] = $this->getTemplateId();
@@ -253,7 +253,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      * @param array $subscriberIds
      * @return $this
      */
-    public function addSubscribersToQueue(array $subscriberIds)
+    function addSubscribersToQueue(array $subscriberIds)
     {
         $this->_getResource()->addSubscribersToQueue($this, $subscriberIds);
         return $this;
@@ -266,7 +266,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      * @return $this
      * @deprecated since 1.4.0.1
      */
-    public function setSaveTemplateFlag($value)
+    function setSaveTemplateFlag($value)
     {
         $this->_saveTemplateFlag = (bool)$value;
         return $this;
@@ -278,7 +278,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      * @return bool
      * @deprecated since 1.4.0.1
      */
-    public function getSaveTemplateFlag()
+    function getSaveTemplateFlag()
     {
         return $this->_saveTemplateFlag;
     }
@@ -289,7 +289,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      * @param bool|int|string $value
      * @return $this
      */
-    public function setSaveStoresFlag($value)
+    function setSaveStoresFlag($value)
     {
         $this->_saveStoresFlag = (bool)$value;
         return $this;
@@ -300,7 +300,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      *
      * @return bool
      */
-    public function getSaveStoresFlag()
+    function getSaveStoresFlag()
     {
         return $this->_saveStoresFlag;
     }
@@ -311,7 +311,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      * @param array $storesIds
      * @return $this
      */
-    public function setStores(array $storesIds)
+    function setStores(array $storesIds)
     {
         $this->setSaveStoresFlag(true);
         $this->_stores = $storesIds;
@@ -323,7 +323,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      *
      * @return array
      */
-    public function getStores()
+    function getStores()
     {
         if (!$this->_stores) {
             $this->_stores = $this->_getResource()->getStores($this);
@@ -337,7 +337,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      *
      * @return Mage_Newsletter_Model_Template
      */
-    public function getTemplate()
+    function getTemplate()
     {
         if (is_null($this->_template)) {
             $this->_template = Mage::getModel('newsletter/template')
@@ -351,7 +351,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
      *
      * @return int|string
      */
-    public function getType()
+    function getType()
     {
         return $this->getNewsletterType();
     }

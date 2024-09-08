@@ -83,7 +83,7 @@ class Mage_Sales_Model_Resource_Setup extends Mage_Eav_Model_Entity_Setup
      * @param array $attr
      * @return $this
      */
-    public function addAttribute($entityTypeId, $code, array $attr)
+    function addAttribute($entityTypeId, $code, array $attr)
     {
         if (isset($this->_flatEntityTables[$entityTypeId]) &&
             $this->_flatTableExist($this->_flatEntityTables[$entityTypeId])
@@ -185,7 +185,7 @@ class Mage_Sales_Model_Resource_Setup extends Mage_Eav_Model_Entity_Setup
      *
      * @return array
      */
-    public function getDefaultEntities()
+    function getDefaultEntities()
     {
         return [
             'quote' => [

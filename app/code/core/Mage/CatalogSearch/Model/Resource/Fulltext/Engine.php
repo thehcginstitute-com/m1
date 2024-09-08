@@ -40,7 +40,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Engine extends Mage_Core_Model_
      * @param string $entity 'product'|'cms'
      * @return $this
      */
-    public function saveEntityIndex($entityId, $storeId, $index, $entity = 'product')
+    function saveEntityIndex($entityId, $storeId, $index, $entity = 'product')
     {
         $this->_getWriteAdapter()->insert($this->getMainTable(), [
             'product_id'    => $entityId,
@@ -58,7 +58,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Engine extends Mage_Core_Model_
      * @param string $entity 'product'|'cms'
      * @return $this
      */
-    public function saveEntityIndexes($storeId, $entityIndexes, $entity = 'product')
+    function saveEntityIndexes($storeId, $entityIndexes, $entity = 'product')
     {
         $data    = [];
         $storeId = (int)$storeId;
@@ -84,7 +84,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Engine extends Mage_Core_Model_
      *
      * @return array
      */
-    public function getAllowedVisibility()
+    function getAllowedVisibility()
     {
         return Mage::getSingleton('catalog/product_visibility')->getVisibleInSearchIds();
     }
@@ -94,7 +94,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Engine extends Mage_Core_Model_
      *
      * @return bool
      */
-    public function allowAdvancedIndex()
+    function allowAdvancedIndex()
     {
         return false;
     }
@@ -107,7 +107,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Engine extends Mage_Core_Model_
      * @param string $entity 'product'|'cms'
      * @return $this
      */
-    public function cleanIndex($storeId = null, $entityId = null, $entity = 'product')
+    function cleanIndex($storeId = null, $entityId = null, $entity = 'product')
     {
         $where = [];
 
@@ -130,7 +130,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Engine extends Mage_Core_Model_
      * @param string $separator
      * @return string
      */
-    public function prepareEntityIndex($index, $separator = ' ')
+    function prepareEntityIndex($index, $separator = ' ')
     {
         return Mage::helper('catalogsearch')->prepareIndexdata($index, $separator);
     }
@@ -140,7 +140,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Engine extends Mage_Core_Model_
      *
      * @return null
      */
-    public function getResourceName()
+    function getResourceName()
     {
         return null;
     }
@@ -150,7 +150,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Engine extends Mage_Core_Model_
      *
      * @return Mage_CatalogSearch_Model_Resource_Fulltext_Collection
      */
-    public function getResultCollection()
+    function getResultCollection()
     {
         return Mage::getResourceModel('catalogsearch/fulltext_collection');
     }
@@ -160,7 +160,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Engine extends Mage_Core_Model_
      *
      * @return Mage_CatalogSearch_Model_Resource_Advanced_Collection
      */
-    public function getAdvancedResultCollection()
+    function getAdvancedResultCollection()
     {
         return Mage::getResourceModel('catalogsearch/advanced_collection');
     }
@@ -170,7 +170,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Engine extends Mage_Core_Model_
      *
      * @return bool
      */
-    public function isLeyeredNavigationAllowed()
+    function isLeyeredNavigationAllowed()
     {
         return true;
     }
@@ -180,7 +180,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Engine extends Mage_Core_Model_
      *
      * @return bool
      */
-    public function test()
+    function test()
     {
         return true;
     }

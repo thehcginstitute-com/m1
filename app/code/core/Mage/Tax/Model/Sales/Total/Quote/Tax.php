@@ -83,7 +83,7 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         $this->setCode('tax');
         $this->_helper = Mage::helper('tax');
@@ -145,7 +145,7 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
      * @param   Mage_Sales_Model_Quote_Address $address
      * @return  $this
      */
-    public function collect(Mage_Sales_Model_Quote_Address $address)
+    function collect(Mage_Sales_Model_Quote_Address $address)
     {
         parent::collect($address);
         $this->_roundingDeltas = [];
@@ -1275,7 +1275,7 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
      * @param   Mage_Sales_Model_Quote_Address $address
      * @return  $this
      */
-    public function fetch(Mage_Sales_Model_Quote_Address $address)
+    function fetch(Mage_Sales_Model_Quote_Address $address)
     {
         $applied = $address->getAppliedTaxes();
         $store = $address->getQuote()->getStore();
@@ -1336,7 +1336,7 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
      * @param   Mage_Core_Model_Store $store
      * @return  array
      */
-    public function processConfigArray($config, $store)
+    function processConfigArray($config, $store)
     {
         $calculationSequence = $this->_helper->getCalculationSequence($store);
         switch ($calculationSequence) {
@@ -1355,7 +1355,7 @@ class Mage_Tax_Model_Sales_Total_Quote_Tax extends Mage_Sales_Model_Quote_Addres
      *
      * @return string
      */
-    public function getLabel()
+    function getLabel()
     {
         return Mage::helper('tax')->__('Tax');
     }

@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Store_Switcher_Form_Renderer_Fieldset_Element extends
      *
      * @return Varien_Data_Form_Element_Fieldset
      */
-    public function getElement()
+    function getElement()
     {
         return $this->_element;
     }
@@ -50,7 +50,7 @@ class Mage_Adminhtml_Block_Store_Switcher_Form_Renderer_Fieldset_Element extends
      * @param Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         $this->_element = $element;
         return $this->toHtml();

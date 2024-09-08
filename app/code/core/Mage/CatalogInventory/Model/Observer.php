@@ -60,7 +60,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogInventory_Model_Observer
      */
-    public function addInventoryData($observer)
+    function addInventoryData($observer)
     {
         $product = $observer->getEvent()->getProduct();
         if ($product instanceof Mage_Catalog_Model_Product) {
@@ -80,7 +80,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogInventory_Model_Observer
      */
-    public function removeInventoryData($observer)
+    function removeInventoryData($observer)
     {
         $product = $observer->getEvent()->getProduct();
         if (($product instanceof Mage_Catalog_Model_Product)
@@ -99,7 +99,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogInventory_Model_Observer
      */
-    public function addStockStatusToCollection($observer)
+    function addStockStatusToCollection($observer)
     {
         /** @var Mage_Catalog_Model_Resource_Product_Collection $productCollection */
         $productCollection = $observer->getEvent()->getCollection();
@@ -120,7 +120,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogInventory_Model_Observer
      */
-    public function addInventoryDataToCollection($observer)
+    function addInventoryDataToCollection($observer)
     {
         $productCollection = $observer->getEvent()->getProductCollection();
         Mage::getModel('cataloginventory/stock')->addItemsToProducts($productCollection);
@@ -133,7 +133,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogInventory_Model_Observer
      */
-    public function saveInventoryData($observer)
+    function saveInventoryData($observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
@@ -161,7 +161,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogInventory_Model_Observer
      */
-    public function copyInventoryData($observer)
+    function copyInventoryData($observer)
     {
         /** @var Mage_Catalog_Model_Product $currentProduct */
         $currentProduct = $observer->getEvent()->getCurrentProduct();
@@ -302,7 +302,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return $this
      */
-    public function checkQuoteItemQty($observer)
+    function checkQuoteItemQty($observer)
     {
         /** @var Mage_Sales_Model_Quote_Item $quoteItem */
         $quoteItem = $observer->getEvent()->getItem();
@@ -607,7 +607,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function checkoutAllSubmitAfter(Varien_Event_Observer $observer)
+    function checkoutAllSubmitAfter(Varien_Event_Observer $observer)
     {
         /** @var Mage_Sales_Model_Quote $quote */
         $quote = $observer->getEvent()->getQuote();
@@ -627,7 +627,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return Mage_CatalogInventory_Model_Observer|void
      */
-    public function subtractQuoteInventory(Varien_Event_Observer $observer)
+    function subtractQuoteInventory(Varien_Event_Observer $observer)
     {
         /** @var Mage_Sales_Model_Quote $quote */
         $quote = $observer->getEvent()->getQuote();
@@ -652,7 +652,7 @@ class Mage_CatalogInventory_Model_Observer
      * Revert quote items inventory data (cover not success order place case)
      * @param Varien_Event_Observer $observer
      */
-    public function revertQuoteInventory($observer)
+    function revertQuoteInventory($observer)
     {
         /** @var Mage_Sales_Model_Quote $quote */
         $quote = $observer->getEvent()->getQuote();
@@ -734,7 +734,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return Mage_CatalogInventory_Model_Observer
      */
-    public function reindexQuoteInventory($observer)
+    function reindexQuoteInventory($observer)
     {
         // Reindex quote ids
         /** @var Mage_Sales_Model_Quote $quote */
@@ -789,7 +789,7 @@ class Mage_CatalogInventory_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function refundOrderInventory($observer)
+    function refundOrderInventory($observer)
     {
         /** @var Mage_Sales_Model_Order_Creditmemo $creditmemo */
         $creditmemo = $observer->getEvent()->getCreditmemo();
@@ -828,7 +828,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogInventory_Model_Observer
      */
-    public function cancelOrderItem($observer)
+    function cancelOrderItem($observer)
     {
         /** @var Mage_Sales_Model_Order_Item $item */
         $item = $observer->getEvent()->getItem();
@@ -850,7 +850,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return  Mage_CatalogInventory_Model_Observer
      */
-    public function updateItemsStockUponConfigChange($observer)
+    function updateItemsStockUponConfigChange($observer)
     {
         Mage::getResourceSingleton('cataloginventory/stock')->updateSetOutOfStock();
         Mage::getResourceSingleton('cataloginventory/stock')->updateSetInStock();
@@ -864,7 +864,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function productStatusUpdate(Varien_Event_Observer $observer)
+    function productStatusUpdate(Varien_Event_Observer $observer)
     {
         $productId = $observer->getEvent()->getProductId();
         Mage::getSingleton('cataloginventory/stock_status')
@@ -878,7 +878,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductWebsiteUpdate(Varien_Event_Observer $observer)
+    function catalogProductWebsiteUpdate(Varien_Event_Observer $observer)
     {
         $websiteIds = $observer->getEvent()->getWebsiteIds();
         $productIds = $observer->getEvent()->getProductIds();
@@ -899,7 +899,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function addStockStatusToPrepareIndexSelect(Varien_Event_Observer $observer)
+    function addStockStatusToPrepareIndexSelect(Varien_Event_Observer $observer)
     {
         $website    = $observer->getEvent()->getWebsite();
         $select     = $observer->getEvent()->getSelect();
@@ -916,7 +916,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function prepareCatalogProductIndexSelect(Varien_Event_Observer $observer)
+    function prepareCatalogProductIndexSelect(Varien_Event_Observer $observer)
     {
         $select     = $observer->getEvent()->getSelect();
         $entity     = $observer->getEvent()->getEntityField();
@@ -934,7 +934,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function addStockStatusFilterToSelect(Varien_Event_Observer $observer)
+    function addStockStatusFilterToSelect(Varien_Event_Observer $observer)
     {
         $select         = $observer->getEvent()->getSelect();
         $entityField    = $observer->getEvent()->getEntityField();
@@ -966,7 +966,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogInventory_Model_Observer
      */
-    public function lockOrderInventoryData($observer)
+    function lockOrderInventoryData($observer)
     {
         /** @var Mage_Sales_Model_Order $order */
         $order = $observer->getEvent()->getOrder();
@@ -999,7 +999,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogInventory_Model_Observer
      */
-    public function createOrderItem($observer)
+    function createOrderItem($observer)
     {
         /** @var Mage_Sales_Model_Order_Item $item */
         $item = $observer->getEvent()->getItem();
@@ -1023,7 +1023,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogInventory_Model_Observer
      */
-    public function refundOrderItem($observer)
+    function refundOrderItem($observer)
     {
         /** @var Mage_Sales_Model_Order_Creditmemo_Item $item */
         $item = $observer->getEvent()->getCreditmemoItem();
@@ -1040,7 +1040,7 @@ class Mage_CatalogInventory_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function reindexProductsMassAction($observer)
+    function reindexProductsMassAction($observer)
     {
         Mage::getSingleton('index/indexer')->indexEvents(
             Mage_Catalog_Model_Product::ENTITY,
@@ -1054,7 +1054,7 @@ class Mage_CatalogInventory_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function displayProductStatusInfo($observer)
+    function displayProductStatusInfo($observer)
     {
         $info = $observer->getEvent()->getStatus();
         $info->setDisplayStatus(Mage::helper('cataloginventory')->isDisplayProductStockStatus());

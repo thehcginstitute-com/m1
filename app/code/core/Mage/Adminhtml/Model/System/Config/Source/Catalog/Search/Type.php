@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Model_System_Config_Source_Catalog_Search_Type
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         $types = [
             Mage_CatalogSearch_Model_Fulltext::SEARCH_TYPE_LIKE     => 'Like',

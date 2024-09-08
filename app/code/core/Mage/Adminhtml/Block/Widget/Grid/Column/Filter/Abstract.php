@@ -35,7 +35,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Abstract extends Mage_Admin
      * @param Mage_Adminhtml_Block_Widget_Grid_Column $column
      * @return $this
      */
-    public function setColumn($column)
+    function setColumn($column)
     {
         $this->_column = $column;
         return $this;
@@ -46,7 +46,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Abstract extends Mage_Admin
      *
      * @return Mage_Adminhtml_Block_Widget_Grid_Column
      */
-    public function getColumn()
+    function getColumn()
     {
         return $this->_column;
     }
@@ -79,7 +79,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Abstract extends Mage_Admin
      * @param mixed $index
      * @return string
      */
-    public function getEscapedValue($index = null)
+    function getEscapedValue($index = null)
     {
         return htmlspecialchars((string)$this->getValue($index));
     }
@@ -89,7 +89,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Abstract extends Mage_Admin
      *
      * @return array
      */
-    public function getCondition()
+    function getCondition()
     {
         $helper = Mage::getResourceHelper('core');
         $likeExpression = $helper->addLikeEscape($this->getValue(), ['position' => 'any']);
@@ -111,7 +111,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Abstract extends Mage_Admin
      *
      * @return string
      */
-    public function getHtml()
+    function getHtml()
     {
         return '';
     }

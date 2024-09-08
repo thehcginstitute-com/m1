@@ -32,7 +32,7 @@ class Mage_Catalog_Helper_Product_Configuration extends Mage_Core_Helper_Abstrac
      * @param Mage_Catalog_Model_Product_Configuration_Item_Interface $item
      * @return array
      */
-    public function getCustomOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
+    function getCustomOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
     {
         $product = $item->getProduct();
         $options = [];
@@ -88,7 +88,7 @@ class Mage_Catalog_Helper_Product_Configuration extends Mage_Core_Helper_Abstrac
      * @param Mage_Catalog_Model_Product_Configuration_Item_Interface $item
      * @return array
      */
-    public function getConfigurableOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
+    function getConfigurableOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
     {
         $product = $item->getProduct();
         $typeId = $product->getTypeId();
@@ -107,7 +107,7 @@ class Mage_Catalog_Helper_Product_Configuration extends Mage_Core_Helper_Abstrac
      * @param Mage_Catalog_Model_Product_Configuration_Item_Interface $item
      * @return array
      */
-    public function getGroupedOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
+    function getGroupedOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
     {
         $product = $item->getProduct();
         $typeId = $product->getTypeId();
@@ -149,7 +149,7 @@ class Mage_Catalog_Helper_Product_Configuration extends Mage_Core_Helper_Abstrac
      * @param Mage_Catalog_Model_Product_Configuration_Item_Interface $item
      * @return array
      */
-    public function getOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
+    function getOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
     {
         $typeId = $item->getProduct()->getTypeId();
         switch ($typeId) {
@@ -185,7 +185,7 @@ class Mage_Catalog_Helper_Product_Configuration extends Mage_Core_Helper_Abstrac
      *
      * @return array
      */
-    public function getFormattedOptionValue($optionValue, $params = null)
+    function getFormattedOptionValue($optionValue, $params = null)
     {
         // Init params
         if (!$params) {
@@ -254,7 +254,7 @@ class Mage_Catalog_Helper_Product_Configuration extends Mage_Core_Helper_Abstrac
      *
      * @return SimpleXMLElement
      */
-    public function getConfigurableAllowedTypes()
+    function getConfigurableAllowedTypes()
     {
         return Mage::getConfig()
                 ->getNode(self::XML_PATH_CONFIGURABLE_ALLOWED_TYPES)

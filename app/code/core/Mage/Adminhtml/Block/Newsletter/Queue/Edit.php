@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Newsletter_Queue_Edit extends Mage_Adminhtml_Block_Te
      *
      * @return Mage_Newsletter_Model_Queue
      */
-    public function getQueue()
+    function getQueue()
     {
         return Mage::registry('current_queue');
     }
@@ -63,7 +63,7 @@ class Mage_Adminhtml_Block_Newsletter_Queue_Edit extends Mage_Adminhtml_Block_Te
      * @return string
      * @throws Exception
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         if ($this->getTemplateId()) {
             $params = ['template_id' => $this->getTemplateId()];
@@ -144,7 +144,7 @@ class Mage_Adminhtml_Block_Newsletter_Queue_Edit extends Mage_Adminhtml_Block_Te
      *
      * @return string
      */
-    public function getPreviewUrl()
+    function getPreviewUrl()
     {
         return $this->getUrl('*/*/preview');
     }
@@ -154,7 +154,7 @@ class Mage_Adminhtml_Block_Newsletter_Queue_Edit extends Mage_Adminhtml_Block_Te
      *
      * @return string
      */
-    public function getPreviewButtonHtml()
+    function getPreviewButtonHtml()
     {
         return $this->getChildHtml('preview_button');
     }
@@ -164,7 +164,7 @@ class Mage_Adminhtml_Block_Newsletter_Queue_Edit extends Mage_Adminhtml_Block_Te
      *
      * @return string
      */
-    public function getSaveButtonHtml()
+    function getSaveButtonHtml()
     {
         return $this->getChildHtml('save_button');
     }
@@ -174,7 +174,7 @@ class Mage_Adminhtml_Block_Newsletter_Queue_Edit extends Mage_Adminhtml_Block_Te
      *
      * @return string
      */
-    public function getResetButtonHtml()
+    function getResetButtonHtml()
     {
         return $this->getChildHtml('reset_button');
     }
@@ -184,7 +184,7 @@ class Mage_Adminhtml_Block_Newsletter_Queue_Edit extends Mage_Adminhtml_Block_Te
      *
      * @return string
      */
-    public function getBackButtonHtml()
+    function getBackButtonHtml()
     {
         return $this->getChildHtml('back_button');
     }
@@ -194,7 +194,7 @@ class Mage_Adminhtml_Block_Newsletter_Queue_Edit extends Mage_Adminhtml_Block_Te
      *
      * @return string
      */
-    public function getResumeButtonHtml()
+    function getResumeButtonHtml()
     {
         return $this->getChildHtml('save_and_resume');
     }
@@ -204,7 +204,7 @@ class Mage_Adminhtml_Block_Newsletter_Queue_Edit extends Mage_Adminhtml_Block_Te
      *
      * @return bool
      */
-    public function getIsPreview()
+    function getIsPreview()
     {
         return !in_array($this->getQueue()->getQueueStatus(), [
             Mage_Newsletter_Model_Queue::STATUS_NEVER,
@@ -237,7 +237,7 @@ class Mage_Adminhtml_Block_Newsletter_Queue_Edit extends Mage_Adminhtml_Block_Te
      *
      * @return bool
      */
-    public function getIsTextType()
+    function getIsTextType()
     {
         return $this->getQueue()->isPlain();
     }
@@ -247,7 +247,7 @@ class Mage_Adminhtml_Block_Newsletter_Queue_Edit extends Mage_Adminhtml_Block_Te
      *
      * @return bool
      */
-    public function getCanResume()
+    function getCanResume()
     {
         return $this->getQueue()->getQueueStatus() == Mage_Newsletter_Model_Queue::STATUS_PAUSE;
     }
@@ -257,7 +257,7 @@ class Mage_Adminhtml_Block_Newsletter_Queue_Edit extends Mage_Adminhtml_Block_Te
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return ($this->getIsPreview() ? Mage::helper('newsletter')->__('View Newsletter') : Mage::helper('newsletter')->__('Edit Newsletter'));
     }

@@ -28,7 +28,7 @@ class Mage_ConfigurableSwatches_Block_Catalog_Media_Js_List extends Mage_Configu
      *
      * @return array
      */
-    public function getProducts()
+    function getProducts()
     {
         return $this->getProductCollection();
     }
@@ -38,7 +38,7 @@ class Mage_ConfigurableSwatches_Block_Catalog_Media_Js_List extends Mage_Configu
      *
      * @return string
      */
-    public function getImageType()
+    function getImageType()
     {
         $type = parent::getImageType();
 

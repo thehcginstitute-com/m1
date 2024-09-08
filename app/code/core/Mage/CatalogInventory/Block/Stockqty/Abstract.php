@@ -39,7 +39,7 @@ abstract class Mage_CatalogInventory_Block_Stockqty_Abstract extends Mage_Core_B
      *
      * @return float
      */
-    public function getStockQty()
+    function getStockQty()
     {
         if (!$this->hasData('product_stock_qty')) {
             $qty = 0;
@@ -56,7 +56,7 @@ abstract class Mage_CatalogInventory_Block_Stockqty_Abstract extends Mage_Core_B
      *
      * @return string
      */
-    public function getThresholdQty()
+    function getThresholdQty()
     {
         if (!$this->hasData('threshold_qty')) {
             $qty = (float) Mage::getStoreConfig(self::XML_PATH_STOCK_THRESHOLD_QTY);
@@ -70,7 +70,7 @@ abstract class Mage_CatalogInventory_Block_Stockqty_Abstract extends Mage_Core_B
      *
      * @return string
      */
-    public function getPlaceholderId()
+    function getPlaceholderId()
     {
         return 'stock-qty-' . $this->_getProduct()->getId();
     }
@@ -80,7 +80,7 @@ abstract class Mage_CatalogInventory_Block_Stockqty_Abstract extends Mage_Core_B
      *
      * @return bool
      */
-    public function isMsgVisible()
+    function isMsgVisible()
     {
         return ($this->getStockQty() > 0 && $this->getStockQty() <= $this->getThresholdQty());
     }

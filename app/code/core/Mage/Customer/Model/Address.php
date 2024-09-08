@@ -42,7 +42,7 @@ class Mage_Customer_Model_Address extends Mage_Customer_Model_Address_Abstract
      *
      * @return int
      */
-    public function getCustomerId()
+    function getCustomerId()
     {
         return $this->_getData('customer_id') ? $this->_getData('customer_id') : $this->getParentId();
     }
@@ -53,7 +53,7 @@ class Mage_Customer_Model_Address extends Mage_Customer_Model_Address_Abstract
      * @param int $id
      * @return $this
      */
-    public function setCustomerId($id)
+    function setCustomerId($id)
     {
         $this->setParentId($id);
         $this->setData('customer_id', $id);
@@ -65,7 +65,7 @@ class Mage_Customer_Model_Address extends Mage_Customer_Model_Address_Abstract
      *
      * @return Mage_Customer_Model_Customer|false
      */
-    public function getCustomer()
+    function getCustomer()
     {
         if (!$this->getCustomerId()) {
             return false;
@@ -83,7 +83,7 @@ class Mage_Customer_Model_Address extends Mage_Customer_Model_Address_Abstract
      * @param Mage_Customer_Model_Customer $customer
      * @return $this
      */
-    public function setCustomer(Mage_Customer_Model_Customer $customer)
+    function setCustomer(Mage_Customer_Model_Customer $customer)
     {
         $this->_customer = $customer;
         $this->setCustomerId($customer->getId());
@@ -95,7 +95,7 @@ class Mage_Customer_Model_Address extends Mage_Customer_Model_Address_Abstract
      *
      * @return $this
      */
-    public function delete()
+    function delete()
     {
         parent::delete();
         $this->setData([]);
@@ -107,7 +107,7 @@ class Mage_Customer_Model_Address extends Mage_Customer_Model_Address_Abstract
      *
      * @return array
      */
-    public function getAttributes()
+    function getAttributes()
     {
         $attributes = $this->getData('attributes');
         if (is_null($attributes)) {
@@ -119,7 +119,7 @@ class Mage_Customer_Model_Address extends Mage_Customer_Model_Address_Abstract
         return $attributes;
     }
 
-    public function __clone()
+    function __clone()
     {
         $this->setId(null);
     }
@@ -129,7 +129,7 @@ class Mage_Customer_Model_Address extends Mage_Customer_Model_Address_Abstract
      *
      * @return Mage_Eav_Model_Entity_Type
      */
-    public function getEntityType()
+    function getEntityType()
     {
         return $this->_getResource()->getEntityType();
     }
@@ -139,7 +139,7 @@ class Mage_Customer_Model_Address extends Mage_Customer_Model_Address_Abstract
      *
      * @return int
      */
-    public function getEntityTypeId()
+    function getEntityTypeId()
     {
         $entityTypeId = $this->getData('entity_type_id');
         if (!$entityTypeId) {
@@ -154,7 +154,7 @@ class Mage_Customer_Model_Address extends Mage_Customer_Model_Address_Abstract
      *
      * @return int
      */
-    public function getRegionId()
+    function getRegionId()
     {
         return (int)$this->getData('region_id');
     }
@@ -165,7 +165,7 @@ class Mage_Customer_Model_Address extends Mage_Customer_Model_Address_Abstract
      * @param int $regionId
      * @return $this
      */
-    public function setRegionId($regionId)
+    function setRegionId($regionId)
     {
         $this->setData('region_id', (int)$regionId);
         return $this;

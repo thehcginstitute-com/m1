@@ -30,7 +30,7 @@ class Mage_Customer_Block_Account_Dashboard extends Mage_Core_Block_Template
     /**
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         return Mage::getSingleton('customer/session')->getCustomer();
     }
@@ -38,7 +38,7 @@ class Mage_Customer_Block_Account_Dashboard extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getAccountUrl()
+    function getAccountUrl()
     {
         return Mage::getUrl('customer/account/edit', ['_secure' => true]);
     }
@@ -46,7 +46,7 @@ class Mage_Customer_Block_Account_Dashboard extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getAddressesUrl()
+    function getAddressesUrl()
     {
         return Mage::getUrl('customer/address/index', ['_secure' => true]);
     }
@@ -55,7 +55,7 @@ class Mage_Customer_Block_Account_Dashboard extends Mage_Core_Block_Template
      * @param Mage_Customer_Model_Address $address
      * @return string
      */
-    public function getAddressEditUrl($address)
+    function getAddressEditUrl($address)
     {
         return Mage::getUrl('customer/address/edit', ['_secure' => true, 'id' => $address->getId()]);
     }
@@ -63,7 +63,7 @@ class Mage_Customer_Block_Account_Dashboard extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getOrdersUrl()
+    function getOrdersUrl()
     {
         return Mage::getUrl('customer/order/index', ['_secure' => true]);
     }
@@ -71,7 +71,7 @@ class Mage_Customer_Block_Account_Dashboard extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getReviewsUrl()
+    function getReviewsUrl()
     {
         return Mage::getUrl('review/customer/index', ['_secure' => true]);
     }
@@ -79,7 +79,7 @@ class Mage_Customer_Block_Account_Dashboard extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getWishlistUrl()
+    function getWishlistUrl()
     {
         return Mage::getUrl('customer/wishlist/index', ['_secure' => true]);
     }
@@ -90,7 +90,7 @@ class Mage_Customer_Block_Account_Dashboard extends Mage_Core_Block_Template
     /**
      * @return Mage_Newsletter_Model_Subscriber
      */
-    public function getSubscriptionObject()
+    function getSubscriptionObject()
     {
         if (is_null($this->_subscription)) {
             $this->_subscription = Mage::getModel('newsletter/subscriber')->loadByCustomer($this->getCustomer());
@@ -102,7 +102,7 @@ class Mage_Customer_Block_Account_Dashboard extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getManageNewsletterUrl()
+    function getManageNewsletterUrl()
     {
         return $this->getUrl('*/newsletter/manage');
     }
@@ -110,7 +110,7 @@ class Mage_Customer_Block_Account_Dashboard extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getSubscriptionText()
+    function getSubscriptionText()
     {
         if ($this->getSubscriptionObject()->isSubscribed()) {
             return Mage::helper('customer')->__('You are currently subscribed to our newsletter.');
@@ -122,7 +122,7 @@ class Mage_Customer_Block_Account_Dashboard extends Mage_Core_Block_Template
     /**
      * @return false|Mage_Customer_Model_Address[]
      */
-    public function getPrimaryAddresses()
+    function getPrimaryAddresses()
     {
         $addresses = $this->getCustomer()->getPrimaryAddresses();
         if (empty($addresses)) {
@@ -140,7 +140,7 @@ class Mage_Customer_Block_Account_Dashboard extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         // the RefererUrl must be set in appropriate controller
         if ($this->getRefererUrl()) {

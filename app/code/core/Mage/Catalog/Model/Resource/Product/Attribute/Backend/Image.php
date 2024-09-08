@@ -26,7 +26,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Backend_Image extends Mage_E
      * @param Varien_Object $object
      * @return $this
      */
-    public function afterSave($object)
+    function afterSave($object)
     {
         $value = $object->getData($this->getAttribute()->getName());
 

@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset_Configurable exten
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!$this->hasData('product')) {
             $this->setData('product', Mage::registry('product'));
@@ -44,7 +44,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset_Configurable exten
      *
      * @return Mage_Core_Model_Store
      */
-    public function getCurrentStore()
+    function getCurrentStore()
     {
         return Mage::app()->getStore($this->getProduct()->getStoreId());
     }

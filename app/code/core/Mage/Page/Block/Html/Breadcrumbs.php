@@ -46,7 +46,7 @@ class Mage_Page_Block_Html_Breadcrumbs extends Mage_Core_Block_Template
      */
     protected $_cacheKeyInfo = null;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('page/html/breadcrumbs.phtml');
@@ -58,7 +58,7 @@ class Mage_Page_Block_Html_Breadcrumbs extends Mage_Core_Block_Template
      * @param string|bool $after
      * @return $this
      */
-    public function addCrumb($crumbName, $crumbInfo, $after = false)
+    function addCrumb($crumbName, $crumbInfo, $after = false)
     {
         $this->_prepareArray($crumbInfo, ['label', 'title', 'link', 'first', 'last', 'readonly']);
         if ((!isset($this->_crumbs[$crumbName])) || (!$this->_crumbs[$crumbName]['readonly'])) {
@@ -77,7 +77,7 @@ class Mage_Page_Block_Html_Breadcrumbs extends Mage_Core_Block_Template
      * @param array $crumbInfo
      * @param bool $before
      */
-    public function addCrumbBefore($crumbName, $crumbInfo, $before = false)
+    function addCrumbBefore($crumbName, $crumbInfo, $before = false)
     {
         if ($before && isset($this->_crumbs[$before])) {
             $keys   = array_keys($this->_crumbs);
@@ -97,7 +97,7 @@ class Mage_Page_Block_Html_Breadcrumbs extends Mage_Core_Block_Template
     /**
      * @param string $crumbName
      */
-    public function removeCrumb($crumbName)
+    function removeCrumb($crumbName)
     {
         if (isset($this->_crumbs[$crumbName])) {
             unset($this->_crumbs[$crumbName]);
@@ -109,7 +109,7 @@ class Mage_Page_Block_Html_Breadcrumbs extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getCacheKeyInfo()
+    function getCacheKeyInfo()
     {
         if ($this->_cacheKeyInfo === null) {
             $this->_cacheKeyInfo = parent::getCacheKeyInfo() + [

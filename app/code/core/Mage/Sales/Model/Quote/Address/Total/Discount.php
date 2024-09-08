@@ -27,7 +27,7 @@ class Mage_Sales_Model_Quote_Address_Total_Discount extends Mage_Sales_Model_Quo
      * @return $this
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function collect(Mage_Sales_Model_Quote_Address $address)
+    function collect(Mage_Sales_Model_Quote_Address $address)
     {
         $quote = $address->getQuote();
         $eventArgs = [
@@ -135,7 +135,7 @@ class Mage_Sales_Model_Quote_Address_Total_Discount extends Mage_Sales_Model_Quo
      * @param Mage_Sales_Model_Quote_Address $address
      * @return $this
      */
-    public function fetch(Mage_Sales_Model_Quote_Address $address)
+    function fetch(Mage_Sales_Model_Quote_Address $address)
     {
         $amount = $address->getDiscountAmount();
         if ($amount != 0) {

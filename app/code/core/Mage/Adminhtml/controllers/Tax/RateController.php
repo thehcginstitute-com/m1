@@ -25,7 +25,7 @@ class Mage_Adminhtml_Tax_RateController extends Mage_Adminhtml_Controller_Action
     /**
      * Show Main Grid
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Sales'))
              ->_title($this->__('Tax'))
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Tax_RateController extends Mage_Adminhtml_Controller_Action
     /**
      * Show Add Form
      */
-    public function addAction()
+    function addAction()
     {
         $rateModel = Mage::getSingleton('tax/calculation_rate')->load(null);
 
@@ -82,7 +82,7 @@ class Mage_Adminhtml_Tax_RateController extends Mage_Adminhtml_Controller_Action
      * @return true|void
      * @throws Throwable
      */
-    public function saveAction()
+    function saveAction()
     {
         $ratePost = $this->getRequest()->getPost();
         if ($ratePost) {
@@ -118,7 +118,7 @@ class Mage_Adminhtml_Tax_RateController extends Mage_Adminhtml_Controller_Action
     /**
      * Show Edit Form
      */
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('Sales'))
              ->_title($this->__('Tax'))
@@ -161,7 +161,7 @@ class Mage_Adminhtml_Tax_RateController extends Mage_Adminhtml_Controller_Action
      * @return true|void
      * @throws Throwable
      */
-    public function deleteAction()
+    function deleteAction()
     {
         if ($rateId = $this->getRequest()->getParam('rate')) {
             $rateModel = Mage::getModel('tax/calculation_rate')->load($rateId);
@@ -192,7 +192,7 @@ class Mage_Adminhtml_Tax_RateController extends Mage_Adminhtml_Controller_Action
     /**
      * Export rates grid to CSV format
      */
-    public function exportCsvAction()
+    function exportCsvAction()
     {
         $fileName   = 'rates.csv';
         $content    = $this->getLayout()->createBlock('adminhtml/tax_rate_grid')
@@ -204,7 +204,7 @@ class Mage_Adminhtml_Tax_RateController extends Mage_Adminhtml_Controller_Action
     /**
      * Export rates grid to XML format
      */
-    public function exportXmlAction()
+    function exportXmlAction()
     {
         $fileName   = 'rates.xml';
         $content    = $this->getLayout()->createBlock('adminhtml/tax_rate_grid')
@@ -231,7 +231,7 @@ class Mage_Adminhtml_Tax_RateController extends Mage_Adminhtml_Controller_Action
      * Import and export Page
      *
      */
-    public function importExportAction()
+    function importExportAction()
     {
         $this->_title($this->__('Sales'))
              ->_title($this->__('Tax'))
@@ -249,7 +249,7 @@ class Mage_Adminhtml_Tax_RateController extends Mage_Adminhtml_Controller_Action
      * import action from import/export tax
      *
      */
-    public function importPostAction()
+    function importPostAction()
     {
         if ($this->getRequest()->isPost() && !empty($_FILES['import_rates_file']['tmp_name'])) {
             try {
@@ -387,7 +387,7 @@ class Mage_Adminhtml_Tax_RateController extends Mage_Adminhtml_Controller_Action
      * export action from import/export tax
      *
      */
-    public function exportPostAction()
+    function exportPostAction()
     {
         /** start csv content and set template */
         $headers = new Varien_Object([

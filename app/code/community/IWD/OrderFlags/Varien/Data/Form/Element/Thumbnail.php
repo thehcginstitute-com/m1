@@ -9,7 +9,7 @@ class IWD_OrderFlags_Varien_Data_Form_Element_Thumbnail extends Varien_Data_Form
      * IWD_OrderFlags_Varien_Data_Form_Element_Thumbnail constructor.
      * @param array $data
      */
-    public function __construct($data)
+    function __construct($data)
     {
         parent::__construct($data);
         $this->setType('file');
@@ -18,7 +18,7 @@ class IWD_OrderFlags_Varien_Data_Form_Element_Thumbnail extends Varien_Data_Form
     /**
      * @return string
      */
-    public function getElementHtml()
+    function getElementHtml()
     {
         $html = '';
 
@@ -47,7 +47,7 @@ class IWD_OrderFlags_Varien_Data_Form_Element_Thumbnail extends Varien_Data_Form
     /**
      * @return mixed
      */
-    public function getName()
+    function getName()
     {
         return $this->getData('name');
     }

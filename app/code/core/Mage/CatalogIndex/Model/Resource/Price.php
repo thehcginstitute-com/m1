@@ -45,7 +45,7 @@ class Mage_CatalogIndex_Model_Resource_Price extends Mage_CatalogIndex_Model_Res
     /**
      * @param float $rate
      */
-    public function setRate($rate)
+    function setRate($rate)
     {
         $this->_rate = $rate;
     }
@@ -53,7 +53,7 @@ class Mage_CatalogIndex_Model_Resource_Price extends Mage_CatalogIndex_Model_Res
     /**
      * @return float
      */
-    public function getRate()
+    function getRate()
     {
         if (!$this->_rate) {
             $this->_rate = 1;
@@ -64,7 +64,7 @@ class Mage_CatalogIndex_Model_Resource_Price extends Mage_CatalogIndex_Model_Res
     /**
      * @param int $customerGroupId
      */
-    public function setCustomerGroupId($customerGroupId)
+    function setCustomerGroupId($customerGroupId)
     {
         $this->_customerGroupId = $customerGroupId;
     }
@@ -72,7 +72,7 @@ class Mage_CatalogIndex_Model_Resource_Price extends Mage_CatalogIndex_Model_Res
     /**
      * @return int
      */
-    public function getCustomerGroupId()
+    function getCustomerGroupId()
     {
         return $this->_customerGroupId;
     }
@@ -82,7 +82,7 @@ class Mage_CatalogIndex_Model_Resource_Price extends Mage_CatalogIndex_Model_Res
      * @param Zend_Db_Select $entitySelect
      * @return float|int
      */
-    public function getMaxValue($attribute, $entitySelect)
+    function getMaxValue($attribute, $entitySelect)
     {
         $select = clone $entitySelect;
         $select->reset(Zend_Db_Select::COLUMNS);
@@ -120,7 +120,7 @@ class Mage_CatalogIndex_Model_Resource_Price extends Mage_CatalogIndex_Model_Res
      * @param Zend_Db_Select $entitySelect
      * @return array
      */
-    public function getCount($range, $attribute, $entitySelect)
+    function getCount($range, $attribute, $entitySelect)
     {
         $select = clone $entitySelect;
         $select->reset(Zend_Db_Select::COLUMNS);
@@ -168,7 +168,7 @@ class Mage_CatalogIndex_Model_Resource_Price extends Mage_CatalogIndex_Model_Res
      * @param string $tableName
      * @return array
      */
-    public function getFilteredEntities($range, $index, $attribute, $entityIdsFilter, $tableName = 'price_table')
+    function getFilteredEntities($range, $index, $attribute, $entityIdsFilter, $tableName = 'price_table')
     {
         $select = $this->_getReadAdapter()->select();
         $select->from([$tableName => $this->getMainTable()], $tableName . '.entity_id');
@@ -207,7 +207,7 @@ class Mage_CatalogIndex_Model_Resource_Price extends Mage_CatalogIndex_Model_Res
      * @param string $tableName
      * @return $this
      */
-    public function applyFilterToCollection($collection, $attribute, $range, $index, $tableName = 'price_table')
+    function applyFilterToCollection($collection, $attribute, $range, $index, $tableName = 'price_table')
     {
         /**
          * Distinct required for removing duplicates in case when we have grouped products
@@ -250,7 +250,7 @@ class Mage_CatalogIndex_Model_Resource_Price extends Mage_CatalogIndex_Model_Res
      * @param array $ids
      * @return array
      */
-    public function getMinimalPrices($ids)
+    function getMinimalPrices($ids)
     {
         if (!$ids) {
             return [];

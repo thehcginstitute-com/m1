@@ -28,7 +28,7 @@ class Mage_Adminhtml_DashboardController extends Mage_Adminhtml_Controller_Actio
      */
     public const ADMIN_RESOURCE = 'dashboard';
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Dashboard'));
 
@@ -41,7 +41,7 @@ class Mage_Adminhtml_DashboardController extends Mage_Adminhtml_Controller_Actio
     /**
      * Gets most viewed products list
      */
-    public function productsViewedAction()
+    function productsViewedAction()
     {
         $this->loadLayout();
         $this->renderLayout();
@@ -50,7 +50,7 @@ class Mage_Adminhtml_DashboardController extends Mage_Adminhtml_Controller_Actio
     /**
      * Gets latest customers list
      */
-    public function customersNewestAction()
+    function customersNewestAction()
     {
         $this->loadLayout();
         $this->renderLayout();
@@ -59,13 +59,13 @@ class Mage_Adminhtml_DashboardController extends Mage_Adminhtml_Controller_Actio
     /**
      * Gets the list of most active customers
      */
-    public function customersMostAction()
+    function customersMostAction()
     {
         $this->loadLayout();
         $this->renderLayout();
     }
 
-    public function ajaxBlockAction()
+    function ajaxBlockAction()
     {
         $output   = '';
         $blockTab = $this->getRequest()->getParam('block');
@@ -75,7 +75,7 @@ class Mage_Adminhtml_DashboardController extends Mage_Adminhtml_Controller_Actio
         $this->getResponse()->setBody($output);
     }
 
-    public function tunnelAction()
+    function tunnelAction()
     {
         $httpClient = new Varien_Http_Client();
         $gaData = $this->getRequest()->getParam('ga');

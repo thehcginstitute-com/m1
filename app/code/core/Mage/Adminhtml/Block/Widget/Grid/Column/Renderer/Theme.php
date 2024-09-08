@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Theme extends Mage_Adminh
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $options = $this->getOptions();
         $value   = $this->_getValue($row);
@@ -45,7 +45,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Theme extends Mage_Adminh
      *
      * @return array
      */
-    public function getOptions()
+    function getOptions()
     {
         if ($this->getColumn()->getFilter()) {
             $options = $this->getColumn()->getFilter()->getOptions();

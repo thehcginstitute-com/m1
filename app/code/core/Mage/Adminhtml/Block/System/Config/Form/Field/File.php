@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_System_Config_Form_Field_File extends Varien_Data_For
      *
      * @return string
      */
-    public function getElementHtml()
+    function getElementHtml()
     {
         $html = parent::getElementHtml();
         $html .= $this->_getDeleteCheckbox();

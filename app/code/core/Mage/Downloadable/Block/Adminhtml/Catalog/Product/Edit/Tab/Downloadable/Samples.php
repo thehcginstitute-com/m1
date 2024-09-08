@@ -25,7 +25,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Sa
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('downloadable/product/edit/downloadable/samples.phtml');
@@ -36,7 +36,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Sa
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return Mage::registry('current_product');
     }
@@ -46,7 +46,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Sa
      *
      * @return bool
      */
-    public function isReadonly()
+    function isReadonly()
     {
         return $this->getProduct()->getDownloadableReadonly();
     }
@@ -56,7 +56,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Sa
      *
      * @return string
      */
-    public function getAddButtonHtml()
+    function getAddButtonHtml()
     {
         $addButton = $this->getLayout()->createBlock('adminhtml/widget_button')
             ->setData([
@@ -72,7 +72,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Sa
      *
      * @return array
      */
-    public function getSampleData()
+    function getSampleData()
     {
         $samplesArr = [];
         /** @var Mage_Downloadable_Model_Product_Type $productType */
@@ -117,7 +117,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Sa
      *
      * @return bool
      */
-    public function getUsedDefault()
+    function getUsedDefault()
     {
         return $this->getProduct()->getAttributeDefaultValue('samples_title') === false;
     }
@@ -127,7 +127,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Sa
      *
      * @return string
      */
-    public function getSamplesTitle()
+    function getSamplesTitle()
     {
         return Mage::getStoreConfig(Mage_Downloadable_Model_Sample::XML_PATH_SAMPLES_TITLE);
     }
@@ -162,7 +162,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Sa
      *
      * @return string
      */
-    public function getUploadButtonHtml()
+    function getUploadButtonHtml()
     {
         return $this->getChild('upload_button')->toHtml();
     }
@@ -172,7 +172,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Sa
      *
      * @return string
      */
-    public function getConfigJson()
+    function getConfigJson()
     {
         $this->getUploaderConfig()
             ->setFileParameterName('samples')
@@ -189,7 +189,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Sa
     /**
      * @return string
      */
-    public function getBrowseButtonHtml()
+    function getBrowseButtonHtml()
     {
         return $this->getChild('browse_button')
             // Workaround for IE9
@@ -202,7 +202,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Sa
     /**
      * @return string
      */
-    public function getDeleteButtonHtml()
+    function getDeleteButtonHtml()
     {
         return $this->getChild('delete_button')
             ->setLabel('')
@@ -217,7 +217,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Sa
      * @deprecated
      * @return $this
      */
-    public function getConfig()
+    function getConfig()
     {
         return $this;
     }

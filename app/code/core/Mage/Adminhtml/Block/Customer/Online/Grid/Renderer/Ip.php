@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Customer_Online_Grid_Renderer_Ip extends Mage_Adminht
     /**
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         /**
          * The output of the "inet_ntop" function was disabled to prevent an error throwing

@@ -31,7 +31,7 @@ class Mage_Core_Model_Resource_Design extends Mage_Core_Model_Resource_Db_Abstra
      * @param Mage_Core_Model_Design $object
      * @inheritDoc
      */
-    public function _beforeSave(Mage_Core_Model_Abstract $object)
+    function _beforeSave(Mage_Core_Model_Abstract $object)
     {
         $dateFrom = $object->getDateFrom();
         $dateTo = $object->getDateTo();
@@ -139,7 +139,7 @@ class Mage_Core_Model_Resource_Design extends Mage_Core_Model_Resource_Db_Abstra
      * @param string $date
      * @return array
      */
-    public function loadChange($storeId, $date = null)
+    function loadChange($storeId, $date = null)
     {
         if (is_null($date)) {
             $date = Varien_Date::now();

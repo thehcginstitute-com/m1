@@ -40,7 +40,7 @@ class Mage_Downloadable_Model_Link_Api_Uploader extends Mage_Core_Model_File_Upl
      * @throws Exception
      * @param array $file
      */
-    public function __construct($file)
+    function __construct($file)
     {
         $this->_setUploadFile($file);
         if (!file_exists($this->_file['tmp_name'])) {

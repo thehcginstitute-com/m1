@@ -66,7 +66,7 @@ class Mage_Catalog_Model_Product_Indexer_Eav extends Mage_Index_Model_Indexer_Ab
      *
      * @return string
      */
-    public function getName()
+    function getName()
     {
         return Mage::helper('catalog')->__('Product Attributes');
     }
@@ -76,7 +76,7 @@ class Mage_Catalog_Model_Product_Indexer_Eav extends Mage_Index_Model_Indexer_Ab
      *
      * @return string
      */
-    public function getDescription()
+    function getDescription()
     {
         return Mage::helper('catalog')->__('Index product attributes for layered navigation building');
     }

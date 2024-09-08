@@ -72,7 +72,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View_Grid_Renderer_Item extends Mag
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return $this->getItem()->getProduct();
     }
@@ -110,7 +110,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View_Grid_Renderer_Item extends Mag
      * @param Varien_Object $item
      * @return string
      */
-    public function render(Varien_Object $item)
+    function render(Varien_Object $item)
     {
         $this->setItem($item);
         return $this->toHtml();

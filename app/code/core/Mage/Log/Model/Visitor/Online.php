@@ -51,7 +51,7 @@ class Mage_Log_Model_Visitor_Online extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function prepare()
+    function prepare()
     {
         $this->_getResource()->prepare($this);
         return $this;
@@ -62,7 +62,7 @@ class Mage_Log_Model_Visitor_Online extends Mage_Core_Model_Abstract
      *
      * @return string|false
      */
-    public function getPrepareAt()
+    function getPrepareAt()
     {
         return Mage::app()->loadCache('log_visitor_online_prepare_at');
     }
@@ -73,7 +73,7 @@ class Mage_Log_Model_Visitor_Online extends Mage_Core_Model_Abstract
      * @param int $time
      * @return $this
      */
-    public function setPrepareAt($time = null)
+    function setPrepareAt($time = null)
     {
         if (is_null($time)) {
             $time = time();
@@ -87,7 +87,7 @@ class Mage_Log_Model_Visitor_Online extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getUpdateFrequency()
+    function getUpdateFrequency()
     {
         return Mage::getStoreConfig(self::XML_PATH_UPDATE_FREQUENCY);
     }
@@ -97,7 +97,7 @@ class Mage_Log_Model_Visitor_Online extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getOnlineInterval()
+    function getOnlineInterval()
     {
         $value = (int) Mage::getStoreConfig(self::XML_PATH_ONLINE_INTERVAL);
         if (!$value) {

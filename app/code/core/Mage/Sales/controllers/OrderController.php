@@ -27,7 +27,7 @@ class Mage_Sales_OrderController extends Mage_Sales_Controller_Abstract
      *
      * Check customer authentication for some actions
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
         $action = $this->getRequest()->getActionName();
@@ -42,7 +42,7 @@ class Mage_Sales_OrderController extends Mage_Sales_Controller_Abstract
     /**
      * Customer order history
      */
-    public function historyAction()
+    function historyAction()
     {
         $this->loadLayout();
         $this->_initLayoutMessages('catalog/session');
@@ -73,7 +73,7 @@ class Mage_Sales_OrderController extends Mage_Sales_Controller_Abstract
      * @deprecated after 1.6.0.0
      *
      */
-    public function viewOldAction()
+    function viewOldAction()
     {
         $this->_forward('noRoute');
     }

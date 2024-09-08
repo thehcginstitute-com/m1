@@ -42,7 +42,7 @@ class Mage_CatalogSearch_Model_Resource_Search_Collection extends Mage_Catalog_M
      * @param string $query
      * @return $this
      */
-    public function addSearchFilter($query)
+    function addSearchFilter($query)
     {
         $this->_searchQuery = $query;
         $this->addFieldToFilter('entity_id', ['in' => new Zend_Db_Expr($this->_getSearchEntityIdsSql($query))]);

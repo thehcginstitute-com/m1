@@ -47,7 +47,7 @@ class Mage_Tax_Model_Resource_Calculation extends Mage_Core_Model_Resource_Db_Ab
      * @param int $ruleId
      * @return $this
      */
-    public function deleteByRuleId($ruleId)
+    function deleteByRuleId($ruleId)
     {
         $conn = $this->_getWriteAdapter();
         $where = $conn->quoteInto('tax_calculation_rule_id = ?', (int)$ruleId);
@@ -63,7 +63,7 @@ class Mage_Tax_Model_Resource_Calculation extends Mage_Core_Model_Resource_Db_Ab
      * @param  int $ruleId
      * @return array
      */
-    public function getDistinct($field, $ruleId)
+    function getDistinct($field, $ruleId)
     {
         $select = $this->_getReadAdapter()->select();
         $select->from($this->getMainTable(), $field)
@@ -78,7 +78,7 @@ class Mage_Tax_Model_Resource_Calculation extends Mage_Core_Model_Resource_Db_Ab
      * @param Varien_Object $request
      * @return array
      */
-    public function getRateInfo($request)
+    function getRateInfo($request)
     {
         $rates = $this->_getRates($request);
         return [
@@ -93,7 +93,7 @@ class Mage_Tax_Model_Resource_Calculation extends Mage_Core_Model_Resource_Db_Ab
      * @param Varien_Object $request
      * @return int
      */
-    public function getRate($request)
+    function getRate($request)
     {
         return $this->_calculateRate($this->_getRates($request));
     }
@@ -105,7 +105,7 @@ class Mage_Tax_Model_Resource_Calculation extends Mage_Core_Model_Resource_Db_Ab
      * @param array $rates
      * @return array
      */
-    public function getCalculationProcess($request, $rates = null)
+    function getCalculationProcess($request, $rates = null)
     {
         if (is_null($rates)) {
             $rates = $this->_getRates($request);
@@ -363,7 +363,7 @@ class Mage_Tax_Model_Resource_Calculation extends Mage_Core_Model_Resource_Db_Ab
      * @param Varien_Object $request
      * @return array
      */
-    public function getApplicableRateIds($request)
+    function getApplicableRateIds($request)
     {
         $countryId = $request->getCountryId();
         $regionId = $request->getRegionId();
@@ -429,7 +429,7 @@ class Mage_Tax_Model_Resource_Calculation extends Mage_Core_Model_Resource_Db_Ab
      * @param Varien_Object $request
      * @return array
      */
-    public function getRateIds($request)
+    function getRateIds($request)
     {
         $result = [];
         $rates  = $this->_getRates($request);
@@ -453,7 +453,7 @@ class Mage_Tax_Model_Resource_Calculation extends Mage_Core_Model_Resource_Db_Ab
      * @param int|null $productTaxClass
      * @return array
      */
-    public function getRatesByCustomerTaxClass($customerTaxClass, $productTaxClass = null)
+    function getRatesByCustomerTaxClass($customerTaxClass, $productTaxClass = null)
     {
         $adapter = $this->_getReadAdapter();
         $customerTaxClassId = (int)$customerTaxClass;

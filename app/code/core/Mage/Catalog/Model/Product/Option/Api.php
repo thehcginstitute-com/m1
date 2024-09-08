@@ -30,7 +30,7 @@ class Mage_Catalog_Model_Product_Option_Api extends Mage_Catalog_Model_Api_Resou
      * @param int|string|null $store
      * @return bool $isAdded
      */
-    public function add($productId, $data, $store = null)
+    function add($productId, $data, $store = null)
     {
         $product = $this->_getProduct($productId, $store, null);
         if (!(is_array($data['additional_fields']) && count($data['additional_fields']))) {
@@ -55,7 +55,7 @@ class Mage_Catalog_Model_Product_Option_Api extends Mage_Catalog_Model_Api_Resou
      * @param int|string|null $store
      * @return bool
      */
-    public function update($optionId, $data, $store = null)
+    function update($optionId, $data, $store = null)
     {
         /** @var Mage_Catalog_Model_Product_Option $option */
         $option = Mage::getModel('catalog/product_option')->load($optionId);
@@ -168,7 +168,7 @@ class Mage_Catalog_Model_Product_Option_Api extends Mage_Catalog_Model_Api_Resou
      *
      * @return array
      */
-    public function types()
+    function types()
     {
         $path = Mage_Adminhtml_Model_System_Config_Source_Product_Options_Type::PRODUCT_OPTIONS_GROUPS_PATH;
         $types = [];
@@ -193,7 +193,7 @@ class Mage_Catalog_Model_Product_Option_Api extends Mage_Catalog_Model_Api_Resou
      * @param  int|string|null $store
      * @return array
      */
-    public function info($optionId, $store = null)
+    function info($optionId, $store = null)
     {
         /** @var Mage_Catalog_Model_Product_Option $option */
         $option = Mage::getModel('catalog/product_option')->load($optionId);
@@ -253,7 +253,7 @@ class Mage_Catalog_Model_Product_Option_Api extends Mage_Catalog_Model_Api_Resou
      * @param  int|string|null $store
      * @return array
      */
-    public function items($productId, $store = null)
+    function items($productId, $store = null)
     {
         $result = [];
         $product = $this->_getProduct($productId, $store, null);
@@ -276,7 +276,7 @@ class Mage_Catalog_Model_Product_Option_Api extends Mage_Catalog_Model_Api_Resou
      * @param string $optionId
      * @return bool
      */
-    public function remove($optionId)
+    function remove($optionId)
     {
         /** @var Mage_Catalog_Model_Product_Option $option */
         $option = Mage::getModel('catalog/product_option')->load($optionId);

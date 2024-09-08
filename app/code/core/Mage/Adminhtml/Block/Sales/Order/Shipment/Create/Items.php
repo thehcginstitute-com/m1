@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_Create_Items extends Mage_Adminh
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->getShipment()->getOrder();
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_Create_Items extends Mage_Adminh
      *
      * @return Mage_Sales_Model_Order_Shipment
      */
-    public function getSource()
+    function getSource()
     {
         return $this->getShipment();
     }
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_Create_Items extends Mage_Adminh
      *
      * @return Mage_Sales_Model_Order_Shipment
      */
-    public function getShipment()
+    function getShipment()
     {
         return Mage::registry('current_shipment');
     }
@@ -75,7 +75,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_Create_Items extends Mage_Adminh
      * @param float $price
      * @return string
      */
-    public function formatPrice($price)
+    function formatPrice($price)
     {
         return $this->getShipment()->getOrder()->formatPrice($price);
     }
@@ -85,7 +85,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_Create_Items extends Mage_Adminh
      *
      * @return string
      */
-    public function getUpdateButtonHtml()
+    function getUpdateButtonHtml()
     {
         return $this->getChildHtml('update_button');
     }
@@ -95,7 +95,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_Create_Items extends Mage_Adminh
      *
      * @return string
      */
-    public function getUpdateUrl()
+    function getUpdateUrl()
     {
         return $this->getUrl('*/*/updateQty', ['order_id' => $this->getShipment()->getOrderId()]);
     }
@@ -105,7 +105,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_Create_Items extends Mage_Adminh
      *
      * @return bool
      */
-    public function canSendShipmentEmail()
+    function canSendShipmentEmail()
     {
         return Mage::helper('sales')->canSendNewShipmentEmail($this->getOrder()->getStore()->getId());
     }

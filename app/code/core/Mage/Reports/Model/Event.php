@@ -73,7 +73,7 @@ class Mage_Reports_Model_Event extends Mage_Core_Model_Abstract
      * @param array $types
      * @return $this
      */
-    public function updateCustomerType($visitorId, $customerId, $types = null)
+    function updateCustomerType($visitorId, $customerId, $types = null)
     {
         if (is_null($types)) {
             $types = [];
@@ -92,7 +92,7 @@ class Mage_Reports_Model_Event extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function clean()
+    function clean()
     {
         $this->getResource()->clean($this);
         return $this;

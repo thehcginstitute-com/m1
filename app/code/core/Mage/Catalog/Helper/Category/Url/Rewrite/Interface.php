@@ -29,7 +29,7 @@ interface Mage_Catalog_Helper_Category_Url_Rewrite_Interface
      * @param int $storeId
      * @return Mage_Catalog_Helper_Category_Url_Rewrite
      */
-    public function joinTableToEavCollection(Mage_Eav_Model_Entity_Collection_Abstract $collection, $storeId);
+    function joinTableToEavCollection(Mage_Eav_Model_Entity_Collection_Abstract $collection, $storeId);
 
     /**
      * Join url rewrite table to flat collection
@@ -38,7 +38,7 @@ interface Mage_Catalog_Helper_Category_Url_Rewrite_Interface
      * @param int $storeId
      * @return Mage_Catalog_Helper_Category_Url_Rewrite_Interface
      */
-    public function joinTableToCollection(Mage_Catalog_Model_Resource_Category_Flat_Collection $collection, $storeId);
+    function joinTableToCollection(Mage_Catalog_Model_Resource_Category_Flat_Collection $collection, $storeId);
 
     /**
      * Join url rewrite to select
@@ -47,5 +47,5 @@ interface Mage_Catalog_Helper_Category_Url_Rewrite_Interface
      * @param int $storeId
      * @return Mage_Catalog_Helper_Category_Url_Rewrite
      */
-    public function joinTableToSelect(Varien_Db_Select $select, $storeId);
+    function joinTableToSelect(Varien_Db_Select $select, $storeId);
 }

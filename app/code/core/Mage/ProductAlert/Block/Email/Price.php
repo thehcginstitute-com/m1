@@ -22,7 +22,7 @@
  */
 class Mage_ProductAlert_Block_Email_Price extends Mage_ProductAlert_Block_Email_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('email/productalert/price.phtml');
@@ -34,7 +34,7 @@ class Mage_ProductAlert_Block_Email_Price extends Mage_ProductAlert_Block_Email_
      * @param int $productId
      * @return string
      */
-    public function getProductUnsubscribeUrl($productId)
+    function getProductUnsubscribeUrl($productId)
     {
         $params = $this->_getUrlParams();
         $params['product'] = $productId;
@@ -46,7 +46,7 @@ class Mage_ProductAlert_Block_Email_Price extends Mage_ProductAlert_Block_Email_
      *
      * @return string
      */
-    public function getUnsubscribeUrl()
+    function getUnsubscribeUrl()
     {
         return $this->getUrl('productalert/unsubscribe/priceAll', $this->_getUrlParams());
     }

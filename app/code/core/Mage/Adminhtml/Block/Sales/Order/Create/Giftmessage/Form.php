@@ -42,7 +42,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Giftmessage_Form extends Mage_Admi
      * @param Varien_Object $entity
      * @return $this
      */
-    public function setEntity(Varien_Object $entity)
+    function setEntity(Varien_Object $entity)
     {
         $this->_entity  = $entity;
         return $this;
@@ -53,7 +53,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Giftmessage_Form extends Mage_Admi
      *
      * @return Varien_Object
      */
-    public function getEntity()
+    function getEntity()
     {
         return $this->_entity;
     }
@@ -71,7 +71,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Giftmessage_Form extends Mage_Admi
      *
      * @return string
      */
-    public function getDefaultSender()
+    function getDefaultSender()
     {
         if (!$this->getEntity()) {
             return '';
@@ -95,7 +95,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Giftmessage_Form extends Mage_Admi
      *
      * @return string
      */
-    public function getDefaultRecipient()
+    function getDefaultRecipient()
     {
         if (!$this->getEntity()) {
             return '';
@@ -126,7 +126,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Giftmessage_Form extends Mage_Admi
      * @return $this
      * @throws Exception
      */
-    public function _prepareForm()
+    function _prepareForm()
     {
         $form = new Varien_Data_Form();
         $fieldset = $form->addFieldset('main', ['no_container' => true]);
@@ -262,7 +262,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Giftmessage_Form extends Mage_Admi
      *
      * @return Mage_GiftMessage_Model_Message
      */
-    public function getMessage()
+    function getMessage()
     {
         if (is_null($this->_giftMessage)) {
             $this->_initMessage();

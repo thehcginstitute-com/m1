@@ -36,7 +36,7 @@ class Mage_Core_Helper_Hint extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getAvailableHints()
+    function getAvailableHints()
     {
         if ($this->_availableHints === null) {
             $hints = [];
@@ -59,7 +59,7 @@ class Mage_Core_Helper_Hint extends Mage_Core_Helper_Abstract
      * @param string $code
      * @return null|string
      */
-    public function getHintByCode($code)
+    function getHintByCode($code)
     {
         $hint = null;
         $hints = $this->getAvailableHints();

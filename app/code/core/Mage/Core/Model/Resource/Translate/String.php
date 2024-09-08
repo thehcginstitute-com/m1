@@ -31,7 +31,7 @@ class Mage_Core_Model_Resource_Translate_String extends Mage_Core_Model_Resource
      * @param Mage_Core_Model_Translate_String $object
      * @inheritDoc
      */
-    public function load(Mage_Core_Model_Abstract $object, $value, $field = null)
+    function load(Mage_Core_Model_Abstract $object, $value, $field = null)
     {
         if (is_string($value)) {
             $select = $this->_getReadAdapter()->select()
@@ -67,7 +67,7 @@ class Mage_Core_Model_Resource_Translate_String extends Mage_Core_Model_Resource
      * @param Mage_Core_Model_Translate_String $object
      * @inheritDoc
      */
-    public function _afterLoad(Mage_Core_Model_Abstract $object)
+    function _afterLoad(Mage_Core_Model_Abstract $object)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()
@@ -151,7 +151,7 @@ class Mage_Core_Model_Resource_Translate_String extends Mage_Core_Model_Resource
      * @param int|null $storeId
      * @return $this
      */
-    public function deleteTranslate($string, $locale = null, $storeId = null)
+    function deleteTranslate($string, $locale = null, $storeId = null)
     {
         if (is_null($locale)) {
             $locale = Mage::app()->getLocale()->getLocaleCode();
@@ -182,7 +182,7 @@ class Mage_Core_Model_Resource_Translate_String extends Mage_Core_Model_Resource
      * @param int|null $storeId
      * @return $this
      */
-    public function saveTranslate($string, $translate, $locale = null, $storeId = null)
+    function saveTranslate($string, $translate, $locale = null, $storeId = null)
     {
         $write = $this->_getWriteAdapter();
         $table = $this->getMainTable();

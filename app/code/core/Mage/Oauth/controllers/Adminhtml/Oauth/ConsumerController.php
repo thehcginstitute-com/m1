@@ -44,7 +44,7 @@ class Mage_Oauth_Adminhtml_Oauth_ConsumerController extends Mage_Adminhtml_Contr
      *
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions(['delete']);
         $this->_title($this->__('System'))
@@ -57,7 +57,7 @@ class Mage_Oauth_Adminhtml_Oauth_ConsumerController extends Mage_Adminhtml_Contr
     /**
      * Render grid page
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout();
         $this->renderLayout();
@@ -66,7 +66,7 @@ class Mage_Oauth_Adminhtml_Oauth_ConsumerController extends Mage_Adminhtml_Contr
     /**
      * Render grid AJAX request
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout();
         $this->renderLayout();
@@ -75,7 +75,7 @@ class Mage_Oauth_Adminhtml_Oauth_ConsumerController extends Mage_Adminhtml_Contr
     /**
      * Create page action
      */
-    public function newAction()
+    function newAction()
     {
         /** @var Mage_Oauth_Model_Consumer $model */
         $model = Mage::getModel('oauth/consumer');
@@ -101,7 +101,7 @@ class Mage_Oauth_Adminhtml_Oauth_ConsumerController extends Mage_Adminhtml_Contr
     /**
      * Edit page action
      */
-    public function editAction()
+    function editAction()
     {
         $id = (int) $this->getRequest()->getParam('id');
 
@@ -131,7 +131,7 @@ class Mage_Oauth_Adminhtml_Oauth_ConsumerController extends Mage_Adminhtml_Contr
     /**
      * Render edit page
      */
-    public function saveAction()
+    function saveAction()
     {
         $id = $this->getRequest()->getParam('id');
         if (!$this->_validateFormKey()) {
@@ -269,7 +269,7 @@ class Mage_Oauth_Adminhtml_Oauth_ConsumerController extends Mage_Adminhtml_Contr
     /**
      * Delete consumer action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $consumerId = (int) $this->getRequest()->getParam('id');
 

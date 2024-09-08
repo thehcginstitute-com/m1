@@ -42,7 +42,7 @@ class Mage_Adminhtml_Model_Sales_Order_Random
     protected static $_storeCollection;
     protected static $_customerCollection;
 
-    public function __construct()
+    function __construct()
     {
         $this->_quote = Mage::getModel('sales/quote')->save();
         $this->_order = Mage::getModel('sales/order');
@@ -117,7 +117,7 @@ class Mage_Adminhtml_Model_Sales_Order_Random
         return $this->_store;
     }
 
-    public function render()
+    function render()
     {
         $customer = $this->_getCustomer();
         $this->_quote->setStore($this->_getStore())
@@ -149,7 +149,7 @@ class Mage_Adminhtml_Model_Sales_Order_Random
         return date(Varien_Date::DATETIME_PHP_FORMAT, $timestamp);
     }
 
-    public function save()
+    function save()
     {
         $this->_order->setStoreId($this->_getStore()->getId());
         $this->_order->createFromQuoteAddress($this->_quote->getShippingAddress());

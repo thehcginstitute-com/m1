@@ -34,7 +34,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Attributes_Create extends Ma
      *
      * @return Varien_Object
      */
-    public function getConfig()
+    function getConfig()
     {
         if (is_null($this->_config)) {
             $this->_config = new Varien_Object();
@@ -94,7 +94,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Attributes_Create extends Ma
     /**
      * @return string
      */
-    public function getJsObjectName()
+    function getJsObjectName()
     {
         return $this->getId() . 'JsObject';
     }

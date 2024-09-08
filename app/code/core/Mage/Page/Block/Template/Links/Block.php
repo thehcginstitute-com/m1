@@ -105,7 +105,7 @@ class Mage_Page_Block_Template_Links_Block extends Mage_Core_Block_Template
      *
      * @return int
      */
-    public function getPosition()
+    function getPosition()
     {
         return $this->_position;
     }
@@ -115,7 +115,7 @@ class Mage_Page_Block_Template_Links_Block extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function getIsFirst()
+    function getIsFirst()
     {
         return $this->_isFirst;
     }
@@ -127,7 +127,7 @@ class Mage_Page_Block_Template_Links_Block extends Mage_Core_Block_Template
      * return Mage_Page_Block_Template_Links_Block
      * @return Mage_Page_Block_Template_Links_Block
      */
-    public function setIsFirst($value)
+    function setIsFirst($value)
     {
         $this->_isFirst = (bool)$value;
         return $this;
@@ -138,7 +138,7 @@ class Mage_Page_Block_Template_Links_Block extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function getIsLast()
+    function getIsLast()
     {
         return $this->_isLast;
     }
@@ -150,7 +150,7 @@ class Mage_Page_Block_Template_Links_Block extends Mage_Core_Block_Template
      * return Mage_Page_Block_Template_Links_Block
      * @return Mage_Page_Block_Template_Links_Block
      */
-    public function setIsLast($value)
+    function setIsLast($value)
     {
         $this->_isLast = (bool)$value;
         return $this;
@@ -161,7 +161,7 @@ class Mage_Page_Block_Template_Links_Block extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getLabel()
+    function getLabel()
     {
         return $this->_label;
     }
@@ -171,7 +171,7 @@ class Mage_Page_Block_Template_Links_Block extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getTitle()
+    function getTitle()
     {
         return $this->_title;
     }
@@ -181,7 +181,7 @@ class Mage_Page_Block_Template_Links_Block extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getLinkUrl()
+    function getLinkUrl()
     {
         return $this->_url;
     }
@@ -211,7 +211,7 @@ class Mage_Page_Block_Template_Links_Block extends Mage_Core_Block_Template
     *
     * @return string
     */
-    public function getLiParams()
+    function getLiParams()
     {
         return $this->_prepareParams($this->_liParams);
     }
@@ -221,7 +221,7 @@ class Mage_Page_Block_Template_Links_Block extends Mage_Core_Block_Template
     *
     * @return string
     */
-    public function getAParams()
+    function getAParams()
     {
         return $this->_prepareParams($this->_aParams);
     }

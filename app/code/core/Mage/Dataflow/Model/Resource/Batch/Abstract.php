@@ -28,7 +28,7 @@ abstract class Mage_Dataflow_Model_Resource_Batch_Abstract extends Mage_Core_Mod
      * @param Mage_Dataflow_Model_Batch_Abstract $object
      * @return array
      */
-    public function getIdCollection(Mage_Dataflow_Model_Batch_Abstract $object)
+    function getIdCollection(Mage_Dataflow_Model_Batch_Abstract $object)
     {
         if (!$object->getBatchId()) {
             return [];
@@ -48,7 +48,7 @@ abstract class Mage_Dataflow_Model_Resource_Batch_Abstract extends Mage_Core_Mod
      * @param Mage_Dataflow_Model_Batch_Abstract $object
      * @return Mage_Dataflow_Model_Resource_Batch_Abstract
      */
-    public function deleteCollection(Mage_Dataflow_Model_Batch_Abstract $object)
+    function deleteCollection(Mage_Dataflow_Model_Batch_Abstract $object)
     {
         if (!$object->getBatchId()) {
             return $this;

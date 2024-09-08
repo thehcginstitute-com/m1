@@ -61,7 +61,7 @@ class Mage_CatalogSearch_Model_Resource_Advanced extends Mage_Core_Model_Resourc
      * @param Mage_CatalogSearch_Model_Resource_Advanced_Collection $collection
      * @return array|false|string|string[]
      */
-    public function prepareCondition($attribute, $value, $collection)
+    function prepareCondition($attribute, $value, $collection)
     {
         $condition = false;
 
@@ -95,7 +95,7 @@ class Mage_CatalogSearch_Model_Resource_Advanced extends Mage_Core_Model_Resourc
      * @param int $rate
      * @return bool
      */
-    public function addRatedPriceFilter($collection, $attribute, $value, $rate = 1)
+    function addRatedPriceFilter($collection, $attribute, $value, $rate = 1)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -139,7 +139,7 @@ class Mage_CatalogSearch_Model_Resource_Advanced extends Mage_Core_Model_Resourc
      * @param string|array $value
      * @return bool
      */
-    public function addIndexableAttributeModifiedFilter($collection, $attribute, $value)
+    function addIndexableAttributeModifiedFilter($collection, $attribute, $value)
     {
         if ($attribute->getIndexType() == 'decimal') {
             $table = $this->getTable('catalog/product_index_eav_decimal');

@@ -14,7 +14,7 @@ require_once 'Mage/Adminhtml/controllers/Cms/Wysiwyg/ImagesController.php';
 
 class Nwdthemes_Revslider_Adminhtml_ImagesController extends Mage_Adminhtml_Cms_Wysiwyg_ImagesController {
 
-    public function indexAction()
+    function indexAction()
     {
         $storeId = (int) $this->getRequest()->getParam('store');
 
@@ -34,7 +34,7 @@ class Nwdthemes_Revslider_Adminhtml_ImagesController extends Mage_Adminhtml_Cms_
     /**
      * Fire when select image
      */
-    public function onInsertAction()
+    function onInsertAction()
     {
         $helper = Mage::helper('nwdrevslider/images');
 		$storeId = $this->getRequest()->getParam('store');
@@ -68,7 +68,7 @@ class Nwdthemes_Revslider_Adminhtml_ImagesController extends Mage_Adminhtml_Cms_
      *
      * @return void
      */
-    public function deleteFilesAction()
+    function deleteFilesAction()
     {
         try {
             if (!$this->getRequest()->isPost()) {
@@ -97,7 +97,7 @@ class Nwdthemes_Revslider_Adminhtml_ImagesController extends Mage_Adminhtml_Cms_
     /**
      * Files upload processing
      */
-    public function uploadAction()
+    function uploadAction()
     {
         try {
             $result = array();
@@ -113,7 +113,7 @@ class Nwdthemes_Revslider_Adminhtml_ImagesController extends Mage_Adminhtml_Cms_
 
     }	
 	
-    public function treeJsonAction()
+    function treeJsonAction()
     {
         try {
             $this->_initAction();

@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Notification_Grid_Renderer_Actions extends Mage_Admin
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $readDetailsHtml = ($row->getUrl())
             ? '<a target="_blank" href="' . $row->getUrl() . '">' .

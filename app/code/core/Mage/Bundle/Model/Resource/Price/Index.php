@@ -102,7 +102,7 @@ class Mage_Bundle_Model_Resource_Price_Index extends Mage_Core_Model_Resource_Db
      * @return array
      * @throws Mage_Core_Exception
      */
-    public function getProducts($product = null, $lastEntityId = 0, $limit = 100)
+    function getProducts($product = null, $lastEntityId = 0, $limit = 100)
     {
         $select = $this->_getReadAdapter()->select()
             ->from(
@@ -150,7 +150,7 @@ class Mage_Bundle_Model_Resource_Price_Index extends Mage_Core_Model_Resource_Db
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function reindex($products = null)
+    function reindex($products = null)
     {
         $lastEntityId = 0;
         while (true) {
@@ -268,7 +268,7 @@ class Mage_Bundle_Model_Resource_Price_Index extends Mage_Core_Model_Resource_Db
      * @return array
      * @throws Zend_Db_Adapter_Exception|Zend_Db_Statement_Exception
      */
-    public function getSelections($productId)
+    function getSelections($productId)
     {
         $options = [];
         $read = $this->_getReadAdapter();
@@ -321,7 +321,7 @@ class Mage_Bundle_Model_Resource_Price_Index extends Mage_Core_Model_Resource_Db
      * @return array
      * @throws Mage_Core_Exception
      */
-    public function getProductsSalableStatus($products, Mage_Core_Model_Website $website)
+    function getProductsSalableStatus($products, Mage_Core_Model_Website $website)
     {
         $read = $this->_getReadAdapter();
         $productsData = [];
@@ -402,7 +402,7 @@ class Mage_Bundle_Model_Resource_Price_Index extends Mage_Core_Model_Resource_Db
      * @param int|array $productIds
      * @return array
      */
-    public function getProductsPriceFromIndex($productIds)
+    function getProductsPriceFromIndex($productIds)
     {
         $price  = $this->_getAttribute('price');
         $read = $this->_getReadAdapter();
@@ -426,7 +426,7 @@ class Mage_Bundle_Model_Resource_Price_Index extends Mage_Core_Model_Resource_Db
      * @return array
      * @throws Zend_Db_Adapter_Exception|Zend_Db_Statement_Exception
      */
-    public function getProductsPriceData($products, Mage_Core_Model_Website $website)
+    function getProductsPriceData($products, Mage_Core_Model_Website $website)
     {
         $productsData = [];
         $read = $this->_getReadAdapter();
@@ -538,7 +538,7 @@ class Mage_Bundle_Model_Resource_Price_Index extends Mage_Core_Model_Resource_Db
      * @return array
      * @throws Zend_Db_Adapter_Exception|Zend_Db_Statement_Exception
      */
-    public function getCustomOptions($productId, Mage_Core_Model_Website $website)
+    function getCustomOptions($productId, Mage_Core_Model_Website $website)
     {
         $options = [];
         $store   = $website->getDefaultStore();
@@ -684,7 +684,7 @@ class Mage_Bundle_Model_Resource_Price_Index extends Mage_Core_Model_Resource_Db
      * @param float $maxPrice
      * @return array
      */
-    public function _calculateCustomOptions(array $options, $basePrice, $minPrice, $maxPrice)
+    function _calculateCustomOptions(array $options, $basePrice, $minPrice, $maxPrice)
     {
         foreach ($options as $option) {
             $optionPrices = [];
@@ -731,7 +731,7 @@ class Mage_Bundle_Model_Resource_Price_Index extends Mage_Core_Model_Resource_Db
      * @param Mage_Customer_Model_Group $group
      * @return array
      */
-    public function _calculateBundleSelections(
+    function _calculateBundleSelections(
         array $options,
         array $salableStatus,
         $productId,
@@ -821,7 +821,7 @@ class Mage_Bundle_Model_Resource_Price_Index extends Mage_Core_Model_Resource_Db
      * @param Mage_Core_Model_Website $website
      * @return float
      */
-    public function _calculateSpecialPrice($finalPrice, array $priceData, Mage_Core_Model_Website $website)
+    function _calculateSpecialPrice($finalPrice, array $priceData, Mage_Core_Model_Website $website)
     {
         $store              = $website->getDefaultStore();
         $specialPrice       = $priceData['special_price'];
@@ -845,7 +845,7 @@ class Mage_Bundle_Model_Resource_Price_Index extends Mage_Core_Model_Resource_Db
      * @return array
      * @throws Zend_Db_Adapter_Exception|Zend_Db_Statement_Exception
      */
-    public function loadPriceIndex($productIds, $websiteId, $groupId)
+    function loadPriceIndex($productIds, $websiteId, $groupId)
     {
         $prices = [];
         $adapter = $this->_getReadAdapter();

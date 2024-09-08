@@ -37,7 +37,7 @@ class Mage_Reports_Model_Resource_Entity_Summary_Collection_Abstract extends Var
      * @param string|int|null $customEnd
      * @return $this
      */
-    public function setSelectPeriod($periodType, $customStart = null, $customEnd = null)
+    function setSelectPeriod($periodType, $customStart = null, $customEnd = null)
     {
         switch ($periodType) {
             case "24h":
@@ -79,7 +79,7 @@ class Mage_Reports_Model_Resource_Entity_Summary_Collection_Abstract extends Var
      * @param int $period
      * @return $this
      */
-    public function setDatePeriod($period)
+    function setDatePeriod($period)
     {
         return $this;
     }
@@ -90,7 +90,7 @@ class Mage_Reports_Model_Resource_Entity_Summary_Collection_Abstract extends Var
      * @param int $storeId
      * @return $this
      */
-    public function setStoreFilter($storeId)
+    function setStoreFilter($storeId)
     {
         return $this;
     }
@@ -100,7 +100,7 @@ class Mage_Reports_Model_Resource_Entity_Summary_Collection_Abstract extends Var
      *
      * @return Mage_Eav_Model_Entity_Collection_Abstract
      */
-    public function getCollection()
+    function getCollection()
     {
         if (empty($this->_entityCollection)) {
             $this->_initCollection();

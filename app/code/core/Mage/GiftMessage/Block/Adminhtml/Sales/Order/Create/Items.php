@@ -27,7 +27,7 @@ class Mage_GiftMessage_Block_Adminhtml_Sales_Order_Create_Items extends Mage_Adm
      *
      * @return Mage_Sales_Model_Quote_Item
      */
-    public function getItem()
+    function getItem()
     {
         return $this->getParentBlock()->getItem();
     }
@@ -37,7 +37,7 @@ class Mage_GiftMessage_Block_Adminhtml_Sales_Order_Create_Items extends Mage_Adm
      *
      * @return bool
      */
-    public function canDisplayGiftMessage()
+    function canDisplayGiftMessage()
     {
         $item = $this->getItem();
         if (!$item) {
@@ -58,7 +58,7 @@ class Mage_GiftMessage_Block_Adminhtml_Sales_Order_Create_Items extends Mage_Adm
       *
       * @return string
       */
-    public function getFormHtml()
+    function getFormHtml()
     {
         return $this->getLayout()->createBlock('adminhtml/sales_order_create_giftmessage_form')
             ->setEntity($this->getItem())
@@ -71,7 +71,7 @@ class Mage_GiftMessage_Block_Adminhtml_Sales_Order_Create_Items extends Mage_Adm
      *
      * @return string
      */
-    public function getMessageText()
+    function getMessageText()
     {
         if ($this->getItem()->getGiftMessageId()) {
             /** @var Mage_GiftMessage_Helper_Message $helper */

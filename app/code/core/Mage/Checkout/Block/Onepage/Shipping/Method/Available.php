@@ -29,7 +29,7 @@ class Mage_Checkout_Block_Onepage_Shipping_Method_Available extends Mage_Checkou
      * @return array
      * @throws Exception
      */
-    public function getShippingRates()
+    function getShippingRates()
     {
         if (empty($this->_rates)) {
             $this->getAddress()->collectShippingRates()->save();
@@ -44,7 +44,7 @@ class Mage_Checkout_Block_Onepage_Shipping_Method_Available extends Mage_Checkou
     /**
      * @return Mage_Sales_Model_Quote_Address
      */
-    public function getAddress()
+    function getAddress()
     {
         if (empty($this->_address)) {
             $this->_address = $this->getQuote()->getShippingAddress();
@@ -56,7 +56,7 @@ class Mage_Checkout_Block_Onepage_Shipping_Method_Available extends Mage_Checkou
      * @param string $carrierCode
      * @return mixed
      */
-    public function getCarrierName($carrierCode)
+    function getCarrierName($carrierCode)
     {
         if ($name = Mage::getStoreConfig('carriers/' . $carrierCode . '/title')) {
             return $name;
@@ -67,7 +67,7 @@ class Mage_Checkout_Block_Onepage_Shipping_Method_Available extends Mage_Checkou
     /**
      * @return string
      */
-    public function getAddressShippingMethod()
+    function getAddressShippingMethod()
     {
         return $this->getAddress()->getShippingMethod();
     }
@@ -77,7 +77,7 @@ class Mage_Checkout_Block_Onepage_Shipping_Method_Available extends Mage_Checkou
      * @param bool $flag
      * @return float
      */
-    public function getShippingPrice($price, $flag)
+    function getShippingPrice($price, $flag)
     {
         return $this->getQuote()->getStore()->convertPrice(Mage::helper('tax')->getShippingPrice($price, $flag, $this->getAddress()), true);
     }

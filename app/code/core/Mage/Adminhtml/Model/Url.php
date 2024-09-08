@@ -33,7 +33,7 @@ class Mage_Adminhtml_Model_Url extends Mage_Core_Model_Url
      *
      * @return bool
      */
-    public function getSecure()
+    function getSecure()
     {
         if ($this->hasData('secure_is_forced')) {
             return $this->getData('secure');
@@ -46,7 +46,7 @@ class Mage_Adminhtml_Model_Url extends Mage_Core_Model_Url
      *
      * @return Mage_Core_Model_Url
      */
-    public function setRouteParams(array $data, $unsetOldParams = true)
+    function setRouteParams(array $data, $unsetOldParams = true)
     {
         if (isset($data['_nosecret'])) {
             $this->setNoSecret(true);
@@ -65,7 +65,7 @@ class Mage_Adminhtml_Model_Url extends Mage_Core_Model_Url
      * @param array $routeParams
      * @return string
      */
-    public function getUrl($routePath = null, $routeParams = null)
+    function getUrl($routePath = null, $routeParams = null)
     {
         $cacheSecretKey = false;
         if (is_array($routeParams) && isset($routeParams['_cache_secret_key'])) {
@@ -106,7 +106,7 @@ class Mage_Adminhtml_Model_Url extends Mage_Core_Model_Url
      * @param string $action Action name
      * @return string
      */
-    public function getSecretKey($controller = null, $action = null)
+    function getSecretKey($controller = null, $action = null)
     {
         $salt = Mage::getSingleton('core/session')->getFormKey();
 
@@ -127,7 +127,7 @@ class Mage_Adminhtml_Model_Url extends Mage_Core_Model_Url
      *
      * @return bool
      */
-    public function useSecretKey()
+    function useSecretKey()
     {
         return Mage::getStoreConfigFlag('admin/security/use_form_key') && !$this->getNoSecret();
     }
@@ -137,7 +137,7 @@ class Mage_Adminhtml_Model_Url extends Mage_Core_Model_Url
      *
      * @return $this
      */
-    public function turnOnSecretKey()
+    function turnOnSecretKey()
     {
         $this->setNoSecret(false);
         return $this;
@@ -148,7 +148,7 @@ class Mage_Adminhtml_Model_Url extends Mage_Core_Model_Url
      *
      * @return $this
      */
-    public function turnOffSecretKey()
+    function turnOffSecretKey()
     {
         $this->setNoSecret(true);
         return $this;
@@ -157,7 +157,7 @@ class Mage_Adminhtml_Model_Url extends Mage_Core_Model_Url
     /**
      * Refresh admin menu cache etc.
      */
-    public function renewSecretUrls()
+    function renewSecretUrls()
     {
         Mage::app()->cleanCache([Mage_Adminhtml_Block_Page_Menu::CACHE_TAGS]);
     }

@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Options extends Mage_Admi
      * @param Varien_Object $row
      * @return string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $options = $this->getColumn()->getOptions();
         $showMissingOptionValues = (bool)$this->getColumn()->getShowMissingOptionValues();

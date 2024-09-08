@@ -53,7 +53,7 @@ class Mage_Directory_Model_Resource_Currency extends Mage_Core_Model_Resource_Db
      * @param Mage_Directory_Model_Currency|string $currencyTo
      * @return float|int
      */
-    public function getRate($currencyFrom, $currencyTo)
+    function getRate($currencyFrom, $currencyTo)
     {
         if ($currencyFrom instanceof Mage_Directory_Model_Currency) {
             $currencyFrom = $currencyFrom->getCode();
@@ -91,7 +91,7 @@ class Mage_Directory_Model_Resource_Currency extends Mage_Core_Model_Resource_Db
      * @param Mage_Directory_Model_Currency|string $currencyTo
      * @return float
      */
-    public function getAnyRate($currencyFrom, $currencyTo)
+    function getAnyRate($currencyFrom, $currencyTo)
     {
         if ($currencyFrom instanceof Mage_Directory_Model_Currency) {
             $currencyFrom = $currencyFrom->getCode();
@@ -135,7 +135,7 @@ class Mage_Directory_Model_Resource_Currency extends Mage_Core_Model_Resource_Db
      *
      * @param array $rates
      */
-    public function saveRates($rates)
+    function saveRates($rates)
     {
         if (is_array($rates) && count($rates)) {
             $adapter = $this->_getWriteAdapter();
@@ -169,7 +169,7 @@ class Mage_Directory_Model_Resource_Currency extends Mage_Core_Model_Resource_Db
      *
      * @return array
      */
-    public function getConfigCurrencies($model, $path)
+    function getConfigCurrencies($model, $path)
     {
         $adapter = $this->_getReadAdapter();
         $bind    = [':config_path' => $path];
@@ -194,7 +194,7 @@ class Mage_Directory_Model_Resource_Currency extends Mage_Core_Model_Resource_Db
      *
      * @return array
      */
-    public function getCurrencyRates($currency, $toCurrencies = null)
+    function getCurrencyRates($currency, $toCurrencies = null)
     {
         $rates = [];
         if (is_array($currency)) {

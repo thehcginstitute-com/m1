@@ -42,7 +42,7 @@ class Mage_Review_Model_Resource_Review_Status_Collection extends Mage_Core_Mode
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return parent::_toOptionArray('status_id', 'status_code');
     }

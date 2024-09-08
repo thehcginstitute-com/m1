@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Dashboard_Grids extends Mage_Adminhtml_Block_Widget_Tabs
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('grid_tab');

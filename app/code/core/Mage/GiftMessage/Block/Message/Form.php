@@ -26,7 +26,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
      */
     protected $_giftMessage = null;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('giftmessage/form.phtml');
@@ -36,7 +36,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
      * @return string
      * @throws Exception
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         /** @var Mage_GiftMessage_Helper_Url $helper */
         $helper = $this->helper('giftmessage/url');
@@ -52,7 +52,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
      * @return string
      * @throws Exception
      */
-    public function getEditUrl()
+    function getEditUrl()
     {
         /** @var Mage_GiftMessage_Helper_Url $helper */
         $helper = $this->helper('giftmessage/url');
@@ -66,7 +66,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
      * @return string
      * @throws Exception
      */
-    public function getButtonUrl()
+    function getButtonUrl()
     {
         /** @var Mage_GiftMessage_Helper_Url $helper */
         $helper = $this->helper('giftmessage/url');
@@ -80,7 +80,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
      * @return string
      * @throws Exception
      */
-    public function getRemoveUrl()
+    function getRemoveUrl()
     {
         /** @var Mage_GiftMessage_Helper_Url $helper */
         $helper = $this->helper('giftmessage/url');
@@ -107,7 +107,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
      * @return Mage_GiftMessage_Model_Message
      * @throws Exception
      */
-    public function getMessage()
+    function getMessage()
     {
         if (is_null($this->_giftMessage)) {
             $this->_initMessage();
@@ -120,7 +120,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
      * @param string $value
      * @return string
      */
-    public function getEscaped($value)
+    function getEscaped($value)
     {
         return $this->escapeHtml($value);
     }
@@ -129,7 +129,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
      * @param string $value
      * @return string
      */
-    public function getEscapedForJs($value)
+    function getEscapedForJs($value)
     {
         return addcslashes($value, "\\'\n\r\t");
     }
@@ -138,7 +138,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
      * @return string
      * @throws Exception
      */
-    public function getUniqueId()
+    function getUniqueId()
     {
         return $this->getRequest()->getParam('uniqueId');
     }

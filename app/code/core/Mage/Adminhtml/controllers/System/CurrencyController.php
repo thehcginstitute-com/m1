@@ -46,7 +46,7 @@ class Mage_Adminhtml_System_CurrencyController extends Mage_Adminhtml_Controller
     /**
      * Currency management main page
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('System'))->_title($this->__('Manage Currency Rates'));
 
@@ -56,7 +56,7 @@ class Mage_Adminhtml_System_CurrencyController extends Mage_Adminhtml_Controller
         $this->renderLayout();
     }
 
-    public function fetchRatesAction()
+    function fetchRatesAction()
     {
         try {
             $service = $this->getRequest()->getParam('rate_services');
@@ -89,7 +89,7 @@ class Mage_Adminhtml_System_CurrencyController extends Mage_Adminhtml_Controller
         $this->_redirect('*/*/');
     }
 
-    public function saveRatesAction()
+    function saveRatesAction()
     {
         $data = $this->getRequest()->getParam('rate');
         if (is_array($data)) {

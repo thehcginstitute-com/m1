@@ -29,7 +29,7 @@ class Mage_Contacts_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * @return bool
      */
-    public function isEnabled()
+    function isEnabled()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_ENABLED);
     }
@@ -37,7 +37,7 @@ class Mage_Contacts_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * @return string
      */
-    public function getUserName()
+    function getUserName()
     {
         if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
             return '';
@@ -49,7 +49,7 @@ class Mage_Contacts_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * @return string
      */
-    public function getUserEmail()
+    function getUserEmail()
     {
         if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
             return '';

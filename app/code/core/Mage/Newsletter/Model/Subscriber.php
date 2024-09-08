@@ -99,7 +99,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getId()
+    function getId()
     {
         return $this->getSubscriberId();
     }
@@ -110,7 +110,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * @param int $value
      * @return $this
      */
-    public function setId($value)
+    function setId($value)
     {
         return $this->setSubscriberId($value);
     }
@@ -120,7 +120,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getCode()
+    function getCode()
     {
         return $this->getSubscriberConfirmCode();
     }
@@ -130,7 +130,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getConfirmationLink()
+    function getConfirmationLink()
     {
         return Mage::helper('newsletter')->getConfirmationUrl($this);
     }
@@ -140,7 +140,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getUnsubscriptionLink()
+    function getUnsubscriptionLink()
     {
         return Mage::helper('newsletter')->getUnsubscribeUrl($this);
     }
@@ -151,7 +151,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * @param string $value
      * @return $this
      */
-    public function setCode($value)
+    function setCode($value)
     {
         return $this->setSubscriberConfirmCode($value);
     }
@@ -161,7 +161,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getStatus()
+    function getStatus()
     {
         return $this->getSubscriberStatus();
     }
@@ -172,7 +172,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * @param int $value
      * @return $this
      */
-    public function setStatus($value)
+    function setStatus($value)
     {
         return $this->setSubscriberStatus($value);
     }
@@ -184,7 +184,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * @return $this
      */
 
-    public function setMessagesScope($scope)
+    function setMessagesScope($scope)
     {
         $this->getResource()->setMessagesScope($scope);
         return $this;
@@ -195,7 +195,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getEmail()
+    function getEmail()
     {
         return $this->getSubscriberEmail();
     }
@@ -206,7 +206,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * @param string $value
      * @return $this
      */
-    public function setEmail($value)
+    function setEmail($value)
     {
         return $this->setSubscriberEmail($value);
     }
@@ -217,7 +217,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * @param bool $value
      * @return $this
      */
-    public function setIsStatusChanged($value)
+    function setIsStatusChanged($value)
     {
         $this->_isStatusChanged = (bool) $value;
         return $this;
@@ -228,7 +228,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function getIsStatusChanged()
+    function getIsStatusChanged()
     {
         return $this->_isStatusChanged;
     }
@@ -238,7 +238,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isSubscribed()
+    function isSubscribed()
     {
         if ($this->getId() && $this->getStatus() == self::STATUS_SUBSCRIBED) {
             return true;
@@ -253,7 +253,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * @param string $subscriberEmail
      * @return $this
      */
-    public function loadByEmail($subscriberEmail)
+    function loadByEmail($subscriberEmail)
     {
         $this->addData($this->getResource()->loadByEmail($subscriberEmail));
         return $this;
@@ -265,7 +265,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * @param Mage_Customer_Model_Customer $customer
      * @return $this
      */
-    public function loadByCustomer(Mage_Customer_Model_Customer $customer)
+    function loadByCustomer(Mage_Customer_Model_Customer $customer)
     {
         $data = $this->getResource()->loadByCustomer($customer);
         $this->addData($data);
@@ -286,7 +286,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * @param int $length
      * @return string
      */
-    public function randomSequence($length = 32)
+    function randomSequence($length = 32)
     {
         $id = '';
         $par = [];
@@ -307,7 +307,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * @throws Exception
      * @return int
      */
-    public function subscribe($email)
+    function subscribe($email)
     {
         $this->loadByEmail($email);
         $customerSession = Mage::getSingleton('customer/session');
@@ -369,7 +369,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * Unsubscribes loaded subscription
      *
      */
-    public function unsubscribe()
+    function unsubscribe()
     {
         if ($this->hasCheckCode() && $this->getCode() != $this->getCheckCode()) {
             Mage::throwException(Mage::helper('newsletter')->__('Invalid subscription confirmation code.'));
@@ -387,7 +387,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * @param   Mage_Customer_Model_Customer $customer
      * @return  $this
      */
-    public function subscribeCustomer($customer)
+    function subscribeCustomer($customer)
     {
         $this->loadByCustomer($customer);
 
@@ -468,7 +468,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * @param string $code
      * @return bool
      */
-    public function confirm($code)
+    function confirm($code)
     {
         if ($this->getCode() == $code) {
             $this->setStatus(self::STATUS_SUBSCRIBED)
@@ -486,7 +486,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * @param Mage_Newsletter_Model_Queue $queue
      * @return $this
      */
-    public function received(Mage_Newsletter_Model_Queue $queue)
+    function received(Mage_Newsletter_Model_Queue $queue)
     {
         $this->getResource()->received($this, $queue);
         return $this;
@@ -497,7 +497,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function sendConfirmationRequestEmail()
+    function sendConfirmationRequestEmail()
     {
         if ($this->getImportMode()) {
             return $this;
@@ -534,7 +534,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function sendConfirmationSuccessEmail()
+    function sendConfirmationSuccessEmail()
     {
         if ($this->getImportMode()) {
             return $this;
@@ -571,7 +571,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function sendUnsubscriptionEmail()
+    function sendUnsubscriptionEmail()
     {
         if ($this->getImportMode()) {
             return $this;
@@ -607,7 +607,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      *
      * @return string|null
      */
-    public function getSubscriberFullName()
+    function getSubscriberFullName()
     {
         $name = null;
         if ($this->hasCustomerFirstname() || $this->hasCustomerLastname()) {

@@ -27,7 +27,7 @@ class Mage_Checkout_Block_Onepage extends Mage_Checkout_Block_Onepage_Abstract
      *
      * @return array
      */
-    public function getSteps()
+    function getSteps()
     {
         $steps = [];
         $stepCodes = $this->_getStepCodes();
@@ -48,7 +48,7 @@ class Mage_Checkout_Block_Onepage extends Mage_Checkout_Block_Onepage_Abstract
      *
      * @return string
      */
-    public function getActiveStep()
+    function getActiveStep()
     {
         return $this->isCustomerLoggedIn() ? 'billing' : 'login';
     }

@@ -42,7 +42,7 @@ abstract class Mage_Sales_Model_Resource_Order_Collection_Abstract extends Mage_
      * @param Mage_Sales_Model_Order $order
      * @return $this
      */
-    public function setSalesOrder($order)
+    function setSalesOrder($order)
     {
         $this->_salesOrder = $order;
         if ($this->_eventPrefix && $this->_eventObject) {
@@ -61,7 +61,7 @@ abstract class Mage_Sales_Model_Resource_Order_Collection_Abstract extends Mage_
      *
      * @return Mage_Sales_Model_Order|null
      */
-    public function getSalesOrder()
+    function getSalesOrder()
     {
         return $this->_salesOrder;
     }
@@ -72,7 +72,7 @@ abstract class Mage_Sales_Model_Resource_Order_Collection_Abstract extends Mage_
      * @param int|Mage_Sales_Model_Order $order
      * @return $this
      */
-    public function setOrderFilter($order)
+    function setOrderFilter($order)
     {
         if ($order instanceof Mage_Sales_Model_Order) {
             $this->setSalesOrder($order);

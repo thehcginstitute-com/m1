@@ -41,7 +41,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Backend_Media extends Mage_C
      * @param Mage_Catalog_Model_Product_Attribute_Backend_Media $object
      * @return array
      */
-    public function loadGallery($product, $object)
+    function loadGallery($product, $object)
     {
         $eventObjectWrapper = new Varien_Object(
             [
@@ -97,7 +97,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Backend_Media extends Mage_C
      * @param array $data
      * @return int
      */
-    public function insertGallery($data)
+    function insertGallery($data)
     {
         $adapter = $this->_getWriteAdapter();
         $data    = $this->_prepareDataForTable(new Varien_Object($data), $this->getMainTable());
@@ -112,7 +112,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Backend_Media extends Mage_C
      * @param array|int $valueId
      * @return $this
      */
-    public function deleteGallery($valueId)
+    function deleteGallery($valueId)
     {
         if (is_array($valueId) && count($valueId) > 0) {
             $condition = $this->_getWriteAdapter()->quoteInto('value_id IN(?) ', $valueId);
@@ -132,7 +132,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Backend_Media extends Mage_C
      * @param array $data
      * @return $this
      */
-    public function insertGalleryValueInStore($data)
+    function insertGalleryValueInStore($data)
     {
         $data = $this->_prepareDataForTable(new Varien_Object($data), $this->getTable(self::GALLERY_VALUE_TABLE));
         $this->_getWriteAdapter()->insert($this->getTable(self::GALLERY_VALUE_TABLE), $data);
@@ -147,7 +147,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Backend_Media extends Mage_C
      * @param int $storeId
      * @return $this
      */
-    public function deleteGalleryValueInStore($valueId, $storeId)
+    function deleteGalleryValueInStore($valueId, $storeId)
     {
         $adapter = $this->_getWriteAdapter();
 
@@ -170,7 +170,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Backend_Media extends Mage_C
      * @param int $newProductId
      * @return $this
      */
-    public function duplicate($object, $newFiles, $originalProductId, $newProductId)
+    function duplicate($object, $newFiles, $originalProductId, $newProductId)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getMainTable(), ['value_id', 'value'])
@@ -269,7 +269,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Backend_Media extends Mage_C
      * @param int $storeId
      * @return array
      */
-    public function loadGallerySet(array $productIds, $storeId)
+    function loadGallerySet(array $productIds, $storeId)
     {
         $select = $this->_getLoadGallerySelect($productIds, $storeId, $this->_getAttributeId());
 

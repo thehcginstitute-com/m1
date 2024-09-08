@@ -48,7 +48,7 @@ class Mage_CatalogInventory_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $productTypeId
      * @return bool
      */
-    public function isQty($productTypeId)
+    function isQty($productTypeId)
     {
         $this->getIsQtyTypeIds();
         return self::$_isQtyTypeIds[$productTypeId] ?? false;
@@ -60,7 +60,7 @@ class Mage_CatalogInventory_Helper_Data extends Mage_Core_Helper_Abstract
      * @param bool $filter
      * @return array
      */
-    public function getIsQtyTypeIds($filter = null)
+    function getIsQtyTypeIds($filter = null)
     {
         if (self::$_isQtyTypeIds === null) {
             self::$_isQtyTypeIds = [];
@@ -86,7 +86,7 @@ class Mage_CatalogInventory_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getConfigItemOptions()
+    function getConfigItemOptions()
     {
         return [
             'min_qty',
@@ -106,7 +106,7 @@ class Mage_CatalogInventory_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isShowOutOfStock()
+    function isShowOutOfStock()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_SHOW_OUT_OF_STOCK);
     }
@@ -115,7 +115,7 @@ class Mage_CatalogInventory_Helper_Data extends Mage_Core_Helper_Abstract
      * Check if creditmemo items auto return option is enabled
      * @return bool
      */
-    public function isAutoReturnEnabled()
+    function isAutoReturnEnabled()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_ITEM_AUTO_RETURN);
     }
@@ -126,7 +126,7 @@ class Mage_CatalogInventory_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isDisplayProductStockStatus()
+    function isDisplayProductStockStatus()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_DISPLAY_PRODUCT_STOCK_STATUS);
     }

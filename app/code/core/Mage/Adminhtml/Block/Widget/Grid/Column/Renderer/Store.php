@@ -65,7 +65,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Store extends Mage_Adminh
      * @param Varien_Object $row
      * @return string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $out = '';
         $skipAllStoresLabel = $this->_getShowAllStoresLabelFlag();
@@ -115,7 +115,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Store extends Mage_Adminh
      * @param Varien_Object $row
      * @return string
      */
-    public function renderExport(Varien_Object $row)
+    function renderExport(Varien_Object $row)
     {
         $out = '';
         $skipAllStoresLabel = $this->_getShowAllStoresLabelFlag();

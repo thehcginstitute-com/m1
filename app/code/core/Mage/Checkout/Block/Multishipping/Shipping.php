@@ -27,7 +27,7 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
      *
      * @return Mage_Checkout_Model_Type_Multishipping
      */
-    public function getCheckout()
+    function getCheckout()
     {
         return Mage::getSingleton('checkout/type_multishipping');
     }
@@ -46,7 +46,7 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
     /**
      * @return array
      */
-    public function getAddresses()
+    function getAddresses()
     {
         return $this->getCheckout()->getQuote()->getAllShippingAddresses();
     }
@@ -54,7 +54,7 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
     /**
      * @return int|mixed
      */
-    public function getAddressCount()
+    function getAddressCount()
     {
         $count = $this->getData('address_count');
         if (is_null($count)) {
@@ -69,7 +69,7 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
      * @return array|mixed
      * @throws Exception
      */
-    public function getAddressItems($address)
+    function getAddressItems($address)
     {
         $items = [];
         foreach ($address->getAllItems() as $item) {
@@ -88,7 +88,7 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
      * @param Mage_Sales_Model_Quote_Address $address
      * @return string
      */
-    public function getAddressShippingMethod($address)
+    function getAddressShippingMethod($address)
     {
         return $address->getShippingMethod();
     }
@@ -97,7 +97,7 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
      * @param Mage_Sales_Model_Quote_Address $address
      * @return array
      */
-    public function getShippingRates($address)
+    function getShippingRates($address)
     {
         return $address->getGroupedAllShippingRates();
     }
@@ -106,7 +106,7 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
      * @param string $carrierCode
      * @return string
      */
-    public function getCarrierName($carrierCode)
+    function getCarrierName($carrierCode)
     {
         if ($name = Mage::getStoreConfig('carriers/' . $carrierCode . '/title')) {
             return $name;
@@ -118,7 +118,7 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
      * @param Mage_Sales_Model_Quote_Address $address
      * @return string
      */
-    public function getAddressEditUrl($address)
+    function getAddressEditUrl($address)
     {
         return $this->getUrl('*/multishipping_address/editShipping', ['id' => $address->getCustomerAddressId()]);
     }
@@ -126,7 +126,7 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
     /**
      * @return string
      */
-    public function getItemsEditUrl()
+    function getItemsEditUrl()
     {
         return $this->getUrl('*/*/backToAddresses');
     }
@@ -134,7 +134,7 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
     /**
      * @return string
      */
-    public function getPostActionUrl()
+    function getPostActionUrl()
     {
         return $this->getUrl('*/*/shippingPost');
     }
@@ -142,7 +142,7 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
     /**
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl('*/*/backtoaddresses');
     }
@@ -153,7 +153,7 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
      * @param bool $flag
      * @return float
      */
-    public function getShippingPrice($address, $price, $flag)
+    function getShippingPrice($address, $price, $flag)
     {
         /** @var Mage_Tax_Helper_Data $helper */
         $helper = $this->helper('tax');

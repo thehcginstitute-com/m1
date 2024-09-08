@@ -45,7 +45,7 @@ class Mage_Adminhtml_Helper_Catalog extends Mage_Core_Helper_Abstract
      *
      * @return string|null
      */
-    public function getAttributeTabBlock()
+    function getAttributeTabBlock()
     {
         return $this->_attributeTabBlock;
     }
@@ -56,7 +56,7 @@ class Mage_Adminhtml_Helper_Catalog extends Mage_Core_Helper_Abstract
      * @param string $attributeTabBlock
      * @return $this
      */
-    public function setAttributeTabBlock($attributeTabBlock)
+    function setAttributeTabBlock($attributeTabBlock)
     {
         $this->_attributeTabBlock = $attributeTabBlock;
         return $this;
@@ -67,7 +67,7 @@ class Mage_Adminhtml_Helper_Catalog extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getCategoryAttributeTabBlock()
+    function getCategoryAttributeTabBlock()
     {
         return $this->_categoryAttributeTabBlock;
     }
@@ -78,7 +78,7 @@ class Mage_Adminhtml_Helper_Catalog extends Mage_Core_Helper_Abstract
      * @param string $attributeTabBlock
      * @return $this
      */
-    public function setCategoryAttributeTabBlock($attributeTabBlock)
+    function setCategoryAttributeTabBlock($attributeTabBlock)
     {
         $this->_categoryAttributeTabBlock = $attributeTabBlock;
         return $this;
@@ -89,7 +89,7 @@ class Mage_Adminhtml_Helper_Catalog extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getSitemapValidPaths()
+    function getSitemapValidPaths()
     {
         $path = Mage::getStoreConfig(self::XML_PATH_SITEMAP_VALID_PATHS);
         /** @var Mage_Core_Helper_Data $helper */

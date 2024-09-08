@@ -77,7 +77,7 @@ class Mage_CurrencySymbol_Model_System_Currencysymbol
      * @param  int $storeId
      * @return $this
      */
-    public function setStoreId($storeId = null)
+    function setStoreId($storeId = null)
     {
         $this->_storeId = $storeId;
         $this->_symbolsData = [];
@@ -91,7 +91,7 @@ class Mage_CurrencySymbol_Model_System_Currencysymbol
      * @param  int $websiteId
      * @return $this
      */
-    public function setWebsiteId($websiteId = null)
+    function setWebsiteId($websiteId = null)
     {
         $this->_websiteId = $websiteId;
         $this->_symbolsData = [];
@@ -104,7 +104,7 @@ class Mage_CurrencySymbol_Model_System_Currencysymbol
      *
      * @return array
      */
-    public function getCurrencySymbolsData()
+    function getCurrencySymbolsData()
     {
         if ($this->_symbolsData) {
             return $this->_symbolsData;
@@ -183,7 +183,7 @@ class Mage_CurrencySymbol_Model_System_Currencysymbol
      * @param array $symbols
      * @return $this
      */
-    public function setCurrencySymbolsData($symbols = [])
+    function setCurrencySymbolsData($symbols = [])
     {
         foreach ($this->getCurrencySymbolsData() as $code => $values) {
             if (isset($symbols[$code])) {
@@ -230,7 +230,7 @@ class Mage_CurrencySymbol_Model_System_Currencysymbol
      * @param  string $code
      * @return false|string
      */
-    public function getCurrencySymbol($code)
+    function getCurrencySymbol($code)
     {
         $customSymbols = $this->_unserializeStoreConfig(self::XML_PATH_CUSTOM_CURRENCY_SYMBOL);
         if (array_key_exists($code, $customSymbols)) {
@@ -245,7 +245,7 @@ class Mage_CurrencySymbol_Model_System_Currencysymbol
      *
      * @return $this
      */
-    public function clearCache()
+    function clearCache()
     {
         // clear cache for frontend
         foreach ($this->_cacheTypes as $cacheType) {

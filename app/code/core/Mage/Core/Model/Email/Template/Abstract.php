@@ -43,7 +43,7 @@ abstract class Mage_Core_Model_Email_Template_Abstract extends Mage_Core_Model_T
      * @param   array $variables
      * @return  string
      */
-    public function getTemplateByConfigPath($configPath, array $variables)
+    function getTemplateByConfigPath($configPath, array $variables)
     {
         $template = Mage::getModel('core/email_template');
         $template->loadByConfigPath($configPath, $variables);
@@ -59,7 +59,7 @@ abstract class Mage_Core_Model_Email_Template_Abstract extends Mage_Core_Model_T
      * should be used to load the email template
      * @return   $this|null
      */
-    public function loadByConfigPath($configPath)
+    function loadByConfigPath($configPath)
     {
         $templateId = Mage::getStoreConfig($configPath);
 

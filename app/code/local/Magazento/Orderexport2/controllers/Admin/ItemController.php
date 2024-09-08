@@ -21,32 +21,32 @@ class Magazento_Orderexport2_Admin_ItemController extends Mage_Adminhtml_Control
     /**
      * Related part
      */    
-    public function relatedAction() {
+    function relatedAction() {
         
         $this->loadLayout();
         $this->getLayout()->getBlock('related.grid');
         $this->renderLayout();
     }
 
-    public function relatedgridAction() {
+    function relatedgridAction() {
 
         $this->loadLayout();
         $this->getLayout()->getBlock('related.grid');
         $this->renderLayout();
     }
 
-    public function indexAction() {
+    function indexAction() {
         $this->_initAction()
                 ->_addContent($this->getLayout()->createBlock('orderexport2/admin_item'))
                 ->renderLayout();
     }
 
 
-    public function newAction() {
+    function newAction() {
         $this->_forward('edit');
     }
 
-    public function editAction() {
+    function editAction() {
         
         $id = $this->getRequest()->getParam('item_id');
         
@@ -87,7 +87,7 @@ class Magazento_Orderexport2_Admin_ItemController extends Mage_Adminhtml_Control
     }
 
 
-    public function saveAction() {
+    function saveAction() {
         if ($data = $this->getRequest()->getPost()) {
 
 //            var_dump($data);
@@ -131,7 +131,7 @@ class Magazento_Orderexport2_Admin_ItemController extends Mage_Adminhtml_Control
 
 
 
-    public function deleteAction() {
+    function deleteAction() {
         if ($id = $this->getRequest()->getParam('item_id')) {
             try {
                 $model = Mage::getModel('orderexport2/item');
@@ -150,7 +150,7 @@ class Magazento_Orderexport2_Admin_ItemController extends Mage_Adminhtml_Control
         $this->_redirect('*/*/');
     }
 
-    public function massDeleteAction() {
+    function massDeleteAction() {
         $itemIds = $this->getRequest()->getParam('massaction');
         if(!is_array($itemIds)) {
             Mage::getSingleton('adminhtml/session')->addError(Mage::helper('orderexport2')->__('Please select item(s)'));
@@ -176,7 +176,7 @@ class Magazento_Orderexport2_Admin_ItemController extends Mage_Adminhtml_Control
         return Mage::getSingleton('admin/session')->isAllowed('orderexport2/item');
     }
 
-    public function wysiwygAction() {
+    function wysiwygAction() {
         $elementId = $this->getRequest()->getParam('element_id', md5(microtime()));
         $content = $this->getLayout()->createBlock('adminhtml/catalog_helper_form_wysiwyg_content', '', array(
             'editor_element_id' => $elementId

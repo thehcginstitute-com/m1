@@ -36,7 +36,7 @@ abstract class Mage_Adminhtml_Helper_Dashboard_Abstract extends Mage_Core_Helper
      */
     protected $_params = [];
 
-    public function getCollection()
+    function getCollection()
     {
         if (is_null($this->_collection)) {
             $this->_initCollection();
@@ -51,17 +51,17 @@ abstract class Mage_Adminhtml_Helper_Dashboard_Abstract extends Mage_Core_Helper
      *
      * @return array
      */
-    public function getItems()
+    function getItems()
     {
         return is_array($this->getCollection()) ? $this->getCollection() : $this->getCollection()->getItems();
     }
 
-    public function getCount()
+    function getCount()
     {
         return count($this->getItems());
     }
 
-    public function getColumn($index)
+    function getColumn($index)
     {
         $result = [];
         foreach ($this->getItems() as $item) {
@@ -80,22 +80,22 @@ abstract class Mage_Adminhtml_Helper_Dashboard_Abstract extends Mage_Core_Helper
         return $result;
     }
 
-    public function setParam($name, $value)
+    function setParam($name, $value)
     {
         $this->_params[$name] = $value;
     }
 
-    public function setParams(array $params)
+    function setParams(array $params)
     {
         $this->_params = $params;
     }
 
-    public function getParam($name)
+    function getParam($name)
     {
         return $this->_params[$name] ?? null;
     }
 
-    public function getParams()
+    function getParams()
     {
         return $this->_params;
     }

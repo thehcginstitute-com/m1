@@ -36,7 +36,7 @@ class Mage_Core_Model_Resource_Design_Collection extends Mage_Core_Model_Resourc
      *
      * @return $this
      */
-    public function joinStore()
+    function joinStore()
     {
         return $this->join(
             ['cs' => 'core/store'],
@@ -51,7 +51,7 @@ class Mage_Core_Model_Resource_Design_Collection extends Mage_Core_Model_Resourc
      * @param null|int|string|Zend_Date $date
      * @return $this
      */
-    public function addDateFilter($date = null)
+    function addDateFilter($date = null)
     {
         if (is_null($date)) {
             $date = $this->formatDate(true);
@@ -70,7 +70,7 @@ class Mage_Core_Model_Resource_Design_Collection extends Mage_Core_Model_Resourc
      * @param int|array $storeId
      * @return $this
      */
-    public function addStoreFilter($storeId)
+    function addStoreFilter($storeId)
     {
         return $this->addFieldToFilter('store_id', ['in' => $storeId]);
     }

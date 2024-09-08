@@ -28,7 +28,7 @@ class Mage_Catalog_Block_Layer_State extends Mage_Core_Block_Template
      * Initialize Layer State template
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/layer/state.phtml');
@@ -39,7 +39,7 @@ class Mage_Catalog_Block_Layer_State extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getActiveFilters()
+    function getActiveFilters()
     {
         $filters = $this->getLayer()->getState()->getFilters();
         if (!is_array($filters)) {
@@ -53,7 +53,7 @@ class Mage_Catalog_Block_Layer_State extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getClearUrl()
+    function getClearUrl()
     {
         $filterState = [];
         foreach ($this->getActiveFilters() as $item) {
@@ -72,7 +72,7 @@ class Mage_Catalog_Block_Layer_State extends Mage_Core_Block_Template
      *
      * @return Mage_Catalog_Model_Layer
      */
-    public function getLayer()
+    function getLayer()
     {
         if (!$this->hasData('layer')) {
             $this->setLayer(Mage::getSingleton('catalog/layer'));

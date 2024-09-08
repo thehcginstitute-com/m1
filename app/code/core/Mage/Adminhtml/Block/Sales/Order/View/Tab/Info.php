@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Info extends Mage_Adminhtml_Bloc
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Info extends Mage_Adminhtml_Bloc
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getSource()
+    function getSource()
     {
         return $this->getOrder();
     }
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Info extends Mage_Adminhtml_Bloc
      *
      * @return array
      */
-    public function getOrderTotalData()
+    function getOrderTotalData()
     {
         return [
             'can_display_total_due'      => true,
@@ -56,19 +56,19 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Info extends Mage_Adminhtml_Bloc
         ];
     }
 
-    public function getOrderInfoData()
+    function getOrderInfoData()
     {
         return [
             'no_use_order_link' => true,
         ];
     }
 
-    public function getTrackingHtml()
+    function getTrackingHtml()
     {
         return $this->getChildHtml('order_tracking');
     }
 
-    public function getItemsHtml()
+    function getItemsHtml()
     {
         return $this->getChildHtml('order_items');
     }
@@ -79,7 +79,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Info extends Mage_Adminhtml_Bloc
      * @deprecated after 1.4.2.0, use self::getGiftOptionsHtml() instead
      * @return string
      */
-    public function getGiftmessageHtml()
+    function getGiftmessageHtml()
     {
         return $this->getChildHtml('order_giftmessage');
     }
@@ -89,17 +89,17 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Info extends Mage_Adminhtml_Bloc
      *
      * @return string
      */
-    public function getGiftOptionsHtml()
+    function getGiftOptionsHtml()
     {
         return $this->getChildHtml('gift_options');
     }
 
-    public function getPaymentHtml()
+    function getPaymentHtml()
     {
         return $this->getChildHtml('order_payment');
     }
 
-    public function getViewUrl($orderId)
+    function getViewUrl($orderId)
     {
         return $this->getUrl('*/*/*', ['order_id' => $orderId]);
     }
@@ -107,22 +107,22 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Info extends Mage_Adminhtml_Bloc
     /**
      * ######################## TAB settings #################################
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('sales')->__('Information');
     }
 
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('sales')->__('Order Information');
     }
 
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
 
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }

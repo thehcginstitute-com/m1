@@ -6,7 +6,7 @@
  */  
 class Amasty_Base_Helper_Data extends Mage_Core_Helper_Abstract
 {
-    public function isVersionLessThan($major=1, $minor=4)
+    function isVersionLessThan($major=1, $minor=4)
     {
         $curr = explode('.', Mage::getVersion()); // 1.3. compatibility
         $need = func_get_args();
@@ -17,7 +17,7 @@ class Amasty_Base_Helper_Data extends Mage_Core_Helper_Abstract
         return false;
     } 
     
-    public function isModuleActive($code)
+    function isModuleActive($code)
     {
         return ('true' == (string)Mage::getConfig()->getNode('modules/'.$code.'/active'));
     } 
@@ -139,18 +139,18 @@ class Amasty_Base_Helper_Data extends Mage_Core_Helper_Abstract
         return $_finalResult;
     }
     
-    public function ajaxHtml(){        
+    function ajaxHtml(){
         return Mage::app()->getLayout()->createBlock('ambase/adminhtml_debug_general')->toHtml() . 
                 Mage::app()->getLayout()->createBlock('ambase/adminhtml_debug_conflict')->toHtml() .
                 Mage::app()->getLayout()->createBlock('ambase/adminhtml_debug_rewrite')->toHtml() .
                 Mage::app()->getLayout()->createBlock('ambase/adminhtml_debug_event')->toHtml();
     }
     
-    public function getParentClasses($class){
+    function getParentClasses($class){
         return array_values(class_parents($class));
     }
 
-    public function getEventsList()
+    function getEventsList()
     {
         $scopes = array(
             'global',

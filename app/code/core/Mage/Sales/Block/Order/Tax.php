@@ -27,7 +27,7 @@ class Mage_Sales_Block_Order_Tax extends Mage_Core_Block_Template
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }

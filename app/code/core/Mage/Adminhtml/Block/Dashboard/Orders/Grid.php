@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Dashboard_Orders_Grid extends Mage_Adminhtml_Block_Dashboard_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('lastOrdersGrid');
@@ -109,7 +109,7 @@ class Mage_Adminhtml_Block_Dashboard_Orders_Grid extends Mage_Adminhtml_Block_Da
      * @param Varien_Object $row
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/sales_order/view', ['order_id' => $row->getId()]);
     }

@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View_Comments extends Mage_Adminh
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->getInvoice()->getOrder();
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View_Comments extends Mage_Adminh
      *
      * @return Mage_Sales_Model_Order_Invoice
      */
-    public function getSource()
+    function getSource()
     {
         return $this->getInvoice();
     }
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View_Comments extends Mage_Adminh
      *
      * @return Mage_Sales_Model_Order_Invoice
      */
-    public function getInvoice()
+    function getInvoice()
     {
         return Mage::registry('current_invoice');
     }

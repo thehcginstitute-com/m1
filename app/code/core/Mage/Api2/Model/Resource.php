@@ -188,7 +188,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * HTTP_MULTI_STATUS is used for several status codes in the response
      */
-    public function dispatch()
+    function dispatch()
     {
         switch ($this->getActionType() . $this->getOperation()) {
             /* Create */
@@ -309,7 +309,7 @@ abstract class Mage_Api2_Model_Resource
      * @throws Exception
      * @return Mage_Api2_Model_Request
      */
-    public function getRequest()
+    function getRequest()
     {
         if (!$this->_request) {
             throw new Exception('Request is not set.');
@@ -323,7 +323,7 @@ abstract class Mage_Api2_Model_Resource
      * @param Mage_Api2_Model_Request $request
      * @return $this
      */
-    public function setRequest(Mage_Api2_Model_Request $request)
+    function setRequest(Mage_Api2_Model_Request $request)
     {
         $this->setResourceType($request->getResourceType());
         $this->setApiType($request->getApiType());
@@ -337,7 +337,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @return string
      */
-    public function getResourceType()
+    function getResourceType()
     {
         if (!$this->_resourceType) {
             $this->setResourceType($this->getRequest()->getResourceType());
@@ -351,7 +351,7 @@ abstract class Mage_Api2_Model_Resource
      * @param string $resourceType
      * @return $this
      */
-    public function setResourceType($resourceType)
+    function setResourceType($resourceType)
     {
         $this->_resourceType = $resourceType;
         return $this;
@@ -363,7 +363,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @return string
      */
-    public function getApiType()
+    function getApiType()
     {
         if (!$this->_apiType) {
             $this->setApiType($this->getRequest()->getApiType());
@@ -377,7 +377,7 @@ abstract class Mage_Api2_Model_Resource
      * @param string $apiType
      * @return $this
      */
-    public function setApiType($apiType)
+    function setApiType($apiType)
     {
         $this->_apiType = $apiType;
         return $this;
@@ -388,7 +388,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @return int
      */
-    public function getVersion()
+    function getVersion()
     {
         if ($this->_version === null) {
             if (preg_match('/^.+([1-9]\d*)$/', get_class($this), $matches)) {
@@ -405,7 +405,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @param int $version
      */
-    public function setVersion($version)
+    function setVersion($version)
     {
         $this->_version = (int)$version;
     }
@@ -415,7 +415,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @return Mage_Api2_Model_Response
      */
-    public function getResponse()
+    function getResponse()
     {
         if (!$this->_response) {
             throw new Exception('Response is not set.');
@@ -428,7 +428,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @param Mage_Api2_Model_Response $response
      */
-    public function setResponse(Mage_Api2_Model_Response $response)
+    function setResponse(Mage_Api2_Model_Response $response)
     {
         $this->_response = $response;
     }
@@ -438,7 +438,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @return Mage_Api2_Model_Acl_Filter
      */
-    public function getFilter()
+    function getFilter()
     {
         if (!$this->_filter) {
             /** @var Mage_Api2_Model_Acl_Filter $filter */
@@ -453,7 +453,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @param Mage_Api2_Model_Acl_Filter $filter
      */
-    public function setFilter(Mage_Api2_Model_Acl_Filter $filter)
+    function setFilter(Mage_Api2_Model_Acl_Filter $filter)
     {
         $this->_filter = $filter;
     }
@@ -463,7 +463,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @return Mage_Api2_Model_Renderer_Interface
      */
-    public function getRenderer()
+    function getRenderer()
     {
         if (!$this->_renderer) {
             $renderer = Mage_Api2_Model_Renderer::factory($this->getRequest()->getAcceptTypes());
@@ -478,7 +478,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @param Mage_Api2_Model_Renderer_Interface $renderer
      */
-    public function setRenderer(Mage_Api2_Model_Renderer_Interface $renderer)
+    function setRenderer(Mage_Api2_Model_Renderer_Interface $renderer)
     {
         $this->_renderer = $renderer;
     }
@@ -489,7 +489,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @return string
      */
-    public function getUserType()
+    function getUserType()
     {
         if (!$this->_userType) {
             $this->setUserType($this->getApiUser()->getType());
@@ -503,7 +503,7 @@ abstract class Mage_Api2_Model_Resource
      * @param string $userType
      * @return $this
      */
-    public function setUserType($userType)
+    function setUserType($userType)
     {
         $this->_userType = $userType;
         return $this;
@@ -515,7 +515,7 @@ abstract class Mage_Api2_Model_Resource
      * @throws Exception
      * @return Mage_Api2_Model_Auth_User_Abstract
      */
-    public function getApiUser()
+    function getApiUser()
     {
         if (!$this->_apiUser) {
             throw new Exception('API user is not set.');
@@ -529,7 +529,7 @@ abstract class Mage_Api2_Model_Resource
      * @param Mage_Api2_Model_Auth_User_Abstract $apiUser
      * @return $this
      */
-    public function setApiUser(Mage_Api2_Model_Auth_User_Abstract $apiUser)
+    function setApiUser(Mage_Api2_Model_Auth_User_Abstract $apiUser)
     {
         $this->_apiUser = $apiUser;
         return $this;
@@ -541,7 +541,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @return string One of Mage_Api2_Model_Resource::ACTION_TYPE_... constant
      */
-    public function getActionType()
+    function getActionType()
     {
         if (!$this->_actionType) {
             $this->setActionType($this->getRequest()->getActionType());
@@ -555,7 +555,7 @@ abstract class Mage_Api2_Model_Resource
      * @param string $actionType One of Mage_Api2_Model_Resource::ACTION_TYPE_... constant
      * @return $this
      */
-    public function setActionType($actionType)
+    function setActionType($actionType)
     {
         $this->_actionType = $actionType;
         return $this;
@@ -567,7 +567,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @return string One of Mage_Api2_Model_Resource::OPERATION_... constant
      */
-    public function getOperation()
+    function getOperation()
     {
         if (!$this->_operation) {
             $this->setOperation($this->getRequest()->getOperation());
@@ -581,7 +581,7 @@ abstract class Mage_Api2_Model_Resource
      * @param string $operation One of Mage_Api2_Model_Resource::OPERATION_... constant
      * @return $this
      */
-    public function setOperation($operation)
+    function setOperation($operation)
     {
         $this->_operation = $operation;
         return $this;
@@ -592,7 +592,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @return Mage_Api2_Model_Config
      */
-    public function getConfig()
+    function getConfig()
     {
         return Mage::getSingleton('api2/config');
     }
@@ -602,7 +602,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @return Mage_Core_Model_Abstract
      */
-    public function getWorkingModel()
+    function getWorkingModel()
     {
         return Mage::getModel($this->getConfig()->getResourceWorkingModel($this->getResourceType()));
     }
@@ -859,7 +859,7 @@ abstract class Mage_Api2_Model_Resource
      * @param bool $flag
      * @return $this
      */
-    public function setReturnData($flag)
+    function setReturnData($flag)
     {
         $this->_returnData = $flag;
         return $this;
@@ -905,7 +905,7 @@ abstract class Mage_Api2_Model_Resource
      * @param string $operation
      * @return array
      */
-    public function getAvailableAttributes($userType, $operation)
+    function getAvailableAttributes($userType, $operation)
     {
         $available     = $this->getAvailableAttributesFromConfig();
         $excludedAttrs = $this->getExcludedAttributes($userType, $operation);
@@ -940,7 +940,7 @@ abstract class Mage_Api2_Model_Resource
      * @param string $operation
      * @return array
      */
-    public function getExcludedAttributes($userType, $operation)
+    function getExcludedAttributes($userType, $operation)
     {
         return $this->getConfig()->getResourceExcludedAttributes($this->getResourceType(), $userType, $operation);
     }
@@ -950,7 +950,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @return array
      */
-    public function getForcedAttributes()
+    function getForcedAttributes()
     {
         return $this->getConfig()->getResourceForcedAttributes($this->getResourceType(), $this->getUserType());
     }
@@ -962,7 +962,7 @@ abstract class Mage_Api2_Model_Resource
      * @param string $operationType Type of operation: one of Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_... constant
      * @return array
      */
-    public function getIncludedAttributes($userType, $operationType)
+    function getIncludedAttributes($userType, $operationType)
     {
         return $this->getConfig()->getResourceIncludedAttributes($this->getResourceType(), $userType, $operationType);
     }
@@ -974,7 +974,7 @@ abstract class Mage_Api2_Model_Resource
      * @param string $operationType Type of operation: one of Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_... constant
      * @return array
      */
-    public function getEntityOnlyAttributes($userType, $operationType)
+    function getEntityOnlyAttributes($userType, $operationType)
     {
         return $this->getConfig()->getResourceEntityOnlyAttributes($this->getResourceType(), $userType, $operationType);
     }
@@ -984,7 +984,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @return array
      */
-    public function getAvailableAttributesFromConfig()
+    function getAvailableAttributesFromConfig()
     {
         return $this->getConfig()->getResourceAttributes($this->getResourceType());
     }
@@ -994,7 +994,7 @@ abstract class Mage_Api2_Model_Resource
      *
      * @return array
      */
-    public function getDbAttributes()
+    function getDbAttributes()
     {
         $available = [];
         $workModel = $this->getConfig()->getResourceWorkingModel($this->getResourceType());
@@ -1017,7 +1017,7 @@ abstract class Mage_Api2_Model_Resource
      * @param bool $excludeSystem OPTIONAL Exclude attributes marked as system
      * @return array
      */
-    public function getEavAttributes($onlyVisible = false, $excludeSystem = false)
+    function getEavAttributes($onlyVisible = false, $excludeSystem = false)
     {
         $attributes = [];
         $model = $this->getConfig()->getResourceWorkingModel($this->getResourceType());

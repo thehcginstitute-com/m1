@@ -27,7 +27,7 @@ class Mage_Newsletter_ManageController extends Mage_Core_Controller_Front_Action
      *
      * Check customer authentication for some actions
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
         if (!Mage::getSingleton('customer/session')->authenticate($this)) {
@@ -36,7 +36,7 @@ class Mage_Newsletter_ManageController extends Mage_Core_Controller_Front_Action
         return $this;
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout();
         $this->_initLayoutMessages('customer/session');
@@ -49,7 +49,7 @@ class Mage_Newsletter_ManageController extends Mage_Core_Controller_Front_Action
         $this->renderLayout();
     }
 
-    public function saveAction()
+    function saveAction()
     {
         if (!$this->_validateFormKey()) {
             return $this->_redirect('customer/account/');

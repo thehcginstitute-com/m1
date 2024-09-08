@@ -35,7 +35,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $options = array(
             array(
@@ -58,7 +58,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
     /**
      * @return $this
      */
-    public function saveFlagImage()
+    function saveFlagImage()
     {
         if (isset($_FILES['icon_img']['name']) && !empty($_FILES['icon_img']['name'])) {
             $result = $this->uploadImage('icon_img', $_FILES['icon_img']['name']);
@@ -73,7 +73,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
     /**
      * @return void
      */
-    public function assignTypes()
+    function assignTypes()
     {
         $types = self::getAssignTypesForFlag($this->getId());
         $this->setData('types', $types);
@@ -89,7 +89,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
     /**
      * @return void
      */
-    public function assignDisallowedAutoApplyOptions()
+    function assignDisallowedAutoApplyOptions()
     {
         $status = $this->getAutoApplyOptions(IWD_OrderFlags_Model_Flags_Autoapply::TYPE_ORDER_STATUS, 'neq');
         $payment = $this->getAutoApplyOptions(IWD_OrderFlags_Model_Flags_Autoapply::TYPE_PAYMENT_METHOD, 'neq');
@@ -109,7 +109,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
     /**
      * @return void
      */
-    public function assignAutoApplyOptions()
+    function assignAutoApplyOptions()
     {
         $status = $this->getAutoApplyOptions(IWD_OrderFlags_Model_Flags_Autoapply::TYPE_ORDER_STATUS);
         $payment = $this->getAutoApplyOptions(IWD_OrderFlags_Model_Flags_Autoapply::TYPE_PAYMENT_METHOD);
@@ -127,7 +127,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
      * @param string $equal
      * @return mixed
      */
-    public function getAutoApplyOptions($type, $equal = 'eq')
+    function getAutoApplyOptions($type, $equal = 'eq')
     {
         return Mage::getModel('iwd_orderflags/flags_autoapply')->getCollection()
             ->addFieldToFilter('flag_id', array($equal => $this->getId()))
@@ -176,7 +176,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getIconImage()
+    function getIconImage()
     {
         if ($this->getData('icon_img')) {
             return Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)
@@ -191,7 +191,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getIconHtml()
+    function getIconHtml()
     {
         $html = '';
 
@@ -213,7 +213,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getIconHtmlWithHint()
+    function getIconHtmlWithHint()
     {
         $hint = '';
         if ($this->getId()) {
@@ -226,7 +226,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
     /**
      * @param $orderStatus
      */
-    public function saveAutoApplyOrderStatuses($orderStatus)
+    function saveAutoApplyOrderStatuses($orderStatus)
     {
         $orderStatus = $this->deleteAutoApplyOptions(IWD_OrderFlags_Model_Flags_Autoapply::TYPE_ORDER_STATUS, $orderStatus);
         $this->saveAutoApplyOptions(IWD_OrderFlags_Model_Flags_Autoapply::TYPE_ORDER_STATUS, $orderStatus);
@@ -235,7 +235,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
     /**
      * @param $paymentMethod
      */
-    public function saveAutoApplyPaymentMethods($paymentMethod)
+    function saveAutoApplyPaymentMethods($paymentMethod)
     {
         $paymentMethod = $this->deleteAutoApplyOptions(IWD_OrderFlags_Model_Flags_Autoapply::TYPE_PAYMENT_METHOD, $paymentMethod);
         $this->saveAutoApplyOptions(IWD_OrderFlags_Model_Flags_Autoapply::TYPE_PAYMENT_METHOD, $paymentMethod);
@@ -244,7 +244,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
     /**
      * @param $shippingMethod
      */
-    public function saveAutoApplyShippingMethods($shippingMethod)
+    function saveAutoApplyShippingMethods($shippingMethod)
     {
         $shippingMethod = $this->deleteAutoApplyOptions(IWD_OrderFlags_Model_Flags_Autoapply::TYPE_SHIPPING_METHOD, $shippingMethod);
         $this->saveAutoApplyOptions(IWD_OrderFlags_Model_Flags_Autoapply::TYPE_SHIPPING_METHOD, $shippingMethod);
@@ -253,7 +253,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
     /**
      * @param $storeViews
      */
-    public function saveAutoApplyStoreViews($storeViews)
+    function saveAutoApplyStoreViews($storeViews)
     {
         $storeViews = $this->deleteAutoApplyOptions(IWD_OrderFlags_Model_Flags_Autoapply::TYPE_STORE_VIEW, $storeViews);
         $this->saveAutoApplyOptions(IWD_OrderFlags_Model_Flags_Autoapply::TYPE_STORE_VIEW, $storeViews);
@@ -285,7 +285,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
      * @param $type
      * @param $options
      */
-    public function saveAutoApplyOptions($type, $options)
+    function saveAutoApplyOptions($type, $options)
     {
         foreach ($options as $option) {
             if (empty($option)) {
@@ -303,7 +303,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
     /**
      * @param $types
      */
-    public function saveFlagColumnsRelation($types)
+    function saveFlagColumnsRelation($types)
     {
         $types = is_string($types) ? array($types) : $types;
 
@@ -342,7 +342,7 @@ class IWD_OrderFlags_Model_Flags_Flags extends Mage_Core_Model_Abstract
         }
     }
 
-    public function delete()
+    function delete()
     {
         $flagsTypes = Mage::getModel('iwd_orderflags/flags_flag_type')->getCollection()
             ->addFieldToFilter('flag_id', $this->getId());

@@ -24,7 +24,7 @@ class Fooman_Common_Model_Selftester_Db extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function dbCheck (Fooman_Common_Model_Selftester $selftester)
+    function dbCheck (Fooman_Common_Model_Selftester $selftester)
     {
         $localError = false;
         $selftester->messages[] = "Checking database";

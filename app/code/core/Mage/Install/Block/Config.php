@@ -22,7 +22,7 @@
  */
 class Mage_Install_Block_Config extends Mage_Install_Block_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('install/config.phtml');
@@ -33,7 +33,7 @@ class Mage_Install_Block_Config extends Mage_Install_Block_Abstract
      *
      * @return string
      */
-    public function getPostUrl()
+    function getPostUrl()
     {
         return $this->getUrl('*/*/configPost');
     }
@@ -43,7 +43,7 @@ class Mage_Install_Block_Config extends Mage_Install_Block_Abstract
      *
      * @return Varien_Object
      */
-    public function getFormData()
+    function getFormData()
     {
         $data = $this->getData('form_data');
         if (is_null($data)) {
@@ -58,17 +58,17 @@ class Mage_Install_Block_Config extends Mage_Install_Block_Abstract
         return $data;
     }
 
-    public function getSkipUrlValidation()
+    function getSkipUrlValidation()
     {
         return Mage::getSingleton('install/session')->getSkipUrlValidation();
     }
 
-    public function getSkipBaseUrlValidation()
+    function getSkipBaseUrlValidation()
     {
         return Mage::getSingleton('install/session')->getSkipBaseUrlValidation();
     }
 
-    public function getSessionSaveOptions()
+    function getSessionSaveOptions()
     {
         return [
             'files' => Mage::helper('install')->__('File System'),
@@ -76,7 +76,7 @@ class Mage_Install_Block_Config extends Mage_Install_Block_Abstract
         ];
     }
 
-    public function getSessionSaveSelect()
+    function getSessionSaveSelect()
     {
         return $this->getLayout()->createBlock('core/html_select')
             ->setName('config[session_save]')

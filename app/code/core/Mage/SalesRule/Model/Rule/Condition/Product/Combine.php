@@ -140,7 +140,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Combine extends Mage_Rule_Mode
     /**
      * Initialize a rule condition
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setType('salesrule/rule_condition_product_combine');
@@ -150,7 +150,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Combine extends Mage_Rule_Mode
      * Generate a conditions data
      * @return array
      */
-    public function getNewChildSelectOptions()
+    function getNewChildSelectOptions()
     {
         $conditions = parent::getNewChildSelectOptions();
         $conditions = array_merge_recursive(
@@ -182,7 +182,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Combine extends Mage_Rule_Mode
      * @param Mage_Catalog_Model_Resource_Product_Collection $productCollection
      * @return $this
      */
-    public function collectValidatedAttributes($productCollection)
+    function collectValidatedAttributes($productCollection)
     {
         foreach ($this->getConditions() as $condition) {
             $condition->collectValidatedAttributes($productCollection);
@@ -196,7 +196,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Combine extends Mage_Rule_Mode
      *
      * @return bool
      */
-    public function validate(Varien_Object $object)
+    function validate(Varien_Object $object)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $object->getProduct();

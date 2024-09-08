@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View_Tracking extends Mage_Admin
      *
      * @return Mage_Sales_Model_Order_Shipment
      */
-    public function getShipment()
+    function getShipment()
     {
         return Mage::registry('current_shipment');
     }
@@ -57,7 +57,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View_Tracking extends Mage_Admin
      *
      * @return string
      */
-    public function getSubmitUrl()
+    function getSubmitUrl()
     {
         return $this->getUrl('*/*/addTrack/', ['shipment_id' => $this->getShipment()->getId()]);
     }
@@ -67,7 +67,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View_Tracking extends Mage_Admin
      *
      * @return string
      */
-    public function getSaveButtonHtml()
+    function getSaveButtonHtml()
     {
         return $this->getChildHtml('save_button');
     }
@@ -77,7 +77,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View_Tracking extends Mage_Admin
      *
      * @return string
      */
-    public function getRemoveUrl($track)
+    function getRemoveUrl($track)
     {
         return $this->getUrl('*/*/removeTrack/', [
             'shipment_id' => $this->getShipment()->getId(),
@@ -90,7 +90,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View_Tracking extends Mage_Admin
      *
      * @return string
      */
-    public function getTrackInfoUrl($track)
+    function getTrackInfoUrl($track)
     {
         return $this->getUrl('*/*/viewTrack/', [
             'shipment_id' => $this->getShipment()->getId(),
@@ -103,7 +103,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View_Tracking extends Mage_Admin
      *
      * @return array
      */
-    public function getCarriers()
+    function getCarriers()
     {
         $carriers = [];
         $carrierInstances = Mage::getSingleton('shipping/config')->getAllCarriers(
@@ -122,7 +122,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View_Tracking extends Mage_Admin
      * @param $code
      * @return false|string
      */
-    public function getCarrierTitle($code)
+    function getCarrierTitle($code)
     {
         if ($carrier = Mage::getSingleton('shipping/config')->getCarrierInstance($code)) {
             return $carrier->getConfigData('title');

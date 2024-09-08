@@ -29,7 +29,7 @@ class Mage_Eav_Model_Entity_Attribute_Source_Store extends Mage_Eav_Model_Entity
      * @param bool $defaultValues   Argument has no effect, included for PHP 7.2 method signature compatibility
      * @return array
      */
-    public function getAllOptions($withEmpty = true, $defaultValues = false)
+    function getAllOptions($withEmpty = true, $defaultValues = false)
     {
         if ($this->_options === null) {
             $this->_options = Mage::getResourceModel('core/store_collection')->load()->toOptionArray();

@@ -24,7 +24,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Newsletter_Grid_Filter_Status exten
 {
     protected static $_statuses;
 
-    public function __construct()
+    function __construct()
     {
         self::$_statuses = [
                 null                                        => null,
@@ -53,7 +53,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Newsletter_Grid_Filter_Status exten
     /**
      * @return array|null
      */
-    public function getCondition()
+    function getCondition()
     {
         if (is_null($this->getValue())) {
             return null;

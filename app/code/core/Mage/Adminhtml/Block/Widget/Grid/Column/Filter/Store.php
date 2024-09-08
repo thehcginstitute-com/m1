@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Store extends Mage_Adminhtm
      *
      * @return string
      */
-    public function getHtml()
+    function getHtml()
     {
         $storeModel = Mage::getSingleton('adminhtml/system_store');
         /** @var Mage_Adminhtml_Model_System_Store $storeModel */
@@ -89,7 +89,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Store extends Mage_Adminhtm
      *
      * @return array|null
      */
-    public function getCondition()
+    function getCondition()
     {
         if (is_null($this->getValue())) {
             return null;

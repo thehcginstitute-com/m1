@@ -37,7 +37,7 @@ class Mage_Oauth_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function afterCustomerLogin(Varien_Event_Observer $observer)
+    function afterCustomerLogin(Varien_Event_Observer $observer)
     {
         if ($this->_getOauthToken() !== null) {
             $userType = Mage_Oauth_Model_Token::USER_TYPE_CUSTOMER;
@@ -55,7 +55,7 @@ class Mage_Oauth_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function afterAdminLogin(Varien_Event_Observer $observer)
+    function afterAdminLogin(Varien_Event_Observer $observer)
     {
         if ($this->_getOauthToken() !== null) {
             $userType = Mage_Oauth_Model_Token::USER_TYPE_ADMIN;
@@ -73,7 +73,7 @@ class Mage_Oauth_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function afterAdminLoginFailed(Varien_Event_Observer $observer)
+    function afterAdminLoginFailed(Varien_Event_Observer $observer)
     {
         if ($this->_getOauthToken() !== null) {
             /** @var Mage_Admin_Model_Session $session */

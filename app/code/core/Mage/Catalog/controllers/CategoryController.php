@@ -115,7 +115,7 @@ class Mage_Catalog_CategoryController extends Mage_Core_Controller_Front_Action
      * Category view action
      * @throws Mage_Core_Exception
      */
-    public function viewAction()
+    function viewAction()
     {
         if ($category = $this->_initCategory()) {
             $design = Mage::getSingleton('catalog/design');

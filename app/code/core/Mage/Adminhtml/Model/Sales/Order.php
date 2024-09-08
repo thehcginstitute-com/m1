@@ -32,7 +32,7 @@ class Mage_Adminhtml_Model_Sales_Order
         return Mage::getSingleton('adminhtml/session');
     }
 
-    public function checkRelation(Mage_Sales_Model_Order $order)
+    function checkRelation(Mage_Sales_Model_Order $order)
     {
         /**
          * Check customer existing

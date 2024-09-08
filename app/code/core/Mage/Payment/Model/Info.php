@@ -67,7 +67,7 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
      *
      * @inheritDoc
      */
-    public function getData($key = '', $index = null)
+    function getData($key = '', $index = null)
     {
         if ($key === 'cc_number') {
             if (empty($this->_data['cc_number']) && !empty($this->_data['cc_number_enc'])) {
@@ -129,7 +129,7 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
      * @param   string $data
      * @return  string
      */
-    public function encrypt($data)
+    function encrypt($data)
     {
         if ($data) {
             return Mage::helper('core')->encrypt($data);
@@ -143,7 +143,7 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
      * @param   string $data
      * @return  string
      */
-    public function decrypt($data)
+    function decrypt($data)
     {
         if ($data) {
             return Mage::helper('core')->decrypt($data);
@@ -161,7 +161,7 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function setAdditionalInformation($key, $value = null)
+    function setAdditionalInformation($key, $value = null)
     {
         if (is_object($value)) {
             Mage::throwException(Mage::helper('sales')->__('Payment disallow storing objects.'));
@@ -181,7 +181,7 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
      * @param string $key
      * @return array|null|mixed
      */
-    public function getAdditionalInformation($key = null)
+    function getAdditionalInformation($key = null)
     {
         $this->_initAdditionalInformation();
         if ($key === null) {
@@ -196,7 +196,7 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
      * @param string $key
      * @return $this
      */
-    public function unsAdditionalInformation($key = null)
+    function unsAdditionalInformation($key = null)
     {
         if ($key && isset($this->_additionalInformation[$key])) {
             unset($this->_additionalInformation[$key]);
@@ -212,7 +212,7 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
      * @param string $key
      * @return bool
      */
-    public function hasAdditionalInformation($key = null)
+    function hasAdditionalInformation($key = null)
     {
         $this->_initAdditionalInformation();
         return $key === null

@@ -33,7 +33,7 @@ class Mage_Catalog_Helper_Product_Type_Composite extends Mage_Core_Helper_Abstra
      * @param null|int $storeId
      * @return mixed
      */
-    public function preparePrice($product, $price, $isPercent = false, $storeId = null)
+    function preparePrice($product, $price, $isPercent = false, $storeId = null)
     {
         if ($isPercent && !empty($price)) {
             $price = $product->getFinalPrice() * $price / 100;
@@ -51,7 +51,7 @@ class Mage_Catalog_Helper_Product_Type_Composite extends Mage_Core_Helper_Abstra
      * @param null|int $storeId
      * @return mixed
      */
-    public function prepareOldPrice($product, $price, $isPercent = false, $storeId = null)
+    function prepareOldPrice($product, $price, $isPercent = false, $storeId = null)
     {
         if ($isPercent && !empty($price)) {
             $price = $product->getPrice() * $price / 100;
@@ -66,7 +66,7 @@ class Mage_Catalog_Helper_Product_Type_Composite extends Mage_Core_Helper_Abstra
      * @param float $price
      * @return string
      */
-    public function registerJsPrice($price)
+    function registerJsPrice($price)
     {
         return str_replace(',', '.', $price);
     }
@@ -79,7 +79,7 @@ class Mage_Catalog_Helper_Product_Type_Composite extends Mage_Core_Helper_Abstra
      * @param null|int $storeId
      * @return float
      */
-    public function convertPrice($price, $round = false, $storeId = null)
+    function convertPrice($price, $round = false, $storeId = null)
     {
         if (empty($price)) {
             return 0;
@@ -99,7 +99,7 @@ class Mage_Catalog_Helper_Product_Type_Composite extends Mage_Core_Helper_Abstra
      * @param null $storeId
      * @return Mage_Core_Model_Store
      */
-    public function getCurrentStore($storeId = null)
+    function getCurrentStore($storeId = null)
     {
         return Mage::app()->getStore($storeId);
     }
@@ -111,7 +111,7 @@ class Mage_Catalog_Helper_Product_Type_Composite extends Mage_Core_Helper_Abstra
      *
      * @return array
      */
-    public function prepareJsonGeneralConfig()
+    function prepareJsonGeneralConfig()
     {
         return [
             'priceFormat'       => Mage::app()->getLocale()->getJsPriceFormat(),
@@ -135,7 +135,7 @@ class Mage_Catalog_Helper_Product_Type_Composite extends Mage_Core_Helper_Abstra
      * @param Mage_Catalog_Model_Product $product
      * @return array
      */
-    public function prepareJsonProductConfig($product)
+    function prepareJsonProductConfig($product)
     {
         $_request = Mage::getSingleton('tax/calculation')->getDefaultRateRequest();
         $_request->setProductClassId($product->getTaxClassId());

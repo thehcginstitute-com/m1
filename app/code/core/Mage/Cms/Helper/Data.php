@@ -34,7 +34,7 @@ class Mage_Cms_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Core_Model_Abstract|Varien_Filter_Template
      */
-    public function getPageTemplateProcessor()
+    function getPageTemplateProcessor()
     {
         $model = (string)Mage::getConfig()->getNode(self::XML_NODE_PAGE_TEMPLATE_FILTER);
         return Mage::getModel($model);
@@ -45,7 +45,7 @@ class Mage_Cms_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Core_Model_Abstract|Varien_Filter_Template
      */
-    public function getBlockTemplateProcessor()
+    function getBlockTemplateProcessor()
     {
         $model = (string)Mage::getConfig()->getNode(self::XML_NODE_BLOCK_TEMPLATE_FILTER);
         return Mage::getModel($model);
@@ -56,7 +56,7 @@ class Mage_Cms_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getAllowedStreamWrappers()
+    function getAllowedStreamWrappers()
     {
         $allowedStreamWrappers = Mage::getConfig()->getNode(self::XML_NODE_ALLOWED_STREAM_WRAPPERS);
         if ($allowedStreamWrappers instanceof Mage_Core_Model_Config_Element) {
@@ -72,7 +72,7 @@ class Mage_Cms_Helper_Data extends Mage_Core_Helper_Abstract
      * @return true
      * @deprecated since 19.5.0
      */
-    public function isSwfDisabled()
+    function isSwfDisabled()
     {
         return true;
     }

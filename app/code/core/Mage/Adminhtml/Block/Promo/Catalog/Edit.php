@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Promo_Catalog_Edit extends Mage_Adminhtml_Block_Widge
      * Add "Save and Apply" button
      * Add "Save and Continue" button
      */
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'id';
         $this->_controller = 'promo_catalog';
@@ -53,7 +53,7 @@ class Mage_Adminhtml_Block_Promo_Catalog_Edit extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         $rule = Mage::registry('current_promo_catalog_rule');
         if ($rule->getRuleId()) {

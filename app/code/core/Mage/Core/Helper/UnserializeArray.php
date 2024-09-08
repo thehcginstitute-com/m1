@@ -27,7 +27,7 @@ class Mage_Core_Helper_UnserializeArray
      * @return array
      * @throws Exception
      */
-    public function unserialize($str)
+    function unserialize($str)
     {
         try {
             $result = unserialize($str, ['allowed_classes' => false]);

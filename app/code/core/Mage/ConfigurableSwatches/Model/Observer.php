@@ -26,7 +26,7 @@ class Mage_ConfigurableSwatches_Model_Observer extends Mage_Core_Model_Abstract
      *
      * @param Varien_Event_Observer $observer
      */
-    public function productListCollectionLoadAfter(Varien_Event_Observer $observer)
+    function productListCollectionLoadAfter(Varien_Event_Observer $observer)
     {
         if (!Mage::helper('configurableswatches')->isEnabled()) { // check if functionality disabled
             return; // exit without loading swatch functionality
@@ -73,7 +73,7 @@ class Mage_ConfigurableSwatches_Model_Observer extends Mage_Core_Model_Abstract
      *
      * @param Varien_Event_Observer $observer
      */
-    public function productLoadAfter(Varien_Event_Observer $observer)
+    function productLoadAfter(Varien_Event_Observer $observer)
     {
         if (!Mage::helper('configurableswatches')->isEnabled()) { // functionality disabled
             return; // exit without loading swatch functionality
@@ -101,7 +101,7 @@ class Mage_ConfigurableSwatches_Model_Observer extends Mage_Core_Model_Abstract
      *
      * @param Varien_Event_Observer $observer
      */
-    public function loadChildProductImagesOnMediaLoad(Varien_Event_Observer $observer)
+    function loadChildProductImagesOnMediaLoad(Varien_Event_Observer $observer)
     {
         if (!Mage::helper('configurableswatches')->isEnabled()) { // functionality disabled
             return; // exit without loading swatch functionality
@@ -142,7 +142,7 @@ class Mage_ConfigurableSwatches_Model_Observer extends Mage_Core_Model_Abstract
      *
      * @param Varien_Event_Observer $observer
      */
-    public function convertLayerBlock(Varien_Event_Observer $observer)
+    function convertLayerBlock(Varien_Event_Observer $observer)
     {
         $front = Mage::app()->getRequest()->getRouteName();
         $controller = Mage::app()->getRequest()->getControllerName();

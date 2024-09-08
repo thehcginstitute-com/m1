@@ -74,7 +74,7 @@ class Mage_Captcha_Model_Zend extends Zend_Captcha_Image implements Mage_Captcha
      *
      * @param array $params
      */
-    public function __construct($params)
+    function __construct($params)
     {
         if (!isset($params['formId'])) {
             throw new Exception('formId is mandatory');
@@ -99,7 +99,7 @@ class Mage_Captcha_Model_Zend extends Zend_Captcha_Image implements Mage_Captcha
      *
      * @return string
      */
-    public function getBlockName()
+    function getBlockName()
     {
         return 'captcha/captcha_zend';
     }
@@ -110,7 +110,7 @@ class Mage_Captcha_Model_Zend extends Zend_Captcha_Image implements Mage_Captcha
      * @param null|string $login
      * @return bool
      */
-    public function isRequired($login = null)
+    function isRequired($login = null)
     {
         $nonAuthForms = ['wishlist_sharing', 'sendfriend_send'];
 
@@ -199,7 +199,7 @@ class Mage_Captcha_Model_Zend extends Zend_Captcha_Image implements Mage_Captcha
      *
      * @return string
      */
-    public function isCaseSensitive()
+    function isCaseSensitive()
     {
         return (string)$this->_getHelper()->getConfigNode('case_sensitive');
     }
@@ -209,7 +209,7 @@ class Mage_Captcha_Model_Zend extends Zend_Captcha_Image implements Mage_Captcha
      *
      * @return string
      */
-    public function getFont()
+    function getFont()
     {
         return $this->_getFontPath();
     }
@@ -219,7 +219,7 @@ class Mage_Captcha_Model_Zend extends Zend_Captcha_Image implements Mage_Captcha
      *
      * @return int
      */
-    public function getTimeout()
+    function getTimeout()
     {
         if (!$this->_expiration) {
             /**
@@ -236,7 +236,7 @@ class Mage_Captcha_Model_Zend extends Zend_Captcha_Image implements Mage_Captcha
      *
      * @return string
      */
-    public function getImgDir()
+    function getImgDir()
     {
         return $this->_helper->getImgDir();
     }
@@ -246,7 +246,7 @@ class Mage_Captcha_Model_Zend extends Zend_Captcha_Image implements Mage_Captcha
      *
      * @return string
      */
-    public function getImgUrl()
+    function getImgUrl()
     {
         return $this->_helper->getImgUrl();
     }
@@ -257,7 +257,7 @@ class Mage_Captcha_Model_Zend extends Zend_Captcha_Image implements Mage_Captcha
      * @param string $word
      * @return bool
      */
-    public function isCorrect($word)
+    function isCorrect($word)
     {
         $storedWord = $this->getWord();
         $this->_clearWord();
@@ -278,7 +278,7 @@ class Mage_Captcha_Model_Zend extends Zend_Captcha_Image implements Mage_Captcha
      *
      * @return Mage_Customer_Model_Session
      */
-    public function getSession()
+    function getSession()
     {
         return Mage::getSingleton('customer/session');
     }
@@ -288,7 +288,7 @@ class Mage_Captcha_Model_Zend extends Zend_Captcha_Image implements Mage_Captcha
     *
     * @return string
     */
-    public function getImgSrc()
+    function getImgSrc()
     {
         return $this->getImgUrl() . $this->getId() . $this->getSuffix();
     }
@@ -299,7 +299,7 @@ class Mage_Captcha_Model_Zend extends Zend_Captcha_Image implements Mage_Captcha
      * @param string $login
      * @return $this
      */
-    public function logAttempt($login)
+    function logAttempt($login)
     {
         if ($this->_isEnabled() && in_array($this->_formId, $this->_getTargetForms())) {
             Mage::getResourceModel('captcha/log')->logAttempt($login);
@@ -451,7 +451,7 @@ class Mage_Captcha_Model_Zend extends Zend_Captcha_Image implements Mage_Captcha
      *
      * @return string|null
      */
-    public function getWord()
+    function getWord()
     {
         $sessionData = $this->getSession()->getData($this->_getFormIdKey(self::SESSION_WORD));
         if (!is_array($sessionData)) {

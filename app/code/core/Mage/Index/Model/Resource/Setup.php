@@ -27,7 +27,7 @@ class Mage_Index_Model_Resource_Setup extends Mage_Core_Model_Resource_Setup
      *
      * @return void
      */
-    public function applyUpdates()
+    function applyUpdates()
     {
         parent::applyUpdates();
         $this->_syncIndexes();

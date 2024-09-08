@@ -27,7 +27,7 @@ abstract class Mage_Adminhtml_Block_Sales_Order_Create_Abstract extends Mage_Adm
      *
      * @return Mage_Adminhtml_Model_Sales_Order_Create
      */
-    public function getCreateOrderModel()
+    function getCreateOrderModel()
     {
         return Mage::getSingleton('adminhtml/sales_order_create');
     }
@@ -47,7 +47,7 @@ abstract class Mage_Adminhtml_Block_Sales_Order_Create_Abstract extends Mage_Adm
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return $this->_getSession()->getQuote();
     }
@@ -57,7 +57,7 @@ abstract class Mage_Adminhtml_Block_Sales_Order_Create_Abstract extends Mage_Adm
      *
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         return $this->_getSession()->getCustomer();
     }
@@ -67,7 +67,7 @@ abstract class Mage_Adminhtml_Block_Sales_Order_Create_Abstract extends Mage_Adm
      *
      * @return int|null
      */
-    public function getCustomerId()
+    function getCustomerId()
     {
         return $this->_getSession()->getCustomerId();
     }
@@ -77,7 +77,7 @@ abstract class Mage_Adminhtml_Block_Sales_Order_Create_Abstract extends Mage_Adm
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return $this->_getSession()->getStore();
     }
@@ -87,7 +87,7 @@ abstract class Mage_Adminhtml_Block_Sales_Order_Create_Abstract extends Mage_Adm
      *
      * @return int|null
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_getSession()->getStoreId();
     }
@@ -98,12 +98,12 @@ abstract class Mage_Adminhtml_Block_Sales_Order_Create_Abstract extends Mage_Adm
      * @param   float $value
      * @return  string
      */
-    public function formatPrice($value)
+    function formatPrice($value)
     {
         return $this->getStore()->formatPrice($value);
     }
 
-    public function convertPrice($value, $format = true)
+    function convertPrice($value, $format = true)
     {
         return $this->getStore()->convertPrice($value, $format);
     }

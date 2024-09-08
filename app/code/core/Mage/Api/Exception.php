@@ -29,7 +29,7 @@ class Mage_Api_Exception extends Mage_Core_Exception
      * @param string $faultCode
      * @param string|null $customMessage
      */
-    public function __construct($faultCode, $customMessage = null)
+    function __construct($faultCode, $customMessage = null)
     {
         parent::__construct($faultCode);
         $this->_customMessage = $customMessage;
@@ -40,7 +40,7 @@ class Mage_Api_Exception extends Mage_Core_Exception
      *
      * @return string
      */
-    public function getCustomMessage()
+    function getCustomMessage()
     {
         return $this->_customMessage;
     }

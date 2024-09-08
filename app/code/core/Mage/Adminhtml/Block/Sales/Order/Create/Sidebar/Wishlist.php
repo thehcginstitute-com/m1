@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Wishlist extends Mage_Admi
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Wishlist');
     }
@@ -49,7 +49,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Wishlist extends Mage_Admi
      *
      * @return mixed
      */
-    public function getItemCollection()
+    function getItemCollection()
     {
         $collection = $this->getData('item_collection');
         if (is_null($collection)) {
@@ -67,7 +67,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Wishlist extends Mage_Admi
      *
      * @return array
      */
-    public function getItems()
+    function getItems()
     {
         $items = parent::getItems();
         foreach ($items as $item) {
@@ -85,7 +85,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Wishlist extends Mage_Admi
      * @param   Mage_Wishlist_Model_Item $item
      * @return  int
      */
-    public function getProductId($item)
+    function getProductId($item)
     {
         return $item->getProduct()->getId();
     }
@@ -96,7 +96,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Wishlist extends Mage_Admi
      * @param   Varien_Object $item
      * @return  int
      */
-    public function getIdentifierId($item)
+    function getIdentifierId($item)
     {
         return $item->getId();
     }
@@ -104,7 +104,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Wishlist extends Mage_Admi
     /**
      * @return false|int
      */
-    public function canDisplay()
+    function canDisplay()
     {
         if (!Mage::helper('wishlist')->isAllow()) {
             return false;
@@ -117,7 +117,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Wishlist extends Mage_Admi
      *
      * @return bool
      */
-    public function canDisplayItemQty()
+    function canDisplayItemQty()
     {
         return true;
     }

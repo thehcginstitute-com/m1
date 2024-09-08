@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Search_Grid extends Mage_Adminhtml
      * Mage_Adminhtml_Block_Sales_Order_Create_Search_Grid constructor.
      * @throws Exception
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_create_search_grid');
@@ -46,7 +46,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Search_Grid extends Mage_Adminhtml
      * Retrieve quote store object
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return Mage::getSingleton('adminhtml/session_quote')->getStore();
     }
@@ -55,7 +55,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Search_Grid extends Mage_Adminhtml
      * Retrieve quote object
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return Mage::getSingleton('adminhtml/session_quote')->getQuote();
     }
@@ -174,7 +174,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Search_Grid extends Mage_Adminhtml
     /**
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/loadBlock', ['block' => 'search_grid', '_current' => true, 'collapse' => null]);
     }

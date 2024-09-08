@@ -27,7 +27,7 @@ class Mage_Sales_Block_Order_Email_Items_Default extends Mage_Core_Block_Templat
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->getItem()->getOrder();
     }
@@ -35,7 +35,7 @@ class Mage_Sales_Block_Order_Email_Items_Default extends Mage_Core_Block_Templat
     /**
      * @return array
      */
-    public function getItemOptions()
+    function getItemOptions()
     {
         $result = [];
         if ($options = $this->getItem()->getOrderItem()->getProductOptions()) {
@@ -57,7 +57,7 @@ class Mage_Sales_Block_Order_Email_Items_Default extends Mage_Core_Block_Templat
      * @param array|string $value
      * @return string
      */
-    public function getValueHtml($value)
+    function getValueHtml($value)
     {
         if (is_array($value)) {
             return sprintf('%d', $value['qty']) . ' x ' . $this->escapeHtml($value['title']) . " "
@@ -71,7 +71,7 @@ class Mage_Sales_Block_Order_Email_Items_Default extends Mage_Core_Block_Templat
      * @param Mage_Sales_Model_Order_Creditmemo_Item | Mage_Sales_Model_Order_Invoice_Item | Mage_Core_Model_Abstract $item
      * @return array|string
      */
-    public function getSku($item)
+    function getSku($item)
     {
         if ($item->getOrderItem()->getProductOptionByCode('simple_sku')) {
             return $item->getOrderItem()->getProductOptionByCode('simple_sku');
@@ -85,7 +85,7 @@ class Mage_Sales_Block_Order_Email_Items_Default extends Mage_Core_Block_Templat
      *
      * @return Mage_Core_Block_Abstract|Mage_Core_Block_Text_List
      */
-    public function getProductAdditionalInformationBlock()
+    function getProductAdditionalInformationBlock()
     {
         return $this->getLayout()->getBlock('additional.product.info');
     }

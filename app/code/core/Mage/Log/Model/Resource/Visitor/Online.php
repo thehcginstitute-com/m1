@@ -33,7 +33,7 @@ class Mage_Log_Model_Resource_Visitor_Online extends Mage_Core_Model_Resource_Db
      * @param Mage_Log_Model_Visitor_Online $object
      * @return $this
      */
-    public function prepare(Mage_Log_Model_Visitor_Online $object)
+    function prepare(Mage_Log_Model_Visitor_Online $object)
     {
         if (($object->getUpdateFrequency() + $object->getPrepareAt()) > time()) {
             return $this;

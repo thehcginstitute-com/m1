@@ -53,7 +53,7 @@ class Mage_Sales_Model_Resource_Quote_Address_Item_Collection extends Mage_Core_
      * @param int $addressId
      * @return $this
      */
-    public function setAddressFilter($addressId)
+    function setAddressFilter($addressId)
     {
         if ($addressId) {
             $this->addFieldToFilter('quote_address_id', $addressId);

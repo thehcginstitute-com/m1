@@ -27,7 +27,7 @@ class Mage_Catalog_Block_Product_View_Description extends Mage_Core_Block_Templa
     /**
      * @return mixed|null
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!$this->_product) {
             $this->_product = Mage::registry('product');

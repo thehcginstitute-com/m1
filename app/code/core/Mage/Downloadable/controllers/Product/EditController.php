@@ -31,7 +31,7 @@ class Mage_Downloadable_Product_EditController extends Mage_Downloadable_Adminht
      *
      * @return void
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_forward('defaultIndex', 'cms_index');
     }

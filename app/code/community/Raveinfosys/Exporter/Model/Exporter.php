@@ -2,12 +2,12 @@
 
 class Raveinfosys_Exporter_Model_Exporter extends Mage_Core_Model_Abstract
 {
-    public function getPaymentMethod($order)
+    function getPaymentMethod($order)
 	{
 		return $order->getPayment()->getMethod();
 	}
 
-	public function getChildInfo($item)
+	function getChildInfo($item)
 	{
 	  
 	  if($item->getParentItemId())
@@ -17,7 +17,7 @@ class Raveinfosys_Exporter_Model_Exporter extends Mage_Core_Model_Abstract
 	  
 	}
 
-    public function getShippingMethod($order)
+    function getShippingMethod($order)
     {
         if (!$order->getIsVirtual() && $order->getShippingDescription()) {
             return $order->getShippingDescription();
@@ -28,7 +28,7 @@ class Raveinfosys_Exporter_Model_Exporter extends Mage_Core_Model_Abstract
         return '';
     }
 
-    public function getItemSku($item)
+    function getItemSku($item)
     {
         if ($item->getProductType() == Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE) {
             return $item->getProductOptionByCode('simple_sku');
@@ -36,13 +36,13 @@ class Raveinfosys_Exporter_Model_Exporter extends Mage_Core_Model_Abstract
         return $item->getSku();
     }
 
-    public function formatText($string)
+    function formatText($string)
     {
         $string = str_replace(',', ' ', $string);
 		return $string;
     }
 	
-	public function getStoreIds()
+	function getStoreIds()
     {
        $collection = Mage::getModel('core/store')->getCollection();
 	   $store_ids = array();
@@ -56,7 +56,7 @@ class Raveinfosys_Exporter_Model_Exporter extends Mage_Core_Model_Abstract
 		return $store_ids;
     }
 	
-	public function getCreditMemoDetail($order)
+	function getCreditMemoDetail($order)
     {
 	    $credit_detail['adjustment_positive'] = 0;
 	    $credit_detail['adjustment_negative'] = 0;
@@ -90,7 +90,7 @@ class Raveinfosys_Exporter_Model_Exporter extends Mage_Core_Model_Abstract
 		
     }
 	
-	public function getInvoiceDate($order)
+	function getInvoiceDate($order)
     {
 	    $date = '';
         $collection = $order->getInvoiceCollection();
@@ -104,7 +104,7 @@ class Raveinfosys_Exporter_Model_Exporter extends Mage_Core_Model_Abstract
 		
     }
 	
-	public function getShipmentDate($order)
+	function getShipmentDate($order)
     {
 	    $date = '';
         $collection = $order->getShipmentsCollection();
@@ -118,7 +118,7 @@ class Raveinfosys_Exporter_Model_Exporter extends Mage_Core_Model_Abstract
 		
     }
 	
-	public function getCreditmemoDate($order)
+	function getCreditmemoDate($order)
     {
 	    $date = '';
         $collection = $order->getCreditmemosCollection();

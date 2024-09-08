@@ -30,7 +30,7 @@ class Mage_Core_Block_Template_Zend extends Mage_Core_Block_Template
     /**
      * Class constructor. Base html block
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->_view = new Zend_View();
@@ -42,7 +42,7 @@ class Mage_Core_Block_Template_Zend extends Mage_Core_Block_Template
      * @return $this|Mage_Core_Block_Template
      * @throws Zend_View_Exception
      */
-    public function assign($key, $value = null)
+    function assign($key, $value = null)
     {
         if (is_array($key) && is_null($value)) {
             foreach ($key as $k => $v) {
@@ -58,7 +58,7 @@ class Mage_Core_Block_Template_Zend extends Mage_Core_Block_Template
      * @param string $dir
      * @return $this
      */
-    public function setScriptPath($dir)
+    function setScriptPath($dir)
     {
         $this->_view->setScriptPath($dir . DS);
         return $this;
@@ -68,7 +68,7 @@ class Mage_Core_Block_Template_Zend extends Mage_Core_Block_Template
      * @param string $fileName
      * @return string
      */
-    public function fetchView($fileName)
+    function fetchView($fileName)
     {
         return $this->_view->render($fileName);
     }

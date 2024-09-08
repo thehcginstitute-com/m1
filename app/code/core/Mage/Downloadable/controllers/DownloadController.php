@@ -84,7 +84,7 @@ class Mage_Downloadable_DownloadController extends Mage_Core_Controller_Front_Ac
      * Download sample action
      *
      */
-    public function sampleAction()
+    function sampleAction()
     {
         $sampleId = $this->getRequest()->getParam('sample_id', 0);
         $sample = Mage::getModel('downloadable/sample')->load($sampleId);
@@ -119,7 +119,7 @@ class Mage_Downloadable_DownloadController extends Mage_Core_Controller_Front_Ac
      * Download link's sample action
      *
      */
-    public function linkSampleAction()
+    function linkSampleAction()
     {
         $linkId = $this->getRequest()->getParam('link_id', 0);
         $link = Mage::getModel('downloadable/link')->load($linkId);
@@ -153,7 +153,7 @@ class Mage_Downloadable_DownloadController extends Mage_Core_Controller_Front_Ac
     /**
      * Download link action
      */
-    public function linkAction()
+    function linkAction()
     {
         $id = $this->getRequest()->getParam('id', 0);
         $linkPurchasedItem = Mage::getModel('downloadable/link_purchased_item')->load($id, 'link_hash');

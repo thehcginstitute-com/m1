@@ -43,7 +43,7 @@ class Mage_Catalog_Block_Product_Compare_Sidebar extends Mage_Catalog_Block_Prod
      *
      * @return Mage_Catalog_Model_Resource_Eav_Mysql4_Product_Compare_Item_Collection
      */
-    public function getItems()
+    function getItems()
     {
         if ($this->_itemsCollection) {
             return $this->_itemsCollection;
@@ -57,7 +57,7 @@ class Mage_Catalog_Block_Product_Compare_Sidebar extends Mage_Catalog_Block_Prod
      * @param Mage_Catalog_Model_Resource_Eav_Mysql4_Product_Compare_Item_Collection $collection
      * @return $this
      */
-    public function setItems($collection)
+    function setItems($collection)
     {
         $this->_itemsCollection = $collection;
         return $this;
@@ -68,7 +68,7 @@ class Mage_Catalog_Block_Product_Compare_Sidebar extends Mage_Catalog_Block_Prod
      *
      * @return Mage_Catalog_Helper_Product_Compare
      */
-    public function getCompareProductHelper()
+    function getCompareProductHelper()
     {
         return $this->_getHelper();
     }
@@ -78,7 +78,7 @@ class Mage_Catalog_Block_Product_Compare_Sidebar extends Mage_Catalog_Block_Prod
      *
      * @return string
      */
-    public function getClearUrl()
+    function getClearUrl()
     {
         return $this->_getHelper()->getClearListUrl();
     }
@@ -88,7 +88,7 @@ class Mage_Catalog_Block_Product_Compare_Sidebar extends Mage_Catalog_Block_Prod
      *
      * @return string
      */
-    public function getCompareUrl()
+    function getCompareUrl()
     {
         return $this->_getHelper()->getListUrl();
     }
@@ -98,7 +98,7 @@ class Mage_Catalog_Block_Product_Compare_Sidebar extends Mage_Catalog_Block_Prod
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         $compareItem = Mage::getModel('catalog/product_compare_item');
         foreach ($this->getItems() as $product) {

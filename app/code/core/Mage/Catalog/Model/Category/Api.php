@@ -22,7 +22,7 @@
  */
 class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
 {
-    public function __construct()
+    function __construct()
     {
         $this->_storeIdSessionField = 'category_store_id';
     }
@@ -35,7 +35,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
      * @param int|null $categoryId
      * @return array
      */
-    public function level($website = null, $store = null, $categoryId = null)
+    function level($website = null, $store = null, $categoryId = null)
     {
         $ids = [];
         $storeId = Mage_Catalog_Model_Category::DEFAULT_STORE_ID;
@@ -115,7 +115,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
      * @return array
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function tree($parentId = null, $store = null)
+    function tree($parentId = null, $store = null)
     {
         if (is_null($parentId) && !is_null($store)) {
             $parentId = Mage::app()->getStore($this->_getStoreId($store))->getRootCategoryId();
@@ -196,7 +196,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
      * @param array $attributes
      * @return array
      */
-    public function info($categoryId, $store = null, $attributes = null)
+    function info($categoryId, $store = null, $attributes = null)
     {
         $category = $this->_initCategory($categoryId, $store);
 
@@ -228,7 +228,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
      * @param int|null|string $store
      * @return int
      */
-    public function create($parentId, $categoryData, $store = null)
+    function create($parentId, $categoryData, $store = null)
     {
         $parent_category = $this->_initCategory($parentId, $store);
 
@@ -299,7 +299,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
      * @param string|int $store
      * @return bool
      */
-    public function update($categoryId, $categoryData, $store = null)
+    function update($categoryId, $categoryData, $store = null)
     {
         $category = $this->_initCategory($categoryId, $store);
 
@@ -344,7 +344,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
      * @param int $afterId
      * @return bool
      */
-    public function move($categoryId, $parentId, $afterId = null)
+    function move($categoryId, $parentId, $afterId = null)
     {
         $category = $this->_initCategory($categoryId);
         $parent_category = $this->_initCategory($parentId);
@@ -374,7 +374,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
      * @param int $categoryId
      * @return bool
      */
-    public function delete($categoryId)
+    function delete($categoryId)
     {
         if (Mage_Catalog_Model_Category::TREE_ROOT_ID == $categoryId) {
             $this->_fault('not_deleted', 'Cannot remove the system category.');
@@ -417,7 +417,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
      * @param string|int $store
      * @return array
      */
-    public function assignedProducts($categoryId, $store = null)
+    function assignedProducts($categoryId, $store = null)
     {
         $category = $this->_initCategory($categoryId);
 
@@ -450,7 +450,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
      * @return bool
      * @throws Mage_Api_Exception
      */
-    public function assignProduct($categoryId, $productId, $position = null, $identifierType = null)
+    function assignProduct($categoryId, $productId, $position = null, $identifierType = null)
     {
         $category = $this->_initCategory($categoryId);
         $positions = $category->getProductsPosition();
@@ -477,7 +477,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
      * @return bool
      * @throws Mage_Api_Exception
      */
-    public function updateProduct($categoryId, $productId, $position = null, $identifierType = null)
+    function updateProduct($categoryId, $productId, $position = null, $identifierType = null)
     {
         $category = $this->_initCategory($categoryId);
         $positions = $category->getProductsPosition();
@@ -506,7 +506,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
      * @return bool
      * @throws Mage_Api_Exception
      */
-    public function removeProduct($categoryId, $productId, $identifierType = null)
+    function removeProduct($categoryId, $productId, $identifierType = null)
     {
         $category = $this->_initCategory($categoryId);
         $positions = $category->getProductsPosition();

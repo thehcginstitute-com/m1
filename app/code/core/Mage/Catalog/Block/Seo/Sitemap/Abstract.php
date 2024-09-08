@@ -27,7 +27,7 @@ abstract class Mage_Catalog_Block_Seo_Sitemap_Abstract extends Mage_Core_Block_T
      *
      * @param string $pagerName
      */
-    public function bindPager($pagerName)
+    function bindPager($pagerName)
     {
         $pager = $this->getLayout()->getBlock($pagerName);
         /** @var Mage_Page_Block_Html_Pager $pager */
@@ -46,7 +46,7 @@ abstract class Mage_Catalog_Block_Seo_Sitemap_Abstract extends Mage_Core_Block_T
      * @param Mage_Catalog_Block_Seo_Sitemap_Abstract $item
      * @return string
      */
-    public function getItemUrl($item)
+    function getItemUrl($item)
     {
         return $item->getUrl();
     }

@@ -35,7 +35,7 @@ class Mage_Persistent_IndexController extends Mage_Core_Controller_Front_Action
      * @param bool $clear
      * @return $this
      */
-    public function setClearCheckoutSession($clear = true)
+    function setClearCheckoutSession($clear = true)
     {
         $this->_clearCheckoutSession = $clear;
         return $this;
@@ -54,7 +54,7 @@ class Mage_Persistent_IndexController extends Mage_Core_Controller_Front_Action
     /**
      * Unset persistent cookie action
      */
-    public function unsetCookieAction()
+    function unsetCookieAction()
     {
         if ($this->_getHelper()->isPersistent()) {
             $this->_cleanup();
@@ -84,7 +84,7 @@ class Mage_Persistent_IndexController extends Mage_Core_Controller_Front_Action
     /**
      * Save onepage checkout method to be register
      */
-    public function saveMethodAction()
+    function saveMethodAction()
     {
         if ($this->_getHelper()->isPersistent()) {
             $this->_getHelper()->getSession()->removePersistentCookie();
@@ -106,7 +106,7 @@ class Mage_Persistent_IndexController extends Mage_Core_Controller_Front_Action
      * Add appropriate session message and redirect to shopping cart
      * used for paypal express checkout
      */
-    public function expressCheckoutAction()
+    function expressCheckoutAction()
     {
         Mage::getSingleton('core/session')->addNotice(
             Mage::helper('persistent')->__('Shopping cart has been updated with appropriate prices')

@@ -24,7 +24,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance extends Mage_Adminhtml_Block_W
     /**
      * Block constructor
      */
-    public function __construct()
+    function __construct()
     {
         $this->_blockGroup = 'widget';
         $this->_controller = 'adminhtml_widget_instance';

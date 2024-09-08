@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Sales_Items_Column_Name extends Mage_Adminhtml_Block_
      * @param string $value
      * @return array
      */
-    public function getFormattedOption($value)
+    function getFormattedOption($value)
     {
         $_remainder = '';
         $value = Mage::helper('core/string')->truncate($value, 55, '', $_remainder);

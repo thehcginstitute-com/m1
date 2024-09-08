@@ -26,7 +26,7 @@ class Mage_Customer_Model_Customer_Attribute_Backend_Billing extends Mage_Eav_Mo
      * @param Mage_Customer_Model_Customer $object
      * @return $this
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         $defaultBilling = $object->getDefaultBilling();
         if (is_null($defaultBilling)) {
@@ -39,7 +39,7 @@ class Mage_Customer_Model_Customer_Attribute_Backend_Billing extends Mage_Eav_Mo
      * @param Mage_Customer_Model_Customer $object
      * @return $this
      */
-    public function afterSave($object)
+    function afterSave($object)
     {
         if ($defaultBilling = $object->getDefaultBilling()) {
             $addressId = false;

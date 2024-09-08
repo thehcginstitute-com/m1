@@ -112,7 +112,7 @@ class Mage_Sales_Model_Order_Address extends Mage_Customer_Model_Address_Abstrac
      * @param Mage_Sales_Model_Order $order
      * @return $this
      */
-    public function setOrder(Mage_Sales_Model_Order $order)
+    function setOrder(Mage_Sales_Model_Order $order)
     {
         $this->_order = $order;
         return $this;
@@ -123,7 +123,7 @@ class Mage_Sales_Model_Order_Address extends Mage_Customer_Model_Address_Abstrac
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         if (!$this->_order) {
             $this->_order = Mage::getModel('sales/order')->load($this->getParentId());

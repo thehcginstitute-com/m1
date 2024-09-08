@@ -28,7 +28,7 @@ class Mage_Sales_Model_Quote_Address_Total_Subtotal extends Mage_Sales_Model_Quo
      * @param   Mage_Sales_Model_Quote_Address $address
      * @return  Mage_Sales_Model_Quote_Address_Total_Subtotal
      */
-    public function collect(Mage_Sales_Model_Quote_Address $address)
+    function collect(Mage_Sales_Model_Quote_Address $address)
     {
         parent::collect($address);
         $address->setTotalQty(0);
@@ -147,7 +147,7 @@ class Mage_Sales_Model_Quote_Address_Total_Subtotal extends Mage_Sales_Model_Quo
      * @param Mage_Sales_Model_Quote_Address $address
      * @return  Mage_Sales_Model_Quote_Address_Total_Subtotal
      */
-    public function fetch(Mage_Sales_Model_Quote_Address $address)
+    function fetch(Mage_Sales_Model_Quote_Address $address)
     {
         $address->addTotal([
             'code'  => $this->getCode(),
@@ -162,7 +162,7 @@ class Mage_Sales_Model_Quote_Address_Total_Subtotal extends Mage_Sales_Model_Quo
      *
      * @return string
      */
-    public function getLabel()
+    function getLabel()
     {
         return Mage::helper('sales')->__('Subtotal');
     }

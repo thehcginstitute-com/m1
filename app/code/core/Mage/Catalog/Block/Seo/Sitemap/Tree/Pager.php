@@ -34,7 +34,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
      * @return int
      * @throws Exception
      */
-    public function getCurrentPage($displacement = 0)
+    function getCurrentPage($displacement = 0)
     {
         if ($page = (int) $this->getRequest()->getParam($this->getPageVarName()) + $displacement) {
             if ($page > $this->getLastPageNum()) {
@@ -48,7 +48,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
     /**
      * @return int
      */
-    public function getLimit()
+    function getLimit()
     {
         $limits = $this->getAvailableLimit();
         $limits = array_keys($limits);
@@ -59,7 +59,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
      * @param Varien_Data_Collection $collection
      * @return $this|Mage_Page_Block_Html_Pager
      */
-    public function setCollection($collection)
+    function setCollection($collection)
     {
         $this->_collection = $collection;
         return $this;
@@ -68,7 +68,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
     /**
      * @return Mage_Core_Model_Resource_Db_Collection_Abstract
      */
-    public function getCollection()
+    function getCollection()
     {
         return $this->_collection;
     }
@@ -76,7 +76,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
     /**
      * @return int
      */
-    public function getFirstNum()
+    function getFirstNum()
     {
         return $this->_firstNum + 1;
     }
@@ -85,7 +85,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
      * @param int $firstNum
      * @return $this
      */
-    public function setFirstNum($firstNum)
+    function setFirstNum($firstNum)
     {
         $this->_firstNum = $firstNum;
         return $this;
@@ -94,7 +94,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
     /**
      * @return int
      */
-    public function getLastNum()
+    function getLastNum()
     {
         return $this->_lastNum;
     }
@@ -103,7 +103,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
      * @param int $lastNum
      * @return $this
      */
-    public function setLastNum($lastNum)
+    function setLastNum($lastNum)
     {
         $this->_lastNum = $lastNum;
         return $this;
@@ -112,7 +112,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
     /**
      * @return int
      */
-    public function getTotalNum()
+    function getTotalNum()
     {
         return $this->_totalNum;
     }
@@ -121,7 +121,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
      * @param int $totalNum
      * @return $this
      */
-    public function setTotalNum($totalNum)
+    function setTotalNum($totalNum)
     {
         $this->_totalNum = $totalNum;
         return $this;
@@ -130,7 +130,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
     /**
      * @return bool
      */
-    public function isFirstPage()
+    function isFirstPage()
     {
         return $this->getCurrentPage() == 1;
     }
@@ -138,7 +138,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
     /**
      * @return int
      */
-    public function getLastPageNum()
+    function getLastPageNum()
     {
         return $this->_lastPageNumber;
     }
@@ -147,7 +147,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
      * @param int $lastPageNum
      * @return $this
      */
-    public function setLastPageNum($lastPageNum)
+    function setLastPageNum($lastPageNum)
     {
         $this->_lastPageNumber = $lastPageNum;
         return $this;
@@ -156,7 +156,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
     /**
      * @return bool
      */
-    public function isLastPage()
+    function isLastPage()
     {
         return $this->getCurrentPage() >= $this->getLastPageNum();
     }
@@ -164,7 +164,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
     /**
      * @return array
      */
-    public function getPages()
+    function getPages()
     {
         $pages = [];
         if ($this->getLastPageNum() <= $this->_displayPages) {
@@ -190,7 +190,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
     /**
      * @return string
      */
-    public function getPreviousPageUrl()
+    function getPreviousPageUrl()
     {
         return $this->getPageUrl($this->getCurrentPage(-1));
     }
@@ -198,7 +198,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
     /**
      * @return string
      */
-    public function getNextPageUrl()
+    function getNextPageUrl()
     {
         return $this->getPageUrl($this->getCurrentPage(+1));
     }
@@ -206,7 +206,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
     /**
      * @return string
      */
-    public function getLastPageUrl()
+    function getLastPageUrl()
     {
         return $this->getPageUrl($this->getLastPageNum());
     }

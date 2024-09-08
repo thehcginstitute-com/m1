@@ -44,7 +44,7 @@ class Mage_Cms_Model_Resource_Page_Service extends Mage_Core_Model_Resource_Db_A
      * @param string $byLinkTable
      * @return $this
      */
-    public function unlinkConflicts($fromStoreId, $byStoreId, $byLinkTable = null)
+    function unlinkConflicts($fromStoreId, $byStoreId, $byLinkTable = null)
     {
         $readAdapter = $this->_getReadAdapter();
 

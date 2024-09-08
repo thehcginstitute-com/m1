@@ -34,7 +34,7 @@ class Mage_Customer_Model_Resource_Customer_Collection extends Mage_Eav_Model_En
      *
      * @return $this
      */
-    public function groupByEmail()
+    function groupByEmail()
     {
         $this->getSelect()
             ->from(
@@ -52,7 +52,7 @@ class Mage_Customer_Model_Resource_Customer_Collection extends Mage_Eav_Model_En
      *
      * @return $this
      */
-    public function addNameToSelect()
+    function addNameToSelect()
     {
         $fields = [];
         $customerAccount = Mage::getConfig()->getFieldset('customer_account');
@@ -102,7 +102,7 @@ class Mage_Customer_Model_Resource_Customer_Collection extends Mage_Eav_Model_En
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $select = parent::getSelectCountSql();
         $select->resetJoinLeft();

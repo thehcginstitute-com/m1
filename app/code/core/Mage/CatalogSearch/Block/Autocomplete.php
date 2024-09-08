@@ -74,7 +74,7 @@ class Mage_CatalogSearch_Block_Autocomplete extends Mage_Core_Block_Abstract
     /**
      * @return array
      */
-    public function getSuggestData()
+    function getSuggestData()
     {
         if (!$this->_suggestData) {
             /** @var Mage_CatalogSearch_Helper_Data $helper */

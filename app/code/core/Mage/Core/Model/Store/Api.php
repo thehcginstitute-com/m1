@@ -27,7 +27,7 @@ class Mage_Core_Model_Store_Api extends Mage_Api_Model_Resource_Abstract
      *
      * @return array
      */
-    public function items()
+    function items()
     {
         // Retrieve stores
         $stores = Mage::app()->getStores();
@@ -55,7 +55,7 @@ class Mage_Core_Model_Store_Api extends Mage_Api_Model_Resource_Abstract
      * @param string|int $storeId
      * @return array
      */
-    public function info($storeId)
+    function info($storeId)
     {
         // Retrieve store info
         try {

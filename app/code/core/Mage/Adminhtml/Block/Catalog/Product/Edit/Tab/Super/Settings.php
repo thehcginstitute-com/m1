@@ -128,7 +128,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Settings extends Mage_
      *
      * @return string
      */
-    public function getContinueUrl()
+    function getContinueUrl()
     {
         return $this->getUrl('*/*/new', [
             '_current'   => true,
@@ -141,7 +141,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Settings extends Mage_
      *
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl('*/*/new', ['set' => null, 'type' => null]);
     }

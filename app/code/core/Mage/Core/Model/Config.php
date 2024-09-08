@@ -269,7 +269,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      *
      * @param mixed $sourceData
      */
-    public function __construct($sourceData = null)
+    function __construct($sourceData = null)
     {
         $this->setCacheId('config_global');
         $this->_options         = new Mage_Core_Model_Config_Options($sourceData);
@@ -283,7 +283,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      *
      * @return Mage_Core_Model_Resource_Config
      */
-    public function getResourceModel()
+    function getResourceModel()
     {
         if (is_null($this->_resourceModel)) {
             $this->_resourceModel = Mage::getResourceModel('core/config');
@@ -296,7 +296,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      *
      * @return Mage_Core_Model_Config_Options
      */
-    public function getOptions()
+    function getOptions()
     {
         return $this->_options;
     }
@@ -307,7 +307,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param array $options
      * @return $this
      */
-    public function setOptions($options)
+    function setOptions($options)
     {
         if (is_array($options)) {
             $this->getOptions()->addData($options);
@@ -321,7 +321,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param array $options
      * @return $this
      */
-    public function init($options = [])
+    function init($options = [])
     {
         $this->setCacheChecksum(null);
         $this->_cacheLoadedSections = [];
@@ -346,7 +346,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      *
      * @return $this
      */
-    public function loadBase()
+    function loadBase()
     {
         $etcDir = $this->getOptions()->getEtcDir();
         $files = glob($etcDir . DS . '*.xml');
@@ -367,7 +367,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      *
      * @return bool
      */
-    public function loadModulesCache()
+    function loadModulesCache()
     {
         if (Mage::isInstalled(['etc_dir' => $this->getOptions()->getEtcDir()])) {
             if ($this->_canUseCacheForInit()) {
@@ -388,7 +388,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      *
      * @return $this
      */
-    public function loadModules()
+    function loadModules()
     {
         Varien_Profiler::start('config/load-modules');
         $this->_loadDeclaredModules();
@@ -415,7 +415,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      *
      * @return bool
      */
-    public function isLocalConfigLoaded()
+    function isLocalConfigLoaded()
     {
         return $this->_isLocalConfigLoaded;
     }
@@ -425,7 +425,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      *
      * @return $this
      */
-    public function loadDb()
+    function loadDb()
     {
         if ($this->_isLocalConfigLoaded && Mage::isInstalled()) {
             Varien_Profiler::start('config/load-db');
@@ -442,7 +442,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param   array $options
      * @return  Mage_Core_Model_Config
      */
-    public function reinit($options = [])
+    function reinit($options = [])
     {
         $this->_allowCacheForInit = false;
         $this->_useCache = false;
@@ -510,7 +510,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      *
      * @return Zend_Cache_Core
      */
-    public function getCache()
+    function getCache()
     {
         return Mage::app()->getCache();
     }
@@ -531,7 +531,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param   array $tags cache tags
      * @return  Mage_Core_Model_Config
      */
-    public function saveCache($tags = [])
+    function saveCache($tags = [])
     {
         if (!Mage::app()->useCache('config')) {
             return $this;
@@ -662,7 +662,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      *
      * {@inheritDoc}
      */
-    public function removeCache()
+    function removeCache()
     {
         Mage::app()->cleanCache([self::CACHE_TAG]);
         return parent::removeCache();
@@ -673,7 +673,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      *
      * @return $this
      */
-    public function cleanCache()
+    function cleanCache()
     {
         return $this->reinit();
     }
@@ -707,7 +707,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param array $path
      * @return false|Varien_Simplexml_Element
      */
-    public function getSectionNode($path)
+    function getSectionNode($path)
     {
         $section    = $path[0];
         $config     = $this->_getSectionConfig($path);
@@ -724,7 +724,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @inheritDoc
      * @return Mage_Core_Model_Config_Element|Varien_Simplexml_Element|false
      */
-    public function getNode($path = null, $scope = '', $scopeCode = null)
+    function getNode($path = null, $scope = '', $scopeCode = null)
     {
         if ($scope !== '') {
             if (($scope === 'store') || ($scope === 'website')) {
@@ -766,7 +766,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param bool $overwrite
      * @return Varien_Simplexml_Config
      */
-    public function setNode($path, $value, $overwrite = true)
+    function setNode($path, $value, $overwrite = true)
     {
         if ($this->_useCache && ($path !== null)) {
             $sectionPath = explode('/', $path);
@@ -824,7 +824,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param  string|array $module
      * @return $this
      */
-    public function addAllowedModules($module)
+    function addAllowedModules($module)
     {
         if (is_array($module)) {
             foreach ($module as $moduleName) {
@@ -976,7 +976,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param bool $asFullModuleName
      * @return string
      */
-    public function determineOmittedNamespace($name, $asFullModuleName = false)
+    function determineOmittedNamespace($name, $asFullModuleName = false)
     {
         if ($this->_moduleNamespaces === null) {
             $this->_moduleNamespaces = [];
@@ -1021,7 +1021,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param Varien_Simplexml_Config|null $mergeModel
      * @return Mage_Core_Model_Config_Base|Varien_Simplexml_Config
      */
-    public function loadModulesConfiguration($fileName, $mergeToObject = null, $mergeModel = null)
+    function loadModulesConfiguration($fileName, $mergeToObject = null, $mergeModel = null)
     {
         $disableLocalModules = !$this->_canUseLocalModules();
 
@@ -1063,7 +1063,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      *
      * @return string
      */
-    public function getTempVarDir()
+    function getTempVarDir()
     {
         return $this->getOptions()->getVarDir();
     }
@@ -1073,7 +1073,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      *
      * @return array
      */
-    public function getDistroServerVars()
+    function getDistroServerVars()
     {
         if (!$this->_distroServerVars) {
             if (isset($_SERVER['SCRIPT_NAME']) && isset($_SERVER['HTTP_HOST'])) {
@@ -1113,7 +1113,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param string|array $data
      * @return array|string
      */
-    public function substDistroServerVars($data)
+    function substDistroServerVars($data)
     {
         $this->getDistroServerVars();
         return str_replace(
@@ -1129,7 +1129,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param string $moduleName
      * @return Mage_Core_Model_Config_Element|SimpleXMLElement
      */
-    public function getModuleConfig($moduleName = '')
+    function getModuleConfig($moduleName = '')
     {
         $modules = $this->getNode('modules');
         if ($moduleName === '') {
@@ -1147,7 +1147,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param string|Mage_Core_Model_Config_Element $module
      * @return object
      */
-    public function getModuleSetup($module = '')
+    function getModuleSetup($module = '')
     {
         $className = 'Mage_Core_Setup';
         if ($module !== '') {
@@ -1175,7 +1175,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @return string
      * @throws Mage_Core_Exception
      */
-    public function getBaseDir($type = 'base')
+    function getBaseDir($type = 'base')
     {
         return $this->getOptions()->getDir($type);
     }
@@ -1187,7 +1187,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param   string $type
      * @return  false|string
      */
-    public function getVarDir($path = null, $type = 'var')
+    function getVarDir($path = null, $type = 'var')
     {
         $dir = Mage::getBaseDir($type) . ($path !== null ? DS . $path : '');
         if (!$this->createDirIfNotExists($dir)) {
@@ -1200,7 +1200,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param string $dir
      * @return bool
      */
-    public function createDirIfNotExists($dir)
+    function createDirIfNotExists($dir)
     {
         return $this->getOptions()->createDirIfNotExists($dir);
     }
@@ -1212,7 +1212,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param   string $moduleName
      * @return  string
      */
-    public function getModuleDir($type, $moduleName)
+    function getModuleDir($type, $moduleName)
     {
         $codePool = (string)$this->getModuleConfig($moduleName)->codePool;
         $dir = $this->getOptions()->getCodeDir() . DS . $codePool . DS . uc_words($moduleName, DS);
@@ -1248,7 +1248,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param   string $area
      * @return bool
      */
-    public function loadEventObservers($area)
+    function loadEventObservers($area)
     {
         $events = $this->getNode("$area/events");
         if ($events) {
@@ -1296,7 +1296,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param array|string $args Module name if string
      * @return array
      */
-    public function getPathVars($args = null)
+    function getPathVars($args = null)
     {
         $path = [];
 
@@ -1314,7 +1314,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param   string $groupRootNode optional config path for group config
      * @return  string
      */
-    public function getGroupedClassName($groupType, $classId, $groupRootNode = null)
+    function getGroupedClassName($groupType, $classId, $groupRootNode = null)
     {
         if (empty($groupRootNode)) {
             $groupRootNode = 'global/' . $groupType . 's';
@@ -1375,7 +1375,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param   string $blockType
      * @return  string
      */
-    public function getBlockClassName($blockType)
+    function getBlockClassName($blockType)
     {
         if (strpos($blockType, '/') === false) {
             return $blockType;
@@ -1389,7 +1389,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param   string $helperName
      * @return  string
      */
-    public function getHelperClassName($helperName)
+    function getHelperClassName($helperName)
     {
         if (strpos($helperName, '/') === false) {
             $helperName .= '/data';
@@ -1407,7 +1407,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param string $moduleName
      * @return Mage_Core_Model_Resource_Helper_Abstract|false
      */
-    public function getResourceHelper($moduleName)
+    function getResourceHelper($moduleName)
     {
         $connectionModel = $this->_getResourceConnectionModel($moduleName);
         $helperClass     = sprintf('%s/helper_%s', $moduleName, $connectionModel);
@@ -1425,7 +1425,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param   string $modelClass
      * @return  string
      */
-    public function getModelClassName($modelClass)
+    function getModelClassName($modelClass)
     {
         $modelClass = trim($modelClass);
         if (strpos($modelClass, '/') === false) {
@@ -1447,7 +1447,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @return Mage_Core_Model_Abstract|false
      * @see Mage_Catalog_Model_Resource_Product
      */
-    public function getModelInstance($modelClass = '', $constructArguments = [])
+    function getModelInstance($modelClass = '', $constructArguments = [])
     {
         $className = $this->getModelClassName($modelClass);
         if (class_exists($className)) {
@@ -1464,7 +1464,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param string $path
      * @return bool
      */
-    public function getNodeClassInstance($path)
+    function getNodeClassInstance($path)
     {
         $config = Mage::getConfig()->getNode($path);
         if (!$config) {
@@ -1482,7 +1482,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param   array $constructArguments
      * @return Mage_Core_Model_Resource_Db_Collection_Abstract|false
      */
-    public function getResourceModelInstance($modelClass = '', $constructArguments = [])
+    function getResourceModelInstance($modelClass = '', $constructArguments = [])
     {
         $factoryName = $this->_getResourceModelFactoryClassName($modelClass);
         if (!$factoryName) {
@@ -1497,7 +1497,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param string $name
      * @return Mage_Core_Model_Config_Element|SimpleXMLElement
      */
-    public function getResourceConfig($name)
+    function getResourceConfig($name)
     {
         return $this->_xml->global->resources->{$name};
     }
@@ -1508,7 +1508,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param string $name
      * @return false|Mage_Core_Model_Config_Element
      */
-    public function getResourceConnectionConfig($name)
+    function getResourceConnectionConfig($name)
     {
         $config = $this->getResourceConfig($name);
         if ($config) {
@@ -1531,7 +1531,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param string $type
      * @return SimpleXMLElement|Varien_Simplexml_Element|Mage_Core_Model_Config_Element
      */
-    public function getResourceTypeConfig($type)
+    function getResourceTypeConfig($type)
     {
         return $this->_xml->global->resource->connection->types->{$type};
     }
@@ -1548,7 +1548,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param string $useAsKey
      * @return array
      */
-    public function getStoresConfigByPath($path, $allowValues = [], $useAsKey = 'id')
+    function getStoresConfigByPath($path, $allowValues = [], $useAsKey = 'id')
     {
         $storeValues = [];
         $stores = $this->getNode('stores');
@@ -1591,7 +1591,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param string $url
      * @return bool
      */
-    public function shouldUrlBeSecure($url)
+    function shouldUrlBeSecure($url)
     {
         if (!Mage::getStoreConfigFlag(Mage_Core_Model_Store::XML_PATH_SECURE_IN_FRONTEND)) {
             return false;
@@ -1621,7 +1621,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      *
      * @return Mage_Core_Model_Config_Element
      */
-    public function getTablePrefix()
+    function getTablePrefix()
     {
         return $this->_xml->global->resources->db->table_prefix;
     }
@@ -1633,7 +1633,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param   string $eventName event name
      * @return  Mage_Core_Model_Config_Element
      */
-    public function getEventConfig($area, $eventName)
+    function getEventConfig($area, $eventName)
     {
         //return $this->getNode($area)->events->{$eventName};
         if (!isset($this->_eventAreas[$area])) {
@@ -1651,7 +1651,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param int $scopeId
      * @return $this
      */
-    public function saveConfig($path, $value, $scope = 'default', $scopeId = 0)
+    function saveConfig($path, $value, $scope = 'default', $scopeId = 0)
     {
         $resource = $this->getResourceModel();
         $resource->saveConfig(rtrim($path, '/'), $value, $scope, $scopeId);
@@ -1667,7 +1667,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param   int $scopeId
      * @return  Mage_Core_Model_Config
      */
-    public function deleteConfig($path, $scope = 'default', $scopeId = 0)
+    function deleteConfig($path, $scope = 'default', $scopeId = 0)
     {
         $resource = $this->getResourceModel();
         $resource->deleteConfig(rtrim($path, '/'), $scope, $scopeId);
@@ -1682,7 +1682,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param string $root fieldset area, could be 'admin'
      * @return null|Mage_Core_Model_Config_Element[]|SimpleXMLElement
      */
-    public function getFieldset($name, $root = 'global')
+    function getFieldset($name, $root = 'global')
     {
         $rootNode = $this->getNode($root . '/fieldsets');
         if (!$rootNode) {
@@ -1745,7 +1745,7 @@ class Mage_Core_Model_Config extends Mage_Core_Model_Config_Base
      * @param string $modelClass
      * @return string|false
      */
-    public function getResourceModelClassName($modelClass)
+    function getResourceModelClassName($modelClass)
     {
         $factoryName = $this->_getResourceModelFactoryClassName($modelClass);
         if ($factoryName) {

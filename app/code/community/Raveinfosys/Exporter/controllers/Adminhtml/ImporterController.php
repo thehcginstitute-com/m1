@@ -11,13 +11,13 @@ class Raveinfosys_Exporter_Adminhtml_ImporterController extends Mage_Adminhtml_C
 		return $this;
 	}   
  
-	public function indexAction() 
+	function indexAction()
 	{
 		$this->_initAction()
 			->renderLayout();
 	}
 	
-	public function importOrdersAction() 
+	function importOrdersAction()
 	{
 	   if($_FILES['order_csv']['name'] != '') {
 		    $data = $this->getRequest()->getPost();

@@ -35,7 +35,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Chooser extends Mage_Adminhtml_Block_Te
      *
      * @return string
      */
-    public function getSourceUrl()
+    function getSourceUrl()
     {
         return $this->_getData('source_url');
     }
@@ -45,7 +45,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Chooser extends Mage_Adminhtml_Block_Te
      *
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function getElement()
+    function getElement()
     {
         return $this->_getData('element');
     }
@@ -55,7 +55,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Chooser extends Mage_Adminhtml_Block_Te
      *
      * @return Varien_Object
      */
-    public function getConfig()
+    function getConfig()
     {
         if ($this->_getData('config') instanceof Varien_Object) {
             return $this->_getData('config');
@@ -93,7 +93,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Chooser extends Mage_Adminhtml_Block_Te
      *
      * @return Mage_Core_Helper_Abstract
      */
-    public function getTranslationHelper()
+    function getTranslationHelper()
     {
         if ($this->_getData('translation_helper') instanceof Mage_Core_Helper_Abstract) {
             return $this->_getData('translation_helper');
@@ -106,7 +106,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Chooser extends Mage_Adminhtml_Block_Te
      *
      * @return string
      */
-    public function getUniqId()
+    function getUniqId()
     {
         return $this->_getData('uniq_id');
     }
@@ -116,7 +116,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Chooser extends Mage_Adminhtml_Block_Te
      *
      * @return string
      */
-    public function getFieldsetId()
+    function getFieldsetId()
     {
         return $this->_getData('fieldset_id');
     }
@@ -126,7 +126,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Chooser extends Mage_Adminhtml_Block_Te
      *
      * @return bool
      */
-    public function getHiddenEnabled()
+    function getHiddenEnabled()
     {
         return $this->hasData('hidden_enabled') ? (bool)$this->_getData('hidden_enabled') : true;
     }

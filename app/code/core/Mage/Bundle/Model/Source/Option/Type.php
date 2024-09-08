@@ -27,7 +27,7 @@ class Mage_Bundle_Model_Source_Option_Type
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $types = [];
 

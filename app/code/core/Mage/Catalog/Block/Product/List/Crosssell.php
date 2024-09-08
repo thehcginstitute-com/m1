@@ -79,7 +79,7 @@ class Mage_Catalog_Block_Product_List_Crosssell extends Mage_Catalog_Block_Produ
      *
      * @return Mage_Catalog_Model_Resource_Eav_Mysql4_Product_Link_Product_Collection
      */
-    public function getItems()
+    function getItems()
     {
         return $this->_itemCollection;
     }

@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_Status_Edit_Form extends Mage_Adminhtml_Block_Sales_Order_Status_New_Form
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('new_order_status');

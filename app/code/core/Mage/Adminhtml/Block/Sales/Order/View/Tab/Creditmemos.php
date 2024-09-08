@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_View_Tab_Creditmemos extends Mage_Adminhtml_Block_Widget_Grid implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('order_creditmemos');
@@ -99,12 +99,12 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Creditmemos extends Mage_Adminht
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl(
             '*/sales_order_creditmemo/view',
@@ -115,7 +115,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Creditmemos extends Mage_Adminht
         );
     }
 
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/creditmemos', ['_current' => true]);
     }
@@ -123,22 +123,22 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Creditmemos extends Mage_Adminht
     /**
      * ######################## TAB settings #################################
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('sales')->__('Credit Memos');
     }
 
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('sales')->__('Order Credit Memos');
     }
 
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
 
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }

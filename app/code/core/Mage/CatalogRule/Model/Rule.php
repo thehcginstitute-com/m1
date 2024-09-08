@@ -129,7 +129,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @param array $args
      */
-    public function __construct(array $args = [])
+    function __construct(array $args = [])
     {
         $this->_factory = !empty($args['factory']) ? $args['factory'] : Mage::getSingleton('core/factory');
         $this->_config  = !empty($args['config']) ? $args['config'] : Mage::getConfig();
@@ -153,7 +153,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return Mage_CatalogRule_Model_Rule_Condition_Combine
      */
-    public function getConditionsInstance()
+    function getConditionsInstance()
     {
         return Mage::getModel('catalogrule/rule_condition_combine');
     }
@@ -163,7 +163,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return Mage_CatalogRule_Model_Rule_Action_Collection
      */
-    public function getActionsInstance()
+    function getActionsInstance()
     {
         return Mage::getModel('catalogrule/rule_action_collection');
     }
@@ -173,7 +173,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return array
      */
-    public function getCustomerGroupIds()
+    function getCustomerGroupIds()
     {
         if (!$this->hasCustomerGroupIds()) {
             $customerGroupIds = $this->_getResource()->getCustomerGroupIds($this->getId());
@@ -187,7 +187,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return string
      */
-    public function getNow()
+    function getNow()
     {
         if (!$this->_now) {
             return Varien_Date::now();
@@ -200,7 +200,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @param string $now
      */
-    public function setNow($now)
+    function setNow($now)
     {
         $this->_now = $now;
     }
@@ -210,7 +210,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return array
      */
-    public function getMatchingProductIds()
+    function getMatchingProductIds()
     {
         if (is_null($this->_productIds)) {
             $this->_productIds = [];
@@ -243,7 +243,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @param array $args
      */
-    public function callbackValidateProduct($args)
+    function callbackValidateProduct($args)
     {
         $product = clone $args['product'];
         $product->setData($args['row']);
@@ -278,7 +278,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      * @param int|Mage_Catalog_Model_Product $product
      * @param array|null $websiteIds
      */
-    public function applyToProduct($product, $websiteIds = null)
+    function applyToProduct($product, $websiteIds = null)
     {
         if (is_numeric($product)) {
             $product = $this->_factory->getModel('catalog/product')->load($product);
@@ -296,7 +296,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @throws Exception
      */
-    public function applyAll()
+    function applyAll()
     {
         $this->getResourceCollection()->walk([$this->_getResource(), 'updateRuleProductData']);
         $this->_getResource()->applyAllRules();
@@ -314,7 +314,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      * @param  int|Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function applyAllRulesToProduct($product)
+    function applyAllRulesToProduct($product)
     {
         if (is_numeric($product)) {
             /** @var Mage_Catalog_Model_Product $product */
@@ -353,7 +353,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      * @param float $price
      * @return float|null
      */
-    public function calcProductPriceRule(Mage_Catalog_Model_Product $product, $price)
+    function calcProductPriceRule(Mage_Catalog_Model_Product $product, $price)
     {
         $priceRules = null;
         $productId  = $product->getId();
@@ -410,7 +410,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @param  int|array $productIds
      */
-    public function setProductsFilter($productIds)
+    function setProductsFilter($productIds)
     {
         $this->_productsFilter = $productIds;
     }
@@ -420,7 +420,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return array|int|null
      */
-    public function getProductsFilter()
+    function getProductsFilter()
     {
         return $this->_productsFilter;
     }
@@ -447,7 +447,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return string
      */
-    public function toString($format = '')
+    function toString($format = '')
     {
         return '';
     }
@@ -468,7 +468,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return array
      */
-    public function toArray(array $arrAttributes = [])
+    function toArray(array $arrAttributes = [])
     {
         return parent::toArray($arrAttributes);
     }
@@ -479,7 +479,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function loadProductRules(Mage_Catalog_Model_Product $product)
+    function loadProductRules(Mage_Catalog_Model_Product $product)
     {
         if (!$product->hasData('matched_rules')) {
             $product->setMatchedRules($this->getResource()->getProductRuleIds($product->getId()));

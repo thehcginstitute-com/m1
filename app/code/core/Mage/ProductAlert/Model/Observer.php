@@ -291,7 +291,7 @@ class Mage_ProductAlert_Model_Observer
      *
      * @return $this
      */
-    public function process()
+    function process()
     {
         $email = Mage::getModel('productalert/email');
         $this->_processPrice($email);

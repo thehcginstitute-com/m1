@@ -106,7 +106,7 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      * @param   string $couponCode
      * @return  Mage_SalesRule_Model_Validator
      */
-    public function init($websiteId, $customerGroupId, $couponCode)
+    function init($websiteId, $customerGroupId, $couponCode)
     {
         $this->setWebsiteId($websiteId)
             ->setCustomerGroupId($customerGroupId)
@@ -237,7 +237,7 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      * @param Mage_Sales_Model_Quote_Item_Abstract $item
      * @return  Mage_SalesRule_Model_Validator
      */
-    public function processFreeShipping(Mage_Sales_Model_Quote_Item_Abstract $item)
+    function processFreeShipping(Mage_Sales_Model_Quote_Item_Abstract $item)
     {
         $address = $this->_getAddress($item);
         $item->setFreeShipping(false);
@@ -274,7 +274,7 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      * @param Mage_Sales_Model_Quote_Address $address
      * @return $this
      */
-    public function reset(Mage_Sales_Model_Quote_Address $address)
+    function reset(Mage_Sales_Model_Quote_Address $address)
     {
         if ($this->_isFirstTimeResetRun) {
             $address->setAppliedRuleIds('');
@@ -293,7 +293,7 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      * @return Mage_SalesRule_Model_Validator
      * @throws Mage_Core_Exception
      */
-    public function process(Mage_Sales_Model_Quote_Item_Abstract $item)
+    function process(Mage_Sales_Model_Quote_Item_Abstract $item)
     {
         $item->setDiscountAmount(0);
         $item->setBaseDiscountAmount(0);
@@ -560,7 +560,7 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      * @param   Mage_Sales_Model_Quote_Address $address
      * @return  Mage_SalesRule_Model_Validator
      */
-    public function processShippingAmount(Mage_Sales_Model_Quote_Address $address)
+    function processShippingAmount(Mage_Sales_Model_Quote_Address $address)
     {
         $shippingAmount = $address->getShippingAmountForDiscount();
         if ($shippingAmount !== null) {
@@ -654,7 +654,7 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      * @param bool $asString
      * @return array
      */
-    public function mergeIds($a1, $a2, $asString = true)
+    function mergeIds($a1, $a2, $asString = true)
     {
         if (!is_array($a1)) {
             $a1 = empty($a1) ? [] : explode(',', $a1);
@@ -675,7 +675,7 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      * @param int $ruleId
      * @param int $itemId
      */
-    public function setCartFixedRuleUsedForAddress($ruleId, $itemId)
+    function setCartFixedRuleUsedForAddress($ruleId, $itemId)
     {
         $this->_cartFixedRuleUsedForAddress[$ruleId] = $itemId;
     }
@@ -686,7 +686,7 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      * @param int $ruleId
      * @return int|null
      */
-    public function getCartFixedRuleUsedForAddress($ruleId)
+    function getCartFixedRuleUsedForAddress($ruleId)
     {
         return $this->_cartFixedRuleUsedForAddress[$ruleId] ?? null;
     }
@@ -698,7 +698,7 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      * @param Mage_Sales_Model_Quote_Address $address
      * @return $this
      */
-    public function initTotals($items, Mage_Sales_Model_Quote_Address $address)
+    function initTotals($items, Mage_Sales_Model_Quote_Address $address)
     {
         $address->setCartFixedRules([]);
 
@@ -857,7 +857,7 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      * @param string $separator
      * @return $this
      */
-    public function prepareDescription($address, $separator = ', ')
+    function prepareDescription($address, $separator = ', ')
     {
         $descriptionArray = $address->getDiscountDescriptionArray();
         /** @see Mage_SalesRule_Model_Validator::_getAddress */
@@ -901,7 +901,7 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      * @param array $items
      * @return array $items
      */
-    public function sortItemsByPriority($items)
+    function sortItemsByPriority($items)
     {
         $itemsSorted = [];
         foreach ($this->_getRules() as $rule) {

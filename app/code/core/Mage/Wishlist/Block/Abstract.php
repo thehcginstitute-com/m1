@@ -116,7 +116,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      *
      * @return Mage_Wishlist_Model_Resource_Item_Collection
      */
-    public function getWishlistItems()
+    function getWishlistItems()
     {
         if (is_null($this->_collection)) {
             $this->_collection = $this->_createWishlistItemCollection();
@@ -131,7 +131,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      *
      * @return Mage_Wishlist_Model_Wishlist
      */
-    public function getWishlistInstance()
+    function getWishlistInstance()
     {
         return $this->_getWishlist();
     }
@@ -142,7 +142,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @return Mage_Wishlist_Model_Resource_Item_Collection
      * @deprecated after 1.4.2.0
      */
-    public function getWishlist()
+    function getWishlist()
     {
         return $this->getWishlistItems();
     }
@@ -154,7 +154,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      *
      * @return string
      */
-    public function getItemRemoveUrl($item)
+    function getItemRemoveUrl($item)
     {
         return $this->getItemRemoveUrlCustom($item);
     }
@@ -165,7 +165,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param string|Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
      * @return string
      */
-    public function getItemAddToCartUrl($item)
+    function getItemAddToCartUrl($item)
     {
         return $this->getItemAddToCartUrlCustom($item);
     }
@@ -176,7 +176,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param string|Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
      * @return string
      */
-    public function getSharedItemAddToCartUrl($item)
+    function getSharedItemAddToCartUrl($item)
     {
         return $this->_getHelper()->getSharedAddToCartUrl($item);
     }
@@ -187,7 +187,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param Mage_Catalog_Model_Product $product
      * @return string
      */
-    public function getAddToWishlistUrl($product)
+    function getAddToWishlistUrl($product)
     {
         return $this->getAddToWishlistUrlCustom($product);
     }
@@ -199,7 +199,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      *
      * @return string
      */
-    public function getItemConfigureUrl($product)
+    function getItemConfigureUrl($product)
     {
         if ($product instanceof Mage_Catalog_Model_Product) {
             $id = $product->getWishlistItemId();
@@ -217,7 +217,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param Mage_Catalog_Model_Product $item
      * @return string
      */
-    public function getEscapedDescription($item)
+    function getEscapedDescription($item)
     {
         if ($item->getDescription()) {
             return $this->escapeHtml($item->getDescription());
@@ -231,7 +231,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param Mage_Catalog_Model_Product $item
      * @return bool
      */
-    public function hasDescription($item)
+    function hasDescription($item)
     {
         return trim($item->getDescription()) != '';
     }
@@ -242,7 +242,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param string $date
      * @return string
      */
-    public function getFormatedDate($date)
+    function getFormatedDate($date)
     {
         return $this->formatDate($date, Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM);
     }
@@ -252,7 +252,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      *
      * @return bool
      */
-    public function isSaleable()
+    function isSaleable()
     {
         foreach ($this->getWishlistItems() as $item) {
             if ($item->getProduct()->isSaleable()) {
@@ -268,7 +268,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      *
      * @return int
      */
-    public function getWishlistItemsCount()
+    function getWishlistItemsCount()
     {
         return $this->_getWishlist()->getItemsCount();
     }
@@ -279,7 +279,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param Mage_Wishlist_Model_Item|Mage_Catalog_Model_Product $item
      * @return float
      */
-    public function getQty($item)
+    function getQty($item)
     {
         $qty = $item->getQty() * 1;
         if (!$qty) {
@@ -293,7 +293,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      *
      * @return bool
      */
-    public function hasWishlistItems()
+    function hasWishlistItems()
     {
         return $this->getWishlistItemsCount() > 0;
     }
@@ -305,7 +305,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param string $block
      * @param string $template
      */
-    public function addItemPriceBlockType($type, $block = '', $template = '')
+    function addItemPriceBlockType($type, $block = '', $template = '')
     {
         if ($type) {
             $this->_itemPriceBlockTypes[$type] = [
@@ -348,7 +348,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      *
      * @return string
      */
-    public function getPriceHtml($product, $displayMinimalPrice = false, $idSuffix = '')
+    function getPriceHtml($product, $displayMinimalPrice = false, $idSuffix = '')
     {
         $type_id = $product->getTypeId();
         if (Mage::helper('catalog')->canApplyMsrp($product)) {
@@ -377,7 +377,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param  array $additional
      * @return string
      */
-    public function getProductUrl($item, $additional = [])
+    function getProductUrl($item, $additional = [])
     {
         if ($item instanceof Mage_Catalog_Model_Product) {
             $product = $item;
@@ -403,7 +403,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param bool $addFormKey
      * @return string
      */
-    public function getAddToWishlistUrlCustom($product, $addFormKey = true)
+    function getAddToWishlistUrlCustom($product, $addFormKey = true)
     {
         if (!$addFormKey) {
             return $this->_getHelper()->getAddUrlWithCustomParams($product, [], false);
@@ -418,7 +418,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param bool $addFormKey
      * @return string
      */
-    public function getItemRemoveUrlCustom($item, $addFormKey = true)
+    function getItemRemoveUrlCustom($item, $addFormKey = true)
     {
         if (!$addFormKey) {
             return $this->_getHelper()->getRemoveUrlCustom($item, false);
@@ -433,7 +433,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param bool $addFormKey
      * @return string
      */
-    public function getItemAddToCartUrlCustom($item, $addFormKey = true)
+    function getItemAddToCartUrlCustom($item, $addFormKey = true)
     {
         if (!$addFormKey) {
             return $this->_getHelper()->getAddToCartUrlCustom($item, false);

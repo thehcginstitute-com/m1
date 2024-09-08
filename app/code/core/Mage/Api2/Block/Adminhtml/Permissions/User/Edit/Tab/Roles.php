@@ -29,7 +29,7 @@ class Mage_Api2_Block_Adminhtml_Permissions_User_Edit_Tab_Roles extends Mage_Adm
      */
     protected $_selectedRoles;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -136,7 +136,7 @@ class Mage_Api2_Block_Adminhtml_Permissions_User_Edit_Tab_Roles extends Mage_Adm
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return $this->__('REST Role');
     }
@@ -146,7 +146,7 @@ class Mage_Api2_Block_Adminhtml_Permissions_User_Edit_Tab_Roles extends Mage_Adm
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return $this->__('REST Role');
     }
@@ -156,7 +156,7 @@ class Mage_Api2_Block_Adminhtml_Permissions_User_Edit_Tab_Roles extends Mage_Adm
      *
      * @return true
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -166,7 +166,7 @@ class Mage_Api2_Block_Adminhtml_Permissions_User_Edit_Tab_Roles extends Mage_Adm
      *
      * @return false
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }
@@ -176,7 +176,7 @@ class Mage_Api2_Block_Adminhtml_Permissions_User_Edit_Tab_Roles extends Mage_Adm
      *
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl(
             '*/api2_role/rolesGrid',

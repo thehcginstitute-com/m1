@@ -29,7 +29,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Giftmessage extends Mage_Adminhtml
      * @param string        $entityType
      * @return string
      */
-    public function getFormHtml(Varien_Object $entity, $entityType = 'quote')
+    function getFormHtml(Varien_Object $entity, $entityType = 'quote')
     {
         return $this->getLayout()->createBlock(
             'adminhtml/sales_order_create_giftmessage_form'
@@ -43,7 +43,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Giftmessage extends Mage_Adminhtml
      *
      * @return array|bool
      */
-    public function getItems()
+    function getItems()
     {
         /** @var Mage_GiftMessage_Helper_Message $helper */
         $helper = $this->helper('giftmessage/message');

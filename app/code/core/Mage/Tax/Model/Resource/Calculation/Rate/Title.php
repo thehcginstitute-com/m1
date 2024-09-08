@@ -33,7 +33,7 @@ class Mage_Tax_Model_Resource_Calculation_Rate_Title extends Mage_Core_Model_Res
      * @param int $rateId
      * @return $this
      */
-    public function deleteByRateId($rateId)
+    function deleteByRateId($rateId)
     {
         $conn = $this->_getWriteAdapter();
         $where = $conn->quoteInto('tax_calculation_rate_id = ?', (int)$rateId);

@@ -38,7 +38,7 @@ class Mage_ImportExport_Model_Resource_Import_Data extends Mage_Core_Model_Resou
      * @return IteratorIterator
      */
     #[\ReturnTypeWillChange]
-    public function getIterator()
+    function getIterator()
     {
         $adapter = $this->_getWriteAdapter();
         $select = $adapter->select()
@@ -63,7 +63,7 @@ class Mage_ImportExport_Model_Resource_Import_Data extends Mage_Core_Model_Resou
      *
      * @return int
      */
-    public function cleanBunches()
+    function cleanBunches()
     {
         return $this->_getWriteAdapter()->delete($this->getMainTable());
     }
@@ -74,7 +74,7 @@ class Mage_ImportExport_Model_Resource_Import_Data extends Mage_Core_Model_Resou
      * @throws Exception
      * @return string
      */
-    public function getBehavior()
+    function getBehavior()
     {
         $adapter = $this->_getReadAdapter();
         $behaviors = array_unique($adapter->fetchCol(
@@ -93,7 +93,7 @@ class Mage_ImportExport_Model_Resource_Import_Data extends Mage_Core_Model_Resou
      * @throws Exception
      * @return string
      */
-    public function getEntityTypeCode()
+    function getEntityTypeCode()
     {
         $adapter = $this->_getReadAdapter();
         $entityCodes = array_unique($adapter->fetchCol(
@@ -111,7 +111,7 @@ class Mage_ImportExport_Model_Resource_Import_Data extends Mage_Core_Model_Resou
      *
      * @return array|null
      */
-    public function getNextBunch()
+    function getNextBunch()
     {
         if ($this->_iterator === null) {
             $this->_iterator = $this->getIterator();
@@ -136,7 +136,7 @@ class Mage_ImportExport_Model_Resource_Import_Data extends Mage_Core_Model_Resou
      * @param array $data
      * @return int
      */
-    public function saveBunch($entity, $behavior, array $data)
+    function saveBunch($entity, $behavior, array $data)
     {
         return $this->_getWriteAdapter()->insert(
             $this->getMainTable(),

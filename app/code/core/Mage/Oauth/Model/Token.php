@@ -105,7 +105,7 @@ class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
      * @param string $userType Authorization user type
      * @return $this
      */
-    public function authorize($userId, $userType)
+    function authorize($userId, $userType)
     {
         if (!$this->getId() || !$this->getConsumerId()) {
             Mage::throwException('Token is not ready to be authorized');
@@ -137,7 +137,7 @@ class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function convertToAccess()
+    function convertToAccess()
     {
         if (self::TYPE_REQUEST != $this->getType()) {
             Mage::throwException('Can not convert due to token is not request type');
@@ -160,7 +160,7 @@ class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
      * @param string $callbackUrl Callback URL
      * @return $this
      */
-    public function createRequestToken($consumerId, $callbackUrl)
+    function createRequestToken($consumerId, $callbackUrl)
     {
         /** @var Mage_Oauth_Helper_Data $helper */
         $helper = Mage::helper('oauth');
@@ -183,7 +183,7 @@ class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
      * @return string
      * @throws Exception
      */
-    public function getUserType()
+    function getUserType()
     {
         if ($this->getAdminId()) {
             return self::USER_TYPE_ADMIN;
@@ -200,7 +200,7 @@ class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
      * @param string $format
      * @return string
      */
-    public function toString($format = '')
+    function toString($format = '')
     {
         return http_build_query(['oauth_token' => $this->getToken(), 'oauth_token_secret' => $this->getSecret()]);
     }
@@ -227,7 +227,7 @@ class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
      * @return array|bool
      * @throw Mage_Core_Exception|Exception   Throw exception on fail validation
      */
-    public function validate()
+    function validate()
     {
         /** @var Mage_Core_Model_Url_Validator $validatorUrl */
         $validatorUrl = Mage::getSingleton('core/url_validator');
@@ -272,7 +272,7 @@ class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
      *
      * @return Mage_Oauth_Model_Consumer
      */
-    public function getConsumer()
+    function getConsumer()
     {
         if (!$this->getData('consumer')) {
             /** @var Mage_Oauth_Model_Consumer $consumer */

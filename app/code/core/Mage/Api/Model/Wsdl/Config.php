@@ -27,7 +27,7 @@ class Mage_Api_Model_Wsdl_Config extends Mage_Api_Model_Wsdl_Config_Base
     /**
      * @inheritDoc
      */
-    public function __construct($sourceData = null)
+    function __construct($sourceData = null)
     {
         $this->setCacheId(Mage::helper('api')->getCacheId());
         parent::__construct($sourceData);
@@ -38,7 +38,7 @@ class Mage_Api_Model_Wsdl_Config extends Mage_Api_Model_Wsdl_Config_Base
      *
      * @return string|bool
      */
-    public function getWsdlContent()
+    function getWsdlContent()
     {
         return $this->_xml->asXML();
     }
@@ -63,7 +63,7 @@ class Mage_Api_Model_Wsdl_Config extends Mage_Api_Model_Wsdl_Config_Base
     /**
      * @return Varien_Simplexml_Config_Cache_Abstract|Zend_Cache_Core
      */
-    public function getCache()
+    function getCache()
     {
         return Mage::app()->getCache();
     }
@@ -101,7 +101,7 @@ class Mage_Api_Model_Wsdl_Config extends Mage_Api_Model_Wsdl_Config_Base
     /**
      * @return $this
      */
-    public function init()
+    function init()
     {
         $this->setCacheChecksum(null);
         $saveCache = true;
@@ -150,7 +150,7 @@ class Mage_Api_Model_Wsdl_Config extends Mage_Api_Model_Wsdl_Config_Base
      *
      * @return string|bool
      */
-    public function getXmlString()
+    function getXmlString()
     {
         return $this->getNode()->asXML();
     }

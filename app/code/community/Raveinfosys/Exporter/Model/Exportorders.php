@@ -6,7 +6,7 @@ class Raveinfosys_Exporter_Model_Exportorders extends Raveinfosys_Exporter_Model
     const DELIMITER = ',';
 
     
-    public function exportOrders($orders)
+    function exportOrders($orders)
     {
         $fileName = 'order_export_'.date("Ymd_His").'.csv';
         $fp = fopen(Mage::getBaseDir('export').'/'.$fileName, 'w');

@@ -28,7 +28,7 @@ abstract class Mage_Catalog_Model_Attribute_Backend_Urlkey_Abstract extends Mage
      * @param Varien_Object $object
      * @return $this
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         $attributeName = $this->getAttribute()->getName();
 
@@ -52,7 +52,7 @@ abstract class Mage_Catalog_Model_Attribute_Backend_Urlkey_Abstract extends Mage
      *
      * @return $this
      */
-    public function afterSave($object)
+    function afterSave($object)
     {
         /**
          * This logic moved to Mage_Catalog_Model_Indexer_Url

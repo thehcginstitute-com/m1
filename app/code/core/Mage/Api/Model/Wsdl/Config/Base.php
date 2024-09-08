@@ -34,7 +34,7 @@ class Mage_Api_Model_Wsdl_Config_Base extends Varien_Simplexml_Config
     /**
      * @inheritDoc
      */
-    public function __construct($sourceData = null)
+    function __construct($sourceData = null)
     {
         $this->_elementClass = 'Mage_Api_Model_Wsdl_Config_Element';
 
@@ -58,7 +58,7 @@ class Mage_Api_Model_Wsdl_Config_Base extends Varien_Simplexml_Config
      * @param string $handler
      * @return $this
      */
-    public function setHandler($handler)
+    function setHandler($handler)
     {
         $this->_handler = $handler;
         return $this;
@@ -69,7 +69,7 @@ class Mage_Api_Model_Wsdl_Config_Base extends Varien_Simplexml_Config
      *
      * @return string
      */
-    public function getHandler()
+    function getHandler()
     {
         return $this->_handler;
     }
@@ -80,7 +80,7 @@ class Mage_Api_Model_Wsdl_Config_Base extends Varien_Simplexml_Config
      * @param string $text
      * @return string
      */
-    public function processFileData($text)
+    function processFileData($text)
     {
         /** @var Mage_Core_Model_Email_Template_Filter $template */
         $template = Mage::getModel('core/email_template_filter');
@@ -96,7 +96,7 @@ class Mage_Api_Model_Wsdl_Config_Base extends Varien_Simplexml_Config
      * @param string $file
      * @return $this
      */
-    public function addLoadedFile($file)
+    function addLoadedFile($file)
     {
         if (!in_array($file, $this->_loadedFiles)) {
             $this->_loadedFiles[] = $file;
@@ -108,7 +108,7 @@ class Mage_Api_Model_Wsdl_Config_Base extends Varien_Simplexml_Config
      * @param string $file
      * @return $this|false
      */
-    public function loadFile($file)
+    function loadFile($file)
     {
         if (in_array($file, $this->_loadedFiles)) {
             return false;
@@ -127,7 +127,7 @@ class Mage_Api_Model_Wsdl_Config_Base extends Varien_Simplexml_Config
      * @param string $value Variable value
      * @return $this
      */
-    public function setWsdlVariable($key, $value)
+    function setWsdlVariable($key, $value)
     {
         $this->_wsdlVariables->setData($key, $value);
 

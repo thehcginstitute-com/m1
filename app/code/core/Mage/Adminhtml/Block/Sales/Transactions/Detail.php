@@ -33,7 +33,7 @@ class Mage_Adminhtml_Block_Sales_Transactions_Detail extends Mage_Adminhtml_Bloc
     /**
      * Add control buttons
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -62,7 +62,7 @@ class Mage_Adminhtml_Block_Sales_Transactions_Detail extends Mage_Adminhtml_Bloc
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__(
             "Transaction # %s | %s",

@@ -47,7 +47,7 @@ class Mage_Sales_Model_Resource_Report_Order_Collection extends Mage_Sales_Model
      * Initialize custom resource model
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::_construct();
         $this->setModel('adminhtml/report_item');

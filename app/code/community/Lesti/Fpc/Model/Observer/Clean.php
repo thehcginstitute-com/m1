@@ -18,17 +18,17 @@ class Lesti_Fpc_Model_Observer_Clean
     /**
      * Cron job method to clean old cache resources
      */
-    public function coreCleanCache()
+    function coreCleanCache()
     {
         $this->_getFpc()->getFrontend()->clean(Zend_Cache::CLEANING_MODE_OLD);
     }
 
-    public function adminhtmlCacheFlushAll()
+    function adminhtmlCacheFlushAll()
     {
         $this->_getFpc()->clean();
     }
 
-    public function controllerActionPredispatchAdminhtmlCacheMassRefresh()
+    function controllerActionPredispatchAdminhtmlCacheMassRefresh()
     {
         $types = Mage::app()->getRequest()->getParam('types');
         if ($this->_getFpc()->isActive()) {

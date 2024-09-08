@@ -22,7 +22,7 @@
  */
 class Mage_Dataflow_Model_Convert_Adapter_Http extends Mage_Dataflow_Model_Convert_Adapter_Abstract
 {
-    public function load()
+    function load()
     {
         if (!$_FILES) {
             ?>
@@ -38,7 +38,7 @@ File to upload: <input type="file" name="io_file"/> <input type="submit" value="
         return $this;
     }
 
-    public function save()
+    function save()
     {
         if ($this->getVars()) {
             foreach ($this->getVars() as $key => $value) {
@@ -50,7 +50,7 @@ File to upload: <input type="file" name="io_file"/> <input type="submit" value="
     }
 
     // experimental code
-    public function loadFile()
+    function loadFile()
     {
         if (!$_FILES) {
             ?>

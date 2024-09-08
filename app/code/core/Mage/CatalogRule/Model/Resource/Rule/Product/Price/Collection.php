@@ -29,7 +29,7 @@ class Mage_CatalogRule_Model_Resource_Rule_Product_Price_Collection extends Mage
     /**
      * @return array
      */
-    public function getProductIds()
+    function getProductIds()
     {
         $idsSelect = clone $this->getSelect();
         $idsSelect->reset(Zend_Db_Select::ORDER);

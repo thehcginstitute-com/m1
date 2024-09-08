@@ -27,7 +27,7 @@ class Mage_Directory_Block_Data extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getLoadrRegionUrl()
+    function getLoadrRegionUrl()
     {
         return $this->getUrl('directory/json/childRegion');
     }
@@ -35,7 +35,7 @@ class Mage_Directory_Block_Data extends Mage_Core_Block_Template
     /**
      * @return Mage_Directory_Model_Resource_Country_Collection
      */
-    public function getCountryCollection()
+    function getCountryCollection()
     {
         $collection = $this->getData('country_collection');
         if (is_null($collection)) {
@@ -55,7 +55,7 @@ class Mage_Directory_Block_Data extends Mage_Core_Block_Template
      * @return mixed
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getCountryHtmlSelect($defValue = null, $name = 'country_id', $id = 'country', $title = 'Country')
+    function getCountryHtmlSelect($defValue = null, $name = 'country_id', $id = 'country', $title = 'Country')
     {
         Varien_Profiler::start('TEST: ' . __METHOD__);
         if (is_null($defValue)) {
@@ -86,7 +86,7 @@ class Mage_Directory_Block_Data extends Mage_Core_Block_Template
     /**
      * @return mixed
      */
-    public function getRegionCollection()
+    function getRegionCollection()
     {
         $collection = $this->getData('region_collection');
         if (is_null($collection)) {
@@ -103,7 +103,7 @@ class Mage_Directory_Block_Data extends Mage_Core_Block_Template
      * @return mixed
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getRegionHtmlSelect()
+    function getRegionHtmlSelect()
     {
         Varien_Profiler::start('TEST: ' . __METHOD__);
         $cacheKey = 'DIRECTORY_REGION_SELECT_STORE' . Mage::app()->getStore()->getId();
@@ -130,7 +130,7 @@ class Mage_Directory_Block_Data extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getCountryId()
+    function getCountryId()
     {
         $countryId = $this->getData('country_id');
         if (is_null($countryId)) {
@@ -142,7 +142,7 @@ class Mage_Directory_Block_Data extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getRegionsJs()
+    function getRegionsJs()
     {
         Varien_Profiler::start('TEST: ' . __METHOD__);
         $regionsJs = $this->getData('regions_js');

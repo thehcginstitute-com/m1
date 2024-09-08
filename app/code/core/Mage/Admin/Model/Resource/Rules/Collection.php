@@ -35,7 +35,7 @@ class Mage_Admin_Model_Resource_Rules_Collection extends Mage_Core_Model_Resourc
      * @param int $id
      * @return $this
      */
-    public function getByRoles($id)
+    function getByRoles($id)
     {
         $this->addFieldToFilter('role_id', (int) $id);
         return $this;
@@ -46,7 +46,7 @@ class Mage_Admin_Model_Resource_Rules_Collection extends Mage_Core_Model_Resourc
      *
      * @return $this
      */
-    public function addSortByLength()
+    function addSortByLength()
     {
         $length = $this->getConnection()->getLengthSql('{{resource_id}}');
         $this->addExpressionFieldToSelect('length', $length, 'resource_id');
@@ -59,7 +59,7 @@ class Mage_Admin_Model_Resource_Rules_Collection extends Mage_Core_Model_Resourc
      * Generate and retrieve a resource - permissions map
      * @return array
      */
-    public function getResourcesPermissionsArray()
+    function getResourcesPermissionsArray()
     {
         $resourcesPermissionsArray = [];
         foreach ($this as $item) {

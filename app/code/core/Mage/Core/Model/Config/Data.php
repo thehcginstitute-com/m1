@@ -78,7 +78,7 @@ class Mage_Core_Model_Config_Data extends Mage_Core_Model_Abstract
      * Add availability call after load as public
      * @return $this
      */
-    public function afterLoad()
+    function afterLoad()
     {
         $this->_afterLoad();
         return $this;
@@ -89,7 +89,7 @@ class Mage_Core_Model_Config_Data extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isValueChanged()
+    function isValueChanged()
     {
         return $this->getValue() != $this->getOldValue();
     }
@@ -99,7 +99,7 @@ class Mage_Core_Model_Config_Data extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getOldValue()
+    function getOldValue()
     {
         $storeCode   = $this->getStoreCode();
         $websiteCode = $this->getWebsiteCode();
@@ -120,7 +120,7 @@ class Mage_Core_Model_Config_Data extends Mage_Core_Model_Abstract
      * @param string $key
      * @return string
      */
-    public function getFieldsetDataValue($key)
+    function getFieldsetDataValue($key)
     {
         $data = $this->_getData('fieldset_data');
         return (is_array($data) && isset($data[$key])) ? $data[$key] : null;

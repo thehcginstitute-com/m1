@@ -34,7 +34,7 @@ class Mage_Tax_Model_Resource_Report_Tax_Createdat extends Mage_Reports_Model_Re
      * @param mixed $to
      * @return $this
      */
-    public function aggregate($from = null, $to = null)
+    function aggregate($from = null, $to = null)
     {
         return $this->_aggregateByOrder('created_at', $from, $to);
     }

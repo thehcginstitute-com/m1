@@ -54,7 +54,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * Class constructor
      *
      */
-    public function __construct()
+    function __construct()
     {
         $resource = Mage::getSingleton('core/resource');
         $this->setType(Mage_Catalog_Model_Category::ENTITY)
@@ -71,7 +71,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param int $storeId
      * @return $this
      */
-    public function setStoreId($storeId)
+    function setStoreId($storeId)
     {
         $this->_storeId = $storeId;
         return $this;
@@ -82,7 +82,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_storeId ?? Mage::app()->getStore()->getId();
     }
@@ -133,7 +133,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param Varien_Object|Mage_Catalog_Model_Category $object
      * @return $this
      */
-    public function deleteChildren(Varien_Object $object)
+    function deleteChildren(Varien_Object $object)
     {
         $adapter = $this->_getWriteAdapter();
         $pathField = $adapter->quoteIdentifier('path');
@@ -369,7 +369,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param Mage_Catalog_Model_Category $category
      * @return array
      */
-    public function getProductsPosition($category)
+    function getProductsPosition($category)
     {
         $select = $this->_getWriteAdapter()->select()
             ->from($this->_categoryProductTable, ['product_id', 'position'])
@@ -385,7 +385,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param int $categoryId
      * @return int
      */
-    public function getChildrenCount($categoryId)
+    function getChildrenCount($categoryId)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getEntityTable(), 'children_count')
@@ -401,7 +401,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param int $entityId
      * @return bool
      */
-    public function checkId($entityId)
+    function checkId($entityId)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getEntityTable(), 'entity_id')
@@ -417,7 +417,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param array $ids
      * @return array
      */
-    public function verifyIds(array $ids)
+    function verifyIds(array $ids)
     {
         if (empty($ids)) {
             return [];
@@ -437,7 +437,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param bool $isActiveFlag
      * @return int
      */
-    public function getChildrenAmount($category, $isActiveFlag = true)
+    function getChildrenAmount($category, $isActiveFlag = true)
     {
         $storeId = Mage::app()->getStore()->getId();
         $attributeId = $this->_getIsActiveAttributeId();
@@ -501,7 +501,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param mixed $expectedValue
      * @return array
      */
-    public function findWhereAttributeIs($entityIdsFilter, $attribute, $expectedValue)
+    function findWhereAttributeIs($entityIdsFilter, $attribute, $expectedValue)
     {
         $bind = [
             'attribute_id' => $attribute->getId(),
@@ -522,7 +522,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param Mage_Catalog_Model_Category $category
      * @return int
      */
-    public function getProductCount($category)
+    function getProductCount($category)
     {
         $productTable = Mage::getSingleton('core/resource')->getTableName('catalog/category_product');
 
@@ -549,7 +549,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param bool $toLoad
      * @return Varien_Data_Tree_Node_Collection|Mage_Catalog_Model_Resource_Category_Collection
      */
-    public function getCategories($parent, $recursionLevel = 0, $sorted = false, $asCollection = false, $toLoad = true)
+    function getCategories($parent, $recursionLevel = 0, $sorted = false, $asCollection = false, $toLoad = true)
     {
         $tree = Mage::getResourceModel('catalog/category_tree');
         /** @var Mage_Catalog_Model_Resource_Category_Tree $tree */
@@ -571,7 +571,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param Mage_Catalog_Model_Category $category
      * @return Mage_Catalog_Model_Category[]
      */
-    public function getParentCategories($category)
+    function getParentCategories($category)
     {
         $pathIds = array_reverse(explode(',', $category->getPathInStore()));
         return Mage::getResourceModel('catalog/category_collection')
@@ -590,7 +590,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param Mage_Catalog_Model_Category $category
      * @return Mage_Catalog_Model_Category
      */
-    public function getParentDesignCategory($category)
+    function getParentDesignCategory($category)
     {
         $pathIds = array_reverse($category->getPathIds());
         $collection = $category->getCollection()
@@ -634,7 +634,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param Mage_Catalog_Model_Category $category
      * @return Mage_Catalog_Model_Resource_Category_Collection
      */
-    public function getChildrenCategories($category)
+    function getChildrenCategories($category)
     {
         $collection = $this->_getChildrenCategoriesBase($category);
         $collection->addAttributeToFilter('is_active', 1)
@@ -650,7 +650,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param Mage_Catalog_Model_Category $category
      * @return Mage_Catalog_Model_Resource_Category_Collection
      */
-    public function getChildrenCategoriesWithInactive($category)
+    function getChildrenCategoriesWithInactive($category)
     {
         $collection = $this->_getChildrenCategoriesBase($category);
         $collection->addFieldToFilter('parent_id', $category->getId());
@@ -685,7 +685,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param bool $recursive
      * @return array
      */
-    public function getChildren($category, $recursive = true)
+    function getChildren($category, $recursive = true)
     {
         $attributeId  = (int)$this->_getIsActiveAttributeId();
         $backendTable = $this->getTable([$this->getEntityTablePrefix(), 'int']);
@@ -721,7 +721,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param bool $recursive
      * @return array
      */
-    public function getChildrenIds($category, $recursive = true)
+    function getChildrenIds($category, $recursive = true)
     {
         $select = $this->_getChildrenIdSelect($category, $recursive);
         return $this->_getReadAdapter()->fetchCol($select);
@@ -733,7 +733,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param Mage_Catalog_Model_Category $category
      * @return array
      */
-    public function getAllChildren($category)
+    function getAllChildren($category)
     {
         $children = $this->getChildren($category);
         $myId = [$category->getId()];
@@ -748,7 +748,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param Mage_Catalog_Model_Category $category
      * @return bool
      */
-    public function isInRootCategoryList($category)
+    function isInRootCategoryList($category)
     {
         $rootCategoryId = Mage::app()->getStore()->getRootCategoryId();
 
@@ -762,7 +762,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param int $categoryId
      * @return bool
      */
-    public function isForbiddenToDelete($categoryId)
+    function isForbiddenToDelete($categoryId)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getTable('core/store_group'), ['group_id'])
@@ -781,7 +781,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param int $categoryId
      * @return string
      */
-    public function getCategoryPathById($categoryId)
+    function getCategoryPathById($categoryId)
     {
         $select = $this->getReadConnection()->select()
             ->from($this->getEntityTable(), ['path'])
@@ -799,7 +799,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * @param null|int $afterCategoryId
      * @return $this
      */
-    public function changeParent(
+    function changeParent(
         Mage_Catalog_Model_Category $category,
         Mage_Catalog_Model_Category $newParent,
         $afterCategoryId = null

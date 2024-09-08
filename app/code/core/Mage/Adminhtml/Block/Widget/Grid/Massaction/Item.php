@@ -30,7 +30,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Massaction_Item extends Mage_Adminhtml_Bl
      * @param  Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract $massaction
      * @return $this
      */
-    public function setMassaction($massaction)
+    function setMassaction($massaction)
     {
         $this->_massaction = $massaction;
         return $this;
@@ -41,7 +41,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Massaction_Item extends Mage_Adminhtml_Bl
      *
      * @return Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract
      */
-    public function getMassaction()
+    function getMassaction()
     {
         return $this->_massaction;
     }
@@ -53,7 +53,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Massaction_Item extends Mage_Adminhtml_Bl
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function setAdditionalActionBlock($block)
+    function setAdditionalActionBlock($block)
     {
         if (is_string($block)) {
             $block = $this->getLayout()->createBlock($block);
@@ -84,7 +84,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Massaction_Item extends Mage_Adminhtml_Bl
      *
      * @return Mage_Core_Block_Abstract
      */
-    public function getAdditionalActionBlock()
+    function getAdditionalActionBlock()
     {
         return $this->getChild('additional_action');
     }
@@ -94,7 +94,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Massaction_Item extends Mage_Adminhtml_Bl
      *
      * @return string
      */
-    public function getAdditionalActionBlockHtml()
+    function getAdditionalActionBlockHtml()
     {
         return $this->getChildHtml('additional_action');
     }

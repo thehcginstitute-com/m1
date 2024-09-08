@@ -27,7 +27,7 @@ class Mage_Bundle_Model_Product_Attribute_Source_Price_View extends Mage_Eav_Mod
      *
      * @return array
      */
-    public function getAllOptions()
+    function getAllOptions()
     {
         if (is_null($this->_options)) {
             $this->_options = [
@@ -50,7 +50,7 @@ class Mage_Bundle_Model_Product_Attribute_Source_Price_View extends Mage_Eav_Mod
      * @param string|int $value
      * @return string|false
      */
-    public function getOptionText($value)
+    function getOptionText($value)
     {
         $options = $this->getAllOptions();
         foreach ($options as $option) {
@@ -66,7 +66,7 @@ class Mage_Bundle_Model_Product_Attribute_Source_Price_View extends Mage_Eav_Mod
      *
      * @return array
      */
-    public function getFlatColums()
+    function getFlatColums()
     {
         $attributeCode = $this->getAttribute()->getAttributeCode();
         $column = [
@@ -93,7 +93,7 @@ class Mage_Bundle_Model_Product_Attribute_Source_Price_View extends Mage_Eav_Mod
      * @param   int $store
      * @return  Varien_Db_Select|null
      */
-    public function getFlatUpdateSelect($store)
+    function getFlatUpdateSelect($store)
     {
         return Mage::getResourceModel('eav/entity_attribute_option')
             ->getFlatUpdateSelect($this->getAttribute(), $store, false);

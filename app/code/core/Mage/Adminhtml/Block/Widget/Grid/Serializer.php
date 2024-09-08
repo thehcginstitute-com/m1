@@ -32,7 +32,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Serializer extends Mage_Core_Block_Templa
      *
      * @return $this
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->setTemplate('widget/grid/serializer.phtml');
@@ -44,7 +44,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Serializer extends Mage_Core_Block_Templa
      *
      * @param array|string $names
      */
-    public function addColumnInputName($names)
+    function addColumnInputName($names)
     {
         if (is_array($names)) {
             foreach ($names as $name) {
@@ -63,7 +63,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Serializer extends Mage_Core_Block_Templa
      * @param bool $asJSON
      * @return array|string
      */
-    public function getColumnInputNames($asJSON = false)
+    function getColumnInputNames($asJSON = false)
     {
         if ($asJSON) {
             return Mage::helper('core')->jsonEncode($this->_inputsToSerialize);
@@ -76,7 +76,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Serializer extends Mage_Core_Block_Templa
      *
      * @return string
      */
-    public function getDataAsJSON()
+    function getDataAsJSON()
     {
         $result = [];
         if ($serializeData = $this->getSerializeData()) {
@@ -100,7 +100,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Serializer extends Mage_Core_Block_Templa
      * @param string $hiddenInputName hidden input name where serialized data will be store
      * @param string $reloadParamName name of request parametr that will be used to save setted data while reload grid
      */
-    public function initSerializerBlock($grid, $callback, $hiddenInputName, $reloadParamName = 'entityCollection')
+    function initSerializerBlock($grid, $callback, $hiddenInputName, $reloadParamName = 'entityCollection')
     {
         if (is_string($grid)) {
             $grid = $this->getLayout()->getBlock($grid);

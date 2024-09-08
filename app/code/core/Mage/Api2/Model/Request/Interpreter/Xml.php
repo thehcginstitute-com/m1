@@ -43,7 +43,7 @@ class Mage_Api2_Model_Request_Interpreter_Xml implements Mage_Api2_Model_Request
      * @return array
      * @throws Exception|Mage_Api2_Exception
      */
-    public function interpret($body)
+    function interpret($body)
     {
         if (!is_string($body)) {
             throw new Exception(sprintf('Invalid data type "%s". String expected.', gettype($body)));

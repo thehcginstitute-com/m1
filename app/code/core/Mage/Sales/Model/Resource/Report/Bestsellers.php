@@ -41,7 +41,7 @@ class Mage_Sales_Model_Resource_Report_Bestsellers extends Mage_Sales_Model_Reso
      * @param mixed $to
      * @return $this
      */
-    public function aggregate($from = null, $to = null)
+    function aggregate($from = null, $to = null)
     {
         // convert input dates to UTC to be comparable with DATETIME fields in DB
         $from    = $this->_dateToUtc($from);

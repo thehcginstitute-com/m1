@@ -36,7 +36,7 @@ class Mage_Shipping_Model_Config extends Varien_Object
      * @param   mixed $store
      * @return  array
      */
-    public function getActiveCarriers($store = null)
+    function getActiveCarriers($store = null)
     {
         $carriers = [];
         $config = Mage::getStoreConfig('carriers', $store);
@@ -57,7 +57,7 @@ class Mage_Shipping_Model_Config extends Varien_Object
      * @param   mixed $store
      * @return  Mage_Shipping_Model_Carrier_Abstract[]
      */
-    public function getAllCarriers($store = null)
+    function getAllCarriers($store = null)
     {
         $carriers = [];
         $config = Mage::getStoreConfig('carriers', $store);
@@ -77,7 +77,7 @@ class Mage_Shipping_Model_Config extends Varien_Object
      * @param   mixed $store
      * @return  Mage_Shipping_Model_Carrier_Abstract|false
      */
-    public function getCarrierInstance($carrierCode, $store = null)
+    function getCarrierInstance($carrierCode, $store = null)
     {
         $carrierConfig =  Mage::getStoreConfig('carriers/' . $carrierCode, $store);
         if (!empty($carrierConfig)) {

@@ -151,7 +151,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
     /**
      * @inheritDoc
      */
-    public function load($id, $field = null)
+    function load($id, $field = null)
     {
         if (!is_numeric($id) && is_null($field)) {
             $this->_getResource()->load($this, $id, 'code');
@@ -166,7 +166,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      * @param   string $code
      * @return  Mage_Core_Model_Website
      */
-    public function loadConfig($code)
+    function loadConfig($code)
     {
         if (!Mage::getConfig()->getNode('websites')) {
             return $this;
@@ -195,7 +195,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      * @param string $path
      * @return mixed
      */
-    public function getConfig($path)
+    function getConfig($path)
     {
         if (!isset($this->_configCache[$path])) {
             $config = Mage::getConfig()->getNode('websites/' . $this->getCode() . '/' . $path);
@@ -241,7 +241,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      * @param array $groups
      * @return $this
      */
-    public function setGroups($groups)
+    function setGroups($groups)
     {
         $this->_groups = [];
         $this->_groupsCount = 0;
@@ -262,7 +262,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_Resource_Store_Group_Collection
      */
-    public function getGroupCollection()
+    function getGroupCollection()
     {
         return Mage::getModel('core/store_group')
             ->getCollection()
@@ -274,7 +274,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_Store_Group[]
      */
-    public function getGroups()
+    function getGroups()
     {
         if (is_null($this->_groups)) {
             $this->_loadGroups();
@@ -287,7 +287,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getGroupIds()
+    function getGroupIds()
     {
         if (is_null($this->_groups)) {
             $this->_loadGroups();
@@ -300,7 +300,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getGroupsCount()
+    function getGroupsCount()
     {
         if (is_null($this->_groups)) {
             $this->_loadGroups();
@@ -313,7 +313,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_Store_Group|false
      */
-    public function getDefaultGroup()
+    function getDefaultGroup()
     {
         if (!$this->hasDefaultGroupId()) {
             return false;
@@ -349,7 +349,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @param array $stores
      */
-    public function setStores($stores)
+    function setStores($stores)
     {
         $this->_stores = [];
         $this->_storesCount = 0;
@@ -370,7 +370,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_Resource_Store_Collection
      */
-    public function getStoreCollection()
+    function getStoreCollection()
     {
         return Mage::getModel('core/store')
             ->getCollection()
@@ -382,7 +382,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_Store[]
      */
-    public function getStores()
+    function getStores()
     {
         if (is_null($this->_stores)) {
             $this->_loadStores();
@@ -395,7 +395,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getStoreIds()
+    function getStoreIds()
     {
         if (is_null($this->_stores)) {
             $this->_loadStores();
@@ -408,7 +408,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getStoreCodes()
+    function getStoreCodes()
     {
         if (is_null($this->_stores)) {
             $this->_loadStores();
@@ -421,7 +421,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getStoresCount()
+    function getStoresCount()
     {
         if (is_null($this->_stores)) {
             $this->_loadStores();
@@ -434,7 +434,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isCanDelete()
+    function isCanDelete()
     {
         if ($this->_isReadOnly || !$this->getId()) {
             return false;
@@ -451,7 +451,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getWebsiteGroupStore()
+    function getWebsiteGroupStore()
     {
         return implode('-', [$this->getWebsiteId(), $this->getGroupId(), $this->getStoreId()]);
     }
@@ -459,7 +459,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
     /**
      * @return int
      */
-    public function getDefaultGroupId()
+    function getDefaultGroupId()
     {
         return $this->_getData('default_group_id');
     }
@@ -467,7 +467,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getCode()
+    function getCode()
     {
         return $this->_getData('code');
     }
@@ -500,7 +500,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getBaseCurrencyCode()
+    function getBaseCurrencyCode()
     {
         if ($this->getConfig(Mage_Core_Model_Store::XML_PATH_PRICE_SCOPE)
             == Mage_Core_Model_Store::PRICE_SCOPE_GLOBAL
@@ -516,7 +516,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return Mage_Directory_Model_Currency
      */
-    public function getBaseCurrency()
+    function getBaseCurrency()
     {
         $currency = $this->getData('base_currency');
         if (is_null($currency)) {
@@ -531,7 +531,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_Store
      */
-    public function getDefaultStore()
+    function getDefaultStore()
     {
         // init stores if not loaded
         $this->getStores();
@@ -545,7 +545,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      * @param bool $withDefault include/exclude default admin website
      * @return Varien_Db_Select
      */
-    public function getDefaultStoresSelect($withDefault = false)
+    function getDefaultStoresSelect($withDefault = false)
     {
         return $this->getResource()->getDefaultStoresSelect($withDefault);
     }
@@ -556,7 +556,7 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      * @param bool $value
      * @return bool
      */
-    public function isReadOnly($value = null)
+    function isReadOnly($value = null)
     {
         if ($value !== null) {
             $this->_isReadOnly = (bool)$value;

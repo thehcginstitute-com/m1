@@ -80,7 +80,7 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
      * Class constructor
      * @param array $parameters
      */
-    public function __construct($parameters = [])
+    function __construct($parameters = [])
     {
         $this->_urlPolicy = (!empty($parameters['redirectPolicy'])) ?
             $parameters['redirectPolicy'] : Mage::getModel('admin/redirectpolicy');
@@ -108,7 +108,7 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
      * @return $this
      * @see self::login()
      */
-    public function init($namespace, $sessionName = null)
+    function init($namespace, $sessionName = null)
     {
         parent::init($namespace, $sessionName);
         $this->isFirstPageAfterLogin();
@@ -142,7 +142,7 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param  Mage_Core_Controller_Request_Http $request
      * @return Mage_Admin_Model_User|null
      */
-    public function login($username, $password, $request = null)
+    function login($username, $password, $request = null)
     {
         if (empty($username) || empty($password)) {
             return null;
@@ -192,7 +192,7 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param  Mage_Admin_Model_User $user
      * @return $this
      */
-    public function refreshAcl($user = null)
+    function refreshAcl($user = null)
     {
         if (is_null($user)) {
             $user = $this->getUser();
@@ -219,7 +219,7 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param   string $privilege
      * @return bool
      */
-    public function isAllowed($resource, $privilege = null)
+    function isAllowed($resource, $privilege = null)
     {
         $user = $this->getUser();
         $acl = $this->getAcl();
@@ -248,7 +248,7 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
      *
      * @return bool
      */
-    public function isLoggedIn()
+    function isLoggedIn()
     {
         return $this->getUser() && $this->getUser()->getId();
     }
@@ -258,7 +258,7 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
      *
      * @return bool
      */
-    public function isFirstPageAfterLogin()
+    function isFirstPageAfterLogin()
     {
         if (is_null($this->_isFirstPageAfterLogin)) {
             $this->_isFirstPageAfterLogin = $this->getData('is_first_visit', true);
@@ -272,7 +272,7 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param bool $value
      * @return $this
      */
-    public function setIsFirstPageAfterLogin($value)
+    function setIsFirstPageAfterLogin($value)
     {
         $this->_isFirstPageAfterLogin = (bool)$value;
         return $this->setIsFirstVisit($this->_isFirstPageAfterLogin);

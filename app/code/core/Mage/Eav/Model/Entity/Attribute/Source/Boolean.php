@@ -31,7 +31,7 @@ class Mage_Eav_Model_Entity_Attribute_Source_Boolean extends Mage_Eav_Model_Enti
      *
      * @return array
      */
-    public function getAllOptions()
+    function getAllOptions()
     {
         if (is_null($this->_options)) {
             $this->_options = [
@@ -53,7 +53,7 @@ class Mage_Eav_Model_Entity_Attribute_Source_Boolean extends Mage_Eav_Model_Enti
      *
      * @return array
      */
-    public function getOptionArray()
+    function getOptionArray()
     {
         $_options = [];
         foreach ($this->getAllOptions() as $option) {
@@ -67,7 +67,7 @@ class Mage_Eav_Model_Entity_Attribute_Source_Boolean extends Mage_Eav_Model_Enti
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->getOptionArray();
     }
@@ -78,7 +78,7 @@ class Mage_Eav_Model_Entity_Attribute_Source_Boolean extends Mage_Eav_Model_Enti
      * @param string|int $value
      * @return string|false
      */
-    public function getOptionText($value)
+    function getOptionText($value)
     {
         $options = $this->getAllOptions();
         foreach ($options as $option) {
@@ -94,7 +94,7 @@ class Mage_Eav_Model_Entity_Attribute_Source_Boolean extends Mage_Eav_Model_Enti
      *
      * @return array
      */
-    public function getFlatColums()
+    function getFlatColums()
     {
         $attributeCode = $this->getAttribute()->getAttributeCode();
         $column = [
@@ -121,7 +121,7 @@ class Mage_Eav_Model_Entity_Attribute_Source_Boolean extends Mage_Eav_Model_Enti
      *
      * @return array
      */
-    public function getFlatIndexes()
+    function getFlatIndexes()
     {
         $indexes = [];
 
@@ -140,7 +140,7 @@ class Mage_Eav_Model_Entity_Attribute_Source_Boolean extends Mage_Eav_Model_Enti
      * @param int $store
      * @return Varien_Db_Select|null
      */
-    public function getFlatUpdateSelect($store)
+    function getFlatUpdateSelect($store)
     {
         return Mage::getResourceModel('eav/entity_attribute')
             ->getFlatUpdateSelect($this->getAttribute(), $store);
@@ -152,7 +152,7 @@ class Mage_Eav_Model_Entity_Attribute_Source_Boolean extends Mage_Eav_Model_Enti
      * @param  string|int $value
      * @return string|bool
      */
-    public function getIndexOptionText($value)
+    function getIndexOptionText($value)
     {
         switch ($value) {
             case self::VALUE_YES:

@@ -32,7 +32,7 @@ class Mage_Admin_Model_Resource_Rules extends Mage_Core_Model_Resource_Db_Abstra
      *
      * @param Mage_Admin_Model_Rules $rule
      */
-    public function saveRel(Mage_Admin_Model_Rules $rule)
+    function saveRel(Mage_Admin_Model_Rules $rule)
     {
         $adapter = $this->_getWriteAdapter();
         try {

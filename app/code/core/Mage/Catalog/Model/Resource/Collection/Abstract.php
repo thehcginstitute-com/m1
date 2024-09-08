@@ -36,7 +36,7 @@ class Mage_Catalog_Model_Resource_Collection_Abstract extends Mage_Eav_Model_Ent
      * @param int|string|Mage_Core_Model_Store $store
      * @return $this
      */
-    public function setStore($store)
+    function setStore($store)
     {
         $this->setStoreId(Mage::app()->getStore($store)->getId());
         return $this;
@@ -48,7 +48,7 @@ class Mage_Catalog_Model_Resource_Collection_Abstract extends Mage_Eav_Model_Ent
      * @param int|string|Mage_Core_Model_Store $storeId
      * @return $this
      */
-    public function setStoreId($storeId)
+    function setStoreId($storeId)
     {
         if ($storeId instanceof Mage_Core_Model_Store) {
             $storeId = $storeId->getId();
@@ -62,7 +62,7 @@ class Mage_Catalog_Model_Resource_Collection_Abstract extends Mage_Eav_Model_Ent
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         if (is_null($this->_storeId)) {
             $this->setStoreId(Mage::app()->getStore()->getId());
@@ -75,7 +75,7 @@ class Mage_Catalog_Model_Resource_Collection_Abstract extends Mage_Eav_Model_Ent
      *
      * @return int
      */
-    public function getDefaultStoreId()
+    function getDefaultStoreId()
     {
         return Mage_Catalog_Model_Abstract::DEFAULT_STORE_ID;
     }

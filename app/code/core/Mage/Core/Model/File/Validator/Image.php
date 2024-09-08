@@ -40,7 +40,7 @@ class Mage_Core_Model_File_Validator_Image
      * @param array $imageFileExtensions
      * @return $this
      */
-    public function setAllowedImageTypes(array $imageFileExtensions = [])
+    function setAllowedImageTypes(array $imageFileExtensions = [])
     {
         $map = [
             'tif' => [IMAGETYPE_TIFF_II, IMAGETYPE_TIFF_MM],
@@ -75,7 +75,7 @@ class Mage_Core_Model_File_Validator_Image
      * @return null
      * @throws Mage_Core_Exception
      */
-    public function validate($filePath)
+    function validate($filePath)
     {
         list($imageWidth, $imageHeight, $fileType) = getimagesize($filePath);
         if ($fileType) {

@@ -38,7 +38,7 @@ class Mage_Adminhtml_SitemapController extends Mage_Adminhtml_Controller_Action
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         return parent::preDispatch();
@@ -69,7 +69,7 @@ class Mage_Adminhtml_SitemapController extends Mage_Adminhtml_Controller_Action
     /**
      * Index action
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Catalog'))->_title($this->__('Google Sitemaps'));
 
@@ -81,7 +81,7 @@ class Mage_Adminhtml_SitemapController extends Mage_Adminhtml_Controller_Action
     /**
      * Create new sitemap
      */
-    public function newAction()
+    function newAction()
     {
         // the same form is used to create and edit
         $this->_forward('edit');
@@ -90,7 +90,7 @@ class Mage_Adminhtml_SitemapController extends Mage_Adminhtml_Controller_Action
     /**
      * Edit sitemap
      */
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('Catalog'))->_title($this->__('Google Sitemaps'));
 
@@ -134,7 +134,7 @@ class Mage_Adminhtml_SitemapController extends Mage_Adminhtml_Controller_Action
     /**
      * Save action
      */
-    public function saveAction()
+    function saveAction()
     {
         // check if data sent
         if ($data = $this->getRequest()->getPost()) {
@@ -228,7 +228,7 @@ class Mage_Adminhtml_SitemapController extends Mage_Adminhtml_Controller_Action
     /**
      * Delete action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         // check if we know what should be deleted
         if ($id = $this->getRequest()->getParam('sitemap_id')) {
@@ -271,7 +271,7 @@ class Mage_Adminhtml_SitemapController extends Mage_Adminhtml_Controller_Action
     /**
      * Generate sitemap
      */
-    public function generateAction()
+    function generateAction()
     {
         // init and load sitemap model
         $id = $this->getRequest()->getParam('sitemap_id');

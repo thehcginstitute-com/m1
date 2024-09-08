@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Report_Shopcart_Product_Grid extends Mage_Adminhtml_Block_Report_Grid_Shopcart
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('gridProducts');
@@ -86,7 +86,7 @@ class Mage_Adminhtml_Block_Report_Shopcart_Product_Grid extends Mage_Adminhtml_B
         return parent::_prepareColumns();
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/catalog_product/edit', ['id' => $row->getEntityId()]);
     }

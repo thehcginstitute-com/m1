@@ -19,7 +19,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_Status_New extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'status';
         $this->_controller = 'sales_order_status';
@@ -35,7 +35,7 @@ class Mage_Adminhtml_Block_Sales_Order_Status_New extends Mage_Adminhtml_Block_W
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('New Order Status');
     }

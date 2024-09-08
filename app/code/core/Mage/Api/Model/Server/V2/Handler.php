@@ -32,7 +32,7 @@ class Mage_Api_Model_Server_V2_Handler extends Mage_Api_Model_Server_Handler_Abs
      * @return mixed
      */
 
-    public function __call($function, $args)
+    function __call($function, $args)
     {
         $sessionId = array_shift($args);
         $apiKey = '';

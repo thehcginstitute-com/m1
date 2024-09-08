@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Product extends Mage_Adminhtml_B
     /**
      * Mage_Adminhtml_Block_Catalog_Category_Tab_Product constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('catalog_category_products');
@@ -38,7 +38,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Product extends Mage_Adminhtml_B
     /**
      * @return Mage_Catalog_Model_Category
      */
-    public function getCategory()
+    function getCategory()
     {
         return Mage::registry('category');
     }
@@ -150,7 +150,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Product extends Mage_Adminhtml_B
     /**
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/grid', ['_current' => true]);
     }

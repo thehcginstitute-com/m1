@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Address extends Mage_Admi
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Shipping Address');
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Address extends Mage_Admi
      *
      * @return string
      */
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'head-shipping-address';
     }
@@ -64,7 +64,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Address extends Mage_Admi
      *
      * @return bool
      */
-    public function getIsShipping()
+    function getIsShipping()
     {
         return true;
     }
@@ -74,7 +74,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Address extends Mage_Admi
      *
      * @return bool
      */
-    public function getIsAsBilling()
+    function getIsAsBilling()
     {
         return $this->getCreateOrderModel()->getShippingAddress()->getSameAsBilling();
     }
@@ -84,7 +84,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Address extends Mage_Admi
      *
      * @return bool
      */
-    public function getDontSaveInAddressBook()
+    function getDontSaveInAddressBook()
     {
         return $this->getIsAsBilling();
     }
@@ -94,7 +94,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Address extends Mage_Admi
      *
      * @return array
      */
-    public function getFormValues()
+    function getFormValues()
     {
         return $this->getAddress()->getData();
     }
@@ -104,7 +104,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Address extends Mage_Admi
      *
      * @return int|bool
      */
-    public function getAddressId()
+    function getAddressId()
     {
         return $this->getAddress()->getCustomerAddressId();
     }
@@ -114,7 +114,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Address extends Mage_Admi
      *
      * @return Mage_Customer_Model_Address
      */
-    public function getAddress()
+    function getAddress()
     {
         if ($this->getIsAsBilling()) {
             $address = $this->getCreateOrderModel()->getBillingAddress();
@@ -130,7 +130,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Address extends Mage_Admi
      *
      * @return bool
      */
-    public function getIsDisabled()
+    function getIsDisabled()
     {
         return $this->getQuote()->isVirtual();
     }

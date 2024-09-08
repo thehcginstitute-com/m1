@@ -17,7 +17,7 @@
  */
 class Magpleasure_Richsnippets_Model_Observer extends Mage_Core_Block_Abstract
 {
-    public function productPageBeforeLoad()
+    function productPageBeforeLoad()
     {
         if (Mage::helper('core')->isModuleOutputEnabled('Magpleasure_Richsnippets')) {
             $node = Mage::getConfig()->getNode('global/blocks/catalog/rewrite');

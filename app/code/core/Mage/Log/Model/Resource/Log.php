@@ -33,7 +33,7 @@ class Mage_Log_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Log_Model_Log $object
      * @return $this
      */
-    public function clean(Mage_Log_Model_Log $object)
+    function clean(Mage_Log_Model_Log $object)
     {
         $cleanTime = $object->getLogCleanTime();
 

@@ -19,7 +19,7 @@
 class AddThis_SmartLayers_Model_Source_Theme
 {
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return array(
             array('value' => 'transparent', 'label'=>'Transparent'),

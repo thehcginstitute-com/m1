@@ -36,7 +36,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
      *
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         if (empty($this->_customer)) {
             $this->_customer = Mage::getSingleton('customer/session')->getCustomer();
@@ -49,7 +49,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
      *
      * @return Mage_Checkout_Model_Session
      */
-    public function getCheckout()
+    function getCheckout()
     {
         if (empty($this->_checkout)) {
             $this->_checkout = Mage::getSingleton('checkout/session');
@@ -62,7 +62,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         if (empty($this->_quote)) {
             $this->_quote = $this->getCheckout()->getQuote();
@@ -73,7 +73,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
     /**
      * @return bool
      */
-    public function isCustomerLoggedIn()
+    function isCustomerLoggedIn()
     {
         return Mage::getSingleton('customer/session')->isLoggedIn();
     }
@@ -81,7 +81,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
     /**
      * @return mixed
      */
-    public function getCountryCollection()
+    function getCountryCollection()
     {
         if (!$this->_countryCollection) {
             $this->_countryCollection = Mage::getSingleton('directory/country')->getResourceCollection()
@@ -93,7 +93,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
     /**
      * @return mixed
      */
-    public function getRegionCollection()
+    function getRegionCollection()
     {
         if (!$this->_regionCollection) {
             $this->_regionCollection = Mage::getModel('directory/region')->getResourceCollection()
@@ -106,7 +106,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
     /**
      * @return int
      */
-    public function customerHasAddresses()
+    function customerHasAddresses()
     {
         return count($this->getCustomer()->getAddresses());
     }
@@ -116,7 +116,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
      * @param string $type
      * @return string
      */
-    public function getAddressesHtmlSelect($type)
+    function getAddressesHtmlSelect($type)
     {
         if ($this->isCustomerLoggedIn()) {
             $options = [];
@@ -159,7 +159,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getCountryHtmlSelect($type)
+    function getCountryHtmlSelect($type)
     {
         $countryId = $this->getAddress()->getCountryId();
         if (is_null($countryId)) {
@@ -183,7 +183,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
      * @param string $type
      * @return string
      */
-    public function getRegionHtmlSelect($type)
+    function getRegionHtmlSelect($type)
     {
         $select = $this->getLayout()->createBlock('core/html_select')
             ->setName($type . '[region]')
@@ -200,7 +200,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
      * @return bool|mixed
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getCountryOptions()
+    function getCountryOptions()
     {
         $options    = false;
         $useCache   = Mage::app()->useCache('config');
@@ -236,7 +236,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
      *
      * @return bool
      */
-    public function isShow()
+    function isShow()
     {
         return true;
     }

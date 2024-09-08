@@ -24,27 +24,27 @@ abstract class Mage_Adminhtml_Block_Dashboard_Abstract extends Mage_Adminhtml_Bl
 {
     protected $_dataHelperName = null;
 
-    public function getCollection()
+    function getCollection()
     {
         return $this->getDataHelper()->getCollection();
     }
 
-    public function getCount()
+    function getCount()
     {
         return $this->getDataHelper()->getCount();
     }
 
-    public function getDataHelper()
+    function getDataHelper()
     {
         return $this->helper($this->getDataHelperName());
     }
 
-    public function getDataHelperName()
+    function getDataHelperName()
     {
         return $this->_dataHelperName;
     }
 
-    public function setDataHelperName($dataHelperName)
+    function setDataHelperName($dataHelperName)
     {
         $this->_dataHelperName = $dataHelperName;
         return $this;

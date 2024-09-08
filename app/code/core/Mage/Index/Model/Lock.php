@@ -83,7 +83,7 @@ class Mage_Index_Model_Lock
     /**
      * Release all locks on application shutdown
      */
-    public function shutdownReleaseLocks()
+    function shutdownReleaseLocks()
     {
         foreach (self::$_lockDb as $lockDb) {
             $this->_releaseLockDb($lockDb);
@@ -106,7 +106,7 @@ class Mage_Index_Model_Lock
      * @param bool $block
      * @return bool
      */
-    public function setLock($lockName, $file = false, $block = false)
+    function setLock($lockName, $file = false, $block = false)
     {
         if ($file) {
             return $this->_setLockFile($lockName, $block);
@@ -169,7 +169,7 @@ class Mage_Index_Model_Lock
      * @param bool $file
      * @return bool
      */
-    public function releaseLock($lockName, $file = false)
+    function releaseLock($lockName, $file = false)
     {
         if ($file) {
             return $this->_releaseLockFile($lockName);
@@ -215,7 +215,7 @@ class Mage_Index_Model_Lock
      * @param bool $file
      * @return bool
      */
-    public function isLockExists($lockName, $file = false)
+    function isLockExists($lockName, $file = false)
     {
         if ($file) {
             return $this->_isLockExistsFile($lockName);

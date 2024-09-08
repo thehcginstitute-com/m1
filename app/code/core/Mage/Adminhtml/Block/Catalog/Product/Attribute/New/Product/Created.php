@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_New_Product_Created extends
     /**
      * Mage_Adminhtml_Block_Catalog_Product_Attribute_New_Product_Created constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/product/attribute/new/created.phtml');
@@ -75,7 +75,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_New_Product_Created extends
     /**
      * @return string
      */
-    public function getCloseButtonHtml()
+    function getCloseButtonHtml()
     {
         return $this->getChildHtml('close_button');
     }
@@ -84,7 +84,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_New_Product_Created extends
      * @return string
      * @throws Exception
      */
-    public function getAttributesBlockJson()
+    function getAttributesBlockJson()
     {
         $result = [
             $this->getRequest()->getParam('tab') => $this->getChildHtml('attributes')

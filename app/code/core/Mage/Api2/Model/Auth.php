@@ -34,7 +34,7 @@ class Mage_Api2_Model_Auth
      * @throws Exception
      * @return Mage_Api2_Model_Auth_User_Abstract
      */
-    public function authenticate(Mage_Api2_Model_Request $request)
+    function authenticate(Mage_Api2_Model_Request $request)
     {
         /** @var Mage_Api2_Helper_Data $helper */
         $helper    = Mage::helper('api2/data');

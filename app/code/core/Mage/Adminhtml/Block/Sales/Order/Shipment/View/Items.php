@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View_Items extends Mage_Adminhtm
      *
      * @return Mage_Sales_Model_Order_Shipment
      */
-    public function getShipment()
+    function getShipment()
     {
         return Mage::registry('current_shipment');
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View_Items extends Mage_Adminhtm
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->getShipment()->getOrder();
     }
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View_Items extends Mage_Adminhtm
      *
      * @return Mage_Sales_Model_Order_Shipment
      */
-    public function getSource()
+    function getSource()
     {
         return $this->getShipment();
     }

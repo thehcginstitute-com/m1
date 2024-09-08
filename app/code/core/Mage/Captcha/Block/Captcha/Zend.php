@@ -37,7 +37,7 @@ class Mage_Captcha_Block_Captcha_Zend extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getTemplate()
+    function getTemplate()
     {
         return $this->getIsAjax() ? '' : $this->_template;
     }
@@ -47,7 +47,7 @@ class Mage_Captcha_Block_Captcha_Zend extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getRefreshUrl()
+    function getRefreshUrl()
     {
         return Mage::getUrl(
             Mage::app()->getStore()->isAdmin() ? 'adminhtml/refresh/refresh' : 'captcha/refresh',
@@ -74,7 +74,7 @@ class Mage_Captcha_Block_Captcha_Zend extends Mage_Core_Block_Template
      *
      * @return Mage_Captcha_Model_Interface
      */
-    public function getCaptchaModel()
+    function getCaptchaModel()
     {
         return Mage::helper('captcha')->getCaptcha($this->getFormId());
     }

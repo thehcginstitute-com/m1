@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Type_Abstract extend
      *
      * @return string
      */
-    public function getPriceTypeSelectHtml()
+    function getPriceTypeSelectHtml()
     {
         if ($this->getCanEditPrice() === false) {
             $this->getChild('option_price_type')->setExtraParams('disabled="disabled"');

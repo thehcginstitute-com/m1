@@ -23,7 +23,7 @@
  */
 class Mage_Adminhtml_Block_System_Store_Store extends Mage_Adminhtml_Block_Widget_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller  = 'system_store';
         $this->_headerText  = Mage::helper('adminhtml')->__('Manage Stores');
@@ -65,7 +65,7 @@ class Mage_Adminhtml_Block_System_Store_Store extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getGridHtml()
+    function getGridHtml()
     {
         return $this->getLayout()->createBlock('adminhtml/system_store_tree')->toHtml();
     }
@@ -75,7 +75,7 @@ class Mage_Adminhtml_Block_System_Store_Store extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getAddNewButtonHtml()
+    function getAddNewButtonHtml()
     {
         return implode(' ', [
             $this->getChildHtml('add_new_website'),

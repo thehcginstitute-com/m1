@@ -30,7 +30,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract extends
      * @param Mage_Adminhtml_Block_Widget_Grid_Column $column
      * @return $this
      */
-    public function setColumn($column)
+    function setColumn($column)
     {
         $this->_column = $column;
         return $this;
@@ -39,7 +39,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract extends
     /**
      * @return Mage_Adminhtml_Block_Widget_Grid_Column
      */
-    public function getColumn()
+    function getColumn()
     {
         return $this->_column;
     }
@@ -50,7 +50,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract extends
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         if ($this->getColumn()->getEditable()) {
             $value = $this->_getValue($row);
@@ -67,7 +67,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract extends
      * @param Varien_Object $row
      * @return string
      */
-    public function renderExport(Varien_Object $row)
+    function renderExport(Varien_Object $row)
     {
         return $this->render($row);
     }
@@ -96,7 +96,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract extends
      * @param Varien_Object $row
      * @return string
      */
-    public function _getInputValueElement(Varien_Object $row)
+    function _getInputValueElement(Varien_Object $row)
     {
         return  '<input type="text" class="input-text '
                 . $this->getColumn()->getValidateClass()
@@ -116,7 +116,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract extends
     /**
      * @return string
      */
-    public function renderHeader()
+    function renderHeader()
     {
         if ($this->getColumn()->getGrid()->getSortable() !== false && $this->getColumn()->getSortable() !== false) {
             $className = 'not-sort';
@@ -137,7 +137,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract extends
     /**
      * @return string
      */
-    public function renderProperty()
+    function renderProperty()
     {
         $out = '';
         $width = $this->_defaultWidth;
@@ -161,7 +161,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract extends
     /**
      * @return string|null
      */
-    public function renderCss()
+    function renderCss()
     {
         return $this->getColumn()->getCssClass();
     }

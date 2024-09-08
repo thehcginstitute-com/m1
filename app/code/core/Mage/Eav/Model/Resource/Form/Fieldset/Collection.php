@@ -44,7 +44,7 @@ class Mage_Eav_Model_Resource_Form_Fieldset_Collection extends Mage_Core_Model_R
      * @param Mage_Eav_Model_Form_Type|int $type
      * @return $this
      */
-    public function addTypeFilter($type)
+    function addTypeFilter($type)
     {
         if ($type instanceof Mage_Eav_Model_Form_Type) {
             $type = $type->getId();
@@ -58,7 +58,7 @@ class Mage_Eav_Model_Resource_Form_Fieldset_Collection extends Mage_Core_Model_R
      *
      * @return $this
      */
-    public function setSortOrder()
+    function setSortOrder()
     {
         $this->setOrder('sort_order', self::SORT_ORDER_ASC);
         return $this;
@@ -69,7 +69,7 @@ class Mage_Eav_Model_Resource_Form_Fieldset_Collection extends Mage_Core_Model_R
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         if (is_null($this->_storeId)) {
             return Mage::app()->getStore()->getId();
@@ -83,7 +83,7 @@ class Mage_Eav_Model_Resource_Form_Fieldset_Collection extends Mage_Core_Model_R
      * @param int $storeId
      * @return $this
      */
-    public function setStoreId($storeId)
+    function setStoreId($storeId)
     {
         $this->_storeId = $storeId;
         return $this;

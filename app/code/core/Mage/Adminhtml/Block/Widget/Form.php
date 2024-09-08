@@ -68,7 +68,7 @@ class Mage_Adminhtml_Block_Widget_Form extends Mage_Adminhtml_Block_Widget
      *
      * @return Varien_Data_Form
      */
-    public function getForm()
+    function getForm()
     {
         return $this->_form;
     }
@@ -80,7 +80,7 @@ class Mage_Adminhtml_Block_Widget_Form extends Mage_Adminhtml_Block_Widget
      * @see getForm()
      * @return Varien_Data_Form
      */
-    public function getFormObject()
+    function getFormObject()
     {
         return $this->getForm();
     }
@@ -90,7 +90,7 @@ class Mage_Adminhtml_Block_Widget_Form extends Mage_Adminhtml_Block_Widget
      *
      * @return string
      */
-    public function getFormHtml()
+    function getFormHtml()
     {
         if (is_object($this->getForm())) {
             return $this->getForm()->getHtml();
@@ -104,7 +104,7 @@ class Mage_Adminhtml_Block_Widget_Form extends Mage_Adminhtml_Block_Widget
      * @param Varien_Data_Form $form
      * @return $this
      */
-    public function setForm(Varien_Data_Form $form)
+    function setForm(Varien_Data_Form $form)
     {
         $this->_form = $form;
         $this->_form->setParent($this);

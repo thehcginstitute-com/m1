@@ -11,7 +11,7 @@ class IWD_OrderGrid_Helper_Image extends Mage_Catalog_Helper_Image
      * @param null $imageFile
      * @return $this
      */
-    public function init(Mage_Catalog_Model_Product $product, $attributeName, $imageFile = null)
+    function init(Mage_Catalog_Model_Product $product, $attributeName, $imageFile = null)
     {
         $this->_reset();
         $this->_setModel(Mage::getModel('iwd_ordergrid/product_image'));
@@ -41,7 +41,7 @@ class IWD_OrderGrid_Helper_Image extends Mage_Catalog_Helper_Image
      *
      * @return string
      */
-    public function __toString()
+    function __toString()
     {
         try {
             $model = $this->_getModel();

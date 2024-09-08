@@ -34,12 +34,12 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
 
     protected $_configData = [];
 
-    public function __construct()
+    function __construct()
     {
         $this->_localConfigFile = Mage::getBaseDir('etc') . DS . 'local.xml';
     }
 
-    public function setConfigData($data)
+    function setConfigData($data)
     {
         if (is_array($data)) {
             $this->_configData = $data;
@@ -47,12 +47,12 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
         return $this;
     }
 
-    public function getConfigData()
+    function getConfigData()
     {
         return $this->_configData;
     }
 
-    public function install()
+    function install()
     {
         $data = $this->getConfigData();
         foreach (Mage::getModel('core/config')->getDistroServerVars() as $index => $value) {
@@ -99,7 +99,7 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
         chmod($this->_localConfigFile, 0777);
     }
 
-    public function getFormData()
+    function getFormData()
     {
         $baseUrl = Mage::helper('core/url')->decodePunycode(Mage::getBaseUrl('web'));
         $uri    = explode(':', $baseUrl, 2);
@@ -167,7 +167,7 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
         return $this;
     }
 
-    public function replaceTmpInstallDate($date = null)
+    function replaceTmpInstallDate($date = null)
     {
         $stamp    = strtotime((string) $date);
         $localXml = file_get_contents($this->_localConfigFile);
@@ -181,7 +181,7 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
      * @param string|null $key
      * @return $this
      */
-    public function replaceTmpEncryptKey($key = null)
+    function replaceTmpEncryptKey($key = null)
     {
         if (!$key) {
             $key = md5(Mage::helper('core')->getRandomString(10));

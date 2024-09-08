@@ -25,7 +25,7 @@ class Mage_Api_Controller_Action extends Mage_Core_Controller_Front_Action
     /**
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->getLayout()->setArea('adminhtml');
         Mage::app()->setCurrentStore('admin');

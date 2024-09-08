@@ -41,7 +41,7 @@ class Mage_Api2_Model_Request_Internal extends Mage_Api2_Model_Request
      *
      * @return array
      */
-    public function getBodyParams()
+    function getBodyParams()
     {
         if ($this->_bodyParams === null) {
             $this->_bodyParams = $this->_getInterpreter()->interpret((string) $this->getRawBody());
@@ -55,7 +55,7 @@ class Mage_Api2_Model_Request_Internal extends Mage_Api2_Model_Request
      * @param array $data
      * @return Mage_Api2_Model_Request
      */
-    public function setBodyParams($data)
+    function setBodyParams($data)
     {
         $this->_bodyParams = $data;
         return $this;
@@ -67,7 +67,7 @@ class Mage_Api2_Model_Request_Internal extends Mage_Api2_Model_Request
      * @param string $method
      * @return $this
      */
-    public function setMethod($method)
+    function setMethod($method)
     {
         $availableMethod = ['GET', 'POST', 'PUT', 'DELETE'];
         if (in_array($method, $availableMethod)) {
@@ -83,7 +83,7 @@ class Mage_Api2_Model_Request_Internal extends Mage_Api2_Model_Request
      *
      * @return string
      */
-    public function getMethod()
+    function getMethod()
     {
         $method = $this->_method;
         if (!$method) {

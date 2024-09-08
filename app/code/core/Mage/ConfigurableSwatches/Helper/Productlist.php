@@ -50,7 +50,7 @@ class Mage_ConfigurableSwatches_Helper_Productlist extends Mage_Core_Helper_Abst
      *
      * @param string $blockName
      */
-    public function convertLayerBlock($blockName)
+    function convertLayerBlock($blockName)
     {
         if (Mage::helper('configurableswatches')->isEnabled()
             && ($block = Mage::app()->getLayout()->getBlock($blockName))
@@ -82,7 +82,7 @@ class Mage_ConfigurableSwatches_Helper_Productlist extends Mage_Core_Helper_Abst
      *
      * @return string
      */
-    public function getSwatchAttributeId()
+    function getSwatchAttributeId()
     {
         if (is_null($this->_swatchAttributeId)) {
             $this->_swatchAttributeId =
@@ -96,7 +96,7 @@ class Mage_ConfigurableSwatches_Helper_Productlist extends Mage_Core_Helper_Abst
      *
      * @return Mage_Catalog_Model_Product_Type_Configurable_Attribute|Mage_Eav_Model_Entity_Attribute_Abstract|false
      */
-    public function getSwatchAttribute()
+    function getSwatchAttribute()
     {
         if (is_null($this->_swatchAttribute)) {
             $this->_swatchAttribute = Mage::getSingleton('eav/config')
@@ -133,7 +133,7 @@ class Mage_ConfigurableSwatches_Helper_Productlist extends Mage_Core_Helper_Abst
      * @param int $optionId
      * @return bool
      */
-    public function swatchMatchesFilter($optionId)
+    function swatchMatchesFilter($optionId)
     {
         return ($optionId == $this->_getSwatchAttributeFilteredValue());
     }

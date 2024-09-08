@@ -37,7 +37,7 @@ class Mage_ConfigurableSwatches_Block_Catalog_Product_View_Type_Configurable_Swa
      * @param string $jsonConfig
      * @return bool
      */
-    public function shouldRender($attribute, $jsonConfig)
+    function shouldRender($attribute, $jsonConfig)
     {
         if (Mage::helper('configurableswatches')->isEnabled()) {
             if (Mage::helper('configurableswatches')->attrIsSwatchType($attribute->getProductAttribute())) {

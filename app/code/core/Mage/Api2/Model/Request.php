@@ -61,7 +61,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @param string|Zend_Uri $uri
      */
-    public function __construct($uri = null)
+    function __construct($uri = null)
     {
         parent::__construct($uri ? $uri : null);
     }
@@ -84,7 +84,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @return array
      */
-    public function getAcceptTypes()
+    function getAcceptTypes()
     {
         $qualityToTypes = [];
         $orderedTypes   = [];
@@ -121,7 +121,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @return string
      */
-    public function getApiType()
+    function getApiType()
     {
         // getParam() is not used to avoid parameter fetch from $_GET or $_POST
         return $this->_params['api_type'] ?? null;
@@ -132,7 +132,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @return array
      */
-    public function getBodyParams()
+    function getBodyParams()
     {
         if ($this->_bodyParams == null) {
             $this->_bodyParams = $this->_getInterpreter()->interpret((string)$this->getRawBody());
@@ -146,7 +146,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      * @return string
      * @throws Mage_Api2_Exception
      */
-    public function getContentType()
+    function getContentType()
     {
         $headerValue = $this->getHeader('Content-Type');
 
@@ -171,7 +171,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @return mixed
      */
-    public function getFilter()
+    function getFilter()
     {
         return $this->getQuery(self::QUERY_PARAM_FILTER);
     }
@@ -181,7 +181,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @return string|null
      */
-    public function getModel()
+    function getModel()
     {
         // getParam() is not used to avoid parameter fetch from $_GET or $_POST
         return $this->_params['model'] ?? null;
@@ -193,7 +193,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      * @return string
      * @throws Mage_Api2_Exception
      */
-    public function getOperation()
+    function getOperation()
     {
         if (!$this->isGet() && !$this->isPost() && !$this->isPut() && !$this->isDelete()) {
             throw new Mage_Api2_Exception('Invalid request method', Mage_Api2_Model_Server::HTTP_BAD_REQUEST);
@@ -214,7 +214,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @return mixed
      */
-    public function getOrderDirection()
+    function getOrderDirection()
     {
         return $this->getQuery(self::QUERY_PARAM_ORDER_DIR);
     }
@@ -224,7 +224,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @return mixed
      */
-    public function getOrderField()
+    function getOrderField()
     {
         return $this->getQuery(self::QUERY_PARAM_ORDER_FIELD);
     }
@@ -234,7 +234,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @return mixed
      */
-    public function getPageNumber()
+    function getPageNumber()
     {
         return $this->getQuery(self::QUERY_PARAM_PAGE_NUM);
     }
@@ -244,7 +244,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @return mixed
      */
-    public function getPageSize()
+    function getPageSize()
     {
         return $this->getQuery(self::QUERY_PARAM_PAGE_SIZE);
     }
@@ -254,7 +254,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @return array
      */
-    public function getRequestedAttributes()
+    function getRequestedAttributes()
     {
         $include = $this->getQuery(self::QUERY_PARAM_REQ_ATTRS, []);
 
@@ -270,7 +270,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @return string
      */
-    public function getResourceType()
+    function getResourceType()
     {
         // getParam() is not used to avoid parameter fetch from $_GET or $_POST
         return $this->_params['type'] ?? null;
@@ -281,7 +281,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @return string
      */
-    public function getVersion()
+    function getVersion()
     {
         return $this->getHeader('Version');
     }
@@ -291,7 +291,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @return string|null
      */
-    public function getActionType()
+    function getActionType()
     {
         // getParam() is not used to avoid parameter fetch from $_GET or $_POST
         return $this->_params['action_type'] ?? null;
@@ -303,7 +303,7 @@ class Mage_Api2_Model_Request extends Zend_Controller_Request_Http
      *
      * @return bool
      */
-    public function isAssocArrayInRequestBody()
+    function isAssocArrayInRequestBody()
     {
         $params = $this->getBodyParams();
         if (count($params)) {

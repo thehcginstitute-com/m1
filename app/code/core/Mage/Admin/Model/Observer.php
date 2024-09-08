@@ -29,7 +29,7 @@ class Mage_Admin_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function actionPreDispatchAdmin($observer)
+    function actionPreDispatchAdmin($observer)
     {
         /** @var Mage_Admin_Model_Session $session */
         $session = Mage::getSingleton('admin/session');
@@ -106,7 +106,7 @@ class Mage_Admin_Model_Observer
      * @deprecated after 1.4.0.1, logic moved to admin session
      * @param Varien_Event_Observer $event
      */
-    public function actionPostDispatchAdmin($event)
+    function actionPostDispatchAdmin($event)
     {
     }
 
@@ -115,7 +115,7 @@ class Mage_Admin_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function actionAdminAuthenticate($observer)
+    function actionAdminAuthenticate($observer)
     {
         $password = $observer->getEvent()->getPassword();
         $user = $observer->getEvent()->getUser();

@@ -33,7 +33,7 @@ class Mage_Sales_Model_Resource_Report extends Mage_Core_Model_Resource_Db_Abstr
      * @param string $field
      * @return $this
      */
-    public function init($table, $field = 'id')
+    function init($table, $field = 'id')
     {
         $this->_init($table, $field);
         return $this;

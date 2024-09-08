@@ -23,7 +23,7 @@
  */
 class Mage_Adminhtml_Report_CustomerController extends Mage_Adminhtml_Controller_Action
 {
-    public function _initAction()
+    function _initAction()
     {
         $act = $this->getRequest()->getActionName();
         if (!$act) {
@@ -36,7 +36,7 @@ class Mage_Adminhtml_Report_CustomerController extends Mage_Adminhtml_Controller
         return $this;
     }
 
-    public function accountsAction()
+    function accountsAction()
     {
         $this->_title($this->__('Reports'))
              ->_title($this->__('Customers'))
@@ -52,7 +52,7 @@ class Mage_Adminhtml_Report_CustomerController extends Mage_Adminhtml_Controller
     /**
      * Export new accounts report grid to CSV format
      */
-    public function exportAccountsCsvAction()
+    function exportAccountsCsvAction()
     {
         $fileName   = 'new_accounts.csv';
         $content    = $this->getLayout()->createBlock('adminhtml/report_customer_accounts_grid')
@@ -64,7 +64,7 @@ class Mage_Adminhtml_Report_CustomerController extends Mage_Adminhtml_Controller
     /**
      * Export new accounts report grid to Excel XML format
      */
-    public function exportAccountsExcelAction()
+    function exportAccountsExcelAction()
     {
         $fileName   = 'accounts.xml';
         $content    = $this->getLayout()->createBlock('adminhtml/report_customer_accounts_grid')
@@ -73,7 +73,7 @@ class Mage_Adminhtml_Report_CustomerController extends Mage_Adminhtml_Controller
         $this->_prepareDownloadResponse($fileName, $content);
     }
 
-    public function ordersAction()
+    function ordersAction()
     {
         $this->_title($this->__('Reports'))
              ->_title($this->__('Customers'))
@@ -92,7 +92,7 @@ class Mage_Adminhtml_Report_CustomerController extends Mage_Adminhtml_Controller
     /**
      * Export customers most ordered report to CSV format
      */
-    public function exportOrdersCsvAction()
+    function exportOrdersCsvAction()
     {
         $fileName   = 'customers_orders.csv';
         $content    = $this->getLayout()->createBlock('adminhtml/report_customer_orders_grid')
@@ -104,7 +104,7 @@ class Mage_Adminhtml_Report_CustomerController extends Mage_Adminhtml_Controller
     /**
      * Export customers most ordered report to Excel XML format
      */
-    public function exportOrdersExcelAction()
+    function exportOrdersExcelAction()
     {
         $fileName   = 'customers_orders.xml';
         $content    = $this->getLayout()->createBlock('adminhtml/report_customer_orders_grid')
@@ -113,7 +113,7 @@ class Mage_Adminhtml_Report_CustomerController extends Mage_Adminhtml_Controller
         $this->_prepareDownloadResponse($fileName, $content);
     }
 
-    public function totalsAction()
+    function totalsAction()
     {
         $this->_title($this->__('Reports'))
              ->_title($this->__('Customers'))
@@ -132,7 +132,7 @@ class Mage_Adminhtml_Report_CustomerController extends Mage_Adminhtml_Controller
     /**
      * Export customers biggest totals report to CSV format
      */
-    public function exportTotalsCsvAction()
+    function exportTotalsCsvAction()
     {
         $fileName   = 'cuatomer_totals.csv';
         $content    = $this->getLayout()->createBlock('adminhtml/report_customer_totals_grid')
@@ -144,7 +144,7 @@ class Mage_Adminhtml_Report_CustomerController extends Mage_Adminhtml_Controller
     /**
      * Export customers biggest totals report to Excel XML format
      */
-    public function exportTotalsExcelAction()
+    function exportTotalsExcelAction()
     {
         $fileName   = 'customer_totals.xml';
         $content    = $this->getLayout()->createBlock('adminhtml/report_customer_totals_grid')

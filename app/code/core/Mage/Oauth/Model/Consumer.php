@@ -77,7 +77,7 @@ class Mage_Oauth_Model_Consumer extends Mage_Core_Model_Abstract
      * @return array|bool
      * @throw Mage_Core_Exception|Exception   Throw exception on fail validation
      */
-    public function validate()
+    function validate()
     {
         if ($this->getCallbackUrl() || $this->getRejectedCallbackUrl()) {
             $this->setCallbackUrl(trim($this->getCallbackUrl()));

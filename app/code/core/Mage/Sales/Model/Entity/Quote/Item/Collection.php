@@ -37,7 +37,7 @@ class Mage_Sales_Model_Entity_Quote_Item_Collection extends Mage_Eav_Model_Entit
     /**
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_quote->getStoreId();
     }
@@ -46,7 +46,7 @@ class Mage_Sales_Model_Entity_Quote_Item_Collection extends Mage_Eav_Model_Entit
      * @param Mage_Sales_Model_Quote $quote
      * @return $this
      */
-    public function setQuote($quote)
+    function setQuote($quote)
     {
         $this->_quote = $quote;
         $this->addAttributeToFilter('parent_id', $quote->getId());

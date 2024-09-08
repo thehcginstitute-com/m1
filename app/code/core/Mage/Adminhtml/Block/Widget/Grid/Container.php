@@ -35,7 +35,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Container extends Mage_Adminhtml_Block_Wi
     /**
      * Mage_Adminhtml_Block_Widget_Grid_Container constructor.
      */
-    public function __construct()
+    function __construct()
     {
         if (is_null($this->_addButtonLabel)) {
             $this->_addButtonLabel = $this->__('Add New');
@@ -73,7 +73,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Container extends Mage_Adminhtml_Block_Wi
     /**
      * @return string
      */
-    public function getCreateUrl()
+    function getCreateUrl()
     {
         return $this->getUrl('*/*/new');
     }
@@ -81,7 +81,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Container extends Mage_Adminhtml_Block_Wi
     /**
      * @return string
      */
-    public function getGridHtml()
+    function getGridHtml()
     {
         return $this->getChildHtml('grid');
     }
@@ -114,7 +114,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Container extends Mage_Adminhtml_Block_Wi
     /**
      * @return string
      */
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head ' . parent::getHeaderCssClass();
     }
@@ -122,7 +122,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Container extends Mage_Adminhtml_Block_Wi
     /**
      * @return string
      */
-    public function getHeaderWidth()
+    function getHeaderWidth()
     {
         return 'width:50%;';
     }

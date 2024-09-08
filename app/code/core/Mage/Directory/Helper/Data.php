@@ -91,7 +91,7 @@ class Mage_Directory_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * @param array $args
      */
-    public function __construct(array $args = [])
+    function __construct(array $args = [])
     {
         $this->_factory = !empty($args['factory']) ? $args['factory'] : Mage::getSingleton('core/factory');
         $this->_app = !empty($args['app']) ? $args['app'] : Mage::app();
@@ -103,7 +103,7 @@ class Mage_Directory_Helper_Data extends Mage_Core_Helper_Abstract
      * @return Mage_Directory_Model_Resource_Region_Collection
      * @throws Mage_Core_Exception
      */
-    public function getRegionCollection($countryFilter = null)
+    function getRegionCollection($countryFilter = null)
     {
         if (!$this->_regionCollection) {
             $this->_regionCollection = Mage::getModel('directory/region')->getResourceCollection()
@@ -119,7 +119,7 @@ class Mage_Directory_Helper_Data extends Mage_Core_Helper_Abstract
      * @return Mage_Directory_Model_Resource_Country_Collection
      * @throws Mage_Core_Exception
      */
-    public function getCountryCollection()
+    function getCountryCollection()
     {
         if (!$this->_countryCollection) {
             $this->_countryCollection = $this->_factory->getModel('directory/country')->getResourceCollection();
@@ -136,7 +136,7 @@ class Mage_Directory_Helper_Data extends Mage_Core_Helper_Abstract
      * @throws Mage_Core_Exception
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getRegionJson()
+    function getRegionJson()
     {
         return $this->getRegionJsonByStore();
     }
@@ -149,7 +149,7 @@ class Mage_Directory_Helper_Data extends Mage_Core_Helper_Abstract
      * @throws Mage_Core_Exception
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getRegionJsonByStore($storeId = null)
+    function getRegionJsonByStore($storeId = null)
     {
         Varien_Profiler::start('TEST: ' . __METHOD__);
         if (!$this->_regionJson) {
@@ -224,7 +224,7 @@ class Mage_Directory_Helper_Data extends Mage_Core_Helper_Abstract
      * @return float
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function currencyConvert($amount, $from, $to = null)
+    function currencyConvert($amount, $from, $to = null)
     {
         if (empty($this->_currencyCache[$from])) {
             $this->_currencyCache[$from] = Mage::getModel('directory/currency')->load($from);
@@ -241,7 +241,7 @@ class Mage_Directory_Helper_Data extends Mage_Core_Helper_Abstract
      * @param bool $asJson
      * @return array|string
      */
-    public function getCountriesWithOptionalZip($asJson = false)
+    function getCountriesWithOptionalZip($asJson = false)
     {
         if ($this->_optionalZipCountries === null) {
             $this->_optionalZipCountries = preg_split(
@@ -263,7 +263,7 @@ class Mage_Directory_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $countryCode
      * @return bool
      */
-    public function isZipCodeOptional($countryCode)
+    function isZipCodeOptional($countryCode)
     {
         $this->getCountriesWithOptionalZip();
         return in_array($countryCode, $this->_optionalZipCountries);
@@ -275,7 +275,7 @@ class Mage_Directory_Helper_Data extends Mage_Core_Helper_Abstract
      * @param bool $asJson
      * @return array|string
      */
-    public function getCountriesWithStatesRequired($asJson = false)
+    function getCountriesWithStatesRequired($asJson = false)
     {
         $countryList = explode(',', Mage::getStoreConfig(self::XML_PATH_STATES_REQUIRED));
         if ($asJson) {
@@ -289,7 +289,7 @@ class Mage_Directory_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function getShowNonRequiredState()
+    function getShowNonRequiredState()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_DISPLAY_ALL_STATES);
     }
@@ -300,7 +300,7 @@ class Mage_Directory_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $countryId
      * @return bool
      */
-    public function isRegionRequired($countryId)
+    function isRegionRequired($countryId)
     {
         $countyList = $this->getCountriesWithStatesRequired();
         if (!is_array($countyList)) {

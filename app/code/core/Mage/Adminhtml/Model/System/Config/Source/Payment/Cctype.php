@@ -20,7 +20,7 @@
  */
 class Mage_Adminhtml_Model_System_Config_Source_Payment_Cctype
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         $options =  [];
 

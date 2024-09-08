@@ -17,7 +17,7 @@
  */
 class Sharpdot_SharpAdminOnlyPayment_Model_Observer
 {
-	public function checkAdminPaymentAllowed($observer)
+	function checkAdminPaymentAllowed($observer)
 	{
 		
 		if(!$observer->event->result->isAvailable){

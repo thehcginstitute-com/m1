@@ -28,7 +28,7 @@ class Mage_Core_Model_Variable_Config
      * @param Varien_Object $config
      * @return array
      */
-    public function getWysiwygPluginSettings($config)
+    function getWysiwygPluginSettings($config)
     {
         $variableConfig = [];
         $onclickParts = [
@@ -53,7 +53,7 @@ class Mage_Core_Model_Variable_Config
      *
      * @return string
      */
-    public function getWysiwygJsPluginSrc()
+    function getWysiwygJsPluginSrc()
     {
         return Mage::getBaseUrl('js') . 'mage/adminhtml/wysiwyg/tiny_mce/plugins/magentovariable/editor_plugin.js';
     }
@@ -63,7 +63,7 @@ class Mage_Core_Model_Variable_Config
      *
      * @return string
      */
-    public function getVariablesWysiwygActionUrl()
+    function getVariablesWysiwygActionUrl()
     {
         return Mage::getSingleton('adminhtml/url')->getUrl('*/system_variable/wysiwygPlugin');
     }

@@ -76,7 +76,7 @@ class Mage_Checkout_Model_Api_Resource_Customer extends Mage_Checkout_Model_Api_
      * @param Mage_Sales_Model_Quote $quote
      * @return bool
      */
-    public function prepareCustomerForQuote(Mage_Sales_Model_Quote $quote)
+    function prepareCustomerForQuote(Mage_Sales_Model_Quote $quote)
     {
         $isNewCustomer = false;
         switch ($quote->getCheckoutMethod()) {
@@ -190,7 +190,7 @@ class Mage_Checkout_Model_Api_Resource_Customer extends Mage_Checkout_Model_Api_
      * @param Mage_Sales_Model_Quote $quote
      * @return $this
      */
-    public function involveNewCustomer(Mage_Sales_Model_Quote $quote)
+    function involveNewCustomer(Mage_Sales_Model_Quote $quote)
     {
         $customer = $quote->getCustomer();
         if ($customer->isConfirmationRequired()) {

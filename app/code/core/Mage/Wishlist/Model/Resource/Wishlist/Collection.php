@@ -39,7 +39,7 @@ class Mage_Wishlist_Model_Resource_Wishlist_Collection extends Mage_Core_Model_R
      * @param Mage_Customer_Model_Customer $customer
      * @return $this
      */
-    public function filterByCustomer(Mage_Customer_Model_Customer $customer)
+    function filterByCustomer(Mage_Customer_Model_Customer $customer)
     {
         return $this->filterByCustomerId($customer->getId());
     }
@@ -50,7 +50,7 @@ class Mage_Wishlist_Model_Resource_Wishlist_Collection extends Mage_Core_Model_R
      * @param int $customerId
      * @return $this
      */
-    public function filterByCustomerId($customerId)
+    function filterByCustomerId($customerId)
     {
         $this->addFieldToFilter('customer_id', $customerId);
         return $this;
@@ -62,7 +62,7 @@ class Mage_Wishlist_Model_Resource_Wishlist_Collection extends Mage_Core_Model_R
      * @param array $customerIds
      * @return $this
      */
-    public function filterByCustomerIds(array $customerIds)
+    function filterByCustomerIds(array $customerIds)
     {
         $this->addFieldToFilter('customer_id', ['in' => $customerIds]);
         return $this;

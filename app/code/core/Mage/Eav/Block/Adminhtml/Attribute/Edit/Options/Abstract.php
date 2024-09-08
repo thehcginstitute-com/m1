@@ -22,7 +22,7 @@
  */
 abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Options_Abstract extends Mage_Adminhtml_Block_Widget
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('eav/attribute/options.phtml');
@@ -61,7 +61,7 @@ abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Options_Abstract extends 
      *
      * @return string
      */
-    public function getDeleteButtonHtml()
+    function getDeleteButtonHtml()
     {
         return $this->getChildHtml('delete_button');
     }
@@ -71,7 +71,7 @@ abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Options_Abstract extends 
      *
      * @return string
      */
-    public function getAddNewButtonHtml()
+    function getAddNewButtonHtml()
     {
         return $this->getChildHtml('add_button');
     }
@@ -81,7 +81,7 @@ abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Options_Abstract extends 
      *
      * @return Mage_Core_Model_Resource_Store_Collection
      */
-    public function getStores()
+    function getStores()
     {
         $stores = $this->getData('stores');
         if (is_null($stores)) {
@@ -99,7 +99,7 @@ abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Options_Abstract extends 
      *
      * @return array
      */
-    public function getOptionValues()
+    function getOptionValues()
     {
         $attributeType = $this->getAttributeObject()->getFrontendInput();
         $defaultValues = $this->getAttributeObject()->getDefaultValue();
@@ -160,7 +160,7 @@ abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Options_Abstract extends 
      *
      * @return array
      */
-    public function getLabelValues()
+    function getLabelValues()
     {
         $values = [];
         $frontendLabel = $this->getAttributeObject()->getFrontend()->getLabel();
@@ -183,7 +183,7 @@ abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Options_Abstract extends 
      * @param int $storeId
      * @return array
      */
-    public function getStoreOptionValues($storeId)
+    function getStoreOptionValues($storeId)
     {
         $values = $this->getData('store_option_values_' . $storeId);
         if (is_null($values)) {
@@ -206,7 +206,7 @@ abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Options_Abstract extends 
      *
      * @return Mage_Eav_Model_Entity_Attribute_Abstract
      */
-    public function getAttributeObject()
+    function getAttributeObject()
     {
         return Mage::registry('entity_attribute');
     }

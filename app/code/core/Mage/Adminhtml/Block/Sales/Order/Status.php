@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Sales_Order_Status extends Mage_Adminhtml_Block_Widge
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'sales_order_status';
         $this->_headerText = Mage::helper('sales')->__('Order Statuses');
@@ -44,7 +44,7 @@ class Mage_Adminhtml_Block_Sales_Order_Status extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getCreateUrl()
+    function getCreateUrl()
     {
         return $this->getUrl('*/sales_order_status/new');
     }
@@ -54,7 +54,7 @@ class Mage_Adminhtml_Block_Sales_Order_Status extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getAssignUrl()
+    function getAssignUrl()
     {
         return $this->getUrl('*/sales_order_status/assign');
     }

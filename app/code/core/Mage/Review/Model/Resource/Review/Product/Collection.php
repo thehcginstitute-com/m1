@@ -80,7 +80,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      * @param mixed $storeId
      * @return $this
      */
-    public function addStoreFilter($storeId = null)
+    function addStoreFilter($storeId = null)
     {
         if (is_null($storeId)) {
             $storeId = $this->getStoreId();
@@ -107,7 +107,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      * @param array $storeId
      * @return $this
      */
-    public function setStoreFilter($storeId)
+    function setStoreFilter($storeId)
     {
         if (is_array($storeId) && isset($storeId['eq'])) {
             $storeId = array_shift($storeId);
@@ -170,7 +170,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      *
      * @return $this
      */
-    public function addStoreData()
+    function addStoreData()
     {
         $this->_addStoreDataFlag = true;
         return $this;
@@ -182,7 +182,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      * @param int $customerId
      * @return $this
      */
-    public function addCustomerFilter($customerId)
+    function addCustomerFilter($customerId)
     {
         $this->getSelect()
             ->where('rdt.customer_id = ?', $customerId);
@@ -195,7 +195,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      * @param int $entityId
      * @return $this
      */
-    public function addEntityFilter($entityId)
+    function addEntityFilter($entityId)
     {
         $this->getSelect()
             ->where('rt.entity_pk_value = ?', $entityId);
@@ -208,7 +208,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      * @param mixed $status
      * @return $this
      */
-    public function addStatusFilter($status)
+    function addStatusFilter($status)
     {
         $this->getSelect()
             ->where('rt.status_id = ?', $status);
@@ -221,7 +221,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      * @param string $dir
      * @return $this
      */
-    public function setDateOrder($dir = 'DESC')
+    function setDateOrder($dir = 'DESC')
     {
         $this->setOrder('rt.created_at', $dir);
         return $this;
@@ -232,7 +232,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      *
      * @return $this
      */
-    public function addReviewSummary()
+    function addReviewSummary()
     {
         foreach ($this->getItems() as $item) {
             $model = Mage::getModel('rating/rating');
@@ -247,7 +247,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      *
      * @return $this
      */
-    public function addRateVotes()
+    function addRateVotes()
     {
         foreach ($this->getItems() as $item) {
             $votesCollection = Mage::getModel('rating/rating_option_vote')
@@ -292,7 +292,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      *
      * @inheritDoc
      */
-    public function getAllIds($limit = null, $offset = null)
+    function getAllIds($limit = null, $offset = null)
     {
         $idsSelect = clone $this->getSelect();
         $idsSelect->reset(Zend_Db_Select::ORDER);
@@ -308,7 +308,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      *
      * @return Varien_Db_Select|null
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $select = parent::getSelectCountSql();
         $select->reset(Zend_Db_Select::COLUMNS)
@@ -325,7 +325,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      * @param string $dir
      * @return $this
      */
-    public function setOrder($attribute, $dir = 'DESC')
+    function setOrder($attribute, $dir = 'DESC')
     {
         switch ($attribute) {
             case 'rt.review_id':
@@ -356,7 +356,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      * @param string $joinType
      * @return $this
      */
-    public function addAttributeToFilter($attribute, $condition = null, $joinType = 'inner')
+    function addAttributeToFilter($attribute, $condition = null, $joinType = 'inner')
     {
         switch ($attribute) {
             case 'rt.review_id':
@@ -403,7 +403,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      * @param string $colName
      * @return array
      */
-    public function getColumnValues($colName)
+    function getColumnValues($colName)
     {
         $col = [];
         foreach ($this->getItems() as $item) {

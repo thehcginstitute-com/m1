@@ -79,7 +79,7 @@ class Mage_Payment_Block_Form_Container extends Mage_Core_Block_Template
      * @param   string $template
      * @return  $this
      */
-    public function setMethodFormTemplate($method = '', $template = '')
+    function setMethodFormTemplate($method = '', $template = '')
     {
         if (!empty($method) && !empty($template)) {
             if ($block = $this->getChild('payment.method.' . $method)) {
@@ -94,7 +94,7 @@ class Mage_Payment_Block_Form_Container extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getMethods()
+    function getMethods()
     {
         $methods = $this->getData('methods');
         if ($methods === null) {
@@ -122,7 +122,7 @@ class Mage_Payment_Block_Form_Container extends Mage_Core_Block_Template
      *
      * @return string|false
      */
-    public function getSelectedMethodCode()
+    function getSelectedMethodCode()
     {
         $methods = $this->getMethods();
         if (!empty($methods)) {

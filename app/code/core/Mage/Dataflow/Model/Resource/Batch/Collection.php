@@ -35,7 +35,7 @@ class Mage_Dataflow_Model_Resource_Batch_Collection extends Mage_Core_Model_Reso
      * Add expire filter (for abandoned batches)
      *
      */
-    public function addExpireFilter()
+    function addExpireFilter()
     {
         $date = Mage::getSingleton('core/date');
         /** @var Mage_Core_Model_Date $date */

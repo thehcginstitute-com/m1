@@ -37,7 +37,7 @@ class Mage_Reports_Model_Report extends Mage_Core_Model_Abstract
      * @param string $modelClass
      * @return $this
      */
-    public function initCollection($modelClass)
+    function initCollection($modelClass)
     {
         $this->_reportModel = Mage::getResourceModel($modelClass);
 
@@ -49,7 +49,7 @@ class Mage_Reports_Model_Report extends Mage_Core_Model_Abstract
      * @param string $to
      * @return Mage_Reports_Model_Report
      */
-    public function getReportFull($from, $to)
+    function getReportFull($from, $to)
     {
         return $this->_reportModel
             ->setDateRange($from, $to)
@@ -62,7 +62,7 @@ class Mage_Reports_Model_Report extends Mage_Core_Model_Abstract
      * @param string $to
      * @return Mage_Reports_Model_Report
      */
-    public function getReport($from, $to)
+    function getReport($from, $to)
     {
         return $this->_reportModel
             ->setDateRange($from, $to)

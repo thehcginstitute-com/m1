@@ -19,7 +19,7 @@ class Lesti_Fpc_Model_Adminhtml_System_Config_Source_Gzcompress
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $options = array();
         foreach ($this->toArray() as $key => $value) {
@@ -32,7 +32,7 @@ class Lesti_Fpc_Model_Adminhtml_System_Config_Source_Gzcompress
     /**
      * @return array
      */
-    public function toArray()
+    function toArray()
     {
         $options = array(-2 => Mage::helper('fpc')->__('No'));
         for ($i=0; $i <10; $i++) {

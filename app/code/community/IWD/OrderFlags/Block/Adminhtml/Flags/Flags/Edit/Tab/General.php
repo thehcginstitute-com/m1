@@ -161,7 +161,7 @@ class IWD_OrderFlags_Block_Adminhtml_Flags_Flags_Edit_Tab_General extends Mage_A
     /**
      * @return string
      */
-    public function getMaxUploadFileSize()
+    function getMaxUploadFileSize()
     {
         return ini_get('upload_max_filesize') < ini_get('post_max_size')
             ? ini_get('upload_max_filesize')

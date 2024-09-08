@@ -128,7 +128,7 @@ class Mage_Catalog_Model_Layer_Filter_Price_Algorithm
      * @param null|float $upperLimit
      * @return $this
      */
-    public function setLimits($lowerLimit = null, $upperLimit = null)
+    function setLimits($lowerLimit = null, $upperLimit = null)
     {
         $this->_lowerLimit = empty($lowerLimit) ? null : (float)$lowerLimit;
         $this->_upperLimit = empty($upperLimit) ? null : (float)$upperLimit;
@@ -186,7 +186,7 @@ class Mage_Catalog_Model_Layer_Filter_Price_Algorithm
      * @param int $count
      * @return $this
      */
-    public function setStatistics($min, $max, $standardDeviation, $count)
+    function setStatistics($min, $max, $standardDeviation, $count)
     {
         $this->_count = $count;
         $this->_minPrice = $min;
@@ -215,7 +215,7 @@ class Mage_Catalog_Model_Layer_Filter_Price_Algorithm
      * @param Mage_Catalog_Model_Layer_Filter_Price $pricesModel
      * @return $this
      */
-    public function setPricesModel($pricesModel)
+    function setPricesModel($pricesModel)
     {
         $this->_pricesModel = $pricesModel;
         return $this;
@@ -226,7 +226,7 @@ class Mage_Catalog_Model_Layer_Filter_Price_Algorithm
      *
      * @return int
      */
-    public function getIntervalsNumber()
+    function getIntervalsNumber()
     {
         if (!is_null($this->_intervalsNumber)) {
             return $this->_intervalsNumber;
@@ -523,7 +523,7 @@ class Mage_Catalog_Model_Layer_Filter_Price_Algorithm
      *
      * @return array
      */
-    public function calculateSeparators()
+    function calculateSeparators()
     {
         $result = [];
         $lastCount = 0;

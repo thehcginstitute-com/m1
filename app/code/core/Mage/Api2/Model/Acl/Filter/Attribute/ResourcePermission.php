@@ -46,7 +46,7 @@ class Mage_Api2_Model_Acl_Filter_Attribute_ResourcePermission implements Mage_Ap
      *
      * @return array
      */
-    public function getResourcesPermissions()
+    function getResourcesPermissions()
     {
         if ($this->_resourcesPermissions === null) {
             $rulesPairs = [];
@@ -147,7 +147,7 @@ class Mage_Api2_Model_Acl_Filter_Attribute_ResourcePermission implements Mage_Ap
      * @param string $userType
      * @return $this
      */
-    public function setFilterValue($userType)
+    function setFilterValue($userType)
     {
         if (!array_key_exists($userType, Mage_Api2_Model_Auth_User::getUserTypes())) {
             throw new Exception('Unknown user type.');
@@ -161,7 +161,7 @@ class Mage_Api2_Model_Acl_Filter_Attribute_ResourcePermission implements Mage_Ap
      *
      * @return bool
      */
-    public function getHasEntityOnlyAttributes()
+    function getHasEntityOnlyAttributes()
     {
         return $this->_hasEntityOnlyAttributes;
     }

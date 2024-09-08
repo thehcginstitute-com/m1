@@ -38,7 +38,7 @@ class Mage_Adminhtml_Block_Report_Grid_Shopcart extends Mage_Adminhtml_Block_Wid
      * @param  array $storeIds
      * @return $this
      */
-    public function setStoreIds($storeIds)
+    function setStoreIds($storeIds)
     {
         $this->_storeIds = $storeIds;
         return $this;
@@ -49,7 +49,7 @@ class Mage_Adminhtml_Block_Report_Grid_Shopcart extends Mage_Adminhtml_Block_Wid
      *
      * @return string
      */
-    public function getCurrentCurrencyCode()
+    function getCurrentCurrencyCode()
     {
         if (is_null($this->_currentCurrencyCode)) {
             reset($this->_storeIds);
@@ -66,7 +66,7 @@ class Mage_Adminhtml_Block_Report_Grid_Shopcart extends Mage_Adminhtml_Block_Wid
      * @param string|Mage_Directory_Model_Currency $toCurrency
      * @return double
      */
-    public function getRate($toCurrency)
+    function getRate($toCurrency)
     {
         return Mage::app()->getStore()->getBaseCurrency()->getRate($toCurrency);
     }

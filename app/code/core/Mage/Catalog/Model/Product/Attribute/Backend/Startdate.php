@@ -43,7 +43,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Startdate extends Mage_Eav_Mo
      * @param Varien_Object $object
      * @return $this
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         $startDate = $this->_getValueForSave($object);
         if ($startDate === false) {
@@ -61,7 +61,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Startdate extends Mage_Eav_Mo
      * @throws Mage_Eav_Model_Entity_Attribute_Exception
      * @return bool
      */
-    public function validate($object)
+    function validate($object)
     {
         $attr      = $this->getAttribute();
         $maxDate   = $attr->getMaxValue();

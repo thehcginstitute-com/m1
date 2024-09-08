@@ -32,7 +32,7 @@ abstract class Mage_Sales_Model_Order_Total_Abstract extends Varien_Object
      * @param   array $config
      * @return  array
      */
-    public function processConfigArray($config)
+    function processConfigArray($config)
     {
         return $config;
     }

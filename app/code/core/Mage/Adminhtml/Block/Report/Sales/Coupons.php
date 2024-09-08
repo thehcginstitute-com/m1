@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Report_Sales_Coupons extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'report_sales_coupons';
         $this->_headerText = Mage::helper('reports')->__('Coupons Usage Report');
@@ -35,13 +35,13 @@ class Mage_Adminhtml_Block_Report_Sales_Coupons extends Mage_Adminhtml_Block_Wid
         ]);
     }
 
-    public function getFilterUrl()
+    function getFilterUrl()
     {
         $this->getRequest()->setParam('filter', null);
         return $this->getUrl('*/*/coupons', ['_current' => true]);
     }
 
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head head-report';
     }

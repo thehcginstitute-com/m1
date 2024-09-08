@@ -29,7 +29,7 @@ class Mage_Sales_Model_Convert_Order extends Varien_Object
      * @param null|Mage_Sales_Model_Quote $quote
      * @return  Mage_Sales_Model_Quote
      */
-    public function toQuote(Mage_Sales_Model_Order $order, $quote = null)
+    function toQuote(Mage_Sales_Model_Order $order, $quote = null)
     {
         if (!($quote instanceof Mage_Sales_Model_Quote)) {
             $quote = Mage::getModel('sales/quote');
@@ -50,7 +50,7 @@ class Mage_Sales_Model_Convert_Order extends Varien_Object
      * @param   Mage_Sales_Model_Order $order
      * @return  Mage_Sales_Model_Quote_Address
      */
-    public function toQuoteShippingAddress(Mage_Sales_Model_Order $order)
+    function toQuoteShippingAddress(Mage_Sales_Model_Order $order)
     {
         $address = $this->addressToQuoteAddress($order->getShippingAddress());
 
@@ -64,7 +64,7 @@ class Mage_Sales_Model_Convert_Order extends Varien_Object
      * @param   Mage_Sales_Model_Order_Address $address
      * @return  Mage_Sales_Model_Quote_Address
      */
-    public function addressToQuoteAddress(Mage_Sales_Model_Order_Address $address)
+    function addressToQuoteAddress(Mage_Sales_Model_Order_Address $address)
     {
         $quoteAddress = Mage::getModel('sales/quote_address')
             ->setStoreId($address->getStoreId())
@@ -83,7 +83,7 @@ class Mage_Sales_Model_Convert_Order extends Varien_Object
      * @param null|Mage_Sales_Model_Quote_Payment  $quotePayment
      * @return  Mage_Sales_Model_Quote_Payment
      */
-    public function paymentToQuotePayment(Mage_Sales_Model_Order_Payment $payment, $quotePayment = null)
+    function paymentToQuotePayment(Mage_Sales_Model_Order_Payment $payment, $quotePayment = null)
     {
         if (!($quotePayment instanceof Mage_Sales_Model_Quote_Payment)) {
             $quotePayment = Mage::getModel('sales/quote_payment');
@@ -102,7 +102,7 @@ class Mage_Sales_Model_Convert_Order extends Varien_Object
      * @param Mage_Sales_Model_Order_Item $item
      * @return Mage_Sales_Model_Quote_Item
      */
-    public function itemToQuoteItem(Mage_Sales_Model_Order_Item $item)
+    function itemToQuoteItem(Mage_Sales_Model_Order_Item $item)
     {
         $quoteItem = Mage::getModel('sales/quote_item')
             ->setStoreId($item->getOrder()->getStoreId())
@@ -120,7 +120,7 @@ class Mage_Sales_Model_Convert_Order extends Varien_Object
      * @param   Mage_Sales_Model_Order $order
      * @return  Mage_Sales_Model_Order_Invoice
      */
-    public function toInvoice(Mage_Sales_Model_Order $order)
+    function toInvoice(Mage_Sales_Model_Order $order)
     {
         $invoice = Mage::getModel('sales/order_invoice');
         $invoice->setOrder($order)
@@ -139,7 +139,7 @@ class Mage_Sales_Model_Convert_Order extends Varien_Object
      * @param   Mage_Sales_Model_Order_Item $item
      * @return  Mage_Sales_Model_Order_Invoice_Item
      */
-    public function itemToInvoiceItem(Mage_Sales_Model_Order_Item $item)
+    function itemToInvoiceItem(Mage_Sales_Model_Order_Item $item)
     {
         $invoiceItem = Mage::getModel('sales/order_invoice_item');
         $invoiceItem->setOrderItem($item)
@@ -155,7 +155,7 @@ class Mage_Sales_Model_Convert_Order extends Varien_Object
      * @param   Mage_Sales_Model_Order $order
      * @return  Mage_Sales_Model_Order_Shipment
      */
-    public function toShipment(Mage_Sales_Model_Order $order)
+    function toShipment(Mage_Sales_Model_Order $order)
     {
         $shipment = Mage::getModel('sales/order_shipment');
         $shipment->setOrder($order)
@@ -174,7 +174,7 @@ class Mage_Sales_Model_Convert_Order extends Varien_Object
      * @param   Mage_Sales_Model_Order_Item $item
      * @return  Mage_Sales_Model_Order_Shipment_Item
      */
-    public function itemToShipmentItem(Mage_Sales_Model_Order_Item $item)
+    function itemToShipmentItem(Mage_Sales_Model_Order_Item $item)
     {
         $shipmentItem = Mage::getModel('sales/order_shipment_item');
         $shipmentItem->setOrderItem($item)
@@ -190,7 +190,7 @@ class Mage_Sales_Model_Convert_Order extends Varien_Object
      * @param   Mage_Sales_Model_Order $order
      * @return  Mage_Sales_Model_Order_Creditmemo
      */
-    public function toCreditmemo(Mage_Sales_Model_Order $order)
+    function toCreditmemo(Mage_Sales_Model_Order $order)
     {
         $creditmemo = Mage::getModel('sales/order_creditmemo');
         $creditmemo->setOrder($order)
@@ -209,7 +209,7 @@ class Mage_Sales_Model_Convert_Order extends Varien_Object
      * @param   Mage_Sales_Model_Order_Item $item
      * @return  Mage_Sales_Model_Order_Creditmemo_Item
      */
-    public function itemToCreditmemoItem(Mage_Sales_Model_Order_Item $item)
+    function itemToCreditmemoItem(Mage_Sales_Model_Order_Item $item)
     {
         $creditmemoItem = Mage::getModel('sales/order_creditmemo_item');
         $creditmemoItem->setOrderItem($item)

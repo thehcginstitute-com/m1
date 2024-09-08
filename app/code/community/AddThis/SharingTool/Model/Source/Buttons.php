@@ -19,7 +19,7 @@
 
 class AddThis_SharingTool_Model_Source_Buttons
 {
-    public function toOptionArray()
+    function toOptionArray()
     { 
     	$result = array();
     	

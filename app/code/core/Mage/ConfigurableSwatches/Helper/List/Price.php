@@ -37,7 +37,7 @@ class Mage_ConfigurableSwatches_Helper_List_Price extends Mage_Core_Helper_Abstr
      * @param array $products
      * @param int $storeId
      */
-    public function attachConfigurableProductChildrenPricesMapping(array $products, $storeId = null)
+    function attachConfigurableProductChildrenPricesMapping(array $products, $storeId = null)
     {
         $listSwatchAttrId = Mage::helper('configurableswatches/productlist')->getSwatchAttributeId();
         $result = [];
@@ -104,7 +104,7 @@ class Mage_ConfigurableSwatches_Helper_List_Price extends Mage_Core_Helper_Abstr
      *
      * @return bool
      */
-    public function isEnabled()
+    function isEnabled()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_SWATCH_PRICE);
     }

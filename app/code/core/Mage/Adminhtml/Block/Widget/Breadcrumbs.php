@@ -32,7 +32,7 @@ class Mage_Adminhtml_Block_Widget_Breadcrumbs extends Mage_Adminhtml_Block_Templ
     /**
      * Mage_Adminhtml_Block_Widget_Breadcrumbs constructor.
      */
-    public function __construct()
+    function __construct()
     {
         $this->setTemplate('widget/breadcrumbs.phtml');
         $this->addLink(Mage::helper('adminhtml')->__('Home'), Mage::helper('adminhtml')->__('Home'), $this->getUrl('*'));
@@ -44,7 +44,7 @@ class Mage_Adminhtml_Block_Widget_Breadcrumbs extends Mage_Adminhtml_Block_Templ
      * @param string|null $url
      * @return $this
      */
-    public function addLink($label, $title = null, $url = null)
+    function addLink($label, $title = null, $url = null)
     {
         if (empty($title)) {
             $title = $label;

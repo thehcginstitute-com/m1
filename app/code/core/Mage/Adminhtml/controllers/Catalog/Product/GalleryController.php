@@ -28,7 +28,7 @@ class Mage_Adminhtml_Catalog_Product_GalleryController extends Mage_Adminhtml_Co
      */
     public const ADMIN_RESOURCE = 'catalog/products';
 
-    public function uploadAction()
+    function uploadAction()
     {
         try {
             $uploader = new Mage_Core_Model_File_Uploader('image');

@@ -65,7 +65,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Abstract extends Varien_Object
      *
      * @return Zend_Pdf
      */
-    abstract public function getPdf();
+    abstract function getPdf();
 
     /**
      * Returns the total width in points of the string using the specified font and
@@ -83,7 +83,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Abstract extends Varien_Object
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function widthForStringUsingFontSize($string, $font, $fontSize)
+    function widthForStringUsingFontSize($string, $font, $fontSize)
     {
         $drawingString = '"libiconv"' == ICONV_IMPL ?
             iconv('UTF-8', 'UTF-16BE//IGNORE', $string) :
@@ -109,7 +109,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Abstract extends Varien_Object
      * @param  int $padding
      * @return int
      */
-    public function getAlignRight($string, $x, $columnWidth, Zend_Pdf_Resource_Font $font, $fontSize, $padding = 5)
+    function getAlignRight($string, $x, $columnWidth, Zend_Pdf_Resource_Font $font, $fontSize, $padding = 5)
     {
         $width = $this->widthForStringUsingFontSize($string, $font, $fontSize);
         return $x + $columnWidth - $width - $padding;
@@ -125,7 +125,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Abstract extends Varien_Object
      * @param  int $fontSize
      * @return int
      */
-    public function getAlignCenter($string, $x, $columnWidth, Zend_Pdf_Resource_Font $font, $fontSize)
+    function getAlignCenter($string, $x, $columnWidth, Zend_Pdf_Resource_Font $font, $fontSize)
     {
         $width = $this->widthForStringUsingFontSize($string, $font, $fontSize);
         return $x + round(($columnWidth - $width) / 2);
@@ -500,7 +500,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Abstract extends Varien_Object
      * @param  Zend_Pdf_Page $page
      * @param  string $text
      */
-    public function insertDocumentNumber(Zend_Pdf_Page $page, $text)
+    function insertDocumentNumber(Zend_Pdf_Page $page, $text)
     {
         $page->setFillColor(new Zend_Pdf_Color_GrayScale(1));
         $this->_setFontRegular($page, 10);
@@ -717,7 +717,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Abstract extends Varien_Object
      * @param  string $type
      * @return Mage_Sales_Model_Order_Pdf_Items_Abstract
      */
-    public function getRenderer($type)
+    function getRenderer($type)
     {
         return $this->_getRenderer($type);
     }
@@ -732,7 +732,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Abstract extends Varien_Object
      *
      * @return Mage_Sales_Model_Order_Pdf_Abstract
      */
-    public function renderItem(Varien_Object $item, Zend_Pdf_Page $page, Mage_Sales_Model_Order $order, $renderer)
+    function renderItem(Varien_Object $item, Zend_Pdf_Page $page, Mage_Sales_Model_Order $order, $renderer)
     {
         $renderer->setOrder($order)
             ->setItem($item)
@@ -851,7 +851,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Abstract extends Varien_Object
      * @param  array $settings
      * @return Zend_Pdf_Page
      */
-    public function newPage(array $settings = [])
+    function newPage(array $settings = [])
     {
         $pageSize = !empty($settings['page_size']) ? $settings['page_size'] : Zend_Pdf_Page::SIZE_A4;
         $page = $this->_getPdf()->newPage($pageSize);
@@ -886,7 +886,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Abstract extends Varien_Object
      * @throws Mage_Core_Exception
      * @return Zend_Pdf_Page
      */
-    public function drawLineBlocks(Zend_Pdf_Page $page, array $draw, array $pageSettings = [])
+    function drawLineBlocks(Zend_Pdf_Page $page, array $draw, array $pageSettings = [])
     {
         foreach ($draw as $itemsProp) {
             if (!isset($itemsProp['lines']) || !is_array($itemsProp['lines'])) {

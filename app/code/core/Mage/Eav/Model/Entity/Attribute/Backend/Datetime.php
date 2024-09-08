@@ -30,7 +30,7 @@ class Mage_Eav_Model_Entity_Attribute_Backend_Datetime extends Mage_Eav_Model_En
      * @throws Mage_Eav_Exception
      * @return $this
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         $attributeName = $this->getAttribute()->getName();
         $_formated     = $object->getData($attributeName . '_is_formated');
@@ -61,7 +61,7 @@ class Mage_Eav_Model_Entity_Attribute_Backend_Datetime extends Mage_Eav_Model_En
      * @param   string|int $date
      * @return  string|null
      */
-    public function formatDate($date)
+    function formatDate($date)
     {
         if (empty($date)) {
             return null;

@@ -112,7 +112,7 @@ abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract 
      * @throws Mage_Core_Exception
      * @return bool
      */
-    public function validate($object)
+    function validate($object)
     {
         $attribute = $this->getAttribute();
         $priceRows = $object->getData($attribute->getName());
@@ -184,7 +184,7 @@ abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract 
      * @param int $websiteId
      * @return array
      */
-    public function preparePriceData(array $priceData, $productTypeId, $websiteId)
+    function preparePriceData(array $priceData, $productTypeId, $websiteId)
     {
         $rates  = $this->_getWebsiteCurrencyRates($websiteId);
         $data   = [];
@@ -213,7 +213,7 @@ abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract 
      * @param Mage_Catalog_Model_Product $object
      * @return Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract
      */
-    public function afterLoad($object)
+    function afterLoad($object)
     {
         $storeId   = $object->getStoreId();
         $websiteId = null;
@@ -252,7 +252,7 @@ abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract 
      * @param Mage_Catalog_Model_Product $object
      * @return Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract
      */
-    public function afterSave($object)
+    function afterSave($object)
     {
         $websiteId  = Mage::app()->getStore($object->getStoreId())->getWebsiteId();
         $isGlobal   = $this->getAttribute()->isScopeGlobal() || $websiteId == 0;

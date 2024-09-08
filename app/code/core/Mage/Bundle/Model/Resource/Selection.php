@@ -36,7 +36,7 @@ class Mage_Bundle_Model_Resource_Selection extends Mage_Core_Model_Resource_Db_A
      * @param int $groupId
      * @return mixed
      */
-    public function getPriceFromIndex($productId, $qty, $storeId, $groupId)
+    function getPriceFromIndex($productId, $qty, $storeId, $groupId)
     {
         $adapter = $this->_getReadAdapter();
         $select = clone $adapter->select();
@@ -84,7 +84,7 @@ class Mage_Bundle_Model_Resource_Selection extends Mage_Core_Model_Resource_Db_A
      * @param bool $required
      * @return array
      */
-    public function getChildrenIds($parentId, $required = true)
+    function getChildrenIds($parentId, $required = true)
     {
         $childrenIds = [];
         $notRequired = [];
@@ -137,7 +137,7 @@ class Mage_Bundle_Model_Resource_Selection extends Mage_Core_Model_Resource_Db_A
      * @param int|array $childId
      * @return array
      */
-    public function getParentIdsByChild($childId)
+    function getParentIdsByChild($childId)
     {
         $adapter = $this->_getReadAdapter();
         $select  = $adapter->select()
@@ -153,7 +153,7 @@ class Mage_Bundle_Model_Resource_Selection extends Mage_Core_Model_Resource_Db_A
      *
      * @param Mage_Bundle_Model_Selection $item
      */
-    public function saveSelectionPrice($item)
+    function saveSelectionPrice($item)
     {
         $write = $this->_getWriteAdapter();
         if ($item->getDefaultPriceScope()) {

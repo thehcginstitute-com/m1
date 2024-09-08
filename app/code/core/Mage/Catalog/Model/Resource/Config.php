@@ -47,7 +47,7 @@ class Mage_Catalog_Model_Resource_Config extends Mage_Core_Model_Resource_Db_Abs
      * @param int $storeId
      * @return $this
      */
-    public function setStoreId($storeId)
+    function setStoreId($storeId)
     {
         $this->_storeId = (int)$storeId;
         return $this;
@@ -59,7 +59,7 @@ class Mage_Catalog_Model_Resource_Config extends Mage_Core_Model_Resource_Db_Abs
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_storeId ?? Mage::app()->getStore()->getId();
     }
@@ -69,7 +69,7 @@ class Mage_Catalog_Model_Resource_Config extends Mage_Core_Model_Resource_Db_Abs
      *
      * @return int
      */
-    public function getEntityTypeId()
+    function getEntityTypeId()
     {
         if ($this->_entityTypeId === null) {
             $this->_entityTypeId = Mage::getSingleton('eav/config')->getEntityType(Mage_Catalog_Model_Product::ENTITY)->getId();
@@ -82,7 +82,7 @@ class Mage_Catalog_Model_Resource_Config extends Mage_Core_Model_Resource_Db_Abs
      *
      * @return array
      */
-    public function getAttributesUsedInListing()
+    function getAttributesUsedInListing()
     {
         $adapter = $this->_getReadAdapter();
         $storeLabelExpr = $adapter->getCheckSql('al.value IS NOT NULL', 'al.value', 'main_table.frontend_label');
@@ -109,7 +109,7 @@ class Mage_Catalog_Model_Resource_Config extends Mage_Core_Model_Resource_Db_Abs
      *
      * @return array
      */
-    public function getAttributesUsedForSortBy()
+    function getAttributesUsedForSortBy()
     {
         $adapter = $this->_getReadAdapter();
         $storeLabelExpr = $adapter->getCheckSql('al.value IS NULL', 'main_table.frontend_label', 'al.value');

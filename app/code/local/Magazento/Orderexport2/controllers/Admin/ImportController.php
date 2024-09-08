@@ -19,7 +19,7 @@ class Magazento_Orderexport2_Admin_ImportController extends Mage_Adminhtml_Contr
         return $this;
     }
 
-    public function saveAction()
+    function saveAction()
     {
         if ($data = $this->getRequest()->getPost()) {
 
@@ -45,7 +45,7 @@ class Magazento_Orderexport2_Admin_ImportController extends Mage_Adminhtml_Contr
         }
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout(array('default', 'editor'))
             ->_setActiveMenu('system/orderexport2');

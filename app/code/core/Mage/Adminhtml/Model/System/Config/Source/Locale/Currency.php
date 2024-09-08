@@ -24,7 +24,7 @@ class Mage_Adminhtml_Model_System_Config_Source_Locale_Currency
 {
     protected $_option;
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return Mage::app()->getLocale()->getOptionCurrencies();
     }

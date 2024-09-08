@@ -32,7 +32,7 @@ class Mage_Core_Model_Resource_Cache extends Mage_Core_Model_Resource_Db_Abstrac
      *
      * @return array | false
      */
-    public function getAllOptions()
+    function getAllOptions()
     {
         $adapter = $this->_getReadAdapter();
         if ($adapter) {
@@ -55,7 +55,7 @@ class Mage_Core_Model_Resource_Cache extends Mage_Core_Model_Resource_Db_Abstrac
      * @return $this
      * @throws Exception
      */
-    public function saveAllOptions($options)
+    function saveAllOptions($options)
     {
         $adapter = $this->_getWriteAdapter();
         if (!$adapter) {

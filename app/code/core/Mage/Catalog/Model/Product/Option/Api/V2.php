@@ -30,7 +30,7 @@ class Mage_Catalog_Model_Product_Option_Api_V2 extends Mage_Catalog_Model_Produc
      * @param int|string|null $store
      * @return bool
      */
-    public function add($productId, $data, $store = null)
+    function add($productId, $data, $store = null)
     {
         Mage::helper('api')->toArray($data);
         return parent::add($productId, $data, $store);
@@ -44,7 +44,7 @@ class Mage_Catalog_Model_Product_Option_Api_V2 extends Mage_Catalog_Model_Produc
      * @param int|string|null $store
      * @return bool
      */
-    public function update($optionId, $data, $store = null)
+    function update($optionId, $data, $store = null)
     {
         Mage::helper('api')->toArray($data);
         return parent::update($optionId, $data, $store);
@@ -57,7 +57,7 @@ class Mage_Catalog_Model_Product_Option_Api_V2 extends Mage_Catalog_Model_Produc
      * @param int|string|null $store
      * @return array
      */
-    public function items($productId, $store = null)
+    function items($productId, $store = null)
     {
         $result = parent::items($productId, $store);
         foreach ($result as $key => $option) {

@@ -35,7 +35,7 @@ class Mage_Adminhtml_Block_Template extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getFormKey()
+    function getFormKey()
     {
         return Mage::getSingleton('core/session')->getFormKey();
     }
@@ -49,7 +49,7 @@ class Mage_Adminhtml_Block_Template extends Mage_Core_Block_Template
      * @param string $moduleName Full module name
      * @return bool
      */
-    public function isOutputEnabled($moduleName = null)
+    function isOutputEnabled($moduleName = null)
     {
         if ($moduleName === null) {
             $moduleName = $this->getModuleName();
@@ -74,7 +74,7 @@ class Mage_Adminhtml_Block_Template extends Mage_Core_Block_Template
      * @param string $html
      * @return string
      */
-    public function maliciousCodeFilter($html)
+    function maliciousCodeFilter($html)
     {
         return Mage::getSingleton('core/input_filter_maliciousCode')->filter($html);
     }

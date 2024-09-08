@@ -18,12 +18,12 @@ class Fooman_Common_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function convertSerialToId($serial)
+    function convertSerialToId($serial)
     {
         return hash('sha256', str_replace(array("\r\n", "\n", "\r", " ", PHP_EOL), '', $serial));
     }
 
-    public function getOverlayFileName()
+    function getOverlayFileName()
     {
         if (file_exists(BP .DS.'skin'.DS.'adminhtml'.DS.'default'.DS.'default'.DS.'lib'.DS.'prototype'.DS.'windows'.DS.'themes'.DS.'magento.css')) {
             return 'lib/prototype/windows/themes/magento.css';
@@ -32,7 +32,7 @@ class Fooman_Common_Helper_Data extends Mage_Core_Helper_Abstract
         }
     }
 
-    public function getOverlayFileType()
+    function getOverlayFileType()
     {
         if (file_exists(BP .DS.'skin'.DS.'adminhtml'.DS.'default'.DS.'default'.DS.'lib'.DS.'prototype'.DS.'windows'.DS.'themes'.DS.'magento.css')) {
             return 'skin_css';

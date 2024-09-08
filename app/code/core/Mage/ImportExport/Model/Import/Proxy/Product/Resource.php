@@ -27,7 +27,7 @@ class Mage_ImportExport_Model_Import_Proxy_Product_Resource extends Mage_Catalog
      *
      * @return string
      */
-    public function getProductCategoryTable()
+    function getProductCategoryTable()
     {
         return $this->_productCategoryTable;
     }
@@ -37,7 +37,7 @@ class Mage_ImportExport_Model_Import_Proxy_Product_Resource extends Mage_Catalog
      *
      * @return string
      */
-    public function getProductWebsiteTable()
+    function getProductWebsiteTable()
     {
         return $this->_productWebsiteTable;
     }

@@ -9,7 +9,7 @@
 
 class Magazento_Orderexport2_Block_Admin_Item_Edit_Tabs extends Mage_Adminhtml_Block_Widget_Tabs {
 
-    public function __construct() {
+    function __construct() {
         parent::__construct();
         $this->setId('orderexport2_tabs');
         $this->setDestElementId('edit_form');

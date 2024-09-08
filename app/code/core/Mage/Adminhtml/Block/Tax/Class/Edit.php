@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Tax_Class_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_objectId    = 'id';
         $this->_controller  = 'tax_class';
@@ -36,7 +36,7 @@ class Mage_Adminhtml_Block_Tax_Class_Edit extends Mage_Adminhtml_Block_Widget_Fo
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if (Mage::registry('tax_class')->getId()) {
             return Mage::helper('tax')->__("Edit Class '%s'", $this->escapeHtml(Mage::registry('tax_class')->getClassName()));
@@ -48,7 +48,7 @@ class Mage_Adminhtml_Block_Tax_Class_Edit extends Mage_Adminhtml_Block_Widget_Fo
      * @param string $classType
      * @return $this
      */
-    public function setClassType($classType)
+    function setClassType($classType)
     {
         $this->getChild('form')->setClassType($classType);
         return $this;

@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Crosssell extends Mage_Admin
      * Set grid params
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('cross_sell_product_grid');
@@ -106,7 +106,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Crosssell extends Mage_Admin
      *
      * @return bool
      */
-    public function isReadonly()
+    function isReadonly()
     {
         return $this->_getProduct()->getCrosssellReadonly();
     }
@@ -209,7 +209,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Crosssell extends Mage_Admin
      *
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->_getData('grid_url') ?: $this->getUrl('*/*/crosssellGrid', ['_current' => true]);
     }
@@ -233,7 +233,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Crosssell extends Mage_Admin
      *
      * @return array
      */
-    public function getSelectedCrossSellProducts()
+    function getSelectedCrossSellProducts()
     {
         $products = [];
         foreach (Mage::registry('current_product')->getCrossSellProducts() as $product) {

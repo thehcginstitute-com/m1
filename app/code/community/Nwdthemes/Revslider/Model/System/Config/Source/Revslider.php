@@ -35,7 +35,7 @@ require_once $libFolder . '/revslider/revslider_admin.php';
 
 class Nwdthemes_Revslider_Model_System_Config_Source_Revslider
 {
-	public function toOptionArray()
+	function toOptionArray()
 	{
 		new RevSliderAdmin();
 		$slider = new RevSlider();

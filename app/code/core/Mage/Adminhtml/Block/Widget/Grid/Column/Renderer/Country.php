@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Country extends Mage_Admi
      * @param   Varien_Object $row
      * @return  string|null
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         if ($data = $row->getData($this->getColumn()->getIndex())) {
             $name = Mage::app()->getLocale()->getCountryTranslation($data);

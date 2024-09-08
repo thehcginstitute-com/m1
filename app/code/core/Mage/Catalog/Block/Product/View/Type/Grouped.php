@@ -25,7 +25,7 @@ class Mage_Catalog_Block_Product_View_Type_Grouped extends Mage_Catalog_Block_Pr
     /**
      * @return array
      */
-    public function getAssociatedProducts()
+    function getAssociatedProducts()
     {
         /** @var Mage_Catalog_Model_Product_Type_Grouped $productType */
         $productType = $this->getProduct()->getTypeInstance(true);
@@ -37,7 +37,7 @@ class Mage_Catalog_Block_Product_View_Type_Grouped extends Mage_Catalog_Block_Pr
      *
      * @return $this
      */
-    public function setPreconfiguredValue()
+    function setPreconfiguredValue()
     {
         $configValues = $this->getProduct()->getPreconfiguredValues()->getSuperGroup();
         if (is_array($configValues)) {

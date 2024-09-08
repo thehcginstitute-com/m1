@@ -33,7 +33,7 @@ class Mage_Oauth_Model_Resource_Nonce extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $minutes Delete entries older than
      * @return int
      */
-    public function deleteOldEntries($minutes)
+    function deleteOldEntries($minutes)
     {
         if ($minutes > 0) {
             $adapter = $this->_getWriteAdapter();

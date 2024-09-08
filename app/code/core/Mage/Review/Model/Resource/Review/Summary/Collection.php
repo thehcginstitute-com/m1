@@ -27,7 +27,7 @@ class Mage_Review_Model_Resource_Review_Summary_Collection extends Varien_Data_C
      */
     protected $_summaryTable;
 
-    public function __construct()
+    function __construct()
     {
         $resources = Mage::getSingleton('core/resource');
         $this->_setIdFieldName('primary_id');
@@ -47,7 +47,7 @@ class Mage_Review_Model_Resource_Review_Summary_Collection extends Varien_Data_C
      * @param int $entityType
      * @return $this
      */
-    public function addEntityFilter($entityId, $entityType = 1)
+    function addEntityFilter($entityId, $entityType = 1)
     {
         $this->_select->where('entity_pk_value IN(?)', $entityId)
             ->where('entity_type = ?', $entityType);
@@ -60,7 +60,7 @@ class Mage_Review_Model_Resource_Review_Summary_Collection extends Varien_Data_C
      * @param int $storeId
      * @return $this
      */
-    public function addStoreFilter($storeId)
+    function addStoreFilter($storeId)
     {
         $this->_select->where('store_id = ?', $storeId);
         return $this;

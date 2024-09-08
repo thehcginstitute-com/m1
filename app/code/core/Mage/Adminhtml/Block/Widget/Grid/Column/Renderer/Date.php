@@ -57,7 +57,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Date extends Mage_Adminht
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         if ($data = $row->getData($this->getColumn()->getIndex())) {
             $format = $this->_getFormat();

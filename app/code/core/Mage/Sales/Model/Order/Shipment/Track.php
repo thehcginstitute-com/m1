@@ -56,7 +56,7 @@ class Mage_Sales_Model_Order_Shipment_Track extends Mage_Sales_Model_Abstract
     /**
      * Initialize resource model
      */
-    public function _construct()
+    function _construct()
     {
         $this->_init('sales/order_shipment_track');
     }
@@ -79,7 +79,7 @@ class Mage_Sales_Model_Order_Shipment_Track extends Mage_Sales_Model_Abstract
      *
      * @return string
      */
-    public function getNumber()
+    function getNumber()
     {
         return $this->getData('track_number');
     }
@@ -90,7 +90,7 @@ class Mage_Sales_Model_Order_Shipment_Track extends Mage_Sales_Model_Abstract
      * @param Mage_Sales_Model_Order_Shipment $shipment
      * @return $this
      */
-    public function setShipment(Mage_Sales_Model_Order_Shipment $shipment)
+    function setShipment(Mage_Sales_Model_Order_Shipment $shipment)
     {
         $this->_shipment = $shipment;
         return $this;
@@ -101,7 +101,7 @@ class Mage_Sales_Model_Order_Shipment_Track extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Shipment
      */
-    public function getShipment()
+    function getShipment()
     {
         if (!($this->_shipment instanceof Mage_Sales_Model_Order_Shipment)) {
             $this->_shipment = Mage::getModel('sales/order_shipment')->load($this->getParentId());
@@ -113,7 +113,7 @@ class Mage_Sales_Model_Order_Shipment_Track extends Mage_Sales_Model_Abstract
     /**
      * @return bool
      */
-    public function isCustom()
+    function isCustom()
     {
         return $this->getCarrierCode() == self::CUSTOM_CARRIER_CODE;
     }
@@ -123,7 +123,7 @@ class Mage_Sales_Model_Order_Shipment_Track extends Mage_Sales_Model_Abstract
      *
      * @return string
      */
-    public function getProtectCode()
+    function getProtectCode()
     {
         return (string)$this->getShipment()->getProtectCode();
     }
@@ -133,7 +133,7 @@ class Mage_Sales_Model_Order_Shipment_Track extends Mage_Sales_Model_Abstract
      *
      * @return string|array
      */
-    public function getNumberDetail()
+    function getNumberDetail()
     {
         $carrierInstance = Mage::getSingleton('shipping/config')->getCarrierInstance($this->getCarrierCode());
         if (!$carrierInstance) {
@@ -157,7 +157,7 @@ class Mage_Sales_Model_Order_Shipment_Track extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         if ($this->getShipment()) {
             return $this->getShipment()->getStore();
@@ -170,7 +170,7 @@ class Mage_Sales_Model_Order_Shipment_Track extends Mage_Sales_Model_Abstract
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->getStore()->getId();
     }

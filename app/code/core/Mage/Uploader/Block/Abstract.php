@@ -65,7 +65,7 @@ abstract class Mage_Uploader_Block_Abstract extends Mage_Adminhtml_Block_Widget
      * @see https://github.com/flowjs/flow.js/tree/v2.9.0#configuration
      * @description Set unique id for block
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId($this->getId() . '_Uploader');
@@ -84,7 +84,7 @@ abstract class Mage_Uploader_Block_Abstract extends Mage_Adminhtml_Block_Widget
     /**
      * @return string
      */
-    public function getJsonConfig()
+    function getJsonConfig()
     {
         /** @var Mage_Core_Helper_Data $helper */
         $helper = $this->helper('core');
@@ -167,7 +167,7 @@ abstract class Mage_Uploader_Block_Abstract extends Mage_Adminhtml_Block_Widget
      *
      * @return string
      */
-    public function getBrowseButtonHtml()
+    function getBrowseButtonHtml()
     {
         return $this->getChildHtml('browse_button');
     }
@@ -177,7 +177,7 @@ abstract class Mage_Uploader_Block_Abstract extends Mage_Adminhtml_Block_Widget
      *
      * @return string
      */
-    public function getDeleteButtonHtml()
+    function getDeleteButtonHtml()
     {
         return $this->getChildHtml('delete_button');
     }
@@ -187,7 +187,7 @@ abstract class Mage_Uploader_Block_Abstract extends Mage_Adminhtml_Block_Widget
      *
      * @return Mage_Uploader_Model_Config_Misc
      */
-    public function getMiscConfig()
+    function getMiscConfig()
     {
         if (is_null($this->_miscConfig)) {
             $this->_miscConfig = Mage::getModel('uploader/config_misc');
@@ -200,7 +200,7 @@ abstract class Mage_Uploader_Block_Abstract extends Mage_Adminhtml_Block_Widget
      *
      * @return Mage_Uploader_Model_Config_Uploader
      */
-    public function getUploaderConfig()
+    function getUploaderConfig()
     {
         if (is_null($this->_uploaderConfig)) {
             $this->_uploaderConfig = Mage::getModel('uploader/config_uploader');
@@ -213,7 +213,7 @@ abstract class Mage_Uploader_Block_Abstract extends Mage_Adminhtml_Block_Widget
      *
      * @return Mage_Uploader_Model_Config_Browsebutton
      */
-    public function getButtonConfig()
+    function getButtonConfig()
     {
         if (is_null($this->_browseButtonConfig)) {
             $this->_browseButtonConfig = Mage::getModel('uploader/config_browsebutton');
@@ -227,7 +227,7 @@ abstract class Mage_Uploader_Block_Abstract extends Mage_Adminhtml_Block_Widget
      * @param string $suffix
      * @return string
      */
-    public function getElementId($suffix)
+    function getElementId($suffix)
     {
         return $this->getHtmlId() . '-' . $suffix;
     }

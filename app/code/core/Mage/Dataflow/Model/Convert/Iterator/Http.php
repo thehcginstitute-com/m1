@@ -22,7 +22,7 @@
  */
 class Mage_Dataflow_Model_Convert_Iterator_Http extends Mage_Dataflow_Model_Convert_Adapter_Abstract
 {
-    public function load()
+    function load()
     {
         if (!$_FILES) {
             ?>

@@ -22,7 +22,7 @@
  */
 class Mage_CatalogRule_Model_Rule_Condition_Combine extends Mage_Rule_Model_Condition_Combine
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setType('catalogrule/rule_condition_combine');
@@ -31,7 +31,7 @@ class Mage_CatalogRule_Model_Rule_Condition_Combine extends Mage_Rule_Model_Cond
     /**
      * @return array
      */
-    public function getNewChildSelectOptions()
+    function getNewChildSelectOptions()
     {
         $productCondition = Mage::getModel('catalogrule/rule_condition_product');
         $productAttributes = $productCondition->loadAttributeOptions()->getAttributeOption();
@@ -51,7 +51,7 @@ class Mage_CatalogRule_Model_Rule_Condition_Combine extends Mage_Rule_Model_Cond
      * @param Mage_Catalog_Model_Resource_Product_Collection $productCollection
      * @return $this
      */
-    public function collectValidatedAttributes($productCollection)
+    function collectValidatedAttributes($productCollection)
     {
         foreach ($this->getConditions() as $condition) {
             $condition->collectValidatedAttributes($productCollection);

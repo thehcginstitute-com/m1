@@ -20,7 +20,7 @@
  */
 class Mage_Dataflow_Model_Session_Adapter_Iterator extends Mage_Dataflow_Model_Convert_Adapter_Abstract
 {
-    public function walk()
+    function walk()
     {
         $sessionId = Mage::registry('current_dataflow_session_id');
         $import = Mage::getResourceModel('dataflow/import');
@@ -94,7 +94,7 @@ function updateProgress(sessionId, idx, time, memory) {
 </script>';
     }
 
-    public function updateProgress($args)
+    function updateProgress($args)
     {
         $memory = !empty($args['memory']) ? $args['memory'] : '';
         echo '<script type="text/javascript">updateProgress("'

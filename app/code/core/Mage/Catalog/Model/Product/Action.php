@@ -38,7 +38,7 @@ class Mage_Catalog_Model_Product_Action extends Mage_Core_Model_Abstract
      * @param int $storeId
      * @return $this
      */
-    public function updateAttributes($productIds, $attrData, $storeId)
+    function updateAttributes($productIds, $attrData, $storeId)
     {
         Mage::dispatchEvent('catalog_product_attribute_update_before', [
             'attributes_data' => &$attrData,
@@ -78,7 +78,7 @@ class Mage_Catalog_Model_Product_Action extends Mage_Core_Model_Abstract
      * @param array $websiteIds
      * @param string $type
      */
-    public function updateWebsites($productIds, $websiteIds, $type)
+    function updateWebsites($productIds, $websiteIds, $type)
     {
         Mage::dispatchEvent('catalog_product_website_update_before', [
             'website_ids'   => $websiteIds,

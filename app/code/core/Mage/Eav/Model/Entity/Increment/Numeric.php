@@ -23,7 +23,7 @@ class Mage_Eav_Model_Entity_Increment_Numeric extends Mage_Eav_Model_Entity_Incr
     /**
      * @return string
      */
-    public function getNextId()
+    function getNextId()
     {
         $last = $this->getLastId();
 

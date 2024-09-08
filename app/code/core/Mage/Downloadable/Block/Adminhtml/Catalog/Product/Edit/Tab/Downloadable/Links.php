@@ -36,7 +36,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('downloadable/product/edit/downloadable/links.phtml');
@@ -49,7 +49,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return Mage::registry('product');
     }
@@ -59,7 +59,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      *
      * @return Mage_Catalog_Model_Resource_Eav_Attribute
      */
-    public function getPurchasedSeparatelyAttribute()
+    function getPurchasedSeparatelyAttribute()
     {
         if (is_null($this->_purchasedSeparatelyAttribute)) {
             $_attributeCode = 'links_purchased_separately';
@@ -76,7 +76,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      *
      * @return string
      */
-    public function getPurchasedSeparatelySelect()
+    function getPurchasedSeparatelySelect()
     {
         $select = $this->getLayout()->createBlock('adminhtml/html_select')
             ->setName('product[links_purchased_separately]')
@@ -92,7 +92,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      *
      * @return string
      */
-    public function getAddButtonHtml()
+    function getAddButtonHtml()
     {
         $addButton = $this->getLayout()->createBlock('adminhtml/widget_button')
             ->setData([
@@ -108,7 +108,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      *
      * @return string
      */
-    public function getLinksTitle()
+    function getLinksTitle()
     {
         return Mage::getStoreConfig(Mage_Downloadable_Model_Link::XML_PATH_LINKS_TITLE);
     }
@@ -118,7 +118,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      *
      * @return bool
      */
-    public function getUsedDefault()
+    function getUsedDefault()
     {
         return $this->getProduct()->getAttributeDefaultValue('links_title') === false;
     }
@@ -129,7 +129,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      * @deprecated since 1.14.2.0
      * @return bool
      */
-    public function getIsPriceWebsiteScope()
+    function getIsPriceWebsiteScope()
     {
         return Mage::helper('downloadable')->getIsPriceWebsiteScope();
     }
@@ -139,7 +139,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      *
      * @return array
      */
-    public function getLinkData()
+    function getLinkData()
     {
         $linkArr = [];
         /** @var Mage_Downloadable_Model_Product_Type $productType */
@@ -217,7 +217,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      * @param float $value
      * @return string
      */
-    public function getPriceValue($value)
+    function getPriceValue($value)
     {
         return number_format($value, 2, null, '');
     }
@@ -227,7 +227,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      *
      * @return int
      */
-    public function getConfigMaxDownloads()
+    function getConfigMaxDownloads()
     {
         return Mage::getStoreConfig(Mage_Downloadable_Model_Link::XML_PATH_DEFAULT_DOWNLOADS_NUMBER);
     }
@@ -260,7 +260,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      *
      * @return string
      */
-    public function getUploadButtonHtml()
+    function getUploadButtonHtml()
     {
         return $this->getChild('upload_button')->toHtml();
     }
@@ -271,7 +271,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      * @param string $type
      * @return string
      */
-    public function getConfigJson($type = 'links')
+    function getConfigJson($type = 'links')
     {
         $this->getUploaderConfig()
             ->setFileParameterName($type)
@@ -289,7 +289,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      * @param string $type
      * @return string
      */
-    public function getBrowseButtonHtml($type = '')
+    function getBrowseButtonHtml($type = '')
     {
         return $this->getChild('browse_button')
             // Workaround for IE9
@@ -305,7 +305,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      * @param string $type
      * @return string
      */
-    public function getDeleteButtonHtml($type = '')
+    function getDeleteButtonHtml($type = '')
     {
         return $this->getChild('delete_button')
             ->setLabel('')
@@ -320,7 +320,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      * @deprecated
      * @return $this
      */
-    public function getConfig()
+    function getConfig()
     {
         return $this;
     }

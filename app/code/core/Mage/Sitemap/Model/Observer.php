@@ -52,7 +52,7 @@ class Mage_Sitemap_Model_Observer
      *
      * @param Mage_Cron_Model_Schedule $schedule
      */
-    public function scheduledGenerateSitemaps($schedule)
+    function scheduledGenerateSitemaps($schedule)
     {
         $errors = [];
 

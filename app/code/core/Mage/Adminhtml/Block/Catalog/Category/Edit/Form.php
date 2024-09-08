@@ -29,7 +29,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
      */
     protected $_additionalButtons = [];
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/category/edit/form.phtml');
@@ -87,7 +87,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
         return parent::_prepareLayout();
     }
 
-    public function getStoreConfigurationUrl()
+    function getStoreConfigurationUrl()
     {
         $storeId = (int) $this->getRequest()->getParam('store');
         $params = [];
@@ -100,12 +100,12 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
         return $this->getUrl('*/system_store', $params);
     }
 
-    public function getDeleteButtonHtml()
+    function getDeleteButtonHtml()
     {
         return $this->getChildHtml('delete_button');
     }
 
-    public function getSaveButtonHtml()
+    function getSaveButtonHtml()
     {
         if ($this->hasStoreRootCategory()) {
             return $this->getChildHtml('save_button');
@@ -113,7 +113,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
         return '';
     }
 
-    public function getResetButtonHtml()
+    function getResetButtonHtml()
     {
         if ($this->hasStoreRootCategory()) {
             return $this->getChildHtml('reset_button');
@@ -126,7 +126,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getAdditionalButtonsHtml()
+    function getAdditionalButtonsHtml()
     {
         $html = '';
         foreach ($this->_additionalButtons as $childName) {
@@ -142,7 +142,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
      * @param array $config
      * @return $this
      */
-    public function addAdditionalButton($alias, $config)
+    function addAdditionalButton($alias, $config)
     {
         if (isset($config['name'])) {
             $config['element_name'] = $config['name'];
@@ -161,7 +161,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
      * @param string $alias
      * @return $this
      */
-    public function removeAdditionalButton($alias)
+    function removeAdditionalButton($alias)
     {
         if (isset($this->_additionalButtons[$alias])) {
             $this->unsetChild($this->_additionalButtons[$alias]);
@@ -171,12 +171,12 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
         return $this;
     }
 
-    public function getTabsHtml()
+    function getTabsHtml()
     {
         return $this->getChildHtml('tabs');
     }
 
-    public function getHeader()
+    function getHeader()
     {
         if ($this->hasStoreRootCategory()) {
             if ($this->getCategoryId()) {
@@ -193,7 +193,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
         return Mage::helper('catalog')->__('Set Root Category for Store');
     }
 
-    public function getDeleteUrl(array $args = [])
+    function getDeleteUrl(array $args = [])
     {
         $params = ['_current' => true];
         $params = array_merge($params, $args);
@@ -206,14 +206,14 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
      * @param array $args
      * @return string
      */
-    public function getRefreshPathUrl(array $args = [])
+    function getRefreshPathUrl(array $args = [])
     {
         $params = ['_current' => true];
         $params = array_merge($params, $args);
         return $this->getUrl('*/*/refreshPath', $params);
     }
 
-    public function getProductsJson()
+    function getProductsJson()
     {
         $products = $this->getCategory()->getProductsPosition();
         if (!empty($products)) {
@@ -222,7 +222,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
         return '{}';
     }
 
-    public function isAjax()
+    function isAjax()
     {
         return Mage::app()->getRequest()->isXmlHttpRequest() || Mage::app()->getRequest()->getParam('isAjax');
     }

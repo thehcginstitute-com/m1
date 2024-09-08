@@ -27,7 +27,7 @@ class Mage_Catalog_Model_Resource_Category_Attribute_Source_Layout extends Mage_
      *
      * @return array
      */
-    public function getAllOptions()
+    function getAllOptions()
     {
         if (!$this->_options) {
             $layouts = [];

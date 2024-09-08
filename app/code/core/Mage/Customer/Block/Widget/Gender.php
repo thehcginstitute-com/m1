@@ -24,7 +24,7 @@ class Mage_Customer_Block_Widget_Gender extends Mage_Customer_Block_Widget_Abstr
     /**
      * Initialize block
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->setTemplate('customer/widget/gender.phtml');
@@ -35,7 +35,7 @@ class Mage_Customer_Block_Widget_Gender extends Mage_Customer_Block_Widget_Abstr
      *
      * @return bool
      */
-    public function isEnabled()
+    function isEnabled()
     {
         return (bool)$this->_getAttribute('gender')->getIsVisible();
     }
@@ -45,7 +45,7 @@ class Mage_Customer_Block_Widget_Gender extends Mage_Customer_Block_Widget_Abstr
      *
      * @return bool
      */
-    public function isRequired()
+    function isRequired()
     {
         return (bool)$this->_getAttribute('gender')->getIsRequired();
     }
@@ -55,7 +55,7 @@ class Mage_Customer_Block_Widget_Gender extends Mage_Customer_Block_Widget_Abstr
      *
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         return Mage::getSingleton('customer/session')->getCustomer();
     }

@@ -6,22 +6,22 @@
  */  
 class Amasty_Notfound_Model_Mysql4_Log extends Mage_Core_Model_Mysql4_Abstract
 {
-    public function _construct()
+    function _construct()
     {    
         $this->_init('amnotfound/log', 'log_id');
     }
     
-    public function clear()
+    function clear()
     {    
         $this->_getWriteAdapter()->raw_query('truncate table ' . $this->getMainTable());
     }
     
-    public function collect($lastRun)
+    function collect($lastRun)
     {    
         return true;
     }
 
-    public function hasRedirect($path, $storeId)
+    function hasRedirect($path, $storeId)
     {
         $read = $this->_getReadAdapter();
         $tbl  = $this->getTable('core/url_rewrite');
@@ -34,7 +34,7 @@ class Amasty_Notfound_Model_Mysql4_Log extends Mage_Core_Model_Mysql4_Abstract
         return $read->fetchCol($sql);
     }
 
-	public function errorWasLogged($path, $storeId)
+	function errorWasLogged($path, $storeId)
 	{
 		$read = $this->_getReadAdapter();
 

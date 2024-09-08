@@ -56,7 +56,7 @@ class Mage_Directory_Model_Currency_Import_Fixerio extends Mage_Directory_Model_
     /**
      * Create and set HTTP Client
      */
-    public function __construct()
+    function __construct()
     {
         $this->_httpClient = new Varien_Http_Client();
     }
@@ -74,7 +74,7 @@ class Mage_Directory_Model_Currency_Import_Fixerio extends Mage_Directory_Model_
      *
      * @return array
      */
-    public function fetchRates()
+    function fetchRates()
     {
         $data = [];
         $currencies = $this->_getCurrencyCodes();

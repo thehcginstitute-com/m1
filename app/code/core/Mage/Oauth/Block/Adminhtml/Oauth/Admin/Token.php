@@ -24,7 +24,7 @@ class Mage_Oauth_Block_Adminhtml_Oauth_Admin_Token extends Mage_Adminhtml_Block_
     /**
      * Construct grid container
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 

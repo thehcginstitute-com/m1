@@ -28,7 +28,7 @@ class Mage_Bundle_Model_Resource_Indexer_Stock extends Mage_CatalogInventory_Mod
      * @param int|array $entityIds
      * @return $this
      */
-    public function reindexEntity($entityIds)
+    function reindexEntity($entityIds)
     {
         $this->_updateIndex($entityIds);
 

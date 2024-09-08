@@ -57,7 +57,7 @@ class Mage_Core_Model_File_Storage_Flag extends Mage_Core_Model_Flag
      * @param Exception $e
      * @return $this
      */
-    public function passError(Exception $e)
+    function passError(Exception $e)
     {
         $data = $this->getFlagData();
         if (!is_array($data)) {

@@ -49,7 +49,7 @@ class Mage_Sales_Model_Resource_Quote_Item_Collection extends Mage_Core_Model_Re
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return (int)$this->_quote->getStoreId();
     }
@@ -60,7 +60,7 @@ class Mage_Sales_Model_Resource_Quote_Item_Collection extends Mage_Core_Model_Re
      * @param Mage_Sales_Model_Quote $quote
      * @return $this
      */
-    public function setQuote($quote)
+    function setQuote($quote)
     {
         $this->_quote = $quote;
         $quoteId      = $quote->getId();
@@ -81,7 +81,7 @@ class Mage_Sales_Model_Resource_Quote_Item_Collection extends Mage_Core_Model_Re
      * @param int $productId
      * @return $this
      */
-    public function resetJoinQuotes($quotesTableName, $productId = null)
+    function resetJoinQuotes($quotesTableName, $productId = null)
     {
         $this->getSelect()->reset()
             ->from(

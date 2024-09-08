@@ -44,7 +44,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Category extends Mage_Catalog_Block_Seo_Sit
      * @param Mage_Catalog_Model_Category $category
      * @return string
      */
-    public function getItemUrl($category)
+    function getItemUrl($category)
     {
         $helper = Mage::helper('catalog/category');
         /** @var Mage_Catalog_Helper_Category $helper */

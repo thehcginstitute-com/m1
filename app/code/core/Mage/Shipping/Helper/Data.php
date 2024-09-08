@@ -35,7 +35,7 @@ class Mage_Shipping_Helper_Data extends Mage_Core_Helper_Abstract
      * @param  string $hash
      * @return array
      */
-    public function decodeTrackingHash($hash)
+    function decodeTrackingHash($hash)
     {
         $hash = explode(':', Mage::helper('core')->urlDecode($hash));
         if (count($hash) === 3 && in_array($hash[0], $this->_allowedHashKeys)) {
@@ -77,7 +77,7 @@ class Mage_Shipping_Helper_Data extends Mage_Core_Helper_Abstract
      * Retrieve tracking pop up url by order id or object
      *
      */
-    public function getTrackingPopUpUrlByOrderId($order = '')
+    function getTrackingPopUpUrlByOrderId($order = '')
     {
         if ($order && !is_object($order)) {
             $order = Mage::getModel('sales/order')->load($order);
@@ -92,7 +92,7 @@ class Mage_Shipping_Helper_Data extends Mage_Core_Helper_Abstract
      * Retrieve tracking pop up url by track id or object
      *
      */
-    public function getTrackingPopUpUrlByTrackId($track = '')
+    function getTrackingPopUpUrlByTrackId($track = '')
     {
         if ($track && !is_object($track)) {
             $track = Mage::getModel('sales/order_shipment_track')->load($track);
@@ -107,7 +107,7 @@ class Mage_Shipping_Helper_Data extends Mage_Core_Helper_Abstract
      * Retrieve tracking pop up url by ship id or object
      *
      */
-    public function getTrackingPopUpUrlByShipId($ship = '')
+    function getTrackingPopUpUrlByShipId($ship = '')
     {
         if ($ship && !is_object($ship)) {
             $ship = Mage::getModel('sales/order_shipment')->load($ship);
@@ -121,7 +121,7 @@ class Mage_Shipping_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Sales_Model_Abstract $model
      * @return string
      */
-    public function getTrackingPopupUrlBySalesModel($model)
+    function getTrackingPopupUrlBySalesModel($model)
     {
         if ($model instanceof Mage_Sales_Model_Order) {
             return $this->_getTrackingUrl('order_id', $model);
@@ -138,7 +138,7 @@ class Mage_Shipping_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getTrackingAjaxUrl()
+    function getTrackingAjaxUrl()
     {
         return $this->_getUrl('shipping/tracking/ajax');
     }
@@ -148,7 +148,7 @@ class Mage_Shipping_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $storeId
      * @return bool
      */
-    public function isFreeMethod($method, $storeId = null)
+    function isFreeMethod($method, $storeId = null)
     {
         $arr = explode('_', $method, 2);
         if (!isset($arr[1])) {

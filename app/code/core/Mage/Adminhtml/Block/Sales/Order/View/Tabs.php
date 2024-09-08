@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tabs extends Mage_Adminhtml_Block_Wi
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         if ($this->hasOrder()) {
             return $this->getData('order');
@@ -41,7 +41,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tabs extends Mage_Adminhtml_Block_Wi
         Mage::throwException(Mage::helper('sales')->__('Cannot get the order instance.'));
     }
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_view_tabs');

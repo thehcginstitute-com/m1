@@ -358,7 +358,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         if ($this->hasData('store_id')) {
             return $this->getData('store_id');
@@ -371,7 +371,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Product_Collection
      */
-    public function getResourceCollection()
+    function getResourceCollection()
     {
         if (empty($this->_resourceCollectionName)) {
             Mage::throwException(Mage::helper('catalog')->__('The model collection resource name is not defined.'));
@@ -387,7 +387,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Product_Url
      */
-    public function getUrlModel()
+    function getUrlModel()
     {
         if ($this->_urlModel === null) {
             $this->_urlModel = Mage::getSingleton('catalog/factory')->getProductUrlInstance();
@@ -402,7 +402,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return $this
      */
-    public function validate()
+    function validate()
     {
         Mage::dispatchEvent($this->_eventPrefix . '_validate_before', [$this->_eventObject => $this]);
         $this->_getResource()->validate($this);
@@ -415,7 +415,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return string
      */
-    public function getName()
+    function getName()
     {
         return $this->_getData('name');
     }
@@ -425,7 +425,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return float
      */
-    public function getPrice()
+    function getPrice()
     {
         if ($this->_calculatePrice || !$this->getData('price')) {
             return $this->getPriceModel()->getPrice($this);
@@ -439,7 +439,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @param bool $calculate
      */
-    public function setPriceCalculation($calculate = true)
+    function setPriceCalculation($calculate = true)
     {
         $this->_calculatePrice = $calculate;
     }
@@ -449,7 +449,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return string
      */
-    public function getTypeId()
+    function getTypeId()
     {
         return $this->_getData('type_id');
     }
@@ -459,7 +459,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return int
      */
-    public function getStatus()
+    function getStatus()
     {
         if (is_null($this->_getData('status'))) {
             $this->setData('status', Mage_Catalog_Model_Product_Status::STATUS_ENABLED);
@@ -475,7 +475,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param  bool $singleton
      * @return Mage_Catalog_Model_Product_Type_Abstract
      */
-    public function getTypeInstance($singleton = false)
+    function getTypeInstance($singleton = false)
     {
         if ($singleton === true) {
             if (is_null($this->_typeInstanceSingleton)) {
@@ -499,7 +499,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param bool                                     $singleton Whether instance is singleton
      * @return $this
      */
-    public function setTypeInstance($instance, $singleton = false)
+    function setTypeInstance($instance, $singleton = false)
     {
         if ($singleton === true) {
             $this->_typeInstanceSingleton = $instance;
@@ -514,7 +514,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return  Mage_Catalog_Model_Product_Link
      */
-    public function getLinkInstance()
+    function getLinkInstance()
     {
         if (!$this->_linkInstance) {
             $this->_linkInstance = Mage::getSingleton('catalog/product_link');
@@ -528,7 +528,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param   string $sku
      * @return  int
      */
-    public function getIdBySku($sku)
+    function getIdBySku($sku)
     {
         return $this->_getResource()->getIdBySku($sku);
     }
@@ -538,7 +538,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return int|false
      */
-    public function getCategoryId()
+    function getCategoryId()
     {
         if ($category = Mage::registry('current_category')) {
             return $category->getId();
@@ -551,7 +551,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Category
      */
-    public function getCategory()
+    function getCategory()
     {
         $category = $this->getData('category');
         if (is_null($category) && $this->getCategoryId()) {
@@ -567,7 +567,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param array|int|string $ids the ID(s) as int, comma-separated string or array of ints
      * @return $this
      */
-    public function setCategoryIds($ids)
+    function setCategoryIds($ids)
     {
         if (is_string($ids)) {
             $ids = explode(',', $ids);
@@ -586,7 +586,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getCategoryIds()
+    function getCategoryIds()
     {
         if (!$this->hasData('category_ids')) {
             $wasLocked = false;
@@ -609,7 +609,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Category_Collection
      */
-    public function getCategoryCollection()
+    function getCategoryCollection()
     {
         return $this->_getResource()->getCategoryCollection($this);
     }
@@ -619,7 +619,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getWebsiteIds()
+    function getWebsiteIds()
     {
         if (!$this->hasWebsiteIds()) {
             $ids = $this->_getResource()->getWebsiteIds($this);
@@ -633,7 +633,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getStoreIds()
+    function getStoreIds()
     {
         if (!$this->hasStoreIds()) {
             $storeIds = [];
@@ -656,7 +656,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param bool $skipSuper Not used
      * @return array
      */
-    public function getAttributes($groupId = null, $skipSuper = false)
+    function getAttributes($groupId = null, $skipSuper = false)
     {
         /** @var Mage_Catalog_Model_Resource_Eav_Attribute[] $productAttributes */
         $productAttributes = $this->getTypeInstance(true)->getEditableAttributes($this);
@@ -746,7 +746,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param   bool $value
      * @return  bool
      */
-    public function canAffectOptions($value = null)
+    function canAffectOptions($value = null)
     {
         if ($value !== null) {
             $this->_canAffectOptions = (bool)$value;
@@ -826,7 +826,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return $this
      */
-    public function cleanCache()
+    function cleanCache()
     {
         if ($this->getId()) {
             Mage::app()->cleanCache('catalog_product_' . $this->getId());
@@ -839,7 +839,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Product_Type_Price|Mage_Bundle_Model_Product_Price
      */
-    public function getPriceModel()
+    function getPriceModel()
     {
         return Mage::getSingleton('catalog/product_type')->priceFactory($this->getTypeId());
     }
@@ -849,7 +849,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return float
      */
-    public function getGroupPrice()
+    function getGroupPrice()
     {
         return $this->getPriceModel()->getGroupPrice($this);
     }
@@ -860,7 +860,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param   float $qty
      * @return  float|array
      */
-    public function getTierPrice($qty = null)
+    function getTierPrice($qty = null)
     {
         return $this->getPriceModel()->getTierPrice($qty, $this);
     }
@@ -870,7 +870,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return  int
      */
-    public function getTierPriceCount()
+    function getTierPriceCount()
     {
         return $this->getPriceModel()->getTierPriceCount($this);
     }
@@ -881,7 +881,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param   double $qty
      * @return  array | double
      */
-    public function getFormatedTierPrice($qty = null)
+    function getFormatedTierPrice($qty = null)
     {
         return $this->getPriceModel()->getFormatedTierPrice($qty, $this);
     }
@@ -891,7 +891,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return  array|double
      */
-    public function getFormatedPrice()
+    function getFormatedPrice()
     {
         return $this->getPriceModel()->getFormatedPrice($this);
     }
@@ -906,7 +906,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param float $price Price amount
      * @return $this
      */
-    public function setFinalPrice($price)
+    function setFinalPrice($price)
     {
         $this->_data['final_price'] = $price;
         return $this;
@@ -918,7 +918,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param double $qty
      * @return double
      */
-    public function getFinalPrice($qty = null)
+    function getFinalPrice($qty = null)
     {
         $price = $this->_getData('final_price');
         return $price ?? $this->getPriceModel()->getFinalPrice($qty, $this);
@@ -929,7 +929,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return float|null
      */
-    public function getCalculatedFinalPrice()
+    function getCalculatedFinalPrice()
     {
         return $this->_getData('calculated_final_price');
     }
@@ -939,7 +939,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return float
      */
-    public function getMinimalPrice()
+    function getMinimalPrice()
     {
         return max($this->_getData('minimal_price'), 0);
     }
@@ -949,7 +949,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return float
      */
-    public function getSpecialPrice()
+    function getSpecialPrice()
     {
         return $this->_getData('special_price');
     }
@@ -959,7 +959,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return mixed
      */
-    public function getSpecialFromDate()
+    function getSpecialFromDate()
     {
         return $this->_getData('special_from_date');
     }
@@ -969,7 +969,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return mixed
      */
-    public function getSpecialToDate()
+    function getSpecialToDate()
     {
         return $this->_getData('special_to_date');
     }
@@ -982,7 +982,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Product[]
      */
-    public function getRelatedProducts()
+    function getRelatedProducts()
     {
         if (!$this->hasRelatedProducts()) {
             $products = [];
@@ -1000,7 +1000,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getRelatedProductIds()
+    function getRelatedProductIds()
     {
         if (!$this->hasRelatedProductIds()) {
             $ids = [];
@@ -1017,7 +1017,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Product_Link_Product_Collection
      */
-    public function getRelatedProductCollection()
+    function getRelatedProductCollection()
     {
         $collection = $this->getLinkInstance()->useRelatedLinks()
             ->getProductCollection()
@@ -1031,7 +1031,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Product_Link_Collection
      */
-    public function getRelatedLinkCollection()
+    function getRelatedLinkCollection()
     {
         $collection = $this->getLinkInstance()->useRelatedLinks()
             ->getLinkCollection();
@@ -1047,7 +1047,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Product[]
      */
-    public function getUpSellProducts()
+    function getUpSellProducts()
     {
         if (!$this->hasUpSellProducts()) {
             $products = [];
@@ -1064,7 +1064,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getUpSellProductIds()
+    function getUpSellProductIds()
     {
         if (!$this->hasUpSellProductIds()) {
             $ids = [];
@@ -1081,7 +1081,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Product_Link_Product_Collection
      */
-    public function getUpSellProductCollection()
+    function getUpSellProductCollection()
     {
         $collection = $this->getLinkInstance()->useUpSellLinks()
             ->getProductCollection()
@@ -1095,7 +1095,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Product_Link_Collection
      */
-    public function getUpSellLinkCollection()
+    function getUpSellLinkCollection()
     {
         $collection = $this->getLinkInstance()->useUpSellLinks()
             ->getLinkCollection();
@@ -1111,7 +1111,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getCrossSellProducts()
+    function getCrossSellProducts()
     {
         if (!$this->hasCrossSellProducts()) {
             $products = [];
@@ -1128,7 +1128,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getCrossSellProductIds()
+    function getCrossSellProductIds()
     {
         if (!$this->hasCrossSellProductIds()) {
             $ids = [];
@@ -1145,7 +1145,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Product_Link_Product_Collection
      */
-    public function getCrossSellProductCollection()
+    function getCrossSellProductCollection()
     {
         $collection = $this->getLinkInstance()->useCrossSellLinks()
             ->getProductCollection()
@@ -1159,7 +1159,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Product_Link_Collection
      */
-    public function getCrossSellLinkCollection()
+    function getCrossSellLinkCollection()
     {
         $collection = $this->getLinkInstance()->useCrossSellLinks()
             ->getLinkCollection();
@@ -1175,7 +1175,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Product_Link_Collection
      */
-    public function getGroupedLinkCollection()
+    function getGroupedLinkCollection()
     {
         $collection = $this->getLinkInstance()->useGroupedLinks()
             ->getLinkCollection();
@@ -1194,7 +1194,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Eav_Attribute[]
      */
-    public function getMediaAttributes()
+    function getMediaAttributes()
     {
         if (!$this->hasMediaAttributes()) {
             $mediaAttributes = [];
@@ -1213,7 +1213,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Varien_Data_Collection
      */
-    public function getMediaGalleryImages()
+    function getMediaGalleryImages()
     {
         if (!$this->hasData('media_gallery_images') && is_array($this->getMediaGallery('images'))) {
             $images = new Varien_Data_Collection();
@@ -1242,7 +1242,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param bool       $exclude           mark image as disabled in product page view
      * @return $this
      */
-    public function addImageToMediaGallery($file, $mediaAttribute = null, $move = false, $exclude = true)
+    function addImageToMediaGallery($file, $mediaAttribute = null, $move = false, $exclude = true)
     {
         $attributes = $this->getTypeInstance(true)->getSetAttributes($this);
         if (!isset($attributes['media_gallery'])) {
@@ -1259,7 +1259,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Product_Media_Config
      */
-    public function getMediaConfig()
+    function getMediaConfig()
     {
         return Mage::getSingleton('catalog/product_media_config');
     }
@@ -1269,7 +1269,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return $this
      */
-    public function duplicate()
+    function duplicate()
     {
         $this->getWebsiteIds();
         $this->getCategoryIds();
@@ -1372,7 +1372,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isSuperGroup()
+    function isSuperGroup()
     {
         return $this->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_GROUPED;
     }
@@ -1382,7 +1382,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isSuperConfig()
+    function isSuperConfig()
     {
         return $this->isConfigurable();
     }
@@ -1391,7 +1391,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isGrouped()
+    function isGrouped()
     {
         return $this->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_GROUPED;
     }
@@ -1401,7 +1401,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isConfigurable()
+    function isConfigurable()
     {
         return $this->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE;
     }
@@ -1411,7 +1411,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isSuper()
+    function isSuper()
     {
         return $this->isConfigurable() || $this->isGrouped();
     }
@@ -1421,7 +1421,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getVisibleInCatalogStatuses()
+    function getVisibleInCatalogStatuses()
     {
         return Mage::getSingleton('catalog/product_status')->getVisibleStatusIds();
     }
@@ -1431,7 +1431,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getVisibleStatuses()
+    function getVisibleStatuses()
     {
         return Mage::getSingleton('catalog/product_status')->getVisibleStatusIds();
     }
@@ -1441,7 +1441,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isVisibleInCatalog()
+    function isVisibleInCatalog()
     {
         return in_array($this->getStatus(), $this->getVisibleInCatalogStatuses());
     }
@@ -1451,7 +1451,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getVisibleInSiteVisibilities()
+    function getVisibleInSiteVisibilities()
     {
         return Mage::getSingleton('catalog/product_visibility')->getVisibleInSiteIds();
     }
@@ -1461,7 +1461,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isVisibleInSiteVisibility()
+    function isVisibleInSiteVisibility()
     {
         return in_array($this->getVisibility(), $this->getVisibleInSiteVisibilities());
     }
@@ -1471,7 +1471,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isDuplicable()
+    function isDuplicable()
     {
         return $this->_isDuplicable;
     }
@@ -1482,7 +1482,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param bool $value
      * @return $this
      */
-    public function setIsDuplicable($value)
+    function setIsDuplicable($value)
     {
         $this->_isDuplicable = (bool) $value;
         return $this;
@@ -1493,7 +1493,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isSalable()
+    function isSalable()
     {
         Mage::dispatchEvent('catalog_product_is_salable_before', [
             'product'   => $this
@@ -1517,7 +1517,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isAvailable()
+    function isAvailable()
     {
         return $this->getTypeInstance(true)->isSalable($this)
             || Mage::helper('catalog/product')->getSkipSaleableCheck();
@@ -1528,7 +1528,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function getIsSalable()
+    function getIsSalable()
     {
         $productType = $this->getTypeInstance(true);
         if (method_exists($productType, 'getIsSalable')) {
@@ -1547,7 +1547,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isVirtual()
+    function isVirtual()
     {
         return $this->getIsVirtual();
     }
@@ -1560,7 +1560,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isSaleable()
+    function isSaleable()
     {
         return $this->isSalable();
     }
@@ -1570,7 +1570,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isInStock()
+    function isInStock()
     {
         return $this->getStatus() == Mage_Catalog_Model_Product_Status::STATUS_ENABLED;
     }
@@ -1581,7 +1581,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param string $attributeCode of the attribute
      * @return string
      */
-    public function getAttributeText($attributeCode)
+    function getAttributeText($attributeCode)
     {
         return $this->getResource()
             ->getAttribute($attributeCode)
@@ -1594,7 +1594,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getCustomDesignDate()
+    function getCustomDesignDate()
     {
         $result = [];
         $result['from'] = $this->getData('custom_design_from');
@@ -1609,7 +1609,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param  bool $useSid
      * @return string
      */
-    public function getProductUrl($useSid = null)
+    function getProductUrl($useSid = null)
     {
         return $this->getUrlModel()->getProductUrl($this, $useSid);
     }
@@ -1620,7 +1620,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param array $params the route params
      * @return string
      */
-    public function getUrlInStore($params = [])
+    function getUrlInStore($params = [])
     {
         return $this->getUrlModel()->getUrlInStore($this, $params);
     }
@@ -1631,7 +1631,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param string $str
      * @return string
      */
-    public function formatUrlKey($str)
+    function formatUrlKey($str)
     {
         return $this->getUrlModel()->formatUrlKey($str);
     }
@@ -1642,7 +1642,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param Mage_Catalog_Model_Category $category
      * @return string
      */
-    public function getUrlPath($category = null)
+    function getUrlPath($category = null)
     {
         return $this->getUrlModel()->getUrlPath($this, $category);
     }
@@ -1654,7 +1654,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param mixed  $value New attribute value
      * @param int    $store Store ID
      */
-    public function addAttributeUpdate($code, $value, $store)
+    function addAttributeUpdate($code, $value, $store)
     {
         $oldValue = $this->getData($code);
         $oldStore = $this->getStoreId();
@@ -1673,7 +1673,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param array $arrAttributes Attribute array
      * @return array
      */
-    public function toArray(array $arrAttributes = [])
+    function toArray(array $arrAttributes = [])
     {
         $data = parent::toArray($arrAttributes);
         if ($stock = $this->getStockItem()) {
@@ -1689,7 +1689,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param array $data Array to form the object from
      * @return $this
      */
-    public function fromArray($data)
+    function fromArray($data)
     {
         if (isset($data['stock_item'])) {
             if (Mage::helper('catalog')->isModuleEnabled('Mage_CatalogInventory')) {
@@ -1708,7 +1708,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @deprecated after 1.4.2.0
      * @return $this
      */
-    public function loadParentProductIds()
+    function loadParentProductIds()
     {
         return $this->setParentProductIds([]);
     }
@@ -1718,7 +1718,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return $this
      */
-    public function delete()
+    function delete()
     {
         parent::delete();
         Mage::dispatchEvent($this->_eventPrefix . '_delete_after_done', [$this->_eventObject => $this]);
@@ -1730,7 +1730,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return string
      */
-    public function getRequestPath()
+    function getRequestPath()
     {
         if (!$this->_getData('request_path')) {
             $this->getProductUrl();
@@ -1743,7 +1743,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @return int
      */
 
-    public function getGiftMessageAvailable()
+    function getGiftMessageAvailable()
     {
         return $this->_getData('gift_message_available');
     }
@@ -1753,7 +1753,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return mixed
      */
-    public function getRatingSummary()
+    function getRatingSummary()
     {
         return $this->_getData('rating_summary');
     }
@@ -1763,7 +1763,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isComposite()
+    function isComposite()
     {
         return $this->getTypeInstance(true)->isComposite($this);
     }
@@ -1773,7 +1773,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function canConfigure()
+    function canConfigure()
     {
         $options = $this->getOptions();
         return !empty($options) || $this->getTypeInstance(true)->canConfigure($this);
@@ -1784,7 +1784,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return string
      */
-    public function getSku()
+    function getSku()
     {
         return $this->getTypeInstance(true)->getSku($this);
     }
@@ -1794,7 +1794,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return float
      */
-    public function getWeight()
+    function getWeight()
     {
         return $this->getTypeInstance(true)->getWeight($this);
     }
@@ -1804,7 +1804,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Product_Option
      */
-    public function getOptionInstance()
+    function getOptionInstance()
     {
         if (!$this->_optionInstance) {
             $this->_optionInstance = Mage::getSingleton('catalog/product_option');
@@ -1817,7 +1817,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Product_Option_Collection
      */
-    public function getProductOptionsCollection()
+    function getProductOptionsCollection()
     {
         return $this->getOptionInstance()
             ->getProductOptionCollection($this);
@@ -1829,7 +1829,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param Mage_Catalog_Model_Product_Option $option
      * @return $this
      */
-    public function addOption(Mage_Catalog_Model_Product_Option $option)
+    function addOption(Mage_Catalog_Model_Product_Option $option)
     {
         $this->_options[$option->getId()] = $option;
         return $this;
@@ -1841,7 +1841,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param int $optionId
      * @return Mage_Catalog_Model_Product_Option | null
      */
-    public function getOptionById($optionId)
+    function getOptionById($optionId)
     {
         return $this->_options[$optionId] ?? null;
     }
@@ -1851,7 +1851,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Catalog_Model_Product_Option[]
      */
-    public function getOptions()
+    function getOptions()
     {
         return $this->_options;
     }
@@ -1861,7 +1861,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function getIsVirtual()
+    function getIsVirtual()
     {
         return $this->getTypeInstance(true)->isVirtual($this);
     }
@@ -1874,7 +1874,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param   int    $product Product ID
      * @return  $this
      */
-    public function addCustomOption($code, $value, $product = null)
+    function addCustomOption($code, $value, $product = null)
     {
         $product = $product ? $product : $this;
         $option = Mage::getModel('catalog/product_configuration_item_option')
@@ -1893,7 +1893,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @param array $options Array of options
      */
-    public function setCustomOptions(array $options)
+    function setCustomOptions(array $options)
     {
         $this->_customOptions = $options;
     }
@@ -1903,7 +1903,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getCustomOptions()
+    function getCustomOptions()
     {
         return $this->_customOptions;
     }
@@ -1914,7 +1914,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param   string $code
      * @return  Mage_Sales_Model_Quote_Item_Option|null
      */
-    public function getCustomOption($code)
+    function getCustomOption($code)
     {
         return $this->_customOptions[$code] ?? null;
     }
@@ -1924,7 +1924,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function hasCustomOptions()
+    function hasCustomOptions()
     {
         if (count($this->_customOptions)) {
             return true;
@@ -1939,7 +1939,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param   int $categoryId
      * @return  bool
      */
-    public function canBeShowInCategory($categoryId)
+    function canBeShowInCategory($categoryId)
     {
         return $this->_getResource()->canBeShowInCategory($this, $categoryId);
     }
@@ -1949,7 +1949,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getAvailableInCategories()
+    function getAvailableInCategories()
     {
         return $this->_getResource()->getAvailableInCategories($this);
     }
@@ -1959,7 +1959,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return int
      */
-    public function getDefaultAttributeSetId()
+    function getDefaultAttributeSetId()
     {
         return $this->getResource()->getEntityType()->getDefaultAttributeSetId();
     }
@@ -1980,7 +1980,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @deprecated since 1.1.5
      * @return string
      */
-    public function getImageUrl()
+    function getImageUrl()
     {
         return (string)$this->_getImageHelper()->init($this, 'image')->resize(265);
     }
@@ -1993,7 +1993,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param int $height
      * @return string
      */
-    public function getSmallImageUrl($width = 88, $height = 77)
+    function getSmallImageUrl($width = 88, $height = 77)
     {
         return (string)$this->_getImageHelper()->init($this, 'small_image')->resize($width, $height);
     }
@@ -2006,7 +2006,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param int $height
      * @return string
      */
-    public function getThumbnailUrl($width = 75, $height = 75)
+    function getThumbnailUrl($width = 75, $height = 75)
     {
         return (string)$this->_getImageHelper()->init($this, 'thumbnail')->resize($width, $height);
     }
@@ -2016,7 +2016,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      *  @return array Reserved attribute names
      */
-    public function getReservedAttributes()
+    function getReservedAttributes()
     {
         if ($this->_reservedAttributes === null) {
             $_reserved = ['position'];
@@ -2042,7 +2042,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *  @param Mage_Catalog_Model_Entity_Attribute $attribute Attribute model object
      *  @return bool
      */
-    public function isReservedAttribute($attribute)
+    function isReservedAttribute($attribute)
     {
         return $attribute->getIsUserDefined()
             && in_array($attribute->getAttributeCode(), $this->getReservedAttributes());
@@ -2055,7 +2055,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param mixed $data
      * @return Varien_Object
      */
-    public function setOrigData($key = null, $data = null)
+    function setOrigData($key = null, $data = null)
     {
         if (Mage::app()->getStore()->isAdmin()) {
             return parent::setOrigData($key, $data);
@@ -2069,7 +2069,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return $this
      */
-    public function reset()
+    function reset()
     {
         $this->unlockAttributes();
         $this->_clearData();
@@ -2081,7 +2081,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getCacheIdTagsWithCategories()
+    function getCacheIdTagsWithCategories()
     {
         $tags = $this->getCacheTags();
         $affectedCategoryIds = $this->_getResource()->getCategoryIdsWithAnchors($this);
@@ -2096,7 +2096,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Mage_Core_Model_Abstract
      */
-    public function cleanModelCache()
+    function cleanModelCache()
     {
         $tags = $this->getCacheIdTagsWithCategories();
         if ($tags !== false) {
@@ -2111,7 +2111,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param  array $productIds
      * @return bool|null
      */
-    public function isProductsHasSku(array $productIds)
+    function isProductsHasSku(array $productIds)
     {
         $products = $this->_getResource()->getProductsSku($productIds);
         if (count($products)) {
@@ -2131,7 +2131,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param  Varien_Object $buyRequest
      * @return Varien_Object
      */
-    public function processBuyRequest(Varien_Object $buyRequest)
+    function processBuyRequest(Varien_Object $buyRequest)
     {
         $options = new Varien_Object();
 
@@ -2162,7 +2162,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return Varien_Object
      */
-    public function getPreconfiguredValues()
+    function getPreconfiguredValues()
     {
         $preconfiguredValues = $this->getData('preconfigured_values');
         if (!$preconfiguredValues) {
@@ -2178,7 +2178,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return $this
      */
-    public function prepareCustomOptions()
+    function prepareCustomOptions()
     {
         foreach ($this->getCustomOptions() as $option) {
             if (!is_object($option->getProduct()) || $option->getId()) {
@@ -2253,7 +2253,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param string|array $columns One or several columns
      * @return array
      */
-    public function getProductEntitiesInfo($columns = null)
+    function getProductEntitiesInfo($columns = null)
     {
         return $this->_getResource()->getProductEntitiesInfo($columns);
     }
@@ -2263,7 +2263,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function isDisabled()
+    function isDisabled()
     {
         return $this->getStatus() == Mage_Catalog_Model_Product_Status::STATUS_DISABLED;
     }
@@ -2273,7 +2273,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return $this
      */
-    public function afterCommitCallback()
+    function afterCommitCallback()
     {
         parent::afterCommitCallback();
 
@@ -2289,7 +2289,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * @return bool
      */
-    public function getEvent()
+    function getEvent()
     {
         $event = parent::getEvent();
         if (is_string($event)) {

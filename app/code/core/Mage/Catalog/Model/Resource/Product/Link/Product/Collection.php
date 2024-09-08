@@ -63,7 +63,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
      * @param Mage_Catalog_Model_Product_Link $linkModel
      * @return $this
      */
-    public function setLinkModel(Mage_Catalog_Model_Product_Link $linkModel)
+    function setLinkModel(Mage_Catalog_Model_Product_Link $linkModel)
     {
         $this->_linkModel = $linkModel;
         if ($linkModel->getLinkTypeId()) {
@@ -77,7 +77,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
      *
      * @return $this
      */
-    public function setIsStrongMode()
+    function setIsStrongMode()
     {
         $this->_isStrongMode = true;
         return $this;
@@ -88,7 +88,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
      *
      * @return Mage_Catalog_Model_Product_Link
      */
-    public function getLinkModel()
+    function getLinkModel()
     {
         return $this->_linkModel;
     }
@@ -99,7 +99,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function setProduct(Mage_Catalog_Model_Product $product)
+    function setProduct(Mage_Catalog_Model_Product $product)
     {
         $this->_product = $product;
         if ($product && $product->getId()) {
@@ -114,7 +114,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return $this->_product;
     }
@@ -125,7 +125,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
      * @param array $products
      * @return $this
      */
-    public function addExcludeProductFilter($products)
+    function addExcludeProductFilter($products)
     {
         if (!empty($products)) {
             if (!is_array($products)) {
@@ -143,7 +143,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
      * @param array|int|string $products
      * @return $this
      */
-    public function addProductFilter($products)
+    function addProductFilter($products)
     {
         if (!empty($products)) {
             if (!is_array($products)) {
@@ -161,7 +161,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
      *
      * @return $this
      */
-    public function setRandomOrder()
+    function setRandomOrder()
     {
         $this->getSelect()->orderRand('main_table.entity_id');
         return $this;
@@ -173,7 +173,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
      * @param string $groupBy
      * @return $this
      */
-    public function setGroupBy($groupBy = 'e.entity_id')
+    function setGroupBy($groupBy = 'e.entity_id')
     {
         $this->getSelect()->group($groupBy);
 
@@ -242,7 +242,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
      * @param string $dir sort type asc|desc
      * @return $this
      */
-    public function setPositionOrder($dir = self::SORT_ORDER_ASC)
+    function setPositionOrder($dir = self::SORT_ORDER_ASC)
     {
         if ($this->_hasLinkFilter) {
             $this->getSelect()->order('position ' . $dir);
@@ -256,7 +256,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
      * @param string $dir sort type asc|desc
      * @return $this
      */
-    public function setAttributeSetIdOrder($dir = self::SORT_ORDER_ASC)
+    function setAttributeSetIdOrder($dir = self::SORT_ORDER_ASC)
     {
         $this->getSelect()
             ->joinLeft(
@@ -286,7 +286,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
      *
      * @return $this
      */
-    public function joinAttributes()
+    function joinAttributes()
     {
         if (!$this->getLinkModel()) {
             return $this;
@@ -318,7 +318,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
      *
      * @inheritDoc
      */
-    public function setOrder($attribute, $dir = self::SORT_ORDER_ASC)
+    function setOrder($attribute, $dir = self::SORT_ORDER_ASC)
     {
         if ($attribute == 'position') {
             return $this->setPositionOrder($dir);
@@ -336,7 +336,7 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
      *
      * @return $this
      */
-    public function addLinkModelFieldToFilter($attributeCode, $condition = null)
+    function addLinkModelFieldToFilter($attributeCode, $condition = null)
     {
         if (!$this->getProduct() || !$this->getProduct()->getId()) {
             return $this;

@@ -8,7 +8,7 @@ class IWD_OrderFlags_Model_Observer
     protected $isAdditionalColumnsAssigned = false;
 
     /************************ CHECK REQUIRED MODULES *************************/
-    public function checkRequiredModules()
+    function checkRequiredModules()
     {
         if (Mage::getSingleton('admin/session')->isLoggedIn()) {
             if (!Mage::getConfig()->getModuleConfig('IWD_All')->is('active', 'true')) {
@@ -46,7 +46,7 @@ class IWD_OrderFlags_Model_Observer
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function assignFlagsToOrder(Varien_Event_Observer $observer)
+    function assignFlagsToOrder(Varien_Event_Observer $observer)
     {
         /**
          * @var $order Mage_Sales_Model_Order
@@ -114,7 +114,7 @@ class IWD_OrderFlags_Model_Observer
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function assignFlagAfterUpdateOrders(Varien_Event_Observer $observer)
+    function assignFlagAfterUpdateOrders(Varien_Event_Observer $observer)
     {
         /**
          * @var $order Mage_Sales_Model_Order
@@ -138,7 +138,7 @@ class IWD_OrderFlags_Model_Observer
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function assignFlagAfterUpdatePayment(Varien_Event_Observer $observer)
+    function assignFlagAfterUpdatePayment(Varien_Event_Observer $observer)
     {
         /**
          * @var $payment Mage_Sales_Model_Order_Payment
@@ -189,7 +189,7 @@ class IWD_OrderFlags_Model_Observer
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function addActionIntoMassaction(Varien_Event_Observer $observer)
+    function addActionIntoMassaction(Varien_Event_Observer $observer)
     {
         $block = $observer->getEvent()->getBlock();
 
@@ -234,7 +234,7 @@ class IWD_OrderFlags_Model_Observer
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function appendColumnToOrderGrid(Varien_Event_Observer $observer)
+    function appendColumnToOrderGrid(Varien_Event_Observer $observer)
     {
         $block = $observer->getBlock();
 
@@ -276,7 +276,7 @@ class IWD_OrderFlags_Model_Observer
     /**
      * @param $observer
      */
-    public function salesOrderGridCollectionLoadBefore($observer)
+    function salesOrderGridCollectionLoadBefore($observer)
     {
         if (Mage::helper('iwd_orderflags')->isEnabled() && !$this->isAdditionalColumnsAssigned){
             $collection = $observer->getOrderGridCollection();
@@ -306,7 +306,7 @@ class IWD_OrderFlags_Model_Observer
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function addColumnsSettings(Varien_Event_Observer $observer)
+    function addColumnsSettings(Varien_Event_Observer $observer)
     {
         if (Mage::helper('iwd_orderflags')->isEnabled()) {
             $object = $observer->getEvent()->getObject();

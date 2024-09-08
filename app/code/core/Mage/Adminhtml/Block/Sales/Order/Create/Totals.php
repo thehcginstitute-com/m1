@@ -25,13 +25,13 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Totals extends Mage_Adminhtml_Bloc
     protected $_totalRenderers;
     protected $_defaultRenderer = 'adminhtml/sales_order_create_totals_default';
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_create_totals');
     }
 
-    public function getTotals()
+    function getTotals()
     {
         return $this->getQuote()->getTotals();
     }
@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Totals extends Mage_Adminhtml_Bloc
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Order Totals');
     }
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Totals extends Mage_Adminhtml_Bloc
     /**
      * @return string
      */
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'head-money';
     }
@@ -72,7 +72,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Totals extends Mage_Adminhtml_Bloc
         return $block;
     }
 
-    public function renderTotal($total, $area = null, $colspan = 1)
+    function renderTotal($total, $area = null, $colspan = 1)
     {
         return $this->_getTotalRenderer($total->getCode())
             ->setTotal($total)
@@ -81,7 +81,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Totals extends Mage_Adminhtml_Bloc
             ->toHtml();
     }
 
-    public function renderTotals($area = null, $colspan = 1)
+    function renderTotals($area = null, $colspan = 1)
     {
         $html = '';
         foreach ($this->getTotals() as $total) {
@@ -96,7 +96,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Totals extends Mage_Adminhtml_Bloc
     /**
      * @return bool
      */
-    public function canSendNewOrderConfirmationEmail()
+    function canSendNewOrderConfirmationEmail()
     {
         return Mage::helper('sales')->canSendNewOrderConfirmationEmail($this->getQuote()->getStoreId());
     }

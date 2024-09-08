@@ -64,7 +64,7 @@ class Mage_Customer_Model_Resource_Address extends Mage_Eav_Model_Entity_Abstrac
      * @param Mage_Customer_Model_Address $object
      * @return int
      */
-    public function getCustomerId($object)
+    function getCustomerId($object)
     {
         return $object->getData('customer_id') ? $object->getData('customer_id') : $object->getParentId();
     }
@@ -77,7 +77,7 @@ class Mage_Customer_Model_Resource_Address extends Mage_Eav_Model_Entity_Abstrac
      * @param int $id
      * @return $this
      */
-    public function setCustomerId($object, $id)
+    function setCustomerId($object, $id)
     {
         return $this;
     }

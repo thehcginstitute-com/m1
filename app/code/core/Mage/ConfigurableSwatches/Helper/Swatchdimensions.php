@@ -46,7 +46,7 @@ class Mage_ConfigurableSwatches_Helper_Swatchdimensions extends Mage_Core_Helper
      * @param bool $outer
      * @return int
      */
-    public function getDimension($area, $dimension, $outer = false)
+    function getDimension($area, $dimension, $outer = false)
     {
         $dimension = (int) Mage::getStoreConfig(
             Mage_ConfigurableSwatches_Helper_Data::CONFIG_PATH_BASE . '/' . $area . '/' . $dimension
@@ -63,7 +63,7 @@ class Mage_ConfigurableSwatches_Helper_Swatchdimensions extends Mage_Core_Helper
      * @param string $area
      * @return int
      */
-    public function getInnerWidth($area)
+    function getInnerWidth($area)
     {
         return $this->getDimension($area, self::DIM_WIDTH);
     }
@@ -74,7 +74,7 @@ class Mage_ConfigurableSwatches_Helper_Swatchdimensions extends Mage_Core_Helper
      * @param string $area
      * @return int
      */
-    public function getInnerHeight($area)
+    function getInnerHeight($area)
     {
         return $this->getDimension($area, self::DIM_HEIGHT);
     }
@@ -85,7 +85,7 @@ class Mage_ConfigurableSwatches_Helper_Swatchdimensions extends Mage_Core_Helper
      * @param string $area
      * @return int
      */
-    public function getOuterWidth($area)
+    function getOuterWidth($area)
     {
         return $this->getDimension($area, self::DIM_WIDTH, true);
     }
@@ -96,7 +96,7 @@ class Mage_ConfigurableSwatches_Helper_Swatchdimensions extends Mage_Core_Helper
      * @param string $area
      * @return int
      */
-    public function getOuterHeight($area)
+    function getOuterHeight($area)
     {
         return $this->getDimension($area, self::DIM_HEIGHT, true);
     }

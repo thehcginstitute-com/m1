@@ -44,7 +44,7 @@ class Mage_Adminhtml_Helper_Data extends Mage_Adminhtml_Helper_Help_Mapping
      * @return mixed
      * @deprecated
      */
-    public function getPageHelpUrl($url = null, $suffix = null)
+    function getPageHelpUrl($url = null, $suffix = null)
     {
         if (!$this->_pageHelpUrl) {
             $this->setPageHelpUrl($url, $suffix);
@@ -60,7 +60,7 @@ class Mage_Adminhtml_Helper_Data extends Mage_Adminhtml_Helper_Help_Mapping
      * @return $this
      * @deprecated
      */
-    public function setPageHelpUrl($url = null, $suffix = null)
+    function setPageHelpUrl($url = null, $suffix = null)
     {
         $this->_pageHelpUrl = $url;
         return $this;
@@ -73,7 +73,7 @@ class Mage_Adminhtml_Helper_Data extends Mage_Adminhtml_Helper_Help_Mapping
      * @return $this
      * @deprecated
      */
-    public function addPageHelpUrl($suffix)
+    function addPageHelpUrl($suffix)
     {
         $this->_pageHelpUrl = $this->getPageHelpUrl(null, $suffix);
         return $this;
@@ -92,7 +92,7 @@ class Mage_Adminhtml_Helper_Data extends Mage_Adminhtml_Helper_Help_Mapping
     /**
      * @return false|int
      */
-    public function getCurrentUserId()
+    function getCurrentUserId()
     {
         if (Mage::getSingleton('admin/session')->getUser()) {
             return Mage::getSingleton('admin/session')->getUser()->getId();
@@ -106,7 +106,7 @@ class Mage_Adminhtml_Helper_Data extends Mage_Adminhtml_Helper_Help_Mapping
      * @param string $filterString
      * @return array
      */
-    public function prepareFilterString($filterString)
+    function prepareFilterString($filterString)
     {
         $data = [];
         $filterString = base64_decode($filterString);
@@ -120,7 +120,7 @@ class Mage_Adminhtml_Helper_Data extends Mage_Adminhtml_Helper_Help_Mapping
      *
      * @param string $value
      */
-    public function decodeFilter(&$value)
+    function decodeFilter(&$value)
     {
         $value = trim(rawurldecode($value));
     }
@@ -130,7 +130,7 @@ class Mage_Adminhtml_Helper_Data extends Mage_Adminhtml_Helper_Help_Mapping
      *
      * @return bool
      */
-    public function isEnabledSecurityKeyUrl()
+    function isEnabledSecurityKeyUrl()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_ADMINHTML_SECURITY_USE_FORM_KEY);
     }

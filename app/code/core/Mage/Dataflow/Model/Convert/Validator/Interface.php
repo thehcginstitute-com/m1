@@ -22,5 +22,5 @@
  */
 interface Mage_Dataflow_Model_Convert_Validator_Interface
 {
-    public function validate();
+    function validate();
 }

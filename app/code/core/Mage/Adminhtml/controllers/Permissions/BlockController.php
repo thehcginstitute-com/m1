@@ -44,7 +44,7 @@ class Mage_Adminhtml_Permissions_BlockController extends Mage_Adminhtml_Controll
     /**
      * Index action
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('System'))
             ->_title($this->__('Permissions'))
@@ -60,7 +60,7 @@ class Mage_Adminhtml_Permissions_BlockController extends Mage_Adminhtml_Controll
     /**
      * New action
      */
-    public function newAction()
+    function newAction()
     {
         $this->_forward('edit');
     }
@@ -68,7 +68,7 @@ class Mage_Adminhtml_Permissions_BlockController extends Mage_Adminhtml_Controll
     /**
      * Edit action
      */
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('System'))
             ->_title($this->__('Permissions'))
@@ -115,7 +115,7 @@ class Mage_Adminhtml_Permissions_BlockController extends Mage_Adminhtml_Controll
      *
      * @return $this|void
      */
-    public function saveAction()
+    function saveAction()
     {
         if ($data = $this->getRequest()->getPost()) {
             $id = (int) $this->getRequest()->getParam('block_id');
@@ -164,7 +164,7 @@ class Mage_Adminhtml_Permissions_BlockController extends Mage_Adminhtml_Controll
     /**
      * Delete action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $id = (int) $this->getRequest()->getParam('block_id');
         if ($id) {
@@ -188,7 +188,7 @@ class Mage_Adminhtml_Permissions_BlockController extends Mage_Adminhtml_Controll
     /**
      * Grid action
      */
-    public function blockGridAction()
+    function blockGridAction()
     {
         $this->getResponse()
             ->setBody($this->getLayout()
@@ -201,7 +201,7 @@ class Mage_Adminhtml_Permissions_BlockController extends Mage_Adminhtml_Controll
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         return parent::preDispatch();

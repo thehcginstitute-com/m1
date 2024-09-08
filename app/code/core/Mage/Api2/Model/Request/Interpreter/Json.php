@@ -29,7 +29,7 @@ class Mage_Api2_Model_Request_Interpreter_Json implements Mage_Api2_Model_Reques
      * @return array|null   Return NULL if content is invalid
      * @throws Exception|Mage_Api2_Exception
      */
-    public function interpret($body)
+    function interpret($body)
     {
         if (!is_string($body)) {
             throw new Exception(sprintf('Invalid data type "%s". String expected.', gettype($body)));

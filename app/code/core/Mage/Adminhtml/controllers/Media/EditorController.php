@@ -28,7 +28,7 @@ class Mage_Adminhtml_Media_EditorController extends Mage_Adminhtml_Controller_Ac
      */
     public const ADMIN_RESOURCE = 'media';
 
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout();
         $this->_addContent(

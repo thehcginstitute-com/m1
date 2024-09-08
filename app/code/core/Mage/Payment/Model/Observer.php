@@ -28,7 +28,7 @@ class Mage_Payment_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function salesOrderBeforeSave($observer)
+    function salesOrderBeforeSave($observer)
     {
         /** @var Mage_Sales_Model_Order $order */
         $order = $observer->getEvent()->getOrder();
@@ -61,7 +61,7 @@ class Mage_Payment_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function beforeOrderPaymentSave(Varien_Event_Observer $observer)
+    function beforeOrderPaymentSave(Varien_Event_Observer $observer)
     {
         /** @var Mage_Sales_Model_Order_Payment $payment */
         $payment = $observer->getEvent()->getPayment();
@@ -80,7 +80,7 @@ class Mage_Payment_Model_Observer
      * @param Varien_Event_Observer $observer
      * @throws Mage_Core_Exception
      */
-    public function beforeSalesOrderStatusUnassign($observer)
+    function beforeSalesOrderStatusUnassign($observer)
     {
         $state = $observer->getEvent()->getState();
         if ($state == Mage_Sales_Model_Order::STATE_NEW) {

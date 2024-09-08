@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Report_Product_Viewed extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'report_product_viewed';
         $this->_headerText = Mage::helper('reports')->__('Most Viewed');
@@ -35,13 +35,13 @@ class Mage_Adminhtml_Block_Report_Product_Viewed extends Mage_Adminhtml_Block_Wi
         ]);
     }
 
-    public function getFilterUrl()
+    function getFilterUrl()
     {
         $this->getRequest()->setParam('filter', null);
         return $this->getUrl('*/*/viewed', ['_current' => true]);
     }
 
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head head-report';
     }

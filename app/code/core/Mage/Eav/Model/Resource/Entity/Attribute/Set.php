@@ -66,7 +66,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Set extends Mage_Core_Model_Resou
      * @param string $attributeSetName
      * @return bool
      */
-    public function validate($object, $attributeSetName)
+    function validate($object, $attributeSetName)
     {
         $adapter = $this->_getReadAdapter();
         $bind = [
@@ -93,7 +93,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Set extends Mage_Core_Model_Resou
      * @param int $setId
      * @return array
      */
-    public function getSetInfo(array $attributeIds, $setId = null)
+    function getSetInfo(array $attributeIds, $setId = null)
     {
         $adapter = $this->_getReadAdapter();
         $setInfo = [];
@@ -141,7 +141,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Set extends Mage_Core_Model_Resou
      * @param int $setId
      * @return int|null
      */
-    public function getDefaultGroupId($setId)
+    function getDefaultGroupId($setId)
     {
         $adapter = $this->_getReadAdapter();
         $bind    = [

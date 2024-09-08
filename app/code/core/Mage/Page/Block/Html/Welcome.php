@@ -57,7 +57,7 @@ class Mage_Page_Block_Html_Welcome extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         if ($this->_getSession()->isLoggedIn()) {
             $this->addModelTags($this->_getSession()->getCustomer());

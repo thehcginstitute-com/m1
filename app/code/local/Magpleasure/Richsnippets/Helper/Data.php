@@ -24,7 +24,7 @@ class Magpleasure_Richsnippets_Helper_Data extends Mage_Core_Helper_Abstract
      * @param $field
      * @return mixed
      */
-    public function getConfigValue($group, $field)
+    function getConfigValue($group, $field)
     {
         return Mage::getStoreConfig('richsnippets' . DS . $group . DS . $field);
     }
@@ -35,7 +35,7 @@ class Magpleasure_Richsnippets_Helper_Data extends Mage_Core_Helper_Abstract
      * @param $product
      * @return int
      */
-    public function getConfiguredPrice($product)
+    function getConfiguredPrice($product)
     {
         if (Mage_Catalog_Model_Product_Type::TYPE_BUNDLE != $product->getTypeId()) {
             return 0;
@@ -62,7 +62,7 @@ class Magpleasure_Richsnippets_Helper_Data extends Mage_Core_Helper_Abstract
      * @param bool $incTax
      * @return int
      */
-    public function getGroupedProductPrice($groupedProduct, $incTax = true)
+    function getGroupedProductPrice($groupedProduct, $incTax = true)
     {
         $productIds = $groupedProduct->getTypeInstance()->getChildrenIds($groupedProduct->getId());
         $price = 0;

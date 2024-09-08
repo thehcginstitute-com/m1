@@ -26,7 +26,7 @@ class Mage_Sales_Model_Resource_Report_Invoiced_Collection_Invoiced extends Mage
      * Initialize custom resource model
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::_construct();
         $this->setModel('adminhtml/report_item');

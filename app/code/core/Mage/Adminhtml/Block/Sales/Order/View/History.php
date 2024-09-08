@@ -35,13 +35,13 @@ class Mage_Adminhtml_Block_Sales_Order_View_History extends Mage_Adminhtml_Block
         return parent::_prepareLayout();
     }
 
-    public function getStatuses()
+    function getStatuses()
     {
         $state = $this->getOrder()->getState();
         return $this->getOrder()->getConfig()->getStateStatuses($state);
     }
 
-    public function canSendCommentEmail()
+    function canSendCommentEmail()
     {
         return Mage::helper('sales')->canSendOrderCommentEmail($this->getOrder()->getStore()->getId());
     }
@@ -51,18 +51,18 @@ class Mage_Adminhtml_Block_Sales_Order_View_History extends Mage_Adminhtml_Block
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('sales_order');
     }
 
-    public function canAddComment()
+    function canAddComment()
     {
         return Mage::getSingleton('admin/session')->isAllowed('sales/order/actions/comment') &&
                $this->getOrder()->canComment();
     }
 
-    public function getSubmitUrl()
+    function getSubmitUrl()
     {
         return $this->getUrl('*/*/addComment', ['order_id' => $this->getOrder()->getId()]);
     }
@@ -73,7 +73,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_History extends Mage_Adminhtml_Block
      * @param  Mage_Sales_Model_Order_Status_History $history
      * @return bool
      */
-    public function isCustomerNotificationNotApplicable(Mage_Sales_Model_Order_Status_History $history)
+    function isCustomerNotificationNotApplicable(Mage_Sales_Model_Order_Status_History $history)
     {
         return $history->isCustomerNotificationNotApplicable();
     }
@@ -85,7 +85,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_History extends Mage_Adminhtml_Block
      * @param null|array $allowedTags
      * @return string
      */
-    public function escapeHtml($data, $allowedTags = null)
+    function escapeHtml($data, $allowedTags = null)
     {
         return Mage::helper('adminhtml/sales')->escapeHtmlWithLinks($data, $allowedTags);
     }

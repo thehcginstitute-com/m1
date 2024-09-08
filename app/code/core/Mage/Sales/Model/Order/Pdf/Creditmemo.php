@@ -99,7 +99,7 @@ class Mage_Sales_Model_Order_Pdf_Creditmemo extends Mage_Sales_Model_Order_Pdf_A
      * @param  Mage_Sales_Model_Order_Creditmemo[] $creditmemos
      * @return Zend_Pdf
      */
-    public function getPdf($creditmemos = [])
+    function getPdf($creditmemos = [])
     {
         $this->_beforeGetPdf();
         $this->_initRenderer('creditmemo');
@@ -158,7 +158,7 @@ class Mage_Sales_Model_Order_Pdf_Creditmemo extends Mage_Sales_Model_Order_Pdf_A
      * @param  array $settings
      * @return Zend_Pdf_Page
      */
-    public function newPage(array $settings = [])
+    function newPage(array $settings = [])
     {
         $page = parent::newPage($settings);
         if (!empty($settings['table_header'])) {

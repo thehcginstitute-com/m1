@@ -26,7 +26,7 @@ class Mage_Sales_Block_Order_Item_Renderer_Default extends Mage_Core_Block_Templ
      * @param Varien_Object $item
      * @return $this
      */
-    public function setItem(Varien_Object $item)
+    function setItem(Varien_Object $item)
     {
         $this->setData('item', $item);
         return $this;
@@ -35,7 +35,7 @@ class Mage_Sales_Block_Order_Item_Renderer_Default extends Mage_Core_Block_Templ
     /**
      * @return mixed
      */
-    public function getItem()
+    function getItem()
     {
         return $this->_getData('item');
     }
@@ -45,7 +45,7 @@ class Mage_Sales_Block_Order_Item_Renderer_Default extends Mage_Core_Block_Templ
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->getOrderItem()->getOrder();
     }
@@ -53,7 +53,7 @@ class Mage_Sales_Block_Order_Item_Renderer_Default extends Mage_Core_Block_Templ
     /**
      * @return mixed
      */
-    public function getOrderItem()
+    function getOrderItem()
     {
         if ($this->getItem() instanceof Mage_Sales_Model_Order_Item) {
             return $this->getItem();
@@ -65,7 +65,7 @@ class Mage_Sales_Block_Order_Item_Renderer_Default extends Mage_Core_Block_Templ
     /**
      * @return array
      */
-    public function getItemOptions()
+    function getItemOptions()
     {
         $result = [];
         if ($options = $this->getOrderItem()->getProductOptions()) {
@@ -102,7 +102,7 @@ class Mage_Sales_Block_Order_Item_Renderer_Default extends Mage_Core_Block_Templ
      *
      * @return array
      */
-    public function getFormatedOptionValue($optionValue)
+    function getFormatedOptionValue($optionValue)
     {
         $optionInfo = [];
 
@@ -159,7 +159,7 @@ class Mage_Sales_Block_Order_Item_Renderer_Default extends Mage_Core_Block_Templ
      *
      * @return string
      */
-    public function getSku()
+    function getSku()
     {
         /*if ($this->getOrderItem()->getProductType() == Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE) {
             return $this->getOrderItem()->getProductOptionByCode('simple_sku');
@@ -172,7 +172,7 @@ class Mage_Sales_Block_Order_Item_Renderer_Default extends Mage_Core_Block_Templ
      *
      * @return Mage_Core_Block_Abstract
      */
-    public function getProductAdditionalInformationBlock()
+    function getProductAdditionalInformationBlock()
     {
         return $this->getLayout()->getBlock('additional.product.info');
     }

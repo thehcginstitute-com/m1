@@ -67,7 +67,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Collection extends Mage_Eav_
      * @param  int $typeId
      * @return $this
      */
-    public function setEntityTypeFilter($typeId)
+    function setEntityTypeFilter($typeId)
     {
         return $this;
     }
@@ -94,7 +94,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Collection extends Mage_Eav_
      *
      * @return $this
      */
-    public function removePriceFilter()
+    function removePriceFilter()
     {
         return $this->addFieldToFilter('main_table.attribute_code', ['neq' => 'price']);
     }
@@ -104,7 +104,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Collection extends Mage_Eav_
      *
      * @return $this
      */
-    public function addDisplayInAdvancedSearchFilter()
+    function addDisplayInAdvancedSearchFilter()
     {
         return $this->addFieldToFilter('additional_table.is_visible_in_advanced_search', 1);
     }
@@ -114,7 +114,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Collection extends Mage_Eav_
      *
      * @return $this
      */
-    public function addIsFilterableFilter()
+    function addIsFilterableFilter()
     {
         return $this->addFieldToFilter('additional_table.is_filterable', ['gt' => 0]);
     }
@@ -124,7 +124,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Collection extends Mage_Eav_
      *
      * @return $this
      */
-    public function addIsFilterableInSearchFilter()
+    function addIsFilterableInSearchFilter()
     {
         return $this->addFieldToFilter('additional_table.is_filterable_in_search', ['gt' => 0]);
     }
@@ -134,7 +134,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Collection extends Mage_Eav_
      *
      * @return $this
      */
-    public function addVisibleFilter()
+    function addVisibleFilter()
     {
         return $this->addFieldToFilter('additional_table.is_visible', 1);
     }
@@ -144,7 +144,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Collection extends Mage_Eav_
      *
      * @return $this
      */
-    public function addIsSearchableFilter()
+    function addIsSearchableFilter()
     {
         return $this->addFieldToFilter('additional_table.is_searchable', 1);
     }
@@ -155,7 +155,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Collection extends Mage_Eav_
      * @param bool $addRequiredCodes
      * @return $this
      */
-    public function addToIndexFilter($addRequiredCodes = false)
+    function addToIndexFilter($addRequiredCodes = false)
     {
         $conditions = [
             'additional_table.is_searchable = 1',
@@ -182,7 +182,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Collection extends Mage_Eav_
      *
      * @return $this
      */
-    public function addSearchableAttributeFilter()
+    function addSearchableAttributeFilter()
     {
         $this->getSelect()->where(
             'additional_table.is_searchable = 1 OR ' .

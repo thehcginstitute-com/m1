@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Edit_Tab_History extends Mage_
     /**
      * Mage_Adminhtml_Block_System_Convert_Profile_Edit_Tab_History constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('history_grid');
@@ -81,7 +81,7 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Edit_Tab_History extends Mage_
     /**
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/history', ['_current' => true]);
     }

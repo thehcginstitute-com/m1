@@ -41,7 +41,7 @@ class Mage_Shipping_Model_Info extends Varien_Object
      * @param array $hash
      * @return $this
      */
-    public function loadByHash($hash)
+    function loadByHash($hash)
     {
         /** @var Mage_Shipping_Helper_Data $helper */
         $helper = Mage::helper('shipping');
@@ -66,7 +66,7 @@ class Mage_Shipping_Model_Info extends Varien_Object
      *
      * @return array
      */
-    public function getTrackingInfo()
+    function getTrackingInfo()
     {
         return $this->_trackingInfo;
     }
@@ -109,7 +109,7 @@ class Mage_Shipping_Model_Info extends Varien_Object
      *
      * @return array
      */
-    public function getTrackingInfoByOrder()
+    function getTrackingInfoByOrder()
     {
         $shipTrack = [];
         $order = $this->_initOrder();
@@ -136,7 +136,7 @@ class Mage_Shipping_Model_Info extends Varien_Object
      *
      * @return array
      */
-    public function getTrackingInfoByShip()
+    function getTrackingInfoByShip()
     {
         $shipTrack = [];
         $shipment = $this->_initShipment();
@@ -159,7 +159,7 @@ class Mage_Shipping_Model_Info extends Varien_Object
      *
      * @return array
      */
-    public function getTrackingInfoByTrackId()
+    function getTrackingInfoByTrackId()
     {
         $track = Mage::getModel('sales/order_shipment_track')->load($this->getTrackId());
         if ($track->getId() && $this->getProtectCode() === $track->getProtectCode()) {

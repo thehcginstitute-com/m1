@@ -33,7 +33,7 @@ class Mage_CatalogIndex_Model_Resource_Attribute extends Mage_CatalogIndex_Model
      * @param int|array $entityFilter
      * @return array
      */
-    public function getFilteredEntities($attribute, $filter, $entityFilter)
+    function getFilteredEntities($attribute, $filter, $entityFilter)
     {
         $select = $this->_getReadAdapter()->select();
 
@@ -53,7 +53,7 @@ class Mage_CatalogIndex_Model_Resource_Attribute extends Mage_CatalogIndex_Model
      * @param Zend_Db_Select $entitySelect
      * @return array
      */
-    public function getCount($attribute, $entitySelect)
+    function getCount($attribute, $entitySelect)
     {
         $select = clone $entitySelect;
         $select->reset(Zend_Db_Select::COLUMNS);
@@ -85,7 +85,7 @@ class Mage_CatalogIndex_Model_Resource_Attribute extends Mage_CatalogIndex_Model
      * @param string $value
      * @return $this
      */
-    public function applyFilterToCollection($collection, $attribute, $value)
+    function applyFilterToCollection($collection, $attribute, $value)
     {
         /**
          * Will be used after SQL review

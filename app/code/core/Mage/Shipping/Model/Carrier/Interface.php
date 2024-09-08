@@ -25,12 +25,12 @@ interface Mage_Shipping_Model_Carrier_Interface
      *
      * @return bool
      */
-    public function isTrackingAvailable();
+    function isTrackingAvailable();
 
     /**
      * Get allowed shipping methods
      *
      * @return array
      */
-    public function getAllowedMethods();
+    function getAllowedMethods();
 }

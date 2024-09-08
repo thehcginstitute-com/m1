@@ -52,7 +52,7 @@ class Mage_Core_Model_Variable extends Mage_Core_Model_Abstract
      * @param int $storeId
      * @return $this
      */
-    public function setStoreId($storeId)
+    function setStoreId($storeId)
     {
         $this->_storeId = $storeId;
         return $this;
@@ -63,7 +63,7 @@ class Mage_Core_Model_Variable extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_storeId;
     }
@@ -74,7 +74,7 @@ class Mage_Core_Model_Variable extends Mage_Core_Model_Abstract
      * @param string $code
      * @return $this
      */
-    public function loadByCode($code)
+    function loadByCode($code)
     {
         $this->getResource()->loadByCode($this, $code);
         return $this;
@@ -86,7 +86,7 @@ class Mage_Core_Model_Variable extends Mage_Core_Model_Abstract
      * @param string $type
      * @return string
      */
-    public function getValue($type = null)
+    function getValue($type = null)
     {
         if ($type === null) {
             $type = self::TYPE_HTML;
@@ -107,7 +107,7 @@ class Mage_Core_Model_Variable extends Mage_Core_Model_Abstract
      *
      * @return bool | string
      */
-    public function validate()
+    function validate()
     {
         if ($this->getCode() && $this->getName()) {
             $variable = $this->getResource()->getVariableByCode($this->getCode());
@@ -125,7 +125,7 @@ class Mage_Core_Model_Variable extends Mage_Core_Model_Abstract
      * @param bool $withGroup
      * @return array
      */
-    public function getVariablesOptionArray($withGroup = false)
+    function getVariablesOptionArray($withGroup = false)
     {
         /** @var Mage_Core_Model_Resource_Variable_Collection $collection */
         $collection = $this->getCollection();

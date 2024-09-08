@@ -33,7 +33,7 @@ class Mage_Downloadable_Model_Resource_Link extends Mage_Core_Model_Resource_Db_
      * @param Mage_Downloadable_Model_Link $linkObject
      * @return $this
      */
-    public function saveItemTitleAndPrice($linkObject)
+    function saveItemTitleAndPrice($linkObject)
     {
         $writeAdapter   = $this->_getWriteAdapter();
         $linkTitleTable = $this->getTable('downloadable/link_title');
@@ -146,7 +146,7 @@ class Mage_Downloadable_Model_Resource_Link extends Mage_Core_Model_Resource_Db_
      * @param Mage_Downloadable_Model_Link|array|int $items
      * @return $this
      */
-    public function deleteItems($items)
+    function deleteItems($items)
     {
         $writeAdapter   = $this->_getWriteAdapter();
         $where = [];
@@ -181,7 +181,7 @@ class Mage_Downloadable_Model_Resource_Link extends Mage_Core_Model_Resource_Db_
      * @param int $storeId
      * @return array
      */
-    public function getSearchableData($productId, $storeId)
+    function getSearchableData($productId, $storeId)
     {
         $adapter    = $this->_getReadAdapter();
         $ifNullDefaultTitle = $adapter->getIfNullSql('st.title', 's.title');

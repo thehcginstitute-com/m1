@@ -29,7 +29,7 @@ class Mage_Tax_Block_Checkout_Grandtotal extends Mage_Checkout_Block_Total_Defau
      *
      * @return bool
      */
-    public function includeTax()
+    function includeTax()
     {
         if ($this->getTotal()->getAddress()->getGrandTotal()) {
             return Mage::getSingleton('tax/config')->displayCartTaxWithGrandTotal($this->getStore());
@@ -42,7 +42,7 @@ class Mage_Tax_Block_Checkout_Grandtotal extends Mage_Checkout_Block_Total_Defau
      *
      * @return float
      */
-    public function getTotalExclTax()
+    function getTotalExclTax()
     {
         $excl = $this->getTotal()->getAddress()->getGrandTotal() - $this->getTotal()->getAddress()->getTaxAmount();
         $excl = max($excl, 0);

@@ -40,7 +40,7 @@ class Mage_Sales_Model_Status_List
      * @param Varien_Object|null $additionalData Any additional data, that caller would like to store
      * @return $this
      */
-    public function addItem($origin = null, $code = null, $message = null, $additionalData = null)
+    function addItem($origin = null, $code = null, $message = null, $additionalData = null)
     {
         $this->_items[] = [
             'origin' => $origin,
@@ -56,7 +56,7 @@ class Mage_Sales_Model_Status_List
      *
      * @return array
      */
-    public function getItems()
+    function getItems()
     {
         return $this->_items;
     }
@@ -70,7 +70,7 @@ class Mage_Sales_Model_Status_List
      * @param array $params
      * @return array
      */
-    public function removeItemsByParams($params)
+    function removeItemsByParams($params)
     {
         $items = $this->getItems();
         if (!$items) {
@@ -105,7 +105,7 @@ class Mage_Sales_Model_Status_List
      * @param int|array $indexes
      * @return array
      */
-    public function removeItems($indexes)
+    function removeItems($indexes)
     {
         if (![$indexes]) {
             $indexes = [$indexes];
@@ -138,7 +138,7 @@ class Mage_Sales_Model_Status_List
      *
      * @return $this
      */
-    public function clear()
+    function clear()
     {
         $this->_items = [];
         return $this;

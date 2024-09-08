@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_Status_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_status_grid');
@@ -91,7 +91,7 @@ class Mage_Adminhtml_Block_Sales_Order_Status_Grid extends Mage_Adminhtml_Block_
      *
      * @return string
      */
-    public function decorateState($value, $row, $column, $isExport)
+    function decorateState($value, $row, $column, $isExport)
     {
         if ($value) {
             $cell = $value . ' [' . Mage::getSingleton('sales/order_config')->getStateLabel($value) . ']';
@@ -101,7 +101,7 @@ class Mage_Adminhtml_Block_Sales_Order_Status_Grid extends Mage_Adminhtml_Block_
         return $cell;
     }
 
-    public function decorateAction($value, $row, $column, $isExport)
+    function decorateAction($value, $row, $column, $isExport)
     {
         $cell = '';
         $state = $row->getState();
@@ -124,7 +124,7 @@ class Mage_Adminhtml_Block_Sales_Order_Status_Grid extends Mage_Adminhtml_Block_
         return $this;
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/sales_order_status/edit', ['status' => $row->getStatus()]);
     }

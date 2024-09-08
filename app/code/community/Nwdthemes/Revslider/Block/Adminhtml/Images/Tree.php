@@ -17,7 +17,7 @@ class Nwdthemes_Revslider_Block_Adminhtml_Images_Tree extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getTreeJson()
+    function getTreeJson()
     {
         $helper = Mage::helper('nwdrevslider/images');
         $storageRoot = $helper->getStorageRoot();

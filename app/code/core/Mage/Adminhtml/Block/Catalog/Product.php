@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Catalog_Product extends Mage_Adminhtml_Block_Widget_C
     /**
      * Set template
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/product.phtml');
@@ -52,7 +52,7 @@ class Mage_Adminhtml_Block_Catalog_Product extends Mage_Adminhtml_Block_Widget_C
      *
      * @return string
      */
-    public function getAddNewButtonHtml()
+    function getAddNewButtonHtml()
     {
         return $this->getChildHtml('add_new_button');
     }
@@ -62,7 +62,7 @@ class Mage_Adminhtml_Block_Catalog_Product extends Mage_Adminhtml_Block_Widget_C
      *
      * @return string
      */
-    public function getGridHtml()
+    function getGridHtml()
     {
         return $this->getChildHtml('grid');
     }
@@ -72,7 +72,7 @@ class Mage_Adminhtml_Block_Catalog_Product extends Mage_Adminhtml_Block_Widget_C
      *
      * @return bool
      */
-    public function isSingleStoreMode()
+    function isSingleStoreMode()
     {
         if (!Mage::app()->isSingleStoreMode()) {
             return false;

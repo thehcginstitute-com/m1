@@ -40,7 +40,7 @@ class Mage_ConfigurableSwatches_Block_Catalog_Layer_State_Swatch extends Mage_Co
      * @param Mage_Catalog_Model_Layer_Filter_Item $filter
      * @return bool
      */
-    public function shouldRender($filter)
+    function shouldRender($filter)
     {
         $helper = Mage::helper('configurableswatches');
         if ($helper->isEnabled() && $filter->getFilter()->hasAttributeModel()) {

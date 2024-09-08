@@ -32,7 +32,7 @@ class Mage_Uploader_Block_Single extends Mage_Uploader_Block_Abstract
         return $this;
     }
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 

@@ -29,7 +29,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Frontend_Image extends Mage_
      * @param Varien_Object $object
      * @return string|false
      */
-    public function getUrl($object)
+    function getUrl($object)
     {
         $url   = false;
         $image = $object->getData($this->getAttribute()->getAttributeCode());

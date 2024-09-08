@@ -133,7 +133,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * @inheritDoc
      */
-    public function load(Mage_Core_Model_Abstract $object, $value, $field = null)
+    function load(Mage_Core_Model_Abstract $object, $value, $field = null)
     {
         if (!is_numeric($value) && is_null($field)) {
             $field = 'identifier';
@@ -217,7 +217,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Core_Model_Abstract|Mage_Cms_Model_Page $object
      * @return bool
      */
-    public function getIsUniquePageToStores(Mage_Core_Model_Abstract $object)
+    function getIsUniquePageToStores(Mage_Core_Model_Abstract $object)
     {
         if (!$object->hasStores()) {
             $stores = [Mage_Core_Model_App::ADMIN_STORE_ID];
@@ -270,7 +270,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
      * @param int $storeId
      * @return string
      */
-    public function checkIdentifier($identifier, $storeId)
+    function checkIdentifier($identifier, $storeId)
     {
         $stores = [Mage_Core_Model_App::ADMIN_STORE_ID, $storeId];
         $select = $this->_getLoadByIdentifierSelect($identifier, $stores, 1);
@@ -288,7 +288,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
      * @param string $identifier
      * @return string
      */
-    public function getCmsPageTitleByIdentifier($identifier)
+    function getCmsPageTitleByIdentifier($identifier)
     {
         $stores = [Mage_Core_Model_App::ADMIN_STORE_ID];
         if ($this->_store) {
@@ -310,7 +310,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
      * @param string $id
      * @return string
      */
-    public function getCmsPageTitleById($id)
+    function getCmsPageTitleById($id)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -331,7 +331,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
      * @param string $id
      * @return string|false
      */
-    public function getCmsPageIdentifierById($id)
+    function getCmsPageIdentifierById($id)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -352,7 +352,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
      * @param string $pageId
      * @return array
      */
-    public function lookupStoreIds($pageId)
+    function lookupStoreIds($pageId)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -369,7 +369,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Core_Model_Store $store
      * @return $this
      */
-    public function setStore($store)
+    function setStore($store)
     {
         $this->_store = $store;
         return $this;
@@ -380,7 +380,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return Mage::app()->getStore($this->_store);
     }

@@ -27,7 +27,7 @@ class Mage_Bundle_Model_Resource_Indexer_Price extends Mage_Catalog_Model_Resour
      *
      * @return $this
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->useIdxTable(true);
 
@@ -49,7 +49,7 @@ class Mage_Bundle_Model_Resource_Indexer_Price extends Mage_Catalog_Model_Resour
      * @param int|array $entityIds
      * @return $this
      */
-    public function reindexEntity($entityIds)
+    function reindexEntity($entityIds)
     {
         $this->_prepareBundlePrice($entityIds);
 

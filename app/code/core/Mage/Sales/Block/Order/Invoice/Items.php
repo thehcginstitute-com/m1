@@ -27,7 +27,7 @@ class Mage_Sales_Block_Order_Invoice_Items extends Mage_Sales_Block_Items_Abstra
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }
@@ -36,7 +36,7 @@ class Mage_Sales_Block_Order_Invoice_Items extends Mage_Sales_Block_Items_Abstra
      * @param Mage_Sales_Model_Order_Invoice $invoice
      * @return string
      */
-    public function getPrintInvoiceUrl($invoice)
+    function getPrintInvoiceUrl($invoice)
     {
         return Mage::getUrl('*/*/printInvoice', ['invoice_id' => $invoice->getId()]);
     }
@@ -45,7 +45,7 @@ class Mage_Sales_Block_Order_Invoice_Items extends Mage_Sales_Block_Items_Abstra
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function getPrintAllInvoicesUrl($order)
+    function getPrintAllInvoicesUrl($order)
     {
         return Mage::getUrl('*/*/printInvoice', ['order_id' => $order->getId()]);
     }
@@ -56,7 +56,7 @@ class Mage_Sales_Block_Order_Invoice_Items extends Mage_Sales_Block_Items_Abstra
      * @param   Mage_Sales_Model_Order_Invoice $invoice
      * @return  string
      */
-    public function getInvoiceTotalsHtml($invoice)
+    function getInvoiceTotalsHtml($invoice)
     {
         $html = '';
         $totals = $this->getChild('invoice_totals');
@@ -73,7 +73,7 @@ class Mage_Sales_Block_Order_Invoice_Items extends Mage_Sales_Block_Items_Abstra
      * @param   Mage_Sales_Model_Order_Invoice $invoice
      * @return  string
      */
-    public function getInvoiceCommentsHtml($invoice)
+    function getInvoiceCommentsHtml($invoice)
     {
         $html = '';
         $comments = $this->getChild('invoice_comments');

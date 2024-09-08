@@ -50,7 +50,7 @@ class Mage_Wishlist_Block_Links extends Mage_Page_Block_Template_Links_Block
      *
      * @deprecated after 1.6.2.0
      */
-    public function initLinkProperties()
+    function initLinkProperties()
     {
         $text = $this->_createLabel($this->_getItemCount());
         $this->_label = $text;
@@ -95,7 +95,7 @@ class Mage_Wishlist_Block_Links extends Mage_Page_Block_Template_Links_Block
      *
      * @deprecated after 1.4.2.0
      */
-    public function addWishlistLink()
+    function addWishlistLink()
     {
         return $this;
     }
@@ -106,7 +106,7 @@ class Mage_Wishlist_Block_Links extends Mage_Page_Block_Template_Links_Block
      * @return array
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         /** @var Mage_Wishlist_Helper_Data $helper */
         $helper = $this->helper('wishlist');

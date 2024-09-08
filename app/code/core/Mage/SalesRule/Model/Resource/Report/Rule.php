@@ -34,7 +34,7 @@ class Mage_SalesRule_Model_Resource_Report_Rule extends Mage_Reports_Model_Resou
      * @param mixed $to
      * @return $this
      */
-    public function aggregate($from = null, $to = null)
+    function aggregate($from = null, $to = null)
     {
         Mage::getResourceModel('salesrule/report_rule_createdat')->aggregate($from, $to);
         Mage::getResourceModel('salesrule/report_rule_updatedat')->aggregate($from, $to);
@@ -48,7 +48,7 @@ class Mage_SalesRule_Model_Resource_Report_Rule extends Mage_Reports_Model_Resou
      *
      * @return array
      */
-    public function getUniqRulesNamesList()
+    function getUniqRulesNamesList()
     {
         $adapter = $this->_getReadAdapter();
         $tableName = $this->getTable('salesrule/coupon_aggregated');

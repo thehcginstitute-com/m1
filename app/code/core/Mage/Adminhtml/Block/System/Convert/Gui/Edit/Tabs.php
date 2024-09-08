@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tabs extends Mage_Adminhtml_Block_Widget_Tabs
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('convert_profile_tabs');

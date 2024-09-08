@@ -71,7 +71,7 @@ abstract class Mage_Reports_Model_Resource_Product_Index_Collection_Abstract ext
      *
      * @return Mage_Reports_Model_Resource_Product_Index_Collection_Abstract
      */
-    public function addIndexFilter()
+    function addIndexFilter()
     {
         $this->_joinIdxTable();
         $this->_productLimitationFilters['store_table'] = 'idx_table';
@@ -86,7 +86,7 @@ abstract class Mage_Reports_Model_Resource_Product_Index_Collection_Abstract ext
      * @param array $ids
      * @return Mage_Reports_Model_Resource_Product_Index_Collection_Abstract
      */
-    public function addFilterByIds($ids)
+    function addFilterByIds($ids)
     {
         if (empty($ids)) {
             $this->getSelect()->where('1=0');
@@ -122,7 +122,7 @@ abstract class Mage_Reports_Model_Resource_Product_Index_Collection_Abstract ext
      * @param int $id
      * @return Mage_Reports_Model_Resource_Product_Index_Collection_Abstract
      */
-    public function setCustomerId($id)
+    function setCustomerId($id)
     {
         $this->_customerId = (int)$id;
         return $this;
@@ -134,7 +134,7 @@ abstract class Mage_Reports_Model_Resource_Product_Index_Collection_Abstract ext
      * @param string $dir
      * @return Mage_Reports_Model_Resource_Product_Index_Collection_Abstract
      */
-    public function setAddedAtOrder($dir = self::SORT_ORDER_DESC)
+    function setAddedAtOrder($dir = self::SORT_ORDER_DESC)
     {
         if ($this->getFlag('is_idx_table_joined')) {
             $this->getSelect()->order('added_at ' . $dir);
@@ -148,7 +148,7 @@ abstract class Mage_Reports_Model_Resource_Product_Index_Collection_Abstract ext
      * @param array $ids
      * @return Mage_Reports_Model_Resource_Product_Index_Collection_Abstract
      */
-    public function setSortIds(array $ids)
+    function setSortIds(array $ids)
     {
         $this->_sortIds = $ids;
         return $this;
@@ -191,7 +191,7 @@ abstract class Mage_Reports_Model_Resource_Product_Index_Collection_Abstract ext
      * @param int|array $productIds
      * @return Mage_Reports_Model_Resource_Product_Index_Collection_Abstract
      */
-    public function excludeProductIds($productIds)
+    function excludeProductIds($productIds)
     {
         if (empty($productIds)) {
             return $this;

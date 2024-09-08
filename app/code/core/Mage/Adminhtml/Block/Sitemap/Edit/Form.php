@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Sitemap_Edit_Form extends Mage_Adminhtml_Block_Widget
     /**
      * Init form
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sitemap_form');

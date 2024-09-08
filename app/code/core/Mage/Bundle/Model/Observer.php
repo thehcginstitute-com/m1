@@ -28,7 +28,7 @@ class Mage_Bundle_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function prepareProductSave($observer)
+    function prepareProductSave($observer)
     {
         /** @var Mage_Core_Controller_Request_Http $request */
         $request = $observer->getEvent()->getRequest();
@@ -66,7 +66,7 @@ class Mage_Bundle_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function appendUpsellProducts($observer)
+    function appendUpsellProducts($observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
@@ -138,7 +138,7 @@ class Mage_Bundle_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function appendBundleSelectionData($observer)
+    function appendBundleSelectionData($observer)
     {
         /** @var Mage_Sales_Model_Order_Item $orderItem */
         $orderItem = $observer->getEvent()->getOrderItem();
@@ -161,7 +161,7 @@ class Mage_Bundle_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function loadProductOptions($observer)
+    function loadProductOptions($observer)
     {
         $collection = $observer->getEvent()->getCollection();
         /** @var Mage_Catalog_Model_Resource_Product_Collection $collection */
@@ -176,7 +176,7 @@ class Mage_Bundle_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function duplicateProduct($observer)
+    function duplicateProduct($observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getCurrentProduct();
@@ -238,7 +238,7 @@ class Mage_Bundle_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function setAttributeTabBlock($observer)
+    function setAttributeTabBlock($observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
@@ -255,7 +255,7 @@ class Mage_Bundle_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function initOptionRenderer(Varien_Event_Observer $observer)
+    function initOptionRenderer(Varien_Event_Observer $observer)
     {
         /** @var Mage_Wishlist_Block_Customer_Wishlist_Item_Options $block */
         $block = $observer->getBlock();
@@ -271,7 +271,7 @@ class Mage_Bundle_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductLoadAfter(Varien_Event_Observer $observer)
+    function catalogProductLoadAfter(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
@@ -292,7 +292,7 @@ class Mage_Bundle_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogIndexPlainReindexAfter(Varien_Event_Observer $observer)
+    function catalogIndexPlainReindexAfter(Varien_Event_Observer $observer)
     {
         $products = $observer->getEvent()->getProducts();
         Mage::getSingleton('bundle/price_index')->reindex($products);

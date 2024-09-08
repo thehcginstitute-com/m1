@@ -24,7 +24,7 @@ class Mage_Adminhtml_Block_Dashboard_Searches_Top extends Mage_Adminhtml_Block_D
 {
     protected $_collection;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('topSearchGrid');
@@ -85,7 +85,7 @@ class Mage_Adminhtml_Block_Dashboard_Searches_Top extends Mage_Adminhtml_Block_D
         return parent::_prepareColumns();
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/catalog_search/edit', ['id' => $row->getId()]);
     }

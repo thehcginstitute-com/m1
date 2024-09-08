@@ -28,7 +28,7 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract extends 
      *
      * @return Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->useIdxTable(true);
         $this->beginTransaction();
@@ -56,7 +56,7 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract extends 
      * @return Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract
      * @throws Exception
      */
-    public function reindexEntities($processIds)
+    function reindexEntities($processIds)
     {
         $adapter = $this->_getWriteAdapter();
 
@@ -106,7 +106,7 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract extends 
      * @param bool $isIndexable
      * @return Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract
      */
-    public function reindexAttribute($attributeId, $isIndexable = true)
+    function reindexAttribute($attributeId, $isIndexable = true)
     {
         if (!$isIndexable) {
             $this->_removeAttributeIndexData($attributeId);

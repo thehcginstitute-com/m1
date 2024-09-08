@@ -35,7 +35,7 @@
  */
 class Mage_Review_Block_Customer_View extends Mage_Catalog_Block_Product_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('review/customer/view.phtml');
@@ -47,7 +47,7 @@ class Mage_Review_Block_Customer_View extends Mage_Catalog_Block_Product_Abstrac
      * @return Mage_Catalog_Model_Product
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getProductData()
+    function getProductData()
     {
         if ($this->getReviewId() && !$this->getProductCacheData()) {
             $product = Mage::getModel('catalog/product')
@@ -61,7 +61,7 @@ class Mage_Review_Block_Customer_View extends Mage_Catalog_Block_Product_Abstrac
     /**
      * @return Mage_Review_Model_Review
      */
-    public function getReviewData()
+    function getReviewData()
     {
         if ($this->getReviewId() && !$this->getReviewCachedData()) {
             $this->setReviewCachedData(Mage::getModel('review/review')->load($this->getReviewId()));
@@ -72,7 +72,7 @@ class Mage_Review_Block_Customer_View extends Mage_Catalog_Block_Product_Abstrac
     /**
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return Mage::getUrl('review/customer');
     }
@@ -81,7 +81,7 @@ class Mage_Review_Block_Customer_View extends Mage_Catalog_Block_Product_Abstrac
      * @return Mage_Rating_Model_Resource_Rating_Option_Vote_Collection
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getRating()
+    function getRating()
     {
         if (!$this->getRatingCollection()) {
             $ratingCollection = Mage::getModel('rating/rating_option_vote')
@@ -100,7 +100,7 @@ class Mage_Review_Block_Customer_View extends Mage_Catalog_Block_Product_Abstrac
     /**
      * @return array
      */
-    public function getRatingSummary()
+    function getRatingSummary()
     {
         if (!$this->getRatingSummaryCache()) {
             $this->setRatingSummaryCache(Mage::getModel('rating/rating')->getEntitySummary($this->getProductData()->getId()));
@@ -112,7 +112,7 @@ class Mage_Review_Block_Customer_View extends Mage_Catalog_Block_Product_Abstrac
      * @return int
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getTotalReviews()
+    function getTotalReviews()
     {
         if (!$this->getTotalReviewsCache()) {
             $this->setTotalReviewsCache(Mage::getModel('review/review')->getTotalReviews($this->getProductData()->getId()), false, Mage::app()->getStore()->getId());
@@ -124,7 +124,7 @@ class Mage_Review_Block_Customer_View extends Mage_Catalog_Block_Product_Abstrac
      * @param string $date
      * @return string
      */
-    public function dateFormat($date)
+    function dateFormat($date)
     {
         return $this->formatDate($date, Mage_Core_Model_Locale::FORMAT_TYPE_LONG);
     }
@@ -134,7 +134,7 @@ class Mage_Review_Block_Customer_View extends Mage_Catalog_Block_Product_Abstrac
      *
      * @return bool
      */
-    public function isReviewOwner()
+    function isReviewOwner()
     {
         return ($this->getReviewData()->getCustomerId() == Mage::getSingleton('customer/session')->getCustomerId());
     }

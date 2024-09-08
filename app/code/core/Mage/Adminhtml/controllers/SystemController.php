@@ -28,7 +28,7 @@ class Mage_Adminhtml_SystemController extends Mage_Adminhtml_Controller_Action
      */
     public const ADMIN_RESOURCE = 'system';
 
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout();
         $this->_setActiveMenu('system');
@@ -36,7 +36,7 @@ class Mage_Adminhtml_SystemController extends Mage_Adminhtml_Controller_Action
         $this->renderLayout();
     }
 
-    public function setStoreAction()
+    function setStoreAction()
     {
         $storeId = (int) $this->getRequest()->getParam('store');
         if ($storeId) {

@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Related extends Mage_Adminht
      * Set grid params
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('related_product_grid');
@@ -106,7 +106,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Related extends Mage_Adminht
      *
      * @return bool
      */
-    public function isReadonly()
+    function isReadonly()
     {
         return $this->_getProduct()->getRelatedReadonly();
     }
@@ -211,7 +211,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Related extends Mage_Adminht
      *
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getData('grid_url') ?: $this->getUrl('*/*/relatedGrid', ['_current' => true]);
     }
@@ -235,7 +235,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Related extends Mage_Adminht
      *
      * @return array
      */
-    public function getSelectedRelatedProducts()
+    function getSelectedRelatedProducts()
     {
         $products = [];
         foreach (Mage::registry('current_product')->getRelatedProducts() as $product) {

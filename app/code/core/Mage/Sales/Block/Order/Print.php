@@ -46,7 +46,7 @@ class Mage_Sales_Block_Order_Print extends Mage_Sales_Block_Items_Abstract
     /**
      * @return string
      */
-    public function getPaymentInfoHtml()
+    function getPaymentInfoHtml()
     {
         return $this->getChildHtml('payment_info');
     }
@@ -54,7 +54,7 @@ class Mage_Sales_Block_Order_Print extends Mage_Sales_Block_Items_Abstract
     /**
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }

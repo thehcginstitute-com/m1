@@ -48,7 +48,7 @@ abstract class Mage_Catalog_Block_Layer_Filter_Abstract extends Mage_Core_Block_
      * Initialize filter template
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/layer/filter.phtml');
@@ -59,7 +59,7 @@ abstract class Mage_Catalog_Block_Layer_Filter_Abstract extends Mage_Core_Block_
      *
      * @return Mage_Catalog_Block_Layer_Filter_Abstract
      */
-    public function init()
+    function init()
     {
         $this->_initFilter();
         return $this;
@@ -98,7 +98,7 @@ abstract class Mage_Catalog_Block_Layer_Filter_Abstract extends Mage_Core_Block_
      *
      * @return string
      */
-    public function getName()
+    function getName()
     {
         return $this->_filter->getName();
     }
@@ -108,7 +108,7 @@ abstract class Mage_Catalog_Block_Layer_Filter_Abstract extends Mage_Core_Block_
      *
      * @return array
      */
-    public function getItems()
+    function getItems()
     {
         return $this->_filter->getItems();
     }
@@ -118,7 +118,7 @@ abstract class Mage_Catalog_Block_Layer_Filter_Abstract extends Mage_Core_Block_
      *
      * @return int
      */
-    public function getItemsCount()
+    function getItemsCount()
     {
         return $this->_filter->getItemsCount();
     }
@@ -127,7 +127,7 @@ abstract class Mage_Catalog_Block_Layer_Filter_Abstract extends Mage_Core_Block_
      * Getter for $_displayProductCount
      * @return bool
      */
-    public function shouldDisplayProductCount()
+    function shouldDisplayProductCount()
     {
         if ($this->_displayProductCount === null) {
             $this->_displayProductCount = Mage::helper('catalog')->shouldDisplayProductCountOnLayer();
@@ -140,7 +140,7 @@ abstract class Mage_Catalog_Block_Layer_Filter_Abstract extends Mage_Core_Block_
      *
      * @return string
      */
-    public function getHtml()
+    function getHtml()
     {
         return parent::_toHtml();
     }

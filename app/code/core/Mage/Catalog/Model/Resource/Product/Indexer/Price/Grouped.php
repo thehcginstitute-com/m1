@@ -27,7 +27,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price_Grouped extends Mage_Cat
      *
      * @return $this
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->useIdxTable(true);
         $this->beginTransaction();
@@ -47,7 +47,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price_Grouped extends Mage_Cat
      * @param int|array $entityIds
      * @return $this
      */
-    public function reindexEntity($entityIds)
+    function reindexEntity($entityIds)
     {
         $this->_prepareGroupedProductPriceData($entityIds);
 

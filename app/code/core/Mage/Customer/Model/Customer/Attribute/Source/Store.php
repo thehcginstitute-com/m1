@@ -29,7 +29,7 @@ class Mage_Customer_Model_Customer_Attribute_Source_Store extends Mage_Eav_Model
      * @param bool $defaultValues   Argument has no effect, included for PHP 7.2 method signature compatibility
      * @return array
      */
-    public function getAllOptions($withEmpty = true, $defaultValues = false)
+    function getAllOptions($withEmpty = true, $defaultValues = false)
     {
         if (!$this->_options) {
             $collection = Mage::getResourceModel('core/store_collection');
@@ -47,7 +47,7 @@ class Mage_Customer_Model_Customer_Attribute_Source_Store extends Mage_Eav_Model
     /**
      * @inheritDoc
      */
-    public function getOptionText($value)
+    function getOptionText($value)
     {
         if (!$value) {
             $value = '0';

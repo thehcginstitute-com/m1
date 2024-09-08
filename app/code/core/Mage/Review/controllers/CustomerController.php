@@ -27,7 +27,7 @@ class Mage_Review_CustomerController extends Mage_Core_Controller_Front_Action
      *
      * Check customer authentication for some actions
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
         if (!Mage::getSingleton('customer/session')->authenticate($this)) {
@@ -58,7 +58,7 @@ class Mage_Review_CustomerController extends Mage_Core_Controller_Front_Action
         return $review;
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout();
         $this->_initLayoutMessages('catalog/session');
@@ -75,7 +75,7 @@ class Mage_Review_CustomerController extends Mage_Core_Controller_Front_Action
         $this->renderLayout();
     }
 
-    public function viewAction()
+    function viewAction()
     {
         $review = $this->_loadReview((int) $this->getRequest()->getParam('id'));
         if (!$review) {

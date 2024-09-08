@@ -86,7 +86,7 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser_Daterange extends Mage_Adminhtml
      * @param string $value
      * @return $this
      */
-    public function setTargetElementId($value)
+    function setTargetElementId($value)
     {
         $this->_targetElementId = trim($value);
         return $this;
@@ -99,7 +99,7 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser_Daterange extends Mage_Adminhtml
      * @param string $to
      * @return $this
      */
-    public function setRangeValues($from, $to)
+    function setRangeValues($from, $to)
     {
         $this->_rangeValues = ['from' => $from, 'to' => $to];
         return $this;
@@ -112,7 +112,7 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser_Daterange extends Mage_Adminhtml
      * @param string $delimitedString
      * @return $this
      */
-    public function setRangeValue($delimitedString)
+    function setRangeValue($delimitedString)
     {
         $split = explode($this->_rangeDelimiter, $delimitedString, 2);
         $from = $split[0];
@@ -126,7 +126,7 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser_Daterange extends Mage_Adminhtml
      * @param string $value
      * @return $this
      */
-    public function setRangeDelimiter($value)
+    function setRangeDelimiter($value)
     {
         $this->_rangeDelimiter = (string)$value;
         return $this;

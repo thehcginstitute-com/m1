@@ -42,7 +42,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Source_Abstract implements Mage_E
      * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return $this
      */
-    public function setAttribute($attribute)
+    function setAttribute($attribute)
     {
         $this->_attribute = $attribute;
         return $this;
@@ -53,7 +53,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Source_Abstract implements Mage_E
      *
      * @return Mage_Eav_Model_Entity_Attribute_Abstract
      */
-    public function getAttribute()
+    function getAttribute()
     {
         return $this->_attribute;
     }
@@ -64,7 +64,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Source_Abstract implements Mage_E
      * @param  string|int $value
      * @return string|bool
      */
-    public function getOptionText($value)
+    function getOptionText($value)
     {
         $options = $this->getAllOptions();
         // Fixed for tax_class_id and custom_design
@@ -82,7 +82,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Source_Abstract implements Mage_E
      * @param string $value
      * @return string|null
      */
-    public function getOptionId($value)
+    function getOptionId($value)
     {
         $bc_warning = false;
         foreach ($this->getAllOptions() as $option) {
@@ -109,7 +109,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Source_Abstract implements Mage_E
      * @param string $dir direction
      * @return $this
      */
-    public function addValueSortToCollection($collection, $dir = Varien_Data_Collection::SORT_ORDER_DESC)
+    function addValueSortToCollection($collection, $dir = Varien_Data_Collection::SORT_ORDER_DESC)
     {
         return $this;
     }
@@ -119,7 +119,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Source_Abstract implements Mage_E
      *
      * @return array
      */
-    public function getFlatColums()
+    function getFlatColums()
     {
         return [];
     }
@@ -129,7 +129,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Source_Abstract implements Mage_E
      *
      * @return array
      */
-    public function getFlatIndexes()
+    function getFlatIndexes()
     {
         return [];
     }
@@ -140,7 +140,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Source_Abstract implements Mage_E
      * @param int $store
      * @return Varien_Db_Select|null
      */
-    public function getFlatUpdateSelect($store)
+    function getFlatUpdateSelect($store)
     {
         return null;
     }
@@ -151,7 +151,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Source_Abstract implements Mage_E
      * @param string|int $value
      * @return string|bool
      */
-    public function getIndexOptionText($value)
+    function getIndexOptionText($value)
     {
         return $this->getOptionText($value);
     }

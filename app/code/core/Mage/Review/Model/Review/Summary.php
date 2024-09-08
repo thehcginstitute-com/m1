@@ -24,7 +24,7 @@
  */
 class Mage_Review_Model_Review_Summary extends Mage_Core_Model_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         $this->_init('review/review_summary');
     }
@@ -32,7 +32,7 @@ class Mage_Review_Model_Review_Summary extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getEntityPkValue()
+    function getEntityPkValue()
     {
         return $this->_getData('entity_pk_value');
     }
@@ -40,7 +40,7 @@ class Mage_Review_Model_Review_Summary extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function getRatingSummary()
+    function getRatingSummary()
     {
         return $this->_getData('rating_summary');
     }
@@ -48,7 +48,7 @@ class Mage_Review_Model_Review_Summary extends Mage_Core_Model_Abstract
     /**
      * @return int
      */
-    public function getReviewsCount()
+    function getReviewsCount()
     {
         return $this->_getData('reviews_count');
     }

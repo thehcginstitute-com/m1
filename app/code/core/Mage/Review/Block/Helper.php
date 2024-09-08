@@ -38,7 +38,7 @@ class Mage_Review_Block_Helper extends Mage_Core_Block_Template
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getSummaryHtml($product, $templateType, $displayIfNoReviews)
+    function getSummaryHtml($product, $templateType, $displayIfNoReviews)
     {
         // pick template among available
         if (empty($this->_availableTemplates[$templateType])) {
@@ -60,7 +60,7 @@ class Mage_Review_Block_Helper extends Mage_Core_Block_Template
     /**
      * @return array
      */
-    public function getRatingSummary()
+    function getRatingSummary()
     {
         return $this->getProduct()->getRatingSummary()->getRatingSummary();
     }
@@ -68,7 +68,7 @@ class Mage_Review_Block_Helper extends Mage_Core_Block_Template
     /**
      * @return int
      */
-    public function getReviewsCount()
+    function getReviewsCount()
     {
         return $this->getProduct()->getRatingSummary()->getReviewsCount();
     }
@@ -76,7 +76,7 @@ class Mage_Review_Block_Helper extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getReviewsUrl()
+    function getReviewsUrl()
     {
         return Mage::getUrl('review/product/list', [
            'id'        => $this->getProduct()->getId(),
@@ -92,7 +92,7 @@ class Mage_Review_Block_Helper extends Mage_Core_Block_Template
      * @param string $type
      * @param string $template
      */
-    public function addTemplate($type, $template)
+    function addTemplate($type, $template)
     {
         $this->_availableTemplates[$type] = $template;
     }

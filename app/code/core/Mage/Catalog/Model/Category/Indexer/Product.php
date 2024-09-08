@@ -82,7 +82,7 @@ class Mage_Catalog_Model_Category_Indexer_Product extends Mage_Index_Model_Index
      *
      * @return string
      */
-    public function getName()
+    function getName()
     {
         return Mage::helper('catalog')->__('Category Products');
     }
@@ -92,7 +92,7 @@ class Mage_Catalog_Model_Category_Indexer_Product extends Mage_Index_Model_Index
      *
      * @return string
      */
-    public function getDescription()
+    function getDescription()
     {
         return Mage::helper('catalog')->__('Indexed category/products association');
     }
@@ -104,7 +104,7 @@ class Mage_Catalog_Model_Category_Indexer_Product extends Mage_Index_Model_Index
      * @param Mage_Index_Model_Event $event
      * @return bool
      */
-    public function matchEvent(Mage_Index_Model_Event $event)
+    function matchEvent(Mage_Index_Model_Event $event)
     {
         $data      = $event->getNewData();
         if (isset($data[self::EVENT_MATCH_RESULT_KEY])) {

@@ -38,7 +38,7 @@ class Mage_Eav_Model_Convert_Adapter_Entity extends Mage_Dataflow_Model_Convert_
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         if (is_null($this->_store)) {
             try {
@@ -76,7 +76,7 @@ class Mage_Eav_Model_Convert_Adapter_Entity extends Mage_Dataflow_Model_Convert_
      * @return $this
      * @throws Exception
      */
-    public function setFilter($attrFilterArray, $attrToDb = null, $bind = null, $joinType = null)
+    function setFilter($attrFilterArray, $attrToDb = null, $bind = null, $joinType = null)
     {
         if (is_null($bind)) {
             $defBind = 'entity_id';
@@ -180,7 +180,7 @@ class Mage_Eav_Model_Convert_Adapter_Entity extends Mage_Dataflow_Model_Convert_
     /**
      * @return array
      */
-    public function getFilter()
+    function getFilter()
     {
         return $this->_filter;
     }
@@ -211,7 +211,7 @@ class Mage_Eav_Model_Convert_Adapter_Entity extends Mage_Dataflow_Model_Convert_
      * @param string $joinAttr
      * @throws Exception
      */
-    public function setJoinAttr($joinAttr)
+    function setJoinAttr($joinAttr)
     {
         if (is_array($joinAttr)) {
             $joinArrAttr = [];
@@ -243,7 +243,7 @@ class Mage_Eav_Model_Convert_Adapter_Entity extends Mage_Dataflow_Model_Convert_
      *         )
      *     NOTE: Optional key must be have NULL at least
      */
-    public function setJoinField($joinField)
+    function setJoinField($joinField)
     {
         if (is_array($joinField)) {
             $this->_joinField[] = $joinField;
@@ -254,7 +254,7 @@ class Mage_Eav_Model_Convert_Adapter_Entity extends Mage_Dataflow_Model_Convert_
      * @return $this
      * @throws Varien_Convert_Exception
      */
-    public function load()
+    function load()
     {
         if (!($entityType = $this->getVar('entity_type'))
             || !(Mage::getResourceSingleton($entityType) instanceof Mage_Eav_Model_Entity_Interface)
@@ -334,7 +334,7 @@ class Mage_Eav_Model_Convert_Adapter_Entity extends Mage_Dataflow_Model_Convert_
      * @return $this
      * @throws Varien_Convert_Exception
      */
-    public function save()
+    function save()
     {
         $collection = $this->getData();
         if ($collection instanceof Mage_Eav_Model_Entity_Collection_Abstract) {

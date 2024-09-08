@@ -44,7 +44,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
      *
      * @return $this|void
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
 
@@ -67,7 +67,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
      *
      * @return $this
      */
-    public function skipAuthentication()
+    function skipAuthentication()
     {
         $this->_skipAuthentication = true;
         return $this;
@@ -122,7 +122,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
     /**
      * Display customer wishlist
      */
-    public function indexAction()
+    function indexAction()
     {
         if (!$this->_getWishlist()) {
             return $this->norouteAction();
@@ -159,7 +159,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
      *
      * @return Mage_Core_Controller_Varien_Action|void
      */
-    public function addAction()
+    function addAction()
     {
         if (!$this->_validateFormKey()) {
             return $this->_redirect('*/*');
@@ -249,7 +249,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
     /**
      * Action to reconfigure wishlist item
      */
-    public function configureAction()
+    function configureAction()
     {
         $id = (int) $this->getRequest()->getParam('id');
         try {
@@ -294,7 +294,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
     /**
      * Action to accept new configuration for a wishlist item
      */
-    public function updateItemOptionsAction()
+    function updateItemOptionsAction()
     {
         $session = Mage::getSingleton('customer/session');
         $productId = (int) $this->getRequest()->getParam('product');
@@ -346,7 +346,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
     /**
      * Update wishlist item comments
      */
-    public function updateAction()
+    function updateAction()
     {
         if (!$this->_validateFormKey()) {
             return $this->_redirect('*/*/');
@@ -432,7 +432,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
     /**
      * Remove item
      */
-    public function removeAction()
+    function removeAction()
     {
         if (!$this->_validateFormKey()) {
             return $this->_redirect('*/*');
@@ -470,7 +470,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
      * If Product has required options - item removed from wishlist and redirect
      * to product view page with message about needed defined required options
      */
-    public function cartAction()
+    function cartAction()
     {
         if (!$this->_validateFormKey()) {
             return $this->_redirect('*/*');
@@ -555,7 +555,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
     /**
      * Add cart item to wishlist and remove from cart
      */
-    public function fromcartAction()
+    function fromcartAction()
     {
         $wishlist = $this->_getWishlist();
         if (!$wishlist) {
@@ -602,7 +602,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
     /**
      * Prepare wishlist for share
      */
-    public function shareAction()
+    function shareAction()
     {
         $this->_getWishlist();
         $this->loadLayout();
@@ -616,7 +616,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
      *
      * @return Mage_Core_Controller_Varien_Action|void
      */
-    public function sendAction()
+    function sendAction()
     {
         if (!$this->_validateFormKey()) {
             return $this->_redirect('*/*/');
@@ -707,7 +707,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
      * Custom options download action
      * @return void
      */
-    public function downloadCustomOptionAction()
+    function downloadCustomOptionAction()
     {
         $option = Mage::getModel('wishlist/item_option')->load($this->getRequest()->getParam('id'));
 

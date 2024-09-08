@@ -81,7 +81,7 @@ class Mage_Adminhtml_Block_Notification_Window extends Mage_Adminhtml_Block_Noti
      *
      * @return bool
      */
-    public function canShow()
+    function canShow()
     {
         if (!is_null($this->_available)) {
             return $this->_available;
@@ -114,7 +114,7 @@ class Mage_Adminhtml_Block_Notification_Window extends Mage_Adminhtml_Block_Noti
      * @return string
      * @deprecated v19.4.16
      */
-    public function getObjectUrl()
+    function getObjectUrl()
     {
         return $this->_getHelper()->getPopupObjectUrl();
     }
@@ -124,7 +124,7 @@ class Mage_Adminhtml_Block_Notification_Window extends Mage_Adminhtml_Block_Noti
      *
      * @return Mage_AdminNotification_Model_Inbox
      */
-    public function getLastNotice()
+    function getLastNotice()
     {
         return $this->_getHelper()->getLatestNotice();
     }
@@ -134,7 +134,7 @@ class Mage_Adminhtml_Block_Notification_Window extends Mage_Adminhtml_Block_Noti
      *
      * @return string
      */
-    public function getSeverityIconsUrl()
+    function getSeverityIconsUrl()
     {
         if (is_null($this->_severityIconsUrl)) {
             $this->_severityIconsUrl =
@@ -154,7 +154,7 @@ class Mage_Adminhtml_Block_Notification_Window extends Mage_Adminhtml_Block_Noti
      *
      * @return string
      */
-    public function getSeverityText()
+    function getSeverityText()
     {
         return strtolower(str_replace('SEVERITY_', '', $this->getNoticeSeverity()));
     }

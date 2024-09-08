@@ -33,7 +33,7 @@ class Mage_Payment_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   string $code
      * @return  Mage_Payment_Model_Method_Abstract|false
      */
-    public function getMethodInstance($code)
+    function getMethodInstance($code)
     {
         $key = self::XML_PATH_PAYMENT_METHODS . '/' . $code . '/model';
         $class = Mage::getStoreConfig($key);
@@ -57,7 +57,7 @@ class Mage_Payment_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Sales_Model_Quote $quote
      * @return Mage_Payment_Model_Method_Abstract[]
      */
-    public function getStoreMethods($store = null, $quote = null)
+    function getStoreMethods($store = null, $quote = null)
     {
         $res = [];
         foreach ($this->getPaymentMethods($store) as $code => $methodConfig) {
@@ -102,7 +102,7 @@ class Mage_Payment_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Payment_Model_Method_Abstract $method
      * @return  Mage_Payment_Block_Form|Mage_Core_Block_Abstract
      */
-    public function getMethodFormBlock(Mage_Payment_Model_Method_Abstract $method)
+    function getMethodFormBlock(Mage_Payment_Model_Method_Abstract $method)
     {
         $block = false;
         $blockType = $method->getFormBlockType();
@@ -119,7 +119,7 @@ class Mage_Payment_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   Mage_Payment_Model_Info $info
      * @return  Mage_Core_Block_Template|Mage_Core_Block_Abstract
      */
-    public function getInfoBlock(Mage_Payment_Model_Info $info)
+    function getInfoBlock(Mage_Payment_Model_Info $info)
     {
         $blockType = $info->getMethodInstance()->getInfoBlockType();
         if ($this->getLayout()) {
@@ -142,7 +142,7 @@ class Mage_Payment_Helper_Data extends Mage_Core_Helper_Abstract
      * @param null|string|bool|int|Mage_Core_Model_Store $store
      * @return array
      */
-    public function getPaymentMethods($store = null)
+    function getPaymentMethods($store = null)
     {
         return Mage::getStoreConfig(self::XML_PATH_PAYMENT_METHODS, $store);
     }
@@ -169,7 +169,7 @@ class Mage_Payment_Helper_Data extends Mage_Core_Helper_Abstract
      * @param null|string|bool|int|Mage_Core_Model_Store $store
      * @return array
      */
-    public function getPaymentMethodList($sorted = true, $asLabelValue = false, $withGroups = false, $store = null)
+    function getPaymentMethodList($sorted = true, $asLabelValue = false, $withGroups = false, $store = null)
     {
         $methods = [];
         $groups = [];
@@ -226,7 +226,7 @@ class Mage_Payment_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return bool
      */
-    public function isZeroSubTotal($store = null)
+    function isZeroSubTotal($store = null)
     {
         return Mage::getStoreConfig(Mage_Payment_Model_Method_Free::XML_PATH_PAYMENT_FREE_ACTIVE, $store);
     }
@@ -237,7 +237,7 @@ class Mage_Payment_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return string
      */
-    public function getZeroSubTotalOrderStatus($store = null)
+    function getZeroSubTotalOrderStatus($store = null)
     {
         return Mage::getStoreConfig(Mage_Payment_Model_Method_Free::XML_PATH_PAYMENT_FREE_ORDER_STATUS, $store);
     }
@@ -248,7 +248,7 @@ class Mage_Payment_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return string
      */
-    public function getZeroSubTotalPaymentAutomaticInvoice($store = null)
+    function getZeroSubTotalPaymentAutomaticInvoice($store = null)
     {
         return Mage::getStoreConfig(Mage_Payment_Model_Method_Free::XML_PATH_PAYMENT_FREE_PAYMENT_ACTION, $store);
     }

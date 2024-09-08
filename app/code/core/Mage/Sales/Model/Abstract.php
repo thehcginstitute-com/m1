@@ -30,7 +30,7 @@ abstract class Mage_Sales_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return int|string|Mage_Core_Model_Store
      */
-    abstract public function getStore();
+    abstract function getStore();
 
     /**
      * Processing object after save data
@@ -38,7 +38,7 @@ abstract class Mage_Sales_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_Abstract
      */
-    public function afterCommitCallback()
+    function afterCommitCallback()
     {
         if (!$this->getForceUpdateGridRecords()) {
             $this->_getResource()->updateGridRecords($this->getId());
@@ -51,7 +51,7 @@ abstract class Mage_Sales_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Zend_Date
      */
-    public function getCreatedAtDate()
+    function getCreatedAtDate()
     {
         return Mage::app()->getLocale()->date(
             Varien_Date::toTimestamp($this->getCreatedAt()),
@@ -66,7 +66,7 @@ abstract class Mage_Sales_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Zend_Date
      */
-    public function getCreatedAtStoreDate()
+    function getCreatedAtStoreDate()
     {
         return Mage::app()->getLocale()->storeDate(
             $this->getStore(),

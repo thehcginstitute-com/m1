@@ -48,7 +48,7 @@ abstract class Mage_Eav_Model_Attribute extends Mage_Eav_Model_Entity_Attribute
      * @param Mage_Core_Model_Website|int $website
      * @return Mage_Eav_Model_Attribute
      */
-    public function setWebsite($website)
+    function setWebsite($website)
     {
         $this->_website = Mage::app()->getWebsite($website);
         return $this;
@@ -59,7 +59,7 @@ abstract class Mage_Eav_Model_Attribute extends Mage_Eav_Model_Entity_Attribute
      *
      * @return Mage_Core_Model_Website
      */
-    public function getWebsite()
+    function getWebsite()
     {
         if (is_null($this->_website)) {
             $this->_website = Mage::app()->getWebsite();
@@ -84,7 +84,7 @@ abstract class Mage_Eav_Model_Attribute extends Mage_Eav_Model_Entity_Attribute
      *
      * @return array
      */
-    public function getUsedInForms()
+    function getUsedInForms()
     {
         $forms = $this->getData('used_in_forms');
         if (is_null($forms)) {
@@ -99,7 +99,7 @@ abstract class Mage_Eav_Model_Attribute extends Mage_Eav_Model_Entity_Attribute
      *
      * @return array
      */
-    public function getValidateRules()
+    function getValidateRules()
     {
         $rules = $this->getData('validate_rules');
         if (is_array($rules)) {
@@ -116,7 +116,7 @@ abstract class Mage_Eav_Model_Attribute extends Mage_Eav_Model_Entity_Attribute
      * @param array|string $rules
      * @return Mage_Eav_Model_Attribute
      */
-    public function setValidateRules($rules)
+    function setValidateRules($rules)
     {
         if (empty($rules)) {
             $rules = null;
@@ -145,7 +145,7 @@ abstract class Mage_Eav_Model_Attribute extends Mage_Eav_Model_Entity_Attribute
      *
      * @return mixed
      */
-    public function getIsRequired()
+    function getIsRequired()
     {
         return $this->_getScopeValue('is_required');
     }
@@ -155,7 +155,7 @@ abstract class Mage_Eav_Model_Attribute extends Mage_Eav_Model_Entity_Attribute
      *
      * @return mixed
      */
-    public function getIsVisible()
+    function getIsVisible()
     {
         return $this->_getScopeValue('is_visible');
     }
@@ -165,7 +165,7 @@ abstract class Mage_Eav_Model_Attribute extends Mage_Eav_Model_Entity_Attribute
      *
      * @return mixed
      */
-    public function getDefaultValue()
+    function getDefaultValue()
     {
         return $this->_getScopeValue('default_value');
     }
@@ -175,7 +175,7 @@ abstract class Mage_Eav_Model_Attribute extends Mage_Eav_Model_Entity_Attribute
      *
      * @return mixed
      */
-    public function getMultilineCount()
+    function getMultilineCount()
     {
         return $this->_getScopeValue('multiline_count');
     }

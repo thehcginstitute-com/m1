@@ -30,7 +30,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Selecti
     /**
      * Initialize bundle option selection block
      */
-    public function __construct()
+    function __construct()
     {
         $this->setTemplate('bundle/product/edit/bundle/option/selection.phtml');
         $this->setCanReadPrice(true);
@@ -42,7 +42,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Selecti
      *
      * @return string
      */
-    public function getFieldId()
+    function getFieldId()
     {
         return 'bundle_selection';
     }
@@ -52,7 +52,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Selecti
      *
      * @return string
      */
-    public function getFieldName()
+    function getFieldName()
     {
         return 'bundle_selections';
     }
@@ -81,7 +81,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Selecti
      *
      * @return string
      */
-    public function getSelectionDeleteButtonHtml()
+    function getSelectionDeleteButtonHtml()
     {
         return $this->getChildHtml('selection_delete_button');
     }
@@ -91,7 +91,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Selecti
      *
      * @return string
      */
-    public function getPriceTypeSelectHtml()
+    function getPriceTypeSelectHtml()
     {
         $select = $this->getLayout()->createBlock('adminhtml/html_select')
             ->setData([
@@ -111,7 +111,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Selecti
      *
      * @return string
      */
-    public function getQtyTypeSelectHtml()
+    function getQtyTypeSelectHtml()
     {
         $select = $this->getLayout()->createBlock('adminhtml/html_select')
             ->setData([
@@ -129,7 +129,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Selecti
      *
      * @return string
      */
-    public function getSelectionSearchUrl()
+    function getSelectionSearchUrl()
     {
         return $this->getUrl('*/bundle_selection/search');
     }
@@ -139,7 +139,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Selecti
      *
      * @return string
      */
-    public function isUsedWebsitePrice()
+    function isUsedWebsitePrice()
     {
         return !Mage::helper('catalog')->isPriceGlobal() && Mage::registry('product')->getStoreId();
     }
@@ -149,7 +149,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle_Option_Selecti
      *
      * @return string
      */
-    public function getCheckboxScopeHtml()
+    function getCheckboxScopeHtml()
     {
         $checkboxHtml = '';
         if ($this->isUsedWebsitePrice()) {

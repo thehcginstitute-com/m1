@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Report_Shopcart_Product extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'report_shopcart_product';
         $this->_headerText = Mage::helper('reports')->__('Products in carts');
@@ -30,7 +30,7 @@ class Mage_Adminhtml_Block_Report_Shopcart_Product extends Mage_Adminhtml_Block_
         $this->_removeButton('add');
     }
 
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head head-report';
     }

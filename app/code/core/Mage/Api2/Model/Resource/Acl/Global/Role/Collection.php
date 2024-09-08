@@ -36,7 +36,7 @@ class Mage_Api2_Model_Resource_Acl_Global_Role_Collection extends Mage_Core_Mode
      * @param int $id Admin user id
      * @return $this
      */
-    public function addFilterByAdminId($id)
+    function addFilterByAdminId($id)
     {
         $this->getSelect()
             ->joinInner(

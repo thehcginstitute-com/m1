@@ -22,7 +22,7 @@
  */
 class Mage_Dataflow_Model_Convert_Adapter_Db_Table extends Mage_Dataflow_Model_Convert_Adapter_Abstract
 {
-    public function getResource()
+    function getResource()
     {
         if (!$this->_resource) {
             $this->_resource = Zend_Db::factory($this->getVar('type'), $this->getVars());
@@ -30,11 +30,11 @@ class Mage_Dataflow_Model_Convert_Adapter_Db_Table extends Mage_Dataflow_Model_C
         return $this->_resource;
     }
 
-    public function load()
+    function load()
     {
     }
 
-    public function save()
+    function save()
     {
     }
 }

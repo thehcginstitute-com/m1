@@ -35,7 +35,7 @@ class Mage_Sales_Helper_Guest extends Mage_Core_Helper_Data
      *
      * @return bool|null
      */
-    public function loadValidOrder()
+    function loadValidOrder()
     {
         if (Mage::getSingleton('customer/session')->isLoggedIn()) {
             Mage::app()->getResponse()->setRedirect(Mage::getUrl('sales/order/history'));
@@ -129,7 +129,7 @@ class Mage_Sales_Helper_Guest extends Mage_Core_Helper_Data
      *
      * @param  Mage_Core_Controller_Front_Action $controller
      */
-    public function getBreadcrumbs($controller)
+    function getBreadcrumbs($controller)
     {
         /** @var Mage_Page_Block_Html_Breadcrumbs $breadcrumbs */
         $breadcrumbs = $controller->getLayout()->getBlock('breadcrumbs');
@@ -181,7 +181,7 @@ class Mage_Sales_Helper_Guest extends Mage_Core_Helper_Data
      *
      * @return string
      */
-    public function getCookieName()
+    function getCookieName()
     {
         return $this->_cookieName;
     }

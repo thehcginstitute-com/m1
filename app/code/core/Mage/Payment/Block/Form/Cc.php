@@ -41,7 +41,7 @@ class Mage_Payment_Block_Form_Cc extends Mage_Payment_Block_Form
      *
      * @return array
      */
-    public function getCcAvailableTypes()
+    function getCcAvailableTypes()
     {
         $types = $this->_getConfig()->getCcTypes();
         if ($method = $this->getMethod()) {
@@ -63,7 +63,7 @@ class Mage_Payment_Block_Form_Cc extends Mage_Payment_Block_Form
      *
      * @return array
      */
-    public function getCcMonths()
+    function getCcMonths()
     {
         $months = $this->getData('cc_months');
         if (is_null($months)) {
@@ -79,7 +79,7 @@ class Mage_Payment_Block_Form_Cc extends Mage_Payment_Block_Form
      *
      * @return array
      */
-    public function getCcYears()
+    function getCcYears()
     {
         $years = $this->getData('cc_years');
         if (is_null($years)) {
@@ -95,7 +95,7 @@ class Mage_Payment_Block_Form_Cc extends Mage_Payment_Block_Form
      *
      * @return bool
      */
-    public function hasVerification()
+    function hasVerification()
     {
         if ($this->getMethod()) {
             $configData = $this->getMethod()->getConfigData('useccv');
@@ -113,7 +113,7 @@ class Mage_Payment_Block_Form_Cc extends Mage_Payment_Block_Form
     /**
      * @return bool
      */
-    public function hasSsCardType()
+    function hasSsCardType()
     {
         $availableTypes = explode(',', $this->getMethod()->getConfigData('cctypes'));
         $ssPresenations = array_intersect(['SS', 'SM', 'SO'], $availableTypes);
@@ -130,7 +130,7 @@ class Mage_Payment_Block_Form_Cc extends Mage_Payment_Block_Form
     /**
      * @return array
      */
-    public function getSsStartYears()
+    function getSsStartYears()
     {
         $years = [];
         $first = date("Y");

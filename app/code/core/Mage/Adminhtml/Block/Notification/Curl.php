@@ -34,7 +34,7 @@ class Mage_Adminhtml_Block_Notification_Curl extends Mage_Adminhtml_Block_Templa
      */
     protected $_curlVersion;
 
-    public function __construct()
+    function __construct()
     {
         $this->_curlVersion = curl_version();
     }
@@ -61,7 +61,7 @@ class Mage_Adminhtml_Block_Notification_Curl extends Mage_Adminhtml_Block_Templa
      *
      * @return string
      */
-    public function getMessage()
+    function getMessage()
     {
         return $this->helper('adminhtml')->__(
             "Your current version of cURL php5 module is %s, which can prevent services that require TLS v1.2 from working correctly. It is recommended to update your cURL php5 module to version %s or higher.",

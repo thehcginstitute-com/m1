@@ -40,7 +40,7 @@ class Mage_Reports_Model_Resource_Event extends Mage_Core_Model_Resource_Db_Abst
      * @param array $types
      * @return $this
      */
-    public function updateCustomerType(Mage_Reports_Model_Event $model, $visitorId, $customerId, $types = [])
+    function updateCustomerType(Mage_Reports_Model_Event $model, $visitorId, $customerId, $types = [])
     {
         if ($types) {
             $this->_getWriteAdapter()->update(
@@ -68,7 +68,7 @@ class Mage_Reports_Model_Resource_Event extends Mage_Core_Model_Resource_Db_Abst
      * @param array $skipIds
      * @return $this
      */
-    public function applyLogToCollection(
+    function applyLogToCollection(
         Varien_Data_Collection_Db $collection,
         $eventTypeId,
         $eventSubjectId,
@@ -113,7 +113,7 @@ class Mage_Reports_Model_Resource_Event extends Mage_Core_Model_Resource_Db_Abst
      * @return array
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getCurrentStoreIds(array $predefinedStoreIds = null)
+    function getCurrentStoreIds(array $predefinedStoreIds = null)
     {
         $stores = [];
         // get all or specified stores
@@ -155,7 +155,7 @@ class Mage_Reports_Model_Resource_Event extends Mage_Core_Model_Resource_Db_Abst
      * @param Mage_Reports_Model_Event $object
      * @return $this
      */
-    public function clean(Mage_Reports_Model_Event $object)
+    function clean(Mage_Reports_Model_Event $object)
     {
         while (true) {
             $select = $this->_getReadAdapter()->select()

@@ -38,7 +38,7 @@ class Mage_Api2_Model_Resource_Acl_Filter_Attribute extends Mage_Core_Model_Reso
      * @param string $operation One of Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_... constant
      * @return string|bool|null
      */
-    public function getAllowedAttributes($userType, $resourceId, $operation)
+    function getAllowedAttributes($userType, $resourceId, $operation)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getMainTable(), 'allowed_attributes')
@@ -55,7 +55,7 @@ class Mage_Api2_Model_Resource_Acl_Filter_Attribute extends Mage_Core_Model_Reso
      * @param string $userType
      * @return bool
      */
-    public function isAllAttributesAllowed($userType)
+    function isAllAttributesAllowed($userType)
     {
         $resourceId = self::FILTER_RESOURCE_ALL;
 

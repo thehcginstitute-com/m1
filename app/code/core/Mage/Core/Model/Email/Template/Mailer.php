@@ -39,7 +39,7 @@ class Mage_Core_Model_Email_Template_Mailer extends Varien_Object
      * @param Mage_Core_Model_Email_Info $emailInfo
      * @return $this
      */
-    public function addEmailInfo(Mage_Core_Model_Email_Info $emailInfo)
+    function addEmailInfo(Mage_Core_Model_Email_Info $emailInfo)
     {
         $this->_emailInfos[] = $emailInfo;
         return $this;
@@ -51,7 +51,7 @@ class Mage_Core_Model_Email_Template_Mailer extends Varien_Object
      *
      * @return $this
      */
-    public function send()
+    function send()
     {
         /** @var Mage_Core_Model_Email_Template $emailTemplate */
         $emailTemplate = Mage::getModel('core/email_template');
@@ -81,7 +81,7 @@ class Mage_Core_Model_Email_Template_Mailer extends Varien_Object
      * @param string|array $sender
      * @return $this
      */
-    public function setSender($sender)
+    function setSender($sender)
     {
         return $this->setData('sender', $sender);
     }
@@ -91,7 +91,7 @@ class Mage_Core_Model_Email_Template_Mailer extends Varien_Object
      *
      * @return string|array|null
      */
-    public function getSender()
+    function getSender()
     {
         return $this->_getData('sender');
     }
@@ -102,7 +102,7 @@ class Mage_Core_Model_Email_Template_Mailer extends Varien_Object
      * @param int $storeId
      * @return $this
      */
-    public function setStoreId($storeId)
+    function setStoreId($storeId)
     {
         return $this->setData('store_id', $storeId);
     }
@@ -112,7 +112,7 @@ class Mage_Core_Model_Email_Template_Mailer extends Varien_Object
      *
      * @return int|null
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_getData('store_id');
     }
@@ -123,7 +123,7 @@ class Mage_Core_Model_Email_Template_Mailer extends Varien_Object
      * @param int $templateId
      * @return $this
      */
-    public function setTemplateId($templateId)
+    function setTemplateId($templateId)
     {
         return $this->setData('template_id', $templateId);
     }
@@ -133,7 +133,7 @@ class Mage_Core_Model_Email_Template_Mailer extends Varien_Object
      *
      * @return int|null
      */
-    public function getTemplateId()
+    function getTemplateId()
     {
         return $this->_getData('template_id');
     }
@@ -144,7 +144,7 @@ class Mage_Core_Model_Email_Template_Mailer extends Varien_Object
      * @param array $templateParams
      * @return $this
      */
-    public function setTemplateParams(array $templateParams)
+    function setTemplateParams(array $templateParams)
     {
         return $this->setData('template_params', $templateParams);
     }
@@ -154,7 +154,7 @@ class Mage_Core_Model_Email_Template_Mailer extends Varien_Object
      *
      * @return array|null
      */
-    public function getTemplateParams()
+    function getTemplateParams()
     {
         return $this->_getData('template_params');
     }

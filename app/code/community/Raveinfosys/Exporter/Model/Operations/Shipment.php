@@ -3,7 +3,7 @@
 class Raveinfosys_Exporter_Model_Operations_Shipment extends Mage_Core_Model_Abstract
 {
     
-    public function createShipment($order_id,$shipped_item,$date)
+    function createShipment($order_id,$shipped_item,$date)
 	{
 	    $order = $this->getOrderModel($order_id);
 		try
@@ -32,7 +32,7 @@ class Raveinfosys_Exporter_Model_Operations_Shipment extends Mage_Core_Model_Abs
 		 return $shipment; 
 	}
 	
-	public function updateShipmentQTY($shipped_item)
+	function updateShipmentQTY($shipped_item)
 	{ 
 	  foreach($shipped_item as $itemid => $itemqty)
 	  {
@@ -42,7 +42,7 @@ class Raveinfosys_Exporter_Model_Operations_Shipment extends Mage_Core_Model_Abs
 	  } 
 	}
 	
-   public function getOrderModel($last_order_increment_id)
+   function getOrderModel($last_order_increment_id)
    {
      $order = Mage::getModel('sales/order')->loadByIncrementId($last_order_increment_id);
 	 return $order;

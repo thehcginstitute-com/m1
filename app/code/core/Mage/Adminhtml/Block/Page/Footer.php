@@ -35,7 +35,7 @@ class Mage_Adminhtml_Block_Page_Footer extends Mage_Adminhtml_Block_Template
     /**
      * @return string
      */
-    public function getChangeLocaleUrl()
+    function getChangeLocaleUrl()
     {
         return $this->getUrl('adminhtml/index/changeLocale');
     }
@@ -43,7 +43,7 @@ class Mage_Adminhtml_Block_Page_Footer extends Mage_Adminhtml_Block_Template
     /**
      * @return string
      */
-    public function getUrlForReferer()
+    function getUrlForReferer()
     {
         return $this->getUrlEncoded('*/*/*', ['_current' => true]);
     }
@@ -51,7 +51,7 @@ class Mage_Adminhtml_Block_Page_Footer extends Mage_Adminhtml_Block_Template
     /**
      * @return string
      */
-    public function getRefererParamName()
+    function getRefererParamName()
     {
         return Mage_Core_Controller_Varien_Action::PARAM_NAME_URL_ENCODED;
     }
@@ -59,7 +59,7 @@ class Mage_Adminhtml_Block_Page_Footer extends Mage_Adminhtml_Block_Template
     /**
      * @return string
      */
-    public function getLanguageSelect()
+    function getLanguageSelect()
     {
         $locale  = Mage::app()->getLocale();
         $cacheId = self::LOCALE_CACHE_KEY . $locale->getLocaleCode();
@@ -85,7 +85,7 @@ class Mage_Adminhtml_Block_Page_Footer extends Mage_Adminhtml_Block_Template
      * @return $this
      * @deprecated see setReportIssuesUrl()
      */
-    public function setBugreportUrl(string $url)
+    function setBugreportUrl(string $url)
     {
         return $this->setReportIssuesUrl($url);
     }
@@ -94,7 +94,7 @@ class Mage_Adminhtml_Block_Page_Footer extends Mage_Adminhtml_Block_Template
      * @return string
      * @deprecated see getReportIssuesUrl()
      */
-    public function getBugreportUrl(): string
+    function getBugreportUrl(): string
     {
         return $this->getReportIssuesUrl();
     }
@@ -103,7 +103,7 @@ class Mage_Adminhtml_Block_Page_Footer extends Mage_Adminhtml_Block_Template
      * @param string $url
      * @return $this
      */
-    public function setReportIssuesUrl(string $url)
+    function setReportIssuesUrl(string $url)
     {
         return $this->setData('report_issues_url', $url);
     }
@@ -111,7 +111,7 @@ class Mage_Adminhtml_Block_Page_Footer extends Mage_Adminhtml_Block_Template
     /**
      * @return string
      */
-    public function getReportIssuesUrl(): string
+    function getReportIssuesUrl(): string
     {
         return (string) $this->_getData('report_issues_url');
     }
@@ -121,7 +121,7 @@ class Mage_Adminhtml_Block_Page_Footer extends Mage_Adminhtml_Block_Template
      * @return $this
      * @deprecated see setOpenMageProjectUrl()
      */
-    public function setConnectWithMagentoUrl(string $url)
+    function setConnectWithMagentoUrl(string $url)
     {
         return $this->setOpenMageProjectUrl($url);
     }
@@ -130,7 +130,7 @@ class Mage_Adminhtml_Block_Page_Footer extends Mage_Adminhtml_Block_Template
      * @return string
      * @deprecated see getOpenMageProjectUrl()
      */
-    public function getConnectWithMagentoUrl(): string
+    function getConnectWithMagentoUrl(): string
     {
         return $this->getOpenMageProjectUrl();
     }
@@ -139,7 +139,7 @@ class Mage_Adminhtml_Block_Page_Footer extends Mage_Adminhtml_Block_Template
      * @param string $url
      * @return $this
      */
-    public function setOpenMageProjectUrl(string $url)
+    function setOpenMageProjectUrl(string $url)
     {
         return $this->setData('openmage_project_url', $url);
     }
@@ -147,7 +147,7 @@ class Mage_Adminhtml_Block_Page_Footer extends Mage_Adminhtml_Block_Template
     /**
      * @return string
      */
-    public function getOpenMageProjectUrl(): string
+    function getOpenMageProjectUrl(): string
     {
         return (string) $this->_getData('openmage_project_url');
     }

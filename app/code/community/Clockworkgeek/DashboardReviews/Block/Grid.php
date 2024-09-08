@@ -18,7 +18,7 @@
 class Clockworkgeek_DashboardReviews_Block_Grid extends Mage_Adminhtml_Block_Dashboard_Grid
 {
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('pendingReviewsGrid');
@@ -66,7 +66,7 @@ class Clockworkgeek_DashboardReviews_Block_Grid extends Mage_Adminhtml_Block_Das
         return parent::_prepareColumns();
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         $params = array(
             'id' => $row->getReviewId()

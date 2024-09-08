@@ -22,7 +22,7 @@ class Mage_Adminhtml_Model_System_Config_Source_Email_Identity
 {
     protected $_options = null;
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         if (is_null($this->_options)) {
             $this->_options = [];

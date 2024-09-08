@@ -37,7 +37,7 @@ class Mage_Eav_Model_Entity_Attribute_Source_Config extends Mage_Eav_Model_Entit
      * @throws Mage_Eav_Exception
      * @return array
      */
-    public function getAllOptions()
+    function getAllOptions()
     {
         if ($this->_options === null) {
             $this->_options = [];

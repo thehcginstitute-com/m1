@@ -32,7 +32,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Category_Tree extends Mage_Adminhtml_Block
     /**
      * Set custom template for the block
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('urlrewrite/categories.phtml');
@@ -46,7 +46,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Category_Tree extends Mage_Adminhtml_Block
      * @param int $recursionLevel
      * @return array|string
      */
-    public function getTreeArray($parentId = null, $asJson = false, $recursionLevel = 3)
+    function getTreeArray($parentId = null, $asJson = false, $recursionLevel = 3)
     {
         $productId = Mage::app()->getRequest()->getParam('product');
         if ($productId) {
@@ -82,7 +82,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Category_Tree extends Mage_Adminhtml_Block
      *
      * @return Mage_Catalog_Model_Resource_Eav_Mysql4_Category_Collection
      */
-    public function getCategoryCollection()
+    function getCategoryCollection()
     {
         $collection = $this->_getData('category_collection');
         if (is_null($collection)) {
@@ -134,7 +134,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Category_Tree extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getLoadTreeUrl()
+    function getLoadTreeUrl()
     {
         return Mage::helper('adminhtml')->getUrl('*/*/categoriesJson');
     }

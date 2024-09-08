@@ -26,7 +26,7 @@ class Mage_Cron_Model_Resource_Schedule extends Mage_Core_Model_Resource_Db_Abst
      * Initialize resource
      *
      */
-    public function _construct()
+    function _construct()
     {
         $this->_init('cron/schedule', 'schedule_id');
     }
@@ -41,7 +41,7 @@ class Mage_Cron_Model_Resource_Schedule extends Mage_Core_Model_Resource_Db_Abst
      * @param String $currentStatus
      * @return bool
      */
-    public function trySetJobStatusAtomic($scheduleId, $newStatus, $currentStatus)
+    function trySetJobStatusAtomic($scheduleId, $newStatus, $currentStatus)
     {
         $write = $this->_getWriteAdapter();
         $result = $write->update(

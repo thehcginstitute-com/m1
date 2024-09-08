@@ -29,7 +29,7 @@ class Mage_Rule_Model_Resource_Rule_Condition_SqlBuilder
     /**
      * @param array $config
      */
-    public function __construct(array $config = [])
+    function __construct(array $config = [])
     {
         $this->_adapter = $config['adapter'] ?? Mage::getSingleton('core/resource')->getConnection(Mage_Core_Model_Resource::DEFAULT_READ_RESOURCE);
     }
@@ -42,7 +42,7 @@ class Mage_Rule_Model_Resource_Rule_Condition_SqlBuilder
      * @param string|array $value
      * @return string
      */
-    public function getOperatorCondition($field, $operator, $value)
+    function getOperatorCondition($field, $operator, $value)
     {
         switch ($operator) {
             case '!=':

@@ -37,7 +37,7 @@ class Mage_Catalog_Model_Layer_Filter_Decimal extends Mage_Catalog_Model_Layer_F
      * Initialize filter and define request variable
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_requestVar = 'decimal';
@@ -63,7 +63,7 @@ class Mage_Catalog_Model_Layer_Filter_Decimal extends Mage_Catalog_Model_Layer_F
      * @param Mage_Catalog_Block_Layer_Filter_Decimal $filterBlock
      * @return $this
      */
-    public function apply(Zend_Controller_Request_Abstract $request, $filterBlock)
+    function apply(Zend_Controller_Request_Abstract $request, $filterBlock)
     {
         parent::apply($request, $filterBlock);
 
@@ -125,7 +125,7 @@ class Mage_Catalog_Model_Layer_Filter_Decimal extends Mage_Catalog_Model_Layer_F
      *
      * @return float
      */
-    public function getMaxValue()
+    function getMaxValue()
     {
         $max = $this->getData('max_value');
         if (is_null($max)) {
@@ -141,7 +141,7 @@ class Mage_Catalog_Model_Layer_Filter_Decimal extends Mage_Catalog_Model_Layer_F
      *
      * @return float
      */
-    public function getMinValue()
+    function getMinValue()
     {
         $min = $this->getData('min_value');
         if (is_null($min)) {
@@ -157,7 +157,7 @@ class Mage_Catalog_Model_Layer_Filter_Decimal extends Mage_Catalog_Model_Layer_F
      *
      * @return int
      */
-    public function getRange()
+    function getRange()
     {
         $range = $this->getData('range');
         if (!$range) {
@@ -180,7 +180,7 @@ class Mage_Catalog_Model_Layer_Filter_Decimal extends Mage_Catalog_Model_Layer_F
      * @param int $range
      * @return array
      */
-    public function getRangeItemCounts($range)
+    function getRangeItemCounts($range)
     {
         $rangeKey = 'range_item_counts_' . $range;
         $items = $this->getData($rangeKey);

@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Search_Grid_Renderer_Product exten
      * @param   Mage_Catalog_Model_Product $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $rendered       =  parent::render($row);
         $isConfigurable = $row->canConfigure();

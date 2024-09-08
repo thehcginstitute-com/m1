@@ -32,7 +32,7 @@ class Mage_Adminhtml_Block_System_Config_Switcher extends Mage_Adminhtml_Block_T
     /**
      * @return array
      */
-    public function getStoreSelectOptions()
+    function getStoreSelectOptions()
     {
         $section = $this->getRequest()->getParam('section');
 

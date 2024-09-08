@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Tracking extends Mage_Adminhtml_Block_Template
 {
-    public function _construct()
+    function _construct()
     {
         $this->setTemplate('sales/order/invoice/create/tracking.phtml');
     }
@@ -51,7 +51,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Tracking extends Mage_Admi
      *
      * @return Mage_Sales_Model_Order_Shipment
      */
-    public function getShipment()
+    function getShipment()
     {
         return Mage::registry('current_shipment');
     }
@@ -61,7 +61,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Tracking extends Mage_Admi
      *
      * @return Mage_Sales_Model_Order_Shipment
      */
-    public function getInvoice()
+    function getInvoice()
     {
         return Mage::registry('current_invoice');
     }
@@ -71,7 +71,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Tracking extends Mage_Admi
      *
      * @return array
      */
-    public function getCarriers()
+    function getCarriers()
     {
         $carriers = [];
         $carrierInstances = Mage::getSingleton('shipping/config')->getAllCarriers(

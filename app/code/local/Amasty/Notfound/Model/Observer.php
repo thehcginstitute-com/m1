@@ -6,7 +6,7 @@
  */  
 class Amasty_Notfound_Model_Observer
 {
-    public function processLogin($observer)
+    function processLogin($observer)
     {
         $username = $observer->getEvent()->getUserName();
         $ip  = Mage::app()->getRequest()->getClientIp();
@@ -21,7 +21,7 @@ class Amasty_Notfound_Model_Observer
         return $this;      
     }
 
-	public function process404($observer)
+	function process404($observer)
 	{
 		$id = $observer->getEvent()->getPage()->getIdentifier();
 
@@ -81,7 +81,7 @@ class Amasty_Notfound_Model_Observer
 		return false;
 	}
 
-	public function checkForErrors()
+	function checkForErrors()
 	{
 		$freq = $this->_config('freq', true);
 		if (!$freq)

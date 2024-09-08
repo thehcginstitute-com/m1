@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Type_Select extends 
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/product/edit/options/type/select.phtml');
@@ -58,17 +58,17 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Type_Select extends 
         return parent::_prepareLayout();
     }
 
-    public function getAddButtonHtml()
+    function getAddButtonHtml()
     {
         return $this->getChildHtml('add_select_row_button');
     }
 
-    public function getDeleteButtonHtml()
+    function getDeleteButtonHtml()
     {
         return $this->getChildHtml('delete_select_row_button');
     }
 
-    public function getPriceTypeSelectHtml()
+    function getPriceTypeSelectHtml()
     {
         $this->getChild('option_price_type')
             ->setData('id', 'product_option_{{id}}_select_{{select_id}}_price_type')

@@ -34,7 +34,7 @@ class Mage_ImportExport_Block_Adminhtml_Export_Filter extends Mage_Adminhtml_Blo
     /**
      * Set grid parameters.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -383,7 +383,7 @@ class Mage_ImportExport_Block_Adminhtml_Export_Filter extends Mage_Adminhtml_Blo
      * @param bool $isExport
      * @return string
      */
-    public function decorateFilter($value, Mage_Eav_Model_Entity_Attribute $row, Varien_Object $column, $isExport)
+    function decorateFilter($value, Mage_Eav_Model_Entity_Attribute $row, Varien_Object $column, $isExport)
     {
         $value  = null;
         $values = $column->getValues();
@@ -415,7 +415,7 @@ class Mage_ImportExport_Block_Adminhtml_Export_Filter extends Mage_Adminhtml_Blo
      * @param string $attributeCode
      * @return string
      */
-    public function getFilterElementId($attributeCode)
+    function getFilterElementId($attributeCode)
     {
         return Mage_ImportExport_Model_Export::FILTER_ELEMENT_GROUP . "_{$attributeCode}";
     }
@@ -426,7 +426,7 @@ class Mage_ImportExport_Block_Adminhtml_Export_Filter extends Mage_Adminhtml_Blo
      * @param string $attributeCode
      * @return string
      */
-    public function getFilterElementName($attributeCode)
+    function getFilterElementName($attributeCode)
     {
         return Mage_ImportExport_Model_Export::FILTER_ELEMENT_GROUP . "[{$attributeCode}]";
     }
@@ -437,7 +437,7 @@ class Mage_ImportExport_Block_Adminhtml_Export_Filter extends Mage_Adminhtml_Blo
      * @param Mage_Catalog_Model_Resource_Eav_Attribute $row
      * @return false
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return false;
     }
@@ -448,7 +448,7 @@ class Mage_ImportExport_Block_Adminhtml_Export_Filter extends Mage_Adminhtml_Blo
      * @param Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection
      * @return Mage_Eav_Model_Resource_Entity_Attribute_Collection
      */
-    public function prepareCollection(Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection)
+    function prepareCollection(Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection)
     {
         $this->_collection = $collection;
 

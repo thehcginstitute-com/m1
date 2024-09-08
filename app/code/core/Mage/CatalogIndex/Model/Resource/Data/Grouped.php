@@ -30,7 +30,7 @@ class Mage_CatalogIndex_Model_Resource_Data_Grouped extends Mage_CatalogIndex_Mo
      * @param int $store
      * @return array
      */
-    public function getMinimalPrice($products, $priceAttributes, $store)
+    function getMinimalPrice($products, $priceAttributes, $store)
     {
         $result = [];
         $store  = Mage::app()->getStore($store);

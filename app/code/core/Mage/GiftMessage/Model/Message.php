@@ -61,7 +61,7 @@ class Mage_GiftMessage_Model_Message extends Mage_Core_Model_Abstract
      * @param string $type
      * @return Mage_Eav_Model_Entity_Abstract
      */
-    public function getEntityModelByType($type)
+    function getEntityModelByType($type)
     {
         $types = self::getAllowedEntityTypes();
         if (!isset($types[$type])) {
@@ -76,7 +76,7 @@ class Mage_GiftMessage_Model_Message extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isMessageEmpty()
+    function isMessageEmpty()
     {
         return trim($this->getMessage()) == '';
     }

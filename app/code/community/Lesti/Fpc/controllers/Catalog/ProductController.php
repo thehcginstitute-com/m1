@@ -17,7 +17,7 @@
 class Lesti_Fpc_Catalog_ProductController extends
     Mage_Core_Controller_Front_Action
 {
-    public function viewAction()
+    function viewAction()
     {
         $productId = (int)Mage::app()->getRequest()->getParam('id');
         $product = Mage::getModel('catalog/product')->load($productId);

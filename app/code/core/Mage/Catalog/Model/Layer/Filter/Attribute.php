@@ -35,7 +35,7 @@ class Mage_Catalog_Model_Layer_Filter_Attribute extends Mage_Catalog_Model_Layer
      * Construct attribute filter
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_requestVar = 'attribute';
@@ -72,7 +72,7 @@ class Mage_Catalog_Model_Layer_Filter_Attribute extends Mage_Catalog_Model_Layer
      * @param   Varien_Object $filterBlock
      * @return  Mage_Catalog_Model_Layer_Filter_Attribute
      */
-    public function apply(Zend_Controller_Request_Abstract $request, $filterBlock)
+    function apply(Zend_Controller_Request_Abstract $request, $filterBlock)
     {
         $filter = $request->getParam($this->_requestVar);
         if (is_array($filter)) {

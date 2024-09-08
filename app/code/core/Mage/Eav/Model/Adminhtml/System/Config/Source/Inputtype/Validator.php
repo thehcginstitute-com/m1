@@ -27,7 +27,7 @@ class Mage_Eav_Model_Adminhtml_System_Config_Source_Inputtype_Validator extends 
      */
     protected $_messageTemplates;
 
-    public function __construct()
+    function __construct()
     {
         //set data haystack
         /** @var Mage_Eav_Helper_Data $helper */
@@ -67,7 +67,7 @@ class Mage_Eav_Model_Adminhtml_System_Config_Source_Inputtype_Validator extends 
      * @param string $type
      * @return $this
      */
-    public function addInputType($type)
+    function addInputType($type)
     {
         if (!in_array((string) $type, $this->_haystack, true)) {
             $this->_haystack[] = (string) $type;

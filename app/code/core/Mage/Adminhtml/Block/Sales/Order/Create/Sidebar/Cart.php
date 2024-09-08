@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Cart extends Mage_Adminhtm
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Shopping Cart');
     }
@@ -49,7 +49,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Cart extends Mage_Adminhtm
      *
      * @return mixed
      */
-    public function getItemCollection()
+    function getItemCollection()
     {
         $collection = $this->getData('item_collection');
         if (is_null($collection)) {
@@ -62,7 +62,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Cart extends Mage_Adminhtm
     /**
      * @return bool
      */
-    public function canDisplayItemQty()
+    function canDisplayItemQty()
     {
         return true;
     }
@@ -73,7 +73,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Cart extends Mage_Adminhtm
      * @param Varien_Object $item
      * @return int
      */
-    public function getIdentifierId($item)
+    function getIdentifierId($item)
     {
         return $item->getId();
     }
@@ -84,7 +84,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Cart extends Mage_Adminhtm
      * @param   Mage_Sales_Model_Quote_Item $item
      * @return  int
      */
-    public function getProductId($item)
+    function getProductId($item)
     {
         return $item->getProduct()->getId();
     }

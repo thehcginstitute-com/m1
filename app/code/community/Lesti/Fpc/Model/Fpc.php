@@ -42,7 +42,7 @@ class Lesti_Fpc_Model_Fpc extends Mage_Core_Model_Cache
         'file_name_prefix'          => 'fpc',
     );
 
-    public function __construct()
+    function __construct()
     {
         /*
          * If the version of Zend Framework is older than 1.12, fallback to the
@@ -69,7 +69,7 @@ class Lesti_Fpc_Model_Fpc extends Mage_Core_Model_Cache
      * @param int $lifeTime
      * @return bool
      */
-    public function save($item, $id, $tags=array(), $lifeTime=null)
+    function save($item, $id, $tags=array(), $lifeTime=null)
     {
         if (!in_array(self::CACHE_TAG, $tags)) {
             $tags[] = self::CACHE_TAG;
@@ -115,7 +115,7 @@ class Lesti_Fpc_Model_Fpc extends Mage_Core_Model_Cache
      * @param string $id
      * @return boolean|\Lesti_Fpc_Model_Fpc_CacheItem
      */
-    public function load($id)
+    function load($id)
     {
         $data = parent::load($id);
         if ($data === false) {
@@ -137,7 +137,7 @@ class Lesti_Fpc_Model_Fpc extends Mage_Core_Model_Cache
      * @param   array $tags
      * @return  bool
      */
-    public function clean($tags=array())
+    function clean($tags=array())
     {
         $mode = Zend_Cache::CLEANING_MODE_MATCHING_ANY_TAG;
         if (!empty($tags)) {
@@ -159,7 +159,7 @@ class Lesti_Fpc_Model_Fpc extends Mage_Core_Model_Cache
     /**
      * @return bool
      */
-    public function isActive()
+    function isActive()
     {
         return Mage::app()->useCache('fpc');
     }

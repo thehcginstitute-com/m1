@@ -51,7 +51,7 @@ class Mage_Catalog_Block_Widget_Link extends Mage_Core_Block_Html_Link implement
      *
      * @return string|false
      */
-    public function getHref()
+    function getHref()
     {
         if (!$this->_href) {
             if ($this->hasStoreId()) {
@@ -98,7 +98,7 @@ class Mage_Catalog_Block_Widget_Link extends Mage_Core_Block_Html_Link implement
      *
      * @return string
      */
-    public function getAnchorText()
+    function getAnchorText()
     {
         if ($this->hasStoreId()) {
             $store = Mage::app()->getStore($this->getStoreId());

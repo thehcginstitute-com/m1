@@ -50,7 +50,7 @@ class Mage_Adminhtml_Sales_TransactionsController extends Mage_Adminhtml_Control
         return $txn;
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Sales'))
             ->_title($this->__('Transactions'));
@@ -63,7 +63,7 @@ class Mage_Adminhtml_Sales_TransactionsController extends Mage_Adminhtml_Control
     /**
      * Ajax grid action
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout(false);
         $this->renderLayout();
@@ -72,7 +72,7 @@ class Mage_Adminhtml_Sales_TransactionsController extends Mage_Adminhtml_Control
     /**
      * View Transaction Details action
      */
-    public function viewAction()
+    function viewAction()
     {
         $txn = $this->_initTransaction();
         if (!$txn) {
@@ -90,7 +90,7 @@ class Mage_Adminhtml_Sales_TransactionsController extends Mage_Adminhtml_Control
     /**
      * Fetch transaction details action
      */
-    public function fetchAction()
+    function fetchAction()
     {
         $txn = $this->_initTransaction();
         if (!$txn) {

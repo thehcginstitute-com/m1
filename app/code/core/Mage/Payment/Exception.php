@@ -29,7 +29,7 @@ class Mage_Payment_Exception extends Exception
      * @param string|null $message
      * @param int $code
      */
-    public function __construct($message = null, $code = 0)
+    function __construct($message = null, $code = 0)
     {
         $this->_code = $code;
         parent::__construct($message, 0);
@@ -38,7 +38,7 @@ class Mage_Payment_Exception extends Exception
     /**
      * @return int|null
      */
-    public function getFields()
+    function getFields()
     {
         return $this->_code;
     }

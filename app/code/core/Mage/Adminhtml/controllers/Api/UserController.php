@@ -31,7 +31,7 @@ class Mage_Adminhtml_Api_UserController extends Mage_Adminhtml_Controller_Action
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         return parent::preDispatch();
@@ -48,7 +48,7 @@ class Mage_Adminhtml_Api_UserController extends Mage_Adminhtml_Controller_Action
         return $this;
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('System'))
              ->_title($this->__('Web Services'))
@@ -59,12 +59,12 @@ class Mage_Adminhtml_Api_UserController extends Mage_Adminhtml_Controller_Action
             ->renderLayout();
     }
 
-    public function newAction()
+    function newAction()
     {
         $this->_forward('edit');
     }
 
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('System'))
              ->_title($this->__('Web Services'))
@@ -109,7 +109,7 @@ class Mage_Adminhtml_Api_UserController extends Mage_Adminhtml_Controller_Action
         $this->renderLayout();
     }
 
-    public function saveAction()
+    function saveAction()
     {
         if ($data = $this->getRequest()->getPost()) {
             $id = $this->getRequest()->getPost('user_id', false);
@@ -181,7 +181,7 @@ class Mage_Adminhtml_Api_UserController extends Mage_Adminhtml_Controller_Action
         $this->_redirect('*/*/');
     }
 
-    public function deleteAction()
+    function deleteAction()
     {
         $id = $this->getRequest()->getParam('user_id');
 
@@ -215,7 +215,7 @@ class Mage_Adminhtml_Api_UserController extends Mage_Adminhtml_Controller_Action
         $this->_redirect('*/*/');
     }
 
-    public function rolesGridAction()
+    function rolesGridAction()
     {
         $id = $this->getRequest()->getParam('user_id');
         $model = Mage::getModel('api/user');
@@ -228,7 +228,7 @@ class Mage_Adminhtml_Api_UserController extends Mage_Adminhtml_Controller_Action
         $this->getResponse()->setBody($this->getLayout()->createBlock('adminhtml/api_user_edit_tab_roles')->toHtml());
     }
 
-    public function roleGridAction()
+    function roleGridAction()
     {
         $this->getResponse()
             ->setBody($this->getLayout()

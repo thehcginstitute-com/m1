@@ -30,7 +30,7 @@ class Mage_CatalogSearch_Model_Resource_Helper_Mysql4 extends Mage_Eav_Model_Res
      * @param Varien_Db_Select $select
      * @return Zend_Db_Expr $select
      */
-    public function chooseFulltext($table, $alias, $select)
+    function chooseFulltext($table, $alias, $select)
     {
         $field = new Zend_Db_Expr('MATCH (' . $alias . '.data_index) AGAINST (:query IN BOOLEAN MODE)');
         $select->columns(['relevance' => $field]);
@@ -44,7 +44,7 @@ class Mage_CatalogSearch_Model_Resource_Helper_Mysql4 extends Mage_Eav_Model_Res
      * @param int $maxWordLength
      * @return array (0=>words, 1=>terms)
      */
-    public function prepareTerms($str, $maxWordLength = 0)
+    function prepareTerms($str, $maxWordLength = 0)
     {
         $boolWords = [
             '+' => '+',
@@ -104,7 +104,7 @@ class Mage_CatalogSearch_Model_Resource_Helper_Mysql4 extends Mage_Eav_Model_Res
      * @param array $fields update fields pairs or values
      * @return int The number of affected rows.
      */
-    public function insertOnDuplicate($table, array $data, array $fields = [])
+    function insertOnDuplicate($table, array $data, array $fields = [])
     {
         return $this->_getWriteAdapter()->insertOnDuplicate($table, $data, $fields);
     }
@@ -117,7 +117,7 @@ class Mage_CatalogSearch_Model_Resource_Helper_Mysql4 extends Mage_Eav_Model_Res
      *
      * @return string
      */
-    public function getFieldOrderExpression($fieldName, array $orderedIds)
+    function getFieldOrderExpression($fieldName, array $orderedIds)
     {
         $fieldName = $this->_getWriteAdapter()->quoteIdentifier($fieldName);
         return "FIELD({$fieldName}, {$this->_getReadAdapter()->quote($orderedIds)})";

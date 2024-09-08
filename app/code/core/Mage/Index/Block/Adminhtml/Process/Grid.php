@@ -39,7 +39,7 @@ class Mage_Index_Block_Adminhtml_Process_Grid extends Mage_Adminhtml_Block_Widge
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_processModel = Mage::getSingleton('index/process');
@@ -181,7 +181,7 @@ class Mage_Index_Block_Adminhtml_Process_Grid extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function decorateStatus($value, $row, $column, $isExport)
+    function decorateStatus($value, $row, $column, $isExport)
     {
         $class = '';
         switch ($row->getStatus()) {
@@ -208,7 +208,7 @@ class Mage_Index_Block_Adminhtml_Process_Grid extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function decorateUpdateRequired($value, $row, $column, $isExport)
+    function decorateUpdateRequired($value, $row, $column, $isExport)
     {
         $class = '';
         switch ($row->getUpdateRequired()) {
@@ -232,7 +232,7 @@ class Mage_Index_Block_Adminhtml_Process_Grid extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function decorateDate($value, $row, $column, $isExport)
+    function decorateDate($value, $row, $column, $isExport)
     {
         if (!$value) {
             return $this->__('Never');
@@ -247,7 +247,7 @@ class Mage_Index_Block_Adminhtml_Process_Grid extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', ['process' => $row->getId()]);
     }

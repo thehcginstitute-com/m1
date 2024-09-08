@@ -39,7 +39,7 @@ class Mage_Core_Model_Factory
      *
      * @param array $arguments
      */
-    public function __construct(array $arguments = [])
+    function __construct(array $arguments = [])
     {
         $this->_config = !empty($arguments['config']) ? $arguments['config'] : Mage::getConfig();
     }
@@ -51,7 +51,7 @@ class Mage_Core_Model_Factory
      * @param array|object $arguments
      * @return bool|Mage_Core_Model_Abstract
      */
-    public function getModel($modelClass = '', $arguments = [])
+    function getModel($modelClass = '', $arguments = [])
     {
         return Mage::getModel($modelClass, $arguments);
     }
@@ -63,7 +63,7 @@ class Mage_Core_Model_Factory
      * @param array $arguments
      * @return Mage_Core_Model_Abstract
      */
-    public function getSingleton($modelClass = '', array $arguments = [])
+    function getSingleton($modelClass = '', array $arguments = [])
     {
         return Mage::getSingleton($modelClass, $arguments);
     }
@@ -75,7 +75,7 @@ class Mage_Core_Model_Factory
      * @param array $arguments
      * @return Object
      */
-    public function getResourceModel($modelClass, $arguments = [])
+    function getResourceModel($modelClass, $arguments = [])
     {
         return Mage::getResourceModel($modelClass, $arguments);
     }
@@ -86,7 +86,7 @@ class Mage_Core_Model_Factory
      * @param string $helperClass
      * @return Mage_Core_Helper_Abstract
      */
-    public function getHelper($helperClass)
+    function getHelper($helperClass)
     {
         return Mage::helper($helperClass);
     }
@@ -96,7 +96,7 @@ class Mage_Core_Model_Factory
      *
      * @return Mage_Core_Model_Config
      */
-    public function getConfig()
+    function getConfig()
     {
         return $this->_config;
     }
@@ -106,7 +106,7 @@ class Mage_Core_Model_Factory
      *
      * @return Mage_Core_Model_Url_Rewrite
      */
-    public function getUrlRewriteInstance()
+    function getUrlRewriteInstance()
     {
         return $this->getModel($this->getUrlRewriteClassAlias());
     }
@@ -116,7 +116,7 @@ class Mage_Core_Model_Factory
      *
      * @return string
      */
-    public function getUrlRewriteClassAlias()
+    function getUrlRewriteClassAlias()
     {
         return (string)$this->_config->getNode(self::XML_PATH_URL_REWRITE_MODEL);
     }
@@ -124,7 +124,7 @@ class Mage_Core_Model_Factory
     /**
      * @return string
      */
-    public function getIndexClassAlias()
+    function getIndexClassAlias()
     {
         return (string)$this->_config->getNode(self::XML_PATH_INDEX_INDEX_MODEL);
     }

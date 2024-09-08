@@ -70,7 +70,7 @@ class Mage_Bundle_Block_Catalog_Product_List_Partof extends Mage_Catalog_Block_P
     /**
      * @return mixed
      */
-    public function getItemCollection()
+    function getItemCollection()
     {
         return $this->_itemCollection;
     }
@@ -78,7 +78,7 @@ class Mage_Bundle_Block_Catalog_Product_List_Partof extends Mage_Catalog_Block_P
     /**
      * @return mixed
      */
-    public function getItems()
+    function getItems()
     {
         if (is_null($this->_items)) {
             $this->_items = $this->getItemCollection()->getItems();
@@ -89,7 +89,7 @@ class Mage_Bundle_Block_Catalog_Product_List_Partof extends Mage_Catalog_Block_P
     /**
      * @return float
      */
-    public function getRowCount()
+    function getRowCount()
     {
         return ceil($this->getItemCollection()->getSize() / $this->getColumnCount());
     }
@@ -98,7 +98,7 @@ class Mage_Bundle_Block_Catalog_Product_List_Partof extends Mage_Catalog_Block_P
      * @param array $columns
      * @return $this
      */
-    public function setColumnCount($columns)
+    function setColumnCount($columns)
     {
         if ((int) $columns > 0) {
             $this->_columnCount = (int) $columns;
@@ -109,12 +109,12 @@ class Mage_Bundle_Block_Catalog_Product_List_Partof extends Mage_Catalog_Block_P
     /**
      * @return int
      */
-    public function getColumnCount()
+    function getColumnCount()
     {
         return $this->_columnCount;
     }
 
-    public function resetItemsIterator()
+    function resetItemsIterator()
     {
         $this->getItems();
         reset($this->_items);
@@ -123,7 +123,7 @@ class Mage_Bundle_Block_Catalog_Product_List_Partof extends Mage_Catalog_Block_P
     /**
      * @return mixed
      */
-    public function getIterableItem()
+    function getIterableItem()
     {
         $item = current($this->_items);
         next($this->_items);
@@ -135,7 +135,7 @@ class Mage_Bundle_Block_Catalog_Product_List_Partof extends Mage_Catalog_Block_P
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!$this->_product) {
             $this->_product = Mage::registry('product');

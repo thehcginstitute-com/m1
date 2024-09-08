@@ -22,7 +22,7 @@
  */
 class Mage_Sales_Model_Entity_Order_Invoice_Comment extends Mage_Eav_Model_Entity_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         $resource = Mage::getSingleton('core/resource');
         $this->setType('invoice_comment')->setConnection(

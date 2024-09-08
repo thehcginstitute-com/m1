@@ -105,7 +105,7 @@ class Mage_Eav_Model_Resource_Form_Fieldset extends Mage_Core_Model_Resource_Db_
      * @param Mage_Eav_Model_Form_Fieldset $object
      * @return array
      */
-    public function getLabels($object)
+    function getLabels($object)
     {
         $objectId = $object->getId();
         if (!$objectId) {

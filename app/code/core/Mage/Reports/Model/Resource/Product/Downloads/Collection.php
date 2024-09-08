@@ -33,7 +33,7 @@ class Mage_Reports_Model_Resource_Product_Downloads_Collection extends Mage_Cata
      *
      * @return $this
      */
-    public function addSummary()
+    function addSummary()
     {
         $adapter  = $this->getConnection();
         $linkExpr = $adapter->getIfNullSql('l_store.title', 'l.title');
@@ -77,7 +77,7 @@ class Mage_Reports_Model_Resource_Product_Downloads_Collection extends Mage_Cata
      * @param string $dir
      * @return $this
      */
-    public function setOrder($attribute, $dir = self::SORT_ORDER_DESC)
+    function setOrder($attribute, $dir = self::SORT_ORDER_DESC)
     {
         if ($attribute == 'purchases' || $attribute == 'downloads' || $attribute == 'link_title') {
             $this->getSelect()->order($attribute . ' ' . $dir);
@@ -94,7 +94,7 @@ class Mage_Reports_Model_Resource_Product_Downloads_Collection extends Mage_Cata
      * @param string $condition
      * @return $this
      */
-    public function addFieldToFilter($field, $condition = null)
+    function addFieldToFilter($field, $condition = null)
     {
         if ($field == 'link_title') {
             $conditionSql = $this->_getConditionSql('l.title', $condition);

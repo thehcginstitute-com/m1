@@ -54,7 +54,7 @@ class Mage_Bundle_Model_Resource_Option_Collection extends Mage_Core_Model_Resou
      * @param int $storeId
      * @return $this
      */
-    public function joinValues($storeId)
+    function joinValues($storeId)
     {
         $this->getSelect()
             ->joinLeft(
@@ -90,7 +90,7 @@ class Mage_Bundle_Model_Resource_Option_Collection extends Mage_Core_Model_Resou
      * @param int $productId
      * @return $this
      */
-    public function setProductIdFilter($productId)
+    function setProductIdFilter($productId)
     {
         $this->addFieldToFilter('main_table.parent_id', $productId);
         return $this;
@@ -101,7 +101,7 @@ class Mage_Bundle_Model_Resource_Option_Collection extends Mage_Core_Model_Resou
      *
      * @return $this
      */
-    public function setPositionOrder()
+    function setPositionOrder()
     {
         $this->getSelect()->order('main_table.position asc')
             ->order('main_table.option_id asc');
@@ -118,7 +118,7 @@ class Mage_Bundle_Model_Resource_Option_Collection extends Mage_Core_Model_Resou
      * @param bool $appendAll
      * @return array
      */
-    public function appendSelections($selectionsCollection, $stripBefore = false, $appendAll = true)
+    function appendSelections($selectionsCollection, $stripBefore = false, $appendAll = true)
     {
         if ($stripBefore) {
             $this->_stripSelections();
@@ -161,7 +161,7 @@ class Mage_Bundle_Model_Resource_Option_Collection extends Mage_Core_Model_Resou
      * @param array|int $ids
      * @return $this
      */
-    public function setIdFilter($ids)
+    function setIdFilter($ids)
     {
         if (is_array($ids)) {
             $this->addFieldToFilter('main_table.option_id', ['in' => $ids]);
@@ -176,7 +176,7 @@ class Mage_Bundle_Model_Resource_Option_Collection extends Mage_Core_Model_Resou
      *
      * @return $this
      */
-    public function resetAllIds()
+    function resetAllIds()
     {
         $this->_itemIds = null;
         return $this;
@@ -187,7 +187,7 @@ class Mage_Bundle_Model_Resource_Option_Collection extends Mage_Core_Model_Resou
      *
      * @return array
      */
-    public function getAllIds()
+    function getAllIds()
     {
         if (is_null($this->_itemIds)) {
             $this->_itemIds = parent::getAllIds();

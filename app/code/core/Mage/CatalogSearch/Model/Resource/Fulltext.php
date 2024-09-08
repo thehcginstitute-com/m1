@@ -85,7 +85,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
      *
      * @return string
      */
-    public function getSeparator()
+    function getSeparator()
     {
         return $this->_separator;
     }
@@ -97,7 +97,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
      * @param  int|array|null $productIds
      * @return $this
      */
-    public function rebuildIndex($storeId = null, $productIds = null)
+    function rebuildIndex($storeId = null, $productIds = null)
     {
         if (is_null($storeId)) {
             $storeIds = array_keys(Mage::app()->getStores());
@@ -290,7 +290,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
      *
      * @return $this
      */
-    public function resetSearchResults()
+    function resetSearchResults()
     {
         Mage::dispatchEvent('catalogsearch_reset_search_result');
         return $this;
@@ -303,7 +303,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
      * @param int $productId Product Entity Id
      * @return $this
      */
-    public function cleanIndex($storeId = null, $productId = null)
+    function cleanIndex($storeId = null, $productId = null)
     {
         if ($this->_engine) {
             $this->_engine->cleanIndex($storeId, $productId);
@@ -320,7 +320,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
      * @param Mage_CatalogSearch_Model_Query $query
      * @return $this
      */
-    public function prepareResult($object, $queryText, $query)
+    function prepareResult($object, $queryText, $query)
     {
         /** @var Mage_CatalogSearch_Model_Resource_Helper_Mysql4 $searchHelper */
         $searchHelper = Mage::getResourceHelper('catalogsearch');
@@ -388,7 +388,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
      *
      * @return array
      */
-    public function getFoundData()
+    function getFoundData()
     {
         return $this->_foundData;
     }
@@ -398,7 +398,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
      *
      * @return Mage_Eav_Model_Config
      */
-    public function getEavConfig()
+    function getEavConfig()
     {
         return Mage::getSingleton('eav/config');
     }
@@ -838,7 +838,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
      * @param bool $value
      * @return $this
      */
-    public function setAllowTableChanges($value = true)
+    function setAllowTableChanges($value = true)
     {
         $this->_allowTableChanges = $value;
         return $this;
@@ -853,7 +853,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
      * @param array $categoryIds
      * @return $this
      */
-    public function updateCategoryIndex($productIds, $categoryIds)
+    function updateCategoryIndex($productIds, $categoryIds)
     {
         return $this;
     }

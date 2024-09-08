@@ -59,7 +59,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
      * @param Mage_Media_Model_Image_Config_Interface $config
      * @return Mage_Media_Model_Image
      */
-    public function setConfig(Mage_Media_Model_Image_Config_Interface $config)
+    function setConfig(Mage_Media_Model_Image_Config_Interface $config)
     {
         $this->_config = $config;
         return $this;
@@ -69,7 +69,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
      * Retrieve media image config instance
      * @return Mage_Media_Model_Image_Config_Interface
      */
-    public function getConfig()
+    function getConfig()
     {
         return $this->_config;
     }
@@ -77,7 +77,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
     /**
      * @return resource
      */
-    public function getImage()
+    function getImage()
     {
         if (is_null($this->_image)) {
             $this->_image = $this->_getResource()->getImage($this);
@@ -89,7 +89,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
     /**
      * @return resource
      */
-    public function getTmpImage()
+    function getTmpImage()
     {
         if (is_null($this->_image)) {
             $this->_tmpImage = $this->_getResource()->getTmpImage($this);
@@ -103,7 +103,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
      *
      * @return Varien_Object
      */
-    public function getDimensions()
+    function getDimensions()
     {
         if (!$this->getData('dimensions')) {
             $this->setData('dimensions', $this->_getResource()->getDimensions($this));
@@ -116,7 +116,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
      *
      * @return Varien_Object
      */
-    public function getDestanationDimensions()
+    function getDestanationDimensions()
     {
         if (!$this->getData('destanation_dimensions')) {
             $this->setData('destanation_dimensions', clone $this->getDimensions());
@@ -128,7 +128,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
     /**
      * @return bool|string
      */
-    public function getExtension()
+    function getExtension()
     {
         return substr($this->getFileName(), strrpos($this->getFileName(), '.') + 1);
     }
@@ -137,7 +137,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
      * @param bool $useParams
      * @return string
      */
-    public function getFilePath($useParams = false)
+    function getFilePath($useParams = false)
     {
         if ($useParams && count($this->getParams())) {
             $changes = '.' . $this->getParamsSum();
@@ -153,7 +153,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
      * @param bool $useParams
      * @return string
      */
-    public function getFileUrl($useParams = false)
+    function getFileUrl($useParams = false)
     {
         if ($useParams && count($this->getParams())) {
             $changes = '.' . $this->getParamsSum();
@@ -168,7 +168,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
     /**
      * @return bool|string
      */
-    public function getName()
+    function getName()
     {
         return substr($this->getFileName(), 0, strrpos($this->getFileName(), '.'));
     }
@@ -178,7 +178,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
      * @param string $value
      * @return $this
      */
-    public function addParam($param, $value = null)
+    function addParam($param, $value = null)
     {
         if (is_array($param)) {
             $this->_params = array_merge($this->_params, $param);
@@ -194,7 +194,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
      * @param string $value
      * @return $this
      */
-    public function setParam($param, $value = null)
+    function setParam($param, $value = null)
     {
         if (is_array($param)) {
             $this->_params = $param;
@@ -209,7 +209,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
      * @param string $param
      * @return string|null
      */
-    public function getParam($param)
+    function getParam($param)
     {
         return $this->_params[$param] ?? null;
     }
@@ -217,7 +217,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
     /**
      * @return array
      */
-    public function getParams()
+    function getParams()
     {
         return $this->_params;
     }
@@ -225,7 +225,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getParamsSum()
+    function getParamsSum()
     {
         return md5(serialize($this->_params));
     }
@@ -239,7 +239,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
      * @param string $watermark
      * @return string
      */
-    public function getSpecialLink($file, $size, $extension = null, $watermark = null)
+    function getSpecialLink($file, $size, $extension = null, $watermark = null)
     {
         $this->_removeResources();
         $this->setData([]);
@@ -283,7 +283,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
     /**
      * @return bool
      */
-    public function hasSpecialImage()
+    function hasSpecialImage()
     {
         return $this->_getResource()->hasSpecialImage($this);
     }

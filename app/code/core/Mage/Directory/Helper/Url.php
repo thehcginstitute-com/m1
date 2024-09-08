@@ -30,7 +30,7 @@ class Mage_Directory_Helper_Url extends Mage_Core_Helper_Url
      * @param array $params Additional url params
      * @return string
      */
-    public function getSwitchCurrencyUrl($params = [])
+    function getSwitchCurrencyUrl($params = [])
     {
         $params = is_array($params) ? $params : [];
 
@@ -44,7 +44,7 @@ class Mage_Directory_Helper_Url extends Mage_Core_Helper_Url
         return $this->_getUrl('directory/currency/switch', $params);
     }
 
-    public function getLoadRegionsUrl()
+    function getLoadRegionsUrl()
     {
     }
 }

@@ -25,25 +25,25 @@ class Mage_Adminhtml_Block_Widget_Form_Element extends Mage_Adminhtml_Block_Temp
     protected $_form;
     protected $_formBlock;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('widget/form/element.phtml');
     }
 
-    public function setElement($element)
+    function setElement($element)
     {
         $this->_element = $element;
         return $this;
     }
 
-    public function setForm($form)
+    function setForm($form)
     {
         $this->_form = $form;
         return $this;
     }
 
-    public function setFormBlock($formBlock)
+    function setFormBlock($formBlock)
     {
         $this->_formBlock = $formBlock;
         return $this;

@@ -22,7 +22,7 @@
  */
 class Mage_Sales_Block_Order_Details extends Mage_Core_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('sales/order/details.phtml');
@@ -33,7 +33,7 @@ class Mage_Sales_Block_Order_Details extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return Mage::getUrl('*/*/history');
     }
@@ -41,7 +41,7 @@ class Mage_Sales_Block_Order_Details extends Mage_Core_Block_Template
     /**
      * @return mixed
      */
-    public function getInvoices()
+    function getInvoices()
     {
         return Mage::getResourceModel('sales/invoice_collection')->setOrderFilter($this->getOrder()->getId())->load();
     }
@@ -49,7 +49,7 @@ class Mage_Sales_Block_Order_Details extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getPrintUrl()
+    function getPrintUrl()
     {
         return Mage::getUrl('*/*/print');
     }

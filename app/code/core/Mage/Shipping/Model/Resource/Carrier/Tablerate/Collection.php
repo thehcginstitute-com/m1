@@ -61,7 +61,7 @@ class Mage_Shipping_Model_Resource_Carrier_Tablerate_Collection extends Mage_Cor
      *
      * @return $this
      */
-    public function _initSelect()
+    function _initSelect()
     {
         parent::_initSelect();
 
@@ -91,7 +91,7 @@ class Mage_Shipping_Model_Resource_Carrier_Tablerate_Collection extends Mage_Cor
      * @param int $websiteId
      * @return $this
      */
-    public function setWebsiteFilter($websiteId)
+    function setWebsiteFilter($websiteId)
     {
         return $this->addFieldToFilter('website_id', $websiteId);
     }
@@ -102,7 +102,7 @@ class Mage_Shipping_Model_Resource_Carrier_Tablerate_Collection extends Mage_Cor
      * @param string $conditionName
      * @return $this
      */
-    public function setConditionFilter($conditionName)
+    function setConditionFilter($conditionName)
     {
         return $this->addFieldToFilter('condition_name', $conditionName);
     }
@@ -113,7 +113,7 @@ class Mage_Shipping_Model_Resource_Carrier_Tablerate_Collection extends Mage_Cor
      * @param string $countryId
      * @return $this
      */
-    public function setCountryFilter($countryId)
+    function setCountryFilter($countryId)
     {
         return $this->addFieldToFilter('dest_country_id', $countryId);
     }

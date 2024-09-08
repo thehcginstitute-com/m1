@@ -27,7 +27,7 @@ class Mage_CatalogSearch_Model_Layer extends Mage_Catalog_Model_Layer
      *
      * @return Mage_CatalogSearch_Model_Resource_Fulltext_Collection
      */
-    public function getProductCollection()
+    function getProductCollection()
     {
         if (isset($this->_productCollections[$this->getCurrentCategory()->getId()])) {
             $collection = $this->_productCollections[$this->getCurrentCategory()->getId()];
@@ -45,7 +45,7 @@ class Mage_CatalogSearch_Model_Layer extends Mage_Catalog_Model_Layer
      * @param Mage_CatalogSearch_Model_Resource_Fulltext_Collection $collection
      * @return Mage_Catalog_Model_Layer
      */
-    public function prepareProductCollection($collection)
+    function prepareProductCollection($collection)
     {
         $collection
             ->addAttributeToSelect(Mage::getSingleton('catalog/config')->getProductAttributes())
@@ -65,7 +65,7 @@ class Mage_CatalogSearch_Model_Layer extends Mage_Catalog_Model_Layer
      *
      * @return string
      */
-    public function getStateKey()
+    function getStateKey()
     {
         if ($this->_stateKey === null) {
             $this->_stateKey = 'Q_' . Mage::helper('catalogsearch')->getQuery()->getId()
@@ -80,7 +80,7 @@ class Mage_CatalogSearch_Model_Layer extends Mage_Catalog_Model_Layer
      * @param   array $additionalTags
      * @return  array
      */
-    public function getStateTags(array $additionalTags = [])
+    function getStateTags(array $additionalTags = [])
     {
         $additionalTags = parent::getStateTags($additionalTags);
         $additionalTags[] = Mage_CatalogSearch_Model_Query::CACHE_TAG;

@@ -75,7 +75,7 @@ class Mage_SalesRule_Model_Coupon extends Mage_Core_Model_Abstract
      * @param  Mage_SalesRule_Model_Rule $rule
      * @return $this
      */
-    public function setRule(Mage_SalesRule_Model_Rule $rule)
+    function setRule(Mage_SalesRule_Model_Rule $rule)
     {
         $this->_rule = $rule;
         return $this;
@@ -87,7 +87,7 @@ class Mage_SalesRule_Model_Coupon extends Mage_Core_Model_Abstract
      * @param Mage_SalesRule_Model_Rule|int $rule
      * @return $this
      */
-    public function loadPrimaryByRule($rule)
+    function loadPrimaryByRule($rule)
     {
         $this->getResource()->loadPrimaryByRule($this, $rule);
         return $this;
@@ -99,7 +99,7 @@ class Mage_SalesRule_Model_Coupon extends Mage_Core_Model_Abstract
      * @param string $couponCode
      * @return $this
      */
-    public function loadByCode($couponCode)
+    function loadByCode($couponCode)
     {
         $this->load($couponCode, 'code');
         return $this;

@@ -81,7 +81,7 @@ class Mage_Newsletter_Model_Resource_Subscriber_Collection extends Mage_Core_Mod
      * @param Mage_Newsletter_Model_Queue $queue
      * @return $this
      */
-    public function useQueue(Mage_Newsletter_Model_Queue $queue)
+    function useQueue(Mage_Newsletter_Model_Queue $queue)
     {
         $this->getSelect()
             ->join(['link' => $this->_queueLinkTable], "link.subscriber_id = main_table.subscriber_id", [])
@@ -95,7 +95,7 @@ class Mage_Newsletter_Model_Resource_Subscriber_Collection extends Mage_Core_Mod
      *
      * @return $this
      */
-    public function useOnlyUnsent()
+    function useOnlyUnsent()
     {
         if ($this->_queueJoinedFlag) {
             $this->addFieldToFilter('link.letter_sent_at', ['null' => 1]);
@@ -109,7 +109,7 @@ class Mage_Newsletter_Model_Resource_Subscriber_Collection extends Mage_Core_Mod
      *
      * @return $this
      */
-    public function showCustomerInfo()
+    function showCustomerInfo()
     {
         $adapter    = $this->getConnection();
         $customer   = Mage::getModel('customer/customer');
@@ -145,7 +145,7 @@ class Mage_Newsletter_Model_Resource_Subscriber_Collection extends Mage_Core_Mod
      *
      * @return $this
      */
-    public function addSubscriberTypeField()
+    function addSubscriberTypeField()
     {
         $this->getSelect()
             ->columns(['type' => new Zend_Db_Expr($this->_getMappedField('type'))]);
@@ -157,7 +157,7 @@ class Mage_Newsletter_Model_Resource_Subscriber_Collection extends Mage_Core_Mod
      *
      * @return $this
      */
-    public function showStoreInfo()
+    function showStoreInfo()
     {
         $this->getSelect()->join(
             ['store' => $this->_storeTable],
@@ -176,7 +176,7 @@ class Mage_Newsletter_Model_Resource_Subscriber_Collection extends Mage_Core_Mod
      * @param string $field
      * @return string
      */
-    public function _getFieldTableAlias($field)
+    function _getFieldTableAlias($field)
     {
         if (strpos($field, 'customer') === 0) {
             return $field . '_table.value';
@@ -198,7 +198,7 @@ class Mage_Newsletter_Model_Resource_Subscriber_Collection extends Mage_Core_Mod
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $select = parent::getSelectCountSql();
         $countSelect = clone $this->getSelect();
@@ -211,7 +211,7 @@ class Mage_Newsletter_Model_Resource_Subscriber_Collection extends Mage_Core_Mod
      *
      * @return $this
      */
-    public function useOnlyCustomers()
+    function useOnlyCustomers()
     {
         $this->addFieldToFilter('main_table.customer_id', ['gt' => 0]);
 
@@ -223,7 +223,7 @@ class Mage_Newsletter_Model_Resource_Subscriber_Collection extends Mage_Core_Mod
      *
      * @return $this
      */
-    public function useOnlySubscribed()
+    function useOnlySubscribed()
     {
         $this->addFieldToFilter('main_table.subscriber_status', Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED);
 
@@ -236,7 +236,7 @@ class Mage_Newsletter_Model_Resource_Subscriber_Collection extends Mage_Core_Mod
      * @param array|int $storeIds
      * @return $this
      */
-    public function addStoreFilter($storeIds)
+    function addStoreFilter($storeIds)
     {
         $this->addFieldToFilter('main_table.store_id', ['in' => $storeIds]);
         return $this;

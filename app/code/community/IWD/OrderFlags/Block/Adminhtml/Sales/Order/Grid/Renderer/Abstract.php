@@ -7,7 +7,7 @@ abstract class IWD_OrderFlags_Block_Adminhtml_Sales_Order_Grid_Renderer_Abstract
 {
     protected $row;
 
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $this->row = $row;
 

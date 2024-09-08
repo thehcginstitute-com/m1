@@ -51,7 +51,7 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
      * @param Mage_Admin_Model_User $user
      * @return $this
      */
-    public function recordLogin(Mage_Admin_Model_User $user)
+    function recordLogin(Mage_Admin_Model_User $user)
     {
         $adapter = $this->_getWriteAdapter();
 
@@ -75,7 +75,7 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
      * @param string $username
      * @return false|array
      */
-    public function loadByUsername($username)
+    function loadByUsername($username)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -96,7 +96,7 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
      * @param int|Mage_Core_Model_Abstract|Mage_Admin_Model_User $user
      * @return null|array
      */
-    public function hasAssigned2Role($user)
+    function hasAssigned2Role($user)
     {
         if (is_numeric($user)) {
             $userId = $user;
@@ -180,7 +180,7 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
      * @param Mage_Core_Model_Abstract $user
      * @return bool
      */
-    public function delete(Mage_Core_Model_Abstract $user)
+    function delete(Mage_Core_Model_Abstract $user)
     {
         $this->_beforeDelete($user);
         $adapter = $this->_getWriteAdapter();
@@ -212,7 +212,7 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
      * @param Mage_Core_Model_Abstract|Mage_Admin_Model_User $user
      * @return $this|Mage_Core_Model_Abstract
      */
-    public function _saveRelations(Mage_Core_Model_Abstract $user)
+    function _saveRelations(Mage_Core_Model_Abstract $user)
     {
         $rolesIds = $user->getRoleIds();
         if (!is_array($rolesIds) || count($rolesIds) == 0) {
@@ -271,7 +271,7 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
      * @param Mage_Core_Model_Abstract $user
      * @return array
      */
-    public function getRoles(Mage_Core_Model_Abstract $user)
+    function getRoles(Mage_Core_Model_Abstract $user)
     {
         if (!$user->getId()) {
             return [];
@@ -307,7 +307,7 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
      * @param Mage_Core_Model_Abstract|Mage_Admin_Model_User $user
      * @return $this
      */
-    public function add(Mage_Core_Model_Abstract $user)
+    function add(Mage_Core_Model_Abstract $user)
     {
         $dbh = $this->_getWriteAdapter();
         $aRoles = $this->hasAssigned2Role($user);
@@ -352,7 +352,7 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
      * @param Mage_Core_Model_Abstract|Mage_Admin_Model_User $user
      * @return $this
      */
-    public function deleteFromRole(Mage_Core_Model_Abstract $user)
+    function deleteFromRole(Mage_Core_Model_Abstract $user)
     {
         if ($user->getUserId() <= 0) {
             return $this;
@@ -378,7 +378,7 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
      * @param Mage_Core_Model_Abstract|Mage_Admin_Model_User $user
      * @return array
      */
-    public function roleUserExists(Mage_Core_Model_Abstract $user)
+    function roleUserExists(Mage_Core_Model_Abstract $user)
     {
         if ($user->getUserId() > 0) {
             $roleTable = $this->getTable('admin/role');
@@ -406,7 +406,7 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
      * @param Mage_Core_Model_Abstract|Mage_Admin_Model_User $user
      * @return array|false
      */
-    public function userExists(Mage_Core_Model_Abstract $user)
+    function userExists(Mage_Core_Model_Abstract $user)
     {
         $adapter = $this->_getReadAdapter();
         $select  = $adapter->select();
@@ -431,7 +431,7 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
      * @param string $data
      * @return $this
      */
-    public function saveExtra($object, $data)
+    function saveExtra($object, $data)
     {
         if ($object->getId()) {
             $this->_getWriteAdapter()->update(
@@ -451,7 +451,7 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
      * @param int $flag
      * @return $this
      */
-    public function saveReloadAclFlag($object, $flag)
+    function saveReloadAclFlag($object, $flag)
     {
         if ($object->getId()) {
             $this->_getWriteAdapter()->update(

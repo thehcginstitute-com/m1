@@ -26,7 +26,7 @@ abstract class Mage_Eav_Model_Entity_Increment_Abstract extends Varien_Object im
     /**
      * @return int
      */
-    public function getPadLength()
+    function getPadLength()
     {
         $padLength = $this->getData('pad_length');
         if (empty($padLength)) {
@@ -38,7 +38,7 @@ abstract class Mage_Eav_Model_Entity_Increment_Abstract extends Varien_Object im
     /**
      * @return string
      */
-    public function getPadChar()
+    function getPadChar()
     {
         $padChar = $this->getData('pad_char');
         if (empty($padChar)) {
@@ -51,7 +51,7 @@ abstract class Mage_Eav_Model_Entity_Increment_Abstract extends Varien_Object im
      * @param string|int $id
      * @return string
      */
-    public function format($id)
+    function format($id)
     {
         $result = $this->getPrefix();
         $result .= str_pad((string)$id, $this->getPadLength(), $this->getPadChar(), STR_PAD_LEFT);
@@ -62,7 +62,7 @@ abstract class Mage_Eav_Model_Entity_Increment_Abstract extends Varien_Object im
      * @param string $id
      * @return string
      */
-    public function frontendFormat($id)
+    function frontendFormat($id)
     {
         return $id;
     }

@@ -50,7 +50,7 @@ class Mage_Reports_Model_Resource_Product_Viewed_Collection extends Mage_Reports
      * @param string $to
      * @return $this
      */
-    public function setDateRange($from, $to)
+    function setDateRange($from, $to)
     {
         $this->_reset()
             ->_joinFields($from, $to);
@@ -63,7 +63,7 @@ class Mage_Reports_Model_Resource_Product_Viewed_Collection extends Mage_Reports
      * @param array $storeIds
      * @return $this
      */
-    public function setStoreIds($storeIds)
+    function setStoreIds($storeIds)
     {
         $storeId = array_pop($storeIds);
         $this->setStoreId($storeId);
@@ -78,7 +78,7 @@ class Mage_Reports_Model_Resource_Product_Viewed_Collection extends Mage_Reports
      * @param array|int $storeIds
      * @return $this
      */
-    public function addStoreIds($storeIds)
+    function addStoreIds($storeIds)
     {
         if (is_array($storeIds)) {
             $this->_storeIds = array_merge($this->_storeIds, $storeIds);

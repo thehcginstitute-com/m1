@@ -84,7 +84,7 @@ class Mage_Customer_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function beforeLoadLayout($observer)
+    function beforeLoadLayout($observer)
     {
         $loggedIn = Mage::getSingleton('customer/session')->isLoggedIn();
 
@@ -97,7 +97,7 @@ class Mage_Customer_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function beforeAddressSave($observer)
+    function beforeAddressSave($observer)
     {
         if (Mage::registry(self::VIV_CURRENTLY_SAVED_ADDRESS)) {
             Mage::unregister(self::VIV_CURRENTLY_SAVED_ADDRESS);
@@ -126,7 +126,7 @@ class Mage_Customer_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function afterAddressSave($observer)
+    function afterAddressSave($observer)
     {
         /** @var Mage_Customer_Model_Address $customerAddress */
         $customerAddress = $observer->getCustomerAddress();
@@ -196,7 +196,7 @@ class Mage_Customer_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function quoteSubmitAfter($observer)
+    function quoteSubmitAfter($observer)
     {
         /** @var Mage_Customer_Model_Customer $customer */
         $customer = $observer->getQuote()->getCustomer();
@@ -219,7 +219,7 @@ class Mage_Customer_Model_Observer
      * Clear customer flow password table
      *
      */
-    public function deleteCustomerFlowPassword()
+    function deleteCustomerFlowPassword()
     {
         $resource   = Mage::getSingleton('core/resource');
         $connection = $resource->getConnection('write');
@@ -232,7 +232,7 @@ class Mage_Customer_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function actionUpgradeCustomerPassword($observer)
+    function actionUpgradeCustomerPassword($observer)
     {
         $password = $observer->getEvent()->getPassword();
         $model = $observer->getEvent()->getModel();

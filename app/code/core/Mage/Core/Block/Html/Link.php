@@ -32,7 +32,7 @@ class Mage_Core_Block_Html_Link extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getLinkAttributes()
+    function getLinkAttributes()
     {
         $allow = [
             'href', 'title', 'charset', 'name', 'hreflang', 'rel', 'rev', 'accesskey', 'shape',
@@ -66,7 +66,7 @@ class Mage_Core_Block_Html_Link extends Mage_Core_Block_Template
      * @param   string $quote
      * @return  string
      */
-    public function serialize($attributes = [], $valueSeparator = '=', $fieldSeparator = ' ', $quote = '"')
+    function serialize($attributes = [], $valueSeparator = '=', $fieldSeparator = ' ', $quote = '"')
     {
         $res  = '';
         $data = [];

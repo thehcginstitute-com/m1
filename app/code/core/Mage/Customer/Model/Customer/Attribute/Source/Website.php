@@ -29,7 +29,7 @@ class Mage_Customer_Model_Customer_Attribute_Source_Website extends Mage_Eav_Mod
      * @param bool $defaultValues   Argument has no effect, included for PHP 7.2 method signature compatibility
      * @return array
      */
-    public function getAllOptions($withEmpty = true, $defaultValues = false)
+    function getAllOptions($withEmpty = true, $defaultValues = false)
     {
         if (!$this->_options) {
             $this->_options = Mage::getSingleton('adminhtml/system_store')->getWebsiteValuesForForm(true, true);
@@ -41,7 +41,7 @@ class Mage_Customer_Model_Customer_Attribute_Source_Website extends Mage_Eav_Mod
     /**
      * @inheritDoc
      */
-    public function getOptionText($value)
+    function getOptionText($value)
     {
         if (!$this->_options) {
             $this->_options = $this->getAllOptions();

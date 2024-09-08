@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Edit_Tab_Edit extends Mage_Adm
     /**
      * @return $this
      */
-    public function initForm()
+    function initForm()
     {
         $form = new Varien_Data_Form();
         $form->setHtmlIdPrefix('_edit');

@@ -39,7 +39,7 @@ class Mage_Core_Model_App_Emulation extends Varien_Object
     /**
      * @param array $args
      */
-    public function __construct(array $args = [])
+    function __construct(array $args = [])
     {
         $this->_factory = !empty($args['factory']) ? $args['factory'] : Mage::getSingleton('core/factory');
         $this->_app = !empty($args['app']) ? $args['app'] : Mage::app();
@@ -58,7 +58,7 @@ class Mage_Core_Model_App_Emulation extends Varien_Object
      *
      * @return Varien_Object information about environment of the initial store
      */
-    public function startEnvironmentEmulation(
+    function startEnvironmentEmulation(
         $storeId,
         $area = Mage_Core_Model_App_Area::AREA_FRONTEND,
         $emulateStoreInlineTranslation = false
@@ -95,7 +95,7 @@ class Mage_Core_Model_App_Emulation extends Varien_Object
      *
      * @return $this
      */
-    public function stopEnvironmentEmulation(Varien_Object $initialEnvironmentInfo)
+    function stopEnvironmentEmulation(Varien_Object $initialEnvironmentInfo)
     {
         $this->_restoreInitialInlineTranslation($initialEnvironmentInfo->getInitialTranslateInline());
         $initialDesign = $initialEnvironmentInfo->getInitialDesign();

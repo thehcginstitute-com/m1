@@ -8,7 +8,7 @@ class IWD_AdminCheckout_Adminhtml_Sales_CreateController extends IWD_OrderManage
     /**
      * @return void
      */
-    public function updateStoreAction()
+    function updateStoreAction()
     {
         $storeId = $this->getRequest()->getParam('store_id', 1);
         $quote = Mage::getSingleton('adminhtml/session_quote')->getQuote();

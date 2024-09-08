@@ -40,7 +40,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Date extends Mage_Adminhtml
      * @return string
      * @throws Exception
      */
-    public function getHtml()
+    function getHtml()
     {
         $htmlId = $this->_getHtmlId() . microtime(true);
         $format = $this->getLocale()->getDateStrFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT);
@@ -105,7 +105,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Date extends Mage_Adminhtml
         return $html;
     }
 
-    public function getEscapedValue($index = null)
+    function getEscapedValue($index = null)
     {
         $value = $this->getValue($index);
         if ($value instanceof Zend_Date) {
@@ -114,7 +114,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Date extends Mage_Adminhtml
         return $value;
     }
 
-    public function getValue($index = null)
+    function getValue($index = null)
     {
         if ($index) {
             if ($data = $this->getData('value', 'orig_' . $index)) {
@@ -129,12 +129,12 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Date extends Mage_Adminhtml
         return $value;
     }
 
-    public function getCondition()
+    function getCondition()
     {
         return $this->getValue();
     }
 
-    public function setValue($value)
+    function setValue($value)
     {
         if (isset($value['locale'])) {
             if (!empty($value['from'])) {
@@ -158,7 +158,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Date extends Mage_Adminhtml
      *
      * @return Mage_Core_Model_Locale
      */
-    public function getLocale()
+    function getLocale()
     {
         if (!$this->_locale) {
             $this->_locale = Mage::app()->getLocale();

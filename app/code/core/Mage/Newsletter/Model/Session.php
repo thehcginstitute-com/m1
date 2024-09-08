@@ -22,7 +22,7 @@
  */
 class Mage_Newsletter_Model_Session extends Mage_Core_Model_Session_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         $this->init('newsletter');
     }
@@ -31,7 +31,7 @@ class Mage_Newsletter_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param string $message
      * @return $this
      */
-    public function addError($message)
+    function addError($message)
     {
         $this->setErrorMessage($message);
         return $this;
@@ -41,7 +41,7 @@ class Mage_Newsletter_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param string $message
      * @return $this
      */
-    public function addSuccess($message)
+    function addSuccess($message)
     {
         $this->setSuccessMessage($message);
         return $this;
@@ -50,7 +50,7 @@ class Mage_Newsletter_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * @return string
      */
-    public function getError()
+    function getError()
     {
         $message = $this->getErrorMessage();
         $this->unsErrorMessage();
@@ -60,7 +60,7 @@ class Mage_Newsletter_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * @return string
      */
-    public function getSuccess()
+    function getSuccess()
     {
         $message = $this->getSuccessMessage();
         $this->unsSuccessMessage();

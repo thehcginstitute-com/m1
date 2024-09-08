@@ -43,7 +43,7 @@ class Mage_Reports_Model_Resource_Product_Ordered_Collection extends Mage_Report
      * @param int $to
      * @return $this
      */
-    public function setDateRange($from, $to)
+    function setDateRange($from, $to)
     {
         $this->_reset()
             ->_joinFields($from, $to);
@@ -56,7 +56,7 @@ class Mage_Reports_Model_Resource_Product_Ordered_Collection extends Mage_Report
      * @param array $storeIds
      * @return $this
      */
-    public function setStoreIds($storeIds)
+    function setStoreIds($storeIds)
     {
         $storeId = array_pop($storeIds);
         $this->setStoreId($storeId);

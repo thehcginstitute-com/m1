@@ -36,7 +36,7 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
      * Mage_ImportExport_Model_Import_Uploader constructor.
      * @param string|null $filePath
      */
-    public function __construct($filePath = null)
+    function __construct($filePath = null)
     {
         if (!is_null($filePath)) {
             $this->_setUploadFile($filePath);
@@ -46,7 +46,7 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
     /**
      * Initiate uploader defoult settings
      */
-    public function init()
+    function init()
     {
         $this->setAllowRenameFiles(true);
         $this->setAllowCreateFolders(true);
@@ -72,7 +72,7 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
      * @return array
      * @throws Exception
      */
-    public function move($fileName)
+    function move($fileName)
     {
         $filePath = realpath($this->getTmpDir() . DS . $fileName);
         $this->_setUploadFile($filePath);
@@ -158,7 +158,7 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
      *
      * @return string
      */
-    public function getTmpDir()
+    function getTmpDir()
     {
         return $this->_tmpDir;
     }
@@ -169,7 +169,7 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
      * @param string $path
      * @return bool
      */
-    public function setTmpDir($path)
+    function setTmpDir($path)
     {
         if (is_string($path) && is_readable($path)) {
             $this->_tmpDir = $path;
@@ -183,7 +183,7 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
      *
      * @return string
      */
-    public function getDestDir()
+    function getDestDir()
     {
         return $this->_destDir;
     }
@@ -194,7 +194,7 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
      * @param string $path
      * @return bool
      */
-    public function setDestDir($path)
+    function setDestDir($path)
     {
         if (is_string($path) && is_writable($path)) {
             $this->_destDir = $path;

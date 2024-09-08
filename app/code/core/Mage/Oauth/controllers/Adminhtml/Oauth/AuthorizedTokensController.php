@@ -27,7 +27,7 @@ class Mage_Oauth_Adminhtml_Oauth_AuthorizedTokensController extends Mage_Adminht
      *
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_title($this->__('System'))
                 ->_title($this->__('OAuth'))
@@ -39,7 +39,7 @@ class Mage_Oauth_Adminhtml_Oauth_AuthorizedTokensController extends Mage_Adminht
     /**
      * Render grid page
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout()->_setActiveMenu('system/oauth');
         $this->renderLayout();
@@ -48,7 +48,7 @@ class Mage_Oauth_Adminhtml_Oauth_AuthorizedTokensController extends Mage_Adminht
     /**
      * Render grid AJAX request
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout();
         $this->renderLayout();
@@ -57,7 +57,7 @@ class Mage_Oauth_Adminhtml_Oauth_AuthorizedTokensController extends Mage_Adminht
     /**
      * Update revoke status action
      */
-    public function revokeAction()
+    function revokeAction()
     {
         $ids = $this->getRequest()->getParam('items');
         $status = $this->getRequest()->getParam('status');
@@ -109,7 +109,7 @@ class Mage_Oauth_Adminhtml_Oauth_AuthorizedTokensController extends Mage_Adminht
     /**
      * Delete action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $ids = $this->getRequest()->getParam('items');
 

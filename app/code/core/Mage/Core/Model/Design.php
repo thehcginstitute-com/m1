@@ -41,7 +41,7 @@ class Mage_Core_Model_Design extends Mage_Core_Model_Abstract
     /**
      * @return $this
      */
-    public function validate()
+    function validate()
     {
         $this->getResource()->validate($this);
         return $this;
@@ -52,7 +52,7 @@ class Mage_Core_Model_Design extends Mage_Core_Model_Abstract
      * @param string|null $date
      * @return $this
      */
-    public function loadChange($storeId, $date = null)
+    function loadChange($storeId, $date = null)
     {
         $result = $this->getResource()
             ->loadChange($storeId, $date);

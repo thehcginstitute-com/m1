@@ -27,7 +27,7 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
      *
      * @return array
      */
-    public function items()
+    function items()
     {
         $entityType = Mage::getModel('catalog/product')->getResource()->getEntityType();
         $collection = Mage::getResourceModel('eav/entity_attribute_set_collection')
@@ -51,7 +51,7 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
      * @param string $skeletonSetId
      * @return int
      */
-    public function create($attributeSetName, $skeletonSetId)
+    function create($attributeSetName, $skeletonSetId)
     {
         // check if set with requested $skeletonSetId exists
         if (!Mage::getModel('eav/entity_attribute_set')->load($skeletonSetId)->getId()) {
@@ -84,7 +84,7 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
      * @param bool $forceProductsRemove
      * @return bool
      */
-    public function remove($attributeSetId, $forceProductsRemove = false)
+    function remove($attributeSetId, $forceProductsRemove = false)
     {
         // if attribute set has related goods and $forceProductsRemove is not set throw exception
         if (!$forceProductsRemove) {
@@ -117,7 +117,7 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
      * @param string $sortOrder
      * @return bool
      */
-    public function attributeAdd($attributeId, $attributeSetId, $attributeGroupId = null, $sortOrder = '0')
+    function attributeAdd($attributeId, $attributeSetId, $attributeGroupId = null, $sortOrder = '0')
     {
         // check if attribute with requested id exists
         /** @var Mage_Eav_Model_Entity_Attribute $attribute */
@@ -163,7 +163,7 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
      * @param string $attributeSetId
      * @return bool
      */
-    public function attributeRemove($attributeId, $attributeSetId)
+    function attributeRemove($attributeId, $attributeSetId)
     {
         // check if attribute with requested id exists
         /** @var Mage_Eav_Model_Entity_Attribute $attribute */
@@ -200,7 +200,7 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
      * @param  string $groupName
      * @return int
      */
-    public function groupAdd($attributeSetId, $groupName)
+    function groupAdd($attributeSetId, $groupName)
     {
         /** @var Mage_Eav_Model_Entity_Attribute_Group $group */
         $group = Mage::getModel('eav/entity_attribute_group');
@@ -226,7 +226,7 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
      * @param string $groupName
      * @return bool
      */
-    public function groupRename($groupId, $groupName)
+    function groupRename($groupId, $groupName)
     {
         $model = Mage::getModel('eav/entity_attribute_group')->load($groupId);
 
@@ -251,7 +251,7 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
         * @param  string|int $attributeGroupId
         * @return bool
         */
-    public function groupRemove($attributeGroupId)
+    function groupRemove($attributeGroupId)
     {
         /** @var Mage_Catalog_Model_Product_Attribute_Group $group */
         $group = Mage::getModel('catalog/product_attribute_group')->load($attributeGroupId);

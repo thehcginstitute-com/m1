@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'order_id';
         $this->_controller = 'sales_order_creditmemo';
@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create extends Mage_Adminhtml_
      *
      * @return Mage_Sales_Model_Order_Creditmemo
      */
-    public function getCreditmemo()
+    function getCreditmemo()
     {
         return Mage::registry('current_creditmemo');
     }
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create extends Mage_Adminhtml_
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if ($this->getCreditmemo()->getInvoice()) {
             $header = Mage::helper('sales')->__(
@@ -67,7 +67,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create extends Mage_Adminhtml_
     /**
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl('*/sales_order/view', ['order_id' => $this->getCreditmemo()->getOrderId()]);
     }

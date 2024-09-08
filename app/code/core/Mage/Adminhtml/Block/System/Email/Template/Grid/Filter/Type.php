@@ -44,7 +44,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Grid_Filter_Type extends Mage_A
     /**
      * @return array|null
      */
-    public function getCondition()
+    function getCondition()
     {
         if (is_null($this->getValue())) {
             return null;

@@ -25,7 +25,7 @@ class Mage_Sales_Model_Quote_Config
     /**
      * @return array
      */
-    public function getProductAttributes()
+    function getProductAttributes()
     {
         $attributes = Mage::getConfig()->getNode(self::XML_PATH_QUOTE_PRODUCT_ATTRIBUTES)->asArray();
         $transfer = new Varien_Object($attributes);
@@ -34,7 +34,7 @@ class Mage_Sales_Model_Quote_Config
         return array_keys($attributes);
     }
 
-    public function getTotalModels()
+    function getTotalModels()
     {
     }
 }

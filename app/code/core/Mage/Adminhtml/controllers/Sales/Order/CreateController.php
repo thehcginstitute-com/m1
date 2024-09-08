@@ -328,7 +328,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
     /**
      * Index page
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Sales'))->_title($this->__('Orders'))->_title($this->__('New Order'));
         $this->_initSession();
@@ -338,7 +338,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
             ->renderLayout();
     }
 
-    public function reorderAction()
+    function reorderAction()
     {
         $this->_getSession()->clear();
         $orderId = $this->getRequest()->getParam('order_id');
@@ -368,7 +368,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
     /**
      * Loading page block
      */
-    public function loadBlockAction()
+    function loadBlockAction()
     {
         $request = $this->getRequest();
         try {
@@ -415,7 +415,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
     /**
      * Adds configured product to quote
      */
-    public function addConfiguredAction()
+    function addConfiguredAction()
     {
         $errorMessage = null;
         try {
@@ -443,7 +443,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
     /**
      * Start order create action
      */
-    public function startAction()
+    function startAction()
     {
         $this->_getSession()->clear();
         $this->_redirect('*/*', ['customer_id' => $this->getRequest()->getParam('customer_id')]);
@@ -452,7 +452,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
     /**
      * Cancel order create
      */
-    public function cancelAction()
+    function cancelAction()
     {
         if ($orderId = $this->_getSession()->getReordered()) {
             $this->_getSession()->clear();
@@ -468,7 +468,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
     /**
      * Saving quote and create order
      */
-    public function saveAction()
+    function saveAction()
     {
         try {
             $orderData = $this->getRequest()->getPost('order');
@@ -563,7 +563,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
      *
      * @return $this
      */
-    public function configureProductToAddAction()
+    function configureProductToAddAction()
     {
         // Prepare data
         $productId  = (int) $this->getRequest()->getParam('id');
@@ -588,7 +588,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
      *
      * @return $this
      */
-    public function configureQuoteItemsAction()
+    function configureQuoteItemsAction()
     {
         // Prepare data
         $configureResult = new Varien_Object();
@@ -631,7 +631,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
      * to prevent popup alert with resend data question
      *
      */
-    public function showUpdateResultAction()
+    function showUpdateResultAction()
     {
         $session = Mage::getSingleton('adminhtml/session');
         if ($session->hasUpdateResult() && is_scalar($session->getUpdateResult())) {
@@ -646,7 +646,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
     /**
      * Process data and display index page
      */
-    public function processDataAction()
+    function processDataAction()
     {
         $this->_initSession();
         $this->_processData();

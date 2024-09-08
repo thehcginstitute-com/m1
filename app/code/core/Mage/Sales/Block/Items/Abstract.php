@@ -49,7 +49,7 @@ class Mage_Sales_Block_Items_Abstract extends Mage_Core_Block_Template
      * @param   string $template
      * @return  $this
      */
-    public function addItemRender($type, $block, $template)
+    function addItemRender($type, $block, $template)
     {
         $this->_itemRenders[$type] = [
             'block'     => $block,
@@ -66,7 +66,7 @@ class Mage_Sales_Block_Items_Abstract extends Mage_Core_Block_Template
      * @param string $type
      * @return Mage_Core_Block_Abstract
      */
-    public function getItemRenderer($type)
+    function getItemRenderer($type)
     {
         if (!isset($this->_itemRenders[$type])) {
             $type = 'default';
@@ -116,7 +116,7 @@ class Mage_Sales_Block_Items_Abstract extends Mage_Core_Block_Template
      * @param   Varien_Object $item
      * @return  string
      */
-    public function getItemHtml(Varien_Object $item)
+    function getItemHtml(Varien_Object $item)
     {
         $type = $this->_getItemType($item);
 

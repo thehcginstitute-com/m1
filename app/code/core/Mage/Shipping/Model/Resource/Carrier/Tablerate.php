@@ -97,7 +97,7 @@ class Mage_Shipping_Model_Resource_Carrier_Tablerate extends Mage_Core_Model_Res
      * @param Mage_Shipping_Model_Rate_Request $request
      * @return array|bool
      */
-    public function getRate(Mage_Shipping_Model_Rate_Request $request)
+    function getRate(Mage_Shipping_Model_Rate_Request $request)
     {
         $adapter = $this->_getReadAdapter();
         $bind = [
@@ -168,7 +168,7 @@ class Mage_Shipping_Model_Resource_Carrier_Tablerate extends Mage_Core_Model_Res
      * @throws Mage_Core_Exception
      * @return $this
      */
-    public function uploadAndImport(Varien_Object $object)
+    function uploadAndImport(Varien_Object $object)
     {
         if (empty($_FILES['groups']['tmp_name']['tablerate']['fields']['import']['value'])) {
             return $this;

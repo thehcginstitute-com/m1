@@ -39,7 +39,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Tab_Resources extends Mage_Adminhtml_Block
      */
     protected $_treeModel = false;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -60,7 +60,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Tab_Resources extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getResTreeJson()
+    function getResTreeJson()
     {
         $this->_prepareTreeModel();
         /** @var Mage_Core_Helper_Data $helper */
@@ -73,7 +73,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Tab_Resources extends Mage_Adminhtml_Block
      *
      * @return $this
      */
-    public function _prepareTreeModel()
+    function _prepareTreeModel()
     {
         $role = $this->getRole();
         if ($role) {
@@ -92,7 +92,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Tab_Resources extends Mage_Adminhtml_Block
      *
      * @return bool
      */
-    public function getEverythingAllowed()
+    function getEverythingAllowed()
     {
         $this->_prepareTreeModel();
         return $this->_treeModel->getEverythingAllowed();
@@ -103,7 +103,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Tab_Resources extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('api2')->__('Role API Resources');
     }
@@ -113,7 +113,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Tab_Resources extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return $this->getTabLabel();
     }
@@ -123,7 +123,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Tab_Resources extends Mage_Adminhtml_Block
      *
      * @return bool
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -133,7 +133,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Tab_Resources extends Mage_Adminhtml_Block
      *
      * @return bool
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }

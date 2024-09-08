@@ -38,7 +38,7 @@ class Mage_Core_Model_File_Validator_NotProtectedExtension extends Zend_Validate
      */
     protected $_protectedFileExtensions = [];
 
-    public function __construct()
+    function __construct()
     {
         $this->_initMessageTemplates();
         $this->_initProtectedFileExtensions();
@@ -91,7 +91,7 @@ class Mage_Core_Model_File_Validator_NotProtectedExtension extends Zend_Validate
      * @param string $value         Extension of file
      * @return bool
      */
-    public function isValid($value)
+    function isValid($value)
     {
         $value = strtolower(trim($value));
         $this->_setValue($value);

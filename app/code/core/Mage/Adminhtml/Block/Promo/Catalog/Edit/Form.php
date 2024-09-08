@@ -20,7 +20,7 @@
  */
 class Mage_Adminhtml_Block_Promo_Catalog_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('promo_catalog_form');

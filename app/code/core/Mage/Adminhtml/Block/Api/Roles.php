@@ -21,18 +21,18 @@
  */
 class Mage_Adminhtml_Block_Api_Roles extends Mage_Adminhtml_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('api/roles.phtml');
     }
 
-    public function getAddNewUrl()
+    function getAddNewUrl()
     {
         return $this->getUrl('*/*/editrole');
     }
 
-    public function getGridHtml()
+    function getGridHtml()
     {
         return $this->getLayout()->createBlock('adminhtml/api_grid_role')->toHtml();
     }

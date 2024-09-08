@@ -33,7 +33,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }
@@ -44,7 +44,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
      *
      * @return array
      */
-    public function getFullHistory()
+    function getFullHistory()
     {
         $order = $this->getOrder();
 
@@ -129,7 +129,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
      * @param string $format
      * @return string
      */
-    public function getItemCreatedAt(array $item, $dateType = 'date', $format = 'medium')
+    function getItemCreatedAt(array $item, $dateType = 'date', $format = 'medium')
     {
         if (!isset($item['created_at'])) {
             return '';
@@ -146,7 +146,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
      * @param array $item
      * @return string
      */
-    public function getItemTitle(array $item)
+    function getItemTitle(array $item)
     {
         return (isset($item['title']) ? $this->escapeHtml($item['title']) : '');
     }
@@ -158,7 +158,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
      * @param bool $isSimpleCheck
      * @return bool
      */
-    public function isItemNotified(array $item, $isSimpleCheck = true)
+    function isItemNotified(array $item, $isSimpleCheck = true)
     {
         if ($isSimpleCheck) {
             return !empty($item['notified']);
@@ -172,7 +172,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
      * @param array $item
      * @return string
      */
-    public function getItemComment(array $item)
+    function getItemComment(array $item)
     {
         $strItemComment = '';
         if (isset($item['comment'])) {
@@ -208,7 +208,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('sales')->__('Comments History');
     }
@@ -218,7 +218,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('sales')->__('Order History');
     }
@@ -228,7 +228,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
      *
      * @return string
      */
-    public function getTabClass()
+    function getTabClass()
     {
         return 'ajax only';
     }
@@ -238,7 +238,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
      *
      * @return string
      */
-    public function getClass()
+    function getClass()
     {
         return $this->getTabClass();
     }
@@ -248,7 +248,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
      *
      * @return string
      */
-    public function getTabUrl()
+    function getTabUrl()
     {
         return $this->getUrl('*/*/commentsHistory', ['_current' => true]);
     }
@@ -258,7 +258,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
      *
      * @return bool
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -268,7 +268,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
      *
      * @return bool
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }
@@ -279,7 +279,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
      * @param array $historyItem
      * @return bool
      */
-    public function isCustomerNotificationNotApplicable($historyItem)
+    function isCustomerNotificationNotApplicable($historyItem)
     {
         return $historyItem['notified'] == Mage_Sales_Model_Order_Status_History::CUSTOMER_NOTIFICATION_NOT_APPLICABLE;
     }

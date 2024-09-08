@@ -34,7 +34,7 @@ class Mage_Index_Block_Adminhtml_Process_Edit_Form extends Mage_Adminhtml_Block_
     /**
      * @return string
      */
-    public function getActionUrl()
+    function getActionUrl()
     {
         return $this->getUrl('adminhtml/process/save');
     }

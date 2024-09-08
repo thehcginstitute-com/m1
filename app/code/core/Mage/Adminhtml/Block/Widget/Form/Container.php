@@ -29,7 +29,7 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
     protected $_mode = 'edit';
     protected $_blockGroup = 'adminhtml';
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -85,7 +85,7 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
      *
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl('*/*/');
     }
@@ -94,7 +94,7 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
      * @return string
      * @throws Exception
      */
-    public function getDeleteUrl()
+    function getDeleteUrl()
     {
         return $this->getUrl('*/*/delete', [
             $this->_objectId => $this->getRequest()->getParam($this->_objectId),
@@ -109,7 +109,7 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
      * @see getFormActionUrl()
      * @return string
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return $this->getFormActionUrl();
     }
@@ -119,7 +119,7 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
      *
      * @return string
      */
-    public function getFormActionUrl()
+    function getFormActionUrl()
     {
         if ($this->hasFormActionUrl()) {
             return $this->getData('form_action_url');
@@ -130,7 +130,7 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
     /**
      * @return string
      */
-    public function getFormHtml()
+    function getFormHtml()
     {
         $this->getChild('form')->setData('action', $this->getSaveUrl());
         return $this->getChildHtml('form');
@@ -139,7 +139,7 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
     /**
      * @return string
      */
-    public function getFormInitScripts()
+    function getFormInitScripts()
     {
         if (!empty($this->_formInitScripts) && is_array($this->_formInitScripts)) {
             return '<script type="text/javascript">' . implode("\n", $this->_formInitScripts) . '</script>';
@@ -150,7 +150,7 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
     /**
      * @return string
      */
-    public function getFormScripts()
+    function getFormScripts()
     {
         if (!empty($this->_formScripts) && is_array($this->_formScripts)) {
             return '<script type="text/javascript">' . implode("\n", $this->_formScripts) . '</script>';
@@ -161,7 +161,7 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
     /**
      * @return string
      */
-    public function getHeaderWidth()
+    function getHeaderWidth()
     {
         return '';
     }
@@ -169,7 +169,7 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
     /**
      * @return string
      */
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head head-' . strtr($this->_controller, '_', '-');
     }
@@ -177,7 +177,7 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
     /**
      * @return string
      */
-    public function getHeaderHtml()
+    function getHeaderHtml()
     {
         return '<h3 class="' . $this->getHeaderCssClass() . '">' . $this->getHeaderText() . '</h3>';
     }
@@ -188,7 +188,7 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
      * @param Varien_Object $object
      * @return $this
      */
-    public function setDataObject($object)
+    function setDataObject($object)
     {
         $this->getChild('form')->setDataObject($object);
         return $this->setData('data_object', $object);

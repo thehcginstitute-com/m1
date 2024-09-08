@@ -48,7 +48,7 @@ class Nwdthemes_All_Model_Optionscss extends Mage_Core_Model_Abstract
 	 */
 	private $_css_template_path;
 
-	public function _construct()
+	function _construct()
 	{
 		$this->_css_file = '_%WEBSITE%_%STORE%.css';
 		$this->_css_path = Mage::getBaseDir() . '/skin/frontend/base/default/css/nwdthemes/';
@@ -57,7 +57,7 @@ class Nwdthemes_All_Model_Optionscss extends Mage_Core_Model_Abstract
 	/**
 	 * @return string
 	 */
-	public function getCssFile()
+	function getCssFile()
 	{
 		return $this->_css_file;
 	}
@@ -65,7 +65,7 @@ class Nwdthemes_All_Model_Optionscss extends Mage_Core_Model_Abstract
 	/**
 	 * @return string
 	 */
-	public function getCssPath()
+	function getCssPath()
 	{
 		return $this->_css_path;
 	}
@@ -73,7 +73,7 @@ class Nwdthemes_All_Model_Optionscss extends Mage_Core_Model_Abstract
 	/**
 	 * @param string $module_config_path
 	 */
-	public function setModuleConfigPath($module_config_path)
+	function setModuleConfigPath($module_config_path)
 	{
 		$this->_module_config_path = $module_config_path;
 		return $this;
@@ -82,7 +82,7 @@ class Nwdthemes_All_Model_Optionscss extends Mage_Core_Model_Abstract
 	/**
 	 * @return string
 	 */
-	public function getModuleConfigPath()
+	function getModuleConfigPath()
 	{
 		return $this->_module_config_path;
 	}
@@ -90,7 +90,7 @@ class Nwdthemes_All_Model_Optionscss extends Mage_Core_Model_Abstract
 	/**
 	 * @param string $module_config_section
 	 */
-	public function setModuleConfigSection($module_config_section)
+	function setModuleConfigSection($module_config_section)
 	{
 		$this->_module_config_section = $module_config_section;
 		return $this;
@@ -99,7 +99,7 @@ class Nwdthemes_All_Model_Optionscss extends Mage_Core_Model_Abstract
 	/**
 	 * @return string
 	 */
-	public function getModuleConfigSection()
+	function getModuleConfigSection()
 	{
 		return $this->_module_config_section;
 	}
@@ -107,7 +107,7 @@ class Nwdthemes_All_Model_Optionscss extends Mage_Core_Model_Abstract
 	/**
 	 * @param string $css_prefix
 	 */
-	public function setCssPrefix($css_prefix)
+	function setCssPrefix($css_prefix)
 	{
 		$this->_css_prefix = $css_prefix;
 		return $this;
@@ -116,7 +116,7 @@ class Nwdthemes_All_Model_Optionscss extends Mage_Core_Model_Abstract
 	/**
 	 * @return string
 	 */
-	public function getCssPrefix()
+	function getCssPrefix()
 	{
 		return $this->_css_prefix;
 	}
@@ -124,7 +124,7 @@ class Nwdthemes_All_Model_Optionscss extends Mage_Core_Model_Abstract
 	/**
 	 * @param string $css_template_path
 	 */
-	public function setCssTemplatePath($css_template_path)
+	function setCssTemplatePath($css_template_path)
 	{
 		$this->_css_template_path = $css_template_path;
 		return $this;
@@ -133,7 +133,7 @@ class Nwdthemes_All_Model_Optionscss extends Mage_Core_Model_Abstract
 	/**
 	 * @return string
 	 */
-	public function getCssTemplatePath()
+	function getCssTemplatePath()
 	{
 		return $this->_css_template_path;
 	}
@@ -185,7 +185,7 @@ class Nwdthemes_All_Model_Optionscss extends Mage_Core_Model_Abstract
 	 * @param $store
 	 * @throws Exception
 	 */
-	public function parse( $website = '', $store = '' )
+	function parse( $website = '', $store = '' )
 	{
 		Mage::getConfig()->reinit();
 

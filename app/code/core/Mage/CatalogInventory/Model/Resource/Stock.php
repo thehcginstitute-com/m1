@@ -83,7 +83,7 @@ class Mage_CatalogInventory_Model_Resource_Stock extends Mage_Core_Model_Resourc
      * @param int|array $productIds
      * @return $this
      */
-    public function lockProductItems($stock, $productIds)
+    function lockProductItems($stock, $productIds)
     {
         $itemTable = $this->getTable('cataloginventory/stock_item');
         $select = $this->_getWriteAdapter()->select()
@@ -106,7 +106,7 @@ class Mage_CatalogInventory_Model_Resource_Stock extends Mage_Core_Model_Resourc
      * @param bool $lockRows
      * @return array
      */
-    public function getProductsStock($stock, $productIds, $lockRows = false)
+    function getProductsStock($stock, $productIds, $lockRows = false)
     {
         if (empty($productIds)) {
             return [];
@@ -143,7 +143,7 @@ class Mage_CatalogInventory_Model_Resource_Stock extends Mage_Core_Model_Resourc
      * @param string $operator +/-
      * @return $this
      */
-    public function correctItemsQty($stock, $productQtys, $operator = '-')
+    function correctItemsQty($stock, $productQtys, $operator = '-')
     {
         if (empty($productQtys)) {
             return $this;
@@ -182,7 +182,7 @@ class Mage_CatalogInventory_Model_Resource_Stock extends Mage_Core_Model_Resourc
      * @param Mage_Catalog_Model_Resource_Product_Link_Product_Collection $collection
      * @return $this
      */
-    public function setInStockFilterToCollection($collection)
+    function setInStockFilterToCollection($collection)
     {
         $manageStock = Mage::getStoreConfig(Mage_CatalogInventory_Model_Stock_Item::XML_PATH_MANAGE_STOCK);
         $cond = [
@@ -234,7 +234,7 @@ class Mage_CatalogInventory_Model_Resource_Stock extends Mage_Core_Model_Resourc
      * Set items out of stock basing on their quantities and config settings
      *
      */
-    public function updateSetOutOfStock()
+    function updateSetOutOfStock()
     {
         $this->_initConfig();
         $adapter = $this->_getWriteAdapter();
@@ -269,7 +269,7 @@ class Mage_CatalogInventory_Model_Resource_Stock extends Mage_Core_Model_Resourc
      * Set items in stock basing on their quantities and config settings
      *
      */
-    public function updateSetInStock()
+    function updateSetInStock()
     {
         $this->_initConfig();
         $adapter = $this->_getWriteAdapter();
@@ -301,7 +301,7 @@ class Mage_CatalogInventory_Model_Resource_Stock extends Mage_Core_Model_Resourc
      * Update items low stock date basing on their quantities and config settings
      *
      */
-    public function updateLowStockDate()
+    function updateLowStockDate()
     {
         $this->_initConfig();
 
@@ -340,7 +340,7 @@ class Mage_CatalogInventory_Model_Resource_Stock extends Mage_Core_Model_Resourc
      * @param array $fields
      * @return $this
      */
-    public function addLowStockFilter(Mage_Catalog_Model_Resource_Product_Collection $collection, $fields)
+    function addLowStockFilter(Mage_Catalog_Model_Resource_Product_Collection $collection, $fields)
     {
         $this->_initConfig();
         $adapter = $collection->getSelect()->getAdapter();

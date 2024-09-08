@@ -26,7 +26,7 @@ class Mage_Wishlist_Model_Config
      * Get product attributes that need in wishlist
      *
      */
-    public function getProductAttributes()
+    function getProductAttributes()
     {
         $attrsForCatalog  = Mage::getSingleton('catalog/config')->getProductAttributes();
         $attrsForWishlist = Mage::getConfig()->getNode(self::XML_PATH_PRODUCT_ATTRIBUTES)->asArray();

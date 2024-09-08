@@ -8,7 +8,7 @@ class IWD_AdminCheckout_Block_Adminhtml_Sales_Order_Create_Top extends Mage_Admi
     /**
      * @return array
      */
-    public function getAvailableCurrencies()
+    function getAvailableCurrencies()
     {
         $dirtyCodes = $this->getStore()->getAvailableCurrencyCodes();
         $codes = array();
@@ -31,7 +31,7 @@ class IWD_AdminCheckout_Block_Adminhtml_Sales_Order_Create_Top extends Mage_Admi
      * @param $code
      * @return string
      */
-    public function getCurrencyName($code)
+    function getCurrencyName($code)
     {
         return Mage::app()->getLocale()->currency($code)->getName();
     }
@@ -40,7 +40,7 @@ class IWD_AdminCheckout_Block_Adminhtml_Sales_Order_Create_Top extends Mage_Admi
      * @param $code
      * @return string
      */
-    public function getCurrencySymbol($code)
+    function getCurrencySymbol($code)
     {
         $currency = Mage::app()->getLocale()->currency($code);
         return $currency->getSymbol() ? $currency->getSymbol() : $currency->getShortName();
@@ -49,7 +49,7 @@ class IWD_AdminCheckout_Block_Adminhtml_Sales_Order_Create_Top extends Mage_Admi
     /**
      * @return string
      */
-    public function getCurrentCurrencyCode()
+    function getCurrentCurrencyCode()
     {
         return $this->getStore()->getCurrentCurrencyCode();
     }

@@ -44,7 +44,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return array
      */
-    public function getEstimateRates()
+    function getEstimateRates()
     {
         if (empty($this->_rates)) {
             $groups = $this->getAddress()->getGroupedAllShippingRates();
@@ -58,7 +58,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return Mage_Sales_Model_Quote_Address
      */
-    public function getAddress()
+    function getAddress()
     {
         if (empty($this->_address)) {
             $this->_address = $this->getQuote()->getShippingAddress();
@@ -72,7 +72,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      * @param string $carrierCode
      * @return mixed
      */
-    public function getCarrierName($carrierCode)
+    function getCarrierName($carrierCode)
     {
         if ($name = Mage::getStoreConfig('carriers/' . $carrierCode . '/title')) {
             return $name;
@@ -85,7 +85,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return string
      */
-    public function getAddressShippingMethod()
+    function getAddressShippingMethod()
     {
         return $this->getAddress()->getShippingMethod();
     }
@@ -95,7 +95,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return string
      */
-    public function getEstimateCountryId()
+    function getEstimateCountryId()
     {
         return $this->getAddress()->getCountryId();
     }
@@ -105,7 +105,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return string
      */
-    public function getEstimatePostcode()
+    function getEstimatePostcode()
     {
         return $this->getAddress()->getPostcode();
     }
@@ -115,7 +115,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return string
      */
-    public function getEstimateCity()
+    function getEstimateCity()
     {
         return $this->getAddress()->getCity();
     }
@@ -125,7 +125,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return mixed
      */
-    public function getEstimateRegionId()
+    function getEstimateRegionId()
     {
         return $this->getAddress()->getRegionId();
     }
@@ -135,7 +135,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return string
      */
-    public function getEstimateRegion()
+    function getEstimateRegion()
     {
         return $this->getAddress()->getRegion();
     }
@@ -148,7 +148,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return bool
      */
-    public function getStateActive() {
+    function getStateActive() {
 		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Delete the unused `Mage_Usa` module": https://github.com/thehcginstitute-com/m1/issues/374
         return Mage::getStoreConfigFlag('carriers/tablerate/active');
@@ -160,7 +160,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      * @param float $price
      * @return float
      */
-    public function formatPrice($price)
+    function formatPrice($price)
     {
         return $this->getQuote()->getStore()->convertPrice($price, true);
     }
@@ -172,7 +172,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      * @param bool $flag
      * @return float
      */
-    public function getShippingPrice($price, $flag)
+    function getShippingPrice($price, $flag)
     {
         /** @var Mage_Tax_Helper_Data $helper */
         $helper = $this->helper('tax');
@@ -189,7 +189,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return array
      */
-    public function getCarriers()
+    function getCarriers()
     {
         if ($this->_carriers === null) {
             $this->_carriers = [];
@@ -210,7 +210,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return bool
      */
-    public function isStateProvinceRequired()
+    function isStateProvinceRequired()
     {
         foreach ($this->getCarriers() as $carrier) {
             if ($carrier->isStateProvinceRequired()) {
@@ -225,7 +225,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return bool
      */
-    public function isCityRequired()
+    function isCityRequired()
     {
         foreach ($this->getCarriers() as $carrier) {
             if ($carrier->isCityRequired()) {
@@ -240,7 +240,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return bool
      */
-    public function isZipCodeRequired()
+    function isZipCodeRequired()
     {
         foreach ($this->getCarriers() as $carrier) {
             if ($carrier->isZipCodeRequired($this->getEstimateCountryId())) {
@@ -255,7 +255,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return string
      */
-    public function getFormActionUrl()
+    function getFormActionUrl()
     {
         return $this->getUrl('checkout/cart/estimatePost', ['_secure' => $this->_isSecure()]);
     }
@@ -265,7 +265,7 @@ class Mage_Checkout_Block_Cart_Shipping extends Mage_Checkout_Block_Cart_Abstrac
      *
      * @return string
      */
-    public function getUpdateFormActionUrl()
+    function getUpdateFormActionUrl()
     {
         return $this->getUrl('checkout/cart/estimateUpdatePost', ['_secure' => $this->_isSecure()]);
     }

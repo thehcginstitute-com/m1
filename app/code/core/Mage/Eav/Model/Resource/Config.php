@@ -91,7 +91,7 @@ class Mage_Eav_Model_Resource_Config extends Mage_Core_Model_Resource_Db_Abstrac
      * @param string $entityType
      * @return array
      */
-    public function fetchEntityTypeData($entityType)
+    function fetchEntityTypeData($entityType)
     {
         $this->_loadTypes();
 

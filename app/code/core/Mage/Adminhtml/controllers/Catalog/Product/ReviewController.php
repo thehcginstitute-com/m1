@@ -34,13 +34,13 @@ class Mage_Adminhtml_Catalog_Product_ReviewController extends Mage_Adminhtml_Con
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions(['delete', 'massDelete']);
         return parent::preDispatch();
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Catalog'))
              ->_title($this->__('Reviews and Ratings'))
@@ -60,7 +60,7 @@ class Mage_Adminhtml_Catalog_Product_ReviewController extends Mage_Adminhtml_Con
         $this->renderLayout();
     }
 
-    public function pendingAction()
+    function pendingAction()
     {
         $this->_title($this->__('Catalog'))
              ->_title($this->__('Reviews and Ratings'))
@@ -82,7 +82,7 @@ class Mage_Adminhtml_Catalog_Product_ReviewController extends Mage_Adminhtml_Con
         $this->renderLayout();
     }
 
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('Catalog'))
              ->_title($this->__('Reviews and Ratings'))
@@ -102,7 +102,7 @@ class Mage_Adminhtml_Catalog_Product_ReviewController extends Mage_Adminhtml_Con
         $this->renderLayout();
     }
 
-    public function newAction()
+    function newAction()
     {
         $this->_title($this->__('Catalog'))
              ->_title($this->__('Reviews and Ratings'))
@@ -121,7 +121,7 @@ class Mage_Adminhtml_Catalog_Product_ReviewController extends Mage_Adminhtml_Con
         $this->renderLayout();
     }
 
-    public function saveAction()
+    function saveAction()
     {
         if (($data = $this->getRequest()->getPost()) && ($reviewId = $this->getRequest()->getParam('id'))) {
             $review = Mage::getModel('review/review')->load($reviewId);
@@ -168,7 +168,7 @@ class Mage_Adminhtml_Catalog_Product_ReviewController extends Mage_Adminhtml_Con
         $this->_redirect('*/*/');
     }
 
-    public function deleteAction()
+    function deleteAction()
     {
         $reviewId   = $this->getRequest()->getParam('id', false);
         $session    = Mage::getSingleton('adminhtml/session');
@@ -194,7 +194,7 @@ class Mage_Adminhtml_Catalog_Product_ReviewController extends Mage_Adminhtml_Con
         $this->_redirect('*/*/edit/', ['id' => $reviewId]);
     }
 
-    public function massDeleteAction()
+    function massDeleteAction()
     {
         $reviewsIds = $this->getRequest()->getParam('reviews');
         $session    = Mage::getSingleton('adminhtml/session');
@@ -220,7 +220,7 @@ class Mage_Adminhtml_Catalog_Product_ReviewController extends Mage_Adminhtml_Con
         $this->_redirect('*/*/' . $this->getRequest()->getParam('ret', 'index'));
     }
 
-    public function massUpdateStatusAction()
+    function massUpdateStatusAction()
     {
         $reviewsIds = $this->getRequest()->getParam('reviews');
         $session    = Mage::getSingleton('adminhtml/session');
@@ -250,7 +250,7 @@ class Mage_Adminhtml_Catalog_Product_ReviewController extends Mage_Adminhtml_Con
         $this->_redirect('*/*/' . $this->getRequest()->getParam('ret', 'index'));
     }
 
-    public function massVisibleInAction()
+    function massVisibleInAction()
     {
         $reviewsIds = $this->getRequest()->getParam('reviews');
         $session    = Mage::getSingleton('adminhtml/session');
@@ -280,17 +280,17 @@ class Mage_Adminhtml_Catalog_Product_ReviewController extends Mage_Adminhtml_Con
         $this->_redirect('*/*/pending');
     }
 
-    public function productGridAction()
+    function productGridAction()
     {
         $this->getResponse()->setBody($this->getLayout()->createBlock('adminhtml/review_product_grid')->toHtml());
     }
 
-    public function reviewGridAction()
+    function reviewGridAction()
     {
         $this->getResponse()->setBody($this->getLayout()->createBlock('adminhtml/review_grid')->toHtml());
     }
 
-    public function jsonProductInfoAction()
+    function jsonProductInfoAction()
     {
         $response = new Varien_Object();
         $id = $this->getRequest()->getParam('id');
@@ -308,7 +308,7 @@ class Mage_Adminhtml_Catalog_Product_ReviewController extends Mage_Adminhtml_Con
         $this->getResponse()->setBody($response->toJson());
     }
 
-    public function postAction()
+    function postAction()
     {
         $productId  = $this->getRequest()->getParam('product_id', false);
         $session    = Mage::getSingleton('adminhtml/session');
@@ -360,7 +360,7 @@ class Mage_Adminhtml_Catalog_Product_ReviewController extends Mage_Adminhtml_Con
         $this->getResponse()->setRedirect($this->getUrl('*/*/'));
     }
 
-    public function ratingItemsAction()
+    function ratingItemsAction()
     {
         $this->getResponse()->setBody(
             $this->getLayout()->createBlock('adminhtml/review_rating_detailed')->setIndependentMode()->toHtml()

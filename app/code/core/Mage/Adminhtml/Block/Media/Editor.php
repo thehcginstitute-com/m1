@@ -30,7 +30,7 @@ class Mage_Adminhtml_Block_Media_Editor extends Mage_Adminhtml_Block_Widget
     /**
      * Mage_Adminhtml_Block_Media_Editor constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('media/editor.phtml');
@@ -98,7 +98,7 @@ class Mage_Adminhtml_Block_Media_Editor extends Mage_Adminhtml_Block_Widget
     /**
      * @return string
      */
-    public function getRotatecwButtonHtml()
+    function getRotatecwButtonHtml()
     {
         return $this->getChildHtml('rotatecw_button');
     }
@@ -106,7 +106,7 @@ class Mage_Adminhtml_Block_Media_Editor extends Mage_Adminhtml_Block_Widget
     /**
      * @return string
      */
-    public function getImageButtonHtml()
+    function getImageButtonHtml()
     {
         return $this->getChildHtml('image_button');
     }
@@ -114,7 +114,7 @@ class Mage_Adminhtml_Block_Media_Editor extends Mage_Adminhtml_Block_Widget
     /**
      * @return string
      */
-    public function getRotateccwButtonHtml()
+    function getRotateccwButtonHtml()
     {
         return $this->getChildHtml('rotateccw_button');
     }
@@ -122,7 +122,7 @@ class Mage_Adminhtml_Block_Media_Editor extends Mage_Adminhtml_Block_Widget
     /**
      * @return string
      */
-    public function getResizeButtonHtml()
+    function getResizeButtonHtml()
     {
         return $this->getChildHtml('resize_button');
     }
@@ -132,7 +132,7 @@ class Mage_Adminhtml_Block_Media_Editor extends Mage_Adminhtml_Block_Widget
      *
      * @return string
      */
-    public function getJsObjectName()
+    function getJsObjectName()
     {
         return $this->getHtmlId() . 'JsObject';
     }
@@ -142,7 +142,7 @@ class Mage_Adminhtml_Block_Media_Editor extends Mage_Adminhtml_Block_Widget
      *
      * @return string
      */
-    public function getConfigJson()
+    function getConfigJson()
     {
         return Mage::helper('core')->jsonEncode($this->getConfig()->getData());
     }
@@ -152,7 +152,7 @@ class Mage_Adminhtml_Block_Media_Editor extends Mage_Adminhtml_Block_Widget
      *
      * @return Varien_Object
      */
-    public function getConfig()
+    function getConfig()
     {
         if (is_null($this->_config)) {
             $this->_config = new Varien_Object();

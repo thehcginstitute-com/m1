@@ -41,7 +41,7 @@ class Mage_Api_Model_Server
      * @param string $alias Alias name
      * @return string|null Returns NULL if no alias found
      */
-    public function getAdapterCodeByAlias($alias)
+    function getAdapterCodeByAlias($alias)
     {
         /** @var Mage_Api_Model_Config $config */
         $config  = Mage::getSingleton('api/config');
@@ -67,7 +67,7 @@ class Mage_Api_Model_Server
      * @param string $handler Handler name
      * @return $this
      */
-    public function init(Mage_Api_Controller_Action $controller, $adapter = 'default', $handler = 'default')
+    function init(Mage_Api_Controller_Action $controller, $adapter = 'default', $handler = 'default')
     {
         $this->initialize($adapter, $handler);
 
@@ -83,7 +83,7 @@ class Mage_Api_Model_Server
      * @param string $handler OPTIONAL Handler name (if not specified, it will be found from config)
      * @return $this
      */
-    public function initialize($adapterCode, $handler = null)
+    function initialize($adapterCode, $handler = null)
     {
         /** @var Mage_Api_Model_Config $helper */
         $helper   = Mage::getSingleton('api/config');
@@ -121,7 +121,7 @@ class Mage_Api_Model_Server
      * Run server
      *
      */
-    public function run()
+    function run()
     {
         $this->getAdapter()->run();
     }
@@ -130,7 +130,7 @@ class Mage_Api_Model_Server
      * Get Api name by Adapter
      * @return string
      */
-    public function getApiName()
+    function getApiName()
     {
         return $this->_api;
     }
@@ -140,7 +140,7 @@ class Mage_Api_Model_Server
      *
      * @return Mage_Api_Model_Server_Adapter_Interface
      */
-    public function getAdapter()
+    function getAdapter()
     {
         return $this->_adapter;
     }

@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Composite_Configure extends Mage_Admi
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!$this->_product) {
             if (Mage::registry('current_product')) {
@@ -55,7 +55,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Composite_Configure extends Mage_Admi
      * @param Mage_Catalog_Model_Product|null $product
      * @return $this
      */
-    public function setProduct(Mage_Catalog_Model_Product $product = null)
+    function setProduct(Mage_Catalog_Model_Product $product = null)
     {
         $this->_product = $product;
         return $this;

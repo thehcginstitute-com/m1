@@ -25,7 +25,7 @@ class Mage_Checkout_Block_Multishipping_Link extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getCheckoutUrl()
+    function getCheckoutUrl()
     {
         return $this->getUrl('checkout/multishipping', ['_secure' => true]);
     }
@@ -33,7 +33,7 @@ class Mage_Checkout_Block_Multishipping_Link extends Mage_Core_Block_Template
     /**
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return Mage::getSingleton('checkout/session')->getQuote();
     }
@@ -41,7 +41,7 @@ class Mage_Checkout_Block_Multishipping_Link extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function _toHtml()
+    function _toHtml()
     {
         if (!Mage::helper('checkout')->isMultishippingCheckoutAvailable()) {
             return '';

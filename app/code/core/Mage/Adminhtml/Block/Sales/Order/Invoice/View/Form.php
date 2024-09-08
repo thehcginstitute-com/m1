@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View_Form extends Mage_Adminhtml_
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->getInvoice()->getOrder();
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View_Form extends Mage_Adminhtml_
      *
      * @return Mage_Sales_Model_Order_Invoice
      */
-    public function getSource()
+    function getSource()
     {
         return $this->getInvoice();
     }
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View_Form extends Mage_Adminhtml_
      *
      * @return Mage_Sales_Model_Order_Invoice
      */
-    public function getInvoice()
+    function getInvoice()
     {
         return Mage::registry('current_invoice');
     }
@@ -55,7 +55,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View_Form extends Mage_Adminhtml_
     /**
      * Retrieve order url
      */
-    public function getOrderUrl()
+    function getOrderUrl()
     {
         return $this->getUrl('*/sales_order/view', ['order_id' => $this->getInvoice()->getOrderId()]);
     }
@@ -66,7 +66,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View_Form extends Mage_Adminhtml_
      * @param float $price
      * @return string
      */
-    public function formatPrice($price)
+    function formatPrice($price)
     {
         return $this->getInvoice()->getOrder()->formatPrice($price);
     }

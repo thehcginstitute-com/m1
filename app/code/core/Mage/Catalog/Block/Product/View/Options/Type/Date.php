@@ -47,7 +47,7 @@ class Mage_Catalog_Block_Product_View_Options_Type_Date extends Mage_Catalog_Blo
      *
      * @return bool
      */
-    public function useCalendar()
+    function useCalendar()
     {
         return Mage::getSingleton('catalog/product_option_type_date')->useCalendar();
     }
@@ -57,7 +57,7 @@ class Mage_Catalog_Block_Product_View_Options_Type_Date extends Mage_Catalog_Blo
      *
      * @return string Formatted Html
      */
-    public function getDateHtml()
+    function getDateHtml()
     {
         if ($this->useCalendar()) {
             return $this->getCalendarDateHtml();
@@ -71,7 +71,7 @@ class Mage_Catalog_Block_Product_View_Options_Type_Date extends Mage_Catalog_Blo
      *
      * @return string Formatted Html
      */
-    public function getCalendarDateHtml()
+    function getCalendarDateHtml()
     {
         $option = $this->getOption();
         $value = $this->getProduct()->getPreconfiguredValues()->getData('options/' . $option->getId() . '/date');
@@ -103,7 +103,7 @@ class Mage_Catalog_Block_Product_View_Options_Type_Date extends Mage_Catalog_Blo
      *
      * @return string Formatted Html
      */
-    public function getDropDownsDateHtml()
+    function getDropDownsDateHtml()
     {
         $fieldsSeparator = '&nbsp;';
         $fieldsOrder = Mage::getSingleton('catalog/product_option_type_date')->getConfigData('date_fields_order');
@@ -129,7 +129,7 @@ class Mage_Catalog_Block_Product_View_Options_Type_Date extends Mage_Catalog_Blo
      *
      * @return string Formatted Html
      */
-    public function getTimeHtml()
+    function getTimeHtml()
     {
         if (Mage::getSingleton('catalog/product_option_type_date')->is24hTimeFormat()) {
             $hourStart = 0;

@@ -25,7 +25,7 @@ class Mage_Catalog_Model_Product_Attribute_Source_Layout extends Mage_Eav_Model_
     /**
      * @return array
      */
-    public function getAllOptions()
+    function getAllOptions()
     {
         if (!$this->_options) {
             $this->_options = Mage::getSingleton('page/source_layout')->toOptionArray();

@@ -76,7 +76,7 @@ abstract class Mage_Directory_Model_Currency_Import_Abstract
      *
      * @return Mage_Directory_Model_Currency_Import_Abstract
      */
-    public function importRates()
+    function importRates()
     {
         $data = $this->fetchRates();
         $this->_saveRates($data);
@@ -86,7 +86,7 @@ abstract class Mage_Directory_Model_Currency_Import_Abstract
     /**
      * @return array
      */
-    public function fetchRates()
+    function fetchRates()
     {
         $data = [];
         $currencies = $this->_getCurrencyCodes();
@@ -122,7 +122,7 @@ abstract class Mage_Directory_Model_Currency_Import_Abstract
     /**
      * @return array
      */
-    public function getMessages()
+    function getMessages()
     {
         return $this->_messages;
     }

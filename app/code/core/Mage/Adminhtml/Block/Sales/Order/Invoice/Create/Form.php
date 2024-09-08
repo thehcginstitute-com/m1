@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Form extends Mage_Adminhtm
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->getInvoice()->getOrder();
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Form extends Mage_Adminhtm
      *
      * @return Mage_Sales_Model_Order_Invoice
      */
-    public function getSource()
+    function getSource()
     {
         return $this->getInvoice();
     }
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Form extends Mage_Adminhtm
      *
      * @return Mage_Sales_Model_Order_Invoice
      */
-    public function getInvoice()
+    function getInvoice()
     {
         return Mage::registry('current_invoice');
     }
@@ -75,12 +75,12 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Form extends Mage_Adminhtm
         return parent::_prepareLayout();
     }
 
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return $this->getUrl('*/*/save', ['order_id' => $this->getInvoice()->getOrderId()]);
     }
 
-    public function canCreateShipment()
+    function canCreateShipment()
     {
         foreach ($this->getInvoice()->getAllItems() as $item) {
             if ($item->getOrderItem()->getQtyToShip()) {
@@ -90,7 +90,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Form extends Mage_Adminhtm
         return false;
     }
 
-    public function hasInvoiceShipmentTypeMismatch()
+    function hasInvoiceShipmentTypeMismatch()
     {
         foreach ($this->getInvoice()->getAllItems() as $item) {
             if ($item->getOrderItem()->isChildrenCalculated() && !$item->getOrderItem()->isShipSeparately()) {
@@ -100,7 +100,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Form extends Mage_Adminhtm
         return false;
     }
 
-    public function canShipPartiallyItem()
+    function canShipPartiallyItem()
     {
         $value = $this->getOrder()->getCanShipPartiallyItem();
         if (!is_null($value) && !$value) {
@@ -114,7 +114,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Form extends Mage_Adminhtm
      *
      * @return int
      */
-    public function getForcedShipmentCreate()
+    function getForcedShipmentCreate()
     {
         return (int) $this->getOrder()->getForcedDoShipmentWithInvoice();
     }

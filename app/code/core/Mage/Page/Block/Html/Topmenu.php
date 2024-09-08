@@ -39,7 +39,7 @@ class Mage_Page_Block_Html_Topmenu extends Mage_Core_Block_Template
     /**
      * Init top menu tree structure and cache
      */
-    public function _construct()
+    function _construct()
     {
         $this->_menu = new Varien_Data_Tree_Node([], 'root', new Varien_Data_Tree());
         /*
@@ -56,7 +56,7 @@ class Mage_Page_Block_Html_Topmenu extends Mage_Core_Block_Template
      * @param string $childrenWrapClass
      * @return string
      */
-    public function getHtml($outermostClass = '', $childrenWrapClass = '')
+    function getHtml($outermostClass = '', $childrenWrapClass = '')
     {
         Mage::dispatchEvent('page_block_html_topmenu_gethtml_before', [
             'menu' => $this->_menu,
@@ -214,7 +214,7 @@ class Mage_Page_Block_Html_Topmenu extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getCacheKeyInfo()
+    function getCacheKeyInfo()
     {
         $shortCacheId = [
             'TOPMENU',
@@ -243,7 +243,7 @@ class Mage_Page_Block_Html_Topmenu extends Mage_Core_Block_Template
      *
      * @return int|string
      */
-    public function getCurrentEntityKey()
+    function getCurrentEntityKey()
     {
         if ($this->_currentEntityKey === null) {
             $this->_currentEntityKey = Mage::registry('current_entity_key')

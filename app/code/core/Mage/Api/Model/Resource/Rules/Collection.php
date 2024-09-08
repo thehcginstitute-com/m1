@@ -37,7 +37,7 @@ class Mage_Api_Model_Resource_Rules_Collection extends Mage_Core_Model_Resource_
      * @param string $id
      * @return $this
      */
-    public function getByRoles($id)
+    function getByRoles($id)
     {
         $this->getSelect()->where("role_id = ?", (int)$id);
         return $this;
@@ -48,7 +48,7 @@ class Mage_Api_Model_Resource_Rules_Collection extends Mage_Core_Model_Resource_
      *
      * @return $this
      */
-    public function addSortByLength()
+    function addSortByLength()
     {
         $this->getSelect()->columns(['length' => $this->getConnection()->getLengthSql('resource_id')])
             ->order('length DESC');

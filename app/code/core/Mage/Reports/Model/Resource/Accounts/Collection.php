@@ -47,7 +47,7 @@ class Mage_Reports_Model_Resource_Accounts_Collection extends Mage_Reports_Model
      * @param string $to
      * @return $this
      */
-    public function setDateRange($from, $to)
+    function setDateRange($from, $to)
     {
         $this->_reset()
              ->_joinFields($from, $to);
@@ -60,7 +60,7 @@ class Mage_Reports_Model_Resource_Accounts_Collection extends Mage_Reports_Model
      * @param array $storeIds
      * @return $this
      */
-    public function setStoreIds($storeIds)
+    function setStoreIds($storeIds)
     {
         if ($storeIds) {
             $this->addAttributeToFilter('store_id', ['in' => (array)$storeIds]);

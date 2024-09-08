@@ -78,7 +78,7 @@ class Mage_Review_Model_Review extends Mage_Core_Model_Abstract
     /**
      * @return Mage_Review_Model_Resource_Review_Product_Collection
      */
-    public function getProductCollection()
+    function getProductCollection()
     {
         return Mage::getResourceModel('review/review_product_collection');
     }
@@ -86,7 +86,7 @@ class Mage_Review_Model_Review extends Mage_Core_Model_Abstract
     /**
      * @return Mage_Review_Model_Resource_Review_Status_Collection
      */
-    public function getStatusCollection()
+    function getStatusCollection()
     {
         return Mage::getResourceModel('review/review_status_collection');
     }
@@ -97,7 +97,7 @@ class Mage_Review_Model_Review extends Mage_Core_Model_Abstract
      * @param int $storeId
      * @return int
      */
-    public function getTotalReviews($entityPkValue, $approvedOnly = false, $storeId = 0)
+    function getTotalReviews($entityPkValue, $approvedOnly = false, $storeId = 0)
     {
         return $this->getResource()->getTotalReviews($entityPkValue, $approvedOnly, $storeId);
     }
@@ -105,7 +105,7 @@ class Mage_Review_Model_Review extends Mage_Core_Model_Abstract
     /**
      * @return $this
      */
-    public function aggregate()
+    function aggregate()
     {
         $this->getResource()->aggregate($this);
         return $this;
@@ -115,7 +115,7 @@ class Mage_Review_Model_Review extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Product $product
      * @param int $storeId
      */
-    public function getEntitySummary($product, $storeId = 0)
+    function getEntitySummary($product, $storeId = 0)
     {
         $summaryData = Mage::getModel('review/review_summary')
             ->setStoreId($storeId)
@@ -128,7 +128,7 @@ class Mage_Review_Model_Review extends Mage_Core_Model_Abstract
     /**
      * @return int
      */
-    public function getPendingStatus()
+    function getPendingStatus()
     {
         return self::STATUS_PENDING;
     }
@@ -136,7 +136,7 @@ class Mage_Review_Model_Review extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getReviewUrl()
+    function getReviewUrl()
     {
         return Mage::getUrl('review/product/view', ['id' => $this->getReviewId()]);
     }
@@ -145,7 +145,7 @@ class Mage_Review_Model_Review extends Mage_Core_Model_Abstract
      * @return array|bool
      * @throws Zend_Validate_Exception
      */
-    public function validate()
+    function validate()
     {
         $errors = [];
 
@@ -184,7 +184,7 @@ class Mage_Review_Model_Review extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Resource_Product_Collection $collection
      * @return $this
      */
-    public function appendSummary($collection)
+    function appendSummary($collection)
     {
         $entityIds = [];
         foreach ($collection->getItems() as $_itemId => $_item) {
@@ -225,7 +225,7 @@ class Mage_Review_Model_Review extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isApproved()
+    function isApproved()
     {
         return $this->getStatusId() == self::STATUS_APPROVED;
     }
@@ -236,7 +236,7 @@ class Mage_Review_Model_Review extends Mage_Core_Model_Abstract
      * @param int|Mage_Core_Model_Store $store
      * @return bool
      */
-    public function isAvailableOnStore($store = null)
+    function isAvailableOnStore($store = null)
     {
         $store = Mage::app()->getStore($store);
         if ($store) {
@@ -252,7 +252,7 @@ class Mage_Review_Model_Review extends Mage_Core_Model_Abstract
      * @param string $entityCode
      * @return int|bool
      */
-    public function getEntityIdByCode($entityCode)
+    function getEntityIdByCode($entityCode)
     {
         return $this->getResource()->getEntityIdByCode($entityCode);
     }

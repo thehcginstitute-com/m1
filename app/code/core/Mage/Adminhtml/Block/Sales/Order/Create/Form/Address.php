@@ -34,7 +34,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form_Address extends Mage_Adminhtm
      *
      * @return array
      */
-    public function getAddressCollection()
+    function getAddressCollection()
     {
         return $this->getCustomer()->getAddresses();
     }
@@ -59,7 +59,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form_Address extends Mage_Adminhtm
      *
      * @return string
      */
-    public function getAddressCollectionJson()
+    function getAddressCollectionJson()
     {
         $addressForm = $this->_getAddressForm();
         $data = [];
@@ -196,7 +196,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form_Address extends Mage_Adminhtm
      *
      * @return false
      */
-    public function getAddressId()
+    function getAddressId()
     {
         return false;
     }
@@ -207,7 +207,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form_Address extends Mage_Adminhtm
      * @param Mage_Customer_Model_Address $address
      * @return string
      */
-    public function getAddressAsString($address)
+    function getAddressAsString($address)
     {
         return $this->escapeHtml($address->format('oneline'));
     }

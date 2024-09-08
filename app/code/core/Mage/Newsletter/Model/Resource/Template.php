@@ -34,7 +34,7 @@ class Mage_Newsletter_Model_Resource_Template extends Mage_Core_Model_Resource_D
      * @param string $templateCode
      * @return $this
      */
-    public function loadByCode(Mage_Newsletter_Model_Template $object, $templateCode)
+    function loadByCode(Mage_Newsletter_Model_Template $object, $templateCode)
     {
         $read = $this->_getReadAdapter();
         if ($read && !is_null($templateCode)) {
@@ -58,7 +58,7 @@ class Mage_Newsletter_Model_Resource_Template extends Mage_Core_Model_Resource_D
      * @param Mage_Newsletter_Model_Template $template
      * @return bool
      */
-    public function checkUsageInQueue(Mage_Newsletter_Model_Template $template)
+    function checkUsageInQueue(Mage_Newsletter_Model_Template $template)
     {
         if ($template->getTemplateActual() !== 0 && !$template->getIsSystem()) {
             $select = $this->_getReadAdapter()->select()
@@ -81,7 +81,7 @@ class Mage_Newsletter_Model_Resource_Template extends Mage_Core_Model_Resource_D
      * @param Mage_Newsletter_Model_Template $template
      * @return bool
      */
-    public function checkCodeUsage(Mage_Newsletter_Model_Template $template)
+    function checkCodeUsage(Mage_Newsletter_Model_Template $template)
     {
         if ($template->getTemplateActual() != 0 || is_null($template->getTemplateActual())) {
             $bind = [

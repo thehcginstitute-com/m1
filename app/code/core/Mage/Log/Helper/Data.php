@@ -40,7 +40,7 @@ class Mage_Log_Helper_Data extends Mage_Core_Helper_Abstract
      * Mage_Log_Helper_Data constructor.
      * @param array $data
      */
-    public function __construct(array $data = [])
+    function __construct(array $data = [])
     {
         $this->_logLevel = $data['log_level'] ?? (int) Mage::getStoreConfig(self::XML_PATH_LOG_ENABLED);
     }
@@ -50,7 +50,7 @@ class Mage_Log_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isVisitorLogEnabled()
+    function isVisitorLogEnabled()
     {
         return $this->_logLevel == Mage_Log_Model_Adminhtml_System_Config_Source_Loglevel::LOG_LEVEL_VISITORS
         || $this->isLogEnabled();
@@ -61,7 +61,7 @@ class Mage_Log_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isLogEnabled()
+    function isLogEnabled()
     {
         return $this->_logLevel == Mage_Log_Model_Adminhtml_System_Config_Source_Loglevel::LOG_LEVEL_ALL;
     }
@@ -71,7 +71,7 @@ class Mage_Log_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isLogDisabled()
+    function isLogDisabled()
     {
         return $this->_logLevel == Mage_Log_Model_Adminhtml_System_Config_Source_Loglevel::LOG_LEVEL_NONE;
     }
@@ -82,7 +82,7 @@ class Mage_Log_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $file
      * @return bool
      */
-    public function isLogFileExtensionValid($file)
+    function isLogFileExtensionValid($file)
     {
         $result = false;
         $validatedFileExtension = pathinfo($file, PATHINFO_EXTENSION);

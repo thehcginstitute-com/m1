@@ -39,7 +39,7 @@ class Mage_Adminhtml_Cms_Wysiwyg_ImagesController extends Mage_Adminhtml_Control
         return $this;
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $storeId = (int) $this->getRequest()->getParam('store');
 
@@ -56,7 +56,7 @@ class Mage_Adminhtml_Cms_Wysiwyg_ImagesController extends Mage_Adminhtml_Control
         $this->renderLayout();
     }
 
-    public function treeJsonAction()
+    function treeJsonAction()
     {
         try {
             $this->_initAction();
@@ -69,7 +69,7 @@ class Mage_Adminhtml_Cms_Wysiwyg_ImagesController extends Mage_Adminhtml_Control
         }
     }
 
-    public function contentsAction()
+    function contentsAction()
     {
         try {
             $this->_initAction()->_saveSessionCurrentPath();
@@ -81,7 +81,7 @@ class Mage_Adminhtml_Cms_Wysiwyg_ImagesController extends Mage_Adminhtml_Control
         }
     }
 
-    public function newFolderAction()
+    function newFolderAction()
     {
         try {
             $this->_initAction();
@@ -94,7 +94,7 @@ class Mage_Adminhtml_Cms_Wysiwyg_ImagesController extends Mage_Adminhtml_Control
         $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
     }
 
-    public function deleteFolderAction()
+    function deleteFolderAction()
     {
         try {
             $path = $this->getStorage()->getSession()->getCurrentPath();
@@ -108,7 +108,7 @@ class Mage_Adminhtml_Cms_Wysiwyg_ImagesController extends Mage_Adminhtml_Control
     /**
      * Delete file from media storage
      */
-    public function deleteFilesAction()
+    function deleteFilesAction()
     {
         try {
             if (!$this->getRequest()->isPost()) {
@@ -137,7 +137,7 @@ class Mage_Adminhtml_Cms_Wysiwyg_ImagesController extends Mage_Adminhtml_Control
     /**
      * Files upload processing
      */
-    public function uploadAction()
+    function uploadAction()
     {
         try {
             $result = [];
@@ -153,7 +153,7 @@ class Mage_Adminhtml_Cms_Wysiwyg_ImagesController extends Mage_Adminhtml_Control
     /**
      * Fire when select image
      */
-    public function onInsertAction()
+    function onInsertAction()
     {
         $helper = Mage::helper('cms/wysiwyg_images');
         $storeId = $this->getRequest()->getParam('store');
@@ -172,7 +172,7 @@ class Mage_Adminhtml_Cms_Wysiwyg_ImagesController extends Mage_Adminhtml_Control
     /**
      * Generate image thumbnail on the fly
      */
-    public function thumbnailAction()
+    function thumbnailAction()
     {
         $file = $this->getRequest()->getParam('file');
         $file = Mage::helper('cms/wysiwyg_images')->idDecode($file);
@@ -195,7 +195,7 @@ class Mage_Adminhtml_Cms_Wysiwyg_ImagesController extends Mage_Adminhtml_Control
      *
      * @return Mage_Cms_Model_Wysiwyg_Images_Storage
      */
-    public function getStorage()
+    function getStorage()
     {
         if (!Mage::registry('storage')) {
             $storage = Mage::getModel('cms/wysiwyg_images_storage');

@@ -98,7 +98,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param int $width
      * @return $this
      */
-    public function setWidth($width)
+    function setWidth($width)
     {
         $this->_width = $width;
         return $this;
@@ -107,7 +107,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
     /**
      * @return int|null
      */
-    public function getWidth()
+    function getWidth()
     {
         return $this->_width;
     }
@@ -116,7 +116,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param int $height
      * @return $this
      */
-    public function setHeight($height)
+    function setHeight($height)
     {
         $this->_height = $height;
         return $this;
@@ -125,7 +125,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
     /**
      * @return int|null
      */
-    public function getHeight()
+    function getHeight()
     {
         return $this->_height;
     }
@@ -136,7 +136,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param int $quality
      * @return $this
      */
-    public function setQuality($quality)
+    function setQuality($quality)
     {
         $this->_quality = $quality;
         return $this;
@@ -147,7 +147,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getQuality()
+    function getQuality()
     {
         return $this->_quality;
     }
@@ -156,7 +156,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param bool $keep
      * @return $this
      */
-    public function setKeepAspectRatio($keep)
+    function setKeepAspectRatio($keep)
     {
         $this->_keepAspectRatio = (bool)$keep;
         return $this;
@@ -166,7 +166,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param bool $keep
      * @return $this
      */
-    public function setKeepFrame($keep)
+    function setKeepFrame($keep)
     {
         $this->_keepFrame = (bool)$keep;
         return $this;
@@ -176,7 +176,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param bool $keep
      * @return $this
      */
-    public function setKeepTransparency($keep)
+    function setKeepTransparency($keep)
     {
         $this->_keepTransparency = (bool)$keep;
         return $this;
@@ -186,7 +186,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param bool $flag
      * @return $this
      */
-    public function setConstrainOnly($flag)
+    function setConstrainOnly($flag)
     {
         $this->_constrainOnly = (bool)$flag;
         return $this;
@@ -196,7 +196,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param array $rgbArray
      * @return $this
      */
-    public function setBackgroundColor(array $rgbArray)
+    function setBackgroundColor(array $rgbArray)
     {
         $this->_backgroundColor = $rgbArray;
         return $this;
@@ -206,7 +206,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param string $size
      * @return $this
      */
-    public function setSize($size)
+    function setSize($size)
     {
         // determine width and height from string
         list($width, $height) = explode('x', strtolower($size), 2);
@@ -326,7 +326,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param string $file
      * @return $this
      */
-    public function setBaseFile($file)
+    function setBaseFile($file)
     {
         $this->_isBaseFilePlaceholder = false;
 
@@ -416,7 +416,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getBaseFile()
+    function getBaseFile()
     {
         return $this->_baseFile;
     }
@@ -424,7 +424,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getNewFile()
+    function getNewFile()
     {
         return $this->_newFile;
     }
@@ -433,7 +433,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param Varien_Image $processor
      * @return $this
      */
-    public function setImageProcessor($processor)
+    function setImageProcessor($processor)
     {
         $this->_processor = $processor;
         return $this;
@@ -442,7 +442,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
     /**
      * @return Varien_Image
      */
-    public function getImageProcessor()
+    function getImageProcessor()
     {
         if (!$this->_processor) {
             $this->_processor = Mage::getModel('varien/image', $this->getBaseFile());
@@ -460,7 +460,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @see Varien_Image_Adapter_Abstract
      * @return $this
      */
-    public function resize()
+    function resize()
     {
         if (is_null($this->getWidth()) && is_null($this->getHeight())) {
             return $this;
@@ -473,7 +473,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param int $angle
      * @return $this
      */
-    public function rotate($angle)
+    function rotate($angle)
     {
         $angle = (int) $angle;
         $this->getImageProcessor()->rotate($angle);
@@ -488,7 +488,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param int $angle
      * @return $this
      */
-    public function setAngle($angle)
+    function setAngle($angle)
     {
         $this->_angle = $angle;
         return $this;
@@ -506,7 +506,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param int $imageOpacity
      * @return $this
      */
-    public function setWatermark($file, $position = null, $size = null, $width = null, $heigth = null, $imageOpacity = null)
+    function setWatermark($file, $position = null, $size = null, $width = null, $heigth = null, $imageOpacity = null)
     {
         if ($this->_isBaseFilePlaceholder) {
             return $this;
@@ -551,7 +551,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
     /**
      * @return $this
      */
-    public function saveFile()
+    function saveFile()
     {
         $filename = $this->getNewFile();
         $this->getImageProcessor()->save($filename);
@@ -562,14 +562,14 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getUrl()
+    function getUrl()
     {
         $baseDir = Mage::getBaseDir('media');
         $path = str_replace($baseDir . DS, "", $this->_newFile);
         return Mage::getBaseUrl('media') . str_replace(DS, '/', $path);
     }
 
-    public function push()
+    function push()
     {
         $this->getImageProcessor()->display();
     }
@@ -578,7 +578,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param string $dir
      * @return $this
      */
-    public function setDestinationSubdir($dir)
+    function setDestinationSubdir($dir)
     {
         $this->_destinationSubdir = $dir;
         return $this;
@@ -587,7 +587,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getDestinationSubdir()
+    function getDestinationSubdir()
     {
         return $this->_destinationSubdir;
     }
@@ -595,7 +595,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
     /**
      * @return bool
      */
-    public function isCached()
+    function isCached()
     {
         return $this->_fileExists($this->_newFile);
     }
@@ -606,7 +606,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param string $file
      * @return $this
      */
-    public function setWatermarkFile($file)
+    function setWatermarkFile($file)
     {
         $this->_watermarkFile = $file;
         return $this;
@@ -617,7 +617,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getWatermarkFile()
+    function getWatermarkFile()
     {
         return $this->_watermarkFile;
     }
@@ -662,7 +662,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param string $position
      * @return $this
      */
-    public function setWatermarkPosition($position)
+    function setWatermarkPosition($position)
     {
         $this->_watermarkPosition = $position;
         return $this;
@@ -673,7 +673,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getWatermarkPosition()
+    function getWatermarkPosition()
     {
         return $this->_watermarkPosition;
     }
@@ -684,7 +684,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param int $imageOpacity
      * @return $this
      */
-    public function setWatermarkImageOpacity($imageOpacity)
+    function setWatermarkImageOpacity($imageOpacity)
     {
         $this->_watermarkImageOpacity = $imageOpacity;
         return $this;
@@ -695,7 +695,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getWatermarkImageOpacity()
+    function getWatermarkImageOpacity()
     {
         return $this->_watermarkImageOpacity;
     }
@@ -706,7 +706,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param array $size
      * @return $this
      */
-    public function setWatermarkSize($size)
+    function setWatermarkSize($size)
     {
         if (is_array($size)) {
             $this->setWatermarkWidth($size['width'])
@@ -721,7 +721,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param int $width
      * @return $this
      */
-    public function setWatermarkWidth($width)
+    function setWatermarkWidth($width)
     {
         $this->_watermarkWidth = $width;
         return $this;
@@ -732,7 +732,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getWatermarkWidth()
+    function getWatermarkWidth()
     {
         return $this->_watermarkWidth;
     }
@@ -743,7 +743,7 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      * @param int $heigth
      * @return $this
      */
-    public function setWatermarkHeigth($heigth)
+    function setWatermarkHeigth($heigth)
     {
         $this->_watermarkHeigth = $heigth;
         return $this;
@@ -754,12 +754,12 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getWatermarkHeigth()
+    function getWatermarkHeigth()
     {
         return $this->_watermarkHeigth;
     }
 
-    public function clearCache()
+    function clearCache()
     {
         $directory = Mage::getBaseDir('media') . DS . 'catalog' . DS . 'product' . DS . 'cache' . DS;
         $io = new Varien_Io_File();

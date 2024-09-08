@@ -62,7 +62,7 @@ class Mage_Core_Model_Email_Info extends Varien_Object
      * @param string|null $name
      * @return $this
      */
-    public function addBcc($email, $name = null)
+    function addBcc($email, $name = null)
     {
         $this->_bccNames[] = $name;
         $this->_bccEmails[] = $email;
@@ -76,7 +76,7 @@ class Mage_Core_Model_Email_Info extends Varien_Object
      * @param array|string|null $name
      * @return $this
      */
-    public function addTo($email, $name = null)
+    function addTo($email, $name = null)
     {
         $this->_toNames[] = $name;
         $this->_toEmails[] = $email;
@@ -88,7 +88,7 @@ class Mage_Core_Model_Email_Info extends Varien_Object
      *
      * @return array
      */
-    public function getBccNames()
+    function getBccNames()
     {
         return $this->_bccNames;
     }
@@ -98,7 +98,7 @@ class Mage_Core_Model_Email_Info extends Varien_Object
      *
      * @return array
      */
-    public function getBccEmails()
+    function getBccEmails()
     {
         return $this->_bccEmails;
     }
@@ -108,7 +108,7 @@ class Mage_Core_Model_Email_Info extends Varien_Object
      *
      * @return array
      */
-    public function getToNames()
+    function getToNames()
     {
         return $this->_toNames;
     }
@@ -118,7 +118,7 @@ class Mage_Core_Model_Email_Info extends Varien_Object
      *
      * @return array
      */
-    public function getToEmails()
+    function getToEmails()
     {
         return $this->_toEmails;
     }

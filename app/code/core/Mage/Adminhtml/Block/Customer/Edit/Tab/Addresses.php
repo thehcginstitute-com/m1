@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Addresses extends Mage_Adminhtml_Bl
     /**
      * Mage_Adminhtml_Block_Customer_Edit_Tab_Addresses constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('customer/tab/addresses.phtml');
@@ -34,7 +34,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Addresses extends Mage_Adminhtml_Bl
     /**
      * @return string
      */
-    public function getRegionsUrl()
+    function getRegionsUrl()
     {
         return $this->getUrl('*/json/countryRegion');
     }
@@ -89,7 +89,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Addresses extends Mage_Adminhtml_Bl
      *
      * @return bool
      */
-    public function isReadonly()
+    function isReadonly()
     {
         $customer = Mage::registry('current_customer');
         return $customer->isReadonly();
@@ -98,7 +98,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Addresses extends Mage_Adminhtml_Bl
     /**
      * @return string
      */
-    public function getDeleteButtonHtml()
+    function getDeleteButtonHtml()
     {
         return $this->getChildHtml('delete_button');
     }
@@ -109,7 +109,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Addresses extends Mage_Adminhtml_Bl
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function initForm()
+    function initForm()
     {
         /** @var Mage_Customer_Model_Customer $customer */
         $customer = Mage::registry('current_customer');
@@ -216,7 +216,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Addresses extends Mage_Adminhtml_Bl
     /**
      * @return string
      */
-    public function getCancelButtonHtml()
+    function getCancelButtonHtml()
     {
         return $this->getChildHtml('cancel_button');
     }
@@ -224,7 +224,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Addresses extends Mage_Adminhtml_Bl
     /**
      * @return string
      */
-    public function getAddNewButtonHtml()
+    function getAddNewButtonHtml()
     {
         return $this->getChildHtml('add_address_button');
     }
@@ -232,7 +232,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Addresses extends Mage_Adminhtml_Bl
     /**
      * @return string
      */
-    public function getTemplatePrefix()
+    function getTemplatePrefix()
     {
         return '_template_';
     }
@@ -257,7 +257,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Addresses extends Mage_Adminhtml_Bl
      * @return string
      * @throws Mage_Core_Exception
      */
-    public function getDefaultCountriesJson()
+    function getDefaultCountriesJson()
     {
         $websites = Mage::getSingleton('adminhtml/system_store')->getWebsiteValuesForForm(false, true);
         $result = [];
@@ -276,7 +276,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Addresses extends Mage_Adminhtml_Bl
      * @param string|int|array $values
      * @return $this
      */
-    public function addValuesToNamePrefixElement($values)
+    function addValuesToNamePrefixElement($values)
     {
         if ($this->getForm() && $this->getForm()->getElement('prefix')) {
             $this->getForm()->getElement('prefix')->addElementValues($values);
@@ -290,7 +290,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Addresses extends Mage_Adminhtml_Bl
      * @param string|int|array $values
      * @return $this
      */
-    public function addValuesToNameSuffixElement($values)
+    function addValuesToNameSuffixElement($values)
     {
         if ($this->getForm() && $this->getForm()->getElement('suffix')) {
             $this->getForm()->getElement('suffix')->addElementValues($values);

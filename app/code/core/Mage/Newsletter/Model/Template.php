@@ -77,7 +77,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      *
      * @throws Mage_Core_Exception
      */
-    public function validate()
+    function validate()
     {
         $validators = [
             'template_code'         => [Zend_Filter_Input::ALLOW_EMPTY => false],
@@ -124,7 +124,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      * @param string $templateCode
      * @return $this
      */
-    public function loadByCode($templateCode)
+    function loadByCode($templateCode)
     {
         $this->_getResource()->loadByCode($this, $templateCode);
         return $this;
@@ -136,7 +136,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      * @return bool
      * @deprecated since 1.4.0.1
      */
-    public function isValidForSend()
+    function isValidForSend()
     {
         return !Mage::getStoreConfigFlag('system/smtp/disable')
             && $this->getTemplateSenderName()
@@ -149,7 +149,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      *
      * @return int|string
      */
-    public function getType()
+    function getType()
     {
         return $this->getTemplateType();
     }
@@ -159,7 +159,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      *
      * @return bool
      */
-    public function isPreprocessed()
+    function isPreprocessed()
     {
         return strlen($this->getTemplateTextPreprocessed()) > 0;
     }
@@ -169,7 +169,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      *
      * @return string
      */
-    public function getTemplateTextPreprocessed()
+    function getTemplateTextPreprocessed()
     {
         if ($this->_preprocessFlag) {
             $this->setTemplateTextPreprocessed($this->getProcessedTemplate());
@@ -185,7 +185,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      * @param bool $usePreprocess
      * @return string
      */
-    public function getProcessedTemplate(array $variables = [], $usePreprocess = false)
+    function getProcessedTemplate(array $variables = [], $usePreprocess = false)
     {
         /** @var Mage_Newsletter_Model_Template_Filter $processor */
         $processor = Mage::helper('newsletter')->getTemplateProcessor();
@@ -230,7 +230,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      * @param string|null $html
      * @return string
      */
-    public function getPreparedTemplateText($usePreprocess = false, $html = null)
+    function getPreparedTemplateText($usePreprocess = false, $html = null)
     {
         if ($usePreprocess) {
             $text = $this->getTemplateTextPreprocessed();
@@ -254,7 +254,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      * @param array $variables
      * @return string
      */
-    public function getInclude($templateCode, array $variables)
+    function getInclude($templateCode, array $variables)
     {
         return Mage::getModel('newsletter/template')
             ->loadByCode($templateCode)
@@ -267,7 +267,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      * @return Zend_Mail
      * @deprecated since 1.4.0.1
      */
-    public function getMail()
+    function getMail()
     {
         if (is_null($this->_mail)) {
             $this->_mail = new Zend_Mail('utf-8');
@@ -285,7 +285,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      * @return bool
      * @deprecated since 1.4.0.1
      **/
-    public function send($subscriber, array $variables = [], $name = null, Mage_Newsletter_Model_Queue $queue = null)
+    function send($subscriber, array $variables = [], $name = null, Mage_Newsletter_Model_Queue $queue = null)
     {
         if (!$this->isValidForSend()) {
             return false;
@@ -378,7 +378,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      * @return $this
      * @deprecated since 1.4.0.1
      */
-    public function preprocess()
+    function preprocess()
     {
         $this->_preprocessFlag = true;
         $this->save();
@@ -392,7 +392,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      * @param array $variables
      * @return string
      */
-    public function getProcessedTemplateSubject(array $variables)
+    function getProcessedTemplateSubject(array $variables)
     {
         $processor = new Varien_Filter_Template();
 
@@ -409,7 +409,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      *
      * @return string
      */
-    public function getTemplateText()
+    function getTemplateText()
     {
         if (!$this->getData('template_text') && !$this->getId()) {
             $this->setData(

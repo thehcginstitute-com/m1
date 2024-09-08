@@ -27,7 +27,7 @@ class Mage_ImportExport_Model_Source_Import_Entity
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $options = [];
         $entities = Mage_ImportExport_Model_Import::CONFIG_KEY_ENTITIES;

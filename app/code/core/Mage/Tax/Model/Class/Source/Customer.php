@@ -25,7 +25,7 @@ class Mage_Tax_Model_Class_Source_Customer extends Mage_Eav_Model_Entity_Attribu
     /**
      * @return array
      */
-    public function getAllOptions()
+    function getAllOptions()
     {
         if (!$this->_options) {
             $this->_options = Mage::getResourceModel('tax/class_collection')
@@ -38,7 +38,7 @@ class Mage_Tax_Model_Class_Source_Customer extends Mage_Eav_Model_Entity_Attribu
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->getAllOptions();
     }

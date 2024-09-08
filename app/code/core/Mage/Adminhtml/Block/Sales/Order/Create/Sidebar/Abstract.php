@@ -34,7 +34,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Abstract extends Mage_Admi
      *
      * @return string
      */
-    public function getSidebarStorageAction()
+    function getSidebarStorageAction()
     {
         return $this->_sidebarStorageAction;
     }
@@ -44,7 +44,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Abstract extends Mage_Admi
      *
      * @return int
      */
-    public function canDisplay()
+    function canDisplay()
     {
         return $this->getCustomerId();
     }
@@ -52,7 +52,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Abstract extends Mage_Admi
     /**
      * @return bool
      */
-    public function canDisplayItemQty()
+    function canDisplayItemQty()
     {
         return false;
     }
@@ -62,7 +62,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Abstract extends Mage_Admi
      *
      * @return bool
      */
-    public function canRemoveItems()
+    function canRemoveItems()
     {
         return true;
     }
@@ -73,7 +73,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Abstract extends Mage_Admi
      * @param   Varien_Object $item
      * @return  int
      */
-    public function getIdentifierId($item)
+    function getIdentifierId($item)
     {
         return $item->getProductId();
     }
@@ -84,7 +84,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Abstract extends Mage_Admi
      * @param   mixed $item
      * @return  int
      */
-    public function getItemId($item)
+    function getItemId($item)
     {
         return $item->getId();
     }
@@ -95,7 +95,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Abstract extends Mage_Admi
      * @param   mixed $item
      * @return  int
      */
-    public function getProductId($item)
+    function getProductId($item)
     {
         return $item->getId();
     }
@@ -105,7 +105,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Abstract extends Mage_Admi
      *
      * @return int
      */
-    public function getItemCount()
+    function getItemCount()
     {
         $count = $this->getData('item_count');
         if (is_null($count)) {
@@ -120,7 +120,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Abstract extends Mage_Admi
      *
      * @return array
      */
-    public function getItems()
+    function getItems()
     {
         $items = [];
         $collection = $this->getItemCollection();
@@ -166,7 +166,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Abstract extends Mage_Admi
      *
      * @return mixed
      */
-    public function getItemCollection()
+    function getItemCollection()
     {
         return false;
     }
@@ -174,7 +174,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Abstract extends Mage_Admi
     /**
      * @return bool
      */
-    public function canDisplayPrice()
+    function canDisplayPrice()
     {
         return true;
     }

@@ -27,7 +27,7 @@ class Mage_Adminhtml_Model_System_Config_Source_Watermark_Position
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             ['value' => 'stretch',         'label' => Mage::helper('catalog')->__('Stretch')],

@@ -49,7 +49,7 @@ class Mage_Customer_Model_Customer_Api extends Mage_Customer_Model_Api_Resource
      * @param array $customerData
      * @return int
      */
-    public function create($customerData)
+    function create($customerData)
     {
         $customer = Mage::getModel('customer/customer');
         $customerData = $this->_prepareData($customerData);
@@ -70,7 +70,7 @@ class Mage_Customer_Model_Customer_Api extends Mage_Customer_Model_Api_Resource
      * @param array $attributes
      * @return array
      */
-    public function info($customerId, $attributes = null)
+    function info($customerId, $attributes = null)
     {
         $customer = Mage::getModel('customer/customer')->load($customerId);
 
@@ -101,7 +101,7 @@ class Mage_Customer_Model_Customer_Api extends Mage_Customer_Model_Api_Resource
      * @param  object|array $filters
      * @return array
      */
-    public function items($filters)
+    function items($filters)
     {
         $collection = Mage::getModel('customer/customer')->getCollection()->addAttributeToSelect('*');
         /** @var Mage_Api_Helper_Data $apiHelper */
@@ -140,7 +140,7 @@ class Mage_Customer_Model_Customer_Api extends Mage_Customer_Model_Api_Resource
      * @param array $customerData
      * @return bool
      */
-    public function update($customerId, $customerData)
+    function update($customerId, $customerData)
     {
         $customerData = $this->_prepareData($customerData);
 
@@ -166,7 +166,7 @@ class Mage_Customer_Model_Customer_Api extends Mage_Customer_Model_Api_Resource
      * @param int $customerId
      * @return bool
      */
-    public function delete($customerId)
+    function delete($customerId)
     {
         $customer = Mage::getModel('customer/customer')->load($customerId);
 

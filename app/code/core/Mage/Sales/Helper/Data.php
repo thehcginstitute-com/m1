@@ -41,7 +41,7 @@ class Mage_Sales_Helper_Data extends Mage_Core_Helper_Data
      * @param float $amount
      * @return $this
      */
-    public function checkQuoteAmount(Mage_Sales_Model_Quote $quote, $amount)
+    function checkQuoteAmount(Mage_Sales_Model_Quote $quote, $amount)
     {
         if (!$quote->getHasError() && ($amount >= self::MAXIMUM_AVAILABLE_NUMBER)) {
             $quote->setHasError(true);
@@ -58,7 +58,7 @@ class Mage_Sales_Helper_Data extends Mage_Core_Helper_Data
      * @param mixed $store
      * @return bool
      */
-    public function canSendNewOrderConfirmationEmail($store = null)
+    function canSendNewOrderConfirmationEmail($store = null)
     {
         return Mage::getStoreConfigFlag(Mage_Sales_Model_Order::XML_PATH_EMAIL_ENABLED, $store);
     }
@@ -69,7 +69,7 @@ class Mage_Sales_Helper_Data extends Mage_Core_Helper_Data
      * @param mixed $store
      * @return bool
      */
-    public function canSendNewOrderEmail($store = null)
+    function canSendNewOrderEmail($store = null)
     {
         return $this->canSendNewOrderConfirmationEmail($store);
     }
@@ -80,7 +80,7 @@ class Mage_Sales_Helper_Data extends Mage_Core_Helper_Data
      * @param mixed $store
      * @return bool
      */
-    public function canSendOrderCommentEmail($store = null)
+    function canSendOrderCommentEmail($store = null)
     {
         return Mage::getStoreConfigFlag(Mage_Sales_Model_Order::XML_PATH_UPDATE_EMAIL_ENABLED, $store);
     }
@@ -91,7 +91,7 @@ class Mage_Sales_Helper_Data extends Mage_Core_Helper_Data
      * @param mixed $store
      * @return bool
      */
-    public function canSendNewShipmentEmail($store = null)
+    function canSendNewShipmentEmail($store = null)
     {
         return Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Shipment::XML_PATH_EMAIL_ENABLED, $store);
     }
@@ -102,7 +102,7 @@ class Mage_Sales_Helper_Data extends Mage_Core_Helper_Data
      * @param mixed $store
      * @return bool
      */
-    public function canSendShipmentCommentEmail($store = null)
+    function canSendShipmentCommentEmail($store = null)
     {
         return Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Shipment::XML_PATH_UPDATE_EMAIL_ENABLED, $store);
     }
@@ -113,7 +113,7 @@ class Mage_Sales_Helper_Data extends Mage_Core_Helper_Data
      * @param mixed $store
      * @return bool
      */
-    public function canSendNewInvoiceEmail($store = null)
+    function canSendNewInvoiceEmail($store = null)
     {
         return Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Invoice::XML_PATH_EMAIL_ENABLED, $store);
     }
@@ -124,7 +124,7 @@ class Mage_Sales_Helper_Data extends Mage_Core_Helper_Data
      * @param mixed $store
      * @return bool
      */
-    public function canSendInvoiceCommentEmail($store = null)
+    function canSendInvoiceCommentEmail($store = null)
     {
         return Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Invoice::XML_PATH_UPDATE_EMAIL_ENABLED, $store);
     }
@@ -135,7 +135,7 @@ class Mage_Sales_Helper_Data extends Mage_Core_Helper_Data
      * @param mixed $store
      * @return bool
      */
-    public function canSendNewCreditmemoEmail($store = null)
+    function canSendNewCreditmemoEmail($store = null)
     {
         return Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Creditmemo::XML_PATH_EMAIL_ENABLED, $store);
     }
@@ -146,7 +146,7 @@ class Mage_Sales_Helper_Data extends Mage_Core_Helper_Data
      * @param mixed $store
      * @return bool
      */
-    public function canSendCreditmemoCommentEmail($store = null)
+    function canSendCreditmemoCommentEmail($store = null)
     {
         return Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Creditmemo::XML_PATH_UPDATE_EMAIL_ENABLED, $store);
     }
@@ -157,7 +157,7 @@ class Mage_Sales_Helper_Data extends Mage_Core_Helper_Data
      * @param string $entityId
      * @return array
      */
-    public function getOldFieldMap($entityId)
+    function getOldFieldMap($entityId)
     {
         $node = Mage::getConfig()->getNode('global/sales/old_fields_map/' . $entityId);
         if ($node === false) {

@@ -78,7 +78,7 @@ class Mage_Eav_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $entityTypeCode
      * @return array
      */
-    public function getFrontendClasses($entityTypeCode)
+    function getFrontendClasses($entityTypeCode)
     {
         $_defaultClasses = $this->_getDefaultFrontendClasses();
         if (isset($this->_entityTypeFrontendClasses[$entityTypeCode])) {
@@ -110,7 +110,7 @@ class Mage_Eav_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $entityTypeCode
      * @return array
      */
-    public function getAttributeLockedFields($entityTypeCode)
+    function getAttributeLockedFields($entityTypeCode)
     {
         if (!$entityTypeCode) {
             return [];
@@ -134,7 +134,7 @@ class Mage_Eav_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getInputTypesValidatorData()
+    function getInputTypesValidatorData()
     {
         return Mage::getStoreConfig(self::XML_PATH_VALIDATOR_DATA_INPUT_TYPES);
     }

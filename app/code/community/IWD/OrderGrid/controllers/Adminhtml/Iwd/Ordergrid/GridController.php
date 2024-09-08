@@ -8,7 +8,7 @@ class IWD_OrderGrid_Adminhtml_Iwd_Ordergrid_GridController extends Mage_Adminhtm
     /**
      * @return void
      */
-    public function orderCommentsAction()
+    function orderCommentsAction()
     {
         try {
             $checkedOrders = $this->getCheckedOrderIds();
@@ -40,7 +40,7 @@ class IWD_OrderGrid_Adminhtml_Iwd_Ordergrid_GridController extends Mage_Adminhtm
     /**
      * @return void
      */
-    public function orderedItemsAction()
+    function orderedItemsAction()
     {
         $result = array('status' => 1);
 
@@ -64,7 +64,7 @@ class IWD_OrderGrid_Adminhtml_Iwd_Ordergrid_GridController extends Mage_Adminhtm
     /**
      * @return void
      */
-    public function productItemsAction()
+    function productItemsAction()
     {
         $result = array('status' => 1);
 

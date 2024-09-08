@@ -41,7 +41,7 @@ class Mage_Core_Model_Calculator
      *
      * @param Mage_Core_Model_Store|int $store
      */
-    public function __construct($store)
+    function __construct($store)
     {
         if (!($store instanceof Mage_Core_Model_Store)) {
             $store = Mage::app()->getStore($store);
@@ -56,7 +56,7 @@ class Mage_Core_Model_Calculator
      * @param bool $negative Indicates if we perform addition (true) or subtraction (false) of rounded value
      * @return float
      */
-    public function deltaRound($price, $negative = false)
+    function deltaRound($price, $negative = false)
     {
         $roundedPrice = $price;
         if ($roundedPrice) {

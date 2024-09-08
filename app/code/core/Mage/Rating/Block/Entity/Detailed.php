@@ -24,7 +24,7 @@
  */
 class Mage_Rating_Block_Entity_Detailed extends Mage_Core_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('rating/detailed.phtml');

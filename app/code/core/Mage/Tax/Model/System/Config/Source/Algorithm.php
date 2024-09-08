@@ -22,7 +22,7 @@ class Mage_Tax_Model_System_Config_Source_Algorithm
 {
     protected $_options;
 
-    public function __construct()
+    function __construct()
     {
         $this->_options = [
             [
@@ -43,7 +43,7 @@ class Mage_Tax_Model_System_Config_Source_Algorithm
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->_options;
     }

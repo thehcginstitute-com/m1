@@ -57,7 +57,7 @@ class Mage_Bundle_Block_Catalog_Product_View_Type_Bundle extends Mage_Catalog_Bl
      *
      * @return array
      */
-    public function getOptions()
+    function getOptions()
     {
         if (!$this->_options) {
             $product = $this->getProduct();
@@ -87,7 +87,7 @@ class Mage_Bundle_Block_Catalog_Product_View_Type_Bundle extends Mage_Catalog_Bl
      *
      * @return bool
      */
-    public function hasOptions()
+    function hasOptions()
     {
         $this->getOptions();
         if (empty($this->_options) || !$this->getProduct()->isSalable()) {
@@ -101,7 +101,7 @@ class Mage_Bundle_Block_Catalog_Product_View_Type_Bundle extends Mage_Catalog_Bl
      *
      * @return string
      */
-    public function getJsonConfig()
+    function getJsonConfig()
     {
         Mage::app()->getLocale()->getJsPriceFormat();
         $optionsArray = $this->getOptions();
@@ -304,7 +304,7 @@ class Mage_Bundle_Block_Catalog_Product_View_Type_Bundle extends Mage_Catalog_Bl
      * @param string $type
      * @param string $block
      */
-    public function addRenderer($type, $block)
+    function addRenderer($type, $block)
     {
         $this->_optionRenderers[$type] = $block;
     }
@@ -315,7 +315,7 @@ class Mage_Bundle_Block_Catalog_Product_View_Type_Bundle extends Mage_Catalog_Bl
      * @param Mage_Catalog_Model_Product_Option $option
      * @return string
      */
-    public function getOptionHtml($option)
+    function getOptionHtml($option)
     {
         if (!isset($this->_optionRenderers[$option->getType()])) {
             return $this->__('There is no defined renderer for "%s" option type.', $option->getType());

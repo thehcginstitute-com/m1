@@ -39,7 +39,7 @@ class Mage_Persistent_Block_Form_Remember extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function isRememberMeChecked()
+    function isRememberMeChecked()
     {
         /** @var Mage_Persistent_Helper_Data $helper */
         $helper = Mage::helper('persistent');

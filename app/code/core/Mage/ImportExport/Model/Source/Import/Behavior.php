@@ -27,7 +27,7 @@ class Mage_ImportExport_Model_Source_Import_Behavior
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             [

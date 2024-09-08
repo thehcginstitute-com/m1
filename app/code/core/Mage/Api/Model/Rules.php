@@ -43,7 +43,7 @@ class Mage_Api_Model_Rules extends Mage_Core_Model_Abstract
     /**
      * @return $this
      */
-    public function update()
+    function update()
     {
         $this->getResource()->update($this);
         return $this;
@@ -52,7 +52,7 @@ class Mage_Api_Model_Rules extends Mage_Core_Model_Abstract
     /**
      * @return Mage_Api_Model_Resource_Permissions_Collection
      */
-    public function getCollection()
+    function getCollection()
     {
         return Mage::getResourceModel('api/permissions_collection');
     }
@@ -61,7 +61,7 @@ class Mage_Api_Model_Rules extends Mage_Core_Model_Abstract
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function saveRel()
+    function saveRel()
     {
         $this->getResource()->saveRel($this);
         return $this;

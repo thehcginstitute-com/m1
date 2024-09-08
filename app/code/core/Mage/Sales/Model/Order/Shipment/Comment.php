@@ -55,7 +55,7 @@ class Mage_Sales_Model_Order_Shipment_Comment extends Mage_Sales_Model_Abstract
      * @param   Mage_Sales_Model_Order_Shipment $shipment
      * @return  $this
      */
-    public function setShipment(Mage_Sales_Model_Order_Shipment $shipment)
+    function setShipment(Mage_Sales_Model_Order_Shipment $shipment)
     {
         $this->_shipment = $shipment;
         return $this;
@@ -66,7 +66,7 @@ class Mage_Sales_Model_Order_Shipment_Comment extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Shipment
      */
-    public function getShipment()
+    function getShipment()
     {
         return $this->_shipment;
     }
@@ -76,7 +76,7 @@ class Mage_Sales_Model_Order_Shipment_Comment extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         if ($this->getShipment()) {
             return $this->getShipment()->getStore();

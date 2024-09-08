@@ -25,7 +25,7 @@ class Mage_Catalog_Model_Product_Configuration_Item_Option extends Varien_Object
     /**
      * @return mixed
      */
-    public function getValue()
+    function getValue()
     {
         return $this->_getData('value');
     }

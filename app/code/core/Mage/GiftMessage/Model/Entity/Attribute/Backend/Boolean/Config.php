@@ -29,7 +29,7 @@ class Mage_GiftMessage_Model_Entity_Attribute_Backend_Boolean_Config extends Mag
      * @param Varien_Object $object
      * @return $this
      */
-    public function afterLoad($object)
+    function afterLoad($object)
     {
         if (!$object->hasData($this->getAttribute()->getAttributeCode())) {
             $object->setData($this->getAttribute()->getAttributeCode(), $this->getDefaultValue());
@@ -43,7 +43,7 @@ class Mage_GiftMessage_Model_Entity_Attribute_Backend_Boolean_Config extends Mag
      * @param Varien_Object $object
      * @return $this
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         if ($object->hasData($this->getAttribute()->getAttributeCode())
             && $object->getData($this->getAttribute()->getAttributeCode()) == $this->getDefaultValue()
@@ -59,7 +59,7 @@ class Mage_GiftMessage_Model_Entity_Attribute_Backend_Boolean_Config extends Mag
      * @param Varien_Object $object
      * @return bool
      */
-    public function validate($object)
+    function validate($object)
     {
         // all attribute's options
         $optionsAllowed = ['0', '1', '2'];

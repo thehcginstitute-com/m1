@@ -30,7 +30,7 @@ class Lesti_Fpc_Model_Observer
      * @param $observer
      * @SuppressWarnings(PHPMD.ExitExpression)
      */
-    public function controllerActionLayoutGenerateBlocksBefore($observer)
+    function controllerActionLayoutGenerateBlocksBefore($observer)
     {
         if ($this->_getFpc()->isActive() &&
             !$this->_cached &&
@@ -92,7 +92,7 @@ class Lesti_Fpc_Model_Observer
     /**
      * @param $observer
      */
-    public function httpResponseSendBefore($observer)
+    function httpResponseSendBefore($observer)
     {
         $response = $observer->getEvent()->getResponse();
         if ($this->_getFpc()->isActive() &&
@@ -148,7 +148,7 @@ class Lesti_Fpc_Model_Observer
     /**
      * @param $observer
      */
-    public function coreBlockAbstractToHtmlAfter($observer)
+    function coreBlockAbstractToHtmlAfter($observer)
     {
         if ($this->_getFpc()->isActive() &&
             !$this->_cached &&
@@ -177,7 +177,7 @@ class Lesti_Fpc_Model_Observer
         }
     }
 
-    public function controllerActionPostdispatch()
+    function controllerActionPostdispatch()
     {
         if ($this->_getFpc()->isActive()) {
             $fullActionName = Mage::helper('fpc')->getFullActionName();

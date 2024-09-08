@@ -33,7 +33,7 @@ class Mage_Adminhtml_Permissions_RoleController extends Mage_Adminhtml_Controlle
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         return parent::preDispatch();
@@ -78,7 +78,7 @@ class Mage_Adminhtml_Permissions_RoleController extends Mage_Adminhtml_Controlle
     /**
      * Show grid with roles existing in systems
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('System'))
              ->_title($this->__('Permissions'))
@@ -91,7 +91,7 @@ class Mage_Adminhtml_Permissions_RoleController extends Mage_Adminhtml_Controlle
     /**
      * Action for ajax request from grid
      */
-    public function roleGridAction()
+    function roleGridAction()
     {
         $this->loadLayout();
         $this->getResponse()->setBody($this->getLayout()->getBlock('adminhtml.permission.role.grid')->toHtml());
@@ -100,7 +100,7 @@ class Mage_Adminhtml_Permissions_RoleController extends Mage_Adminhtml_Controlle
     /**
      * Edit role action
      */
-    public function editRoleAction()
+    function editRoleAction()
     {
         $role = $this->_initRole();
         $this->_initAction();
@@ -134,7 +134,7 @@ class Mage_Adminhtml_Permissions_RoleController extends Mage_Adminhtml_Controlle
     /**
      * Remove role action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $role = $this->_initRole('role_id');
         if (!$role->getId()) {
@@ -178,7 +178,7 @@ class Mage_Adminhtml_Permissions_RoleController extends Mage_Adminhtml_Controlle
     /**
      * Role form submit action to save or create new role
      */
-    public function saveRoleAction()
+    function saveRoleAction()
     {
         $rid        = $this->getRequest()->getParam('role_id', false);
         $resource   = explode(',', $this->getRequest()->getParam('resource', false));
@@ -254,7 +254,7 @@ class Mage_Adminhtml_Permissions_RoleController extends Mage_Adminhtml_Controlle
     /**
      * Action for ajax request from assigned users grid
      */
-    public function editrolegridAction()
+    function editrolegridAction()
     {
         $this->getResponse()->setBody(
             $this->getLayout()->createBlock('adminhtml/permissions_role_grid_user')->toHtml()
@@ -306,7 +306,7 @@ class Mage_Adminhtml_Permissions_RoleController extends Mage_Adminhtml_Controlle
      * This method will make sure the rendered ACL resource tree checkboxes match the actual ACL permissions.
      * To be used after adding a new ACL resource via config
      */
-    public function refreshRolesAction()
+    function refreshRolesAction()
     {
         $resourceAcl = Mage::getResourceModel('admin/acl')->loadAcl();
         $roles = Mage::getResourceModel('admin/role_collection')->setRolesFilter()->getItems();

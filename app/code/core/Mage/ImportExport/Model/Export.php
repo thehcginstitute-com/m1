@@ -132,7 +132,7 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      * @throws Mage_Core_Exception
      * @return string
      */
-    public function export()
+    function export()
     {
         if (isset($this->_data[self::FILTER_ELEMENT_GROUP])) {
             $this->addLogComment(Mage::helper('importexport')->__('Begin export of %s', $this->getEntity()));
@@ -173,7 +173,7 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      * @throws Mage_Core_Exception
      * @return array
      */
-    public function exportFile()
+    function exportFile()
     {
         if (isset($this->_data[self::FILTER_ELEMENT_GROUP])) {
             $this->addLogComment(Mage::helper('importexport')->__('Begin export of %s', $this->getEntity()));
@@ -209,7 +209,7 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      * @param Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection
      * @return Mage_Eav_Model_Resource_Entity_Attribute_Collection
      */
-    public function filterAttributeCollection(Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection)
+    function filterAttributeCollection(Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection)
     {
         return $this->_getEntityAdapter()->filterAttributeCollection($collection);
     }
@@ -247,7 +247,7 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      *
      * @return string
      */
-    public function getContentType()
+    function getContentType()
     {
         return $this->_getWriter()->getContentType();
     }
@@ -258,7 +258,7 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      * @throw Exception
      * @return string
      */
-    public function getEntity()
+    function getEntity()
     {
         if (empty($this->_data['entity'])) {
             Mage::throwException(Mage::helper('importexport')->__('Entity is unknown'));
@@ -271,7 +271,7 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      *
      * @return Mage_Eav_Model_Resource_Entity_Attribute_Collection
      */
-    public function getEntityAttributeCollection()
+    function getEntityAttributeCollection()
     {
         return $this->_getEntityAdapter()->getAttributeCollection();
     }
@@ -282,7 +282,7 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      * @throw Exception
      * @return string
      */
-    public function getFileFormat()
+    function getFileFormat()
     {
         if (empty($this->_data['file_format'])) {
             Mage::throwException(Mage::helper('importexport')->__('File format is unknown'));
@@ -295,7 +295,7 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      *
      * @return string
      */
-    public function getFileName()
+    function getFileName()
     {
         return $this->getEntity() . '_' . date('Ymd_His') .  '.' . $this->_getWriter()->getFileExtension();
     }

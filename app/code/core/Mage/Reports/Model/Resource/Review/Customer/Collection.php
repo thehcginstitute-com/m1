@@ -27,7 +27,7 @@ class Mage_Reports_Model_Resource_Review_Customer_Collection extends Mage_Review
      *
      * @return $this
      */
-    public function joinCustomers()
+    function joinCustomers()
     {
         /**
          * Allow to use analytic function to result select
@@ -118,7 +118,7 @@ class Mage_Reports_Model_Resource_Review_Customer_Collection extends Mage_Review
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $countSelect = clone $this->_select;
         $countSelect->reset(Zend_Db_Select::ORDER);

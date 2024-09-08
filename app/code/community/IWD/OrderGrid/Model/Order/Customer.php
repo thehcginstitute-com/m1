@@ -14,7 +14,7 @@ class IWD_OrderGrid_Model_Order_Customer extends Mage_Core_Model_Abstract
         'customer_email' => 'Email',
     );
 
-    public function CustomerInfoOrderField($order)
+    function CustomerInfoOrderField($order)
     {
         return array(
             'customer_group_id' => array('value' => $order['customer_group_id'], 'title' => 'Group', 'required' => true),
@@ -27,7 +27,7 @@ class IWD_OrderGrid_Model_Order_Customer extends Mage_Core_Model_Abstract
         );
     }
 
-    public function updateOrderCustomer($params)
+    function updateOrderCustomer($params)
     {
         $this->init($params);
 
@@ -41,7 +41,7 @@ class IWD_OrderGrid_Model_Order_Customer extends Mage_Core_Model_Abstract
         }
     }
 
-    public function execUpdateOrderCustomer($params)
+    function execUpdateOrderCustomer($params)
     {
         $this->init($params);
         $this->editCustomerInfo();

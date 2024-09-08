@@ -20,7 +20,7 @@
  */
 class Mage_Adminhtml_Block_Permissions_Editroles extends Mage_Adminhtml_Block_Widget_Tabs
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('role_info_tabs');

@@ -34,7 +34,7 @@ class Mage_Customer_Block_Address_Renderer_Default extends Mage_Core_Block_Abstr
      *
      * @return Varien_Object
      */
-    public function getType()
+    function getType()
     {
         return $this->_type;
     }
@@ -45,7 +45,7 @@ class Mage_Customer_Block_Address_Renderer_Default extends Mage_Core_Block_Abstr
      * @param  Varien_Object $type
      * @return $this
      */
-    public function setType(Varien_Object $type)
+    function setType(Varien_Object $type)
     {
         $this->_type = $type;
         return $this;
@@ -55,7 +55,7 @@ class Mage_Customer_Block_Address_Renderer_Default extends Mage_Core_Block_Abstr
      * @param Mage_Customer_Model_Address_Abstract|null $address
      * @return string
      */
-    public function getFormat(Mage_Customer_Model_Address_Abstract $address = null)
+    function getFormat(Mage_Customer_Model_Address_Abstract $address = null)
     {
         $countryFormat = is_null($address)
             ? false
@@ -78,7 +78,7 @@ class Mage_Customer_Block_Address_Renderer_Default extends Mage_Core_Block_Abstr
      * @return string
      * @throws Exception
      */
-    public function render(Mage_Customer_Model_Address_Abstract $address, $format = null)
+    function render(Mage_Customer_Model_Address_Abstract $address, $format = null)
     {
         switch ($this->getType()->getCode()) {
             case 'html':

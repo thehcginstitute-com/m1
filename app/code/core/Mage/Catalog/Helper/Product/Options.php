@@ -37,7 +37,7 @@ class Mage_Catalog_Helper_Product_Options extends Mage_Core_Helper_Abstract
      * @param array $info
      * @return bool
      */
-    public function downloadFileOption($response, $filePath, $info)
+    function downloadFileOption($response, $filePath, $info)
     {
         try {
             $response->setHttpResponseCode(200)

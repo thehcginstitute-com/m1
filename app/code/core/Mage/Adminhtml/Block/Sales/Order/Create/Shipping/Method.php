@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Method extends Mage_Adminhtml_Block_Sales_Order_Create_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_create_shipping_method');
@@ -31,7 +31,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Method extends Mage_Admin
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Shipping Method');
     }
@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Method extends Mage_Admin
     /**
      * @return string
      */
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'head-shipping-method';
     }

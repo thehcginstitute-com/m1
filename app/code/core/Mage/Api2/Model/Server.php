@@ -57,7 +57,7 @@ class Mage_Api2_Model_Server
     /**
      * Run server
      */
-    public function run()
+    function run()
     {
         // can not use response object case
         try {
@@ -117,7 +117,7 @@ class Mage_Api2_Model_Server
      * @param Mage_Api2_Model_Response $response
      * @throws Mage_Api2_Exception
      */
-    public function internalCall(Mage_Api2_Model_Request $request, Mage_Api2_Model_Response $response)
+    function internalCall(Mage_Api2_Model_Request $request, Mage_Api2_Model_Response $response)
     {
         $apiUser = $this->_getAuthUser();
         $this->_route($request)

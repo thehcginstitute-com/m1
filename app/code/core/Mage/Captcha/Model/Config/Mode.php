@@ -27,7 +27,7 @@ class Mage_Captcha_Model_Config_Mode
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             [

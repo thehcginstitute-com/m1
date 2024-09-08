@@ -5,7 +5,7 @@ exit("FacebookComments");
 
 class SocialShare_FacebookComments_Adminhtml_Model_System_Config_Source_Font
 {
-     public function toOptionArray()
+     function toOptionArray()
     {
         return array(
             array('value'=>'', 'label'=>Mage::helper('socialshare')->__('')),

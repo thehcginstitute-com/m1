@@ -105,7 +105,7 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
     /**
      * Initialize object
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('dashboard/graph.phtml');
@@ -126,7 +126,7 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
      *
      * @param mixed $rows
      */
-    public function setDataRows($rows)
+    function setDataRows($rows)
     {
         $this->_dataRows = (array)$rows;
     }
@@ -137,7 +137,7 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
      * @param string $seriesId
      * @param array $options
      */
-    public function addSeries($seriesId, array $options)
+    function addSeries($seriesId, array $options)
     {
         $this->_allSeries[$seriesId] = $options;
     }
@@ -148,7 +148,7 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
      * @param string $seriesId
      * @return mixed
      */
-    public function getSeries($seriesId)
+    function getSeries($seriesId)
     {
         return $this->_allSeries[$seriesId] ?? false;
     }
@@ -158,7 +158,7 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
      *
      * @return array
      */
-    public function getAllSeries()
+    function getAllSeries()
     {
         return $this->_allSeries;
     }
@@ -171,7 +171,7 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
      * @throws Mage_Core_Model_Store_Exception
      * @throws Zend_Date_Exception
      */
-    public function getChartUrl($directUrl = true)
+    function getChartUrl($directUrl = true)
     {
         $params = [
             'cht'  => 'lc',
@@ -437,7 +437,7 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
      * @param string $axis
      * @param array $labels
      */
-    public function setAxisLabels($axis, $labels)
+    function setAxisLabels($axis, $labels)
     {
         $this->_axisLabels[$axis] = $labels;
     }
@@ -447,7 +447,7 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
      *
      * @param string $htmlId
      */
-    public function setHtmlId($htmlId)
+    function setHtmlId($htmlId)
     {
         $this->_htmlId = $htmlId;
     }
@@ -457,7 +457,7 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
      *
      * @return string
      */
-    public function getHtmlId()
+    function getHtmlId()
     {
         return $this->_htmlId;
     }

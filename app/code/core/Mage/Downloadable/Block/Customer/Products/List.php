@@ -32,7 +32,7 @@ class Mage_Downloadable_Block_Customer_Products_List extends Mage_Core_Block_Tem
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $session = Mage::getSingleton('customer/session');
@@ -87,7 +87,7 @@ class Mage_Downloadable_Block_Customer_Products_List extends Mage_Core_Block_Tem
      * @param int $orderId
      * @return string
      */
-    public function getOrderViewUrl($orderId)
+    function getOrderViewUrl($orderId)
     {
         return $this->getUrl('sales/order/view', ['order_id' => $orderId]);
     }
@@ -95,7 +95,7 @@ class Mage_Downloadable_Block_Customer_Products_List extends Mage_Core_Block_Tem
     /**
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         if ($this->getRefererUrl()) {
             return $this->getRefererUrl();
@@ -109,7 +109,7 @@ class Mage_Downloadable_Block_Customer_Products_List extends Mage_Core_Block_Tem
      * @param Mage_Downloadable_Model_Link_Purchased_Item $item
      * @return int|string
      */
-    public function getRemainingDownloads($item)
+    function getRemainingDownloads($item)
     {
         if ($item->getNumberOfDownloadsBought()) {
             return $item->getNumberOfDownloadsBought() - $item->getNumberOfDownloadsUsed();
@@ -123,7 +123,7 @@ class Mage_Downloadable_Block_Customer_Products_List extends Mage_Core_Block_Tem
      * @param Mage_Downloadable_Model_Link_Purchased_Item $item
      * @return string
      */
-    public function getDownloadUrl($item)
+    function getDownloadUrl($item)
     {
         return $this->getUrl('*/download/link', ['id' => $item->getLinkHash(), '_secure' => true]);
     }
@@ -133,7 +133,7 @@ class Mage_Downloadable_Block_Customer_Products_List extends Mage_Core_Block_Tem
      *
      * @return bool
      */
-    public function getIsOpenInNewWindow()
+    function getIsOpenInNewWindow()
     {
         return Mage::getStoreConfigFlag(Mage_Downloadable_Model_Link::XML_PATH_TARGET_NEW_WINDOW);
     }

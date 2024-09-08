@@ -48,7 +48,7 @@ class Mage_Tax_Block_Sales_Order_Tax extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function displayFullSummary()
+    function displayFullSummary()
     {
         return $this->_config->displaySalesFullSummary($this->getOrder()->getStore());
     }
@@ -58,7 +58,7 @@ class Mage_Tax_Block_Sales_Order_Tax extends Mage_Core_Block_Template
      *
      * @return Varien_Object
      */
-    public function getSource()
+    function getSource()
     {
         return $this->_source;
     }
@@ -68,7 +68,7 @@ class Mage_Tax_Block_Sales_Order_Tax extends Mage_Core_Block_Template
      *
      * @return $this
      */
-    public function initTotals()
+    function initTotals()
     {
         /** @var Mage_Adminhtml_Block_Sales_Order_Invoice_Totals $parent */
         $parent = $this->getParentBlock();
@@ -110,7 +110,7 @@ class Mage_Tax_Block_Sales_Order_Tax extends Mage_Core_Block_Template
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return $this->_order->getStore();
     }
@@ -296,7 +296,7 @@ class Mage_Tax_Block_Sales_Order_Tax extends Mage_Core_Block_Template
     /**
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->_order;
     }
@@ -304,7 +304,7 @@ class Mage_Tax_Block_Sales_Order_Tax extends Mage_Core_Block_Template
     /**
      * @return mixed
      */
-    public function getLabelProperties()
+    function getLabelProperties()
     {
         return $this->getParentBlock()->getLabelProperties();
     }
@@ -312,7 +312,7 @@ class Mage_Tax_Block_Sales_Order_Tax extends Mage_Core_Block_Template
     /**
      * @return mixed
      */
-    public function getValueProperties()
+    function getValueProperties()
     {
         return $this->getParentBlock()->getValueProperties();
     }

@@ -58,7 +58,7 @@ class Mage_Adminhtml_Block_Sales_Order_Address_Form extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Order Address Information');
     }
@@ -68,7 +68,7 @@ class Mage_Adminhtml_Block_Sales_Order_Address_Form extends Mage_Adminhtml_Block
      *
      * @return array
      */
-    public function getFormValues()
+    function getFormValues()
     {
         return $this->_getAddress()->getData();
     }

@@ -34,7 +34,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param string|null $sessionName
      * @return $this
      */
-    public function start($sessionName = null)
+    function start($sessionName = null)
     {
         $this->_currentSessId = md5(time() . uniqid('', true) . $sessionName);
         $this->sessionIds[] = $this->getSessionId();
@@ -46,7 +46,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param string|null $sessionName
      * @return $this
      */
-    public function init($namespace, $sessionName = null)
+    function init($namespace, $sessionName = null)
     {
         if (is_null($this->_currentSessId)) {
             $this->start();
@@ -57,7 +57,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * @return string
      */
-    public function getSessionId()
+    function getSessionId()
     {
         return $this->_currentSessId;
     }
@@ -66,7 +66,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param string|null $sessId
      * @return $this
      */
-    public function setSessionId($sessId = null)
+    function setSessionId($sessId = null)
     {
         if (!is_null($sessId)) {
             $this->_currentSessId = $sessId;
@@ -77,7 +77,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * @return void
      */
-    public function revalidateCookie()
+    function revalidateCookie()
     {
         // In api we don't use cookies
     }
@@ -85,7 +85,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * @return bool
      */
-    public function clear()
+    function clear()
     {
         if ($sessId = $this->getSessionId()) {
             try {
@@ -103,7 +103,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
      * @return mixed
      * @throws Mage_Core_Exception
      */
-    public function login($username, $apiKey)
+    function login($username, $apiKey)
     {
         $user = Mage::getModel('api/user')
             ->setSessid($this->getSessionId())
@@ -129,7 +129,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param Mage_Api_Model_User|null $user
      * @return $this
      */
-    public function refreshAcl($user = null)
+    function refreshAcl($user = null)
     {
         if (is_null($user)) {
             $user = $this->getUser();
@@ -155,7 +155,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param   string $privilege
      * @return  bool
      */
-    public function isAllowed($resource, $privilege = null)
+    function isAllowed($resource, $privilege = null)
     {
         $user = $this->getUser();
         $acl = $this->getAcl();
@@ -184,7 +184,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param Mage_Api_Model_User $user
      * @return bool
      */
-    public function isSessionExpired($user)
+    function isSessionExpired($user)
     {
         if (!$user->getId()) {
             return true;
@@ -198,7 +198,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
      * @return bool
      * @throws Mage_Core_Exception
      */
-    public function isLoggedIn($sessId = false)
+    function isLoggedIn($sessId = false)
     {
         $userExists = $this->getUser() && $this->getUser()->getId();
 

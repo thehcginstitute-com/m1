@@ -28,7 +28,7 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
      * @param string $field
      * @return string
      */
-    public function castField($field)
+    function castField($field)
     {
         return $field;
     }
@@ -40,7 +40,7 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
      * @param string $orderBy OPTIONAL
      * @return Zend_Db_Expr
      */
-    public function prepareColumn($column, $groupAliasName = null, $orderBy = null)
+    function prepareColumn($column, $groupAliasName = null, $orderBy = null)
     {
         return new Zend_Db_Expr((string)$column);
     }
@@ -51,7 +51,7 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
      * @param Varien_Db_Select $select
      * @return string
      */
-    public function getQueryUsingAnalyticFunction(Varien_Db_Select $select)
+    function getQueryUsingAnalyticFunction(Varien_Db_Select $select)
     {
         return $select->assemble();
     }
@@ -65,7 +65,7 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
      * @param array $fields
      * @return string
      */
-    public function getInsertFromSelectUsingAnalytic(Varien_Db_Select $select, $table, $fields)
+    function getInsertFromSelectUsingAnalytic(Varien_Db_Select $select, $table, $fields)
     {
         return $select->insertFromSelect($table, $fields);
     }
@@ -77,7 +77,7 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
      * @param Varien_Db_Select $select
      * @return Varien_Db_Select
      */
-    public function limitUnion($select)
+    function limitUnion($select)
     {
         return $select;
     }
@@ -247,7 +247,7 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
      * @return array
      * @throws Zend_Db_Exception
      */
-    public function prepareColumnsList(Varien_Db_Select $select, $groupByCondition = null)
+    function prepareColumnsList(Varien_Db_Select $select, $groupByCondition = null)
     {
         if (!count($select->getPart(Zend_Db_Select::FROM))) {
             return $select->getPart(Zend_Db_Select::COLUMNS);
@@ -298,7 +298,7 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
      * @param string $additionalWhere
      * @return Varien_Db_Select
      */
-    public function addGroupConcatColumn($select, $fieldAlias, $fields, $groupConcatDelimiter = ',', $fieldsDelimiter = '', $additionalWhere = '')
+    function addGroupConcatColumn($select, $fieldAlias, $fields, $groupConcatDelimiter = ',', $fieldsDelimiter = '', $additionalWhere = '')
     {
         if (is_array($fields)) {
             $fieldExpr = $this->_getReadAdapter()->getConcatSql($fields, $fieldsDelimiter);
@@ -325,7 +325,7 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
      * @param  string|Zend_Db_Expr $endDate
      * @return Zend_Db_Expr
      */
-    public function getDateDiff($startDate, $endDate)
+    function getDateDiff($startDate, $endDate)
     {
         $dateDiff = '(TO_DAYS(' . $endDate . ') - TO_DAYS(' . $startDate . '))';
         return new Zend_Db_Expr($dateDiff);
@@ -342,7 +342,7 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
      *
      * @see escapeLikeValue()
      */
-    public function addLikeEscape($value, $options = [])
+    function addLikeEscape($value, $options = [])
     {
         $value = $this->escapeLikeValue($value, $options);
         return new Zend_Db_Expr($this->_getReadAdapter()->quote($value));

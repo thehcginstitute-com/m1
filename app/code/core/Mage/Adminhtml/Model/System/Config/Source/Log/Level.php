@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Model_System_Config_Source_Log_Level
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         $helper = Mage::helper('adminhtml');
 

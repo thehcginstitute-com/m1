@@ -43,7 +43,7 @@ class Mage_Cron_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function dispatch($observer)
+    function dispatch($observer)
     {
         $schedules = $this->getPendingSchedules();
         $jobsRoot = Mage::getConfig()->getNode('crontab/jobs');
@@ -70,7 +70,7 @@ class Mage_Cron_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function dispatchAlways($observer)
+    function dispatchAlways($observer)
     {
         $jobsRoot = Mage::getConfig()->getNode('crontab/jobs');
         if ($jobsRoot instanceof Varien_Simplexml_Element) {
@@ -90,7 +90,7 @@ class Mage_Cron_Model_Observer
     /**
      * @return Mage_Cron_Model_Resource_Schedule_Collection
      */
-    public function getPendingSchedules()
+    function getPendingSchedules()
     {
         if (!$this->_pendingSchedules) {
             $this->_pendingSchedules = Mage::getModel('cron/schedule')->getCollection()
@@ -106,7 +106,7 @@ class Mage_Cron_Model_Observer
      *
      * @return $this
      */
-    public function generate()
+    function generate()
     {
         /**
          * check if schedule generation is needed
@@ -197,7 +197,7 @@ class Mage_Cron_Model_Observer
      *
      * @return $this
      */
-    public function cleanup()
+    function cleanup()
     {
         // check if history cleanup is needed
         $lastCleanup = Mage::app()->loadCache(self::CACHE_KEY_LAST_HISTORY_CLEANUP_AT);

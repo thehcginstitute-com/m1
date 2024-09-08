@@ -53,7 +53,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      *
      * @param string $connectionName
      */
-    public function __construct($connectionName = null)
+    function __construct($connectionName = null)
     {
         $this->_init('core/file_storage_database');
 
@@ -65,7 +65,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      *
      * @return Mage_Core_Model_File_Storage_Directory_Database
      */
-    public function getDirectoryModel()
+    function getDirectoryModel()
     {
         if (is_null($this->_directoryModel)) {
             $this->_directoryModel = Mage::getModel(
@@ -82,7 +82,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      *
      * @return $this
      */
-    public function init()
+    function init()
     {
         $this->getDirectoryModel()->prepareStorage();
         $this->prepareStorage();
@@ -95,7 +95,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      *
      * @return string
      */
-    public function getStorageName()
+    function getStorageName()
     {
         return Mage::helper('core')->__('database "%s"', $this->getConnectionName());
     }
@@ -106,7 +106,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      * @param  string $filePath
      * @return $this
      */
-    public function loadByFilename($filePath)
+    function loadByFilename($filePath)
     {
         $filename = basename($filePath);
         $path = dirname($filePath);
@@ -119,7 +119,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      *
      * @return bool
      */
-    public function hasErrors()
+    function hasErrors()
     {
         return (!empty($this->_errors) || $this->getDirectoryModel()->hasErrors());
     }
@@ -129,7 +129,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      *
      * @return $this
      */
-    public function clear()
+    function clear()
     {
         $this->getDirectoryModel()->clearDirectories();
         $this->_getResource()->clearFiles();
@@ -143,7 +143,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      * @param  int $count
      * @return bool|array
      */
-    public function exportDirectories($offset = 0, $count = 100)
+    function exportDirectories($offset = 0, $count = 100)
     {
         return $this->getDirectoryModel()->exportDirectories($offset, $count);
     }
@@ -154,7 +154,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      * @param  array $dirs
      * @return Mage_Core_Model_File_Storage_Directory_Database
      */
-    public function importDirectories($dirs)
+    function importDirectories($dirs)
     {
         return $this->getDirectoryModel()->importDirectories($dirs);
     }
@@ -166,7 +166,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      * @param  int $count
      * @return array|bool
      */
-    public function exportFiles($offset = 0, $count = 100)
+    function exportFiles($offset = 0, $count = 100)
     {
         $offset = ((int) $offset >= 0) ? (int) $offset : 0;
         $count  = ((int) $count >= 1) ? (int) $count : 1;
@@ -185,7 +185,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      * @param  array $files
      * @return $this
      */
-    public function importFiles($files)
+    function importFiles($files)
     {
         if (!is_array($files)) {
             return $this;
@@ -223,7 +223,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      * @param  string $filename
      * @return $this
      */
-    public function saveFile($filename)
+    function saveFile($filename)
     {
         $fileInfo = $this->collectFileInfo($filename);
         $filePath = $fileInfo['directory'];
@@ -246,7 +246,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      * @param  string $filePath
      * @return bool
      */
-    public function fileExists($filePath)
+    function fileExists($filePath)
     {
         return $this->_getResource()->fileExists(basename($filePath), dirname($filePath));
     }
@@ -258,7 +258,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      * @param  string $newFilePath
      * @return $this
      */
-    public function copyFile($oldFilePath, $newFilePath)
+    function copyFile($oldFilePath, $newFilePath)
     {
         $this->_getResource()->copyFile(
             basename($oldFilePath),
@@ -277,7 +277,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      * @param  string $newFilePath
      * @return $this
      */
-    public function renameFile($oldFilePath, $newFilePath)
+    function renameFile($oldFilePath, $newFilePath)
     {
         $this->_getResource()->renameFile(
             basename($oldFilePath),
@@ -307,7 +307,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      * @param string $directory
      * @return mixed
      */
-    public function getDirectoryFiles($directory)
+    function getDirectoryFiles($directory)
     {
         $directory = Mage::helper('core/file_storage_database')->getMediaRelativePath($directory);
         return $this->_getResource()->getDirectoryFiles($directory);
@@ -319,7 +319,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      * @param string $path
      * @return $this
      */
-    public function deleteFile($path)
+    function deleteFile($path)
     {
         $filename = basename($path);
         $directory = dirname($path);

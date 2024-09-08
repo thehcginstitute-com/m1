@@ -29,7 +29,7 @@ class Mage_Catalog_Block_Product_View_Options extends Mage_Core_Block_Template
 
     protected $_optionRenders = [];
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->addOptionRenderer(
@@ -44,7 +44,7 @@ class Mage_Catalog_Block_Product_View_Options extends Mage_Core_Block_Template
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!$this->_product) {
             if (Mage::registry('current_product')) {
@@ -62,7 +62,7 @@ class Mage_Catalog_Block_Product_View_Options extends Mage_Core_Block_Template
      * @param Mage_Catalog_Model_Product|null $product
      * @return $this
      */
-    public function setProduct(Mage_Catalog_Model_Product $product = null)
+    function setProduct(Mage_Catalog_Model_Product $product = null)
     {
         $this->_product = $product;
         return $this;
@@ -76,7 +76,7 @@ class Mage_Catalog_Block_Product_View_Options extends Mage_Core_Block_Template
      * @param string $template
      * @return $this
      */
-    public function addOptionRenderer($type, $block, $template)
+    function addOptionRenderer($type, $block, $template)
     {
         $this->_optionRenders[$type] = [
             'block' => $block,
@@ -92,7 +92,7 @@ class Mage_Catalog_Block_Product_View_Options extends Mage_Core_Block_Template
      * @param string $type
      * @return array
      */
-    public function getOptionRender($type)
+    function getOptionRender($type)
     {
         return $this->_optionRenders[$type] ?? $this->_optionRenders['default'];
     }
@@ -101,7 +101,7 @@ class Mage_Catalog_Block_Product_View_Options extends Mage_Core_Block_Template
      * @param string $type
      * @return string
      */
-    public function getGroupOfOption($type)
+    function getGroupOfOption($type)
     {
         $group = Mage::getSingleton('catalog/product_option')->getGroupByType($type);
 
@@ -113,7 +113,7 @@ class Mage_Catalog_Block_Product_View_Options extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getOptions()
+    function getOptions()
     {
         return $this->getProduct()->getOptions();
     }
@@ -121,7 +121,7 @@ class Mage_Catalog_Block_Product_View_Options extends Mage_Core_Block_Template
     /**
      * @return bool
      */
-    public function hasOptions()
+    function hasOptions()
     {
         if ($this->getOptions()) {
             return true;
@@ -152,7 +152,7 @@ class Mage_Catalog_Block_Product_View_Options extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getJsonConfig()
+    function getJsonConfig()
     {
         $config = [];
 
@@ -181,7 +181,7 @@ class Mage_Catalog_Block_Product_View_Options extends Mage_Core_Block_Template
      * @param Mage_Catalog_Model_Product_Option $option
      * @return string
      */
-    public function getOptionHtml(Mage_Catalog_Model_Product_Option $option)
+    function getOptionHtml(Mage_Catalog_Model_Product_Option $option)
     {
         $renderer = $this->getOptionRender(
             $this->getGroupOfOption($option->getType())

@@ -30,7 +30,7 @@ class Mage_Checkout_Block_Cart_Item_Renderer_Configurable extends Mage_Checkout_
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getConfigurableProduct()
+    function getConfigurableProduct()
     {
         if ($option = $this->getItem()->getOptionByCode('product_type')) {
             return $option->getProduct();
@@ -43,7 +43,7 @@ class Mage_Checkout_Block_Cart_Item_Renderer_Configurable extends Mage_Checkout_
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getChildProduct()
+    function getChildProduct()
     {
         if ($option = $this->getItem()->getOptionByCode('simple_product')) {
             return $option->getProduct();
@@ -56,7 +56,7 @@ class Mage_Checkout_Block_Cart_Item_Renderer_Configurable extends Mage_Checkout_
      *
      * @return Mage_Catalog_Helper_Image
      */
-    public function getProductThumbnail()
+    function getProductThumbnail()
     {
         $product = $this->getChildProduct();
         if (!$product || !$product->getData('thumbnail')
@@ -76,7 +76,7 @@ class Mage_Checkout_Block_Cart_Item_Renderer_Configurable extends Mage_Checkout_
      *
      * @return string
      */
-    public function getProductName()
+    function getProductName()
     {
         return $this->getProduct()->getName();
     }
@@ -86,7 +86,7 @@ class Mage_Checkout_Block_Cart_Item_Renderer_Configurable extends Mage_Checkout_
      *
      * @return array
      */
-    public function getProductAttributes()
+    function getProductAttributes()
     {
         /** @var Mage_Catalog_Model_Product_Type_Configurable $productType */
         $productType = $this->getProduct()->getTypeInstance(true);
@@ -98,7 +98,7 @@ class Mage_Checkout_Block_Cart_Item_Renderer_Configurable extends Mage_Checkout_
      *
      * @return array
      */
-    public function getOptionList()
+    function getOptionList()
     {
         /** @var Mage_Catalog_Helper_Product_Configuration $helper */
         $helper = Mage::helper('catalog/product_configuration');
@@ -110,7 +110,7 @@ class Mage_Checkout_Block_Cart_Item_Renderer_Configurable extends Mage_Checkout_
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         return array_merge(parent::getCacheTags(), $this->getConfigurableProduct()->getCacheIdTags());
     }

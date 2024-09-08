@@ -22,7 +22,7 @@
  */
 class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         $this->setType('customer');
         $this->setConnection('customer_read', 'customer_write');
@@ -193,7 +193,7 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
      * @param bool $testOnly
      * @return $this
      */
-    public function loadByEmail(Mage_Customer_Model_Customer $customer, $email, $testOnly = false)
+    function loadByEmail(Mage_Customer_Model_Customer $customer, $email, $testOnly = false)
     {
         $adapter = $this->_getReadAdapter();
         $bind    = ['customer_email' => $email];
@@ -228,7 +228,7 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
      * @param string $newPassword
      * @return $this
      */
-    public function changePassword(Mage_Customer_Model_Customer $customer, $newPassword)
+    function changePassword(Mage_Customer_Model_Customer $customer, $newPassword)
     {
         $customer->setPassword($newPassword)->setPasswordCreatedAt(time());
         $this->saveAttribute($customer, 'password_hash');
@@ -241,7 +241,7 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
      *
      * @return bool
      */
-    public function findEmailDuplicates()
+    function findEmailDuplicates()
     {
         $adapter = $this->_getReadAdapter();
         $select  = $adapter->select()
@@ -262,7 +262,7 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
      * @param int $customerId
      * @return bool
      */
-    public function checkCustomerId($customerId)
+    function checkCustomerId($customerId)
     {
         $adapter = $this->_getReadAdapter();
         $bind    = ['entity_id' => (int)$customerId];
@@ -284,7 +284,7 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
      * @param int $customerId
      * @return int
      */
-    public function getWebsiteId($customerId)
+    function getWebsiteId($customerId)
     {
         $adapter = $this->_getReadAdapter();
         $bind    = ['entity_id' => (int)$customerId];
@@ -301,7 +301,7 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
      * @param Varien_Object $object
      * @return $this
      */
-    public function setNewIncrementId(Varien_Object $object)
+    function setNewIncrementId(Varien_Object $object)
     {
         if (Mage::getStoreConfig(Mage_Customer_Model_Customer::XML_PATH_GENERATE_HUMAN_FRIENDLY_ID)) {
             parent::setNewIncrementId($object);
@@ -318,7 +318,7 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
      * @param string $newResetPasswordLinkToken
      * @return $this
      */
-    public function changeResetPasswordLinkToken(Mage_Customer_Model_Customer $customer, $newResetPasswordLinkToken)
+    function changeResetPasswordLinkToken(Mage_Customer_Model_Customer $customer, $newResetPasswordLinkToken)
     {
         if (is_string($newResetPasswordLinkToken) && !empty($newResetPasswordLinkToken)) {
             $customer->setRpToken($newResetPasswordLinkToken);
@@ -340,7 +340,7 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
      * @return $this
      * @throws Exception
      */
-    public function changeResetPasswordLinkCustomerId(
+    function changeResetPasswordLinkCustomerId(
         Mage_Customer_Model_Customer $customer,
         $newResetPasswordLinkCustomerId
     ) {
@@ -358,7 +358,7 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
      * @param int $customerId
      * @return int|false
      */
-    public function getPasswordTimestamp($customerId)
+    function getPasswordTimestamp($customerId)
     {
         $field = $this->_getReadAdapter()->getIfNullSql('t2.value', 't0.created_at');
         $select = $this->_getReadAdapter()->select()

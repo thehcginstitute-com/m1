@@ -96,7 +96,7 @@ class Mage_Index_Model_Resource_Event extends Mage_Core_Model_Resource_Db_Abstra
      * @param string $status
      * @return $this
      */
-    public function updateProcessEvents($process, $status = Mage_Index_Model_Process::EVENT_STATUS_DONE)
+    function updateProcessEvents($process, $status = Mage_Index_Model_Process::EVENT_STATUS_DONE)
     {
         $whereCondition = '';
         if ($process instanceof Mage_Index_Model_Process) {
@@ -120,7 +120,7 @@ class Mage_Index_Model_Resource_Event extends Mage_Core_Model_Resource_Db_Abstra
      * @param Mage_Index_Model_Process $process
      * @return array
      */
-    public function getUnprocessedEvents($process)
+    function getUnprocessedEvents($process)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getTable('index/process_event'))

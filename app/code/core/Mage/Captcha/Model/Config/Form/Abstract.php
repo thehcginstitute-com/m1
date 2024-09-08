@@ -32,7 +32,7 @@ abstract class Mage_Captcha_Model_Config_Form_Abstract extends Mage_Core_Model_C
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $optionArray = [];
         /** @var Mage_Core_Model_Config_Element $backendNode */

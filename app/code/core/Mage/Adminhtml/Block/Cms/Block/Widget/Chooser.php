@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Cms_Block_Widget_Chooser extends Mage_Adminhtml_Block
      *
      * @param array $arguments Object data
      */
-    public function __construct($arguments = [])
+    function __construct($arguments = [])
     {
         parent::__construct($arguments);
         $this->setDefaultSort('block_id');
@@ -42,7 +42,7 @@ class Mage_Adminhtml_Block_Cms_Block_Widget_Chooser extends Mage_Adminhtml_Block
      * @param Varien_Data_Form_Element_Abstract $element Form Element
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function prepareElementHtml(Varien_Data_Form_Element_Abstract $element)
+    function prepareElementHtml(Varien_Data_Form_Element_Abstract $element)
     {
         $uniqId = Mage::helper('core')->uniqHash($element->getId());
         $sourceUrl = $this->getUrl('*/cms_block_widget/chooser', ['uniq_id' => $uniqId]);
@@ -71,7 +71,7 @@ class Mage_Adminhtml_Block_Cms_Block_Widget_Chooser extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getRowClickCallback()
+    function getRowClickCallback()
     {
         $chooserJsObject = $this->getId();
         return '
@@ -138,7 +138,7 @@ class Mage_Adminhtml_Block_Cms_Block_Widget_Chooser extends Mage_Adminhtml_Block
         return parent::_prepareColumns();
     }
 
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/cms_block_widget/chooser', ['_current' => true]);
     }

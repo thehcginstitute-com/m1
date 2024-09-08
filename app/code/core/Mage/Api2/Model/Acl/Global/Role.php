@@ -113,7 +113,7 @@ class Mage_Api2_Model_Acl_Global_Role extends Mage_Core_Model_Abstract
      *
      * @return Mage_Api2_Model_Acl_Global_Rule_ResourcePermission
      */
-    public function getPermissionModel()
+    function getPermissionModel()
     {
         if ($this->_permissionModel == null) {
             $this->_permissionModel = Mage::getModel('api2/acl_global_rule_resourcePermission');
@@ -150,7 +150,7 @@ class Mage_Api2_Model_Acl_Global_Role extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getConfigNodeName()
+    function getConfigNodeName()
     {
         switch ($this->getId()) {
             case self::ROLE_GUEST_ID:

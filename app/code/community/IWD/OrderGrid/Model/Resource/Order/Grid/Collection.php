@@ -9,7 +9,7 @@ class IWD_OrderGrid_Model_Resource_Order_Grid_Collection extends Mage_Sales_Mode
      * Minimize usual count select
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $controllerName = Mage::app()->getRequest()->getControllerName();
 

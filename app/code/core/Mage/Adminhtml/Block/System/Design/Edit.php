@@ -21,7 +21,7 @@
  */
 class Mage_Adminhtml_Block_System_Design_Edit extends Mage_Adminhtml_Block_Widget
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('system/design/edit.phtml');
@@ -65,7 +65,7 @@ class Mage_Adminhtml_Block_System_Design_Edit extends Mage_Adminhtml_Block_Widge
         return parent::_prepareLayout();
     }
 
-    public function getDesignChangeId()
+    function getDesignChangeId()
     {
         return Mage::registry('design')->getId();
     }
@@ -73,7 +73,7 @@ class Mage_Adminhtml_Block_System_Design_Edit extends Mage_Adminhtml_Block_Widge
     /**
      * @return string
      */
-    public function getDeleteUrl()
+    function getDeleteUrl()
     {
         return $this->getUrlSecure('*/*/delete', [
             'id' => $this->getDesignChangeId(),
@@ -84,7 +84,7 @@ class Mage_Adminhtml_Block_System_Design_Edit extends Mage_Adminhtml_Block_Widge
     /**
      * @return string
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return $this->getUrl('*/*/save', ['_current' => true]);
     }
@@ -92,7 +92,7 @@ class Mage_Adminhtml_Block_System_Design_Edit extends Mage_Adminhtml_Block_Widge
     /**
      * @return string
      */
-    public function getValidationUrl()
+    function getValidationUrl()
     {
         return $this->getUrl('*/*/validate', ['_current' => true]);
     }
@@ -100,7 +100,7 @@ class Mage_Adminhtml_Block_System_Design_Edit extends Mage_Adminhtml_Block_Widge
     /**
      * @return string
      */
-    public function getHeader()
+    function getHeader()
     {
         if (Mage::registry('design')->getId()) {
             return Mage::helper('core')->__('Edit Design Change');

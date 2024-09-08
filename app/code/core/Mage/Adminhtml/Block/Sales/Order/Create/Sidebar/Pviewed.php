@@ -32,7 +32,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Pviewed extends Mage_Admin
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Recently Viewed Products');
     }
@@ -42,7 +42,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Pviewed extends Mage_Admin
      *
      * @return mixed
      */
-    public function getItemCollection()
+    function getItemCollection()
     {
         $productCollection = $this->getData('item_collection');
         if (is_null($productCollection)) {
@@ -83,7 +83,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Pviewed extends Mage_Admin
      *
      * @return false
      */
-    public function canRemoveItems()
+    function canRemoveItems()
     {
         return false;
     }
@@ -94,7 +94,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Pviewed extends Mage_Admin
      * @param Varien_Object $item
      * @return int
      */
-    public function getIdentifierId($item)
+    function getIdentifierId($item)
     {
         return $item->getId();
     }

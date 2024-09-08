@@ -5,19 +5,19 @@ class IWD_OrderGrid_Model_Customer_Order extends Mage_Sales_Model_Order
     const XML_PATH_CUSTOMER_ORDERS_RESENT_ORDER_GRID_COLUMN = 'iwd_ordermanager/customer_orders/resent_orders_grid_columns';
     const XML_PATH_CUSTOMER_ORDERS_ORDER_GRID_COLUMN = 'iwd_ordermanager/customer_orders/orders_grid_columns';
 
-    public function getSelectedColumnsForRecentOrderGrid()
+    function getSelectedColumnsForRecentOrderGrid()
     {
         $selectedColumns = Mage::getStoreConfig(self::XML_PATH_CUSTOMER_ORDERS_RESENT_ORDER_GRID_COLUMN);
         return explode(",", $selectedColumns);
     }
 
-    public function getSelectedColumnsForOrderGrid()
+    function getSelectedColumnsForOrderGrid()
     {
         $selectedColumns = Mage::getStoreConfig(self::XML_PATH_CUSTOMER_ORDERS_ORDER_GRID_COLUMN);
         return explode(",", $selectedColumns);
     }
 
-    public function getRecentOrdersCollectionForCurrentCustomer()
+    function getRecentOrdersCollectionForCurrentCustomer()
     {
         $selectedColumns = $this->getSelectedColumnsForRecentOrderGrid();
 
@@ -32,7 +32,7 @@ class IWD_OrderGrid_Model_Customer_Order extends Mage_Sales_Model_Order
         return Mage::getModel('iwd_ordergrid/order_grid')->getOrdersCollection($selectedColumns, $collection);
     }
 
-    public function getOrdersCollectionForCurrentCustomer()
+    function getOrdersCollectionForCurrentCustomer()
     {
         $selectedColumns = $this->getSelectedColumnsForOrderGrid();
         $selectedColumns[] = 'archived';

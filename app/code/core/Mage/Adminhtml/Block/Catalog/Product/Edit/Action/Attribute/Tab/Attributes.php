@@ -59,7 +59,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Action_Attribute_Tab_Attributes 
      *
      * @return array
      */
-    public function getAttributes()
+    function getAttributes()
     {
         /** @var Mage_Adminhtml_Helper_Catalog_Product_Edit_Action_Attribute $helper */
         $helper = $this->helper('adminhtml/catalog_product_edit_action_attribute');
@@ -102,7 +102,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Action_Attribute_Tab_Attributes 
     /**
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('catalog')->__('Attributes');
     }
@@ -110,7 +110,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Action_Attribute_Tab_Attributes 
     /**
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('catalog')->__('Attributes');
     }
@@ -118,7 +118,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Action_Attribute_Tab_Attributes 
     /**
      * @return true
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -126,7 +126,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Action_Attribute_Tab_Attributes 
     /**
      * @return false
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }

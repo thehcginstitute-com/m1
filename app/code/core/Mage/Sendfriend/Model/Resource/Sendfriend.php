@@ -36,7 +36,7 @@ class Mage_Sendfriend_Model_Resource_Sendfriend extends Mage_Core_Model_Resource
      * @param int $websiteId
      * @return int
      */
-    public function getSendCount($object, $ip, $startTime, $websiteId = null)
+    function getSendCount($object, $ip, $startTime, $websiteId = null)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()
@@ -62,7 +62,7 @@ class Mage_Sendfriend_Model_Resource_Sendfriend extends Mage_Core_Model_Resource
      * @param int $websiteId
      * @return $this
      */
-    public function addSendItem($ip, $startTime, $websiteId)
+    function addSendItem($ip, $startTime, $websiteId)
     {
         $this->_getWriteAdapter()->insert(
             $this->getMainTable(),
@@ -81,7 +81,7 @@ class Mage_Sendfriend_Model_Resource_Sendfriend extends Mage_Core_Model_Resource
      * @param int $time
      * @return $this
      */
-    public function deleteLogsBefore($time)
+    function deleteLogsBefore($time)
     {
         $cond = $this->_getWriteAdapter()->quoteInto('time<?', $time);
         $this->_getWriteAdapter()->delete($this->getMainTable(), $cond);

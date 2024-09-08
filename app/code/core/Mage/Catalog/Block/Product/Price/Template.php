@@ -37,7 +37,7 @@ class Mage_Catalog_Block_Product_Price_Template extends Mage_Core_Block_Abstract
      *
      * @return array
      */
-    public function getPriceBlockTypes()
+    function getPriceBlockTypes()
     {
         return $this->_priceBlockTypes;
     }
@@ -50,7 +50,7 @@ class Mage_Catalog_Block_Product_Price_Template extends Mage_Core_Block_Abstract
      * @param string $template
      * @return $this
      */
-    public function addPriceBlockType($type, $block = '', $template = '')
+    function addPriceBlockType($type, $block = '', $template = '')
     {
         if ($type) {
             $this->_priceBlockTypes[$type] = [

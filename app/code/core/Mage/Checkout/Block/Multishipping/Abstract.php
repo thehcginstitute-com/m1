@@ -26,7 +26,7 @@ class Mage_Checkout_Block_Multishipping_Abstract extends Mage_Core_Block_Templat
      *
      * @return Mage_Checkout_Model_Type_Multishipping
      */
-    public function getCheckout()
+    function getCheckout()
     {
         return Mage::getSingleton('checkout/type_multishipping');
     }

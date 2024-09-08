@@ -22,12 +22,12 @@
  */
 class Mage_Checkout_Model_Observer
 {
-    public function unsetAll()
+    function unsetAll()
     {
         Mage::getSingleton('checkout/session')->unsetAll();
     }
 
-    public function loadCustomerQuote()
+    function loadCustomerQuote()
     {
         try {
             Mage::getSingleton('checkout/session')->loadCustomerQuote();
@@ -44,7 +44,7 @@ class Mage_Checkout_Model_Observer
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function salesQuoteSaveAfter(Varien_Event_Observer $observer)
+    function salesQuoteSaveAfter(Varien_Event_Observer $observer)
     {
         $quote = $observer->getEvent()->getQuote();
         /** @var Mage_Sales_Model_Quote $quote */

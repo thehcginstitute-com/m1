@@ -111,7 +111,7 @@ class Mage_Api2_Model_Acl_Global_Rule_Tree extends Mage_Core_Helper_Abstract
      *
      * @param array $options
      */
-    public function __construct($options)
+    function __construct($options)
     {
         $this->_type = $options['type'];
 
@@ -165,7 +165,7 @@ class Mage_Api2_Model_Acl_Global_Rule_Tree extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getPostResources()
+    function getPostResources()
     {
         $isAll = Mage::app()->getRequest()->getParam(Mage_Api2_Model_Acl_Global_Rule::RESOURCE_ALL);
         $allow = Mage_Api2_Model_Acl_Global_Rule_Permission::TYPE_ALLOW;
@@ -234,7 +234,7 @@ class Mage_Api2_Model_Acl_Global_Rule_Tree extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function getEverythingAllowed()
+    function getEverythingAllowed()
     {
         $this->_init();
 
@@ -247,7 +247,7 @@ class Mage_Api2_Model_Acl_Global_Rule_Tree extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getTreeResources()
+    function getTreeResources()
     {
         $this->_init();
         $root = $this->_getTreeNode($this->_resourcesConfig, 1);
@@ -472,7 +472,7 @@ class Mage_Api2_Model_Acl_Global_Rule_Tree extends Mage_Core_Helper_Abstract
      * @param Mage_Api2_Model_Acl_Global_Role $role
      * @return $this
      */
-    public function setRole($role)
+    function setRole($role)
     {
         $this->_role = $role;
         return $this;
@@ -483,7 +483,7 @@ class Mage_Api2_Model_Acl_Global_Rule_Tree extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Api2_Model_Acl_Global_Role
      */
-    public function getRole()
+    function getRole()
     {
         return $this->_role;
     }
@@ -494,7 +494,7 @@ class Mage_Api2_Model_Acl_Global_Rule_Tree extends Mage_Core_Helper_Abstract
      * @param array $resourcesPermissions
      * @return $this
      */
-    public function setResourcesPermissions($resourcesPermissions)
+    function setResourcesPermissions($resourcesPermissions)
     {
         $this->_resourcesPermissions = $resourcesPermissions;
         return $this;
@@ -505,7 +505,7 @@ class Mage_Api2_Model_Acl_Global_Rule_Tree extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getResourcesPermissions()
+    function getResourcesPermissions()
     {
         return $this->_resourcesPermissions;
     }
@@ -516,7 +516,7 @@ class Mage_Api2_Model_Acl_Global_Rule_Tree extends Mage_Core_Helper_Abstract
      * @param bool $hasEntityOnlyAttributes
      * @return $this
      */
-    public function setHasEntityOnlyAttributes($hasEntityOnlyAttributes)
+    function setHasEntityOnlyAttributes($hasEntityOnlyAttributes)
     {
         $this->_hasEntityOnlyAttributes = $hasEntityOnlyAttributes;
         return $this;
@@ -527,7 +527,7 @@ class Mage_Api2_Model_Acl_Global_Rule_Tree extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function getHasEntityOnlyAttributes()
+    function getHasEntityOnlyAttributes()
     {
         return $this->_hasEntityOnlyAttributes;
     }

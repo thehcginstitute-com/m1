@@ -123,7 +123,7 @@ class Mage_Tax_Model_Calculation_Rule extends Mage_Core_Model_Abstract
     /**
      * Saves the Calculation Data
      */
-    public function saveCalculationData()
+    function saveCalculationData()
     {
         $ctc = $this->getData('tax_customer_class');
         $ptc = $this->getData('tax_product_class');
@@ -148,7 +148,7 @@ class Mage_Tax_Model_Calculation_Rule extends Mage_Core_Model_Abstract
     /**
      * @return Mage_Core_Model_Abstract|Mage_Tax_Model_Calculation|null
      */
-    public function getCalculationModel()
+    function getCalculationModel()
     {
         if (is_null($this->_calculationModel)) {
             $this->_calculationModel = Mage::getSingleton('tax/calculation');
@@ -159,7 +159,7 @@ class Mage_Tax_Model_Calculation_Rule extends Mage_Core_Model_Abstract
     /**
      * @return mixed
      */
-    public function getRates()
+    function getRates()
     {
         return $this->getCalculationModel()->getRates($this->getId());
     }
@@ -167,7 +167,7 @@ class Mage_Tax_Model_Calculation_Rule extends Mage_Core_Model_Abstract
     /**
      * @return mixed
      */
-    public function getCustomerTaxClasses()
+    function getCustomerTaxClasses()
     {
         return $this->getCalculationModel()->getCustomerTaxClasses($this->getId());
     }
@@ -175,7 +175,7 @@ class Mage_Tax_Model_Calculation_Rule extends Mage_Core_Model_Abstract
     /**
      * @return mixed
      */
-    public function getProductTaxClasses()
+    function getProductTaxClasses()
     {
         return $this->getCalculationModel()->getProductTaxClasses($this->getId());
     }
@@ -189,7 +189,7 @@ class Mage_Tax_Model_Calculation_Rule extends Mage_Core_Model_Abstract
      * @param array $productTaxClassId
      * @return array
      */
-    public function fetchRuleCodes($rateId, $customerTaxClassId, $productTaxClassId)
+    function fetchRuleCodes($rateId, $customerTaxClassId, $productTaxClassId)
     {
         return $this->getResource()->fetchRuleCodes($rateId, $customerTaxClassId, $productTaxClassId);
     }

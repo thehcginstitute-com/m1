@@ -68,7 +68,7 @@ class Mage_Core_Model_File_Storage extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_File_Storage_Flag
      */
-    public function getSyncFlag()
+    function getSyncFlag()
     {
         return Mage::getSingleton('core/file_storage_flag')->loadSelf();
     }
@@ -86,7 +86,7 @@ class Mage_Core_Model_File_Storage extends Mage_Core_Model_Abstract
      * @param  array $params
      * @return Mage_Core_Model_File_Storage_File|Mage_Core_Model_File_Storage_Database|false
      */
-    public function getStorageModel($storage = null, $params = [])
+    function getStorageModel($storage = null, $params = [])
     {
         if (is_null($storage)) {
             $storage = Mage::helper('core/file_storage')->getCurrentStorageCode();
@@ -121,7 +121,7 @@ class Mage_Core_Model_File_Storage extends Mage_Core_Model_Abstract
      * @param  array $storage
      * @return $this
      */
-    public function synchronize($storage)
+    function synchronize($storage)
     {
         if (is_array($storage) && isset($storage['type'])) {
             $storageDest    = (int) $storage['type'];

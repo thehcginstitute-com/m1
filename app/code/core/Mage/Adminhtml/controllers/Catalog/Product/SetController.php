@@ -28,7 +28,7 @@ class Mage_Adminhtml_Catalog_Product_SetController extends Mage_Adminhtml_Contro
      */
     public const ADMIN_RESOURCE = 'catalog/attributes/sets';
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Catalog'))
              ->_title($this->__('Attributes'))
@@ -51,7 +51,7 @@ class Mage_Adminhtml_Catalog_Product_SetController extends Mage_Adminhtml_Contro
         $this->renderLayout();
     }
 
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('Catalog'))
              ->_title($this->__('Attributes'))
@@ -85,7 +85,7 @@ class Mage_Adminhtml_Catalog_Product_SetController extends Mage_Adminhtml_Contro
         $this->renderLayout();
     }
 
-    public function setGridAction()
+    function setGridAction()
     {
         $this->_setTypeId();
         $this->getResponse()->setBody(
@@ -102,7 +102,7 @@ class Mage_Adminhtml_Catalog_Product_SetController extends Mage_Adminhtml_Contro
      * [AJAX] Save attribute set data
      *
      */
-    public function saveAction()
+    function saveAction()
     {
         $entityTypeId   = $this->_getEntityTypeId();
         $hasError       = false;
@@ -174,7 +174,7 @@ class Mage_Adminhtml_Catalog_Product_SetController extends Mage_Adminhtml_Contro
         }
     }
 
-    public function addAction()
+    function addAction()
     {
         $this->_title($this->__('Catalog'))
              ->_title($this->__('Attributes'))
@@ -191,7 +191,7 @@ class Mage_Adminhtml_Catalog_Product_SetController extends Mage_Adminhtml_Contro
         $this->renderLayout();
     }
 
-    public function deleteAction()
+    function deleteAction()
     {
         $setId = $this->getRequest()->getParam('id');
         try {
@@ -212,7 +212,7 @@ class Mage_Adminhtml_Catalog_Product_SetController extends Mage_Adminhtml_Contro
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         return parent::preDispatch();

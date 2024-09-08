@@ -81,7 +81,7 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getAdditionalHtml()
+    function getAdditionalHtml()
     {
         return $this->getLayout()->getBlock('search_result_list')->getChildHtml('additional');
     }
@@ -91,7 +91,7 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
      *
      * @return Mage_Catalog_Block_Product_List
      */
-    public function getListBlock()
+    function getListBlock()
     {
         return $this->getChild('search_result_list');
     }
@@ -101,7 +101,7 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
      *
      * @return $this
      */
-    public function setListOrders()
+    function setListOrders()
     {
         $category = Mage::getSingleton('catalog/layer')
             ->getCurrentCategory();
@@ -125,7 +125,7 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
      *
      * @return $this
      */
-    public function setListModes()
+    function setListModes()
     {
         $this->getListBlock()
             ->setModes([
@@ -139,7 +139,7 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
      *
      * @return $this
      */
-    public function setListCollection()
+    function setListCollection()
     {
         return $this;
     }
@@ -149,7 +149,7 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getProductListHtml()
+    function getProductListHtml()
     {
         return $this->getChildHtml('search_result_list');
     }
@@ -173,7 +173,7 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getResultCount()
+    function getResultCount()
     {
         if (!$this->getData('result_count')) {
             $size = $this->_getProductCollection()->getSize();
@@ -188,7 +188,7 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getNoResultText()
+    function getNoResultText()
     {
         if (Mage::helper('catalogsearch')->isMinQueryLength()) {
             return Mage::helper('catalogsearch')->__(
@@ -204,7 +204,7 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getNoteMessages()
+    function getNoteMessages()
     {
         return Mage::helper('catalogsearch')->getNoteMessages();
     }

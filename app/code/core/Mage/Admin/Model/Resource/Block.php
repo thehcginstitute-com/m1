@@ -44,7 +44,7 @@ class Mage_Admin_Model_Resource_Block extends Mage_Core_Model_Resource_Db_Abstra
      *
      * @return array
      */
-    public function getAllowedTypes()
+    function getAllowedTypes()
     {
         $data = Mage::app()->getCacheInstance()->load(self::CACHE_ID);
         if ($data === false) {
@@ -98,7 +98,7 @@ class Mage_Admin_Model_Resource_Block extends Mage_Core_Model_Resource_Db_Abstra
      *
      * @return array
      */
-    public function getDisallowedBlockNames()
+    function getDisallowedBlockNames()
     {
         return $this->disallowedBlockNames;
     }

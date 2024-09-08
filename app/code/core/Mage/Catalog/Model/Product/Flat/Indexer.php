@@ -66,7 +66,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
      * @param mixed $store
      * @return $this
      */
-    public function rebuild($store = null)
+    function rebuild($store = null)
     {
         if (is_null($store)) {
             $this->_getResource()->prepareFlatTables();
@@ -89,7 +89,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
      * @param int|array $productIds
      * @return $this
      */
-    public function updateAttribute($attributeCode, $store = null, $productIds = null)
+    function updateAttribute($attributeCode, $store = null, $productIds = null)
     {
         if (is_null($store)) {
             foreach (Mage::app()->getStores() as $store) {
@@ -113,7 +113,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
      * @param int $store
      * @return $this
      */
-    public function prepareDataStorage($store = null)
+    function prepareDataStorage($store = null)
     {
         if (is_null($store)) {
             foreach (Mage::app()->getStores() as $store) {
@@ -134,7 +134,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
      * @param int $store
      * @return $this
      */
-    public function updateEventAttributes($store = null)
+    function updateEventAttributes($store = null)
     {
         if (is_null($store)) {
             foreach (Mage::app()->getStores() as $store) {
@@ -159,7 +159,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
      * @param int $store
      * @return $this
      */
-    public function updateProductStatus($productId, $status, $store = null)
+    function updateProductStatus($productId, $status, $store = null)
     {
         if (is_null($store)) {
             foreach (Mage::app()->getStores() as $store) {
@@ -185,7 +185,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
      * @param int $store
      * @return $this
      */
-    public function updateProduct($productIds, $store = null)
+    function updateProduct($productIds, $store = null)
     {
         if (is_null($store)) {
             foreach (Mage::app()->getStores() as $store) {
@@ -216,7 +216,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
      * @param int $store
      * @return $this
      */
-    public function saveProduct($productIds, $store = null)
+    function saveProduct($productIds, $store = null)
     {
         if (is_null($store)) {
             foreach (Mage::app()->getStores() as $store) {
@@ -247,7 +247,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
      * @param int $store
      * @return $this
      */
-    public function removeProduct($productIds, $store = null)
+    function removeProduct($productIds, $store = null)
     {
         if (is_null($store)) {
             foreach (Mage::app()->getStores() as $store) {
@@ -267,7 +267,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
      * @param int $store
      * @return $this
      */
-    public function deleteStore($store)
+    function deleteStore($store)
     {
         $this->_getResource()->deleteFlatTable($store);
         return $this;
@@ -278,7 +278,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->_getResource()->reindexAll();
         return $this;
@@ -289,7 +289,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getAttributeCodes()
+    function getAttributeCodes()
     {
         return $this->_getResource()->getAttributeCodes();
     }

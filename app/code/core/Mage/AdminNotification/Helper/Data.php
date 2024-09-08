@@ -43,7 +43,7 @@ class Mage_AdminNotification_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return Mage_AdminNotification_Model_Inbox
      */
-    public function getLatestNotice()
+    function getLatestNotice()
     {
         if (is_null($this->_latestNotice)) {
             $this->_latestNotice = Mage::getModel('adminnotification/inbox')->loadLatestNotice();
@@ -57,7 +57,7 @@ class Mage_AdminNotification_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $severity
      * @return int
      */
-    public function getUnreadNoticeCount($severity)
+    function getUnreadNoticeCount($severity)
     {
         if (is_null($this->_unreadNoticeCounts)) {
             $this->_unreadNoticeCounts = Mage::getModel('adminnotification/inbox')->getNoticeStatus();
@@ -72,7 +72,7 @@ class Mage_AdminNotification_Helper_Data extends Mage_Core_Helper_Abstract
      * @return string
      * @deprecated v19.4.16
      */
-    public function getPopupObjectUrl($withExt = false)
+    function getPopupObjectUrl($withExt = false)
     {
         return '';
     }

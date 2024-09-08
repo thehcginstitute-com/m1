@@ -63,7 +63,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      * @param  Mage_Sales_Model_Order $order
      * @return Mage_Sales_Model_Order_Pdf_Items_Abstract
      */
-    public function setOrder(Mage_Sales_Model_Order $order)
+    function setOrder(Mage_Sales_Model_Order $order)
     {
         $this->_order = $order;
         return $this;
@@ -75,7 +75,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      * @param  Mage_Core_Model_Abstract $source
      * @return Mage_Sales_Model_Order_Pdf_Items_Abstract
      */
-    public function setSource(Mage_Core_Model_Abstract $source)
+    function setSource(Mage_Core_Model_Abstract $source)
     {
         $this->_source = $source;
         return $this;
@@ -87,7 +87,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      * @param  Varien_Object $item
      * @return Mage_Sales_Model_Order_Pdf_Items_Abstract
      */
-    public function setItem(Varien_Object $item)
+    function setItem(Varien_Object $item)
     {
         $this->_item = $item;
         return $this;
@@ -99,7 +99,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      * @param  Mage_Sales_Model_Order_Pdf_Abstract $pdf
      * @return Mage_Sales_Model_Order_Pdf_Items_Abstract
      */
-    public function setPdf(Mage_Sales_Model_Order_Pdf_Abstract $pdf)
+    function setPdf(Mage_Sales_Model_Order_Pdf_Abstract $pdf)
     {
         $this->_pdf = $pdf;
         return $this;
@@ -111,7 +111,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      * @param  Zend_Pdf_Page $page
      * @return Mage_Sales_Model_Order_Pdf_Items_Abstract
      */
-    public function setPage(Zend_Pdf_Page $page)
+    function setPage(Zend_Pdf_Page $page)
     {
         $this->_pdfPage = $page;
         return $this;
@@ -123,7 +123,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      * @throws Mage_Core_Exception
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         if (is_null($this->_order)) {
             Mage::throwException(Mage::helper('sales')->__('Order object is not specified.'));
@@ -137,7 +137,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      * @throws Mage_Core_Exception
      * @return Mage_Core_Model_Abstract
      */
-    public function getSource()
+    function getSource()
     {
         if (is_null($this->_source)) {
             Mage::throwException(Mage::helper('sales')->__('Source object is not specified.'));
@@ -151,7 +151,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      * @throws Mage_Core_Exception
      * @return Varien_Object
      */
-    public function getItem()
+    function getItem()
     {
         if (is_null($this->_item)) {
             Mage::throwException(Mage::helper('sales')->__('Item object is not specified.'));
@@ -165,7 +165,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      * @throws Mage_Core_Exception
      * @return Mage_Sales_Model_Order_Pdf_Abstract
      */
-    public function getPdf()
+    function getPdf()
     {
         if (is_null($this->_pdf)) {
             Mage::throwException(Mage::helper('sales')->__('PDF object is not specified.'));
@@ -179,7 +179,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      * @throws Mage_Core_Exception
      * @return Zend_Pdf_Page
      */
-    public function getPage()
+    function getPage()
     {
         if (is_null($this->_pdfPage)) {
             Mage::throwException(Mage::helper('sales')->__('PDF page object is not specified.'));
@@ -191,7 +191,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      * Draw item line
      *
      */
-    abstract public function draw();
+    abstract function draw();
 
     /**
      * Format option value process
@@ -246,7 +246,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      * )
      * @return array
      */
-    public function getItemPricesForDisplay()
+    function getItemPricesForDisplay()
     {
         $order = $this->getOrder();
         $item  = $this->getItem();
@@ -282,7 +282,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      *
      * @return array
      */
-    public function getItemOptions()
+    function getItemOptions()
     {
         $result = [];
         if ($options = $this->getItem()->getOrderItem()->getProductOptions()) {
@@ -344,7 +344,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      * @param Mage_Sales_Model_Order_Invoice_Item|Mage_Sales_Model_Order_Creditmemo_Item $item
      * @return string
      */
-    public function getSku($item)
+    function getSku($item)
     {
         if ($item->getOrderItem()->getProductOptionByCode('simple_sku')) {
             return $item->getOrderItem()->getProductOptionByCode('simple_sku');

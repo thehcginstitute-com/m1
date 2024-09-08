@@ -29,7 +29,7 @@ class Mage_Oauth_Adminhtml_Oauth_Admin_TokenController extends Mage_Adminhtml_Co
      *
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_title($this->__('System'))
                 ->_title($this->__('Permissions'))
@@ -41,7 +41,7 @@ class Mage_Oauth_Adminhtml_Oauth_Admin_TokenController extends Mage_Adminhtml_Co
     /**
      * Render grid page
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout();
         $this->renderLayout();
@@ -50,7 +50,7 @@ class Mage_Oauth_Adminhtml_Oauth_Admin_TokenController extends Mage_Adminhtml_Co
     /**
      * Render grid AJAX request
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout();
         $this->renderLayout();
@@ -59,7 +59,7 @@ class Mage_Oauth_Adminhtml_Oauth_Admin_TokenController extends Mage_Adminhtml_Co
     /**
      * Update revoke status action
      */
-    public function revokeAction()
+    function revokeAction()
     {
         $ids = $this->getRequest()->getParam('items');
         $status = $this->getRequest()->getParam('status');
@@ -113,7 +113,7 @@ class Mage_Oauth_Adminhtml_Oauth_Admin_TokenController extends Mage_Adminhtml_Co
     /**
      * Delete action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $ids = $this->getRequest()->getParam('items');
 

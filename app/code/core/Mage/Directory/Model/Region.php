@@ -45,7 +45,7 @@ class Mage_Directory_Model_Region extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getName()
+    function getName()
     {
         $name = $this->getData('name');
         if (is_null($name)) {
@@ -59,7 +59,7 @@ class Mage_Directory_Model_Region extends Mage_Core_Model_Abstract
      * @param string $countryId
      * @return $this
      */
-    public function loadByCode($code, $countryId)
+    function loadByCode($code, $countryId)
     {
         if ($code) {
             $this->_getResource()->loadByCode($this, $code, $countryId);
@@ -72,7 +72,7 @@ class Mage_Directory_Model_Region extends Mage_Core_Model_Abstract
      * @param string $countryId
      * @return $this
      */
-    public function loadByName($name, $countryId)
+    function loadByName($name, $countryId)
     {
         $this->_getResource()->loadByName($this, $name, $countryId);
         return $this;

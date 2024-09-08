@@ -25,54 +25,54 @@
  */
 interface Mage_Eav_Model_Entity_Attribute_Backend_Interface
 {
-    public function getTable();
-    public function isStatic();
-    public function getType();
-    public function getEntityIdField();
+    function getTable();
+    function isStatic();
+    function getType();
+    function getEntityIdField();
 
     /**
      * @param int $valueId
      * @return int
      */
-    public function setValueId($valueId);
-    public function getValueId();
+    function setValueId($valueId);
+    function getValueId();
 
     /**
      * @param object $object
      * @return mixed
      */
-    public function afterLoad($object);
+    function afterLoad($object);
 
     /**
      * @param object $object
      * @return mixed
      */
-    public function beforeSave($object);
+    function beforeSave($object);
 
     /**
      * @param object $object
      * @return mixed
      */
-    public function afterSave($object);
+    function afterSave($object);
 
     /**
      * @param object $object
      * @return mixed
      */
-    public function beforeDelete($object);
+    function beforeDelete($object);
 
     /**
      * @param object $object
      * @return mixed
      */
-    public function afterDelete($object);
+    function afterDelete($object);
 
     /**
      * Get entity value id
      *
      * @param Varien_Object $entity
      */
-    public function getEntityValueId($entity);
+    function getEntityValueId($entity);
 
     /**
      * Set entity value id
@@ -80,5 +80,5 @@ interface Mage_Eav_Model_Entity_Attribute_Backend_Interface
      * @param Varien_Object $entity
      * @param int $valueId
      */
-    public function setEntityValueId($entity, $valueId);
+    function setEntityValueId($entity, $valueId);
 }

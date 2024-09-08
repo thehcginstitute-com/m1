@@ -37,7 +37,7 @@ class Mage_ProductAlert_Model_Resource_Stock_Collection extends Mage_Core_Model_
      * @param mixed $customer
      * @return $this
      */
-    public function addCustomerFilter($customer)
+    function addCustomerFilter($customer)
     {
         $adapter = $this->getConnection();
         if (is_array($customer)) {
@@ -57,7 +57,7 @@ class Mage_ProductAlert_Model_Resource_Stock_Collection extends Mage_Core_Model_
      * @param mixed $website
      * @return $this
      */
-    public function addWebsiteFilter($website)
+    function addWebsiteFilter($website)
     {
         $adapter = $this->getConnection();
         if (is_null($website) || $website == 0) {
@@ -80,7 +80,7 @@ class Mage_ProductAlert_Model_Resource_Stock_Collection extends Mage_Core_Model_
      * @param int $status
      * @return $this
      */
-    public function addStatusFilter($status)
+    function addStatusFilter($status)
     {
         $condition = $this->getConnection()->quoteInto('status=?', $status);
         $this->addFilter('status', $condition, 'string');
@@ -93,7 +93,7 @@ class Mage_ProductAlert_Model_Resource_Stock_Collection extends Mage_Core_Model_
      * @param string $sort
      * @return $this
      */
-    public function setCustomerOrder($sort = 'ASC')
+    function setCustomerOrder($sort = 'ASC')
     {
         $this->getSelect()->order('customer_id ' . $sort);
         return $this;

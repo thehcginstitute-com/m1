@@ -44,7 +44,7 @@ class Mage_Adminhtml_Permissions_VariableController extends Mage_Adminhtml_Contr
     /**
      * Index action
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('System'))
             ->_title($this->__('Permissions'))
@@ -59,7 +59,7 @@ class Mage_Adminhtml_Permissions_VariableController extends Mage_Adminhtml_Contr
     /**
      * New action
      */
-    public function newAction()
+    function newAction()
     {
         $this->_forward('edit');
     }
@@ -67,7 +67,7 @@ class Mage_Adminhtml_Permissions_VariableController extends Mage_Adminhtml_Contr
     /**
      * Edit action
      */
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('System'))
             ->_title($this->__('Permissions'))
@@ -114,7 +114,7 @@ class Mage_Adminhtml_Permissions_VariableController extends Mage_Adminhtml_Contr
      *
      * @return $this|void
      */
-    public function saveAction()
+    function saveAction()
     {
         if ($data = $this->getRequest()->getPost()) {
             $id = (int) $this->getRequest()->getParam('variable_id');
@@ -163,7 +163,7 @@ class Mage_Adminhtml_Permissions_VariableController extends Mage_Adminhtml_Contr
     /**
      * Delete action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $id = (int) $this->getRequest()->getParam('variable_id');
         if ($id) {
@@ -187,7 +187,7 @@ class Mage_Adminhtml_Permissions_VariableController extends Mage_Adminhtml_Contr
     /**
      * Grid action
      */
-    public function variableGridAction()
+    function variableGridAction()
     {
         $this->getResponse()
             ->setBody($this->getLayout()

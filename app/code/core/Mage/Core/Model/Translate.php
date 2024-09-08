@@ -95,7 +95,7 @@ class Mage_Core_Model_Translate
      */
     protected $_canUseInline = true;
 
-    public function __construct()
+    function __construct()
     {
     }
 
@@ -106,7 +106,7 @@ class Mage_Core_Model_Translate
      * @param bool $forceReload
      * @return $this
      */
-    public function init($area, $forceReload = false)
+    function init($area, $forceReload = false)
     {
         $this->setConfig([self::CONFIG_KEY_AREA => $area]);
 
@@ -145,7 +145,7 @@ class Mage_Core_Model_Translate
      *
      * @return array|SimpleXMLElement
      */
-    public function getModulesConfig()
+    function getModulesConfig()
     {
         if (!Mage::getConfig()->getNode($this->getConfig(self::CONFIG_KEY_AREA) . '/translate/modules')) {
             return [];
@@ -164,7 +164,7 @@ class Mage_Core_Model_Translate
      * @param   array $config
      * @return  $this
      */
-    public function setConfig($config)
+    function setConfig($config)
     {
         $this->_config = $config;
         if (!isset($this->_config[self::CONFIG_KEY_LOCALE])) {
@@ -188,7 +188,7 @@ class Mage_Core_Model_Translate
      * @param   string $key
      * @return  mixed
      */
-    public function getConfig($key)
+    function getConfig($key)
     {
         return $this->_config[$key] ?? null;
     }
@@ -324,7 +324,7 @@ class Mage_Core_Model_Translate
      *
      * @return array
      */
-    public function getData()
+    function getData()
     {
         if (is_null($this->_data)) {
             return [];
@@ -338,7 +338,7 @@ class Mage_Core_Model_Translate
      *
      * @return string
      */
-    public function getLocale()
+    function getLocale()
     {
         if (is_null($this->_locale)) {
             $this->_locale = Mage::app()->getLocale()->getLocaleCode();
@@ -350,7 +350,7 @@ class Mage_Core_Model_Translate
      * @param string $locale
      * @return $this
      */
-    public function setLocale($locale)
+    function setLocale($locale)
     {
         $this->_locale = $locale;
         return $this;
@@ -361,7 +361,7 @@ class Mage_Core_Model_Translate
      *
      * @return Mage_Core_Model_Resource_Translate
      */
-    public function getResource()
+    function getResource()
     {
         return Mage::getResourceSingleton('core/translate');
     }
@@ -371,7 +371,7 @@ class Mage_Core_Model_Translate
      *
      * @return Zend_Translate
      */
-    public function getTranslate()
+    function getTranslate()
     {
         if (is_null($this->_translate)) {
             $this->_translate = new Zend_Translate('array', $this->getData(), $this->getLocale());
@@ -385,7 +385,7 @@ class Mage_Core_Model_Translate
      * @param   array $args
      * @return  string
      */
-    public function translate($args)
+    function translate($args)
     {
         $text = array_shift($args);
 
@@ -436,7 +436,7 @@ class Mage_Core_Model_Translate
      * @param bool $flag
      * @return $this
      */
-    public function setTranslateInline($flag = null)
+    function setTranslateInline($flag = null)
     {
         $this->_canUseInline = (bool) $flag;
         return $this;
@@ -447,7 +447,7 @@ class Mage_Core_Model_Translate
      *
      * @return bool
      */
-    public function getTranslateInline()
+    function getTranslateInline()
     {
         return $this->_canUseInline;
     }
@@ -460,7 +460,7 @@ class Mage_Core_Model_Translate
      * @param string $localeCode
      * @return string
      */
-    public function getTemplateFile($file, $type, $localeCode = null)
+    function getTemplateFile($file, $type, $localeCode = null)
     {
         if (is_null($localeCode) || preg_match('/[^a-zA-Z_]/', $localeCode)) {
             $localeCode = $this->getLocale();
@@ -492,7 +492,7 @@ class Mage_Core_Model_Translate
      *
      * @return string
      */
-    public function getCacheId()
+    function getCacheId()
     {
         if (is_null($this->_cacheId)) {
             $this->_cacheId = 'translate';

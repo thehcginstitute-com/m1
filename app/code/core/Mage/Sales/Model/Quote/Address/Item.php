@@ -141,7 +141,7 @@ class Mage_Sales_Model_Quote_Address_Item extends Mage_Sales_Model_Quote_Item_Ab
      * @param   Mage_Sales_Model_Quote_Address $address
      * @return  $this
      */
-    public function setAddress(Mage_Sales_Model_Quote_Address $address)
+    function setAddress(Mage_Sales_Model_Quote_Address $address)
     {
         $this->_address = $address;
         $this->_quote   = $address->getQuote();
@@ -153,7 +153,7 @@ class Mage_Sales_Model_Quote_Address_Item extends Mage_Sales_Model_Quote_Item_Ab
      *
      * @return Mage_Sales_Model_Quote_Address
      */
-    public function getAddress()
+    function getAddress()
     {
         return $this->_address;
     }
@@ -163,7 +163,7 @@ class Mage_Sales_Model_Quote_Address_Item extends Mage_Sales_Model_Quote_Item_Ab
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return $this->_quote;
     }
@@ -174,7 +174,7 @@ class Mage_Sales_Model_Quote_Address_Item extends Mage_Sales_Model_Quote_Item_Ab
      * @param Mage_Sales_Model_Quote_Item $quoteItem
      * @return $this
      */
-    public function importQuoteItem(Mage_Sales_Model_Quote_Item $quoteItem)
+    function importQuoteItem(Mage_Sales_Model_Quote_Item $quoteItem)
     {
         $this->_quote = $quoteItem->getQuote();
         $this->setQuoteItem($quoteItem)
@@ -200,7 +200,7 @@ class Mage_Sales_Model_Quote_Address_Item extends Mage_Sales_Model_Quote_Item_Ab
      * @param string $code
      * @return Mage_Catalog_Model_Product_Configuration_Item_Option_Interface|null
      */
-    public function getOptionBycode($code)
+    function getOptionBycode($code)
     {
         if ($this->getQuoteItem()) {
             return $this->getQuoteItem()->getOptionBycode($code);

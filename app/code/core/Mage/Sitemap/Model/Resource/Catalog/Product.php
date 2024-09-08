@@ -33,7 +33,7 @@ class Mage_Sitemap_Model_Resource_Catalog_Product extends Mage_Sitemap_Model_Res
      * @param int $storeId
      * @return array|false
      */
-    public function getCollection($storeId)
+    function getCollection($storeId)
     {
         $store = Mage::app()->getStore($storeId);
         if (!$store) {

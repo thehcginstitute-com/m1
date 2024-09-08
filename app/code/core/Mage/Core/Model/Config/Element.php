@@ -27,7 +27,7 @@ class Mage_Core_Model_Config_Element extends Varien_Simplexml_Element
      * @param string|true $value
      * @return bool
      */
-    public function is($var, $value = true)
+    function is($var, $value = true)
     {
         $flag = $this->$var;
 
@@ -46,7 +46,7 @@ class Mage_Core_Model_Config_Element extends Varien_Simplexml_Element
     /**
      * @return false|string
      */
-    public function getClassName()
+    function getClassName()
     {
         if ($this->class) {
             $model = (string)$this->class;

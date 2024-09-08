@@ -177,7 +177,7 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
     /**
      * Retrieve file size in bytes
      */
-    public function getFilesize()
+    function getFilesize()
     {
         $handle = $this->_getHandle();
         if ($this->_linkType == self::LINK_TYPE_FILE) {
@@ -194,7 +194,7 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
      * @return array|string
      * @throws Exception
      */
-    public function getContentType()
+    function getContentType()
     {
         $handle = $this->_getHandle();
         if ($this->_linkType == self::LINK_TYPE_FILE) {
@@ -216,7 +216,7 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
      * @return bool|mixed|string
      * @throws Exception
      */
-    public function getFilename()
+    function getFilename()
     {
         $handle = $this->_getHandle();
         if ($this->_linkType == self::LINK_TYPE_FILE) {
@@ -242,7 +242,7 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
      * @param string $linkType
      * @return $this
      */
-    public function setResource($resourceFile, $linkType = self::LINK_TYPE_FILE)
+    function setResource($resourceFile, $linkType = self::LINK_TYPE_FILE)
     {
         if (self::LINK_TYPE_FILE == $linkType) {
             //check LFI protection
@@ -262,7 +262,7 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Core_Controller_Request_Http
      */
-    public function getHttpRequest()
+    function getHttpRequest()
     {
         return Mage::app()->getFrontController()->getRequest();
     }
@@ -272,12 +272,12 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Core_Controller_Response_Http
      */
-    public function getHttpResponse()
+    function getHttpResponse()
     {
         return Mage::app()->getFrontController()->getResponse();
     }
 
-    public function output()
+    function output()
     {
         $handle = $this->_getHandle();
         if ($this->_linkType == self::LINK_TYPE_FILE) {
@@ -297,7 +297,7 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return bool
      */
-    public function getContentDisposition($store = null)
+    function getContentDisposition($store = null)
     {
         return Mage::getStoreConfig(self::XML_PATH_CONTENT_DISPOSITION, $store);
     }

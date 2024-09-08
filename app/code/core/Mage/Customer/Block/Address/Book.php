@@ -39,7 +39,7 @@ class Mage_Customer_Block_Address_Book extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getAddAddressUrl()
+    function getAddAddressUrl()
     {
         return $this->getUrl('customer/address/new', ['_secure' => true]);
     }
@@ -47,7 +47,7 @@ class Mage_Customer_Block_Address_Book extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         if ($this->getRefererUrl()) {
             return $this->getRefererUrl();
@@ -58,7 +58,7 @@ class Mage_Customer_Block_Address_Book extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getDeleteUrl()
+    function getDeleteUrl()
     {
         return $this->getUrl(
             'customer/address/delete',
@@ -70,7 +70,7 @@ class Mage_Customer_Block_Address_Book extends Mage_Core_Block_Template
      * @param Mage_Customer_Model_Address $address
      * @return string
      */
-    public function getAddressEditUrl($address)
+    function getAddressEditUrl($address)
     {
         return $this->getUrl('customer/address/edit', ['_secure' => true, 'id' => $address->getId()]);
     }
@@ -78,7 +78,7 @@ class Mage_Customer_Block_Address_Book extends Mage_Core_Block_Template
     /**
      * @return Mage_Customer_Model_Address
      */
-    public function getPrimaryBillingAddress()
+    function getPrimaryBillingAddress()
     {
         return $this->getCustomer()->getPrimaryBillingAddress();
     }
@@ -86,7 +86,7 @@ class Mage_Customer_Block_Address_Book extends Mage_Core_Block_Template
     /**
      * @return Mage_Customer_Model_Address
      */
-    public function getPrimaryShippingAddress()
+    function getPrimaryShippingAddress()
     {
         return $this->getCustomer()->getPrimaryShippingAddress();
     }
@@ -94,7 +94,7 @@ class Mage_Customer_Block_Address_Book extends Mage_Core_Block_Template
     /**
      * @return bool
      */
-    public function hasPrimaryAddress()
+    function hasPrimaryAddress()
     {
         return $this->getPrimaryBillingAddress() || $this->getPrimaryShippingAddress();
     }
@@ -102,7 +102,7 @@ class Mage_Customer_Block_Address_Book extends Mage_Core_Block_Template
     /**
      * @return bool|Mage_Customer_Model_Address[]
      */
-    public function getAdditionalAddresses()
+    function getAdditionalAddresses()
     {
         $addresses = $this->getCustomer()->getAdditionalAddresses();
         return empty($addresses) ? false : $addresses;
@@ -112,7 +112,7 @@ class Mage_Customer_Block_Address_Book extends Mage_Core_Block_Template
      * @param Mage_Customer_Model_Address $address
      * @return string|null
      */
-    public function getAddressHtml($address)
+    function getAddressHtml($address)
     {
         return $address->format('html');
         //return $address->toString($address->getHtmlFormat());
@@ -121,7 +121,7 @@ class Mage_Customer_Block_Address_Book extends Mage_Core_Block_Template
     /**
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         $customer = $this->getData('customer');
         if (is_null($customer)) {

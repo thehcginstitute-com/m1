@@ -33,7 +33,7 @@ class Mage_CatalogInventory_Model_Resource_Stock_Item_Collection extends Mage_Co
      * @param mixed $stock
      * @return $this
      */
-    public function addStockFilter($stock)
+    function addStockFilter($stock)
     {
         if ($stock instanceof Mage_CatalogInventory_Model_Stock) {
             $this->addFieldToFilter('main_table.stock_id', $stock->getId());
@@ -49,7 +49,7 @@ class Mage_CatalogInventory_Model_Resource_Stock_Item_Collection extends Mage_Co
      * @param array|Mage_Catalog_Model_Product[] $products
      * @return $this
      */
-    public function addProductsFilter($products)
+    function addProductsFilter($products)
     {
         $productIds = [];
         foreach ($products as $product) {
@@ -73,7 +73,7 @@ class Mage_CatalogInventory_Model_Resource_Stock_Item_Collection extends Mage_Co
      * @param int $storeId
      * @return $this
      */
-    public function joinStockStatus($storeId = null)
+    function joinStockStatus($storeId = null)
     {
         $websiteId = Mage::app()->getStore($storeId)->getWebsiteId();
         $this->getSelect()->joinLeft(
@@ -93,7 +93,7 @@ class Mage_CatalogInventory_Model_Resource_Stock_Item_Collection extends Mage_Co
      * @param bool $isStockManagedInConfig
      * @return $this
      */
-    public function addManagedFilter($isStockManagedInConfig)
+    function addManagedFilter($isStockManagedInConfig)
     {
         if ($isStockManagedInConfig) {
             $this->getSelect()->where('(manage_stock = 1 OR use_config_manage_stock = 1)');
@@ -111,7 +111,7 @@ class Mage_CatalogInventory_Model_Resource_Stock_Item_Collection extends Mage_Co
      * @param float $qty
      * @return $this
      */
-    public function addQtyFilter($comparsionMethod, $qty)
+    function addQtyFilter($comparsionMethod, $qty)
     {
         $methods = [
             '<'  => 'lt',

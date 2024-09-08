@@ -39,7 +39,7 @@ class Mage_Checkout_Model_Cart_Product_Api extends Mage_Checkout_Model_Api_Resou
      * @param  string|int $store
      * @return bool
      */
-    public function add($quoteId, $productsData, $store = null)
+    function add($quoteId, $productsData, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
         if (empty($store)) {
@@ -92,7 +92,7 @@ class Mage_Checkout_Model_Cart_Product_Api extends Mage_Checkout_Model_Api_Resou
      * @param  string|int $store
      * @return bool
      */
-    public function update($quoteId, $productsData, $store = null)
+    function update($quoteId, $productsData, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
         if (empty($store)) {
@@ -149,7 +149,7 @@ class Mage_Checkout_Model_Cart_Product_Api extends Mage_Checkout_Model_Api_Resou
      * @param  string|int $store
      * @return bool
      */
-    public function remove($quoteId, $productsData, $store = null)
+    function remove($quoteId, $productsData, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
         if (empty($store)) {
@@ -206,7 +206,7 @@ class Mage_Checkout_Model_Cart_Product_Api extends Mage_Checkout_Model_Api_Resou
      * @param  string|int $store
      * @return array
      */
-    public function items($quoteId, $store = null)
+    function items($quoteId, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
         if (empty($store)) {
@@ -240,7 +240,7 @@ class Mage_Checkout_Model_Cart_Product_Api extends Mage_Checkout_Model_Api_Resou
      * @param  string|int $store
      * @return bool
      */
-    public function moveToCustomerQuote($quoteId, $productsData, $store = null)
+    function moveToCustomerQuote($quoteId, $productsData, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
 

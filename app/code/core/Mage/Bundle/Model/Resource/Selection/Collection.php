@@ -45,7 +45,7 @@ class Mage_Bundle_Model_Resource_Selection_Collection extends Mage_Catalog_Model
      *
      * @return $this
      */
-    public function _afterLoad()
+    function _afterLoad()
     {
         parent::_afterLoad();
         if ($this->getStoreId() && $this->_items) {
@@ -78,7 +78,7 @@ class Mage_Bundle_Model_Resource_Selection_Collection extends Mage_Catalog_Model
      * @param int $websiteId
      * @return $this
      */
-    public function joinPrices($websiteId)
+    function joinPrices($websiteId)
     {
         $adapter = $this->getConnection();
         $priceType = $adapter->getCheckSql(
@@ -109,7 +109,7 @@ class Mage_Bundle_Model_Resource_Selection_Collection extends Mage_Catalog_Model
      * @param array $optionIds
      * @return $this
      */
-    public function setOptionIdsFilter($optionIds)
+    function setOptionIdsFilter($optionIds)
     {
         if (!empty($optionIds)) {
             $this->getSelect()->where('selection.option_id IN (?)', $optionIds);
@@ -123,7 +123,7 @@ class Mage_Bundle_Model_Resource_Selection_Collection extends Mage_Catalog_Model
      * @param array $selectionIds
      * @return $this
      */
-    public function setSelectionIdsFilter($selectionIds)
+    function setSelectionIdsFilter($selectionIds)
     {
         if (!empty($selectionIds)) {
             $this->getSelect()->where('selection.selection_id IN (?)', $selectionIds);
@@ -136,7 +136,7 @@ class Mage_Bundle_Model_Resource_Selection_Collection extends Mage_Catalog_Model
      *
      * @return $this
      */
-    public function setPositionOrder()
+    function setPositionOrder()
     {
         $this->getSelect()->order('selection.position asc')
             ->order('selection.selection_id asc');

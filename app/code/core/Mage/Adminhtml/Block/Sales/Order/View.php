@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
      * Mage_Adminhtml_Block_Sales_Order_View constructor.
      * @throws Mage_Core_Exception
      */
-    public function __construct()
+    function __construct()
     {
         $this->_objectId    = 'order_id';
         $this->_controller  = 'sales_order';
@@ -199,7 +199,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('sales_order');
     }
@@ -209,7 +209,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
      *
      * @return int
      */
-    public function getOrderId()
+    function getOrderId()
     {
         return $this->getOrder()->getId();
     }
@@ -217,7 +217,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if ($_extOrderId = $this->getOrder()->getExtOrderId()) {
             $_extOrderId = '[' . $_extOrderId . '] ';
@@ -241,7 +241,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
      * @param array $params2
      * @return string
      */
-    public function getUrl($params = '', $params2 = [])
+    function getUrl($params = '', $params2 = [])
     {
         $params2['order_id'] = $this->getOrderId();
         return parent::getUrl($params, $params2);
@@ -250,7 +250,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
     /**
      * @return string
      */
-    public function getEditUrl()
+    function getEditUrl()
     {
         return $this->getUrl('*/sales_order_edit/start');
     }
@@ -258,7 +258,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
     /**
      * @return string
      */
-    public function getEmailUrl()
+    function getEmailUrl()
     {
         return $this->getUrl('*/*/email');
     }
@@ -266,7 +266,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
     /**
      * @return string
      */
-    public function getCancelUrl()
+    function getCancelUrl()
     {
         return $this->getUrlSecure('*/*/cancel');
     }
@@ -274,7 +274,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
     /**
      * @return string
      */
-    public function getInvoiceUrl()
+    function getInvoiceUrl()
     {
         return $this->getUrl('*/sales_order_invoice/start');
     }
@@ -282,7 +282,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
     /**
      * @return string
      */
-    public function getCreditmemoUrl()
+    function getCreditmemoUrl()
     {
         return $this->getUrl('*/sales_order_creditmemo/start');
     }
@@ -290,7 +290,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
     /**
      * @return string
      */
-    public function getHoldUrl()
+    function getHoldUrl()
     {
         return $this->getUrl('*/*/hold');
     }
@@ -298,7 +298,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
     /**
      * @return string
      */
-    public function getUnholdUrl()
+    function getUnholdUrl()
     {
         return $this->getUrl('*/*/unhold');
     }
@@ -306,7 +306,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
     /**
      * @return string
      */
-    public function getShipUrl()
+    function getShipUrl()
     {
         return $this->getUrl('*/sales_order_shipment/start');
     }
@@ -314,7 +314,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
     /**
      * @return string
      */
-    public function getCommentUrl()
+    function getCommentUrl()
     {
         return $this->getUrl('*/*/comment');
     }
@@ -322,7 +322,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
     /**
      * @return string
      */
-    public function getReorderUrl()
+    function getReorderUrl()
     {
         return $this->getUrl('*/sales_order_create/reorder');
     }
@@ -330,7 +330,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
     /**
      * Payment void URL getter
      */
-    public function getVoidPaymentUrl()
+    function getVoidPaymentUrl()
     {
         return $this->getUrl('*/*/voidPayment');
     }
@@ -349,7 +349,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
      *
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         if ($this->getOrder()->getBackUrl()) {
             return $this->getOrder()->getBackUrl();
@@ -362,7 +362,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
      * @param string $action
      * @return string
      */
-    public function getReviewPaymentUrl($action)
+    function getReviewPaymentUrl($action)
     {
         return $this->getUrl('*/*/reviewPayment', ['action' => $action]);
     }
@@ -372,7 +372,7 @@ class Mage_Adminhtml_Block_Sales_Order_View extends Mage_Adminhtml_Block_Widget_
      *
      * @return string
      */
-    public function getHeaderHtml()
+    function getHeaderHtml()
     {
         return '<h3 class="' . $this->getHeaderCssClass() . '">' . $this->escapeHtml($this->getHeaderText()) . '</h3>';
     }

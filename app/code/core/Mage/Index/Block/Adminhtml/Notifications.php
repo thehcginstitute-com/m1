@@ -25,7 +25,7 @@ class Mage_Index_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Temp
      *
      * @return array
      */
-    public function getProcessesForReindex()
+    function getProcessesForReindex()
     {
         $res = [];
         $processes = Mage::getSingleton('index/indexer')->getProcessesCollection()->addEventsStats();
@@ -45,7 +45,7 @@ class Mage_Index_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Temp
      *
      * @return string
      */
-    public function getManageUrl()
+    function getManageUrl()
     {
         return $this->getUrl('adminhtml/process/list');
     }

@@ -31,7 +31,7 @@ class Mage_Adminhtml_Catalog_Category_WidgetController extends Mage_Adminhtml_Co
     /**
      * Chooser Source action
      */
-    public function chooserAction()
+    function chooserAction()
     {
         $this->getResponse()->setBody(
             $this->_getCategoryTreeBlock()->toHtml()
@@ -41,7 +41,7 @@ class Mage_Adminhtml_Catalog_Category_WidgetController extends Mage_Adminhtml_Co
     /**
      * Categories tree node (Ajax version)
      */
-    public function categoriesJsonAction()
+    function categoriesJsonAction()
     {
         if ($categoryId = (int) $this->getRequest()->getPost('id')) {
             $category = Mage::getModel('catalog/category')->load($categoryId);

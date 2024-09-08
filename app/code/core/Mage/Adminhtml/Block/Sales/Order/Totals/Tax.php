@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_Totals_Tax extends Mage_Tax_Block_Sales_O
      *
      * @return array
      */
-    public function getFullTaxInfo()
+    function getFullTaxInfo()
     {
         /** @var Mage_Sales_Model_Order $source */
         $source = $this->getOrder();
@@ -57,7 +57,7 @@ class Mage_Adminhtml_Block_Sales_Order_Totals_Tax extends Mage_Tax_Block_Sales_O
      * @param float $baseAmount
      * @return string
      */
-    public function displayAmount($amount, $baseAmount)
+    function displayAmount($amount, $baseAmount)
     {
         return Mage::helper('adminhtml/sales')->displayPrices(
             $this->getSource(),
@@ -73,7 +73,7 @@ class Mage_Adminhtml_Block_Sales_Order_Totals_Tax extends Mage_Tax_Block_Sales_O
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return Mage::app()->getStore();
     }

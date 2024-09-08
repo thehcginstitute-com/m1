@@ -24,7 +24,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Method_Form extends Mage_
 {
     protected $_rates;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_create_shipping_method_form');
@@ -35,7 +35,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Method_Form extends Mage_
      *
      * @return Mage_Sales_Model_Quote_Address
      */
-    public function getAddress()
+    function getAddress()
     {
         return $this->getQuote()->getShippingAddress();
     }
@@ -45,7 +45,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Method_Form extends Mage_
      *
      * @return array
      */
-    public function getShippingRates()
+    function getShippingRates()
     {
         if (empty($this->_rates)) {
             $groups = $this->getAddress()->getGroupedAllShippingRates();
@@ -71,7 +71,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Method_Form extends Mage_
      * @param   string $carrierCode
      * @return  string
      */
-    public function getCarrierName($carrierCode)
+    function getCarrierName($carrierCode)
     {
         if ($name = Mage::getStoreConfig('carriers/' . $carrierCode . '/title', $this->getStore()->getId())) {
             return $name;
@@ -84,7 +84,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Method_Form extends Mage_
      *
      * @return string
      */
-    public function getShippingMethod()
+    function getShippingMethod()
     {
         return $this->getAddress()->getShippingMethod();
     }
@@ -95,7 +95,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Method_Form extends Mage_
      * @param   string $code
      * @return  bool
      */
-    public function isMethodActive($code)
+    function isMethodActive($code)
     {
         return $code === $this->getShippingMethod();
     }
@@ -105,7 +105,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Method_Form extends Mage_
      *
      * @return Mage_Sales_Model_Quote_Address_Rate | false
      */
-    public function getActiveMethodRate()
+    function getActiveMethodRate()
     {
         $rates = $this->getShippingRates();
         if (is_array($rates)) {
@@ -120,12 +120,12 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Shipping_Method_Form extends Mage_
         return false;
     }
 
-    public function getIsRateRequest()
+    function getIsRateRequest()
     {
         return $this->getRequest()->getParam('collect_shipping_rates');
     }
 
-    public function getShippingPrice($price, $flag)
+    function getShippingPrice($price, $flag)
     {
         return $this->getQuote()->getStore()->convertPrice(
             Mage::helper('tax')->getShippingPrice(

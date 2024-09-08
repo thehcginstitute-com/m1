@@ -101,7 +101,7 @@ class Mage_Eav_Model_Config
      * @deprecated
      * @return $this
      */
-    public function clear()
+    function clear()
     {
         $this->_entityData            = null;
         $this->_attributeData         = null;
@@ -286,7 +286,7 @@ class Mage_Eav_Model_Config
      * @param   mixed $code
      * @return  Mage_Eav_Model_Entity_Type
      */
-    public function getEntityType($code)
+    function getEntityType($code)
     {
         if ($code instanceof Mage_Eav_Model_Entity_Type) {
             return $code;
@@ -369,7 +369,7 @@ class Mage_Eav_Model_Config
      * @param   mixed $code
      * @return  Mage_Eav_Model_Entity_Attribute_Abstract|false
      */
-    public function getAttribute($entityType, $code)
+    function getAttribute($entityType, $code)
     {
         if ($code instanceof Mage_Eav_Model_Entity_Attribute_Interface) {
             return $code;
@@ -442,7 +442,7 @@ class Mage_Eav_Model_Config
      * @param  Varien_Object $object
      * @return array
      */
-    public function getEntityAttributeCodes($entityType, $object = null)
+    function getEntityAttributeCodes($entityType, $object = null)
     {
         $entityType     = $this->getEntityType($entityType);
         $attributeSetId = 0;
@@ -488,7 +488,7 @@ class Mage_Eav_Model_Config
      * @param   mixed $attributes
      * @return  Mage_Eav_Model_Config
      */
-    public function preloadAttributes($entityType, $attributes)
+    function preloadAttributes($entityType, $attributes)
     {
         if (is_string($attributes)) {
             $attributes = [$attributes];
@@ -551,7 +551,7 @@ class Mage_Eav_Model_Config
      * @param   string $attribute
      * @return  Mage_Eav_Model_Entity_Attribute_Abstract|null
      */
-    public function getCollectionAttribute($entityType, $attribute)
+    function getCollectionAttribute($entityType, $attribute)
     {
         $entityType = $this->getEntityType($entityType);
         $entityTypeCode = $entityType->getEntityTypeCode();
@@ -579,7 +579,7 @@ class Mage_Eav_Model_Config
      * @param   array $attributes
      * @return  Mage_Eav_Model_Config
      */
-    public function loadCollectionAttributes($entityType, $attributes)
+    function loadCollectionAttributes($entityType, $attributes)
     {
         $entityType     = $this->getEntityType($entityType);
         $entityTypeCode = $entityType->getEntityTypeCode();
@@ -693,7 +693,7 @@ class Mage_Eav_Model_Config
      * @param array $attributes
      * @return $this
      */
-    public function importAttributesData($entityType, array $attributes)
+    function importAttributesData($entityType, array $attributes)
     {
         $entityType = $this->getEntityType($entityType);
         foreach ($attributes as $attributeData) {

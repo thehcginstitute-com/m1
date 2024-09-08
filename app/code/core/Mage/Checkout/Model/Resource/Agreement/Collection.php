@@ -48,7 +48,7 @@ class Mage_Checkout_Model_Resource_Agreement_Collection extends Mage_Core_Model_
      * @param int|Mage_Core_Model_Store $store
      * @return $this
      */
-    public function addStoreFilter($store)
+    function addStoreFilter($store)
     {
         // check and prepare data
         if ($store instanceof Mage_Core_Model_Store) {
@@ -92,7 +92,7 @@ class Mage_Checkout_Model_Resource_Agreement_Collection extends Mage_Core_Model_
      * @param bool $value
      * @return $this
      */
-    public function setIsStoreFilterWithAdmin($value)
+    function setIsStoreFilterWithAdmin($value)
     {
         $this->_isStoreFilterWithAdmin = (bool)$value;
         return $this;

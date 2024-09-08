@@ -8,7 +8,7 @@
  */
 class Zoho_Salesiq_Block_Button extends Mage_Core_Block_Template {
   
-  public function getQuestion() {
+  function getQuestion() {
     $question = 'Hi, I need to know more about ';
     $question .= $this->helper('catalog/data')->getProduct()->getName();
     $question .= ' (';
@@ -17,11 +17,11 @@ class Zoho_Salesiq_Block_Button extends Mage_Core_Block_Template {
     return htmlspecialchars(json_encode($question));
   }
 
-  public function getLabel() {
+  function getLabel() {
     return $this->__('Click here to chat');
   }
 
-  public function isQuickChatEnabled() {
+  function isQuickChatEnabled() {
     return $this->helper('salesiq')->isQuickChatEnabled();
   }
 }

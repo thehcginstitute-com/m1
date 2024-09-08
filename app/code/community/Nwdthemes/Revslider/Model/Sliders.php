@@ -16,7 +16,7 @@ class Nwdthemes_Revslider_Model_Sliders extends Mage_Core_Model_Abstract {
 	 * Constructor
 	 */
 
-    public function _construct() {
+    function _construct() {
         parent::_construct();
         $this->_init('nwdrevslider/sliders');
     }
@@ -28,7 +28,7 @@ class Nwdthemes_Revslider_Model_Sliders extends Mage_Core_Model_Abstract {
      * @return int max order
      */
 
-	public function getMaxOrder($sliderId) {
+	function getMaxOrder($sliderId) {
 		$maxOrder = 0;
 		$slide = Mage::getModel('nwdrevslider/slides')
 			->getCollection()
@@ -50,7 +50,7 @@ class Nwdthemes_Revslider_Model_Sliders extends Mage_Core_Model_Abstract {
 	 * @param int from order
      */
 
-	public function shiftOrder($sliderId, $fromOrder) {
+	function shiftOrder($sliderId, $fromOrder) {
 		$collection = Mage::getModel('nwdrevslider/slides')
 			->getCollection()
 			->addFieldToFilter('slider_id', $sliderId)
@@ -68,7 +68,7 @@ class Nwdthemes_Revslider_Model_Sliders extends Mage_Core_Model_Abstract {
 	 * @param int $targetSliderId
 	 */
 	
-	public function duplicateSlides($sourceSliderId, $targetSliderId) {
+	function duplicateSlides($sourceSliderId, $targetSliderId) {
 		
 		$collection = Mage::getModel('nwdrevslider/slides')
 			->getCollection()

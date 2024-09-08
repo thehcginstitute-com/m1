@@ -67,7 +67,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
     /**
      * @inheritDoc
      */
-    public function _prepareLayout()
+    function _prepareLayout()
     {
         $this->addMessages(Mage::getSingleton('core/session')->getMessages(true));
         return parent::_prepareLayout();
@@ -78,7 +78,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      * @param bool $flag
      * @return $this
      */
-    public function setEscapeMessageFlag($flag)
+    function setEscapeMessageFlag($flag)
     {
         $this->_escapeMessageFlag = $flag;
         return $this;
@@ -90,7 +90,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      * @param   Mage_Core_Model_Message_Collection $messages
      * @return  Mage_Core_Block_Messages
      */
-    public function setMessages(Mage_Core_Model_Message_Collection $messages)
+    function setMessages(Mage_Core_Model_Message_Collection $messages)
     {
         $this->_messages = $messages;
         return $this;
@@ -102,7 +102,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      * @param Mage_Core_Model_Message_Collection $messages
      * @return $this
      */
-    public function addMessages(Mage_Core_Model_Message_Collection $messages)
+    function addMessages(Mage_Core_Model_Message_Collection $messages)
     {
         foreach ($messages->getItems() as $message) {
             $this->getMessageCollection()->add($message);
@@ -115,7 +115,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      *
      * @return Mage_Core_Model_Message_Collection
      */
-    public function getMessageCollection()
+    function getMessageCollection()
     {
         if (!($this->_messages instanceof Mage_Core_Model_Message_Collection)) {
             $this->_messages = Mage::getModel('core/message_collection');
@@ -129,7 +129,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      * @param   Mage_Core_Model_Message_Abstract $message
      * @return  Mage_Core_Block_Messages
      */
-    public function addMessage(Mage_Core_Model_Message_Abstract $message)
+    function addMessage(Mage_Core_Model_Message_Abstract $message)
     {
         $this->getMessageCollection()->add($message);
         return $this;
@@ -141,7 +141,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      * @param   string $message
      * @return  Mage_Core_Block_Messages
      */
-    public function addError($message)
+    function addError($message)
     {
         $this->addMessage(Mage::getSingleton('core/message')->error($message));
         return $this;
@@ -153,7 +153,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      * @param   string $message
      * @return  Mage_Core_Block_Messages
      */
-    public function addWarning($message)
+    function addWarning($message)
     {
         $this->addMessage(Mage::getSingleton('core/message')->warning($message));
         return $this;
@@ -165,7 +165,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      * @param   string $message
      * @return  Mage_Core_Block_Messages
      */
-    public function addNotice($message)
+    function addNotice($message)
     {
         $this->addMessage(Mage::getSingleton('core/message')->notice($message));
         return $this;
@@ -177,7 +177,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      * @param   string $message
      * @return  Mage_Core_Block_Messages
      */
-    public function addSuccess($message)
+    function addSuccess($message)
     {
         $this->addMessage(Mage::getSingleton('core/message')->success($message));
         return $this;
@@ -189,7 +189,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      * @param   string $type
      * @return  array
      */
-    public function getMessages($type = null)
+    function getMessages($type = null)
     {
         return $this->getMessageCollection()->getItems($type);
     }
@@ -200,7 +200,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      * @param   string $type
      * @return  string
      */
-    public function getHtml($type = null)
+    function getHtml($type = null)
     {
         $html = '<' . $this->_messagesFirstLevelTagName . ' id="admin_messages">';
         foreach ($this->getMessages($type) as $message) {
@@ -217,7 +217,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      *
      * @return  string
      */
-    public function getGroupedHtml()
+    function getGroupedHtml()
     {
         $types = [
             Mage_Core_Model_Message::ERROR,
@@ -264,7 +264,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      *
      * @param string $tagName
      */
-    public function setMessagesFirstLevelTagName($tagName)
+    function setMessagesFirstLevelTagName($tagName)
     {
         $this->_messagesFirstLevelTagName = $tagName;
     }
@@ -274,7 +274,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      *
      * @param string $tagName
      */
-    public function setMessagesSecondLevelTagName($tagName)
+    function setMessagesSecondLevelTagName($tagName)
     {
         $this->_messagesSecondLevelTagName = $tagName;
     }
@@ -284,7 +284,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getCacheKeyInfo()
+    function getCacheKeyInfo()
     {
         return [
             'storage_types' => serialize($this->_usedStorageTypes)
@@ -296,7 +296,7 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
      *
      * @param string $type
      */
-    public function addStorageType($type)
+    function addStorageType($type)
     {
         $this->_usedStorageTypes[] = $type;
     }

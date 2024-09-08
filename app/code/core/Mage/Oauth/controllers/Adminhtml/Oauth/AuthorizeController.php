@@ -42,7 +42,7 @@ class Mage_Oauth_Adminhtml_Oauth_AuthorizeController extends Mage_Adminhtml_Cont
      * @see Mage_Admin_Model_Observer::actionPreDispatchAdmin() method for explanation
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         Mage::app()->getRequest()->setInternallyForwarded();
 
@@ -70,7 +70,7 @@ class Mage_Oauth_Adminhtml_Oauth_AuthorizeController extends Mage_Adminhtml_Cont
      *
      * @return void
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_initForm();
 
@@ -83,7 +83,7 @@ class Mage_Oauth_Adminhtml_Oauth_AuthorizeController extends Mage_Adminhtml_Cont
      *
      * @return void
      */
-    public function simpleAction()
+    function simpleAction()
     {
         $this->_initForm(true);
         $this->_initLayoutMessages($this->_sessionName);
@@ -261,7 +261,7 @@ class Mage_Oauth_Adminhtml_Oauth_AuthorizeController extends Mage_Adminhtml_Cont
     /**
      * Confirm token authorization action
      */
-    public function confirmAction()
+    function confirmAction()
     {
         $this->_initConfirmPage();
     }
@@ -269,7 +269,7 @@ class Mage_Oauth_Adminhtml_Oauth_AuthorizeController extends Mage_Adminhtml_Cont
     /**
      * Confirm token authorization simple page
      */
-    public function confirmSimpleAction()
+    function confirmSimpleAction()
     {
         $this->_initConfirmPage();
     }
@@ -277,7 +277,7 @@ class Mage_Oauth_Adminhtml_Oauth_AuthorizeController extends Mage_Adminhtml_Cont
     /**
      * Reject token authorization action
      */
-    public function rejectAction()
+    function rejectAction()
     {
         $this->_initRejectPage();
     }
@@ -285,7 +285,7 @@ class Mage_Oauth_Adminhtml_Oauth_AuthorizeController extends Mage_Adminhtml_Cont
     /**
      * Reject token authorization simple page
      */
-    public function rejectSimpleAction()
+    function rejectSimpleAction()
     {
         $this->_initRejectPage();
     }

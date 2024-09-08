@@ -51,7 +51,7 @@ class Mage_Log_Model_Customer extends Mage_Core_Model_Abstract
      * @param Mage_Log_Model_Customer|int $customer
      * @return $this
      */
-    public function loadByCustomer($customer)
+    function loadByCustomer($customer)
     {
         if ($customer instanceof Mage_Customer_Model_Customer) {
             $customer = $customer->getId();
@@ -65,7 +65,7 @@ class Mage_Log_Model_Customer extends Mage_Core_Model_Abstract
      *
      * @return int|null
      */
-    public function getLoginAtTimestamp()
+    function getLoginAtTimestamp()
     {
         $loginAt = $this->getLoginAt();
         if ($loginAt) {

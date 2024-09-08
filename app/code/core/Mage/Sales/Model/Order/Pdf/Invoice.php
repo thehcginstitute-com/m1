@@ -90,7 +90,7 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
      * @param  Mage_Sales_Model_Order_Invoice[] $invoices
      * @return Zend_Pdf
      */
-    public function getPdf($invoices = [])
+    function getPdf($invoices = [])
     {
         $this->_beforeGetPdf();
         $this->_initRenderer('invoice');
@@ -149,7 +149,7 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
      * @param  array $settings
      * @return Zend_Pdf_Page
      */
-    public function newPage(array $settings = [])
+    function newPage(array $settings = [])
     {
         /* Add new table head */
         $page = $this->_getPdf()->newPage(Zend_Pdf_Page::SIZE_A4);

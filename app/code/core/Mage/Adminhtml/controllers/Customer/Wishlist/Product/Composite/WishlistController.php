@@ -75,7 +75,7 @@ class Mage_Adminhtml_Customer_Wishlist_Product_Composite_WishlistController exte
      *
      * @return $this
      */
-    public function configureAction()
+    function configureAction()
     {
         $configureResult = new Varien_Object();
         try {
@@ -105,7 +105,7 @@ class Mage_Adminhtml_Customer_Wishlist_Product_Composite_WishlistController exte
      *
      * @return false
      */
-    public function updateAction()
+    function updateAction()
     {
         // Update wishlist item
         $updateResult = new Varien_Object();

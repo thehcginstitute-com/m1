@@ -44,7 +44,7 @@ class Mage_Sales_Model_Resource_Order_Creditmemo_Comment_Collection extends Mage
      * @param int $creditmemoId
      * @return $this
      */
-    public function setCreditmemoFilter($creditmemoId)
+    function setCreditmemoFilter($creditmemoId)
     {
         return $this->setParentFilter($creditmemoId);
     }

@@ -25,7 +25,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
     /**
      * @return Mage_Core_Block_Template
      */
-    public function _prepareLayout()
+    function _prepareLayout()
     {
         // add Home breadcrumb
         /** @var Mage_Page_Block_Html_Breadcrumbs $breadcrumbs */
@@ -47,7 +47,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
      *
      * @return Varien_Data_Collection_Db
      */
-    public function getSearchableAttributes()
+    function getSearchableAttributes()
     {
         return $this->getModel()->getAttributes();
     }
@@ -58,7 +58,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
      * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return string
      */
-    public function getAttributeLabel($attribute)
+    function getAttributeLabel($attribute)
     {
         return $attribute->getStoreLabel();
     }
@@ -69,7 +69,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
      * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return string
      */
-    public function getAttributeValidationClass($attribute)
+    function getAttributeValidationClass($attribute)
     {
         return $attribute->getFrontendClass();
     }
@@ -81,7 +81,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
      * @param string|null $part
      * @return mixed|string
      */
-    public function getAttributeValue($attribute, $part = null)
+    function getAttributeValue($attribute, $part = null)
     {
         $value = $this->getRequest()->getQuery($attribute->getAttributeCode());
         if ($part && $value) {
@@ -96,7 +96,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getAvailableCurrencies()
+    function getAvailableCurrencies()
     {
         $currencies = $this->getData('_currencies');
         if (is_null($currencies)) {
@@ -125,7 +125,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
      *
      * @return int
      */
-    public function getCurrencyCount()
+    function getCurrencyCount()
     {
         return count($this->getAvailableCurrencies());
     }
@@ -136,7 +136,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
      * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return string
      */
-    public function getCurrency($attribute)
+    function getCurrency($attribute)
     {
         return Mage::app()->getStore()->getCurrentCurrencyCode();
     }
@@ -147,7 +147,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
      * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return  string
      */
-    public function getAttributeInputType($attribute)
+    function getAttributeInputType($attribute)
     {
         $dataType   = $attribute->getBackend()->getType();
         $imputType  = $attribute->getFrontend()->getInputType();
@@ -180,7 +180,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
      * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return string
      */
-    public function getAttributeSelectElement($attribute)
+    function getAttributeSelectElement($attribute)
     {
         $extra = '';
         $options = $attribute->getSource()->getAllOptions(false);
@@ -212,7 +212,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
      * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return string
      */
-    public function getAttributeYesNoElement($attribute)
+    function getAttributeYesNoElement($attribute)
     {
         $options = [
             ['value' => '',  'label' => Mage::helper('catalogsearch')->__('All')],
@@ -262,7 +262,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
      *
      * @return Mage_CatalogSearch_Model_Advanced
      */
-    public function getModel()
+    function getModel()
     {
         return Mage::getSingleton('catalogsearch/advanced');
     }
@@ -272,7 +272,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getSearchPostUrl()
+    function getSearchPostUrl()
     {
         return $this->getUrl('*/*/result', ['_secure' => $this->_isSecure()]);
     }
@@ -284,7 +284,7 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
      * @param string $part
      * @return string
      */
-    public function getDateInput($attribute, $part = 'from')
+    function getDateInput($attribute, $part = 'from')
     {
         $name = $attribute->getAttributeCode() . '[' . $part . ']';
         $value = $this->getAttributeValue($attribute, $part);

@@ -30,7 +30,7 @@ class Mage_CurrencySymbol_Helper_Data extends Mage_Core_Helper_Data
      * @param string $baseCode
      * @return array
      */
-    public function getCurrencyOptions($baseCode)
+    function getCurrencyOptions($baseCode)
     {
         $currencyOptions = [];
         $currencySymbol = Mage::getModel('currencysymbol/system_currencysymbol');

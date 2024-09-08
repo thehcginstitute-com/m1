@@ -35,7 +35,7 @@ class Mage_Adminhtml_Catalog_SearchController extends Mage_Adminhtml_Controller_
         return $this;
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Catalog'))->_title($this->__('Search Terms'));
 
@@ -45,12 +45,12 @@ class Mage_Adminhtml_Catalog_SearchController extends Mage_Adminhtml_Controller_
             ->renderLayout();
     }
 
-    public function newAction()
+    function newAction()
     {
         $this->_forward('edit');
     }
 
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('Catalog'))->_title($this->__('Search Terms'));
 
@@ -93,7 +93,7 @@ class Mage_Adminhtml_Catalog_SearchController extends Mage_Adminhtml_Controller_
      * Save search query
      *
      */
-    public function saveAction()
+    function saveAction()
     {
         $hasError   = false;
         $data       = $this->getRequest()->getPost();
@@ -147,7 +147,7 @@ class Mage_Adminhtml_Catalog_SearchController extends Mage_Adminhtml_Controller_
         }
     }
 
-    public function deleteAction()
+    function deleteAction()
     {
         if ($id = $this->getRequest()->getParam('id')) {
             try {
@@ -167,7 +167,7 @@ class Mage_Adminhtml_Catalog_SearchController extends Mage_Adminhtml_Controller_
         $this->_redirect('*/*/');
     }
 
-    public function massDeleteAction()
+    function massDeleteAction()
     {
         $searchIds = $this->getRequest()->getParam('search');
         if (!is_array($searchIds)) {
@@ -194,7 +194,7 @@ class Mage_Adminhtml_Catalog_SearchController extends Mage_Adminhtml_Controller_
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete', 'massDelete');
         return parent::preDispatch();

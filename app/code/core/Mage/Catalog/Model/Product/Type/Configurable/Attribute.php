@@ -55,7 +55,7 @@ class Mage_Catalog_Model_Product_Type_Configurable_Attribute extends Mage_Core_M
      * @param array $priceData
      * @return $this
      */
-    public function addPrice($priceData)
+    function addPrice($priceData)
     {
         $data = $this->getPrices();
         if (is_null($data)) {
@@ -71,7 +71,7 @@ class Mage_Catalog_Model_Product_Type_Configurable_Attribute extends Mage_Core_M
      *
      * @return string
      */
-    public function getLabel()
+    function getLabel()
     {
         if ($this->getData('use_default') && $this->getProductAttribute()) {
             return $this->getProductAttribute()->getStoreLabel();

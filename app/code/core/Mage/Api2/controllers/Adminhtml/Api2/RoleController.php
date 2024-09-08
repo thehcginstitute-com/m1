@@ -27,7 +27,7 @@ class Mage_Api2_Adminhtml_Api2_RoleController extends Mage_Adminhtml_Controller_
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions(['delete', 'save']);
         return parent::preDispatch();
@@ -36,7 +36,7 @@ class Mage_Api2_Adminhtml_Api2_RoleController extends Mage_Adminhtml_Controller_
     /**
      * Show grid
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('System'))
              ->_title($this->__('Web Services'))
@@ -53,7 +53,7 @@ class Mage_Api2_Adminhtml_Api2_RoleController extends Mage_Adminhtml_Controller_
     /**
      * Updating grid by ajax
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout();
         $this->renderLayout();
@@ -62,7 +62,7 @@ class Mage_Api2_Adminhtml_Api2_RoleController extends Mage_Adminhtml_Controller_
     /**
      * Updating users grid by ajax
      */
-    public function usersGridAction()
+    function usersGridAction()
     {
         $id = $this->getRequest()->getParam('id', false);
 
@@ -77,7 +77,7 @@ class Mage_Api2_Adminhtml_Api2_RoleController extends Mage_Adminhtml_Controller_
     /**
      * Create new role
      */
-    public function newAction()
+    function newAction()
     {
         $this->_title($this->__('System'))
              ->_title($this->__('Web Services'))
@@ -100,7 +100,7 @@ class Mage_Api2_Adminhtml_Api2_RoleController extends Mage_Adminhtml_Controller_
     /**
      * Edit role
      */
-    public function editAction()
+    function editAction()
     {
         $id = (int) $this->getRequest()->getParam('id');
         /** @var Mage_Api2_Model_Acl_Global_Role $role */
@@ -148,7 +148,7 @@ class Mage_Api2_Adminhtml_Api2_RoleController extends Mage_Adminhtml_Controller_
     /**
      * Save role
      */
-    public function saveAction()
+    function saveAction()
     {
         $request = $this->getRequest();
 
@@ -254,7 +254,7 @@ class Mage_Api2_Adminhtml_Api2_RoleController extends Mage_Adminhtml_Controller_
     /**
      * Delete role
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $id = $this->getRequest()->getParam('id', false);
 
@@ -298,7 +298,7 @@ class Mage_Api2_Adminhtml_Api2_RoleController extends Mage_Adminhtml_Controller_
     /**
      * Get API2 roles ajax grid action
      */
-    public function rolesGridAction()
+    function rolesGridAction()
     {
         /** @var Mage_Admin_Model_User $model */
         $model = Mage::getModel('admin/user');

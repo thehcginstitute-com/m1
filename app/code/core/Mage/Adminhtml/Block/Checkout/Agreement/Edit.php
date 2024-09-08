@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Checkout_Agreement_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'id';
         $this->_controller = 'checkout_agreement';
@@ -36,7 +36,7 @@ class Mage_Adminhtml_Block_Checkout_Agreement_Edit extends Mage_Adminhtml_Block_
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if (Mage::registry('checkout_agreement')->getId()) {
             return Mage::helper('checkout')->__('Edit Terms and Conditions');

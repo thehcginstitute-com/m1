@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Report_Grid_Column_Renderer_Currency extends Mage_Adm
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $data = $row->getData($this->getColumn()->getIndex());
         $currency_code = $this->_getCurrencyCode($row);

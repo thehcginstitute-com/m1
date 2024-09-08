@@ -27,7 +27,7 @@ class Mage_SalesRule_Model_System_Config_Source_Coupon_Format
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $formatsList = Mage::helper('salesrule/coupon')->getFormatsList();
         $result = [];

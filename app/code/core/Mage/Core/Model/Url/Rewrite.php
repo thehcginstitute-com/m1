@@ -87,7 +87,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
      * @param   mixed $path
      * @return  Mage_Core_Model_Url_Rewrite
      */
-    public function loadByRequestPath($path)
+    function loadByRequestPath($path)
     {
         $this->setId(null);
         $this->_getResource()->loadByRequestPath($this, $path);
@@ -101,7 +101,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
      * @param string $path
      * @return $this
      */
-    public function loadByIdPath($path)
+    function loadByIdPath($path)
     {
         $this->setId(null)->load($path, 'id_path');
         return $this;
@@ -111,7 +111,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
      * @param string|array $tags
      * @return $this
      */
-    public function loadByTags($tags)
+    function loadByTags($tags)
     {
         $this->setId(null);
 
@@ -144,7 +144,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
      * @param string $key
      * @return bool
      */
-    public function hasOption($key)
+    function hasOption($key)
     {
         $optArr = explode(',', (string)$this->getOptions());
 
@@ -155,7 +155,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
      * @param string|array $tags
      * @return $this
      */
-    public function addTag($tags)
+    function addTag($tags)
     {
         $curTags = $this->getTags();
 
@@ -179,7 +179,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
      * @param string|array $tags
      * @return $this
      */
-    public function removeTag($tags)
+    function removeTag($tags)
     {
         $curTags = $this->getTags();
 
@@ -208,7 +208,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
      * @throws Mage_Core_Model_Store_Exception
      * @deprecated since 1.7.0.2. Refactored and moved to Mage_Core_Controller_Request_Rewrite
      */
-    public function rewrite(Zend_Controller_Request_Http $request = null, Zend_Controller_Response_Http $response = null)
+    function rewrite(Zend_Controller_Request_Http $request = null, Zend_Controller_Response_Http $response = null)
     {
         if (!Mage::isInstalled()) {
             return false;
@@ -338,7 +338,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
     /**
      * @return int|null
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_getData('store_id');
     }

@@ -27,5 +27,5 @@ interface Mage_Api2_Model_Request_Interpreter_Interface
      * @param string $body  Posted content from request
      * @return array|null   Return NULL if content is invalid
      */
-    public function interpret($body);
+    function interpret($body);
 }

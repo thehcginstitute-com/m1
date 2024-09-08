@@ -8,7 +8,7 @@ class IWD_OrderFlags_Model_System_Config_Payment extends Mage_Core_Model_Abstrac
     /**
      * @return array
      */
-    public function getActivePaymentMethods()
+    function getActivePaymentMethods()
     {
         $payments = Mage::getModel('payment/config')->getActiveMethods();
         return $this->getMethodsTitle($payments);
@@ -17,7 +17,7 @@ class IWD_OrderFlags_Model_System_Config_Payment extends Mage_Core_Model_Abstrac
     /**
      * @return array
      */
-    public function getActivePaymentMethodsArray()
+    function getActivePaymentMethodsArray()
     {
         $payments = Mage::getSingleton('payment/config')->getActiveMethods();
         $methods = array(array('value' => '', 'label'=> Mage::helper('adminhtml')->__('--Please Select--')));
@@ -35,7 +35,7 @@ class IWD_OrderFlags_Model_System_Config_Payment extends Mage_Core_Model_Abstrac
     /**
      * @return array
      */
-    public function getAllPaymentMethods()
+    function getAllPaymentMethods()
     {
         $payments = Mage::getModel('payment/config')->getAllMethods();
         return $this->getMethodsTitle($payments);
@@ -59,7 +59,7 @@ class IWD_OrderFlags_Model_System_Config_Payment extends Mage_Core_Model_Abstrac
     /**
      * @return array
      */
-    public function getPaymentMethods()
+    function getPaymentMethods()
     {
         $resource = Mage::getSingleton('core/resource')->getConnection('core_read');
         $tableName = Mage::getSingleton('core/resource')->getTableName('sales/order_payment');

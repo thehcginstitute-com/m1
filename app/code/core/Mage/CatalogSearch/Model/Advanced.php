@@ -100,7 +100,7 @@ class Mage_CatalogSearch_Model_Advanced extends Mage_Core_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Product_Attribute_Collection
      */
-    public function getAttributes()
+    function getAttributes()
     {
         /** @var Mage_Catalog_Model_Resource_Product_Attribute_Collection $attributes */
         $attributes = $this->getData('attributes');
@@ -140,7 +140,7 @@ class Mage_CatalogSearch_Model_Advanced extends Mage_Core_Model_Abstract
      * @param   array $values
      * @return  $this
      */
-    public function addFilters($values)
+    function addFilters($values)
     {
         $attributes     = $this->getAttributes();
         $hasConditions  = false;
@@ -288,7 +288,7 @@ class Mage_CatalogSearch_Model_Advanced extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getSearchCriterias()
+    function getSearchCriterias()
     {
         return $this->_searchCriterias;
     }
@@ -298,7 +298,7 @@ class Mage_CatalogSearch_Model_Advanced extends Mage_Core_Model_Abstract
      *
      * @return Mage_CatalogSearch_Model_Resource_Advanced_Collection
      */
-    public function getProductCollection()
+    function getProductCollection()
     {
         if (is_null($this->_productCollection)) {
             $collection = $this->_engine->getAdvancedResultCollection();
@@ -319,7 +319,7 @@ class Mage_CatalogSearch_Model_Advanced extends Mage_Core_Model_Abstract
      * @return $this
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function prepareProductCollection($collection)
+    function prepareProductCollection($collection)
     {
         $collection->addAttributeToSelect(Mage::getSingleton('catalog/config')->getProductAttributes())
             ->setStore(Mage::app()->getStore())

@@ -30,7 +30,7 @@ class Mage_Cms_Block_Page extends Mage_Core_Block_Abstract
      * @return Mage_Cms_Model_Page
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getPage()
+    function getPage()
     {
         if (!$this->hasData('page')) {
             if ($this->getPageId()) {

@@ -346,7 +346,7 @@ class Mage_ImportExport_Model_Import_Entity_Product_Type_Configurable extends Ma
      * @throws Exception
      * @return Mage_ImportExport_Model_Import_Entity_Product_Type_Abstract
      */
-    public function saveData()
+    function saveData()
     {
         $connection      = $this->_entityModel->getConnection();
         $mainTable       = Mage::getSingleton('core/resource')->getTableName('catalog/product_super_attribute');

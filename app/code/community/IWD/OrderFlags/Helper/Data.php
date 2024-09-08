@@ -10,7 +10,7 @@ class IWD_OrderFlags_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return mixed
      */
-    public function getExtensionVersion()
+    function getExtensionVersion()
     {
         return Mage::getConfig()->getModuleConfig("IWD_OrderFlags")->version;
     }
@@ -23,7 +23,7 @@ class IWD_OrderFlags_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isEnterpriseMagentoEdition()
+    function isEnterpriseMagentoEdition()
     {
         return ($this->getEdition() == 'Enterprise');
     }
@@ -31,7 +31,7 @@ class IWD_OrderFlags_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isAvailableVersion()
+    function isAvailableVersion()
     {
         return !($this->isEnterpriseMagentoEdition() && $this->_version == 'CE');
     }
@@ -39,7 +39,7 @@ class IWD_OrderFlags_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return string
      */
-    public function getEdition()
+    function getEdition()
     {
         $mage = new Mage();
         $edition = (!is_callable(array($mage, 'getEdition'))) ? 'Community' : Mage::getEdition();
@@ -51,7 +51,7 @@ class IWD_OrderFlags_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isGridExport()
+    function isGridExport()
     {
         /**
          * @var $http Mage_Core_Helper_Http
@@ -67,7 +67,7 @@ class IWD_OrderFlags_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isEnabled()
+    function isEnabled()
     {
         return Mage::getStoreConfig(self::XPATH_EXTENSION_ENABLED) && $this->isAllowOrderFlags();
     }
@@ -75,7 +75,7 @@ class IWD_OrderFlags_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isAllowOrderFlags()
+    function isAllowOrderFlags()
     {
         return Mage::getSingleton('admin/session')->isAllowed('iwd_orderflags/assign_flags');
     }
@@ -83,7 +83,7 @@ class IWD_OrderFlags_Helper_Data extends Mage_Core_Helper_Data
     /**
      * @return bool
      */
-    public function isIwdOrderGridEnabled()
+    function isIwdOrderGridEnabled()
     {
         try {
             if (class_exists('IWD_OrderGrid_Helper_Data')

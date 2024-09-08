@@ -210,7 +210,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param Mage_Core_Model_Resource_Abstract $resource
      * @param array $args
      */
-    public function __construct($resource = null, array $args = [])
+    function __construct($resource = null, array $args = [])
     {
         parent::__construct($resource);
         $this->_factory = !empty($args['factory']) ? $args['factory'] : Mage::getSingleton('catalog/factory');
@@ -221,7 +221,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return Varien_Db_Select|null
      */
-    public function getCatalogPreparedSelect()
+    function getCatalogPreparedSelect()
     {
         return $this->_catalogPreparePriceSelect;
     }
@@ -268,7 +268,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param Varien_Db_Select $select
      * @return string
      */
-    public function getPriceExpression($select)
+    function getPriceExpression($select)
     {
         if (is_null($this->_priceExpression)) {
             $this->_preparePriceExpressionParameters($select);
@@ -282,7 +282,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param Varien_Db_Select $select
      * @return string
      */
-    public function getAdditionalPriceExpression($select)
+    function getAdditionalPriceExpression($select)
     {
         if (is_null($this->_additionalPriceExpression)) {
             $this->_preparePriceExpressionParameters($select);
@@ -295,7 +295,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return float
      */
-    public function getCurrencyRate()
+    function getCurrencyRate()
     {
         return Mage::app()->getStore($this->getStoreId())->getCurrentCurrencyRate();
     }
@@ -305,7 +305,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return Mage_Catalog_Helper_Product_Flat
      */
-    public function getFlatHelper()
+    function getFlatHelper()
     {
         return Mage::helper('catalog/product_flat');
     }
@@ -316,7 +316,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return bool
      */
-    public function isEnabledFlat()
+    function isEnabledFlat()
     {
         // Flat Data can be used only on frontend
         if (Mage::app()->getStore()->isAdmin() || $this->getFlatHelper()->isFlatCollectionDisabled()) {
@@ -387,7 +387,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return Varien_Object
      */
-    public function getNewEmptyItem()
+    function getNewEmptyItem()
     {
         $object = parent::getNewEmptyItem();
         if ($this->isEnabledFlat()) {
@@ -401,7 +401,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @inheritDoc
      */
-    public function setEntity($entity)
+    function setEntity($entity)
     {
         if ($this->isEnabledFlat() && ($entity instanceof Mage_Core_Model_Resource_Db_Abstract)) {
             $this->_entity = $entity;
@@ -416,7 +416,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param mixed $store
      * @return $this
      */
-    public function setStore($store)
+    function setStore($store)
     {
         parent::setStore($store);
         if ($this->isEnabledFlat()) {
@@ -455,7 +455,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @inheritDoc
      */
-    public function _loadAttributes($printQuery = false, $logQuery = false)
+    function _loadAttributes($printQuery = false, $logQuery = false)
     {
         if ($this->isEnabledFlat()) {
             return $this;
@@ -469,7 +469,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @inheritDoc
      */
-    public function addAttributeToSelect($attribute, $joinType = false)
+    function addAttributeToSelect($attribute, $joinType = false)
     {
         if ($this->isEnabledFlat()) {
             if (!is_array($attribute)) {
@@ -572,7 +572,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param bool $exclude
      * @return $this
      */
-    public function addIdFilter($productId, $exclude = false)
+    function addIdFilter($productId, $exclude = false)
     {
         if (empty($productId)) {
             $this->_setIsLoaded(true);
@@ -602,7 +602,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return $this
      */
-    public function addWebsiteNamesToResult()
+    function addWebsiteNamesToResult()
     {
         $productWebsites = [];
         foreach ($this as $product) {
@@ -641,7 +641,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param mixed $store
      * @return $this
      */
-    public function addStoreFilter($store = null)
+    function addStoreFilter($store = null)
     {
         if ($store === null) {
             $store = $this->getStoreId();
@@ -662,7 +662,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param array|string|int $websites
      * @return $this
      */
-    public function addWebsiteFilter($websites = null)
+    function addWebsiteFilter($websites = null)
     {
         if (!is_array($websites)) {
             $websites = [Mage::app()->getWebsite($websites)->getId()];
@@ -679,7 +679,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return array
      */
-    public function getLimitationFilters()
+    function getLimitationFilters()
     {
         return $this->_productLimitationFilters;
     }
@@ -690,7 +690,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param Mage_Catalog_Model_Category $category
      * @return $this
      */
-    public function addCategoryFilter(Mage_Catalog_Model_Category $category)
+    function addCategoryFilter(Mage_Catalog_Model_Category $category)
     {
         $this->_productLimitationFilters['category_id'] = $category->getId();
         if ($category->getIsAnchor()) {
@@ -713,7 +713,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return $this
      */
-    public function joinMinimalPrice()
+    function joinMinimalPrice()
     {
         $this->addAttributeToSelect('price')
              ->addAttributeToSelect('minimal_price');
@@ -726,7 +726,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param string $attribute
      * @return mixed
      */
-    public function getMaxAttributeValue($attribute)
+    function getMaxAttributeValue($attribute)
     {
         $select        = clone $this->getSelect();
         $attribute     = $this->getEntity()->getAttribute($attribute);
@@ -754,7 +754,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param int $range
      * @return array
      */
-    public function getAttributeValueCountByRange($attribute, $range)
+    function getAttributeValueCountByRange($attribute, $range)
     {
         $select        = clone $this->getSelect();
         $attribute     = $this->getEntity()->getAttribute($attribute);
@@ -792,7 +792,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param string $attribute
      * @return array ($value=>$count)
      */
-    public function getAttributeValueCount($attribute)
+    function getAttributeValueCount($attribute)
     {
         $select        = clone $this->getSelect();
         $attribute     = $this->getEntity()->getAttribute($attribute);
@@ -837,7 +837,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param string $attribute attribute code
      * @return array
      */
-    public function getAllAttributeValues($attribute)
+    function getAllAttributeValues($attribute)
     {
         $select    = clone $this->getSelect();
         $attribute = $this->getEntity()->getAttribute($attribute);
@@ -861,7 +861,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         return $this->_getSelectCountSql();
     }
@@ -948,7 +948,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @inheritDoc
      */
-    public function getAllIds($limit = null, $offset = null)
+    function getAllIds($limit = null, $offset = null)
     {
         $idsSelect = $this->_getClearSelect();
         $idsSelect->columns('e.' . $this->getEntity()->getIdFieldName());
@@ -963,7 +963,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return Varien_Db_Select
      */
-    public function getProductCountSelect()
+    function getProductCountSelect()
     {
         if ($this->_productCountSelect === null) {
             $this->_productCountSelect = clone $this->getSelect();
@@ -991,7 +991,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return $this
      */
-    public function unsProductCountSelect()
+    function unsProductCountSelect()
     {
         $this->_productCountSelect = null;
         return $this;
@@ -1003,7 +1003,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param Mage_Eav_Model_Entity_Collection_Abstract $categoryCollection
      * @return $this
      */
-    public function addCountToCategories($categoryCollection)
+    function addCountToCategories($categoryCollection)
     {
         $isAnchor    = [];
         $isNotAnchor = [];
@@ -1055,7 +1055,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return array
      */
-    public function getSetIds()
+    function getSetIds()
     {
         $select = clone $this->getSelect();
         $select->reset(Zend_Db_Select::COLUMNS);
@@ -1069,7 +1069,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return array
      */
-    public function getProductTypeIds()
+    function getProductTypeIds()
     {
         $select = clone $this->getSelect();
         $select->reset(Zend_Db_Select::COLUMNS);
@@ -1084,7 +1084,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @deprecated after 1.7.0.2. Method is not used anywhere in the code.
      * @return $this
      */
-    public function joinUrlRewrite()
+    function joinUrlRewrite()
     {
         $this->joinTable(
             'core/url_rewrite',
@@ -1104,7 +1104,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param int|string $categoryId
      * @return $this
      */
-    public function addUrlRewrite($categoryId = '')
+    function addUrlRewrite($categoryId = '')
     {
         $this->_addUrlRewrite = true;
         if (Mage::getStoreConfig(Mage_Catalog_Helper_Product::XML_PATH_PRODUCT_URL_USE_CATEGORY, $this->getStoreId())) {
@@ -1184,7 +1184,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return $this
      */
-    public function addMinimalPrice()
+    function addMinimalPrice()
     {
         return $this->addPriceData();
     }
@@ -1210,7 +1210,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return $this
      */
-    public function addFinalPrice()
+    function addFinalPrice()
     {
         return $this->addPriceData();
     }
@@ -1293,7 +1293,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param bool $resetCache
      * @return array
      */
-    public function getAllIdsCache($resetCache = false)
+    function getAllIdsCache($resetCache = false)
     {
         $ids = null;
         if (!$resetCache) {
@@ -1314,7 +1314,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param array $value
      * @return $this
      */
-    public function setAllIdsCache($value)
+    function setAllIdsCache($value)
     {
         $this->_allIdsCache = $value;
         return $this;
@@ -1327,7 +1327,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param int $websiteId
      * @return $this
      */
-    public function addPriceData($customerGroupId = null, $websiteId = null)
+    function addPriceData($customerGroupId = null, $websiteId = null)
     {
         $this->_productLimitationFilters['use_price_index'] = true;
 
@@ -1353,7 +1353,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
     /**
      * @inheritDoc
      */
-    public function addAttributeToFilter($attribute, $condition = null, $joinType = 'inner')
+    function addAttributeToFilter($attribute, $condition = null, $joinType = 'inner')
     {
         if ($this->isEnabledFlat()) {
             if ($attribute instanceof Mage_Eav_Model_Entity_Attribute_Abstract) {
@@ -1414,7 +1414,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return $this
      */
-    public function addTaxPercents()
+    function addTaxPercents()
     {
         $this->_addTaxPercents = true;
         return $this;
@@ -1425,7 +1425,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return bool
      */
-    public function requireTaxPercent()
+    function requireTaxPercent()
     {
         return $this->_addTaxPercents;
     }
@@ -1455,7 +1455,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return $this
      */
-    public function addOptionsToResult()
+    function addOptionsToResult()
     {
         $productIds = [];
         foreach ($this as $product) {
@@ -1484,7 +1484,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return $this
      */
-    public function addFilterByRequiredOptions()
+    function addFilterByRequiredOptions()
     {
         $this->addAttributeToFilter('required_options', [['neq' => '1'], ['null' => true]], 'left');
         return $this;
@@ -1496,7 +1496,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param array $visibility
      * @return $this
      */
-    public function setVisibility($visibility)
+    function setVisibility($visibility)
     {
         $this->_productLimitationFilters['visibility'] = $visibility;
         $this->_applyProductLimitations();
@@ -1509,7 +1509,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @inheritDoc
      */
-    public function addAttributeToSort($attribute, $dir = self::SORT_ORDER_ASC)
+    function addAttributeToSort($attribute, $dir = self::SORT_ORDER_ASC)
     {
         if ($attribute == 'position') {
             if (isset($this->_joinFields[$attribute])) {
@@ -1781,7 +1781,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return $this
      */
-    public function applyFrontendPriceLimitations()
+    function applyFrontendPriceLimitations()
     {
         $this->_productLimitationFilters['use_price_index'] = true;
         if (!isset($this->_productLimitationFilters['customer_group_id'])) {
@@ -1900,7 +1900,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return $this
      */
-    public function addCategoryIds()
+    function addCategoryIds()
     {
         if ($this->getFlag('category_ids_added')) {
             return $this;
@@ -1944,7 +1944,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return $this
      */
-    public function addTierPriceData()
+    function addTierPriceData()
     {
         if ($this->getFlag('tier_price_added')) {
             return $this;
@@ -2023,7 +2023,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @return $this
      * @throws Exception
      */
-    public function addPriceDataFieldFilter($comparisonFormat, $fields)
+    function addPriceDataFieldFilter($comparisonFormat, $fields)
     {
         if (!preg_match('/^%s( (<|>|=|<=|>=|<>) %s)*$/', $comparisonFormat)) {
             throw new Exception('Invalid comparison format.');
@@ -2045,7 +2045,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @inheritDoc
      */
-    public function clear()
+    function clear()
     {
         foreach ($this->_items as $i => $item) {
             if ($item->hasStockItem()) {
@@ -2071,7 +2071,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param string $dir
      * @return $this
      */
-    public function setOrder($attribute, $dir = 'desc')
+    function setOrder($attribute, $dir = 'desc')
     {
         if ($attribute == 'price') {
             $this->addAttributeToSort($attribute, $dir);
@@ -2086,7 +2086,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return float
      */
-    public function getMaxPrice()
+    function getMaxPrice()
     {
         if (is_null($this->_maxPrice)) {
             $this->_prepareStatisticsData();
@@ -2100,7 +2100,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return float
      */
-    public function getMinPrice()
+    function getMinPrice()
     {
         if (is_null($this->_minPrice)) {
             $this->_prepareStatisticsData();
@@ -2114,7 +2114,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return float
      */
-    public function getPriceStandardDeviation()
+    function getPriceStandardDeviation()
     {
         if (is_null($this->_priceStandardDeviation)) {
             $this->_prepareStatisticsData();
@@ -2128,7 +2128,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return int
      */
-    public function getPricesCount()
+    function getPricesCount()
     {
         if (is_null($this->_pricesCount)) {
             $this->_prepareStatisticsData();

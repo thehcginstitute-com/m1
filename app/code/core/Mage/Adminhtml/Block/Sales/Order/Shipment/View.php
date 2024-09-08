@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View extends Mage_Adminhtml_Bloc
     /**
      * Mage_Adminhtml_Block_Sales_Order_Shipment_View constructor.
      */
-    public function __construct()
+    function __construct()
     {
         $this->_objectId    = 'shipment_id';
         $this->_controller  = 'sales_order_shipment';
@@ -62,7 +62,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View extends Mage_Adminhtml_Bloc
      *
      * @return Mage_Sales_Model_Order_Shipment
      */
-    public function getShipment()
+    function getShipment()
     {
         return Mage::registry('current_shipment');
     }
@@ -70,7 +70,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View extends Mage_Adminhtml_Bloc
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if ($this->getShipment()->getEmailSent()) {
             $emailSent = Mage::helper('sales')->__('the shipment email was sent');
@@ -92,7 +92,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View extends Mage_Adminhtml_Bloc
     /**
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl(
             '*/sales_order/view',
@@ -106,7 +106,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View extends Mage_Adminhtml_Bloc
     /**
      * @return string
      */
-    public function getEmailUrl()
+    function getEmailUrl()
     {
         return $this->getUrl('*/sales_order_shipment/email', ['shipment_id'  => $this->getShipment()->getId()]);
     }
@@ -114,7 +114,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View extends Mage_Adminhtml_Bloc
     /**
      * @return string
      */
-    public function getPrintUrl()
+    function getPrintUrl()
     {
         return $this->getUrl('*/*/print', [
             'invoice_id' => $this->getShipment()->getId()
@@ -125,7 +125,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_View extends Mage_Adminhtml_Bloc
      * @param string $flag
      * @return $this
      */
-    public function updateBackButtonUrl($flag)
+    function updateBackButtonUrl($flag)
     {
         if ($flag) {
             if ($this->getShipment()->getBackUrl()) {

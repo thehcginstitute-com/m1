@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Notification_Grid_Renderer_Severity extends Mage_Admi
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $notice = Mage::getSingleton('adminnotification/inbox');
 

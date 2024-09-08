@@ -59,7 +59,7 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
      *
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl('customer/account/');
     }
@@ -71,7 +71,7 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
      * @param null|array $optionCfg
      * @return $this
      */
-    public function setOptionsRenderCfgs($optionCfg)
+    function setOptionsRenderCfgs($optionCfg)
     {
         $this->_optionsCfg = $optionCfg;
         return $this;
@@ -83,7 +83,7 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
      * @deprecated after 1.6.2.0
      * @return array
      */
-    public function getOptionsRenderCfgs()
+    function getOptionsRenderCfgs()
     {
         return $this->_optionsCfg;
     }
@@ -97,7 +97,7 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
      * @param null|string $template
      * @return $this
      */
-    public function addOptionsRenderCfg($productType, $helperName, $template = null)
+    function addOptionsRenderCfg($productType, $helperName, $template = null)
     {
         $this->_optionsCfg[$productType] = ['helper' => $helperName, 'template' => $template];
         return $this;
@@ -110,7 +110,7 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
      * @param string $productType
      * @return array|null
      */
-    public function getOptionsRenderCfg($productType)
+    function getOptionsRenderCfg($productType)
     {
         if (isset($this->_optionsCfg[$productType])) {
             return $this->_optionsCfg[$productType];
@@ -128,7 +128,7 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
      * @param Mage_Wishlist_Model_Item $item
      * @return string
      */
-    public function getDetailsHtml(Mage_Wishlist_Model_Item $item)
+    function getDetailsHtml(Mage_Wishlist_Model_Item $item)
     {
         $cfg = $this->getOptionsRenderCfg($item->getProduct()->getTypeId());
         if (!$cfg) {
@@ -167,7 +167,7 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
      * @param Mage_Wishlist_Model_Item $item
      * @return float
      */
-    public function getAddToCartQty(Mage_Wishlist_Model_Item $item)
+    function getAddToCartQty(Mage_Wishlist_Model_Item $item)
     {
         $qty = $this->getQty($item);
         return $qty ? $qty : 1;

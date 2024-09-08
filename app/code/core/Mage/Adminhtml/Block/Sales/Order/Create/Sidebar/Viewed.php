@@ -34,7 +34,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Viewed extends Mage_Adminh
      *
      * @return int|false
      */
-    public function canDisplay()
+    function canDisplay()
     {
         return false;
     }
@@ -44,7 +44,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Viewed extends Mage_Adminh
      *
      * @return false
      */
-    public function canRemoveItems()
+    function canRemoveItems()
     {
         return false;
     }
@@ -52,7 +52,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Viewed extends Mage_Adminh
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Recently Viewed');
     }

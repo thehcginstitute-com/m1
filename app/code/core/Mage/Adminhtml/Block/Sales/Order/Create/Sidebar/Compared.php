@@ -32,7 +32,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Compared extends Mage_Admi
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Products in Comparison List');
     }
@@ -42,7 +42,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Compared extends Mage_Admi
      *
      * @return mixed
      */
-    public function getItemCollection()
+    function getItemCollection()
     {
         $collection = $this->getData('item_collection');
         if (is_null($collection)) {
@@ -63,7 +63,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Compared extends Mage_Admi
         return $collection;
     }
 
-    public function getItemId($item)
+    function getItemId($item)
     {
         return $item->getCatalogCompareItemId();
     }

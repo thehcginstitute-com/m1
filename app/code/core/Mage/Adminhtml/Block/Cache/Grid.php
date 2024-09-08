@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Cache_Grid extends Mage_Adminhtml_Block_Widget_Grid
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('cache_grid');
@@ -105,7 +105,7 @@ class Mage_Adminhtml_Block_Cache_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @return string
      */
-    public function decorateStatus($value, $row, $column, $isExport)
+    function decorateStatus($value, $row, $column, $isExport)
     {
         $class = '';
         if (isset($this->_invalidatedTypes[$row->getId()])) {
@@ -125,7 +125,7 @@ class Mage_Adminhtml_Block_Cache_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @return false
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return false;
     }

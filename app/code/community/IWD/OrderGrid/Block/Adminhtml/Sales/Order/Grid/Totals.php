@@ -8,7 +8,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Totals extends Mage_Adminht
     /**
      * @return array
      */
-    public function getTotalSets()
+    function getTotalSets()
     {
         $helper = Mage::helper('iwd_ordergrid');
 
@@ -24,7 +24,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Totals extends Mage_Adminht
     /**
      * @return array
      */
-    public function getSelectedTotalSets()
+    function getSelectedTotalSets()
     {
         $totalSets = $this->getTotalSets();
         $selectedSets = $this->getSelectedOrderTotalSets();
@@ -50,7 +50,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Totals extends Mage_Adminht
     /**
      * @return mixed
      */
-    public function getGridOptions()
+    function getGridOptions()
     {
         return Mage::getModel('iwd_ordergrid/order_totals')->getGridOptions();
     }
@@ -58,7 +58,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Totals extends Mage_Adminht
     /**
      * @return mixed
      */
-    public function getTotals()
+    function getTotals()
     {
         return Mage::getModel('iwd_ordergrid/order_totals')->getTotals();
     }
@@ -66,7 +66,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Totals extends Mage_Adminht
     /**
      * @return string
      */
-    public function getTotalsJson()
+    function getTotalsJson()
     {
         $totals = $this->getTotals();
         return json_encode($totals);
@@ -75,7 +75,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Totals extends Mage_Adminht
     /**
      * @return string
      */
-    public function getGridOptionsJson()
+    function getGridOptionsJson()
     {
         $options = $this->getGridOptions();
         return json_encode($options);
@@ -84,7 +84,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid_Totals extends Mage_Adminht
     /**
      * @return bool
      */
-    public function isTotalsEnabled()
+    function isTotalsEnabled()
     {
         return Mage::helper('iwd_ordergrid')->isEnabled()
             && Mage::getStoreConfig(IWD_OrderGrid_Helper_Data::CONFIG_XPATH_ORDER_GRID_TOTALS)

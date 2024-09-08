@@ -20,7 +20,7 @@
  */
 class Mage_Adminhtml_Model_System_Config_Source_Catalog_TimeFormat
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             ['value' => '12h', 'label' => Mage::helper('adminhtml')->__('12h AM/PM')],

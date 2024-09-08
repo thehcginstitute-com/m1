@@ -33,7 +33,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * @return bool
      */
-    public function isCustomizedView()
+    function isCustomizedView()
     {
         return true;
     }
@@ -44,7 +44,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
      * @param array $optionInfo
      * @return string
      */
-    public function getCustomizedView($optionInfo)
+    function getCustomizedView($optionInfo)
     {
         try {
             if (isset($optionInfo['option_value'])) {
@@ -111,7 +111,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
      * @return $this
      * @throws Mage_Core_Exception|Zend_Validate_Exception
      */
-    public function validateUserValue($values)
+    function validateUserValue($values)
     {
         Mage::getSingleton('checkout/session')->setUseNotice(false);
 
@@ -418,7 +418,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
      * @return mixed Prepared option value
      * @throws Mage_Core_Exception
      */
-    public function prepareForCart()
+    function prepareForCart()
     {
         $option = $this->getOption();
         $optionId = $option->getId();
@@ -463,7 +463,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
      * @param string $optionValue Prepared for cart option value
      * @return string
      */
-    public function getFormattedOptionValue($optionValue)
+    function getFormattedOptionValue($optionValue)
     {
         if ($this->_formattedOptionValue === null) {
             try {
@@ -544,7 +544,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
      * @param string $optionValue Prepared for cart option value
      * @return string
      */
-    public function getPrintableOptionValue($optionValue)
+    function getPrintableOptionValue($optionValue)
     {
         return strip_tags($this->getFormattedOptionValue($optionValue));
     }
@@ -555,7 +555,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
      * @param string $optionValue Prepared for cart option value
      * @return string
      */
-    public function getEditableOptionValue($optionValue)
+    function getEditableOptionValue($optionValue)
     {
         try {
             $value = Mage::helper('core/unserializeArray')->unserialize($optionValue);
@@ -576,7 +576,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
      * @param array $productOptionValues Values for product option
      * @return string|null
      */
-    public function parseOptionValue($optionValue, $productOptionValues)
+    function parseOptionValue($optionValue, $productOptionValues)
     {
         // search quote item option Id in option value
         if (preg_match('/\[([0-9]+)\]/', $optionValue, $matches)) {
@@ -598,7 +598,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
      * @param string $optionValue
      * @return mixed
      */
-    public function prepareOptionValueForRequest($optionValue)
+    function prepareOptionValueForRequest($optionValue)
     {
         try {
             return Mage::helper('core/unserializeArray')->unserialize($optionValue);
@@ -614,7 +614,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function copyQuoteToOrder()
+    function copyQuoteToOrder()
     {
         $quoteOption = $this->getQuoteItemOption();
         try {
@@ -643,7 +643,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
      * @param bool $relative If true - returns relative path to the webroot
      * @return string
      */
-    public function getTargetDir($relative = false)
+    function getTargetDir($relative = false)
     {
         $fullPath = Mage::getBaseDir('media') . DS . 'custom_options';
         return $relative ? str_replace(Mage::getBaseDir(), '', $fullPath) : $fullPath;
@@ -655,7 +655,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
      * @param bool $relative If true - returns relative path to the webroot
      * @return string
      */
-    public function getQuoteTargetDir($relative = false)
+    function getQuoteTargetDir($relative = false)
     {
         return $this->getTargetDir($relative) . DS . 'quote';
     }
@@ -666,7 +666,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
      * @param bool $relative If true - returns relative path to the webroot
      * @return string
      */
-    public function getOrderTargetDir($relative = false)
+    function getOrderTargetDir($relative = false)
     {
         return $this->getTargetDir($relative) . DS . 'order';
     }
@@ -677,7 +677,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
      * @param string $url
      * @return $this
      */
-    public function setCustomOptionDownloadUrl($url)
+    function setCustomOptionDownloadUrl($url)
     {
         $this->_customOptionDownloadUrl = $url;
         return $this;

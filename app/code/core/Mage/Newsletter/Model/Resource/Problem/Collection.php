@@ -55,7 +55,7 @@ class Mage_Newsletter_Model_Resource_Problem_Collection extends Mage_Core_Model_
      *
      * @return $this
      */
-    public function addSubscriberInfo()
+    function addSubscriberInfo()
     {
         $this->getSelect()->joinLeft(
             ['subscriber' => $this->getTable('newsletter/subscriber')],
@@ -73,7 +73,7 @@ class Mage_Newsletter_Model_Resource_Problem_Collection extends Mage_Core_Model_
      *
      * @return $this
      */
-    public function addQueueInfo()
+    function addQueueInfo()
     {
         $this->getSelect()->joinLeft(
             ['queue' => $this->getTable('newsletter/queue')],
@@ -129,7 +129,7 @@ class Mage_Newsletter_Model_Resource_Problem_Collection extends Mage_Core_Model_
      * @param bool $logQuery
      * @return $this
      */
-    public function load($printQuery = false, $logQuery = false)
+    function load($printQuery = false, $logQuery = false)
     {
         parent::load($printQuery, $logQuery);
         if ($this->_subscribersInfoJoinedFlag && !$this->isLoaded()) {

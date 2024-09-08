@@ -27,7 +27,7 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Column extends Mage_Wishlist_Bl
      *
      * @return true
      */
-    public function isEnabled()
+    function isEnabled()
     {
         return true;
     }
@@ -61,7 +61,7 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Column extends Mage_Wishlist_Bl
      *
      * @return string
      */
-    public function getJs()
+    function getJs()
     {
         $js = '';
         foreach ($this->getSortedChildBlocks() as $child) {

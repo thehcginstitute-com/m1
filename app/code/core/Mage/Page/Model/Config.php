@@ -78,7 +78,7 @@ class Mage_Page_Model_Config
      *
      * @return array
      */
-    public function getPageLayouts()
+    function getPageLayouts()
     {
         $this->_initPageLayouts();
         return $this->_pageLayouts;
@@ -90,7 +90,7 @@ class Mage_Page_Model_Config
      * @param string $layoutCode
      * @return Varien_Object|false
      */
-    public function getPageLayout($layoutCode)
+    function getPageLayout($layoutCode)
     {
         $this->_initPageLayouts();
 
@@ -102,7 +102,7 @@ class Mage_Page_Model_Config
      *
      * @return array
      */
-    public function getPageLayoutHandles()
+    function getPageLayoutHandles()
     {
         $handles = [];
 

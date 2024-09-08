@@ -76,7 +76,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Orders grid
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Sales'))->_title($this->__('Orders'));
 
@@ -87,7 +87,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Order grid
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout(false);
         $this->renderLayout();
@@ -96,7 +96,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * View order detale
      */
-    public function viewAction()
+    function viewAction()
     {
         $this->_title($this->__('Sales'))->_title($this->__('Orders'));
 
@@ -120,7 +120,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Notify user
      */
-    public function emailAction()
+    function emailAction()
     {
         if ($order = $this->_initOrder()) {
             try {
@@ -146,7 +146,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Cancel order
      */
-    public function cancelAction()
+    function cancelAction()
     {
         if ($order = $this->_initOrder()) {
             try {
@@ -168,7 +168,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Hold order
      */
-    public function holdAction()
+    function holdAction()
     {
         if ($order = $this->_initOrder()) {
             try {
@@ -189,7 +189,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Unhold order
      */
-    public function unholdAction()
+    function unholdAction()
     {
         if ($order = $this->_initOrder()) {
             try {
@@ -212,7 +212,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
      *
      * Either denies or approves a payment that is in "review" state
      */
-    public function reviewPaymentAction()
+    function reviewPaymentAction()
     {
         try {
             if (!$order = $this->_initOrder()) {
@@ -250,7 +250,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Add order comment action
      */
-    public function addCommentAction()
+    function addCommentAction()
     {
         if ($order = $this->_initOrder()) {
             try {
@@ -291,7 +291,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Generate invoices grid for ajax request
      */
-    public function invoicesAction()
+    function invoicesAction()
     {
         $this->_initOrder();
         $this->getResponse()->setBody(
@@ -302,7 +302,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Generate shipments grid for ajax request
      */
-    public function shipmentsAction()
+    function shipmentsAction()
     {
         $this->_initOrder();
         $this->getResponse()->setBody(
@@ -313,7 +313,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Generate creditmemos grid for ajax request
      */
-    public function creditmemosAction()
+    function creditmemosAction()
     {
         $this->_initOrder();
         $this->getResponse()->setBody(
@@ -324,7 +324,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Generate order history for ajax request
      */
-    public function commentsHistoryAction()
+    function commentsHistoryAction()
     {
         $this->_initOrder();
         $html = $this->getLayout()->createBlock('adminhtml/sales_order_view_tab_history')->toHtml();
@@ -339,7 +339,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Cancel selected orders
      */
-    public function massCancelAction()
+    function massCancelAction()
     {
         $orderIds = $this->getRequest()->getPost('order_ids', []);
         $countCancelOrder = 0;
@@ -370,7 +370,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Hold selected orders
      */
-    public function massHoldAction()
+    function massHoldAction()
     {
         $orderIds = $this->getRequest()->getPost('order_ids', []);
         $countHoldOrder = 0;
@@ -403,7 +403,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Unhold selected orders
      */
-    public function massUnholdAction()
+    function massUnholdAction()
     {
         $orderIds = $this->getRequest()->getPost('order_ids', []);
         $countUnholdOrder = 0;
@@ -435,14 +435,14 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Change status for selected orders
      */
-    public function massStatusAction()
+    function massStatusAction()
     {
     }
 
     /**
      * Print documents for selected orders
      */
-    public function massPrintAction()
+    function massPrintAction()
     {
         $orderIds = $this->getRequest()->getPost('order_ids');
         $document = $this->getRequest()->getPost('document');
@@ -451,7 +451,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Print invoices for selected orders
      */
-    public function pdfinvoicesAction()
+    function pdfinvoicesAction()
     {
         $orderIds = $this->getRequest()->getPost('order_ids');
         $flag = false;
@@ -487,7 +487,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Print shipments for selected orders
      */
-    public function pdfshipmentsAction()
+    function pdfshipmentsAction()
     {
         $orderIds = $this->getRequest()->getPost('order_ids');
         $flag = false;
@@ -523,7 +523,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Print creditmemos for selected orders
      */
-    public function pdfcreditmemosAction()
+    function pdfcreditmemosAction()
     {
         $orderIds = $this->getRequest()->getPost('order_ids');
         $flag = false;
@@ -559,7 +559,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Print all documents for selected orders
      */
-    public function pdfdocsAction()
+    function pdfdocsAction()
     {
         $orderIds = $this->getRequest()->getPost('order_ids');
         $flag = false;
@@ -621,7 +621,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Atempt to void the order payment
      */
-    public function voidPaymentAction()
+    function voidPaymentAction()
     {
         if (!$order = $this->_initOrder()) {
             return;
@@ -682,7 +682,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Export order grid to CSV format
      */
-    public function exportCsvAction()
+    function exportCsvAction()
     {
         $fileName   = 'orders.csv';
         $grid       = $this->getLayout()->createBlock('adminhtml/sales_order_grid');
@@ -692,7 +692,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      *  Export order grid to Excel XML format
      */
-    public function exportExcelAction()
+    function exportExcelAction()
     {
         $fileName   = 'orders.xml';
         $grid       = $this->getLayout()->createBlock('adminhtml/sales_order_grid');
@@ -703,7 +703,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
      * Order transactions grid ajax action
      *
      */
-    public function transactionsAction()
+    function transactionsAction()
     {
         $this->_initOrder();
         $this->loadLayout(false);
@@ -713,7 +713,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Edit order address form
      */
-    public function addressAction()
+    function addressAction()
     {
         $addressId = $this->getRequest()->getParam('address_id');
         $address = Mage::getModel('sales/order_address')
@@ -738,7 +738,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
     /**
      * Save order address
      */
-    public function addressSaveAction()
+    function addressSaveAction()
     {
         $addressId  = $this->getRequest()->getParam('address_id');
         $address    = Mage::getModel('sales/order_address')->load($addressId);
@@ -770,7 +770,7 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('cancel', 'massCancel');
         return parent::preDispatch();

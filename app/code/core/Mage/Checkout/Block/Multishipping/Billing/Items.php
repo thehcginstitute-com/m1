@@ -27,7 +27,7 @@ class Mage_Checkout_Block_Multishipping_Billing_Items extends Mage_Sales_Block_I
      *
      * @return Mage_Checkout_Model_Type_Multishipping
      */
-    public function getCheckout()
+    function getCheckout()
     {
         return Mage::getSingleton('checkout/type_multishipping');
     }
@@ -37,7 +37,7 @@ class Mage_Checkout_Block_Multishipping_Billing_Items extends Mage_Sales_Block_I
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return Mage::getSingleton('checkout/session')->getQuote();
     }
@@ -47,7 +47,7 @@ class Mage_Checkout_Block_Multishipping_Billing_Items extends Mage_Sales_Block_I
      *
      * @return string
      */
-    public function getVirtualProductEditUrl()
+    function getVirtualProductEditUrl()
     {
         return $this->getUrl('*/cart');
     }
@@ -57,7 +57,7 @@ class Mage_Checkout_Block_Multishipping_Billing_Items extends Mage_Sales_Block_I
      *
      * @return array
      */
-    public function getVirtualQuoteItems()
+    function getVirtualQuoteItems()
     {
         $items = [];
         foreach ($this->getQuote()->getItemsCollection() as $_item) {

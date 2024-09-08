@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_System_Store_Grid_Render_Website extends Mage_Adminht
      * @param Varien_Object $row
      * @return string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         return '<a title="' . Mage::helper('core')->__('Edit Website') . '"
             href="' . $this->getUrl('*/*/editWebsite', ['website_id' => $row->getWebsiteId()]) . '">'

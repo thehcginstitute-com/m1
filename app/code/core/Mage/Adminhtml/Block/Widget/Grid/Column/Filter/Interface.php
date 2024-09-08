@@ -22,7 +22,7 @@
  */
 interface Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Interface
 {
-    public function getColumn();
-    public function setColumn($column);
-    public function getHtml();
+    function getColumn();
+    function setColumn($column);
+    function getHtml();
 }

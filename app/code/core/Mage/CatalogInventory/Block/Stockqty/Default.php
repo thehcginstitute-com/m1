@@ -40,7 +40,7 @@ class Mage_CatalogInventory_Block_Stockqty_Default extends Mage_CatalogInventory
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         return array_merge(parent::getCacheTags(), $this->_getProduct()->getCacheIdTags());
     }

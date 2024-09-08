@@ -27,7 +27,7 @@ class Mage_Page_Block_Html_Notices extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function displayNoscriptNotice()
+    function displayNoscriptNotice()
     {
         return Mage::getStoreConfig('web/browser_capabilities/javascript');
     }
@@ -37,7 +37,7 @@ class Mage_Page_Block_Html_Notices extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function displayDemoNotice()
+    function displayDemoNotice()
     {
         return Mage::getStoreConfig('design/head/demonotice');
     }
@@ -47,7 +47,7 @@ class Mage_Page_Block_Html_Notices extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getPrivacyPolicyLink()
+    function getPrivacyPolicyLink()
     {
         return Mage::getUrl('privacy-policy-cookie-restriction-mode');
     }

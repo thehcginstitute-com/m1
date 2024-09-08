@@ -33,7 +33,7 @@ class Mage_Adminhtml_Model_Search_Customer extends Varien_Object
      *
      * @return $this
      */
-    public function load()
+    function load()
     {
         $arr = [];
 

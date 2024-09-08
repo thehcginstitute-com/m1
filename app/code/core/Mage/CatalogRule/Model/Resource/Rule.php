@@ -71,7 +71,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      *
      * @param array $args
      */
-    public function __construct(array $args = [])
+    function __construct(array $args = [])
     {
         $this->_factory = !empty($args['factory']) ? $args['factory'] : Mage::getSingleton('core/factory');
         $this->_app     = !empty($args['app']) ? $args['app'] : Mage::app();
@@ -138,7 +138,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      * @param int $ruleId
      * @param array $productIds
      */
-    public function cleanProductData($ruleId, array $productIds = [])
+    function cleanProductData($ruleId, array $productIds = [])
     {
         /** @var Varien_Db_Adapter_Interface $write */
         $write = $this->_getWriteAdapter();
@@ -160,7 +160,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      * @param array $websiteIds
      * @return bool
      */
-    public function validateProduct(Mage_CatalogRule_Model_Rule $rule, Varien_Object $product, $websiteIds = [])
+    function validateProduct(Mage_CatalogRule_Model_Rule $rule, Varien_Object $product, $websiteIds = [])
     {
         /** @var Mage_Catalog_Helper_Product_Flat $helper */
         $helper = $this->_factory->getHelper('catalog/product_flat');
@@ -188,7 +188,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      * @param array $websiteIds
      * @param array $productIds
      */
-    public function insertRuleData(Mage_CatalogRule_Model_Rule $rule, array $websiteIds, array $productIds = [])
+    function insertRuleData(Mage_CatalogRule_Model_Rule $rule, array $websiteIds, array $productIds = [])
     {
         /** @var Varien_Db_Adapter_Interface $write */
         $write = $this->_getWriteAdapter();
@@ -320,7 +320,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      * @throws Exception
      * @return $this
      */
-    public function updateRuleProductData(Mage_CatalogRule_Model_Rule $rule)
+    function updateRuleProductData(Mage_CatalogRule_Model_Rule $rule)
     {
         $ruleId = $rule->getId();
         $write  = $this->_getWriteAdapter();
@@ -363,7 +363,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      *
      * @return array
      */
-    public function getRuleProductIds($ruleId)
+    function getRuleProductIds($ruleId)
     {
         $read = $this->_getReadAdapter();
         $select = $read->select()->from($this->getTable('catalogrule/rule_product'), 'product_id')
@@ -381,7 +381,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      *
      * @return $this
      */
-    public function removeCatalogPricesForDateRange($fromDate, $toDate, $productId = null)
+    function removeCatalogPricesForDateRange($fromDate, $toDate, $productId = null)
     {
         $write = $this->_getWriteAdapter();
         $conds = [];
@@ -420,7 +420,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      *
      * @return $this
      */
-    public function deleteOldData($date, $productId = null)
+    function deleteOldData($date, $productId = null)
     {
         $write = $this->_getWriteAdapter();
         $conds = [];
@@ -538,7 +538,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      * @throws Exception
      * @return $this
      */
-    public function applyAllRules($product = null)
+    function applyAllRules($product = null)
     {
         $this->_reindexCatalogRule($product);
         return $this;
@@ -557,7 +557,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      *
      * @return $this
      */
-    public function applyAllRulesForDateRange($fromDate = null, $toDate = null, $productId = null)
+    function applyAllRulesForDateRange($fromDate = null, $toDate = null, $productId = null)
     {
         return $this->applyAllRules($productId);
     }
@@ -662,7 +662,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      *
      * @return float|bool
      */
-    public function getRulePrice($date, $wId, $gId, $pId)
+    function getRulePrice($date, $wId, $gId, $pId)
     {
         $data = $this->getRulePrices($date, $wId, $gId, [$pId]);
         return $data[$pId] ?? false;
@@ -679,7 +679,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      *
      * @return array
      */
-    public function getRulePrices($date, $websiteId, $customerGroupId, $productIds)
+    function getRulePrices($date, $websiteId, $customerGroupId, $productIds)
     {
         $adapter = $this->_getReadAdapter();
         $select  = $adapter->select()
@@ -700,7 +700,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      * @param int $productId
      * @return array
      */
-    public function getRulesFromProduct($date, $websiteId, $customerGroupId, $productId)
+    function getRulesFromProduct($date, $websiteId, $customerGroupId, $productId)
     {
         $adapter = $this->_getReadAdapter();
         if (is_string($date)) {
@@ -727,7 +727,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      *
      * @return array
      */
-    public function getRulesForProduct($date, $wId, $pId)
+    function getRulesForProduct($date, $wId, $pId)
     {
         $read = $this->_getReadAdapter();
         $select = $read->select()
@@ -749,7 +749,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      * @throws Exception
      * @return $this
      */
-    public function applyToProduct($rule, $product, $websiteIds)
+    function applyToProduct($rule, $product, $websiteIds)
     {
         if (!$rule->getIsActive()) {
             return $this;
@@ -787,7 +787,7 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      * @param int $productId
      * @return array
      */
-    public function getProductRuleIds($productId)
+    function getProductRuleIds($productId)
     {
         $read = $this->_getReadAdapter();
         $select = $read->select()->from($this->getTable('catalogrule/rule_product'), 'rule_id');

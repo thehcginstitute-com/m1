@@ -81,7 +81,7 @@ class Mage_Catalog_Model_Resource_Attribute extends Mage_Eav_Model_Resource_Enti
      * @param Mage_Core_Model_Abstract $object
      * @return $this
      */
-    public function deleteEntity(Mage_Core_Model_Abstract $object)
+    function deleteEntity(Mage_Core_Model_Abstract $object)
     {
         if (!$object->getEntityAttributeId()) {
             return $this;
@@ -127,7 +127,7 @@ class Mage_Catalog_Model_Resource_Attribute extends Mage_Eav_Model_Resource_Enti
      * @param int $attributeSet
      * @return int
      */
-    public function isUsedBySuperProducts(Mage_Core_Model_Abstract $object, $attributeSet = null)
+    function isUsedBySuperProducts(Mage_Core_Model_Abstract $object, $attributeSet = null)
     {
         $adapter      = $this->_getReadAdapter();
         $attrTable    = $this->getTable('catalog/product_super_attribute');

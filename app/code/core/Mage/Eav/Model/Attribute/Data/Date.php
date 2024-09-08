@@ -28,7 +28,7 @@ class Mage_Eav_Model_Attribute_Data_Date extends Mage_Eav_Model_Attribute_Data_A
      * @param Zend_Controller_Request_Http $request
      * @return array|string
      */
-    public function extractValue(Zend_Controller_Request_Http $request)
+    function extractValue(Zend_Controller_Request_Http $request)
     {
         $value = $this->_getRequestValue($request);
         return $this->_applyInputFilter($value);
@@ -41,7 +41,7 @@ class Mage_Eav_Model_Attribute_Data_Date extends Mage_Eav_Model_Attribute_Data_A
      * @param array|string $value
      * @return bool|array
      */
-    public function validateValue($value)
+    function validateValue($value)
     {
         $errors     = [];
         $attribute  = $this->getAttribute();
@@ -92,7 +92,7 @@ class Mage_Eav_Model_Attribute_Data_Date extends Mage_Eav_Model_Attribute_Data_A
      * @param array|string $value
      * @return $this
      */
-    public function compactValue($value)
+    function compactValue($value)
     {
         if ($value !== false) {
             if (empty($value)) {
@@ -109,7 +109,7 @@ class Mage_Eav_Model_Attribute_Data_Date extends Mage_Eav_Model_Attribute_Data_A
      * @param array|string $value
      * @return $this
      */
-    public function restoreValue($value)
+    function restoreValue($value)
     {
         return $this->compactValue($value);
     }
@@ -120,7 +120,7 @@ class Mage_Eav_Model_Attribute_Data_Date extends Mage_Eav_Model_Attribute_Data_A
      * @param string $format
      * @return string|array
      */
-    public function outputValue($format = Mage_Eav_Model_Attribute_Data::OUTPUT_FORMAT_TEXT)
+    function outputValue($format = Mage_Eav_Model_Attribute_Data::OUTPUT_FORMAT_TEXT)
     {
         $value = $this->getEntity()->getData($this->getAttribute()->getAttributeCode());
         if ($value) {

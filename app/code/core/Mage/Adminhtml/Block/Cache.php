@@ -24,7 +24,7 @@ class Mage_Adminhtml_Block_Cache extends Mage_Adminhtml_Block_Widget_Grid_Contai
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'cache';
         $this->_headerText = Mage::helper('core')->__('Cache Storage Management');
@@ -51,7 +51,7 @@ class Mage_Adminhtml_Block_Cache extends Mage_Adminhtml_Block_Widget_Grid_Contai
      *
      * @return string
      */
-    public function getFlushStorageUrl()
+    function getFlushStorageUrl()
     {
         return $this->getUrl('*/*/flushAll');
     }
@@ -61,7 +61,7 @@ class Mage_Adminhtml_Block_Cache extends Mage_Adminhtml_Block_Widget_Grid_Contai
      *
      * @return string
      */
-    public function getFlushSystemUrl()
+    function getFlushSystemUrl()
     {
         return $this->getUrl('*/*/flushSystem');
     }

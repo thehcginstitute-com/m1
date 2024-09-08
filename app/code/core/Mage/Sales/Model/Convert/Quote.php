@@ -29,7 +29,7 @@ class Mage_Sales_Model_Convert_Quote extends Varien_Object
      * @param null|Mage_Sales_Model_Order  $order
      * @return  Mage_Sales_Model_Order
      */
-    public function toOrder(Mage_Sales_Model_Quote $quote, $order = null)
+    function toOrder(Mage_Sales_Model_Quote $quote, $order = null)
     {
         if (!($order instanceof Mage_Sales_Model_Order)) {
             $order = Mage::getModel('sales/order');
@@ -53,7 +53,7 @@ class Mage_Sales_Model_Convert_Quote extends Varien_Object
      * @param   null|Mage_Sales_Model_Order $order
      * @return  Mage_Sales_Model_Order
      */
-    public function addressToOrder(Mage_Sales_Model_Quote_Address $address, $order = null)
+    function addressToOrder(Mage_Sales_Model_Quote_Address $address, $order = null)
     {
         if (!($order instanceof Mage_Sales_Model_Order)) {
             $order = $this->toOrder($address->getQuote());
@@ -71,7 +71,7 @@ class Mage_Sales_Model_Convert_Quote extends Varien_Object
      * @param   Mage_Sales_Model_Quote_Address $address
      * @return  Mage_Sales_Model_Order_Address
      */
-    public function addressToOrderAddress(Mage_Sales_Model_Quote_Address $address)
+    function addressToOrderAddress(Mage_Sales_Model_Quote_Address $address)
     {
         $orderAddress = Mage::getModel('sales/order_address')
             ->setStoreId($address->getStoreId())
@@ -95,7 +95,7 @@ class Mage_Sales_Model_Convert_Quote extends Varien_Object
      * @param   Mage_Sales_Model_Quote_Payment $payment
      * @return  Mage_Sales_Model_Order_Payment
      */
-    public function paymentToOrderPayment(Mage_Sales_Model_Quote_Payment $payment)
+    function paymentToOrderPayment(Mage_Sales_Model_Quote_Payment $payment)
     {
         $orderPayment = Mage::getModel('sales/order_payment')
             ->setStoreId($payment->getStoreId())
@@ -116,7 +116,7 @@ class Mage_Sales_Model_Convert_Quote extends Varien_Object
      * @param   Mage_Sales_Model_Quote_Item_Abstract $item
      * @return  Mage_Sales_Model_Order_Item
      */
-    public function itemToOrderItem(Mage_Sales_Model_Quote_Item_Abstract $item)
+    function itemToOrderItem(Mage_Sales_Model_Quote_Item_Abstract $item)
     {
         $orderItem = Mage::getModel('sales/order_item')
             ->setStoreId($item->getStoreId())

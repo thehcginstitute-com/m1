@@ -40,7 +40,7 @@ abstract class Mage_Api2_Model_Auth_User_Abstract
      *
      * @return string
      */
-    public function getLabel()
+    function getLabel()
     {
         return $this->getType();
     }
@@ -50,21 +50,21 @@ abstract class Mage_Api2_Model_Auth_User_Abstract
      *
      * @return int
      */
-    abstract public function getRole();
+    abstract function getRole();
 
     /**
      * Retrieve user type
      *
      * @return string
      */
-    abstract public function getType();
+    abstract function getType();
 
     /**
      * Retrieve user identifier
      *
      * @return int
      */
-    public function getUserId()
+    function getUserId()
     {
         return $this->_userId;
     }
@@ -75,7 +75,7 @@ abstract class Mage_Api2_Model_Auth_User_Abstract
      * @param int $userId User identifier
      * @return Mage_Api2_Model_Auth_User_Abstract
      */
-    public function setUserId($userId)
+    function setUserId($userId)
     {
         $this->_userId = $userId;
 

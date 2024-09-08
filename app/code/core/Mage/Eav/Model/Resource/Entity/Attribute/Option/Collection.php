@@ -41,7 +41,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Option_Collection extends Mage_Co
      * @param int $setId
      * @return $this
      */
-    public function setAttributeFilter($setId)
+    function setAttributeFilter($setId)
     {
         return $this->addFieldToFilter('attribute_id', $setId);
     }
@@ -54,7 +54,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Option_Collection extends Mage_Co
      * @return $this
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function setStoreFilter($storeId = null, $useDefaultValue = true)
+    function setStoreFilter($storeId = null, $useDefaultValue = true)
     {
         if (is_null($storeId)) {
             $storeId = Mage::app()->getStore()->getId();
@@ -100,7 +100,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Option_Collection extends Mage_Co
      * @param int|array $optionId
      * @return $this
      */
-    public function setIdFilter($optionId)
+    function setIdFilter($optionId)
     {
         return $this->addFieldToFilter('option_id', ['in' => $optionId]);
     }
@@ -111,7 +111,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Option_Collection extends Mage_Co
      * @param string $valueKey
      * @return array
      */
-    public function toOptionArray($valueKey = 'value')
+    function toOptionArray($valueKey = 'value')
     {
         return $this->_toOptionArray('option_id', $valueKey);
     }
@@ -123,7 +123,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Option_Collection extends Mage_Co
      * @param bool $sortAlpha sort alphabetically by values in admin
      * @return $this
      */
-    public function setPositionOrder($dir = self::SORT_ORDER_ASC, $sortAlpha = false)
+    function setPositionOrder($dir = self::SORT_ORDER_ASC, $sortAlpha = false)
     {
         $this->setOrder('main_table.sort_order', $dir);
         // sort alphabetically by values in admin

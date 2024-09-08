@@ -45,7 +45,7 @@ class Mage_Directory_Model_Country extends Mage_Core_Model_Abstract
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function loadByCode($code)
+    function loadByCode($code)
     {
         $this->_getResource()->loadByCode($this, $code);
         return $this;
@@ -54,7 +54,7 @@ class Mage_Directory_Model_Country extends Mage_Core_Model_Abstract
     /**
      * @return Mage_Directory_Model_Resource_Region_Collection
      */
-    public function getRegions()
+    function getRegions()
     {
         return $this->getLoadedRegionCollection();
     }
@@ -62,7 +62,7 @@ class Mage_Directory_Model_Country extends Mage_Core_Model_Abstract
     /**
      * @return Mage_Directory_Model_Resource_Region_Collection
      */
-    public function getLoadedRegionCollection()
+    function getLoadedRegionCollection()
     {
         $collection = $this->getRegionCollection();
         $collection->load();
@@ -72,7 +72,7 @@ class Mage_Directory_Model_Country extends Mage_Core_Model_Abstract
     /**
      * @return Mage_Directory_Model_Resource_Region_Collection
      */
-    public function getRegionCollection()
+    function getRegionCollection()
     {
         $collection = Mage::getResourceModel('directory/region_collection');
         $collection->addCountryFilter($this->getId());
@@ -84,7 +84,7 @@ class Mage_Directory_Model_Country extends Mage_Core_Model_Abstract
      * @param bool $html
      * @return string
      */
-    public function formatAddress(Varien_Object $address, $html = false)
+    function formatAddress(Varien_Object $address, $html = false)
     {
         //TODO: is it still used?
         $address->getRegion();
@@ -125,7 +125,7 @@ T: {{telephone}}";
      *
      * @return Mage_Directory_Model_Resource_Country_Format_Collection
      */
-    public function getFormats()
+    function getFormats()
     {
         if (!isset(self::$_format[$this->getId()]) && $this->getId()) {
             self::$_format[$this->getId()] = Mage::getModel('directory/country_format')
@@ -143,7 +143,7 @@ T: {{telephone}}";
      * @param string $type
      * @return Mage_Directory_Model_Country_Format
      */
-    public function getFormat($type)
+    function getFormat($type)
     {
         if ($this->getFormats()) {
             foreach ($this->getFormats() as $format) {
@@ -158,7 +158,7 @@ T: {{telephone}}";
     /**
      * @return string
      */
-    public function getName()
+    function getName()
     {
         if (!$this->getData('name')) {
             $this->setData(

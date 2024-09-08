@@ -86,7 +86,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      * Mage_Catalog_Helper_Product_Compare constructor.
      * @param array $data
      */
-    public function __construct(array $data = [])
+    function __construct(array $data = [])
     {
         $this->_logCondition = $data['log_condition'] ?? Mage::helper('log');
         $this->_catalogSession = $data['catalog_session'] ?? Mage::getSingleton('catalog/session');
@@ -111,7 +111,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      *
      * @return string
      */
-    public function getListUrl()
+    function getListUrl()
     {
         $itemIds = [];
         foreach ($this->getItemCollection() as $item) {
@@ -143,7 +143,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      * @param   Mage_Catalog_Model_Product $product
      * @return  string
      */
-    public function getAddUrl($product)
+    function getAddUrl($product)
     {
         return $this->getAddUrlCustom($product);
     }
@@ -154,7 +154,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      * @param Mage_Catalog_Model_Product $product
      * @return string
      */
-    public function getAddToWishlistUrl($product)
+    function getAddToWishlistUrl($product)
     {
         return $this->getAddToWishlistUrlCustom($product);
     }
@@ -165,7 +165,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      * @param Mage_Catalog_Model_Product $product
      * @return string
      */
-    public function getAddToCartUrl($product)
+    function getAddToCartUrl($product)
     {
         return $this->getAddToCartUrlCustom($product);
     }
@@ -176,7 +176,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      * @param   Mage_Catalog_Model_Product $item
      * @return  string
      */
-    public function getRemoveUrl($item)
+    function getRemoveUrl($item)
     {
         $params = [
             'product' => $item->getId(),
@@ -190,7 +190,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      *
      * @return string
      */
-    public function getClearListUrl()
+    function getClearListUrl()
     {
         $params = [
             Mage_Core_Controller_Front_Action::PARAM_NAME_URL_ENCODED => $this->getEncodedUrl()
@@ -203,7 +203,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      *
      * @return Mage_Catalog_Model_Resource_Eav_Mysql4_Product_Compare_Item_Collection
      */
-    public function getItemCollection()
+    function getItemCollection()
     {
         if (!$this->_itemCollection) {
             $this->_itemCollection = Mage::getResourceModel('catalog/product_compare_item_collection')
@@ -248,7 +248,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      * @param  bool $logout
      * @return $this
      */
-    public function calculate($logout = false)
+    function calculate($logout = false)
     {
         // first visit
         if (!$this->_catalogSession->hasCatalogCompareItemsCount() && !$this->_customerId) {
@@ -282,7 +282,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      *
      * @return int
      */
-    public function getItemCount()
+    function getItemCount()
     {
         if (!$this->_catalogSession->hasCatalogCompareItemsCount()) {
             $this->calculate();
@@ -296,7 +296,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      *
      * @return bool
      */
-    public function hasItems()
+    function hasItems()
     {
         return $this->getItemCount() > 0;
     }
@@ -307,7 +307,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      * @param bool $flag
      * @return $this
      */
-    public function setAllowUsedFlat($flag)
+    function setAllowUsedFlat($flag)
     {
         $this->_allowUsedFlat = (bool)$flag;
         return $this;
@@ -318,7 +318,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      *
      * @return bool
      */
-    public function getAllowUsedFlat()
+    function getAllowUsedFlat()
     {
         return $this->_allowUsedFlat;
     }
@@ -329,7 +329,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      * @param int $id
      * @return $this
      */
-    public function setCustomerId($id)
+    function setCustomerId($id)
     {
         $this->_customerId = $id;
         return $this;
@@ -342,7 +342,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      * @param bool $addFormKey
      * @return string
      */
-    public function getAddUrlCustom($product, $addFormKey = true)
+    function getAddUrlCustom($product, $addFormKey = true)
     {
         if ($this->_logCondition->isVisitorLogEnabled() || $this->_customerSession->isLoggedIn()) {
             return $this->_getUrl('catalog/product_compare/add', $this->_getUrlCustomParams($product, $addFormKey));
@@ -357,7 +357,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      * @param bool $addFormKey
      * @return string
      */
-    public function getAddToWishlistUrlCustom($product, $addFormKey = true)
+    function getAddToWishlistUrlCustom($product, $addFormKey = true)
     {
         $beforeCompareUrl = $this->_catalogSession->getBeforeCompareUrl();
         $params = $this->_getUrlCustomParams($product, $addFormKey, $beforeCompareUrl);
@@ -372,7 +372,7 @@ class Mage_Catalog_Helper_Product_Compare extends Mage_Core_Helper_Url
      * @param bool $addFormKey
      * @return string
      */
-    public function getAddToCartUrlCustom($product, $addFormKey = true)
+    function getAddToCartUrlCustom($product, $addFormKey = true)
     {
         $beforeCompareUrl = $this->_catalogSession->getBeforeCompareUrl();
         $params = [

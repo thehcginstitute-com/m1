@@ -125,7 +125,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer_Address extends Mage_Import
     /**
      * @param Mage_ImportExport_Model_Import_Entity_Customer $customer
      */
-    public function __construct(Mage_ImportExport_Model_Import_Entity_Customer $customer)
+    function __construct(Mage_ImportExport_Model_Import_Entity_Customer $customer)
     {
         parent::__construct();
 
@@ -441,7 +441,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer_Address extends Mage_Import
      *
      * @return string
      */
-    public function getEntityTypeCode()
+    function getEntityTypeCode()
     {
         return 'customer_address';
     }
@@ -452,7 +452,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer_Address extends Mage_Import
      * @param string $attrCode
      * @return bool
      */
-    public function isAttributeParticular($attrCode)
+    function isAttributeParticular($attrCode)
     {
         return isset($this->_attributes[$attrCode]) || in_array($attrCode, $this->_particularAttributes);
     }
@@ -464,7 +464,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer_Address extends Mage_Import
      * @param int $rowNum
      * @return bool
      */
-    public function validateRow(array $rowData, $rowNum)
+    function validateRow(array $rowData, $rowNum)
     {
         $rowIsValid = true;
 

@@ -40,7 +40,7 @@ class Mage_Adminhtml_Block_Shipping_Carrier_Tablerate_Grid extends Mage_Adminhtm
     /**
      * Define grid properties
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('shippingTablerateGrid');
@@ -53,7 +53,7 @@ class Mage_Adminhtml_Block_Shipping_Carrier_Tablerate_Grid extends Mage_Adminhtm
      * @param int $websiteId
      * @return $this
      */
-    public function setWebsiteId($websiteId)
+    function setWebsiteId($websiteId)
     {
         $this->_websiteId = Mage::app()->getWebsite($websiteId)->getId();
         return $this;
@@ -64,7 +64,7 @@ class Mage_Adminhtml_Block_Shipping_Carrier_Tablerate_Grid extends Mage_Adminhtm
      *
      * @return int
      */
-    public function getWebsiteId()
+    function getWebsiteId()
     {
         if (is_null($this->_websiteId)) {
             $this->_websiteId = Mage::app()->getWebsite()->getId();
@@ -78,7 +78,7 @@ class Mage_Adminhtml_Block_Shipping_Carrier_Tablerate_Grid extends Mage_Adminhtm
      * @param int $name
      * @return $this
      */
-    public function setConditionName($name)
+    function setConditionName($name)
     {
         $this->_conditionName = $name;
         return $this;
@@ -87,7 +87,7 @@ class Mage_Adminhtml_Block_Shipping_Carrier_Tablerate_Grid extends Mage_Adminhtm
     /**
      * @return string
      */
-    public function getConditionName()
+    function getConditionName()
     {
         return $this->_conditionName;
     }

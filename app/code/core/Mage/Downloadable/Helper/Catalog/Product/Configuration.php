@@ -30,7 +30,7 @@ class Mage_Downloadable_Helper_Catalog_Product_Configuration extends Mage_Core_H
      * @param Mage_Catalog_Model_Product_Configuration_Item_Interface $item
      * @return array
      */
-    public function getLinks(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
+    function getLinks(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
     {
         $product = $item->getProduct();
         $itemLinks = [];
@@ -54,7 +54,7 @@ class Mage_Downloadable_Helper_Catalog_Product_Configuration extends Mage_Core_H
      * @param Mage_Catalog_Model_Product $product
      * @return string
      */
-    public function getLinksTitle($product)
+    function getLinksTitle($product)
     {
         $title = $product->getLinksTitle();
         if (strlen($title)) {
@@ -69,7 +69,7 @@ class Mage_Downloadable_Helper_Catalog_Product_Configuration extends Mage_Core_H
      * @param Mage_Catalog_Model_Product_Configuration_Item_Interface $item
      * @return array
      */
-    public function getOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
+    function getOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
     {
         $options = Mage::helper('catalog/product_configuration')->getOptions($item);
 

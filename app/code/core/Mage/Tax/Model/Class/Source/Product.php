@@ -26,7 +26,7 @@ class Mage_Tax_Model_Class_Source_Product extends Mage_Eav_Model_Entity_Attribut
      * @param bool $withEmpty
      * @return array
      */
-    public function getAllOptions($withEmpty = false)
+    function getAllOptions($withEmpty = false)
     {
         if (is_null($this->_options)) {
             $this->_options = Mage::getResourceModel('tax/class_collection')
@@ -49,7 +49,7 @@ class Mage_Tax_Model_Class_Source_Product extends Mage_Eav_Model_Entity_Attribut
      * @param string|int $value
      * @return string|false
      */
-    public function getOptionText($value)
+    function getOptionText($value)
     {
         $options = $this->getAllOptions(false);
 
@@ -66,7 +66,7 @@ class Mage_Tax_Model_Class_Source_Product extends Mage_Eav_Model_Entity_Attribut
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->getAllOptions();
     }
@@ -76,7 +76,7 @@ class Mage_Tax_Model_Class_Source_Product extends Mage_Eav_Model_Entity_Attribut
      *
      * @return array
      */
-    public function getFlatColums()
+    function getFlatColums()
     {
         $attributeCode = $this->getAttribute()->getAttributeCode();
         $column = [
@@ -103,7 +103,7 @@ class Mage_Tax_Model_Class_Source_Product extends Mage_Eav_Model_Entity_Attribut
      * @param   int $store
      * @return  Varien_Db_Select|null
      */
-    public function getFlatUpdateSelect($store)
+    function getFlatUpdateSelect($store)
     {
         return Mage::getResourceModel('eav/entity_attribute_option')
             ->getFlatUpdateSelect($this->getAttribute(), $store, false);

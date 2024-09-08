@@ -23,7 +23,7 @@
  */
 class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Widget
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/product/edit.phtml');
@@ -35,7 +35,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return Mage::registry('current_product');
     }
@@ -131,7 +131,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return string
      */
-    public function getBackButtonHtml()
+    function getBackButtonHtml()
     {
         return $this->getChildHtml('back_button');
     }
@@ -139,7 +139,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return string
      */
-    public function getCancelButtonHtml()
+    function getCancelButtonHtml()
     {
         return $this->getChildHtml('reset_button');
     }
@@ -147,7 +147,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return string
      */
-    public function getSaveButtonHtml()
+    function getSaveButtonHtml()
     {
         return $this->getChildHtml('save_button');
     }
@@ -155,7 +155,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return string
      */
-    public function getSaveAndEditButtonHtml()
+    function getSaveAndEditButtonHtml()
     {
         return $this->getChildHtml('save_and_edit_button');
     }
@@ -163,7 +163,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return string
      */
-    public function getDeleteButtonHtml()
+    function getDeleteButtonHtml()
     {
         return $this->getChildHtml('delete_button');
     }
@@ -171,7 +171,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return string
      */
-    public function getDuplicateButtonHtml()
+    function getDuplicateButtonHtml()
     {
         return $this->getChildHtml('duplicate_button');
     }
@@ -179,7 +179,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return string
      */
-    public function getValidationUrl()
+    function getValidationUrl()
     {
         return $this->getUrl('*/*/validate', ['_current' => true]);
     }
@@ -187,7 +187,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return string
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return $this->getUrl('*/*/save', ['_current' => true, 'back' => null]);
     }
@@ -195,7 +195,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return string
      */
-    public function getSaveAndContinueUrl()
+    function getSaveAndContinueUrl()
     {
         return $this->getUrl('*/*/save', [
             '_current'   => true,
@@ -205,12 +205,12 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
         ]);
     }
 
-    public function getProductId()
+    function getProductId()
     {
         return $this->getProduct()->getId();
     }
 
-    public function getProductSetId()
+    function getProductSetId()
     {
         $setId = false;
         if (!($setId = $this->getProduct()->getAttributeSetId()) && $this->getRequest()) {
@@ -219,7 +219,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
         return $setId;
     }
 
-    public function getIsGrouped()
+    function getIsGrouped()
     {
         return $this->getProduct()->isGrouped();
     }
@@ -227,7 +227,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return string
      */
-    public function getDeleteUrl()
+    function getDeleteUrl()
     {
         return $this->getUrlSecure('*/*/delete', ['_current' => true]);
     }
@@ -235,7 +235,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return string
      */
-    public function getDuplicateUrl()
+    function getDuplicateUrl()
     {
         return $this->getUrl('*/*/duplicate', ['_current' => true]);
     }
@@ -243,7 +243,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return string
      */
-    public function getHeader()
+    function getHeader()
     {
         $header = '';
         if ($this->getProduct()->getId()) {
@@ -260,7 +260,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return string
      */
-    public function getAttributeSetName()
+    function getAttributeSetName()
     {
         if ($setId = $this->getProduct()->getAttributeSetId()) {
             $set = Mage::getModel('eav/entity_attribute_set')
@@ -273,7 +273,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
     /**
      * @return bool
      */
-    public function getIsConfigured()
+    function getIsConfigured()
     {
         $superAttributes = true;
         $product = $this->getProduct();
@@ -293,7 +293,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit extends Mage_Adminhtml_Block_Wid
      * @return string
      * @throws Exception
      */
-    public function getSelectedTabId()
+    function getSelectedTabId()
     {
         return addslashes(htmlspecialchars($this->getRequest()->getParam('tab', '')));
     }

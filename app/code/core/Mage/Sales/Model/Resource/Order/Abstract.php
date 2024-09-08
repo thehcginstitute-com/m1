@@ -83,7 +83,7 @@ abstract class Mage_Sales_Model_Resource_Order_Abstract extends Mage_Sales_Model
      * @param string $column
      * @return $this
      */
-    public function addVirtualGridColumn($alias, $table, $joinCondition, $column)
+    function addVirtualGridColumn($alias, $table, $joinCondition, $column)
     {
         $table = $this->getTable($table);
 
@@ -105,7 +105,7 @@ abstract class Mage_Sales_Model_Resource_Order_Abstract extends Mage_Sales_Model
      *
      * @return array
      */
-    public function getVirtualGridColumns()
+    function getVirtualGridColumns()
     {
         if ($this->_virtualGridColumns === null) {
             $this->_initVirtualGridColumns();
@@ -136,7 +136,7 @@ abstract class Mage_Sales_Model_Resource_Order_Abstract extends Mage_Sales_Model
      * @param array|int $ids
      * @return $this
      */
-    public function updateGridRecords($ids)
+    function updateGridRecords($ids)
     {
         if ($this->_grid) {
             if (!is_array($ids)) {
@@ -172,7 +172,7 @@ abstract class Mage_Sales_Model_Resource_Order_Abstract extends Mage_Sales_Model
      * @param array|null $gridColumns
      * @return Varien_Db_Select
      */
-    public function getUpdateGridRecordsSelect($ids, &$flatColumnsToSelect, $gridColumns = null)
+    function getUpdateGridRecordsSelect($ids, &$flatColumnsToSelect, $gridColumns = null)
     {
         $flatColumns = array_keys($this->_getReadAdapter()
             ->describeTable(
@@ -202,7 +202,7 @@ abstract class Mage_Sales_Model_Resource_Order_Abstract extends Mage_Sales_Model
      * @param array $columnsToSelect
      * @return $this
      */
-    public function joinVirtualGridColumnsToSelect($mainTableAlias, Zend_Db_Select $select, &$columnsToSelect)
+    function joinVirtualGridColumnsToSelect($mainTableAlias, Zend_Db_Select $select, &$columnsToSelect)
     {
         $adapter = $this->_getWriteAdapter();
         foreach ($this->getVirtualGridColumns() as $alias => $expression) {
@@ -237,7 +237,7 @@ abstract class Mage_Sales_Model_Resource_Order_Abstract extends Mage_Sales_Model
      *
      * @return array
      */
-    public function getGridColumns()
+    function getGridColumns()
     {
         if ($this->_gridColumns === null) {
             if ($this->_grid) {
@@ -257,7 +257,7 @@ abstract class Mage_Sales_Model_Resource_Order_Abstract extends Mage_Sales_Model
      *
      * @return string|false
      */
-    public function getGridTable()
+    function getGridTable()
     {
         if ($this->_grid) {
             return $this->getTable($this->_mainTable . '_grid');
@@ -310,7 +310,7 @@ abstract class Mage_Sales_Model_Resource_Order_Abstract extends Mage_Sales_Model
      * @param string|string[]|Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return $this
      */
-    public function saveAttribute(Mage_Core_Model_Abstract $object, $attribute)
+    function saveAttribute(Mage_Core_Model_Abstract $object, $attribute)
     {
         if ($attribute instanceof Mage_Eav_Model_Entity_Attribute_Abstract) {
             $attribute = $attribute->getAttributeCode();
@@ -392,7 +392,7 @@ abstract class Mage_Sales_Model_Resource_Order_Abstract extends Mage_Sales_Model
      * @param string $table
      * @return $this
      */
-    public function setMainTable($table)
+    function setMainTable($table)
     {
         $this->_mainTable = $table;
         return $this;
@@ -404,7 +404,7 @@ abstract class Mage_Sales_Model_Resource_Order_Abstract extends Mage_Sales_Model
      * @param Mage_Core_Model_Abstract $object
      * @return $this
      */
-    public function save(Mage_Core_Model_Abstract $object)
+    function save(Mage_Core_Model_Abstract $object)
     {
         if (!$object->getForceObjectSave()) {
             parent::save($object);
@@ -420,7 +420,7 @@ abstract class Mage_Sales_Model_Resource_Order_Abstract extends Mage_Sales_Model
      * @param int $entityId
      * @return $this
      */
-    public function updateOnRelatedRecordChanged($field, $entityId)
+    function updateOnRelatedRecordChanged($field, $entityId)
     {
         $adapter = $this->_getWriteAdapter();
         $column = [];

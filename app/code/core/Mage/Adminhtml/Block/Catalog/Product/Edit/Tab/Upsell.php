@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Upsell extends Mage_Adminhtm
      * Set grid params
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('up_sell_product_grid');
@@ -82,7 +82,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Upsell extends Mage_Adminhtm
      *
      * @return bool
      */
-    public function isReadonly()
+    function isReadonly()
     {
         return $this->_getProduct()->getUpsellReadonly();
     }
@@ -210,7 +210,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Upsell extends Mage_Adminhtm
      *
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->_getData('grid_url') ?: $this->getUrl('*/*/upsellGrid', ['_current' => true]);
     }
@@ -234,7 +234,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Upsell extends Mage_Adminhtm
      *
      * @return array
      */
-    public function getSelectedUpsellProducts()
+    function getSelectedUpsellProducts()
     {
         $products = [];
         foreach (Mage::registry('current_product')->getUpSellProducts() as $product) {

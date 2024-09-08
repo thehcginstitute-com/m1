@@ -26,7 +26,7 @@ class Mage_Install_Block_Begin extends Mage_Install_Block_Abstract
      * Set template
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('install/begin.phtml');
@@ -35,7 +35,7 @@ class Mage_Install_Block_Begin extends Mage_Install_Block_Abstract
     /**
      * @deprecated
      */
-    public function getLanguages()
+    function getLanguages()
     {
     }
 
@@ -44,7 +44,7 @@ class Mage_Install_Block_Begin extends Mage_Install_Block_Abstract
      *
      * @return string
      */
-    public function getPostUrl()
+    function getPostUrl()
     {
         return Mage::getUrl('install/wizard/beginPost');
     }
@@ -54,7 +54,7 @@ class Mage_Install_Block_Begin extends Mage_Install_Block_Abstract
      *
      * @return string
      */
-    public function getLicenseHtml()
+    function getLicenseHtml()
     {
         return file_get_contents(BP . DS . (string)Mage::getConfig()->getNode('install/eula_file'));
     }

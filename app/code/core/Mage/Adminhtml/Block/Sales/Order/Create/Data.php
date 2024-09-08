@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Data extends Mage_Adminhtml_Block_
      *
      * @return array
      */
-    public function getAvailableCurrencies()
+    function getAvailableCurrencies()
     {
         $dirtyCodes = $this->getStore()->getAvailableCurrencyCodes();
         $codes = [];
@@ -51,7 +51,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Data extends Mage_Adminhtml_Block_
      * @param   string $code
      * @return  string
      */
-    public function getCurrencyName($code)
+    function getCurrencyName($code)
     {
         return Mage::app()->getLocale()->currency($code)->getName();
     }
@@ -62,7 +62,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Data extends Mage_Adminhtml_Block_
      * @param   string $code
      * @return  string
      */
-    public function getCurrencySymbol($code)
+    function getCurrencySymbol($code)
     {
         $currency = Mage::app()->getLocale()->currency($code);
         return $currency->getSymbol() ? $currency->getSymbol() : $currency->getShortName();
@@ -73,7 +73,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Data extends Mage_Adminhtml_Block_
      *
      * @return string
      */
-    public function getCurrentCurrencyCode()
+    function getCurrentCurrencyCode()
     {
         return $this->getStore()->getCurrentCurrencyCode();
     }

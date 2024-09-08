@@ -49,7 +49,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
      *
      * Check customer authentication for some actions
      */
-    public function preDispatch()
+    function preDispatch()
     {
         // @todo a brute-force protection here would be nice
 
@@ -89,7 +89,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
      *
      * Remove No-referer flag from customer session after each action
      */
-    public function postDispatch()
+    function postDispatch()
     {
         parent::postDispatch();
         $this->_getSession()->unsNoReferer(false);
@@ -99,7 +99,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     /**
      * Default customer account page
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout();
         $this->_initLayoutMessages('customer/session');
@@ -115,7 +115,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     /**
      * Customer login form page
      */
-    public function loginAction()
+    function loginAction()
     {
         if ($this->_getSession()->isLoggedIn()) {
             $this->_redirect('*/*/');
@@ -131,7 +131,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     /**
      * Login post action
      */
-    public function loginPostAction()
+    function loginPostAction()
     {
         if (!$this->_validateFormKey()) {
             $this->_redirect('*/*/');
@@ -226,7 +226,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     /**
      * Customer logout action
      */
-    public function logoutAction()
+    function logoutAction()
     {
         $session = $this->_getSession();
         $session->logout()->renewSession();
@@ -242,7 +242,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     /**
      * Logout success page
      */
-    public function logoutSuccessAction()
+    function logoutSuccessAction()
     {
         $this->loadLayout();
         $this->renderLayout();
@@ -251,7 +251,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     /**
      * Customer register form page
      */
-    public function createAction()
+    function createAction()
     {
         if ($this->_getSession()->isLoggedIn()) {
             $this->_redirect('*/*');
@@ -266,7 +266,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     /**
      * Create customer account action
      */
-    public function createPostAction()
+    function createPostAction()
     {
         $errUrl = $this->_getUrl('*/*/create', ['_secure' => true]);
 
@@ -523,7 +523,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
      * @param array|null $arguments
      * @return false|Mage_Core_Model_Abstract
      */
-    public function _getModel($path, $arguments = [])
+    function _getModel($path, $arguments = [])
     {
         return Mage::getModel($path, $arguments);
     }
@@ -593,7 +593,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     /**
      * Confirm customer account by id and confirmation key
      */
-    public function confirmAction()
+    function confirmAction()
     {
         $session = $this->_getSession();
         if ($session->isLoggedIn()) {
@@ -653,7 +653,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     /**
      * Send confirmation link to specified email
      */
-    public function confirmationAction()
+    function confirmationAction()
     {
         $customer = $this->_getModel('customer/customer');
         if ($this->_getSession()->isLoggedIn()) {
@@ -709,7 +709,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     /**
      * Forgot customer password page
      */
-    public function forgotPasswordAction()
+    function forgotPasswordAction()
     {
         $this->loadLayout();
 
@@ -726,7 +726,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
      * Forgot customer password action
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function forgotPasswordPostAction()
+    function forgotPasswordPostAction()
     {
         $email = (string) $this->getRequest()->getPost('email');
         if ($email) {
@@ -797,7 +797,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
      * Display reset forgotten password form
      *
      */
-    public function changeForgottenAction()
+    function changeForgottenAction()
     {
         try {
             list($customerId, $resetPasswordLinkToken) = $this->_getRestorePasswordParameters($this->_getSession());
@@ -816,7 +816,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
      * User is redirected on this action when he clicks on the corresponding link in password reset confirmation email.
      *
      */
-    public function resetPasswordAction()
+    function resetPasswordAction()
     {
         try {
             $customerId = (int)$this->getCustomerId();
@@ -835,7 +835,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
      * Reset forgotten password
      * Used to handle data recieved from reset forgotten password form
      */
-    public function resetPasswordPostAction()
+    function resetPasswordPostAction()
     {
         if (!$this->_validateFormKey()) {
             $this->_redirect('*/*/');
@@ -951,7 +951,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     /**
      * Forgot customer account information page
      */
-    public function editAction()
+    function editAction()
     {
         $this->loadLayout();
         $this->_initLayoutMessages('customer/session');
@@ -978,7 +978,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     /**
      * Change customer password action
      */
-    public function editPostAction()
+    function editPostAction()
     {
         if (!$this->_validateFormKey()) {
             return $this->_redirect('*/*/edit');

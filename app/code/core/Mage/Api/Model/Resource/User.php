@@ -53,7 +53,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Api_Model_User $user
      * @return $this
      */
-    public function recordLogin(Mage_Api_Model_User $user)
+    function recordLogin(Mage_Api_Model_User $user)
     {
         $data = [
             'lognum'  => $user->getLognum() + 1,
@@ -69,7 +69,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Api_Model_User $user
      * @return $this
      */
-    public function recordSession(Mage_Api_Model_User $user)
+    function recordSession(Mage_Api_Model_User $user)
     {
         $readAdapter    = $this->_getReadAdapter();
         $writeAdapter   = $this->_getWriteAdapter();
@@ -105,7 +105,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Api_Model_User $user
      * @return $this
      */
-    public function cleanOldSessions(Mage_Api_Model_User $user)
+    function cleanOldSessions(Mage_Api_Model_User $user)
     {
         $readAdapter    = $this->_getReadAdapter();
         $writeAdapter   = $this->_getWriteAdapter();
@@ -128,7 +128,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
      * @param string $username
      * @return array
      */
-    public function loadByUsername($username)
+    function loadByUsername($username)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()->from($this->getTable('api/user'))
@@ -142,7 +142,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
      * @param string $sessId
      * @return array
      */
-    public function loadBySessId($sessId)
+    function loadBySessId($sessId)
     {
         $result = [];
         $adapter = $this->_getReadAdapter();
@@ -166,7 +166,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
      * @param string $sessid
      * @return $this
      */
-    public function clearBySessId($sessid)
+    function clearBySessId($sessid)
     {
         $this->_getWriteAdapter()->delete(
             $this->getTable('api/session'),
@@ -181,7 +181,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
      * @param int | Mage_Api_Model_User $user
      * @return null | array
      */
-    public function hasAssigned2Role($user)
+    function hasAssigned2Role($user)
     {
         $userId = null;
         $result = null;
@@ -223,7 +223,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Core_Model_Abstract $user
      * @return bool
      */
-    public function delete(Mage_Core_Model_Abstract $user)
+    function delete(Mage_Core_Model_Abstract $user)
     {
         $dbh = $this->_getWriteAdapter();
         $uid = (int) $user->getId();
@@ -248,7 +248,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Core_Model_Abstract|Mage_Api_Model_User $user
      * @return $this|Mage_Core_Model_Abstract
      */
-    public function _saveRelations(Mage_Core_Model_Abstract $user)
+    function _saveRelations(Mage_Core_Model_Abstract $user)
     {
         $rolesIds = $user->getRoleIds();
         if (!is_array($rolesIds) || count($rolesIds) == 0) {
@@ -299,7 +299,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Core_Model_Abstract $user
      * @return array
      */
-    public function _getRoles(Mage_Core_Model_Abstract $user)
+    function _getRoles(Mage_Core_Model_Abstract $user)
     {
         if (!$user->getId()) {
             return [];
@@ -327,7 +327,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Core_Model_Abstract|Mage_Api_Model_User $user
      * @return $this
      */
-    public function add(Mage_Core_Model_Abstract $user)
+    function add(Mage_Core_Model_Abstract $user)
     {
         $adapter = $this->_getWriteAdapter();
         $aRoles  = $this->hasAssigned2Role($user);
@@ -363,7 +363,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Core_Model_Abstract|Mage_Api_Model_User $user
      * @return $this
      */
-    public function deleteFromRole(Mage_Core_Model_Abstract $user)
+    function deleteFromRole(Mage_Core_Model_Abstract $user)
     {
         if ($user->getUserId() <= 0) {
             return $this;
@@ -390,7 +390,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Core_Model_Abstract|Mage_Api_Model_User $user
      * @return array
      */
-    public function roleUserExists(Mage_Core_Model_Abstract $user)
+    function roleUserExists(Mage_Core_Model_Abstract $user)
     {
         $result = [];
         if ($user->getUserId() > 0) {
@@ -409,7 +409,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Core_Model_Abstract|Mage_Api_Model_User $user
      * @return array
      */
-    public function userExists(Mage_Core_Model_Abstract $user)
+    function userExists(Mage_Core_Model_Abstract $user)
     {
         $usersTable = $this->getTable('api/user');
         $adapter    = $this->_getReadAdapter();

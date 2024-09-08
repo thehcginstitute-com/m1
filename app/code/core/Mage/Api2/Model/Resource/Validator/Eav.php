@@ -69,7 +69,7 @@ class Mage_Api2_Model_Resource_Validator_Eav extends Mage_Api2_Model_Resource_Va
      * @throws Exception If entity is not model
      * @throws Exception If eav form is not found
      */
-    public function __construct($options)
+    function __construct($options)
     {
         if (!isset($options['resource']) || !$options['resource'] instanceof Mage_Api2_Model_Resource) {
             throw new Exception("Passed parameter 'resource' is wrong.");
@@ -156,7 +156,7 @@ class Mage_Api2_Model_Resource_Validator_Eav extends Mage_Api2_Model_Resource_Va
      * @param  array $data
      * @return array Filtered data
      */
-    public function filter(array $data)
+    function filter(array $data)
     {
         return array_intersect_key($this->_eavForm->extractData($this->_eavForm->prepareRequest($data)), $data);
     }
@@ -173,7 +173,7 @@ class Mage_Api2_Model_Resource_Validator_Eav extends Mage_Api2_Model_Resource_Va
      * @param bool $partial
      * @return bool
      */
-    public function isValidData(array $data, $partial = false)
+    function isValidData(array $data, $partial = false)
     {
         $errors = [];
         foreach ($this->_eavForm->getAttributes() as $attribute) {
@@ -209,7 +209,7 @@ class Mage_Api2_Model_Resource_Validator_Eav extends Mage_Api2_Model_Resource_Va
      *
      * @return array
      */
-    public function getErrors()
+    function getErrors()
     {
         // business asked to avoid additional validation message, so we filter it here
         $errors        = [];

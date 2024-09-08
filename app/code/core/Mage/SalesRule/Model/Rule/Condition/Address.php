@@ -27,7 +27,7 @@ class Mage_SalesRule_Model_Rule_Condition_Address extends Mage_Rule_Model_Condit
     /**
      * @return $this|Mage_Rule_Model_Condition_Abstract
      */
-    public function loadAttributeOptions()
+    function loadAttributeOptions()
     {
         $attributes = [
             'base_subtotal' => Mage::helper('salesrule')->__('Subtotal'),
@@ -49,7 +49,7 @@ class Mage_SalesRule_Model_Rule_Condition_Address extends Mage_Rule_Model_Condit
     /**
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function getAttributeElement()
+    function getAttributeElement()
     {
         $element = parent::getAttributeElement();
         $element->setShowAsText(true);
@@ -59,7 +59,7 @@ class Mage_SalesRule_Model_Rule_Condition_Address extends Mage_Rule_Model_Condit
     /**
      * @return string
      */
-    public function getInputType()
+    function getInputType()
     {
         switch ($this->getAttribute()) {
             case 'base_subtotal':
@@ -79,7 +79,7 @@ class Mage_SalesRule_Model_Rule_Condition_Address extends Mage_Rule_Model_Condit
     /**
      * @return string
      */
-    public function getValueElementType()
+    function getValueElementType()
     {
         switch ($this->getAttribute()) {
             case 'shipping_method':
@@ -94,7 +94,7 @@ class Mage_SalesRule_Model_Rule_Condition_Address extends Mage_Rule_Model_Condit
     /**
      * @return array|mixed
      */
-    public function getValueSelectOptions()
+    function getValueSelectOptions()
     {
         if (!$this->hasData('value_select_options')) {
             switch ($this->getAttribute()) {
@@ -132,7 +132,7 @@ class Mage_SalesRule_Model_Rule_Condition_Address extends Mage_Rule_Model_Condit
      * @param Mage_Sales_Model_Quote_Address $object
      * @inheritDoc
      */
-    public function validate(Varien_Object $object)
+    function validate(Varien_Object $object)
     {
         $address = $object;
         if (!$address instanceof Mage_Sales_Model_Quote_Address) {

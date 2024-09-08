@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Report_Review_Customer extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'report_review_customer';
         $this->_headerText = Mage::helper('reports')->__('Customers Reviews');
@@ -30,7 +30,7 @@ class Mage_Adminhtml_Block_Report_Review_Customer extends Mage_Adminhtml_Block_W
         $this->_removeButton('add');
     }
 
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head head-report';
     }

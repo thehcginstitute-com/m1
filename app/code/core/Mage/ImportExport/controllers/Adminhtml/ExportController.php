@@ -56,7 +56,7 @@ class Mage_ImportExport_Adminhtml_ExportController extends Mage_Adminhtml_Contro
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function exportAction()
+    function exportAction()
     {
         if ($this->getRequest()->getPost(Mage_ImportExport_Model_Export::FILTER_ELEMENT_GROUP)) {
             try {
@@ -87,7 +87,7 @@ class Mage_ImportExport_Adminhtml_ExportController extends Mage_Adminhtml_Contro
     /**
      * Index action.
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_initAction()
             ->_title($this->__('Export'))
@@ -99,7 +99,7 @@ class Mage_ImportExport_Adminhtml_ExportController extends Mage_Adminhtml_Contro
     /**
      * Get grid-filter of entity attributes action.
      */
-    public function getFilterAction()
+    function getFilterAction()
     {
         $data = $this->getRequest()->getParams();
         if ($this->getRequest()->isXmlHttpRequest() && $data) {

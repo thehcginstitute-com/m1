@@ -34,7 +34,7 @@ class Mage_Core_Model_Resource_Variable extends Mage_Core_Model_Resource_Db_Abst
      * @param string $code
      * @return $this
      */
-    public function loadByCode(Mage_Core_Model_Variable $object, $code)
+    function loadByCode(Mage_Core_Model_Variable $object, $code)
     {
         if ($result = $this->getVariableByCode($code, true, $object->getStoreId())) {
             $object->setData($result);
@@ -50,7 +50,7 @@ class Mage_Core_Model_Resource_Variable extends Mage_Core_Model_Resource_Db_Abst
      * @param int $storeId
      * @return array
      */
-    public function getVariableByCode($code, $withValue = false, $storeId = 0)
+    function getVariableByCode($code, $withValue = false, $storeId = 0)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getMainTable())

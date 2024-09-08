@@ -47,7 +47,7 @@ class Mage_Sales_Model_Resource_Order_Status_History_Collection extends Mage_Sal
      *
      * @return Mage_Sales_Model_Order_Status_History|null
      */
-    public function getUnnotifiedForInstance($instance, $historyEntityName = Mage_Sales_Model_Order::HISTORY_ENTITY_NAME)
+    function getUnnotifiedForInstance($instance, $historyEntityName = Mage_Sales_Model_Order::HISTORY_ENTITY_NAME)
     {
         if (!$instance instanceof Mage_Sales_Model_Order) {
             $instance = $instance->getOrder();

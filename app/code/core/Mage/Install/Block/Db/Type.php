@@ -33,7 +33,7 @@ class Mage_Install_Block_Db_Type extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getTitle()
+    function getTitle()
     {
         return $this->_title;
     }
@@ -43,7 +43,7 @@ class Mage_Install_Block_Db_Type extends Mage_Core_Block_Template
      *
      * @return Varien_Object
      */
-    public function getFormData()
+    function getFormData()
     {
         $data = $this->getData('form_data');
         if (is_null($data)) {

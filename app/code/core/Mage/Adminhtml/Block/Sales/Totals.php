@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Sales_Totals extends Mage_Sales_Block_Order_Totals
      * @param   Varien_Object $total
      * @return  string
      */
-    public function formatValue($total)
+    function formatValue($total)
     {
         if (!$total->getIsFormated()) {
             /** @var Mage_Adminhtml_Helper_Sales $helper */

@@ -21,7 +21,7 @@ class Lesti_Fpc_Model_Observer_Parameters
     /**
      * @param $observer
      */
-    public function fpcHelperCollectParams($observer)
+    function fpcHelperCollectParams($observer)
     {
         $params = array();
         // store

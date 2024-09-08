@@ -18,7 +18,7 @@ class Nwdthemes_Revslider_Block_Adminhtml_Slider_Template_Edit extends Mage_Admi
 	 * Constructor
 	 */
 
-	public function __construct() {
+	function __construct() {
 
 		parent::__construct();
 

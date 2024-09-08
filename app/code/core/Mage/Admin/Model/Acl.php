@@ -77,7 +77,7 @@ class Mage_Admin_Model_Acl extends Zend_Acl
      * @param Zend_Acl_Role|string $parent
      * @return $this
      */
-    public function addRoleParent($role, $parent)
+    function addRoleParent($role, $parent)
     {
         $this->_getRoleRegistry()->addParent($role, $parent);
         return $this;

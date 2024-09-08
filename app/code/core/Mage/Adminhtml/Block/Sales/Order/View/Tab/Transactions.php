@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Transactions extends Mage_Adminh
      *
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/sales_order/transactions', ['_current' => true]);
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Transactions extends Mage_Adminh
      *
      * @return string
      */
-    public function getRowUrl($item)
+    function getRowUrl($item)
     {
         return $this->getUrl('*/sales_transactions/view', ['_current' => true, 'txn_id' => $item->getId()]);
     }
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Transactions extends Mage_Adminh
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('sales')->__('Transactions');
     }
@@ -57,7 +57,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Transactions extends Mage_Adminh
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('sales')->__('Transactions');
     }
@@ -67,7 +67,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Transactions extends Mage_Adminh
      *
      * @return bool
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -77,7 +77,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_Transactions extends Mage_Adminh
      *
      * @return bool
      */
-    public function isHidden()
+    function isHidden()
     {
         return !Mage::getSingleton('admin/session')->isAllowed('sales/transactions/fetch');
     }

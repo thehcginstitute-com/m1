@@ -55,7 +55,7 @@ class Mage_CatalogIndex_Model_Aggregation extends Mage_Core_Model_Abstract
      * @param   null|int|string|Mage_Core_Model_Store $store
      * @return  array|null
      */
-    public function getCacheData($key, $store = null)
+    function getCacheData($key, $store = null)
     {
         if (!$this->_isEnabled()) {
             return null;
@@ -79,7 +79,7 @@ class Mage_CatalogIndex_Model_Aggregation extends Mage_Core_Model_Abstract
      * @param   null|int|string|Mage_Core_Model_Store $store
      * @return  Mage_CatalogIndex_Model_Aggregation
      */
-    public function saveCacheData($data, $key, $tags, $store = null)
+    function saveCacheData($data, $key, $tags, $store = null)
     {
         if (!$this->_isEnabled()) {
             return $this;
@@ -100,7 +100,7 @@ class Mage_CatalogIndex_Model_Aggregation extends Mage_Core_Model_Abstract
      * @param   int|null|string $store
      * @return  Mage_CatalogIndex_Model_Aggregation
      */
-    public function clearCacheData($tags = [], $store = null)
+    function clearCacheData($tags = [], $store = null)
     {
         $tags    = $this->_processTags($tags);
         if ($store !== null) {
@@ -116,7 +116,7 @@ class Mage_CatalogIndex_Model_Aggregation extends Mage_Core_Model_Abstract
      * @param   array $productIds
      * @return  Mage_CatalogIndex_Model_Aggregation
      */
-    public function clearProductData($productIds)
+    function clearProductData($productIds)
     {
         $categoryPaths = $this->_getResource()->getProductCategoryPaths($productIds);
         if (!empty($categoryPaths)) {

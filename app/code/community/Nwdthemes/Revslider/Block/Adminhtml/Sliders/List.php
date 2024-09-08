@@ -23,7 +23,7 @@ class Nwdthemes_Revslider_Block_Adminhtml_Sliders_List extends Nwdthemes_Revslid
 	 * Before rendering
 	 */
 
-	public function _beforeToHtml() {
+	function _beforeToHtml() {
 
 		$this->outputTemplates = $this->getData('outputTemplates');
 		$this->no_sliders = $this->getData('no_sliders');

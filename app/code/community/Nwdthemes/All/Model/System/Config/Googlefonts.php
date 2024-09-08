@@ -691,7 +691,7 @@ class Nwdthemes_All_Model_System_Config_Googlefonts
 		'Zeyada'
     );
 
-    public function toOptionArray()
+    function toOptionArray()
     {
 		$options = array( array('value' => '', 'label' => '[Default]') );
 		foreach ($this->_fonts as $_font)

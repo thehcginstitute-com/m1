@@ -92,7 +92,7 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
     /**
      * @return Mage_Catalog_Model_Resource_Product_Link_Product_Collection
      */
-    public function getItemCollection()
+    function getItemCollection()
     {
         return $this->_itemCollection;
     }
@@ -100,7 +100,7 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
     /**
      * @return Mage_Catalog_Model_Product[]
      */
-    public function getItems()
+    function getItems()
     {
         if (is_null($this->_items) && $this->getItemCollection()) {
             $this->_items = $this->getItemCollection()->getItems();
@@ -111,7 +111,7 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
     /**
      * @return float
      */
-    public function getRowCount()
+    function getRowCount()
     {
         return ceil(count($this->getItemCollection()->getItems()) / $this->getColumnCount());
     }
@@ -120,7 +120,7 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
      * @param array $columns
      * @return $this
      */
-    public function setColumnCount($columns)
+    function setColumnCount($columns)
     {
         if ((int) $columns > 0) {
             $this->_columnCount = (int) $columns;
@@ -131,12 +131,12 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
     /**
      * @return int
      */
-    public function getColumnCount()
+    function getColumnCount()
     {
         return $this->_columnCount;
     }
 
-    public function resetItemsIterator()
+    function resetItemsIterator()
     {
         $this->getItems();
         reset($this->_items);
@@ -145,7 +145,7 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
     /**
      * @return mixed
      */
-    public function getIterableItem()
+    function getIterableItem()
     {
         $item = current($this->_items);
         next($this->_items);
@@ -160,7 +160,7 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
      * @param int $limit
      * @return $this
      */
-    public function setItemLimit($type, $limit)
+    function setItemLimit($type, $limit)
     {
         if ((int) $limit > 0) {
             $this->_itemLimits[$type] = (int) $limit;
@@ -172,7 +172,7 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
      * @param string $type
      * @return array|int|mixed
      */
-    public function getItemLimit($type = '')
+    function getItemLimit($type = '')
     {
         if ($type == '') {
             return $this->_itemLimits;
@@ -185,7 +185,7 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         return array_merge(parent::getCacheTags(), $this->getItemsTags($this->getItems()));
     }

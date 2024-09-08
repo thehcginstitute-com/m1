@@ -62,7 +62,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
     /**
      * Mage_Adminhtml_Block_Report_Grid constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setFilterVisibility(false);
@@ -219,7 +219,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @param bool $visible
      */
-    public function setStoreSwitcherVisibility($visible = true)
+    function setStoreSwitcherVisibility($visible = true)
     {
         $this->_storeSwitcherVisibility = $visible;
     }
@@ -229,7 +229,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @return bool
      */
-    public function getStoreSwitcherVisibility()
+    function getStoreSwitcherVisibility()
     {
         return $this->_storeSwitcherVisibility;
     }
@@ -239,7 +239,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @return string
      */
-    public function getStoreSwitcherHtml()
+    function getStoreSwitcherHtml()
     {
         return $this->getChildHtml('store_switcher');
     }
@@ -249,7 +249,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @param bool $visible
      */
-    public function setDateFilterVisibility($visible = true)
+    function setDateFilterVisibility($visible = true)
     {
         $this->_dateFilterVisibility = $visible;
     }
@@ -259,7 +259,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @return bool
      */
-    public function getDateFilterVisibility()
+    function getDateFilterVisibility()
     {
         return $this->_dateFilterVisibility;
     }
@@ -269,7 +269,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @param bool $visible
      */
-    public function setExportVisibility($visible = true)
+    function setExportVisibility($visible = true)
     {
         $this->_exportVisibility = $visible;
     }
@@ -279,7 +279,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @return bool
      */
-    public function getExportVisibility()
+    function getExportVisibility()
     {
         return $this->_exportVisibility;
     }
@@ -289,7 +289,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @param bool $visible
      */
-    public function setSubtotalVisibility($visible = true)
+    function setSubtotalVisibility($visible = true)
     {
         $this->_subtotalVisibility = $visible;
     }
@@ -299,17 +299,17 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @return bool
      */
-    public function getSubtotalVisibility()
+    function getSubtotalVisibility()
     {
         return $this->_subtotalVisibility;
     }
 
-    public function getPeriods()
+    function getPeriods()
     {
         return $this->getCollection()->getPeriods();
     }
 
-    public function getDateFormat()
+    function getDateFormat()
     {
         return $this->getLocale()->getDateStrFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT);
     }
@@ -317,19 +317,19 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
     /**
      * Return refresh button html
      */
-    public function getRefreshButtonHtml()
+    function getRefreshButtonHtml()
     {
         return $this->getChildHtml('refresh_button');
     }
 
-    public function setFilter($name, $value)
+    function setFilter($name, $value)
     {
         if ($name) {
             $this->_filters[$name] = $value;
         }
     }
 
-    public function getFilter($name)
+    function getFilter($name)
     {
         if (isset($this->_filters[$name])) {
             return $this->_filters[$name];
@@ -339,12 +339,12 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
         }
     }
 
-    public function setSubReportSize($size)
+    function setSubReportSize($size)
     {
         $this->_subReportSize = $size;
     }
 
-    public function getSubReportSize()
+    function getSubReportSize()
     {
         return $this->_subReportSize;
     }
@@ -354,7 +354,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @return Mage_Core_Model_Locale
      */
-    public function getLocale()
+    function getLocale()
     {
         if (!$this->_locale) {
             $this->_locale = Mage::app()->getLocale();
@@ -369,7 +369,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      * @param   string $label
      * @return  Mage_Adminhtml_Block_Widget_Grid
      */
-    public function addExportType($url, $label)
+    function addExportType($url, $label)
     {
         $this->_exportTypes[] = new Varien_Object(
             [
@@ -386,7 +386,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
         return $this;
     }
 
-    public function getReport($from, $to)
+    function getReport($from, $to)
     {
         if ($from == '') {
             $from = $this->getFilter('report_from');
@@ -400,7 +400,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
         return $this->getCollection()->getReport($from, $to);
     }
 
-    public function addGrandTotals($total)
+    function addGrandTotals($total)
     {
         $totalData = $total->getData();
         foreach ($totalData as $key => $value) {
@@ -425,7 +425,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
         }
     }
 
-    public function getGrandTotals()
+    function getGrandTotals()
     {
         if (!$this->_grandTotals) {
             $this->_grandTotals = new Varien_Object();
@@ -433,7 +433,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
         return $this->_grandTotals;
     }
 
-    public function getPeriodText()
+    function getPeriodText()
     {
         return $this->__('Period');
     }
@@ -443,7 +443,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @return string
      */
-    public function getCsv()
+    function getCsv()
     {
         $csv = '';
         $this->_prepareGrid();
@@ -504,7 +504,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @return mixed
      */
-    public function getExcel($filename = '')
+    function getExcel($filename = '')
     {
         $this->_prepareGrid();
 
@@ -562,7 +562,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
     /**
      * @return string
      */
-    public function getSubtotalText()
+    function getSubtotalText()
     {
         return $this->__('Subtotal');
     }
@@ -570,7 +570,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
     /**
      * @return string
      */
-    public function getTotalText()
+    function getTotalText()
     {
         return $this->__('Total');
     }
@@ -578,7 +578,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
     /**
      * @return string
      */
-    public function getEmptyText()
+    function getEmptyText()
     {
         return $this->__('No records found for this period.');
     }
@@ -586,7 +586,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
     /**
      * @return bool
      */
-    public function getCountTotals()
+    function getCountTotals()
     {
         $totals = $this->getGrandTotals()->getData();
         if (parent::getCountTotals() && count($totals)) {
@@ -601,7 +601,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @return string
      */
-    public function getRefreshButtonCallback()
+    function getRefreshButtonCallback()
     {
         return "{$this->getJsObjectName()}.doFilter();";
     }
@@ -611,7 +611,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @return array
      */
-    public function getErrors()
+    function getErrors()
     {
         return $this->_errors;
     }
@@ -621,7 +621,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      *
      * @return string
      */
-    public function getCurrentCurrencyCode()
+    function getCurrentCurrencyCode()
     {
         if (is_null($this->_currentCurrencyCode)) {
             if ($this->getRequest()->getParam('store')) {
@@ -646,7 +646,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
      * @param string|Mage_Directory_Model_Currency $toCurrency
      * @return double
      */
-    public function getRate($toCurrency)
+    function getRate($toCurrency)
     {
         return Mage::app()->getStore()->getBaseCurrency()->getRate($toCurrency);
     }

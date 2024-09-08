@@ -42,7 +42,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @param bool $breakWords
      * @return string
      */
-    public function truncate($string, $length = 80, $etc = '...', &$remainder = '', $breakWords = true)
+    function truncate($string, $length = 80, $etc = '...', &$remainder = '', $breakWords = true)
     {
         $remainder = '';
         if ($length == 0) {
@@ -74,7 +74,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @param string $string
      * @return int
      */
-    public function strlen($string)
+    function strlen($string)
     {
         return iconv_strlen($string, self::ICONV_CHARSET);
     }
@@ -87,7 +87,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @param int $length
      * @return string
      */
-    public function substr($string, $offset, $length = null)
+    function substr($string, $offset, $length = null)
     {
         $string = $this->cleanString($string);
         if (is_null($length)) {
@@ -105,7 +105,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @param string $insert
      * @return string
      */
-    public function splitInjection($str, $length = 50, $needle = '-', $insert = ' ')
+    function splitInjection($str, $length = 50, $needle = '-', $insert = ' ')
     {
         $str = $this->str_split($str, $length);
         $newStr = '';
@@ -129,7 +129,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @param string $str
      * @return string
      */
-    public function strrev($str)
+    function strrev($str)
     {
         $result = '';
         $strlen = $this->strlen($str);
@@ -156,7 +156,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @return array
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function str_split($str, $length = 1, $keepWords = false, $trim = false, $wordSeparatorRegex = '\s')
+    function str_split($str, $length = 1, $keepWords = false, $trim = false, $wordSeparatorRegex = '\s')
     {
         $result = [];
         $strlen = $this->strlen($str);
@@ -245,7 +245,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @param string $wordSeparatorRegexp
      * @return array
      */
-    public function splitWords($str, $uniqueOnly = false, $maxWordLength = 0, $wordSeparatorRegexp = '\s')
+    function splitWords($str, $uniqueOnly = false, $maxWordLength = 0, $wordSeparatorRegexp = '\s')
     {
         $result = [];
         $split = preg_split('#' . $wordSeparatorRegexp . '#siu', $str, -1, PREG_SPLIT_NO_EMPTY);
@@ -268,7 +268,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @param string $string
      * @return string
      */
-    public function cleanString($string)
+    function cleanString($string)
     {
         return '"libiconv"' == ICONV_IMPL ?
             iconv(self::ICONV_CHARSET, self::ICONV_CHARSET . '//IGNORE', $string) : $string;
@@ -282,7 +282,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @param int $offset
      * @return int
      */
-    public function strpos($haystack, $needle, $offset = null)
+    function strpos($haystack, $needle, $offset = null)
     {
         return iconv_strpos($haystack, $needle, $offset, self::ICONV_CHARSET);
     }
@@ -293,7 +293,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @param array $sort
      * @return array|false
      */
-    public function ksortMultibyte(array &$sort)
+    function ksortMultibyte(array &$sort)
     {
         if (empty($sort)) {
             return false;
@@ -314,7 +314,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @param string $str
      * @return array
      */
-    public function parseQueryStr($str)
+    function parseQueryStr($str)
     {
         $argSeparator = '&';
         $result = [];
@@ -457,7 +457,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Helper_Abstract|Mage_Core_Helper_Array $helper
      * @return $this
      */
-    public function setArrayHelper(Mage_Core_Helper_Abstract $helper)
+    function setArrayHelper(Mage_Core_Helper_Abstract $helper)
     {
         $this->_arrayHelper = $helper;
         return $this;
@@ -468,7 +468,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Core_Helper_Array
      */
-    public function getArrayHelper()
+    function getArrayHelper()
     {
         if (!$this->_arrayHelper) {
             $this->_arrayHelper = Mage::helper('core/array');
@@ -482,7 +482,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @param  string $c char to get value from
      * @return int
      */
-    public function uniOrd($c)
+    function uniOrd($c)
     {
         $ord = 0;
         $h   = ord($c[0]);
@@ -509,7 +509,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @return mixed|null
      * @throws Exception
      */
-    public function unserialize($str)
+    function unserialize($str)
     {
         $reader = new Unserialize_Reader_ArrValue('data');
         $prevChar = null;
@@ -529,7 +529,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @param mixed $data
      * @return bool
      */
-    public function isSerializedArrayOrObject($data)
+    function isSerializedArrayOrObject($data)
     {
         $pattern =
             '/^a:\d+:\{(i:\d+;|s:\d+:\".+\";|N;|O:\d+:\"\w+\":\d+:\{\w:\d+:)+|^O:\d+:\"\w+\":\d+:\{(s:\d+:\"|i:\d+;)/';
@@ -542,7 +542,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * @param string $str
      * @return bool
      */
-    public function validateSerializedObject($str)
+    function validateSerializedObject($str)
     {
         if ($this->isSerializedArrayOrObject($str)) {
             try {

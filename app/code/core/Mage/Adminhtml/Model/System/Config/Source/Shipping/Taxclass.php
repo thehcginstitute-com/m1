@@ -20,7 +20,7 @@
  */
 class Mage_Adminhtml_Model_System_Config_Source_Shipping_Taxclass
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         return Mage::getModel('tax/class_source_product')->toOptionArray();
     }

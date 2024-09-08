@@ -33,7 +33,7 @@ class Mage_Checkout_Block_Onepage_Login extends Mage_Checkout_Block_Onepage_Abst
     /**
      * @return Mage_Core_Model_Message_Collection
      */
-    public function getMessages()
+    function getMessages()
     {
         return Mage::getSingleton('customer/session')->getMessages(true);
     }
@@ -41,7 +41,7 @@ class Mage_Checkout_Block_Onepage_Login extends Mage_Checkout_Block_Onepage_Abst
     /**
      * @return string
      */
-    public function getPostAction()
+    function getPostAction()
     {
         return Mage::getUrl('customer/account/loginPost', ['_secure' => true]);
     }
@@ -49,7 +49,7 @@ class Mage_Checkout_Block_Onepage_Login extends Mage_Checkout_Block_Onepage_Abst
     /**
      * @return string
      */
-    public function getMethod()
+    function getMethod()
     {
         return $this->getQuote()->getMethod();
     }
@@ -57,7 +57,7 @@ class Mage_Checkout_Block_Onepage_Login extends Mage_Checkout_Block_Onepage_Abst
     /**
      * @return array
      */
-    public function getMethodData()
+    function getMethodData()
     {
         return $this->getCheckout()->getMethodData();
     }
@@ -65,7 +65,7 @@ class Mage_Checkout_Block_Onepage_Login extends Mage_Checkout_Block_Onepage_Abst
     /**
      * @return string
      */
-    public function getSuccessUrl()
+    function getSuccessUrl()
     {
         return $this->getUrl('*/*');
     }
@@ -73,7 +73,7 @@ class Mage_Checkout_Block_Onepage_Login extends Mage_Checkout_Block_Onepage_Abst
     /**
      * @return string
      */
-    public function getErrorUrl()
+    function getErrorUrl()
     {
         return $this->getUrl('*/*');
     }
@@ -83,7 +83,7 @@ class Mage_Checkout_Block_Onepage_Login extends Mage_Checkout_Block_Onepage_Abst
      *
      * @return string
      */
-    public function getUsername()
+    function getUsername()
     {
         return Mage::getSingleton('customer/session')->getUsername(true);
     }

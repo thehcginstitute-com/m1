@@ -58,7 +58,7 @@ class Mage_Api2_Model_Resource_Validator_Fields extends Mage_Api2_Model_Resource
      * @param array $options
      * @throws Exception If passed parameter 'resource' is wrong
      */
-    public function __construct($options)
+    function __construct($options)
     {
         if (!isset($options['resource']) || !$options['resource'] instanceof Mage_Api2_Model_Resource) {
             throw new Exception("Passed parameter 'resource' is wrong.");
@@ -141,7 +141,7 @@ class Mage_Api2_Model_Resource_Validator_Fields extends Mage_Api2_Model_Resource
      * @param bool $isPartial
      * @return bool
      */
-    public function isValidData(array $data, $isPartial = false)
+    function isValidData(array $data, $isPartial = false)
     {
         $isValid = true;
 

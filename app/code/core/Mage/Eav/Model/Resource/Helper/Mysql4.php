@@ -50,7 +50,7 @@ class Mage_Eav_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_Hel
      * @param string $eavType
      * @return string
      */
-    public function attributeSelectFields($tableAlias, $eavType)
+    function attributeSelectFields($tableAlias, $eavType)
     {
         return '*';
     }
@@ -61,7 +61,7 @@ class Mage_Eav_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_Hel
      * @param string $columnType
      * @return string
      */
-    public function getDdlTypeByColumnType($columnType)
+    function getDdlTypeByColumnType($columnType)
     {
         switch ($columnType) {
             case 'char':
@@ -86,7 +86,7 @@ class Mage_Eav_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_Hel
      * @param string $eavType
      * @return string
      */
-    public function prepareEavAttributeValue($value, $eavType)
+    function prepareEavAttributeValue($value, $eavType)
     {
         return $value;
     }
@@ -97,7 +97,7 @@ class Mage_Eav_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_Hel
      * @param array $selects
      * @return array
      */
-    public function getLoadAttributesSelectGroups($selects)
+    function getLoadAttributesSelectGroups($selects)
     {
         $mainGroup  = [];
         foreach ($selects as $eavType => $selectGroup) {
@@ -112,7 +112,7 @@ class Mage_Eav_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_Hel
      * @param string|Zend_Db_Expr $expression
      * @return Zend_Db_Expr
      */
-    public function getCastToIntExpression($expression)
+    function getCastToIntExpression($expression)
     {
         return new Zend_Db_Expr("CAST($expression AS SIGNED)");
     }

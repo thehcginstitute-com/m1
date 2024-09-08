@@ -68,7 +68,7 @@ class Mage_Core_Model_File_Uploader extends Varien_File_Uploader
      * @param null|bool $flag
      * @return bool|Mage_Core_Model_File_Uploader
      */
-    public function skipDbProcessing($flag = null)
+    function skipDbProcessing($flag = null)
     {
         if (is_null($flag)) {
             return $this->_skipDbProcessing;
@@ -83,7 +83,7 @@ class Mage_Core_Model_File_Uploader extends Varien_File_Uploader
      * @param string $extension
      * @return bool
      */
-    public function checkAllowedExtension($extension)
+    function checkAllowedExtension($extension)
     {
         //validate with protected file types
         /** @var Mage_Core_Model_File_Validator_NotProtectedExtension $validator */
@@ -105,7 +105,7 @@ class Mage_Core_Model_File_Uploader extends Varien_File_Uploader
      * @return array|bool
      * @throws Exception
      */
-    public function save($destinationFolder, $newFileName = null)
+    function save($destinationFolder, $newFileName = null)
     {
         $fileName = $newFileName ?? $this->_file['name'];
         if (strlen($fileName) > $this->_fileNameMaxLength) {

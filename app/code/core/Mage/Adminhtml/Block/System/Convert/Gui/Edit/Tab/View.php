@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_View extends Mage_Adminht
     /**
      * @return $this
      */
-    public function initForm()
+    function initForm()
     {
         $form = new Varien_Data_Form();
         $form->setHtmlIdPrefix('_view');

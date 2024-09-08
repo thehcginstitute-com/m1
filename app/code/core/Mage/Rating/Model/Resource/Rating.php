@@ -107,7 +107,7 @@ class Mage_Rating_Model_Resource_Rating extends Mage_Core_Model_Resource_Db_Abst
      * @param  int $ratingId
      * @return array
      */
-    public function getStores($ratingId)
+    function getStores($ratingId)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getTable('rating/rating_store'), 'store_id')
@@ -241,7 +241,7 @@ class Mage_Rating_Model_Resource_Rating extends Mage_Core_Model_Resource_Db_Abst
      * @param bool $onlyForCurrentStore
      * @return array|Mage_Rating_Model_Rating
      */
-    public function getEntitySummary($object, $onlyForCurrentStore = true)
+    function getEntitySummary($object, $onlyForCurrentStore = true)
     {
         $data = $this->_getEntitySummaryData($object);
 
@@ -343,7 +343,7 @@ class Mage_Rating_Model_Resource_Rating extends Mage_Core_Model_Resource_Db_Abst
      * @param bool $onlyForCurrentStore
      * @return array|Mage_Rating_Model_Rating
      */
-    public function getReviewSummary($object, $onlyForCurrentStore = true)
+    function getReviewSummary($object, $onlyForCurrentStore = true)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -414,7 +414,7 @@ class Mage_Rating_Model_Resource_Rating extends Mage_Core_Model_Resource_Db_Abst
      * @param string $entityCode
      * @return int
      */
-    public function getEntityIdByCode($entityCode)
+    function getEntityIdByCode($entityCode)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getTable('rating/rating_entity'), ['entity_id'])
@@ -429,7 +429,7 @@ class Mage_Rating_Model_Resource_Rating extends Mage_Core_Model_Resource_Db_Abst
      * @param int $productId
      * @return $this
      */
-    public function deleteAggregatedRatingsByProductId($productId)
+    function deleteAggregatedRatingsByProductId($productId)
     {
         $entityId = $this->getEntityIdByCode(Mage_Rating_Model_Rating::ENTITY_PRODUCT_CODE);
         $adapter  = $this->_getWriteAdapter();

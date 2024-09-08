@@ -10,7 +10,7 @@ class Amasty_Notfound_Adminhtml_Amnotfound_LogController extends Amasty_Notfound
 	protected $_modelName = 'log';
 	protected $_moduleAlias = 'amnotfound';
 
-	public function editAction()
+	function editAction()
 	{
 		$id    = (int) $this->getRequest()->getParam('id');
 		$model = Mage::getModel('amnotfound/' . $this->_modelName)->load($id);
@@ -46,7 +46,7 @@ class Amasty_Notfound_Adminhtml_Amnotfound_LogController extends Amasty_Notfound
 		$this->renderLayout();
 	}
 
-	public function saveAction()
+	function saveAction()
 	{
 		$id    = $this->getRequest()->getParam('id', 0);
 		$type  = $this->getRequest()->getParam('type', 0);
@@ -110,7 +110,7 @@ class Amasty_Notfound_Adminhtml_Amnotfound_LogController extends Amasty_Notfound
 		return $url;
 	}
 
-	public function massDeleteAction()
+	function massDeleteAction()
 	{
 		$logIds = $this->getRequest()->getParam('log');
 

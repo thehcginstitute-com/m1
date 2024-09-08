@@ -72,7 +72,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
      */
     protected $_scopeLabels = [];
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_scopeLabels = [
@@ -101,7 +101,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
     /**
      * @return $this
      */
-    public function initForm()
+    function initForm()
     {
         $this->_initObjects();
 
@@ -226,7 +226,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
      * @throw Mage_Core_Exception
      * @return $this
      */
-    public function initFields($fieldset, $group, $section, $fieldPrefix = '', $labelPrefix = '')
+    function initFields($fieldset, $group, $section, $fieldPrefix = '', $labelPrefix = '')
     {
         if (!$this->_configDataObject) {
             $this->_initObjects();
@@ -456,7 +456,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
      *
      * @return Varien_Simplexml_Element
      */
-    public function getConfigRoot()
+    function getConfigRoot()
     {
         if (empty($this->_configRoot)) {
             $this->_configRoot = Mage::getSingleton('adminhtml/config_data')->getConfigRoot();
@@ -564,7 +564,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
      * @param Varien_Simplexml_Element $field
      * @return bool
      */
-    public function canUseDefaultValue($field)
+    function canUseDefaultValue($field)
     {
         if ($this->getScope() == self::SCOPE_STORES && $field) {
             return true;
@@ -579,7 +579,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
      * @param Varien_Simplexml_Element $field
      * @return bool
      */
-    public function canUseWebsiteValue($field)
+    function canUseWebsiteValue($field)
     {
         if ($this->getScope() == self::SCOPE_STORES && $field) {
             return true;
@@ -616,7 +616,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getScope()
+    function getScope()
     {
         $scope = $this->getData('scope');
         if (is_null($scope)) {
@@ -639,7 +639,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
      * @param Mage_Core_Model_Config_Element $element
      * @return string
      */
-    public function getScopeLabel($element)
+    function getScopeLabel($element)
     {
         if ((int)$element->show_in_store === 1) {
             return $this->_scopeLabels[self::SCOPE_STORES];
@@ -654,7 +654,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getScopeCode()
+    function getScopeCode()
     {
         $scopeCode = $this->getData('scope_code');
         if (is_null($scopeCode)) {
@@ -676,7 +676,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
      *
      * @return int|string
      */
-    public function getScopeId()
+    function getScopeId()
     {
         $scopeId = $this->getData('scope_id');
         if (is_null($scopeId)) {
@@ -715,7 +715,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
      * @TODO delete this methods when {^see above^} is done
      * @return string
      */
-    public function getSectionCode()
+    function getSectionCode()
     {
         return $this->getRequest()->getParam('section', '');
     }
@@ -724,7 +724,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
      * @TODO delete this methods when {^see above^} is done
      * @return string
      */
-    public function getWebsiteCode()
+    function getWebsiteCode()
     {
         return $this->getRequest()->getParam('website', '');
     }
@@ -733,7 +733,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
      * @TODO delete this methods when {^see above^} is done
      * @return string
      */
-    public function getStoreCode()
+    function getStoreCode()
     {
         return $this->getRequest()->getParam('store', '');
     }

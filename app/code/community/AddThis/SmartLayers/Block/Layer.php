@@ -26,23 +26,23 @@ class AddThis_SmartLayers_Block_Layer extends Mage_Core_Block_Template
     }
     
     /* General */ 
-    public function getPluginEnabledStatus(){
+    function getPluginEnabledStatus(){
     	
     	return Mage::getStoreConfig('smart_layers/general/enabled');
     }
     
-    public function getPubId(){
+    function getPubId(){
     	 
     	return Mage::getStoreConfig('plugins_general/general/pubid');
     }
 
-    public function getTheme(){
+    function getTheme(){
     	 
     	return Mage::getStoreConfig('smart_layers/general/theme');
     }
     
     /* Follow */
-    public function getFollow(){
+    function getFollow(){
     
     	$follow_services = array();
     	
@@ -64,45 +64,45 @@ class AddThis_SmartLayers_Block_Layer extends Mage_Core_Block_Template
     }
     
     /* Share */    
-    public function getShareEnabled(){
+    function getShareEnabled(){
     
     	return Mage::getStoreConfig('smart_layers/share/enabled');
     }
     
-    public function getShareButtonPosition(){
+    function getShareButtonPosition(){
     
     	return Mage::getStoreConfig('smart_layers/share/share_button_position');
     }   
     
-    public function getShareButtonCount(){
+    function getShareButtonCount(){
     
     	return Mage::getStoreConfig('smart_layers/share/share_button_count');
     }
     
     /* What's Next */    
-    public function getWhatsNextEnabled(){
+    function getWhatsNextEnabled(){
     
     	return Mage::getStoreConfig('smart_layers/whatsnext/enabled');
     }
     
     /* Recomended Content */    
-    public function getRecomendedEnabled(){
+    function getRecomendedEnabled(){
     	 
     	return Mage::getStoreConfig('smart_layers/recommended/enabled');
     }
     
-    public function getRecomendedHeader(){
+    function getRecomendedHeader(){
     	 
     	return Mage::getStoreConfig('smart_layers/recommended/recommended_header');
     }
     
     /*Custom Code*/
-    public function getCustomCodeEnabled(){
+    function getCustomCodeEnabled(){
     	 
     	return Mage::getStoreConfig('smart_layers/custom_code/enabled');
     } 
     
-    public function getCustomCode(){
+    function getCustomCode(){
     	 
     	return Mage::getStoreConfig('smart_layers/custom_code/content');
     }     

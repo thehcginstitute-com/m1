@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Reorder extends Mage_Admin
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Last Ordered Items');
     }
@@ -49,7 +49,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Reorder extends Mage_Admin
      *
      * @return Mage_Sales_Model_Order|false
      */
-    public function getLastOrder()
+    function getLastOrder()
     {
         $storeIds = $this->getQuote()->getStore()->getWebsite()->getStoreIds();
         $collection = Mage::getResourceModel('sales/order_collection')
@@ -69,7 +69,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Reorder extends Mage_Admin
      *
      * @return array|false
      */
-    public function getItemCollection()
+    function getItemCollection()
     {
         if ($order = $this->getLastOrder()) {
             $items = [];
@@ -86,7 +86,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Reorder extends Mage_Admin
     /**
      * @return false
      */
-    public function canDisplayItemQty()
+    function canDisplayItemQty()
     {
         return false;
     }
@@ -94,7 +94,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Reorder extends Mage_Admin
     /**
      * @return false
      */
-    public function canRemoveItems()
+    function canRemoveItems()
     {
         return false;
     }
@@ -102,7 +102,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Reorder extends Mage_Admin
     /**
      * @return false
      */
-    public function canDisplayPrice()
+    function canDisplayPrice()
     {
         return false;
     }
@@ -113,7 +113,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Reorder extends Mage_Admin
      * @param Varien_Object $item
      * @return int
      */
-    public function getIdentifierId($item)
+    function getIdentifierId($item)
     {
         return $item->getId();
     }

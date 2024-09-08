@@ -44,7 +44,7 @@ class Mage_Checkout_Block_Multishipping_Address_Select extends Mage_Checkout_Blo
     /**
      * @return Mage_Customer_Model_Address[]|mixed
      */
-    public function getAddressCollection()
+    function getAddressCollection()
     {
         $collection = $this->getData('address_collection');
         if (is_null($collection)) {
@@ -58,7 +58,7 @@ class Mage_Checkout_Block_Multishipping_Address_Select extends Mage_Checkout_Blo
      * @param Mage_Sales_Model_Quote_Address $address
      * @return bool
      */
-    public function isAddressDefaultBilling($address)
+    function isAddressDefaultBilling($address)
     {
         return $address->getId() == $this->_getCheckout()->getCustomer()->getDefaultBilling();
     }
@@ -67,7 +67,7 @@ class Mage_Checkout_Block_Multishipping_Address_Select extends Mage_Checkout_Blo
      * @param Mage_Sales_Model_Quote_Address $address
      * @return bool
      */
-    public function isAddressDefaultShipping($address)
+    function isAddressDefaultShipping($address)
     {
         return $address->getId() == $this->_getCheckout()->getCustomer()->getDefaultShipping();
     }
@@ -76,7 +76,7 @@ class Mage_Checkout_Block_Multishipping_Address_Select extends Mage_Checkout_Blo
      * @param Mage_Sales_Model_Quote_Address $address
      * @return string
      */
-    public function getEditAddressUrl($address)
+    function getEditAddressUrl($address)
     {
         return $this->getUrl('*/*/editAddress', ['id' => $address->getId()]);
     }
@@ -85,7 +85,7 @@ class Mage_Checkout_Block_Multishipping_Address_Select extends Mage_Checkout_Blo
      * @param Mage_Sales_Model_Quote_Address $address
      * @return string
      */
-    public function getSetAddressUrl($address)
+    function getSetAddressUrl($address)
     {
         return $this->getUrl('*/*/setBilling', ['id' => $address->getId()]);
     }
@@ -93,7 +93,7 @@ class Mage_Checkout_Block_Multishipping_Address_Select extends Mage_Checkout_Blo
     /**
      * @return string
      */
-    public function getAddNewUrl()
+    function getAddNewUrl()
     {
         return $this->getUrl('*/*/newBilling');
     }
@@ -101,7 +101,7 @@ class Mage_Checkout_Block_Multishipping_Address_Select extends Mage_Checkout_Blo
     /**
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl('*/multishipping/billing');
     }

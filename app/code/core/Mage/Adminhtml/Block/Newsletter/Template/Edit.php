@@ -34,7 +34,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return Mage_Newsletter_Model_Template
      */
-    public function getModel()
+    function getModel()
     {
         return Mage::registry('_current_template');
     }
@@ -139,7 +139,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getBackButtonHtml()
+    function getBackButtonHtml()
     {
         return $this->getChildHtml('back_button');
     }
@@ -149,7 +149,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getResetButtonHtml()
+    function getResetButtonHtml()
     {
         return $this->getChildHtml('reset_button');
     }
@@ -159,7 +159,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getToPlainButtonHtml()
+    function getToPlainButtonHtml()
     {
         return $this->getChildHtml('to_plain_button');
     }
@@ -169,7 +169,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getToHtmlButtonHtml()
+    function getToHtmlButtonHtml()
     {
         return $this->getChildHtml('to_html_button');
     }
@@ -179,7 +179,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getSaveButtonHtml()
+    function getSaveButtonHtml()
     {
         return $this->getChildHtml('save_button');
     }
@@ -189,7 +189,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getPreviewButtonHtml()
+    function getPreviewButtonHtml()
     {
         return $this->getChildHtml('preview_button');
     }
@@ -199,7 +199,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getDeleteButtonHtml()
+    function getDeleteButtonHtml()
     {
         return $this->getChildHtml('delete_button');
     }
@@ -209,7 +209,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getSaveAsButtonHtml()
+    function getSaveAsButtonHtml()
     {
         return $this->getChildHtml('save_as_button');
     }
@@ -220,7 +220,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      * @param bool $value
      * @return $this
      */
-    public function setEditMode($value = true)
+    function setEditMode($value = true)
     {
         $this->_editMode = (bool)$value;
         return $this;
@@ -231,7 +231,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return bool
      */
-    public function getEditMode()
+    function getEditMode()
     {
         return $this->_editMode;
     }
@@ -241,7 +241,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if ($this->getEditMode()) {
             return Mage::helper('newsletter')->__('Edit Newsletter Template');
@@ -254,7 +254,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getForm()
+    function getForm()
     {
         return $this->getLayout()
             ->createBlock('adminhtml/newsletter_template_edit_form')
@@ -266,7 +266,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getJsTemplateName()
+    function getJsTemplateName()
     {
         return addcslashes($this->escapeHtml($this->getModel()->getTemplateCode()), "\"\r\n\\");
     }
@@ -276,7 +276,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return $this->getUrl('*/*/save');
     }
@@ -286,7 +286,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getPreviewUrl()
+    function getPreviewUrl()
     {
         return $this->getUrl('*/*/preview');
     }
@@ -296,7 +296,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return bool
      */
-    public function isTextType()
+    function isTextType()
     {
         return $this->getModel()->isPlain();
     }
@@ -306,7 +306,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getDeleteUrl()
+    function getDeleteUrl()
     {
         return $this->getUrlSecure('*/*/delete', ['id' => $this->getRequest()->getParam('id')]);
     }
@@ -316,7 +316,7 @@ class Mage_Adminhtml_Block_Newsletter_Template_Edit extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getSaveAsFlag()
+    function getSaveAsFlag()
     {
         return $this->getRequest()->getParam('_save_as_flag') ? '1' : '';
     }

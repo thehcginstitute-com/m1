@@ -43,7 +43,7 @@ class Mage_Adminhtml_Block_Report_Filter_Form extends Mage_Adminhtml_Block_Widge
      * @param string $fieldId Field id
      * @param bool $visibility Field visibility
      */
-    public function setFieldVisibility($fieldId, $visibility)
+    function setFieldVisibility($fieldId, $visibility)
     {
         $this->_fieldVisibility[$fieldId] = (bool)$visibility;
     }
@@ -55,7 +55,7 @@ class Mage_Adminhtml_Block_Report_Filter_Form extends Mage_Adminhtml_Block_Widge
      * @param bool $defaultVisibility Default field visibility
      * @return bool
      */
-    public function getFieldVisibility($fieldId, $defaultVisibility = true)
+    function getFieldVisibility($fieldId, $defaultVisibility = true)
     {
         if (!array_key_exists($fieldId, $this->_fieldVisibility)) {
             return $defaultVisibility;
@@ -70,7 +70,7 @@ class Mage_Adminhtml_Block_Report_Filter_Form extends Mage_Adminhtml_Block_Widge
      * @param mixed $option Field option name
      * @param mixed $value Field option value
      */
-    public function setFieldOption($fieldId, $option, $value = null)
+    function setFieldOption($fieldId, $option, $value = null)
     {
         if (is_array($option)) {
             $options = $option;
@@ -92,7 +92,7 @@ class Mage_Adminhtml_Block_Report_Filter_Form extends Mage_Adminhtml_Block_Widge
      * @param string $value
      * @return $this
      */
-    public function addReportTypeOption($key, $value)
+    function addReportTypeOption($key, $value)
     {
         $this->_reportTypeOptions[$key] = $this->__($value);
         return $this;

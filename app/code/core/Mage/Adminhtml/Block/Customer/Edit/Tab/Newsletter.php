@@ -22,13 +22,13 @@
  */
 class Mage_Adminhtml_Block_Customer_Edit_Tab_Newsletter extends Mage_Adminhtml_Block_Widget_Form
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('customer/tab/newsletter.phtml');
     }
 
-    public function initForm()
+    function initForm()
     {
         $form = new Varien_Data_Form();
         $form->setHtmlIdPrefix('_newsletter');
@@ -74,7 +74,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Newsletter extends Mage_Adminhtml_B
         return $this;
     }
 
-    public function getStatusChangedDate()
+    function getStatusChangedDate()
     {
         $subscriber = Mage::registry('subscriber');
         if ($subscriber->getChangeStatusAt()) {

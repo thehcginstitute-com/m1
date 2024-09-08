@@ -30,7 +30,7 @@ abstract class Mage_Api2_Model_Auth_Adapter_Abstract
      * @param Mage_Api2_Model_Request $request
      * @return stdClass
      */
-    abstract public function getUserParams(Mage_Api2_Model_Request $request);
+    abstract function getUserParams(Mage_Api2_Model_Request $request);
 
     /**
      * Check if request contains authentication info for adapter
@@ -38,5 +38,5 @@ abstract class Mage_Api2_Model_Auth_Adapter_Abstract
      * @param Mage_Api2_Model_Request $request
      * @return bool
      */
-    abstract public function isApplicableToRequest(Mage_Api2_Model_Request $request);
+    abstract function isApplicableToRequest(Mage_Api2_Model_Request $request);
 }

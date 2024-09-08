@@ -42,7 +42,7 @@ class Mage_Checkout_Block_Total_Default extends Mage_Checkout_Block_Cart_Totals
      *
      * @return string
      */
-    public function getStyle()
+    function getStyle()
     {
         return $this->getTotal()->getStyle();
     }
@@ -51,7 +51,7 @@ class Mage_Checkout_Block_Total_Default extends Mage_Checkout_Block_Cart_Totals
      * @param Mage_Sales_Model_Quote_Address_Total $total
      * @return $this
      */
-    public function setTotal($total)
+    function setTotal($total)
     {
         $this->setData('total', $total);
         if ($total->getAddress()) {
@@ -63,7 +63,7 @@ class Mage_Checkout_Block_Total_Default extends Mage_Checkout_Block_Cart_Totals
     /**
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return $this->_store;
     }

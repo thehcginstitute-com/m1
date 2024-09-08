@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Cache_Notifications extends Mage_Adminhtml_Block_Temp
      *
      * @return array
      */
-    public function getCacheTypesForRefresh()
+    function getCacheTypesForRefresh()
     {
         $invalidatedTypes = Mage::app()->getCacheInstance()->getInvalidatedTypes();
         $res = [];
@@ -40,7 +40,7 @@ class Mage_Adminhtml_Block_Cache_Notifications extends Mage_Adminhtml_Block_Temp
      *
      * @return string
      */
-    public function getManageUrl()
+    function getManageUrl()
     {
         return $this->getUrl('adminhtml/cache');
     }

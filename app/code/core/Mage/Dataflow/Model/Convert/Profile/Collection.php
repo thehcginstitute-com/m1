@@ -38,7 +38,7 @@ class Mage_Dataflow_Model_Convert_Profile_Collection
 
     protected $_containerCollectionDefaultClass = 'Mage_Dataflow_Model_Convert_Container_Collection';
 
-    public function getContainers()
+    function getContainers()
     {
         if (!$this->_containers) {
             $this->_containers = new $this->_containerCollectionDefaultClass();
@@ -47,23 +47,23 @@ class Mage_Dataflow_Model_Convert_Profile_Collection
         return $this->_containers;
     }
 
-    public function getContainer($name)
+    function getContainer($name)
     {
         return $this->getContainers()->getItem($name);
     }
 
-    public function addContainer($name, Mage_Dataflow_Model_Convert_Container_Interface $container)
+    function addContainer($name, Mage_Dataflow_Model_Convert_Container_Interface $container)
     {
         $container = $this->getContainers()->addItem($name, $container);
         return $container;
     }
 
-    public function getProfiles()
+    function getProfiles()
     {
         return $this->_profiles;
     }
 
-    public function getProfile($name)
+    function getProfile($name)
     {
         if (!isset($this->_profiles[$name])) {
             $this->importProfileXml($name);
@@ -71,7 +71,7 @@ class Mage_Dataflow_Model_Convert_Profile_Collection
         return $this->_profiles[$name];
     }
 
-    public function addProfile($name, Mage_Dataflow_Model_Convert_Profile_Interface $profile = null)
+    function addProfile($name, Mage_Dataflow_Model_Convert_Profile_Interface $profile = null)
     {
         if (is_null($profile)) {
             $profile = new $this->_profileDefaultClass();
@@ -80,18 +80,18 @@ class Mage_Dataflow_Model_Convert_Profile_Collection
         return $profile;
     }
 
-    public function run($profile)
+    function run($profile)
     {
         $this->getProfile($profile)->run();
         return $this;
     }
 
-    public function getClassNameByType($type)
+    function getClassNameByType($type)
     {
         return $type;
     }
 
-    public function importXml($xml)
+    function importXml($xml)
     {
         if (is_string($xml)) {
             $xml = @simplexml_load_string($xml, $this->_simplexmlDefaultClass);
@@ -114,7 +114,7 @@ class Mage_Dataflow_Model_Convert_Profile_Collection
         return $this;
     }
 
-    public function importProfileXml($name)
+    function importProfileXml($name)
     {
         if (!$this->_xml) {
             return $this;

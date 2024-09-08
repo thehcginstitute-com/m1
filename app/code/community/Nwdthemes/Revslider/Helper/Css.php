@@ -21,7 +21,7 @@ class Nwdthemes_Revslider_Helper_Css extends Mage_Core_Helper_Abstract {
 	 * @return string
 	 */
 	
-	public function getAdminCssDir() {
+	function getAdminCssDir() {
 		return self::ADMIN_CSS_DIR;
 	}
 
@@ -31,7 +31,7 @@ class Nwdthemes_Revslider_Helper_Css extends Mage_Core_Helper_Abstract {
 	 * @return string
 	 */
 	
-	public function getFrontCssDir() {
+	function getFrontCssDir() {
 		return self::FRONT_CSS_DIR;
 	}
 	
@@ -42,7 +42,7 @@ class Nwdthemes_Revslider_Helper_Css extends Mage_Core_Helper_Abstract {
 	 * @param string $strCss CSS data
 	 */
 
-	public function putCss($cssFile, $strCss) {
+	function putCss($cssFile, $strCss) {
 		$cssPaths = array(
 			Mage::getBaseDir() . self::ADMIN_CSS_DIR,
 			Mage::getBaseDir() . self::FRONT_CSS_DIR
@@ -78,7 +78,7 @@ class Nwdthemes_Revslider_Helper_Css extends Mage_Core_Helper_Abstract {
 	 * Put dynamic CSS to file
 	 */
 
-	public function putDynamicCss() {
+	function putDynamicCss() {
 		$_collection = Mage::getModel('nwdrevslider/css')->getCollection();
 		$strCss = '';
 		foreach ($_collection as $_item) {
@@ -96,7 +96,7 @@ class Nwdthemes_Revslider_Helper_Css extends Mage_Core_Helper_Abstract {
 	 * Put static CSS to file
 	 */
 
-	public function putStaticCss() {
+	function putStaticCss() {
 		$strCss = Mage::getModel('nwdrevslider/options')->getOption('revslider-static-css', '');
 		$this->putCss('static.css', $strCss);
 	}	

@@ -31,7 +31,7 @@ class Mage_Adminhtml_Helper_Sales extends Mage_Core_Helper_Abstract
      * @param   string $separator
      * @return  string
      */
-    public function displayPriceAttribute($dataObject, $code, $strong = false, $separator = '<br/>')
+    function displayPriceAttribute($dataObject, $code, $strong = false, $separator = '<br/>')
     {
         return $this->displayPrices(
             $dataObject,
@@ -52,7 +52,7 @@ class Mage_Adminhtml_Helper_Sales extends Mage_Core_Helper_Abstract
      * @param   string $separator
      * @return  string
      */
-    public function displayPrices($dataObject, $basePrice, $price, $strong = false, $separator = '<br/>')
+    function displayPrices($dataObject, $basePrice, $price, $strong = false, $separator = '<br/>')
     {
         $order = false;
         if ($dataObject instanceof Mage_Sales_Model_Order) {
@@ -86,7 +86,7 @@ class Mage_Adminhtml_Helper_Sales extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Resource_Db_Collection_Abstract $collection
      * @return Mage_Core_Model_Resource_Db_Collection_Abstract
      */
-    public function applySalableProductTypesFilter($collection)
+    function applySalableProductTypesFilter($collection)
     {
         $productTypes = Mage::getConfig()->getNode('adminhtml/sales/order/create/available_product_types')->asArray();
         $productTypes = array_keys($productTypes);
@@ -114,7 +114,7 @@ class Mage_Adminhtml_Helper_Sales extends Mage_Core_Helper_Abstract
      * @param null|array $allowedTags
      * @return string
      */
-    public function escapeHtmlWithLinks($data, $allowedTags = null)
+    function escapeHtmlWithLinks($data, $allowedTags = null)
     {
         if (!empty($data) && is_array($allowedTags) && in_array('a', $allowedTags)) {
             $links = [];

@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_System_Config_Dwstree extends Mage_Adminhtml_Block_Widget_Tabs
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         #$this->setTemplate('widget/tabs.phtml');
@@ -30,7 +30,7 @@ class Mage_Adminhtml_Block_System_Config_Dwstree extends Mage_Adminhtml_Block_Wi
         $this->setDestElementId('system_config_form');
     }
 
-    public function initTabs()
+    function initTabs()
     {
         $section = $this->getRequest()->getParam('section');
 

@@ -34,7 +34,7 @@ class Mage_SalesRule_Model_Resource_Report_Rule_Updatedat extends Mage_SalesRule
      * @param mixed $to
      * @return $this
      */
-    public function aggregate($from = null, $to = null)
+    function aggregate($from = null, $to = null)
     {
         return $this->_aggregateByOrder('updated_at', $from, $to);
     }

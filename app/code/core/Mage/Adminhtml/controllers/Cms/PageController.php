@@ -41,7 +41,7 @@ class Mage_Adminhtml_Cms_PageController extends Mage_Adminhtml_Controller_Action
     /**
      * Index action
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('CMS'))
              ->_title($this->__('Pages'))
@@ -54,7 +54,7 @@ class Mage_Adminhtml_Cms_PageController extends Mage_Adminhtml_Controller_Action
     /**
      * Create new CMS page
      */
-    public function newAction()
+    function newAction()
     {
         // the same form is used to create and edit
         $this->_forward('edit');
@@ -63,7 +63,7 @@ class Mage_Adminhtml_Cms_PageController extends Mage_Adminhtml_Controller_Action
     /**
      * Edit CMS page
      */
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('CMS'))
              ->_title($this->__('Pages'))
@@ -112,7 +112,7 @@ class Mage_Adminhtml_Cms_PageController extends Mage_Adminhtml_Controller_Action
     /**
      * Save action
      */
-    public function saveAction()
+    function saveAction()
     {
         // check if data sent
         if ($data = $this->getRequest()->getPost()) {
@@ -172,7 +172,7 @@ class Mage_Adminhtml_Cms_PageController extends Mage_Adminhtml_Controller_Action
     /**
      * Delete action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         // check if we know what should be deleted
         if ($id = $this->getRequest()->getParam('page_id')) {
@@ -211,7 +211,7 @@ class Mage_Adminhtml_Cms_PageController extends Mage_Adminhtml_Controller_Action
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         return parent::preDispatch();

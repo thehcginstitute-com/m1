@@ -22,7 +22,7 @@
  */
 class Mage_Index_Model_Resource_Lock_Resource extends Mage_Core_Model_Resource
 {
-    public function __construct()
+    function __construct()
     {
         $this->_connections = Mage::getSingleton('core/resource')->getConnections();
     }
@@ -35,7 +35,7 @@ class Mage_Index_Model_Resource_Lock_Resource extends Mage_Core_Model_Resource
      *
      * @return Varien_Db_Adapter_Interface|false
      */
-    public function getConnection($name, $extendConfigWith = '')
+    function getConnection($name, $extendConfigWith = '')
     {
         $index = $name . $extendConfigWith;
         if (isset($this->_connections[$index])) {

@@ -46,7 +46,7 @@ class Mage_Eav_Model_Entity_Attribute_Group extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function itemExists()
+    function itemExists()
     {
         return $this->_getResource()->itemExists($this);
     }
@@ -56,7 +56,7 @@ class Mage_Eav_Model_Entity_Attribute_Group extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function deleteGroups()
+    function deleteGroups()
     {
         return $this->_getResource()->deleteGroups($this);
     }

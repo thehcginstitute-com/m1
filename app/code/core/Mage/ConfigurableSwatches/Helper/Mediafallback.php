@@ -35,7 +35,7 @@ class Mage_ConfigurableSwatches_Helper_Mediafallback extends Mage_Core_Helper_Ab
      * @deprecated use $this->attachProductChildrenAttributeMapping() instead
      * @param int $storeId
      */
-    public function attachConfigurableProductChildrenAttributeMapping(array $parentProducts, $storeId)
+    function attachConfigurableProductChildrenAttributeMapping(array $parentProducts, $storeId)
     {
         $this->attachProductChildrenAttributeMapping($parentProducts, $storeId);
     }
@@ -49,7 +49,7 @@ class Mage_ConfigurableSwatches_Helper_Mediafallback extends Mage_Core_Helper_Ab
      * @param int $storeId
      * @param bool $onlyListAttributes
      */
-    public function attachProductChildrenAttributeMapping(array $parentProducts, $storeId, $onlyListAttributes = false)
+    function attachProductChildrenAttributeMapping(array $parentProducts, $storeId, $onlyListAttributes = false)
     {
         /** @var  Mage_Eav_Model_Attribute $listSwatchAttr */
         $listSwatchAttr = Mage::helper('configurableswatches/productlist')->getSwatchAttribute();
@@ -165,7 +165,7 @@ class Mage_ConfigurableSwatches_Helper_Mediafallback extends Mage_Core_Helper_Ab
      * @param bool $keepFrame
      * @return array
      */
-    public function getConfigurableImagesFallbackArray(
+    function getConfigurableImagesFallbackArray(
         Mage_Catalog_Model_Product $product,
         array $imageTypes,
         $keepFrame = false
@@ -301,7 +301,7 @@ class Mage_ConfigurableSwatches_Helper_Mediafallback extends Mage_Core_Helper_Ab
      *
      * @param Mage_Catalog_Model_Product $product
      */
-    public function groupMediaGalleryImages(Mage_Catalog_Model_Product $product)
+    function groupMediaGalleryImages(Mage_Catalog_Model_Product $product)
     {
         $mediaGallery = $product->getMediaGallery();
 
@@ -333,7 +333,7 @@ class Mage_ConfigurableSwatches_Helper_Mediafallback extends Mage_Core_Helper_Ab
      * @param array $products
      * @param int $storeId
      */
-    public function attachGallerySetToCollection(array $products, $storeId)
+    function attachGallerySetToCollection(array $products, $storeId)
     {
         $productIds = [];
         /** @var Mage_Catalog_Model_Product $product */
@@ -420,7 +420,7 @@ class Mage_ConfigurableSwatches_Helper_Mediafallback extends Mage_Core_Helper_Ab
      * @param array $products
      * @param int $storeId
      */
-    public function attachChildrenProducts(array $products, $storeId)
+    function attachChildrenProducts(array $products, $storeId)
     {
         $productIds = [];
         /** @var Mage_Catalog_Model_Product $product */

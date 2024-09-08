@@ -50,7 +50,7 @@ class Mage_Oauth_Block_Customer_Token_List extends Mage_Customer_Block_Account_D
      *
      * @return int
      */
-    public function count()
+    function count()
     {
         return $this->_collection->getSize();
     }
@@ -60,7 +60,7 @@ class Mage_Oauth_Block_Customer_Token_List extends Mage_Customer_Block_Account_D
      *
      * @return string
      */
-    public function getToolbarHtml()
+    function getToolbarHtml()
     {
         return $this->getChildHtml('toolbar');
     }
@@ -85,7 +85,7 @@ class Mage_Oauth_Block_Customer_Token_List extends Mage_Customer_Block_Account_D
      *
      * @return Mage_Oauth_Model_Resource_Token_Collection
      */
-    public function getCollection()
+    function getCollection()
     {
         return $this->_collection;
     }
@@ -96,7 +96,7 @@ class Mage_Oauth_Block_Customer_Token_List extends Mage_Customer_Block_Account_D
      * @param Mage_Oauth_Model_Token $model
      * @return string
      */
-    public function getUpdateRevokeLink(Mage_Oauth_Model_Token $model)
+    function getUpdateRevokeLink(Mage_Oauth_Model_Token $model)
     {
         return Mage::getUrl(
             'oauth/customer_token/revoke/',
@@ -110,7 +110,7 @@ class Mage_Oauth_Block_Customer_Token_List extends Mage_Customer_Block_Account_D
      * @param Mage_Oauth_Model_Token $model
      * @return string
      */
-    public function getDeleteLink(Mage_Oauth_Model_Token $model)
+    function getDeleteLink(Mage_Oauth_Model_Token $model)
     {
         return Mage::getUrl('oauth/customer_token/delete/', ['id' => $model->getId()]);
     }
@@ -121,7 +121,7 @@ class Mage_Oauth_Block_Customer_Token_List extends Mage_Customer_Block_Account_D
      * @param int $revokedStatus Token status of revoking
      * @return string
      */
-    public function getStatusLabel($revokedStatus)
+    function getStatusLabel($revokedStatus)
     {
         $labels = [
             $this->__('Enabled'),
@@ -136,7 +136,7 @@ class Mage_Oauth_Block_Customer_Token_List extends Mage_Customer_Block_Account_D
      * @param int $revokedStatus Token status of revoking
      * @return string
      */
-    public function getChangeStatusLabel($revokedStatus)
+    function getChangeStatusLabel($revokedStatus)
     {
         $labels = [
             $this->__('Disable'),
@@ -151,7 +151,7 @@ class Mage_Oauth_Block_Customer_Token_List extends Mage_Customer_Block_Account_D
      * @param int $revokedStatus Token status of revoking
      * @return string
      */
-    public function getChangeStatusConfirmMessage($revokedStatus)
+    function getChangeStatusConfirmMessage($revokedStatus)
     {
         $messages = [
             $this->__('Are you sure you want to disable this application?'),

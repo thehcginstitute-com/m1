@@ -50,7 +50,7 @@ class Mage_Sales_Model_Entity_Sale_Collection extends Varien_Object implements I
      */
     protected $_customer;
 
-    public function __construct()
+    function __construct()
     {
         $this->_entity = Mage::getModel('sales_entity/order');
         $this->_read = $this->_entity->getReadConnection();
@@ -60,7 +60,7 @@ class Mage_Sales_Model_Entity_Sale_Collection extends Varien_Object implements I
      * @param Mage_Customer_Model_Customer $customer
      * @return $this
      */
-    public function setCustomerFilter(Mage_Customer_Model_Customer $customer)
+    function setCustomerFilter(Mage_Customer_Model_Customer $customer)
     {
         $this->_customer = $customer;
         return $this;
@@ -72,7 +72,7 @@ class Mage_Sales_Model_Entity_Sale_Collection extends Varien_Object implements I
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function load($printQuery = false, $logQuery = false)
+    function load($printQuery = false, $logQuery = false)
     {
         $this->_select = $this->_read->select();
         $entityTable = $this->getEntity()->getEntityTable();
@@ -132,7 +132,7 @@ class Mage_Sales_Model_Entity_Sale_Collection extends Varien_Object implements I
      * @param null|string $sql
      * @return Mage_Sales_Model_Entity_Sale_Collection
      */
-    public function printLogQuery($printQuery = false, $logQuery = false, $sql = null)
+    function printLogQuery($printQuery = false, $logQuery = false, $sql = null)
     {
         if ($printQuery) {
             echo is_null($sql) ? $this->getSelect()->__toString() : $sql;
@@ -149,7 +149,7 @@ class Mage_Sales_Model_Entity_Sale_Collection extends Varien_Object implements I
      *
      * @return Zend_Db_Select
      */
-    public function getSelect()
+    function getSelect()
     {
         return $this->_select;
     }
@@ -158,7 +158,7 @@ class Mage_Sales_Model_Entity_Sale_Collection extends Varien_Object implements I
      * @param string $attr
      * @return Mage_Eav_Model_Entity_Attribute_Abstract
      */
-    public function getAttribute($attr)
+    function getAttribute($attr)
     {
         return $this->_entity->getAttribute($attr);
     }
@@ -166,7 +166,7 @@ class Mage_Sales_Model_Entity_Sale_Collection extends Varien_Object implements I
     /**
      * @return Mage_Eav_Model_Entity_Abstract
      */
-    public function getEntity()
+    function getEntity()
     {
         return $this->_entity;
     }
@@ -175,7 +175,7 @@ class Mage_Sales_Model_Entity_Sale_Collection extends Varien_Object implements I
      * @return ArrayIterator
      */
     #[\ReturnTypeWillChange]
-    public function getIterator()
+    function getIterator()
     {
         return new ArrayIterator($this->_items);
     }
@@ -183,7 +183,7 @@ class Mage_Sales_Model_Entity_Sale_Collection extends Varien_Object implements I
     /**
      * @return array
      */
-    public function getItems()
+    function getItems()
     {
         return $this->_items;
     }
@@ -191,7 +191,7 @@ class Mage_Sales_Model_Entity_Sale_Collection extends Varien_Object implements I
     /**
      * @return Varien_Object
      */
-    public function getTotals()
+    function getTotals()
     {
         return new Varien_Object($this->_totals);
     }

@@ -32,7 +32,7 @@ class Mage_Index_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_H
      * @param bool $readToIndex
      * @return Mage_Index_Model_Resource_Abstract
      */
-    public function insertData($object, $select, $destTable, $columns, $readToIndex)
+    function insertData($object, $select, $destTable, $columns, $readToIndex)
     {
         return $object->insertFromSelect($select, $destTable, $columns, $readToIndex);
     }
@@ -43,7 +43,7 @@ class Mage_Index_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_H
      * @param string $name
      * @return bool
      */
-    public function setLock($name)
+    function setLock($name)
     {
         return (bool) $this->_getWriteAdapter()->query("SELECT GET_LOCK(?, ?);", [$name, self::LOCK_GET_TIMEOUT])
             ->fetchColumn();
@@ -55,7 +55,7 @@ class Mage_Index_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_H
      * @param string $name
      * @return bool
      */
-    public function releaseLock($name)
+    function releaseLock($name)
     {
         return (bool) $this->_getWriteAdapter()->query("SELECT RELEASE_LOCK(?);", [$name])->fetchColumn();
     }
@@ -66,7 +66,7 @@ class Mage_Index_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_H
      * @param string $name
      * @return bool
      */
-    public function isLocked($name)
+    function isLocked($name)
     {
         return (bool) $this->_getWriteAdapter()->query("SELECT IS_USED_LOCK(?);", [$name])->fetchColumn();
     }
@@ -75,7 +75,7 @@ class Mage_Index_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_H
      * @param Varien_Db_Adapter_Interface $adapter
      * @return $this
      */
-    public function setWriteAdapter(Varien_Db_Adapter_Interface $adapter)
+    function setWriteAdapter(Varien_Db_Adapter_Interface $adapter)
     {
         $this->_writeAdapter = $adapter;
 

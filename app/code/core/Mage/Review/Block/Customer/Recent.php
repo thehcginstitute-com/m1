@@ -27,7 +27,7 @@ class Mage_Review_Block_Customer_Recent extends Mage_Core_Block_Template
      */
     protected $_collection;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('review/customer/list.phtml');
@@ -46,7 +46,7 @@ class Mage_Review_Block_Customer_Recent extends Mage_Core_Block_Template
     /**
      * @return int
      */
-    public function count()
+    function count()
     {
         return $this->_collection->getSize();
     }
@@ -62,7 +62,7 @@ class Mage_Review_Block_Customer_Recent extends Mage_Core_Block_Template
     /**
      * @return Mage_Review_Model_Resource_Review_Product_Collection
      */
-    public function getCollection()
+    function getCollection()
     {
         return $this->_getCollection();
     }
@@ -70,7 +70,7 @@ class Mage_Review_Block_Customer_Recent extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getReviewLink()
+    function getReviewLink()
     {
         return Mage::getUrl('review/customer/view/');
     }
@@ -78,7 +78,7 @@ class Mage_Review_Block_Customer_Recent extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getProductLink()
+    function getProductLink()
     {
         return Mage::getUrl('catalog/product/view/');
     }
@@ -87,7 +87,7 @@ class Mage_Review_Block_Customer_Recent extends Mage_Core_Block_Template
      * @param string $date
      * @return string
      */
-    public function dateFormat($date)
+    function dateFormat($date)
     {
         return $this->formatDate($date, Mage_Core_Model_Locale::FORMAT_TYPE_SHORT);
     }
@@ -95,7 +95,7 @@ class Mage_Review_Block_Customer_Recent extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getAllReviewsUrl()
+    function getAllReviewsUrl()
     {
         return Mage::getUrl('review/customer');
     }
@@ -104,7 +104,7 @@ class Mage_Review_Block_Customer_Recent extends Mage_Core_Block_Template
      * @param int $id
      * @return string
      */
-    public function getReviewUrl($id)
+    function getReviewUrl($id)
     {
         return Mage::getUrl('review/customer/view', ['id' => $id]);
     }

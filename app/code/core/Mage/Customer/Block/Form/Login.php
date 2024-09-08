@@ -40,7 +40,7 @@ class Mage_Customer_Block_Form_Login extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getPostActionUrl()
+    function getPostActionUrl()
     {
         /** @var Mage_Customer_Helper_Data $helper */
         $helper = $this->helper('customer');
@@ -52,7 +52,7 @@ class Mage_Customer_Block_Form_Login extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getCreateAccountUrl()
+    function getCreateAccountUrl()
     {
         $url = $this->getData('create_account_url');
         if (is_null($url)) {
@@ -68,7 +68,7 @@ class Mage_Customer_Block_Form_Login extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getForgotPasswordUrl()
+    function getForgotPasswordUrl()
     {
         /** @var Mage_Customer_Helper_Data $helper */
         $helper = $this->helper('customer');
@@ -80,7 +80,7 @@ class Mage_Customer_Block_Form_Login extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getUsername()
+    function getUsername()
     {
         if ($this->_username === -1) {
             $this->_username = Mage::getSingleton('customer/session')->getUsername(true);
@@ -94,7 +94,7 @@ class Mage_Customer_Block_Form_Login extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function canShowLogin()
+    function canShowLogin()
     {
         if (Mage::helper('customer')->isLoggedIn()) {
             return false;

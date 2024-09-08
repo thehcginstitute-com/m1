@@ -22,13 +22,13 @@
  */
 class Mage_Install_IndexController extends Mage_Install_Controller_Action
 {
-    public function preDispatch()
+    function preDispatch()
     {
         $this->setFlag('', self::FLAG_NO_CHECK_INSTALLATION, true);
         return parent::preDispatch();
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_forward('begin', 'wizard', 'install');
     }

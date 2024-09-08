@@ -27,7 +27,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
      *
      * @return $this
      */
-    public function _initAction()
+    function _initAction()
     {
         parent::_initAction();
         $this->_addBreadcrumb(Mage::helper('reports')->__('Products'), Mage::helper('reports')->__('Products'));
@@ -39,7 +39,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
      *
      * @deprecated after 1.4.0.1
      */
-    public function orderedAction()
+    function orderedAction()
     {
         return $this->_forward('bestsellers', 'report_sales');
     }
@@ -49,7 +49,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
      *
      * @deprecated after 1.4.0.1
      */
-    public function exportOrderedCsvAction()
+    function exportOrderedCsvAction()
     {
         return $this->_forward('exportBestsellersCsv', 'report_sales');
     }
@@ -59,7 +59,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
      *
      * @deprecated after 1.4.0.1
      */
-    public function exportOrderedExcelAction()
+    function exportOrderedExcelAction()
     {
         return $this->_forward('exportBestsellersExcel', 'report_sales');
     }
@@ -67,7 +67,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
     /**
      * Sold Products Report Action
      */
-    public function soldAction()
+    function soldAction()
     {
         $this->_title($this->__('Reports'))
              ->_title($this->__('Products'))
@@ -83,7 +83,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
     /**
      * Export Sold Products report to CSV format action
      */
-    public function exportSoldCsvAction()
+    function exportSoldCsvAction()
     {
         $fileName   = 'products_ordered.csv';
         $content    = $this->getLayout()
@@ -96,7 +96,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
     /**
      * Export Sold Products report to XML format action
      */
-    public function exportSoldExcelAction()
+    function exportSoldExcelAction()
     {
         $fileName   = 'products_ordered.xml';
         $content    = $this->getLayout()
@@ -109,7 +109,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
     /**
      * Most viewed products
      */
-    public function viewedAction()
+    function viewedAction()
     {
         $this->_title($this->__('Reports'))->_title($this->__('Products'))->_title($this->__('Most Viewed'));
 
@@ -133,7 +133,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
     /**
      * Export products most viewed report to CSV format
      */
-    public function exportViewedCsvAction()
+    function exportViewedCsvAction()
     {
         $fileName   = 'products_mostviewed.csv';
         $grid       = $this->getLayout()->createBlock('adminhtml/report_product_viewed_grid');
@@ -144,7 +144,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
     /**
      * Export products most viewed report to XML format
      */
-    public function exportViewedExcelAction()
+    function exportViewedExcelAction()
     {
         $fileName   = 'products_mostviewed.xml';
         $grid       = $this->getLayout()->createBlock('adminhtml/report_product_viewed_grid');
@@ -155,7 +155,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
     /**
      * Low stock action
      */
-    public function lowstockAction()
+    function lowstockAction()
     {
         $this->_title($this->__('Reports'))
              ->_title($this->__('Products'))
@@ -171,7 +171,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
     /**
      * Export low stock products report to CSV format
      */
-    public function exportLowstockCsvAction()
+    function exportLowstockCsvAction()
     {
         $fileName   = 'products_lowstock.csv';
         $content    = $this->getLayout()->createBlock('adminhtml/report_product_lowstock_grid')
@@ -184,7 +184,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
     /**
      * Export low stock products report to XML format
      */
-    public function exportLowstockExcelAction()
+    function exportLowstockExcelAction()
     {
         $fileName   = 'products_lowstock.xml';
         $content    = $this->getLayout()->createBlock('adminhtml/report_product_lowstock_grid')
@@ -197,7 +197,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
     /**
      * Downloads action
      */
-    public function downloadsAction()
+    function downloadsAction()
     {
         $this->_title($this->__('Reports'))
              ->_title($this->__('Products'))
@@ -213,7 +213,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
     /**
      * Export products downloads report to CSV format
      */
-    public function exportDownloadsCsvAction()
+    function exportDownloadsCsvAction()
     {
         $fileName   = 'products_downloads.csv';
         $content    = $this->getLayout()->createBlock('adminhtml/report_product_downloads_grid')
@@ -226,7 +226,7 @@ class Mage_Adminhtml_Report_ProductController extends Mage_Adminhtml_Controller_
     /**
      * Export products downloads report to XLS format
      */
-    public function exportDownloadsExcelAction()
+    function exportDownloadsExcelAction()
     {
         $fileName   = 'products_downloads.xml';
         $content    = $this->getLayout()->createBlock('adminhtml/report_product_downloads_grid')

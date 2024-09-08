@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Report_Product_Lowstock extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'report_product_lowstock';
         $this->_headerText = Mage::helper('reports')->__('Low stock');
@@ -42,17 +42,17 @@ class Mage_Adminhtml_Block_Report_Product_Lowstock extends Mage_Adminhtml_Block_
         return parent::_prepareLayout();
     }
 
-    public function getStoreSwitcherHtml()
+    function getStoreSwitcherHtml()
     {
         return Mage::app()->isSingleStoreMode() ? '' : $this->getChildHtml('store_switcher');
     }
 
-    public function getGridHtml()
+    function getGridHtml()
     {
         return $this->getStoreSwitcherHtml() . parent::getGridHtml();
     }
 
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head head-report';
     }

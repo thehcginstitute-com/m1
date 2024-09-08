@@ -22,18 +22,18 @@
  */
 class Mage_Install_Block_Admin extends Mage_Install_Block_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('install/create_admin.phtml');
     }
 
-    public function getPostUrl()
+    function getPostUrl()
     {
         return $this->getUrl('*/*/administratorPost');
     }
 
-    public function getFormData()
+    function getFormData()
     {
         $data = $this->getData('form_data');
         if (is_null($data)) {
@@ -48,7 +48,7 @@ class Mage_Install_Block_Admin extends Mage_Install_Block_Abstract
      *
      * @return int
      */
-    public function getMinAdminPasswordLength()
+    function getMinAdminPasswordLength()
     {
         return Mage::getModel('admin/user')->getMinAdminPasswordLength();
     }

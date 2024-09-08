@@ -26,7 +26,7 @@
  */
 class Mage_Review_Block_Form extends Mage_Core_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         $customerSession = Mage::getSingleton('customer/session');
 
@@ -68,7 +68,7 @@ class Mage_Review_Block_Form extends Mage_Core_Block_Template
      * @return false|Mage_Catalog_Model_Product|Mage_Core_Model_Abstract
      * @throws Exception
      */
-    public function getProductInfo()
+    function getProductInfo()
     {
         $product = Mage::registry('current_product');
         if (is_object($product) && ($product->getId() == $this->getRequest()->getParam('id'))) {
@@ -82,7 +82,7 @@ class Mage_Review_Block_Form extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getAction()
+    function getAction()
     {
         $productId = Mage::app()->getRequest()->getParam('id', false);
         return Mage::getUrl('review/product/post', ['id' => $productId, '_secure' => $this->_isSecure()]);
@@ -92,7 +92,7 @@ class Mage_Review_Block_Form extends Mage_Core_Block_Template
      * @return Mage_Rating_Model_Resource_Rating_Collection
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getRatings()
+    function getRatings()
     {
         return Mage::getModel('rating/rating')
             ->getResourceCollection()

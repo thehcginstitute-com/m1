@@ -28,12 +28,12 @@ class Mage_Adminhtml_Media_UploaderController extends Mage_Adminhtml_Controller_
      */
     public const ADMIN_RESOURCE = 'media';
 
-    public function uploadAction()
+    function uploadAction()
     {
         $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($_REQUEST));
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout();
         $this->_addContent(

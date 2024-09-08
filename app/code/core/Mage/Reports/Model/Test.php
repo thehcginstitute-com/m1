@@ -25,7 +25,7 @@ class Mage_Reports_Model_Test extends Varien_Object
     /**
      * @return false|string
      */
-    public function getUsersCountries()
+    function getUsersCountries()
     {
         return file_get_contents(Mage::getModuleDir('etc', 'Mage_Reports') . DS . 'flexTestDataCountries.xml');
     }
@@ -34,7 +34,7 @@ class Mage_Reports_Model_Test extends Varien_Object
      * @param int $countryId
      * @return string
      */
-    public function getUsersCities($countryId)
+    function getUsersCities($countryId)
     {
         $dom = new DOMDocument();
         $dom -> preserveWhiteSpace = false;
@@ -67,7 +67,7 @@ class Mage_Reports_Model_Test extends Varien_Object
     /**
      * @return false|string
      */
-    public function getTimelineData()
+    function getTimelineData()
     {
         return file_get_contents(Mage::getModuleDir('etc', 'Mage_Reports') . DS . 'flexTestDataTimeline.xml');
     }
@@ -75,7 +75,7 @@ class Mage_Reports_Model_Test extends Varien_Object
     /**
      * @return string
      */
-    public function getAllLinearExample()
+    function getAllLinearExample()
     {
         $session = Mage::getModel('review/session');
 
@@ -98,7 +98,7 @@ class Mage_Reports_Model_Test extends Varien_Object
     /**
      * @return string
      */
-    public function getNewLinearData()
+    function getNewLinearData()
     {
         $session = Mage::getModel('review/session');
 

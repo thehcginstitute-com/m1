@@ -46,7 +46,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Renderer_Attribute_Group extends Mage_A
      *
      * @return string
      */
-    public function getDisableAutoGroupChangeCheckboxLabel()
+    function getDisableAutoGroupChangeCheckboxLabel()
     {
         return Mage::helper('customer')->__($this->getDisableAutoGroupChangeAttribute()->getFrontend()->getLabel());
     }
@@ -56,7 +56,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Renderer_Attribute_Group extends Mage_A
      *
      * @return string
      */
-    public function getDisableAutoGroupChangeCheckboxState()
+    function getDisableAutoGroupChangeCheckboxState()
     {
         $customer = Mage::registry('current_customer');
         $checkedByDefault = ($customer && $customer->getId())
@@ -75,7 +75,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Renderer_Attribute_Group extends Mage_A
      *
      * @return string
      */
-    public function getDisableAutoGroupChangeCheckboxElementName()
+    function getDisableAutoGroupChangeCheckboxElementName()
     {
         return $this->getElement()->getForm()->getFieldNameSuffix()
             . '[' . $this->_getDisableAutoGroupChangeElementHtmlId() . ']';
@@ -86,7 +86,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Renderer_Attribute_Group extends Mage_A
      *
      * @return string
      */
-    public function getDisableAutoGroupChangeCheckboxElementId()
+    function getDisableAutoGroupChangeCheckboxElementId()
     {
         return $this->_getDisableAutoGroupChangeElementHtmlId();
     }

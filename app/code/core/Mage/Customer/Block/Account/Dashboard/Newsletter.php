@@ -30,7 +30,7 @@ class Mage_Customer_Block_Account_Dashboard_Newsletter extends Mage_Core_Block_T
     /**
      * @return Mage_Newsletter_Model_Subscriber
      */
-    public function getSubscriptionObject()
+    function getSubscriptionObject()
     {
         if (is_null($this->_subscription)) {
             $this->_subscription = Mage::getModel('newsletter/subscriber')

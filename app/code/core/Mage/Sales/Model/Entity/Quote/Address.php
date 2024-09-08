@@ -22,7 +22,7 @@
  */
 class Mage_Sales_Model_Entity_Quote_Address extends Mage_Eav_Model_Entity_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         $resource = Mage::getSingleton('core/resource');
         $this->setType('quote_address')->setConnection(
@@ -35,7 +35,7 @@ class Mage_Sales_Model_Entity_Quote_Address extends Mage_Eav_Model_Entity_Abstra
      * @param Mage_Sales_Model_Quote_Address $address
      * @return $this
      */
-    public function collectTotals(Mage_Sales_Model_Quote_Address $address)
+    function collectTotals(Mage_Sales_Model_Quote_Address $address)
     {
         $attributes = $this->loadAllAttributes()->getAttributesByCode();
         foreach ($attributes as $attrCode => $attr) {
@@ -51,7 +51,7 @@ class Mage_Sales_Model_Entity_Quote_Address extends Mage_Eav_Model_Entity_Abstra
      * @param Mage_Sales_Model_Quote_Address $address
      * @return $this
      */
-    public function fetchTotals(Mage_Sales_Model_Quote_Address $address)
+    function fetchTotals(Mage_Sales_Model_Quote_Address $address)
     {
         $attributes = $this->loadAllAttributes()->getAttributesByCode();
         foreach ($attributes as $attrCode => $attr) {

@@ -33,7 +33,7 @@ class Mage_Adminhtml_Cms_BlockController extends Mage_Adminhtml_Controller_Actio
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         return parent::preDispatch();
@@ -58,7 +58,7 @@ class Mage_Adminhtml_Cms_BlockController extends Mage_Adminhtml_Controller_Actio
     /**
      * Index action
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('CMS'))->_title($this->__('Static Blocks'));
 
@@ -69,7 +69,7 @@ class Mage_Adminhtml_Cms_BlockController extends Mage_Adminhtml_Controller_Actio
     /**
      * Create new CMS block
      */
-    public function newAction()
+    function newAction()
     {
         // the same form is used to create and edit
         $this->_forward('edit');
@@ -78,7 +78,7 @@ class Mage_Adminhtml_Cms_BlockController extends Mage_Adminhtml_Controller_Actio
     /**
      * Edit CMS block
      */
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('CMS'))->_title($this->__('Static Blocks'));
 
@@ -116,7 +116,7 @@ class Mage_Adminhtml_Cms_BlockController extends Mage_Adminhtml_Controller_Actio
     /**
      * Save action
      */
-    public function saveAction()
+    function saveAction()
     {
         // check if data sent
         if ($data = $this->getRequest()->getPost()) {
@@ -165,7 +165,7 @@ class Mage_Adminhtml_Cms_BlockController extends Mage_Adminhtml_Controller_Actio
     /**
      * Delete action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         // check if we know what should be deleted
         if ($id = $this->getRequest()->getParam('block_id')) {

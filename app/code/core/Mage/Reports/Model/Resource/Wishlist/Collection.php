@@ -40,7 +40,7 @@ class Mage_Reports_Model_Resource_Wishlist_Collection extends Mage_Core_Model_Re
      * @param string $value
      * @return $this
      */
-    public function setWishlistTable($value)
+    function setWishlistTable($value)
     {
         $this->_wishlistTable = $value;
         return $this;
@@ -51,7 +51,7 @@ class Mage_Reports_Model_Resource_Wishlist_Collection extends Mage_Core_Model_Re
      *
      * @return string
      */
-    public function getWishlistTable()
+    function getWishlistTable()
     {
         return $this->_wishlistTable;
     }
@@ -61,7 +61,7 @@ class Mage_Reports_Model_Resource_Wishlist_Collection extends Mage_Core_Model_Re
      *
      * @return array
      */
-    public function getWishlistCustomerCount()
+    function getWishlistCustomerCount()
     {
         /** @var Mage_Customer_Model_Resource_Customer_Collection $collection */
         $collection = Mage::getResourceModel('customer/customer_collection');
@@ -88,7 +88,7 @@ class Mage_Reports_Model_Resource_Wishlist_Collection extends Mage_Core_Model_Re
      *
      * @return int
      */
-    public function getSharedCount()
+    function getSharedCount()
     {
         /** @var Mage_Customer_Model_Resource_Customer_Collection $collection */
         $collection = Mage::getResourceModel('customer/customer_collection');

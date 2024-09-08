@@ -30,7 +30,7 @@ class Mage_Reports_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource
      * @param mixed $matchFields
      * @return string
      */
-    public function mergeVisitorProductIndex($mainTable, $data, $matchFields)
+    function mergeVisitorProductIndex($mainTable, $data, $matchFields)
     {
         return $this->_getWriteAdapter()->insertOnDuplicate($mainTable, $data, array_keys($data));
     }
@@ -44,7 +44,7 @@ class Mage_Reports_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource
      * @param string $aggregationTable
      * @return Mage_Core_Model_Resource_Helper_Mysql4
      */
-    public function updateReportRatingPos($type, $column, $mainTable, $aggregationTable)
+    function updateReportRatingPos($type, $column, $mainTable, $aggregationTable)
     {
         $adapter         = $this->_getWriteAdapter();
         $periodSubSelect = $adapter->select();

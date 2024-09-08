@@ -27,7 +27,7 @@ class Mage_Payment_Block_Form extends Mage_Core_Block_Template
      *
      * @return Mage_Payment_Model_Method_Abstract
      */
-    public function getMethod()
+    function getMethod()
     {
         $method = $this->getData('method');
 
@@ -42,7 +42,7 @@ class Mage_Payment_Block_Form extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getMethodCode()
+    function getMethodCode()
     {
         return $this->getMethod()->getCode();
     }
@@ -53,7 +53,7 @@ class Mage_Payment_Block_Form extends Mage_Core_Block_Template
      * @param   string $field
      * @return  string
      */
-    public function getInfoData($field)
+    function getInfoData($field)
     {
         return $this->escapeHtml($this->getMethod()->getInfoInstance()->getData($field));
     }

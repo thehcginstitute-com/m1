@@ -71,7 +71,7 @@ class Mage_Core_Helper_Cookie extends Mage_Core_Helper_Abstract
      * @param array $data
      * @throws InvalidArgumentException
      */
-    public function __construct(array $data = [])
+    function __construct(array $data = [])
     {
         $this->_currentStore = $data['current_store'] ?? Mage::app()->getStore();
 
@@ -97,7 +97,7 @@ class Mage_Core_Helper_Cookie extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isUserNotAllowSaveCookie()
+    function isUserNotAllowSaveCookie()
     {
         $acceptedSaveCookiesWebsites = $this->_getAcceptedSaveCookiesWebsites();
         return $this->_currentStore->getConfig(self::XML_PATH_COOKIE_RESTRICTION) &&
@@ -109,7 +109,7 @@ class Mage_Core_Helper_Cookie extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getAcceptedSaveCookiesWebsiteIds()
+    function getAcceptedSaveCookiesWebsiteIds()
     {
         $acceptedSaveCookiesWebsites = $this->_getAcceptedSaveCookiesWebsites();
         $acceptedSaveCookiesWebsites[$this->_website->getId()] = 1;
@@ -133,7 +133,7 @@ class Mage_Core_Helper_Cookie extends Mage_Core_Helper_Abstract
      *
      * @return int
      */
-    public function getCookieRestrictionLifetime()
+    function getCookieRestrictionLifetime()
     {
         return (int)$this->_currentStore->getConfig(self::XML_PATH_COOKIE_RESTRICTION_LIFETIME);
     }
@@ -143,7 +143,7 @@ class Mage_Core_Helper_Cookie extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getCookieRestrictionNoticeCmsBlockIdentifier()
+    function getCookieRestrictionNoticeCmsBlockIdentifier()
     {
         return self::COOKIE_RESTRICTION_NOTICE_CMS_BLOCK_IDENTIFIER;
     }

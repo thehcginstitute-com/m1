@@ -68,7 +68,7 @@ class Mage_Sales_Model_Service_Quote
      *
      * @param Mage_Sales_Model_Quote $quote
      */
-    public function __construct(Mage_Sales_Model_Quote $quote)
+    function __construct(Mage_Sales_Model_Quote $quote)
     {
         $this->_quote       = $quote;
         $this->_convertor   = Mage::getModel('sales/convert_quote');
@@ -80,7 +80,7 @@ class Mage_Sales_Model_Service_Quote
      * @param   Mage_Sales_Model_Convert_Quote $convertor
      * @return  Mage_Sales_Model_Service_Quote
      */
-    public function setConvertor(Mage_Sales_Model_Convert_Quote $convertor)
+    function setConvertor(Mage_Sales_Model_Convert_Quote $convertor)
     {
         $this->_convertor = $convertor;
         return $this;
@@ -91,7 +91,7 @@ class Mage_Sales_Model_Service_Quote
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return $this->_quote;
     }
@@ -102,7 +102,7 @@ class Mage_Sales_Model_Service_Quote
      * @param array $data
      * @return $this
      */
-    public function setOrderData(array $data)
+    function setOrderData(array $data)
     {
         $this->_orderData = $data;
         return $this;
@@ -113,7 +113,7 @@ class Mage_Sales_Model_Service_Quote
      * @see submitOrder()
      * @see submitAll()
      */
-    public function submit()
+    function submit()
     {
         return $this->submitOrder();
     }
@@ -123,7 +123,7 @@ class Mage_Sales_Model_Service_Quote
      *
      * @return Mage_Sales_Model_Order
      */
-    public function submitOrder()
+    function submitOrder()
     {
 		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
@@ -215,7 +215,7 @@ class Mage_Sales_Model_Service_Quote
      * Submit all available items
      * All created items will be set to the object
      */
-    public function submitAll()
+    function submitAll()
     {
 		# 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Delete the unused «Nominal products» feature": https://github.com/thehcginstitute-com/m1/issues/407
@@ -235,7 +235,7 @@ class Mage_Sales_Model_Service_Quote
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->_order;
     }

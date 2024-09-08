@@ -35,7 +35,7 @@ class Mage_Adminhtml_Block_Report_Grid_Abstract extends Mage_Adminhtml_Block_Wid
     /**
      * Mage_Adminhtml_Block_Report_Grid_Abstract constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setFilterVisibility(false);
@@ -50,7 +50,7 @@ class Mage_Adminhtml_Block_Report_Grid_Abstract extends Mage_Adminhtml_Block_Wid
     /**
      * @return string
      */
-    public function getResourceCollectionName()
+    function getResourceCollectionName()
     {
         return $this->_resourceCollectionName;
     }
@@ -58,7 +58,7 @@ class Mage_Adminhtml_Block_Report_Grid_Abstract extends Mage_Adminhtml_Block_Wid
     /**
      * @return Mage_Core_Model_Resource_Db_Collection_Abstract|Mage_Reports_Model_Grouped_Collection
      */
-    public function getCollection()
+    function getCollection()
     {
         if (is_null($this->_collection)) {
             $this->setCollection(Mage::getModel('reports/grouped_collection'));
@@ -94,7 +94,7 @@ class Mage_Adminhtml_Block_Report_Grid_Abstract extends Mage_Adminhtml_Block_Wid
      * @param   array $column
      * @return  Mage_Adminhtml_Block_Report_Grid_Abstract
      */
-    public function addColumn($columnId, $column)
+    function addColumn($columnId, $column)
     {
         if (is_array($column) && array_key_exists('visibility_filter', $column)) {
             $filterData = $this->getFilterData();
@@ -216,7 +216,7 @@ class Mage_Adminhtml_Block_Report_Grid_Abstract extends Mage_Adminhtml_Block_Wid
         return parent::_prepareCollection();
     }
 
-    public function getCountTotals()
+    function getCountTotals()
     {
         if (!$this->getTotals()) {
             $filterData = $this->getFilterData();
@@ -242,7 +242,7 @@ class Mage_Adminhtml_Block_Report_Grid_Abstract extends Mage_Adminhtml_Block_Wid
         return parent::getCountTotals();
     }
 
-    public function getSubTotals()
+    function getSubTotals()
     {
         $filterData = $this->getFilterData();
         $subTotalsCollection = Mage::getResourceModel($this->getResourceCollectionName())
@@ -259,13 +259,13 @@ class Mage_Adminhtml_Block_Report_Grid_Abstract extends Mage_Adminhtml_Block_Wid
         return parent::getSubTotals();
     }
 
-    public function setStoreIds($storeIds)
+    function setStoreIds($storeIds)
     {
         $this->_storeIds = $storeIds;
         return $this;
     }
 
-    public function getCurrentCurrencyCode()
+    function getCurrentCurrencyCode()
     {
         if (is_null($this->_currentCurrencyCode)) {
             $this->_currentCurrencyCode = (count($this->_storeIds) > 0)
@@ -281,7 +281,7 @@ class Mage_Adminhtml_Block_Report_Grid_Abstract extends Mage_Adminhtml_Block_Wid
      * @param string|Mage_Directory_Model_Currency $toCurrency
      * @return double
      */
-    public function getRate($toCurrency)
+    function getRate($toCurrency)
     {
         return Mage::app()->getStore()->getBaseCurrency()->getRate($toCurrency);
     }

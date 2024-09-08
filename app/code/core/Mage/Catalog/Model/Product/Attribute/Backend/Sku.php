@@ -36,7 +36,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Sku extends Mage_Eav_Model_En
      * @throws Mage_Core_Exception
      * @return bool
      */
-    public function validate($object)
+    function validate($object)
     {
         $helper = Mage::helper('core/string');
 

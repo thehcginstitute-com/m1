@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Dashboard_Tab_Products_Viewed extends Mage_Adminhtml_Block_Dashboard_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('productsReviewedGrid');
@@ -81,7 +81,7 @@ class Mage_Adminhtml_Block_Dashboard_Tab_Products_Viewed extends Mage_Adminhtml_
         return parent::_prepareColumns();
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         $params = ['id' => $row->getId()];
         if ($this->getRequest()->getParam('store')) {

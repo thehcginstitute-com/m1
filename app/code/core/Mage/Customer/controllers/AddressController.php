@@ -35,7 +35,7 @@ class Mage_Customer_AddressController extends Mage_Core_Controller_Front_Action
     /**
      * @inheritDoc
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
         if (!Mage::getSingleton('customer/session')->authenticate($this)) {
@@ -47,7 +47,7 @@ class Mage_Customer_AddressController extends Mage_Core_Controller_Front_Action
     /**
      * Customer addresses list
      */
-    public function indexAction()
+    function indexAction()
     {
         if (count($this->_getSession()->getCustomer()->getAddresses())) {
             $this->loadLayout();
@@ -64,12 +64,12 @@ class Mage_Customer_AddressController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function editAction()
+    function editAction()
     {
         $this->_forward('form');
     }
 
-    public function newAction()
+    function newAction()
     {
         $this->_forward('form');
     }
@@ -77,7 +77,7 @@ class Mage_Customer_AddressController extends Mage_Core_Controller_Front_Action
     /**
      * Address book form
      */
-    public function formAction()
+    function formAction()
     {
         $this->loadLayout();
         $this->_initLayoutMessages('customer/session');
@@ -91,7 +91,7 @@ class Mage_Customer_AddressController extends Mage_Core_Controller_Front_Action
     /**
      * @return Mage_Core_Controller_Varien_Action|void
      */
-    public function formPostAction()
+    function formPostAction()
     {
         if (!$this->_validateFormKey()) {
             return $this->_redirect('*/*/');
@@ -160,7 +160,7 @@ class Mage_Customer_AddressController extends Mage_Core_Controller_Front_Action
     /**
      * @return Mage_Core_Controller_Varien_Action|void
      */
-    public function deleteAction()
+    function deleteAction()
     {
         if (!$this->_validateFormKey()) {
             return $this->_redirect('*/*/');

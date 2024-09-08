@@ -37,7 +37,7 @@ class Mage_Adminhtml_SalesController extends Mage_Adminhtml_Controller_Action
         $this->setUsedModuleName('Mage_Sales');
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout();
         $this->_setActiveMenu('sales');

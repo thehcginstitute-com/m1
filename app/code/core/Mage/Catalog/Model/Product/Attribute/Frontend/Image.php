@@ -29,7 +29,7 @@ class Mage_Catalog_Model_Product_Attribute_Frontend_Image extends Mage_Eav_Model
      * @throws Mage_Core_Exception
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getUrl($object, $size = null)
+    function getUrl($object, $size = null)
     {
         $url = false;
         $image = $object->getData($this->getAttribute()->getAttributeCode());

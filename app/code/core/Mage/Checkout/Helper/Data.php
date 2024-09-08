@@ -34,7 +34,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Checkout_Model_Session
      */
-    public function getCheckout()
+    function getCheckout()
     {
         return Mage::getSingleton('checkout/session');
     }
@@ -44,7 +44,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return $this->getCheckout()->getQuote();
     }
@@ -53,7 +53,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      * @param float $price
      * @return string
      */
-    public function formatPrice($price)
+    function formatPrice($price)
     {
         return $this->getQuote()->getStore()->formatPrice($price);
     }
@@ -63,7 +63,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      * @param bool $format
      * @return float
      */
-    public function convertPrice($price, $format = true)
+    function convertPrice($price, $format = true)
     {
         return $this->getQuote()->getStore()->convertPrice($price, $format);
     }
@@ -72,7 +72,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      * @return array|null
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getRequiredAgreementIds()
+    function getRequiredAgreementIds()
     {
         if (is_null($this->_agreements)) {
             if (!Mage::getStoreConfigFlag('checkout/options/enable_agreements')) {
@@ -92,7 +92,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function canOnepageCheckout()
+    function canOnepageCheckout()
     {
         return Mage::getStoreConfigFlag('checkout/options/onepage_checkout_enabled');
     }
@@ -104,7 +104,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   Mage_Core_Model_Abstract $item
      * @return  float
      */
-    public function getPriceInclTax($item)
+    function getPriceInclTax($item)
     {
         if ($item->getPriceInclTax()) {
             return $item->getPriceInclTax();
@@ -121,7 +121,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   Mage_Core_Model_Abstract $item
      * @return  float
      */
-    public function getSubtotalInclTax($item)
+    function getSubtotalInclTax($item)
     {
         if ($item->getRowTotalInclTax()) {
             return $item->getRowTotalInclTax();
@@ -142,7 +142,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Abstract $item
      * @return float
      */
-    public function getBasePriceInclTax($item)
+    function getBasePriceInclTax($item)
     {
         $qty = ($item->getQty() ? $item->getQty() : ($item->getQtyOrdered() ? $item->getQtyOrdered() : 1));
 
@@ -155,7 +155,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Abstract $item
      * @return float
      */
-    public function getBaseSubtotalInclTax($item)
+    function getBaseSubtotalInclTax($item)
     {
 		# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
@@ -171,7 +171,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $checkoutType
      * @return $this
      */
-    public function sendPaymentFailedEmail($checkout, $message, $checkoutType = 'onepage')
+    function sendPaymentFailedEmail($checkout, $message, $checkoutType = 'onepage')
     {
         $translate = Mage::getSingleton('core/translate');
         /** @var Mage_Core_Model_Translate $translate */
@@ -272,7 +272,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isMultishippingCheckoutAvailable()
+    function isMultishippingCheckoutAvailable()
     {
         $quote = $this->getQuote();
         $isMultiShipping = (bool)(int)Mage::getStoreConfig('shipping/option/checkout_multiple');
@@ -298,7 +298,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int|Mage_Core_Model_Store $store
      * @return bool
      */
-    public function isAllowedGuestCheckout(Mage_Sales_Model_Quote $quote, $store = null)
+    function isAllowedGuestCheckout(Mage_Sales_Model_Quote $quote, $store = null)
     {
         if ($store === null) {
             $store = $quote->getStoreId();
@@ -325,7 +325,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isContextCheckout()
+    function isContextCheckout()
     {
         return (Mage::app()->getRequest()->getParam('context') == 'checkout');
     }
@@ -335,7 +335,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isCustomerMustBeLogged()
+    function isCustomerMustBeLogged()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_CUSTOMER_MUST_BE_LOGGED);
     }

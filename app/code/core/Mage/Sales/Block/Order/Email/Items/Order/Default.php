@@ -27,7 +27,7 @@ class Mage_Sales_Block_Order_Email_Items_Order_Default extends Mage_Core_Block_T
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->getItem()->getOrder();
     }
@@ -35,7 +35,7 @@ class Mage_Sales_Block_Order_Email_Items_Order_Default extends Mage_Core_Block_T
     /**
      * @return array
      */
-    public function getItemOptions()
+    function getItemOptions()
     {
         $result = [];
         if ($options = $this->getItem()->getProductOptions()) {
@@ -57,7 +57,7 @@ class Mage_Sales_Block_Order_Email_Items_Order_Default extends Mage_Core_Block_T
      * @param array|string $value
      * @return string
      */
-    public function getValueHtml($value)
+    function getValueHtml($value)
     {
         if (is_array($value)) {
             return sprintf('%d', $value['qty']) . ' x ' . $this->escapeHtml($value['title']) . " "
@@ -71,7 +71,7 @@ class Mage_Sales_Block_Order_Email_Items_Order_Default extends Mage_Core_Block_T
      * @param Mage_Sales_Model_Order_Item $item
      * @return array|string
      */
-    public function getSku($item)
+    function getSku($item)
     {
         if ($item->getProductOptionByCode('simple_sku')) {
             return $item->getProductOptionByCode('simple_sku');
@@ -85,7 +85,7 @@ class Mage_Sales_Block_Order_Email_Items_Order_Default extends Mage_Core_Block_T
      *
      * @return Mage_Core_Block_Abstract
      */
-    public function getProductAdditionalInformationBlock()
+    function getProductAdditionalInformationBlock()
     {
         return $this->getLayout()->getBlock('additional.product.info');
     }

@@ -33,7 +33,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Group extends Mage_Core_Model_Res
      * @param Mage_Eav_Model_Entity_Attribute_Group $object
      * @return bool
      */
-    public function itemExists($object)
+    function itemExists($object)
     {
         $adapter   = $this->_getReadAdapter();
         $bind      = [
@@ -103,7 +103,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Group extends Mage_Core_Model_Res
      * @param int $attributeSetId
      * @return $this
      */
-    public function updateDefaultGroup($attributeSetId)
+    function updateDefaultGroup($attributeSetId)
     {
         $adapter = $this->_getWriteAdapter();
         $bind    = [':attribute_set_id' => $attributeSetId];

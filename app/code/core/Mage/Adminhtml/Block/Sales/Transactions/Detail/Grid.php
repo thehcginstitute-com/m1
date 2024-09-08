@@ -80,7 +80,7 @@ class Mage_Adminhtml_Block_Sales_Transactions_Detail_Grid extends Mage_Adminhtml
      *
      * @return array
      */
-    public function getTransactionAdditionalInfo()
+    function getTransactionAdditionalInfo()
     {
         $info = Mage::registry('current_transaction')->getAdditionalInformation(
             Mage_Sales_Model_Order_Payment_Transaction::RAW_DETAILS

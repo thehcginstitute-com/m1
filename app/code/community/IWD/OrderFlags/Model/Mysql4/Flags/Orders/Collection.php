@@ -8,7 +8,7 @@ class IWD_OrderFlags_Model_Mysql4_Flags_Orders_Collection extends Mage_Core_Mode
     /**
      * {@inheritdoc}
      */
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->_init('iwd_orderflags/flags_orders');

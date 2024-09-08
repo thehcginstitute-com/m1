@@ -45,7 +45,7 @@ class Mage_Uploader_Model_Config_Browsebutton extends Mage_Uploader_Model_Config
      * @param string|array $exts
      * @return string
      */
-    public function getMimeTypesByExtensions($exts)
+    function getMimeTypesByExtensions($exts)
     {
         $mimes = array_unique($this->_getHelper()->getMimeTypeFromExtensionList($exts));
 

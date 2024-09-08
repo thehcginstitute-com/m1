@@ -66,7 +66,7 @@ class Mage_Cms_Model_Wysiwyg_Config extends Varien_Object
      * @param array $data constructor params to override default config values
      * @return Varien_Object
      */
-    public function getConfig($data = [])
+    function getConfig($data = [])
     {
         $config = new Varien_Object();
 
@@ -116,7 +116,7 @@ class Mage_Cms_Model_Wysiwyg_Config extends Varien_Object
      *
      * @return string
      */
-    public function getSkinImagePlaceholderUrl()
+    function getSkinImagePlaceholderUrl()
     {
         return Mage::getDesign()->getSkinUrl(self::WYSIWYG_SKIN_IMAGE_PLACEHOLDER_FILE);
     }
@@ -126,7 +126,7 @@ class Mage_Cms_Model_Wysiwyg_Config extends Varien_Object
      *
      * @return string
      */
-    public function getSkinImagePlaceholderPath()
+    function getSkinImagePlaceholderPath()
     {
         return Mage::getModel('core/design_package')->getSkinBaseDir(['_area' => 'adminhtml']) . DS .
             self::WYSIWYG_SKIN_IMAGE_PLACEHOLDER_FILE;
@@ -137,7 +137,7 @@ class Mage_Cms_Model_Wysiwyg_Config extends Varien_Object
      *
      * @return bool
      */
-    public function isEnabled()
+    function isEnabled()
     {
         $storeId = $this->getStoreId();
         if (!is_null($storeId)) {
@@ -153,7 +153,7 @@ class Mage_Cms_Model_Wysiwyg_Config extends Varien_Object
      *
      * @return bool
      */
-    public function isHidden()
+    function isHidden()
     {
         return Mage::getStoreConfig('cms/wysiwyg/enabled') == self::WYSIWYG_HIDDEN;
     }

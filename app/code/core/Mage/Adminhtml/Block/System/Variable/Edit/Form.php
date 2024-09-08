@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_System_Variable_Edit_Form extends Mage_Adminhtml_Bloc
      *
      * @return Mage_Core_Model_Variable
      */
-    public function getVariable()
+    function getVariable()
     {
         return Mage::registry('current_variable');
     }

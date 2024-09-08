@@ -43,7 +43,7 @@ class Nwdthemes_Revslider_Block_Revslider extends Mage_Core_Block_Template {
 		$this->_revSliderFront = Mage::getSingleton('RevSliderFront');
 	}
 
-	public function renderSlider() {
+	function renderSlider() {
 		if ( Mage::helper('nwdall')->getCfg('general/enabled', 'nwdrevslider_config') )
 		{
 			ob_start();

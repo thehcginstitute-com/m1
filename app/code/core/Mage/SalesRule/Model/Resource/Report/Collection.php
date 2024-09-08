@@ -54,7 +54,7 @@ class Mage_SalesRule_Model_Resource_Report_Collection extends Mage_Sales_Model_R
      * Initialize custom resource model
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::_construct();
         $this->setModel('adminhtml/report_item');
@@ -133,7 +133,7 @@ class Mage_SalesRule_Model_Resource_Report_Collection extends Mage_Sales_Model_R
      * @param array $rulesList
      * @return $this
      */
-    public function addRuleFilter($rulesList)
+    function addRuleFilter($rulesList)
     {
         $this->_rulesIdsFilter = $rulesList;
         return $this;

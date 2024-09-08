@@ -28,7 +28,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Msrp extends Mage_Catalog_Mod
      * @param Mage_Catalog_Model_Product $product
      * @return Mage_Catalog_Model_Product_Attribute_Backend_Boolean|Mage_Catalog_Model_Product_Attribute_Backend_Msrp
      */
-    public function beforeSave($product)
+    function beforeSave($product)
     {
         if (!($product instanceof Mage_Catalog_Model_Product)
             || $product->getTypeId() != Mage_Catalog_Model_Product_Type::TYPE_BUNDLE

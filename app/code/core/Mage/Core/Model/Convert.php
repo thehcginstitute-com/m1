@@ -22,7 +22,7 @@
  */
 class Mage_Core_Model_Convert extends Mage_Dataflow_Model_Convert_Profile_Collection
 {
-    public function __construct()
+    function __construct()
     {
         $classArr = explode('_', get_class($this));
         $moduleName = $classArr[0] . '_' . $classArr[1];
@@ -39,7 +39,7 @@ class Mage_Core_Model_Convert extends Mage_Dataflow_Model_Convert_Profile_Collec
      * @param string $type
      * @return mixed|string
      */
-    public function getClassNameByType($type)
+    function getClassNameByType($type)
     {
         if (strpos($type, '/') !== false) {
             return Mage::getConfig()->getModelClassName($type);

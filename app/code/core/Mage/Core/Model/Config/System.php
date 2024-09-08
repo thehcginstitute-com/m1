@@ -26,7 +26,7 @@ class Mage_Core_Model_Config_System extends Mage_Core_Model_Config_Base
      * @param string $module
      * @return $this
      */
-    public function load($module)
+    function load($module)
     {
         $file = Mage::getConfig()->getModuleDir('etc', $module) . DS . 'system.xml';
         $this->loadFile($file);

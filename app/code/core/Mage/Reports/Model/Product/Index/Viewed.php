@@ -53,7 +53,7 @@ class Mage_Reports_Model_Product_Index_Viewed extends Mage_Reports_Model_Product
      *
      * @return array
      */
-    public function getExcludeProductIds()
+    function getExcludeProductIds()
     {
         $productIds = [];
 

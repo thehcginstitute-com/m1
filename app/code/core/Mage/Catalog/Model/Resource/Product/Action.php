@@ -44,7 +44,7 @@ class Mage_Catalog_Model_Resource_Product_Action extends Mage_Catalog_Model_Reso
      * @param int $storeId
      * @return $this
      */
-    public function updateAttributes($entityIds, $attrData, $storeId)
+    function updateAttributes($entityIds, $attrData, $storeId)
     {
         $this->_attributeValuesToSave   = [];
         $this->_attributeValuesToDelete = [];

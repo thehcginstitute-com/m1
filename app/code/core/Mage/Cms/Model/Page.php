@@ -94,7 +94,7 @@ class Mage_Cms_Model_Page extends Mage_Core_Model_Abstract
     /**
      * @inheritDoc
      */
-    public function load($id, $field = null)
+    function load($id, $field = null)
     {
         if (is_null($id)) {
             return $this->noRoutePage();
@@ -107,7 +107,7 @@ class Mage_Cms_Model_Page extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function noRoutePage()
+    function noRoutePage()
     {
         return $this->load(self::NOROUTE_PAGE_ID, $this->getIdFieldName());
     }
@@ -120,7 +120,7 @@ class Mage_Cms_Model_Page extends Mage_Core_Model_Abstract
      * @param int $storeId
      * @return string
      */
-    public function checkIdentifier($identifier, $storeId)
+    function checkIdentifier($identifier, $storeId)
     {
         return $this->_getResource()->checkIdentifier($identifier, $storeId);
     }
@@ -131,7 +131,7 @@ class Mage_Cms_Model_Page extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getAvailableStatuses()
+    function getAvailableStatuses()
     {
         $statuses = new Varien_Object([
             self::STATUS_ENABLED => Mage::helper('cms')->__('Enabled'),

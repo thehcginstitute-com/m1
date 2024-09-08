@@ -39,7 +39,7 @@ abstract class Mage_Core_Model_Resource_Type_Abstract
      *
      * @return String
      */
-    public function getEntityClass()
+    function getEntityClass()
     {
         return $this->_entityClass;
     }
@@ -49,7 +49,7 @@ abstract class Mage_Core_Model_Resource_Type_Abstract
      *
      * @param String $name
      */
-    public function setName($name)
+    function setName($name)
     {
         $this->_name = $name;
     }
@@ -59,7 +59,7 @@ abstract class Mage_Core_Model_Resource_Type_Abstract
      *
      * @return String
      */
-    public function getName()
+    function getName()
     {
         return $this->_name;
     }

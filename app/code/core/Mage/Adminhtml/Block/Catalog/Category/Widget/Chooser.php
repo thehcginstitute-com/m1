@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Widget_Chooser extends Mage_Adminhtm
      * Block construction
      * Defines tree template and init tree params
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/category/widget/tree.phtml');
@@ -41,7 +41,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Widget_Chooser extends Mage_Adminhtm
      * @param array $selectedCategories
      * @return $this
      */
-    public function setSelectedCategories($selectedCategories)
+    function setSelectedCategories($selectedCategories)
     {
         $this->_selectedCategories = $selectedCategories;
         return $this;
@@ -52,7 +52,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Widget_Chooser extends Mage_Adminhtm
      *
      * @return array
      */
-    public function getSelectedCategories()
+    function getSelectedCategories()
     {
         return $this->_selectedCategories;
     }
@@ -63,7 +63,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Widget_Chooser extends Mage_Adminhtm
      * @param Varien_Data_Form_Element_Abstract $element Form Element
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function prepareElementHtml(Varien_Data_Form_Element_Abstract $element)
+    function prepareElementHtml(Varien_Data_Form_Element_Abstract $element)
     {
         $uniqId = Mage::helper('core')->uniqHash($element->getId());
         $sourceUrl = $this->getUrl(
@@ -121,7 +121,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Widget_Chooser extends Mage_Adminhtm
      *
      * @return string
      */
-    public function getNodeClickListener()
+    function getNodeClickListener()
     {
         if ($this->getData('node_click_listener')) {
             return $this->getData('node_click_listener');
@@ -170,7 +170,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Widget_Chooser extends Mage_Adminhtm
      *
      * @return Mage_Catalog_Model_Resource_Eav_Mysql4_Category_Collection
      */
-    public function getCategoryCollection()
+    function getCategoryCollection()
     {
         return parent::getCategoryCollection()->addAttributeToSelect('url_key')->addAttributeToSelect('is_anchor');
     }
@@ -180,7 +180,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Widget_Chooser extends Mage_Adminhtm
      *
      * @return string
      */
-    public function getLoadTreeUrl($expanded = null)
+    function getLoadTreeUrl($expanded = null)
     {
         return $this->getUrl('*/catalog_category_widget/categoriesJson', [
             '_current' => true,

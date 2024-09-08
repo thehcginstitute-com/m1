@@ -29,7 +29,7 @@ class Mage_Adminhtml_Block_Tax_Rate_Form extends Mage_Adminhtml_Block_Widget_For
      */
     protected $_titles = null;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setDestElementId('rate_form');

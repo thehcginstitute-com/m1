@@ -61,7 +61,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Backend_Tierprice extends Ma
      * @param Mage_Catalog_Model_Resource_Eav_Attribute $attribute
      * @return array
      */
-    public function loadProductPrices($product, $attribute)
+    function loadProductPrices($product, $attribute)
     {
         $websiteId = null;
         if ($attribute->isScopeGlobal()) {
@@ -82,7 +82,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Backend_Tierprice extends Ma
      * @param Mage_Catalog_Model_Resource_Eav_Attribute $attribute
      * @return $this
      */
-    public function deleteProductPrices($product, $attribute)
+    function deleteProductPrices($product, $attribute)
     {
         $websiteId = null;
         if (!$attribute->isScopeGlobal()) {
@@ -106,7 +106,7 @@ class Mage_Catalog_Model_Resource_Product_Attribute_Backend_Tierprice extends Ma
      * @param array $data
      * @return $this
      */
-    public function insertProductPrice($product, $data)
+    function insertProductPrice($product, $data)
     {
         $priceObject = new Varien_Object($data);
         $priceObject->setEntityId($product->getId());

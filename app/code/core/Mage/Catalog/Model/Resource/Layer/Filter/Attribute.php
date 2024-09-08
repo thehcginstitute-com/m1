@@ -34,7 +34,7 @@ class Mage_Catalog_Model_Resource_Layer_Filter_Attribute extends Mage_Core_Model
      * @param int $value
      * @return $this
      */
-    public function applyFilterToCollection($filter, $value)
+    function applyFilterToCollection($filter, $value)
     {
         $collection = $filter->getLayer()->getProductCollection();
         $attribute  = $filter->getAttributeModel();
@@ -62,7 +62,7 @@ class Mage_Catalog_Model_Resource_Layer_Filter_Attribute extends Mage_Core_Model
      * @param Mage_Catalog_Model_Layer_Filter_Attribute $filter
      * @return array
      */
-    public function getCount($filter)
+    function getCount($filter)
     {
         // clone select from collection with filters
         $select = clone $filter->getLayer()->getProductCollection()->getSelect();

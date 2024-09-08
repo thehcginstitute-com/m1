@@ -27,7 +27,7 @@ class Mage_Checkout_Block_Multishipping_Addresses extends Mage_Sales_Block_Items
      *
      * @return Mage_Checkout_Model_Type_Multishipping
      */
-    public function getCheckout()
+    function getCheckout()
     {
         return Mage::getSingleton('checkout/type_multishipping');
     }
@@ -47,7 +47,7 @@ class Mage_Checkout_Block_Multishipping_Addresses extends Mage_Sales_Block_Items
      * @return array
      * @throws Exception
      */
-    public function getItems()
+    function getItems()
     {
         $items = $this->getCheckout()->getQuoteShippingAddressesItems();
         $itemsFilter = new Varien_Filter_Object_Grid();
@@ -62,7 +62,7 @@ class Mage_Checkout_Block_Multishipping_Addresses extends Mage_Sales_Block_Items
      * @param string $index
      * @return string
      */
-    public function getAddressesHtmlSelect($item, $index)
+    function getAddressesHtmlSelect($item, $index)
     {
         $select = $this->getLayout()->createBlock('core/html_select')
             ->setName('ship[' . $index . '][' . $item->getQuoteItemId() . '][address]')
@@ -78,7 +78,7 @@ class Mage_Checkout_Block_Multishipping_Addresses extends Mage_Sales_Block_Items
      *
      * @return array
      */
-    public function getAddressOptions()
+    function getAddressOptions()
     {
         $options = $this->getData('address_options');
         if (is_null($options)) {
@@ -98,7 +98,7 @@ class Mage_Checkout_Block_Multishipping_Addresses extends Mage_Sales_Block_Items
     /**
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         return $this->getCheckout()->getCustomerSession()->getCustomer();
     }
@@ -107,7 +107,7 @@ class Mage_Checkout_Block_Multishipping_Addresses extends Mage_Sales_Block_Items
      * @param Varien_Object $item
      * @return string
      */
-    public function getItemUrl($item)
+    function getItemUrl($item)
     {
         return $this->getUrl('catalog/product/view/id/' . $item->getProductId());
     }
@@ -116,7 +116,7 @@ class Mage_Checkout_Block_Multishipping_Addresses extends Mage_Sales_Block_Items
      * @param Varien_Object $item
      * @return string
      */
-    public function getItemDeleteUrl($item)
+    function getItemDeleteUrl($item)
     {
         return $this->getUrl('*/*/removeItem', ['address' => $item->getQuoteAddressId(), 'id' => $item->getId()]);
     }
@@ -124,7 +124,7 @@ class Mage_Checkout_Block_Multishipping_Addresses extends Mage_Sales_Block_Items
     /**
      * @return string
      */
-    public function getPostActionUrl()
+    function getPostActionUrl()
     {
         return $this->getUrl('*/*/addressesPost');
     }
@@ -132,7 +132,7 @@ class Mage_Checkout_Block_Multishipping_Addresses extends Mage_Sales_Block_Items
     /**
      * @return string
      */
-    public function getNewAddressUrl()
+    function getNewAddressUrl()
     {
         return Mage::getUrl('*/multishipping_address/newShipping');
     }
@@ -140,7 +140,7 @@ class Mage_Checkout_Block_Multishipping_Addresses extends Mage_Sales_Block_Items
     /**
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return Mage::getUrl('*/cart/');
     }
@@ -148,7 +148,7 @@ class Mage_Checkout_Block_Multishipping_Addresses extends Mage_Sales_Block_Items
     /**
      * @return bool
      */
-    public function isContinueDisabled()
+    function isContinueDisabled()
     {
         return !$this->getCheckout()->validateMinimumAmount();
     }

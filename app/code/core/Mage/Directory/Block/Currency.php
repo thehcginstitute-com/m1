@@ -28,7 +28,7 @@ class Mage_Directory_Block_Currency extends Mage_Core_Block_Template
      *
      * @return int
      */
-    public function getCurrencyCount()
+    function getCurrencyCount()
     {
         return count($this->getCurrencies());
     }
@@ -40,7 +40,7 @@ class Mage_Directory_Block_Currency extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getCurrencies()
+    function getCurrencies()
     {
         $currencies = $this->getData('currencies');
         if (is_null($currencies)) {
@@ -70,7 +70,7 @@ class Mage_Directory_Block_Currency extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getSwitchUrl()
+    function getSwitchUrl()
     {
         return $this->getUrl('directory/currency/switch');
     }
@@ -81,7 +81,7 @@ class Mage_Directory_Block_Currency extends Mage_Core_Block_Template
      * @param string $code Currency code
      * @return string
      */
-    public function getSwitchCurrencyUrl($code)
+    function getSwitchCurrencyUrl($code)
     {
         return Mage::helper('directory/url')->getSwitchCurrencyUrl(['currency' => $code]);
     }
@@ -91,7 +91,7 @@ class Mage_Directory_Block_Currency extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getCurrentCurrencyCode()
+    function getCurrentCurrencyCode()
     {
         if (is_null($this->_getData('current_currency_code'))) {
             // do not use Mage::app()->getStore()->getCurrentCurrencyCode() because of probability

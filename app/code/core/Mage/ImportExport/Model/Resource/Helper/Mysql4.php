@@ -33,7 +33,7 @@ class Mage_ImportExport_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Res
      *
      * @return float
      */
-    public function getMaxDataSize()
+    function getMaxDataSize()
     {
         $maxPacketData = $this->_getReadAdapter()->fetchRow('SHOW VARIABLES LIKE "max_allowed_packet"');
         $maxPacket = empty($maxPacketData['Value']) ? self::DB_MAX_PACKET_SIZE : $maxPacketData['Value'];
@@ -47,7 +47,7 @@ class Mage_ImportExport_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Res
      * @return int
      * @throws Mage_Core_Exception
      */
-    public function getNextAutoincrement($tableName)
+    function getNextAutoincrement($tableName)
     {
         $adapter = $this->_getReadAdapter();
         $entityStatus = $adapter->showTableStatus($tableName);

@@ -33,7 +33,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main extends Mage_Adm
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('widget')->__('Frontend Properties');
     }
@@ -43,7 +43,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main extends Mage_Adm
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('widget')->__('Frontend Properties');
     }
@@ -53,7 +53,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main extends Mage_Adm
      *
      * @return bool
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return $this->getWidgetInstance()->isCompleteToCreate();
     }
@@ -63,7 +63,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main extends Mage_Adm
      *
      * @return false
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }
@@ -73,7 +73,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main extends Mage_Adm
      *
      * @return Mage_Widget_Model_Widget_Instance
      */
-    public function getWidgetInstance()
+    function getWidgetInstance()
     {
         return Mage::registry('current_widget_instance');
     }
@@ -172,7 +172,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main extends Mage_Adm
      *
      * @return array
      */
-    public function getTypesOptionsArray()
+    function getTypesOptionsArray()
     {
         return $this->getWidgetInstance()->getWidgetsOptionArray();
     }
@@ -182,7 +182,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main extends Mage_Adm
      *
      * @return array
      */
-    public function getPackegeThemeOptionsArray()
+    function getPackegeThemeOptionsArray()
     {
         return Mage::getModel('core/design_source_design')
             ->setIsFullLabel(true)->getAllOptions(true);

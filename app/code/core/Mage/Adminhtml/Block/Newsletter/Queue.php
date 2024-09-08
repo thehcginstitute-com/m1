@@ -21,7 +21,7 @@
  */
 class Mage_Adminhtml_Block_Newsletter_Queue extends Mage_Adminhtml_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         $this->setTemplate('newsletter/queue/list.phtml');
     }

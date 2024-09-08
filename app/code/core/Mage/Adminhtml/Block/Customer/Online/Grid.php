@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Customer_Online_Grid extends Mage_Adminhtml_Block_Wid
      * Initialize Grid block
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('onlineGrid');
@@ -149,7 +149,7 @@ class Mage_Adminhtml_Block_Customer_Online_Grid extends Mage_Adminhtml_Block_Wid
      * @param Mage_Core_Model_Abstract $row
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return (Mage::getSingleton('admin/session')->isAllowed('customer/manage') && $row->getCustomerId())
             ? $this->getUrl('*/customer/edit', ['id' => $row->getCustomerId()]) : '';

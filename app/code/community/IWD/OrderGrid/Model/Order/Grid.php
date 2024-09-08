@@ -16,7 +16,7 @@ class IWD_OrderGrid_Model_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 	private $selectedColumns;
 	private $columns = array();
 
-	public function isLimitPeriod()
+	function isLimitPeriod()
 	{
 		$selectedColumns = $this->getSelectedColumnsArray(self::XML_PATH_ORDER_GRID_COLUMN);
 		$baseColumns = array('increment_id', 'status', 'store_id', 'grand_total', 'base_grand_total', 'created_at', 'updated_at', 'total_paid', 'shipping_name', 'billing_name');
@@ -29,17 +29,17 @@ class IWD_OrderGrid_Model_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 		return self::IS_LIMIT_PERIOD;
 	}
 
-	public function getStatusColors()
+	function getStatusColors()
 	{
 		return trim((string)Mage::getStoreConfig(self::XML_PATH_ORDER_GRID_STATUS_COLOR));
 	}
 
-	public function isFixGridHeader()
+	function isFixGridHeader()
 	{
 		return Mage::getStoreConfig(self::XML_PATH_ORDER_GRID_FIX_HEADER);
 	}
 
-	public function getSelectedColumnsArray($gridXpath)
+	function getSelectedColumnsArray($gridXpath)
 	{
 		$selectedColumns = Mage::getStoreConfig($gridXpath);
 		$selectedColumns = explode(",", $selectedColumns);
@@ -51,7 +51,7 @@ class IWD_OrderGrid_Model_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 		return $selectedColumns;
 	}
 
-	public function prepareCollection($filter, $collection)
+	function prepareCollection($filter, $collection)
 	{
 		$selectedColumns = $this->getSelectedColumnsArray(self::XML_PATH_ORDER_GRID_COLUMN);
 
@@ -121,7 +121,7 @@ class IWD_OrderGrid_Model_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 		Mage::getSingleton('adminhtml/session')->setData("sales_order_gridfilter", $filter);
 	}
 
-	public function getOrdersCollection($selectedColumns, $collection = null)
+	function getOrdersCollection($selectedColumns, $collection = null)
 	{
 		$this->selectedColumns = $selectedColumns;
 		if ($collection !== null) {
@@ -325,7 +325,7 @@ class IWD_OrderGrid_Model_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 	 * @param bool $dispatchEvent
 	 * @return array
 	 */
-	public function getOrderGridColumns($dispatchEvent = true)
+	function getOrderGridColumns($dispatchEvent = true)
 	{
 		$helper = Mage::helper('iwd_ordergrid');
 
@@ -421,12 +421,12 @@ class IWD_OrderGrid_Model_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 	 * @param $columnId
 	 * @param $columnLabel
 	 */
-	public function addColumnToOrderGridSettings($columnId, $columnLabel)
+	function addColumnToOrderGridSettings($columnId, $columnLabel)
 	{
 		$this->columns[$columnId] = $columnLabel;
 	}
 
-	public function prepareColumns(Mage_Adminhtml_Block_Widget_Grid $grid, $selectedColumns = null)
+	function prepareColumns(Mage_Adminhtml_Block_Widget_Grid $grid, $selectedColumns = null)
 	{
 		if ($selectedColumns === null) {
 			$selectedColumns = $this->getSelectedColumnsArray(self::XML_PATH_ORDER_GRID_COLUMN);
@@ -459,7 +459,7 @@ class IWD_OrderGrid_Model_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 		return $grid;
 	}
 
-	public function addHiddenColumnWithStatus($grid)
+	function addHiddenColumnWithStatus($grid)
 	{
 		$grid->addColumn(
 			'status-row',
@@ -478,7 +478,7 @@ class IWD_OrderGrid_Model_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 		return $grid;
 	}
 
-	public function addReorderColumn($grid)
+	function addReorderColumn($grid)
 	{
 		$grid->addColumn(
 			'reorder',
@@ -1050,7 +1050,7 @@ class IWD_OrderGrid_Model_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 		return $columns;
 	}
 
-	public function getColumnWidth()
+	function getColumnWidth()
 	{
 		$columnsWidth = Mage::getStoreConfig(self::XML_PATH_ORDER_GRID_COLUMN_WIDTH);
 		return empty($columnsWidth) ? '{}' : $columnsWidth;
@@ -1108,7 +1108,7 @@ class IWD_OrderGrid_Model_Order_Grid extends Mage_Adminhtml_Block_Widget_Grid
 		return $this;
 	}
 
-	public function complexFilter($collection, $column)
+	function complexFilter($collection, $column)
 	{
 		$field = ($column->getFilterIndex()) ? $column->getFilterIndex() : $column->getIndex();
 		$filterValue = $column->getFilter()->getValue();

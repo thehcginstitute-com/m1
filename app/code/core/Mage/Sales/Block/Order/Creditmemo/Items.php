@@ -27,7 +27,7 @@ class Mage_Sales_Block_Order_Creditmemo_Items extends Mage_Sales_Block_Items_Abs
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }
@@ -36,7 +36,7 @@ class Mage_Sales_Block_Order_Creditmemo_Items extends Mage_Sales_Block_Items_Abs
      * @param Mage_Sales_Model_Order_Creditmemo $creditmemo
      * @return string
      */
-    public function getPrintCreditmemoUrl($creditmemo)
+    function getPrintCreditmemoUrl($creditmemo)
     {
         return Mage::getUrl('*/*/printCreditmemo', ['creditmemo_id' => $creditmemo->getId()]);
     }
@@ -45,7 +45,7 @@ class Mage_Sales_Block_Order_Creditmemo_Items extends Mage_Sales_Block_Items_Abs
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function getPrintAllCreditmemosUrl($order)
+    function getPrintAllCreditmemosUrl($order)
     {
         return Mage::getUrl('*/*/printCreditmemo', ['order_id' => $order->getId()]);
     }
@@ -56,7 +56,7 @@ class Mage_Sales_Block_Order_Creditmemo_Items extends Mage_Sales_Block_Items_Abs
      * @param   Mage_Sales_Model_Order_Creditmemo $creditmemo
      * @return  string
      */
-    public function getTotalsHtml($creditmemo)
+    function getTotalsHtml($creditmemo)
     {
         $totals = $this->getChild('creditmemo_totals');
         $html = '';
@@ -73,7 +73,7 @@ class Mage_Sales_Block_Order_Creditmemo_Items extends Mage_Sales_Block_Items_Abs
      * @param   Mage_Sales_Model_Order_Creditmemo $creditmemo
      * @return  string
      */
-    public function getCommentsHtml($creditmemo)
+    function getCommentsHtml($creditmemo)
     {
         $html = '';
         $comments = $this->getChild('creditmemo_comments');

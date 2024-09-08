@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Dashboard_Tab_Orders extends Mage_Adminhtml_Block_Dashboard_Graph
 {
-    public function __construct()
+    function __construct()
     {
         $this->setHtmlId('orders');
         parent::__construct();

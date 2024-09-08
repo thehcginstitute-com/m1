@@ -33,7 +33,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View extends Mage_Adminhtml_Block
     /**
      * Mage_Adminhtml_Block_Sales_Order_Invoice_View constructor.
      */
-    public function __construct()
+    function __construct()
     {
         $this->_objectId    = 'invoice_id';
         $this->_controller  = 'sales_order_invoice';
@@ -110,7 +110,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View extends Mage_Adminhtml_Block
      *
      * @return Mage_Sales_Model_Order_Invoice
      */
-    public function getInvoice()
+    function getInvoice()
     {
         return Mage::registry('current_invoice');
     }
@@ -118,7 +118,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View extends Mage_Adminhtml_Block
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if ($this->getInvoice()->getEmailSent()) {
             $emailSent = Mage::helper('sales')->__('the invoice email was sent');
@@ -141,7 +141,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View extends Mage_Adminhtml_Block
     /**
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl(
             '*/sales_order/view',
@@ -155,7 +155,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View extends Mage_Adminhtml_Block
     /**
      * @return string
      */
-    public function getCaptureUrl()
+    function getCaptureUrl()
     {
         return $this->getUrl('*/*/capture', ['invoice_id' => $this->getInvoice()->getId()]);
     }
@@ -163,7 +163,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View extends Mage_Adminhtml_Block
     /**
      * @return string
      */
-    public function getVoidUrl()
+    function getVoidUrl()
     {
         return $this->getUrl('*/*/void', ['invoice_id' => $this->getInvoice()->getId()]);
     }
@@ -171,7 +171,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View extends Mage_Adminhtml_Block
     /**
      * @return string
      */
-    public function getCancelUrl()
+    function getCancelUrl()
     {
         return $this->getUrl('*/*/cancel', ['invoice_id' => $this->getInvoice()->getId()]);
     }
@@ -179,7 +179,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View extends Mage_Adminhtml_Block
     /**
      * @return string
      */
-    public function getEmailUrl()
+    function getEmailUrl()
     {
         return $this->getUrl('*/*/email', [
             'order_id'  => $this->getInvoice()->getOrder()->getId(),
@@ -190,7 +190,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View extends Mage_Adminhtml_Block
     /**
      * @return string
      */
-    public function getCreditMemoUrl()
+    function getCreditMemoUrl()
     {
         return $this->getUrl('*/sales_order_creditmemo/start', [
             'order_id'  => $this->getInvoice()->getOrder()->getId(),
@@ -201,7 +201,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View extends Mage_Adminhtml_Block
     /**
      * @return string
      */
-    public function getPrintUrl()
+    function getPrintUrl()
     {
         return $this->getUrl('*/*/print', [
             'invoice_id' => $this->getInvoice()->getId()
@@ -212,7 +212,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_View extends Mage_Adminhtml_Block
      * @param string $flag
      * @return $this
      */
-    public function updateBackButtonUrl($flag)
+    function updateBackButtonUrl($flag)
     {
         if ($flag) {
             if ($this->getInvoice()->getBackUrl()) {

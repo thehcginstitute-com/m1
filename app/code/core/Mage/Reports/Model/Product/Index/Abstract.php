@@ -46,7 +46,7 @@ abstract class Mage_Reports_Model_Product_Index_Abstract extends Mage_Core_Model
      * @see Mage_Core_Model_Abstract::save()
      * @return Mage_Reports_Model_Product_Index_Abstract
      */
-    public function save()
+    function save()
     {
         if (!$this->hasVisitorId()) {
             $this->setVisitorId($this->getVisitorId());
@@ -86,7 +86,7 @@ abstract class Mage_Reports_Model_Product_Index_Abstract extends Mage_Core_Model
      *
      * @return int
      */
-    public function getVisitorId()
+    function getVisitorId()
     {
         if ($this->hasData('visitor_id')) {
             return $this->getData('visitor_id');
@@ -101,7 +101,7 @@ abstract class Mage_Reports_Model_Product_Index_Abstract extends Mage_Core_Model
      *
      * @return int
      */
-    public function getCustomerId()
+    function getCustomerId()
     {
         if ($this->hasData('customer_id')) {
             return $this->getData('customer_id');
@@ -116,7 +116,7 @@ abstract class Mage_Reports_Model_Product_Index_Abstract extends Mage_Core_Model
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         if ($this->hasData('store_id')) {
             return $this->getData('store_id');
@@ -129,7 +129,7 @@ abstract class Mage_Reports_Model_Product_Index_Abstract extends Mage_Core_Model
      *
      * @return Mage_Reports_Model_Product_Index_Abstract
      */
-    public function updateCustomerFromVisitor()
+    function updateCustomerFromVisitor()
     {
         $this->_getResource()->updateCustomerFromVisitor($this);
         return $this;
@@ -140,7 +140,7 @@ abstract class Mage_Reports_Model_Product_Index_Abstract extends Mage_Core_Model
      *
      * @return Mage_Reports_Model_Product_Index_Abstract
      */
-    public function purgeVisitorByCustomer()
+    function purgeVisitorByCustomer()
     {
         $this->_getResource()->purgeVisitorByCustomer($this);
         return $this;
@@ -161,7 +161,7 @@ abstract class Mage_Reports_Model_Product_Index_Abstract extends Mage_Core_Model
      *
      * @return Mage_Reports_Model_Product_Index_Abstract
      */
-    public function calculate()
+    function calculate()
     {
         $collection = $this->getCollection()
             ->setCustomerId($this->getCustomerId())
@@ -180,7 +180,7 @@ abstract class Mage_Reports_Model_Product_Index_Abstract extends Mage_Core_Model
      *
      * @return array
      */
-    public function getExcludeProductIds()
+    function getExcludeProductIds()
     {
         return [];
     }
@@ -190,7 +190,7 @@ abstract class Mage_Reports_Model_Product_Index_Abstract extends Mage_Core_Model
      *
      * @return int
      */
-    public function getCount()
+    function getCount()
     {
         if (!$this->_countCacheKey) {
             return 0;
@@ -208,7 +208,7 @@ abstract class Mage_Reports_Model_Product_Index_Abstract extends Mage_Core_Model
      *
      * @return Mage_Reports_Model_Product_Index_Abstract
      */
-    public function clean()
+    function clean()
     {
         $this->_getResource()->clean($this);
         return $this;
@@ -219,7 +219,7 @@ abstract class Mage_Reports_Model_Product_Index_Abstract extends Mage_Core_Model
      * @param array $productIds
      * @return Mage_Reports_Model_Product_Index_Abstract
      */
-    public function registerIds($productIds)
+    function registerIds($productIds)
     {
         try {
             $this->_getResource()->registerIds($this, $productIds);

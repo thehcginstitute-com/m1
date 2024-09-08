@@ -31,7 +31,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Cart extends Mage_Adminhtml_Block_W
      * Mage_Adminhtml_Block_Customer_Edit_Tab_Cart constructor.
      * @param array $attributes
      */
-    public function __construct($attributes = [])
+    function __construct($attributes = [])
     {
         parent::__construct($attributes);
         $this->setUseAjax(true);
@@ -146,7 +146,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Cart extends Mage_Adminhtml_Block_W
      *
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         return Mage::registry('current_customer');
     }
@@ -154,7 +154,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Cart extends Mage_Adminhtml_Block_W
     /**
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/cart', ['_current' => true, 'website_id' => $this->getWebsiteId()]);
     }
@@ -163,13 +163,13 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Cart extends Mage_Adminhtml_Block_W
      * @return string
      * @throws Exception
      */
-    public function getGridParentHtml()
+    function getGridParentHtml()
     {
         $templateName = Mage::getDesign()->getTemplateFilename($this->_parentTemplate, ['_relative' => true]);
         return $this->fetchView($templateName);
     }
 
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/catalog_product/edit', ['id' => $row->getProductId()]);
     }

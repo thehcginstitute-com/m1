@@ -31,7 +31,7 @@ class Mage_Review_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function processProductAfterDeleteEvent(Varien_Event_Observer $observer)
+    function processProductAfterDeleteEvent(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Product $eventProduct */
         $eventProduct = $observer->getEvent()->getProduct();
@@ -48,7 +48,7 @@ class Mage_Review_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogBlockProductCollectionBeforeToHtml(Varien_Event_Observer $observer)
+    function catalogBlockProductCollectionBeforeToHtml(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Resource_Product_Collection $productCollection */
         $productCollection = $observer->getEvent()->getCollection();

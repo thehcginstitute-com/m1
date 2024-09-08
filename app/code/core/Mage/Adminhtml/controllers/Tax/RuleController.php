@@ -33,7 +33,7 @@ class Mage_Adminhtml_Tax_RuleController extends Mage_Adminhtml_Controller_Action
      *
      * @return $this
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Sales'))
              ->_title($this->__('Tax'))
@@ -48,7 +48,7 @@ class Mage_Adminhtml_Tax_RuleController extends Mage_Adminhtml_Controller_Action
     /**
      * Redirect to edit action
      */
-    public function newAction()
+    function newAction()
     {
         $this->_forward('edit');
     }
@@ -56,7 +56,7 @@ class Mage_Adminhtml_Tax_RuleController extends Mage_Adminhtml_Controller_Action
     /**
      * Edit action
      */
-    public function editAction()
+    function editAction()
     {
         $this->_title($this->__('Sales'))
              ->_title($this->__('Tax'))
@@ -97,7 +97,7 @@ class Mage_Adminhtml_Tax_RuleController extends Mage_Adminhtml_Controller_Action
     /**
      * Save action
      */
-    public function saveAction()
+    function saveAction()
     {
         $postData = $this->getRequest()->getPost();
         if (!$postData) {
@@ -170,7 +170,7 @@ class Mage_Adminhtml_Tax_RuleController extends Mage_Adminhtml_Controller_Action
     /**
      * Delete action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $ruleId = (int)$this->getRequest()->getParam('rule');
         $ruleModel = Mage::getSingleton('tax/calculation_rule')
@@ -242,7 +242,7 @@ class Mage_Adminhtml_Tax_RuleController extends Mage_Adminhtml_Controller_Action
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         return parent::preDispatch();

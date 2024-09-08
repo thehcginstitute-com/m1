@@ -62,7 +62,7 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
      * @param bool $loadExpired
      * @return $this
      */
-    public function setLoadExpired($loadExpired = true)
+    function setLoadExpired($loadExpired = true)
     {
         $this->_loadExpired = $loadExpired;
         return $this;
@@ -73,7 +73,7 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function getLoadExpired()
+    function getLoadExpired()
     {
         return $this->_loadExpired;
     }
@@ -84,7 +84,7 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
      * @param int|string|Mage_Core_Model_Store $store
      * @return string
      */
-    public function getExpiredBefore($store = null)
+    function getExpiredBefore($store = null)
     {
         return gmdate(
             Varien_Db_Adapter_Pdo_Mysql::TIMESTAMP_FORMAT,
@@ -145,7 +145,7 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
      * @param string $key
      * @return $this
      */
-    public function loadByCookieKey($key = null)
+    function loadByCookieKey($key = null)
     {
         if (is_null($key)) {
             $key = Mage::getSingleton('core/cookie')->get(self::COOKIE_NAME);
@@ -163,7 +163,7 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
      * @param int $id
      * @return Mage_Core_Model_Abstract
      */
-    public function loadByCustomerId($id)
+    function loadByCustomerId($id)
     {
         return $this->load($id, 'customer_id');
     }
@@ -175,7 +175,7 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
      * @param bool $clearCookie
      * @return $this
      */
-    public function deleteByCustomerId($customerId, $clearCookie = true)
+    function deleteByCustomerId($customerId, $clearCookie = true)
     {
         if ($clearCookie) {
             $this->removePersistentCookie();
@@ -189,7 +189,7 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function removePersistentCookie()
+    function removePersistentCookie()
     {
         Mage::getSingleton('core/cookie')->delete(self::COOKIE_NAME);
         return $this;
@@ -201,7 +201,7 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
      * @param int|null $websiteId
      * @return $this
      */
-    public function deleteExpired($websiteId = null)
+    function deleteExpired($websiteId = null)
     {
         if (is_null($websiteId)) {
             $websiteId = Mage::app()->getStore()->getWebsiteId();
@@ -239,7 +239,7 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
      *
      * @inheritDoc
      */
-    public function save()
+    function save()
     {
         $this->setUpdatedAt(gmdate(Varien_Date::DATETIME_PHP_FORMAT));
         return parent::save();

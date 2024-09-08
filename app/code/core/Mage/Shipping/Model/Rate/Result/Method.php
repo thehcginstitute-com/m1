@@ -42,7 +42,7 @@ class Mage_Shipping_Model_Rate_Result_Method extends Mage_Shipping_Model_Rate_Re
      * @param string|float|int $price
      * @return $this
      */
-    public function setPrice($price)
+    function setPrice($price)
     {
         $this->setData('price', Mage::app()->getStore()->roundPrice($price));
         return $this;

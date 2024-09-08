@@ -41,7 +41,7 @@ class Mage_Adminhtml_Block_Newsletter_Subscriber_Grid_Filter_Website extends Mag
      * @return Mage_Core_Model_Resource_Website_Collection
      * @throws Mage_Core_Exception
      */
-    public function getCollection()
+    function getCollection()
     {
         if (is_null($this->_websiteCollection)) {
             $this->_websiteCollection = Mage::getResourceModel('core/website_collection')
@@ -57,7 +57,7 @@ class Mage_Adminhtml_Block_Newsletter_Subscriber_Grid_Filter_Website extends Mag
      * @return array|null
      * @throws Mage_Core_Exception
      */
-    public function getCondition()
+    function getCondition()
     {
         $id = $this->getValue();
         if (!$id) {

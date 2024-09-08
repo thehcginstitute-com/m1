@@ -27,7 +27,7 @@ class Mage_Adminhtml_Model_System_Config_Backend_Catalog_Inventory_Managestock e
      */
     protected $_stockStatusModel;
 
-    public function __construct($parameters = [])
+    function __construct($parameters = [])
     {
         if (!empty($parameters['stock_status_model'])) {
             $this->_stockStatusModel = $parameters['stock_status_model'];

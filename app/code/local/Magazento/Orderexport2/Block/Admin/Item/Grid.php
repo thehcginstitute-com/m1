@@ -9,7 +9,7 @@
 
 class Magazento_Orderexport2_Block_Admin_Item_Grid extends Mage_Adminhtml_Block_Widget_Grid {
 
-    public function __construct() {
+    function __construct() {
         parent::__construct();
         $this->setId('Orderexport2Grid');
         $this->setDefaultSort('item_id');
@@ -110,7 +110,7 @@ class Magazento_Orderexport2_Block_Admin_Item_Grid extends Mage_Adminhtml_Block_
         return $this;
     }
 
-    public function getRowUrl($row) {
+    function getRowUrl($row) {
         return $this->getUrl('*/*/edit',  array('item_id' => $row->getId(), 'type' => $row->getData('item_type')));
     }
 

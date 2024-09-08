@@ -23,7 +23,7 @@ class Mage_Eav_Model_Entity_Increment_Alphanum extends Mage_Eav_Model_Entity_Inc
     /**
      * @return string
      */
-    public function getAllowedChars()
+    function getAllowedChars()
     {
         return '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     }
@@ -32,7 +32,7 @@ class Mage_Eav_Model_Entity_Increment_Alphanum extends Mage_Eav_Model_Entity_Inc
      * @return string
      * @throws Mage_Core_Exception
      */
-    public function getNextId()
+    function getNextId()
     {
         $lastId = $this->getLastId();
 

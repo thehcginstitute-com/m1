@@ -46,7 +46,7 @@ class Mage_Review_Block_Customer_List extends Mage_Customer_Block_Account_Dashbo
      *
      * @return int
      */
-    public function count()
+    function count()
     {
         return $this->_collection->getSize();
     }
@@ -56,7 +56,7 @@ class Mage_Review_Block_Customer_List extends Mage_Customer_Block_Account_Dashbo
      *
      * @return string
      */
-    public function getToolbarHtml()
+    function getToolbarHtml()
     {
         return $this->getChildHtml('toolbar');
     }
@@ -90,7 +90,7 @@ class Mage_Review_Block_Customer_List extends Mage_Customer_Block_Account_Dashbo
      *
      * @return Mage_Review_Model_Resource_Review_Product_Collection
      */
-    public function getCollection()
+    function getCollection()
     {
         return $this->_getCollection();
     }
@@ -100,7 +100,7 @@ class Mage_Review_Block_Customer_List extends Mage_Customer_Block_Account_Dashbo
      *
      * @return string
      */
-    public function getReviewLink()
+    function getReviewLink()
     {
         return Mage::getUrl('review/customer/view/');
     }
@@ -110,7 +110,7 @@ class Mage_Review_Block_Customer_List extends Mage_Customer_Block_Account_Dashbo
      *
      * @return string
      */
-    public function getProductLink()
+    function getProductLink()
     {
         return Mage::getUrl('catalog/product/view/');
     }
@@ -121,7 +121,7 @@ class Mage_Review_Block_Customer_List extends Mage_Customer_Block_Account_Dashbo
      * @param string|Zend_Date|null $date
      * @return string
      */
-    public function dateFormat($date)
+    function dateFormat($date)
     {
         return $this->formatDate($date, Mage_Core_Model_Locale::FORMAT_TYPE_SHORT);
     }

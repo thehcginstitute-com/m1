@@ -46,7 +46,7 @@ class Mage_CatalogSearch_Block_Advanced_Result extends Mage_Core_Block_Template
         return parent::_prepareLayout();
     }
 
-    public function setListOrders()
+    function setListOrders()
     {
         $category = Mage::getSingleton('catalog/layer')
             ->getCurrentCategory();
@@ -62,7 +62,7 @@ class Mage_CatalogSearch_Block_Advanced_Result extends Mage_Core_Block_Template
             ->setSortBy('relevance');
     }
 
-    public function setListModes()
+    function setListModes()
     {
         $this->getChild('search_result_list')
             ->setModes([
@@ -70,7 +70,7 @@ class Mage_CatalogSearch_Block_Advanced_Result extends Mage_Core_Block_Template
                 'list' => Mage::helper('catalogsearch')->__('List')]);
     }
 
-    public function setListCollection()
+    function setListCollection()
     {
         $this->getChild('search_result_list')
            ->setCollection($this->_getProductCollection());
@@ -87,7 +87,7 @@ class Mage_CatalogSearch_Block_Advanced_Result extends Mage_Core_Block_Template
     /**
      * @return Mage_CatalogSearch_Model_Advanced|Mage_Core_Model_Abstract
      */
-    public function getSearchModel()
+    function getSearchModel()
     {
         return Mage::getSingleton('catalogsearch/advanced');
     }
@@ -95,7 +95,7 @@ class Mage_CatalogSearch_Block_Advanced_Result extends Mage_Core_Block_Template
     /**
      * @return int
      */
-    public function getResultCount()
+    function getResultCount()
     {
         if (!$this->getData('result_count')) {
             $size = $this->getSearchModel()->getProductCollection()->getSize();
@@ -107,7 +107,7 @@ class Mage_CatalogSearch_Block_Advanced_Result extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getProductListHtml()
+    function getProductListHtml()
     {
         return $this->getChildHtml('search_result_list');
     }
@@ -116,7 +116,7 @@ class Mage_CatalogSearch_Block_Advanced_Result extends Mage_Core_Block_Template
      * @return string
      * @throws Exception
      */
-    public function getFormUrl()
+    function getFormUrl()
     {
         return Mage::getModel('core/url')
             ->setQueryParams($this->getRequest()->getQuery())
@@ -126,7 +126,7 @@ class Mage_CatalogSearch_Block_Advanced_Result extends Mage_Core_Block_Template
     /**
      * @return array
      */
-    public function getSearchCriterias()
+    function getSearchCriterias()
     {
         $searchCriterias = $this->getSearchModel()->getSearchCriterias();
         $middle = ceil(count($searchCriterias) / 2);

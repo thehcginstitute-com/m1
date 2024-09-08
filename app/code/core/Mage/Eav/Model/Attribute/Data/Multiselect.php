@@ -28,7 +28,7 @@ class Mage_Eav_Model_Attribute_Data_Multiselect extends Mage_Eav_Model_Attribute
      * @param Zend_Controller_Request_Http $request
      * @return array|string
      */
-    public function extractValue(Zend_Controller_Request_Http $request)
+    function extractValue(Zend_Controller_Request_Http $request)
     {
         $values = $this->_getRequestValue($request);
         if ($values !== false && !is_array($values)) {
@@ -42,7 +42,7 @@ class Mage_Eav_Model_Attribute_Data_Multiselect extends Mage_Eav_Model_Attribute
      *
      * @inheritDoc
      */
-    public function compactValue($value)
+    function compactValue($value)
     {
         if (is_array($value)) {
             $value = implode(',', $value);
@@ -57,7 +57,7 @@ class Mage_Eav_Model_Attribute_Data_Multiselect extends Mage_Eav_Model_Attribute
      * @return string|array
      * @throws Mage_Core_Exception
      */
-    public function outputValue($format = Mage_Eav_Model_Attribute_Data::OUTPUT_FORMAT_TEXT)
+    function outputValue($format = Mage_Eav_Model_Attribute_Data::OUTPUT_FORMAT_TEXT)
     {
         $values = $this->getEntity()->getData($this->getAttribute()->getAttributeCode());
         if (!is_array($values)) {

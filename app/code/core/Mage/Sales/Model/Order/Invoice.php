@@ -187,7 +187,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
     /**
      * Uploader clean on shutdown
      */
-    public function destruct()
+    function destruct()
     {
         if ($this->_saveBeforeDestruct) {
             $this->save();
@@ -220,7 +220,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      * @param string $incrementId
      * @return $this
      */
-    public function loadByIncrementId($incrementId)
+    function loadByIncrementId($incrementId)
     {
         $ids = $this->getCollection()
             ->addAttributeToFilter('increment_id', $incrementId)
@@ -238,7 +238,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Invoice_Config
      */
-    public function getConfig()
+    function getConfig()
     {
         return Mage::getSingleton('sales/order_invoice_config');
     }
@@ -248,7 +248,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return $this->getOrder()->getStore();
     }
@@ -259,7 +259,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      * @param   Mage_Sales_Model_Order $order
      * @return  $this
      */
-    public function setOrder(Mage_Sales_Model_Order $order)
+    function setOrder(Mage_Sales_Model_Order $order)
     {
         $this->_order = $order;
         $this->setOrderId($order->getId())
@@ -272,7 +272,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         if (!$this->_order instanceof Mage_Sales_Model_Order) {
             $this->_order = Mage::getModel('sales/order')->load($this->getOrderId());
@@ -285,7 +285,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return string
      */
-    public function getOrderIncrementId()
+    function getOrderIncrementId()
     {
         return Mage::getModel('sales/order')->getResource()->getIncrementId($this->getOrderId());
     }
@@ -295,7 +295,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Address
      */
-    public function getBillingAddress()
+    function getBillingAddress()
     {
         return $this->getOrder()->getBillingAddress();
     }
@@ -305,7 +305,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Address
      */
-    public function getShippingAddress()
+    function getShippingAddress()
     {
         return $this->getOrder()->getShippingAddress();
     }
@@ -315,7 +315,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return bool
      */
-    public function isCanceled()
+    function isCanceled()
     {
         return $this->getState() == self::STATE_CANCELED;
     }
@@ -325,7 +325,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return bool
      */
-    public function canCapture()
+    function canCapture()
     {
         return $this->getState() != self::STATE_CANCELED
             && $this->getState() != self::STATE_PAID
@@ -337,7 +337,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return bool
      */
-    public function canVoid()
+    function canVoid()
     {
         $canVoid = false;
         if ($this->getState() == self::STATE_PAID) {
@@ -364,7 +364,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return bool
      */
-    public function canCancel()
+    function canCancel()
     {
         return $this->getState() == self::STATE_OPEN;
     }
@@ -374,7 +374,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return bool
      */
-    public function canRefund()
+    function canRefund()
     {
         if ($this->getState() != self::STATE_PAID) {
             return false;
@@ -390,7 +390,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return $this
      */
-    public function capture()
+    function capture()
     {
         $this->getOrder()->getPayment()->capture($this);
         if ($this->getIsPaid()) {
@@ -404,7 +404,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return $this
      */
-    public function pay()
+    function pay()
     {
         if ($this->_wasPayCalled) {
             return $this;
@@ -433,7 +433,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      * Whether pay() method was called (whether order and payment totals were updated)
      * @return bool
      */
-    public function wasPayCalled()
+    function wasPayCalled()
     {
         return $this->_wasPayCalled;
     }
@@ -443,7 +443,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return $this
      */
-    public function void()
+    function void()
     {
         $this->getOrder()->getPayment()->void($this);
         $this->cancel();
@@ -455,7 +455,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return $this
      */
-    public function cancel()
+    function cancel()
     {
         $order = $this->getOrder();
         $order->getPayment()->cancelInvoice($this);
@@ -503,7 +503,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return $this
      */
-    public function collectTotals()
+    function collectTotals()
     {
         foreach ($this->getConfig()->getTotalModels() as $model) {
             $model->collect($this);
@@ -519,7 +519,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      * @param bool $negative Indicates if we perform addition (true) or subtraction (false) of rounded value
      * @return float
      */
-    public function roundPrice($price, $type = 'regular', $negative = false)
+    function roundPrice($price, $type = 'regular', $negative = false)
     {
         if ($price) {
             if (!isset($this->_rounders[$type])) {
@@ -535,7 +535,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Resource_Order_Invoice_Item_Collection
      */
-    public function getItemsCollection()
+    function getItemsCollection()
     {
         if (empty($this->_items)) {
             $this->_items = Mage::getResourceModel('sales/order_invoice_item_collection')
@@ -553,7 +553,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
     /**
      * @return Mage_Sales_Model_Order_Invoice_Item[]
      */
-    public function getAllItems()
+    function getAllItems()
     {
         $items = [];
         foreach ($this->getItemsCollection() as $item) {
@@ -568,7 +568,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      * @param int|string $itemId
      * @return false|Mage_Sales_Model_Order_Invoice_Item
      */
-    public function getItemById($itemId)
+    function getItemById($itemId)
     {
         foreach ($this->getItemsCollection() as $item) {
             if ($item->getId() == $itemId) {
@@ -583,7 +583,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      * @return $this
      * @throws Exception
      */
-    public function addItem(Mage_Sales_Model_Order_Invoice_Item $item)
+    function addItem(Mage_Sales_Model_Order_Invoice_Item $item)
     {
         $item->setInvoice($this)
             ->setParentId($this->getId())
@@ -618,7 +618,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      * @param   int $stateId
      * @return  string
      */
-    public function getStateName($stateId = null)
+    function getStateName($stateId = null)
     {
         if (is_null($stateId)) {
             $stateId = $this->getState();
@@ -637,7 +637,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return $this
      */
-    public function register()
+    function register()
     {
         if ($this->getId()) {
             Mage::throwException(Mage::helper('sales')->__('Cannot register existing invoice'));
@@ -705,7 +705,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return bool
      */
-    public function isLast()
+    function isLast()
     {
         foreach ($this->getAllItems() as $item) {
             $orderItem = $item->getOrderItem();
@@ -730,7 +730,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return $this
      */
-    public function addComment($comment, $notify = false, $visibleOnFront = false)
+    function addComment($comment, $notify = false, $visibleOnFront = false)
     {
         if (!($comment instanceof Mage_Sales_Model_Order_Invoice_Comment)) {
             $comment = Mage::getModel('sales/order_invoice_comment')
@@ -752,7 +752,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      * @param bool $reload
      * @return Mage_Sales_Model_Resource_Order_Comment_Collection_Abstract
      */
-    public function getCommentsCollection($reload = false)
+    function getCommentsCollection($reload = false)
     {
         if (is_null($this->_comments) || $reload) {
             $this->_comments = Mage::getResourceModel('sales/order_invoice_comment_collection')
@@ -780,7 +780,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      * @param string $comment
      * @return $this
      */
-    public function sendEmail($notifyCustomer = true, $comment = '')
+    function sendEmail($notifyCustomer = true, $comment = '')
     {
         $order = $this->getOrder();
         $storeId = $order->getStore()->getId();
@@ -880,7 +880,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      * @param string $comment
      * @return $this
      */
-    public function sendUpdateEmail($notifyCustomer = true, $comment = '')
+    function sendUpdateEmail($notifyCustomer = true, $comment = '')
     {
         $order = $this->getOrder();
         $storeId = $order->getStore()->getId();
@@ -970,7 +970,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
      *
      * @return $this
      */
-    public function reset()
+    function reset()
     {
         $this->unsetData();
         $this->_origData = null;

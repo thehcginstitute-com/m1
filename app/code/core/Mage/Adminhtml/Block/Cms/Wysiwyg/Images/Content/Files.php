@@ -34,7 +34,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content_Files extends Mage_Adminht
      *
      * @return Varien_Data_Collection_Filesystem
      */
-    public function getFiles()
+    function getFiles()
     {
         if (!$this->_filesCollection) {
             $this->_filesCollection = Mage::getSingleton('cms/wysiwyg_images_storage')->getFilesCollection(Mage::helper('cms/wysiwyg_images')->getCurrentPath(), $this->_getMediaType());
@@ -48,7 +48,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content_Files extends Mage_Adminht
      *
      * @return int
      */
-    public function getFilesCount()
+    function getFilesCount()
     {
         return $this->getFiles()->count();
     }
@@ -59,7 +59,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content_Files extends Mage_Adminht
      * @param  Varien_Object $file
      * @return string
      */
-    public function getFileId(Varien_Object $file)
+    function getFileId(Varien_Object $file)
     {
         return $file->getId();
     }
@@ -70,7 +70,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content_Files extends Mage_Adminht
      * @param  Varien_Object $file
      * @return string
      */
-    public function getFileThumbUrl(Varien_Object $file)
+    function getFileThumbUrl(Varien_Object $file)
     {
         return $file->getThumbUrl();
     }
@@ -81,7 +81,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content_Files extends Mage_Adminht
      * @param  Varien_Object $file
      * @return string
      */
-    public function getFileName(Varien_Object $file)
+    function getFileName(Varien_Object $file)
     {
         return $file->getName();
     }
@@ -92,7 +92,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content_Files extends Mage_Adminht
      * @param  Varien_Object $file
      * @return string
      */
-    public function getFileWidth(Varien_Object $file)
+    function getFileWidth(Varien_Object $file)
     {
         return $file->getWidth();
     }
@@ -103,7 +103,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content_Files extends Mage_Adminht
      * @param  Varien_Object $file
      * @return string
      */
-    public function getFileHeight(Varien_Object $file)
+    function getFileHeight(Varien_Object $file)
     {
         return $file->getHeight();
     }
@@ -114,17 +114,17 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content_Files extends Mage_Adminht
      * @param  Varien_Object $file
      * @return string
      */
-    public function getFileShortName(Varien_Object $file)
+    function getFileShortName(Varien_Object $file)
     {
         return $file->getShortName();
     }
 
-    public function getImagesWidth()
+    function getImagesWidth()
     {
         return Mage::getSingleton('cms/wysiwyg_images_storage')->getConfigData('resize_width');
     }
 
-    public function getImagesHeight()
+    function getImagesHeight()
     {
         return Mage::getSingleton('cms/wysiwyg_images_storage')->getConfigData('resize_height');
     }

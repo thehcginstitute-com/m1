@@ -40,7 +40,7 @@ class Mage_Install_Model_Installer extends Varien_Object
      *
      * @return bool
      */
-    public function isApplicationInstalled()
+    function isApplicationInstalled()
     {
         return Mage::isInstalled();
     }
@@ -50,7 +50,7 @@ class Mage_Install_Model_Installer extends Varien_Object
      *
      * @return Mage_Install_Model_Session
      */
-    public function getDataModel()
+    function getDataModel()
     {
         if (is_null($this->_dataModel)) {
             $this->setDataModel(Mage::getSingleton('install/session'));
@@ -64,7 +64,7 @@ class Mage_Install_Model_Installer extends Varien_Object
      * @param Mage_Install_Model_Installer_Data $model
      * @return $this
      */
-    public function setDataModel(Varien_Object $model)
+    function setDataModel(Varien_Object $model)
     {
         $this->_dataModel = $model;
         return $this;
@@ -75,7 +75,7 @@ class Mage_Install_Model_Installer extends Varien_Object
      *
      * @return bool
      */
-    public function checkServer()
+    function checkServer()
     {
         try {
             Mage::getModel('install/installer_filesystem')->install();
@@ -94,7 +94,7 @@ class Mage_Install_Model_Installer extends Varien_Object
      *
      * @return bool
      */
-    public function getServerCheckStatus()
+    function getServerCheckStatus()
     {
         $status = $this->getData('server_check_status');
         if (is_null($status)) {
@@ -109,7 +109,7 @@ class Mage_Install_Model_Installer extends Varien_Object
      * @param   array $data
      * @return  Mage_Install_Model_Installer
      */
-    public function installConfig($data)
+    function installConfig($data)
     {
         $data['db_active'] = true;
 
@@ -126,7 +126,7 @@ class Mage_Install_Model_Installer extends Varien_Object
      *
      * @return $this
      */
-    public function installDb()
+    function installDb()
     {
         Mage_Core_Model_Resource_Setup::applyAllUpdates();
         $data = $this->getDataModel()->getConfigData();
@@ -188,7 +188,7 @@ class Mage_Install_Model_Installer extends Varien_Object
      * @param array $data
      * @return mixed
      */
-    public function validateAndPrepareAdministrator($data)
+    function validateAndPrepareAdministrator($data)
     {
         $user = Mage::getModel('admin/user')
             ->load($data['username'], 'username');
@@ -212,7 +212,7 @@ class Mage_Install_Model_Installer extends Varien_Object
      * @param mixed $data
      * @return bool
      */
-    public function createAdministrator($data)
+    function createAdministrator($data)
     {
         $user = Mage::getModel('admin/user')
             ->load('admin', 'username');
@@ -243,7 +243,7 @@ class Mage_Install_Model_Installer extends Varien_Object
      * @param string $key
      * @return string[]|true
      */
-    public function validateEncryptionKey($key)
+    function validateEncryptionKey($key)
     {
         $errors = [];
 
@@ -269,7 +269,7 @@ class Mage_Install_Model_Installer extends Varien_Object
      * @param string $key
      * @return $this
      */
-    public function installEnryptionKey($key)
+    function installEnryptionKey($key)
     {
         if ($key) {
             Mage::helper('core')->validateKey($key);
@@ -278,7 +278,7 @@ class Mage_Install_Model_Installer extends Varien_Object
         return $this;
     }
 
-    public function finish()
+    function finish()
     {
         Mage::getSingleton('install/installer_config')->replaceTmpInstallDate();
         Mage::app()->cleanCache();

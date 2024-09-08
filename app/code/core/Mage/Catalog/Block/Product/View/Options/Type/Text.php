@@ -27,7 +27,7 @@ class Mage_Catalog_Block_Product_View_Options_Type_Text extends Mage_Catalog_Blo
      *
      * @return string
      */
-    public function getDefaultValue()
+    function getDefaultValue()
     {
         return $this->getProduct()->getPreconfiguredValues()->getData('options/' . $this->getOption()->getId());
     }

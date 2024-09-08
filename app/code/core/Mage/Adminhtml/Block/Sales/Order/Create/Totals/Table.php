@@ -23,7 +23,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Totals_Table extends Mage_Adminhtm
 {
     protected $_websiteCollection = null;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_create_totals_table');

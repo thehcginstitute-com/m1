@@ -58,7 +58,7 @@ class Mage_CatalogSearch_Block_Layer extends Mage_Catalog_Block_Layer_View
      *
      * @return Mage_Catalog_Model_Layer
      */
-    public function getLayer()
+    function getLayer()
     {
         return Mage::getSingleton('catalogsearch/layer');
     }
@@ -68,7 +68,7 @@ class Mage_CatalogSearch_Block_Layer extends Mage_Catalog_Block_Layer_View
      *
      * @return bool
      */
-    public function canShowBlock()
+    function canShowBlock()
     {
         $_isLNAllowedByEngine = Mage::helper('catalogsearch')->getEngine()->isLeyeredNavigationAllowed();
         if (!$_isLNAllowedByEngine) {

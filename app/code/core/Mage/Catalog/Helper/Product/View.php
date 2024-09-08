@@ -38,7 +38,7 @@ class Mage_Catalog_Helper_Product_View extends Mage_Core_Helper_Abstract
      * @throws Mage_Core_Model_Store_Exception
      * @throws Mage_Core_Exception
      */
-    public function initProductLayout($product, $controller)
+    function initProductLayout($product, $controller)
     {
         $design = Mage::getSingleton('catalog/design');
         $settings = $design->getDesignSettings($product);
@@ -105,7 +105,7 @@ class Mage_Catalog_Helper_Product_View extends Mage_Core_Helper_Abstract
      *
      * @return $this
      */
-    public function prepareAndRender($productId, $controller, $params = null)
+    function prepareAndRender($productId, $controller, $params = null)
     {
         // Prepare data
         $productHelper = Mage::helper('catalog/product');

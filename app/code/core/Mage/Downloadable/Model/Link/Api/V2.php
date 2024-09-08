@@ -47,7 +47,7 @@ class Mage_Downloadable_Model_Link_Api_V2 extends Mage_Downloadable_Model_Link_A
      * @param string $identifierType ('sku'|'id')
      * @return bool
      */
-    public function add($productId, $resource, $resourceType, $store = null, $identifierType = null)
+    function add($productId, $resource, $resourceType, $store = null, $identifierType = null)
     {
         $this->_prepareData($resource);
         return parent::add($productId, $resource, $resourceType, $store, $identifierType);

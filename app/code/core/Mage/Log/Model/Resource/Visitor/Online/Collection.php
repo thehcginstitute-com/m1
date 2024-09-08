@@ -43,7 +43,7 @@ class Mage_Log_Model_Resource_Visitor_Online_Collection extends Mage_Core_Model_
      *
      * @return $this
      */
-    public function addCustomerData()
+    function addCustomerData()
     {
         $customer   = Mage::getModel('customer/customer');
         // alias => attribute_code
@@ -96,7 +96,7 @@ class Mage_Log_Model_Resource_Visitor_Online_Collection extends Mage_Core_Model_
      * @param int|array $websiteIds
      * @return $this
      */
-    public function addWebsiteFilter($websiteIds)
+    function addWebsiteFilter($websiteIds)
     {
         if ($this->getFlag('has_customer_data')) {
             $this->getSelect()
@@ -119,7 +119,7 @@ class Mage_Log_Model_Resource_Visitor_Online_Collection extends Mage_Core_Model_
      * @see self::_getConditionSql for $condition
      *
      */
-    public function addFieldToFilter($field, $condition = null)
+    function addFieldToFilter($field, $condition = null)
     {
         if (isset($this->_fields[$field])) {
             $field = $this->_fields[$field];

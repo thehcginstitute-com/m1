@@ -29,7 +29,7 @@ abstract class Mage_Checkout_Block_Cart_Abstract extends Mage_Core_Block_Templat
     protected $_totals;
     protected $_itemRenders = [];
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->addItemRender('default', 'checkout/cart_item_renderer', 'checkout/cart/item/default.phtml');
@@ -43,7 +43,7 @@ abstract class Mage_Checkout_Block_Cart_Abstract extends Mage_Core_Block_Templat
      * @param   string $template
      * @return  Mage_Checkout_Block_Cart_Abstract
      */
-    public function addItemRender($productType, $blockType, $template)
+    function addItemRender($productType, $blockType, $template)
     {
         $this->_itemRenders[$productType] = [
             'block' => $blockType,
@@ -61,7 +61,7 @@ abstract class Mage_Checkout_Block_Cart_Abstract extends Mage_Core_Block_Templat
      * @param   string $type
      * @return  array
      */
-    public function getItemRender($type)
+    function getItemRender($type)
     {
         return $this->getItemRendererInfo($type);
     }
@@ -72,7 +72,7 @@ abstract class Mage_Checkout_Block_Cart_Abstract extends Mage_Core_Block_Templat
      * @param   string $type
      * @return  array
      */
-    public function getItemRendererInfo($type)
+    function getItemRendererInfo($type)
     {
         return $this->_itemRenders[$type] ?? $this->_itemRenders['default'];
     }
@@ -83,7 +83,7 @@ abstract class Mage_Checkout_Block_Cart_Abstract extends Mage_Core_Block_Templat
      * @param   string $type
      * @return  array
      */
-    public function getItemRenderer($type)
+    function getItemRenderer($type)
     {
         if (!isset($this->_itemRenders[$type])) {
             $type = 'default';
@@ -103,7 +103,7 @@ abstract class Mage_Checkout_Block_Cart_Abstract extends Mage_Core_Block_Templat
      *
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         if ($this->_customer === null) {
             $this->_customer = Mage::getSingleton('customer/session')->getCustomer();
@@ -116,7 +116,7 @@ abstract class Mage_Checkout_Block_Cart_Abstract extends Mage_Core_Block_Templat
      *
      * @return Mage_Checkout_Model_Session
      */
-    public function getCheckout()
+    function getCheckout()
     {
         if ($this->_checkout === null) {
             $this->_checkout = Mage::getSingleton('checkout/session');
@@ -129,7 +129,7 @@ abstract class Mage_Checkout_Block_Cart_Abstract extends Mage_Core_Block_Templat
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         if ($this->_quote === null) {
             $this->_quote = $this->getCheckout()->getQuote();
@@ -142,7 +142,7 @@ abstract class Mage_Checkout_Block_Cart_Abstract extends Mage_Core_Block_Templat
      *
      * @return array
      */
-    public function getItems()
+    function getItems()
     {
         return $this->getQuote()->getAllVisibleItems();
     }
@@ -153,7 +153,7 @@ abstract class Mage_Checkout_Block_Cart_Abstract extends Mage_Core_Block_Templat
      * @param   Mage_Sales_Model_Quote_Item $item
      * @return  string
      */
-    public function getItemHtml(Mage_Sales_Model_Quote_Item $item)
+    function getItemHtml(Mage_Sales_Model_Quote_Item $item)
     {
         /** @var Mage_Checkout_Block_Cart_Item_Renderer $renderer */
         $renderer = $this->getItemRenderer($item->getProductType())->setItem($item);
@@ -163,7 +163,7 @@ abstract class Mage_Checkout_Block_Cart_Abstract extends Mage_Core_Block_Templat
     /**
      * @return array
      */
-    public function getTotals()
+    function getTotals()
     {
         return $this->getTotalsCache();
     }
@@ -171,7 +171,7 @@ abstract class Mage_Checkout_Block_Cart_Abstract extends Mage_Core_Block_Templat
     /**
      * @return array
      */
-    public function getTotalsCache()
+    function getTotalsCache()
     {
         if (empty($this->_totals)) {
             $this->_totals = $this->getQuote()->getTotals();
@@ -184,7 +184,7 @@ abstract class Mage_Checkout_Block_Cart_Abstract extends Mage_Core_Block_Templat
      *
      * @return bool
      */
-    public function canApplyMsrp()
+    function canApplyMsrp()
     {
         if (!$this->getQuote()->hasCanApplyMsrp() && Mage::helper('catalog')->isMsrpEnabled()) {
             $this->getQuote()->collectTotals();

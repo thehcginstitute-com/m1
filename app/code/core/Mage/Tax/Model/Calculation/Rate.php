@@ -171,7 +171,7 @@ class Mage_Tax_Model_Calculation_Rate extends Mage_Core_Model_Abstract
      *
      * @param array | null $titles
      */
-    public function saveTitles($titles = null)
+    function saveTitles($titles = null)
     {
         if (is_null($titles)) {
             $titles = $this->getTitle();
@@ -197,7 +197,7 @@ class Mage_Tax_Model_Calculation_Rate extends Mage_Core_Model_Abstract
      *
      * @return Mage_Tax_Model_Calculation_Rate_Title
      */
-    public function getTitleModel()
+    function getTitleModel()
     {
         if (is_null($this->_titleModel)) {
             $this->_titleModel = Mage::getModel('tax/calculation_rate_title');
@@ -210,7 +210,7 @@ class Mage_Tax_Model_Calculation_Rate extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getTitles()
+    function getTitles()
     {
         if (is_null($this->_titles)) {
             $this->_titles = $this->getTitleModel()->getCollection()->loadByRateId($this->getId());
@@ -223,7 +223,7 @@ class Mage_Tax_Model_Calculation_Rate extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function deleteAllRates()
+    function deleteAllRates()
     {
         $this->_getResource()->deleteAllRates();
         Mage::dispatchEvent('tax_settings_change_after');
@@ -236,7 +236,7 @@ class Mage_Tax_Model_Calculation_Rate extends Mage_Core_Model_Abstract
      * @param  string $code
      * @return $this
      */
-    public function loadByCode($code)
+    function loadByCode($code)
     {
         $this->load($code, 'code');
         return $this;

@@ -27,7 +27,7 @@ class Mage_Dataflow_Model_Convert_Adapter_Io extends Mage_Dataflow_Model_Convert
     /**
      * @return Varien_Io_Abstract|false
      */
-    public function getResource($forWrite = false)
+    function getResource($forWrite = false)
     {
         if (!$this->_resource) {
             $type = $this->getVar('type', 'file');
@@ -102,7 +102,7 @@ class Mage_Dataflow_Model_Convert_Adapter_Io extends Mage_Dataflow_Model_Convert
      *
      * @return $this
      */
-    public function load()
+    function load()
     {
         if (!$this->getResource()) {
             return $this;
@@ -130,7 +130,7 @@ class Mage_Dataflow_Model_Convert_Adapter_Io extends Mage_Dataflow_Model_Convert
      *
      * @return $this
      */
-    public function save()
+    function save()
     {
         if (!$this->getResource(true)) {
             return $this;

@@ -34,7 +34,7 @@ abstract class Mage_Dataflow_Model_Convert_Adapter_Abstract extends Mage_Dataflo
      *
      * @return object
      */
-    public function getResource()
+    function getResource()
     {
         return $this->_resource;
     }
@@ -45,13 +45,13 @@ abstract class Mage_Dataflow_Model_Convert_Adapter_Abstract extends Mage_Dataflo
      * @param object $resource
      * @return Mage_Dataflow_Model_Convert_Adapter_Abstract
      */
-    public function setResource($resource)
+    function setResource($resource)
     {
         $this->_resource = $resource;
         return $this;
     }
 
-    public function getNumber($value)
+    function getNumber($value)
     {
         if (!($separator = $this->getBatchParams('decimal_separator'))) {
             $separator = '.';

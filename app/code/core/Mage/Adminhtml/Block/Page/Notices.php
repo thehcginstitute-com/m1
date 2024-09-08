@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Page_Notices extends Mage_Adminhtml_Block_Template
      *
      * @return bool
      */
-    public function displayNoscriptNotice()
+    function displayNoscriptNotice()
     {
         return Mage::getStoreConfig('web/browser_capabilities/javascript');
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Page_Notices extends Mage_Adminhtml_Block_Template
      *
      * @return bool
      */
-    public function displayDemoNotice()
+    function displayDemoNotice()
     {
         return Mage::getStoreConfig('design/head/demonotice');
     }

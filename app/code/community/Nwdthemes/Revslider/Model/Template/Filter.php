@@ -16,7 +16,7 @@ class Nwdthemes_Revslider_Model_Template_Filter extends Mage_Widget_Model_Templa
 	 * Directive for revslider shortcode
 	 */
 
-    public function revsliderDirective($construction) {
+    function revsliderDirective($construction) {
 
 		if ( Mage::helper('nwdall')->getCfg('general/enabled', 'nwdrevslider_config') )
 		{

@@ -33,7 +33,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tabs extends Mage_Adminhtml_Block_Wi
      * Initialize Tabs
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('category_info_tabs');
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tabs extends Mage_Adminhtml_Block_Wi
      *
      * @return Mage_Catalog_Model_Category
      */
-    public function getCategory()
+    function getCategory()
     {
         return Mage::registry('current_category');
     }
@@ -57,7 +57,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tabs extends Mage_Adminhtml_Block_Wi
      *
      * @return Mage_Adminhtml_Helper_Catalog
      */
-    public function getCatalogHelper()
+    function getCatalogHelper()
     {
         return Mage::helper('adminhtml/catalog');
     }
@@ -67,7 +67,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tabs extends Mage_Adminhtml_Block_Wi
      *
      * @return string
      */
-    public function getAttributeTabBlock()
+    function getAttributeTabBlock()
     {
         if ($block = $this->getCatalogHelper()->getCategoryAttributeTabBlock()) {
             return $block;

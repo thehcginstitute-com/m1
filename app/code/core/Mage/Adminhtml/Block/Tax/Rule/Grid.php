@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Tax_Rule_Grid extends Mage_Adminhtml_Block_Widget_Gri
     /**
      * Set default value
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setDefaultSort('tax_rule_id');
@@ -176,7 +176,7 @@ class Mage_Adminhtml_Block_Tax_Rule_Grid extends Mage_Adminhtml_Block_Widget_Gri
      * @param Mage_Tax_Model_Calculation_Rule $row
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', ['rule' => $row->getId()]);
     }

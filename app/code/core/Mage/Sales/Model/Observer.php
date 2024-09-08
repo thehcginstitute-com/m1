@@ -36,7 +36,7 @@ class Mage_Sales_Model_Observer
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function cleanExpiredQuotes($schedule)
+    function cleanExpiredQuotes($schedule)
     {
         Mage::dispatchEvent('clear_expired_quotes_before', ['sales_observer' => $this]);
 
@@ -65,7 +65,7 @@ class Mage_Sales_Model_Observer
      *
      * @return array
      */
-    public function getExpireQuotesAdditionalFilterFields()
+    function getExpireQuotesAdditionalFilterFields()
     {
         return $this->_expireQuotesFilterFields;
     }
@@ -76,7 +76,7 @@ class Mage_Sales_Model_Observer
      * @param array $fields
      * @return $this
      */
-    public function setExpireQuotesAdditionalFilterFields(array $fields)
+    function setExpireQuotesAdditionalFilterFields(array $fields)
     {
         $this->_expireQuotesFilterFields = $fields;
         return $this;
@@ -89,7 +89,7 @@ class Mage_Sales_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function substractQtyFromQuotes(Varien_Event_Observer $observer)
+    function substractQtyFromQuotes(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
@@ -103,7 +103,7 @@ class Mage_Sales_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function markQuotesRecollectOnCatalogRules(Varien_Event_Observer $observer)
+    function markQuotesRecollectOnCatalogRules(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
@@ -133,7 +133,7 @@ class Mage_Sales_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductSaveAfter(Varien_Event_Observer $observer)
+    function catalogProductSaveAfter(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
@@ -152,7 +152,7 @@ class Mage_Sales_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductStatusUpdate(Varien_Event_Observer $observer)
+    function catalogProductStatusUpdate(Varien_Event_Observer $observer)
     {
         $status     = $observer->getEvent()->getStatus();
         if ($status == Mage_Catalog_Model_Product_Status::STATUS_ENABLED) {
@@ -170,7 +170,7 @@ class Mage_Sales_Model_Observer
      * @param Mage_Cron_Model_Schedule $schedule
      * @return $this
      */
-    public function aggregateSalesReportOrderData($schedule)
+    function aggregateSalesReportOrderData($schedule)
     {
         Mage::app()->getLocale()->emulate(0);
         $currentDate = Mage::app()->getLocale()->date();
@@ -187,7 +187,7 @@ class Mage_Sales_Model_Observer
      * @return $this
      * @throws Zend_Date_Exception
      */
-    public function aggregateSalesReportShipmentData($schedule)
+    function aggregateSalesReportShipmentData($schedule)
     {
         Mage::app()->getLocale()->emulate(0);
         $currentDate = Mage::app()->getLocale()->date();
@@ -204,7 +204,7 @@ class Mage_Sales_Model_Observer
      * @return $this
      * @throws Zend_Date_Exception
      */
-    public function aggregateSalesReportInvoicedData($schedule)
+    function aggregateSalesReportInvoicedData($schedule)
     {
         Mage::app()->getLocale()->emulate(0);
         $currentDate = Mage::app()->getLocale()->date();
@@ -221,7 +221,7 @@ class Mage_Sales_Model_Observer
      * @return $this
      * @throws Zend_Date_Exception
      */
-    public function aggregateSalesReportRefundedData($schedule)
+    function aggregateSalesReportRefundedData($schedule)
     {
         Mage::app()->getLocale()->emulate(0);
         $currentDate = Mage::app()->getLocale()->date();
@@ -238,7 +238,7 @@ class Mage_Sales_Model_Observer
      * @return $this
      * @throws Zend_Date_Exception
      */
-    public function aggregateSalesReportBestsellersData($schedule)
+    function aggregateSalesReportBestsellersData($schedule)
     {
         Mage::app()->getLocale()->emulate(0);
         $currentDate = Mage::app()->getLocale()->date();
@@ -258,7 +258,7 @@ class Mage_Sales_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return $this
      */
-    public function customerSaveAfter(Varien_Event_Observer $observer)
+    function customerSaveAfter(Varien_Event_Observer $observer)
     {
         /** @var Mage_Customer_Model_Customer $customer */
         $customer = $observer->getEvent()->getCustomer();
@@ -295,7 +295,7 @@ class Mage_Sales_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function setQuoteCanApplyMsrp(Varien_Event_Observer $observer)
+    function setQuoteCanApplyMsrp(Varien_Event_Observer $observer)
     {
         /** @var Mage_Sales_Model_Quote $quote */
         $quote = $observer->getEvent()->getQuote();
@@ -318,7 +318,7 @@ class Mage_Sales_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function addVatRequestParamsOrderComment(Varien_Event_Observer $observer)
+    function addVatRequestParamsOrderComment(Varien_Event_Observer $observer)
     {
         /** @var Mage_Sales_Model_Order $orderInstance */
         $orderInstance = $observer->getOrder();
@@ -387,7 +387,7 @@ class Mage_Sales_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function changeQuoteCustomerGroupId(Varien_Event_Observer $observer)
+    function changeQuoteCustomerGroupId(Varien_Event_Observer $observer)
     {
         $addressHelper = Mage::helper('customer/address');
 
@@ -487,7 +487,7 @@ class Mage_Sales_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function restoreQuoteCustomerGroupId($observer)
+    function restoreQuoteCustomerGroupId($observer)
     {
         /** @var Mage_Sales_Model_Quote_Address $quoteAddress */
         $quoteAddress = $observer->getQuoteAddress();

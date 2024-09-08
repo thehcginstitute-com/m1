@@ -32,7 +32,7 @@ class Mage_Log_Model_Resource_Aggregation extends Mage_Core_Model_Resource_Db_Ab
      *
      * @return string
      */
-    public function getLastRecordDate()
+    function getLastRecordDate()
     {
         $adapter    = $this->_getReadAdapter();
         $select     = $adapter->select()
@@ -52,7 +52,7 @@ class Mage_Log_Model_Resource_Aggregation extends Mage_Core_Model_Resource_Db_Ab
      * @param int $store
      * @return array
      */
-    public function getCounts($from, $to, $store)
+    function getCounts($from, $to, $store)
     {
         $adapter    = $this->_getReadAdapter();
         $result     = ['customers' => 0, 'visitors' => 0];
@@ -90,7 +90,7 @@ class Mage_Log_Model_Resource_Aggregation extends Mage_Core_Model_Resource_Db_Ab
      * @param array $data
      * @param int $id
      */
-    public function saveLog($data, $id = null)
+    function saveLog($data, $id = null)
     {
         $adapter = $this->_getWriteAdapter();
         if (is_null($id)) {
@@ -106,7 +106,7 @@ class Mage_Log_Model_Resource_Aggregation extends Mage_Core_Model_Resource_Db_Ab
      *
      * @param string $date
      */
-    public function removeEmpty($date)
+    function removeEmpty($date)
     {
         $adapter    = $this->_getWriteAdapter();
         $condition  = [
@@ -124,7 +124,7 @@ class Mage_Log_Model_Resource_Aggregation extends Mage_Core_Model_Resource_Db_Ab
      * @param string $to
      * @return string
      */
-    public function getLogId($from, $to)
+    function getLogId($from, $to)
     {
         $adapter    = $this->_getReadAdapter();
         $select     = $adapter->select()

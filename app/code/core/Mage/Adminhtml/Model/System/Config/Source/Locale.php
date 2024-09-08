@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Model_System_Config_Source_Locale
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         return Mage::app()->getLocale()->getOptionLocales();
     }

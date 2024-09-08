@@ -29,7 +29,7 @@ class Mage_Checkout_Block_Agreements extends Mage_Core_Block_Template
      * @return mixed
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getAgreements()
+    function getAgreements()
     {
         if (!$this->hasAgreements()) {
             if (!Mage::getStoreConfigFlag('checkout/options/enable_agreements')) {

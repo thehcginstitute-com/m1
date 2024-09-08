@@ -24,18 +24,18 @@ class Mage_Adminhtml_Block_Widget_Accordion_Item extends Mage_Adminhtml_Block_Wi
 {
     protected $_accordion;
 
-    public function setAccordion($accordion)
+    function setAccordion($accordion)
     {
         $this->_accordion = $accordion;
         return $this;
     }
 
-    public function getTarget()
+    function getTarget()
     {
         return ($this->getAjax()) ? 'ajax' : '';
     }
 
-    public function getTitle()
+    function getTitle()
     {
         $title  = $this->getData('title');
         $url    = $this->getContentUrl() ? $this->getContentUrl() : '#';
@@ -44,7 +44,7 @@ class Mage_Adminhtml_Block_Widget_Accordion_Item extends Mage_Adminhtml_Block_Wi
         return $title;
     }
 
-    public function getContent()
+    function getContent()
     {
         $content = $this->getData('content');
         if (is_string($content)) {
@@ -56,7 +56,7 @@ class Mage_Adminhtml_Block_Widget_Accordion_Item extends Mage_Adminhtml_Block_Wi
         return null;
     }
 
-    public function getClass()
+    function getClass()
     {
         $class = $this->getData('class');
         if ($this->getOpen()) {

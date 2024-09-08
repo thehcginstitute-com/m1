@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Customer_Form_Element_File extends Varien_Data_Form_E
      *
      * @param array $attributes
      */
-    public function __construct($attributes = [])
+    function __construct($attributes = [])
     {
         parent::__construct($attributes);
         $this->setType('file');
@@ -38,7 +38,7 @@ class Mage_Adminhtml_Block_Customer_Form_Element_File extends Varien_Data_Form_E
      *
      * @return string
      */
-    public function getElementHtml()
+    function getElementHtml()
     {
         $this->addClass('input-file');
         if ($this->getRequired()) {
@@ -186,7 +186,7 @@ class Mage_Adminhtml_Block_Customer_Form_Element_File extends Varien_Data_Form_E
      * @param string|null $index
      * @return false|string
      */
-    public function getEscapedValue($index = null)
+    function getEscapedValue($index = null)
     {
         $value = $this->getValue();
         if (is_array($value)) {

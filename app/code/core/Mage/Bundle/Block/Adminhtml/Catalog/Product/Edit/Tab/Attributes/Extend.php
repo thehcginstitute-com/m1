@@ -36,7 +36,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Attributes_Extend ext
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setCanEditPrice(true);
@@ -48,7 +48,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Attributes_Extend ext
      *
      * @return string
      */
-    public function getElementHtml()
+    function getElementHtml()
     {
         $elementHtml = parent::getElementHtml();
 
@@ -122,7 +122,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Attributes_Extend ext
     /**
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!$this->getData('product')) {
             $this->setData('product', Mage::registry('product'));

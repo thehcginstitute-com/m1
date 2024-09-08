@@ -2,7 +2,7 @@
 
 class Raveinfosys_Exporter_Block_Adminhtml_Exporter_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
                  
@@ -34,7 +34,7 @@ class Raveinfosys_Exporter_Block_Adminhtml_Exporter_Edit extends Mage_Adminhtml_
         ";
     }
 
-    public function getHeaderText()
+    function getHeaderText()
     {
         if( Mage::registry('exporter_data') && Mage::registry('exporter_data')->getId() ) {
             return Mage::helper('exporter')->__("Edit Item '%s'", $this->htmlEscape(Mage::registry('exporter_data')->getTitle()));

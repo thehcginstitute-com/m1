@@ -35,7 +35,7 @@ class Mage_Index_Model_Resource_Process extends Mage_Core_Model_Resource_Db_Abst
      * @param string $status
      * @return $this
      */
-    public function updateEventStatus($processId, $eventId, $status)
+    function updateEventStatus($processId, $eventId, $status)
     {
         $adapter = $this->_getWriteAdapter();
         $condition = [
@@ -52,7 +52,7 @@ class Mage_Index_Model_Resource_Process extends Mage_Core_Model_Resource_Db_Abst
      * @param Mage_Index_Model_Process $process
      * @return $this
      */
-    public function endProcess(Mage_Index_Model_Process $process)
+    function endProcess(Mage_Index_Model_Process $process)
     {
         $data = [
             'status'    => Mage_Index_Model_Process::STATUS_PENDING,
@@ -68,7 +68,7 @@ class Mage_Index_Model_Resource_Process extends Mage_Core_Model_Resource_Db_Abst
      * @param Mage_Index_Model_Process $process
      * @return $this
      */
-    public function startProcess(Mage_Index_Model_Process $process)
+    function startProcess(Mage_Index_Model_Process $process)
     {
         $data = [
             'status'        => Mage_Index_Model_Process::STATUS_RUNNING,
@@ -84,7 +84,7 @@ class Mage_Index_Model_Resource_Process extends Mage_Core_Model_Resource_Db_Abst
      * @param Mage_Index_Model_Process $process
      * @return $this
      */
-    public function failProcess(Mage_Index_Model_Process $process)
+    function failProcess(Mage_Index_Model_Process $process)
     {
         $data = [
             'status'   => Mage_Index_Model_Process::STATUS_REQUIRE_REINDEX,
@@ -102,7 +102,7 @@ class Mage_Index_Model_Resource_Process extends Mage_Core_Model_Resource_Db_Abst
      * @param string $status
      * @return $this
      */
-    public function updateStatus($process, $status)
+    function updateStatus($process, $status)
     {
         $data = ['status' => $status];
         $this->_updateProcessData($process->getId(), $data);
@@ -129,7 +129,7 @@ class Mage_Index_Model_Resource_Process extends Mage_Core_Model_Resource_Db_Abst
      * @param Mage_Index_Model_Process $process
      * @return $this
      */
-    public function updateProcessStartDate(Mage_Index_Model_Process $process)
+    function updateProcessStartDate(Mage_Index_Model_Process $process)
     {
         $this->_updateProcessData($process->getId(), ['started_at' => $this->formatDate(time())]);
         return $this;
@@ -141,7 +141,7 @@ class Mage_Index_Model_Resource_Process extends Mage_Core_Model_Resource_Db_Abst
      * @param Mage_Index_Model_Process $process
      * @return $this
      */
-    public function updateProcessEndDate(Mage_Index_Model_Process $process)
+    function updateProcessEndDate(Mage_Index_Model_Process $process)
     {
         $this->_updateProcessData($process->getId(), ['ended_at' => $this->formatDate(time())]);
         return $this;
@@ -152,7 +152,7 @@ class Mage_Index_Model_Resource_Process extends Mage_Core_Model_Resource_Db_Abst
      *
      * @return bool
      */
-    public function isInTransaction()
+    function isInTransaction()
     {
         return $this->_getWriteAdapter()->getTransactionLevel() > 0;
     }

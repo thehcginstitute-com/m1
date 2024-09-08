@@ -19,7 +19,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_Status_Assign extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'sales_order_status';
         $this->_mode       = 'assign';
@@ -33,7 +33,7 @@ class Mage_Adminhtml_Block_Sales_Order_Status_Assign extends Mage_Adminhtml_Bloc
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Assign Order Status to State');
     }

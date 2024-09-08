@@ -2,7 +2,7 @@
 
 class Raveinfosys_Exporter_Model_Operations_Creditmemo extends Mage_Core_Model_Abstract
 {
-    public function createCreditMemo($order_id,$credit_item,$creditDetail)
+    function createCreditMemo($order_id,$credit_item,$creditDetail)
 	{
 	    $order = $this->getOrderModel($order_id);
 		try{
@@ -43,7 +43,7 @@ class Raveinfosys_Exporter_Model_Operations_Creditmemo extends Mage_Core_Model_A
 	
 	
 	
-	public function updateCreditQTY($credit_item)
+	function updateCreditQTY($credit_item)
 	{
 	  foreach($credit_item as $itemid => $itemqty)
 	  {
@@ -53,7 +53,7 @@ class Raveinfosys_Exporter_Model_Operations_Creditmemo extends Mage_Core_Model_A
 	  }
 	}
 	
-	public function updateStatus($order_id,$refunded)
+	function updateStatus($order_id,$refunded)
     {
        $order = $this->getOrderModel($order_id);
 	   
@@ -78,7 +78,7 @@ class Raveinfosys_Exporter_Model_Operations_Creditmemo extends Mage_Core_Model_A
 	   $order->unsetData();
     }
 	
-	public function getOrderModel($last_order_increment_id)
+	function getOrderModel($last_order_increment_id)
     {
 		$order = Mage::getModel('sales/order')->loadByIncrementId($last_order_increment_id);
 		return $order;

@@ -25,7 +25,7 @@ class Mage_Adminhtml_Model_System_Config_Backend_Admin_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function afterCustomUrlChanged($observer)
+    function afterCustomUrlChanged($observer)
     {
         if (is_null(Mage::registry('custom_admin_path_redirect'))) {
             return;

@@ -20,7 +20,7 @@
  */
 class Mage_Adminhtml_Model_System_Config_Source_Design_Robots
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             ['value' => 'INDEX,FOLLOW', 'label' => 'INDEX, FOLLOW'],

@@ -77,7 +77,7 @@ class Mage_Directory_Model_Resource_Region_Collection extends Mage_Core_Model_Re
      * @param string|array $countryId
      * @return $this
      */
-    public function addCountryFilter($countryId)
+    function addCountryFilter($countryId)
     {
         if (!empty($countryId)) {
             if (is_array($countryId)) {
@@ -95,7 +95,7 @@ class Mage_Directory_Model_Resource_Region_Collection extends Mage_Core_Model_Re
      * @param string $countryCode
      * @return $this
      */
-    public function addCountryCodeFilter($countryCode)
+    function addCountryCodeFilter($countryCode)
     {
         $this->getSelect()
             ->joinLeft(
@@ -113,7 +113,7 @@ class Mage_Directory_Model_Resource_Region_Collection extends Mage_Core_Model_Re
      * @param string|array $regionCode
      * @return $this
      */
-    public function addRegionCodeFilter($regionCode)
+    function addRegionCodeFilter($regionCode)
     {
         if (!empty($regionCode)) {
             if (is_array($regionCode)) {
@@ -131,7 +131,7 @@ class Mage_Directory_Model_Resource_Region_Collection extends Mage_Core_Model_Re
      * @param string|array $regionName
      * @return $this
      */
-    public function addRegionNameFilter($regionName)
+    function addRegionNameFilter($regionName)
     {
         if (!empty($regionName)) {
             if (is_array($regionName)) {
@@ -149,7 +149,7 @@ class Mage_Directory_Model_Resource_Region_Collection extends Mage_Core_Model_Re
      * @param string|array $region
      * @return $this
      */
-    public function addRegionCodeOrNameFilter($region)
+    function addRegionCodeOrNameFilter($region)
     {
         if (!empty($region)) {
             $condition = is_array($region) ? ['in' => $region] : $region;
@@ -163,7 +163,7 @@ class Mage_Directory_Model_Resource_Region_Collection extends Mage_Core_Model_Re
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $options = $this->_toOptionArray('region_id', 'default_name', ['title' => 'default_name']);
         if (count($options) > 0) {

@@ -51,7 +51,7 @@ class Mage_Catalog_Helper_Category extends Mage_Core_Helper_Abstract
      * @return array|Mage_Catalog_Model_Resource_Category_Collection|Varien_Data_Collection|Varien_Data_Tree_Node_Collection
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getStoreCategories($sorted = false, $asCollection = false, $toLoad = true)
+    function getStoreCategories($sorted = false, $asCollection = false, $toLoad = true)
     {
         $parent     = Mage::app()->getStore()->getRootCategoryId();
         $cacheKey   = sprintf('%d-%d-%d-%d', $parent, $sorted, $asCollection, $toLoad);
@@ -84,7 +84,7 @@ class Mage_Catalog_Helper_Category extends Mage_Core_Helper_Abstract
      * @param   Mage_Catalog_Model_Category $category
      * @return  string
      */
-    public function getCategoryUrl($category)
+    function getCategoryUrl($category)
     {
         if ($category instanceof Mage_Catalog_Model_Category) {
             return $category->getUrl();
@@ -100,7 +100,7 @@ class Mage_Catalog_Helper_Category extends Mage_Core_Helper_Abstract
      * @param  Mage_Catalog_Model_Category|int $category
      * @return bool
      */
-    public function canShow($category)
+    function canShow($category)
     {
         if (is_int($category)) {
             $category = Mage::getModel('catalog/category')->load($category);
@@ -126,7 +126,7 @@ class Mage_Catalog_Helper_Category extends Mage_Core_Helper_Abstract
          * @param int $storeId
          * @return string
          */
-    public function getCategoryUrlSuffix($storeId = null)
+    function getCategoryUrlSuffix($storeId = null)
     {
         if (is_null($storeId)) {
             $storeId = Mage::app()->getStore()->getId();
@@ -147,7 +147,7 @@ class Mage_Catalog_Helper_Category extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getCategoryUrlPath($urlPath, $slash = false, $storeId = null)
+    function getCategoryUrlPath($urlPath, $slash = false, $storeId = null)
     {
         if (!$this->getCategoryUrlSuffix($storeId)) {
             return $urlPath;
@@ -170,7 +170,7 @@ class Mage_Catalog_Helper_Category extends Mage_Core_Helper_Abstract
      * @param null|string|bool|int|Mage_Core_Model_Store $store
      * @return bool
      */
-    public function canUseCanonicalTag($store = null)
+    function canUseCanonicalTag($store = null)
     {
         return Mage::getStoreConfig(self::XML_PATH_USE_CATEGORY_CANONICAL_TAG, $store);
     }

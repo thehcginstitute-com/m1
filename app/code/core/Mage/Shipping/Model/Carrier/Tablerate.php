@@ -48,7 +48,7 @@ class Mage_Shipping_Model_Carrier_Tablerate extends Mage_Shipping_Model_Carrier_
      */
     protected $_conditionNames = [];
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         foreach ($this->getCode('condition_name') as $k => $v) {
@@ -62,7 +62,7 @@ class Mage_Shipping_Model_Carrier_Tablerate extends Mage_Shipping_Model_Carrier_
      * @param Mage_Shipping_Model_Rate_Request $request
      * @return false|Mage_Shipping_Model_Rate_Result
      */
-    public function collectRates(Mage_Shipping_Model_Rate_Request $request)
+    function collectRates(Mage_Shipping_Model_Rate_Request $request)
     {
         if (!$this->getConfigFlag('active')) {
             return false;
@@ -205,7 +205,7 @@ class Mage_Shipping_Model_Carrier_Tablerate extends Mage_Shipping_Model_Carrier_
      * @param Mage_Shipping_Model_Rate_Request $request
      * @return Mage_Core_Model_Abstract
      */
-    public function getRate(Mage_Shipping_Model_Rate_Request $request)
+    function getRate(Mage_Shipping_Model_Rate_Request $request)
     {
         return Mage::getResourceModel('shipping/carrier_tablerate')->getRate($request);
     }
@@ -217,7 +217,7 @@ class Mage_Shipping_Model_Carrier_Tablerate extends Mage_Shipping_Model_Carrier_
      * @param string $code
      * @return array|string
      */
-    public function getCode($type, $code = '')
+    function getCode($type, $code = '')
     {
         $codes = [
 
@@ -255,7 +255,7 @@ class Mage_Shipping_Model_Carrier_Tablerate extends Mage_Shipping_Model_Carrier_
      *
      * @return array
      */
-    public function getAllowedMethods()
+    function getAllowedMethods()
     {
         return ['bestway' => $this->getConfigData('name')];
     }

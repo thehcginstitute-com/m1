@@ -58,7 +58,7 @@ class Mage_Core_Model_App_Area
      * @param string $areaCode
      * @param Mage_Core_Model_App $application
      */
-    public function __construct($areaCode, $application)
+    function __construct($areaCode, $application)
     {
         $this->_code = $areaCode;
         $this->_application = $application;
@@ -69,7 +69,7 @@ class Mage_Core_Model_App_Area
      *
      * @return Mage_Core_Model_App
      */
-    public function getApplication()
+    function getApplication()
     {
         return $this->_application;
     }
@@ -80,7 +80,7 @@ class Mage_Core_Model_App_Area
      * @param   string|null $part
      * @return  Mage_Core_Model_App_Area
      */
-    public function load($part = null)
+    function load($part = null)
     {
         if (is_null($part)) {
             $this->_loadPart(self::PART_CONFIG)

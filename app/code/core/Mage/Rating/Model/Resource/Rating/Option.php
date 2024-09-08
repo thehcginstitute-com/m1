@@ -96,7 +96,7 @@ class Mage_Rating_Model_Resource_Rating_Option extends Mage_Core_Model_Resource_
      * @param Mage_Rating_Model_Rating_Option $option
      * @return $this
      */
-    public function addVote($option)
+    function addVote($option)
     {
         $adapter = $this->_getWriteAdapter();
         $optionData = $this->loadDataById($option->getId());
@@ -142,7 +142,7 @@ class Mage_Rating_Model_Resource_Rating_Option extends Mage_Core_Model_Resource_
      *
      * @param Mage_Rating_Model_Rating_Option $option
      */
-    public function aggregate($option)
+    function aggregate($option)
     {
         $vote = Mage::getModel('rating/rating_option_vote')->load($option->getVoteId());
         $this->aggregateEntityByRatingId($vote->getRatingId(), $vote->getEntityPkValue());
@@ -154,7 +154,7 @@ class Mage_Rating_Model_Resource_Rating_Option extends Mage_Core_Model_Resource_
      * @param int $ratingId
      * @param int $entityPkValue
      */
-    public function aggregateEntityByRatingId($ratingId, $entityPkValue)
+    function aggregateEntityByRatingId($ratingId, $entityPkValue)
     {
         $readAdapter  = $this->_getReadAdapter();
         $writeAdapter = $this->_getWriteAdapter();
@@ -240,7 +240,7 @@ class Mage_Rating_Model_Resource_Rating_Option extends Mage_Core_Model_Resource_
      * @param int $optionId
      * @return array
      */
-    public function loadDataById($optionId)
+    function loadDataById($optionId)
     {
         if (!$this->_optionData || $this->_optionId != $optionId) {
             $adapter = $this->_getReadAdapter();

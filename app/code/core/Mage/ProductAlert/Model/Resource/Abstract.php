@@ -53,7 +53,7 @@ abstract class Mage_ProductAlert_Model_Resource_Abstract extends Mage_Core_Model
      * @param Mage_Core_Model_Abstract $object
      * @return Mage_ProductAlert_Model_Resource_Abstract
      */
-    public function loadByParam(Mage_Core_Model_Abstract $object)
+    function loadByParam(Mage_Core_Model_Abstract $object)
     {
         $row = $this->_getAlertRow($object);
         if ($row) {
@@ -70,7 +70,7 @@ abstract class Mage_ProductAlert_Model_Resource_Abstract extends Mage_Core_Model
      * @param int $websiteId
      * @return Mage_ProductAlert_Model_Resource_Abstract
      */
-    public function deleteCustomer(Mage_Core_Model_Abstract $object, $customerId, $websiteId = null)
+    function deleteCustomer(Mage_Core_Model_Abstract $object, $customerId, $websiteId = null)
     {
         $adapter = $this->_getWriteAdapter();
         $where   = [];

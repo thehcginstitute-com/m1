@@ -54,7 +54,7 @@ class Mage_Sales_Model_Order_Shipment_Item extends Mage_Core_Model_Abstract
     protected $_shipment = null;
     protected $_orderItem = null;
 
-    public function _construct()
+    function _construct()
     {
         $this->_init('sales/order_shipment_item');
     }
@@ -65,7 +65,7 @@ class Mage_Sales_Model_Order_Shipment_Item extends Mage_Core_Model_Abstract
      * @param   Mage_Sales_Model_Order_Shipment $shipment
      * @return  $this
      */
-    public function setShipment(Mage_Sales_Model_Order_Shipment $shipment)
+    function setShipment(Mage_Sales_Model_Order_Shipment $shipment)
     {
         $this->_shipment = $shipment;
         return $this;
@@ -76,7 +76,7 @@ class Mage_Sales_Model_Order_Shipment_Item extends Mage_Core_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Shipment
      */
-    public function getShipment()
+    function getShipment()
     {
         return $this->_shipment;
     }
@@ -87,7 +87,7 @@ class Mage_Sales_Model_Order_Shipment_Item extends Mage_Core_Model_Abstract
      * @param   Mage_Sales_Model_Order_Item $item
      * @return  $this
      */
-    public function setOrderItem(Mage_Sales_Model_Order_Item $item)
+    function setOrderItem(Mage_Sales_Model_Order_Item $item)
     {
         $this->_orderItem = $item;
         $this->setOrderItemId($item->getId());
@@ -99,7 +99,7 @@ class Mage_Sales_Model_Order_Shipment_Item extends Mage_Core_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Item
      */
-    public function getOrderItem()
+    function getOrderItem()
     {
         if (is_null($this->_orderItem)) {
             if ($this->getShipment()) {
@@ -119,7 +119,7 @@ class Mage_Sales_Model_Order_Shipment_Item extends Mage_Core_Model_Abstract
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function setQty($qty)
+    function setQty($qty)
     {
         if ($this->getOrderItem()->getIsQtyDecimal()) {
             $qty = (float) $qty;
@@ -145,7 +145,7 @@ class Mage_Sales_Model_Order_Shipment_Item extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function register()
+    function register()
     {
         $this->getOrderItem()->setQtyShipped(
             $this->getOrderItem()->getQtyShipped() + $this->getQty()

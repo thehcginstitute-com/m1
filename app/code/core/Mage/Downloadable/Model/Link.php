@@ -145,7 +145,7 @@ class Mage_Downloadable_Model_Link extends Mage_Core_Model_Abstract
      * @param int $storeId
      * @return array
      */
-    public function getSearchableData($productId, $storeId)
+    function getSearchableData($productId, $storeId)
     {
         return $this->_getResource()
             ->getSearchableData($productId, $storeId);

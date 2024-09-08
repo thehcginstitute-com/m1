@@ -24,7 +24,7 @@
  */
 class Mage_SalesRule_Model_Rule_Condition_Product_Found extends Mage_SalesRule_Model_Rule_Condition_Product_Combine
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setType('salesrule/rule_condition_product_found');
@@ -35,7 +35,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Found extends Mage_SalesRule_M
      *
      * @return $this
      */
-    public function loadValueOptions()
+    function loadValueOptions()
     {
         $this->setValueOption([
             1 => Mage::helper('salesrule')->__('FOUND'),
@@ -47,7 +47,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Found extends Mage_SalesRule_M
     /**
      * @return string
      */
-    public function asHtml()
+    function asHtml()
     {
         $html = $this->getTypeElement()->getHtml() . Mage::helper('salesrule')->__("If an item is %s in the cart with %s of these conditions true:", $this->getValueElement()->getHtml(), $this->getAggregatorElement()->getHtml());
         if ($this->getId() != '1') {
@@ -62,7 +62,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Found extends Mage_SalesRule_M
      * @param Varien_Object $object Quote
      * @return bool
      */
-    public function validate(Varien_Object $object)
+    function validate(Varien_Object $object)
     {
         $all = $this->getAggregator() === 'all';
         $true = (bool)$this->getValue();

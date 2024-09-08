@@ -33,7 +33,7 @@ class Mage_Downloadable_Model_Resource_Sample extends Mage_Core_Model_Resource_D
      * @param Mage_Downloadable_Model_Sample $sampleObject
      * @return $this
      */
-    public function saveItemTitle($sampleObject)
+    function saveItemTitle($sampleObject)
     {
         $writeAdapter   = $this->_getWriteAdapter();
         $sampleTitleTable = $this->getTable('downloadable/sample_title');
@@ -82,7 +82,7 @@ class Mage_Downloadable_Model_Resource_Sample extends Mage_Core_Model_Resource_D
      * @param Mage_Downloadable_Model_Sample|array|int $items
      * @return $this
      */
-    public function deleteItems($items)
+    function deleteItems($items)
     {
         $writeAdapter = $this->_getWriteAdapter();
         $where = '';
@@ -111,7 +111,7 @@ class Mage_Downloadable_Model_Resource_Sample extends Mage_Core_Model_Resource_D
      * @param int $storeId
      * @return array
      */
-    public function getSearchableData($productId, $storeId)
+    function getSearchableData($productId, $storeId)
     {
         $adapter = $this->_getReadAdapter();
         $ifNullDefaultTitle = $adapter->getIfNullSql('st.title', 'd.title');

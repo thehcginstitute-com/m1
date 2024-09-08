@@ -28,7 +28,7 @@ class Mage_Sendfriend_ProductController extends Mage_Core_Controller_Front_Actio
      *
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
 
@@ -98,7 +98,7 @@ class Mage_Sendfriend_ProductController extends Mage_Core_Controller_Front_Actio
      * Show Send to a Friend Form
      *
      */
-    public function sendAction()
+    function sendAction()
     {
         $product    = $this->_initProduct();
         $model      = $this->_initSendToFriendModel();
@@ -134,7 +134,7 @@ class Mage_Sendfriend_ProductController extends Mage_Core_Controller_Front_Actio
      * Send Email Post Action
      *
      */
-    public function sendmailAction()
+    function sendmailAction()
     {
         if (!$this->_validateFormKey()) {
             return $this->_redirect('*/*/send', ['_current' => true]);

@@ -37,7 +37,7 @@ class Mage_SalesRule_Model_Resource_Coupon extends Mage_Core_Model_Resource_Db_A
      * @param Mage_Core_Model_Abstract|Mage_SalesRule_Model_Coupon $object
      * @return Mage_Core_Model_Resource_Db_Abstract
      */
-    public function _beforeSave(Mage_Core_Model_Abstract $object)
+    function _beforeSave(Mage_Core_Model_Abstract $object)
     {
         if (!$object->getExpirationDate()) {
             $object->setExpirationDate(null);
@@ -59,7 +59,7 @@ class Mage_SalesRule_Model_Resource_Coupon extends Mage_Core_Model_Resource_Db_A
      * @param Mage_SalesRule_Model_Rule|int $rule
      * @return bool
      */
-    public function loadPrimaryByRule(Mage_SalesRule_Model_Coupon $object, $rule)
+    function loadPrimaryByRule(Mage_SalesRule_Model_Coupon $object, $rule)
     {
         $read = $this->_getReadAdapter();
 
@@ -91,7 +91,7 @@ class Mage_SalesRule_Model_Resource_Coupon extends Mage_Core_Model_Resource_Db_A
      * @param string $code
      * @return bool
      */
-    public function exists($code)
+    function exists($code)
     {
         $read = $this->_getReadAdapter();
         $select = $read->select();
@@ -110,7 +110,7 @@ class Mage_SalesRule_Model_Resource_Coupon extends Mage_Core_Model_Resource_Db_A
      * @param Mage_SalesRule_Model_Rule $rule
      * @return $this
      */
-    public function updateSpecificCoupons(Mage_SalesRule_Model_Rule $rule)
+    function updateSpecificCoupons(Mage_SalesRule_Model_Rule $rule)
     {
         if (!$rule || !$rule->getId() || !$rule->hasDataChanges()) {
             return $this;

@@ -27,7 +27,7 @@ class Mage_Catalog_Model_Category_Attribute_Backend_Image extends Mage_Eav_Model
      * @param Varien_Object $object
      * @return $this
      */
-    public function afterSave($object)
+    function afterSave($object)
     {
         $value = $object->getData($this->getAttribute()->getName());
         if (empty($value) && empty($_FILES)) {

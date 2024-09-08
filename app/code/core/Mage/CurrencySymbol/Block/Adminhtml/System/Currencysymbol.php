@@ -44,7 +44,7 @@ class Mage_CurrencySymbol_Block_Adminhtml_System_Currencysymbol extends Mage_Adm
      *
      * @return string
      */
-    public function getHeader()
+    function getHeader()
     {
         return Mage::helper('adminhtml')->__('Manage Currency Symbols');
     }
@@ -54,7 +54,7 @@ class Mage_CurrencySymbol_Block_Adminhtml_System_Currencysymbol extends Mage_Adm
      *
      * @return string
      */
-    public function getSaveButtonHtml()
+    function getSaveButtonHtml()
     {
         /** @var Mage_Core_Block_Abstract $block */
         $block = $this->getLayout()->createBlock('adminhtml/widget_button');
@@ -72,7 +72,7 @@ class Mage_CurrencySymbol_Block_Adminhtml_System_Currencysymbol extends Mage_Adm
      *
      * @return string
      */
-    public function getFormActionUrl()
+    function getFormActionUrl()
     {
         return $this->getUrl('*/*/save');
     }
@@ -82,7 +82,7 @@ class Mage_CurrencySymbol_Block_Adminhtml_System_Currencysymbol extends Mage_Adm
      *
      * @return int
      */
-    public function getWebsiteId()
+    function getWebsiteId()
     {
         return $this->getRequest()->getParam('website');
     }
@@ -92,7 +92,7 @@ class Mage_CurrencySymbol_Block_Adminhtml_System_Currencysymbol extends Mage_Adm
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->getRequest()->getParam('store');
     }
@@ -102,7 +102,7 @@ class Mage_CurrencySymbol_Block_Adminhtml_System_Currencysymbol extends Mage_Adm
      *
      * @return array
      */
-    public function getCurrencySymbolsData()
+    function getCurrencySymbolsData()
     {
         if (!$this->_symbolsData) {
             $this->_symbolsData =  Mage::getModel('currencysymbol/system_currencysymbol')
@@ -116,7 +116,7 @@ class Mage_CurrencySymbol_Block_Adminhtml_System_Currencysymbol extends Mage_Adm
      *
      * @return string
      */
-    public function getInheritText()
+    function getInheritText()
     {
         return Mage::helper('currencysymbol')->__('Use Standard');
     }

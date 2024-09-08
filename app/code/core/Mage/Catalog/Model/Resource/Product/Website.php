@@ -45,7 +45,7 @@ class Mage_Catalog_Model_Resource_Product_Website extends Mage_Core_Model_Resour
      * @return $this
      * @throws Exception
      */
-    public function removeProducts($websiteIds, $productIds)
+    function removeProducts($websiteIds, $productIds)
     {
         if (!is_array($websiteIds) || !is_array($productIds)
             || count($websiteIds) == 0 || count($productIds) == 0
@@ -80,7 +80,7 @@ class Mage_Catalog_Model_Resource_Product_Website extends Mage_Core_Model_Resour
      * @return $this
      * @throws Exception
      */
-    public function addProducts($websiteIds, $productIds)
+    function addProducts($websiteIds, $productIds)
     {
         if (!is_array($websiteIds) || !is_array($productIds)
             || count($websiteIds) == 0 || count($productIds) == 0
@@ -127,7 +127,7 @@ class Mage_Catalog_Model_Resource_Product_Website extends Mage_Core_Model_Resour
      * @param array $productIds
      * @return array
      */
-    public function getWebsites($productIds)
+    function getWebsites($productIds)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getMainTable(), ['product_id', 'website_id'])

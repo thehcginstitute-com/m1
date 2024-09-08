@@ -19,7 +19,7 @@
 class AddThis_SharingTool_Model_Source_Uihover
 {
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return array(
             array('value' => 0, 'label'=>'Normal'),

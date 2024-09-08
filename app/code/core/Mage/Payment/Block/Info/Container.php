@@ -56,7 +56,7 @@ class Mage_Payment_Block_Info_Container extends Mage_Core_Block_Template
      *
      * @return Mage_Payment_Model_Info|false
      */
-    public function getPaymentInfo()
+    function getPaymentInfo()
     {
         return false;
     }
@@ -68,7 +68,7 @@ class Mage_Payment_Block_Info_Container extends Mage_Core_Block_Template
      * @param   string $template
      * @return  Mage_Payment_Block_Info_Container
      */
-    public function setInfoTemplate($method = '', $template = '')
+    function setInfoTemplate($method = '', $template = '')
     {
         if ($info = $this->getPaymentInfo()) {
             if ($info->getMethodInstance()->getCode() == $method) {

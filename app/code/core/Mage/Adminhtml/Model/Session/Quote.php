@@ -69,7 +69,7 @@ class Mage_Adminhtml_Model_Session_Quote extends Mage_Core_Model_Session_Abstrac
      */
     protected $_order   = null;
 
-    public function __construct()
+    function __construct()
     {
         $this->init('adminhtml_quote');
         if (Mage::app()->isSingleStoreMode()) {
@@ -82,7 +82,7 @@ class Mage_Adminhtml_Model_Session_Quote extends Mage_Core_Model_Session_Abstrac
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         if (is_null($this->_quote)) {
             $this->_quote = Mage::getModel('sales/quote');
@@ -109,7 +109,7 @@ class Mage_Adminhtml_Model_Session_Quote extends Mage_Core_Model_Session_Abstrac
      * @param Mage_Customer_Model_Customer $customer
      * @return $this
      */
-    public function setCustomer(Mage_Customer_Model_Customer $customer)
+    function setCustomer(Mage_Customer_Model_Customer $customer)
     {
         $this->_customer = $customer;
         return $this;
@@ -121,7 +121,7 @@ class Mage_Adminhtml_Model_Session_Quote extends Mage_Core_Model_Session_Abstrac
      * @param bool $useSetStore
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer($forceReload = false, $useSetStore = false)
+    function getCustomer($forceReload = false, $useSetStore = false)
     {
         if (is_null($this->_customer) || $forceReload) {
             $this->_customer = Mage::getModel('customer/customer');
@@ -140,7 +140,7 @@ class Mage_Adminhtml_Model_Session_Quote extends Mage_Core_Model_Session_Abstrac
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         if (is_null($this->_store)) {
             $this->_store = Mage::app()->getStore($this->getStoreId());
@@ -156,7 +156,7 @@ class Mage_Adminhtml_Model_Session_Quote extends Mage_Core_Model_Session_Abstrac
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         if (is_null($this->_order)) {
             $this->_order = Mage::getModel('sales/order');

@@ -48,7 +48,7 @@ abstract class Mage_Sitemap_Model_Resource_Catalog_Abstract extends Mage_Core_Mo
      *
      * @param array $args
      */
-    public function __construct(array $args = [])
+    function __construct(array $args = [])
     {
         $this->_factory = !empty($args['factory']) ? $args['factory'] : Mage::getSingleton('catalog/factory');
         parent::__construct();
@@ -60,7 +60,7 @@ abstract class Mage_Sitemap_Model_Resource_Catalog_Abstract extends Mage_Core_Mo
      * @param int $storeId
      * @return array
      */
-    abstract public function getCollection($storeId);
+    abstract function getCollection($storeId);
 
     /**
      * Add attribute to filter

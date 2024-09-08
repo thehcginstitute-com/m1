@@ -31,7 +31,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Config_Grid extends Ma
      */
     protected $_configAttributeCodes = null;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setUseAjax(true);
@@ -165,7 +165,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Config_Grid extends Ma
      *
      * @return bool
      */
-    public function isReadonly()
+    function isReadonly()
     {
         if ($this->hasData('is_readonly')) {
             return $this->getData('is_readonly');
@@ -280,7 +280,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Config_Grid extends Ma
     /**
      * @return array
      */
-    public function getEditParamsForAssociated()
+    function getEditParamsForAssociated()
     {
         return [
             'base'      =>  '*/*/edit',
@@ -309,7 +309,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Config_Grid extends Ma
         return implode(',', $attributesIds);
     }
 
-    public function getOptions($attribute)
+    function getOptions($attribute)
     {
         $result = [];
         foreach ($attribute->getProductAttribute()->getSource()->getAllOptions() as $option) {
@@ -321,7 +321,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Super_Config_Grid extends Ma
         return $result;
     }
 
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/superConfig', ['_current' => true]);
     }

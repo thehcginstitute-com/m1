@@ -73,7 +73,7 @@ class Mage_Log_Model_Cron extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function logClean()
+    function logClean()
     {
         if (!Mage::getStoreConfigFlag(self::XML_PATH_LOG_CLEAN_ENABLED)) {
             return $this;

@@ -78,7 +78,7 @@ class Fooman_Common_Model_Selftester_Abstract extends Mage_Core_Model_Abstract
      *
      * @return void
      */
-    public function _getVersions()
+    function _getVersions()
     {
         $this->messages[] = "Magento version: " . Mage::getVersion();
     }
@@ -88,7 +88,7 @@ class Fooman_Common_Model_Selftester_Abstract extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function _getDbFields()
+    function _getDbFields()
     {
         return array();
     }
@@ -98,7 +98,7 @@ class Fooman_Common_Model_Selftester_Abstract extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function _getRewrites ()
+    function _getRewrites ()
     {
         return array();
     }
@@ -108,7 +108,7 @@ class Fooman_Common_Model_Selftester_Abstract extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function _getFiles ()
+    function _getFiles ()
     {
         return array();
     }
@@ -118,7 +118,7 @@ class Fooman_Common_Model_Selftester_Abstract extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function _getSettings()
+    function _getSettings()
     {
         return array();
     }

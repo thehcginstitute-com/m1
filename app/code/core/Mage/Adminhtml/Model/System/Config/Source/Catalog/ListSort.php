@@ -25,7 +25,7 @@ class Mage_Adminhtml_Model_System_Config_Source_Catalog_ListSort
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $options = [];
         $options[] = [

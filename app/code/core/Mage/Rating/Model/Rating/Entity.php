@@ -36,7 +36,7 @@ class Mage_Rating_Model_Rating_Entity extends Mage_Core_Model_Abstract
      * @param string $entityCode
      * @return int
      */
-    public function getIdByCode($entityCode)
+    function getIdByCode($entityCode)
     {
         return $this->_getResource()->getIdByCode($entityCode);
     }

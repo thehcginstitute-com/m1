@@ -46,7 +46,7 @@ class Mage_Adminhtml_Block_Notification_Toolbar extends Mage_Adminhtml_Block_Tem
      * @return bool
      * @throws Exception
      */
-    public function isShow()
+    function isShow()
     {
         if (!$this->isOutputEnabled('Mage_AdminNotification')) {
             return false;
@@ -68,7 +68,7 @@ class Mage_Adminhtml_Block_Notification_Toolbar extends Mage_Adminhtml_Block_Tem
      *
      * @return int
      */
-    public function getCriticalCount()
+    function getCriticalCount()
     {
         return $this->_getHelper()
             ->getUnreadNoticeCount(Mage_AdminNotification_Model_Inbox::SEVERITY_CRITICAL);
@@ -79,7 +79,7 @@ class Mage_Adminhtml_Block_Notification_Toolbar extends Mage_Adminhtml_Block_Tem
      *
      * @return int
      */
-    public function getMajorCount()
+    function getMajorCount()
     {
         return $this->_getHelper()
             ->getUnreadNoticeCount(Mage_AdminNotification_Model_Inbox::SEVERITY_MAJOR);
@@ -90,7 +90,7 @@ class Mage_Adminhtml_Block_Notification_Toolbar extends Mage_Adminhtml_Block_Tem
      *
      * @return int
      */
-    public function getMinorCount()
+    function getMinorCount()
     {
         return $this->_getHelper()
             ->getUnreadNoticeCount(Mage_AdminNotification_Model_Inbox::SEVERITY_MINOR);
@@ -101,7 +101,7 @@ class Mage_Adminhtml_Block_Notification_Toolbar extends Mage_Adminhtml_Block_Tem
      *
      * @return int
      */
-    public function getNoticeCount()
+    function getNoticeCount()
     {
         return $this->_getHelper()
             ->getUnreadNoticeCount(Mage_AdminNotification_Model_Inbox::SEVERITY_NOTICE);
@@ -112,7 +112,7 @@ class Mage_Adminhtml_Block_Notification_Toolbar extends Mage_Adminhtml_Block_Tem
      *
      * @return string
      */
-    public function getNoticesInboxUrl()
+    function getNoticesInboxUrl()
     {
         return $this->getUrl('adminhtml/notification');
     }
@@ -122,7 +122,7 @@ class Mage_Adminhtml_Block_Notification_Toolbar extends Mage_Adminhtml_Block_Tem
      *
      * @return string
      */
-    public function getLatestNotice()
+    function getLatestNotice()
     {
         return  $this->_getHelper()
             ->getLatestNotice()->getTitle();
@@ -133,7 +133,7 @@ class Mage_Adminhtml_Block_Notification_Toolbar extends Mage_Adminhtml_Block_Tem
      *
      * @return string
      */
-    public function getLatestNoticeUrl()
+    function getLatestNoticeUrl()
     {
         return $this->_getHelper()->getLatestNotice()->getUrl();
     }
@@ -143,7 +143,7 @@ class Mage_Adminhtml_Block_Notification_Toolbar extends Mage_Adminhtml_Block_Tem
      *
      * @return bool
      */
-    public function isMessageWindowAvailable()
+    function isMessageWindowAvailable()
     {
         /** @var Mage_Adminhtml_Block_Notification_Window $block */
         $block = $this->getLayout()->getBlock('notification_window');

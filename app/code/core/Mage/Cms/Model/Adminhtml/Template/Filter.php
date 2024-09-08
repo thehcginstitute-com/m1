@@ -33,7 +33,7 @@ class Mage_Cms_Model_Adminhtml_Template_Filter extends Mage_Cms_Model_Template_F
      *
      * @throws Mage_Core_Exception
      */
-    public function mediaDirective($construction)
+    function mediaDirective($construction)
     {
         $params = $this->_getIncludeParameters($construction[2]);
         if (!isset($params['url'])) {

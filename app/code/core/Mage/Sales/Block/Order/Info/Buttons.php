@@ -33,7 +33,7 @@ class Mage_Sales_Block_Order_Info_Buttons extends Mage_Core_Block_Template
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }
@@ -44,7 +44,7 @@ class Mage_Sales_Block_Order_Info_Buttons extends Mage_Core_Block_Template
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function getPrintUrl($order)
+    function getPrintUrl($order)
     {
         if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
             return $this->getUrl('sales/guest/print', ['order_id' => $order->getId()]);
@@ -58,7 +58,7 @@ class Mage_Sales_Block_Order_Info_Buttons extends Mage_Core_Block_Template
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function getReorderUrl($order)
+    function getReorderUrl($order)
     {
         if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
             return $this->getUrl('sales/guest/reorder', ['order_id' => $order->getId()]);

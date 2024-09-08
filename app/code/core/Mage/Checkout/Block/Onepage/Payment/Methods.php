@@ -25,7 +25,7 @@ class Mage_Checkout_Block_Onepage_Payment_Methods extends Mage_Payment_Block_For
     /**
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return Mage::getSingleton('checkout/session')->getQuote();
     }
@@ -46,7 +46,7 @@ class Mage_Checkout_Block_Onepage_Payment_Methods extends Mage_Payment_Block_For
      *
      * @return false|string
      */
-    public function getSelectedMethodCode()
+    function getSelectedMethodCode()
     {
         if ($method = $this->getQuote()->getPayment()->getMethod()) {
             return $method;
@@ -59,7 +59,7 @@ class Mage_Checkout_Block_Onepage_Payment_Methods extends Mage_Payment_Block_For
      * @param Mage_Payment_Model_Method_Abstract $method
      * @return string
      */
-    public function getPaymentMethodFormHtml(Mage_Payment_Model_Method_Abstract $method)
+    function getPaymentMethodFormHtml(Mage_Payment_Model_Method_Abstract $method)
     {
         return $this->getChildHtml('payment.method.' . $method->getCode());
     }
@@ -70,7 +70,7 @@ class Mage_Checkout_Block_Onepage_Payment_Methods extends Mage_Payment_Block_For
      * @param Mage_Payment_Model_Method_Abstract $method
      * @return string
      */
-    public function getMethodTitle(Mage_Payment_Model_Method_Abstract $method)
+    function getMethodTitle(Mage_Payment_Model_Method_Abstract $method)
     {
         $form = $this->getChild('payment.method.' . $method->getCode());
         if ($form && $form->hasMethodTitle()) {
@@ -84,7 +84,7 @@ class Mage_Checkout_Block_Onepage_Payment_Methods extends Mage_Payment_Block_For
      * @param Mage_Payment_Model_Method_Abstract $method
      * @return string
      */
-    public function getMethodLabelAfterHtml(Mage_Payment_Model_Method_Abstract $method)
+    function getMethodLabelAfterHtml(Mage_Payment_Model_Method_Abstract $method)
     {
         if ($form = $this->getChild('payment.method.' . $method->getCode())) {
             return $form->getMethodLabelAfterHtml();

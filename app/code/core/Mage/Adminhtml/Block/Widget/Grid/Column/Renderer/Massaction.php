@@ -29,7 +29,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Massaction extends Mage_A
      *
      * @return string
      */
-    public function renderHeader()
+    function renderHeader()
     {
         return '&nbsp;';
     }
@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Massaction extends Mage_A
      *
      * @return string
      */
-    public function renderProperty()
+    function renderProperty()
     {
         $out = parent::renderProperty();
         $out = preg_replace('/class=".*?"/i', '', $out);
@@ -53,7 +53,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Massaction extends Mage_A
      * @param Varien_Object $row
      * @return string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         if ($this->getColumn()->getGrid()->getMassactionIdFieldOnlyIndexValue()) {
             $this->setNoObjectId(true);

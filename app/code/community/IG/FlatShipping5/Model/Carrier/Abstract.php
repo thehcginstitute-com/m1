@@ -28,7 +28,7 @@ abstract class IG_FlatShipping5_Model_Carrier_Abstract extends Mage_Shipping_Mod
 {
 	protected $_code = '';
 	
-	public function collectRates(Mage_Shipping_Model_Rate_Request $request)
+	function collectRates(Mage_Shipping_Model_Rate_Request $request)
 	{
 		if (!$this->getConfigFlag('active'))
 		{
@@ -105,7 +105,7 @@ abstract class IG_FlatShipping5_Model_Carrier_Abstract extends Mage_Shipping_Mod
 		return $result;
 	}
 	
-	public function getAllowedMethods()
+	function getAllowedMethods()
 	{
 		return array($this->_code=>$this->getConfigData('name'));
 	}

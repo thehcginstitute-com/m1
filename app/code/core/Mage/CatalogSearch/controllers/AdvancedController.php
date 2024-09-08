@@ -21,14 +21,14 @@
  */
 class Mage_CatalogSearch_AdvancedController extends Mage_Core_Controller_Front_Action
 {
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout();
         $this->_initLayoutMessages('catalogsearch/session');
         $this->renderLayout();
     }
 
-    public function resultAction()
+    function resultAction()
     {
         $this->loadLayout();
         try {

@@ -6,7 +6,7 @@
  */
 class Amasty_Notfound_Block_Adminhtml_Log_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
                  
@@ -30,7 +30,7 @@ class Amasty_Notfound_Block_Adminhtml_Log_Edit extends Mage_Adminhtml_Block_Widg
         ";
     }
 
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('amnotfound')->__('Create Redirect');
     }

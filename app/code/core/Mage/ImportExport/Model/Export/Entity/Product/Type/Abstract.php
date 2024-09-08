@@ -48,7 +48,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Product_Type_Abstract
      *
      * @return array
      */
-    public function getDisabledAttrs()
+    function getDisabledAttrs()
     {
         return $this->_disabledAttrs;
     }
@@ -58,7 +58,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Product_Type_Abstract
      *
      * @return array
      */
-    public function getIndexValueAttributes()
+    function getIndexValueAttributes()
     {
         return $this->_indexValueAttributes;
     }
@@ -68,7 +68,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Product_Type_Abstract
      *
      * @return bool
      */
-    public function isSuitable()
+    function isSuitable()
     {
         return true;
     }
@@ -79,7 +79,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Product_Type_Abstract
      * @param Mage_Catalog_Model_Resource_Eav_Attribute $attribute
      * @return bool
      */
-    public function overrideAttribute(Mage_Catalog_Model_Resource_Eav_Attribute $attribute)
+    function overrideAttribute(Mage_Catalog_Model_Resource_Eav_Attribute $attribute)
     {
         if (!empty($this->_attributeOverrides[$attribute->getAttributeCode()])) {
             $data = $this->_attributeOverrides[$attribute->getAttributeCode()];

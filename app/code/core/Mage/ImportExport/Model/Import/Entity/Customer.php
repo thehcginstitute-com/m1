@@ -203,7 +203,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer extends Mage_ImportExport_M
      */
     protected $_websiteIdToCode = [];
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -517,7 +517,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer extends Mage_ImportExport_M
      * @param string $websiteCode
      * @return string|null
      */
-    public function getCustomerId($email, $websiteCode)
+    function getCustomerId($email, $websiteCode)
     {
         if (isset($this->_oldCustomers[$email][$websiteCode])) {
             return $this->_oldCustomers[$email][$websiteCode];
@@ -534,7 +534,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer extends Mage_ImportExport_M
      * @abstract
      * @return string
      */
-    public function getEntityTypeCode()
+    function getEntityTypeCode()
     {
         return 'customer';
     }
@@ -545,7 +545,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer extends Mage_ImportExport_M
      * @param array $rowData
      * @return int
      */
-    public function getRowScope(array $rowData)
+    function getRowScope(array $rowData)
     {
         $foundOptions = false;
         foreach ($this->_multiSelectAttributes as $attrCode => $attribute) {
@@ -571,7 +571,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer extends Mage_ImportExport_M
      * @param string $attrCode
      * @return bool
      */
-    public function isAttributeParticular($attrCode)
+    function isAttributeParticular($attrCode)
     {
         return parent::isAttributeParticular($attrCode) || $this->_addressEntity->isAttributeParticular($attrCode);
     }
@@ -583,7 +583,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer extends Mage_ImportExport_M
      * @param int $rowNum
      * @return bool
      */
-    public function validateRow(array $rowData, $rowNum)
+    function validateRow(array $rowData, $rowNum)
     {
         static $email   = null; // e-mail is remembered through all customer rows
         static $website = null; // website is remembered through all customer rows

@@ -1,7 +1,7 @@
 <?php
 class Aftership_Track_Model_Words
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         return array(
             array('value'=>0, 'label'=>Mage::helper('aftership')->__('Disable')),            

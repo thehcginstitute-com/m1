@@ -35,7 +35,7 @@ class Mage_Eav_Model_Attribute_Data_File extends Mage_Eav_Model_Attribute_Data_A
      * @param Zend_Controller_Request_Http $request
      * @return false|array|string
      */
-    public function extractValue(Zend_Controller_Request_Http $request)
+    function extractValue(Zend_Controller_Request_Http $request)
     {
         if ($this->getIsAjaxRequest()) {
             return false;
@@ -143,7 +143,7 @@ class Mage_Eav_Model_Attribute_Data_File extends Mage_Eav_Model_Attribute_Data_A
      * @throws Mage_Core_Exception
      * @return true|array
      */
-    public function validateValue($value)
+    function validateValue($value)
     {
         if ($this->getIsAjaxRequest()) {
             return true;
@@ -190,7 +190,7 @@ class Mage_Eav_Model_Attribute_Data_File extends Mage_Eav_Model_Attribute_Data_A
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function compactValue($value)
+    function compactValue($value)
     {
         if ($this->getIsAjaxRequest()) {
             return $this;
@@ -247,7 +247,7 @@ class Mage_Eav_Model_Attribute_Data_File extends Mage_Eav_Model_Attribute_Data_A
      * @param array|string $value
      * @return $this
      */
-    public function restoreValue($value)
+    function restoreValue($value)
     {
         return $this;
     }
@@ -259,7 +259,7 @@ class Mage_Eav_Model_Attribute_Data_File extends Mage_Eav_Model_Attribute_Data_A
      * @return string|array
      * @throws Mage_Core_Exception
      */
-    public function outputValue($format = Mage_Eav_Model_Attribute_Data::OUTPUT_FORMAT_TEXT)
+    function outputValue($format = Mage_Eav_Model_Attribute_Data::OUTPUT_FORMAT_TEXT)
     {
         $output = '';
         $value  = $this->getEntity()->getData($this->getAttribute()->getAttributeCode());

@@ -43,7 +43,7 @@ class Mage_Core_Model_Cookie
      * @param mixed $store
      * @return $this
      */
-    public function setStore($store)
+    function setStore($store)
     {
         $this->_store = Mage::app()->getStore($store);
         return $this;
@@ -54,7 +54,7 @@ class Mage_Core_Model_Cookie
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         if (is_null($this->_store)) {
             $this->_store = Mage::app()->getStore();
@@ -87,7 +87,7 @@ class Mage_Core_Model_Cookie
      *
      * @return string
      */
-    public function getDomain()
+    function getDomain()
     {
         $domain = $this->getConfigDomain();
         if (empty($domain)) {
@@ -101,7 +101,7 @@ class Mage_Core_Model_Cookie
      *
      * @return string
      */
-    public function getConfigDomain()
+    function getConfigDomain()
     {
         return (string)Mage::getStoreConfig(self::XML_PATH_COOKIE_DOMAIN, $this->getStore());
     }
@@ -111,7 +111,7 @@ class Mage_Core_Model_Cookie
      *
      * @return string
      */
-    public function getPath()
+    function getPath()
     {
         $path = Mage::getStoreConfig(self::XML_PATH_COOKIE_PATH, $this->getStore());
         if (empty($path)) {
@@ -125,7 +125,7 @@ class Mage_Core_Model_Cookie
      *
      * @return int
      */
-    public function getLifetime()
+    function getLifetime()
     {
         if (!is_null($this->_lifetime)) {
             $lifetime = $this->_lifetime;
@@ -144,7 +144,7 @@ class Mage_Core_Model_Cookie
      * @param int $lifetime
      * @return $this
      */
-    public function setLifetime($lifetime)
+    function setLifetime($lifetime)
     {
         $this->_lifetime = (int)$lifetime;
         return $this;
@@ -155,7 +155,7 @@ class Mage_Core_Model_Cookie
      *
      * @return bool
      */
-    public function getHttponly()
+    function getHttponly()
     {
         $httponly = Mage::getStoreConfig(self::XML_PATH_COOKIE_HTTPONLY, $this->getStore());
         if (is_null($httponly)) {
@@ -169,7 +169,7 @@ class Mage_Core_Model_Cookie
      *
      * @return string
      */
-    public function getSameSite(): string
+    function getSameSite(): string
     {
         $sameSite = Mage::getStoreConfig(self::XML_PATH_COOKIE_SAMESITE, $this->getStore());
         if (is_null($sameSite)) {
@@ -184,7 +184,7 @@ class Mage_Core_Model_Cookie
      *
      * @return bool
      */
-    public function isSecure()
+    function isSecure()
     {
         if ($this->getStore()->isAdmin()) {
             return $this->_getRequest()->isSecure();
@@ -209,7 +209,7 @@ class Mage_Core_Model_Cookie
      * @param string $sameSite
      * @return $this
      */
-    public function set($name, $value, $period = null, $path = null, $domain = null, $secure = null, $httponly = null, $sameSite = null)
+    function set($name, $value, $period = null, $path = null, $domain = null, $secure = null, $httponly = null, $sameSite = null)
     {
         /**
          * Check headers sent
@@ -285,7 +285,7 @@ class Mage_Core_Model_Cookie
      * @param string $sameSite
      * @return $this
      */
-    public function renew($name, $period = null, $path = null, $domain = null, $secure = null, $httponly = null, $sameSite = null)
+    function renew($name, $period = null, $path = null, $domain = null, $secure = null, $httponly = null, $sameSite = null)
     {
         if (($period === null) && !$this->getLifetime()) {
             return $this;
@@ -303,7 +303,7 @@ class Mage_Core_Model_Cookie
      * @param string $name The cookie name
      * @return mixed
      */
-    public function get($name = null)
+    function get($name = null)
     {
         return $this->_getRequest()->getCookie($name, false);
     }
@@ -319,7 +319,7 @@ class Mage_Core_Model_Cookie
      * @param string $sameSite
      * @return $this
      */
-    public function delete($name, $path = null, $domain = null, $secure = null, $httponly = null, $sameSite = null)
+    function delete($name, $path = null, $domain = null, $secure = null, $httponly = null, $sameSite = null)
     {
         /**
          * Check headers sent

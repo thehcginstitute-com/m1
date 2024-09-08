@@ -36,7 +36,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     /**
      * Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('system/convert/profile/wizard.phtml');
@@ -57,7 +57,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
      * @param string $entityType
      * @return array|string[]
      */
-    public function getAttributes($entityType)
+    function getAttributes($entityType)
     {
         if (!isset($this->_attributes[$entityType])) {
             switch ($entityType) {
@@ -84,7 +84,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
      * @param string|null $defaultNew
      * @return string
      */
-    public function getValue($key, $default = '', $defaultNew = null)
+    function getValue($key, $default = '', $defaultNew = null)
     {
         if ($defaultNew !== null) {
             if ($this->getProfileId() == 0) {
@@ -101,12 +101,12 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
      * @param string $value
      * @return string
      */
-    public function getSelected($key, $value)
+    function getSelected($key, $value)
     {
         return $this->getData($key) == $value ? 'selected="selected"' : '';
     }
 
-    public function getChecked($key)
+    function getChecked($key)
     {
         return $this->getData($key) ? 'checked="checked"' : '';
     }
@@ -115,7 +115,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
      * @param string $entityType
      * @return array
      */
-    public function getMappings($entityType)
+    function getMappings($entityType)
     {
         $maps = $this->getData('gui_data/map/' . $entityType . '/db');
         return $maps ?: [];
@@ -124,7 +124,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     /**
      * @return string
      */
-    public function getAddMapButtonHtml()
+    function getAddMapButtonHtml()
     {
         if (!$this->_addMapButtonHtml) {
             $this->_addMapButtonHtml = $this->getLayout()->createBlock('adminhtml/widget_button')->setType('button')
@@ -137,7 +137,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     /**
      * @return string
      */
-    public function getRemoveMapButtonHtml()
+    function getRemoveMapButtonHtml()
     {
         if (!$this->_removeMapButtonHtml) {
             $this->_removeMapButtonHtml = $this->getLayout()->createBlock('adminhtml/widget_button')->setType('button')
@@ -150,7 +150,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     /**
      * @return array
      */
-    public function getProductTypeFilterOptions()
+    function getProductTypeFilterOptions()
     {
         $options = Mage::getSingleton('catalog/product_type')->getOptionArray();
         array_splice($options, 0, 0, ['' => $this->__('Any Type')]);
@@ -160,7 +160,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     /**
      * @return array
      */
-    public function getProductAttributeSetFilterOptions()
+    function getProductAttributeSetFilterOptions()
     {
         $options = Mage::getResourceModel('eav/entity_attribute_set_collection')
             ->setEntityTypeFilter(Mage::getModel('catalog/product')->getResource()->getTypeId())
@@ -179,7 +179,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     /**
      * @return array
      */
-    public function getProductVisibilityFilterOptions()
+    function getProductVisibilityFilterOptions()
     {
         $options = Mage::getSingleton('catalog/product_visibility')->getOptionArray();
         array_splice($options, 0, 0, ['' => $this->__('Any Visibility')]);
@@ -189,7 +189,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     /**
      * @return array
      */
-    public function getProductStatusFilterOptions()
+    function getProductStatusFilterOptions()
     {
         $options = Mage::getSingleton('catalog/product_status')->getOptionArray();
         array_splice($options, 0, 0, ['' => $this->__('Any Status')]);
@@ -199,7 +199,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     /**
      * @return array
      */
-    public function getStoreFilterOptions()
+    function getStoreFilterOptions()
     {
         if (!$this->_filterStores) {
             $this->_filterStores = [];
@@ -213,7 +213,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     /**
      * @return array
      */
-    public function getCustomerGroupFilterOptions()
+    function getCustomerGroupFilterOptions()
     {
         $options = Mage::getResourceModel('customer/group_collection')
             ->addFieldToFilter('customer_group_id', ['gt' => 0])
@@ -227,7 +227,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     /**
      * @return array
      */
-    public function getCountryFilterOptions()
+    function getCountryFilterOptions()
     {
         $options = Mage::getResourceModel('directory/country_collection')
             ->load()->toOptionArray(false);
@@ -251,7 +251,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     /**
      * @return array
      */
-    public function getWebsiteCollection()
+    function getWebsiteCollection()
     {
         return $this->_getStoreModel()->getWebsiteCollection();
     }
@@ -259,7 +259,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     /**
      * @return array
      */
-    public function getGroupCollection()
+    function getGroupCollection()
     {
         return $this->_getStoreModel()->getGroupCollection();
     }
@@ -267,7 +267,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     /**
      * @return array
      */
-    public function getStoreCollection()
+    function getStoreCollection()
     {
         return $this->_getStoreModel()->getStoreCollection();
     }
@@ -275,7 +275,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
     /**
      * @return string
      */
-    public function getShortDateFormat()
+    function getShortDateFormat()
     {
         if (!$this->_shortDateFormat) {
             $this->_shortDateFormat = Mage::app()->getLocale()->getDateStrFormat(

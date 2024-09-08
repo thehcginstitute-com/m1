@@ -28,7 +28,7 @@ abstract class Mage_Eav_Model_Resource_Form_Attribute extends Mage_Core_Model_Re
      * @param string $formCode
      * @return array
      */
-    public function getFormAttributeIds($formCode)
+    function getFormAttributeIds($formCode)
     {
         $bind   = ['form_code' => $formCode];
         $select = $this->_getReadAdapter()->select()

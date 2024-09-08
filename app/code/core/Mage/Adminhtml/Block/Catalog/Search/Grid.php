@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Catalog_Search_Grid extends Mage_Adminhtml_Block_Widg
     /**
      * Init Grid default properties
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('catalog_search_grid');
@@ -162,7 +162,7 @@ class Mage_Adminhtml_Block_Catalog_Search_Grid extends Mage_Adminhtml_Block_Widg
      * @param Mage_CatalogSearch_Model_Query $row
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', ['id' => $row->getId()]);
     }

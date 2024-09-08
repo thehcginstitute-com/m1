@@ -19,7 +19,7 @@
  */
 class Mage_Index_Block_Adminhtml_Process extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_blockGroup = 'index';
         $this->_controller = 'adminhtml_process';

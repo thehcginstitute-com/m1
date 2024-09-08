@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Checkout_Agreement_Edit_Form extends Mage_Adminhtml_B
      * Init class
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 

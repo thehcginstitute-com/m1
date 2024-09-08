@@ -43,7 +43,7 @@ class Mage_Wishlist_Model_Resource_Product_Collection extends Mage_Catalog_Model
      *
      * @return bool
      */
-    public function getDaysInWishlist()
+    function getDaysInWishlist()
     {
         return $this->_addDaysInWishlist;
     }
@@ -54,7 +54,7 @@ class Mage_Wishlist_Model_Resource_Product_Collection extends Mage_Catalog_Model
      * @param bool $flag
      * @return $this
      */
-    public function setDaysInWishlist($flag)
+    function setDaysInWishlist($flag)
     {
         $this->_addDaysInWishlist = (bool) $flag;
         return $this;
@@ -66,7 +66,7 @@ class Mage_Wishlist_Model_Resource_Product_Collection extends Mage_Catalog_Model
      * @param Mage_Wishlist_Model_Wishlist $wishlist
      * @return $this
      */
-    public function addWishlistFilter(Mage_Wishlist_Model_Wishlist $wishlist)
+    function addWishlistFilter(Mage_Wishlist_Model_Wishlist $wishlist)
     {
         $this->joinTable(
             [$this->_wishlistItemTableAlias => 'wishlist/item'],
@@ -100,7 +100,7 @@ class Mage_Wishlist_Model_Resource_Product_Collection extends Mage_Catalog_Model
      * @param string $dir
      * @return $this
      */
-    public function addWishListSortOrder($attribute = 'added_at', $dir = 'desc')
+    function addWishListSortOrder($attribute = 'added_at', $dir = 'desc')
     {
         $this->setOrder($attribute, $dir);
         return $this;
@@ -111,7 +111,7 @@ class Mage_Wishlist_Model_Resource_Product_Collection extends Mage_Catalog_Model
      *
      * @return $this
      */
-    public function resetSortOrder()
+    function resetSortOrder()
     {
         $this->getSelect()->reset(Zend_Db_Select::ORDER);
         return $this;
@@ -122,7 +122,7 @@ class Mage_Wishlist_Model_Resource_Product_Collection extends Mage_Catalog_Model
      *
      * @return $this
      */
-    public function addStoreData()
+    function addStoreData()
     {
         $adapter = $this->getConnection();
         if (!$this->getDaysInWishlist()) {
@@ -167,7 +167,7 @@ class Mage_Wishlist_Model_Resource_Product_Collection extends Mage_Catalog_Model
      * @param bool $logQuery
      * @return Mage_Wishlist_Model_Resource_Product_Collection
      */
-    public function load($printQuery = false, $logQuery = false)
+    function load($printQuery = false, $logQuery = false)
     {
         return $this;
     }

@@ -34,7 +34,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Price extends Mage_Adminh
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         if ($data = $row->getData($this->getColumn()->getIndex())) {
             $currency_code = $this->_getCurrencyCode($row);
@@ -90,7 +90,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Price extends Mage_Adminh
      *
      * @return string
      */
-    public function renderCss()
+    function renderCss()
     {
         return parent::renderCss() . ' a-right';
     }

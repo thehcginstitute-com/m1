@@ -67,7 +67,7 @@ class Mage_Sales_Model_Quote_Item_Option extends Mage_Core_Model_Abstract implem
      * @param   Mage_Sales_Model_Quote_Item $item
      * @return  $this
      */
-    public function setItem($item)
+    function setItem($item)
     {
         $this->setItemId($item->getId());
         $this->_item = $item;
@@ -79,7 +79,7 @@ class Mage_Sales_Model_Quote_Item_Option extends Mage_Core_Model_Abstract implem
      *
      * @return Mage_Sales_Model_Quote_Item
      */
-    public function getItem()
+    function getItem()
     {
         return $this->_item;
     }
@@ -90,7 +90,7 @@ class Mage_Sales_Model_Quote_Item_Option extends Mage_Core_Model_Abstract implem
      * @param   Mage_Catalog_Model_Product $product
      * @return  $this
      */
-    public function setProduct($product)
+    function setProduct($product)
     {
         $this->setProductId($product->getId());
         $this->_product = $product;
@@ -102,7 +102,7 @@ class Mage_Sales_Model_Quote_Item_Option extends Mage_Core_Model_Abstract implem
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return $this->_product;
     }
@@ -112,7 +112,7 @@ class Mage_Sales_Model_Quote_Item_Option extends Mage_Core_Model_Abstract implem
      *
      * @return mixed
      */
-    public function getValue()
+    function getValue()
     {
         return $this->_getData('value');
     }
@@ -135,7 +135,7 @@ class Mage_Sales_Model_Quote_Item_Option extends Mage_Core_Model_Abstract implem
      *
      * @return $this
      */
-    public function __clone()
+    function __clone()
     {
         $this->setId(null);
         $this->_item    = null;

@@ -2,13 +2,13 @@
 
 class PS_Webhook_Model_Observer
 {
-	public function sendOrderToWebhook(Varien_Event_Observer $observer)
+	function sendOrderToWebhook(Varien_Event_Observer $observer)
 	{
 		$order = $observer->getEvent()->getOrder();
 		$this->processOrder($order);
 	}
 
-	public function processOrder($order)
+	function processOrder($order)
 	{
 		$data = [
 			'customer_firstname' => $order->getCustomerFirstname(),

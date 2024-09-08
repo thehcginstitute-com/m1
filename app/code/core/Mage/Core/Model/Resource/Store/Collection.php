@@ -46,7 +46,7 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
      * @param bool $loadDefault
      * @return $this
      */
-    public function setLoadDefault($loadDefault)
+    function setLoadDefault($loadDefault)
     {
         $this->setFlag('load_default_store', (bool)$loadDefault);
         return $this;
@@ -57,7 +57,7 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
      *
      * @return bool
      */
-    public function getLoadDefault()
+    function getLoadDefault()
     {
         return $this->getFlag('load_default_store');
     }
@@ -67,7 +67,7 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
      *
      * @return $this
      */
-    public function setWithoutDefaultFilter()
+    function setWithoutDefaultFilter()
     {
         $this->addFieldToFilter('main_table.store_id', ['gt' => 0]);
         return $this;
@@ -80,7 +80,7 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
      * @param int|array $groupId
      * @return $this
      */
-    public function addGroupFilter($groupId)
+    function addGroupFilter($groupId)
     {
         return $this->addFieldToFilter('main_table.group_id', ['in' => $groupId]);
     }
@@ -91,7 +91,7 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
      * @param int|array $store
      * @return $this
      */
-    public function addIdFilter($store)
+    function addIdFilter($store)
     {
         return $this->addFieldToFilter('main_table.store_id', ['in' => $store]);
     }
@@ -102,7 +102,7 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
      * @param int|array $website
      * @return $this
      */
-    public function addWebsiteFilter($website)
+    function addWebsiteFilter($website)
     {
         return $this->addFieldToFilter('main_table.website_id', ['in' => $website]);
     }
@@ -113,7 +113,7 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
      * @param int|array $category
      * @return $this
      */
-    public function addCategoryFilter($category)
+    function addCategoryFilter($category)
     {
         if (!is_array($category)) {
             $category = [$category];
@@ -126,7 +126,7 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->_toOptionArray('store_id', 'name');
     }
@@ -136,7 +136,7 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
      *
      * @return array
      */
-    public function toOptionHash()
+    function toOptionHash()
     {
         return $this->_toOptionHash('store_id', 'name');
     }
@@ -144,7 +144,7 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
     /**
      * @inheritDoc
      */
-    public function load($printQuery = false, $logQuery = false)
+    function load($printQuery = false, $logQuery = false)
     {
         if (!$this->getLoadDefault()) {
             $this->setWithoutDefaultFilter();
@@ -164,7 +164,7 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
      * @param array $categories
      * @return $this
      */
-    public function loadByCategoryIds(array $categories)
+    function loadByCategoryIds(array $categories)
     {
         $this->addRootCategoryIdAttribute();
         $this->addFieldToFilter('group_table.root_category_id', ['in' => $categories]);
@@ -177,7 +177,7 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
      *
      * @return $this
      */
-    public function addRootCategoryIdAttribute()
+    function addRootCategoryIdAttribute()
     {
         if (!$this->getFlag('core_store_group_table_joined')) {
             $this->getSelect()->join(
@@ -195,7 +195,7 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
      * Initializes the config cache for each store
      * @return $this
      */
-    public function initConfigCache()
+    function initConfigCache()
     {
         if (!Mage::app()->useCache('config')) {
             return $this;

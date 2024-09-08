@@ -42,7 +42,7 @@ class Mage_Sales_Model_Order_Status extends Mage_Core_Model_Abstract
      * @param bool $isDefault make the status as default one for state
      * @return $this
      */
-    public function assignState($state, $isDefault = false)
+    function assignState($state, $isDefault = false)
     {
         $this->_getResource()->beginTransaction();
         try {
@@ -61,7 +61,7 @@ class Mage_Sales_Model_Order_Status extends Mage_Core_Model_Abstract
      * @param string  $state
      * @return $this
      */
-    public function unassignState($state)
+    function unassignState($state)
     {
         $this->_getResource()->beginTransaction();
         try {
@@ -79,7 +79,7 @@ class Mage_Sales_Model_Order_Status extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getStoreLabels()
+    function getStoreLabels()
     {
         if ($this->hasData('store_labels')) {
             return $this->_getData('store_labels');
@@ -95,7 +95,7 @@ class Mage_Sales_Model_Order_Status extends Mage_Core_Model_Abstract
      * @param mixed $store
      * @return string
      */
-    public function getStoreLabel($store = null)
+    function getStoreLabel($store = null)
     {
         $store = Mage::app()->getStore($store);
         $label = false;
@@ -114,7 +114,7 @@ class Mage_Sales_Model_Order_Status extends Mage_Core_Model_Abstract
      * @param string $state
      * @return Mage_Sales_Model_Order_Status
      */
-    public function loadDefaultByState($state)
+    function loadDefaultByState($state)
     {
         $this->load($state, 'default_state');
         return $this;

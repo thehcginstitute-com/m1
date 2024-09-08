@@ -66,7 +66,7 @@ class Mage_CatalogSearch_Model_Fulltext extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function rebuildIndex($storeId = null, $productIds = null)
+    function rebuildIndex($storeId = null, $productIds = null)
     {
         Mage::dispatchEvent('catalogsearch_index_process_start', [
             'store_id'      => $storeId,
@@ -93,7 +93,7 @@ class Mage_CatalogSearch_Model_Fulltext extends Mage_Core_Model_Abstract
      * @param int $productId Product Entity Id
      * @return $this
      */
-    public function cleanIndex($storeId = null, $productId = null)
+    function cleanIndex($storeId = null, $productId = null)
     {
         $this->getResource()->cleanIndex($storeId, $productId);
         return $this;
@@ -104,7 +104,7 @@ class Mage_CatalogSearch_Model_Fulltext extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function resetSearchResults()
+    function resetSearchResults()
     {
         $this->getResource()->resetSearchResults();
         return $this;
@@ -116,7 +116,7 @@ class Mage_CatalogSearch_Model_Fulltext extends Mage_Core_Model_Abstract
      * @param Mage_CatalogSearch_Model_Query $query
      * @return $this
      */
-    public function prepareResult($query = null)
+    function prepareResult($query = null)
     {
         if (!$query instanceof Mage_CatalogSearch_Model_Query) {
             $query = Mage::helper('catalogsearch')->getQuery();
@@ -135,7 +135,7 @@ class Mage_CatalogSearch_Model_Fulltext extends Mage_Core_Model_Abstract
      * @param int $storeId
      * @return int
      */
-    public function getSearchType($storeId = null)
+    function getSearchType($storeId = null)
     {
         return Mage::getStoreConfig(self::XML_PATH_CATALOG_SEARCH_TYPE, $storeId);
     }
@@ -150,7 +150,7 @@ class Mage_CatalogSearch_Model_Fulltext extends Mage_Core_Model_Abstract
      * @param bool $value
      * @return $this
      */
-    public function setAllowTableChanges($value = true)
+    function setAllowTableChanges($value = true)
     {
         $this->_allowTableChanges = $value;
         return $this;
@@ -166,7 +166,7 @@ class Mage_CatalogSearch_Model_Fulltext extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function updateCategoryIndex($productIds, $categoryIds)
+    function updateCategoryIndex($productIds, $categoryIds)
     {
         $this->getResource()->updateCategoryIndex($productIds, $categoryIds);
         return $this;

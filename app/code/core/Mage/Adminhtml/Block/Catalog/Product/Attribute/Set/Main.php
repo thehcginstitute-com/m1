@@ -121,7 +121,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Set_Main extends Mage_Admin
      *
      * @return string
      */
-    public function getGroupTreeHtml()
+    function getGroupTreeHtml()
     {
         return $this->getChildHtml('group_tree');
     }
@@ -131,7 +131,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Set_Main extends Mage_Admin
      *
      * @return string
      */
-    public function getSetFormHtml()
+    function getSetFormHtml()
     {
         return $this->getChildHtml('edit_set_form');
     }
@@ -151,7 +151,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Set_Main extends Mage_Admin
      *
      * @return string
      */
-    public function getMoveUrl()
+    function getMoveUrl()
     {
         return $this->getUrl('*/catalog_product_set/save', ['id' => $this->_getSetId()]);
     }
@@ -161,7 +161,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Set_Main extends Mage_Admin
      *
      * @return string
      */
-    public function getGroupUrl()
+    function getGroupUrl()
     {
         return $this->getUrl('*/catalog_product_group/save', ['id' => $this->_getSetId()]);
     }
@@ -171,7 +171,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Set_Main extends Mage_Admin
      *
      * @return string
      */
-    public function getGroupTreeJson()
+    function getGroupTreeJson()
     {
         $items = [];
         $setId = $this->_getSetId();
@@ -232,7 +232,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Set_Main extends Mage_Admin
      *
      * @return string
      */
-    public function getAttributeTreeJson()
+    function getAttributeTreeJson()
     {
         $items = [];
         $setId = $this->_getSetId();
@@ -287,7 +287,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Set_Main extends Mage_Admin
      *
      * @return string
      */
-    public function getBackButtonHtml()
+    function getBackButtonHtml()
     {
         return $this->getChildHtml('back_button');
     }
@@ -297,7 +297,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Set_Main extends Mage_Admin
      *
      * @return string
      */
-    public function getResetButtonHtml()
+    function getResetButtonHtml()
     {
         return $this->getChildHtml('reset_button');
     }
@@ -307,7 +307,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Set_Main extends Mage_Admin
      *
      * @return string
      */
-    public function getSaveButtonHtml()
+    function getSaveButtonHtml()
     {
         return $this->getChildHtml('save_button');
     }
@@ -317,7 +317,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Set_Main extends Mage_Admin
      *
      * @return string
      */
-    public function getDeleteButtonHtml()
+    function getDeleteButtonHtml()
     {
         if ($this->getIsCurrentSetDefault()) {
             return '';
@@ -330,7 +330,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Set_Main extends Mage_Admin
      *
      * @return string
      */
-    public function getDeleteGroupButton()
+    function getDeleteGroupButton()
     {
         return $this->getChildHtml('delete_group_button');
     }
@@ -340,7 +340,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Set_Main extends Mage_Admin
      *
      * @return string
      */
-    public function getAddGroupButton()
+    function getAddGroupButton()
     {
         return $this->getChildHtml('add_group_button');
     }
@@ -350,7 +350,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Set_Main extends Mage_Admin
      *
      * @return string
      */
-    public function getRenameButton()
+    function getRenameButton()
     {
         return $this->getChildHtml('rename_button');
     }
@@ -380,7 +380,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_Set_Main extends Mage_Admin
      *
      * @return bool
      */
-    public function getIsCurrentSetDefault()
+    function getIsCurrentSetDefault()
     {
         $isDefault = $this->getData('is_current_set_default');
         if (is_null($isDefault)) {

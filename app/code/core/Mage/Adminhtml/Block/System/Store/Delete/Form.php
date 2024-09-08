@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_System_Store_Delete_Form extends Mage_Adminhtml_Block
     /**
      * Init form
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('store_delete_form');

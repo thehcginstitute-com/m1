@@ -28,7 +28,7 @@ class Mage_Widget_Model_Widget_Config extends Varien_Object
      * @param Varien_Object $config
      * @return array
      */
-    public function getPluginSettings($config)
+    function getPluginSettings($config)
     {
         return [
             'widget_plugin_src'   => Mage::getBaseUrl('js') . 'mage/adminhtml/wysiwyg/tiny_mce/plugins/magentowidget/editor_plugin.js',
@@ -43,7 +43,7 @@ class Mage_Widget_Model_Widget_Config extends Varien_Object
      *
      * @return string
      */
-    public function getPlaceholderImagesBaseUrl()
+    function getPlaceholderImagesBaseUrl()
     {
         return Mage::getDesign()->getSkinUrl('images/widget/');
     }
@@ -53,7 +53,7 @@ class Mage_Widget_Model_Widget_Config extends Varien_Object
      *
      * @return string
      */
-    public function getPlaceholderImagesBaseDir()
+    function getPlaceholderImagesBaseDir()
     {
         return Mage::getDesign()->getSkinBaseDir() . DS . 'images' . DS . 'widget';
     }
@@ -63,7 +63,7 @@ class Mage_Widget_Model_Widget_Config extends Varien_Object
      *
      * @return array
      */
-    public function getAvailablePlaceholderFilenames()
+    function getAvailablePlaceholderFilenames()
     {
         $result = [];
         $targetDir = $this->getPlaceholderImagesBaseDir();
@@ -87,7 +87,7 @@ class Mage_Widget_Model_Widget_Config extends Varien_Object
      * @param Varien_Object $config Editor element config
      * @return string
      */
-    public function getWidgetWindowUrl($config)
+    function getWidgetWindowUrl($config)
     {
         $params = [];
 
@@ -115,7 +115,7 @@ class Mage_Widget_Model_Widget_Config extends Varien_Object
      * @param array $widgets List of widgets
      * @return string Query param value
      */
-    public function encodeWidgetsToQuery($widgets)
+    function encodeWidgetsToQuery($widgets)
     {
         $widgets = is_array($widgets) ? $widgets : [$widgets];
         $param = implode(',', $widgets);
@@ -128,7 +128,7 @@ class Mage_Widget_Model_Widget_Config extends Varien_Object
      * @param string $queryParam Query param value to decode
      * @return array Array of widget types
      */
-    public function decodeWidgetsFromQuery($queryParam)
+    function decodeWidgetsFromQuery($queryParam)
     {
         $param = Mage::helper('core')->urlDecode($queryParam);
         return preg_split('/\s*\,\s*/', $param, 0, PREG_SPLIT_NO_EMPTY);

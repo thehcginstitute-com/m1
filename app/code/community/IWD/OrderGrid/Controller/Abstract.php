@@ -8,7 +8,7 @@ class IWD_OrderGrid_Controller_Abstract extends Mage_Adminhtml_Controller_Action
     /**
      * @return void
      */
-    public function getFormAction()
+    function getFormAction()
     {
         try {
             $result = $this->getForm();

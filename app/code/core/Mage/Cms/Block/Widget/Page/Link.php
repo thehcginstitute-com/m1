@@ -49,7 +49,7 @@ class Mage_Cms_Block_Widget_Page_Link extends Mage_Core_Block_Html_Link implemen
      *
      * @return string
      */
-    public function getHref()
+    function getHref()
     {
         if (!$this->_href) {
             $this->_href = '';
@@ -69,7 +69,7 @@ class Mage_Cms_Block_Widget_Page_Link extends Mage_Core_Block_Html_Link implemen
      *
      * @return string
      */
-    public function getTitle()
+    function getTitle()
     {
         if (!$this->_title) {
             $this->_title = '';
@@ -94,7 +94,7 @@ class Mage_Cms_Block_Widget_Page_Link extends Mage_Core_Block_Html_Link implemen
      *
      * @return string
      */
-    public function getAnchorText()
+    function getAnchorText()
     {
         if ($this->getData('anchor_text')) {
             $this->_anchorText = $this->getData('anchor_text');

@@ -43,7 +43,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
      *
      * @return $this|void
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
         $this->_preDispatchValidateCustomer();
@@ -167,7 +167,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
      *
      * @return Mage_Checkout_Model_Type_Onepage
      */
-    public function getOnepage()
+    function getOnepage()
     {
         return Mage::getSingleton('checkout/type_onepage');
     }
@@ -175,7 +175,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Checkout page
      */
-    public function indexAction()
+    function indexAction()
     {
         if (!Mage::helper('checkout')->canOnepageCheckout()) {
             Mage::getSingleton('checkout/session')->addError($this->__('The onepage checkout is disabled.'));
@@ -215,7 +215,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
      *
      * @return string|null
      */
-    public function progressAction()
+    function progressAction()
     {
         // previous step should never be null. We always start with billing and go forward
         $prevStep = $this->getRequest()->getParam('prevStep', false);
@@ -238,7 +238,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Shipping method action
      */
-    public function shippingMethodAction()
+    function shippingMethodAction()
     {
         if ($this->_expireAjax()) {
             return;
@@ -250,7 +250,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Review page action
      */
-    public function reviewAction()
+    function reviewAction()
     {
         if ($this->_expireAjax()) {
             return;
@@ -262,7 +262,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Order success action
      */
-    public function successAction()
+    function successAction()
     {
         $session = $this->getOnepage()->getCheckout();
         if (!$session->getLastSuccessQuoteId()) {
@@ -289,7 +289,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Failure action
      */
-    public function failureAction()
+    function failureAction()
     {
         $lastQuoteId = $this->getOnepage()->getCheckout()->getLastQuoteId();
         $lastOrderId = $this->getOnepage()->getCheckout()->getLastOrderId();
@@ -306,7 +306,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Get additional info action
      */
-    public function getAdditionalAction()
+    function getAdditionalAction()
     {
         $this->getResponse()->setBody($this->_getAdditionalHtml());
     }
@@ -314,7 +314,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Address JSON
      */
-    public function getAddressAction()
+    function getAddressAction()
     {
         if ($this->_expireAjax()) {
             return;
@@ -334,7 +334,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Save checkout method
      */
-    public function saveMethodAction()
+    function saveMethodAction()
     {
         if ($this->_expireAjax()) {
             return;
@@ -350,7 +350,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Save checkout billing address
      */
-    public function saveBillingAction()
+    function saveBillingAction()
     {
         if ($this->_expireAjax()) {
             return;
@@ -397,7 +397,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Shipping address save action
      */
-    public function saveShippingAction()
+    function saveShippingAction()
     {
         if ($this->_expireAjax()) {
             return;
@@ -426,7 +426,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Shipping method save action
      */
-    public function saveShippingMethodAction()
+    function saveShippingMethodAction()
     {
         if ($this->_expireAjax()) {
             return;
@@ -466,7 +466,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
      *
      * Sets either redirect or a JSON response
      */
-    public function savePaymentAction()
+    function savePaymentAction()
     {
         if ($this->_expireAjax()) {
             return;
@@ -553,7 +553,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Create order action
      */
-    public function saveOrderAction()
+    function saveOrderAction()
     {
         if ($this->isFormkeyValidationOnCheckoutEnabled() && !$this->_validateFormKey()) {
             $this->_redirect('*/*');

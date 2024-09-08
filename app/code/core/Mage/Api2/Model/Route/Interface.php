@@ -30,5 +30,5 @@ interface Mage_Api2_Model_Route_Interface
      * @param bool $partial Partial path matching
      * @return array|false An array of assigned values or a false on a mismatch
      */
-    public function match($request, $partial = false);
+    function match($request, $partial = false);
 }

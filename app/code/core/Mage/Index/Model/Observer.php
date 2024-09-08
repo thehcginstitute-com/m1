@@ -27,7 +27,7 @@ class Mage_Index_Model_Observer
      */
     protected $_indexer;
 
-    public function __construct()
+    function __construct()
     {
         $this->_indexer = Mage::getSingleton('index/indexer');
     }
@@ -37,7 +37,7 @@ class Mage_Index_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function processStoreSave(Varien_Event_Observer $observer)
+    function processStoreSave(Varien_Event_Observer $observer)
     {
         $store = $observer->getEvent()->getStore();
         $this->_indexer->processEntityAction(
@@ -52,7 +52,7 @@ class Mage_Index_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function processStoreGroupSave(Varien_Event_Observer $observer)
+    function processStoreGroupSave(Varien_Event_Observer $observer)
     {
         $storeGroup = $observer->getEvent()->getStoreGroup();
         $this->_indexer->processEntityAction(
@@ -67,7 +67,7 @@ class Mage_Index_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function processWebsiteSave(Varien_Event_Observer $observer)
+    function processWebsiteSave(Varien_Event_Observer $observer)
     {
         $website = $observer->getEvent()->getWebsite();
         $this->_indexer->processEntityAction(
@@ -82,7 +82,7 @@ class Mage_Index_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function processStoreDelete(Varien_Event_Observer $observer)
+    function processStoreDelete(Varien_Event_Observer $observer)
     {
         $store = $observer->getEvent()->getStore();
         $this->_indexer->processEntityAction(
@@ -97,7 +97,7 @@ class Mage_Index_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function processStoreGroupDelete(Varien_Event_Observer $observer)
+    function processStoreGroupDelete(Varien_Event_Observer $observer)
     {
         $storeGroup = $observer->getEvent()->getStoreGroup();
         $this->_indexer->processEntityAction(
@@ -112,7 +112,7 @@ class Mage_Index_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function processWebsiteDelete(Varien_Event_Observer $observer)
+    function processWebsiteDelete(Varien_Event_Observer $observer)
     {
         $website = $observer->getEvent()->getWebsite();
         $this->_indexer->processEntityAction(
@@ -127,7 +127,7 @@ class Mage_Index_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function processConfigDataSave(Varien_Event_Observer $observer)
+    function processConfigDataSave(Varien_Event_Observer $observer)
     {
         $configData = $observer->getEvent()->getConfigData();
         $this->_indexer->processEntityAction(

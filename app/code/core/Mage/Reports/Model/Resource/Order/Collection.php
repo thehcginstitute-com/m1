@@ -44,7 +44,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param mixed $range
      * @return $this
      */
-    public function checkIsLive($range)
+    function checkIsLive($range)
     {
         $this->_isLive = (bool)!Mage::getStoreConfig('sales/dashboard/use_aggregated_data');
         return $this;
@@ -55,7 +55,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      *
      * @return bool
      */
-    public function isLive()
+    function isLive()
     {
         return $this->_isLive;
     }
@@ -69,7 +69,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param int $isFilter
      * @return $this
      */
-    public function prepareSummary($range, $customStart, $customEnd, $isFilter = 0)
+    function prepareSummary($range, $customStart, $customEnd, $isFilter = 0)
     {
         $this->checkIsLive($range);
         if ($this->_isLive) {
@@ -312,7 +312,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param bool $returnObjects
      * @return array
      */
-    public function getDateRange($range, $customStart, $customEnd, $returnObjects = false)
+    function getDateRange($range, $customStart, $customEnd, $returnObjects = false)
     {
         $dateEnd   = Mage::app()->getLocale()->date();
         $dateStart = clone $dateEnd;
@@ -377,7 +377,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      *
      * @return $this
      */
-    public function addItemCountExpr()
+    function addItemCountExpr()
     {
         $this->getSelect()->columns(['items_count' => 'total_item_count'], 'main_table');
         return $this;
@@ -389,7 +389,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param int|bool $isFilter
      * @return $this
      */
-    public function calculateTotals($isFilter = 0)
+    function calculateTotals($isFilter = 0)
     {
         if ($this->isLive()) {
             $this->_calculateTotalsLive($isFilter);
@@ -487,7 +487,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param bool|int $isFilter
      * @return $this
      */
-    public function calculateSales($isFilter = 0)
+    function calculateSales($isFilter = 0)
     {
         $statuses = Mage::getSingleton('sales/config')
             ->getOrderStatusesForState(Mage_Sales_Model_Order::STATE_CANCELED);
@@ -547,7 +547,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param string $to
      * @return $this
      */
-    public function setDateRange($from, $to)
+    function setDateRange($from, $to)
     {
         $this->_reset()
             ->addFieldToFilter('created_at', ['from' => $from, 'to' => $to])
@@ -568,7 +568,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param array $storeIds
      * @return $this
      */
-    public function setStoreIds($storeIds)
+    function setStoreIds($storeIds)
     {
         $adapter = $this->getConnection();
         $baseSubtotalInvoiced = $adapter->getIfNullSql('main_table.base_subtotal_invoiced', 0);
@@ -614,7 +614,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      *
      * @return $this
      */
-    public function groupByCustomer()
+    function groupByCustomer()
     {
         $this->getSelect()
             ->where('main_table.customer_id IS NOT NULL')
@@ -634,7 +634,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param string $alias
      * @return $this
      */
-    public function joinCustomerName($alias = 'name')
+    function joinCustomerName($alias = 'name')
     {
         $fields  = [
             'main_table.customer_firstname',
@@ -651,7 +651,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      *
      * @return $this
      */
-    public function addOrdersCount()
+    function addOrdersCount()
     {
         $this->addFieldToFilter('state', ['neq' => Mage_Sales_Model_Order::STATE_CANCELED]);
         $this->getSelect()
@@ -666,7 +666,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param bool $convertCurrency
      * @return $this
      */
-    public function addRevenueToSelect($convertCurrency = false)
+    function addRevenueToSelect($convertCurrency = false)
     {
         if ($convertCurrency) {
             $this->getSelect()->columns([
@@ -687,7 +687,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param int $storeId
      * @return $this
      */
-    public function addSumAvgTotals($storeId = 0)
+    function addSumAvgTotals($storeId = 0)
     {
         $adapter = $this->getConnection();
         $baseSubtotalRefunded = $adapter->getIfNullSql('main_table.base_subtotal_refunded', 0);
@@ -717,7 +717,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param string $dir
      * @return $this
      */
-    public function orderByTotalAmount($dir = self::SORT_ORDER_DESC)
+    function orderByTotalAmount($dir = self::SORT_ORDER_DESC)
     {
         $this->getSelect()->order('orders_sum_amount ' . $dir);
         return $this;
@@ -729,7 +729,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param string $dir
      * @return $this
      */
-    public function orderByOrdersCount($dir = self::SORT_ORDER_DESC)
+    function orderByOrdersCount($dir = self::SORT_ORDER_DESC)
     {
         $this->getSelect()->order('orders_count ' . $dir);
         return $this;
@@ -741,7 +741,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param string $dir
      * @return $this
      */
-    public function orderByCustomerRegistration($dir = self::SORT_ORDER_DESC)
+    function orderByCustomerRegistration($dir = self::SORT_ORDER_DESC)
     {
         $this->setOrder('customer_id', $dir);
         return $this;
@@ -753,7 +753,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param string $dir
      * @return $this
      */
-    public function orderByCreatedAt($dir = self::SORT_ORDER_DESC)
+    function orderByCreatedAt($dir = self::SORT_ORDER_DESC)
     {
         $this->setOrder('created_at', $dir);
         return $this;
@@ -764,7 +764,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $countSelect = clone $this->getSelect();
         $countSelect->reset(Zend_Db_Select::ORDER);
@@ -795,7 +795,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      * @param string $period
      * @return $this
      */
-    public function addCreateAtPeriodFilter($period)
+    function addCreateAtPeriodFilter($period)
     {
         list($from, $to) = $this->getDateRange($period, 0, 0, true);
 

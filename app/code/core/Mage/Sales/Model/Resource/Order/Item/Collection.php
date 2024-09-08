@@ -70,7 +70,7 @@ class Mage_Sales_Model_Resource_Order_Item_Collection extends Mage_Sales_Model_R
      *
      * @return $this
      */
-    public function setRandomOrder()
+    function setRandomOrder()
     {
         $this->getConnection()->orderRand($this->getSelect());
         return $this;
@@ -82,7 +82,7 @@ class Mage_Sales_Model_Resource_Order_Item_Collection extends Mage_Sales_Model_R
      * @param mixed $item
      * @return $this
      */
-    public function addIdFilter($item)
+    function addIdFilter($item)
     {
         if (is_array($item)) {
             $this->addFieldToFilter('item_id', ['in' => $item]);
@@ -100,7 +100,7 @@ class Mage_Sales_Model_Resource_Order_Item_Collection extends Mage_Sales_Model_R
      * @param array $typeIds
      * @return $this
      */
-    public function filterByTypes($typeIds)
+    function filterByTypes($typeIds)
     {
         $this->addFieldToFilter('product_type', ['in' => $typeIds]);
         return $this;
@@ -112,7 +112,7 @@ class Mage_Sales_Model_Resource_Order_Item_Collection extends Mage_Sales_Model_R
      * @param int $parentId
      * @return $this
      */
-    public function filterByParent($parentId = null)
+    function filterByParent($parentId = null)
     {
         if (empty($parentId)) {
             $this->addFieldToFilter('parent_item_id', ['null' => true]);
@@ -127,7 +127,7 @@ class Mage_Sales_Model_Resource_Order_Item_Collection extends Mage_Sales_Model_R
      *
      * @return $this
      */
-    public function addAvailableFilter()
+    function addAvailableFilter()
     {
         $fieldExpression = '(qty_shipped - qty_returned)';
         $resultCondition = $this->_getConditionSql($fieldExpression, ["gt" => 0]);
@@ -141,7 +141,7 @@ class Mage_Sales_Model_Resource_Order_Item_Collection extends Mage_Sales_Model_R
      * @param int|array $customerId
      * @return $this
      */
-    public function addFilterByCustomerId($customerId)
+    function addFilterByCustomerId($customerId)
     {
         $this->getSelect()->joinInner(
             ['order' => $this->getTable('sales/order')],

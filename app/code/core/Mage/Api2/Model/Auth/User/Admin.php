@@ -32,7 +32,7 @@ class Mage_Api2_Model_Auth_User_Admin extends Mage_Api2_Model_Auth_User_Abstract
      *
      * @return string
      */
-    public function getLabel()
+    function getLabel()
     {
         return Mage::helper('api2')->__('Admin');
     }
@@ -43,7 +43,7 @@ class Mage_Api2_Model_Auth_User_Admin extends Mage_Api2_Model_Auth_User_Abstract
      * @return int
      * @throws Exception
      */
-    public function getRole()
+    function getRole()
     {
         if (!$this->_role) {
             if (!$this->getUserId()) {
@@ -71,7 +71,7 @@ class Mage_Api2_Model_Auth_User_Admin extends Mage_Api2_Model_Auth_User_Abstract
      *
      * @return string
      */
-    public function getType()
+    function getType()
     {
         return self::USER_TYPE;
     }
@@ -83,7 +83,7 @@ class Mage_Api2_Model_Auth_User_Admin extends Mage_Api2_Model_Auth_User_Abstract
      * @return $this
      * @throws Exception
      */
-    public function setRole($role)
+    function setRole($role)
     {
         if ($this->_role) {
             throw new Exception('Admin role has been already set to ' . $this->_role . ' for user ID ' . $this->getUserId());

@@ -424,7 +424,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
      */
     protected $_urlKeyAttributeId;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -1988,7 +1988,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
      *
      * @return array
      */
-    public function getAttrSetIdToName()
+    function getAttrSetIdToName()
     {
         return $this->_attrSetIdToName;
     }
@@ -1998,7 +1998,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
      *
      * @return Varien_Db_Adapter_Pdo_Mysql
      */
-    public function getConnection()
+    function getConnection()
     {
         return $this->_connection;
     }
@@ -2009,7 +2009,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
      * @abstract
      * @return string
      */
-    public function getEntityTypeCode()
+    function getEntityTypeCode()
     {
         return 'catalog_product';
     }
@@ -2019,7 +2019,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
      *
      * @return array
      */
-    public function getNewSku()
+    function getNewSku()
     {
         return $this->_newSku;
     }
@@ -2029,7 +2029,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
      *
      * @return array|null
      */
-    public function getNextBunch()
+    function getNextBunch()
     {
         return $this->_dataSourceModel->getNextBunch();
     }
@@ -2039,7 +2039,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
      *
      * @return array
      */
-    public function getOldSku()
+    function getOldSku()
     {
         return $this->_oldSku;
     }
@@ -2050,7 +2050,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
      * @param array $rowData
      * @return int
      */
-    public function getRowScope(array $rowData)
+    function getRowScope(array $rowData)
     {
         if (isset($rowData[self::COL_SKU]) && strlen(trim($rowData[self::COL_SKU]))) {
             return self::SCOPE_DEFAULT;
@@ -2066,7 +2066,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
      *
      * @return array
      */
-    public function getWebsiteCodes()
+    function getWebsiteCodes()
     {
         return $this->_websiteCodeToId;
     }
@@ -2078,7 +2078,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
      * @param int $rowNum
      * @return bool
      */
-    public function validateRow(array $rowData, $rowNum)
+    function validateRow(array $rowData, $rowNum)
     {
         static $sku = null; // SKU is remembered through all product rows
 
@@ -2191,7 +2191,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
      *
      * @return array
      */
-    public function getAffectedEntityIds()
+    function getAffectedEntityIds()
     {
         $productIds = [];
         while ($bunch = $this->_dataSourceModel->getNextBunch()) {

@@ -29,7 +29,7 @@ interface Mage_Eav_Model_Entity_Attribute_Source_Interface
      *
      * @return array
      */
-    public function getAllOptions();
+    function getAllOptions();
 
     /**
      * Retrieve Option value text
@@ -37,5 +37,5 @@ interface Mage_Eav_Model_Entity_Attribute_Source_Interface
      * @param string $value
      * @return mixed
      */
-    public function getOptionText($value);
+    function getOptionText($value);
 }

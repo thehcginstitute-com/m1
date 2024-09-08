@@ -72,7 +72,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getQueryParamName()
+    function getQueryParamName()
     {
         return self::QUERY_VAR_NAME;
     }
@@ -82,7 +82,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return Mage_CatalogSearch_Model_Query
      */
-    public function getQuery()
+    function getQuery()
     {
         if (!$this->_query) {
             $this->_query = Mage::getModel('catalogsearch/query')
@@ -99,7 +99,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isMinQueryLength()
+    function isMinQueryLength()
     {
         $minQueryLength = $this->getMinQueryLength();
         $thisQueryLength = Mage::helper('core/string')->strlen($this->getQueryText());
@@ -111,7 +111,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getQueryText()
+    function getQueryText()
     {
         if (!isset($this->_queryText)) {
             $this->_queryText = $this->_getRequest()->getParam($this->getQueryParamName());
@@ -138,7 +138,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getEscapedQueryText()
+    function getEscapedQueryText()
     {
         return $this->escapeHtml($this->getQueryText());
     }
@@ -148,7 +148,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return Mage_CatalogSearch_Model_Resource_Query_Collection
      */
-    public function getSuggestCollection()
+    function getSuggestCollection()
     {
         return $this->getQuery()->getSuggestCollection();
     }
@@ -160,7 +160,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   string $query
      * @return  string
      */
-    public function getResultUrl($query = null)
+    function getResultUrl($query = null)
     {
         return $this->_getUrl('catalogsearch/result', [
             '_query' => [self::QUERY_VAR_NAME => $query],
@@ -173,7 +173,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getSuggestUrl()
+    function getSuggestUrl()
     {
         return $this->_getUrl('catalogsearch/ajax/suggest', [
             '_secure' => $this->_getApp()->getStore()->isCurrentlySecure()
@@ -195,7 +195,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getSearchTermUrl()
+    function getSearchTermUrl()
     {
         return $this->_getUrl('catalogsearch/term/popular');
     }
@@ -205,7 +205,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getAdvancedSearchUrl()
+    function getAdvancedSearchUrl()
     {
         return $this->_getUrl('catalogsearch/advanced');
     }
@@ -216,7 +216,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return int|string
      */
-    public function getMinQueryLength($store = null)
+    function getMinQueryLength($store = null)
     {
         return Mage::getStoreConfig(Mage_CatalogSearch_Model_Query::XML_PATH_MIN_QUERY_LENGTH, $store);
     }
@@ -227,7 +227,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return int|string
      */
-    public function getMaxQueryLength($store = null)
+    function getMaxQueryLength($store = null)
     {
         return Mage::getStoreConfig(Mage_CatalogSearch_Model_Query::XML_PATH_MAX_QUERY_LENGTH, $store);
     }
@@ -238,7 +238,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return int
      */
-    public function getMaxQueryWords($store = null)
+    function getMaxQueryWords($store = null)
     {
         return Mage::getStoreConfig(Mage_CatalogSearch_Model_Query::XML_PATH_MAX_QUERY_WORDS, $store);
     }
@@ -249,7 +249,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $message
      * @return $this
      */
-    public function addNoteMessage($message)
+    function addNoteMessage($message)
     {
         $this->_messages[] = $message;
         return $this;
@@ -261,7 +261,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      * @param array $messages
      * @return $this
      */
-    public function setNoteMessages(array $messages)
+    function setNoteMessages(array $messages)
     {
         $this->_messages = $messages;
         return $this;
@@ -272,7 +272,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getNoteMessages()
+    function getNoteMessages()
     {
         return $this->_messages;
     }
@@ -282,7 +282,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @param mixed $store
      */
-    public function checkNotes($store = null)
+    function checkNotes($store = null)
     {
         if ($this->_isMaxLength) {
             $this->addNoteMessage($this->__('Maximum Search query length is %s. Your query was cut.', $this->getMaxQueryLength()));
@@ -314,7 +314,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $separator
      * @return string
      */
-    public function prepareIndexdata($index, $separator = ' ')
+    function prepareIndexdata($index, $separator = ' ')
     {
         $_index = [];
         foreach ($index as $value) {
@@ -332,7 +332,7 @@ class Mage_CatalogSearch_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return object
      */
-    public function getEngine()
+    function getEngine()
     {
         if (!$this->_engine) {
             $engine = Mage::getStoreConfig('catalog/search/engine');

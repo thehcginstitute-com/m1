@@ -71,7 +71,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Collection extends Mage_Catalog
      * @param string $query
      * @return $this
      */
-    public function addSearchFilter($query)
+    function addSearchFilter($query)
     {
         return $this;
     }
@@ -95,7 +95,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Collection extends Mage_Catalog
      *
      * @return int
      */
-    public function getSize()
+    function getSize()
     {
         if (!$this->_isSearchFiltersApplied) {
             $this->_applySearchFilters();
@@ -127,7 +127,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Collection extends Mage_Catalog
      *
      * @return array
      */
-    public function getFoundIds()
+    function getFoundIds()
     {
         if (is_null($this->_foundData)) {
             /** @var Mage_CatalogSearch_Model_Fulltext $preparedResult */
@@ -173,7 +173,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Collection extends Mage_Catalog
      * @param string $dir
      * @return $this
      */
-    public function setOrder($attribute, $dir = 'desc')
+    function setOrder($attribute, $dir = 'desc')
     {
         if ($attribute == 'relevance') {
             $this->_relevanceSortOrder = ($dir == 'asc') ? SORT_ASC : SORT_DESC;
@@ -216,7 +216,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Collection extends Mage_Catalog
      *
      * @return $this
      */
-    public function setGeneralDefaultQuery()
+    function setGeneralDefaultQuery()
     {
         return $this;
     }

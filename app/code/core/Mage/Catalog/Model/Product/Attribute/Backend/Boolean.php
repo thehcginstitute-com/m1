@@ -28,7 +28,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Boolean extends Mage_Eav_Mode
      * @param Varien_Object $object
      * @return $this
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         $attributeCode = $this->getAttribute()->getName();
         if ($object->getData('use_config_' . $attributeCode)) {

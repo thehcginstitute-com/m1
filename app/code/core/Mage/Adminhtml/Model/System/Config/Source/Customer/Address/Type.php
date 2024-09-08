@@ -27,7 +27,7 @@ class Mage_Adminhtml_Model_System_Config_Source_Customer_Address_Type
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             Mage_Customer_Model_Address_Abstract::TYPE_BILLING => Mage::helper('adminhtml')->__('Billing Address'),

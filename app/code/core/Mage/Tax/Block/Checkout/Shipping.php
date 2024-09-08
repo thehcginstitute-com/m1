@@ -29,7 +29,7 @@ class Mage_Tax_Block_Checkout_Shipping extends Mage_Checkout_Block_Total_Default
      *
      * @return bool
      */
-    public function displayBoth()
+    function displayBoth()
     {
         return Mage::getSingleton('tax/config')->displayCartShippingBoth($this->getStore());
     }
@@ -39,7 +39,7 @@ class Mage_Tax_Block_Checkout_Shipping extends Mage_Checkout_Block_Total_Default
      *
      * @return bool
      */
-    public function displayIncludeTax()
+    function displayIncludeTax()
     {
         return Mage::getSingleton('tax/config')->displayCartShippingInclTax($this->getStore());
     }
@@ -49,7 +49,7 @@ class Mage_Tax_Block_Checkout_Shipping extends Mage_Checkout_Block_Total_Default
      *
      * @return float
      */
-    public function getShippingIncludeTax()
+    function getShippingIncludeTax()
     {
         return $this->getTotal()->getAddress()->getShippingInclTax();
     }
@@ -59,7 +59,7 @@ class Mage_Tax_Block_Checkout_Shipping extends Mage_Checkout_Block_Total_Default
      *
      * @return float
      */
-    public function getShippingExcludeTax()
+    function getShippingExcludeTax()
     {
         return $this->getTotal()->getAddress()->getShippingAmount();
     }
@@ -69,7 +69,7 @@ class Mage_Tax_Block_Checkout_Shipping extends Mage_Checkout_Block_Total_Default
      *
      * @return string
      */
-    public function getIncludeTaxLabel()
+    function getIncludeTaxLabel()
     {
         return $this->helper('tax')->__('Shipping Incl. Tax (%s)', $this->escapeHtml($this->getTotal()->getAddress()->getShippingDescription()));
     }
@@ -79,7 +79,7 @@ class Mage_Tax_Block_Checkout_Shipping extends Mage_Checkout_Block_Total_Default
      *
      * @return string
      */
-    public function getExcludeTaxLabel()
+    function getExcludeTaxLabel()
     {
         return $this->helper('tax')->__('Shipping Excl. Tax (%s)', $this->escapeHtml($this->getTotal()->getAddress()->getShippingDescription()));
     }

@@ -25,7 +25,7 @@
  */
 class Mage_SalesRule_Model_Rule_Condition_Product_Subselect extends Mage_SalesRule_Model_Rule_Condition_Product_Combine
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setType('salesrule/rule_condition_product_subselect')
@@ -37,7 +37,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Subselect extends Mage_SalesRu
      * @param string $key
      * @return $this|Mage_SalesRule_Model_Rule_Condition_Product_Combine
      */
-    public function loadArray($arr, $key = 'conditions')
+    function loadArray($arr, $key = 'conditions')
     {
         $this->setAttribute($arr['attribute']);
         $this->setOperator($arr['operator']);
@@ -50,7 +50,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Subselect extends Mage_SalesRu
      * @param string $itemKey
      * @return string
      */
-    public function asXml($containerKey = 'conditions', $itemKey = 'condition')
+    function asXml($containerKey = 'conditions', $itemKey = 'condition')
     {
         return '<attribute>' . $this->getAttribute() . '</attribute>'
             . '<operator>' . $this->getOperator() . '</operator>'
@@ -60,7 +60,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Subselect extends Mage_SalesRu
     /**
      * @return $this|Mage_SalesRule_Model_Rule_Condition_Product_Combine
      */
-    public function loadAttributeOptions()
+    function loadAttributeOptions()
     {
         $this->setAttributeOption([
             'qty'  => Mage::helper('salesrule')->__('total quantity'),
@@ -72,7 +72,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Subselect extends Mage_SalesRu
     /**
      * @return $this|Mage_SalesRule_Model_Rule_Condition_Product_Combine
      */
-    public function loadValueOptions()
+    function loadValueOptions()
     {
         return $this;
     }
@@ -80,7 +80,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Subselect extends Mage_SalesRu
     /**
      * @return $this|Mage_SalesRule_Model_Rule_Condition_Product_Combine
      */
-    public function loadOperatorOptions()
+    function loadOperatorOptions()
     {
         $this->setOperatorOption([
             '=='  => Mage::helper('rule')->__('is'),
@@ -98,7 +98,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Subselect extends Mage_SalesRu
     /**
      * @return string
      */
-    public function getValueElementType()
+    function getValueElementType()
     {
         return 'text';
     }
@@ -106,7 +106,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Subselect extends Mage_SalesRu
     /**
      * @return string
      */
-    public function asHtml()
+    function asHtml()
     {
         $html = $this->getTypeElement()->getHtml() .
         Mage::helper('salesrule')->__("If %s %s %s for a subselection of items in cart matching %s of these conditions:", $this->getAttributeElement()->getHtml(), $this->getOperatorElement()->getHtml(), $this->getValueElement()->getHtml(), $this->getAggregatorElement()->getHtml());
@@ -122,7 +122,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Subselect extends Mage_SalesRu
      * @param Varien_Object $object Quote
      * @return bool
      */
-    public function validate(Varien_Object $object)
+    function validate(Varien_Object $object)
     {
         if (!$this->getConditions()) {
             return false;

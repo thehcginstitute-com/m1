@@ -35,7 +35,7 @@ class Mage_Core_Model_Resource_File_Storage_Directory_Database extends Mage_Core
      *
      * @return $this
      */
-    public function createDatabaseScheme()
+    function createDatabaseScheme()
     {
         $adapter = $this->_getWriteAdapter();
         $table = $this->getMainTable();
@@ -95,7 +95,7 @@ class Mage_Core_Model_Resource_File_Storage_Directory_Database extends Mage_Core
      * @param  string $path
      * @return $this
      */
-    public function loadByPath(Mage_Core_Model_File_Storage_Directory_Database $object, $path)
+    function loadByPath(Mage_Core_Model_File_Storage_Directory_Database $object, $path)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -125,7 +125,7 @@ class Mage_Core_Model_Resource_File_Storage_Directory_Database extends Mage_Core
      * @param string $path
      * @return int
      */
-    public function getParentId($path)
+    function getParentId($path)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -151,7 +151,7 @@ class Mage_Core_Model_Resource_File_Storage_Directory_Database extends Mage_Core
      *
      * @return $this
      */
-    public function clearDirectories()
+    function clearDirectories()
     {
         $adapter = $this->_getWriteAdapter();
         $adapter->delete($this->getMainTable());
@@ -166,7 +166,7 @@ class Mage_Core_Model_Resource_File_Storage_Directory_Database extends Mage_Core
      * @param int $count
      * @return mixed
      */
-    public function exportDirectories($offset, $count = 100)
+    function exportDirectories($offset, $count = 100)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -187,7 +187,7 @@ class Mage_Core_Model_Resource_File_Storage_Directory_Database extends Mage_Core
      * @param string $directory
      * @return mixed
      */
-    public function getSubdirectories($directory)
+    function getSubdirectories($directory)
     {
         $directory = trim($directory, '/');
         $adapter = $this->_getReadAdapter();
@@ -209,7 +209,7 @@ class Mage_Core_Model_Resource_File_Storage_Directory_Database extends Mage_Core
      * @param string $name
      * @param string $path
      */
-    public function deleteDirectory($name, $path)
+    function deleteDirectory($name, $path)
     {
         $adapter = $this->_getWriteAdapter();
 

@@ -95,7 +95,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Tab_Info extends Mage_Adminhtml_Block_Widg
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('api2')->__('Role Info');
     }
@@ -105,7 +105,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Tab_Info extends Mage_Adminhtml_Block_Widg
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return $this->getTabLabel();
     }
@@ -115,7 +115,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Tab_Info extends Mage_Adminhtml_Block_Widg
      *
      * @return bool
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -125,7 +125,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Tab_Info extends Mage_Adminhtml_Block_Widg
      *
      * @return bool
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }
@@ -135,7 +135,7 @@ class Mage_Api2_Block_Adminhtml_Roles_Tab_Info extends Mage_Adminhtml_Block_Widg
      *
      * @return bool
      */
-    public function isRoleSystem()
+    function isRoleSystem()
     {
         return $this->getRole() && Mage_Api2_Model_Acl_Global_Role::isSystemRole($this->getRole());
     }

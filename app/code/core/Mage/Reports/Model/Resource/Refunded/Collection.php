@@ -29,7 +29,7 @@ class Mage_Reports_Model_Resource_Refunded_Collection extends Mage_Sales_Model_E
      * @param string $to
      * @return $this
      */
-    public function setDateRange($from, $to)
+    function setDateRange($from, $to)
     {
         $this->_reset()
             ->addAttributeToSelect('*')
@@ -50,7 +50,7 @@ class Mage_Reports_Model_Resource_Refunded_Collection extends Mage_Sales_Model_E
      * @param array $storeIds
      * @return $this
      */
-    public function setStoreIds($storeIds)
+    function setStoreIds($storeIds)
     {
         if ($storeIds) {
             $this->addAttributeToFilter('store_id', ['in' => (array)$storeIds])
@@ -95,7 +95,7 @@ class Mage_Reports_Model_Resource_Refunded_Collection extends Mage_Sales_Model_E
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $countSelect = clone $this->getSelect();
         $countSelect->reset(Zend_Db_Select::ORDER);

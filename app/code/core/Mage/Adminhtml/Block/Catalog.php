@@ -21,7 +21,7 @@
  */
 class Mage_Adminhtml_Block_Catalog extends Mage_Adminhtml_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/index.phtml');

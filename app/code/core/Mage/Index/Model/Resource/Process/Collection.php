@@ -46,7 +46,7 @@ class Mage_Index_Model_Resource_Process_Collection extends Mage_Core_Model_Resou
      *
      * @return $this
      */
-    public function addEventsStats()
+    function addEventsStats()
     {
         $countsSelect = $this->getConnection()
             ->select()

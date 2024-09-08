@@ -23,7 +23,7 @@ class Mage_Checkout_Block_Onepage_Failure extends Mage_Core_Block_Template
     /**
      * @return mixed
      */
-    public function getRealOrderId()
+    function getRealOrderId()
     {
         return Mage::getSingleton('checkout/session')->getLastRealOrderId();
     }
@@ -33,7 +33,7 @@ class Mage_Checkout_Block_Onepage_Failure extends Mage_Core_Block_Template
      *
      *  @return   string
      */
-    public function getErrorMessage()
+    function getErrorMessage()
     {
         // Mage::getSingleton('checkout/session')->unsErrorMessage();
         return Mage::getSingleton('checkout/session')->getErrorMessage();
@@ -44,7 +44,7 @@ class Mage_Checkout_Block_Onepage_Failure extends Mage_Core_Block_Template
      *
      *  @return   string
      */
-    public function getContinueShoppingUrl()
+    function getContinueShoppingUrl()
     {
         return Mage::getUrl('checkout/cart');
     }

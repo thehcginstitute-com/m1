@@ -16,7 +16,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Bloc
     /**
      * {@inheritdoc}
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -151,7 +151,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Bloc
         return $this;
     }
 
-    public function getOrderGridTotals()
+    function getOrderGridTotals()
     {
         /**
          * @var $totals IWD_OrderGrid_Model_Order_Totals
@@ -222,7 +222,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Bloc
      * @param $row
      * @return bool|string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         if (!Mage::helper('iwd_ordergrid')->isEnabled()) {
             return parent::getRowUrl($row);
@@ -238,7 +238,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Bloc
     /**
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         if (!Mage::helper('iwd_ordergrid')->isEnabled()) {
             return parent::getGridUrl();
@@ -250,7 +250,7 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Bloc
     /**
      * @return string
      */
-    public function _toHtml()
+    function _toHtml()
     {
         if (!Mage::helper('iwd_ordergrid')->isEnabled()) {
             return parent::_toHtml();

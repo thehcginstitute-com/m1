@@ -26,7 +26,7 @@ interface Mage_Widget_Block_Interface
      *
      * @return string
      */
-    public function toHtml();
+    function toHtml();
 
     /**
      * Add data to the widget.
@@ -35,7 +35,7 @@ interface Mage_Widget_Block_Interface
      * @param array $arr
      * @return Mage_Widget_Block_Interface
      */
-    public function addData(array $arr);
+    function addData(array $arr);
 
     /**
      * Overwrite data in the widget.
@@ -48,5 +48,5 @@ interface Mage_Widget_Block_Interface
      * @param mixed $value
      * @return Varien_Object
      */
-    public function setData($key, $value = null);
+    function setData($key, $value = null);
 }

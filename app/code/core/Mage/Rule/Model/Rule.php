@@ -27,7 +27,7 @@ class Mage_Rule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return Mage_Rule_Model_Condition_Combine
      */
-    public function getConditionsInstance()
+    function getConditionsInstance()
     {
         return Mage::getModel('rule/condition_combine');
     }
@@ -37,7 +37,7 @@ class Mage_Rule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return Mage_Rule_Model_Action_Collection
      */
-    public function getActionsInstance()
+    function getActionsInstance()
     {
         return Mage::getModel('rule/action_collection');
     }

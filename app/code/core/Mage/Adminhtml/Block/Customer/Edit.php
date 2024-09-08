@@ -23,7 +23,7 @@
  */
 class Mage_Adminhtml_Block_Customer_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'id';
         $this->_controller = 'customer';
@@ -56,12 +56,12 @@ class Mage_Adminhtml_Block_Customer_Edit extends Mage_Adminhtml_Block_Widget_For
     /**
      * @return string
      */
-    public function getCreateOrderUrl()
+    function getCreateOrderUrl()
     {
         return $this->getUrl('*/sales_order_create/start', ['customer_id' => $this->getCustomerId()]);
     }
 
-    public function getCustomerId()
+    function getCustomerId()
     {
         return Mage::registry('current_customer')->getId();
     }
@@ -69,7 +69,7 @@ class Mage_Adminhtml_Block_Customer_Edit extends Mage_Adminhtml_Block_Widget_For
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if (Mage::registry('current_customer')->getId()) {
             return $this->escapeHtml(Mage::registry('current_customer')->getName());
@@ -82,7 +82,7 @@ class Mage_Adminhtml_Block_Customer_Edit extends Mage_Adminhtml_Block_Widget_For
      *
      * @return string
      */
-    public function getFormHtml()
+    function getFormHtml()
     {
         $html = parent::getFormHtml();
         $html .= $this->getLayout()->createBlock('adminhtml/catalog_product_composite_configure')->toHtml();
@@ -92,7 +92,7 @@ class Mage_Adminhtml_Block_Customer_Edit extends Mage_Adminhtml_Block_Widget_For
     /**
      * @return string
      */
-    public function getValidationUrl()
+    function getValidationUrl()
     {
         return $this->getUrl('*/*/validate', ['_current' => true]);
     }

@@ -32,7 +32,7 @@ class Mage_Catalog_Model_Product_Option_Type_Date extends Mage_Catalog_Model_Pro
      * @param array $values All product option values, i.e. array (option_id => mixed, option_id => mixed...)
      * @return Mage_Catalog_Model_Product_Option_Type_Default
      */
-    public function validateUserValue($values)
+    function validateUserValue($values)
     {
         parent::validateUserValue($values);
 
@@ -93,7 +93,7 @@ class Mage_Catalog_Model_Product_Option_Type_Date extends Mage_Catalog_Model_Pro
      * @throws Mage_Core_Exception
      * @return mixed Prepared option value
      */
-    public function prepareForCart()
+    function prepareForCart()
     {
         if ($this->getIsValid() && $this->getUserValue() !== null) {
             $option = $this->getOption();
@@ -149,7 +149,7 @@ class Mage_Catalog_Model_Product_Option_Type_Date extends Mage_Catalog_Model_Pro
      * @param string $optionValue Prepared for cart option value
      * @return string
      */
-    public function getFormattedOptionValue($optionValue)
+    function getFormattedOptionValue($optionValue)
     {
         if ($this->_formattedOptionValue === null) {
             $option = $this->getOption();
@@ -178,7 +178,7 @@ class Mage_Catalog_Model_Product_Option_Type_Date extends Mage_Catalog_Model_Pro
      * @param string $optionValue Prepared for cart option value
      * @return string
      */
-    public function getPrintableOptionValue($optionValue)
+    function getPrintableOptionValue($optionValue)
     {
         return $this->getFormattedOptionValue($optionValue);
     }
@@ -189,7 +189,7 @@ class Mage_Catalog_Model_Product_Option_Type_Date extends Mage_Catalog_Model_Pro
      * @param string $optionValue Prepared for cart option value
      * @return string
      */
-    public function getEditableOptionValue($optionValue)
+    function getEditableOptionValue($optionValue)
     {
         return $this->getFormattedOptionValue($optionValue);
     }
@@ -201,7 +201,7 @@ class Mage_Catalog_Model_Product_Option_Type_Date extends Mage_Catalog_Model_Pro
      * @param array $productOptionValues Values for product option
      * @return string|null
      */
-    public function parseOptionValue($optionValue, $productOptionValues)
+    function parseOptionValue($optionValue, $productOptionValues)
     {
         $timestamp = strtotime($optionValue);
         if ($timestamp === false || $timestamp == -1) {
@@ -218,7 +218,7 @@ class Mage_Catalog_Model_Product_Option_Type_Date extends Mage_Catalog_Model_Pro
      * @param string $optionValue
      * @return mixed
      */
-    public function prepareOptionValueForRequest($optionValue)
+    function prepareOptionValueForRequest($optionValue)
     {
         $confItem = $this->getConfigurationItem();
         $infoBuyRequest = $confItem->getOptionByCode('info_buyRequest');
@@ -239,7 +239,7 @@ class Mage_Catalog_Model_Product_Option_Type_Date extends Mage_Catalog_Model_Pro
      *
      * @return bool
      */
-    public function useCalendar()
+    function useCalendar()
     {
         return (bool)$this->getConfigData('use_calendar');
     }
@@ -249,7 +249,7 @@ class Mage_Catalog_Model_Product_Option_Type_Date extends Mage_Catalog_Model_Pro
      *
      * @return bool
      */
-    public function is24hTimeFormat()
+    function is24hTimeFormat()
     {
         return (bool)($this->getConfigData('time_format') == '24h');
     }
@@ -259,7 +259,7 @@ class Mage_Catalog_Model_Product_Option_Type_Date extends Mage_Catalog_Model_Pro
      *
      * @return mixed
      */
-    public function getYearStart()
+    function getYearStart()
     {
         $_range = explode(',', $this->getConfigData('year_range'));
         if (isset($_range[0]) && !empty($_range[0])) {
@@ -274,7 +274,7 @@ class Mage_Catalog_Model_Product_Option_Type_Date extends Mage_Catalog_Model_Pro
      *
      * @return mixed
      */
-    public function getYearEnd()
+    function getYearEnd()
     {
         $_range = explode(',', $this->getConfigData('year_range'));
         if (isset($_range[1]) && !empty($_range[1])) {

@@ -35,7 +35,7 @@ class Mage_Tax_Model_Resource_Calculation_Rule_Collection extends Mage_Core_Mode
      * @param string $alias table alias
      * @return $this
      */
-    public function joinCalculationData($alias)
+    function joinCalculationData($alias)
     {
         $this->getSelect()->joinLeft(
             [$alias => $this->getTable('tax/tax_calculation')],
@@ -98,7 +98,7 @@ class Mage_Tax_Model_Resource_Calculation_Rule_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function addProductTaxClassesToResult()
+    function addProductTaxClassesToResult()
     {
         return $this->_add('tax_class', 'product_tax_class_id', 'class_id', 'class_name', 'product_tax_classes');
     }
@@ -108,7 +108,7 @@ class Mage_Tax_Model_Resource_Calculation_Rule_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function addCustomerTaxClassesToResult()
+    function addCustomerTaxClassesToResult()
     {
         return $this->_add('tax_class', 'customer_tax_class_id', 'class_id', 'class_name', 'customer_tax_classes');
     }
@@ -118,7 +118,7 @@ class Mage_Tax_Model_Resource_Calculation_Rule_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function addRatesToResult()
+    function addRatesToResult()
     {
         return $this->_add('tax_calculation_rate', 'tax_calculation_rate_id', 'tax_calculation_rate_id', 'code', 'tax_rates');
     }
@@ -131,7 +131,7 @@ class Mage_Tax_Model_Resource_Calculation_Rule_Collection extends Mage_Core_Mode
      * @throws Mage_Core_Exception
      * @return $this
      */
-    public function setClassTypeFilter($type, $id)
+    function setClassTypeFilter($type, $id)
     {
         switch ($type) {
             case Mage_Tax_Model_Class::TAX_CLASS_TYPE_PRODUCT:

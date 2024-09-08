@@ -36,7 +36,7 @@ class Mage_SalesRule_Model_Observer
      * @param   Varien_Event $event
      * @return  Mage_SalesRule_Model_Validator
      */
-    public function getValidator($event)
+    function getValidator($event)
     {
         if (!$this->_validator) {
             $this->_validator = Mage::getModel('salesrule/validator')
@@ -52,7 +52,7 @@ class Mage_SalesRule_Model_Observer
      * @param Varien_Event_Observer $observer
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function sales_quote_address_discount_item($observer)
+    function sales_quote_address_discount_item($observer)
     {
         $this->getValidator($observer->getEvent())
             ->process($observer->getEvent()->getItem());
@@ -65,7 +65,7 @@ class Mage_SalesRule_Model_Observer
      * @return $this
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function sales_order_afterPlace($observer)
+    function sales_order_afterPlace($observer)
     {
         /** @var Mage_Sales_Model_Order $order */
         $order = $observer->getEvent()->getOrder();
@@ -129,7 +129,7 @@ class Mage_SalesRule_Model_Observer
      * @param Varien_Event_Observer $observer
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function sales_order_paymentCancel($observer)
+    function sales_order_paymentCancel($observer)
     {
         $event = $observer->getEvent();
         /** @var Mage_Sales_Model_Order $order */
@@ -174,7 +174,7 @@ class Mage_SalesRule_Model_Observer
      * @param Mage_Cron_Model_Schedule $schedule
      * @return $this
      */
-    public function aggregateSalesReportCouponsData($schedule)
+    function aggregateSalesReportCouponsData($schedule)
     {
         Mage::app()->getLocale()->emulate(0);
         $currentDate = Mage::app()->getLocale()->date();
@@ -246,7 +246,7 @@ class Mage_SalesRule_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogAttributeSaveAfter(Varien_Event_Observer $observer)
+    function catalogAttributeSaveAfter(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Entity_Attribute $attribute */
         $attribute = $observer->getEvent()->getAttribute();
@@ -264,7 +264,7 @@ class Mage_SalesRule_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogAttributeDeleteAfter(Varien_Event_Observer $observer)
+    function catalogAttributeDeleteAfter(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Entity_Attribute $attribute */
         $attribute = $observer->getEvent()->getAttribute();
@@ -281,7 +281,7 @@ class Mage_SalesRule_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function addProductAttributes(Varien_Event_Observer $observer)
+    function addProductAttributes(Varien_Event_Observer $observer)
     {
         /** @var Varien_Object $attributesTransfer */
         $attributesTransfer = $observer->getEvent()->getAttributes();
@@ -305,7 +305,7 @@ class Mage_SalesRule_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function addSalesRuleNameToOrder($observer)
+    function addSalesRuleNameToOrder($observer)
     {
         /** @var Mage_Sales_Model_Order $order */
         $order = $observer->getOrder();

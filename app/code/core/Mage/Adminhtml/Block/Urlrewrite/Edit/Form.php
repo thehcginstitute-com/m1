@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Edit_Form extends Mage_Adminhtml_Block_Wid
      * Set form id and title
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('urlrewrite_form');

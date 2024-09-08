@@ -62,7 +62,7 @@ class Mage_Sales_Model_Resource_Quote extends Mage_Sales_Model_Resource_Abstract
      * @param int $customerId
      * @return $this
      */
-    public function loadByCustomerId($quote, $customerId)
+    function loadByCustomerId($quote, $customerId)
     {
         $adapter = $this->_getReadAdapter();
         $select  = $this->_getLoadSelect('customer_id', $customerId, $quote)
@@ -88,7 +88,7 @@ class Mage_Sales_Model_Resource_Quote extends Mage_Sales_Model_Resource_Abstract
      * @param int $quoteId
      * @return $this
      */
-    public function loadActive($quote, $quoteId)
+    function loadActive($quote, $quoteId)
     {
         $adapter = $this->_getReadAdapter();
         $select  = $this->_getLoadSelect('entity_id', $quoteId, $quote)
@@ -111,7 +111,7 @@ class Mage_Sales_Model_Resource_Quote extends Mage_Sales_Model_Resource_Abstract
      * @param int $quoteId
      * @return $this
      */
-    public function loadByIdWithoutStore($quote, $quoteId)
+    function loadByIdWithoutStore($quote, $quoteId)
     {
         $read = $this->_getReadAdapter();
         if ($read) {
@@ -134,7 +134,7 @@ class Mage_Sales_Model_Resource_Quote extends Mage_Sales_Model_Resource_Abstract
      * @param Mage_Sales_Model_Quote $quote
      * @return string
      */
-    public function getReservedOrderId($quote)
+    function getReservedOrderId($quote)
     {
         $storeId = (int)$quote->getStoreId();
         return Mage::getSingleton('eav/config')->getEntityType(Mage_Sales_Model_Order::ENTITY)
@@ -148,7 +148,7 @@ class Mage_Sales_Model_Resource_Quote extends Mage_Sales_Model_Resource_Abstract
      *
      * @return bool
      */
-    public function isOrderIncrementIdUsed($orderIncrementId)
+    function isOrderIncrementIdUsed($orderIncrementId)
     {
         $adapter   = $this->_getReadAdapter();
         $bind      = [':increment_id' => (string)$orderIncrementId];
@@ -170,7 +170,7 @@ class Mage_Sales_Model_Resource_Quote extends Mage_Sales_Model_Resource_Abstract
      *
      * @return $this
      */
-    public function markQuotesRecollectByAffectedProduct($productIdList = null)
+    function markQuotesRecollectByAffectedProduct($productIdList = null)
     {
         $writeAdapter = $this->_getWriteAdapter();
         $select = $writeAdapter->select();
@@ -209,7 +209,7 @@ class Mage_Sales_Model_Resource_Quote extends Mage_Sales_Model_Resource_Abstract
      *
      * @return $this
      */
-    public function markQuotesRecollectOnCatalogRules()
+    function markQuotesRecollectOnCatalogRules()
     {
         return $this->markQuotesRecollectByAffectedProduct();
     }
@@ -220,7 +220,7 @@ class Mage_Sales_Model_Resource_Quote extends Mage_Sales_Model_Resource_Abstract
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function substractProductFromQuotes($product)
+    function substractProductFromQuotes($product)
     {
         $productId = (int)$product->getId();
         if (!$productId) {
@@ -259,7 +259,7 @@ class Mage_Sales_Model_Resource_Quote extends Mage_Sales_Model_Resource_Abstract
      * @param array|int|Zend_Db_Expr $productIds
      * @return $this
      */
-    public function markQuotesRecollect($productIds)
+    function markQuotesRecollect($productIds)
     {
         $tableQuote = $this->getTable('sales/quote');
         $tableItem = $this->getTable('sales/quote_item');

@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser extends Mage_Adminhtml_Block_Wid
      *
      * @param array $arguments
      */
-    public function __construct($arguments = [])
+    function __construct($arguments = [])
     {
         parent::__construct($arguments);
         $this->setDefaultSort('rule_id');
@@ -41,7 +41,7 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser extends Mage_Adminhtml_Block_Wid
      * @param Varien_Data_Form_Element_Abstract $element Form Element
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function prepareElementHtml(Varien_Data_Form_Element_Abstract $element)
+    function prepareElementHtml(Varien_Data_Form_Element_Abstract $element)
     {
         $uniqId = Mage::helper('core')->uniqHash($element->getId());
         $sourceUrl = $this->getUrl('*/promo_quote/chooser', ['uniq_id' => $uniqId]);
@@ -70,7 +70,7 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser extends Mage_Adminhtml_Block_Wid
      *
      * @return string
      */
-    public function getRowClickCallback()
+    function getRowClickCallback()
     {
         $chooserJsObject = $this->getId();
         return '
@@ -164,7 +164,7 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser extends Mage_Adminhtml_Block_Wid
      *
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/promo_quote/chooser', ['_current' => true]);
     }

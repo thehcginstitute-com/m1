@@ -109,7 +109,7 @@ class Mage_Catalog_Block_Product_Widget_New extends Mage_Catalog_Block_Product_N
      *
      * @return array
      */
-    public function getCacheKeyInfo()
+    function getCacheKeyInfo()
     {
         return array_merge(parent::getCacheKeyInfo(), [
             $this->getDisplayType(),
@@ -123,7 +123,7 @@ class Mage_Catalog_Block_Product_Widget_New extends Mage_Catalog_Block_Product_N
      *
      * @return string
      */
-    public function getDisplayType()
+    function getDisplayType()
     {
         if (!$this->hasData('display_type')) {
             $this->setData('display_type', self::DISPLAY_TYPE_ALL_PRODUCTS);
@@ -136,7 +136,7 @@ class Mage_Catalog_Block_Product_Widget_New extends Mage_Catalog_Block_Product_N
      *
      * @return int
      */
-    public function getProductsCount()
+    function getProductsCount()
     {
         if (!$this->hasData('products_count')) {
             return parent::getProductsCount();
@@ -149,7 +149,7 @@ class Mage_Catalog_Block_Product_Widget_New extends Mage_Catalog_Block_Product_N
      *
      * @return int
      */
-    public function getProductsPerPage()
+    function getProductsPerPage()
     {
         if (!$this->hasData('products_per_page')) {
             $this->setData('products_per_page', self::DEFAULT_PRODUCTS_PER_PAGE);
@@ -162,7 +162,7 @@ class Mage_Catalog_Block_Product_Widget_New extends Mage_Catalog_Block_Product_N
      *
      * @return bool
      */
-    public function showPager()
+    function showPager()
     {
         if (!$this->hasData('show_pager')) {
             $this->setData('show_pager', self::DEFAULT_SHOW_PAGER);
@@ -175,7 +175,7 @@ class Mage_Catalog_Block_Product_Widget_New extends Mage_Catalog_Block_Product_N
      *
      * @return string
      */
-    public function getPagerHtml()
+    function getPagerHtml()
     {
         if ($this->showPager()) {
             if (!$this->_pager) {

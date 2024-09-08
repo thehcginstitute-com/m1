@@ -36,7 +36,7 @@ class Mage_Oauth_Model_Resource_Token extends Mage_Core_Model_Resource_Db_Abstra
      * @param Mage_Oauth_Model_Token $exceptToken Token just created to exclude from delete
      * @return int The number of affected rows
      */
-    public function cleanOldAuthorizedTokensExcept(Mage_Oauth_Model_Token $exceptToken)
+    function cleanOldAuthorizedTokensExcept(Mage_Oauth_Model_Token $exceptToken)
     {
         if (!$exceptToken->getId() || !$exceptToken->getAuthorized()) {
             Mage::throwException('Invalid token to except');
@@ -65,7 +65,7 @@ class Mage_Oauth_Model_Resource_Token extends Mage_Core_Model_Resource_Db_Abstra
      * @param int $minutes
      * @return int
      */
-    public function deleteOldEntries($minutes)
+    function deleteOldEntries($minutes)
     {
         if ($minutes > 0) {
             $adapter = $this->_getWriteAdapter();

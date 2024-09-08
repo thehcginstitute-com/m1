@@ -22,7 +22,7 @@
  */
 interface Mage_Dataflow_Model_Convert_Adapter_Interface
 {
-    public function load();
+    function load();
 
-    public function save();
+    function save();
 }

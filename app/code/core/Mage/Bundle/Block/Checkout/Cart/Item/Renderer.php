@@ -65,7 +65,7 @@ class Mage_Bundle_Block_Checkout_Cart_Item_Renderer extends Mage_Checkout_Block_
      *
      * @return array
      */
-    public function getOptionList()
+    function getOptionList()
     {
         return Mage::helper('bundle/catalog_product_configuration')->getOptions($this->getItem());
     }
@@ -75,7 +75,7 @@ class Mage_Bundle_Block_Checkout_Cart_Item_Renderer extends Mage_Checkout_Block_
      *
      * @return array
      */
-    public function getMessages()
+    function getMessages()
     {
         $messages = [];
         $quoteItem = $this->getItem();

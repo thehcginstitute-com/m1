@@ -38,7 +38,7 @@ class Mage_Admin_Model_Resource_Acl extends Mage_Core_Model_Resource_Db_Abstract
      *
      * @return Mage_Admin_Model_Acl
      */
-    public function loadAcl()
+    function loadAcl()
     {
         $acl = Mage::getModel('admin/acl');
 
@@ -80,7 +80,7 @@ class Mage_Admin_Model_Resource_Acl extends Mage_Core_Model_Resource_Db_Abstract
      * @param array $rolesArr
      * @return $this
      */
-    public function loadRoles(Mage_Admin_Model_Acl $acl, array $rolesArr)
+    function loadRoles(Mage_Admin_Model_Acl $acl, array $rolesArr)
     {
         foreach ($rolesArr as $role) {
             $parent = ($role['parent_id'] > 0) ? Mage_Admin_Model_Acl::ROLE_TYPE_GROUP . $role['parent_id'] : null;
@@ -111,7 +111,7 @@ class Mage_Admin_Model_Resource_Acl extends Mage_Core_Model_Resource_Db_Abstract
      * @param array $rulesArr
      * @return $this
      */
-    public function loadRules(Mage_Admin_Model_Acl $acl, array $rulesArr)
+    function loadRules(Mage_Admin_Model_Acl $acl, array $rulesArr)
     {
         foreach ($rulesArr as $rule) {
             $role = $rule['role_type'] . $rule['role_id'];

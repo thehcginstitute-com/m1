@@ -62,7 +62,7 @@ class Mage_Catalog_Model_Resource_Setup extends Mage_Eav_Model_Entity_Setup
      *
      * @return array
      */
-    public function getDefaultEntities()
+    function getDefaultEntities()
     {
         return [
             'catalog_category'               => [
@@ -816,7 +816,7 @@ class Mage_Catalog_Model_Resource_Setup extends Mage_Eav_Model_Entity_Setup
      * @deprecated since 1.5.0.0
      * @return $this
      */
-    public function convertOldTreeToNew()
+    function convertOldTreeToNew()
     {
         if (!Mage::getModel('catalog/category')->load(1)->getId()) {
             Mage::getModel('catalog/category')->setId(1)->setPath(1)->save();
@@ -892,7 +892,7 @@ class Mage_Catalog_Model_Resource_Setup extends Mage_Eav_Model_Entity_Setup
      * @deprecated since 1.5.0.0
      * @return $this
      */
-    public function rebuildCategoryLevels()
+    function rebuildCategoryLevels()
     {
         $adapter = $this->getConnection();
         $select = $adapter->select()

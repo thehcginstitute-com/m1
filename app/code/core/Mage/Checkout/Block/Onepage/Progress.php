@@ -25,7 +25,7 @@ class Mage_Checkout_Block_Onepage_Progress extends Mage_Checkout_Block_Onepage_A
     /**
      * @return Mage_Sales_Model_Quote_Address
      */
-    public function getBilling()
+    function getBilling()
     {
         return $this->getQuote()->getBillingAddress();
     }
@@ -33,7 +33,7 @@ class Mage_Checkout_Block_Onepage_Progress extends Mage_Checkout_Block_Onepage_A
     /**
      * @return Mage_Sales_Model_Quote_Address
      */
-    public function getShipping()
+    function getShipping()
     {
         return $this->getQuote()->getShippingAddress();
     }
@@ -41,7 +41,7 @@ class Mage_Checkout_Block_Onepage_Progress extends Mage_Checkout_Block_Onepage_A
     /**
      * @return string
      */
-    public function getShippingMethod()
+    function getShippingMethod()
     {
         return $this->getQuote()->getShippingAddress()->getShippingMethod();
     }
@@ -49,7 +49,7 @@ class Mage_Checkout_Block_Onepage_Progress extends Mage_Checkout_Block_Onepage_A
     /**
      * @return string
      */
-    public function getShippingDescription()
+    function getShippingDescription()
     {
         return $this->getQuote()->getShippingAddress()->getShippingDescription();
     }
@@ -57,7 +57,7 @@ class Mage_Checkout_Block_Onepage_Progress extends Mage_Checkout_Block_Onepage_A
     /**
      * @return float
      */
-    public function getShippingAmount()
+    function getShippingAmount()
     {
         /*$amount = $this->getQuote()->getShippingAddress()->getShippingAmount();
         $filter = Mage::app()->getStore()->getPriceFilter();
@@ -71,7 +71,7 @@ class Mage_Checkout_Block_Onepage_Progress extends Mage_Checkout_Block_Onepage_A
     /**
      * @return string
      */
-    public function getPaymentHtml()
+    function getPaymentHtml()
     {
         return $this->getChildHtml('payment_info');
     }
@@ -83,7 +83,7 @@ class Mage_Checkout_Block_Onepage_Progress extends Mage_Checkout_Block_Onepage_A
      *  @see: Mage_Checkout_Block_Onepage_Abstract::_getStepCodes() for allowed values
      * @return bool
      */
-    public function isStepComplete($currentStep)
+    function isStepComplete($currentStep)
     {
         $stepsRevertIndex = array_flip($this->_getStepCodes());
 
@@ -104,7 +104,7 @@ class Mage_Checkout_Block_Onepage_Progress extends Mage_Checkout_Block_Onepage_A
      * Get quote shipping price including tax
      * @return float
      */
-    public function getShippingPriceInclTax()
+    function getShippingPriceInclTax()
     {
         $inclTax = $this->getQuote()->getShippingAddress()->getShippingInclTax();
         return $this->formatPrice($inclTax);
@@ -113,7 +113,7 @@ class Mage_Checkout_Block_Onepage_Progress extends Mage_Checkout_Block_Onepage_A
     /**
      * @return string
      */
-    public function getShippingPriceExclTax()
+    function getShippingPriceExclTax()
     {
         return $this->formatPrice($this->getQuote()->getShippingAddress()->getShippingAmount());
     }
@@ -122,7 +122,7 @@ class Mage_Checkout_Block_Onepage_Progress extends Mage_Checkout_Block_Onepage_A
      * @param float $price
      * @return string
      */
-    public function formatPrice($price)
+    function formatPrice($price)
     {
         return $this->getQuote()->getStore()->formatPrice($price);
     }

@@ -30,7 +30,7 @@ class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract
      * @param mixed $data
      * @return $this
      */
-    public function assignData($data)
+    function assignData($data)
     {
         if (!($data instanceof Varien_Object)) {
             $data = new Varien_Object($data);
@@ -55,7 +55,7 @@ class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract
      *
      * @return $this
      */
-    public function prepareSave()
+    function prepareSave()
     {
         $info = $this->getInfoInstance();
         if ($this->_canSaveCc) {
@@ -74,7 +74,7 @@ class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract
      * @throws Mage_Core_Exception
      * @throws Zend_Date_Exception
      */
-    public function validate()
+    function validate()
     {
         /*
         * calling parent validate function
@@ -170,7 +170,7 @@ class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract
     /**
      * @return bool
      */
-    public function hasVerification()
+    function hasVerification()
     {
         $configData = $this->getConfigData('useccv');
         if (is_null($configData)) {
@@ -182,7 +182,7 @@ class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract
     /**
      * @return array
      */
-    public function getVerificationRegEx()
+    function getVerificationRegEx()
     {
         return [
             'VI' => '/^[0-9]{3}$/', // Visa
@@ -218,7 +218,7 @@ class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract
      * @param string $type
      * @return bool
      */
-    public function otherCcType($type)
+    function otherCcType($type)
     {
         return $type == 'OT';
     }
@@ -229,7 +229,7 @@ class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract
      * @param string $ccNumber
      * @return  bool
      */
-    public function validateCcNum($ccNumber)
+    function validateCcNum($ccNumber)
     {
         $cardNumber = strrev($ccNumber);
         $numSum = 0;
@@ -268,7 +268,7 @@ class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract
      * @param string $ccNumber
      * @return bool
      */
-    public function validateCcNumOther($ccNumber)
+    function validateCcNumOther($ccNumber)
     {
         return preg_match('/^\\d+$/', $ccNumber);
     }
@@ -279,7 +279,7 @@ class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract
      * @param Mage_Sales_Model_Quote|null $quote
      * @return bool
      */
-    public function isAvailable($quote = null)
+    function isAvailable($quote = null)
     {
         return $this->getConfigData('cctypes', ($quote ? $quote->getStoreId() : null))
             && parent::isAvailable($quote);
@@ -290,7 +290,7 @@ class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract
      *
      * @return bool
      */
-    public function getIsCentinelValidationEnabled()
+    function getIsCentinelValidationEnabled()
     {
         return Mage::getConfig()->getNode('modules/Mage_Centinel') !== false && $this->getConfigData('centinel') == 1;
     }
@@ -300,7 +300,7 @@ class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract
      *
      * @return Mage_Centinel_Model_Service
      */
-    public function getCentinelValidator()
+    function getCentinelValidator()
     {
         $validator = Mage::getSingleton('centinel/service');
         $validator
@@ -316,7 +316,7 @@ class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract
      *
      * @return Varien_Object
      */
-    public function getCentinelValidationData()
+    function getCentinelValidationData()
     {
         $info = $this->getInfoInstance();
         $params = new Varien_Object();

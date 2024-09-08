@@ -37,7 +37,7 @@ class Mage_Rating_Model_Resource_Rating_Entity extends Mage_Core_Model_Resource_
      * @param string $entityCode
      * @return int
      */
-    public function getIdByCode($entityCode)
+    function getIdByCode($entityCode)
     {
         $adapter = $this->_getReadAdapter();
 

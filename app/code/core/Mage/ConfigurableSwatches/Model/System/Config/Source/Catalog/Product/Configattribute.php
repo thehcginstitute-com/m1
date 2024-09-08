@@ -32,7 +32,7 @@ class Mage_ConfigurableSwatches_Model_System_Config_Source_Catalog_Product_Confi
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         if (is_null($this->_attributes)) {
             $attrCollection = Mage::getResourceModel('catalog/product_attribute_collection')

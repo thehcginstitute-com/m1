@@ -26,7 +26,7 @@ class Mage_Adminhtml_AjaxController extends Mage_Adminhtml_Controller_Action
      * Ajax action for inline translation
      *
      */
-    public function translateAction()
+    function translateAction()
     {
         $translation = $this->getRequest()->getPost('translate');
         $area = $this->getRequest()->getPost('area');

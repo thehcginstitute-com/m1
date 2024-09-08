@@ -46,7 +46,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_Create_Tracking extends Mage_Adm
      *
      * @return Mage_Sales_Model_Order_Shipment
      */
-    public function getShipment()
+    function getShipment()
     {
         return Mage::registry('current_shipment');
     }
@@ -56,7 +56,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_Create_Tracking extends Mage_Adm
      *
      * @return array
      */
-    public function getCarriers()
+    function getCarriers()
     {
         $carriers = [];
         $carrierInstances = Mage::getSingleton('shipping/config')->getAllCarriers(

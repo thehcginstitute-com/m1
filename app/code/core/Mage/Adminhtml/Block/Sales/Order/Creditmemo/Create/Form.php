@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Form extends Mage_Admin
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->getCreditmemo()->getOrder();
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Form extends Mage_Admin
      *
      * @return Mage_Sales_Model_Order_Creditmemo
      */
-    public function getSource()
+    function getSource()
     {
         return $this->getCreditmemo();
     }
@@ -47,12 +47,12 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Form extends Mage_Admin
      *
      * @return Mage_Sales_Model_Order_Creditmemo
      */
-    public function getCreditmemo()
+    function getCreditmemo()
     {
         return Mage::registry('current_creditmemo');
     }
 
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return $this->getUrl('*/*/save', ['_current' => true]);
     }

@@ -25,7 +25,7 @@ class Mage_Oauth_Block_Adminhtml_Oauth_Admin_Token_Grid extends Mage_Adminhtml_B
     /**
      * Construct grid block
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('adminTokenGrid');
@@ -123,7 +123,7 @@ class Mage_Oauth_Block_Adminhtml_Oauth_Admin_Token_Grid extends Mage_Adminhtml_B
      *
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/grid', ['_current' => true]);
     }

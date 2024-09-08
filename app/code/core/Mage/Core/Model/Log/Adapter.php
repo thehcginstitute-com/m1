@@ -48,7 +48,7 @@ class Mage_Core_Model_Log_Adapter
      *
      * @param string $fileName
      */
-    public function __construct($fileName)
+    function __construct($fileName)
     {
         $this->_logFileName = $fileName;
     }
@@ -59,7 +59,7 @@ class Mage_Core_Model_Log_Adapter
      * @param mixed $data
      * @return $this
      */
-    public function log($data = null)
+    function log($data = null)
     {
         if ($data === null) {
             $data = $this->_data;
@@ -82,7 +82,7 @@ class Mage_Core_Model_Log_Adapter
      * @return $this
      * @todo replace whole data
      */
-    public function setData($key, $value = null)
+    function setData($key, $value = null)
     {
         if (is_array($key)) {
             $this->_data = $key;
@@ -98,7 +98,7 @@ class Mage_Core_Model_Log_Adapter
      * @param array $keys
      * @return $this
      */
-    public function setFilterDataKeys($keys)
+    function setFilterDataKeys($keys)
     {
         if (!is_array($keys)) {
             $keys = [$keys];

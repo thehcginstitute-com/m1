@@ -259,7 +259,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param   Mage_Sales_Model_Quote $quote
      * @return  $this
      */
-    public function setQuote(Mage_Sales_Model_Quote $quote)
+    function setQuote(Mage_Sales_Model_Quote $quote)
     {
         $this->_quote = $quote;
         $this->setQuoteId($quote->getId());
@@ -271,7 +271,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return $this->_quote;
     }
@@ -305,7 +305,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param float $qty
      * @return $this
      */
-    public function addQty($qty)
+    function addQty($qty)
     {
         $oldQty = $this->getQty();
         $qty = $this->_prepareQty($qty);
@@ -327,7 +327,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param float $qty
      * @return $this
      */
-    public function setQty($qty)
+    function setQty($qty)
     {
         $qty = $this->_prepareQty($qty);
         $oldQty = $this->_getData('qty');
@@ -354,7 +354,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      *
      * @return array
      */
-    public function getQtyOptions()
+    function getQtyOptions()
     {
         $qtyOptions = $this->getData('qty_options');
         if (is_null($qtyOptions)) {
@@ -388,7 +388,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param array $qtyOptions
      * @return $this
      */
-    public function setQtyOptions($qtyOptions)
+    function setQtyOptions($qtyOptions)
     {
         return $this->setData('qty_options', $qtyOptions);
     }
@@ -399,7 +399,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param   Mage_Catalog_Model_Product $product
      * @return  $this
      */
-    public function setProduct($product)
+    function setProduct($product)
     {
         if ($this->getQuote()) {
             $product->setStoreId($this->getQuote()->getStoreId());
@@ -435,7 +435,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param   Mage_Catalog_Model_Product $product
      * @return  bool
      */
-    public function representProduct($product)
+    function representProduct($product)
     {
         $itemProduct = $this->getProduct();
         if (!$product || $itemProduct->getId() != $product->getId()) {
@@ -475,7 +475,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param array $options2
      * @return bool
      */
-    public function compareOptions($options1, $options2)
+    function compareOptions($options1, $options2)
     {
         foreach ($options1 as $option) {
             $code = $option->getCode();
@@ -498,7 +498,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param   Mage_Sales_Model_Quote_Item $item
      * @return  bool
      */
-    public function compare($item)
+    function compare($item)
     {
         if ($this->getProductId() != $item->getProductId()) {
             return false;
@@ -551,7 +551,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      *
      * @return string
      */
-    public function getProductType()
+    function getProductType()
     {
         if ($option = $this->getOptionByCode('product_type')) {
             return $option->getValue();
@@ -567,7 +567,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      *
      * @return string
      */
-    public function getRealProductType()
+    function getRealProductType()
     {
         return $this->_getData('product_type');
     }
@@ -578,7 +578,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param array $arrAttributes
      * @return array
      */
-    public function toArray(array $arrAttributes = [])
+    function toArray(array $arrAttributes = [])
     {
         $data = parent::toArray($arrAttributes);
 
@@ -594,7 +594,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param   array $options
      * @return  $this
      */
-    public function setOptions($options)
+    function setOptions($options)
     {
         foreach ($options as $option) {
             $this->addOption($option);
@@ -607,7 +607,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      *
      * @return array
      */
-    public function getOptions()
+    function getOptions()
     {
         return $this->_options;
     }
@@ -617,7 +617,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      *
      * @return array
      */
-    public function getOptionsByCode()
+    function getOptionsByCode()
     {
         return $this->_optionsByCode;
     }
@@ -629,7 +629,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function addOption($option)
+    function addOption($option)
     {
         if (is_array($option)) {
             $option = Mage::getModel('sales/quote_item_option')->setData($option)
@@ -662,7 +662,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param int|float|null $value
      * @return $this
      */
-    public function updateQtyOption(Varien_Object $option, $value)
+    function updateQtyOption(Varien_Object $option, $value)
     {
         $optionProduct = $option->getProduct();
         $options = $this->getQtyOptions();
@@ -683,7 +683,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param string $code
      * @return $this
      */
-    public function removeOption($code)
+    function removeOption($code)
     {
         $option = $this->getOptionByCode($code);
         if ($option) {
@@ -714,7 +714,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param   string $code
      * @return  Mage_Sales_Model_Quote_Item_Option|null
      */
-    public function getOptionByCode($code)
+    function getOptionByCode($code)
     {
         if (isset($this->_optionsByCode[$code]) && !$this->_optionsByCode[$code]->isDeleted()) {
             return $this->_optionsByCode[$code];
@@ -763,7 +763,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * Save model plus its options
      * Ensures saving options in case when resource model was not changed
      */
-    public function save()
+    function save()
     {
         $hasDataChanges = $this->hasDataChanges();
         $this->_flagOptionsSaved = false;
@@ -793,7 +793,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      *
      * @return $this
      */
-    public function __clone()
+    function __clone()
     {
         parent::__clone();
         $options = $this->getOptions();
@@ -812,7 +812,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      *
      * @return Varien_Object
      */
-    public function getBuyRequest()
+    function getBuyRequest()
     {
         $option = $this->getOptionByCode('info_buyRequest');
         $buyRequest = new Varien_Object($option ? unserialize($option->getValue()) : null);
@@ -845,7 +845,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @return $this
      * @see addErrorInfo()
      */
-    public function setHasError($flag)
+    function setHasError($flag)
     {
         if ($flag) {
             $this->addErrorInfo();
@@ -878,7 +878,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param Varien_Object|null $additionalData Any additional data, that caller would like to store
      * @return $this
      */
-    public function addErrorInfo($origin = null, $code = null, $message = null, $additionalData = null)
+    function addErrorInfo($origin = null, $code = null, $message = null, $additionalData = null)
     {
         $this->_errorInfos->addItem($origin, $code, $message, $additionalData);
         if ($message !== null) {
@@ -894,7 +894,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      *
      * @return array
      */
-    public function getErrorInfos()
+    function getErrorInfos()
     {
         return $this->_errorInfos->getItems();
     }
@@ -907,7 +907,7 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * @param array $params
      * @return $this
      */
-    public function removeErrorInfosByParams($params)
+    function removeErrorInfosByParams($params)
     {
         $removedItems = $this->_errorInfos->removeItemsByParams($params);
         foreach ($removedItems as $item) {

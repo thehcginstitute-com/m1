@@ -30,7 +30,7 @@ class Mage_Api2_Model_Auth_Adapter_Oauth extends Mage_Api2_Model_Auth_Adapter_Ab
      * @param Mage_Api2_Model_Request $request
      * @return stdClass
      */
-    public function getUserParams(Mage_Api2_Model_Request $request)
+    function getUserParams(Mage_Api2_Model_Request $request)
     {
         /** @var Mage_Oauth_Model_Server $oauthServer */
         $oauthServer   = Mage::getModel('oauth/server', $request);
@@ -58,7 +58,7 @@ class Mage_Api2_Model_Auth_Adapter_Oauth extends Mage_Api2_Model_Auth_Adapter_Ab
      * @param Mage_Api2_Model_Request $request
      * @return bool
      */
-    public function isApplicableToRequest(Mage_Api2_Model_Request $request)
+    function isApplicableToRequest(Mage_Api2_Model_Request $request)
     {
         $headerValue = $request->getHeader('Authorization');
 

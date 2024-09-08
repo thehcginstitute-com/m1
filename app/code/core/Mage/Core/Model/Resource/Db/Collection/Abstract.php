@@ -114,7 +114,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      *
      * @param Mage_Core_Model_Resource_Db_Abstract $resource
      */
-    public function __construct($resource = null)
+    function __construct($resource = null)
     {
         parent::__construct();
         $this->_construct();
@@ -136,7 +136,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      *
      * @return string
      */
-    public function getMainTable()
+    function getMainTable()
     {
         if ($this->_mainTable === null) {
             $this->setMainTable($this->getResource()->getMainTable());
@@ -151,7 +151,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      * @param string $table
      * @return $this
      */
-    public function setMainTable($table)
+    function setMainTable($table)
     {
         if (strpos($table, '/') !== false) {
             $table = $this->getTable($table);
@@ -185,7 +185,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      *
      * @return Varien_Db_Select
      */
-    public function getSelect()
+    function getSelect()
     {
         if ($this->_select && $this->_fieldsToSelectChanged) {
             $this->_fieldsToSelectChanged = false;
@@ -287,7 +287,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      * @param string|null $alias
      * @return $this
      */
-    public function addFieldToSelect($field, $alias = null)
+    function addFieldToSelect($field, $alias = null)
     {
         if ($field === '*') { // If we will select all fields
             $this->_fieldsToSelect = null;
@@ -332,7 +332,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      * @param array|string $fields
      * @return $this
      */
-    public function addExpressionFieldToSelect($alias, $expression, $fields)
+    function addExpressionFieldToSelect($alias, $expression, $fields)
     {
         // validate alias
         if (!is_array($fields)) {
@@ -356,7 +356,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      * @param bool $isAlias Alias identifier
      * @return $this
      */
-    public function removeFieldFromSelect($field, $isAlias = false)
+    function removeFieldFromSelect($field, $isAlias = false)
     {
         if ($isAlias) {
             if (isset($this->_fieldsToSelect[$field])) {
@@ -380,7 +380,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      *
      * @return $this
      */
-    public function removeAllFieldsFromSelect()
+    function removeAllFieldsFromSelect()
     {
         $this->_fieldsToSelect = $this->_getInitialFieldsToSelect();
         $this->_fieldsToSelectChanged = true;
@@ -410,7 +410,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      * @param string $model
      * @return $this
      */
-    public function setModel($model)
+    function setModel($model)
     {
         if (is_string($model)) {
             $this->_model = $model;
@@ -425,7 +425,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      * @param array $args
      * @return string
      */
-    public function getModelName($args = [])
+    function getModelName($args = [])
     {
         return $this->_model;
     }
@@ -435,7 +435,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      *
      * @param string $model
      */
-    public function setResourceModel($model)
+    function setResourceModel($model)
     {
         $this->_resourceModel = $model;
     }
@@ -445,7 +445,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      *
      * @return string
      */
-    public function getResourceModelName()
+    function getResourceModelName()
     {
         return $this->_resourceModel;
     }
@@ -455,7 +455,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      *
      * @return Mage_Core_Model_Resource_Db_Abstract
      */
-    public function getResource()
+    function getResource()
     {
         if (empty($this->_resource)) {
             $this->_resource = Mage::getResourceModel($this->getResourceModelName());
@@ -469,7 +469,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      * @param string $table
      * @return string
      */
-    public function getTable($table)
+    function getTable($table)
     {
         return $this->getResource()->getTable($table);
     }
@@ -479,7 +479,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      *
      * @return array
      */
-    public function getAllIds()
+    function getAllIds()
     {
         $idsSelect = clone $this->getSelect();
         $idsSelect->reset(Zend_Db_Select::ORDER);
@@ -494,7 +494,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     /**
      * @return array
      */
-    public function getData()
+    function getData()
     {
         if ($this->_data === null) {
             $this->_renderFilters()
@@ -542,7 +542,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      * @param  array|string $cols The columns to select from the joined table
      * @return $this
      */
-    public function join($table, $cond, $cols = '*')
+    function join($table, $cond, $cols = '*')
     {
         if (is_array($table)) {
             foreach ($table as $k => $v) {
@@ -588,7 +588,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      * @param bool $flag
      * @return $this
      */
-    public function setResetItemsDataChanged($flag)
+    function setResetItemsDataChanged($flag)
     {
         $this->_resetItemsDataChanged = (bool)$flag;
         return $this;
@@ -599,7 +599,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      *
      * @return $this
      */
-    public function resetItemsDataChanged()
+    function resetItemsDataChanged()
     {
         /** @var Varien_Object $item */
         foreach ($this->_items as $item) {
@@ -638,7 +638,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      *
      * @return $this
      */
-    public function save()
+    function save()
     {
         foreach ($this->getItems() as $item) {
             $item->save();
@@ -700,7 +700,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      * @param bool $includeTime
      * @return string
      */
-    public function formatDate($date, $includeTime = true)
+    function formatDate($date, $includeTime = true)
     {
         return Varien_Date::formatDate($date, $includeTime);
     }

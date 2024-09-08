@@ -2,7 +2,7 @@
 class MK_Reviewexport_Model_Convert_Adapter_Reviewimport extends Mage_Catalog_Model_Convert_Adapter_Product
 
 {
-    public function saveRow( array $data )
+    function saveRow( array $data )
     {
           $write = Mage::getSingleton('core/resource')->getConnection('core_write');
           $sku = $write->query('select entity_id from `catalog_product_entity` where sku = "'.$data['Sku'].'" ');

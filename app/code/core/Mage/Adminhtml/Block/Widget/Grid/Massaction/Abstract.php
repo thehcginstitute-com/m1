@@ -81,7 +81,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
     /**
      * Sets Massaction template
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('widget/grid/massaction.phtml');
@@ -103,7 +103,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      * @param array $item
      * @return Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract
      */
-    public function addItem($itemId, array $item)
+    function addItem($itemId, array $item)
     {
         if (is_string($itemId) && $this->isConfirmMassAction($itemId) && !isset($item['confirm'])) {
             $item['confirm'] = Mage::helper('core')->__('Are you sure?');
@@ -128,7 +128,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      * @param string $itemId
      * @return Mage_Adminhtml_Block_Widget_Grid_Massaction_Item|null
      */
-    public function getItem($itemId)
+    function getItem($itemId)
     {
         return $this->_items[$itemId] ?? null;
     }
@@ -138,7 +138,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      *
      * @return array
      */
-    public function getItems()
+    function getItems()
     {
         return $this->_items;
     }
@@ -148,7 +148,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      *
      * @return string
      */
-    public function getItemsJson()
+    function getItemsJson()
     {
         $result = [];
         foreach ($this->getItems() as $itemId => $item) {
@@ -163,7 +163,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      *
      * @return int
      */
-    public function getCount()
+    function getCount()
     {
         return count($this->_items);
     }
@@ -173,7 +173,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      *
      * @return bool
      */
-    public function isAvailable()
+    function isAvailable()
     {
         return $this->getCount() > 0 && $this->getParentBlock()->getMassactionIdField();
     }
@@ -183,7 +183,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      *
      * @return string
      */
-    public function getFormFieldName()
+    function getFormFieldName()
     {
         return ($this->getData('form_field_name') ? $this->getData('form_field_name') : 'massaction');
     }
@@ -193,7 +193,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      *
      * @return string
      */
-    public function getFormFieldNameInternal()
+    function getFormFieldNameInternal()
     {
         return  'internal_' . $this->getFormFieldName();
     }
@@ -203,7 +203,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      *
      * @return string
      */
-    public function getJsObjectName()
+    function getJsObjectName()
     {
         return $this->getHtmlId() . 'JsObject';
     }
@@ -213,7 +213,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      *
      * @return string
      */
-    public function getGridJsObjectName()
+    function getGridJsObjectName()
     {
         return $this->getParentBlock()->getJsObjectName();
     }
@@ -223,7 +223,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      *
      * @return string
      */
-    public function getSelectedJson()
+    function getSelectedJson()
     {
         if ($selected = $this->getRequest()->getParam($this->getFormFieldNameInternal())) {
             $selected = explode(',', $this->quoteEscape($selected));
@@ -238,7 +238,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      *
      * @return array
      */
-    public function getSelected()
+    function getSelected()
     {
         if ($selected = $this->getRequest()->getParam($this->getFormFieldNameInternal())) {
             $selected = explode(',', $this->quoteEscape($selected));
@@ -253,7 +253,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      *
      * @return string
      */
-    public function getApplyButtonHtml()
+    function getApplyButtonHtml()
     {
         return $this->getButtonHtml($this->__('Submit'), $this->getJsObjectName() . ".apply()");
     }
@@ -261,7 +261,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
     /**
      * @return string
      */
-    public function getJavaScript()
+    function getJavaScript()
     {
         return " var {$this->getJsObjectName()} = new varienGridMassaction('{$this->getHtmlId()}', "
                 . "{$this->getGridJsObjectName()}, '{$this->getSelectedJson()}'"
@@ -276,7 +276,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
     /**
      * @return string
      */
-    public function getGridIdsJson()
+    function getGridIdsJson()
     {
         if (!$this->getUseSelectAll()) {
             return '';
@@ -293,7 +293,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
     /**
      * @return string
      */
-    public function getHtmlId()
+    function getHtmlId()
     {
         return $this->getParentBlock()->getHtmlId() . '_massaction';
     }
@@ -304,7 +304,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      * @param string $itemId
      * @return Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract
      */
-    public function removeItem($itemId)
+    function removeItem($itemId)
     {
         if (isset($this->_items[$itemId])) {
             unset($this->_items[$itemId]);
@@ -318,7 +318,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      *
      * @return bool
      */
-    public function getUseSelectAll()
+    function getUseSelectAll()
     {
         return $this->_getData('use_select_all') === null || $this->_getData('use_select_all');
     }
@@ -329,7 +329,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      * @param bool $flag
      * @return Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract
      */
-    public function setUseSelectAll($flag)
+    function setUseSelectAll($flag)
     {
         $this->setData('use_select_all', (bool) $flag);
         return $this;
@@ -340,7 +340,7 @@ abstract class Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract extends Mage
      *
      * @return array
      */
-    public function getGroupedItems(): array
+    function getGroupedItems(): array
     {
         $groupedItems = [
             'default' => [],

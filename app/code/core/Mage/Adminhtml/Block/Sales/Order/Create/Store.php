@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_Create_Store extends Mage_Adminhtml_Block_Sales_Order_Create_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_create_store');
@@ -31,7 +31,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Store extends Mage_Adminhtml_Block
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Please Select a Store');
     }

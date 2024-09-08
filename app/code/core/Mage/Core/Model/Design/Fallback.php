@@ -49,7 +49,7 @@ class Mage_Core_Model_Design_Fallback
     /**
      * @param array $params
      */
-    public function __construct(array $params = [])
+    function __construct(array $params = [])
     {
         $this->_config = $params['config'] ?? Mage::getModel('core/design_config');
     }
@@ -59,7 +59,7 @@ class Mage_Core_Model_Design_Fallback
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return $this->_store ?? Mage::app()->getStore();
     }
@@ -68,7 +68,7 @@ class Mage_Core_Model_Design_Fallback
      * @param string|int|Mage_Core_Model_Store $store
      * @return $this
      */
-    public function setStore($store)
+    function setStore($store)
     {
         if (!$store instanceof Mage_Core_Model_Store) {
             $store = Mage::app()->getStore($store);
@@ -86,7 +86,7 @@ class Mage_Core_Model_Design_Fallback
      * @param string $theme
      * @return array
      */
-    public function getFallbackScheme($area, $package, $theme)
+    function getFallbackScheme($area, $package, $theme)
     {
         $cacheKey = $area . '/' . $package . '/' . $theme;
 

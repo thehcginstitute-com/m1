@@ -64,7 +64,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      *
      * @return Varien_Object Object with information data
      */
-    public function getRelationInfo()
+    function getRelationInfo()
     {
         $info = new Varien_Object();
         $info->setTable('catalog/product_link')
@@ -84,7 +84,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      * @param bool $required
      * @return array
      */
-    public function getChildrenIds($parentId, $required = true)
+    function getChildrenIds($parentId, $required = true)
     {
         return Mage::getResourceSingleton('catalog/product_link')
             ->getChildrenIds(
@@ -99,7 +99,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      * @param int|array $childId
      * @return array
      */
-    public function getParentIdsByChild($childId)
+    function getParentIdsByChild($childId)
     {
         return Mage::getResourceSingleton('catalog/product_link')
             ->getParentIdsByChild(
@@ -114,7 +114,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      * @param Mage_Catalog_Model_Product $product
      * @return array
      */
-    public function getAssociatedProducts($product = null)
+    function getAssociatedProducts($product = null)
     {
         if (!$this->getProduct($product)->hasData($this->_keyAssociatedProducts)) {
             $associatedProducts = [];
@@ -146,7 +146,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      * @param  Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function addStatusFilter($status, $product = null)
+    function addStatusFilter($status, $product = null)
     {
         $statusFilters = $this->getProduct($product)->getData($this->_keyStatusFilters);
         if (!is_array($statusFilters)) {
@@ -165,7 +165,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      * @param  Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function setSaleableStatus($product = null)
+    function setSaleableStatus($product = null)
     {
         $this->getProduct($product)->setData(
             $this->_keyStatusFilters,
@@ -180,7 +180,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      * @param Mage_Catalog_Model_Product $product
      * @return array
      */
-    public function getStatusFilters($product = null)
+    function getStatusFilters($product = null)
     {
         if (!$this->getProduct($product)->hasData($this->_keyStatusFilters)) {
             return [
@@ -197,7 +197,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      * @param Mage_Catalog_Model_Product $product
      * @return array
      */
-    public function getAssociatedProductIds($product = null)
+    function getAssociatedProductIds($product = null)
     {
         if (!$this->getProduct($product)->hasData($this->_keyAssociatedProductIds)) {
             $associatedProductIds = [];
@@ -215,7 +215,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      * @param Mage_Catalog_Model_Product $product
      * @return Mage_Catalog_Model_Resource_Product_Link_Product_Collection
      */
-    public function getAssociatedProductCollection($product = null)
+    function getAssociatedProductCollection($product = null)
     {
         $collection = $this->getProduct($product)->getLinkInstance()->useGroupedLinks()
             ->getProductCollection()
@@ -232,7 +232,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      * @param Mage_Catalog_Model_Product $product
      * @return bool
      */
-    public function isSalable($product = null)
+    function isSalable($product = null)
     {
         $salable = parent::isSalable($product);
         if (!is_null($salable)) {
@@ -252,7 +252,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function save($product = null)
+    function save($product = null)
     {
         parent::save($product);
         $this->getProduct($product)->getLinkInstance()->saveGroupedLinks($this->getProduct($product));
@@ -338,7 +338,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      * @param Mage_Catalog_Model_Product $product
      * @return array
      */
-    public function getProductsToPurchaseByReqGroups($product = null)
+    function getProductsToPurchaseByReqGroups($product = null)
     {
         $product = $this->getProduct($product);
         return [$this->getAssociatedProducts($product)];
@@ -351,7 +351,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      * @param  Varien_Object $buyRequest
      * @return array
      */
-    public function processBuyRequest($product, $buyRequest)
+    function processBuyRequest($product, $buyRequest)
     {
         $superGroup = $buyRequest->getSuperGroup();
         $superGroup = (is_array($superGroup)) ? array_filter($superGroup, '\intval') : [];

@@ -74,7 +74,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Attribute_Assigned extends Mag
     /**
      * Initialize options hash
      */
-    public function __construct()
+    function __construct()
     {
         $this->_operatorSelectOptionsHash = [
             self::OPERATOR_ATTRIBUTE_IS_ASSIGNED        => $this->_getHelper()->__('is assigned'),
@@ -88,7 +88,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Attribute_Assigned extends Mag
      * Retrieves unary operators of the attribute assignment state
      * @return array
      */
-    public function getOperatorSelectOptions()
+    function getOperatorSelectOptions()
     {
         if (is_null($this->_cachedOperatorSelectOptionsCache)) {
             $this->_cachedOperatorSelectOptionsCache = [];
@@ -107,7 +107,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Attribute_Assigned extends Mag
      * Retrieve an operator name
      * @return string
      */
-    public function getOperatorName()
+    function getOperatorName()
     {
         return $this->getOperator() && array_key_exists($this->getOperator(), $this->_operatorSelectOptionsHash)
             ? $this->_operatorSelectOptionsHash[$this->getOperator()]
@@ -120,7 +120,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Attribute_Assigned extends Mag
      *
      * @return bool
      */
-    public function validate(Varien_Object $object)
+    function validate(Varien_Object $object)
     {
         $product    = $this->_getProduct($object);
         $attributes = $product->getAttributes();
@@ -135,7 +135,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Attribute_Assigned extends Mag
      * Generate a condition html
      * @return string
      */
-    public function asHtml()
+    function asHtml()
     {
         return $this->_getHelper()->__(
             'Attribute "%s" %s %s %s',

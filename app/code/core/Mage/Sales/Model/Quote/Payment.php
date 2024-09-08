@@ -102,7 +102,7 @@ class Mage_Sales_Model_Quote_Payment extends Mage_Payment_Model_Info
      * @param   Mage_Sales_Model_Quote $quote
      * @return  $this
      */
-    public function setQuote(Mage_Sales_Model_Quote $quote)
+    function setQuote(Mage_Sales_Model_Quote $quote)
     {
         $this->_quote = $quote;
         $this->setQuoteId($quote->getId());
@@ -114,7 +114,7 @@ class Mage_Sales_Model_Quote_Payment extends Mage_Payment_Model_Info
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return $this->_quote;
     }
@@ -128,7 +128,7 @@ class Mage_Sales_Model_Quote_Payment extends Mage_Payment_Model_Info
      * @throws  Mage_Core_Exception
      * @return  $this
      */
-    public function importData(array $data)
+    function importData(array $data)
     {
         $data = new Varien_Object($data);
         Mage::dispatchEvent(
@@ -186,7 +186,7 @@ class Mage_Sales_Model_Quote_Payment extends Mage_Payment_Model_Info
      *
      * @return string
      */
-    public function getCheckoutRedirectUrl()
+    function getCheckoutRedirectUrl()
     {
         $method = $this->getMethodInstance();
         if ($method) {
@@ -200,7 +200,7 @@ class Mage_Sales_Model_Quote_Payment extends Mage_Payment_Model_Info
      *
      * @return string
      */
-    public function getOrderPlaceRedirectUrl()
+    function getOrderPlaceRedirectUrl()
     {
         $method = $this->getMethodInstance();
         if ($method) {
@@ -214,7 +214,7 @@ class Mage_Sales_Model_Quote_Payment extends Mage_Payment_Model_Info
      *
      * @return Mage_Payment_Model_Method_Abstract
      */
-    public function getMethodInstance()
+    function getMethodInstance()
     {
         $method = parent::getMethodInstance();
         return $method->setStore($this->getQuote()->getStore());

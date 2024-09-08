@@ -39,7 +39,7 @@ class Mage_Tax_Model_Resource_Calculation_Rate_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function joinCountryTable()
+    function joinCountryTable()
     {
         $this->_select->join(
             ['country_table' => $this->getTable('directory/country')],
@@ -55,7 +55,7 @@ class Mage_Tax_Model_Resource_Calculation_Rate_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function joinRegionTable()
+    function joinRegionTable()
     {
         $this->_select->joinLeft(
             ['region_table' => $this->getTable('directory/country_region')],
@@ -71,7 +71,7 @@ class Mage_Tax_Model_Resource_Calculation_Rate_Collection extends Mage_Core_Mode
      * @param Mage_Core_Model_Store|string|int $store
      * @return $this
      */
-    public function joinTitle($store = null)
+    function joinTitle($store = null)
     {
         $storeId = (int)Mage::app()->getStore($store)->getId();
         $this->_select->joinLeft(
@@ -89,7 +89,7 @@ class Mage_Tax_Model_Resource_Calculation_Rate_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function joinStoreTitles()
+    function joinStoreTitles()
     {
         $storeCollection =  Mage::app()->getStores(true);
         foreach ($storeCollection as $store) {
@@ -113,7 +113,7 @@ class Mage_Tax_Model_Resource_Calculation_Rate_Collection extends Mage_Core_Mode
      * @param int $rateId
      * @return $this
      */
-    public function addRateFilter($rateId)
+    function addRateFilter($rateId)
     {
         if (is_int($rateId) && $rateId > 0) {
             return $this->addFieldToFilter('main_table.tax_rate_id', $rateId);
@@ -127,7 +127,7 @@ class Mage_Tax_Model_Resource_Calculation_Rate_Collection extends Mage_Core_Mode
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->_toOptionArray('tax_calculation_rate_id', 'code');
     }
@@ -137,7 +137,7 @@ class Mage_Tax_Model_Resource_Calculation_Rate_Collection extends Mage_Core_Mode
      *
      * @return array
      */
-    public function toOptionHash()
+    function toOptionHash()
     {
         return $this->_toOptionHash('tax_calculation_rate_id', 'code');
     }
@@ -150,7 +150,7 @@ class Mage_Tax_Model_Resource_Calculation_Rate_Collection extends Mage_Core_Mode
      *
      * @return  array
      */
-    public function toOptionHashOptimized()
+    function toOptionHashOptimized()
     {
         return $this->_toOptionHashOptimized('tax_calculation_rate_id', 'code');
     }
@@ -160,7 +160,7 @@ class Mage_Tax_Model_Resource_Calculation_Rate_Collection extends Mage_Core_Mode
      *
      * @return array
      */
-    public function getOptionRates()
+    function getOptionRates()
     {
         $size = self::TAX_RULES_CHUNK_SIZE;
         $page = 1;

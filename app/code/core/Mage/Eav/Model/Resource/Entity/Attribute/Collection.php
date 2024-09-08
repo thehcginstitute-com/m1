@@ -69,7 +69,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function useLoadDataFields()
+    function useLoadDataFields()
     {
         $this->getSelect()->reset(Zend_Db_Select::COLUMNS);
         $this->getSelect()->columns($this->_getLoadDataFields());
@@ -83,7 +83,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      * @param  Mage_Eav_Model_Entity_Type | int $type
      * @return $this
      */
-    public function setEntityTypeFilter($type)
+    function setEntityTypeFilter($type)
     {
         if ($type instanceof Mage_Eav_Model_Entity_Type) {
             $additionalTable = $type->getAdditionalAttributeTable();
@@ -109,7 +109,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      * @param int $setId
      * @return $this
      */
-    public function setAttributeSetFilter($setId)
+    function setAttributeSetFilter($setId)
     {
         if (is_array($setId)) {
             if (!empty($setId)) {
@@ -141,7 +141,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      * @param array $setIds
      * @return $this
      */
-    public function setAttributeSetsFilter(array $setIds)
+    function setAttributeSetsFilter(array $setIds)
     {
         $this->getSelect()->distinct(true);
         $this->join(
@@ -161,7 +161,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      * @param array $setIds
      * @return $this
      */
-    public function setInAllAttributeSetsFilter(array $setIds)
+    function setInAllAttributeSetsFilter(array $setIds)
     {
         foreach ($setIds as $setId) {
             $setId = (int) $setId;
@@ -190,7 +190,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      * @param int $setId
      * @return $this
      */
-    public function setAttributeSetExcludeFilter($setId)
+    function setAttributeSetExcludeFilter($setId)
     {
         $this->join(
             'entity_attribute',
@@ -208,7 +208,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      * @param array $attributes
      * @return $this
      */
-    public function setAttributesExcludeFilter($attributes)
+    function setAttributesExcludeFilter($attributes)
     {
         return $this->addFieldToFilter('main_table.attribute_id', ['nin' => $attributes]);
     }
@@ -219,7 +219,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      * @param int $groupId
      * @return $this
      */
-    public function setAttributeGroupFilter($groupId)
+    function setAttributeGroupFilter($groupId)
     {
         $this->join(
             'entity_attribute',
@@ -236,7 +236,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function addAttributeGrouping()
+    function addAttributeGrouping()
     {
         $this->getSelect()->group('entity_attribute.attribute_id');
         return $this;
@@ -247,7 +247,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function addIsUniqueFilter()
+    function addIsUniqueFilter()
     {
         return $this->addFieldToFilter('is_unique', ['gt' => 0]);
     }
@@ -257,7 +257,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function addIsNotUniqueFilter()
+    function addIsNotUniqueFilter()
     {
         return $this->addFieldToFilter('is_unique', 0);
     }
@@ -267,7 +267,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function addHasOptionsFilter()
+    function addHasOptionsFilter()
     {
         $adapter = $this->getConnection();
         $orWhere = implode(' OR ', [
@@ -296,7 +296,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      * @param string $frontendInputType
      * @return $this
      */
-    public function setFrontendInputTypeFilter($frontendInputType)
+    function setFrontendInputTypeFilter($frontendInputType)
     {
         return $this->addFieldToFilter('frontend_input', $frontendInputType);
     }
@@ -307,7 +307,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      * @param bool $flag
      * @return $this
      */
-    public function addSetInfo($flag = true)
+    function addSetInfo($flag = true)
     {
         $this->_addSetInfoFlag = (bool)$flag;
         return $this;
@@ -381,7 +381,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      *
      * @return $this
      */
-    public function checkConfigurableProducts()
+    function checkConfigurableProducts()
     {
         return $this;
     }
@@ -392,7 +392,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      * @param string | array $code
      * @return $this
      */
-    public function setCodeFilter($code)
+    function setCodeFilter($code)
     {
         if (empty($code)) {
             return $this;
@@ -410,7 +410,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
      * @param int $storeId
      * @return $this
      */
-    public function addStoreLabel($storeId)
+    function addStoreLabel($storeId)
     {
         $adapter        = $this->getConnection();
         $joinExpression = $adapter

@@ -34,7 +34,7 @@ class Mage_Install_Model_Installer_Db extends Mage_Install_Model_Installer_Abstr
      * @param array $data
      * @return array
      */
-    public function checkDbConnectionData($data)
+    function checkDbConnectionData($data)
     {
         $data = $this->_getCheckedData($data);
 
@@ -175,7 +175,7 @@ class Mage_Install_Model_Installer_Db extends Mage_Install_Model_Installer_Abstr
      *
      * @deprecated since 1.5.0.0
      */
-    public function checkDatabase($data)
+    function checkDatabase($data)
     {
         $this->checkDbConnectionData($data);
     }

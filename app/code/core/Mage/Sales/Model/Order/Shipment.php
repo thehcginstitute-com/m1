@@ -127,7 +127,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      * @param string $incrementId
      * @return $this
      */
-    public function loadByIncrementId($incrementId)
+    function loadByIncrementId($incrementId)
     {
         $ids = $this->getCollection()
             ->addAttributeToFilter('increment_id', $incrementId)
@@ -146,7 +146,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      * @param   Mage_Sales_Model_Order $order
      * @return  $this
      */
-    public function setOrder(Mage_Sales_Model_Order $order)
+    function setOrder(Mage_Sales_Model_Order $order)
     {
         $this->_order = $order;
         $this->setOrderId($order->getId())
@@ -159,7 +159,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      *
      * @return string
      */
-    public function getProtectCode()
+    function getProtectCode()
     {
         return (string)$this->getOrder()->getProtectCode();
     }
@@ -169,7 +169,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         if (!$this->_order instanceof Mage_Sales_Model_Order) {
             $this->_order = Mage::getModel('sales/order')->load($this->getOrderId());
@@ -182,7 +182,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Address
      */
-    public function getBillingAddress()
+    function getBillingAddress()
     {
         return $this->getOrder()->getBillingAddress();
     }
@@ -192,7 +192,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Address
      */
-    public function getShippingAddress()
+    function getShippingAddress()
     {
         return $this->getOrder()->getShippingAddress();
     }
@@ -205,7 +205,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function register()
+    function register()
     {
         if ($this->getId()) {
             Mage::throwException(
@@ -232,7 +232,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     /**
      * @return Mage_Sales_Model_Resource_Order_Shipment_Item_Collection
      */
-    public function getItemsCollection()
+    function getItemsCollection()
     {
         if (empty($this->_items)) {
             $this->_items = Mage::getResourceModel('sales/order_shipment_item_collection')
@@ -250,7 +250,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     /**
      * @return Mage_Sales_Model_Order_Shipment_Item[]
      */
-    public function getAllItems()
+    function getAllItems()
     {
         $items = [];
         foreach ($this->getItemsCollection() as $item) {
@@ -265,7 +265,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      * @param int $itemId
      * @return bool
      */
-    public function getItemById($itemId)
+    function getItemById($itemId)
     {
         foreach ($this->getItemsCollection() as $item) {
             if ($item->getId() == $itemId) {
@@ -280,7 +280,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      * @return $this
      * @throws Exception
      */
-    public function addItem(Mage_Sales_Model_Order_Shipment_Item $item)
+    function addItem(Mage_Sales_Model_Order_Shipment_Item $item)
     {
         $item->setShipment($this)
             ->setParentId($this->getId())
@@ -294,7 +294,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     /**
      * @return Mage_Sales_Model_Resource_Order_Shipment_Track_Collection
      */
-    public function getTracksCollection()
+    function getTracksCollection()
     {
         if (empty($this->_tracks)) {
             $this->_tracks = Mage::getResourceModel('sales/order_shipment_track_collection')
@@ -312,7 +312,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     /**
      * @return Mage_Sales_Model_Order_Shipment_Track[]
      */
-    public function getAllTracks()
+    function getAllTracks()
     {
         $tracks = [];
         foreach ($this->getTracksCollection() as $track) {
@@ -327,7 +327,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      * @param int $trackId
      * @return Mage_Sales_Model_Order_Shipment_Track|false
      */
-    public function getTrackById($trackId)
+    function getTrackById($trackId)
     {
         foreach ($this->getTracksCollection() as $track) {
             if ($track->getId() == $trackId) {
@@ -342,7 +342,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      * @return $this
      * @throws Exception
      */
-    public function addTrack(Mage_Sales_Model_Order_Shipment_Track $track)
+    function addTrack(Mage_Sales_Model_Order_Shipment_Track $track)
     {
         $track->setShipment($this)
             ->setParentId($this->getId())
@@ -372,7 +372,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      * @return $this
      * @throws Exception
      */
-    public function addComment($comment, $notify = false, $visibleOnFront = false)
+    function addComment($comment, $notify = false, $visibleOnFront = false)
     {
         if (!($comment instanceof Mage_Sales_Model_Order_Shipment_Comment)) {
             $comment = Mage::getModel('sales/order_shipment_comment')
@@ -394,7 +394,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      * @param bool $reload
      * @return Mage_Sales_Model_Resource_Order_Shipment_Comment_Collection
      */
-    public function getCommentsCollection($reload = false)
+    function getCommentsCollection($reload = false)
     {
         if (is_null($this->_comments) || $reload) {
             $this->_comments = Mage::getResourceModel('sales/order_shipment_comment_collection')
@@ -423,7 +423,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      * @param string $comment
      * @return $this
      */
-    public function sendEmail($notifyCustomer = true, $comment = '')
+    function sendEmail($notifyCustomer = true, $comment = '')
     {
         $order = $this->getOrder();
         $storeId = $order->getStore()->getId();
@@ -518,7 +518,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      * @param string $comment
      * @return $this
      */
-    public function sendUpdateEmail($notifyCustomer = true, $comment = '')
+    function sendUpdateEmail($notifyCustomer = true, $comment = '')
     {
         $order = $this->getOrder();
         $storeId = $order->getStore()->getId();
@@ -661,7 +661,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return $this->getOrder()->getStore();
     }

@@ -56,7 +56,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * Init main class options
      *
      */
-    public function __construct()
+    function __construct()
     {
         $product = Mage::getResourceSingleton('catalog/product');
         $this->setProductEntityId($product->getEntityIdField());
@@ -71,7 +71,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param int $type
      * @return $this
      */
-    public function setSelectCountSqlType($type)
+    function setSelectCountSqlType($type)
     {
         $this->_selectCountSqlType = $type;
         return $this;
@@ -83,7 +83,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param int $entityId
      * @return $this
      */
-    public function setProductEntityId($entityId)
+    function setProductEntityId($entityId)
     {
         $this->_productEntityId = (int)$entityId;
         return $this;
@@ -94,7 +94,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return int
      */
-    public function getProductEntityId()
+    function getProductEntityId()
     {
         return $this->_productEntityId;
     }
@@ -105,7 +105,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param string $value
      * @return $this
      */
-    public function setProductEntityTableName($value)
+    function setProductEntityTableName($value)
     {
         $this->_productEntityTableName = $value;
         return $this;
@@ -116,7 +116,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return string
      */
-    public function getProductEntityTableName()
+    function getProductEntityTableName()
     {
         return $this->_productEntityTableName;
     }
@@ -127,7 +127,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param int $value
      * @return $this
      */
-    public function setProductEntityTypeId($value)
+    function setProductEntityTypeId($value)
     {
         $this->_productEntityTypeId = $value;
         return $this;
@@ -138,7 +138,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return int
      */
-    public function getProductEntityTypeId()
+    function getProductEntityTypeId()
     {
         return  $this->_productEntityTypeId;
     }
@@ -162,7 +162,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         if ($this->_selectCountSqlType == self::SELECT_COUNT_SQL_TYPE_CART) {
             $countSelect = clone $this->getSelect();
@@ -196,7 +196,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      *
      * @return $this
      */
-    public function addCartsCount()
+    function addCartsCount()
     {
         $countSelect = clone $this->getSelect();
         $countSelect->reset();
@@ -224,7 +224,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param string $to
      * @return $this
      */
-    public function addOrdersCount($from = '', $to = '')
+    function addOrdersCount($from = '', $to = '')
     {
         $orderItemTableName = $this->getTable('sales/order_item');
         $productFieldName   = sprintf('e.%s', $this->getProductEntityId());
@@ -260,7 +260,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param string $to
      * @return $this
      */
-    public function addOrderedQty($from = '', $to = '')
+    function addOrderedQty($from = '', $to = '')
     {
         $adapter              = $this->getConnection();
         $compositeTypeIds     = Mage::getSingleton('catalog/product_type')->getCompositeTypes();
@@ -324,7 +324,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param string $dir
      * @return $this
      */
-    public function setOrder($attribute, $dir = self::SORT_ORDER_DESC)
+    function setOrder($attribute, $dir = self::SORT_ORDER_DESC)
     {
         if (in_array($attribute, ['carts', 'orders', 'ordered_qty'])) {
             $this->getSelect()->order($attribute . ' ' . $dir);
@@ -342,7 +342,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param string $to
      * @return $this
      */
-    public function addViewsCount($from = '', $to = '')
+    function addViewsCount($from = '', $to = '')
     {
         /**
          * Getting event type id for catalog_product_view event
@@ -406,7 +406,7 @@ class Mage_Reports_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @param  array $websiteIds
      * @return $this
      */
-    public function addStoreRestrictions($storeIds, $websiteIds)
+    function addStoreRestrictions($storeIds, $websiteIds)
     {
         if (!is_array($storeIds)) {
             $storeIds = [$storeIds];

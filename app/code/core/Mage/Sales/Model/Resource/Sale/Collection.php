@@ -60,7 +60,7 @@ class Mage_Sales_Model_Resource_Sale_Collection extends Varien_Data_Collection_D
      * Set sales order entity and establish read connection
      *
      */
-    public function __construct()
+    function __construct()
     {
         $conn = Mage::getResourceSingleton('sales/order')->getReadConnection();
         $this->setConnection($conn);
@@ -72,7 +72,7 @@ class Mage_Sales_Model_Resource_Sale_Collection extends Varien_Data_Collection_D
      * @param Mage_Customer_Model_Customer $customer
      * @return $this
      */
-    public function setCustomerFilter(Mage_Customer_Model_Customer $customer)
+    function setCustomerFilter(Mage_Customer_Model_Customer $customer)
     {
         $this->_customer = $customer;
         return $this;
@@ -84,7 +84,7 @@ class Mage_Sales_Model_Resource_Sale_Collection extends Varien_Data_Collection_D
      * @param array $storeIds
      * @return $this
      */
-    public function addStoreFilter($storeIds)
+    function addStoreFilter($storeIds)
     {
         return $this->addFieldToFilter('store_id', ['in' => $storeIds]);
     }
@@ -96,7 +96,7 @@ class Mage_Sales_Model_Resource_Sale_Collection extends Varien_Data_Collection_D
      * @param bool $exclude
      * @return $this
      */
-    public function setOrderStateFilter($state, $exclude = false)
+    function setOrderStateFilter($state, $exclude = false)
     {
         $this->_orderStateCondition = $exclude ? 'NOT IN' : 'IN';
         $this->_orderStateValue     = !is_array($state) ? [$state] : $state;
@@ -153,7 +153,7 @@ class Mage_Sales_Model_Resource_Sale_Collection extends Varien_Data_Collection_D
      * @return  Varien_Data_Collection_Db
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function load($printQuery = false, $logQuery = false)
+    function load($printQuery = false, $logQuery = false)
     {
         if ($this->isLoaded()) {
             return $this;
@@ -202,7 +202,7 @@ class Mage_Sales_Model_Resource_Sale_Collection extends Varien_Data_Collection_D
      *
      * @return Varien_Object
      */
-    public function getTotals()
+    function getTotals()
     {
         return new Varien_Object($this->_totals);
     }

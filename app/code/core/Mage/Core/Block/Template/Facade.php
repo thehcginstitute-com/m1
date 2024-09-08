@@ -32,7 +32,7 @@ class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template
      * @param string $key
      * @param string $value
      */
-    public function setDataByKey($key, $value)
+    function setDataByKey($key, $value)
     {
         $this->_data[$key] = $value;
     }
@@ -43,7 +43,7 @@ class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template
      * @param string $key
      * @param string $registryKey
      */
-    public function setDataByKeyFromRegistry($key, $registryKey)
+    function setDataByKeyFromRegistry($key, $registryKey)
     {
         $registryItem = Mage::registry($registryKey);
         if (empty($registryItem)) {
@@ -60,7 +60,7 @@ class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template
      * @param array $conditionKeys
      * @return bool
      */
-    public function ifEquals($conditionKeys)
+    function ifEquals($conditionKeys)
     {
         if (!is_array($conditionKeys)) {
             $conditionKeys = func_get_args();

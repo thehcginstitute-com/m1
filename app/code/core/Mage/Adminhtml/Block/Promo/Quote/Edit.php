@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Promo_Quote_Edit extends Mage_Adminhtml_Block_Widget_
      * Add standard buttons
      * Add "Save and Continue" button
      */
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'id';
         $this->_controller = 'promo_quote';
@@ -46,7 +46,7 @@ class Mage_Adminhtml_Block_Promo_Quote_Edit extends Mage_Adminhtml_Block_Widget_
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         $rule = Mage::registry('current_promo_quote_rule');
         if ($rule->getRuleId()) {
@@ -60,7 +60,7 @@ class Mage_Adminhtml_Block_Promo_Quote_Edit extends Mage_Adminhtml_Block_Widget_
      *
      * @return string
      */
-    public function getProductsJson()
+    function getProductsJson()
     {
         return '{}';
     }

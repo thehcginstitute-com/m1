@@ -37,7 +37,7 @@ class Mage_Cms_Helper_Page extends Mage_Core_Helper_Abstract
     * @param string $pageId
     * @return bool
     */
-    public function renderPage(Mage_Core_Controller_Front_Action $action, $pageId = null)
+    function renderPage(Mage_Core_Controller_Front_Action $action, $pageId = null)
     {
         return $this->_renderPage($action, $pageId);
     }
@@ -139,7 +139,7 @@ class Mage_Cms_Helper_Page extends Mage_Core_Helper_Abstract
      * @param bool $renderLayout
      * @return bool
      */
-    public function renderPageExtended(Mage_Core_Controller_Varien_Action $action, $pageId = null, $renderLayout = true)
+    function renderPageExtended(Mage_Core_Controller_Varien_Action $action, $pageId = null, $renderLayout = true)
     {
         return $this->_renderPage($action, $pageId, $renderLayout);
     }
@@ -150,7 +150,7 @@ class Mage_Cms_Helper_Page extends Mage_Core_Helper_Abstract
      * @param string $pageId
      * @return string|null
      */
-    public function getPageUrl($pageId = null)
+    function getPageUrl($pageId = null)
     {
         $page = Mage::getModel('cms/page');
         if (!is_null($pageId) && $pageId !== $page->getId()) {

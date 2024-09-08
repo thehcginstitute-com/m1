@@ -51,7 +51,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer_Abstract extends Mage_Core_Model_
      * @param int $productId
      * @return void
      */
-    public function saveIndex($data, $storeId, $productId)
+    function saveIndex($data, $storeId, $productId)
     {
         return $this->saveIndices([$data], $storeId, $productId);
     }
@@ -61,7 +61,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer_Abstract extends Mage_Core_Model_
      * @param int $storeId
      * @param int $productId
      */
-    public function saveIndices(array $data, $storeId, $productId)
+    function saveIndices(array $data, $storeId, $productId)
     {
         $this->_executeReplace($data, $storeId, $productId);
     }
@@ -94,7 +94,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer_Abstract extends Mage_Core_Model_
      * @param int $storeId
      * @param int $attributeId
      */
-    public function cleanup($productId, $storeId = null, $attributeId = null)
+    function cleanup($productId, $storeId = null, $attributeId = null)
     {
         $conditions[] = $this->_getWriteAdapter()->quoteInto("{$this->_entityIdFieldName} = ?", $productId);
 
@@ -114,7 +114,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer_Abstract extends Mage_Core_Model_
      * @param array|string $conditions
      * @return array
      */
-    public function loadAttributeCodesByCondition($conditions)
+    function loadAttributeCodesByCondition($conditions)
     {
         $table = $this->getTable('eav/attribute');
         $select = $this->_getReadAdapter()->select();

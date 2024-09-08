@@ -28,7 +28,7 @@ class Mage_Captcha_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function checkForgotpassword($observer)
+    function checkForgotpassword($observer)
     {
         $formId = 'user_forgotpassword';
         $captchaModel = Mage::helper('captcha')->getCaptcha($formId);
@@ -49,7 +49,7 @@ class Mage_Captcha_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function checkUserLogin($observer)
+    function checkUserLogin($observer)
     {
         $formId = 'user_login';
         $captchaModel = Mage::helper('captcha')->getCaptcha($formId);
@@ -77,7 +77,7 @@ class Mage_Captcha_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function checkUserCreate(Varien_Event_Observer $observer)
+    function checkUserCreate(Varien_Event_Observer $observer)
     {
         $formId = 'user_create';
         $captchaModel = Mage::helper('captcha')->getCaptcha($formId);
@@ -99,7 +99,7 @@ class Mage_Captcha_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function checkGuestCheckout(Varien_Event_Observer $observer)
+    function checkGuestCheckout(Varien_Event_Observer $observer)
     {
         $formId = 'guest_checkout';
         $captchaModel = Mage::helper('captcha')->getCaptcha($formId);
@@ -123,7 +123,7 @@ class Mage_Captcha_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function checkRegisterCheckout($observer)
+    function checkRegisterCheckout($observer)
     {
         $formId = 'register_during_checkout';
         $captchaModel = Mage::helper('captcha')->getCaptcha($formId);
@@ -147,7 +147,7 @@ class Mage_Captcha_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function checkUserLoginBackend($observer)
+    function checkUserLoginBackend($observer)
     {
         $formId = 'backend_login';
         $captchaModel = Mage::helper('captcha')->getCaptcha($formId);
@@ -179,7 +179,7 @@ class Mage_Captcha_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function checkUserForgotPasswordBackend($observer)
+    function checkUserForgotPasswordBackend($observer)
     {
         $formId = 'backend_forgotpassword';
         $captchaModel = Mage::helper('captcha')->getCaptcha($formId);
@@ -206,7 +206,7 @@ class Mage_Captcha_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function resetAttemptForFrontend($observer)
+    function resetAttemptForFrontend($observer)
     {
         return $this->_resetAttempt($observer->getModel()->getEmail());
     }
@@ -217,7 +217,7 @@ class Mage_Captcha_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function resetAttemptForBackend($observer)
+    function resetAttemptForBackend($observer)
     {
         return $this->_resetAttempt($observer->getUser()->getUsername());
     }
@@ -227,7 +227,7 @@ class Mage_Captcha_Model_Observer
      *
      * @return $this
      */
-    public function deleteOldAttempts()
+    function deleteOldAttempts()
     {
         Mage::getResourceModel('captcha/log')->deleteOldAttempts();
         return $this;
@@ -238,7 +238,7 @@ class Mage_Captcha_Model_Observer
      *
      * @return $this
      */
-    public function deleteExpiredImages()
+    function deleteExpiredImages()
     {
         foreach (Mage::app()->getWebsites(true) as $website) {
             $expire = time() - Mage::helper('captcha')->getConfigNode('timeout', $website->getDefaultStore()) * 60;
@@ -285,7 +285,7 @@ class Mage_Captcha_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function checkWishlistSharing($observer)
+    function checkWishlistSharing($observer)
     {
         $formId = 'wishlist_sharing';
         $captchaModel = Mage::helper('captcha')->getCaptcha($formId);
@@ -310,7 +310,7 @@ class Mage_Captcha_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function checkSendfriendSend($observer)
+    function checkSendfriendSend($observer)
     {
         $formId = 'sendfriend_send';
         $captchaModel = Mage::helper('captcha')->getCaptcha($formId);

@@ -33,7 +33,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions(['delete', 'massDelete']);
         return parent::preDispatch();
@@ -62,7 +62,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Customers list action
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Customers'))->_title($this->__('Manage Customers'));
 
@@ -93,7 +93,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
         $this->renderLayout();
     }
 
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout();
         $this->renderLayout();
@@ -102,7 +102,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Customer edit action
      */
-    public function editAction()
+    function editAction()
     {
         $this->_initCustomer();
         $this->loadLayout();
@@ -164,7 +164,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Create new customer action
      */
-    public function newAction()
+    function newAction()
     {
         $this->_forward('edit');
     }
@@ -172,7 +172,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Delete customer action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $this->_initCustomer();
         $customer = Mage::registry('current_customer');
@@ -191,7 +191,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Save customer action
      */
-    public function saveAction()
+    function saveAction()
     {
         $data = $this->getRequest()->getPost();
         if ($data) {
@@ -407,7 +407,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Export customer grid to CSV format
      */
-    public function exportCsvAction()
+    function exportCsvAction()
     {
         $fileName   = 'customers.csv';
         $content    = $this->getLayout()->createBlock('adminhtml/customer_grid')
@@ -419,7 +419,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Export customer grid to XML format
      */
-    public function exportXmlAction()
+    function exportXmlAction()
     {
         $fileName   = 'customers.xml';
         $content    = $this->getLayout()->createBlock('adminhtml/customer_grid')
@@ -446,7 +446,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Customer orders grid
      */
-    public function ordersAction()
+    function ordersAction()
     {
         $this->_initCustomer();
         $this->loadLayout();
@@ -456,7 +456,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Customer last orders grid for ajax
      */
-    public function lastOrdersAction()
+    function lastOrdersAction()
     {
         $this->_initCustomer();
         $this->loadLayout();
@@ -466,7 +466,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Customer newsletter grid
      */
-    public function newsletterAction()
+    function newsletterAction()
     {
         $this->_initCustomer();
         $subscriber = Mage::getModel('newsletter/subscriber')
@@ -477,7 +477,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
         $this->renderLayout();
     }
 
-    public function wishlistAction()
+    function wishlistAction()
     {
         $this->_initCustomer();
         $customer = Mage::registry('current_customer');
@@ -502,7 +502,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Customer last view wishlist for ajax
      */
-    public function viewWishlistAction()
+    function viewWishlistAction()
     {
         $this->_initCustomer();
         $this->loadLayout();
@@ -512,7 +512,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * [Handle and then] get a cart grid contents
      */
-    public function cartAction()
+    function cartAction()
     {
         $this->_initCustomer();
         $websiteId = $this->getRequest()->getParam('website_id');
@@ -538,7 +538,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Get shopping cart to view only
      */
-    public function viewCartAction()
+    function viewCartAction()
     {
         $this->_initCustomer();
         $this->loadLayout()
@@ -551,7 +551,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Get shopping carts from all websites for specified client
      */
-    public function cartsAction()
+    function cartsAction()
     {
         $this->_initCustomer();
         $this->loadLayout();
@@ -561,7 +561,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Get customer's product reviews list
      */
-    public function productReviewsAction()
+    function productReviewsAction()
     {
         $this->_initCustomer();
         $this->loadLayout()
@@ -575,7 +575,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
 	# 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	# "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372
 
-    public function validateAction()
+    function validateAction()
     {
         $response       = new Varien_Object();
         $response->setError(0);
@@ -670,7 +670,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
         $this->getResponse()->setBody($response->toJson());
     }
 
-    public function massSubscribeAction()
+    function massSubscribeAction()
     {
         $customersIds = $this->getRequest()->getParam('customer');
         if (!is_array($customersIds)) {
@@ -692,7 +692,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
         $this->_redirect('*/*/index');
     }
 
-    public function massUnsubscribeAction()
+    function massUnsubscribeAction()
     {
         $customersIds = $this->getRequest()->getParam('customer');
         if (!is_array($customersIds)) {
@@ -715,7 +715,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
         $this->_redirect('*/*/index');
     }
 
-    public function massDeleteAction()
+    function massDeleteAction()
     {
         $customersIds = $this->getRequest()->getParam('customer');
         if (!is_array($customersIds)) {
@@ -739,7 +739,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
         $this->_redirect('*/*/index');
     }
 
-    public function massAssignGroupAction()
+    function massAssignGroupAction()
     {
         $customersIds = $this->getRequest()->getParam('customer');
         if (!is_array($customersIds)) {
@@ -762,7 +762,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
         $this->_redirect('*/*/index');
     }
 
-    public function viewfileAction()
+    function viewfileAction()
     {
         $file   = null;
         $plain  = false;

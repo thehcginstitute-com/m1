@@ -23,7 +23,7 @@ class Mage_CatalogSearch_TermController extends Mage_Core_Controller_Front_Actio
     /**
      * @return $this|Mage_Core_Controller_Front_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
         if (!Mage::getStoreConfig('catalog/seo/search_terms')) {
@@ -32,7 +32,7 @@ class Mage_CatalogSearch_TermController extends Mage_Core_Controller_Front_Actio
         }
         return $this;
     }
-    public function popularAction()
+    function popularAction()
     {
         $this->loadLayout();
         $this->renderLayout();

@@ -41,7 +41,7 @@ class Nwdthemes_All_Block_Adminhtml_System_Config_Nwdthemes
      * @param Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         $html = '
 <div style="background:#EAF0EE; border:1px solid #CCCCCC; padding:10px 10px 5px;">

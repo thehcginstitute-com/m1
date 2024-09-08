@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Tax_Rule_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'rule';
         $this->_controller = 'tax_rule';
@@ -46,7 +46,7 @@ class Mage_Adminhtml_Block_Tax_Rule_Edit extends Mage_Adminhtml_Block_Widget_For
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if (Mage::registry('tax_rule')->getId()) {
             return Mage::helper('tax')->__("Edit Rule");

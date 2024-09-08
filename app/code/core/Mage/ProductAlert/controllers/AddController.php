@@ -25,7 +25,7 @@ class Mage_ProductAlert_AddController extends Mage_Core_Controller_Front_Action
     /**
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
 
@@ -38,14 +38,14 @@ class Mage_ProductAlert_AddController extends Mage_Core_Controller_Front_Action
         return $this;
     }
 
-    public function testObserverAction()
+    function testObserverAction()
     {
         $object = new Varien_Object();
         $observer = Mage::getSingleton('productalert/observer');
         $observer->process($object);
     }
 
-    public function priceAction()
+    function priceAction()
     {
         $session = Mage::getSingleton('catalog/session');
         $backUrl    = $this->getRequest()->getParam(Mage_Core_Controller_Front_Action::PARAM_NAME_URL_ENCODED);
@@ -81,7 +81,7 @@ class Mage_ProductAlert_AddController extends Mage_Core_Controller_Front_Action
         $this->_redirectReferer();
     }
 
-    public function stockAction()
+    function stockAction()
     {
         $session = Mage::getSingleton('catalog/session');
         /** @var Mage_Catalog_Model_Session $session */

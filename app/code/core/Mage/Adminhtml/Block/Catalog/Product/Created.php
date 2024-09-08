@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Created extends Mage_Adminhtml_Block_
     protected $_configurableProduct;
     protected $_product;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/product/created.phtml');
@@ -44,12 +44,12 @@ class Mage_Adminhtml_Block_Catalog_Product_Created extends Mage_Adminhtml_Block_
         return $this;
     }
 
-    public function getCloseButtonHtml()
+    function getCloseButtonHtml()
     {
         return $this->getChildHtml('close_button');
     }
 
-    public function getProductId()
+    function getProductId()
     {
         return (int) $this->getRequest()->getParam('id');
     }
@@ -59,7 +59,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Created extends Mage_Adminhtml_Block_
      *
      * @return bool
      */
-    public function isEdit()
+    function isEdit()
     {
         return (bool) $this->getRequest()->getParam('edit');
     }
@@ -69,7 +69,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Created extends Mage_Adminhtml_Block_
      *
      * @return string
      */
-    public function getAttributesJson()
+    function getAttributesJson()
     {
         $result = [];
         foreach ($this->getAttributes() as $attribute) {
@@ -85,7 +85,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Created extends Mage_Adminhtml_Block_
         return Mage::helper('core')->jsonEncode($result);
     }
 
-    public function getAttributes()
+    function getAttributes()
     {
         if ($this->getConfigurableProduct()->getId()) {
             /** @var Mage_Catalog_Model_Product_Type_Configurable $productType */
@@ -115,7 +115,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Created extends Mage_Adminhtml_Block_
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getConfigurableProduct()
+    function getConfigurableProduct()
     {
         if (is_null($this->_configurableProduct)) {
             $this->_configurableProduct = Mage::getModel('catalog/product')
@@ -130,7 +130,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Created extends Mage_Adminhtml_Block_
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         if (is_null($this->_product)) {
             $this->_product = Mage::getModel('catalog/product')

@@ -23,7 +23,7 @@
 class Fooman_SameOrderInvoiceNumber_Model_Observer
 {
 
-    public function sales_order_invoice_save_before ($observer)
+    function sales_order_invoice_save_before ($observer)
     {
 
         $invoice = $observer->getInvoice();
@@ -53,7 +53,7 @@ class Fooman_SameOrderInvoiceNumber_Model_Observer
         }
     }
 
-    public function sales_order_shipment_save_before ($observer)
+    function sales_order_shipment_save_before ($observer)
     {
         $shipment = $observer->getShipment();
         if (!$shipment->getId()) {
@@ -82,7 +82,7 @@ class Fooman_SameOrderInvoiceNumber_Model_Observer
         }
     }
 
-    public function sales_order_creditmemo_save_before ($observer)
+    function sales_order_creditmemo_save_before ($observer)
     {
         $creditmemo = $observer->getCreditmemo();
         if (!$creditmemo->getId()) {

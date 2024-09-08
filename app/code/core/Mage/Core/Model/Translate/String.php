@@ -42,7 +42,7 @@ class Mage_Core_Model_Translate_String extends Mage_Core_Model_Abstract
      * @param string $string
      * @return $this
      */
-    public function setString($string)
+    function setString($string)
     {
         $this->setData('string', $string);
         //$this->setData('string', strtolower($string));
@@ -54,7 +54,7 @@ class Mage_Core_Model_Translate_String extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getString()
+    function getString()
     {
         //return strtolower($this->getData('string'));
         return $this->getData('string');

@@ -41,7 +41,7 @@ abstract class Mage_Uploader_Model_Config_Abstract extends Varien_Object
      * @return bool|mixed|Varien_Object
      * @throws Varien_Exception
      */
-    public function __call($method, $args)
+    function __call($method, $args)
     {
         $key = lcfirst($this->_camelize(substr($method, 3)));
         switch (substr($method, 0, 3)) {

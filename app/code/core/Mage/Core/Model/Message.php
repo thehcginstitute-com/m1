@@ -62,7 +62,7 @@ class Mage_Core_Model_Message
      * @param string $method
      * @return Mage_Core_Model_Message_Error|Mage_Core_Model_Message_Notice|Mage_Core_Model_Message_Success|Mage_Core_Model_Message_Warning
      */
-    public function error($code, $class = '', $method = '')
+    function error($code, $class = '', $method = '')
     {
         return $this->_factory($code, self::ERROR, $class, $method);
     }
@@ -73,7 +73,7 @@ class Mage_Core_Model_Message
      * @param string $method
      * @return Mage_Core_Model_Message_Error|Mage_Core_Model_Message_Notice|Mage_Core_Model_Message_Success|Mage_Core_Model_Message_Warning
      */
-    public function warning($code, $class = '', $method = '')
+    function warning($code, $class = '', $method = '')
     {
         return $this->_factory($code, self::WARNING, $class, $method);
     }
@@ -84,7 +84,7 @@ class Mage_Core_Model_Message
      * @param string $method
      * @return Mage_Core_Model_Message_Error|Mage_Core_Model_Message_Notice|Mage_Core_Model_Message_Success|Mage_Core_Model_Message_Warning
      */
-    public function notice($code, $class = '', $method = '')
+    function notice($code, $class = '', $method = '')
     {
         return $this->_factory($code, self::NOTICE, $class, $method);
     }
@@ -95,7 +95,7 @@ class Mage_Core_Model_Message
      * @param string $method
      * @return Mage_Core_Model_Message_Error|Mage_Core_Model_Message_Notice|Mage_Core_Model_Message_Success|Mage_Core_Model_Message_Warning
      */
-    public function success($code, $class = '', $method = '')
+    function success($code, $class = '', $method = '')
     {
         return $this->_factory($code, self::SUCCESS, $class, $method);
     }

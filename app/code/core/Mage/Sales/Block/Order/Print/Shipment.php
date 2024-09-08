@@ -84,7 +84,7 @@ class Mage_Sales_Block_Order_Print_Shipment extends Mage_Sales_Block_Items_Abstr
     /**
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return Mage::getUrl('*/*/history');
     }
@@ -92,7 +92,7 @@ class Mage_Sales_Block_Order_Print_Shipment extends Mage_Sales_Block_Items_Abstr
     /**
      * @return string
      */
-    public function getPrintUrl()
+    function getPrintUrl()
     {
         return Mage::getUrl('*/*/print');
     }
@@ -100,7 +100,7 @@ class Mage_Sales_Block_Order_Print_Shipment extends Mage_Sales_Block_Items_Abstr
     /**
      * @return string
      */
-    public function getPaymentInfoHtml()
+    function getPaymentInfoHtml()
     {
         return $this->getChildHtml('payment_info');
     }
@@ -108,7 +108,7 @@ class Mage_Sales_Block_Order_Print_Shipment extends Mage_Sales_Block_Items_Abstr
     /**
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }
@@ -116,7 +116,7 @@ class Mage_Sales_Block_Order_Print_Shipment extends Mage_Sales_Block_Items_Abstr
     /**
      * @return Mage_Sales_Model_Order_Shipment
      */
-    public function getShipment()
+    function getShipment()
     {
         return Mage::registry('current_shipment');
     }
@@ -137,7 +137,7 @@ class Mage_Sales_Block_Order_Print_Shipment extends Mage_Sales_Block_Items_Abstr
     *
     * @return array|Mage_Sales_Model_Resource_Order_Shipment_Collection
     */
-    public function getShipmentsCollection()
+    function getShipmentsCollection()
     {
         return $this->_shipmentsCollection;
     }
@@ -148,7 +148,7 @@ class Mage_Sales_Block_Order_Print_Shipment extends Mage_Sales_Block_Items_Abstr
      * @param Mage_Sales_Model_Order_Shipment $shipment
      * @return array
      */
-    public function getShipmentTracks($shipment)
+    function getShipmentTracks($shipment)
     {
         $tracks = [];
         if (!empty($this->_tracks[$shipment->getId()])) {
@@ -163,7 +163,7 @@ class Mage_Sales_Block_Order_Print_Shipment extends Mage_Sales_Block_Items_Abstr
      * @param Mage_Sales_Model_Order_Shipment $shipment
      * @return string
      */
-    public function getShipmentAddressFormattedHtml($shipment)
+    function getShipmentAddressFormattedHtml($shipment)
     {
         $shippingAddress = $shipment->getShippingAddress();
         if (!($shippingAddress instanceof Mage_Sales_Model_Order_Address)) {
@@ -178,7 +178,7 @@ class Mage_Sales_Block_Order_Print_Shipment extends Mage_Sales_Block_Items_Abstr
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function getBillingAddressFormattedHtml($order)
+    function getBillingAddressFormattedHtml($order)
     {
         $billingAddress = $order->getBillingAddress();
         if (!($billingAddress instanceof Mage_Sales_Model_Order_Address)) {
@@ -193,7 +193,7 @@ class Mage_Sales_Block_Order_Print_Shipment extends Mage_Sales_Block_Items_Abstr
      * @param Mage_Sales_Model_Order_Shipment $shipment
      * @return array
      */
-    public function getShipmentItems($shipment)
+    function getShipmentItems($shipment)
     {
         $res = [];
         foreach ($shipment->getItemsCollection() as $item) {

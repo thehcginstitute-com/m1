@@ -39,7 +39,7 @@ class Mage_Catalog_Model_Product_Attribute_Media_Api extends Mage_Catalog_Model_
         'image/png'  => 'png'
     ];
 
-    public function __construct()
+    function __construct()
     {
         $this->_storeIdSessionField = 'product_store_id';
     }
@@ -52,7 +52,7 @@ class Mage_Catalog_Model_Product_Attribute_Media_Api extends Mage_Catalog_Model_
      * @param string|null $identifierType
      * @return array
      */
-    public function items($productId, $store = null, $identifierType = null)
+    function items($productId, $store = null, $identifierType = null)
     {
         $product = $this->_initProduct($productId, $store, $identifierType);
 
@@ -83,7 +83,7 @@ class Mage_Catalog_Model_Product_Attribute_Media_Api extends Mage_Catalog_Model_
      * @return array
      * @throws Mage_Api_Exception
      */
-    public function info($productId, $file, $store = null, $identifierType = null)
+    function info($productId, $file, $store = null, $identifierType = null)
     {
         $product = $this->_initProduct($productId, $store, $identifierType);
 
@@ -108,7 +108,7 @@ class Mage_Catalog_Model_Product_Attribute_Media_Api extends Mage_Catalog_Model_
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function create($productId, $data, $store = null, $identifierType = null)
+    function create($productId, $data, $store = null, $identifierType = null)
     {
         $data = $this->_prepareImageData($data);
 
@@ -201,7 +201,7 @@ class Mage_Catalog_Model_Product_Attribute_Media_Api extends Mage_Catalog_Model_
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function update($productId, $file, $data, $store = null, $identifierType = null)
+    function update($productId, $file, $data, $store = null, $identifierType = null)
     {
         $data = $this->_prepareImageData($data);
 
@@ -272,7 +272,7 @@ class Mage_Catalog_Model_Product_Attribute_Media_Api extends Mage_Catalog_Model_
      * @return bool
      * @throws Mage_Api_Exception
      */
-    public function remove($productId, $file, $identifierType = null)
+    function remove($productId, $file, $identifierType = null)
     {
         $product = $this->_initProduct($productId, null, $identifierType);
 
@@ -299,7 +299,7 @@ class Mage_Catalog_Model_Product_Attribute_Media_Api extends Mage_Catalog_Model_
      * @param int $setId
      * @return array
      */
-    public function types($setId)
+    function types($setId)
     {
         $attributes = Mage::getModel('catalog/product')->getResource()
                 ->loadAllAttributes()

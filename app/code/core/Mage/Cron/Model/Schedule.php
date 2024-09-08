@@ -49,7 +49,7 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
     public const STATUS_MISSED = 'missed';
     public const STATUS_ERROR = 'error';
 
-    public function _construct()
+    function _construct()
     {
         $this->_init('cron/schedule');
     }
@@ -59,7 +59,7 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function setCronExpr($expr)
+    function setCronExpr($expr)
     {
         $e = preg_split('#\s+#', $expr, -1, PREG_SPLIT_NO_EMPTY);
         if (count($e) < 5 || count($e) > 6) {
@@ -78,7 +78,7 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
      * @param string|int $time
      * @return bool
      */
-    public function trySchedule($time)
+    function trySchedule($time)
     {
         $e = $this->getCronExprArr();
         if (!$e || !$time) {
@@ -113,7 +113,7 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
      * @return bool
      * @throws Mage_Core_Exception
      */
-    public function matchCronExpression($expr, $num)
+    function matchCronExpression($expr, $num)
     {
         // handle ALL match
         if ($expr === '*') {
@@ -173,7 +173,7 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
      * @param int|string $value
      * @return int|string|false
      */
-    public function getNumeric($value)
+    function getNumeric($value)
     {
         static $data = [
             'jan' => 1,
@@ -221,7 +221,7 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function tryLockJob($oldStatus = self::STATUS_PENDING)
+    function tryLockJob($oldStatus = self::STATUS_PENDING)
     {
         $result = $this->_getResource()->trySetJobStatusAtomic($this->getId(), self::STATUS_RUNNING, $oldStatus);
         if ($result) {

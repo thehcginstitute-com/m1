@@ -75,7 +75,7 @@ class Mage_CatalogIndex_Model_Resource_Data_Abstract extends Mage_Core_Model_Res
      * @param int $store
      * @return array
      */
-    public function getAttributeData($products, $attributes, $store)
+    function getAttributeData($products, $attributes, $store)
     {
         $suffixes = ['decimal', 'varchar', 'int', 'text', 'datetime'];
         if (!is_array($products)) {
@@ -120,7 +120,7 @@ class Mage_CatalogIndex_Model_Resource_Data_Abstract extends Mage_Core_Model_Res
      * @param array $additionalWheres
      * @return array
      */
-    public function fetchLinkInformation($store, $table, $idField, $whereField, $id, $additionalWheres = [])
+    function fetchLinkInformation($store, $table, $idField, $whereField, $id, $additionalWheres = [])
     {
         $idsConditionSymbol = "= ?";
         if (is_array($id)) {
@@ -180,7 +180,7 @@ class Mage_CatalogIndex_Model_Resource_Data_Abstract extends Mage_Core_Model_Res
      * @param int $store
      * @return mixed
      */
-    public function getMinimalPrice($products, $priceAttributes, $store)
+    function getMinimalPrice($products, $priceAttributes, $store)
     {
         $website = Mage::app()->getStore($store)->getWebsiteId();
 
@@ -201,7 +201,7 @@ class Mage_CatalogIndex_Model_Resource_Data_Abstract extends Mage_Core_Model_Res
      * @param int $website
      * @return mixed
      */
-    public function getTierPrices($products, $website)
+    function getTierPrices($products, $website)
     {
         $fields = [
             'entity_id',

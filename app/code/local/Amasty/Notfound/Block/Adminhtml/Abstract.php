@@ -9,7 +9,7 @@ class Amasty_Notfound_Block_Adminhtml_Abstract extends Mage_Adminhtml_Block_Widg
     protected $_header    = 'Not Found Pages';
     protected $_modelName = 'log';
     
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_controller = 'adminhtml_' . $this->_modelName;

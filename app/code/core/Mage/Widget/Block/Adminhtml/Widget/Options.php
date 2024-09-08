@@ -59,7 +59,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Options extends Mage_Adminhtml_Block_Wi
      *
      * @return Varien_Data_Form
      */
-    public function getForm()
+    function getForm()
     {
         if ($this->_form instanceof Varien_Data_Form) {
             return $this->_form;
@@ -74,7 +74,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Options extends Mage_Adminhtml_Block_Wi
      *
      * @return Varien_Data_Form_Element_Fieldset
      */
-    public function getMainFieldset()
+    function getMainFieldset()
     {
         if ($this->_getData('main_fieldset') instanceof Varien_Data_Form_Element_Fieldset) {
             return $this->_getData('main_fieldset');
@@ -99,7 +99,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Options extends Mage_Adminhtml_Block_Wi
      *
      * @return Mage_Adminhtml_Block_Widget_Form
      */
-    public function addFields()
+    function addFields()
     {
         // get configuration node and translation helper
         if (!$this->getWidgetType()) {

@@ -69,7 +69,7 @@ class Mage_Cms_Block_Block extends Mage_Core_Block_Abstract
      * @return array
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getCacheKeyInfo()
+    function getCacheKeyInfo()
     {
         $blockId = $this->getBlockId();
         if ($blockId) {

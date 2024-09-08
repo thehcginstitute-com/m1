@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View_Cart extends Mage_Adminhtml_Bl
     /**
      * Mage_Adminhtml_Block_Customer_Edit_Tab_View_Cart constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('customer_view_cart_grid');
@@ -103,7 +103,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View_Cart extends Mage_Adminhtml_Bl
      * @param Mage_Sales_Model_Quote_Item $row
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/catalog_product/edit', ['id' => $row->getProductId()]);
     }
@@ -113,7 +113,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View_Cart extends Mage_Adminhtml_Bl
      *
      * @return bool
      */
-    public function getHeadersVisibility()
+    function getHeadersVisibility()
     {
         return ($this->getCollection()->getSize() > 0);
     }

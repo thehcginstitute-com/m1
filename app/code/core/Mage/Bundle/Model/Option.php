@@ -62,7 +62,7 @@ class Mage_Bundle_Model_Option extends Mage_Core_Model_Abstract
      * @param Mage_Bundle_Model_Selection $selection
      * @return $this|false
      */
-    public function addSelection($selection)
+    function addSelection($selection)
     {
         if (!$selection) {
             return false;
@@ -80,7 +80,7 @@ class Mage_Bundle_Model_Option extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isSaleable()
+    function isSaleable()
     {
         $saleable = 0;
         if ($this->getSelections()) {
@@ -100,7 +100,7 @@ class Mage_Bundle_Model_Option extends Mage_Core_Model_Abstract
      *
      * @return Mage_Bundle_Model_Selection
      */
-    public function getDefaultSelection()
+    function getDefaultSelection()
     {
         if (!$this->_defaultSelection && $this->getSelections()) {
             foreach ($this->getSelections() as $selection) {
@@ -134,7 +134,7 @@ class Mage_Bundle_Model_Option extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isMultiSelection()
+    function isMultiSelection()
     {
         if ($this->getType() == 'checkbox' || $this->getType() == 'multi') {
             return true;
@@ -150,7 +150,7 @@ class Mage_Bundle_Model_Option extends Mage_Core_Model_Abstract
      * @param int $storeId
      * @return array
      */
-    public function getSearchableData($productId, $storeId)
+    function getSearchableData($productId, $storeId)
     {
         return $this->_getResource()
             ->getSearchableData($productId, $storeId);
@@ -162,7 +162,7 @@ class Mage_Bundle_Model_Option extends Mage_Core_Model_Abstract
      * @param int $selectionId
      * @return Mage_Catalog_Model_Product|false
      */
-    public function getSelectionById($selectionId)
+    function getSelectionById($selectionId)
     {
         $selections = $this->getSelections();
         $i = count($selections);

@@ -33,7 +33,7 @@ class Mage_Core_Controller_Response_Http extends Zend_Controller_Response_Http
      * @link  http://bugs.php.net/bug.php?id=36705
      * @inheritDoc
      */
-    public function sendHeaders()
+    function sendHeaders()
     {
         if (!$this->canSendHeaders()) {
             Mage::log('HEADERS ALREADY SENT: ' . mageDebugBacktrace(true, true, true));
@@ -68,7 +68,7 @@ class Mage_Core_Controller_Response_Http extends Zend_Controller_Response_Http
     /**
      * @inheritDoc
      */
-    public function sendResponse()
+    function sendResponse()
     {
         Mage::dispatchEvent('http_response_send_before', ['response' => $this]);
         parent::sendResponse();
@@ -79,7 +79,7 @@ class Mage_Core_Controller_Response_Http extends Zend_Controller_Response_Http
      *
      * @inheritDoc
      */
-    public function setRedirect($url, $code = 302)
+    function setRedirect($url, $code = 302)
     {
         /**
          * Use single transport object instance
@@ -101,7 +101,7 @@ class Mage_Core_Controller_Response_Http extends Zend_Controller_Response_Http
      * Method send already collected headers and exit from script
      * @return never
      */
-    public function sendHeadersAndExit()
+    function sendHeadersAndExit()
     {
         $this->sendHeaders();
         exit;

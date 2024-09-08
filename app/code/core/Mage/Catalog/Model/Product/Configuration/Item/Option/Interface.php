@@ -27,5 +27,5 @@ interface Mage_Catalog_Model_Product_Configuration_Item_Option_Interface
      *
      * @return mixed
      */
-    public function getValue();
+    function getValue();
 }

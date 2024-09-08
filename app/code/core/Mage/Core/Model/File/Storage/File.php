@@ -49,7 +49,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
     /**
      * Class construct
      */
-    public function __construct()
+    function __construct()
     {
         $this->_init('core/file_storage_file');
     }
@@ -59,7 +59,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
      *
      * @return $this
      */
-    public function init()
+    function init()
     {
         return $this;
     }
@@ -69,7 +69,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
      *
      * @return string
      */
-    public function getStorageName()
+    function getStorageName()
     {
         return Mage::helper('core')->__('File system');
     }
@@ -79,7 +79,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
      *
      * @return array
      */
-    public function getStorageData()
+    function getStorageData()
     {
         return $this->_getResource()->getStorageData();
     }
@@ -89,7 +89,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
      *
      * @return bool
      */
-    public function hasErrors()
+    function hasErrors()
     {
         return !empty($this->_errors);
     }
@@ -99,7 +99,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
      *
      * @return $this
      */
-    public function clear()
+    function clear()
     {
         $this->_getResource()->clear();
         return $this;
@@ -113,7 +113,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
      * @param  string $type
      * @return array|bool
      */
-    public function collectData($offset = 0, $count = 100, $type = 'files')
+    function collectData($offset = 0, $count = 100, $type = 'files')
     {
         if (!in_array($type, ['files', 'directories'])) {
             return false;
@@ -141,7 +141,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
      * @param  int $count
      * @return array|bool
      */
-    public function exportDirectories($offset = 0, $count = 100)
+    function exportDirectories($offset = 0, $count = 100)
     {
         return $this->collectData($offset, $count, 'directories');
     }
@@ -153,7 +153,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
      * @param  int $count
      * @return array|bool
      */
-    public function exportFiles($offset = 0, $count = 1)
+    function exportFiles($offset = 0, $count = 1)
     {
         $slice = $this->collectData($offset, $count, 'files');
 
@@ -183,7 +183,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
      * @param  string $callback
      * @return $this
      */
-    public function import($data, $callback)
+    function import($data, $callback)
     {
         if (!is_array($data) || !method_exists($this, $callback)) {
             return $this;
@@ -207,7 +207,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
      * @param  array $dirs
      * @return $this
      */
-    public function importDirectories($dirs)
+    function importDirectories($dirs)
     {
         return $this->import($dirs, 'saveDir');
     }
@@ -218,7 +218,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
      * @param  array $files
      * @return $this
      */
-    public function importFiles($files)
+    function importFiles($files)
     {
         return $this->import($files, 'saveFile');
     }
@@ -229,7 +229,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
      * @param  array $dir
      * @return bool
      */
-    public function saveDir($dir)
+    function saveDir($dir)
     {
         return $this->_getResource()->saveDir($dir);
     }
@@ -241,7 +241,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
      * @param  bool $overwrite
      * @return bool
      */
-    public function saveFile($file, $overwrite = true)
+    function saveFile($file, $overwrite = true)
     {
         if (isset($file['filename']) && !empty($file['filename'])
             && isset($file['content'])
@@ -266,7 +266,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
      * @param string $filePath
      * @return bool
      */
-    public function lockCreateFile($filePath)
+    function lockCreateFile($filePath)
     {
         return $this->getResource()->lockCreateFile($filePath);
     }
@@ -274,7 +274,7 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
     /**
      * @param string $filePath
      */
-    public function removeLockedFile($filePath)
+    function removeLockedFile($filePath)
     {
         $this->getResource()->removeLockedFile($filePath);
     }

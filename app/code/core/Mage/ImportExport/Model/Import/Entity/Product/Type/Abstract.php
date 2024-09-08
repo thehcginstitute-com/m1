@@ -87,7 +87,7 @@ abstract class Mage_ImportExport_Model_Import_Entity_Product_Type_Abstract
      * @param array $params
      * @throws Exception
      */
-    final public function __construct(array $params)
+    final function __construct(array $params)
     {
         if ($this->isSuitable()) {
             if (!isset($params[0]) || !isset($params[1])
@@ -225,7 +225,7 @@ abstract class Mage_ImportExport_Model_Import_Entity_Product_Type_Abstract
      *
      * @return array
      */
-    public function getParticularAttributes()
+    function getParticularAttributes()
     {
         return $this->_particularAttributes;
     }
@@ -238,7 +238,7 @@ abstract class Mage_ImportExport_Model_Import_Entity_Product_Type_Abstract
      * @param bool $isNewProduct OPTIONAL.
      * @return bool
      */
-    public function isRowValid(array $rowData, $rowNum, $isNewProduct = true)
+    function isRowValid(array $rowData, $rowNum, $isNewProduct = true)
     {
         $error    = false;
         $rowScope = $this->_entityModel->getRowScope($rowData);
@@ -276,7 +276,7 @@ abstract class Mage_ImportExport_Model_Import_Entity_Product_Type_Abstract
      *
      * @return bool
      */
-    public function isSuitable()
+    function isSuitable()
     {
         return true;
     }
@@ -288,7 +288,7 @@ abstract class Mage_ImportExport_Model_Import_Entity_Product_Type_Abstract
      * @param bool $withDefaultValue
      * @return array
      */
-    public function prepareAttributesForSave(array $rowData, $withDefaultValue = true)
+    function prepareAttributesForSave(array $rowData, $withDefaultValue = true)
     {
         $resultAttrs = [];
 
@@ -312,7 +312,7 @@ abstract class Mage_ImportExport_Model_Import_Entity_Product_Type_Abstract
      *
      * @return Mage_ImportExport_Model_Import_Entity_Product_Type_Abstract
      */
-    public function saveData()
+    function saveData()
     {
         return $this;
     }

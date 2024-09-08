@@ -54,7 +54,7 @@ class Mage_Directory_Model_Resource_Currency_Collection extends Mage_Core_Model_
      * @param string $currency
      * @return $this
      */
-    public function joinRates($currency)
+    function joinRates($currency)
     {
         $alias = sprintf('%s_rate', $currency);
         $this->addBindParam(':' . $alias, $currency);
@@ -74,7 +74,7 @@ class Mage_Directory_Model_Resource_Currency_Collection extends Mage_Core_Model_
      * @param string $lang
      * @return $this
      */
-    public function addLanguageFilter($lang = null)
+    function addLanguageFilter($lang = null)
     {
         if (is_null($lang)) {
             $lang = Mage::app()->getStore()->getLanguageCode();
@@ -88,7 +88,7 @@ class Mage_Directory_Model_Resource_Currency_Collection extends Mage_Core_Model_
      * @param string $code
      * @return $this
      */
-    public function addCodeFilter($code)
+    function addCodeFilter($code)
     {
         if (is_array($code)) {
             $this->addFieldToFilter("main_table.currency_code", ['in' => $code]);
@@ -104,7 +104,7 @@ class Mage_Directory_Model_Resource_Currency_Collection extends Mage_Core_Model_
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->_toOptionArray('currency_code', 'currency_name');
     }

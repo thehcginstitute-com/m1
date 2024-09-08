@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Newsletter_Template extends Mage_Adminhtml_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('newsletter/template/list.phtml');
@@ -40,7 +40,7 @@ class Mage_Adminhtml_Block_Newsletter_Template extends Mage_Adminhtml_Block_Temp
     /**
      * @return string
      */
-    public function getCreateUrl()
+    function getCreateUrl()
     {
         return $this->getUrl('*/*/new');
     }
@@ -48,7 +48,7 @@ class Mage_Adminhtml_Block_Newsletter_Template extends Mage_Adminhtml_Block_Temp
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('newsletter')->__('Newsletter Templates');
     }

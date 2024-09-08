@@ -25,7 +25,7 @@ class Mage_Downloadable_Block_Catalog_Product_Samples extends Mage_Catalog_Block
     /**
      * @return bool
      */
-    public function hasSamples()
+    function hasSamples()
     {
         /** @var Mage_Downloadable_Model_Product_Type $productType */
         $productType = $this->getProduct()->getTypeInstance(true);
@@ -37,7 +37,7 @@ class Mage_Downloadable_Block_Catalog_Product_Samples extends Mage_Catalog_Block
      *
      * @return Mage_Downloadable_Model_Resource_Sample_Collection
      */
-    public function getSamples()
+    function getSamples()
     {
         /** @var Mage_Downloadable_Model_Product_Type $productType */
         $productType = $this->getProduct()->getTypeInstance(true);
@@ -48,7 +48,7 @@ class Mage_Downloadable_Block_Catalog_Product_Samples extends Mage_Catalog_Block
      * @param Mage_Downloadable_Model_Sample $sample
      * @return string
      */
-    public function getSampleUrl($sample)
+    function getSampleUrl($sample)
     {
         return $this->getUrl('downloadable/download/sample', ['sample_id' => $sample->getId()]);
     }
@@ -58,7 +58,7 @@ class Mage_Downloadable_Block_Catalog_Product_Samples extends Mage_Catalog_Block
      *
      * @return string
      */
-    public function getSamplesTitle()
+    function getSamplesTitle()
     {
         if ($this->getProduct()->getSamplesTitle()) {
             return $this->getProduct()->getSamplesTitle();
@@ -71,7 +71,7 @@ class Mage_Downloadable_Block_Catalog_Product_Samples extends Mage_Catalog_Block
      *
      * @return bool
      */
-    public function getIsOpenInNewWindow()
+    function getIsOpenInNewWindow()
     {
         return Mage::getStoreConfigFlag(Mage_Downloadable_Model_Link::XML_PATH_TARGET_NEW_WINDOW);
     }

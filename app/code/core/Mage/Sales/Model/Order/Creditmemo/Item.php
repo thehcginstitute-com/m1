@@ -112,7 +112,7 @@ class Mage_Sales_Model_Order_Creditmemo_Item extends Mage_Core_Model_Abstract
     protected $_creditmemo = null;
     protected $_orderItem = null;
 
-    public function _construct()
+    function _construct()
     {
         $this->_init('sales/order_creditmemo_item');
     }
@@ -123,7 +123,7 @@ class Mage_Sales_Model_Order_Creditmemo_Item extends Mage_Core_Model_Abstract
      * @param   Mage_Sales_Model_Order_Creditmemo $creditmemo
      * @return  $this
      */
-    public function setCreditmemo(Mage_Sales_Model_Order_Creditmemo $creditmemo)
+    function setCreditmemo(Mage_Sales_Model_Order_Creditmemo $creditmemo)
     {
         $this->_creditmemo = $creditmemo;
         return $this;
@@ -147,7 +147,7 @@ class Mage_Sales_Model_Order_Creditmemo_Item extends Mage_Core_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Creditmemo
      */
-    public function getCreditmemo()
+    function getCreditmemo()
     {
         return $this->_creditmemo;
     }
@@ -158,7 +158,7 @@ class Mage_Sales_Model_Order_Creditmemo_Item extends Mage_Core_Model_Abstract
      * @param   Mage_Sales_Model_Order_Item $item
      * @return  $this
      */
-    public function setOrderItem(Mage_Sales_Model_Order_Item $item)
+    function setOrderItem(Mage_Sales_Model_Order_Item $item)
     {
         $this->_orderItem = $item;
         $this->setOrderItemId($item->getId());
@@ -170,7 +170,7 @@ class Mage_Sales_Model_Order_Creditmemo_Item extends Mage_Core_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Item
      */
-    public function getOrderItem()
+    function getOrderItem()
     {
         if (is_null($this->_orderItem)) {
             if ($this->getCreditmemo()) {
@@ -189,7 +189,7 @@ class Mage_Sales_Model_Order_Creditmemo_Item extends Mage_Core_Model_Abstract
      * @param   float $qty
      * @return  $this
      */
-    public function setQty($qty)
+    function setQty($qty)
     {
         if ($this->getOrderItem()->getIsQtyDecimal()) {
             $qty = (float) $qty;
@@ -215,7 +215,7 @@ class Mage_Sales_Model_Order_Creditmemo_Item extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function register()
+    function register()
     {
         $orderItem = $this->getOrderItem();
 
@@ -235,7 +235,7 @@ class Mage_Sales_Model_Order_Creditmemo_Item extends Mage_Core_Model_Abstract
     /**
      * @return $this
      */
-    public function cancel()
+    function cancel()
     {
         $this->getOrderItem()->setQtyRefunded(
             $this->getOrderItem()->getQtyRefunded() - $this->getQty()
@@ -256,7 +256,7 @@ class Mage_Sales_Model_Order_Creditmemo_Item extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function calcRowTotal()
+    function calcRowTotal()
     {
         $creditmemo           = $this->getCreditmemo();
         $orderItem            = $this->getOrderItem();
@@ -292,7 +292,7 @@ class Mage_Sales_Model_Order_Creditmemo_Item extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isLast()
+    function isLast()
     {
         $orderItem = $this->getOrderItem();
         if ((string)(float)$this->getQty() == (string)(float)$orderItem->getQtyToRefund()

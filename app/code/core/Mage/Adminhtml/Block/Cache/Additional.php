@@ -19,17 +19,17 @@
  */
 class Mage_Adminhtml_Block_Cache_Additional extends Mage_Adminhtml_Block_Template
 {
-    public function getCleanImagesUrl()
+    function getCleanImagesUrl()
     {
         return $this->getUrl('*/*/cleanImages');
     }
 
-    public function getCleanSwatchesUrl()
+    function getCleanSwatchesUrl()
     {
         return $this->getUrl('*/*/cleanSwatches');
     }
 
-    public function getCleanMediaUrl()
+    function getCleanMediaUrl()
     {
         return $this->getUrl('*/*/cleanMedia');
     }

@@ -27,7 +27,7 @@ class Mage_Sales_Model_Resource_Order_Invoice_Attribute_Backend_Order extends Ma
      *
      * @inheritDoc
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         if ($object->getOrder()) {
             $object->setOrderId($object->getOrder()->getId());

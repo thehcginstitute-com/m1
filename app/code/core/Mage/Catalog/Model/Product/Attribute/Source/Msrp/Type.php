@@ -42,7 +42,7 @@ class Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type extends Mage_Eav_Mod
      *
      * @return array
      */
-    public function getAllOptions()
+    function getAllOptions()
     {
         if (!$this->_options) {
             $this->_options = [
@@ -68,7 +68,7 @@ class Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type extends Mage_Eav_Mod
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->getAllOptions();
     }

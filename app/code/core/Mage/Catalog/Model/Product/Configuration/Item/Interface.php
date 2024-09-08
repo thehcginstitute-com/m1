@@ -27,7 +27,7 @@ interface Mage_Catalog_Model_Product_Configuration_Item_Interface
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct();
+    function getProduct();
 
     /**
      * Get item option by code
@@ -35,7 +35,7 @@ interface Mage_Catalog_Model_Product_Configuration_Item_Interface
      * @param   string $code
      * @return  Mage_Catalog_Model_Product_Configuration_Item_Option_Interface
      */
-    public function getOptionByCode($code);
+    function getOptionByCode($code);
 
     /**
      * Returns special download params (if needed) for custom option with type = 'file''
@@ -46,5 +46,5 @@ interface Mage_Catalog_Model_Product_Configuration_Item_Interface
      *
      * @return null|Varien_Object
      */
-    public function getFileDownloadParams();
+    function getFileDownloadParams();
 }

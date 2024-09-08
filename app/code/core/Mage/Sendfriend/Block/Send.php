@@ -27,7 +27,7 @@ class Mage_Sendfriend_Block_Send extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getUserName()
+    function getUserName()
     {
         $name = $this->getFormData()->getData('sender/name');
         if (!empty($name)) {
@@ -49,7 +49,7 @@ class Mage_Sendfriend_Block_Send extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getEmail()
+    function getEmail()
     {
         $email = $this->getFormData()->getData('sender/email');
         if (!empty($email)) {
@@ -71,7 +71,7 @@ class Mage_Sendfriend_Block_Send extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getMessage()
+    function getMessage()
     {
         return $this->getFormData()->getData('sender/message');
     }
@@ -81,7 +81,7 @@ class Mage_Sendfriend_Block_Send extends Mage_Core_Block_Template
      *
      * @return Varien_Object
      */
-    public function getFormData()
+    function getFormData()
     {
         $data = $this->getData('form_data');
         if (!$data instanceof Varien_Object) {
@@ -102,7 +102,7 @@ class Mage_Sendfriend_Block_Send extends Mage_Core_Block_Template
      * @param array $data
      * @return $this
      */
-    public function setFormData($data)
+    function setFormData($data)
     {
         if (is_array($data)) {
             $this->setData('form_data', new Varien_Object($data));
@@ -116,7 +116,7 @@ class Mage_Sendfriend_Block_Send extends Mage_Core_Block_Template
      *
      * @return int
      */
-    public function getProductId()
+    function getProductId()
     {
         return $this->getRequest()->getParam('id', null);
     }
@@ -126,7 +126,7 @@ class Mage_Sendfriend_Block_Send extends Mage_Core_Block_Template
      *
      * @return int
      */
-    public function getCategoryId()
+    function getCategoryId()
     {
         return $this->getRequest()->getParam('cat_id', null);
     }
@@ -136,7 +136,7 @@ class Mage_Sendfriend_Block_Send extends Mage_Core_Block_Template
      *
      * @return int
      */
-    public function getMaxRecipients()
+    function getMaxRecipients()
     {
         return Mage::helper('sendfriend')->getMaxRecipients();
     }
@@ -146,7 +146,7 @@ class Mage_Sendfriend_Block_Send extends Mage_Core_Block_Template
      *
      * @return int
      */
-    public function getRecipientsCount()
+    function getRecipientsCount()
     {
         $recipientsEmail = $this->getFormData()->getData('recipients/email');
         return (is_array($recipientsEmail)) ? count($recipientsEmail) : 0;
@@ -157,7 +157,7 @@ class Mage_Sendfriend_Block_Send extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getSendUrl()
+    function getSendUrl()
     {
         return Mage::getUrl('*/*/sendmail', [
             'id'     => $this->getProductId(),
@@ -181,7 +181,7 @@ class Mage_Sendfriend_Block_Send extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function canSend()
+    function canSend()
     {
         return !$this->_getSendfriendModel()->isExceedLimit();
     }

@@ -32,7 +32,7 @@ class Mage_Newsletter_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Newsletter_Model_Subscriber $subscriber
      * @return string
      */
-    public function getConfirmationUrl($subscriber)
+    function getConfirmationUrl($subscriber)
     {
         return Mage::getModel('core/url')
             ->setStore($subscriber->getStoreId())
@@ -49,7 +49,7 @@ class Mage_Newsletter_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Newsletter_Model_Subscriber $subscriber
      * @return string
      */
-    public function getUnsubscribeUrl($subscriber)
+    function getUnsubscribeUrl($subscriber)
     {
         return Mage::getModel('core/url')
             ->setStore($subscriber->getStoreId())
@@ -65,7 +65,7 @@ class Mage_Newsletter_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return false|Mage_Core_Model_Abstract|Varien_Filter_Template
      */
-    public function getTemplateProcessor()
+    function getTemplateProcessor()
     {
         $model = (string)Mage::getConfig()->getNode(self::XML_PATH_TEMPLATE_FILTER);
         return Mage::getModel($model);

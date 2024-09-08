@@ -24,13 +24,13 @@ class Mage_Adminhtml_Block_Report_Sales_Bestsellers_Grid extends Mage_Adminhtml_
 {
     protected $_columnGroupBy = 'period';
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setCountTotals(true);
     }
 
-    public function getResourceCollectionName()
+    function getResourceCollectionName()
     {
         return 'sales/report_bestsellers_collection';
     }

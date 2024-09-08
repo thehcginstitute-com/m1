@@ -36,7 +36,7 @@ class Mage_Newsletter_Model_Resource_Template_Collection extends Mage_Core_Model
      *
      * @return $this
      */
-    public function useOnlyActual()
+    function useOnlyActual()
     {
         $this->addFieldToFilter('template_actual', 1);
 
@@ -48,7 +48,7 @@ class Mage_Newsletter_Model_Resource_Template_Collection extends Mage_Core_Model
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->_toOptionArray('template_id', 'template_code');
     }

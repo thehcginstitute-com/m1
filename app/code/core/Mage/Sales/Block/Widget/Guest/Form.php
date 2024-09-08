@@ -27,7 +27,7 @@ class Mage_Sales_Block_Widget_Guest_Form extends Mage_Core_Block_Template implem
      *
      * @return bool
      */
-    public function isEnable()
+    function isEnable()
     {
         return !(Mage::getSingleton('customer/session')->isLoggedIn());
     }
@@ -37,7 +37,7 @@ class Mage_Sales_Block_Widget_Guest_Form extends Mage_Core_Block_Template implem
      *
      * @return array
      */
-    public function getTypeSelectHtml()
+    function getTypeSelectHtml()
     {
         $select = $this->getLayout()->createBlock('core/html_select')
             ->setData([
@@ -79,7 +79,7 @@ class Mage_Sales_Block_Widget_Guest_Form extends Mage_Core_Block_Template implem
      *
      * @return string
      */
-    public function getActionUrl()
+    function getActionUrl()
     {
         return $this->getUrl('sales/guest/view', ['_secure' => $this->_isSecure()]);
     }

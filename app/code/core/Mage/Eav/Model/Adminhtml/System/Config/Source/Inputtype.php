@@ -23,7 +23,7 @@ class Mage_Eav_Model_Adminhtml_System_Config_Source_Inputtype
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             ['value' => 'text', 'label' => Mage::helper('eav')->__('Text Field')],

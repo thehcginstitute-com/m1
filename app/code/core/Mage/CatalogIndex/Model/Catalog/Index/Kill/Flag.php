@@ -25,7 +25,7 @@ class Mage_CatalogIndex_Model_Catalog_Index_Kill_Flag extends Mage_Core_Model_Fl
     /**
      * @return bool
      */
-    public function checkIsThisProcess()
+    function checkIsThisProcess()
     {
         return ($this->getFlagData() == getmypid());
     }

@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Newsletter_Subscriber_Grid extends Mage_Adminhtml_Blo
     /**
      * Set main configuration of grid
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('subscriberGrid');

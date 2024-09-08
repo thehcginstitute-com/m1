@@ -30,7 +30,7 @@ class Mage_SalesRule_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   float $price
      * @return  $this
      */
-    public function setItemDiscountPrices(Mage_Sales_Model_Quote_Item_Abstract $item, $basePrice, $price)
+    function setItemDiscountPrices(Mage_Sales_Model_Quote_Item_Abstract $item, $basePrice, $price)
     {
         $item->setDiscountCalculationPrice($price);
         $item->setBaseDiscountCalculationPrice($basePrice);
@@ -45,7 +45,7 @@ class Mage_SalesRule_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   float $price
      * @return  $this
      */
-    public function addItemDiscountPrices(Mage_Sales_Model_Quote_Item_Abstract $item, $basePrice, $price)
+    function addItemDiscountPrices(Mage_Sales_Model_Quote_Item_Abstract $item, $basePrice, $price)
     {
         $discountPrice      = $item->getDiscountCalculationPrice();
         $baseDiscountPrice  = $item->getBaseDiscountCalculationPrice();

@@ -43,7 +43,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav extends Mage_Catalog_Model
      *
      * @return array
      */
-    public function getIndexers()
+    function getIndexers()
     {
         if (is_null($this->_types)) {
             $this->_types   = [
@@ -61,7 +61,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav extends Mage_Catalog_Model
      * @param string $type
      * @return Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract
      */
-    public function getIndexer($type)
+    function getIndexer($type)
     {
         $indexers = $this->getIndexers();
         if (!isset($indexers[$type])) {
@@ -78,7 +78,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav extends Mage_Catalog_Model
      * @param Mage_Index_Model_Event $event
      * @return $this
      */
-    public function catalogProductSave(Mage_Index_Model_Event $event)
+    function catalogProductSave(Mage_Index_Model_Event $event)
     {
         $productId = $event->getEntityPk();
         $data = $event->getNewData();
@@ -104,7 +104,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav extends Mage_Catalog_Model
      * @param Mage_Index_Model_Event $event
      * @return $this
      */
-    public function catalogProductDelete(Mage_Index_Model_Event $event)
+    function catalogProductDelete(Mage_Index_Model_Event $event)
     {
         $data = $event->getNewData();
         if (empty($data['reindex_eav_parent_ids'])) {
@@ -125,7 +125,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav extends Mage_Catalog_Model
      * @param Mage_Index_Model_Event $event
      * @return $this
      */
-    public function catalogProductMassAction(Mage_Index_Model_Event $event)
+    function catalogProductMassAction(Mage_Index_Model_Event $event)
     {
         $data = $event->getNewData();
         if (empty($data['reindex_eav_product_ids'])) {
@@ -146,7 +146,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav extends Mage_Catalog_Model
      * @param Mage_Index_Model_Event $event
      * @return $this
      */
-    public function catalogEavAttributeSave(Mage_Index_Model_Event $event)
+    function catalogEavAttributeSave(Mage_Index_Model_Event $event)
     {
         $data = $event->getNewData();
         if (empty($data['reindex_attribute'])) {
@@ -165,7 +165,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav extends Mage_Catalog_Model
      *
      * @return $this
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->useIdxTable(true);
         foreach ($this->getIndexers() as $indexer) {
@@ -182,7 +182,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav extends Mage_Catalog_Model
      * @param string $table
      * @return string
      */
-    public function getIdxTable($table = null)
+    function getIdxTable($table = null)
     {
         if ($this->useIdxTable()) {
             return $this->getTable('catalog/product_eav_indexer_idx');

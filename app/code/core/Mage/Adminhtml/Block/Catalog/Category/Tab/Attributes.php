@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Attributes extends Mage_Adminhtm
      *
      * @return Mage_Catalog_Model_Category
      */
-    public function getCategory()
+    function getCategory()
     {
         return Mage::registry('current_category');
     }
@@ -36,7 +36,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Attributes extends Mage_Adminhtm
      * Initialize tab
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setShowGlobalIcon(true);

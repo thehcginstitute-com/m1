@@ -34,7 +34,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Giftmessage extends Mage_Adminhtml_B
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return Mage::registry('current_order');
     }
@@ -82,7 +82,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Giftmessage extends Mage_Adminhtml_B
      * @return string
      * @throws Exception
      */
-    public function getSaveButtonHtml()
+    function getSaveButtonHtml()
     {
         $this->getChild('save_button')->setOnclick(
             'giftMessagesController.saveGiftMessage(\'' . $this->getHtmlId() . '\')'
@@ -97,7 +97,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Giftmessage extends Mage_Adminhtml_B
      * @param Mage_Sales_Model_Order $entity
      * @return $this
      */
-    public function setEntity(Varien_Object $entity)
+    function setEntity(Varien_Object $entity)
     {
         $this->_entity  = $entity;
         return $this;
@@ -109,7 +109,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Giftmessage extends Mage_Adminhtml_B
      * @return Mage_Sales_Model_Order
      * @throws Exception
      */
-    public function getEntity()
+    function getEntity()
     {
         if (is_null($this->_entity)) {
             $this->setEntity(Mage::getModel('giftmessage/message')->getEntityModelByType('order'));
@@ -124,7 +124,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Giftmessage extends Mage_Adminhtml_B
      * @return string
      * @throws Exception
      */
-    public function getDefaultSender()
+    function getDefaultSender()
     {
         if (!$this->getEntity()) {
             return '';
@@ -143,7 +143,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Giftmessage extends Mage_Adminhtml_B
      * @return string
      * @throws Exception
      */
-    public function getDefaultRecipient()
+    function getDefaultRecipient()
     {
         if (!$this->getEntity()) {
             return '';
@@ -177,7 +177,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Giftmessage extends Mage_Adminhtml_B
      * @return string
      * @throws Exception
      */
-    public function getFieldName($name)
+    function getFieldName($name)
     {
         return 'giftmessage[' . $this->getEntity()->getId() . '][' . $name . ']';
     }
@@ -189,7 +189,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Giftmessage extends Mage_Adminhtml_B
      * @return string
      * @throws Exception
      */
-    public function getFieldId($id)
+    function getFieldId($id)
     {
         return $this->getFieldIdPrefix() . $id;
     }
@@ -200,7 +200,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Giftmessage extends Mage_Adminhtml_B
      * @return string
      * @throws Exception
      */
-    public function getFieldIdPrefix()
+    function getFieldIdPrefix()
     {
         return 'giftmessage_order_' . $this->getEntity()->getId() . '_';
     }
@@ -234,7 +234,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Giftmessage extends Mage_Adminhtml_B
      * @return Mage_GiftMessage_Model_Message
      * @throws Exception
      */
-    public function getMessage()
+    function getMessage()
     {
         if (is_null($this->_giftMessage)) {
             $this->_initMessage();
@@ -247,7 +247,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Giftmessage extends Mage_Adminhtml_B
      * @return string
      * @throws Exception
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return $this->getUrl(
             '*/sales_order_view_giftmessage/save',
@@ -265,7 +265,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Giftmessage extends Mage_Adminhtml_B
      * @return string
      * @throws Exception
      */
-    public function getHtmlId()
+    function getHtmlId()
     {
         return substr($this->getFieldIdPrefix(), 0, -1);
     }
@@ -276,7 +276,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Giftmessage extends Mage_Adminhtml_B
      * @return bool
      * @throws Exception
      */
-    public function canDisplayGiftmessage()
+    function canDisplayGiftmessage()
     {
         /** @var Mage_GiftMessage_Helper_Message $helper */
         $helper = $this->helper('giftmessage/message');

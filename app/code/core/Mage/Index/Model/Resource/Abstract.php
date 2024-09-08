@@ -52,7 +52,7 @@ abstract class Mage_Index_Model_Resource_Abstract extends Mage_Core_Model_Resour
      *
      * @return Mage_Index_Model_Resource_Abstract
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->useIdxTable(true);
         return $this;
@@ -74,7 +74,7 @@ abstract class Mage_Index_Model_Resource_Abstract extends Mage_Core_Model_Resour
      * @param string $table
      * @return string
      */
-    public function getIdxTable($table = null)
+    function getIdxTable($table = null)
     {
         $suffix = self::TMP_SUFFIX;
         if ($this->_isNeedUseIdxTable) {
@@ -91,7 +91,7 @@ abstract class Mage_Index_Model_Resource_Abstract extends Mage_Core_Model_Resour
      *
      * @return Mage_Index_Model_Resource_Abstract
      */
-    public function syncData()
+    function syncData()
     {
         $this->beginTransaction();
         try {
@@ -115,7 +115,7 @@ abstract class Mage_Index_Model_Resource_Abstract extends Mage_Core_Model_Resour
      * @param bool $asOriginal
      * @return Mage_Index_Model_Resource_Abstract
      */
-    public function cloneIndexTable($asOriginal = false)
+    function cloneIndexTable($asOriginal = false)
     {
         return $this;
     }
@@ -128,7 +128,7 @@ abstract class Mage_Index_Model_Resource_Abstract extends Mage_Core_Model_Resour
      * @param bool $readToIndex data migration direction (true - read=>index, false - index=>read)
      * @return Mage_Index_Model_Resource_Abstract
      */
-    public function insertFromTable($sourceTable, $destTable, $readToIndex = true)
+    function insertFromTable($sourceTable, $destTable, $readToIndex = true)
     {
         if ($readToIndex) {
             $sourceColumns = array_keys($this->_getReadAdapter()->describeTable($sourceTable));
@@ -155,7 +155,7 @@ abstract class Mage_Index_Model_Resource_Abstract extends Mage_Core_Model_Resour
      * @param bool $readToIndex data migration direction (true - read=>index, false - index=>read)
      * @return Mage_Index_Model_Resource_Abstract
      */
-    public function insertFromSelect($select, $destTable, array $columns, $readToIndex = true)
+    function insertFromSelect($select, $destTable, array $columns, $readToIndex = true)
     {
         if ($readToIndex) {
             $from   = $this->_getWriteAdapter();
@@ -195,7 +195,7 @@ abstract class Mage_Index_Model_Resource_Abstract extends Mage_Core_Model_Resour
      * @param bool $value
      * @return bool
      */
-    public function useIdxTable($value = null)
+    function useIdxTable($value = null)
     {
         if (!is_null($value)) {
             $this->_isNeedUseIdxTable = (bool)$value;
@@ -209,7 +209,7 @@ abstract class Mage_Index_Model_Resource_Abstract extends Mage_Core_Model_Resour
      * @param bool $value
      * @return bool
      */
-    public function useDisableKeys($value = null)
+    function useDisableKeys($value = null)
     {
         if (!is_null($value)) {
             $this->_isDisableKeys = (bool)$value;
@@ -221,7 +221,7 @@ abstract class Mage_Index_Model_Resource_Abstract extends Mage_Core_Model_Resour
      * Clean up temporary index table
      *
      */
-    public function clearTemporaryIndexTable()
+    function clearTemporaryIndexTable()
     {
         $this->_getWriteAdapter()->delete($this->getIdxTable());
     }
@@ -233,7 +233,7 @@ abstract class Mage_Index_Model_Resource_Abstract extends Mage_Core_Model_Resour
      * @param bool $value
      * @return Mage_Index_Model_Resource_Abstract
      */
-    public function setAllowTableChanges($value = true)
+    function setAllowTableChanges($value = true)
     {
         $this->_allowTableChanges = $value;
         return $this;
@@ -244,7 +244,7 @@ abstract class Mage_Index_Model_Resource_Abstract extends Mage_Core_Model_Resour
      *
      * @return Mage_Index_Model_Resource_Abstract
      */
-    public function disableTableKeys()
+    function disableTableKeys()
     {
         if ($this->useDisableKeys()) {
             $this->_getWriteAdapter()->disableTableKeys($this->getMainTable());
@@ -257,7 +257,7 @@ abstract class Mage_Index_Model_Resource_Abstract extends Mage_Core_Model_Resour
      *
      * @return Mage_Index_Model_Resource_Abstract
      */
-    public function enableTableKeys()
+    function enableTableKeys()
     {
         if ($this->useDisableKeys()) {
             $this->_getWriteAdapter()->enableTableKeys($this->getMainTable());

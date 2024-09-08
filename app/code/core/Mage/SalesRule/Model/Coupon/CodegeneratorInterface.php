@@ -25,12 +25,12 @@ interface Mage_SalesRule_Model_Coupon_CodegeneratorInterface
      *
      * @return string
      */
-    public function generateCode();
+    function generateCode();
 
     /**
      * Retrieve delimiter
      *
      * @return string
      */
-    public function getDelimiter();
+    function getDelimiter();
 }

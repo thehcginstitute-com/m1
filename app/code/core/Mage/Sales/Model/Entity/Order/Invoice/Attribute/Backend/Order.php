@@ -24,7 +24,7 @@ class Mage_Sales_Model_Entity_Order_Invoice_Attribute_Backend_Order extends Mage
      * @param Varien_Object $object
      * @return Mage_Eav_Model_Entity_Attribute_Backend_Abstract
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         if ($object->getOrder()) {
             $object->setOrderId($object->getOrder()->getId());

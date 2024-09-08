@@ -101,7 +101,7 @@ class Mage_Sales_Model_Resource_Order extends Mage_Sales_Model_Resource_Order_Ab
      * @param bool $isProductTypeIn
      * @return array
      */
-    public function aggregateProductsByTypes($orderId, $productTypeIds = [], $isProductTypeIn = false)
+    function aggregateProductsByTypes($orderId, $productTypeIds = [], $isProductTypeIn = false)
     {
         $adapter = $this->getReadConnection();
         $select  = $adapter->select()
@@ -132,7 +132,7 @@ class Mage_Sales_Model_Resource_Order extends Mage_Sales_Model_Resource_Order_Ab
      * @param int $orderId
      * @return string
      */
-    public function getIncrementId($orderId)
+    function getIncrementId($orderId)
     {
         $adapter = $this->getReadConnection();
         $bind    = [':entity_id' => $orderId];

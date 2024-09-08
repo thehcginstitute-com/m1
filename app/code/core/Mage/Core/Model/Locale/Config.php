@@ -113,7 +113,7 @@ class Mage_Core_Model_Locale_Config
      *
      * @return array
      */
-    public function getAllowedLocales()
+    function getAllowedLocales()
     {
         $configData = Mage::getConfig()->getNode(Mage_Core_Model_Locale::XML_PATH_ALLOW_CODES);
         if ($configData) {
@@ -132,7 +132,7 @@ class Mage_Core_Model_Locale_Config
      *
      * @return array
      */
-    public function getAllowedCurrencies()
+    function getAllowedCurrencies()
     {
         $configData = Mage::getConfig()->getNode(Mage_Core_Model_Locale::XML_PATH_ALLOW_CURRENCIES);
         if ($configData) {

@@ -77,7 +77,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      *
      * @param array $data
      */
-    public function __construct($data = [])
+    function __construct($data = [])
     {
         $this->_elementClass = Mage::getConfig()->getModelClassName('core/layout_element');
         $this->setXml(simplexml_load_string('<layout/>', $this->_elementClass));
@@ -90,7 +90,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      *
      * @return Mage_Core_Model_Layout_Update
      */
-    public function getUpdate()
+    function getUpdate()
     {
         return $this->_update;
     }
@@ -101,7 +101,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      * @param   string $area
      * @return  Mage_Core_Model_Layout
      */
-    public function setArea($area)
+    function setArea($area)
     {
         $this->_area = $area;
         return $this;
@@ -112,7 +112,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      *
      * @return string
      */
-    public function getArea()
+    function getArea()
     {
         return $this->_area;
     }
@@ -123,7 +123,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      * @param   bool $flag
      * @return  Mage_Core_Model_Layout
      */
-    public function setDirectOutput($flag)
+    function setDirectOutput($flag)
     {
         $this->_directOutput = $flag;
         return $this;
@@ -134,7 +134,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      *
      * @return bool
      */
-    public function getDirectOutput()
+    function getDirectOutput()
     {
         return $this->_directOutput;
     }
@@ -144,7 +144,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      *
      * @return $this
      */
-    public function generateXml()
+    function generateXml()
     {
         $xml = $this->getUpdate()->asSimplexml();
         $removeInstructions = $xml->xpath("//remove");
@@ -186,7 +186,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      *
      * @param Mage_Core_Model_Layout_Element|Varien_Simplexml_Element|null $parent
      */
-    public function generateBlocks($parent = null)
+    function generateBlocks($parent = null)
     {
         if (empty($parent)) {
             $parent = $this->getNode();
@@ -431,7 +431,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      * @param Mage_Core_Model_Layout $block
      * @return $this
      */
-    public function setBlock($name, $block)
+    function setBlock($name, $block)
     {
         $this->_blocks[$name] = $block;
         return $this;
@@ -443,7 +443,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      * @param string $name
      * @return $this
      */
-    public function unsetBlock($name)
+    function unsetBlock($name)
     {
         $this->_blocks[$name] = null;
         unset($this->_blocks[$name]);
@@ -458,7 +458,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      * @param     array $attributes
      * @return    Mage_Core_Block_Abstract|false
      */
-    public function createBlock($type, $name = '', array $attributes = [])
+    function createBlock($type, $name = '', array $attributes = [])
     {
         try {
             $block = $this->_getBlockInstance($type, $attributes);
@@ -494,7 +494,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      * @param string $blockName
      * @return Mage_Core_Block_Abstract
      */
-    public function addBlock($block, $blockName)
+    function addBlock($block, $blockName)
     {
         return $this->createBlock($block, $blockName);
     }
@@ -529,7 +529,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      *
      * @return array
      */
-    public function getAllBlocks()
+    function getAllBlocks()
     {
         return $this->_blocks;
     }
@@ -540,7 +540,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      * @param string $name
      * @return Mage_Core_Block_Abstract|false
      */
-    public function getBlock($name)
+    function getBlock($name)
     {
         return $this->_blocks[$name] ?? false;
     }
@@ -552,7 +552,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      * @param string $method
      * @return $this
      */
-    public function addOutputBlock($blockName, $method = 'toHtml')
+    function addOutputBlock($blockName, $method = 'toHtml')
     {
         //$this->_output[] = array($blockName, $method);
         $this->_output[$blockName] = [$blockName, $method];
@@ -563,7 +563,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      * @param string $blockName
      * @return $this
      */
-    public function removeOutputBlock($blockName)
+    function removeOutputBlock($blockName)
     {
         unset($this->_output[$blockName]);
         return $this;
@@ -574,7 +574,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      *
      * @return string
      */
-    public function getOutput()
+    function getOutput()
     {
         $out = '';
         if (!empty($this->_output)) {
@@ -591,7 +591,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      *
      * @return Mage_Core_Block_Messages
      */
-    public function getMessagesBlock()
+    function getMessagesBlock()
     {
         $block = $this->getBlock('messages');
         if ($block) {
@@ -604,7 +604,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      * @param string $type
      * @return Mage_Core_Block_Abstract
      */
-    public function getBlockSingleton($type)
+    function getBlockSingleton($type)
     {
         if (!isset($this->_helpers[$type])) {
             $className = Mage::getConfig()->getBlockClassName($type);
@@ -629,7 +629,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
      * @param   string $name
      * @return  Mage_Core_Helper_Abstract|false
      */
-    public function helper($name)
+    function helper($name)
     {
         $helper = Mage::helper($name);
         if (!$helper) {

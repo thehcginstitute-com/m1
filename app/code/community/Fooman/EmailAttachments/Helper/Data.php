@@ -23,7 +23,7 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return mixed
      */
-    public function addAttachment($pdf, $mailObj, $name = "order")
+    function addAttachment($pdf, $mailObj, $name = "order")
     {
         try {
             $this->debug('ADDING ATTACHMENT: ' . $name);
@@ -47,7 +47,7 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return mixed
      */
-    public function addFileAttachment($file, $mailObj)
+    function addFileAttachment($file, $mailObj)
     {
         try {
             $this->debug('ADDING ATTACHMENT: ' . $file);
@@ -75,7 +75,7 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return mixed
      */
-    public function addAgreements($storeId, $mailObj)
+    function addAgreements($storeId, $mailObj)
     {
         $this->debug('ADDING AGREEMENTS');
         $agreements = Mage::getModel('checkout/agreement')->getCollection()
@@ -119,7 +119,7 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @param $msg
      */
-    public function debug($msg)
+    function debug($msg)
     {
         if ($this->isDebugMode()) {
             Mage::helper('foomancommon')->sendToFirebug($msg);
@@ -132,12 +132,12 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isDebugMode()
+    function isDebugMode()
     {
         return false;
     }
 
-    public function addButton($block)
+    function addButton($block)
     {
         $block->addButton(
             'print', array(
@@ -164,7 +164,7 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
         );
     }
 
-    public function getEmails($configPath, $storeId)
+    function getEmails($configPath, $storeId)
     {
         $data = Mage::getStoreConfig($configPath, $storeId);
         if (!empty($data)) {

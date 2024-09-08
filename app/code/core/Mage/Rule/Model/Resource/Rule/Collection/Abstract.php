@@ -78,7 +78,7 @@ abstract class Mage_Rule_Model_Resource_Rule_Collection_Abstract extends Mage_Co
      *
      * @return Mage_Rule_Model_Resource_Rule_Collection_Abstract
      */
-    public function addWebsitesToResult($flag = null)
+    function addWebsitesToResult($flag = null)
     {
         $flag = $flag ?? true;
         $this->setFlag('add_websites_to_result', $flag);
@@ -92,7 +92,7 @@ abstract class Mage_Rule_Model_Resource_Rule_Collection_Abstract extends Mage_Co
      *
      * @return Mage_Rule_Model_Resource_Rule_Collection_Abstract
      */
-    public function addWebsiteFilter($websiteId)
+    function addWebsiteFilter($websiteId)
     {
         $entityInfo = $this->_getAssociatedEntityInfo('website');
         if (!$this->getFlag('is_website_table_joined')) {
@@ -120,7 +120,7 @@ abstract class Mage_Rule_Model_Resource_Rule_Collection_Abstract extends Mage_Co
      *
      * @return Mage_Rule_Model_Resource_Rule_Collection_Abstract
      */
-    public function addFieldToFilter($field, $condition = null)
+    function addFieldToFilter($field, $condition = null)
     {
         if ($field == 'website_ids') {
             return $this->addWebsiteFilter($condition);
@@ -137,7 +137,7 @@ abstract class Mage_Rule_Model_Resource_Rule_Collection_Abstract extends Mage_Co
      *
      * @return Mage_Rule_Model_Resource_Rule_Collection_Abstract
      */
-    public function addIsActiveFilter($isActive = 1)
+    function addIsActiveFilter($isActive = 1)
     {
         if (!$this->getFlag('is_active_filter')) {
             $this->addFieldToFilter('is_active', (int)$isActive ? 1 : 0);
@@ -174,7 +174,7 @@ abstract class Mage_Rule_Model_Resource_Rule_Collection_Abstract extends Mage_Co
      * @deprecated after 1.6.2.0
      *
      */
-    public function setEnv(Mage_Rule_Model_Environment $env = null)
+    function setEnv(Mage_Rule_Model_Environment $env = null)
     {
         $this->_env = $env;
         return $this;
@@ -187,7 +187,7 @@ abstract class Mage_Rule_Model_Resource_Rule_Collection_Abstract extends Mage_Co
      * @deprecated after 1.6.2.0
      *
      */
-    public function getEnv()
+    function getEnv()
     {
         return $this->_env;
     }
@@ -199,7 +199,7 @@ abstract class Mage_Rule_Model_Resource_Rule_Collection_Abstract extends Mage_Co
      *
      * @return Mage_Rule_Model_Resource_Rule_Collection_Abstract
      */
-    public function setActiveFilter()
+    function setActiveFilter()
     {
         return $this;
     }
@@ -211,7 +211,7 @@ abstract class Mage_Rule_Model_Resource_Rule_Collection_Abstract extends Mage_Co
      *
      * @return Mage_Rule_Model_Resource_Rule_Collection_Abstract
      */
-    public function process()
+    function process()
     {
         return $this;
     }

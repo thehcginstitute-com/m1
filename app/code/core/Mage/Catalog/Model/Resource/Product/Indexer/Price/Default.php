@@ -52,7 +52,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price_Default extends Mage_Cat
      * @param string $typeCode
      * @return $this
      */
-    public function setTypeId($typeCode)
+    function setTypeId($typeCode)
     {
         $this->_typeId = $typeCode;
         return $this;
@@ -63,7 +63,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price_Default extends Mage_Cat
      *
      * @return string
      */
-    public function getTypeId()
+    function getTypeId()
     {
         if (is_null($this->_typeId)) {
             Mage::throwException(Mage::helper('catalog')->__('A product type is not defined for the indexer.'));
@@ -77,7 +77,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price_Default extends Mage_Cat
      * @param bool $flag
      * @return $this
      */
-    public function setIsComposite($flag)
+    function setIsComposite($flag)
     {
         $this->_isComposite = (bool)$flag;
         return $this;
@@ -88,7 +88,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price_Default extends Mage_Cat
      *
      * @return bool
      */
-    public function getIsComposite()
+    function getIsComposite()
     {
         return $this->_isComposite;
     }
@@ -98,7 +98,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price_Default extends Mage_Cat
      *
      * @return $this
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->useIdxTable(true);
         $this->beginTransaction();
@@ -120,7 +120,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price_Default extends Mage_Cat
      * @param int|array $entityIds
      * @return $this
      */
-    public function reindexEntity($entityIds)
+    function reindexEntity($entityIds)
     {
         $this->_prepareFinalPriceData($entityIds);
         $this->_applyCustomOption();
@@ -598,7 +598,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price_Default extends Mage_Cat
      *
      * @param Mage_Index_Model_Event $event
      */
-    public function registerEvent(Mage_Index_Model_Event $event)
+    function registerEvent(Mage_Index_Model_Event $event)
     {
     }
 
@@ -608,7 +608,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price_Default extends Mage_Cat
      * @param string $table
      * @return string
      */
-    public function getIdxTable($table = null)
+    function getIdxTable($table = null)
     {
         if ($this->useIdxTable()) {
             return $this->getTable('catalog/product_price_indexer_idx');

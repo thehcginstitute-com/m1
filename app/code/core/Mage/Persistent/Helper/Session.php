@@ -50,7 +50,7 @@ class Mage_Persistent_Helper_Session extends Mage_Core_Helper_Data
      *
      * @return Mage_Persistent_Model_Session
      */
-    public function getSession()
+    function getSession()
     {
         if (is_null($this->_sessionModel)) {
             $this->_sessionModel = Mage::getModel('persistent/session');
@@ -65,7 +65,7 @@ class Mage_Persistent_Helper_Session extends Mage_Core_Helper_Data
      * @param Mage_Persistent_Model_Session|null $sessionModel null to unset session
      * @return Mage_Persistent_Model_Session|null
      */
-    public function setSession($sessionModel)
+    function setSession($sessionModel)
     {
         $this->_sessionModel = $sessionModel;
         return $this->_sessionModel;
@@ -76,7 +76,7 @@ class Mage_Persistent_Helper_Session extends Mage_Core_Helper_Data
      *
      * @return bool
      */
-    public function isPersistent()
+    function isPersistent()
     {
         return $this->getSession()->getId() && Mage::helper('persistent')->isEnabled();
     }
@@ -86,7 +86,7 @@ class Mage_Persistent_Helper_Session extends Mage_Core_Helper_Data
      *
      * @return bool
      */
-    public function isRememberMeChecked()
+    function isRememberMeChecked()
     {
         if (is_null($this->_isRememberMeChecked)) {
             //Try to get from checkout session
@@ -110,7 +110,7 @@ class Mage_Persistent_Helper_Session extends Mage_Core_Helper_Data
      *
      * @param bool $checked
      */
-    public function setRememberMeChecked($checked = true)
+    function setRememberMeChecked($checked = true)
     {
         $this->_isRememberMeChecked = $checked;
     }
@@ -120,7 +120,7 @@ class Mage_Persistent_Helper_Session extends Mage_Core_Helper_Data
      *
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         if (is_null($this->_customer)) {
             $customerId = $this->getSession()->getCustomerId();

@@ -54,7 +54,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->_getIndexer()->plainReindex();
         $this->_getAggregator()->clearCacheData();
@@ -66,7 +66,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function reindexDaily()
+    function reindexDaily()
     {
         $this->_getIndexer()->plainReindex(
             null,
@@ -82,7 +82,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogIndex_Model_Observer
      */
-    public function processAfterSaveEvent(Varien_Event_Observer $observer)
+    function processAfterSaveEvent(Varien_Event_Observer $observer)
     {
         $productIds = [];
         /** @var Mage_Catalog_Model_Product $eventProduct */
@@ -113,7 +113,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogIndex_Model_Observer
      */
-    public function processPriceScopeChange(Varien_Event_Observer $observer)
+    function processPriceScopeChange(Varien_Event_Observer $observer)
     {
         $configOption   = $observer->getEvent()->getOption();
         if ($configOption->isValueChanged()) {
@@ -132,7 +132,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogIndex_Model_Observer
      */
-    public function processPriceRuleApplication(Varien_Event_Observer $observer)
+    function processPriceRuleApplication(Varien_Event_Observer $observer)
     {
         $eventProduct = $observer->getEvent()->getProduct();
         $productCondition = $observer->getEvent()->getProductCondition();
@@ -154,7 +154,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogIndex_Model_Observer
      */
-    public function processAfterDeleteEvent(Varien_Event_Observer $observer)
+    function processAfterDeleteEvent(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Product $eventProduct */
         $eventProduct = $observer->getEvent()->getProduct();
@@ -174,7 +174,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogIndex_Model_Observer
      */
-    public function processAttributeChangeEvent(Varien_Event_Observer $observer)
+    function processAttributeChangeEvent(Varien_Event_Observer $observer)
     {
         /**
          * @todo add flag to attribute model which will notify what options was changed
@@ -203,7 +203,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogIndex_Model_Observer
      */
-    public function processStoreAdd(Varien_Event_Observer $observer)
+    function processStoreAdd(Varien_Event_Observer $observer)
     {
         $store = $observer->getEvent()->getStore();
         $this->_getIndexer()->plainReindex(null, null, $store);
@@ -216,7 +216,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogIndex_Model_Observer
      */
-    public function catalogProductImportAfter(Varien_Event_Observer $observer)
+    function catalogProductImportAfter(Varien_Event_Observer $observer)
     {
         $this->_getIndexer()->plainReindex();
         $this->_getAggregator()->clearCacheData();
@@ -228,7 +228,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function runQueuedIndexing()
+    function runQueuedIndexing()
     {
         $flag = Mage::getModel('catalogindex/catalog_index_flag')->loadSelf();
         if ($flag->getState() == Mage_CatalogIndex_Model_Catalog_Index_Flag::STATE_QUEUED) {
@@ -244,7 +244,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogIndex_Model_Observer
      */
-    public function cleanCache(Varien_Event_Observer $observer)
+    function cleanCache(Varien_Event_Observer $observer)
     {
         $tagsArray = $observer->getEvent()->getTags();
         $tagName = Mage_CatalogIndex_Model_Aggregation::CACHE_FLAG_NAME;
@@ -261,7 +261,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogIndex_Model_Observer
      */
-    public function catalogCategorySaveAfter(Varien_Event_Observer $observer)
+    function catalogCategorySaveAfter(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Category $category */
         $category = $observer->getEvent()->getCategory();
@@ -280,7 +280,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function clearPriceAggregation()
+    function clearPriceAggregation()
     {
         $this->_getAggregator()->clearCacheData([
             Mage_Catalog_Model_Product_Type_Price::CACHE_TAG
@@ -293,7 +293,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function clearSearchLayerCache()
+    function clearSearchLayerCache()
     {
         $this->_getAggregator()->clearCacheData([
             Mage_CatalogSearch_Model_Query::CACHE_TAG
@@ -307,7 +307,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogIndex_Model_Observer
      */
-    public function registerParentIds(Varien_Event_Observer $observer)
+    function registerParentIds(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = $observer->getEvent()->getProduct();
@@ -324,7 +324,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  Mage_CatalogIndex_Model_Observer
      */
-    public function processProductsWebsitesChange(Varien_Event_Observer $observer)
+    function processProductsWebsitesChange(Varien_Event_Observer $observer)
     {
         $productIds = $observer->getEvent()->getProducts();
         $this->_getIndexer()->plainReindex($productIds);
@@ -338,7 +338,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductFlatPrepareColumns(Varien_Event_Observer $observer)
+    function catalogProductFlatPrepareColumns(Varien_Event_Observer $observer)
     {
         $columns = $observer->getEvent()->getColumns();
 
@@ -353,7 +353,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductFlatPrepareIndexes(Varien_Event_Observer $observer)
+    function catalogProductFlatPrepareIndexes(Varien_Event_Observer $observer)
     {
         $indexes = $observer->getEvent()->getIndexes();
 
@@ -368,7 +368,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductFlatRebuild(Varien_Event_Observer $observer)
+    function catalogProductFlatRebuild(Varien_Event_Observer $observer)
     {
         $storeId    = $observer->getEvent()->getStoreId();
         $tableName  = $observer->getEvent()->getTable();
@@ -384,7 +384,7 @@ class Mage_CatalogIndex_Model_Observer extends Mage_Core_Model_Abstract
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductFlatUpdateProduct(Varien_Event_Observer $observer)
+    function catalogProductFlatUpdateProduct(Varien_Event_Observer $observer)
     {
         $storeId    = $observer->getEvent()->getStoreId();
         $tableName  = $observer->getEvent()->getTable();

@@ -25,7 +25,7 @@ class Mage_Downloadable_CustomerController extends Mage_Core_Controller_Front_Ac
     /**
      * Check customer authentication
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
 
@@ -40,7 +40,7 @@ class Mage_Downloadable_CustomerController extends Mage_Core_Controller_Front_Ac
     /**
      * Display downloadable links bought by customer
      */
-    public function productsAction()
+    function productsAction()
     {
         $this->loadLayout();
         $this->_initLayoutMessages('customer/session');

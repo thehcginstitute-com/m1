@@ -134,7 +134,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
      *
      * @param array $stores
      */
-    public function setStores($stores)
+    function setStores($stores)
     {
         $this->_stores = [];
         $this->_storesCount = 0;
@@ -155,7 +155,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_Resource_Store_Collection
      */
-    public function getStoreCollection()
+    function getStoreCollection()
     {
         return Mage::getModel('core/store')
             ->getCollection()
@@ -167,7 +167,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_Store[]
      */
-    public function getStores()
+    function getStores()
     {
         if (is_null($this->_stores)) {
             $this->_loadStores();
@@ -180,7 +180,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getStoreIds()
+    function getStoreIds()
     {
         if (is_null($this->_stores)) {
             $this->_loadStores();
@@ -193,7 +193,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getStoreCodes()
+    function getStoreCodes()
     {
         if (is_null($this->_stores)) {
             $this->_loadStores();
@@ -204,7 +204,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
     /**
      * @return int
      */
-    public function getStoresCount()
+    function getStoresCount()
     {
         if (is_null($this->_stores)) {
             $this->_loadStores();
@@ -217,7 +217,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_Store|false
      */
-    public function getDefaultStore()
+    function getDefaultStore()
     {
         if (!$this->hasDefaultStoreId()) {
             return false;
@@ -236,7 +236,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
      * @param string $locale
      * @return Mage_Core_Model_Store|null
      */
-    public function getDefaultStoreByLocale($locale)
+    function getDefaultStoreByLocale($locale)
     {
         if ($this->getDefaultStore() && $this->getDefaultStore()->getLocaleCode() == $locale) {
             return $this->getDefaultStore();
@@ -256,7 +256,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
      * @param string $locale
      * @return array
      */
-    public function getStoresByLocale($locale)
+    function getStoresByLocale($locale)
     {
         $stores = [];
         foreach ($this->getStores() as $store) {
@@ -272,7 +272,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
      *
      * @param Mage_Core_Model_Website $website
      */
-    public function setWebsite(Mage_Core_Model_Website $website)
+    function setWebsite(Mage_Core_Model_Website $website)
     {
         $this->_website = $website;
     }
@@ -282,7 +282,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_Website|false
      */
-    public function getWebsite()
+    function getWebsite()
     {
         if (is_null($this->getWebsiteId())) {
             return false;
@@ -298,7 +298,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isCanDelete()
+    function isCanDelete()
     {
         if (!$this->getId()) {
             return false;
@@ -310,7 +310,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
     /**
      * @return int
      */
-    public function getDefaultStoreId()
+    function getDefaultStoreId()
     {
         return $this->_getData('default_store_id');
     }
@@ -318,7 +318,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
     /**
      * @return int
      */
-    public function getRootCategoryId()
+    function getRootCategoryId()
     {
         return $this->_getData('root_category_id');
     }
@@ -326,7 +326,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
     /**
      * @return int|null
      */
-    public function getWebsiteId()
+    function getWebsiteId()
     {
         return $this->_getData('website_id');
     }
@@ -346,7 +346,7 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
      * @param bool $value
      * @return bool
      */
-    public function isReadOnly($value = null)
+    function isReadOnly($value = null)
     {
         if ($value !== null) {
             $this->_isReadOnly = (bool)$value;

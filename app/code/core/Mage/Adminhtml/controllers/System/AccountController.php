@@ -28,7 +28,7 @@ class Mage_Adminhtml_System_AccountController extends Mage_Adminhtml_Controller_
      */
     public const ADMIN_RESOURCE = 'system/myaccount';
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('System'))->_title($this->__('My Account'));
 
@@ -41,7 +41,7 @@ class Mage_Adminhtml_System_AccountController extends Mage_Adminhtml_Controller_
     /**
      * Saving edited user information
      */
-    public function saveAction()
+    function saveAction()
     {
         $userId = Mage::getSingleton('admin/session')->getUser()->getId();
         $pwd    = null;

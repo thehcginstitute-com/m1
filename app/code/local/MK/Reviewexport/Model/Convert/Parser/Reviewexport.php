@@ -3,7 +3,7 @@ class MK_Reviewexport_Model_Convert_Parser_Reviewexport extends Mage_Eav_Model_C
 {
     const MULTI_DELIMITER = ' , ';
    
-     public function unparse()
+     function unparse()
     {
            $reviews = Mage::getModel('review/review')->getResourceCollection()
                     ->setDateOrder()
@@ -60,7 +60,7 @@ class MK_Reviewexport_Model_Convert_Parser_Reviewexport extends Mage_Eav_Model_C
           
      return $this;
 }
-     public function parse()
+     function parse()
     {
             
     }

@@ -28,7 +28,7 @@ class Mage_Adminhtml_Model_System_Config_Source_Security_Domainpolicy
     /**
      * @param array $options
      */
-    public function __construct($options = [])
+    function __construct($options = [])
     {
         $this->_helper = $options['helper'] ?? Mage::helper('adminhtml');
     }
@@ -36,7 +36,7 @@ class Mage_Adminhtml_Model_System_Config_Source_Security_Domainpolicy
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             [

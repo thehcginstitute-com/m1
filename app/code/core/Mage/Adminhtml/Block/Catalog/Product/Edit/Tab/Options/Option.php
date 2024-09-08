@@ -33,7 +33,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Option extends Mage_
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/product/edit/options/option.phtml');
@@ -41,12 +41,12 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Option extends Mage_
         $this->setCanEditPrice(true);
     }
 
-    public function getItemCount()
+    function getItemCount()
     {
         return $this->_itemCount;
     }
 
-    public function setItemCount($itemCount)
+    function setItemCount($itemCount)
     {
         $this->_itemCount = max($this->_itemCount, $itemCount);
         return $this;
@@ -57,7 +57,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Option extends Mage_
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!$this->_productInstance) {
             if ($product = Mage::registry('product')) {
@@ -70,7 +70,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Option extends Mage_
         return $this->_productInstance;
     }
 
-    public function setProduct($product)
+    function setProduct($product)
     {
         $this->_productInstance = $product;
         return $this;
@@ -81,7 +81,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Option extends Mage_
      *
      * @return string
      */
-    public function getFieldName()
+    function getFieldName()
     {
         return 'product[options]';
     }
@@ -91,7 +91,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Option extends Mage_
      *
      * @return string
      */
-    public function getFieldId()
+    function getFieldId()
     {
         return 'product_option';
     }
@@ -101,7 +101,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Option extends Mage_
      *
      * @return bool
      */
-    public function isReadonly()
+    function isReadonly()
     {
         return $this->getProduct()->getOptionsReadonly();
     }
@@ -131,19 +131,19 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Option extends Mage_
         return parent::_prepareLayout();
     }
 
-    public function getAddButtonId()
+    function getAddButtonId()
     {
         return $this->getLayout()
                 ->getBlock('admin.product.options')
                 ->getChild('add_button')->getId();
     }
 
-    public function getDeleteButtonHtml()
+    function getDeleteButtonHtml()
     {
         return $this->getChildHtml('delete_button');
     }
 
-    public function getTypeSelectHtml()
+    function getTypeSelectHtml()
     {
         $select = $this->getLayout()->createBlock('adminhtml/html_select')
             ->setData([
@@ -156,7 +156,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Option extends Mage_
         return $select->getHtml();
     }
 
-    public function getRequireSelectHtml()
+    function getRequireSelectHtml()
     {
         $select = $this->getLayout()->createBlock('adminhtml/html_select')
             ->setData([
@@ -174,7 +174,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Option extends Mage_
      *
      * @return string
      */
-    public function getTemplatesHtml()
+    function getTemplatesHtml()
     {
         $canEditPrice = $this->getCanEditPrice();
         $canReadPrice = $this->getCanReadPrice();
@@ -200,7 +200,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Option extends Mage_
             $this->getChildHtml('date_option_type');
     }
 
-    public function getOptionValues()
+    function getOptionValues()
     {
         $optionsArr = array_reverse($this->getProduct()->getOptions(), true);
 
@@ -309,7 +309,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Option extends Mage_
      * @param string $select_id
      * @return string
      */
-    public function getCheckboxScopeHtml($id, $name, $checked = true, $select_id = '-1')
+    function getCheckboxScopeHtml($id, $name, $checked = true, $select_id = '-1')
     {
         $checkedHtml = '';
         if ($checked) {
@@ -330,7 +330,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Options_Option extends Mage_
         return $checkbox;
     }
 
-    public function getPriceValue($value, $type)
+    function getPriceValue($value, $type)
     {
         if ($type == 'percent') {
             return number_format($value, 2, null, '');

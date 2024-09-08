@@ -27,7 +27,7 @@ class Mage_Shipping_Model_Tracking_Result
      * Reset tracking
      * @return $this
      */
-    public function reset()
+    function reset()
     {
         $this->_trackings = [];
         return $this;
@@ -36,7 +36,7 @@ class Mage_Shipping_Model_Tracking_Result
     /**
      * @param string $error
      */
-    public function setError($error)
+    function setError($error)
     {
         $this->_error = $error;
     }
@@ -44,7 +44,7 @@ class Mage_Shipping_Model_Tracking_Result
     /**
      * @return string
      */
-    public function getError()
+    function getError()
     {
         return $this->_error;
     }
@@ -54,7 +54,7 @@ class Mage_Shipping_Model_Tracking_Result
      * @param Mage_Shipping_Model_Tracking_Result_Abstract|Mage_Shipping_Model_Rate_Result $result
      * @return $this
      */
-    public function append($result)
+    function append($result)
     {
         if ($result instanceof Mage_Shipping_Model_Tracking_Result_Abstract) {
             $this->_trackings[] = $result;
@@ -70,7 +70,7 @@ class Mage_Shipping_Model_Tracking_Result
     /**
      * Return all trackings in the result
      */
-    public function getAllTrackings()
+    function getAllTrackings()
     {
         return $this->_trackings;
     }

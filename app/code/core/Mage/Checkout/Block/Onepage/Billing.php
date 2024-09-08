@@ -56,7 +56,7 @@ class Mage_Checkout_Block_Onepage_Billing extends Mage_Checkout_Block_Onepage_Ab
     /**
      * @return bool
      */
-    public function isUseBillingAddressForShipping()
+    function isUseBillingAddressForShipping()
     {
         if (($this->getQuote()->getIsVirtual())
             || !$this->getQuote()->getShippingAddress()->getSameAsBilling()
@@ -71,7 +71,7 @@ class Mage_Checkout_Block_Onepage_Billing extends Mage_Checkout_Block_Onepage_Ab
      *
      * @return Mage_Directory_Model_Resource_Country_Collection
      */
-    public function getCountries()
+    function getCountries()
     {
         return Mage::getResourceModel('directory/country_collection')->loadByStore();
     }
@@ -81,7 +81,7 @@ class Mage_Checkout_Block_Onepage_Billing extends Mage_Checkout_Block_Onepage_Ab
      *
      * @return string
      */
-    public function getMethod()
+    function getMethod()
     {
         return $this->getQuote()->getCheckoutMethod();
     }
@@ -91,7 +91,7 @@ class Mage_Checkout_Block_Onepage_Billing extends Mage_Checkout_Block_Onepage_Ab
      *
      * @return Mage_Sales_Model_Quote_Address
      */
-    public function getAddress()
+    function getAddress()
     {
         if (is_null($this->_address)) {
             if ($this->isCustomerLoggedIn()) {
@@ -119,7 +119,7 @@ class Mage_Checkout_Block_Onepage_Billing extends Mage_Checkout_Block_Onepage_Ab
      *
      * @return string
      */
-    public function getFirstname()
+    function getFirstname()
     {
         $firstname = $this->getAddress()->getFirstname();
         if (empty($firstname) && $this->getQuote()->getCustomer()) {
@@ -134,7 +134,7 @@ class Mage_Checkout_Block_Onepage_Billing extends Mage_Checkout_Block_Onepage_Ab
      *
      * @return string
      */
-    public function getLastname()
+    function getLastname()
     {
         $lastname = $this->getAddress()->getLastname();
         if (empty($lastname) && $this->getQuote()->getCustomer()) {
@@ -149,7 +149,7 @@ class Mage_Checkout_Block_Onepage_Billing extends Mage_Checkout_Block_Onepage_Ab
      *
      * @return string|null
      */
-    public function getMiddlename()
+    function getMiddlename()
     {
         $middlename = $this->getAddress()->getMiddlename();
         if (empty($middlename) && $this->getQuote()->getCustomer()) {
@@ -163,12 +163,12 @@ class Mage_Checkout_Block_Onepage_Billing extends Mage_Checkout_Block_Onepage_Ab
      *
      * @return bool
      */
-    public function canShip()
+    function canShip()
     {
         return !$this->getQuote()->isVirtual();
     }
 
-    public function getSaveUrl()
+    function getSaveUrl()
     {
     }
 
@@ -191,7 +191,7 @@ class Mage_Checkout_Block_Onepage_Billing extends Mage_Checkout_Block_Onepage_Ab
      *
      * @return bool
      */
-    public function isTaxvatEnabled()
+    function isTaxvatEnabled()
     {
         return $this->_getTaxvat()->isEnabled();
     }
@@ -199,7 +199,7 @@ class Mage_Checkout_Block_Onepage_Billing extends Mage_Checkout_Block_Onepage_Ab
     /**
      * @return string
      */
-    public function getTaxvatHtml()
+    function getTaxvatHtml()
     {
         return $this->_getTaxvat()
             ->setTaxvat($this->getQuote()->getCustomerTaxvat())

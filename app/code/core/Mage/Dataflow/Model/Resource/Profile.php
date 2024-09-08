@@ -48,7 +48,7 @@ class Mage_Dataflow_Model_Resource_Profile extends Mage_Core_Model_Resource_Db_A
      * @param int $id
      * @return bool
      */
-    public function isProfileExists($name, $id = null)
+    function isProfileExists($name, $id = null)
     {
         $bind = ['name' => $name];
         $select = $this->_getReadAdapter()->select();

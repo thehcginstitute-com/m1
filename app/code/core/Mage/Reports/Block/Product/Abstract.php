@@ -65,7 +65,7 @@ abstract class Mage_Reports_Block_Product_Abstract extends Mage_Catalog_Block_Pr
      *
      * @return int
      */
-    public function getPageSize()
+    function getPageSize()
     {
         if ($this->hasData('page_size')) {
             return $this->getData('page_size');
@@ -106,7 +106,7 @@ abstract class Mage_Reports_Block_Product_Abstract extends Mage_Catalog_Block_Pr
      *
      * @return Mage_Core_Model_Abstract|Mage_Reports_Model_Product_Index_Abstract
      */
-    public function getModel()
+    function getModel()
     {
         return $this->_getModel();
     }
@@ -116,7 +116,7 @@ abstract class Mage_Reports_Block_Product_Abstract extends Mage_Catalog_Block_Pr
      *
      * @return Mage_Reports_Model_Resource_Product_Index_Collection_Abstract
      */
-    public function getItemsCollection()
+    function getItemsCollection()
     {
         if (is_null($this->_collection)) {
             $attributes = Mage::getSingleton('catalog/config')->getProductAttributes();
@@ -161,7 +161,7 @@ abstract class Mage_Reports_Block_Product_Abstract extends Mage_Catalog_Block_Pr
      * @param bool $use
      * @return Mage_Reports_Block_Product_Abstract
      */
-    public function useProductIdsOrder($use = true)
+    function useProductIdsOrder($use = true)
     {
         $this->_useProductIdsOrder = $use;
         return $this;
@@ -172,7 +172,7 @@ abstract class Mage_Reports_Block_Product_Abstract extends Mage_Catalog_Block_Pr
      *
      * @return int
      */
-    public function getCount()
+    function getCount()
     {
         if (!$this->_getModel()->getCount()) {
             return 0;

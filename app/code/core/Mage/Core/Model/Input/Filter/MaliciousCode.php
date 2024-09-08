@@ -54,7 +54,7 @@ class Mage_Core_Model_Input_Filter_MaliciousCode implements Zend_Filter_Interfac
      * @param string|array $value
      * @return string|array
      */
-    public function filter($value)
+    function filter($value)
     {
         do {
             $value = preg_replace($this->_expressions, '', $value, -1, $count);
@@ -69,7 +69,7 @@ class Mage_Core_Model_Input_Filter_MaliciousCode implements Zend_Filter_Interfac
      * @param string $expression
      * @return $this
      */
-    public function addExpression($expression)
+    function addExpression($expression)
     {
         if (!in_array($expression, $this->_expressions)) {
             $this->_expressions[] = $expression;
@@ -83,7 +83,7 @@ class Mage_Core_Model_Input_Filter_MaliciousCode implements Zend_Filter_Interfac
      * @param array $expressions
      * @return $this
      */
-    public function setExpressions(array $expressions)
+    function setExpressions(array $expressions)
     {
         $this->_expressions = $expressions;
         return $this;
@@ -97,7 +97,7 @@ class Mage_Core_Model_Input_Filter_MaliciousCode implements Zend_Filter_Interfac
      * @return string
      * @throws Mage_Core_Exception
      */
-    public function linkFilter($html, $removeWrapper = true)
+    function linkFilter($html, $removeWrapper = true)
     {
         if (stristr($html, '<a ') === false) {
             return $html;

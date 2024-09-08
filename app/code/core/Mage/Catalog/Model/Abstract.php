@@ -74,7 +74,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      * @param string $attributeCode
      * @return $this
      */
-    public function lockAttribute($attributeCode)
+    function lockAttribute($attributeCode)
     {
         $this->_lockedAttributes[$attributeCode] = true;
         return $this;
@@ -86,7 +86,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      * @param string $attributeCode
      * @return $this
      */
-    public function unlockAttribute($attributeCode)
+    function unlockAttribute($attributeCode)
     {
         if ($this->isLockedAttribute($attributeCode)) {
             unset($this->_lockedAttributes[$attributeCode]);
@@ -100,7 +100,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function unlockAttributes()
+    function unlockAttributes()
     {
         $this->_lockedAttributes = [];
         return $this;
@@ -111,7 +111,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getLockedAttributes()
+    function getLockedAttributes()
     {
         return array_keys($this->_lockedAttributes);
     }
@@ -121,7 +121,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function hasLockedAttributes()
+    function hasLockedAttributes()
     {
         return !empty($this->_lockedAttributes);
     }
@@ -132,7 +132,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      * @param string $attributeCode
      * @return bool
      */
-    public function isLockedAttribute($attributeCode)
+    function isLockedAttribute($attributeCode)
     {
         return isset($this->_lockedAttributes[$attributeCode]);
     }
@@ -149,7 +149,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @inheritDoc
      */
-    public function setData($key, $value = null)
+    function setData($key, $value = null)
     {
         if ($this->hasLockedAttributes()) {
             if (is_array($key)) {
@@ -177,7 +177,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @inheritDoc
      */
-    public function unsetData($key = null)
+    function unsetData($key = null)
     {
         if ((!is_null($key) && $this->isLockedAttribute($key)) ||
             $this->isReadonly()
@@ -193,7 +193,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Mage_Catalog_Model_Resource_Collection_Abstract
      */
-    public function getResourceCollection()
+    function getResourceCollection()
     {
         return parent::getResourceCollection()
             ->setStoreId($this->getStoreId());
@@ -207,7 +207,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      * @param string $additionalAttributes
      * @return false|$this
      */
-    public function loadByAttribute($attribute, $value, $additionalAttributes = '*')
+    function loadByAttribute($attribute, $value, $additionalAttributes = '*')
     {
         $collection = $this->getResourceCollection()
             ->addAttributeToSelect($additionalAttributes)
@@ -225,7 +225,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return Mage::app()->getStore($this->getStoreId());
     }
@@ -235,7 +235,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getWebsiteStoreIds()
+    function getWebsiteStoreIds()
     {
         return $this->getStore()->getWebsite()->getStoreIds(true);
     }
@@ -249,7 +249,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      * @param string $value
      * @return  $this
      */
-    public function setAttributeDefaultValue($attributeCode, $value)
+    function setAttributeDefaultValue($attributeCode, $value)
     {
         $this->_defaultValues[$attributeCode] = $value;
         return $this;
@@ -261,7 +261,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      * @param   string $attributeCode
      * @return  array|false
      */
-    public function getAttributeDefaultValue($attributeCode)
+    function getAttributeDefaultValue($attributeCode)
     {
         return array_key_exists($attributeCode, $this->_defaultValues) ? $this->_defaultValues[$attributeCode] : false;
     }
@@ -273,7 +273,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      * @param   string $attributeCode
      * @return  $this
      */
-    public function setExistsStoreValueFlag($attributeCode)
+    function setExistsStoreValueFlag($attributeCode)
     {
         $this->_storeValuesFlags[$attributeCode] = true;
         return $this;
@@ -285,7 +285,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      * @param   string $attributeCode
      * @return  bool
      */
-    public function getExistsStoreValueFlag($attributeCode)
+    function getExistsStoreValueFlag($attributeCode)
     {
         return array_key_exists($attributeCode, $this->_storeValuesFlags);
     }
@@ -306,7 +306,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isDeleteable()
+    function isDeleteable()
     {
         return $this->_isDeleteable;
     }
@@ -317,7 +317,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      * @param bool $value
      * @return $this
      */
-    public function setIsDeleteable($value)
+    function setIsDeleteable($value)
     {
         $this->_isDeleteable = (bool) $value;
         return $this;
@@ -328,7 +328,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isReadonly()
+    function isReadonly()
     {
         return $this->_isReadonly;
     }
@@ -339,7 +339,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      * @param bool $value
      * @return $this
      */
-    public function setIsReadonly($value)
+    function setIsReadonly($value)
     {
         $this->_isReadonly = (bool)$value;
         return $this;

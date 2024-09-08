@@ -67,7 +67,7 @@ class Mage_Sales_Model_Order_Status_History extends Mage_Sales_Model_Abstract
      * @param   Mage_Sales_Model_Order $order
      * @return  $this
      */
-    public function setOrder(Mage_Sales_Model_Order $order)
+    function setOrder(Mage_Sales_Model_Order $order)
     {
         $this->_order = $order;
         return $this;
@@ -78,7 +78,7 @@ class Mage_Sales_Model_Order_Status_History extends Mage_Sales_Model_Abstract
      *
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getStoreId(): int
+    function getStoreId(): int
     {
         return $this->getStore()->getStoreId();
     }
@@ -89,7 +89,7 @@ class Mage_Sales_Model_Order_Status_History extends Mage_Sales_Model_Abstract
      * @param  mixed $flag OPTIONAL (notification is not applicable by default)
      * @return $this
      */
-    public function setIsCustomerNotified($flag = null)
+    function setIsCustomerNotified($flag = null)
     {
         if (is_null($flag)) {
             $flag = self::CUSTOMER_NOTIFICATION_NOT_APPLICABLE;
@@ -103,7 +103,7 @@ class Mage_Sales_Model_Order_Status_History extends Mage_Sales_Model_Abstract
      *
      * @return bool
      */
-    public function isCustomerNotificationNotApplicable()
+    function isCustomerNotificationNotApplicable()
     {
         return $this->getIsCustomerNotified() == self::CUSTOMER_NOTIFICATION_NOT_APPLICABLE;
     }
@@ -113,7 +113,7 @@ class Mage_Sales_Model_Order_Status_History extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->_order;
     }
@@ -123,7 +123,7 @@ class Mage_Sales_Model_Order_Status_History extends Mage_Sales_Model_Abstract
      *
      * @return string
      */
-    public function getStatusLabel()
+    function getStatusLabel()
     {
         if ($this->getOrder()) {
             return $this->getOrder()->getConfig()->getStatusLabel($this->getStatus());
@@ -136,7 +136,7 @@ class Mage_Sales_Model_Order_Status_History extends Mage_Sales_Model_Abstract
      * @return Mage_Core_Model_Store
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getStore()
+    function getStore()
     {
         if ($this->getOrder()) {
             return $this->getOrder()->getStore();

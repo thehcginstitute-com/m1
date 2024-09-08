@@ -28,7 +28,7 @@ class Mage_Widget_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function prepareWidgetsPluginConfig(Varien_Event_Observer $observer)
+    function prepareWidgetsPluginConfig(Varien_Event_Observer $observer)
     {
         $config = $observer->getEvent()->getConfig();
 

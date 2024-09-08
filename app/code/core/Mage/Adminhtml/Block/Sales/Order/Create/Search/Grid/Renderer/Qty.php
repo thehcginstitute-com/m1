@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Search_Grid_Renderer_Qty extends M
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         // Prepare values
         $isInactive = $this->_isInactive($row);

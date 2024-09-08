@@ -27,7 +27,7 @@ class Mage_Tax_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function salesEventConvertQuoteAddressToOrder(Varien_Event_Observer $observer)
+    function salesEventConvertQuoteAddressToOrder(Varien_Event_Observer $observer)
     {
         /** @var Mage_Sales_Model_Quote_Address $address */
         $address = $observer->getEvent()->getAddress();
@@ -49,7 +49,7 @@ class Mage_Tax_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function salesEventOrderAfterSave(Varien_Event_Observer $observer)
+    function salesEventOrderAfterSave(Varien_Event_Observer $observer)
     {
         /** @var Mage_Sales_Model_Order $order */
         $order = $observer->getEvent()->getOrder();
@@ -152,7 +152,7 @@ class Mage_Tax_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_Tax_Model_Observer
      */
-    public function prepareCatalogIndexPriceSelect(Varien_Event_Observer $observer)
+    function prepareCatalogIndexPriceSelect(Varien_Event_Observer $observer)
     {
         $table = $observer->getEvent()->getTable();
         $response = $observer->getEvent()->getResponseObject();
@@ -183,7 +183,7 @@ class Mage_Tax_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_Tax_Model_Observer
      */
-    public function addTaxPercentToProductCollection($observer)
+    function addTaxPercentToProductCollection($observer)
     {
         $helper = Mage::helper('tax');
         /** @var Mage_Catalog_Model_Resource_Product_Collection $collection */
@@ -215,7 +215,7 @@ class Mage_Tax_Model_Observer
      * @param Mage_Cron_Model_Schedule $schedule
      * @return $this
      */
-    public function aggregateSalesReportTaxData($schedule)
+    function aggregateSalesReportTaxData($schedule)
     {
         Mage::app()->getLocale()->emulate(0);
         $currentDate = Mage::app()->getLocale()->date();
@@ -231,7 +231,7 @@ class Mage_Tax_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function quoteCollectTotalsBefore(Varien_Event_Observer $observer)
+    function quoteCollectTotalsBefore(Varien_Event_Observer $observer)
     {
         /** @var Mage_Sales_Model_Quote $quote */
         $quote = $observer->getEvent()->getQuote();

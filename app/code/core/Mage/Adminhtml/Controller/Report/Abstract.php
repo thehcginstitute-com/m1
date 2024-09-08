@@ -47,7 +47,7 @@ abstract class Mage_Adminhtml_Controller_Report_Abstract extends Mage_Adminhtml_
      *
      * @return Mage_Adminhtml_Controller_Report_Abstract
      */
-    public function _initAction()
+    function _initAction()
     {
         $this->loadLayout()
             ->_addBreadcrumb(Mage::helper('reports')->__('Reports'), Mage::helper('reports')->__('Reports'));
@@ -60,7 +60,7 @@ abstract class Mage_Adminhtml_Controller_Report_Abstract extends Mage_Adminhtml_
      * @param array|Varien_Object $blocks
      * @return Mage_Adminhtml_Controller_Report_Abstract
      */
-    public function _initReportAction($blocks)
+    function _initReportAction($blocks)
     {
         if (!is_array($blocks)) {
             $blocks = [$blocks];

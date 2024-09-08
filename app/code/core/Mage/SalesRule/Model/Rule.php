@@ -228,7 +228,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return $this
      */
-    public function loadPost(array $data)
+    function loadPost(array $data)
     {
         parent::loadPost($data);
 
@@ -244,7 +244,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return Mage_SalesRule_Model_Rule_Condition_Combine
      */
-    public function getConditionsInstance()
+    function getConditionsInstance()
     {
         return Mage::getModel('salesrule/rule_condition_combine');
     }
@@ -254,7 +254,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return Mage_SalesRule_Model_Rule_Condition_Product_Combine
      */
-    public function getActionsInstance()
+    function getActionsInstance()
     {
         return Mage::getModel('salesrule/rule_condition_product_combine');
     }
@@ -287,7 +287,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return Mage_SalesRule_Model_Coupon
      */
-    public function getPrimaryCoupon()
+    function getPrimaryCoupon()
     {
         if ($this->_primaryCoupon === null) {
             $this->_primaryCoupon = Mage::getModel('salesrule/coupon');
@@ -302,7 +302,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return array
      */
-    public function getCustomerGroupIds()
+    function getCustomerGroupIds()
     {
         if (!$this->hasCustomerGroupIds()) {
             $customerGroupIds = $this->_getResource()->getCustomerGroupIds($this->getId());
@@ -318,7 +318,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return string|bool
      */
-    public function getStoreLabel($store = null)
+    function getStoreLabel($store = null)
     {
         $storeId = Mage::app()->getStore($store)->getId();
         $labels = (array)$this->getStoreLabels();
@@ -337,7 +337,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return array
      */
-    public function getStoreLabels()
+    function getStoreLabels()
     {
         if (!$this->hasStoreLabels()) {
             $labels = $this->_getResource()->getStoreLabels($this->getId());
@@ -352,7 +352,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return array of Mage_SalesRule_Model_Coupon
      */
-    public function getCoupons()
+    function getCoupons()
     {
         if ($this->_coupons === null) {
             $collection = Mage::getResourceModel('salesrule/coupon_collection');
@@ -367,7 +367,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return array
      */
-    public function getCouponTypes()
+    function getCouponTypes()
     {
         if ($this->_couponTypes === null) {
             $this->_couponTypes = [
@@ -395,7 +395,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return Mage_SalesRule_Model_Coupon|null
      */
-    public function acquireCoupon($saveNewlyCreated = true, $saveAttemptCount = 10)
+    function acquireCoupon($saveNewlyCreated = true, $saveAttemptCount = 10)
     {
         if ($this->getCouponType() == self::COUPON_TYPE_NO_COUPON) {
             return null;
@@ -448,7 +448,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      * @param   Mage_Sales_Model_Quote_Address $address
      * @return  bool
      */
-    public function hasIsValidForAddress($address)
+    function hasIsValidForAddress($address)
     {
         $addressId = $this->_getAddressId($address);
         return isset($this->_validatedAddresses[$addressId]) ? true : false;
@@ -461,7 +461,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      * @param   bool $validationResult
      * @return  $this
      */
-    public function setIsValidForAddress($address, $validationResult)
+    function setIsValidForAddress($address, $validationResult)
     {
         $addressId = $this->_getAddressId($address);
         $this->_validatedAddresses[$addressId] = $validationResult;
@@ -474,7 +474,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      * @param   Mage_Sales_Model_Quote_Address $address
      * @return  bool
      */
-    public function getIsValidForAddress($address)
+    function getIsValidForAddress($address)
     {
         $addressId = $this->_getAddressId($address);
         return $this->_validatedAddresses[$addressId] ?? false;
@@ -515,7 +515,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return string
      */
-    public function toString($format = '')
+    function toString($format = '')
     {
         return '';
     }
@@ -536,7 +536,7 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
      *
      * @return array
      */
-    public function toArray(array $arrAttributes = [])
+    function toArray(array $arrAttributes = [])
     {
         return parent::toArray($arrAttributes);
     }

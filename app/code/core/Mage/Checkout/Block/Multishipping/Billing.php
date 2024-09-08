@@ -52,7 +52,7 @@ class Mage_Checkout_Block_Multishipping_Billing extends Mage_Payment_Block_Form_
      *
      * @return false|string
      */
-    public function getSelectedMethodCode()
+    function getSelectedMethodCode()
     {
         if ($method = $this->getQuote()->getPayment()->getMethod()) {
             return $method;
@@ -65,7 +65,7 @@ class Mage_Checkout_Block_Multishipping_Billing extends Mage_Payment_Block_Form_
      *
      * @return Mage_Sales_Model_Quote_Address
      */
-    public function getAddress()
+    function getAddress()
     {
         $address = $this->getData('address');
         if (is_null($address)) {
@@ -80,7 +80,7 @@ class Mage_Checkout_Block_Multishipping_Billing extends Mage_Payment_Block_Form_
      *
      * @return Mage_Sales_Model_Quote
      */
-    public function getQuote()
+    function getQuote()
     {
         return Mage::getSingleton('checkout/session')->getQuote();
     }
@@ -90,7 +90,7 @@ class Mage_Checkout_Block_Multishipping_Billing extends Mage_Payment_Block_Form_
      *
      * @return float
      */
-    public function getQuoteBaseGrandTotal()
+    function getQuoteBaseGrandTotal()
     {
         return (float)$this->getQuote()->getBaseGrandTotal();
     }
@@ -100,7 +100,7 @@ class Mage_Checkout_Block_Multishipping_Billing extends Mage_Payment_Block_Form_
      *
      * @return string
      */
-    public function getSelectAddressUrl()
+    function getSelectAddressUrl()
     {
         return $this->getUrl('*/multishipping_address/selectBilling');
     }
@@ -110,7 +110,7 @@ class Mage_Checkout_Block_Multishipping_Billing extends Mage_Payment_Block_Form_
      *
      * @return string
      */
-    public function getPostActionUrl()
+    function getPostActionUrl()
     {
         //return $this->getUrl('*/*/billingPost');
         return $this->getUrl('*/*/overview');
@@ -121,7 +121,7 @@ class Mage_Checkout_Block_Multishipping_Billing extends Mage_Payment_Block_Form_
      *
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl('*/*/backtoshipping');
     }

@@ -80,7 +80,7 @@ class Mage_Sales_Model_Resource_Order_Status extends Mage_Core_Model_Resource_Db
      * @param Mage_Core_Model_Abstract|Mage_Sales_Model_Order_Status $status
      * @return array
      */
-    public function getStoreLabels(Mage_Core_Model_Abstract $status)
+    function getStoreLabels(Mage_Core_Model_Abstract $status)
     {
         $select = $this->_getWriteAdapter()->select()
             ->from($this->_labelsTable, ['store_id', 'label'])
@@ -128,7 +128,7 @@ class Mage_Sales_Model_Resource_Order_Status extends Mage_Core_Model_Resource_Db
      * @param bool $isDefault
      * @return $this
      */
-    public function assignState($status, $state, $isDefault)
+    function assignState($status, $state, $isDefault)
     {
         if ($isDefault) {
             $this->_getWriteAdapter()->update(
@@ -155,7 +155,7 @@ class Mage_Sales_Model_Resource_Order_Status extends Mage_Core_Model_Resource_Db
      * @param string $state
      * @return $this
      */
-    public function unassignState($status, $state)
+    function unassignState($status, $state)
     {
         $select = $this->_getWriteAdapter()->select()
             ->from($this->_stateTable, ['qty' => new Zend_Db_Expr('COUNT(*)')])

@@ -1,24 +1,24 @@
 <?php
 class Tatvic_Uaee_Block_Uaee extends Mage_Core_Block_Template
 {
-    public function getAccountId()
+    function getAccountId()
     {
         return Mage::getStoreConfig('tatvic_uaee/general/account_id');
     }
-    public function isAnon()
+    function isAnon()
     {
         if(Mage::getStoreConfigFlag('tatvic_uaee/support/AnonIP')){
             return true;
         }
         return false;
     }
-    public function isUserOptOutEnable(){
+    function isUserOptOutEnable(){
         if(Mage::getStoreConfigFlag('tatvic_uaee/support/OptOut')){
             return true;
         }
         return false;
     }
-	public function isActive()
+	function isActive()
     {
         if(Mage::getStoreConfigFlag('tatvic_uaee/general/enable')
             ){
@@ -26,11 +26,11 @@ class Tatvic_Uaee_Block_Uaee extends Mage_Core_Block_Template
         }
         return false;
     }
-	public function getBrandAttr(){
+	function getBrandAttr(){
 		
 		return Mage::getStoreConfig('tatvic_uaee/ecommerce/brand') != "" ? Mage::getStoreConfig('tatvic_uaee/ecommerce/brand') : "";
 	}
-    public function isEcommerce()
+    function isEcommerce()
     {
         $successPath =  Mage::getStoreConfig('tatvic_uaee/ecommerce/success_url') != "" ? Mage::getStoreConfig('tatvic_uaee/ecommerce/success_url') : '/checkout/onepage/success';
         if(Mage::getStoreConfigFlag('tatvic_uaee/general/enable')
@@ -39,7 +39,7 @@ class Tatvic_Uaee_Block_Uaee extends Mage_Core_Block_Template
         }
         return false;
     }
-    public function isCheckout()
+    function isCheckout()
     {
         $checkoutPath =  Mage::getStoreConfig('tatvic_uaee/ecommerce/checkout_url') != "" ?  Mage::getStoreConfig('tatvic_uaee/ecommerce/checkout_url') : '/checkout/onepage';
         if(Mage::getStoreConfigFlag('tatvic_uaee/general/enable')
@@ -48,15 +48,15 @@ class Tatvic_Uaee_Block_Uaee extends Mage_Core_Block_Template
         }
         return false;
     }
-    public function getTransactionIdField()
+    function getTransactionIdField()
     {
         return 'entity_id';
     }
-    public function getProduct()
+    function getProduct()
     {
         return Mage::registry('current_product');
     }
-    public function getHomeId()
+    function getHomeId()
     {
         return Mage::getStoreConfig('tatvic_uaee/ecommerce/home_id') != '' ? Mage::getStoreConfig('tatvic_uaee/ecommerce/home_id') : '';
     }

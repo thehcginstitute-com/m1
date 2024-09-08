@@ -41,7 +41,7 @@ class Mage_ProductAlert_Block_Product_View extends Mage_Core_Block_Template
     /**
      * Check whether the stock alert data can be shown and prepare related data
      */
-    public function prepareStockAlertData()
+    function prepareStockAlertData()
     {
         if (!$this->_getHelper()->isStockAlertAllowed() || !$this->_product || $this->_product->isAvailable()) {
             $this->setTemplate('');
@@ -53,7 +53,7 @@ class Mage_ProductAlert_Block_Product_View extends Mage_Core_Block_Template
     /**
      * Check whether the price alert data can be shown and prepare related data
      */
-    public function preparePriceAlertData()
+    function preparePriceAlertData()
     {
         if (!$this->_getHelper()->isPriceAlertAllowed()
             || !$this->_product || $this->_product->getCanShowPrice() === false

@@ -2,7 +2,7 @@
 class EkoInternetMarketing_AllReviews_Block_AllReviews extends Mage_Core_Block_Template
 {
 
-	public function getReviews($numberOfReviews){
+	function getReviews($numberOfReviews){
 				
 		$_reviews = Mage::getModel('review/review')
 			->getResourceCollection()
@@ -14,13 +14,13 @@ class EkoInternetMarketing_AllReviews_Block_AllReviews extends Mage_Core_Block_T
 		return $_reviews;
 	}
 	
-	public function getProductDetails(){
+	function getProductDetails(){
 		
 		
 		
 	}
 	
-	public function getAllReviews(){
+	function getAllReviews(){
 		
 		// Get the number of reviews to display
 		$numberOfReviews = Mage::getStoreConfig('ekoim/allreviews/number_of_reviews');
@@ -72,7 +72,7 @@ class EkoInternetMarketing_AllReviews_Block_AllReviews extends Mage_Core_Block_T
 		return $data;
 	}
 	
-	public function formatCreatedDate($date, $format){
+	function formatCreatedDate($date, $format){
 		
 		$date = strtotime($date);
 		$reviewDate = date($format, $date);
@@ -80,7 +80,7 @@ class EkoInternetMarketing_AllReviews_Block_AllReviews extends Mage_Core_Block_T
 		return $reviewDate;
 	}
 	
-	public function getReviewFinalPercentage($votes){
+	function getReviewFinalPercentage($votes){
 
 		$cumulativeRating = 0;
 		$j=0;
@@ -97,7 +97,7 @@ class EkoInternetMarketing_AllReviews_Block_AllReviews extends Mage_Core_Block_T
 		return $finalPercentage;
 	}
 	
-	public function getModuleCredit(){
+	function getModuleCredit(){
 		
 		$showModuleCreditValue = Mage::getStoreConfig('ekoim/allreviews/show_module_credit');
 		
@@ -110,7 +110,7 @@ class EkoInternetMarketing_AllReviews_Block_AllReviews extends Mage_Core_Block_T
 		return $credit;		
 	}
 	
-	public function getTotalReviews(){
+	function getTotalReviews(){
 		
 		$_reviews = $this->getReviews(0);
 		

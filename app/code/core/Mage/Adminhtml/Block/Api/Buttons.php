@@ -20,7 +20,7 @@
  */
 class Mage_Adminhtml_Block_Api_Buttons extends Mage_Adminhtml_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('api/userinfo.phtml');
@@ -71,22 +71,22 @@ class Mage_Adminhtml_Block_Api_Buttons extends Mage_Adminhtml_Block_Template
         return parent::_prepareLayout();
     }
 
-    public function getBackButtonHtml()
+    function getBackButtonHtml()
     {
         return $this->getChildHtml('backButton');
     }
 
-    public function getResetButtonHtml()
+    function getResetButtonHtml()
     {
         return $this->getChildHtml('resetButton');
     }
 
-    public function getSaveButtonHtml()
+    function getSaveButtonHtml()
     {
         return $this->getChildHtml('saveButton');
     }
 
-    public function getDeleteButtonHtml()
+    function getDeleteButtonHtml()
     {
         if ((int) $this->getRequest()->getParam('rid') == 0) {
             return;
@@ -94,7 +94,7 @@ class Mage_Adminhtml_Block_Api_Buttons extends Mage_Adminhtml_Block_Template
         return $this->getChildHtml('deleteButton');
     }
 
-    public function getUser()
+    function getUser()
     {
         return Mage::registry('user_data');
     }

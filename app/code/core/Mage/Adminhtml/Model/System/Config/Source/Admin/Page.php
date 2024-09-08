@@ -24,7 +24,7 @@ class Mage_Adminhtml_Model_System_Config_Source_Admin_Page
 {
     protected $_url;
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         $options = [];
         $menu    = $this->_buildMenuArray();

@@ -30,7 +30,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Checkbox extends Mage_Adm
      *
      * @return array
      */
-    public function getValues()
+    function getValues()
     {
         if (is_null($this->_values)) {
             $this->_values = $this->getColumn()->getData('values') ? $this->getColumn()->getData('values') : [];
@@ -43,7 +43,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Checkbox extends Mage_Adm
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $values = $this->getColumn()->getValues();
         $value  = $row->getData($this->getColumn()->getIndex());
@@ -91,7 +91,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Checkbox extends Mage_Adm
      *
      * @return string
      */
-    public function renderHeader()
+    function renderHeader()
     {
         if ($this->getColumn()->getHeader()) {
             return parent::renderHeader();

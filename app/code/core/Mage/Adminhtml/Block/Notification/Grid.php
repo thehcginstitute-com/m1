@@ -108,7 +108,7 @@ class Mage_Adminhtml_Block_Notification_Grid extends Mage_Adminhtml_Block_Widget
      * @param Mage_AdminNotification_Model_Inbox $row
      * @return string
      */
-    public function getRowClass(Varien_Object $row)
+    function getRowClass(Varien_Object $row)
     {
         return $row->getIsRead() ? 'read' : 'unread';
     }
@@ -116,7 +116,7 @@ class Mage_Adminhtml_Block_Notification_Grid extends Mage_Adminhtml_Block_Widget
     /**
      * @return false
      */
-    public function getRowClickCallback()
+    function getRowClickCallback()
     {
         return false;
     }

@@ -67,7 +67,7 @@ class Mage_Wishlist_Model_Resource_Wishlist extends Mage_Core_Model_Resource_Db_
      *
      * @return string
      */
-    public function getCustomerIdFieldName()
+    function getCustomerIdFieldName()
     {
         return $this->_customerIdFieldName;
     }
@@ -78,7 +78,7 @@ class Mage_Wishlist_Model_Resource_Wishlist extends Mage_Core_Model_Resource_Db_
      * @param string $fieldName
      * @return $this
      */
-    public function setCustomerIdFieldName($fieldName)
+    function setCustomerIdFieldName($fieldName)
     {
         $this->_customerIdFieldName = $fieldName;
         return $this;
@@ -94,7 +94,7 @@ class Mage_Wishlist_Model_Resource_Wishlist extends Mage_Core_Model_Resource_Db_
      *
      * @return int
      */
-    public function fetchItemsCount(Mage_Wishlist_Model_Wishlist $wishlist)
+    function fetchItemsCount(Mage_Wishlist_Model_Wishlist $wishlist)
     {
         if (is_null($this->_itemsCount)) {
             $this->_itemsCount = $wishlist->getItemsCount();

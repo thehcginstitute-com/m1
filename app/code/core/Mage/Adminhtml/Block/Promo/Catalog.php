@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Promo_Catalog extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_addButton('apply_rules', [
             'label'     => Mage::helper('catalogrule')->__('Apply Rules'),

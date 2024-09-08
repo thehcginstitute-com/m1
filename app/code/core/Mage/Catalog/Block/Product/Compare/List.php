@@ -63,7 +63,7 @@ class Mage_Catalog_Block_Product_Compare_List extends Mage_Catalog_Block_Product
      * @param Mage_Catalog_Model_Product $product
      * @return string
      */
-    public function getAddToWishlistUrl($product)
+    function getAddToWishlistUrl($product)
     {
         return $this->getAddToWishlistUrlCustom($product);
     }
@@ -87,7 +87,7 @@ class Mage_Catalog_Block_Product_Compare_List extends Mage_Catalog_Block_Product
      *
      * @return Mage_Catalog_Model_Resource_Product_Compare_Item_Collection
      */
-    public function getItems()
+    function getItems()
     {
         if (is_null($this->_items)) {
             Mage::helper('catalog/product_compare')->setAllowUsedFlat(false);
@@ -122,7 +122,7 @@ class Mage_Catalog_Block_Product_Compare_List extends Mage_Catalog_Block_Product
      *
      * @return array
      */
-    public function getAttributes()
+    function getAttributes()
     {
         if (is_null($this->_attributes)) {
             $this->_attributes = $this->getItems()->getComparableAttributes();
@@ -138,7 +138,7 @@ class Mage_Catalog_Block_Product_Compare_List extends Mage_Catalog_Block_Product
      * @param Mage_Catalog_Model_Resource_Eav_Attribute $attribute
      * @return string
      */
-    public function getProductAttributeValue($product, $attribute)
+    function getProductAttributeValue($product, $attribute)
     {
         if (!$product->hasData($attribute->getAttributeCode())) {
             return Mage::helper('catalog')->__('N/A');
@@ -160,7 +160,7 @@ class Mage_Catalog_Block_Product_Compare_List extends Mage_Catalog_Block_Product
      *
      * @return string
      */
-    public function getPrintUrl()
+    function getPrintUrl()
     {
         return $this->getUrl('*/*/*', ['_current' => true, 'print' => 1]);
     }
@@ -171,7 +171,7 @@ class Mage_Catalog_Block_Product_Compare_List extends Mage_Catalog_Block_Product
      * @param int $id
      * @return $this
      */
-    public function setCustomerId($id)
+    function setCustomerId($id)
     {
         $this->_customerId = $id;
         return $this;
@@ -184,7 +184,7 @@ class Mage_Catalog_Block_Product_Compare_List extends Mage_Catalog_Block_Product
      * @param bool $addFormKey
      * @return string
      */
-    public function getAddToWishlistUrlCustom($product, $addFormKey = true)
+    function getAddToWishlistUrlCustom($product, $addFormKey = true)
     {
         $continueUrl = Mage::helper('core')->urlEncode($this->getUrl('customer/account'));
         $params = [

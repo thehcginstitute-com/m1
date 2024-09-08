@@ -22,7 +22,7 @@
  */
 class Mage_Shipping_TrackingController extends Mage_Core_Controller_Front_Action
 {
-    public function ajaxAction()
+    function ajaxAction()
     {
         if ($order = $this->_initOrder()) {
             $response = '';
@@ -49,7 +49,7 @@ class Mage_Shipping_TrackingController extends Mage_Core_Controller_Front_Action
      * Popup action
      * Shows tracking info if it's present, otherwise redirects to 404
      */
-    public function popupAction()
+    function popupAction()
     {
         $shippingInfoModel = Mage::getModel('shipping/info')->loadByHash($this->getRequest()->getParam('hash'));
         Mage::register('current_shipping_info', $shippingInfoModel);

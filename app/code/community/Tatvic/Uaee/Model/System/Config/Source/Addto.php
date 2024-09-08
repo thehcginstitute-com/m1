@@ -6,7 +6,7 @@
  */
 class Tatvic_Uaee_Model_System_Config_Source_Addto
 {
-    public function toOptionArray()
+    function toOptionArray()
     {
         return array(
             array('value' => 'head', 'label'=>Mage::helper('tatvic_uaee')->__('Head')),

@@ -46,7 +46,7 @@ class Mage_ImportExport_Model_Import_Adapter_Csv extends Mage_ImportExport_Model
     /**
      * Close file handler on shutdown
      */
-    public function destruct()
+    function destruct()
     {
         if (is_resource($this->_fileHandler)) {
             fclose($this->_fileHandler);
@@ -71,7 +71,7 @@ class Mage_ImportExport_Model_Import_Adapter_Csv extends Mage_ImportExport_Model
      * @return void Any returned value is ignored.
      */
     #[\ReturnTypeWillChange]
-    public function next()
+    function next()
     {
         $this->_currentRow = fgetcsv($this->_fileHandler, null, $this->_delimiter, $this->_enclosure);
         $this->_currentKey = $this->_currentRow ? $this->_currentKey + 1 : null;
@@ -83,7 +83,7 @@ class Mage_ImportExport_Model_Import_Adapter_Csv extends Mage_ImportExport_Model
      * @return void Any returned value is ignored.
      */
     #[\ReturnTypeWillChange]
-    public function rewind()
+    function rewind()
     {
         // rewind resource, reset column names, read first row as current
         rewind($this->_fileHandler);
@@ -103,7 +103,7 @@ class Mage_ImportExport_Model_Import_Adapter_Csv extends Mage_ImportExport_Model
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function seek($position)
+    function seek($position)
     {
         if ($position != $this->_currentKey) {
             if ($position == 0) {

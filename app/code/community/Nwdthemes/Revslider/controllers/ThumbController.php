@@ -16,7 +16,7 @@ class Nwdthemes_Revslider_ThumbController extends Mage_Core_Controller_Front_Act
 	 * Get image thumbnail
 	 */
 
-	public function indexAction() {
+	function indexAction() {
 
 		$mediaDir = Mage_Core_Model_Store::URL_TYPE_MEDIA;
 

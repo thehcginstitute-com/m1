@@ -29,7 +29,7 @@ class Mage_Install_Model_Installer_Filesystem extends Mage_Install_Model_Install
     public const MODE_READ  = 'read';
     /**#@- */
 
-    public function __construct()
+    function __construct()
     {
     }
 
@@ -37,7 +37,7 @@ class Mage_Install_Model_Installer_Filesystem extends Mage_Install_Model_Install
      * Check and prepare file system
      *
      */
-    public function install()
+    function install()
     {
         if (!$this->_checkFilesystem()) {
             throw new Exception();

@@ -53,7 +53,7 @@ class Mage_Api2_Model_Acl extends Zend_Acl
     /**
      * @param array $options
      */
-    public function __construct($options)
+    function __construct($options)
     {
         if (!isset($options['resource_type']) || empty($options['resource_type'])) {
             throw new Exception("Passed parameter 'resource_type' is wrong.");
@@ -164,7 +164,7 @@ class Mage_Api2_Model_Acl extends Zend_Acl
      * @param Zend_Acl_Role_Interface|string|array $parents
      * @return Zend_Acl Provides a fluent interface
      */
-    public function addRole($roleId, $parents = null)
+    function addRole($roleId, $parents = null)
     {
         if (!is_numeric($roleId)) {
             throw new Exception('Invalid role identifier');

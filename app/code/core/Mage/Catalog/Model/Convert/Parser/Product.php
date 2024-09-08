@@ -65,7 +65,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
     protected $_storeId;
     protected $_attributes = [];
 
-    public function __construct()
+    function __construct()
     {
         foreach (Mage::getConfig()->getFieldset('catalog_product_dataflow', 'admin') as $code => $node) {
             if ($node->is('inventory')) {
@@ -92,7 +92,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
     /**
      * @return Mage_Catalog_Model_Mysql4_Convert
      */
-    public function getResource()
+    function getResource()
     {
         if (!$this->_resource) {
             $this->_resource = Mage::getResourceSingleton('catalog_entity/convert');
@@ -108,7 +108,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
      * @param int $storeId
      * @return Mage_Catalog_Model_Resource_Product_Collection
      */
-    public function getCollection($storeId)
+    function getCollection($storeId)
     {
         if (!isset($this->_collections[$storeId])) {
             $this->_collections[$storeId] = Mage::getResourceModel('catalog/product_collection');
@@ -122,7 +122,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
      *
      * @return array
      */
-    public function getProductTypes()
+    function getProductTypes()
     {
         if (is_null($this->_productTypes)) {
             $this->_productTypes = Mage::getSingleton('catalog/product_type')
@@ -137,7 +137,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
      * @param string $code
      * @return string
      */
-    public function getProductTypeName($code)
+    function getProductTypeName($code)
     {
         $productTypes = $this->getProductTypes();
         return $productTypes[$code] ?? false;
@@ -149,7 +149,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
      * @param string $name
      * @return string|false
      */
-    public function getProductTypeId($name)
+    function getProductTypeId($name)
     {
         $productTypes = $this->getProductTypes();
         if ($code = array_search($name, $productTypes)) {
@@ -163,7 +163,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
      *
      * @return Mage_Catalog_Model_Product|object
      */
-    public function getProductModel()
+    function getProductModel()
     {
         if (is_null($this->_productModel)) {
             $productModel = Mage::getModel('catalog/product');
@@ -177,7 +177,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         if (is_null($this->_store)) {
             try {
@@ -199,7 +199,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         if (is_null($this->_storeId)) {
             $this->_storeId = $this->getStore()->getId();
@@ -213,7 +213,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function setProductTypeInstance(Mage_Catalog_Model_Product $product)
+    function setProductTypeInstance(Mage_Catalog_Model_Product $product)
     {
         $type = $product->getTypeId();
         if (!isset($this->_productTypeInstances[$type])) {
@@ -227,7 +227,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
     /**
      * @return mixed
      */
-    public function getAttributeSetInstance()
+    function getAttributeSetInstance()
     {
         $productType = $this->getProductModel()->getType();
         $attributeSetId = $this->getProductModel()->getAttributeSetId();
@@ -246,7 +246,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
      * @param string $code
      * @return Mage_Eav_Model_Entity_Attribute
      */
-    public function getAttribute($code)
+    function getAttribute($code)
     {
         if (!isset($this->_attributes[$code])) {
             $this->_attributes[$code] = $this->getProductModel()->getResource()->getAttribute($code);
@@ -257,7 +257,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
     /**
      * @deprecated not used anymore
      */
-    public function parse()
+    function parse()
     {
         $data            = $this->getData();
         $entityTypeId    = Mage::getSingleton('eav/config')->getEntityType(Mage_Catalog_Model_Product::ENTITY)->getId();
@@ -384,7 +384,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
     /**
      * @param array $items
      */
-    public function setInventoryItems($items)
+    function setInventoryItems($items)
     {
         $this->_inventoryItems = $items;
     }
@@ -392,7 +392,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
     /**
      * @return array
      */
-    public function getInventoryItems()
+    function getInventoryItems()
     {
         return $this->_inventoryItems;
     }
@@ -402,7 +402,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
      *
      * @return $this
      */
-    public function unparse()
+    function unparse()
     {
         $entityIds = $this->getData();
 
@@ -542,7 +542,7 @@ class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_P
      *
      * @return array
      */
-    public function getExternalAttributes()
+    function getExternalAttributes()
     {
         $productAttributes  = Mage::getResourceModel('catalog/product_attribute_collection')->load();
         $attributes         = $this->_externalFields;

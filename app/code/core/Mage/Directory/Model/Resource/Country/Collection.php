@@ -47,7 +47,7 @@ class Mage_Directory_Model_Resource_Country_Collection extends Mage_Core_Model_R
      * @param mixed $store
      * @return $this
      */
-    public function loadByStore($store = null)
+    function loadByStore($store = null)
     {
         $allowCountries = explode(',', (string)$this->_getStoreConfig('general/country/allow', $store));
         if (!empty($allowCountries)) {
@@ -62,7 +62,7 @@ class Mage_Directory_Model_Resource_Country_Collection extends Mage_Core_Model_R
      * @param string $countryId
      * @return Mage_Directory_Model_Resource_Country|Mage_Directory_Model_Country
      */
-    public function getItemById($countryId)
+    function getItemById($countryId)
     {
         foreach ($this->_items as $country) {
             if ($country->getCountryId() == $countryId) {
@@ -82,7 +82,7 @@ class Mage_Directory_Model_Resource_Country_Collection extends Mage_Core_Model_R
      * @param string|array $iso
      * @return $this
      */
-    public function addCountryCodeFilter($countryCode, $iso = ['iso3', 'iso2'])
+    function addCountryCodeFilter($countryCode, $iso = ['iso3', 'iso2'])
     {
         if (!empty($countryCode)) {
             if (is_array($countryCode)) {
@@ -116,7 +116,7 @@ class Mage_Directory_Model_Resource_Country_Collection extends Mage_Core_Model_R
      * @param string|array $countryId
      * @return $this
      */
-    public function addCountryIdFilter($countryId)
+    function addCountryIdFilter($countryId)
     {
         if (!empty($countryId)) {
             if (is_array($countryId)) {
@@ -134,7 +134,7 @@ class Mage_Directory_Model_Resource_Country_Collection extends Mage_Core_Model_R
      * @param string $emptyLabel
      * @return array
      */
-    public function toOptionArray($emptyLabel = ' ')
+    function toOptionArray($emptyLabel = ' ')
     {
         $options = $this->_toOptionArray('country_id', 'name', ['title' => 'iso2_code']);
 

@@ -71,7 +71,7 @@ class Mage_Sales_Model_Order_Pdf_Shipment extends Mage_Sales_Model_Order_Pdf_Abs
      * @param  Mage_Sales_Model_Order_Shipment[] $shipments
      * @return Zend_Pdf
      */
-    public function getPdf($shipments = [])
+    function getPdf($shipments = [])
     {
         $this->_beforeGetPdf();
         $this->_initRenderer('shipment');
@@ -127,7 +127,7 @@ class Mage_Sales_Model_Order_Pdf_Shipment extends Mage_Sales_Model_Order_Pdf_Abs
      * @param  array $settings
      * @return Zend_Pdf_Page
      */
-    public function newPage(array $settings = [])
+    function newPage(array $settings = [])
     {
         /* Add new table head */
         $page = $this->_getPdf()->newPage(Zend_Pdf_Page::SIZE_A4);

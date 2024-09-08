@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Checkout_Agreement_Grid extends Mage_Adminhtml_Block_
     /**
      * Mage_Adminhtml_Block_Checkout_Agreement_Grid constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setDefaultSort('agreement_id');
@@ -128,7 +128,7 @@ class Mage_Adminhtml_Block_Checkout_Agreement_Grid extends Mage_Adminhtml_Block_
      * @param Mage_Checkout_Model_Agreement $row
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', ['id' => $row->getId()]);
     }

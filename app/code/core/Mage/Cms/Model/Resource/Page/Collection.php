@@ -45,7 +45,7 @@ class Mage_Cms_Model_Resource_Page_Collection extends Mage_Core_Model_Resource_D
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->_toOptionArray('identifier', 'title');
     }
@@ -56,7 +56,7 @@ class Mage_Cms_Model_Resource_Page_Collection extends Mage_Core_Model_Resource_D
      *
      * @return array
      */
-    public function toOptionIdArray()
+    function toOptionIdArray()
     {
         $res = [];
         $existingIdentifiers = [];
@@ -84,7 +84,7 @@ class Mage_Cms_Model_Resource_Page_Collection extends Mage_Core_Model_Resource_D
      * @param bool $flag
      * @return $this
      */
-    public function setFirstStoreFlag($flag = false)
+    function setFirstStoreFlag($flag = false)
     {
         $this->_previewFlag = $flag;
         return $this;
@@ -133,7 +133,7 @@ class Mage_Cms_Model_Resource_Page_Collection extends Mage_Core_Model_Resource_D
      * @param bool $withAdmin
      * @return $this
      */
-    public function addStoreFilter($store, $withAdmin = true)
+    function addStoreFilter($store, $withAdmin = true)
     {
         if (!$this->getFlag('store_filter_added')) {
             if ($store instanceof Mage_Core_Model_Store) {
@@ -179,7 +179,7 @@ class Mage_Cms_Model_Resource_Page_Collection extends Mage_Core_Model_Resource_D
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $countSelect = parent::getSelectCountSql();
 

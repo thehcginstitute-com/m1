@@ -62,7 +62,7 @@ class Mage_SalesRule_Model_Resource_Rule_Collection extends Mage_Rule_Model_Reso
      *
      * @return $this
      */
-    public function setValidationFilter($websiteId, $customerGroupId, $couponCode = '', $now = null)
+    function setValidationFilter($websiteId, $customerGroupId, $couponCode = '', $now = null)
     {
         if (!$this->getFlag('validation_filter')) {
             /* We need to overwrite joinLeft if coupon is applied */
@@ -129,7 +129,7 @@ class Mage_SalesRule_Model_Resource_Rule_Collection extends Mage_Rule_Model_Reso
      *
      * @return $this
      */
-    public function addWebsiteGroupDateFilter($websiteId, $customerGroupId, $now = null)
+    function addWebsiteGroupDateFilter($websiteId, $customerGroupId, $now = null)
     {
         if (!$this->getFlag('website_group_date_filter')) {
             if (is_null($now)) {
@@ -167,7 +167,7 @@ class Mage_SalesRule_Model_Resource_Rule_Collection extends Mage_Rule_Model_Reso
      *
      * @return $this
      */
-    public function _initSelect()
+    function _initSelect()
     {
         parent::_initSelect();
         $this->getSelect()
@@ -186,7 +186,7 @@ class Mage_SalesRule_Model_Resource_Rule_Collection extends Mage_Rule_Model_Reso
      *
      * @return $this
      */
-    public function addAttributeInConditionFilter($attributeCode)
+    function addAttributeInConditionFilter($attributeCode)
     {
         $match = sprintf('%%%s%%', substr(serialize(['attribute' => $attributeCode]), 5, -1));
         $field = $this->_getMappedField('conditions_serialized');
@@ -204,7 +204,7 @@ class Mage_SalesRule_Model_Resource_Rule_Collection extends Mage_Rule_Model_Reso
      *
      * @return $this
      */
-    public function addAllowedSalesRulesFilter()
+    function addAllowedSalesRulesFilter()
     {
         $this->addFieldToFilter(
             'main_table.use_auto_generation',

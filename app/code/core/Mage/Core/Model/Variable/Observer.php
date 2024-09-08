@@ -28,7 +28,7 @@ class Mage_Core_Model_Variable_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function prepareWysiwygPluginConfig(Varien_Event_Observer $observer)
+    function prepareWysiwygPluginConfig(Varien_Event_Observer $observer)
     {
         $config = $observer->getEvent()->getConfig();
 

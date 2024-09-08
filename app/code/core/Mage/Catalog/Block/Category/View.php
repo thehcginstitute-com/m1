@@ -64,7 +64,7 @@ class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
     /**
      * @return bool
      */
-    public function isTopCategory()
+    function isTopCategory()
     {
         return $this->getCurrentCategory()->getLevel() == 2;
     }
@@ -75,7 +75,7 @@ class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getProductListHtml()
+    function getProductListHtml()
     {
         return $this->getChildHtml('product_list');
     }
@@ -85,7 +85,7 @@ class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
      *
      * @return Mage_Catalog_Model_Category
      */
-    public function getCurrentCategory()
+    function getCurrentCategory()
     {
         if (!$this->hasData('current_category')) {
             $this->setData('current_category', Mage::registry('current_category'));
@@ -96,7 +96,7 @@ class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getCmsBlockHtml()
+    function getCmsBlockHtml()
     {
         if (!$this->getData('cms_block_html')) {
             $html = $this->getLayout()->createBlock('cms/block')
@@ -111,7 +111,7 @@ class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
      * Check if category display mode is "Products Only"
      * @return bool
      */
-    public function isProductMode()
+    function isProductMode()
     {
         return $this->getCurrentCategory()->getDisplayMode() == Mage_Catalog_Model_Category::DM_PRODUCT;
     }
@@ -120,7 +120,7 @@ class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
      * Check if category display mode is "Static Block and Products"
      * @return bool
      */
-    public function isMixedMode()
+    function isMixedMode()
     {
         return $this->getCurrentCategory()->getDisplayMode() == Mage_Catalog_Model_Category::DM_MIXED;
     }
@@ -131,7 +131,7 @@ class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function isContentMode()
+    function isContentMode()
     {
         $category = $this->getCurrentCategory();
         $res = false;
@@ -152,7 +152,7 @@ class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         return array_merge(parent::getCacheTags(), $this->getCurrentCategory()->getCacheIdTags());
     }

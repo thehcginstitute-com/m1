@@ -25,7 +25,7 @@ class Mage_Sales_Block_Order_Invoice_Totals extends Mage_Sales_Block_Order_Total
     /**
      * @return mixed|null
      */
-    public function getInvoice()
+    function getInvoice()
     {
         if ($this->_invoice === null) {
             if ($this->hasData('invoice')) {
@@ -43,7 +43,7 @@ class Mage_Sales_Block_Order_Invoice_Totals extends Mage_Sales_Block_Order_Total
      * @param Mage_Sales_Model_Order_Invoice $invoice
      * @return $this
      */
-    public function setInvoice($invoice)
+    function setInvoice($invoice)
     {
         $this->_invoice = $invoice;
         return $this;
@@ -54,7 +54,7 @@ class Mage_Sales_Block_Order_Invoice_Totals extends Mage_Sales_Block_Order_Total
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getSource()
+    function getSource()
     {
         return $this->getInvoice();
     }

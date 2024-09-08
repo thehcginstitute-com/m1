@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content extends Mage_Adminhtml_Blo
     /**
      * Block construction
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_headerText = $this->helper('cms')->__('Media Storage');
@@ -67,7 +67,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getContentsUrl()
+    function getContentsUrl()
     {
         return $this->getUrl('*/*/contents', ['type' => $this->getRequest()->getParam('type')]);
     }
@@ -77,7 +77,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getFilebrowserSetupObject()
+    function getFilebrowserSetupObject()
     {
         $setupObject = new Varien_Object();
 
@@ -102,7 +102,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getNewfolderUrl()
+    function getNewfolderUrl()
     {
         return $this->getUrl('*/*/newFolder');
     }
@@ -120,7 +120,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content extends Mage_Adminhtml_Blo
     /**
      * @return string
      */
-    public function getDeleteFilesUrl()
+    function getDeleteFilesUrl()
     {
         return $this->getUrl('*/*/deleteFiles');
     }
@@ -130,7 +130,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getOnInsertUrl()
+    function getOnInsertUrl()
     {
         return $this->getUrl('*/*/onInsert');
     }
@@ -140,7 +140,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content extends Mage_Adminhtml_Blo
      *
      * @return string
      */
-    public function getTargetElementId()
+    function getTargetElementId()
     {
         return $this->getRequest()->getParam('target_element_id');
     }

@@ -34,7 +34,7 @@ class Mage_Payment_Model_Source_Cctype
      *
      * @return array
      */
-    public function getAllowedTypes()
+    function getAllowedTypes()
     {
         return $this->_allowedTypes;
     }
@@ -45,7 +45,7 @@ class Mage_Payment_Model_Source_Cctype
      * @param array $values
      * @return $this
      */
-    public function setAllowedTypes(array $values)
+    function setAllowedTypes(array $values)
     {
         $this->_allowedTypes = $values;
         return $this;
@@ -54,7 +54,7 @@ class Mage_Payment_Model_Source_Cctype
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         /**
          * making filter by allowed cards

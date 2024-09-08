@@ -36,7 +36,7 @@ class Mage_Sales_Model_Order_Config extends Mage_Core_Model_Config_Base
      */
     private $_states;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct(Mage::getConfig()->getNode('global/sales/order'));
     }
@@ -65,7 +65,7 @@ class Mage_Sales_Model_Order_Config extends Mage_Core_Model_Config_Base
      * @param   string $state
      * @return  string
      */
-    public function getStateDefaultStatus($state)
+    function getStateDefaultStatus($state)
     {
         $status = false;
         $stateNode = $this->_getState($state);
@@ -83,7 +83,7 @@ class Mage_Sales_Model_Order_Config extends Mage_Core_Model_Config_Base
      * @param   string $code
      * @return  string
      */
-    public function getStatusLabel($code)
+    function getStatusLabel($code)
     {
         $status = Mage::getModel('sales/order_status')
             ->load($code);
@@ -96,7 +96,7 @@ class Mage_Sales_Model_Order_Config extends Mage_Core_Model_Config_Base
      * @param   string $state
      * @return  string
      */
-    public function getStateLabel($state)
+    function getStateLabel($state)
     {
         $stateNode = $this->_getState($state);
         if ($stateNode) {
@@ -111,7 +111,7 @@ class Mage_Sales_Model_Order_Config extends Mage_Core_Model_Config_Base
      *
      * @return array
      */
-    public function getStatuses()
+    function getStatuses()
     {
         return Mage::getResourceModel('sales/order_status_collection')
             ->toOptionHash();
@@ -122,7 +122,7 @@ class Mage_Sales_Model_Order_Config extends Mage_Core_Model_Config_Base
      *
      * @return array
      */
-    public function getStates()
+    function getStates()
     {
         $states = [];
         foreach ($this->getNode('states')->children() as $state) {
@@ -141,7 +141,7 @@ class Mage_Sales_Model_Order_Config extends Mage_Core_Model_Config_Base
      * @param bool $addLabels
      * @return array
      */
-    public function getStateStatuses($state, $addLabels = true)
+    function getStateStatuses($state, $addLabels = true)
     {
         if (is_array($state)) {
             $key = implode("|", $state) . $addLabels;
@@ -183,7 +183,7 @@ class Mage_Sales_Model_Order_Config extends Mage_Core_Model_Config_Base
      * @param string $status
      * @return array
      */
-    public function getStatusStates($status)
+    function getStatusStates($status)
     {
         $states = [];
         $collection = Mage::getResourceModel('sales/order_status_collection')->addStatusFilter($status);
@@ -198,7 +198,7 @@ class Mage_Sales_Model_Order_Config extends Mage_Core_Model_Config_Base
      *
      * @return array
      */
-    public function getVisibleOnFrontStates()
+    function getVisibleOnFrontStates()
     {
         $this->_getStates();
         return $this->_states['visible'];
@@ -209,7 +209,7 @@ class Mage_Sales_Model_Order_Config extends Mage_Core_Model_Config_Base
      *
      * @return array
      */
-    public function getInvisibleOnFrontStates()
+    function getInvisibleOnFrontStates()
     {
         $this->_getStates();
         return $this->_states['invisible'];

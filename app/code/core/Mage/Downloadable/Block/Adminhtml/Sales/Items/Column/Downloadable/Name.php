@@ -30,7 +30,7 @@ class Mage_Downloadable_Block_Adminhtml_Sales_Items_Column_Downloadable_Name ext
     /**
      * @return Mage_Downloadable_Model_Link_Purchased
      */
-    public function getLinks()
+    function getLinks()
     {
         $this->_purchased = Mage::getModel('downloadable/link_purchased')
             ->load($this->getItem()->getOrder()->getId(), 'order_id');
@@ -43,7 +43,7 @@ class Mage_Downloadable_Block_Adminhtml_Sales_Items_Column_Downloadable_Name ext
     /**
      * @return string
      */
-    public function getLinksTitle()
+    function getLinksTitle()
     {
         if ($this->_purchased && $this->_purchased->getLinkSectionTitle()) {
             return $this->_purchased->getLinkSectionTitle();

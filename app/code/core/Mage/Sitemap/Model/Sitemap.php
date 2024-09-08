@@ -112,7 +112,7 @@ class Mage_Sitemap_Model_Sitemap extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getPreparedFilename()
+    function getPreparedFilename()
     {
         return $this->getPath() . $this->getSitemapFilename();
     }
@@ -123,7 +123,7 @@ class Mage_Sitemap_Model_Sitemap extends Mage_Core_Model_Abstract
      * @return $this
      * @throws Throwable
      */
-    public function generateXml()
+    function generateXml()
     {
         $io = new Varien_Io_File();
         $io->setAllowCreateFolders(true);

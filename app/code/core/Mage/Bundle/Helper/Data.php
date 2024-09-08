@@ -31,7 +31,7 @@ class Mage_Bundle_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getAllowedSelectionTypes()
+    function getAllowedSelectionTypes()
     {
         $config = Mage::getConfig()->getNode(self::XML_NODE_BUNDLE_PRODUCT_TYPE);
         return array_keys($config->allowed_selection_types->asArray());

@@ -100,7 +100,7 @@ class Mage_Review_Model_Resource_Review_Collection extends Mage_Core_Model_Resou
      * @param int $customerId
      * @return $this
      */
-    public function addCustomerFilter($customerId)
+    function addCustomerFilter($customerId)
     {
         $this->addFilter(
             'customer',
@@ -116,7 +116,7 @@ class Mage_Review_Model_Resource_Review_Collection extends Mage_Core_Model_Resou
      * @param int|array $storeId
      * @return $this
      */
-    public function addStoreFilter($storeId)
+    function addStoreFilter($storeId)
     {
         $inCond = $this->getConnection()->prepareSqlCondition('store.store_id', ['in' => $storeId]);
         $this->getSelect()->join(
@@ -133,7 +133,7 @@ class Mage_Review_Model_Resource_Review_Collection extends Mage_Core_Model_Resou
      *
      * @return $this
      */
-    public function addStoreData()
+    function addStoreData()
     {
         $this->_addStoreDataFlag = true;
         return $this;
@@ -146,7 +146,7 @@ class Mage_Review_Model_Resource_Review_Collection extends Mage_Core_Model_Resou
      * @param int $pkValue
      * @return $this
      */
-    public function addEntityFilter($entity, $pkValue)
+    function addEntityFilter($entity, $pkValue)
     {
         if (is_numeric($entity)) {
             $this->addFilter(
@@ -183,7 +183,7 @@ class Mage_Review_Model_Resource_Review_Collection extends Mage_Core_Model_Resou
      * @param int|string $status
      * @return $this
      */
-    public function addStatusFilter($status)
+    function addStatusFilter($status)
     {
         if (is_string($status)) {
             $statuses = array_flip(Mage::helper('review')->getReviewStatuses());
@@ -205,7 +205,7 @@ class Mage_Review_Model_Resource_Review_Collection extends Mage_Core_Model_Resou
      * @param string $dir
      * @return $this
      */
-    public function setDateOrder($dir = 'DESC')
+    function setDateOrder($dir = 'DESC')
     {
         $this->setOrder('main_table.created_at', $dir);
         return $this;
@@ -216,7 +216,7 @@ class Mage_Review_Model_Resource_Review_Collection extends Mage_Core_Model_Resou
      *
      * @return $this
      */
-    public function addRateVotes()
+    function addRateVotes()
     {
         foreach ($this->getItems() as $item) {
             $votesCollection = Mage::getModel('rating/rating_option_vote')
@@ -236,7 +236,7 @@ class Mage_Review_Model_Resource_Review_Collection extends Mage_Core_Model_Resou
      *
      * @return $this
      */
-    public function addReviewsTotalCount()
+    function addReviewsTotalCount()
     {
         $this->_select->joinLeft(
             ['r' => $this->_reviewTable],
@@ -260,7 +260,7 @@ class Mage_Review_Model_Resource_Review_Collection extends Mage_Core_Model_Resou
      * @param bool $logQuery
      * @return $this
      */
-    public function load($printQuery = false, $logQuery = false)
+    function load($printQuery = false, $logQuery = false)
     {
         if ($this->isLoaded()) {
             return $this;

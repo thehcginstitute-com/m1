@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_System_Store_Grid_Render_Store extends Mage_Adminhtml
      * @param Varien_Object $row
      * @return string|null
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         if (!$row->getData($this->getColumn()->getIndex())) {
             return null;

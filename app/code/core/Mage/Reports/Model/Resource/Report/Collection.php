@@ -81,7 +81,7 @@ class Mage_Reports_Model_Resource_Report_Collection
      * @param int $period
      * @return $this
      */
-    public function setPeriod($period)
+    function setPeriod($period)
     {
         $this->_period = $period;
         return $this;
@@ -94,7 +94,7 @@ class Mage_Reports_Model_Resource_Report_Collection
      * @param int $to
      * @return $this
      */
-    public function setInterval($from, $to)
+    function setInterval($from, $to)
     {
         $this->_from = $from;
         $this->_to   = $to;
@@ -108,7 +108,7 @@ class Mage_Reports_Model_Resource_Report_Collection
      * @return array
      * @throws Zend_Date_Exception
      */
-    public function getIntervals()
+    function getIntervals()
     {
         if (!$this->_intervals) {
             $this->_intervals = [];
@@ -177,7 +177,7 @@ class Mage_Reports_Model_Resource_Report_Collection
      *
      * @return array
      */
-    public function getPeriods()
+    function getPeriods()
     {
         return [
             'day'   => Mage::helper('reports')->__('Day'),
@@ -192,7 +192,7 @@ class Mage_Reports_Model_Resource_Report_Collection
      * @param array $storeIds
      * @return $this
      */
-    public function setStoreIds($storeIds)
+    function setStoreIds($storeIds)
     {
         $this->_storeIds = $storeIds;
         return $this;
@@ -203,7 +203,7 @@ class Mage_Reports_Model_Resource_Report_Collection
      *
      * @return array
      */
-    public function getStoreIds()
+    function getStoreIds()
     {
         return $this->_storeIds;
     }
@@ -213,7 +213,7 @@ class Mage_Reports_Model_Resource_Report_Collection
      *
      * @return int
      */
-    public function getSize()
+    function getSize()
     {
         return count($this->getIntervals());
     }
@@ -224,7 +224,7 @@ class Mage_Reports_Model_Resource_Report_Collection
      * @param int $size
      * @return $this
      */
-    public function setPageSize($size)
+    function setPageSize($size)
     {
         $this->_pageSize = $size;
         return $this;
@@ -235,7 +235,7 @@ class Mage_Reports_Model_Resource_Report_Collection
      *
      * @return int
      */
-    public function getPageSize()
+    function getPageSize()
     {
         return $this->_pageSize;
     }
@@ -246,7 +246,7 @@ class Mage_Reports_Model_Resource_Report_Collection
      * @param string $modelClass
      * @return $this
      */
-    public function initReport($modelClass)
+    function initReport($modelClass)
     {
         $this->_model = Mage::getModel('reports/report')
             ->setPageSize($this->getPageSize())
@@ -263,7 +263,7 @@ class Mage_Reports_Model_Resource_Report_Collection
      * @param int $to
      * @return Mage_Reports_Model_Report
      */
-    public function getReportFull($from, $to)
+    function getReportFull($from, $to)
     {
         return $this->_model->getReportFull($this->timeShift($from), $this->timeShift($to));
     }
@@ -275,7 +275,7 @@ class Mage_Reports_Model_Resource_Report_Collection
      * @param int $to
      * @return Mage_Reports_Model_Report
      */
-    public function getReport($from, $to)
+    function getReport($from, $to)
     {
         return $this->_model->getReport($this->timeShift($from), $this->timeShift($to));
     }
@@ -286,7 +286,7 @@ class Mage_Reports_Model_Resource_Report_Collection
      * @param string $datetime
      * @return string
      */
-    public function timeShift($datetime)
+    function timeShift($datetime)
     {
         return Mage::app()->getLocale()
             ->utcDate(null, $datetime, true, Varien_Date::DATETIME_INTERNAL_FORMAT)

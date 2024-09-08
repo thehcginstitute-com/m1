@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Catalog_Search_Edit_Form extends Mage_Adminhtml_Block
      * Init Form properties
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('catalog_search_form');

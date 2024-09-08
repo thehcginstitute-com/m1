@@ -23,7 +23,7 @@ class Mage_Core_Model_Message_Success extends Mage_Core_Model_Message_Abstract
     /**
      * @param string $code
      */
-    public function __construct($code)
+    function __construct($code)
     {
         parent::__construct(Mage_Core_Model_Message::SUCCESS, $code);
     }

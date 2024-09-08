@@ -26,7 +26,7 @@ class Mage_Wishlist_Block_Customer_Wishlist_Button extends Mage_Core_Block_Templ
      *
      * @return Mage_Wishlist_Model_Wishlist
      */
-    public function getWishlist()
+    function getWishlist()
     {
         return Mage::helper('wishlist')->getWishlist();
     }

@@ -25,7 +25,7 @@ class Mage_Checkout_Block_Multishipping_State extends Mage_Core_Block_Template
     /**
      * @return array
      */
-    public function getSteps()
+    function getSteps()
     {
         return Mage::getSingleton('checkout/type_multishipping_state')->getSteps();
     }

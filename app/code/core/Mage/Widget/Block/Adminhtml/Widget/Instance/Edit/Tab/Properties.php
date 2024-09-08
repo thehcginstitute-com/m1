@@ -30,7 +30,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Properties extends Ma
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('widget')->__('Widget Options');
     }
@@ -40,7 +40,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Properties extends Ma
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('widget')->__('Widget Options');
     }
@@ -50,7 +50,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Properties extends Ma
      *
      * @return bool
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return $this->getWidgetInstance()->isCompleteToCreate();
     }
@@ -60,7 +60,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Properties extends Ma
      *
      * @return false
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }
@@ -70,7 +70,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Properties extends Ma
      *
      * @return Mage_Widget_Model_Widget_Instance
      */
-    public function getWidgetInstance()
+    function getWidgetInstance()
     {
         return Mage::registry('current_widget_instance');
     }

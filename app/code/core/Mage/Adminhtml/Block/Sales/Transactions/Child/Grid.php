@@ -33,7 +33,7 @@ class Mage_Adminhtml_Block_Sales_Transactions_Child_Grid extends Mage_Adminhtml_
      * Disable pager and filter
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('transactionChildGrid');

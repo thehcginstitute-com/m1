@@ -46,7 +46,7 @@ class Mage_Sales_Model_Resource_Order_Shipment_Item_Collection extends Mage_Sale
      * @param int $shipmentId
      * @return $this
      */
-    public function setShipmentFilter($shipmentId)
+    function setShipmentFilter($shipmentId)
     {
         $this->addFieldToFilter('parent_id', $shipmentId);
         return $this;

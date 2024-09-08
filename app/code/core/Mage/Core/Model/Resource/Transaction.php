@@ -102,7 +102,7 @@ class Mage_Core_Model_Resource_Transaction
      * @param string $alias
      * @return $this
      */
-    public function addObject(Mage_Core_Model_Abstract $object, $alias = '')
+    function addObject(Mage_Core_Model_Abstract $object, $alias = '')
     {
         $this->_objects[] = $object;
         if (!empty($alias)) {
@@ -117,7 +117,7 @@ class Mage_Core_Model_Resource_Transaction
      * @param callable $callback
      * @return $this
      */
-    public function addCommitCallback($callback)
+    function addCommitCallback($callback)
     {
         $this->_beforeCommitCallbacks[] = $callback;
         return $this;
@@ -129,7 +129,7 @@ class Mage_Core_Model_Resource_Transaction
      * @return $this
      * @throws Exception
      */
-    public function save()
+    function save()
     {
         $this->_startTransaction();
         $error     = false;
@@ -166,7 +166,7 @@ class Mage_Core_Model_Resource_Transaction
      * @return $this
      * @throws Exception
      */
-    public function delete()
+    function delete()
     {
         $this->_startTransaction();
         $error = false;

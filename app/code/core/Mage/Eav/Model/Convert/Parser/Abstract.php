@@ -28,7 +28,7 @@ abstract class Mage_Eav_Model_Convert_Parser_Abstract extends Mage_Dataflow_Mode
      * @param array $stores
      * @return array|false
      */
-    public function getStoreIds($stores)
+    function getStoreIds($stores)
     {
         if (empty($stores)) {
             $storeIds = [0];
@@ -54,7 +54,7 @@ abstract class Mage_Eav_Model_Convert_Parser_Abstract extends Mage_Dataflow_Mode
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getStoreCode($storeId)
+    function getStoreCode($storeId)
     {
         return Mage::app()->getStore($storeId ? $storeId : 0)->getCode();
     }
@@ -63,7 +63,7 @@ abstract class Mage_Eav_Model_Convert_Parser_Abstract extends Mage_Dataflow_Mode
      * @param int $entityTypeId
      * @return $this
      */
-    public function loadAttributeSets($entityTypeId)
+    function loadAttributeSets($entityTypeId)
     {
         $attributeSetCollection = Mage::getResourceModel('eav/entity_attribute_set_collection')
             ->setEntityTypeFilter($entityTypeId)
@@ -87,7 +87,7 @@ abstract class Mage_Eav_Model_Convert_Parser_Abstract extends Mage_Dataflow_Mode
      * @param int $id
      * @return bool
      */
-    public function getAttributeSetName($entityTypeId, $id)
+    function getAttributeSetName($entityTypeId, $id)
     {
         if (!$this->_attributeSetsById) {
             $this->loadAttributeSets($entityTypeId);
@@ -100,7 +100,7 @@ abstract class Mage_Eav_Model_Convert_Parser_Abstract extends Mage_Dataflow_Mode
      * @param string $name
      * @return bool
      */
-    public function getAttributeSetId($entityTypeId, $name)
+    function getAttributeSetId($entityTypeId, $name)
     {
         if (!$this->_attributeSetsByName) {
             $this->loadAttributeSets($entityTypeId);
@@ -113,7 +113,7 @@ abstract class Mage_Eav_Model_Convert_Parser_Abstract extends Mage_Dataflow_Mode
      * @param string $value
      * @return string|null
      */
-    public function getSourceOptionId(Mage_Eav_Model_Entity_Attribute_Source_Interface $source, $value)
+    function getSourceOptionId(Mage_Eav_Model_Entity_Attribute_Source_Interface $source, $value)
     {
         foreach ($source->getAllOptions() as $option) {
             if (strcasecmp($option['label'], $value) == 0) {

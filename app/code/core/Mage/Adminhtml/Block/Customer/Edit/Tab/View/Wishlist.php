@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Customer_Edit_Tab_View_Wishlist extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('customer_view_wishlist_grid');
@@ -100,7 +100,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View_Wishlist extends Mage_Adminhtm
      *
      * @return bool
      */
-    public function getHeadersVisibility()
+    function getHeadersVisibility()
     {
         return ($this->getCollection()->getSize() > 0);
     }
@@ -111,7 +111,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View_Wishlist extends Mage_Adminhtm
      * @param Mage_Wishlist_Model_Item $row
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/catalog_product/edit', ['id' => $row->getProductId()]);
     }

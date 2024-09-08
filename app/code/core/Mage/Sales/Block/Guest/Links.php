@@ -25,7 +25,7 @@ class Mage_Sales_Block_Guest_Links extends Mage_Page_Block_Template_Links_Block
     /**
      * Set link title, label and url
      */
-    public function __construct()
+    function __construct()
     {
         if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
             parent::__construct();

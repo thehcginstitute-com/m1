@@ -32,7 +32,7 @@ class Mage_Downloadable_Block_Sales_Order_Email_Items_Downloadable extends Mage_
     /**
      * @return Mage_Downloadable_Model_Link_Purchased
      */
-    public function getLinks()
+    function getLinks()
     {
         $this->_purchased = Mage::getModel('downloadable/link_purchased')
             ->load($this->getItem()->getOrder()->getId(), 'order_id');
@@ -46,7 +46,7 @@ class Mage_Downloadable_Block_Sales_Order_Email_Items_Downloadable extends Mage_
     /**
      * @return string
      */
-    public function getLinksTitle()
+    function getLinksTitle()
     {
         if ($this->_purchased->getLinkSectionTitle()) {
             return $this->_purchased->getLinkSectionTitle();
@@ -58,7 +58,7 @@ class Mage_Downloadable_Block_Sales_Order_Email_Items_Downloadable extends Mage_
      * @param Mage_Downloadable_Model_Link_Purchased_Item $item
      * @return string
      */
-    public function getPurchasedLinkUrl($item)
+    function getPurchasedLinkUrl($item)
     {
         return $this->getUrl('downloadable/download/link', [
             'id'        => $item->getLinkHash(),

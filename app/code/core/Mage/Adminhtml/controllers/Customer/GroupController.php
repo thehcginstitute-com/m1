@@ -33,7 +33,7 @@ class Mage_Adminhtml_Customer_GroupController extends Mage_Adminhtml_Controller_
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         return parent::preDispatch();
@@ -53,7 +53,7 @@ class Mage_Adminhtml_Customer_GroupController extends Mage_Adminhtml_Controller_
     /**
      * Customer groups list.
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Customers'))->_title($this->__('Customer Groups'));
 
@@ -67,7 +67,7 @@ class Mage_Adminhtml_Customer_GroupController extends Mage_Adminhtml_Controller_
     /**
      * Edit or create customer group.
      */
-    public function newAction()
+    function newAction()
     {
         $this->_initGroup();
         $this->loadLayout();
@@ -95,7 +95,7 @@ class Mage_Adminhtml_Customer_GroupController extends Mage_Adminhtml_Controller_
     /**
      * Edit customer group action. Forward to new action.
      */
-    public function editAction()
+    function editAction()
     {
         $this->_forward('new');
     }
@@ -103,7 +103,7 @@ class Mage_Adminhtml_Customer_GroupController extends Mage_Adminhtml_Controller_
     /**
      * Create or save customer group.
      */
-    public function saveAction()
+    function saveAction()
     {
         $customerGroup = Mage::getModel('customer/group');
         $id = $this->getRequest()->getParam('id');
@@ -139,7 +139,7 @@ class Mage_Adminhtml_Customer_GroupController extends Mage_Adminhtml_Controller_
     /**
      * Delete customer group action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         $customerGroup = Mage::getModel('customer/group');
         if ($id = (int)$this->getRequest()->getParam('id')) {

@@ -71,7 +71,7 @@ class Mage_SalesRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abstra
      *
      * @return $this
      */
-    public function _beforeSave(Mage_Core_Model_Abstract $object)
+    function _beforeSave(Mage_Core_Model_Abstract $object)
     {
         if (!$object->getDiscountQty()) {
             $object->setDiscountQty(new Zend_Db_Expr('NULL'));
@@ -135,7 +135,7 @@ class Mage_SalesRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abstra
      *
      * @return string
      */
-    public function getCustomerUses($rule, $customerId)
+    function getCustomerUses($rule, $customerId)
     {
         $read = $this->_getReadAdapter();
         $select = $read->select()->from($this->getTable('rule_customer'), ['cnt' => 'count(*)'])
@@ -152,7 +152,7 @@ class Mage_SalesRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abstra
      *
      * @return $this
      */
-    public function saveStoreLabels($ruleId, $labels)
+    function saveStoreLabels($ruleId, $labels)
     {
         $deleteByStoreIds = [];
         $table   = $this->getTable('salesrule/label');
@@ -198,7 +198,7 @@ class Mage_SalesRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abstra
      * @param int $ruleId
      * @return array
      */
-    public function getStoreLabels($ruleId)
+    function getStoreLabels($ruleId)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getTable('salesrule/label'), ['store_id', 'label'])
@@ -213,7 +213,7 @@ class Mage_SalesRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abstra
      * @param int $storeId
      * @return string
      */
-    public function getStoreLabel($ruleId, $storeId)
+    function getStoreLabel($ruleId, $storeId)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getTable('salesrule/label'), 'label')
@@ -230,7 +230,7 @@ class Mage_SalesRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abstra
      * @param int $customerGroupId
      * @return mixed
      */
-    public function getActiveAttributes($websiteId, $customerGroupId)
+    function getActiveAttributes($websiteId, $customerGroupId)
     {
         $read = $this->_getReadAdapter();
         $select = $read->select()
@@ -249,7 +249,7 @@ class Mage_SalesRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abstra
      * @param mixed $attributes
      * @return $this
      */
-    public function setActualProductAttributes($rule, $attributes)
+    function setActualProductAttributes($rule, $attributes)
     {
         $write = $this->_getWriteAdapter();
         $write->delete($this->getTable('salesrule/product_attribute'), ['rule_id=?' => $rule->getId()]);
@@ -291,7 +291,7 @@ class Mage_SalesRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abstra
      *
      * @return array
      */
-    public function getProductAttributes($serializedString)
+    function getProductAttributes($serializedString)
     {
         $result = [];
         if (preg_match_all('~s:32:"salesrule/rule_condition_product";s:9:"attribute";s:\d+:"(.*?)"~s', $serializedString, $matches)) {

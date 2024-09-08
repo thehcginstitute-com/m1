@@ -131,7 +131,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      *
      * @param array $args
      */
-    public function __construct(array $args = [])
+    function __construct(array $args = [])
     {
         parent::__construct();
         $this->_taxHelper = !empty($args['helper']) ? $args['helper'] : Mage::helper('tax');
@@ -143,7 +143,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   Mage_Customer_Model_Customer $customer
      * @return  Mage_Tax_Model_Calculation
      */
-    public function setCustomer(Mage_Customer_Model_Customer $customer)
+    function setCustomer(Mage_Customer_Model_Customer $customer)
     {
         $this->_customer = $customer;
         return $this;
@@ -155,7 +155,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param null|Mage_Core_Model_Store $store
      * @return string
      */
-    public function getDefaultCustomerTaxClass($store = null)
+    function getDefaultCustomerTaxClass($store = null)
     {
         if ($this->_defaultCustomerTaxClass === null) {
             $defaultCustomerGroup = Mage::helper('customer')->getDefaultCustomerGroupId($store);
@@ -169,7 +169,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      *
      * @return  Mage_Customer_Model_Customer | false
      */
-    public function getCustomer()
+    function getCustomer()
     {
         if ($this->_customer === null) {
             $session = Mage::getSingleton('customer/session');
@@ -190,7 +190,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   int $ruleId
      * @return  Mage_Tax_Model_Calculation
      */
-    public function deleteByRuleId($ruleId)
+    function deleteByRuleId($ruleId)
     {
         $this->_getResource()->deleteByRuleId($ruleId);
         return $this;
@@ -202,7 +202,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   int $ruleId
      * @return  array
      */
-    public function getRates($ruleId)
+    function getRates($ruleId)
     {
         if (!isset($this->_rates[$ruleId])) {
             $this->_rates[$ruleId] = $this->_getResource()->getDistinct('tax_calculation_rate_id', $ruleId);
@@ -216,7 +216,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   int $ruleId
      * @return  array
      */
-    public function getCustomerTaxClasses($ruleId)
+    function getCustomerTaxClasses($ruleId)
     {
         if (!isset($this->_ctc[$ruleId])) {
             $this->_ctc[$ruleId] = $this->_getResource()->getDistinct('customer_tax_class_id', $ruleId);
@@ -230,7 +230,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   int $ruleId
      * @return  array
      */
-    public function getProductTaxClasses($ruleId)
+    function getProductTaxClasses($ruleId)
     {
         if (!isset($this->_ptc[$ruleId])) {
             $this->_ptc[$ruleId] = $this->getResource()->getDistinct('product_tax_class_id', $ruleId);
@@ -266,7 +266,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   Varien_Object $request
      * @return  float
      */
-    public function getRate($request)
+    function getRate($request)
     {
         if (!$request->getCountryId() || !$request->getCustomerClassId() || !$request->getProductClassId()) {
             return 0;
@@ -315,7 +315,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param Mage_Core_Model_Store|null $store
      * @return float
      */
-    public function getStoreRate($request, $store = null)
+    function getStoreRate($request, $store = null)
     {
         $storeRequest = $this->getRateOriginRequest($store)
             ->setProductClassId($request->getProductClassId());
@@ -331,7 +331,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param null|Mage_Core_Model_Store $store
      * @return float
      */
-    public function getStoreRateForItem($item, $store = null)
+    function getStoreRateForItem($item, $store = null)
     {
         $storeRequest = $this->getRateOriginRequest($store)
             ->setProductClassId($item->getProduct()->getTaxClassId());
@@ -344,7 +344,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   null|string|bool|int|Mage_Core_Model_Store $store
      * @return  Varien_Object
      */
-    public function getRateOriginRequest($store = null)
+    function getRateOriginRequest($store = null)
     {
         $request = new Varien_Object();
         $request->setCountryId(Mage::getStoreConfig(Mage_Shipping_Model_Config::XML_PATH_ORIGIN_COUNTRY_ID, $store))
@@ -361,7 +361,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param null|string|bool|int|Mage_Core_Model_Store $store
      * @return Varien_Object
      */
-    public function getDefaultRateRequest($store = null)
+    function getDefaultRateRequest($store = null)
     {
         if ($this->_taxHelper->isCrossBorderTradeEnabled($store)) {
             //If cross border trade is enabled, we will use customer tax rate as store tax rate
@@ -386,7 +386,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   null|string|bool|int|Mage_Core_Model_Store $store
      * @return  Varien_Object
      */
-    public function getRateRequest(
+    function getRateRequest(
         $shippingAddress = null,
         $billingAddress = null,
         $customerTaxClass = null,
@@ -480,7 +480,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   Varien_Object $second
      * @return  bool
      */
-    public function compareRequests($first, $second)
+    function compareRequests($first, $second)
     {
         $country = $first->getCountryId() == $second->getCountryId();
         // "0" support for admin dropdown with --please select--
@@ -558,7 +558,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param Varien_Object $request
      * @return array
      */
-    public function getRatesForAllProductTaxClasses($request)
+    function getRatesForAllProductTaxClasses($request)
     {
         return $this->_getRates($request, 'product_class_id', Mage_Tax_Model_Class::TAX_CLASS_TYPE_PRODUCT);
     }
@@ -569,7 +569,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param Varien_Object $request
      * @return array
      */
-    public function getRatesForAllCustomerTaxClasses($request)
+    function getRatesForAllCustomerTaxClasses($request)
     {
         return $this->_getRates($request, 'customer_class_id', Mage_Tax_Model_Class::TAX_CLASS_TYPE_CUSTOMER);
     }
@@ -580,7 +580,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   Varien_Object $request
      * @return  array
      */
-    public function getAppliedRates($request)
+    function getAppliedRates($request)
     {
         if (!$request->getCountryId() || !$request->getCustomerClassId() || !$request->getProductClassId()) {
             return [];
@@ -599,7 +599,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param Varien_Object $request
      * @return array
      */
-    public function getApplicableRateIds($request)
+    function getApplicableRateIds($request)
     {
         return $this->_getResource()->getApplicableRateIds($request);
     }
@@ -610,7 +610,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param array $rates
      * @return array
      */
-    public function reproduceProcess($rates)
+    function reproduceProcess($rates)
     {
         return $this->getResource()->getCalculationProcess(null, $rates);
     }
@@ -621,7 +621,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param int $customerTaxClass
      * @return array
      */
-    public function getRatesByCustomerTaxClass($customerTaxClass)
+    function getRatesByCustomerTaxClass($customerTaxClass)
     {
         return $this->getResource()->getRatesByCustomerTaxClass($customerTaxClass);
     }
@@ -633,7 +633,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param int $productTaxClass
      * @return array
      */
-    public function getRatesByCustomerAndProductTaxClasses($customerTaxClass, $productTaxClass)
+    function getRatesByCustomerAndProductTaxClasses($customerTaxClass, $productTaxClass)
     {
         return $this->getResource()->getRatesByCustomerTaxClass($customerTaxClass, $productTaxClass);
     }
@@ -648,7 +648,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   bool $round
      * @return  float
      */
-    public function calcTaxAmount($price, $taxRate, $priceIncludeTax = false, $round = true)
+    function calcTaxAmount($price, $taxRate, $priceIncludeTax = false, $round = true)
     {
         $taxRate = $taxRate / 100;
 
@@ -672,7 +672,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   int $precision
      * @return  float
      */
-    public function truncate($price, $precision = 4)
+    function truncate($price, $precision = 4)
     {
         $exp = pow(10, $precision);
         $price = floor($price * $exp) / $exp;
@@ -685,7 +685,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   float $price
      * @return  float
      */
-    public function round($price)
+    function round($price)
     {
         return Mage::app()->getStore()->roundPrice($price);
     }
@@ -696,7 +696,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   float $price
      * @return  float
      */
-    public function roundUp($price)
+    function roundUp($price)
     {
         return ceil($price * 100) / 100;
     }
@@ -707,7 +707,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param   float $price
      * @return  float
      */
-    public function roundDown($price)
+    function roundDown($price)
     {
         return floor($price * 100) / 100;
     }

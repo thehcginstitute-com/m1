@@ -40,7 +40,7 @@ class Mage_CatalogRule_Model_Action_Index_Refresh_Row extends Mage_CatalogRule_M
      *
      * @param array $args
      */
-    public function __construct(array $args)
+    function __construct(array $args)
     {
         parent::__construct($args);
         $this->_productId = $args['value'] instanceof Mage_Catalog_Model_Product

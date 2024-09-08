@@ -175,7 +175,7 @@ class Mage_Catalog_Model_Resource_Layer_Filter_Price extends Mage_Core_Model_Res
      * @param Mage_Catalog_Model_Layer_Filter_Price $filter
      * @return float
      */
-    public function getMaxPrice($filter)
+    function getMaxPrice($filter)
     {
         return $filter->getLayer()->getProductCollection()->getMaxPrice();
     }
@@ -241,7 +241,7 @@ class Mage_Catalog_Model_Resource_Layer_Filter_Price extends Mage_Core_Model_Res
      * @param int $range
      * @return array
      */
-    public function getCount($filter, $range)
+    function getCount($filter, $range)
     {
         $select = $this->_getSelect($filter);
         $priceExpression = $this->_getFullPriceExpression($filter, $select);
@@ -275,7 +275,7 @@ class Mage_Catalog_Model_Resource_Layer_Filter_Price extends Mage_Core_Model_Res
      * @param int $index    the range factor
      * @return $this
      */
-    public function applyFilterToCollection($filter, $range, $index)
+    function applyFilterToCollection($filter, $range, $index)
     {
         $select = $filter->getLayer()->getProductCollection()->getSelect();
         $priceExpr = $this->_getPriceExpression($filter, $select);
@@ -297,7 +297,7 @@ class Mage_Catalog_Model_Resource_Layer_Filter_Price extends Mage_Core_Model_Res
      * @param null|float $upperPrice
      * @return array
      */
-    public function loadPrices($filter, $limit, $offset = null, $lowerPrice = null, $upperPrice = null)
+    function loadPrices($filter, $limit, $offset = null, $lowerPrice = null, $upperPrice = null)
     {
         $select = $this->_getSelect($filter);
         $priceExpression = $this->_getPriceExpression($filter, $select);
@@ -324,7 +324,7 @@ class Mage_Catalog_Model_Resource_Layer_Filter_Price extends Mage_Core_Model_Res
      * @param float|null $lowerPrice
      * @return array|false
      */
-    public function loadPreviousPrices($filter, $price, $index, $lowerPrice = null)
+    function loadPreviousPrices($filter, $price, $index, $lowerPrice = null)
     {
         $select = $this->_getSelect($filter);
         $priceExpression = $this->_getPriceExpression($filter, $select);
@@ -349,7 +349,7 @@ class Mage_Catalog_Model_Resource_Layer_Filter_Price extends Mage_Core_Model_Res
      * @param null|int $upperPrice
      * @return array|false
      */
-    public function loadNextPrices($filter, $price, $rightIndex, $upperPrice = null)
+    function loadNextPrices($filter, $price, $rightIndex, $upperPrice = null)
     {
         $select = $this->_getSelect($filter);
 
@@ -384,7 +384,7 @@ class Mage_Catalog_Model_Resource_Layer_Filter_Price extends Mage_Core_Model_Res
      * @param Mage_Catalog_Model_Layer_Filter_Price $filter
      * @return $this
      */
-    public function applyPriceRange($filter)
+    function applyPriceRange($filter)
     {
         $interval = $filter->getInterval();
         if (!$interval) {

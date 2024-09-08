@@ -29,7 +29,7 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser_Sku extends Mage_Adminhtml_Block
      * @param array $arguments
      * @throws Exception
      */
-    public function __construct($arguments = [])
+    function __construct($arguments = [])
     {
         parent::__construct($arguments);
 
@@ -54,7 +54,7 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser_Sku extends Mage_Adminhtml_Block
      * Retrieve quote store object
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         return Mage::app()->getStore();
     }
@@ -167,7 +167,7 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser_Sku extends Mage_Adminhtml_Block
     /**
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/chooser', [
             '_current'          => true,

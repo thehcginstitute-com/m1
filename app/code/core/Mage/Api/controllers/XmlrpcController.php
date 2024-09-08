@@ -22,7 +22,7 @@
  */
 class Mage_Api_XmlrpcController extends Mage_Api_Controller_Action
 {
-    public function indexAction()
+    function indexAction()
     {
         $this->_getServer()->init($this, 'xmlrpc')
             ->run();

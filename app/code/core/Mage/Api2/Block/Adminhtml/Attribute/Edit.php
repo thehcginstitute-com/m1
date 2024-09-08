@@ -24,7 +24,7 @@ class Mage_Api2_Block_Adminhtml_Attribute_Edit extends Mage_Adminhtml_Block_Widg
     /**
      * Initialize edit form container
      */
-    public function __construct()
+    function __construct()
     {
         $this->_objectId   = 'id';
         $this->_blockGroup = 'api2';
@@ -41,7 +41,7 @@ class Mage_Api2_Block_Adminhtml_Attribute_Edit extends Mage_Adminhtml_Block_Widg
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         $userTypes = Mage_Api2_Model_Auth_User::getUserTypes();
         return $this->__('Edit attribute rules for %s Role', $userTypes[$this->getRequest()->getParam('type')]);

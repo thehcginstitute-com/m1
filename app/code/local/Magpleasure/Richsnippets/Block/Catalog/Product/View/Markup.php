@@ -63,7 +63,7 @@ class Magpleasure_Richsnippets_Block_Catalog_Product_View_Markup extends Mage_Ca
      *
      * @return int
      */
-    public function getAverageRating()
+    function getAverageRating()
     {
         if ($this->getProduct()->getRatingSummary()) {
             return $this->getProduct()->getRatingSummary()->getRatingSummary();
@@ -79,7 +79,7 @@ class Magpleasure_Richsnippets_Block_Catalog_Product_View_Markup extends Mage_Ca
      *
      * @return int
      */
-    public function getReviewsCount()
+    function getReviewsCount()
     {
         if ($this->getProduct()->getRatingSummary()) {
             $count = $this->getProduct()->getRatingSummary()->getReviewsCount();

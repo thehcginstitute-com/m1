@@ -43,7 +43,7 @@ class Mage_Eav_Model_Entity_Attribute_Backend_Time_Created extends Mage_Eav_Mode
      * @param Mage_Core_Model_Abstract $object
      * @return $this
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         $attributeCode = $this->getAttribute()->getAttributeCode();
         $date = $object->getData($attributeCode);
@@ -66,7 +66,7 @@ class Mage_Eav_Model_Entity_Attribute_Backend_Time_Created extends Mage_Eav_Mode
      * @param Varien_Object $object
      * @return $this
      */
-    public function afterLoad($object)
+    function afterLoad($object)
     {
         $attributeCode = $this->getAttribute()->getAttributeCode();
         $date = $object->getData($attributeCode);

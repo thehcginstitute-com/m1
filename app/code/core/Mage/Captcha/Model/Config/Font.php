@@ -27,7 +27,7 @@ class Mage_Captcha_Model_Config_Font
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $optionArray = [];
         foreach (Mage::helper('captcha')->getFonts() as $fontName => $fontData) {

@@ -78,7 +78,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return Mage_Eav_Model_Attribute_Data_Abstract
      */
-    public function setAttribute(Mage_Eav_Model_Entity_Attribute_Abstract $attribute)
+    function setAttribute(Mage_Eav_Model_Entity_Attribute_Abstract $attribute)
     {
         $this->_attribite = $attribute;
         return $this;
@@ -90,7 +90,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      * @throws Mage_Core_Exception
      * @return Mage_Eav_Model_Attribute
      */
-    public function getAttribute()
+    function getAttribute()
     {
         if (!$this->_attribite) {
             Mage::throwException(Mage::helper('eav')->__('Attribute object is undefined'));
@@ -104,7 +104,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      * @param string $scope
      * @return string
      */
-    public function setRequestScope($scope)
+    function setRequestScope($scope)
     {
         $this->_requestScope = $scope;
         return $this;
@@ -117,7 +117,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      * @param bool $flag
      * @return Mage_Eav_Model_Attribute_Data_Abstract
      */
-    public function setRequestScopeOnly($flag)
+    function setRequestScopeOnly($flag)
     {
         $this->_requestScopeOnly = (bool)$flag;
         return $this;
@@ -129,7 +129,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      * @param Mage_Core_Model_Abstract $entity
      * @return Mage_Eav_Model_Attribute_Data_Abstract
      */
-    public function setEntity(Mage_Core_Model_Abstract $entity)
+    function setEntity(Mage_Core_Model_Abstract $entity)
     {
         $this->_entity = $entity;
         return $this;
@@ -140,7 +140,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      *
      * @return Mage_Core_Model_Abstract
      */
-    public function getEntity()
+    function getEntity()
     {
         if (!$this->_entity) {
             Mage::throwException(Mage::helper('eav')->__('Entity object is undefined'));
@@ -154,7 +154,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      * @param array $data
      * @return Mage_Eav_Model_Attribute_Data_Abstract
      */
-    public function setExtractedData(array $data)
+    function setExtractedData(array $data)
     {
         $this->_extractedData = $data;
         return $this;
@@ -166,7 +166,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      * @param string $index
      * @return mixed
      */
-    public function getExtractedData($index = null)
+    function getExtractedData($index = null)
     {
         if (!is_null($index)) {
             return $this->_extractedData[$index] ?? null;
@@ -472,7 +472,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      * @param bool $flag
      * @return Mage_Eav_Model_Attribute_Data_Abstract
      */
-    public function setIsAjaxRequest($flag = true)
+    function setIsAjaxRequest($flag = true)
     {
         $this->_isAjax = (bool)$flag;
         return $this;
@@ -483,7 +483,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      *
      * @return bool
      */
-    public function getIsAjaxRequest()
+    function getIsAjaxRequest()
     {
         return $this->_isAjax;
     }
@@ -525,7 +525,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      * @param Zend_Controller_Request_Http $request
      * @return array|string
      */
-    abstract public function extractValue(Zend_Controller_Request_Http $request);
+    abstract function extractValue(Zend_Controller_Request_Http $request);
 
     /**
      * Validate data
@@ -534,7 +534,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      * @throws Mage_Core_Exception
      * @return bool
      */
-    abstract public function validateValue($value);
+    abstract function validateValue($value);
 
     /**
      * Export attribute value to entity model
@@ -542,7 +542,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      * @param array|string $value
      * @return Mage_Eav_Model_Attribute_Data_Abstract
      */
-    abstract public function compactValue($value);
+    abstract function compactValue($value);
 
     /**
      * Restore attribute value from SESSION to entity model
@@ -550,7 +550,7 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      * @param array|string $value
      * @return Mage_Eav_Model_Attribute_Data_Abstract
      */
-    abstract public function restoreValue($value);
+    abstract function restoreValue($value);
 
     /**
      * Return formatted attribute value from entity model
@@ -558,5 +558,5 @@ abstract class Mage_Eav_Model_Attribute_Data_Abstract
      * @param string $format
      * @return string|array
      */
-    abstract public function outputValue($format = Mage_Eav_Model_Attribute_Data::OUTPUT_FORMAT_TEXT);
+    abstract function outputValue($format = Mage_Eav_Model_Attribute_Data::OUTPUT_FORMAT_TEXT);
 }

@@ -35,7 +35,7 @@ class Mage_Adminhtml_Report_StatisticsController extends Mage_Adminhtml_Controll
      */
     protected $_adminSession = null;
 
-    public function _initAction()
+    function _initAction()
     {
         $act = $this->getRequest()->getActionName();
         if (!$act) {
@@ -48,7 +48,7 @@ class Mage_Adminhtml_Report_StatisticsController extends Mage_Adminhtml_Controll
         return $this;
     }
 
-    public function _initReportAction($blocks)
+    function _initReportAction($blocks)
     {
         if (!is_array($blocks)) {
             $blocks = [$blocks];
@@ -116,7 +116,7 @@ class Mage_Adminhtml_Report_StatisticsController extends Mage_Adminhtml_Controll
      *
      * @return $this
      */
-    public function refreshRecentAction()
+    function refreshRecentAction()
     {
         try {
             $collectionsNames = $this->_getCollectionNames();
@@ -146,7 +146,7 @@ class Mage_Adminhtml_Report_StatisticsController extends Mage_Adminhtml_Controll
      *
      * @return $this
      */
-    public function refreshLifetimeAction()
+    function refreshLifetimeAction()
     {
         try {
             $collectionsNames = $this->_getCollectionNames();
@@ -170,7 +170,7 @@ class Mage_Adminhtml_Report_StatisticsController extends Mage_Adminhtml_Controll
         return $this;
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Reports'))->_title($this->__('Sales'))->_title($this->__('Refresh Statistics'));
 

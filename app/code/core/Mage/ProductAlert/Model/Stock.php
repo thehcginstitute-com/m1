@@ -49,7 +49,7 @@ class Mage_ProductAlert_Model_Stock extends Mage_Core_Model_Abstract
     /**
      * @return Mage_ProductAlert_Model_Resource_Stock_Customer_Collection
      */
-    public function getCustomerCollection()
+    function getCustomerCollection()
     {
         return Mage::getResourceModel('productalert/stock_customer_collection');
     }
@@ -57,7 +57,7 @@ class Mage_ProductAlert_Model_Stock extends Mage_Core_Model_Abstract
     /**
      * @return $this
      */
-    public function loadByParam()
+    function loadByParam()
     {
         if (!is_null($this->getProductId()) && !is_null($this->getCustomerId()) && !is_null($this->getWebsiteId())) {
             $this->getResource()->loadByParam($this);
@@ -70,7 +70,7 @@ class Mage_ProductAlert_Model_Stock extends Mage_Core_Model_Abstract
      * @param int $websiteId
      * @return $this
      */
-    public function deleteCustomer($customerId, $websiteId = 0)
+    function deleteCustomer($customerId, $websiteId = 0)
     {
         $this->getResource()->deleteCustomer($this, $customerId, $websiteId);
         return $this;

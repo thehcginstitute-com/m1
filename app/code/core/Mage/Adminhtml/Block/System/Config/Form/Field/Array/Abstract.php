@@ -61,7 +61,7 @@ abstract class Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract exte
      * Check if columns are defined, set template
      *
      */
-    public function __construct()
+    function __construct()
     {
         if (!$this->_addButtonLabel) {
             $this->_addButtonLabel = Mage::helper('adminhtml')->__('Add');
@@ -78,7 +78,7 @@ abstract class Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract exte
      * @param string $name
      * @param array $params
      */
-    public function addColumn($name, $params)
+    function addColumn($name, $params)
     {
         $this->_columns[$name] = [
             'label'     => empty($params['label']) ? 'Column' : $params['label'],
@@ -123,7 +123,7 @@ abstract class Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract exte
      *
      * @return array
      */
-    public function getArrayRows()
+    function getArrayRows()
     {
         if ($this->_arrayRowsCache !== null) {
             return $this->_arrayRowsCache;

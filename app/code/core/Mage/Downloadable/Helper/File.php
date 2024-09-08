@@ -38,7 +38,7 @@ class Mage_Downloadable_Helper_File extends Mage_Core_Helper_Abstract
     /**
      * Populate self::_mimeTypes array with values that set in config or pre-defined
      */
-    public function __construct()
+    function __construct()
     {
         $this->_mimeTypes = $this->_getFileHelper()->getMimeTypes();
     }
@@ -63,7 +63,7 @@ class Mage_Downloadable_Helper_File extends Mage_Core_Helper_Abstract
      * @param array $file
      * @return string
      */
-    public function moveFileFromTmp($baseTmpPath, $basePath, $file)
+    function moveFileFromTmp($baseTmpPath, $basePath, $file)
     {
         if (isset($file[0])) {
             $fileName = $file[0]['file'];
@@ -128,7 +128,7 @@ class Mage_Downloadable_Helper_File extends Mage_Core_Helper_Abstract
      * @param string $file
      * @return string
      */
-    public function getFilePath($path, $file)
+    function getFilePath($path, $file)
     {
         $file = $this->_prepareFileForPath($file);
 
@@ -156,7 +156,7 @@ class Mage_Downloadable_Helper_File extends Mage_Core_Helper_Abstract
      * @param string $pathFile
      * @return string
      */
-    public function getFileFromPathFile($pathFile)
+    function getFileFromPathFile($pathFile)
     {
         $file = '';
 
@@ -171,7 +171,7 @@ class Mage_Downloadable_Helper_File extends Mage_Core_Helper_Abstract
      * @param string $filePath
      * @return string
      */
-    public function getFileType($filePath)
+    function getFileType($filePath)
     {
         $ext = substr($filePath, strrpos($filePath, '.') + 1);
         return $this->_getFileTypeByExt($ext);
@@ -194,7 +194,7 @@ class Mage_Downloadable_Helper_File extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getAllFileTypes()
+    function getAllFileTypes()
     {
         return array_values($this->getAllMineTypes());
     }
@@ -204,7 +204,7 @@ class Mage_Downloadable_Helper_File extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getAllMineTypes()
+    function getAllMineTypes()
     {
         return $this->_mimeTypes;
     }

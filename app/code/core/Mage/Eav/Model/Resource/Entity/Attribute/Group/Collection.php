@@ -37,7 +37,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Group_Collection extends Mage_Cor
      * @param int $setId
      * @return $this
      */
-    public function setAttributeSetFilter($setId)
+    function setAttributeSetFilter($setId)
     {
         $this->addFieldToFilter('attribute_set_id', ['eq' => $setId]);
         $this->setOrder('sort_order');
@@ -50,7 +50,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Group_Collection extends Mage_Cor
      * @param string $direction
      * @return $this
      */
-    public function setSortOrder($direction = self::SORT_ORDER_ASC)
+    function setSortOrder($direction = self::SORT_ORDER_ASC)
     {
         return $this->addOrder('sort_order', $direction);
     }

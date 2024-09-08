@@ -10,7 +10,7 @@
 class Magazento_Orderexport2_Block_Admin_Import_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
 
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'item_id';
         $this->_controller = 'admin_import';
@@ -26,7 +26,7 @@ class Magazento_Orderexport2_Block_Admin_Import_Edit extends Mage_Adminhtml_Bloc
 
     }
 
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('orderexport2')->__("Import from XML file");
     }

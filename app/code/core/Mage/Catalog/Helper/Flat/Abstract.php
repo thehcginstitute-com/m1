@@ -56,7 +56,7 @@ abstract class Mage_Catalog_Helper_Flat_Abstract extends Mage_Core_Helper_Abstra
      * @param null|bool|int|Mage_Core_Model_Store $store Store(id) for which the value is checked
      * @return bool
      */
-    abstract public function isBuilt($store = null);
+    abstract function isBuilt($store = null);
 
     /**
      * Check if Catalog Category Flat Data is enabled
@@ -65,7 +65,7 @@ abstract class Mage_Catalog_Helper_Flat_Abstract extends Mage_Core_Helper_Abstra
      *
      * @return bool
      */
-    abstract public function isEnabled($deprecatedParam = false);
+    abstract function isEnabled($deprecatedParam = false);
 
     /**
      * Check if Catalog Category Flat Data is available
@@ -73,7 +73,7 @@ abstract class Mage_Catalog_Helper_Flat_Abstract extends Mage_Core_Helper_Abstra
      *
      * @return bool
      */
-    public function isAccessible()
+    function isAccessible()
     {
         if (is_null($this->_isAccessible)) {
             $this->_isAccessible = $this->isEnabled()
@@ -87,7 +87,7 @@ abstract class Mage_Catalog_Helper_Flat_Abstract extends Mage_Core_Helper_Abstra
      *
      * @return bool
      */
-    public function isAvailable()
+    function isAvailable()
     {
         if (is_null($this->_isAvailable)) {
             $this->_isAvailable = $this->isAccessible() && !$this->getProcess()->isLocked();
@@ -100,7 +100,7 @@ abstract class Mage_Catalog_Helper_Flat_Abstract extends Mage_Core_Helper_Abstra
      *
      * @return Mage_Index_Model_Process
      */
-    public function getProcess()
+    function getProcess()
     {
         if (is_null($this->_process)) {
             $this->_process = Mage::getModel('index/process')

@@ -23,7 +23,7 @@
 class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle extends Mage_Adminhtml_Block_Widget implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
     protected $_product = null;
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setSkipGenerateContent(true);
@@ -33,7 +33,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle extends Mage_A
     /**
      * @return string
      */
-    public function getTabUrl()
+    function getTabUrl()
     {
         return $this->getUrl('*/bundle_product_edit/form', ['_current' => true]);
     }
@@ -41,7 +41,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle extends Mage_A
     /**
      * @return string
      */
-    public function getTabClass()
+    function getTabClass()
     {
         return 'ajax';
     }
@@ -80,7 +80,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle extends Mage_A
      *
      * @return bool
      */
-    public function isReadonly()
+    function isReadonly()
     {
         return $this->getProduct()->getCompositeReadonly();
     }
@@ -88,7 +88,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle extends Mage_A
     /**
      * @return string
      */
-    public function getAddButtonHtml()
+    function getAddButtonHtml()
     {
         return $this->getChildHtml('add_button');
     }
@@ -96,7 +96,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle extends Mage_A
     /**
      * @return string
      */
-    public function getOptionsBoxHtml()
+    function getOptionsBoxHtml()
     {
         return $this->getChildHtml('options_box');
     }
@@ -104,7 +104,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle extends Mage_A
     /**
      * @return string
      */
-    public function getFieldSuffix()
+    function getFieldSuffix()
     {
         return 'product';
     }
@@ -112,7 +112,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle extends Mage_A
     /**
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return Mage::registry('product');
     }
@@ -120,7 +120,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle extends Mage_A
     /**
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('bundle')->__('Bundle Items');
     }
@@ -128,7 +128,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle extends Mage_A
     /**
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('bundle')->__('Bundle Items');
     }
@@ -136,7 +136,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle extends Mage_A
     /**
      * @return bool
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -144,7 +144,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Edit_Tab_Bundle extends Mage_A
     /**
      * @return bool
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }

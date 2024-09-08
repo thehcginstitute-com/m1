@@ -16,7 +16,7 @@ class Nwdthemes_Revslider_Block_Adminhtml_Slide extends Nwdthemes_Revslider_Bloc
 	 * Constructor
 	 */
 
-	public function __construct() {
+	function __construct() {
 
 		parent::__construct();
 

@@ -51,7 +51,7 @@ class Mage_Uploader_Block_Multiple extends Mage_Uploader_Block_Abstract
      *
      * @return string
      */
-    public function getUploadButtonHtml()
+    function getUploadButtonHtml()
     {
         return $this->getChildHtml('upload_button');
     }

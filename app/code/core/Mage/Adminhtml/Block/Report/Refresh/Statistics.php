@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Report_Refresh_Statistics extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'report_refresh_statistics';
         $this->_headerText = Mage::helper('reports')->__('Refresh Statistics');
@@ -30,7 +30,7 @@ class Mage_Adminhtml_Block_Report_Refresh_Statistics extends Mage_Adminhtml_Bloc
         $this->_removeButton('add');
     }
 
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head head-report';
     }

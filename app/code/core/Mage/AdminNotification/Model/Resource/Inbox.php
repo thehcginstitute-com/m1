@@ -37,7 +37,7 @@ class Mage_AdminNotification_Model_Resource_Inbox extends Mage_Core_Model_Resour
      * @param Mage_AdminNotification_Model_Inbox $object
      * @return $this
      */
-    public function loadLatestNotice(Mage_AdminNotification_Model_Inbox $object)
+    function loadLatestNotice(Mage_AdminNotification_Model_Inbox $object)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()
@@ -63,7 +63,7 @@ class Mage_AdminNotification_Model_Resource_Inbox extends Mage_Core_Model_Resour
      * @param Mage_AdminNotification_Model_Inbox $object
      * @return array
      */
-    public function getNoticeStatus(Mage_AdminNotification_Model_Inbox $object)
+    function getNoticeStatus(Mage_AdminNotification_Model_Inbox $object)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()
@@ -82,7 +82,7 @@ class Mage_AdminNotification_Model_Resource_Inbox extends Mage_Core_Model_Resour
      * @param Mage_AdminNotification_Model_Inbox $object
      * @param array $data
      */
-    public function parse(Mage_AdminNotification_Model_Inbox $object, array $data)
+    function parse(Mage_AdminNotification_Model_Inbox $object, array $data)
     {
         $adapter = $this->_getWriteAdapter();
         foreach ($data as $item) {

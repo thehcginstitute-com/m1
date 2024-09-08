@@ -124,7 +124,7 @@ class Mage_Core_Model_Translate_Inline
      * @param mixed $store
      * @return bool
      */
-    public function isAllowed($store = null)
+    function isAllowed($store = null)
     {
         if (is_null($store)) {
             $store = Mage::app()->getStore();
@@ -155,7 +155,7 @@ class Mage_Core_Model_Translate_Inline
      * @param array $translate
      * @return $this
      */
-    public function processAjaxPost($translate)
+    function processAjaxPost($translate)
     {
         if (!$this->isAllowed()) {
             return $this;
@@ -185,7 +185,7 @@ class Mage_Core_Model_Translate_Inline
      * @param array|string $body
      * @return $this
      */
-    public function stripInlineTranslations(&$body)
+    function stripInlineTranslations(&$body)
     {
         if (is_array($body)) {
             foreach ($body as &$part) {
@@ -203,7 +203,7 @@ class Mage_Core_Model_Translate_Inline
      * @param array|string $body
      * @return $this
      */
-    public function processResponseBody(&$body)
+    function processResponseBody(&$body)
     {
         if (!$this->isAllowed()) {
             if (Mage::getDesign()->getArea() == 'adminhtml') {
@@ -559,7 +559,7 @@ class Mage_Core_Model_Translate_Inline
      * @deprecated 1.3.2.2
      * @return bool
      */
-    public function getIsAjaxRequest()
+    function getIsAjaxRequest()
     {
         return (bool)Mage::app()->getRequest()->getQuery('isAjax');
     }
@@ -571,7 +571,7 @@ class Mage_Core_Model_Translate_Inline
      * @deprecated 1.3.2.2
      * @return $this
      */
-    public function setIsAjaxRequest($flag)
+    function setIsAjaxRequest($flag)
     {
         Mage::app()->getRequest()->setQuery('isAjax', (int) (bool)$flag);
         return $this;
@@ -582,7 +582,7 @@ class Mage_Core_Model_Translate_Inline
      *
      * @return bool
      */
-    public function getIsJson()
+    function getIsJson()
     {
         return $this->_isJson;
     }
@@ -593,7 +593,7 @@ class Mage_Core_Model_Translate_Inline
      * @param bool $flag
      * @return $this
      */
-    public function setIsJson($flag)
+    function setIsJson($flag)
     {
         $this->_isJson = (bool)$flag;
         return $this;

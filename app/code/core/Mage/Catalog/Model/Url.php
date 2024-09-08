@@ -138,7 +138,7 @@ class Mage_Catalog_Model_Url
      * @param int $storeId
      * @return Mage_Core_Model_Store|array
      */
-    public function getStores($storeId = null)
+    function getStores($storeId = null)
     {
         return $this->getResource()->getStores($storeId);
     }
@@ -148,7 +148,7 @@ class Mage_Catalog_Model_Url
      *
      * @return Mage_Catalog_Model_Resource_Url
      */
-    public function getResource()
+    function getResource()
     {
         if (is_null($this->_resourceModel)) {
             $this->_resourceModel = Mage::getResourceModel('catalog/url');
@@ -161,7 +161,7 @@ class Mage_Catalog_Model_Url
      *
      * @return Mage_Catalog_Model_Category
      */
-    public function getCategoryModel()
+    function getCategoryModel()
     {
         return $this->getResource()->getCategoryModel();
     }
@@ -171,7 +171,7 @@ class Mage_Catalog_Model_Url
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProductModel()
+    function getProductModel()
     {
         return $this->getResource()->getProductModel();
     }
@@ -182,7 +182,7 @@ class Mage_Catalog_Model_Url
      * @param int $storeId
      * @return Varien_Object
      */
-    public function getStoreRootCategory($storeId)
+    function getStoreRootCategory($storeId)
     {
         if (!array_key_exists($storeId, $this->_rootCategories)) {
             $category = null;
@@ -203,7 +203,7 @@ class Mage_Catalog_Model_Url
      * @param bool $flag
      * @return $this
      */
-    public function setShouldSaveRewritesHistory($flag)
+    function setShouldSaveRewritesHistory($flag)
     {
         $this->_saveRewritesHistory = (bool)$flag;
         return $this;
@@ -215,7 +215,7 @@ class Mage_Catalog_Model_Url
      * @param int $storeId Store View
      * @return bool
      */
-    public function getShouldSaveRewritesHistory($storeId = null)
+    function getShouldSaveRewritesHistory($storeId = null)
     {
         return $this->_saveRewritesHistory ?? Mage::helper('catalog')->shouldSaveUrlRewritesHistory($storeId);
     }
@@ -227,7 +227,7 @@ class Mage_Catalog_Model_Url
      * @param int $storeId
      * @return $this
      */
-    public function refreshRewrites($storeId = null)
+    function refreshRewrites($storeId = null)
     {
         if (is_null($storeId)) {
             foreach ($this->getStores() as $store) {
@@ -420,7 +420,7 @@ class Mage_Catalog_Model_Url
      * @param bool $refreshProducts
      * @return $this
      */
-    public function refreshCategoryRewrite($categoryId, $storeId = null, $refreshProducts = true)
+    function refreshCategoryRewrite($categoryId, $storeId = null, $refreshProducts = true)
     {
         if (is_null($storeId)) {
             foreach ($this->getStores() as $store) {
@@ -457,7 +457,7 @@ class Mage_Catalog_Model_Url
      * @param int|null $storeId
      * @return $this
      */
-    public function refreshProductRewrite($productId, $storeId = null)
+    function refreshProductRewrite($productId, $storeId = null)
     {
         if (is_null($storeId)) {
             foreach ($this->getStores() as $store) {
@@ -507,7 +507,7 @@ class Mage_Catalog_Model_Url
      * @param int $storeId
      * @return $this
      */
-    public function refreshProductRewrites($storeId)
+    function refreshProductRewrites($storeId)
     {
         $this->_categories      = [];
         $storeRootCategoryId    = $this->getStores($storeId)->getRootCategoryId();
@@ -567,7 +567,7 @@ class Mage_Catalog_Model_Url
      * @param int $storeId
      * @return $this
      */
-    public function clearStoreInvalidRewrites($storeId = null)
+    function clearStoreInvalidRewrites($storeId = null)
     {
         if (is_null($storeId)) {
             foreach ($this->getStores() as $store) {
@@ -591,7 +591,7 @@ class Mage_Catalog_Model_Url
      * @param string $idPath
      * @return string
      */
-    public function getUnusedPath($storeId, $requestPath, $idPath)
+    function getUnusedPath($storeId, $requestPath, $idPath)
     {
         return $this->getUnusedPathByUrlKey($storeId, $requestPath, $idPath, '');
     }
@@ -607,7 +607,7 @@ class Mage_Catalog_Model_Url
      * @param string $urlKey
      * @return string
      */
-    public function getUnusedPathByUrlKey($storeId, $requestPath, $idPath, $urlKey)
+    function getUnusedPathByUrlKey($storeId, $requestPath, $idPath, $urlKey)
     {
         if (strpos($idPath, 'product') !== false) {
             $suffix = $this->getProductUrlSuffix($storeId);
@@ -671,7 +671,7 @@ class Mage_Catalog_Model_Url
      * @param int $storeId
      * @return string
      */
-    public function getProductUrlSuffix($storeId)
+    function getProductUrlSuffix($storeId)
     {
         return Mage::helper('catalog/product')->getProductUrlSuffix($storeId);
     }
@@ -682,7 +682,7 @@ class Mage_Catalog_Model_Url
      * @param int $storeId
      * @return string
      */
-    public function getCategoryUrlSuffix($storeId)
+    function getCategoryUrlSuffix($storeId)
     {
         return Mage::helper('catalog/category')->getCategoryUrlSuffix($storeId);
     }
@@ -694,7 +694,7 @@ class Mage_Catalog_Model_Url
      * @param string $parentPath
      * @return string
      */
-    public function getCategoryRequestPath($category, $parentPath)
+    function getCategoryRequestPath($category, $parentPath)
     {
         $storeId = $category->getStoreId();
         $idPath  = $this->generatePath('id', null, $category);
@@ -758,7 +758,7 @@ class Mage_Catalog_Model_Url
      * @param Varien_Object|Mage_Catalog_Model_Category $category
      * @return string
      */
-    public function getProductRequestPath($product, $category)
+    function getProductRequestPath($product, $category)
     {
         if ($product->getUrlKey() == '') {
             $urlKey = $this->getProductModel()->formatUrlKey($product->getName());
@@ -854,7 +854,7 @@ class Mage_Catalog_Model_Url
      * @return string
      * @throws Mage_Core_Exception
      */
-    public function generatePath($type = 'target', $product = null, $category = null, $parentPath = null)
+    function generatePath($type = 'target', $product = null, $category = null, $parentPath = null)
     {
         if (!$product && !$category) {
             Mage::throwException(Mage::helper('core')->__('Please specify either a category or a product, or both.'));
@@ -952,7 +952,7 @@ class Mage_Catalog_Model_Url
      *
      * @return string
      */
-    public function generateUniqueIdPath()
+    function generateUniqueIdPath()
     {
         return str_replace('0.', '', str_replace(' ', '_', microtime()));
     }

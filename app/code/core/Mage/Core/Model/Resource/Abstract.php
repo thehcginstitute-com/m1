@@ -25,7 +25,7 @@ abstract class Mage_Core_Model_Resource_Abstract
     /**
      * Main constructor
      */
-    public function __construct()
+    function __construct()
     {
         /**
          * Please override this one instead of overriding real __construct constructor
@@ -59,7 +59,7 @@ abstract class Mage_Core_Model_Resource_Abstract
      *
      * @return $this
      */
-    public function beginTransaction()
+    function beginTransaction()
     {
         $this->_getWriteAdapter()->beginTransaction();
         return $this;
@@ -71,7 +71,7 @@ abstract class Mage_Core_Model_Resource_Abstract
      * @param callable $callback
      * @return $this
      */
-    public function addCommitCallback($callback)
+    function addCommitCallback($callback)
     {
         $adapterKey = spl_object_hash($this->_getWriteAdapter());
         self::$_commitCallbacks[$adapterKey][] = $callback;
@@ -83,7 +83,7 @@ abstract class Mage_Core_Model_Resource_Abstract
      *
      * @return $this
      */
-    public function commit()
+    function commit()
     {
         $this->_getWriteAdapter()->commit();
         /**
@@ -107,7 +107,7 @@ abstract class Mage_Core_Model_Resource_Abstract
      *
      * @return $this
      */
-    public function rollBack()
+    function rollBack()
     {
         $this->_getWriteAdapter()->rollBack();
         if ($this->_getWriteAdapter()->getTransactionLevel() === 0) {
@@ -126,7 +126,7 @@ abstract class Mage_Core_Model_Resource_Abstract
      * @param bool $includeTime
      * @return string|null
      */
-    public function formatDate($date, $includeTime = true)
+    function formatDate($date, $includeTime = true)
     {
         return Varien_Date::formatDate($date, $includeTime);
     }
@@ -137,7 +137,7 @@ abstract class Mage_Core_Model_Resource_Abstract
      * @param string $str
      * @return int
      */
-    public function mktime($str)
+    function mktime($str)
     {
         return Varien_Date::toTimestamp($str);
     }

@@ -101,7 +101,7 @@ class Mage_CatalogSearch_Model_Indexer_Fulltext extends Mage_Index_Model_Indexer
      *
      * @return string
      */
-    public function getName()
+    function getName()
     {
         return Mage::helper('catalogsearch')->__('Catalog Search Index');
     }
@@ -111,7 +111,7 @@ class Mage_CatalogSearch_Model_Indexer_Fulltext extends Mage_Index_Model_Indexer
      *
      * @return string
      */
-    public function getDescription()
+    function getDescription()
     {
         return Mage::helper('catalogsearch')->__('Rebuild Catalog product fulltext search index');
     }
@@ -124,7 +124,7 @@ class Mage_CatalogSearch_Model_Indexer_Fulltext extends Mage_Index_Model_Indexer
      * @param Mage_Index_Model_Event $event
      * @return bool
      */
-    public function matchEvent(Mage_Index_Model_Event $event)
+    function matchEvent(Mage_Index_Model_Event $event)
     {
         $data       = $event->getNewData();
         if (isset($data[self::EVENT_MATCH_RESULT_KEY])) {
@@ -436,7 +436,7 @@ class Mage_CatalogSearch_Model_Indexer_Fulltext extends Mage_Index_Model_Indexer
      * Rebuild all index data
      *
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $resourceModel = $this->_getIndexer()->getResource();
         $resourceModel->beginTransaction();

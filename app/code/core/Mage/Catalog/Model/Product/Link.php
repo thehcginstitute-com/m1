@@ -49,7 +49,7 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
     /**
      * @return $this
      */
-    public function useRelatedLinks()
+    function useRelatedLinks()
     {
         $this->setLinkTypeId(self::LINK_TYPE_RELATED);
         return $this;
@@ -58,7 +58,7 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
     /**
      * @return $this
      */
-    public function useGroupedLinks()
+    function useGroupedLinks()
     {
         $this->setLinkTypeId(self::LINK_TYPE_GROUPED);
         return $this;
@@ -67,7 +67,7 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
     /**
      * @return $this
      */
-    public function useUpSellLinks()
+    function useUpSellLinks()
     {
         $this->setLinkTypeId(self::LINK_TYPE_UPSELL);
         return $this;
@@ -76,7 +76,7 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
     /**
      * @return $this
      */
-    public function useCrossSellLinks()
+    function useCrossSellLinks()
     {
         $this->setLinkTypeId(self::LINK_TYPE_CROSSSELL);
         return $this;
@@ -88,7 +88,7 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
      * @param   string $type
      * @return  string
      */
-    public function getAttributeTypeTable($type)
+    function getAttributeTypeTable($type)
     {
         return $this->_getResource()->getAttributeTypeTable($type);
     }
@@ -97,7 +97,7 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
      * Retrieve linked product collection
      * @return Mage_Catalog_Model_Resource_Product_Link_Product_Collection
      */
-    public function getProductCollection()
+    function getProductCollection()
     {
         return Mage::getResourceModel('catalog/product_link_product_collection')
             ->setLinkModel($this);
@@ -107,7 +107,7 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
      * Retrieve link collection
      * @return Mage_Catalog_Model_Resource_Product_Link_Collection
      */
-    public function getLinkCollection()
+    function getLinkCollection()
     {
         return Mage::getResourceModel('catalog/product_link_collection')
             ->setLinkModel($this);
@@ -117,7 +117,7 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
      * @param int|null $type
      * @return array
      */
-    public function getAttributes($type = null)
+    function getAttributes($type = null)
     {
         if (is_null($type)) {
             $type = $this->getLinkTypeId();
@@ -131,7 +131,7 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
      * @param   Mage_Catalog_Model_Product $product
      * @return  Mage_Catalog_Model_Product_Link
      */
-    public function saveProductRelations($product)
+    function saveProductRelations($product)
     {
         $data = $product->getRelatedLinkData();
         if (!is_null($data)) {
@@ -154,7 +154,7 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function saveGroupedLinks($product)
+    function saveGroupedLinks($product)
     {
         $data = $product->getGroupedLinkData();
         if (!is_null($data)) {

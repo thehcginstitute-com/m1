@@ -69,7 +69,7 @@ class Mage_Api_Model_Server_Adapter_Soap extends Varien_Object implements Mage_A
      * @param string $handler
      * @return $this
      */
-    public function setHandler($handler)
+    function setHandler($handler)
     {
         $this->setData('handler', $handler);
         return $this;
@@ -80,7 +80,7 @@ class Mage_Api_Model_Server_Adapter_Soap extends Varien_Object implements Mage_A
      *
      * @return string
      */
-    public function getHandler()
+    function getHandler()
     {
         return $this->getData('handler');
     }
@@ -91,7 +91,7 @@ class Mage_Api_Model_Server_Adapter_Soap extends Varien_Object implements Mage_A
      * @param Mage_Api_Controller_Action $controller
      * @return $this
      */
-    public function setController(Mage_Api_Controller_Action $controller)
+    function setController(Mage_Api_Controller_Action $controller)
     {
         $this->setData('controller', $controller);
         return $this;
@@ -102,7 +102,7 @@ class Mage_Api_Model_Server_Adapter_Soap extends Varien_Object implements Mage_A
      *
      * @return Varien_Object
      */
-    public function getController()
+    function getController()
     {
         $controller = $this->getData('controller');
 
@@ -122,7 +122,7 @@ class Mage_Api_Model_Server_Adapter_Soap extends Varien_Object implements Mage_A
      * @return $this
      * @throws SoapFault
      */
-    public function run()
+    function run()
     {
         $apiConfigCharset = Mage::getStoreConfig("api/config/charset");
 
@@ -177,7 +177,7 @@ class Mage_Api_Model_Server_Adapter_Soap extends Varien_Object implements Mage_A
      * @param int $code
      * @param string $message
      */
-    public function fault($code, $message)
+    function fault($code, $message)
     {
         if ($this->_extensionLoaded()) {
             throw new SoapFault($code, $message);

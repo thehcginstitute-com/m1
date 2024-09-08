@@ -28,12 +28,12 @@ class Mage_Adminhtml_Block_Widget_Form_Renderer_Element extends Mage_Adminhtml_B
         $this->setTemplate('widget/form/renderer/element.phtml');
     }
 
-    public function getElement()
+    function getElement()
     {
         return $this->_element;
     }
 
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         $this->_element = $element;
         return $this->toHtml();

@@ -74,7 +74,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
     /**
      * Catalog categories index action
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_forward('edit');
     }
@@ -82,7 +82,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
     /**
      * Add new category form
      */
-    public function addAction()
+    function addAction()
     {
         Mage::getSingleton('admin/session')->unsActiveTabId();
         $this->_forward('edit');
@@ -91,7 +91,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
     /**
      * Edit category page
      */
-    public function editAction()
+    function editAction()
     {
         $params['_current'] = true;
         $redirect = false;
@@ -210,7 +210,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
      * WYSIWYG editor action for ajax request
      *
      */
-    public function wysiwygAction()
+    function wysiwygAction()
     {
         $elementId = $this->getRequest()->getParam('element_id', md5(microtime()));
         $storeId = $this->getRequest()->getParam('store_id', 0);
@@ -228,7 +228,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
     /**
      * Get tree node (Ajax version)
      */
-    public function categoriesJsonAction()
+    function categoriesJsonAction()
     {
         if ($this->getRequest()->getParam('expand_all')) {
             Mage::getSingleton('admin/session')->setIsTreeWasExpanded(true);
@@ -251,7 +251,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
     /**
      * Category save
      */
-    public function saveAction()
+    function saveAction()
     {
         if (!$category = $this->_initCategory()) {
             return;
@@ -358,7 +358,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
     /**
      * Move category action
      */
-    public function moveAction()
+    function moveAction()
     {
         $category = $this->_initCategory();
         if (!$category) {
@@ -388,7 +388,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
     /**
      * Delete category action
      */
-    public function deleteAction()
+    function deleteAction()
     {
         if ($id = (int) $this->getRequest()->getParam('id')) {
             try {
@@ -416,7 +416,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
      * Grid Action
      * Display list of products related to current category
      */
-    public function gridAction()
+    function gridAction()
     {
         if (!$category = $this->_initCategory(true)) {
             return;
@@ -431,7 +431,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
      * Tree Action
      * Retrieve category tree
      */
-    public function treeAction()
+    function treeAction()
     {
         $storeId = (int) $this->getRequest()->getParam('store');
         $categoryId = (int) $this->getRequest()->getParam('id');
@@ -466,7 +466,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
     /**
     * Build response for refresh input element 'path' in form
     */
-    public function refreshPathAction()
+    function refreshPathAction()
     {
         if ($id = (int) $this->getRequest()->getParam('id')) {
             $category = Mage::getModel('catalog/category')->load($id);
@@ -484,7 +484,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions('delete');
         return parent::preDispatch();

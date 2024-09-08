@@ -24,7 +24,7 @@ class Mage_Sales_Model_Order_Invoice_Total_Discount extends Mage_Sales_Model_Ord
      * @param Mage_Sales_Model_Order_Invoice $invoice
      * @return $this
      */
-    public function collect(Mage_Sales_Model_Order_Invoice $invoice)
+    function collect(Mage_Sales_Model_Order_Invoice $invoice)
     {
         $invoice->setDiscountAmount(0);
         $invoice->setBaseDiscountAmount(0);

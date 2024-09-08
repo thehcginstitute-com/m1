@@ -173,7 +173,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
      * @param   mixed $product
      * @return  Mage_CatalogIndex_Model_Indexer
      */
-    public function cleanup($product)
+    function cleanup($product)
     {
         $store = $product->getNeedStoreForReindex() === true ? $this->_getStores() : null;
         $this->_getResource()->clear(true, true, true, true, true, $product, $store);
@@ -189,7 +189,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
      * @param   mixed $stores
      * @return  Mage_CatalogIndex_Model_Indexer
      */
-    public function plainReindex($products = null, $attributes = null, $stores = null)
+    function plainReindex($products = null, $attributes = null, $stores = null)
     {
         /**
          * Check indexer flag
@@ -410,7 +410,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
      * @param array $prices
      * @return $this
      */
-    public function _walkCollectionRelation($collection, $store, $attributes = [], $prices = [])
+    function _walkCollectionRelation($collection, $store, $attributes = [], $prices = [])
     {
         if ($store instanceof Mage_Core_Model_Website) {
             $storeObject = $store->getDefaultStore();
@@ -516,7 +516,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
      * @param string $type
      * @return Mage_CatalogIndex_Model_Data_Abstract
      */
-    public function getRetreiver($type)
+    function getRetreiver($type)
     {
         return Mage::getSingleton('catalogindex/retreiver')->getRetreiver($type);
     }
@@ -526,7 +526,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function queueIndexing()
+    function queueIndexing()
     {
         Mage::getModel('catalogindex/catalog_index_flag')
             ->loadSelf()
@@ -580,7 +580,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Resource_Product_Collection $productCollection
      * @return array
      */
-    public function buildEntityPriceFilter($attributes, $values, &$filteredAttributes, $productCollection)
+    function buildEntityPriceFilter($attributes, $values, &$filteredAttributes, $productCollection)
     {
         $additionalCalculations = [];
         $filter = [];
@@ -680,7 +680,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Resource_Product_Collection $productCollection
      * @return array
      */
-    public function buildEntityFilter($attributes, $values, &$filteredAttributes, $productCollection)
+    function buildEntityFilter($attributes, $values, &$filteredAttributes, $productCollection)
     {
         $filter = [];
         $store = Mage::app()->getStore()->getId();
@@ -773,7 +773,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
      * @param Varien_Object $object
      * @return $this
      */
-    public function prepareCatalogProductFlatColumns(Varien_Object $object)
+    function prepareCatalogProductFlatColumns(Varien_Object $object)
     {
         $this->_getResource()->prepareCatalogProductFlatColumns($object);
 
@@ -786,7 +786,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
      * @param Varien_Object $object
      * @return $this
      */
-    public function prepareCatalogProductFlatIndexes(Varien_Object $object)
+    function prepareCatalogProductFlatIndexes(Varien_Object $object)
     {
         $this->_getResource()->prepareCatalogProductFlatIndexes($object);
 
@@ -801,7 +801,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
      * @param string $resourceTable
      * @return $this
      */
-    public function updateCatalogProductFlat($store, $products = null, $resourceTable = null)
+    function updateCatalogProductFlat($store, $products = null, $resourceTable = null)
     {
         if ($store instanceof Mage_Core_Model_Store) {
             $store = $store->getId();

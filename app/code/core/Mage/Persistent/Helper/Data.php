@@ -47,7 +47,7 @@ class Mage_Persistent_Helper_Data extends Mage_Core_Helper_Data
      * @param int|string|Mage_Core_Model_Store $store
      * @return bool
      */
-    public function isEnabled($store = null)
+    function isEnabled($store = null)
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_ENABLED, $store);
     }
@@ -58,7 +58,7 @@ class Mage_Persistent_Helper_Data extends Mage_Core_Helper_Data
      * @param int|string|Mage_Core_Model_Store $store
      * @return bool
      */
-    public function isRememberMeEnabled($store = null)
+    function isRememberMeEnabled($store = null)
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_REMEMBER_ME_ENABLED, $store);
     }
@@ -69,7 +69,7 @@ class Mage_Persistent_Helper_Data extends Mage_Core_Helper_Data
      * @param int|string|Mage_Core_Model_Store $store
      * @return bool
      */
-    public function isRememberMeCheckedDefault($store = null)
+    function isRememberMeCheckedDefault($store = null)
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_REMEMBER_ME_DEFAULT, $store);
     }
@@ -80,7 +80,7 @@ class Mage_Persistent_Helper_Data extends Mage_Core_Helper_Data
      * @param int|string|Mage_Core_Model_Store $store
      * @return bool
      */
-    public function isShoppingCartPersist($store = null)
+    function isShoppingCartPersist($store = null)
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_PERSIST_SHOPPING_CART, $store);
     }
@@ -91,7 +91,7 @@ class Mage_Persistent_Helper_Data extends Mage_Core_Helper_Data
      * @param int|string|Mage_Core_Model_Store $store
      * @return int
      */
-    public function getLifeTime($store = null)
+    function getLifeTime($store = null)
     {
         $lifeTime = (int) Mage::getStoreConfig(self::XML_PATH_LIFE_TIME, $store);
         return ($lifeTime < 0) ? 0 : $lifeTime;
@@ -102,7 +102,7 @@ class Mage_Persistent_Helper_Data extends Mage_Core_Helper_Data
      *
      * @return bool
      */
-    public function getClearOnLogout()
+    function getClearOnLogout()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_LOGOUT_CLEAR);
     }
@@ -112,7 +112,7 @@ class Mage_Persistent_Helper_Data extends Mage_Core_Helper_Data
      *
      * @return string
      */
-    public function getUnsetCookieUrl()
+    function getUnsetCookieUrl()
     {
         return $this->_getUrl('persistent/index/unsetCookie');
     }
@@ -122,7 +122,7 @@ class Mage_Persistent_Helper_Data extends Mage_Core_Helper_Data
      *
      * @return string
      */
-    public function getPersistentName()
+    function getPersistentName()
     {
         return $this->__('(Not %s?)', $this->escapeHtml(Mage::helper('persistent/session')->getCustomer()->getName()));
     }
@@ -132,7 +132,7 @@ class Mage_Persistent_Helper_Data extends Mage_Core_Helper_Data
      *
      * @return string
      */
-    public function getPersistentConfigFilePath()
+    function getPersistentConfigFilePath()
     {
         return Mage::getConfig()->getModuleDir('etc', $this->_getModuleName()) . DS . $this->_configFileName;
     }
@@ -143,7 +143,7 @@ class Mage_Persistent_Helper_Data extends Mage_Core_Helper_Data
      * @param Varien_Event_Observer $observer
      * @return bool
      */
-    public function canProcess($observer)
+    function canProcess($observer)
     {
         $action = $observer->getEvent()->getAction();
         $controllerAction = $observer->getEvent()->getControllerAction();
@@ -163,7 +163,7 @@ class Mage_Persistent_Helper_Data extends Mage_Core_Helper_Data
      * @param string $url
      * @return string
      */
-    public function getCreateAccountUrl($url)
+    function getCreateAccountUrl($url)
     {
         if (Mage::helper('checkout')->isContextCheckout()) {
             $url = Mage::helper('core/url')->addRequestParam($url, ['context' => 'checkout']);

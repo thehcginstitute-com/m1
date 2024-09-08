@@ -22,5 +22,5 @@
  */
 interface Mage_Dataflow_Model_Convert_Mapper_Interface
 {
-    public function map();
+    function map();
 }

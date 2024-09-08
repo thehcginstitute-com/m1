@@ -39,7 +39,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
     /**
      * Initialize resource
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setType(Mage_Catalog_Model_Product::ENTITY)
@@ -64,7 +64,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @param Mage_Catalog_Model_Product|int $product
      * @return array
      */
-    public function getWebsiteIds($product)
+    function getWebsiteIds($product)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -87,7 +87,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @param array $productIds
      * @return  array
      */
-    public function getWebsiteIdsByProductIds($productIds)
+    function getWebsiteIdsByProductIds($productIds)
     {
         $select = $this->_getWriteAdapter()->select()
             ->from($this->_productWebsiteTable, ['product_id', 'website_id'])
@@ -110,7 +110,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @param Mage_Catalog_Model_Product $product
      * @return array
      */
-    public function getCategoryIds($product)
+    function getCategoryIds($product)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -127,7 +127,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @param string $sku
      * @return int|false
      */
-    public function getIdBySku($sku)
+    function getIdBySku($sku)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -296,7 +296,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function refreshIndex($product)
+    function refreshIndex($product)
     {
         $writeAdapter = $this->_getWriteAdapter();
 
@@ -364,7 +364,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @throws Mage_Core_Exception
      * @return $this
      */
-    public function refreshEnabledIndex($store = null, $product = null)
+    function refreshEnabledIndex($store = null, $product = null)
     {
         $statusAttribute        = $this->getAttribute('status');
         $visibilityAttribute    = $this->getAttribute('visibility');
@@ -492,7 +492,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @param Mage_Catalog_Model_Product $product
      * @return Mage_Catalog_Model_Resource_Category_Collection
      */
-    public function getCategoryCollection($product)
+    function getCategoryCollection($product)
     {
         return Mage::getResourceModel('catalog/category_collection')
             ->joinField(
@@ -511,7 +511,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @param Mage_Catalog_Model_Product $object
      * @return array
      */
-    public function getAvailableInCategories($object)
+    function getAvailableInCategories($object)
     {
         // is_parent=1 ensures that we'll get only category IDs those are direct parents of the product, instead of
         // fetching all parent IDs, including those are higher on the tree
@@ -527,7 +527,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      *
      * @return string
      */
-    public function getDefaultAttributeSourceModel()
+    function getDefaultAttributeSourceModel()
     {
         return 'eav/entity_attribute_source_table';
     }
@@ -539,7 +539,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @param int $categoryId
      * @return string
      */
-    public function canBeShowInCategory($product, $categoryId)
+    function canBeShowInCategory($product, $categoryId)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getTable('catalog/category_product_index'), 'product_id')
@@ -556,7 +556,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @param int $newId
      * @return $this
      */
-    public function duplicate($oldId, $newId)
+    function duplicate($oldId, $newId)
     {
         $adapter = $this->_getWriteAdapter();
         $eavTables = ['datetime', 'decimal', 'int', 'text', 'varchar'];
@@ -614,7 +614,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @param  array $productIds
      * @return array
      */
-    public function getProductsSku(array $productIds)
+    function getProductsSku(array $productIds)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getTable('catalog/product'), ['entity_id', 'sku'])
@@ -627,7 +627,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @return array
      * @deprecated after 1.4.2.0
      */
-    public function getParentProductIds($object)
+    function getParentProductIds($object)
     {
         return [];
     }
@@ -638,7 +638,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @param  array|string|null $columns
      * @return array
      */
-    public function getProductEntitiesInfo($columns = null)
+    function getProductEntitiesInfo($columns = null)
     {
         if (!empty($columns) && is_string($columns)) {
             $columns = [$columns];
@@ -662,7 +662,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @return array
      *
      */
-    public function getAssignedImages($product, $storeIds)
+    function getAssignedImages($product, $storeIds)
     {
         if (!is_array($storeIds)) {
             $storeIds = [$storeIds];
@@ -695,7 +695,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      * @param Mage_Catalog_Model_Product $object
      * @return array
      */
-    public function getCategoryIdsWithAnchors($object)
+    function getCategoryIdsWithAnchors($object)
     {
         $selectRootCategories = $this->_getReadAdapter()->select()
             ->from(

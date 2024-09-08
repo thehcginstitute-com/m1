@@ -8,7 +8,7 @@ class IWD_OrderFlags_Block_Adminhtml_Flags_Types_Grid extends Mage_Adminhtml_Blo
     /**
      * {@inheritdoc}
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('orderFlagsTypes');
@@ -124,7 +124,7 @@ class IWD_OrderFlags_Block_Adminhtml_Flags_Types_Grid extends Mage_Adminhtml_Blo
     /**
      * {@inheritdoc}
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', array('id' => $row->getId()));
     }
@@ -132,7 +132,7 @@ class IWD_OrderFlags_Block_Adminhtml_Flags_Types_Grid extends Mage_Adminhtml_Blo
     /**
      * {@inheritdoc}
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/grid', array('_current' => true));
     }

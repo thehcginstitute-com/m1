@@ -34,7 +34,7 @@ class Mage_Oauth_Model_Consumer_Validator_KeyLength extends Zend_Validate_String
      *
      * @param  int|array|Zend_Config $options
      */
-    public function __construct($options = [])
+    function __construct($options = [])
     {
         if (!is_array($options)) {
             $options     = func_get_args();
@@ -87,7 +87,7 @@ class Mage_Oauth_Model_Consumer_Validator_KeyLength extends Zend_Validate_String
      * @param int $length
      * @return $this
      */
-    public function setLength($length)
+    function setLength($length)
     {
         parent::setMax($length);
         parent::setMin($length);
@@ -99,7 +99,7 @@ class Mage_Oauth_Model_Consumer_Validator_KeyLength extends Zend_Validate_String
      *
      * @return int
      */
-    public function getLength()
+    function getLength()
     {
         return parent::getMin();
     }
@@ -113,7 +113,7 @@ class Mage_Oauth_Model_Consumer_Validator_KeyLength extends Zend_Validate_String
      * @param  string $value
      * @return bool
      */
-    public function isValid($value)
+    function isValid($value)
     {
         $result = parent::isValid($value);
         if (!$result && isset($this->_messages[self::INVALID])) {
@@ -128,7 +128,7 @@ class Mage_Oauth_Model_Consumer_Validator_KeyLength extends Zend_Validate_String
      * @param string $name
      * @return $this
      */
-    public function setName($name)
+    function setName($name)
     {
         $this->_name = $name;
         return $this;
@@ -139,7 +139,7 @@ class Mage_Oauth_Model_Consumer_Validator_KeyLength extends Zend_Validate_String
      *
      * @return string
      */
-    public function getName()
+    function getName()
     {
         return $this->_name;
     }

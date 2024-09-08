@@ -23,7 +23,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_Create extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'order_id';
         $this->_controller = 'sales_order';
@@ -81,7 +81,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getHeaderHtml()
+    function getHeaderHtml()
     {
         return '<div id="order-header">'
             . $this->getLayout()->createBlock('adminhtml/sales_order_create_header')->toHtml()
@@ -93,7 +93,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getFormHtml()
+    function getFormHtml()
     {
         $html = parent::getFormHtml();
         $html .= $this->getLayout()->createBlock('adminhtml/catalog_product_composite_configure')->toHtml();
@@ -103,7 +103,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create extends Mage_Adminhtml_Block_Widge
     /**
      * @return string
      */
-    public function getHeaderWidth()
+    function getHeaderWidth()
     {
         return 'width: 70%;';
     }
@@ -121,7 +121,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create extends Mage_Adminhtml_Block_Widge
     /**
      * @return string
      */
-    public function getCancelUrl()
+    function getCancelUrl()
     {
         if ($this->_getSession()->getOrder()->getId()) {
             $url = $this->getUrl('*/sales_order/view', [
@@ -139,7 +139,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl('*/' . $this->_controller . '/');
     }

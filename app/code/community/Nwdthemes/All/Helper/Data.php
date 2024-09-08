@@ -20,7 +20,7 @@ class Nwdthemes_All_Helper_Data extends Mage_Core_Helper_Abstract
 	 * @param int $store
 	 * @return mixed
 	 */
-	public function getCfg($path, $section = 'nwdall', $store = NULL)
+	function getCfg($path, $section = 'nwdall', $store = NULL)
 	{
 		if ($store == NULL) {
 			$store = Mage::app()->getStore()->getId();

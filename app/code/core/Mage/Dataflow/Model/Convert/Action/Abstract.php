@@ -58,7 +58,7 @@ abstract class Mage_Dataflow_Model_Convert_Action_Abstract implements Mage_Dataf
      * @param mixed $default
      * @return mixed
      */
-    public function getParam($key, $default = null)
+    function getParam($key, $default = null)
     {
         return $this->_params[$key] ?? $default;
     }
@@ -70,7 +70,7 @@ abstract class Mage_Dataflow_Model_Convert_Action_Abstract implements Mage_Dataf
      * @param mixed $value
      * @return Mage_Dataflow_Model_Convert_Action_Abstract
      */
-    public function setParam($key, $value = null)
+    function setParam($key, $value = null)
     {
         if (is_array($key) && is_null($value)) {
             $this->_params = $key;
@@ -85,7 +85,7 @@ abstract class Mage_Dataflow_Model_Convert_Action_Abstract implements Mage_Dataf
      *
      * @return array
      */
-    public function getParams()
+    function getParams()
     {
         return $this->_params;
     }
@@ -96,7 +96,7 @@ abstract class Mage_Dataflow_Model_Convert_Action_Abstract implements Mage_Dataf
      * @param array $params
      * @return Mage_Dataflow_Model_Convert_Action_Abstract
      */
-    public function setParams($params)
+    function setParams($params)
     {
         $this->_params = $params;
         return $this;
@@ -107,7 +107,7 @@ abstract class Mage_Dataflow_Model_Convert_Action_Abstract implements Mage_Dataf
      *
      * @return Mage_Dataflow_Model_Convert_Profile_Abstract
      */
-    public function getProfile()
+    function getProfile()
     {
         return $this->_profile;
     }
@@ -118,13 +118,13 @@ abstract class Mage_Dataflow_Model_Convert_Action_Abstract implements Mage_Dataf
      * @param Mage_Dataflow_Model_Convert_Profile_Abstract $profile
      * @return Mage_Dataflow_Model_Convert_Action_Abstract
      */
-    public function setProfile(Mage_Dataflow_Model_Convert_Profile_Interface $profile)
+    function setProfile(Mage_Dataflow_Model_Convert_Profile_Interface $profile)
     {
         $this->_profile = $profile;
         return $this;
     }
 
-    public function addAction(Mage_Dataflow_Model_Convert_Action_Interface $action = null)
+    function addAction(Mage_Dataflow_Model_Convert_Action_Interface $action = null)
     {
         if (is_null($action)) {
             $action = new $this->_actionDefaultClass();
@@ -140,7 +140,7 @@ abstract class Mage_Dataflow_Model_Convert_Action_Abstract implements Mage_Dataf
      * @param Mage_Dataflow_Model_Convert_Container_Interface $container
      * @return Mage_Dataflow_Model_Convert_Action_Abstract
      */
-    public function setContainer(Mage_Dataflow_Model_Convert_Container_Interface $container)
+    function setContainer(Mage_Dataflow_Model_Convert_Container_Interface $container)
     {
         $this->_container = $container;
         $this->_container->setProfile($this->getProfile());
@@ -154,7 +154,7 @@ abstract class Mage_Dataflow_Model_Convert_Action_Abstract implements Mage_Dataf
      * @param string $name
      * @return Mage_Dataflow_Model_Convert_Container_Abstract
      */
-    public function getContainer($name = null)
+    function getContainer($name = null)
     {
         if (!is_null($name)) {
             return $this->getProfile()->getContainer($name);
@@ -167,7 +167,7 @@ abstract class Mage_Dataflow_Model_Convert_Action_Abstract implements Mage_Dataf
         return $this->_container;
     }
 
-    public function importXml(Varien_Simplexml_Element $actionNode)
+    function importXml(Varien_Simplexml_Element $actionNode)
     {
         foreach ($actionNode->attributes() as $key => $value) {
             $this->setParam($key, (string)$value);
@@ -199,7 +199,7 @@ abstract class Mage_Dataflow_Model_Convert_Action_Abstract implements Mage_Dataf
      *
      * @return Mage_Dataflow_Model_Convert_Action_Abstract
      */
-    public function run(array $args = [])
+    function run(array $args = [])
     {
         if ($method = $this->getParam('method')) {
             if (!method_exists($this->getContainer(), $method)) {
@@ -226,7 +226,7 @@ abstract class Mage_Dataflow_Model_Convert_Action_Abstract implements Mage_Dataf
         return $this;
     }
 
-    public function runActions(array $args = [])
+    function runActions(array $args = [])
     {
         if (empty($this->_actions)) {
             return $this;

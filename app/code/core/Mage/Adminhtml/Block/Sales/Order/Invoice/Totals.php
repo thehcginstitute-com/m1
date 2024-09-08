@@ -24,7 +24,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Totals extends Mage_Adminhtml_Blo
 {
     protected $_invoice = null;
 
-    public function getInvoice()
+    function getInvoice()
     {
         if ($this->_invoice === null) {
             if ($this->hasData('invoice')) {
@@ -38,7 +38,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Totals extends Mage_Adminhtml_Blo
         return $this->_invoice;
     }
 
-    public function getSource()
+    function getSource()
     {
         return $this->getInvoice();
     }

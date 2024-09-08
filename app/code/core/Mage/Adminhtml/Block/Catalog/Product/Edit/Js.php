@@ -24,7 +24,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Js extends Mage_Adminhtml_Block_
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return Mage::registry('current_product');
     }
@@ -34,7 +34,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Js extends Mage_Adminhtml_Block_
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         $product = $this->getProduct();
         if ($product) {

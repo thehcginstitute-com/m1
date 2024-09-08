@@ -36,7 +36,7 @@ class Mage_Api2_Model_Resource_Acl_Filter_Attribute_Collection extends Mage_Core
      * @param string $userType
      * @return $this
      */
-    public function addFilterByUserType($userType)
+    function addFilterByUserType($userType)
     {
         $this->addFilter('user_type', $userType, 'public');
         return $this;

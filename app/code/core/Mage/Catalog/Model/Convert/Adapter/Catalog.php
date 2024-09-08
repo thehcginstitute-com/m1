@@ -23,7 +23,7 @@ class Mage_Catalog_Model_Convert_Adapter_Catalog extends Mage_Dataflow_Model_Con
     /**
      * @return object
      */
-    public function getResource()
+    function getResource()
     {
         if (!$this->_resource) {
             $this->_resource = Mage::getResourceSingleton('catalog_entity/convert');
@@ -34,7 +34,7 @@ class Mage_Catalog_Model_Convert_Adapter_Catalog extends Mage_Dataflow_Model_Con
     /**
      * @return $this
      */
-    public function load()
+    function load()
     {
         $res = $this->getResource();
 
@@ -56,7 +56,7 @@ class Mage_Catalog_Model_Convert_Adapter_Catalog extends Mage_Dataflow_Model_Con
     /**
      * @return $this
      */
-    public function save()
+    function save()
     {
         /*
         $res = $this->getResource();

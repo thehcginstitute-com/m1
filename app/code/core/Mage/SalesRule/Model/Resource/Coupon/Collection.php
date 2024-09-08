@@ -35,7 +35,7 @@ class Mage_SalesRule_Model_Resource_Coupon_Collection extends Mage_Core_Model_Re
      *
      * @return $this
      */
-    public function addRuleToFilter($rule)
+    function addRuleToFilter($rule)
     {
         if ($rule instanceof Mage_SalesRule_Model_Rule) {
             $ruleId = $rule->getId();
@@ -55,7 +55,7 @@ class Mage_SalesRule_Model_Resource_Coupon_Collection extends Mage_Core_Model_Re
      *
      * @return $this
      */
-    public function addRuleIdsToFilter(array $ruleIds)
+    function addRuleIdsToFilter(array $ruleIds)
     {
         $this->addFieldToFilter('rule_id', ['in' => $ruleIds]);
         return $this;
@@ -66,7 +66,7 @@ class Mage_SalesRule_Model_Resource_Coupon_Collection extends Mage_Core_Model_Re
      *
      * @return $this
      */
-    public function addGeneratedCouponsFilter()
+    function addGeneratedCouponsFilter()
     {
         $this->addFieldToFilter('is_primary', ['null' => 1])->addFieldToFilter('type', '1');
         return $this;
@@ -78,7 +78,7 @@ class Mage_SalesRule_Model_Resource_Coupon_Collection extends Mage_Core_Model_Re
      * @param Mage_Core_Model_Resource_Db_Collection_Abstract $collection
      * @param Mage_Adminhtml_Block_Widget_Grid_Column $column
      */
-    public function addIsUsedFilterCallback($collection, $column)
+    function addIsUsedFilterCallback($collection, $column)
     {
         $filterValue = $column->getFilter()->getCondition();
 

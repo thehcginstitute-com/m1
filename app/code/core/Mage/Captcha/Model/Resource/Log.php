@@ -43,7 +43,7 @@ class Mage_Captcha_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstra
      * @param string|null $login
      * @return $this
      */
-    public function logAttempt($login)
+    function logAttempt($login)
     {
         if ($login != null) {
             $this->_getWriteAdapter()->insertOnDuplicate(
@@ -75,7 +75,7 @@ class Mage_Captcha_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstra
      * @param string $login
      * @return $this
      */
-    public function deleteUserAttempts($login)
+    function deleteUserAttempts($login)
     {
         if ($login != null) {
             $this->_getWriteAdapter()->delete(
@@ -99,7 +99,7 @@ class Mage_Captcha_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstra
      *
      * @return string|int
      */
-    public function countAttemptsByRemoteAddress()
+    function countAttemptsByRemoteAddress()
     {
         $ip = Mage::helper('core/http')->getRemoteAddr();
         if (!$ip) {
@@ -117,7 +117,7 @@ class Mage_Captcha_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstra
      * @param string $login
      * @return string|int
      */
-    public function countAttemptsByUserLogin($login)
+    function countAttemptsByUserLogin($login)
     {
         if (!$login) {
             return 0;
@@ -131,7 +131,7 @@ class Mage_Captcha_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstra
     /**
      * Delete attempts with expired in update_at time
      */
-    public function deleteOldAttempts()
+    function deleteOldAttempts()
     {
         $this->_getWriteAdapter()->delete(
             $this->getMainTable(),

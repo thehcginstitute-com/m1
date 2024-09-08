@@ -24,7 +24,7 @@ class Mage_Rule_Block_Newchild extends Mage_Core_Block_Abstract implements Varie
      * @param Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         $element->addClass('element-value-changer');
         $html = '&nbsp;<span class="rule-param rule-param-new-child"' . ($element->getParamId() ? ' id="' . $element->getParamId() . '"' : '') . '>';

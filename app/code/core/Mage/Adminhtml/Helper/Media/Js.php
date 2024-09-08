@@ -25,7 +25,7 @@ class Mage_Adminhtml_Helper_Media_Js extends Mage_Core_Helper_Js
 {
     protected $_moduleName = 'Mage_Adminhtml';
 
-    public function __construct()
+    function __construct()
     {
         $this->_translateData = [
            'Complete' => $this->__('Complete'),
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Helper_Media_Js extends Mage_Core_Helper_Js
      *
      * @return string
      */
-    public function getTranslatorScript()
+    function getTranslatorScript()
     {
         $script = 'if (typeof(Translator) == \'undefined\') {'
                 . '    var Translator = new Translate(' . $this->getTranslateJson() . ');'

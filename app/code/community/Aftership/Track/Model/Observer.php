@@ -14,7 +14,7 @@ class Aftership_Track_Model_Observer {
 	/**
 	 * @param Varien_Event_Observer $observer
 	 */
-	public function salesOrderShipmentTrackSaveAfter(Varien_Event_Observer $observer) {
+	function salesOrderShipmentTrackSaveAfter(Varien_Event_Observer $observer) {
 		ob_start();
 
 		$magento_track = $observer->getEvent()->getTrack();
@@ -45,7 +45,7 @@ class Aftership_Track_Model_Observer {
 	/**
 	 * Cron to sync trackings
 	 */
-	public function cron() {
+	function cron() {
 		set_time_limit(0);
 
 		$global_config = Mage::getStoreConfig('aftership_options/messages');
@@ -122,7 +122,7 @@ class Aftership_Track_Model_Observer {
 	/**
 	 * @param Varien_Event_Observer $observer
 	 */
-	public function adminSystemConfigChangedSectionAftership(Varien_Event_Observer $observer)
+	function adminSystemConfigChangedSectionAftership(Varien_Event_Observer $observer)
 	{
 		$post_data = Mage::app()->getRequest()->getPost();
 

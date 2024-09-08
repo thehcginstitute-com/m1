@@ -50,7 +50,7 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getId()
+    function getId()
     {
         return self::DEFAULT_STOCK_ID;
     }
@@ -61,7 +61,7 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Resource_Product_Collection $productCollection
      * @return  Mage_CatalogInventory_Model_Stock
      */
-    public function addItemsToProducts($productCollection)
+    function addItemsToProducts($productCollection)
     {
         $items = $this->getItemCollection()
             ->addProductsFilter($productCollection)
@@ -86,7 +86,7 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
      *
      * @return Mage_CatalogInventory_Model_Resource_Stock_Item_Collection
      */
-    public function getItemCollection()
+    function getItemCollection()
     {
         return Mage::getResourceModel('cataloginventory/stock_item_collection')
             ->addStockFilter($this->getId());
@@ -122,7 +122,7 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
      * @param array $items
      * @return array
      */
-    public function registerProductsSale($items)
+    function registerProductsSale($items)
     {
         $qtys = $this->_prepareProductQtys($items);
         $item = Mage::getModel('cataloginventory/stock_item');
@@ -154,7 +154,7 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
      * @param array $items
      * @return Mage_CatalogInventory_Model_Stock
      */
-    public function revertProductsSale($items)
+    function revertProductsSale($items)
     {
         $qtys = $this->_prepareProductQtys($items);
         $this->_getResource()->correctItemsQty($this, $qtys, '+');
@@ -167,7 +167,7 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
      * @param   Varien_Object $item
      * @return  Mage_CatalogInventory_Model_Stock
      */
-    public function registerItemSale(Varien_Object $item)
+    function registerItemSale(Varien_Object $item)
     {
         $productId = $item->getProductId();
         if ($productId) {
@@ -194,7 +194,7 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
      * @param float $qty
      * @return $this
      */
-    public function backItemQty($productId, $qty)
+    function backItemQty($productId, $qty)
     {
         $stockItem = Mage::getModel('cataloginventory/stock_item')->loadByProduct($productId);
         if ($stockItem->getId() && Mage::helper('cataloginventory')->isQty($stockItem->getTypeId())) {
@@ -214,7 +214,7 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
      * @param   array $productIds
      * @return  Mage_CatalogInventory_Model_Stock
      */
-    public function lockProductItems($productIds)
+    function lockProductItems($productIds)
     {
         $this->_getResource()->lockProductItems($this, $productIds);
         return $this;
@@ -226,7 +226,7 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Resource_Product_Link_Product_Collection $collection
      * @return $this $this
      */
-    public function addInStockFilterToCollection($collection)
+    function addInStockFilterToCollection($collection)
     {
         $this->getResource()->setInStockFilterToCollection($collection);
         return $this;

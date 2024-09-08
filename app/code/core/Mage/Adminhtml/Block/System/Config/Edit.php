@@ -30,7 +30,7 @@ class Mage_Adminhtml_Block_System_Config_Edit extends Mage_Adminhtml_Block_Widge
      * Mage_Adminhtml_Block_System_Config_Edit constructor.
      * @throws Exception
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('system/config/edit.phtml');
@@ -64,7 +64,7 @@ class Mage_Adminhtml_Block_System_Config_Edit extends Mage_Adminhtml_Block_Widge
     /**
      * @return string
      */
-    public function getSaveButtonHtml()
+    function getSaveButtonHtml()
     {
         return $this->getChildHtml('save_button');
     }
@@ -72,7 +72,7 @@ class Mage_Adminhtml_Block_System_Config_Edit extends Mage_Adminhtml_Block_Widge
     /**
      * @return string
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return $this->getUrl('*/*/save', ['_current' => true]);
     }
@@ -80,7 +80,7 @@ class Mage_Adminhtml_Block_System_Config_Edit extends Mage_Adminhtml_Block_Widge
     /**
      * @return $this
      */
-    public function initForm()
+    function initForm()
     {
         $blockName = (string)$this->_section->frontend_model;
         if (empty($blockName)) {

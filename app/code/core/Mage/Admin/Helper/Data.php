@@ -35,7 +35,7 @@ class Mage_Admin_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function generateResetPasswordLinkToken()
+    function generateResetPasswordLinkToken()
     {
         return Mage::helper('core')->uniqHash();
     }
@@ -45,7 +45,7 @@ class Mage_Admin_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return int
      */
-    public function getResetPasswordLinkExpirationPeriod()
+    function getResetPasswordLinkExpirationPeriod()
     {
         return (int) Mage::getConfig()->getNode(self::XML_PATH_ADMIN_RESET_PASSWORD_LINK_EXPIRATION_PERIOD);
     }

@@ -22,7 +22,7 @@
  */
 class Mage_Dataflow_Model_Convert_Adapter_Zend_Db extends Mage_Dataflow_Model_Convert_Adapter_Abstract
 {
-    public function getResource()
+    function getResource()
     {
         if (!$this->_resource) {
             $this->_resource = Zend_Db::factory($this->getVar('adapter', 'Pdo_Mysql'), $this->getVars());
@@ -30,12 +30,12 @@ class Mage_Dataflow_Model_Convert_Adapter_Zend_Db extends Mage_Dataflow_Model_Co
         return $this->_resource;
     }
 
-    public function load()
+    function load()
     {
         return $this;
     }
 
-    public function save()
+    function save()
     {
         return $this;
     }

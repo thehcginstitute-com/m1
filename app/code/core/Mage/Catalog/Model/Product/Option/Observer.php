@@ -28,7 +28,7 @@ class Mage_Catalog_Model_Product_Option_Observer
      * @param Varien_Object $observer
      * @return $this
      */
-    public function copyQuoteFilesToOrderFiles($observer)
+    function copyQuoteFilesToOrderFiles($observer)
     {
         /** @var Mage_Sales_Model_Quote_Item $quoteItem */
         $quoteItem = $observer->getEvent()->getItem();

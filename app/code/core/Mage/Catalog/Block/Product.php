@@ -25,7 +25,7 @@ class Mage_Catalog_Block_Product extends Mage_Core_Block_Template
     /**
      * @return mixed
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!$this->getData('product') instanceof Mage_Catalog_Model_Product) {
             if ($this->getData('product')->getProductId()) {
@@ -44,7 +44,7 @@ class Mage_Catalog_Block_Product extends Mage_Core_Block_Template
     /**
      * @return mixed
      */
-    public function getPrice()
+    function getPrice()
     {
         return $this->getProduct()->getPrice();
     }
@@ -52,7 +52,7 @@ class Mage_Catalog_Block_Product extends Mage_Core_Block_Template
     /**
      * @return mixed
      */
-    public function getFinalPrice()
+    function getFinalPrice()
     {
         if (!isset($this->_finalPrice[$this->getProduct()->getId()])) {
             $this->_finalPrice[$this->getProduct()->getId()] = $this->getProduct()->getFinalPrice();
@@ -64,7 +64,7 @@ class Mage_Catalog_Block_Product extends Mage_Core_Block_Template
      * @param Mage_Catalog_Model_Product $product
      * @return string
      */
-    public function getPriceHtml($product)
+    function getPriceHtml($product)
     {
         $this->setTemplate('catalog/product/price.phtml');
         $this->setProduct($product);

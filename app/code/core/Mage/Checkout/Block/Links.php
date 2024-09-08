@@ -31,7 +31,7 @@ class Mage_Checkout_Block_Links extends Mage_Core_Block_Template
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-08-2/app/design/frontend/default/mobileshoppe/layout/checkout.xml#L6
      * @return $this
      */
-    public function addCartLink()
+    function addCartLink()
     {
         $parentBlock = $this->getParentBlock();
         if ($parentBlock && Mage::helper('core')->isModuleOutputEnabled('Mage_Checkout')) {
@@ -57,7 +57,7 @@ class Mage_Checkout_Block_Links extends Mage_Core_Block_Template
      *
      * @return $this
      */
-    public function addCheckoutLink()
+    function addCheckoutLink()
     {
         /** @var Mage_Checkout_Helper_Data $helper */
         $helper = $this->helper('checkout');

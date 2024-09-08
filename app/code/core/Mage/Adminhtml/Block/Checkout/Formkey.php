@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Checkout_Formkey extends Mage_Adminhtml_Block_Templat
      *
      * @return bool
      */
-    public function canShow()
+    function canShow()
     {
         return !Mage::getStoreConfigFlag('admin/security/validate_formkey_checkout');
     }
@@ -38,7 +38,7 @@ class Mage_Adminhtml_Block_Checkout_Formkey extends Mage_Adminhtml_Block_Templat
      *
      * @return string
      */
-    public function getSecurityAdminUrl()
+    function getSecurityAdminUrl()
     {
         return Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/section/admin');
     }

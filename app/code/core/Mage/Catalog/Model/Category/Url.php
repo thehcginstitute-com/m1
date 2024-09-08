@@ -48,7 +48,7 @@ class Mage_Catalog_Model_Category_Url
      *
      * @param array $args
      */
-    public function __construct(array $args = [])
+    function __construct(array $args = [])
     {
         $this->_factory = !empty($args['factory']) ? $args['factory'] : Mage::getSingleton('catalog/factory');
     }
@@ -59,7 +59,7 @@ class Mage_Catalog_Model_Category_Url
      * @param Mage_Catalog_Model_Category $category
      * @return string
      */
-    public function getCategoryUrl(Mage_Catalog_Model_Category $category)
+    function getCategoryUrl(Mage_Catalog_Model_Category $category)
     {
         $url = $category->getData('url');
         if ($url !== null) {
@@ -124,7 +124,7 @@ class Mage_Catalog_Model_Category_Url
      *
      * @return Mage_Core_Model_Url
      */
-    public function getUrlInstance()
+    function getUrlInstance()
     {
         if ($this->_url === null) {
             $this->_url = $this->_factory->getModel('core/url');
@@ -137,7 +137,7 @@ class Mage_Catalog_Model_Category_Url
      *
      * @return Mage_Core_Model_Url_Rewrite
      */
-    public function getUrlRewrite()
+    function getUrlRewrite()
     {
         if ($this->_urlRewrite === null) {
             $this->_urlRewrite = $this->_factory->getUrlRewriteInstance();

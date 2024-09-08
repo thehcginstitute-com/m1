@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Alerts extends Mage_Adminhtm
     /**
      * Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Alerts constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/product/tab/alert.phtml');
@@ -66,7 +66,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Alerts extends Mage_Adminhtm
     /**
      * @return string
      */
-    public function getAccordionHtml()
+    function getAccordionHtml()
     {
         return $this->getChildHtml('accordion');
     }

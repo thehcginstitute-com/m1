@@ -94,7 +94,7 @@ class Mage_Install_Model_Installer_Console extends Mage_Install_Model_Installer_
      * @param array $args
      * @return bool
      */
-    public function setArgs($args = null)
+    function setArgs($args = null)
     {
         if (empty($args)) {
             // take server args
@@ -169,7 +169,7 @@ class Mage_Install_Model_Installer_Console extends Mage_Install_Model_Installer_
      * @param string $error
      * @return $this
      */
-    public function addError($error)
+    function addError($error)
     {
         $this->_getDataModel()->addError($error);
         return $this;
@@ -180,7 +180,7 @@ class Mage_Install_Model_Installer_Console extends Mage_Install_Model_Installer_
      *
      * @return bool
      */
-    public function hasErrors()
+    function hasErrors()
     {
         return (count($this->_getDataModel()->getErrors()) > 0);
     }
@@ -190,7 +190,7 @@ class Mage_Install_Model_Installer_Console extends Mage_Install_Model_Installer_
      *
      * @return array
      */
-    public function getErrors()
+    function getErrors()
     {
         return $this->_getDataModel()->getErrors();
     }
@@ -228,7 +228,7 @@ class Mage_Install_Model_Installer_Console extends Mage_Install_Model_Installer_
      *
      * @return string
      */
-    public function getEncryptionKey()
+    function getEncryptionKey()
     {
         return $this->_getDataModel()->getEncryptionKey();
     }
@@ -239,7 +239,7 @@ class Mage_Install_Model_Installer_Console extends Mage_Install_Model_Installer_
      * @param Mage_Core_Model_App $app
      * @return bool
      */
-    public function init(Mage_Core_Model_App $app)
+    function init(Mage_Core_Model_App $app)
     {
         $this->_app = $app;
         $this->_getInstaller()->setDataModel($this->_getDataModel());
@@ -313,7 +313,7 @@ class Mage_Install_Model_Installer_Console extends Mage_Install_Model_Installer_
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function install()
+    function install()
     {
         try {
             /**
@@ -436,7 +436,7 @@ class Mage_Install_Model_Installer_Console extends Mage_Install_Model_Installer_
      *
      * @return $this
      */
-    public function printOptions()
+    function printOptions()
     {
         $options = [
             'locale'    => $this->_app->getLocale()->getOptionLocales(),
@@ -453,7 +453,7 @@ class Mage_Install_Model_Installer_Console extends Mage_Install_Model_Installer_
      * @param string $url fallback url to redirect to
      * @return bool
      */
-    public function checkConsole($url = null)
+    function checkConsole($url = null)
     {
         if (defined('STDIN') && defined('STDOUT') && (defined('STDERR'))) {
             return true;

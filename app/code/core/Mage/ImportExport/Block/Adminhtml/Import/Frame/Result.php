@@ -56,7 +56,7 @@ class Mage_ImportExport_Block_Adminhtml_Import_Frame_Result extends Mage_Adminht
      * @param mixed $value OPTIONAL
      * @return $this
      */
-    public function addAction($actionName, $elementId, $value = null)
+    function addAction($actionName, $elementId, $value = null)
     {
         if (isset($this->_actions[$actionName])) {
             if ($value === null) {
@@ -80,7 +80,7 @@ class Mage_ImportExport_Block_Adminhtml_Import_Frame_Result extends Mage_Adminht
      * @param string $message Error message
      * @return $this
      */
-    public function addError($message)
+    function addError($message)
     {
         if (is_array($message)) {
             foreach ($message as $row) {
@@ -99,7 +99,7 @@ class Mage_ImportExport_Block_Adminhtml_Import_Frame_Result extends Mage_Adminht
      * @param bool $appendImportButton OPTIONAL Append import button to message?
      * @return $this
      */
-    public function addNotice($message, $appendImportButton = false)
+    function addNotice($message, $appendImportButton = false)
     {
         if (is_array($message)) {
             foreach ($message as $row) {
@@ -118,7 +118,7 @@ class Mage_ImportExport_Block_Adminhtml_Import_Frame_Result extends Mage_Adminht
      * @param bool $appendImportButton OPTIONAL Append import button to message?
      * @return $this
      */
-    public function addSuccess($message, $appendImportButton = false)
+    function addSuccess($message, $appendImportButton = false)
     {
         if (is_array($message)) {
             foreach ($message as $row) {
@@ -135,7 +135,7 @@ class Mage_ImportExport_Block_Adminhtml_Import_Frame_Result extends Mage_Adminht
      *
      * @return string
      */
-    public function getImportButtonHtml()
+    function getImportButtonHtml()
     {
         return '&nbsp;&nbsp;<button onclick="editForm.startImport(\'' . $this->getImportStartUrl()
             . '\', \'' . Mage_ImportExport_Model_Import::FIELD_NAME_SOURCE_FILE . '\');" class="scalable save"'
@@ -147,7 +147,7 @@ class Mage_ImportExport_Block_Adminhtml_Import_Frame_Result extends Mage_Adminht
      *
      * @return string
      */
-    public function getImportStartUrl()
+    function getImportStartUrl()
     {
         return $this->getUrl('*/*/start');
     }
@@ -157,7 +157,7 @@ class Mage_ImportExport_Block_Adminhtml_Import_Frame_Result extends Mage_Adminht
      *
      * @return array
      */
-    public function getMessages()
+    function getMessages()
     {
         return $this->_messages;
     }
@@ -167,7 +167,7 @@ class Mage_ImportExport_Block_Adminhtml_Import_Frame_Result extends Mage_Adminht
      *
      * @return string
      */
-    public function getMessagesHtml()
+    function getMessagesHtml()
     {
         /** @var Mage_Core_Block_Messages $messagesBlock */
         $messagesBlock = $this->_layout->createBlock('core/messages');
@@ -187,7 +187,7 @@ class Mage_ImportExport_Block_Adminhtml_Import_Frame_Result extends Mage_Adminht
      *
      * @return string
      */
-    public function getResponseJson()
+    function getResponseJson()
     {
         // add messages HTML if it is not already specified
         if (!isset($this->_actions['import_validation_messages'])) {

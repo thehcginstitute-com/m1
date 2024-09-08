@@ -16,7 +16,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * Set selected option in select
 	 */
 
-	public function selected($var, $value = '') {
+	function selected($var, $value = '') {
 		echo $var == $value ? ' selected="selected" ' : '';
 	}
 
@@ -24,7 +24,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * Set checkbox to be checked
 	 */
 
-	public function checked($var, $value = '') {
+	function checked($var, $value = '') {
 		echo $var == $value ? ' checked="checked" ' : '';
 	}
 
@@ -32,7 +32,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * Get extensions version
 	 */
 
-	public function getVersion() {
+	function getVersion() {
 		return (string) Mage::getConfig()->getNode()->modules->Nwdthemes_Revslider->version;
 	}
 
@@ -40,7 +40,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * Replicates WP style pagination
 	 */
 
-	public function paginateLinks( $args = '' ) {
+	function paginateLinks( $args = '' ) {
 
 		$total        = 1;
 		$current      = Mage::app()->getRequest()->getParam('paged', 1);
@@ -150,7 +150,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * Add arguments to url
 	 */
 
-	public function add_query_arg($args = array(), $link) {
+	function add_query_arg($args = array(), $link) {
 		if ( is_array($args) )
 		{
 			foreach ($args as $_key => $_val) {
@@ -164,7 +164,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * Get options to sort product slides by
 	 */
 
-	public function getArrSortBy() {
+	function getArrSortBy() {
 		return array(
 			'position'	=> 'Position',
 			'id'		=> 'ID',
@@ -177,7 +177,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * Get product categories tree for product sliders selection
 	 */
 
-	public function getProductCategoriesForClient() {
+	function getProductCategoriesForClient() {
 
 		$categoriesCollection = Mage::getModel('catalog/category')
 				->getCollection()
@@ -206,7 +206,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return array of products
 	 */
 
-	public function getProductsByIDs($strID) {
+	function getProductsByIDs($strID) {
 
 		$_arrID = explode(',', $strID);
 
@@ -244,7 +244,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return array of products
 	 */
 
-	public function getProductsByCategoryIDs($strID, $sortBy, $sortDir, $limit) {
+	function getProductsByCategoryIDs($strID, $sortBy, $sortDir, $limit) {
 		
 		$_products = Mage::getModel('catalog/product')->getCollection();
 		if ( ! Mage::helper('nwdall')->getCfg('options/show_out_of_stock', 'cataloginventory'))
@@ -297,7 +297,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return string Truncated string
 	 */
 
-	public function limitWords($string, $words = 0) {
+	function limitWords($string, $words = 0) {
 		if ($words)
 		{
 			if (str_word_count($string, 0) > $words)
@@ -317,7 +317,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return string Image path
 	 */
 
-	public function getImagePathFromURL($imageUrl) {
+	function getImagePathFromURL($imageUrl) {
 		$imagePath = str_replace(Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB), '', $imageUrl);
 		return $imagePath;
 	}
@@ -329,7 +329,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return string Image path
 	 */
 
-	public function getImageUrlFromPath($imagePath = '') {
+	function getImageUrlFromPath($imagePath = '') {
 		if ($imagePath && ( strpos($imagePath, 'http://') && strpos($imagePath, 'https://') ) === false)
 		{
 			$imageUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . $imagePath;
@@ -349,7 +349,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return array Data about imported media file
 	 */
 
-	public function importMedia($file_url, $folder_name) {
+	function importMedia($file_url, $folder_name) {
 
 		$artDir = 'media/revslider/';
 
@@ -381,7 +381,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return array Array of store options
 	 */
 
-	public function getStoreOptions() {
+	function getStoreOptions() {
 		$storeValues = Mage::getSingleton('adminhtml/system_store')->getStoreValuesForForm(false, true);
 		$storeValues = $this->_makeFlatStoreOptions($storeValues);
 		return $storeValues;
@@ -422,7 +422,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return string JSON encoded array of fonts
 	 */
 
-	public function jsonGoogleFonts() {
+	function jsonGoogleFonts() {
 		$_googleFonts = Mage::getModel('nwdall/system_config_googlefonts')->toOptionArray();
 		$fonts = array();
 		foreach ($_googleFonts as $_font) {
@@ -438,7 +438,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return string Include string
 	 */
 
-	public function inlcudeStyleFonts($styles = 'all') {
+	function inlcudeStyleFonts($styles = 'all') {
 
 		// get dynamic and static css
 
@@ -490,7 +490,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return string List of store view names
 	 */
 
-	public function getStoreListBtIDs($storeIDs = '0') {
+	function getStoreListBtIDs($storeIDs = '0') {
 		$arrStoreIDs = explode(',', $storeIDs);
 		$arrStoreOptions = $this->getStoreOptions();
 		$arrStoreNames = array();
@@ -510,7 +510,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return array
 	 */
 
-	public function stringCssToArray($cssString) {
+	function stringCssToArray($cssString) {
 		$_arrStyle = explode('","', rtrim(ltrim($cssString, '{"'), '}"'));
 		$arrCss = array();
 		if (is_array($_arrStyle))
@@ -529,7 +529,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return boolean
 	 */
 	
-	public function isSsl() {
+	function isSsl() {
 		return Mage::app()->getStore()->isCurrentlySecure();
 	}
 	
@@ -539,7 +539,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param var $str
 	 */
 	
-	public function dmp($str) {
+	function dmp($str) {
 		echo "<div align='left'>";
 		echo "<pre>";
 		print_r($str);
@@ -556,7 +556,7 @@ class Nwdthemes_Revslider_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return string Store select html
 	 */
 
-	public function getStoreSelectHtml($name, $value = 0, $title = '') {
+	function getStoreSelectHtml($name, $value = 0, $title = '') {
 		$storeViewSelectHtml = Mage::app()->getLayout()->createBlock('core/html_select')
 			->setName($name)
 			->setId($name)

@@ -7,7 +7,7 @@ class Fooman_Common_Adminhtml_SelftesterController extends Mage_Adminhtml_Contro
         return $this;
     }
 
-    public function indexAction()
+    function indexAction()
     {
         //Here we actually run the process of selftesting. All messages are returned to the session
         $module = $this->getRequest()->getParam('module');

@@ -108,7 +108,7 @@ class Mage_Eav_Model_Entity_Attribute extends Mage_Eav_Model_Entity_Attribute_Ab
      *
      * @return Mage_Eav_Model_Resource_Entity_Attribute
      */
-    public function deleteEntity()
+    function deleteEntity()
     {
         return $this->_getResource()->deleteEntity($this);
     }
@@ -118,7 +118,7 @@ class Mage_Eav_Model_Entity_Attribute extends Mage_Eav_Model_Entity_Attribute_Ab
      *
      * @return $this
      */
-    public function loadEntityAttributeIdBySet()
+    function loadEntityAttributeIdBySet()
     {
         // load attributes collection filtered by attribute_id and attribute_set_id
         $filteredAttributes = $this->getResourceCollection()
@@ -219,7 +219,7 @@ class Mage_Eav_Model_Entity_Attribute extends Mage_Eav_Model_Entity_Attribute_Ab
      * @return string backend_type field value
      * @param string $type frontend_input field value
      */
-    public function getBackendTypeByInput($type)
+    function getBackendTypeByInput($type)
     {
         $field = null;
         switch ($type) {
@@ -258,7 +258,7 @@ class Mage_Eav_Model_Entity_Attribute extends Mage_Eav_Model_Entity_Attribute_Ab
      * @return string default_value field value
      * @param string $type frontend_input field name
      */
-    public function getDefaultValueByInput($type)
+    function getDefaultValueByInput($type)
     {
         $field = '';
         switch ($type) {
@@ -299,7 +299,7 @@ class Mage_Eav_Model_Entity_Attribute extends Mage_Eav_Model_Entity_Attribute_Ab
      * @param string $type
      * @return array
      */
-    public function getAttributeCodesByFrontendType($type)
+    function getAttributeCodesByFrontendType($type)
     {
         return $this->getResource()->getAttributeCodesByFrontendType($type);
     }
@@ -309,7 +309,7 @@ class Mage_Eav_Model_Entity_Attribute extends Mage_Eav_Model_Entity_Attribute_Ab
      *
      * @return array
      */
-    public function getStoreLabels()
+    function getStoreLabels()
     {
         if (!$this->getData('store_labels')) {
             $storeLabel = $this->getResource()->getStoreLabelsByAttributeId($this->getId());
@@ -325,7 +325,7 @@ class Mage_Eav_Model_Entity_Attribute extends Mage_Eav_Model_Entity_Attribute_Ab
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getStoreLabel($storeId = null)
+    function getStoreLabel($storeId = null)
     {
         if ($this->hasData('store_label')) {
             return $this->getData('store_label');

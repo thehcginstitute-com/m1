@@ -54,7 +54,7 @@ class Mage_Catalog_Block_Product_Widget_Html_Pager extends Mage_Page_Block_Html_
      *
      * @return int
      */
-    public function getCollectionSize()
+    function getCollectionSize()
     {
         if ($this->_collectionSize === null) {
             $this->_collectionSize = $this->getCollection()->getSize();
@@ -72,7 +72,7 @@ class Mage_Catalog_Block_Product_Widget_Html_Pager extends Mage_Page_Block_Html_
      *
      * @return int
      */
-    public function getCurrentPage()
+    function getCurrentPage()
     {
         if ($this->_currentPage === null) {
             $page = abs((int)$this->getRequest()->getParam($this->getPageVarName()));
@@ -92,7 +92,7 @@ class Mage_Catalog_Block_Product_Widget_Html_Pager extends Mage_Page_Block_Html_
      *
      * @return int
      */
-    public function getLimit()
+    function getLimit()
     {
         if ($this->_limit > 0) {
             return $this->_limit;
@@ -112,7 +112,7 @@ class Mage_Catalog_Block_Product_Widget_Html_Pager extends Mage_Page_Block_Html_
      * @param   Mage_Core_Model_Resource_Db_Collection_Abstract $collection
      * @return  Mage_Catalog_Block_Product_Widget_Html_Pager
      */
-    public function setCollection($collection)
+    function setCollection($collection)
     {
         $this->_collection = $collection;
         $this->_collection->setPageSize(null)->setCurPage(null);
@@ -132,7 +132,7 @@ class Mage_Catalog_Block_Product_Widget_Html_Pager extends Mage_Page_Block_Html_
      *
      * @return int
      */
-    public function getFirstNum()
+    function getFirstNum()
     {
         return $this->getLimit() * ($this->getCurrentPage() - 1) + 1;
     }
@@ -142,7 +142,7 @@ class Mage_Catalog_Block_Product_Widget_Html_Pager extends Mage_Page_Block_Html_
      *
      * @return int
      */
-    public function getLastNum()
+    function getLastNum()
     {
         $collection = $this->getCollection();
         return $this->getLimit() * ($this->getCurrentPage() - 1) + $collection->count();
@@ -155,7 +155,7 @@ class Mage_Catalog_Block_Product_Widget_Html_Pager extends Mage_Page_Block_Html_
      *
      * @return int
      */
-    public function getTotalNum()
+    function getTotalNum()
     {
         return $this->getCollectionSize();
     }
@@ -165,7 +165,7 @@ class Mage_Catalog_Block_Product_Widget_Html_Pager extends Mage_Page_Block_Html_
      *
      * @return float|int
      */
-    public function getLastPageNum()
+    function getLastPageNum()
     {
         if ($this->_lastPage === null) {
             $this->_lastPage = ceil($this->getCollectionSize() / $this->getLimit());
@@ -181,7 +181,7 @@ class Mage_Catalog_Block_Product_Widget_Html_Pager extends Mage_Page_Block_Html_
      *
      * @return bool
      */
-    public function isFirstPage()
+    function isFirstPage()
     {
         return $this->getCurrentPage() == 1;
     }
@@ -191,7 +191,7 @@ class Mage_Catalog_Block_Product_Widget_Html_Pager extends Mage_Page_Block_Html_
      *
      * @return bool
      */
-    public function isLastPage()
+    function isLastPage()
     {
         return $this->getCurrentPage() >= $this->getLastPageNum();
     }
@@ -201,7 +201,7 @@ class Mage_Catalog_Block_Product_Widget_Html_Pager extends Mage_Page_Block_Html_
      *
      * @return array
      */
-    public function getPages()
+    function getPages()
     {
         $pages = [];
         if ($this->getLastPageNum() <= $this->_displayPages) {
@@ -228,7 +228,7 @@ class Mage_Catalog_Block_Product_Widget_Html_Pager extends Mage_Page_Block_Html_
      *
      * @return string
      */
-    public function getPreviousPageUrl()
+    function getPreviousPageUrl()
     {
         return $this->getPageUrl($this->getCurrentPage() - 1);
     }
@@ -238,7 +238,7 @@ class Mage_Catalog_Block_Product_Widget_Html_Pager extends Mage_Page_Block_Html_
      *
      * @return string
      */
-    public function getNextPageUrl()
+    function getNextPageUrl()
     {
         return $this->getPageUrl($this->getCurrentPage() + 1);
     }
@@ -248,7 +248,7 @@ class Mage_Catalog_Block_Product_Widget_Html_Pager extends Mage_Page_Block_Html_
      *
      * @return string
      */
-    public function getLastPageUrl()
+    function getLastPageUrl()
     {
         return $this->getPageUrl($this->getLastPageNum());
     }

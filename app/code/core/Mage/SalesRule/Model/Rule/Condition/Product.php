@@ -42,7 +42,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product extends Mage_Rule_Model_Condit
      *
      * @return bool
      */
-    public function validate(Varien_Object $object)
+    function validate(Varien_Object $object)
     {
         /** @var Mage_Catalog_Model_Product $product */
         $product = ($object instanceof Mage_Catalog_Model_Product) ? $object : $object->getProduct();

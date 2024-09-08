@@ -77,7 +77,7 @@ class Mage_Core_Model_Layout_Update
      */
     protected $_subst = [];
 
-    public function __construct()
+    function __construct()
     {
         $subst = Mage::getConfig()->getPathVars();
         foreach ($subst as $k => $v) {
@@ -89,7 +89,7 @@ class Mage_Core_Model_Layout_Update
     /**
      * @return string
      */
-    public function getElementClass()
+    function getElementClass()
     {
         if (!$this->_elementClass) {
             $this->_elementClass = Mage::getConfig()->getModelClassName('core/layout_element');
@@ -100,7 +100,7 @@ class Mage_Core_Model_Layout_Update
     /**
      * @return $this
      */
-    public function resetUpdates()
+    function resetUpdates()
     {
         $this->_updates = [];
         return $this;
@@ -110,7 +110,7 @@ class Mage_Core_Model_Layout_Update
      * @param string $update
      * @return $this
      */
-    public function addUpdate($update)
+    function addUpdate($update)
     {
         $this->_updates[] = $update;
         return $this;
@@ -119,7 +119,7 @@ class Mage_Core_Model_Layout_Update
     /**
      * @return array
      */
-    public function asArray()
+    function asArray()
     {
         return $this->_updates;
     }
@@ -127,7 +127,7 @@ class Mage_Core_Model_Layout_Update
     /**
      * @return string
      */
-    public function asString()
+    function asString()
     {
         return implode('', $this->_updates);
     }
@@ -135,7 +135,7 @@ class Mage_Core_Model_Layout_Update
     /**
      * @return $this
      */
-    public function resetHandles()
+    function resetHandles()
     {
         $this->_handles = [];
         return $this;
@@ -145,7 +145,7 @@ class Mage_Core_Model_Layout_Update
      * @param string $handle
      * @return $this
      */
-    public function addHandle($handle)
+    function addHandle($handle)
     {
         if (is_array($handle)) {
             foreach ($handle as $h) {
@@ -161,7 +161,7 @@ class Mage_Core_Model_Layout_Update
      * @param string $handle
      * @return $this
      */
-    public function removeHandle($handle)
+    function removeHandle($handle)
     {
         unset($this->_handles[$handle]);
         return $this;
@@ -170,7 +170,7 @@ class Mage_Core_Model_Layout_Update
     /**
      * @return array
      */
-    public function getHandles()
+    function getHandles()
     {
         return array_keys($this->_handles);
     }
@@ -180,7 +180,7 @@ class Mage_Core_Model_Layout_Update
      *
      * @return string
      */
-    public function getCacheId()
+    function getCacheId()
     {
         if (!$this->_cacheId) {
             $this->_cacheId = 'LAYOUT_' . Mage::app()->getStore()->getId() . md5(implode('__', $this->getHandles()));
@@ -194,7 +194,7 @@ class Mage_Core_Model_Layout_Update
      * @param string $cacheId
      * @return $this
      */
-    public function setCacheId($cacheId)
+    function setCacheId($cacheId)
     {
         $this->_cacheId = $cacheId;
         return $this;
@@ -203,7 +203,7 @@ class Mage_Core_Model_Layout_Update
     /**
      * @return bool
      */
-    public function loadCache()
+    function loadCache()
     {
         if (!Mage::app()->useCache('layout')) {
             return false;
@@ -228,7 +228,7 @@ class Mage_Core_Model_Layout_Update
     /**
      * @return bool
      */
-    public function saveCache()
+    function saveCache()
     {
         if (!Mage::app()->useCache('layout')) {
             return false;
@@ -255,7 +255,7 @@ class Mage_Core_Model_Layout_Update
      * @param array|string $handles
      * @return $this
      */
-    public function load($handles = [])
+    function load($handles = [])
     {
         if (is_string($handles)) {
             $handles = [$handles];
@@ -282,7 +282,7 @@ class Mage_Core_Model_Layout_Update
     /**
      * @return SimpleXMLElement
      */
-    public function asSimplexml()
+    function asSimplexml()
     {
         $updates = trim($this->asString());
         $updates = '<' . '?xml version="1.0"?' . '><layout>' . $updates . '</layout>';
@@ -295,7 +295,7 @@ class Mage_Core_Model_Layout_Update
      * @param string $handle
      * @return $this
      */
-    public function merge($handle)
+    function merge($handle)
     {
         $packageUpdatesStatus = $this->fetchPackageLayoutUpdates($handle);
         if (Mage::app()->isInstalled()) {
@@ -308,7 +308,7 @@ class Mage_Core_Model_Layout_Update
      * @return $this
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function fetchFileLayoutUpdates()
+    function fetchFileLayoutUpdates()
     {
         $storeId = Mage::app()->getStore()->getId();
         $elementClass = $this->getElementClass();
@@ -340,7 +340,7 @@ class Mage_Core_Model_Layout_Update
      * @return bool
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function fetchPackageLayoutUpdates($handle)
+    function fetchPackageLayoutUpdates($handle)
     {
         $_profilerKey = 'layout/package_update: ' . $handle;
         Varien_Profiler::start($_profilerKey);
@@ -361,7 +361,7 @@ class Mage_Core_Model_Layout_Update
      * @param string $handle
      * @return bool
      */
-    public function fetchDbLayoutUpdates($handle)
+    function fetchDbLayoutUpdates($handle)
     {
         $_profilerKey = 'layout/db_update: ' . $handle;
         Varien_Profiler::start($_profilerKey);
@@ -396,7 +396,7 @@ class Mage_Core_Model_Layout_Update
      * @param SimpleXMLElement $updateXml
      * @return $this
      */
-    public function fetchRecursiveUpdates($updateXml)
+    function fetchRecursiveUpdates($updateXml)
     {
         foreach ($updateXml->children() as $child) {
             if ((strtolower($child->getName()) == 'update') && isset($child['handle'])) {
@@ -423,7 +423,7 @@ class Mage_Core_Model_Layout_Update
      * @param int|null $storeId
      * @return SimpleXMLElement
      */
-    public function getFileLayoutUpdatesXml($area, $package, $theme, $storeId = null)
+    function getFileLayoutUpdatesXml($area, $package, $theme, $storeId = null)
     {
         if ($storeId === null) {
             $storeId = Mage::app()->getStore()->getId();

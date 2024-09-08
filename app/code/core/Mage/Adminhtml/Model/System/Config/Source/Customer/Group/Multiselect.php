@@ -31,7 +31,7 @@ class Mage_Adminhtml_Model_System_Config_Source_Customer_Group_Multiselect
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         if (!$this->_options) {
             $this->_options = Mage::getResourceModel('customer/group_collection')

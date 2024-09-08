@@ -22,12 +22,12 @@ class Amasty_Notfound_Model_Mysql4_Error extends Mage_Core_Model_Mysql4_Abstract
     
     const PATH_LAST_RUN   = 'amnotfound/errors/last_run';
     
-    public function _construct()
+    function _construct()
     {    
         $this->_init('amnotfound/error', 'log_id');
     }
     
-    public function clear()
+    function clear()
     {    
         $this->_getWriteAdapter()
             ->raw_query('TRUNCATE TABLE `' . $this->getMainTable() . '`');
@@ -60,7 +60,7 @@ class Amasty_Notfound_Model_Mysql4_Error extends Mage_Core_Model_Mysql4_Abstract
         
     }
     
-    public function getLastRun()
+    function getLastRun()
     {
         $time = Mage::getStoreConfig(self::PATH_LAST_RUN);
         if (!$time){ // first run
@@ -70,7 +70,7 @@ class Amasty_Notfound_Model_Mysql4_Error extends Mage_Core_Model_Mysql4_Abstract
         return $time;
     }
     
-    public function setLastRun($time=null)
+    function setLastRun($time=null)
     {
         if (!$time){
             
@@ -93,7 +93,7 @@ class Amasty_Notfound_Model_Mysql4_Error extends Mage_Core_Model_Mysql4_Abstract
         Mage::getConfig()->cleanCache();
     }      
     
-    public function collect($lastRun)
+    function collect($lastRun)
     {  
         $lastRun = $lastRun ? $lastRun : $this->getLastRun();
         

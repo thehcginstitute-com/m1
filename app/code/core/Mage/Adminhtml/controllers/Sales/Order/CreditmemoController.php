@@ -176,7 +176,7 @@ class Mage_Adminhtml_Sales_Order_CreditmemoController extends Mage_Adminhtml_Con
     /**
      * creditmemo information page
      */
-    public function viewAction()
+    function viewAction()
     {
         $creditmemo = $this->_initCreditmemo();
         if ($creditmemo) {
@@ -198,7 +198,7 @@ class Mage_Adminhtml_Sales_Order_CreditmemoController extends Mage_Adminhtml_Con
     /**
      * Start create creditmemo action
      */
-    public function startAction()
+    function startAction()
     {
         /**
          * Clear old values for creditmemo qty's
@@ -209,7 +209,7 @@ class Mage_Adminhtml_Sales_Order_CreditmemoController extends Mage_Adminhtml_Con
     /**
      * creditmemo create page
      */
-    public function newAction()
+    function newAction()
     {
         if ($creditmemo = $this->_initCreditmemo()) {
             if ($creditmemo->getInvoice()) {
@@ -233,7 +233,7 @@ class Mage_Adminhtml_Sales_Order_CreditmemoController extends Mage_Adminhtml_Con
     /**
      * Update items qty action
      */
-    public function updateQtyAction()
+    function updateQtyAction()
     {
         try {
             $creditmemo = $this->_initCreditmemo(true);
@@ -259,7 +259,7 @@ class Mage_Adminhtml_Sales_Order_CreditmemoController extends Mage_Adminhtml_Con
      * Save creditmemo
      * We can save only new creditmemo. Existing creditmemos are not editable
      */
-    public function saveAction()
+    function saveAction()
     {
         $data = $this->getRequest()->getPost('creditmemo');
         if (!empty($data['comment_text'])) {
@@ -323,7 +323,7 @@ class Mage_Adminhtml_Sales_Order_CreditmemoController extends Mage_Adminhtml_Con
     /**
      * Cancel creditmemo action
      */
-    public function cancelAction()
+    function cancelAction()
     {
         $creditmemo = $this->_initCreditmemo();
         if ($creditmemo) {
@@ -345,7 +345,7 @@ class Mage_Adminhtml_Sales_Order_CreditmemoController extends Mage_Adminhtml_Con
     /**
      * Void creditmemo action
      */
-    public function voidAction()
+    function voidAction()
     {
         $creditmemo = $this->_initCreditmemo();
         if ($creditmemo) {
@@ -367,7 +367,7 @@ class Mage_Adminhtml_Sales_Order_CreditmemoController extends Mage_Adminhtml_Con
     /**
      * Add comment to creditmemo history
      */
-    public function addCommentAction()
+    function addCommentAction()
     {
         try {
             $this->getRequest()->setParam(
@@ -445,7 +445,7 @@ class Mage_Adminhtml_Sales_Order_CreditmemoController extends Mage_Adminhtml_Con
     /**
      * Create pdf for current creditmemo
      */
-    public function printAction()
+    function printAction()
     {
         $this->_initCreditmemo();
         parent::printAction();

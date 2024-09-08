@@ -28,7 +28,7 @@ interface Mage_Api2_Model_Acl_PermissionInterface
      *
      * @return array
      */
-    public function getResourcesPermissions();
+    function getResourcesPermissions();
 
     /**
      * Set filter value
@@ -36,5 +36,5 @@ interface Mage_Api2_Model_Acl_PermissionInterface
      * @param mixed $filterValue
      * @return Mage_Api2_Model_Acl_PermissionInterface
      */
-    public function setFilterValue($filterValue);
+    function setFilterValue($filterValue);
 }

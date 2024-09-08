@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset_Options extends Mage_Catalog_Block_Product_View_Options
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->addOptionRenderer(
@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset_Options extends Ma
      *
      * @return string
      */
-    public function getOptionHtml(Mage_Catalog_Model_Product_Option $option)
+    function getOptionHtml(Mage_Catalog_Model_Product_Option $option)
     {
         if (!empty($option['file_extension'])) {
             $option['file_extension'] = $this->escapeHtml($option['file_extension']);

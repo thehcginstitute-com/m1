@@ -30,7 +30,7 @@ class Mage_Core_Exception extends Exception
      * @param Mage_Core_Model_Message_Abstract $message
      * @return $this
      */
-    public function addMessage(Mage_Core_Model_Message_Abstract $message)
+    function addMessage(Mage_Core_Model_Message_Abstract $message)
     {
         if (!isset($this->_messages[$message->getType()])) {
             $this->_messages[$message->getType()] = [];
@@ -43,7 +43,7 @@ class Mage_Core_Exception extends Exception
      * @param string $type
      * @return array|Mage_Core_Model_Message_Abstract[]
      */
-    public function getMessages($type = '')
+    function getMessages($type = '')
     {
         if ($type == '') {
             $arrRes = [];
@@ -62,7 +62,7 @@ class Mage_Core_Exception extends Exception
      * @param bool $append
      * @return $this
      */
-    public function setMessage($message, $append = false)
+    function setMessage($message, $append = false)
     {
         if ($append) {
             $this->message .= $message;

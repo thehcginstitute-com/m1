@@ -25,7 +25,7 @@ class Lesti_Fpc_Model_Fpc_CacheItem
      * @param int    $time
      * @param string $contentType
      */
-    public function __construct($content, $time, $contentType)
+    function __construct($content, $time, $contentType)
     {
         $this->_content = $content;
         $this->_time = $time;
@@ -35,7 +35,7 @@ class Lesti_Fpc_Model_Fpc_CacheItem
     /**
      * @return string
      */
-    public function getContent()
+    function getContent()
     {
         return $this->_content;
     }
@@ -43,7 +43,7 @@ class Lesti_Fpc_Model_Fpc_CacheItem
     /**
      * @return int
      */
-    public function getTime()
+    function getTime()
     {
         return $this->_time;
     }
@@ -51,7 +51,7 @@ class Lesti_Fpc_Model_Fpc_CacheItem
     /**
      * @return string
      */
-    public function getContentType()
+    function getContentType()
     {
         return $this->_contentType;
     }

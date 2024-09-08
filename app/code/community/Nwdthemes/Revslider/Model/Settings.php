@@ -12,7 +12,7 @@
 
 class Nwdthemes_Revslider_Model_Settings extends Mage_Core_Model_Abstract {
 
-    public function _construct() {
+    function _construct() {
         parent::_construct();
         $this->_init('nwdrevslider/settings');
     }
@@ -25,7 +25,7 @@ class Nwdthemes_Revslider_Model_Settings extends Mage_Core_Model_Abstract {
 	 * @return variable
 	 */
 
-	public function getSettingsValue($handle, $default = '') {
+	function getSettingsValue($handle, $default = '') {
 		$settings = $this->getCollection()->getFirstItem();
 		$arrSettings = unserialize($settings->getData('general'));
 		return isset($arrSettings[$handle]) ? $arrSettings[$handle] : $default;

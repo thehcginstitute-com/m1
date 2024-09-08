@@ -167,7 +167,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      */
     protected $_websiteIdToCode = [];
 
-    public function __construct()
+    function __construct()
     {
         $entityCode = $this->getEntityTypeCode();
         $this->_entityTypeId = Mage::getSingleton('eav/config')->getEntityType($entityCode)->getEntityTypeId();
@@ -320,7 +320,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      * @param int $errorRowNum Row number.
      * @return $this
      */
-    public function addRowError($errorCode, $errorRowNum)
+    function addRowError($errorCode, $errorRowNum)
     {
         $this->_errors[$errorCode][] = $errorRowNum + 1; // one added for human readability
         $this->_invalidRows[$errorRowNum] = true;
@@ -336,7 +336,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      * @param string $message Message template
      * @return $this
      */
-    public function addMessageTemplate($errorCode, $message)
+    function addMessageTemplate($errorCode, $message)
     {
         $this->_messageTemplates[$errorCode] = $message;
 
@@ -350,7 +350,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      *
      * @return string
      */
-    abstract public function export();
+    abstract function export();
 
     /**
      * Export data and return temporary file through array.
@@ -366,7 +366,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      * @throws Mage_Core_Exception
      * @return array
      */
-    abstract public function exportFile();
+    abstract function exportFile();
 
     /**
      * Clean up attribute collection.
@@ -374,7 +374,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      * @param Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection
      * @return Mage_Eav_Model_Resource_Entity_Attribute_Collection
      */
-    public function filterAttributeCollection(Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection)
+    function filterAttributeCollection(Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection)
     {
         $collection->load();
 
@@ -391,7 +391,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      *
      * @return Mage_Eav_Model_Resource_Entity_Attribute_Collection
      */
-    abstract public function getAttributeCollection();
+    abstract function getAttributeCollection();
 
     /**
      * Returns attributes all values in label-value or value-value pairs form. Labels are lower-cased.
@@ -399,7 +399,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return array
      */
-    public function getAttributeOptions(Mage_Eav_Model_Entity_Attribute_Abstract $attribute)
+    function getAttributeOptions(Mage_Eav_Model_Entity_Attribute_Abstract $attribute)
     {
         $options = [];
 
@@ -432,14 +432,14 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      * @abstract
      * @return string
      */
-    abstract public function getEntityTypeCode();
+    abstract function getEntityTypeCode();
 
     /**
      * Entity type ID getter.
      *
      * @return int
      */
-    public function getEntityTypeId()
+    function getEntityTypeId()
     {
         return $this->_entityTypeId;
     }
@@ -449,7 +449,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      *
      * @return array
      */
-    public function getErrorMessages()
+    function getErrorMessages()
     {
         $messages = [];
         foreach ($this->_errors as $errorCode => $errorRows) {
@@ -466,7 +466,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      *
      * @return int
      */
-    public function getErrorsCount()
+    function getErrorsCount()
     {
         return $this->_errorsCount;
     }
@@ -476,7 +476,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      *
      * @return int
      */
-    public function getInvalidRowsCount()
+    function getInvalidRowsCount()
     {
         return count($this->_invalidRows);
     }
@@ -486,7 +486,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      *
      * @return int
      */
-    public function getProcessedEntitiesCount()
+    function getProcessedEntitiesCount()
     {
         return $this->_processedEntitiesCount;
     }
@@ -496,7 +496,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      *
      * @return int
      */
-    public function getProcessedRowsCount()
+    function getProcessedRowsCount()
     {
         return $this->_processedRowsCount;
     }
@@ -507,7 +507,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      * @throws Exception
      * @return Mage_ImportExport_Model_Export_Adapter_Abstract
      */
-    public function getWriter()
+    function getWriter()
     {
         if (!$this->_writer) {
             Mage::throwException(Mage::helper('importexport')->__('No writer specified'));
@@ -521,7 +521,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      * @param array $parameters
      * @return Mage_ImportExport_Model_Export_Entity_Abstract
      */
-    public function setParameters(array $parameters)
+    function setParameters(array $parameters)
     {
         $this->_parameters = $parameters;
 
@@ -534,7 +534,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      * @param Mage_ImportExport_Model_Export_Adapter_Abstract $writer
      * @return Mage_ImportExport_Model_Export_Entity_Abstract
      */
-    public function setWriter(Mage_ImportExport_Model_Export_Adapter_Abstract $writer)
+    function setWriter(Mage_ImportExport_Model_Export_Adapter_Abstract $writer)
     {
         $this->_writer = $writer;
 

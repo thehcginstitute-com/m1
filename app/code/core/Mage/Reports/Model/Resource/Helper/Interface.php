@@ -30,7 +30,7 @@ interface Mage_Reports_Model_Resource_Helper_Interface
      * @param mixed $matchFields
      * @return string
      */
-    public function mergeVisitorProductIndex($mainTable, $data, $matchFields);
+    function mergeVisitorProductIndex($mainTable, $data, $matchFields);
 
     /**
      * Update rating position
@@ -41,5 +41,5 @@ interface Mage_Reports_Model_Resource_Helper_Interface
      * @param string $aggregationTable
      * @return Mage_Core_Model_Resource_Helper_Abstract
      */
-    public function updateReportRatingPos($type, $column, $mainTable, $aggregationTable);
+    function updateReportRatingPos($type, $column, $mainTable, $aggregationTable);
 }

@@ -48,7 +48,7 @@ class Mage_Api2_Model_Acl_Filter
      *
      * @param Mage_Api2_Model_Resource $resource
      */
-    public function __construct(Mage_Api2_Model_Resource $resource)
+    function __construct(Mage_Api2_Model_Resource $resource)
     {
         $this->_resource = $resource;
     }
@@ -76,7 +76,7 @@ class Mage_Api2_Model_Acl_Filter
      * @param array $items
      * @return array
      */
-    public function collectionIn($items)
+    function collectionIn($items)
     {
         foreach ($items as &$data) {
             $data = is_array($data) ? $this->in($data) : [];
@@ -90,7 +90,7 @@ class Mage_Api2_Model_Acl_Filter
      * @param array $items
      * @return array
      */
-    public function collectionOut($items)
+    function collectionOut($items)
     {
         foreach ($items as &$data) {
             $data = $this->out($data);
@@ -104,7 +104,7 @@ class Mage_Api2_Model_Acl_Filter
      * @param string $operationType OPTIONAL One of Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_... constant
      * @return array
      */
-    public function getAllowedAttributes($operationType = null)
+    function getAllowedAttributes($operationType = null)
     {
         if ($this->_allowedAttributes === null) {
             /** @var Mage_Api2_Helper_Data $helper */
@@ -140,7 +140,7 @@ class Mage_Api2_Model_Acl_Filter
      *
      * @return array
      */
-    public function getAttributesToInclude()
+    function getAttributesToInclude()
     {
         if ($this->_attributesToInclude === null) {
             $allowedAttrs   = $this->getAllowedAttributes(Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_READ);
@@ -165,7 +165,7 @@ class Mage_Api2_Model_Acl_Filter
      * @param array $requestData
      * @return array
      */
-    public function in(array $requestData)
+    function in(array $requestData)
     {
         $allowedAttributes = $this->getAllowedAttributes(Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_WRITE);
 
@@ -178,7 +178,7 @@ class Mage_Api2_Model_Acl_Filter
      * @param array $retrievedData
      * @return array
      */
-    public function out(array $retrievedData)
+    function out(array $retrievedData)
     {
         return $this->_filter($this->getAttributesToInclude(), $retrievedData);
     }

@@ -31,7 +31,7 @@ class Mage_Sales_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_H
      * @param string $aggregationTable
      * @return Mage_Sales_Model_Resource_Helper_Mysql4
      */
-    public function getBestsellersReportUpdateRatingPos(
+    function getBestsellersReportUpdateRatingPos(
         $aggregation,
         $aggregationAliases,
         $mainTable,

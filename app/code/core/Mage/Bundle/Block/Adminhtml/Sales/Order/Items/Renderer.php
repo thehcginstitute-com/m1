@@ -28,7 +28,7 @@ class Mage_Bundle_Block_Adminhtml_Sales_Order_Items_Renderer extends Mage_Adminh
      * @param Varien_Object $item
      * @return array
      */
-    public function getChilds($item)
+    function getChilds($item)
     {
         $_itemsArray = [];
 
@@ -57,7 +57,7 @@ class Mage_Bundle_Block_Adminhtml_Sales_Order_Items_Renderer extends Mage_Adminh
      * @param Mage_Sales_Model_Order_Invoice_Item $item
      * @return bool
      */
-    public function isShipmentSeparately($item = null)
+    function isShipmentSeparately($item = null)
     {
         if ($item) {
             if ($item->getOrderItem()) {
@@ -100,7 +100,7 @@ class Mage_Bundle_Block_Adminhtml_Sales_Order_Items_Renderer extends Mage_Adminh
      * @param Mage_Sales_Model_Order_Invoice_Item $item
      * @return bool
      */
-    public function isChildCalculated($item = null)
+    function isChildCalculated($item = null)
     {
         if ($item) {
             if ($item->getOrderItem()) {
@@ -143,7 +143,7 @@ class Mage_Bundle_Block_Adminhtml_Sales_Order_Items_Renderer extends Mage_Adminh
      * @param Varien_Object|Mage_Sales_Model_Order_Invoice_Item $item
      * @return mixed|null
      */
-    public function getSelectionAttributes($item)
+    function getSelectionAttributes($item)
     {
         if ($item instanceof Mage_Sales_Model_Order_Item) {
             $options = $item->getProductOptions();
@@ -160,7 +160,7 @@ class Mage_Bundle_Block_Adminhtml_Sales_Order_Items_Renderer extends Mage_Adminh
      * @param null $item deprecated
      * @return array
      */
-    public function getOrderOptions($item = null)
+    function getOrderOptions($item = null)
     {
         $result = [];
 
@@ -183,7 +183,7 @@ class Mage_Bundle_Block_Adminhtml_Sales_Order_Items_Renderer extends Mage_Adminh
      *
      * @return Mage_Sales_Model_Order_Item
      */
-    public function getOrderItem()
+    function getOrderItem()
     {
         return $this->getItem()->getOrderItem();
     }
@@ -192,7 +192,7 @@ class Mage_Bundle_Block_Adminhtml_Sales_Order_Items_Renderer extends Mage_Adminh
      * @param Mage_Sales_Model_Order_Invoice_Item $item
      * @return string
      */
-    public function getValueHtml($item)
+    function getValueHtml($item)
     {
         $result = $this->escapeHtml($item->getName());
         if (!$this->isShipmentSeparately($item)) {
@@ -212,7 +212,7 @@ class Mage_Bundle_Block_Adminhtml_Sales_Order_Items_Renderer extends Mage_Adminh
      * @param Mage_Sales_Model_Order_Invoice_Item $item
      * @return bool
      */
-    public function canShowPriceInfo($item)
+    function canShowPriceInfo($item)
     {
         if (($item->getOrderItem()->getParentItem() && $this->isChildCalculated())
                 || (!$item->getOrderItem()->getParentItem() && !$this->isChildCalculated())

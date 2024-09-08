@@ -47,7 +47,7 @@ abstract class Mage_Catalog_Model_Resource_Abstract extends Mage_Eav_Model_Entit
      *
      * @return int
      */
-    public function getDefaultStoreId()
+    function getDefaultStoreId()
     {
         return Mage_Catalog_Model_Abstract::DEFAULT_STORE_ID;
     }
@@ -571,7 +571,7 @@ abstract class Mage_Catalog_Model_Resource_Abstract extends Mage_Eav_Model_Entit
      * @param int|Mage_Core_Model_Store $store
      * @return bool|string|null|array
      */
-    public function getAttributeRawValue($entityId, $attribute, $store)
+    function getAttributeRawValue($entityId, $attribute, $store)
     {
         if (!$entityId || empty($attribute)) {
             return false;
@@ -695,7 +695,7 @@ abstract class Mage_Catalog_Model_Resource_Abstract extends Mage_Eav_Model_Entit
      * @param int|Mage_Core_Model_Store $store
      * @return bool|string|array
      */
-    public function getAttributeRawText($entityId, $attribute, $store)
+    function getAttributeRawText($entityId, $attribute, $store)
     {
         if (!$entityId || empty($attribute)) {
             return false;
@@ -731,7 +731,7 @@ abstract class Mage_Catalog_Model_Resource_Abstract extends Mage_Eav_Model_Entit
      *
      * @inheritDoc
      */
-    public function load($object, $entityId, $attributes = [])
+    function load($object, $entityId, $attributes = [])
     {
         $this->_attributes = [];
         return parent::load($object, $entityId, $attributes);

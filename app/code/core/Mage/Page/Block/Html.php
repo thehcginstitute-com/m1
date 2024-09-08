@@ -29,7 +29,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
     protected $_urls = [];
     protected $_title = '';
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_urls = [
@@ -49,7 +49,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getBaseUrl()
+    function getBaseUrl()
     {
         return $this->_urls['base'];
     }
@@ -57,7 +57,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getBaseSecureUrl()
+    function getBaseSecureUrl()
     {
         return $this->_urls['baseSecure'];
     }
@@ -65,7 +65,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getCurrentUrl()
+    function getCurrentUrl()
     {
         return $this->_urls['current'];
     }
@@ -75,7 +75,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
      *
      *  @return   string
      */
-    public function getPrintLogoUrl()
+    function getPrintLogoUrl()
     {
         // load html logo
         $logo = Mage::getStoreConfig('sales/identity/logo_html');
@@ -109,7 +109,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getPrintLogoText()
+    function getPrintLogoText()
     {
         return Mage::getStoreConfig('sales/identity/address');
     }
@@ -118,7 +118,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
      * @param string $title
      * @return $this
      */
-    public function setHeaderTitle($title)
+    function setHeaderTitle($title)
     {
         $this->_title = $title;
         return $this;
@@ -127,7 +127,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getHeaderTitle()
+    function getHeaderTitle()
     {
         return $this->_title;
     }
@@ -138,7 +138,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
      * @param string $className
      * @return $this
      */
-    public function addBodyClass($className)
+    function addBodyClass($className)
     {
         $className = preg_replace('#[^a-z0-9]+#', '-', strtolower($className));
         $class = $this->getBodyClass() ? $this->getBodyClass() . ' ' . $className : $className;
@@ -149,7 +149,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getLang()
+    function getLang()
     {
         if (!$this->hasData('lang')) {
             $this->setData('lang', substr(Mage::app()->getLocale()->getLocaleCode(), 0, 2));
@@ -162,7 +162,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function setTheme($theme)
+    function setTheme($theme)
     {
         $arr = explode('/', $theme);
         if (isset($arr[1])) {
@@ -176,7 +176,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getBodyClass()
+    function getBodyClass()
     {
         return $this->_getData('body_class');
     }
@@ -184,7 +184,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
     /**
      * @return string
      */
-    public function getAbsoluteFooter()
+    function getAbsoluteFooter()
     {
         return Mage::getStoreConfig('design/footer/absolute_footer');
     }

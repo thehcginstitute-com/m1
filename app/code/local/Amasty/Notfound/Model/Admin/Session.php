@@ -83,7 +83,7 @@ class Amasty_Notfound_Model_Admin_Session extends Mage_Admin_Model_Session
         return true;
     }    
     
-    public function login($username, $password, $request = null)
+    function login($username, $password, $request = null)
     {
         $ip  = Mage::app()->getRequest()->getClientIp();
         $max = $this->_config('max', true);

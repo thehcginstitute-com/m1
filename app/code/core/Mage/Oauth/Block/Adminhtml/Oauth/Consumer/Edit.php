@@ -34,7 +34,7 @@ class Mage_Oauth_Block_Adminhtml_Oauth_Consumer_Edit extends Mage_Adminhtml_Bloc
      *
      * @return Mage_Oauth_Model_Consumer
      */
-    public function getModel()
+    function getModel()
     {
         if ($this->_model === null) {
             $this->_model = Mage::registry('current_consumer');
@@ -45,7 +45,7 @@ class Mage_Oauth_Block_Adminhtml_Oauth_Consumer_Edit extends Mage_Adminhtml_Bloc
     /**
      * Construct edit page
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_blockGroup = 'oauth';
@@ -80,7 +80,7 @@ class Mage_Oauth_Block_Adminhtml_Oauth_Consumer_Edit extends Mage_Adminhtml_Bloc
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         if ($this->getModel()->getId()) {
             return $this->__('Edit Consumer');

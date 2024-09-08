@@ -27,7 +27,7 @@ class Mage_Catalog_Model_Product_Type_Api extends Mage_Api_Model_Resource_Abstra
      *
      * @return array
      */
-    public function items()
+    function items()
     {
         $result = [];
 

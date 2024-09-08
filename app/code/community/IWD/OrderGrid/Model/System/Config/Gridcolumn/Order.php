@@ -19,7 +19,7 @@ class IWD_OrderGrid_Model_System_Config_Gridcolumn_Order
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $selected = $this->getSelectedColumnsArray();
         $columns = Mage::getModel('iwd_ordergrid/order_grid')->getOrderGridColumns(

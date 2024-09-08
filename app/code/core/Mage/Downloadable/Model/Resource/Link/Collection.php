@@ -36,7 +36,7 @@ class Mage_Downloadable_Model_Resource_Link_Collection extends Mage_Core_Model_R
      * @param Mage_Catalog_Model_Product|array|integer|null $product
      * @return $this
      */
-    public function addProductToFilter($product)
+    function addProductToFilter($product)
     {
         if (empty($product)) {
             $this->addFieldToFilter('product_id', '');
@@ -55,7 +55,7 @@ class Mage_Downloadable_Model_Resource_Link_Collection extends Mage_Core_Model_R
      * @param int $storeId
      * @return $this
      */
-    public function addTitleToResult($storeId = 0)
+    function addTitleToResult($storeId = 0)
     {
         $ifNullDefaultTitle = $this->getConnection()
             ->getIfNullSql('st.title', 'd.title');
@@ -82,7 +82,7 @@ class Mage_Downloadable_Model_Resource_Link_Collection extends Mage_Core_Model_R
      * @param int $websiteId
      * @return $this
      */
-    public function addPriceToResult($websiteId)
+    function addPriceToResult($websiteId)
     {
         $ifNullDefaultPrice = $this->getConnection()
             ->getIfNullSql('stp.price', 'dp.price');

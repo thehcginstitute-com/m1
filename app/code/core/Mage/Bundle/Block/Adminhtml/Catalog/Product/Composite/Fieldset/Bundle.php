@@ -27,7 +27,7 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Composite_Fieldset_Bundle exte
      *
      * @return string
      */
-    public function getJsonConfig()
+    function getJsonConfig()
     {
         $options = [];
         $optionsArray = $this->getOptions();

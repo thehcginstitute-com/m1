@@ -24,7 +24,7 @@ class Mage_Sales_Model_Entity_Quote_Address_Attribute_Backend_Child extends Mage
      * @param Varien_Object $object
      * @return $this
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         if ($object->getAddress()) {
             $object->setParentId($object->getAddress()->getId())

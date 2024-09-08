@@ -26,7 +26,7 @@ class Mage_Downloadable_Block_Checkout_Cart_Item_Renderer extends Mage_Checkout_
      *
      * @return array
      */
-    public function getLinks()
+    function getLinks()
     {
         return Mage::helper('downloadable/catalog_product_configuration')->getLinks($this->getItem());
     }
@@ -36,7 +36,7 @@ class Mage_Downloadable_Block_Checkout_Cart_Item_Renderer extends Mage_Checkout_
      *
      * @return string
      */
-    public function getLinksTitle()
+    function getLinksTitle()
     {
         return Mage::helper('downloadable/catalog_product_configuration')->getLinksTitle($this->getProduct());
     }

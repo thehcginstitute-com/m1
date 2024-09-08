@@ -45,7 +45,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main_Layout extends M
      * @param Varien_Data_Form_Element_Abstract $element
      * @return string
      */
-    public function render(Varien_Data_Form_Element_Abstract $element)
+    function render(Varien_Data_Form_Element_Abstract $element)
     {
         $this->setElement($element);
         return $this->toHtml();
@@ -57,7 +57,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main_Layout extends M
      * @param Varien_Data_Form_Element_Abstract $element
      * @return $this
      */
-    public function setElement(Varien_Data_Form_Element_Abstract $element)
+    function setElement(Varien_Data_Form_Element_Abstract $element)
     {
         $this->_element = $element;
         return $this;
@@ -68,7 +68,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main_Layout extends M
      *
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function getElement()
+    function getElement()
     {
         return $this->_element;
     }
@@ -78,7 +78,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main_Layout extends M
      *
      * @return string
      */
-    public function getCategoriesChooserUrl()
+    function getCategoriesChooserUrl()
     {
         return $this->getUrl('*/*/categories', ['_current' => true]);
     }
@@ -88,7 +88,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main_Layout extends M
      *
      * @return string
      */
-    public function getProductsChooserUrl()
+    function getProductsChooserUrl()
     {
         return $this->getUrl('*/*/products', ['_current' => true]);
     }
@@ -98,7 +98,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main_Layout extends M
      *
      * @return string
      */
-    public function getBlockChooserUrl()
+    function getBlockChooserUrl()
     {
         return $this->getUrl('*/*/blocks', ['_current' => true]);
     }
@@ -108,7 +108,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main_Layout extends M
      *
      * @return string
      */
-    public function getTemplateChooserUrl()
+    function getTemplateChooserUrl()
     {
         return $this->getUrl('*/*/template', ['_current' => true]);
     }
@@ -118,7 +118,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main_Layout extends M
      *
      * @return string
      */
-    public function getDisplayOnSelectHtml()
+    function getDisplayOnSelectHtml()
     {
         $selectBlock = $this->getLayout()->createBlock('core/html_select')
             ->setName('widget_instance[{{id}}][page_group]')
@@ -192,7 +192,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main_Layout extends M
      *
      * @return array
      */
-    public function getDisplayOnContainers()
+    function getDisplayOnContainers()
     {
         $container = [];
         $container['anchor'] = [
@@ -237,7 +237,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main_Layout extends M
      *
      * @return string
      */
-    public function getLayoutsChooser()
+    function getLayoutsChooser()
     {
         $layouts = $this->getLayout()
             ->createBlock('widget/adminhtml_widget_instance_edit_chooser_layout')
@@ -253,7 +253,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main_Layout extends M
      *
      * @return string
      */
-    public function getAddLayoutButtonHtml()
+    function getAddLayoutButtonHtml()
     {
         $button = $this->getLayout()->createBlock('adminhtml/widget_button')
             ->setData([
@@ -269,7 +269,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main_Layout extends M
      *
      * @return string
      */
-    public function getRemoveLayoutButtonHtml()
+    function getRemoveLayoutButtonHtml()
     {
         $button = $this->getLayout()->createBlock('adminhtml/widget_button')
             ->setData([
@@ -285,7 +285,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Tab_Main_Layout extends M
      *
      * @return array
      */
-    public function getPageGroups()
+    function getPageGroups()
     {
         $widgetInstance = $this->getWidgetInstance();
         $pageGroups = [];

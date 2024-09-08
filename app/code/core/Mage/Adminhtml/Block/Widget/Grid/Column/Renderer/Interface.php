@@ -29,7 +29,7 @@ interface Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Interface
      * @param Mage_Adminhtml_Block_Widget_Grid_Column $column
      * @return void
      */
-    public function setColumn($column);
+    function setColumn($column);
 
     /**
      * Returns row associated with the renderer
@@ -37,12 +37,12 @@ interface Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Interface
      * @abstract
      * @return Mage_Adminhtml_Block_Widget_Grid_Column
      */
-    public function getColumn();
+    function getColumn();
 
     /**
      * Renders grid column
      *
      * @param Varien_Object $row
      */
-    public function render(Varien_Object $row);
+    function render(Varien_Object $row);
 }

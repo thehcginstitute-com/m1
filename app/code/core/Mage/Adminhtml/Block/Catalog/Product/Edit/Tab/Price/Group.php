@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Price_Group extends Mage_Adm
     /**
      * Initialize block
      */
-    public function __construct()
+    function __construct()
     {
         $this->setTemplate('catalog/product/edit/price/group.phtml');
     }
@@ -86,7 +86,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Price_Group extends Mage_Adm
      *
      * @return int
      */
-    public function getIsPercent()
+    function getIsPercent()
     {
         return $this->getData('is_percent') ? $this->getData('is_percent') : 0;
     }

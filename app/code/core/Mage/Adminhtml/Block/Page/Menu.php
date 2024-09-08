@@ -51,7 +51,7 @@ class Mage_Adminhtml_Block_Page_Menu extends Mage_Adminhtml_Block_Template
      *
      * @return int
      */
-    public function getCacheLifetime()
+    function getCacheLifetime()
     {
         return 86400;
     }
@@ -61,7 +61,7 @@ class Mage_Adminhtml_Block_Page_Menu extends Mage_Adminhtml_Block_Template
      *
      * @return array
      */
-    public function getCacheKeyInfo()
+    function getCacheKeyInfo()
     {
         $cacheKeyInfo = [
             'admin_top_nav',
@@ -82,7 +82,7 @@ class Mage_Adminhtml_Block_Page_Menu extends Mage_Adminhtml_Block_Template
      *
      * @return array
      */
-    public function getMenuArray()
+    function getMenuArray()
     {
         $parent = Mage::getSingleton('admin/config')->getAdminhtmlConfig()->getNode('menu');
 
@@ -263,7 +263,7 @@ class Mage_Adminhtml_Block_Page_Menu extends Mage_Adminhtml_Block_Template
      * @param int $level
      * @return string
      */
-    public function getMenuLevel($menu, $level = 0)
+    function getMenuLevel($menu, $level = 0)
     {
         $html = '<ul ' . (!$level ? 'id="nav"' : '') . '>' . PHP_EOL;
         foreach ($menu as $item) {

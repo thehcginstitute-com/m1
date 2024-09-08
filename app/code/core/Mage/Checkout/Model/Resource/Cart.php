@@ -33,7 +33,7 @@ class Mage_Checkout_Model_Resource_Cart extends Mage_Core_Model_Resource_Db_Abst
      * @param int $quoteId
      * @return array
      */
-    public function fetchItemsSummary($quoteId)
+    function fetchItemsSummary($quoteId)
     {
         $read = $this->_getReadAdapter();
         $select = $read->select()
@@ -50,7 +50,7 @@ class Mage_Checkout_Model_Resource_Cart extends Mage_Core_Model_Resource_Db_Abst
      * @param int $quoteId
      * @return array
      */
-    public function fetchItems($quoteId)
+    function fetchItems($quoteId)
     {
         $read = $this->_getReadAdapter();
         $select = $read->select()
@@ -70,7 +70,7 @@ class Mage_Checkout_Model_Resource_Cart extends Mage_Core_Model_Resource_Db_Abst
      * @param int $quoteId
      * @return $this
      */
-    public function addExcludeProductFilter($collection, $quoteId)
+    function addExcludeProductFilter($collection, $quoteId)
     {
         $adapter = $this->_getReadAdapter();
         $exclusionSelect = $adapter->select()

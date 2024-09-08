@@ -50,7 +50,7 @@ class Mage_Core_Model_Resource_Website_Collection extends Mage_Core_Model_Resour
      * @param bool $loadDefault
      * @return $this
      */
-    public function setLoadDefault($loadDefault)
+    function setLoadDefault($loadDefault)
     {
         $this->setFlag('load_default_website', (bool)$loadDefault);
         return $this;
@@ -61,7 +61,7 @@ class Mage_Core_Model_Resource_Website_Collection extends Mage_Core_Model_Resour
      *
      * @return bool
      */
-    public function getLoadDefault()
+    function getLoadDefault()
     {
         return $this->getFlag('load_default_website');
     }
@@ -71,7 +71,7 @@ class Mage_Core_Model_Resource_Website_Collection extends Mage_Core_Model_Resour
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->_toOptionArray('website_id', 'name');
     }
@@ -81,7 +81,7 @@ class Mage_Core_Model_Resource_Website_Collection extends Mage_Core_Model_Resour
      *
      * @return array
      */
-    public function toOptionHash()
+    function toOptionHash()
     {
         return $this->_toOptionHash('website_id', 'name');
     }
@@ -92,7 +92,7 @@ class Mage_Core_Model_Resource_Website_Collection extends Mage_Core_Model_Resour
      * @param int $ids|array
      * @return $this
      */
-    public function addIdFilter($ids)
+    function addIdFilter($ids)
     {
         if (is_array($ids)) {
             if (empty($ids)) {
@@ -109,7 +109,7 @@ class Mage_Core_Model_Resource_Website_Collection extends Mage_Core_Model_Resour
     /**
      * @inheritDoc
      */
-    public function load($printQuery = false, $logQuery = false)
+    function load($printQuery = false, $logQuery = false)
     {
         if (!$this->getLoadDefault()) {
             $this->getSelect()->where('main_table.website_id > ?', 0);
@@ -129,7 +129,7 @@ class Mage_Core_Model_Resource_Website_Collection extends Mage_Core_Model_Resour
      *
      * @return $this
      */
-    public function joinGroupAndStore()
+    function joinGroupAndStore()
     {
         if (!$this->getFlag('groups_and_stores_joined')) {
             $this->_idFieldName = 'website_group_store';
@@ -159,7 +159,7 @@ class Mage_Core_Model_Resource_Website_Collection extends Mage_Core_Model_Resour
      * @param int|array $groupIds
      * @return $this
      */
-    public function addFilterByGroupIds($groupIds)
+    function addFilterByGroupIds($groupIds)
     {
         if ($this->getFlag('groups_and_stores_joined')) {
             $this->addFieldToFilter('group_table.group_id', $groupIds);

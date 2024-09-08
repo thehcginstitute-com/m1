@@ -27,7 +27,7 @@ class Mage_Api_Model_Wsdl_Config_Element extends Varien_Simplexml_Element
      * @param bool $overwrite
      * @return $this|Varien_Simplexml_Element
      */
-    public function extend($source, $overwrite = false)
+    function extend($source, $overwrite = false)
     {
         if (!$source instanceof Varien_Simplexml_Element) {
             return $this;
@@ -50,7 +50,7 @@ class Mage_Api_Model_Wsdl_Config_Element extends Varien_Simplexml_Element
      * @param string $elmNamespace
      * @return Varien_Simplexml_Element
      */
-    public function extendChild($source, $overwrite = false, $elmNamespace = '')
+    function extendChild($source, $overwrite = false, $elmNamespace = '')
     {
         // this will be our new target node
         $targetChild = null;
@@ -140,7 +140,7 @@ class Mage_Api_Model_Wsdl_Config_Element extends Varien_Simplexml_Element
      * @param null|string $namespace
      * @return array
      */
-    public function getAttributes($source, $namespace = null)
+    function getAttributes($source, $namespace = null)
     {
         $attributes = [];
         if (!is_null($namespace)) {
@@ -164,7 +164,7 @@ class Mage_Api_Model_Wsdl_Config_Element extends Varien_Simplexml_Element
      * @return array
      */
     #[\ReturnTypeWillChange]
-    public function getChildren($source = null)
+    function getChildren($source = null)
     {
         Mage::log('Use of deprecated method: ' . __METHOD__);
         return self::_getChildren($source);
@@ -199,7 +199,7 @@ class Mage_Api_Model_Wsdl_Config_Element extends Varien_Simplexml_Element
      * @return bool
      */
     #[\ReturnTypeWillChange]
-    public function hasChildren()
+    function hasChildren()
     {
         if (!self::_getChildren($this)) {
             return false;
@@ -221,7 +221,7 @@ class Mage_Api_Model_Wsdl_Config_Element extends Varien_Simplexml_Element
      * @param string $elmNamespace
      * @return SimpleXMLElement|Varien_Simplexml_Element|null
      */
-    public function getElementByName($source, $elmNamespace = '')
+    function getElementByName($source, $elmNamespace = '')
     {
         $sourceName = $source->getName();
         $extendElmAttributes = $this->getAttributes($source);
@@ -257,7 +257,7 @@ class Mage_Api_Model_Wsdl_Config_Element extends Varien_Simplexml_Element
      * @param string $namespace
      * @return string|null
      */
-    public function getAttribute($name, $namespace = '')
+    function getAttribute($name, $namespace = '')
     {
         $attrs = $this->attributes($namespace);
         return isset($attrs[$name]) ? (string)$attrs[$name] : null;

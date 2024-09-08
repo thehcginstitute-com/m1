@@ -39,7 +39,7 @@ class Mage_Adminhtml_CacheController extends Mage_Adminhtml_Controller_Action
     /**
      * Display cache management grid
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('System'))->_title($this->__('Cache Management'));
 
@@ -51,7 +51,7 @@ class Mage_Adminhtml_CacheController extends Mage_Adminhtml_Controller_Action
     /**
      * Flush cache storage
      */
-    public function flushAllAction()
+    function flushAllAction()
     {
         Mage::dispatchEvent('adminhtml_cache_flush_all');
         Mage::app()->getCacheInstance()->flush();
@@ -62,7 +62,7 @@ class Mage_Adminhtml_CacheController extends Mage_Adminhtml_Controller_Action
     /**
      * Flush all magento cache
      */
-    public function flushSystemAction()
+    function flushSystemAction()
     {
         Mage::app()->cleanCache();
         Mage::dispatchEvent('adminhtml_cache_flush_system');
@@ -73,7 +73,7 @@ class Mage_Adminhtml_CacheController extends Mage_Adminhtml_Controller_Action
     /**
      * Mass action for cache enabeling
      */
-    public function massEnableAction()
+    function massEnableAction()
     {
         $types = $this->getRequest()->getParam('types');
         $allTypes = Mage::app()->useCache();
@@ -95,7 +95,7 @@ class Mage_Adminhtml_CacheController extends Mage_Adminhtml_Controller_Action
     /**
      * Mass action for cache disabeling
      */
-    public function massDisableAction()
+    function massDisableAction()
     {
         $types = $this->getRequest()->getParam('types');
         $allTypes = Mage::app()->useCache();
@@ -118,7 +118,7 @@ class Mage_Adminhtml_CacheController extends Mage_Adminhtml_Controller_Action
     /**
      * Mass action for cache refresh
      */
-    public function massRefreshAction()
+    function massRefreshAction()
     {
         $types = $this->getRequest()->getParam('types');
         $updatedTypes = 0;
@@ -138,7 +138,7 @@ class Mage_Adminhtml_CacheController extends Mage_Adminhtml_Controller_Action
     /**
      * Clean JS/css files cache
      */
-    public function cleanMediaAction()
+    function cleanMediaAction()
     {
         try {
             Mage::getModel('core/design_package')->cleanMergedJsCss();
@@ -160,7 +160,7 @@ class Mage_Adminhtml_CacheController extends Mage_Adminhtml_Controller_Action
     /**
      * Clean catalog files cache
      */
-    public function cleanImagesAction()
+    function cleanImagesAction()
     {
         try {
             Mage::getModel('catalog/product_image')->clearCache();
@@ -182,7 +182,7 @@ class Mage_Adminhtml_CacheController extends Mage_Adminhtml_Controller_Action
     /**
      * Clean configurable swatches files cache
      */
-    public function cleanSwatchesAction()
+    function cleanSwatchesAction()
     {
         try {
             Mage::helper('configurableswatches/productimg')->clearSwatchesCache();

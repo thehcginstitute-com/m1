@@ -70,7 +70,7 @@ class Mage_Eav_Model_Form_Fieldset extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getLabels()
+    function getLabels()
     {
         if (!$this->hasData('labels')) {
             $this->setData('labels', $this->_getResource()->getLabels($this));
@@ -85,7 +85,7 @@ class Mage_Eav_Model_Form_Fieldset extends Mage_Core_Model_Abstract
      * @param array $labels
      * @return $this
      */
-    public function setLabels(array $labels)
+    function setLabels(array $labels)
     {
         return $this->setData('labels', $labels);
     }
@@ -97,7 +97,7 @@ class Mage_Eav_Model_Form_Fieldset extends Mage_Core_Model_Abstract
      * @param string $label
      * @return $this
      */
-    public function setStoreLabel($storeId, $label)
+    function setStoreLabel($storeId, $label)
     {
         $labels = $this->getLabels();
         $labels[$storeId] = $label;
@@ -110,7 +110,7 @@ class Mage_Eav_Model_Form_Fieldset extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         if (!$this->hasStoreId()) {
             $this->setData('store_id', Mage::app()->getStore()->getId());

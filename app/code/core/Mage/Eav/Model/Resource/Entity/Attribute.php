@@ -78,7 +78,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
      * @param string $code
      * @return bool
      */
-    public function loadByCode(Mage_Core_Model_Abstract $object, $entityTypeId, $code)
+    function loadByCode(Mage_Core_Model_Abstract $object, $entityTypeId, $code)
     {
         $bind   = [':entity_type_id' => $entityTypeId];
         $select = $this->_getLoadSelect('attribute_code', $code, $object)
@@ -124,7 +124,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
      * @param Mage_Core_Model_Abstract|Mage_Eav_Model_Entity_Attribute $object
      * @return $this
      */
-    public function deleteEntity(Mage_Core_Model_Abstract $object)
+    function deleteEntity(Mage_Core_Model_Abstract $object)
     {
         if (!$object->getEntityAttributeId()) {
             return $this;
@@ -245,7 +245,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
      * @param Mage_Core_Model_Abstract|Mage_Eav_Model_Entity_Attribute $object
      * @return $this
      */
-    public function saveInSetIncluding(Mage_Core_Model_Abstract $object)
+    function saveInSetIncluding(Mage_Core_Model_Abstract $object)
     {
         $attributeId = (int) $object->getId();
         $setId       = (int) $object->getAttributeSetId();
@@ -364,7 +364,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
      * @param string $code
      * @return int
      */
-    public function getIdByCode($entityType, $code)
+    function getIdByCode($entityType, $code)
     {
         $adapter = $this->_getReadAdapter();
         $bind    = [
@@ -390,7 +390,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
      * @param string $frontendType
      * @return array
      */
-    public function getAttributeCodesByFrontendType($frontendType)
+    function getAttributeCodesByFrontendType($frontendType)
     {
         $adapter = $this->_getReadAdapter();
         $bind    = [':frontend_input' => $frontendType];
@@ -408,7 +408,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
      * @param int $storeId
      * @return Varien_Db_Select
      */
-    public function getFlatUpdateSelect(Mage_Eav_Model_Entity_Attribute_Abstract $attribute, $storeId)
+    function getFlatUpdateSelect(Mage_Eav_Model_Entity_Attribute_Abstract $attribute, $storeId)
     {
         $adapter = $this->_getReadAdapter();
         $joinConditionTemplate = "%s.entity_id = %s.entity_id"
@@ -454,7 +454,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
      * @param string $table
      * @return array
      */
-    public function describeTable($table)
+    function describeTable($table)
     {
         return $this->_getReadAdapter()->describeTable($table);
     }
@@ -465,7 +465,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
      * @param int $entityTypeId
      * @return string
      */
-    public function getAdditionalAttributeTable($entityTypeId)
+    function getAdditionalAttributeTable($entityTypeId)
     {
         return Mage::getResourceSingleton('eav/entity_type')->getAdditionalAttributeTable($entityTypeId);
     }
@@ -509,7 +509,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
      * @param int $attributeId
      * @return array
      */
-    public function getStoreLabelsByAttributeId($attributeId)
+    function getStoreLabelsByAttributeId($attributeId)
     {
         $adapter   = $this->_getReadAdapter();
         $bind      = [':attribute_id' => $attributeId];
@@ -526,7 +526,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
      * @param array $attributeIds
      * @return array
      */
-    public function getValidAttributeIds($attributeIds)
+    function getValidAttributeIds($attributeIds)
     {
         $adapter   = $this->_getReadAdapter();
         $select    = $adapter->select()

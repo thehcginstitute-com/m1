@@ -62,7 +62,7 @@ class Mage_Api2_Helper_Data extends Mage_Core_Helper_Abstract
      * @param bool $enabledOnly
      * @return array
      */
-    public function getAuthAdapters($enabledOnly = false)
+    function getAuthAdapters($enabledOnly = false)
     {
         $adapters = Mage::getConfig()->getNode(self::XML_PATH_AUTH_ADAPTERS);
 
@@ -89,7 +89,7 @@ class Mage_Api2_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getUserTypes()
+    function getUserTypes()
     {
         $userModels = [];
         $types = Mage::getConfig()->getNode(self::XML_PATH_USER_TYPES);
@@ -109,7 +109,7 @@ class Mage_Api2_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getRequestInterpreterAdapters()
+    function getRequestInterpreterAdapters()
     {
         return (array) Mage::app()->getConfig()->getNode(self::XML_PATH_API2_REQUEST_INTERPRETERS);
     }
@@ -119,7 +119,7 @@ class Mage_Api2_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getResponseRenderAdapters()
+    function getResponseRenderAdapters()
     {
         return (array) Mage::app()->getConfig()->getNode(self::XML_PATH_API2_RESPONSE_RENDERS);
     }
@@ -130,7 +130,7 @@ class Mage_Api2_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $type
      * @return bool
      */
-    public function isApiTypeSupported($type)
+    function isApiTypeSupported($type)
     {
         return in_array($type, Mage_Api2_Model_Server::getApiTypes());
     }
@@ -143,7 +143,7 @@ class Mage_Api2_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $operation One of Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_... constant
      * @return array
      */
-    public function getAllowedAttributes($userType, $resourceId, $operation)
+    function getAllowedAttributes($userType, $resourceId, $operation)
     {
         /** @var Mage_Api2_Model_Resource_Acl_Filter_Attribute $resource */
         $resource = Mage::getResourceModel('api2/acl_filter_attribute');
@@ -159,7 +159,7 @@ class Mage_Api2_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $userType
      * @return bool
      */
-    public function isAllAttributesAllowed($userType)
+    function isAllAttributesAllowed($userType)
     {
         /** @var Mage_Api2_Model_Resource_Acl_Filter_Attribute $resource */
         $resource = Mage::getResourceModel('api2/acl_filter_attribute');
@@ -174,7 +174,7 @@ class Mage_Api2_Helper_Data extends Mage_Core_Helper_Abstract
      * @return string One of Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_... constant
      * @throws Exception
      */
-    public function getTypeOfOperation($operation)
+    function getTypeOfOperation($operation)
     {
         if (Mage_Api2_Model_Resource::OPERATION_RETRIEVE === $operation) {
             return Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_READ;

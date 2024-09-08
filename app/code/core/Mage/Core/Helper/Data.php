@@ -68,7 +68,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * @return Mage_Core_Model_Encryption
      */
-    public function getEncryptor()
+    function getEncryptor()
     {
         if ($this->_encryptor === null) {
             $encryptionModel = (string)Mage::getConfig()->getNode(self::XML_PATH_ENCRYPTION_MODEL);
@@ -127,7 +127,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   bool $includeContainer
      * @return  string
      */
-    public function formatCurrency($value, $includeContainer = true)
+    function formatCurrency($value, $includeContainer = true)
     {
         return self::currency($value, true, $includeContainer);
     }
@@ -139,7 +139,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param bool $includeContainer
      * @return string
      */
-    public function formatPrice($price, $includeContainer = true)
+    function formatPrice($price, $includeContainer = true)
     {
         return Mage::app()->getStore()->formatPrice($price, $includeContainer);
     }
@@ -152,7 +152,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   bool                $showTime Whether to include time
      * @return  string
      */
-    public function formatDate($date = null, $format = Mage_Core_Model_Locale::FORMAT_TYPE_SHORT, $showTime = false)
+    function formatDate($date = null, $format = Mage_Core_Model_Locale::FORMAT_TYPE_SHORT, $showTime = false)
     {
         if (!in_array($format, $this->_allowedFormats, true)) {
             return $date;
@@ -183,7 +183,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   bool                $showDate
      * @return  string
      */
-    public function formatTime($time = null, $format = Mage_Core_Model_Locale::FORMAT_TYPE_SHORT, $showDate = false)
+    function formatTime($time = null, $format = Mage_Core_Model_Locale::FORMAT_TYPE_SHORT, $showDate = false)
     {
         if (!in_array($format, $this->_allowedFormats, true)) {
             return $time;
@@ -212,7 +212,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   string $data
      * @return  string
      */
-    public function encrypt($data)
+    function encrypt($data)
     {
         if (!Mage::isInstalled()) {
             return $data;
@@ -226,7 +226,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   string $data
      * @return  string
      */
-    public function decrypt($data)
+    function decrypt($data)
     {
         if (!Mage::isInstalled()) {
             return $data;
@@ -238,7 +238,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $key
      * @return Varien_Crypt_Mcrypt
      */
-    public function validateKey($key)
+    function validateKey($key)
     {
         return $this->getEncryptor()->validateKey($key);
     }
@@ -248,7 +248,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string|null $chars
      * @return string
      */
-    public function getRandomString($len, $chars = null)
+    function getRandomString($len, $chars = null)
     {
         if (is_null($chars)) {
             $chars = self::CHARS_LOWERS . self::CHARS_UPPERS . self::CHARS_DIGITS;
@@ -266,7 +266,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string|int|bool $salt
      * @return string
      */
-    public function getHash($password, $salt = false)
+    function getHash($password, $salt = false)
     {
         return $this->getEncryptor()->getHash($password, $salt);
     }
@@ -278,7 +278,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $salt
      * @return string
      */
-    public function getHashPassword($password, $salt = false)
+    function getHashPassword($password, $salt = false)
     {
         $encryptionModel = $this->getEncryptor();
         $latestVersionHash = $this->getVersionHash($encryptionModel);
@@ -294,7 +294,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @return bool
      * @throws Exception
      */
-    public function validateHash($password, $hash)
+    function validateHash($password, $hash)
     {
         return $this->getEncryptor()->validateHash($password, $hash);
     }
@@ -305,7 +305,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Encryption $encryptionModel
      * @return int
      */
-    public function getVersionHash(Mage_Core_Model_Encryption $encryptionModel)
+    function getVersionHash(Mage_Core_Model_Encryption $encryptionModel)
     {
         return function_exists('password_hash')
             ? $encryptionModel::HASH_VERSION_LATEST
@@ -318,7 +318,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  int
      */
-    public function getStoreId($store = null)
+    function getStoreId($store = null)
     {
         return Mage::app()->getStore($store)->getId();
     }
@@ -330,7 +330,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function removeAccents($string, $german = false)
+    function removeAccents($string, $german = false)
     {
         static $replacements;
 
@@ -388,7 +388,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param null|string|bool|int|Mage_Core_Model_Store $storeId
      * @return bool
      */
-    public function isDevAllowed($storeId = null)
+    function isDevAllowed($storeId = null)
     {
         $allow = true;
 
@@ -411,7 +411,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getCacheTypes()
+    function getCacheTypes()
     {
         $types = [];
         $config = Mage::getConfig()->getNode(Mage_Core_Model_Cache::XML_PATH_TYPES);
@@ -426,7 +426,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getCacheBetaTypes()
+    function getCacheBetaTypes()
     {
         $types = [];
         $config = Mage::getConfig()->getNode(self::XML_PATH_CACHE_BETA_TYPES);
@@ -452,7 +452,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $root
      * @return bool
      */
-    public function copyFieldset($fieldset, $aspect, $source, $target, $root = 'global')
+    function copyFieldset($fieldset, $aspect, $source, $target, $root = 'global')
     {
         if (!(is_array($source) || $source instanceof Varien_Object)
             || !(is_array($target) || $target instanceof Varien_Object)
@@ -521,7 +521,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param bool $forceSetAll
      * @return mixed
      */
-    public function decorateArray($array, $prefix = 'decorated_', $forceSetAll = false)
+    function decorateArray($array, $prefix = 'decorated_', $forceSetAll = false)
     {
         // check if array or an object to be iterated given
         if (!(is_array($array) || is_object($array))) {
@@ -591,7 +591,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @return SimpleXMLElement
      * @throws Exception
      */
-    public function assocToXml(array $array, $rootName = '_')
+    function assocToXml(array $array, $rootName = '_')
     {
         if (empty($rootName) || is_numeric($rootName)) {
             throw new Exception('Root element must not be empty or numeric');
@@ -652,7 +652,7 @@ XML;
      * @param SimpleXMLElement $xml
      * @return array
      */
-    public function xmlToAssoc(SimpleXMLElement $xml)
+    function xmlToAssoc(SimpleXMLElement $xml)
     {
         $array = [];
         foreach ($xml as $key => $value) {
@@ -682,7 +682,7 @@ XML;
      * @param  array $options Additional options used during encoding
      * @return string
      */
-    public function jsonEncode($valueToEncode, $cycleCheck = false, $options = [])
+    function jsonEncode($valueToEncode, $cycleCheck = false, $options = [])
     {
         $json = Zend_Json::encode($valueToEncode, $cycleCheck, $options);
         /** @var Mage_Core_Model_Translate_Inline $inline */
@@ -707,7 +707,7 @@ XML;
      * @return mixed
      * @throws Zend_Json_Exception
      */
-    public function jsonDecode($encodedValue, $objectDecodeType = Zend_Json::TYPE_ARRAY)
+    function jsonDecode($encodedValue, $objectDecodeType = Zend_Json::TYPE_ARRAY)
     {
         switch (true) {
             case ($encodedValue === null):
@@ -734,7 +734,7 @@ XML;
      * @param string $prefix
      * @return string
      */
-    public function uniqHash($prefix = '')
+    function uniqHash($prefix = '')
     {
         return $prefix . md5(uniqid(microtime() . mt_rand(), true));
     }
@@ -760,7 +760,7 @@ XML;
      *
      * @SuppressWarnings(PHPMD.ErrorControlOperator)
      */
-    public function mergeFiles(
+    function mergeFiles(
         array $srcFiles,
         $targetFile = false,
         $mustMerge = false,
@@ -848,7 +848,7 @@ XML;
      * @param Mage_Core_Model_Store|string|int $store
      * @return string
      */
-    public function getDefaultCountry($store = null)
+    function getDefaultCountry($store = null)
     {
         return Mage::getStoreConfig(self::XML_PATH_DEFAULT_COUNTRY, $store);
     }
@@ -859,7 +859,7 @@ XML;
      * @param Mage_Core_Model_Store|string|int $store
      * @return array
      */
-    public function getProtectedFileExtensions($store = null)
+    function getProtectedFileExtensions($store = null)
     {
         return Mage::getStoreConfig(self::XML_PATH_PROTECTED_FILE_EXTENSIONS, $store);
     }
@@ -869,7 +869,7 @@ XML;
      *
      * @return array
      */
-    public function getPublicFilesValidPath()
+    function getPublicFilesValidPath()
     {
         return Mage::getStoreConfig(self::XML_PATH_PUBLIC_FILES_VALID_PATHS);
     }
@@ -881,7 +881,7 @@ XML;
      * @param string $name
      * @return bool
      */
-    public function checkLfiProtection($name)
+    function checkLfiProtection($name)
     {
         if (preg_match('#\.\.[\\\/]#', $name)) {
             throw new Mage_Core_Exception($this->__('Requested file may not include parent directory traversal ("../", "..\\" notation)'));
@@ -894,7 +894,7 @@ XML;
      *
      * @return bool
      */
-    public function useDbCompatibleMode()
+    function useDbCompatibleMode()
     {
         $connType = (string) Mage::getConfig()->getNode(self::XML_PATH_CONNECTION_TYPE);
         $path = 'global/resource/connection/types/' . $connType . '/compatibleMode';
@@ -908,7 +908,7 @@ XML;
      * @param Mage_Core_Model_Store|string|int|null $store
      * @return string
      */
-    public function getMerchantCountryCode($store = null)
+    function getMerchantCountryCode($store = null)
     {
         return (string) Mage::getStoreConfig(self::XML_PATH_MERCHANT_COUNTRY_CODE, $store);
     }
@@ -919,7 +919,7 @@ XML;
      * @param Mage_Core_Model_Store|string|int|null $store
      * @return string
      */
-    public function getMerchantVatNumber($store = null)
+    function getMerchantVatNumber($store = null)
     {
         return (string) Mage::getStoreConfig(self::XML_PATH_MERCHANT_VAT_NUMBER, $store);
     }
@@ -931,7 +931,7 @@ XML;
      * @param null|int $storeId
      * @return bool
      */
-    public function isCountryInEU($countryCode, $storeId = null)
+    function isCountryInEU($countryCode, $storeId = null)
     {
         $euCountries = explode(',', Mage::getStoreConfig(self::XML_PATH_EU_COUNTRIES_LIST, $storeId));
         return in_array($countryCode, $euCountries);
@@ -944,7 +944,7 @@ XML;
      * @param float|int $divisor
      * @return float|int
      */
-    public function getExactDivision($dividend, $divisor)
+    function getExactDivision($dividend, $divisor)
     {
         $epsilon = $divisor / self::DIVIDE_EPSILON;
 
@@ -965,7 +965,7 @@ XML;
      * @param array $data
      * @return array
      */
-    public function getEscapedCSVData(array $data)
+    function getEscapedCSVData(array $data)
     {
         if (Mage::getStoreConfigFlag(Mage_ImportExport_Model_Export_Adapter_Csv::CONFIG_ESCAPING_FLAG)) {
             foreach ($data as $key => $value) {
@@ -986,7 +986,7 @@ XML;
      * @param mixed $data
      * @return mixed array
      */
-    public function unEscapeCSVData($data)
+    function unEscapeCSVData($data)
     {
         if (is_array($data) && Mage::getStoreConfigFlag(Mage_ImportExport_Model_Export_Adapter_Csv::CONFIG_ESCAPING_FLAG)) {
             foreach ($data as $key => $value) {
@@ -1004,7 +1004,7 @@ XML;
      * @param bool $setErrorMessage Adds a predefined error message to the 'core/session' object
      * @return bool
      */
-    public function isRateLimitExceeded($setErrorMessage = true, $recordRateLimitHit = true): bool
+    function isRateLimitExceeded($setErrorMessage = true, $recordRateLimitHit = true): bool
     {
         $active = Mage::getStoreConfigFlag('system/rate_limit/active');
         if ($active && $remoteAddr = Mage::helper('core/http')->getRemoteAddr()) {
@@ -1026,7 +1026,7 @@ XML;
     /**
      * @return void
      */
-    public function recordRateLimitHit(): void
+    function recordRateLimitHit(): void
     {
         $active = Mage::getStoreConfigFlag('system/rate_limit/active');
         if ($active && $remoteAddr = Mage::helper('core/http')->getRemoteAddr()) {

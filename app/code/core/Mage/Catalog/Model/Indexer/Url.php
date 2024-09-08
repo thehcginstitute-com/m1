@@ -71,7 +71,7 @@ class Mage_Catalog_Model_Indexer_Url extends Mage_Index_Model_Indexer_Abstract
      *
      * @return string
      */
-    public function getName()
+    function getName()
     {
         return Mage::helper('catalog')->__('Catalog URL Rewrites');
     }
@@ -81,7 +81,7 @@ class Mage_Catalog_Model_Indexer_Url extends Mage_Index_Model_Indexer_Abstract
      *
      * @return string
      */
-    public function getDescription()
+    function getDescription()
     {
         return Mage::helper('catalog')->__('Index product and categories URL rewrites');
     }
@@ -93,7 +93,7 @@ class Mage_Catalog_Model_Indexer_Url extends Mage_Index_Model_Indexer_Abstract
      * @param Mage_Index_Model_Event $event
      * @return bool
      */
-    public function matchEvent(Mage_Index_Model_Event $event)
+    function matchEvent(Mage_Index_Model_Event $event)
     {
         $data       = $event->getNewData();
         if (isset($data[self::EVENT_MATCH_RESULT_KEY])) {
@@ -243,7 +243,7 @@ class Mage_Catalog_Model_Indexer_Url extends Mage_Index_Model_Indexer_Abstract
     /**
      * Rebuild all index data
      */
-    public function reindexAll()
+    function reindexAll()
     {
         /** @var Mage_Catalog_Model_Resource_Url $resourceModel */
         $resourceModel = Mage::getResourceSingleton('catalog/url');

@@ -55,7 +55,7 @@ class Mage_Api_Model_Resource_Abstract
      * @param Varien_Simplexml_Element $xml
      * @return $this
      */
-    public function setResourceConfig(Varien_Simplexml_Element $xml)
+    function setResourceConfig(Varien_Simplexml_Element $xml)
     {
         $this->_resourceConfig = $xml;
         return $this;
@@ -66,7 +66,7 @@ class Mage_Api_Model_Resource_Abstract
      *
      * @return Varien_Simplexml_Element
      */
-    public function getResourceConfig()
+    function getResourceConfig()
     {
         return $this->_resourceConfig;
     }

@@ -37,7 +37,7 @@ class Mage_Checkout_Block_Onepage_Success extends Mage_Core_Block_Template
      * @return string
      * @deprecated after 1.4.0.1
      */
-    public function getOrderId()
+    function getOrderId()
     {
         return $this->_getData('order_id');
     }
@@ -48,7 +48,7 @@ class Mage_Checkout_Block_Onepage_Success extends Mage_Core_Block_Template
      * @return bool
      * @deprecated after 1.4.0.1
      */
-    public function canPrint()
+    function canPrint()
     {
         return $this->_getData('can_view_order');
     }
@@ -59,7 +59,7 @@ class Mage_Checkout_Block_Onepage_Success extends Mage_Core_Block_Template
      * @return string
      * @deprecated after 1.4.0.1
      */
-    public function getPrintUrl()
+    function getPrintUrl()
     {
         return $this->_getData('print_url');
     }
@@ -70,7 +70,7 @@ class Mage_Checkout_Block_Onepage_Success extends Mage_Core_Block_Template
      * @return string
      * @deprecated after 1.4.0.1
      */
-    public function getViewOrderUrl()
+    function getViewOrderUrl()
     {
         return $this->_getData('view_order_id');
     }
@@ -80,7 +80,7 @@ class Mage_Checkout_Block_Onepage_Success extends Mage_Core_Block_Template
      *
      * @return bool
      */
-    public function isOrderVisible()
+    function isOrderVisible()
     {
         return (bool)$this->_getData('is_order_visible');
     }

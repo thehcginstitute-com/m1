@@ -66,7 +66,7 @@ class Mage_Core_Model_Resource_Email_Queue extends Mage_Core_Model_Resource_Db_A
      *
      * @return bool
      */
-    public function wasEmailQueued(Mage_Core_Model_Email_Queue $queue)
+    function wasEmailQueued(Mage_Core_Model_Email_Queue $queue)
     {
         $readAdapter = $this->_getReadAdapter();
         $select = $readAdapter->select()
@@ -116,7 +116,7 @@ class Mage_Core_Model_Resource_Email_Queue extends Mage_Core_Model_Resource_Db_A
      *
      * @return array
      */
-    public function getRecipients($messageId)
+    function getRecipients($messageId)
     {
         $readAdapter = $this->_getReadAdapter();
         $select = $readAdapter->select()
@@ -147,7 +147,7 @@ class Mage_Core_Model_Resource_Email_Queue extends Mage_Core_Model_Resource_Db_A
      *
      * @return $this
      */
-    public function saveRecipients($messageId, array $recipients)
+    function saveRecipients($messageId, array $recipients)
     {
         $writeAdapter = $this->_getWriteAdapter();
         $recipientsTable = $this->getTable('core/email_recipients');
@@ -181,7 +181,7 @@ class Mage_Core_Model_Resource_Email_Queue extends Mage_Core_Model_Resource_Db_A
      *
      * @return $this
      */
-    public function removeSentMessages()
+    function removeSentMessages()
     {
         $this->_getWriteAdapter()->delete($this->getMainTable(), 'processed_at IS NOT NULL');
         return $this;

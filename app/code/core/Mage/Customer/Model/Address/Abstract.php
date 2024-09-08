@@ -111,7 +111,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getName()
+    function getName()
     {
         $name = '';
         $config = Mage::getSingleton('eav/config');
@@ -135,7 +135,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
      * @param   int $line address line index
      * @return  string|array
      */
-    public function getStreet($line = 0)
+    function getStreet($line = 0)
     {
         $street = parent::getData('street');
         if ($line === -1) {
@@ -155,7 +155,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getStreet1()
+    function getStreet1()
     {
         return $this->getStreet(1);
     }
@@ -163,7 +163,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getStreet2()
+    function getStreet2()
     {
         return $this->getStreet(2);
     }
@@ -171,7 +171,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getStreet3()
+    function getStreet3()
     {
         return $this->getStreet(3);
     }
@@ -179,7 +179,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getStreet4()
+    function getStreet4()
     {
         return $this->getStreet(4);
     }
@@ -187,7 +187,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getStreetFull()
+    function getStreetFull()
     {
         return $this->getData('street');
     }
@@ -196,7 +196,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
      * @param string $street
      * @return Mage_Customer_Model_Address_Abstract
      */
-    public function setStreetFull($street)
+    function setStreetFull($street)
     {
         return $this->setStreet($street);
     }
@@ -207,7 +207,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
      * @param array|string $street
      * @return $this
      */
-    public function setStreet($street)
+    function setStreet($street)
     {
         if (is_array($street)) {
             $street = trim(implode("\n", $street));
@@ -222,7 +222,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
      * To be used in controllers for views data
      *
      */
-    public function explodeStreetAddress()
+    function explodeStreetAddress()
     {
         $streetLines = $this->getStreet();
         foreach ($streetLines as $i => $line) {
@@ -234,7 +234,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * To be used when processing _POST
      */
-    public function implodeStreetAddress()
+    function implodeStreetAddress()
     {
         $this->setStreet($this->getData('street'));
         return $this;
@@ -245,7 +245,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getRegion()
+    function getRegion()
     {
         $regionId = $this->getData('region_id');
         $region   = $this->getData('region');
@@ -277,7 +277,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
      * Return 2 letter state code if available, otherwise full region name
      *
      */
-    public function getRegionCode()
+    function getRegionCode()
     {
         $regionId = $this->getData('region_id');
         $region   = $this->getData('region');
@@ -299,7 +299,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * @return int
      */
-    public function getRegionId()
+    function getRegionId()
     {
         $regionId = $this->getData('region_id');
         $region   = $this->getData('region');
@@ -319,7 +319,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * @return string
      */
-    public function getCountry()
+    function getCountry()
     {
         /*if ($this->getData('country_id') && !$this->getData('country')) {
             $this->setData('country', Mage::getModel('directory/country')
@@ -335,7 +335,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Mage_Directory_Model_Country
      */
-    public function getCountryModel()
+    function getCountryModel()
     {
         if (!isset(self::$_countryModels[$this->getCountryId()])) {
             self::$_countryModels[$this->getCountryId()] = Mage::getModel('directory/country')
@@ -351,7 +351,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
      * @param int|null $region
      * @return Mage_Directory_Model_Country
      */
-    public function getRegionModel($region = null)
+    function getRegionModel($region = null)
     {
         if (is_null($region)) {
             $region = $this->getRegionId();
@@ -365,9 +365,9 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @deprecated for public function format
+     * @deprecated for function format
      */
-    public function getHtmlFormat()
+    function getHtmlFormat()
     {
         return $this->getConfig()->getFormatByCode('html');
     }
@@ -375,9 +375,9 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * @param bool $html
      * @return string
-     * @deprecated for public function format
+     * @deprecated for function format
      */
-    public function getFormated($html = false)
+    function getFormated($html = false)
     {
         return $this->format($html ? 'html' : 'text');
         //Mage::getModel('directory/country')->load($this->getCountryId())->formatAddress($this, $html);
@@ -387,7 +387,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
      * @param string $type
      * @return string|null
      */
-    public function format($type)
+    function format($type)
     {
         if (!($formatType = $this->getConfig()->getFormatByCode($type))
             || !$formatType->getRenderer()
@@ -403,7 +403,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
      *
      * @return Mage_Customer_Model_Address_Config
      */
-    public function getConfig()
+    function getConfig()
     {
         return Mage::getSingleton('customer/address_config');
     }
@@ -423,7 +423,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
      *
      * @return array | bool
      */
-    public function validate()
+    function validate()
     {
         $this->_resetErrors();
 
@@ -493,7 +493,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
      * @param string $error
      * @return $this
      */
-    public function addError($error)
+    function addError($error)
     {
         $this->_errors[] = $error;
         return $this;

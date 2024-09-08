@@ -51,7 +51,7 @@ class Mage_Reports_Model_Resource_Event_Collection extends Mage_Core_Model_Resou
      * @param array $storeIds
      * @return $this
      */
-    public function addStoreFilter(array $storeIds)
+    function addStoreFilter(array $storeIds)
     {
         $this->_storeIds = $storeIds;
         return $this;
@@ -67,7 +67,7 @@ class Mage_Reports_Model_Resource_Event_Collection extends Mage_Core_Model_Resou
      * @param int $limit
      * @return $this
      */
-    public function addRecentlyFiler($typeId, $subjectId, $subtype = 0, $ignore = null, $limit = 15)
+    function addRecentlyFiler($typeId, $subjectId, $subtype = 0, $ignore = null, $limit = 15)
     {
         $stores = $this->getResource()->getCurrentStoreIds($this->_storeIds);
         $select = $this->getSelect();

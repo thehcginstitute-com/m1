@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Cms_Page extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'cms_page';
         $this->_headerText = Mage::helper('cms')->__('Manage Pages');

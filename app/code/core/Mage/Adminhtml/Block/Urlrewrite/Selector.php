@@ -34,7 +34,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Selector extends Mage_Core_Block_Template
      * Set block template and get available modes
      *
      */
-    public function __construct()
+    function __construct()
     {
         $this->setTemplate('urlrewrite/selector.phtml');
         $this->_modes = [
@@ -49,7 +49,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Selector extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getModes()
+    function getModes()
     {
         return $this->_modes;
     }
@@ -59,7 +59,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Selector extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getSelectorLabel()
+    function getSelectorLabel()
     {
         return Mage::helper('adminhtml')->__('Create URL Rewrite:');
     }
@@ -70,7 +70,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Selector extends Mage_Core_Block_Template
      * @param string $mode
      * @return bool
      */
-    public function isMode($mode)
+    function isMode($mode)
     {
         return $this->getRequest()->has($mode);
     }

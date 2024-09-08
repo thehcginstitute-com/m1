@@ -56,7 +56,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Category extends Mage_Catalog_Block_Se
      *
      * @param string $pagerName
      */
-    public function bindPager($pagerName)
+    function bindPager($pagerName)
     {
         $pager = $this->getLayout()->getBlock($pagerName);
         /** @var Mage_Catalog_Block_Seo_Sitemap_Tree_Pager $pager */
@@ -80,7 +80,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Category extends Mage_Catalog_Block_Se
      *
      * @return $this
      */
-    public function prepareCategoriesToPages()
+    function prepareCategoriesToPages()
     {
         $linesPerPage = Mage::getStoreConfig(self::XML_PATH_LINES_PER_PAGE);
         $tmpCollection = Mage::getModel('catalog/category')->getCollection()
@@ -118,7 +118,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Category extends Mage_Catalog_Block_Se
      *
      * @return Mage_Catalog_Model_Resource_Category_Collection
      */
-    public function getTreeCollection()
+    function getTreeCollection()
     {
         return Mage::getModel('catalog/category')->getCollection()
             ->addNameToResult()
@@ -159,7 +159,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Category extends Mage_Catalog_Block_Se
      * @param int $delta
      * @return int
      */
-    public function getLevel($item, $delta = 1)
+    function getLevel($item, $delta = 1)
     {
         return (int) ($item->getLevel() - $this->_storeRootCategoryLevel - 1) * $delta;
     }

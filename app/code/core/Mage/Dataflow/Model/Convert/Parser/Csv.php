@@ -30,7 +30,7 @@ class Mage_Dataflow_Model_Convert_Parser_Csv extends Mage_Dataflow_Model_Convert
      * @return $this
      * @throws Throwable
      */
-    public function parse()
+    function parse()
     {
         // fixed for multibyte characters
         setlocale(LC_ALL, Mage::app()->getLocale()->getLocaleCode() . '.UTF-8');
@@ -122,7 +122,7 @@ class Mage_Dataflow_Model_Convert_Parser_Csv extends Mage_Dataflow_Model_Convert
         return $this;
     }
 
-    public function parseRow($i, $line)
+    function parseRow($i, $line)
     {
         if (count($line) === 1) {
             return false;
@@ -152,7 +152,7 @@ class Mage_Dataflow_Model_Convert_Parser_Csv extends Mage_Dataflow_Model_Convert
      *
      * @return $this
      */
-    public function unparse()
+    function unparse()
     {
         $batchExport = $this->getBatchExportModel()
             ->setBatchId($this->getBatchModel()->getId());
@@ -194,7 +194,7 @@ class Mage_Dataflow_Model_Convert_Parser_Csv extends Mage_Dataflow_Model_Convert
      * @param array $args
      * @return string
      */
-    public function unparseRow($args)
+    function unparseRow($args)
     {
         $i = $args['i'];
         $row = $args['row'];
@@ -223,7 +223,7 @@ class Mage_Dataflow_Model_Convert_Parser_Csv extends Mage_Dataflow_Model_Convert
      * @param array $fields
      * @return string
      */
-    public function getCsvString($fields = [])
+    function getCsvString($fields = [])
     {
         $delimiter  = $this->getVar('delimiter', ',');
         $enclosure  = $this->getVar('enclose', '');

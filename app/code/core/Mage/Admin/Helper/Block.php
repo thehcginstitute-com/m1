@@ -29,7 +29,7 @@ class Mage_Admin_Helper_Block
      */
     protected $_allowedTypes;
 
-    public function __construct()
+    function __construct()
     {
         $this->_allowedTypes = Mage::getResourceModel('admin/block')->getAllowedTypes();
     }
@@ -38,7 +38,7 @@ class Mage_Admin_Helper_Block
      * @param string $type
      * @return bool
      */
-    public function isTypeAllowed($type)
+    function isTypeAllowed($type)
     {
         return isset($this->_allowedTypes[$type]);
     }
@@ -48,7 +48,7 @@ class Mage_Admin_Helper_Block
      *
      * @return array
      */
-    public function getDisallowedBlockNames()
+    function getDisallowedBlockNames()
     {
         return Mage::getResourceModel('admin/block')->getDisallowedBlockNames();
     }

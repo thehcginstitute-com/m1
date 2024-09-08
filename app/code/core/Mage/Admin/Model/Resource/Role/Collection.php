@@ -35,7 +35,7 @@ class Mage_Admin_Model_Resource_Role_Collection extends Mage_Core_Model_Resource
      * @param int $userId
      * @return $this
      */
-    public function setUserFilter($userId)
+    function setUserFilter($userId)
     {
         $this->addFieldToFilter('user_id', $userId);
         $this->addFieldToFilter('role_type', 'G');
@@ -47,7 +47,7 @@ class Mage_Admin_Model_Resource_Role_Collection extends Mage_Core_Model_Resource
      *
      * @return $this
      */
-    public function setRolesFilter()
+    function setRolesFilter()
     {
         $this->addFieldToFilter('role_type', 'G');
         return $this;

@@ -32,7 +32,7 @@ class Mage_Payment_Model_Config
      * @param null|string|bool|int|Mage_Core_Model_Store $store
      * @return array
      */
-    public function getActiveMethods($store = null)
+    function getActiveMethods($store = null)
     {
         $methods = [];
         $config = Mage::getStoreConfig('payment', $store);
@@ -55,7 +55,7 @@ class Mage_Payment_Model_Config
      * @param null|string|bool|int|Mage_Core_Model_Store $store
      * @return array
      */
-    public function getAllMethods($store = null)
+    function getAllMethods($store = null)
     {
         $methods = [];
         $config = Mage::getStoreConfig('payment', $store);
@@ -97,7 +97,7 @@ class Mage_Payment_Model_Config
      *
      * @return array
      */
-    public function getCcTypes()
+    function getCcTypes()
     {
         $_types = Mage::getConfig()->getNode('global/payment/cc/types')->asArray();
 
@@ -117,7 +117,7 @@ class Mage_Payment_Model_Config
      *
      * @return array
      */
-    public function getMonths()
+    function getMonths()
     {
         $data = Mage::app()->getLocale()->getTranslationList('month');
         foreach ($data as $key => $value) {
@@ -132,7 +132,7 @@ class Mage_Payment_Model_Config
      *
      * @return array
      */
-    public function getYears()
+    function getYears()
     {
         $years = [];
         $first = date("Y");

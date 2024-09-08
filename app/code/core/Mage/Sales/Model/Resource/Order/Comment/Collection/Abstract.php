@@ -28,7 +28,7 @@ abstract class Mage_Sales_Model_Resource_Order_Comment_Collection_Abstract exten
      * @param Mage_Core_Model_Abstract|int $parent
      * @return $this
      */
-    public function setParentFilter($parent)
+    function setParentFilter($parent)
     {
         if ($parent instanceof Mage_Core_Model_Abstract) {
             $parent = $parent->getId();
@@ -42,7 +42,7 @@ abstract class Mage_Sales_Model_Resource_Order_Comment_Collection_Abstract exten
      * @param int $flag
      * @return $this
      */
-    public function addVisibleOnFrontFilter($flag = 1)
+    function addVisibleOnFrontFilter($flag = 1)
     {
         return $this->addFieldToFilter('is_visible_on_front', $flag);
     }
@@ -53,7 +53,7 @@ abstract class Mage_Sales_Model_Resource_Order_Comment_Collection_Abstract exten
      * @param string $direction
      * @return $this
      */
-    public function setCreatedAtOrder($direction = 'desc')
+    function setCreatedAtOrder($direction = 'desc')
     {
         return $this->setOrder('created_at', $direction);
     }

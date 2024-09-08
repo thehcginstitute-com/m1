@@ -51,7 +51,7 @@ class Mage_Catalog_Model_Resource_Product_Flat extends Mage_Core_Model_Resource_
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_storeId;
     }
@@ -62,7 +62,7 @@ class Mage_Catalog_Model_Resource_Product_Flat extends Mage_Core_Model_Resource_
      * @param mixed $store
      * @return $this
      */
-    public function setStoreId($store)
+    function setStoreId($store)
     {
         if (is_int($store)) {
             $this->_storeId = $store;
@@ -78,7 +78,7 @@ class Mage_Catalog_Model_Resource_Product_Flat extends Mage_Core_Model_Resource_
      * @param mixed $store
      * @return string
      */
-    public function getFlatTableName($store = null)
+    function getFlatTableName($store = null)
     {
         if ($store === null) {
             $store = $this->getStoreId();
@@ -91,7 +91,7 @@ class Mage_Catalog_Model_Resource_Product_Flat extends Mage_Core_Model_Resource_
      *
      * @return int
      */
-    public function getTypeId()
+    function getTypeId()
     {
         return Mage::getSingleton('catalog/config')
             ->getEntityType(Mage_Catalog_Model_Product::ENTITY)
@@ -104,7 +104,7 @@ class Mage_Catalog_Model_Resource_Product_Flat extends Mage_Core_Model_Resource_
      * @param string $attributeCode
      * @return array|null
      */
-    public function getAttributeForSelect($attributeCode)
+    function getAttributeForSelect($attributeCode)
     {
         $describe = $this->_getReadAdapter()->describeTable($this->getFlatTableName());
         if (!isset($describe[$attributeCode])) {
@@ -126,7 +126,7 @@ class Mage_Catalog_Model_Resource_Product_Flat extends Mage_Core_Model_Resource_
      * @param string $attributeCode
      * @return string|null
      */
-    public function getAttributeSortColumn($attributeCode)
+    function getAttributeSortColumn($attributeCode)
     {
         $describe = $this->_getReadAdapter()->describeTable($this->getFlatTableName());
         if (!isset($describe[$attributeCode])) {
@@ -144,7 +144,7 @@ class Mage_Catalog_Model_Resource_Product_Flat extends Mage_Core_Model_Resource_
      *
      * @return array
      */
-    public function getAllTableColumns()
+    function getAllTableColumns()
     {
         $describe = $this->_getReadAdapter()->describeTable($this->getFlatTableName());
         return array_keys($describe);
@@ -157,7 +157,7 @@ class Mage_Catalog_Model_Resource_Product_Flat extends Mage_Core_Model_Resource_
      * @param int|string|Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return bool
      */
-    public function isAttributeStatic($attribute)
+    function isAttributeStatic($attribute)
     {
         $attributeCode = null;
         if ($attribute instanceof Mage_Eav_Model_Entity_Attribute_Interface) {
@@ -185,7 +185,7 @@ class Mage_Catalog_Model_Resource_Product_Flat extends Mage_Core_Model_Resource_
      *
      * @return string
      */
-    public function getEntityIdField()
+    function getEntityIdField()
     {
         return $this->getIdFieldName();
     }
@@ -197,7 +197,7 @@ class Mage_Catalog_Model_Resource_Product_Flat extends Mage_Core_Model_Resource_
      * @param mixed $attribute
      * @return Mage_Eav_Model_Entity_Attribute_Abstract
      */
-    public function getAttribute($attribute)
+    function getAttribute($attribute)
     {
         return Mage::getSingleton('catalog/config')
             ->getAttribute(Mage_Catalog_Model_Product::ENTITY, $attribute);
@@ -208,7 +208,7 @@ class Mage_Catalog_Model_Resource_Product_Flat extends Mage_Core_Model_Resource_
      *
      * @return string
      */
-    public function getMainTable()
+    function getMainTable()
     {
         return $this->getFlatTableName($this->getStoreId());
     }
@@ -219,7 +219,7 @@ class Mage_Catalog_Model_Resource_Product_Flat extends Mage_Core_Model_Resource_
      * @param bool|int|\Mage_Core_Model_Store|null $storeView Store(id) for which the value is checked
      * @return bool
      */
-    public function isBuilt($storeView = null)
+    function isBuilt($storeView = null)
     {
         if ($storeView === null) {
             $storeId = Mage::app()->getAnyStoreView()->getId();

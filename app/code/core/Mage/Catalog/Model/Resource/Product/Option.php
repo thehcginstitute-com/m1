@@ -293,7 +293,7 @@ class Mage_Catalog_Model_Resource_Product_Option extends Mage_Core_Model_Resourc
      * @param int $optionId
      * @return $this
      */
-    public function deletePrices($optionId)
+    function deletePrices($optionId)
     {
         $this->_getWriteAdapter()->delete(
             $this->getTable('catalog/product_option_price'),
@@ -311,7 +311,7 @@ class Mage_Catalog_Model_Resource_Product_Option extends Mage_Core_Model_Resourc
      * @param int $optionId
      * @return $this
      */
-    public function deleteTitles($optionId)
+    function deleteTitles($optionId)
     {
         $this->_getWriteAdapter()->delete(
             $this->getTable('catalog/product_option_title'),
@@ -331,7 +331,7 @@ class Mage_Catalog_Model_Resource_Product_Option extends Mage_Core_Model_Resourc
      * @param int $newProductId
      * @return Mage_Catalog_Model_Product_Option
      */
-    public function duplicate(Mage_Catalog_Model_Product_Option $object, $oldProductId, $newProductId)
+    function duplicate(Mage_Catalog_Model_Product_Option $object, $oldProductId, $newProductId)
     {
         $write  = $this->_getWriteAdapter();
         $read   = $this->_getReadAdapter();
@@ -408,7 +408,7 @@ class Mage_Catalog_Model_Resource_Product_Option extends Mage_Core_Model_Resourc
      * @param int $storeId
      * @return array
      */
-    public function getSearchableData($productId, $storeId)
+    function getSearchableData($productId, $storeId)
     {
         $searchData = [];
 

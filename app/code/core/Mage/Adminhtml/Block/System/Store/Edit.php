@@ -23,7 +23,7 @@
  */
 class Mage_Adminhtml_Block_System_Store_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-    public function __construct()
+    function __construct()
     {
         $backupAvailable =
             Mage::getSingleton('admin/session')->isAllowed('system/tools/backup')
@@ -70,7 +70,7 @@ class Mage_Adminhtml_Block_System_Store_Edit extends Mage_Adminhtml_Block_Widget
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         switch (Mage::registry('store_type')) {
             case 'website':
@@ -97,7 +97,7 @@ class Mage_Adminhtml_Block_System_Store_Edit extends Mage_Adminhtml_Block_Widget
      * @param bool $backupAvailable
      * @return string
      */
-    public function _getDeleteUrl($storeType, $backupAvailable = false)
+    function _getDeleteUrl($storeType, $backupAvailable = false)
     {
         $storeType = uc_words($storeType);
         if ($backupAvailable) {

@@ -38,7 +38,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Tierprice extends Mage_Catalo
      * @deprecated since 1.12.0.0
      * @return array
      */
-    public function _getWebsiteRates()
+    function _getWebsiteRates()
     {
         return $this->_getWebsiteCurrencyRates();
     }

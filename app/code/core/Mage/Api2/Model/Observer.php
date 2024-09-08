@@ -27,7 +27,7 @@ class Mage_Api2_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function saveAdminToRoleRelation(Varien_Event_Observer $observer)
+    function saveAdminToRoleRelation(Varien_Event_Observer $observer)
     {
         /** @var Mage_Admin_Model_User $user Object */
         $user = $observer->getObject();
@@ -51,7 +51,7 @@ class Mage_Api2_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogAttributeSaveAfter(Varien_Event_Observer $observer)
+    function catalogAttributeSaveAfter(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Resource_Eav_Attribute $attribute */
         $attribute = $observer->getEvent()->getAttribute();
@@ -78,7 +78,7 @@ class Mage_Api2_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function upgradeApiKey($observer)
+    function upgradeApiKey($observer)
     {
         $apiKey = $observer->getEvent()->getApiKey();
         $model = $observer->getEvent()->getModel();

@@ -35,7 +35,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Frontend_Abstract implements Mage
      * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
      * @return Mage_Eav_Model_Entity_Attribute_Frontend_Abstract
      */
-    public function setAttribute($attribute)
+    function setAttribute($attribute)
     {
         $this->_attribute = $attribute;
         return $this;
@@ -46,7 +46,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Frontend_Abstract implements Mage
      *
      * @return Mage_Eav_Model_Entity_Attribute_Abstract
      */
-    public function getAttribute()
+    function getAttribute()
     {
         return $this->_attribute;
     }
@@ -56,7 +56,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Frontend_Abstract implements Mage
      *
      * @return string
      */
-    public function getInputType()
+    function getInputType()
     {
         return $this->getAttribute()->getFrontendInput();
     }
@@ -66,7 +66,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Frontend_Abstract implements Mage
      *
      * @return string
      */
-    public function getLabel()
+    function getLabel()
     {
         $label = $this->getAttribute()->getFrontendLabel();
         if (($label === null) || $label == '') {
@@ -82,7 +82,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Frontend_Abstract implements Mage
      * @param Varien_Object $object
      * @return mixed
      */
-    public function getValue(Varien_Object $object)
+    function getValue(Varien_Object $object)
     {
         $value = $object->getData($this->getAttribute()->getAttributeCode());
         if (in_array($this->getConfigField('input'), ['select','boolean'])) {
@@ -114,7 +114,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Frontend_Abstract implements Mage
      *
      * @return bool
      */
-    public function isVisible()
+    function isVisible()
     {
         return $this->getConfigField('frontend_visible');
     }
@@ -124,7 +124,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Frontend_Abstract implements Mage
      *
      * @return string
      */
-    public function getClass()
+    function getClass()
     {
         $out    = [];
         $out[]  = $this->getAttribute()->getFrontendClass();
@@ -184,7 +184,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Frontend_Abstract implements Mage
      * @param string $fieldName
      * @return mixed
      */
-    public function getConfigField($fieldName)
+    function getConfigField($fieldName)
     {
         return $this->getAttribute()->getData('frontend_' . $fieldName);
     }
@@ -194,7 +194,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Frontend_Abstract implements Mage
      *
      * @return array
      */
-    public function getSelectOptions()
+    function getSelectOptions()
     {
         return $this->getAttribute()->getSource()->getAllOptions();
     }
@@ -205,7 +205,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Frontend_Abstract implements Mage
      * @param int $optionId
      * @return mixed|boolean
      */
-    public function getOption($optionId)
+    function getOption($optionId)
     {
         $source = $this->getAttribute()->getSource();
         if ($source) {
@@ -219,7 +219,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Frontend_Abstract implements Mage
      *
      * @return string|null
      */
-    public function getInputRendererClass()
+    function getInputRendererClass()
     {
         $className = $this->getAttribute()->getData('frontend_input_renderer');
         if ($className) {

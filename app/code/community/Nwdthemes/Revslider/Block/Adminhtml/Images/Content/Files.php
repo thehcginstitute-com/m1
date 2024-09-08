@@ -17,7 +17,7 @@ class Nwdthemes_Revslider_Block_Adminhtml_Images_Content_Files extends Mage_Admi
      *
      * @return Varien_Data_Collection_Filesystem
      */
-    public function getFiles()
+    function getFiles()
     {
         if (! $this->_filesCollection) {
             $this->_filesCollection = Mage::getSingleton('cms/wysiwyg_images_storage')

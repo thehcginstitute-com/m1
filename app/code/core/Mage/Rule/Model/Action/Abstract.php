@@ -36,7 +36,7 @@
  */
 abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements Mage_Rule_Model_Action_Interface
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->loadAttributeOptions()->loadOperatorOptions()->loadValueOptions();
@@ -54,7 +54,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return Varien_Data_Form
      */
-    public function getForm()
+    function getForm()
     {
         return $this->getRule()->getForm();
     }
@@ -63,7 +63,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
      * @param array $arrAttributes
      * @return array
      */
-    public function asArray(array $arrAttributes = [])
+    function asArray(array $arrAttributes = [])
     {
         return [
             'type' => $this->getType(),
@@ -76,7 +76,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return string
      */
-    public function asXml()
+    function asXml()
     {
         return "<type>" . $this->getType() . "</type>"
             . "<attribute>" . $this->getAttribute() . "</attribute>"
@@ -88,7 +88,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
      * @param array $arr
      * @return $this
      */
-    public function loadArray(array $arr)
+    function loadArray(array $arr)
     {
         $this->addData([
             'type' => $arr['type'],
@@ -105,7 +105,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return $this
      */
-    public function loadAttributeOptions()
+    function loadAttributeOptions()
     {
         $this->setAttributeOption([]);
         return $this;
@@ -114,7 +114,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return array
      */
-    public function getAttributeSelectOptions()
+    function getAttributeSelectOptions()
     {
         $opt = [];
         foreach ($this->getAttributeOption() as $k => $v) {
@@ -126,7 +126,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return mixed
      */
-    public function getAttributeName()
+    function getAttributeName()
     {
         return $this->getAttributeOption($this->getAttribute());
     }
@@ -134,7 +134,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return $this
      */
-    public function loadOperatorOptions()
+    function loadOperatorOptions()
     {
         $this->setOperatorOption([
             '=' => Mage::helper('rule')->__('to'),
@@ -146,7 +146,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return array
      */
-    public function getOperatorSelectOptions()
+    function getOperatorSelectOptions()
     {
         $opt = [];
         foreach ($this->getOperatorOption() as $k => $v) {
@@ -158,7 +158,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return array
      */
-    public function getOperatorName()
+    function getOperatorName()
     {
         return $this->getOperatorOption($this->getOperator());
     }
@@ -166,7 +166,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return $this
      */
-    public function loadValueOptions()
+    function loadValueOptions()
     {
         $this->setValueOption([]);
         return $this;
@@ -175,7 +175,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return array
      */
-    public function getValueSelectOptions()
+    function getValueSelectOptions()
     {
         $opt = [];
         foreach ($this->getValueOption() as $k => $v) {
@@ -187,7 +187,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return string
      */
-    public function getValueName()
+    function getValueName()
     {
         $value = $this->getValue();
         return !empty($value) || $value === 0 ? $value : '...';
@@ -196,7 +196,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return array
      */
-    public function getNewChildSelectOptions()
+    function getNewChildSelectOptions()
     {
         return [
             ['value' => '', 'label' => Mage::helper('rule')->__('Please choose an action to add...')],
@@ -206,7 +206,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return string
      */
-    public function getNewChildName()
+    function getNewChildName()
     {
         return $this->getAddLinkHtml();
     }
@@ -214,7 +214,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return string
      */
-    public function asHtml()
+    function asHtml()
     {
         return '';
     }
@@ -222,7 +222,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return string
      */
-    public function asHtmlRecursive()
+    function asHtmlRecursive()
     {
         return $this->asHtml();
     }
@@ -230,7 +230,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function getTypeElement()
+    function getTypeElement()
     {
         return $this->getForm()->addField('action:' . $this->getId() . ':type', 'hidden', [
             'name' => 'rule[actions][' . $this->getId() . '][type]',
@@ -242,7 +242,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function getAttributeElement()
+    function getAttributeElement()
     {
         return $this->getForm()->addField('action:' . $this->getId() . ':attribute', 'select', [
             'name' => 'rule[actions][' . $this->getId() . '][attribute]',
@@ -255,7 +255,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function getOperatorElement()
+    function getOperatorElement()
     {
         return $this->getForm()->addField('action:' . $this->getId() . ':operator', 'select', [
             'name' => 'rule[actions][' . $this->getId() . '][operator]',
@@ -268,7 +268,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function getValueElement()
+    function getValueElement()
     {
         return $this->getForm()->addField('action:' . $this->getId() . ':value', 'text', [
             'name' => 'rule[actions][' . $this->getId() . '][value]',
@@ -280,7 +280,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return string
      */
-    public function getAddLinkHtml()
+    function getAddLinkHtml()
     {
         $src = Mage::getDesign()->getSkinUrl('images/rule_component_add.gif');
         return '<img src="' . $src . '" alt="" class="rule-param-add v-middle" />';
@@ -289,7 +289,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return string
      */
-    public function getRemoveLinkHtml()
+    function getRemoveLinkHtml()
     {
         $src = Mage::getDesign()->getSkinUrl('images/rule_component_remove.gif');
         return '<span class="rule-param"><a href="javascript:void(0)" class="rule-param-remove"><img src="'
@@ -300,7 +300,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
      * @param string $format
      * @return string
      */
-    public function asString($format = '')
+    function asString($format = '')
     {
         return "";
     }
@@ -309,7 +309,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
      * @param int $level
      * @return string
      */
-    public function asStringRecursive($level = 0)
+    function asStringRecursive($level = 0)
     {
         return str_pad('', $level * 3, ' ', STR_PAD_LEFT) . $this->asString();
     }
@@ -317,7 +317,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     /**
      * @return $this
      */
-    public function process()
+    function process()
     {
         return $this;
     }

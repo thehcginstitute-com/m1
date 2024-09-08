@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template
      */
     protected $_hasDefaultOption = true;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('store/switcher.phtml');
@@ -53,7 +53,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template
      * @throws Mage_Core_Exception
      * @deprecated
      */
-    public function getWebsiteCollection()
+    function getWebsiteCollection()
     {
         $collection = Mage::getModel('core/website')->getResourceCollection();
 
@@ -70,7 +70,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template
      *
      * @return array
      */
-    public function getWebsites()
+    function getWebsites()
     {
         $websites = Mage::app()->getWebsites();
         if ($websiteIds = $this->getWebsiteIds()) {
@@ -88,7 +88,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template
      * @return Mage_Core_Model_Resource_Store_Group_Collection
      * @deprecated
      */
-    public function getGroupCollection($website)
+    function getGroupCollection($website)
     {
         if (!$website instanceof Mage_Core_Model_Website) {
             $website = Mage::getModel('core/website')->load($website);
@@ -102,7 +102,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template
      * @param Mage_Core_Model_Website|int|string|null $website
      * @return array
      */
-    public function getStoreGroups($website)
+    function getStoreGroups($website)
     {
         if (!$website instanceof Mage_Core_Model_Website) {
             $website = Mage::app()->getWebsite($website);
@@ -115,7 +115,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template
      * @return Mage_Core_Model_Resource_Store_Collection
      * @deprecated
      */
-    public function getStoreCollection($group)
+    function getStoreCollection($group)
     {
         if (!$group instanceof Mage_Core_Model_Store_Group) {
             $group = Mage::getModel('core/store_group')->load($group);
@@ -134,7 +134,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template
      * @param Mage_Core_Model_Store_Group|int|string|null $group
      * @return array
      */
-    public function getStores($group)
+    function getStores($group)
     {
         if (!$group instanceof Mage_Core_Model_Store_Group) {
             $group = Mage::app()->getGroup($group);
@@ -153,7 +153,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template
     /**
      * @return string
      */
-    public function getSwitchUrl()
+    function getSwitchUrl()
     {
         if ($url = $this->getData('switch_url')) {
             return $url;
@@ -165,7 +165,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template
      * @param string $varName
      * @return $this
      */
-    public function setStoreVarName($varName)
+    function setStoreVarName($varName)
     {
         $this->_storeVarName = $varName;
         return $this;
@@ -175,7 +175,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template
      * @return mixed
      * @throws Exception
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->getRequest()->getParam($this->_storeVarName);
     }
@@ -184,7 +184,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template
      * @param array $storeIds
      * @return $this
      */
-    public function setStoreIds($storeIds)
+    function setStoreIds($storeIds)
     {
         $this->_storeIds = $storeIds;
         return $this;
@@ -193,7 +193,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template
     /**
      * @return array
      */
-    public function getStoreIds()
+    function getStoreIds()
     {
         return $this->_storeIds;
     }
@@ -201,7 +201,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template
     /**
      * @return bool
      */
-    public function isShow()
+    function isShow()
     {
         return !Mage::app()->isSingleStoreMode();
     }
@@ -223,7 +223,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template
      * @param bool $hasDefaultOption
      * @return bool
      */
-    public function hasDefaultOption($hasDefaultOption = null)
+    function hasDefaultOption($hasDefaultOption = null)
     {
         if ($hasDefaultOption !== null) {
             $this->_hasDefaultOption = $hasDefaultOption;

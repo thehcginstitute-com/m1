@@ -27,7 +27,7 @@ class Mage_Core_Model_Resource_Design_Package_Collection extends Varien_Object
      *
      * @return $this
      */
-    public function load()
+    function load()
     {
         $packages = $this->getData('packages');
         if (is_null($packages)) {
@@ -43,7 +43,7 @@ class Mage_Core_Model_Resource_Design_Package_Collection extends Varien_Object
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $options = [];
         $packages = $this->getData('packages');

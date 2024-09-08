@@ -100,7 +100,7 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
      */
     protected $_orderItem = null;
 
-    public function _construct()
+    function _construct()
     {
         $this->_init('sales/order_invoice_item');
     }
@@ -123,7 +123,7 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
      * @param   Mage_Sales_Model_Order_Invoice $invoice
      * @return  $this
      */
-    public function setInvoice(Mage_Sales_Model_Order_Invoice $invoice)
+    function setInvoice(Mage_Sales_Model_Order_Invoice $invoice)
     {
         $this->_invoice = $invoice;
         return $this;
@@ -134,7 +134,7 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Invoice
      */
-    public function getInvoice()
+    function getInvoice()
     {
         return $this->_invoice;
     }
@@ -145,7 +145,7 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
      * @param   Mage_Sales_Model_Order_Item $item
      * @return  $this
      */
-    public function setOrderItem(Mage_Sales_Model_Order_Item $item)
+    function setOrderItem(Mage_Sales_Model_Order_Item $item)
     {
         $this->_orderItem = $item;
         $this->setOrderItemId($item->getId());
@@ -157,7 +157,7 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
      *
      * @return Mage_Sales_Model_Order_Item
      */
-    public function getOrderItem()
+    function getOrderItem()
     {
         if (is_null($this->_orderItem)) {
             if ($this->getInvoice()) {
@@ -176,7 +176,7 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
      * @param   float $qty
      * @return  $this
      */
-    public function setQty($qty)
+    function setQty($qty)
     {
         if ($this->getOrderItem()->getIsQtyDecimal()) {
             $qty = (float) $qty;
@@ -204,7 +204,7 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function register()
+    function register()
     {
         $orderItem = $this->getOrderItem();
         $orderItem->setQtyInvoiced($orderItem->getQtyInvoiced() + $this->getQty());
@@ -227,7 +227,7 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function cancel()
+    function cancel()
     {
         $orderItem = $this->getOrderItem();
         $orderItem->setQtyInvoiced($orderItem->getQtyInvoiced() - $this->getQty());
@@ -250,7 +250,7 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function calcRowTotal()
+    function calcRowTotal()
     {
         $invoice        = $this->getInvoice();
         $orderItem      = $this->getOrderItem();
@@ -282,7 +282,7 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isLast()
+    function isLast()
     {
         if ((string)(float)$this->getQty() == (string)(float)$this->getOrderItem()->getQtyToInvoice()) {
             return true;

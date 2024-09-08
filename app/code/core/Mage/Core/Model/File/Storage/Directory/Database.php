@@ -49,7 +49,7 @@ class Mage_Core_Model_File_Storage_Directory_Database extends Mage_Core_Model_Fi
      *
      * @param string $connectionName
      */
-    public function __construct($connectionName = null)
+    function __construct($connectionName = null)
     {
         $this->_init('core/file_storage_directory_database');
 
@@ -62,7 +62,7 @@ class Mage_Core_Model_File_Storage_Directory_Database extends Mage_Core_Model_Fi
      * @param  string $path
      * @return $this
      */
-    public function loadByPath($path)
+    function loadByPath($path)
     {
         /**
          * Clear model data
@@ -87,7 +87,7 @@ class Mage_Core_Model_File_Storage_Directory_Database extends Mage_Core_Model_Fi
      *
      * @return bool
      */
-    public function hasErrors()
+    function hasErrors()
     {
         return !empty($this->_errors);
     }
@@ -97,7 +97,7 @@ class Mage_Core_Model_File_Storage_Directory_Database extends Mage_Core_Model_Fi
      *
      * @return int
      */
-    public function getParentId()
+    function getParentId()
     {
         if (!$this->getData('parent_id')) {
             $parentId = $this->_getResource()->getParentId($this->getPath());
@@ -117,7 +117,7 @@ class Mage_Core_Model_File_Storage_Directory_Database extends Mage_Core_Model_Fi
      * @param  string $path
      * @return Mage_Core_Model_File_Storage_Directory_Database
      */
-    public function createRecursive($path)
+    function createRecursive($path)
     {
         $directory = Mage::getModel('core/file_storage_directory_database')->loadByPath($path);
 
@@ -149,7 +149,7 @@ class Mage_Core_Model_File_Storage_Directory_Database extends Mage_Core_Model_Fi
      * @param  int $count
      * @return bool
      */
-    public function exportDirectories($offset = 0, $count = 100)
+    function exportDirectories($offset = 0, $count = 100)
     {
         $offset = ((int) $offset >= 0) ? (int) $offset : 0;
         $count  = ((int) $count >= 1) ? (int) $count : 1;
@@ -169,7 +169,7 @@ class Mage_Core_Model_File_Storage_Directory_Database extends Mage_Core_Model_Fi
      * @param  array $dirs
      * @return $this
      */
-    public function importDirectories($dirs)
+    function importDirectories($dirs)
     {
         if (!is_array($dirs)) {
             return $this;
@@ -209,7 +209,7 @@ class Mage_Core_Model_File_Storage_Directory_Database extends Mage_Core_Model_Fi
      *
      * @return $this
      */
-    public function clearDirectories()
+    function clearDirectories()
     {
         $this->_getResource()->clearDirectories();
         return $this;
@@ -221,7 +221,7 @@ class Mage_Core_Model_File_Storage_Directory_Database extends Mage_Core_Model_Fi
      * @param string $directory
      * @return mixed
      */
-    public function getSubdirectories($directory)
+    function getSubdirectories($directory)
     {
         $directory = Mage::helper('core/file_storage_database')->getMediaRelativePath($directory);
 
@@ -234,7 +234,7 @@ class Mage_Core_Model_File_Storage_Directory_Database extends Mage_Core_Model_Fi
      * @param string $dirPath
      * @return $this
      */
-    public function deleteDirectory($dirPath)
+    function deleteDirectory($dirPath)
     {
         $dirPath = Mage::helper('core/file_storage_database')->getMediaRelativePath($dirPath);
         $name = basename($dirPath);

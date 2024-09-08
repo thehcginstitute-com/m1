@@ -29,7 +29,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery_Content extends M
      */
     protected $_uploaderType = 'uploader/multiple';
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/product/helper/gallery.phtml');
@@ -68,7 +68,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery_Content extends M
      *
      * @return Mage_Uploader_Block_Multiple
      */
-    public function getUploader()
+    function getUploader()
     {
         return $this->getChild('uploader');
     }
@@ -78,7 +78,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery_Content extends M
      *
      * @return string
      */
-    public function getUploaderHtml()
+    function getUploaderHtml()
     {
         return $this->getChildHtml('uploader');
     }
@@ -86,7 +86,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery_Content extends M
     /**
      * @return string
      */
-    public function getJsObjectName()
+    function getJsObjectName()
     {
         return $this->getHtmlId() . 'JsObject';
     }
@@ -94,7 +94,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery_Content extends M
     /**
      * @return string
      */
-    public function getAddImagesButton()
+    function getAddImagesButton()
     {
         return $this->getButtonHtml(
             Mage::helper('catalog')->__('Add New Images'),
@@ -107,7 +107,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery_Content extends M
     /**
      * @return string
      */
-    public function getImagesJson()
+    function getImagesJson()
     {
         if (is_array($this->getElement()->getValue())) {
             $value = $this->getElement()->getValue();
@@ -125,7 +125,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery_Content extends M
     /**
      * @return string
      */
-    public function getImagesValuesJson()
+    function getImagesValuesJson()
     {
         $values = [];
         foreach ($this->getMediaAttributes() as $attribute) {
@@ -139,7 +139,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery_Content extends M
     /**
      * @return array
      */
-    public function getImageTypes()
+    function getImageTypes()
     {
         $imageTypes = [];
         foreach ($this->getMediaAttributes() as $attribute) {
@@ -156,7 +156,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery_Content extends M
     /**
      * @return bool
      */
-    public function hasUseDefault()
+    function hasUseDefault()
     {
         foreach ($this->getMediaAttributes() as $attribute) {
             if ($this->getElement()->canDisplayUseDefault($attribute)) {
@@ -170,7 +170,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery_Content extends M
     /**
      * @return array
      */
-    public function getMediaAttributes()
+    function getMediaAttributes()
     {
         return $this->getElement()->getDataObject()->getMediaAttributes();
     }
@@ -178,7 +178,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery_Content extends M
     /**
      * @return string
      */
-    public function getImageTypesJson()
+    function getImageTypesJson()
     {
         return Mage::helper('core')->jsonEncode($this->getImageTypes());
     }

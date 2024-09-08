@@ -56,7 +56,7 @@ class Mage_Eav_Model_Form_Type extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getEntityTypes()
+    function getEntityTypes()
     {
         if (!$this->hasData('entity_types')) {
             $this->setData('entity_types', $this->_getResource()->getEntityTypes($this));
@@ -70,7 +70,7 @@ class Mage_Eav_Model_Form_Type extends Mage_Core_Model_Abstract
      * @param array $entityTypes
      * @return $this
      */
-    public function setEntityTypes(array $entityTypes)
+    function setEntityTypes(array $entityTypes)
     {
         $this->setData('entity_types', $entityTypes);
         return $this;
@@ -82,7 +82,7 @@ class Mage_Eav_Model_Form_Type extends Mage_Core_Model_Abstract
      * @param int $entityTypeId
      * @return $this
      */
-    public function addEntityType($entityTypeId)
+    function addEntityType($entityTypeId)
     {
         $entityTypes = $this->getEntityTypes();
         if (!empty($entityTypeId) && !in_array($entityTypeId, $entityTypes)) {
@@ -98,7 +98,7 @@ class Mage_Eav_Model_Form_Type extends Mage_Core_Model_Abstract
      * @param Mage_Eav_Model_Form_Type $skeleton
      * @return $this
      */
-    public function createFromSkeleton(Mage_Eav_Model_Form_Type $skeleton)
+    function createFromSkeleton(Mage_Eav_Model_Form_Type $skeleton)
     {
         $fieldsetCollection = Mage::getModel('eav/form_fieldset')->getCollection()
             ->addTypeFilter($skeleton)

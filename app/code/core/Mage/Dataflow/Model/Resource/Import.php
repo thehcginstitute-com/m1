@@ -33,7 +33,7 @@ class Mage_Dataflow_Model_Resource_Import extends Mage_Core_Model_Resource_Db_Ab
      * @param int $sessionId
      * @return Varien_Db_Select
      */
-    public function select($sessionId)
+    function select($sessionId)
     {
         return $this->_getReadAdapter()->select()
             ->from($this->getMainTable())
@@ -49,7 +49,7 @@ class Mage_Dataflow_Model_Resource_Import extends Mage_Core_Model_Resource_Db_Ab
      * @param int $max
      * @return array
      */
-    public function loadBySessionId($sessionId, $min = 0, $max = 100)
+    function loadBySessionId($sessionId, $min = 0, $max = 100)
     {
         if (!is_numeric($min) || !is_numeric($max)) {
             return [];
@@ -76,7 +76,7 @@ class Mage_Dataflow_Model_Resource_Import extends Mage_Core_Model_Resource_Db_Ab
      * @param int $sessionId
      * @return array
      */
-    public function loadTotalBySessionId($sessionId)
+    function loadTotalBySessionId($sessionId)
     {
         $bind = [
             'status'    => 0,
@@ -99,7 +99,7 @@ class Mage_Dataflow_Model_Resource_Import extends Mage_Core_Model_Resource_Db_Ab
      * @param int $importId
      * @return array
      */
-    public function loadById($importId)
+    function loadById($importId)
     {
         $bind = [
             'status'    => 0,

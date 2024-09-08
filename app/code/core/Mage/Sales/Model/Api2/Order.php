@@ -222,7 +222,7 @@ class Mage_Sales_Model_Api2_Order extends Mage_Api2_Model_Resource
      *
      * @return bool
      */
-    public function _isGiftMessageAllowed()
+    function _isGiftMessageAllowed()
     {
         return in_array(self::PARAM_GIFT_MESSAGE, $this->getFilter()->getAllowedAttributes());
     }
@@ -232,7 +232,7 @@ class Mage_Sales_Model_Api2_Order extends Mage_Api2_Model_Resource
      *
      * @return bool
      */
-    public function _isOrderCommentsAllowed()
+    function _isOrderCommentsAllowed()
     {
         return in_array(self::PARAM_ORDER_COMMENTS, $this->getFilter()->getAllowedAttributes());
     }
@@ -242,7 +242,7 @@ class Mage_Sales_Model_Api2_Order extends Mage_Api2_Model_Resource
      *
      * @return bool
      */
-    public function _isPaymentMethodAllowed()
+    function _isPaymentMethodAllowed()
     {
         return in_array(self::PARAM_PAYMENT_METHOD, $this->getFilter()->getAllowedAttributes());
     }
@@ -252,7 +252,7 @@ class Mage_Sales_Model_Api2_Order extends Mage_Api2_Model_Resource
      *
      * @return bool
      */
-    public function _isTaxNameAllowed()
+    function _isTaxNameAllowed()
     {
         return in_array(self::PARAM_TAX_NAME, $this->getFilter()->getAllowedAttributes());
     }
@@ -262,7 +262,7 @@ class Mage_Sales_Model_Api2_Order extends Mage_Api2_Model_Resource
      *
      * @return bool
      */
-    public function _isTaxRateAllowed()
+    function _isTaxRateAllowed()
     {
         return in_array(self::PARAM_TAX_RATE, $this->getFilter()->getAllowedAttributes());
     }

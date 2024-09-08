@@ -26,7 +26,7 @@ class IWD_OrderFlags_Model_Flags_Orders extends Mage_Core_Model_Abstract
      * @param $flagTypeId
      * @throws Exception
      */
-    public function addNewRelation($flagId, $orderId, $flagTypeId)
+    function addNewRelation($flagId, $orderId, $flagTypeId)
     {
         $this->unAssignFlags($orderId, $flagTypeId);
 
@@ -42,7 +42,7 @@ class IWD_OrderFlags_Model_Flags_Orders extends Mage_Core_Model_Abstract
      * @param $orderId
      * @param $flagTypeId
      */
-    public function unAssignFlags($orderId, $flagTypeId)
+    function unAssignFlags($orderId, $flagTypeId)
     {
         $collection = $this->getCollection()
             ->addFieldToFilter('order_id', $orderId)

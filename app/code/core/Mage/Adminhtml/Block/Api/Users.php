@@ -22,18 +22,18 @@
  */
 class Mage_Adminhtml_Block_Api_Users extends Mage_Adminhtml_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('api/users.phtml');
     }
 
-    public function getAddNewUrl()
+    function getAddNewUrl()
     {
         return $this->getUrl('*/*/edituser');
     }
 
-    public function getGridHtml()
+    function getGridHtml()
     {
         return $this->getLayout()->createBlock('adminhtml/api_grid_user')->toHtml();
     }

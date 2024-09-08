@@ -33,34 +33,34 @@ class Mage_Dataflow_Model_Convert_Exception extends Varien_Exception
 
     protected $_position;
 
-    public function setContainer($container)
+    function setContainer($container)
     {
         $this->_container = $container;
         return $this;
     }
 
-    public function getContainer()
+    function getContainer()
     {
         return $this->_container;
     }
 
-    public function getLevel()
+    function getLevel()
     {
         return $this->_level;
     }
 
-    public function setLevel($level)
+    function setLevel($level)
     {
         $this->_level = $level;
         return $this;
     }
 
-    public function getPosition()
+    function getPosition()
     {
         return $this->_position;
     }
 
-    public function setPosition($position)
+    function setPosition($position)
     {
         $this->_position = $position;
         return $this;

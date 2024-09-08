@@ -29,7 +29,7 @@ class Mage_SalesRule_Model_Quote_Freeshipping extends Mage_Sales_Model_Quote_Add
      */
     protected $_calculator;
 
-    public function __construct()
+    function __construct()
     {
         $this->setCode('discount');
         $this->_calculator = Mage::getSingleton('salesrule/validator');
@@ -41,7 +41,7 @@ class Mage_SalesRule_Model_Quote_Freeshipping extends Mage_Sales_Model_Quote_Add
      * @param   Mage_Sales_Model_Quote_Address $address
      * @return  Mage_SalesRule_Model_Quote_Freeshipping
      */
-    public function collect(Mage_Sales_Model_Quote_Address $address)
+    function collect(Mage_Sales_Model_Quote_Address $address)
     {
         parent::collect($address);
         $quote = $address->getQuote();
@@ -95,7 +95,7 @@ class Mage_SalesRule_Model_Quote_Freeshipping extends Mage_Sales_Model_Quote_Add
      * @param   Mage_Sales_Model_Quote_Address $address
      * @return  Mage_SalesRule_Model_Quote_Freeshipping
      */
-    public function fetch(Mage_Sales_Model_Quote_Address $address)
+    function fetch(Mage_Sales_Model_Quote_Address $address)
     {
         return $this;
     }

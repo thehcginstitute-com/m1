@@ -25,7 +25,7 @@ class Mage_Sales_Model_Order_Creditmemo_Api extends Mage_Sales_Model_Api_Resourc
     /**
      * Initialize attributes mapping
      */
-    public function __construct()
+    function __construct()
     {
         $this->_attributesMap = [
             'creditmemo' => ['creditmemo_id' => 'entity_id'],
@@ -40,7 +40,7 @@ class Mage_Sales_Model_Order_Creditmemo_Api extends Mage_Sales_Model_Api_Resourc
      * @param null|object|array $filters
      * @return array
      */
-    public function items($filters = null)
+    function items($filters = null)
     {
         $creditmemos = [];
         /** @var Mage_Api_Helper_Data $apiHelper */
@@ -86,7 +86,7 @@ class Mage_Sales_Model_Order_Creditmemo_Api extends Mage_Sales_Model_Api_Resourc
      * @param string $creditmemoIncrementId
      * @return array
      */
-    public function info($creditmemoIncrementId)
+    function info($creditmemoIncrementId)
     {
         $creditmemo = $this->_getCreditmemo($creditmemoIncrementId);
         // get credit memo attributes with entity_id' => 'creditmemo_id' mapping
@@ -118,7 +118,7 @@ class Mage_Sales_Model_Order_Creditmemo_Api extends Mage_Sales_Model_Api_Resourc
      * @param string $refundToStoreCreditAmount
      * @return string $creditmemoIncrementId
      */
-    public function create(
+    function create(
         $orderIncrementId,
         $creditmemoData = null,
         $comment = null,
@@ -189,7 +189,7 @@ class Mage_Sales_Model_Order_Creditmemo_Api extends Mage_Sales_Model_Api_Resourc
      * @param bool $includeComment
      * @return bool
      */
-    public function addComment($creditmemoIncrementId, $comment, $notifyCustomer = false, $includeComment = false)
+    function addComment($creditmemoIncrementId, $comment, $notifyCustomer = false, $includeComment = false)
     {
         $creditmemo = $this->_getCreditmemo($creditmemoIncrementId);
         try {
@@ -209,7 +209,7 @@ class Mage_Sales_Model_Order_Creditmemo_Api extends Mage_Sales_Model_Api_Resourc
      * @param string $creditmemoIncrementId
      * @return bool
      */
-    public function cancel($creditmemoIncrementId)
+    function cancel($creditmemoIncrementId)
     {
         $creditmemo = $this->_getCreditmemo($creditmemoIncrementId);
 

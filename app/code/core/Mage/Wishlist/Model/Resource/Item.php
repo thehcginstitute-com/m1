@@ -36,7 +36,7 @@ class Mage_Wishlist_Model_Resource_Item extends Mage_Core_Model_Resource_Db_Abst
      * @param array $sharedStores
      * @return $this
      */
-    public function loadByProductWishlist($object, $wishlistId, $productId, $sharedStores)
+    function loadByProductWishlist($object, $wishlistId, $productId, $sharedStores)
     {
         $adapter = $this->_getReadAdapter();
         $storeWhere = $adapter->quoteInto('store_id IN (?)', $sharedStores);

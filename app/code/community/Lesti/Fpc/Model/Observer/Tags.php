@@ -19,7 +19,7 @@ class Lesti_Fpc_Model_Observer_Tags
     /**
      * @param $observer
      */
-    public function fpcObserverCollectCacheTags($observer)
+    function fpcObserverCollectCacheTags($observer)
     {
         /** @var Lesti_Fpc_Helper_Data $helper */
         $helper = Mage::helper('fpc');

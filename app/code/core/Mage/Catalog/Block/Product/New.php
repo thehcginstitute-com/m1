@@ -56,7 +56,7 @@ class Mage_Catalog_Block_Product_New extends Mage_Catalog_Block_Product_Abstract
      *
      * @return array
      */
-    public function getCacheKeyInfo()
+    function getCacheKeyInfo()
     {
         return [
            'CATALOG_PRODUCT_NEW',
@@ -129,7 +129,7 @@ class Mage_Catalog_Block_Product_New extends Mage_Catalog_Block_Product_Abstract
      * @param int $count
      * @return $this
      */
-    public function setProductsCount($count)
+    function setProductsCount($count)
     {
         $this->_productsCount = $count;
         return $this;
@@ -140,7 +140,7 @@ class Mage_Catalog_Block_Product_New extends Mage_Catalog_Block_Product_Abstract
      *
      * @return int
      */
-    public function getProductsCount()
+    function getProductsCount()
     {
         if ($this->_productsCount === null) {
             $this->_productsCount = self::DEFAULT_PRODUCTS_COUNT;

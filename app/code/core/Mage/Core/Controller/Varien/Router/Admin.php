@@ -23,7 +23,7 @@ class Mage_Core_Controller_Varien_Router_Admin extends Mage_Core_Controller_Vari
     /**
      * Fetch default path
      */
-    public function fetchDefault()
+    function fetchDefault()
     {
         // set defaults
         $d = explode('/', $this->_getDefaultPath());
@@ -111,7 +111,7 @@ class Mage_Core_Controller_Varien_Router_Admin extends Mage_Core_Controller_Vari
      * @param string $configArea
      * @param bool $useRouterName
      */
-    public function collectRoutes($configArea, $useRouterName)
+    function collectRoutes($configArea, $useRouterName)
     {
         if ((string)Mage::getConfig()->getNode(Mage_Adminhtml_Helper_Data::XML_PATH_USE_CUSTOM_ADMIN_PATH)) {
             $customUrl = (string)Mage::getConfig()->getNode(Mage_Adminhtml_Helper_Data::XML_PATH_CUSTOM_ADMIN_PATH);
@@ -128,7 +128,7 @@ class Mage_Core_Controller_Varien_Router_Admin extends Mage_Core_Controller_Vari
      *
      * @inheritDoc
      */
-    public function addModule($frontName, $moduleName, $routeName)
+    function addModule($frontName, $moduleName, $routeName)
     {
         $isExtensionsCompatibilityMode = (bool)(string)Mage::getConfig()->getNode(
             'default/admin/security/extensions_compatibility_mode'

@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_Create_Form extends Mage_Adminhtml_Block_Sales_Order_Create_Abstract
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_create_form');
@@ -32,7 +32,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form extends Mage_Adminhtml_Block_
      * Retrieve url for loading blocks
      * @return string
      */
-    public function getLoadBlockUrl()
+    function getLoadBlockUrl()
     {
         return $this->getUrl('*/*/loadBlock');
     }
@@ -41,7 +41,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form extends Mage_Adminhtml_Block_
      * Retrieve url for form submiting
      * @return string
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return $this->getUrl('*/*/save');
     }
@@ -49,7 +49,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form extends Mage_Adminhtml_Block_
     /**
      * @return string
      */
-    public function getCustomerSelectorDisplay()
+    function getCustomerSelectorDisplay()
     {
         $customerId = $this->getCustomerId();
         if (is_null($customerId)) {
@@ -61,7 +61,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form extends Mage_Adminhtml_Block_
     /**
      * @return string
      */
-    public function getStoreSelectorDisplay()
+    function getStoreSelectorDisplay()
     {
         $storeId    = $this->getStoreId();
         $customerId = $this->getCustomerId();
@@ -74,7 +74,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form extends Mage_Adminhtml_Block_
     /**
      * @return string
      */
-    public function getDataSelectorDisplay()
+    function getDataSelectorDisplay()
     {
         $storeId    = $this->getStoreId();
         $customerId = $this->getCustomerId();
@@ -84,7 +84,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form extends Mage_Adminhtml_Block_
         return 'none';
     }
 
-    public function getOrderDataJson()
+    function getOrderDataJson()
     {
         $data = [];
         if (!is_null($this->getCustomerId())) {

@@ -32,7 +32,7 @@ class Mage_Index_Model_Lock_Storage_Db implements Mage_Index_Model_Lock_Storage_
      */
     protected $_connection;
 
-    public function __construct()
+    function __construct()
     {
         /** @var Mage_Core_Model_Resource $resource */
         $resource   = Mage::getSingleton('index/resource_lock_resource');
@@ -56,7 +56,7 @@ class Mage_Index_Model_Lock_Storage_Db implements Mage_Index_Model_Lock_Storage_
      * @param string $lockName
      * @return bool
      */
-    public function setLock($lockName)
+    function setLock($lockName)
     {
         $lockName = $this->_prepareLockName($lockName);
         return $this->_helper->setLock($lockName);
@@ -68,7 +68,7 @@ class Mage_Index_Model_Lock_Storage_Db implements Mage_Index_Model_Lock_Storage_
      * @param string $lockName
      * @return int|null
      */
-    public function releaseLock($lockName)
+    function releaseLock($lockName)
     {
         $lockName = $this->_prepareLockName($lockName);
         return $this->_helper->releaseLock($lockName);
@@ -80,7 +80,7 @@ class Mage_Index_Model_Lock_Storage_Db implements Mage_Index_Model_Lock_Storage_
      * @param string $lockName
      * @return bool
      */
-    public function isLockExists($lockName)
+    function isLockExists($lockName)
     {
         $lockName = $this->_prepareLockName($lockName);
         return $this->_helper->isLocked($lockName);

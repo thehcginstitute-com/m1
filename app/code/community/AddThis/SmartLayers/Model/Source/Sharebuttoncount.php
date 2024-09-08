@@ -19,7 +19,7 @@
 class AddThis_SmartLayers_Model_Source_Sharebuttoncount
 {
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return array(
             array('value' => 1, 'label'=>'1'),

@@ -51,7 +51,7 @@ abstract class Mage_Rule_Model_Resource_Abstract extends Mage_Core_Model_Resourc
      *
      * @return Mage_Rule_Model_Resource_Abstract
      */
-    public function _beforeSave(Mage_Core_Model_Abstract $object)
+    function _beforeSave(Mage_Core_Model_Abstract $object)
     {
         $fromDate = $object->getFromDate();
         if ($fromDate instanceof Zend_Date) {
@@ -78,7 +78,7 @@ abstract class Mage_Rule_Model_Resource_Abstract extends Mage_Core_Model_Resourc
      * @param Mage_Rule_Model_Condition_Abstract $condition
      * @return Varien_Db_Select
      */
-    public function getProductFlatSelect($storeId, $condition)
+    function getProductFlatSelect($storeId, $condition)
     {
         $select = $this->_getReadAdapter()->select();
         $select->from(
@@ -114,7 +114,7 @@ abstract class Mage_Rule_Model_Resource_Abstract extends Mage_Core_Model_Resourc
      * @throws Exception
      * @return Mage_Rule_Model_Resource_Abstract
      */
-    public function bindRuleToEntity($ruleIds, $entityIds, $entityType, $deleteOldResults = true)
+    function bindRuleToEntity($ruleIds, $entityIds, $entityType, $deleteOldResults = true)
     {
         if (empty($ruleIds) || empty($entityIds)) {
             return $this;
@@ -186,7 +186,7 @@ abstract class Mage_Rule_Model_Resource_Abstract extends Mage_Core_Model_Resourc
      *
      * @return Mage_Rule_Model_Resource_Abstract
      */
-    public function unbindRuleFromEntity($ruleIds, $entityIds, $entityType)
+    function unbindRuleFromEntity($ruleIds, $entityIds, $entityType)
     {
         $writeAdapter = $this->_getWriteAdapter();
         $entityInfo = $this->_getAssociatedEntityInfo($entityType);
@@ -219,7 +219,7 @@ abstract class Mage_Rule_Model_Resource_Abstract extends Mage_Core_Model_Resourc
      *
      * @return array
      */
-    public function getAssociatedEntityIds($ruleId, $entityType)
+    function getAssociatedEntityIds($ruleId, $entityType)
     {
         $entityInfo = $this->_getAssociatedEntityInfo($entityType);
 
@@ -236,7 +236,7 @@ abstract class Mage_Rule_Model_Resource_Abstract extends Mage_Core_Model_Resourc
      * @param int $ruleId
      * @return array
      */
-    public function getWebsiteIds($ruleId)
+    function getWebsiteIds($ruleId)
     {
         return $this->getAssociatedEntityIds($ruleId, 'website');
     }
@@ -247,7 +247,7 @@ abstract class Mage_Rule_Model_Resource_Abstract extends Mage_Core_Model_Resourc
      * @param int $ruleId
      * @return array
      */
-    public function getCustomerGroupIds($ruleId)
+    function getCustomerGroupIds($ruleId)
     {
         return $this->getAssociatedEntityIds($ruleId, 'customer_group');
     }

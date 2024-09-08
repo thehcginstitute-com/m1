@@ -66,7 +66,7 @@ class Mage_Dataflow_Model_Batch_Io
      * @param Mage_Dataflow_Model_Batch $object
      * @return $this
      */
-    public function init(Mage_Dataflow_Model_Batch $object)
+    function init(Mage_Dataflow_Model_Batch $object)
     {
         $this->_batchModel = $object;
         return $this;
@@ -77,7 +77,7 @@ class Mage_Dataflow_Model_Batch_Io
      *
      * @return string
      */
-    public function getPath()
+    function getPath()
     {
         if (is_null($this->_path)) {
             $this->_path = $this->getIoAdapter()->getCleanPath(Mage::getBaseDir('tmp'));
@@ -91,7 +91,7 @@ class Mage_Dataflow_Model_Batch_Io
      *
      * @return string
      */
-    public function getFile($withPath = false)
+    function getFile($withPath = false)
     {
         if (is_null($this->_filename)) {
             $this->_filename = sprintf(self::TMP_NAME, $this->_batchModel->getId());
@@ -107,7 +107,7 @@ class Mage_Dataflow_Model_Batch_Io
      *
      * @return Varien_Io_File
      */
-    public function getIoAdapter()
+    function getIoAdapter()
     {
         if (is_null($this->_ioFile)) {
             $this->_ioFile = new Varien_Io_File();
@@ -120,7 +120,7 @@ class Mage_Dataflow_Model_Batch_Io
      *
      * @return $this
      */
-    public function open($write = true)
+    function open($write = true)
     {
         $mode = $write ? 'w+' : 'r+';
         $ioConfig = [
@@ -141,7 +141,7 @@ class Mage_Dataflow_Model_Batch_Io
      * @param string $string
      * @return bool
      */
-    public function write($string)
+    function write($string)
     {
         $this->_fileSize += strlen($string);
         return $this->getIoAdapter()->streamWrite($string);
@@ -155,7 +155,7 @@ class Mage_Dataflow_Model_Batch_Io
      *
      * @return array|false|null|string
      */
-    public function read($csv = false, $delimiter = ',', $enclosure = '"')
+    function read($csv = false, $delimiter = ',', $enclosure = '"')
     {
         if ($csv) {
             $content = $this->getIoAdapter()->streamReadCsv($delimiter, $enclosure);
@@ -171,12 +171,12 @@ class Mage_Dataflow_Model_Batch_Io
      *
      * @return bool
      */
-    public function close()
+    function close()
     {
         return $this->getIoAdapter()->streamClose();
     }
 
-    public function clear()
+    function clear()
     {
         return $this->getIoAdapter()->rm($this->getFile(true));
     }
@@ -186,7 +186,7 @@ class Mage_Dataflow_Model_Batch_Io
      *
      * @return int
      */
-    public function getFileSize()
+    function getFileSize()
     {
         return $this->_fileSize;
     }

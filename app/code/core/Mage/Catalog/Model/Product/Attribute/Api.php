@@ -29,7 +29,7 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
      */
     protected $_entityTypeId;
 
-    public function __construct()
+    function __construct()
     {
         $this->_storeIdSessionField = 'product_store_id';
         $this->_ignoredAttributeCodes[] = 'type_id';
@@ -44,7 +44,7 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
      * @param int $setId
      * @return array
      */
-    public function items($setId)
+    function items($setId)
     {
         $attributes = Mage::getModel('catalog/product')->getResource()
                 ->loadAllAttributes()
@@ -84,7 +84,7 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
      * @param string|int $store
      * @return array
      */
-    public function options($attributeId, $store = null)
+    function options($attributeId, $store = null)
     {
         $storeId = $this->_getStoreId($store);
         $attribute = Mage::getModel('catalog/product')
@@ -119,7 +119,7 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
      *
      * @return array
      */
-    public function types()
+    function types()
     {
         return Mage::getModel('catalog/product_attribute_source_inputtype')->toOptionArray();
     }
@@ -130,7 +130,7 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
      * @param array $data input data
      * @return int
      */
-    public function create($data)
+    function create($data)
     {
         /** @var Mage_Catalog_Model_Resource_Eav_Attribute $model */
         $model = Mage::getModel('catalog/resource_eav_attribute');
@@ -185,7 +185,7 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
      * @param array $data
      * @return bool
      */
-    public function update($attribute, $data)
+    function update($attribute, $data)
     {
         $model = $this->_getAttribute($attribute);
 
@@ -216,7 +216,7 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
      * @param int|string $attribute attribute ID or code
      * @return true|void
      */
-    public function remove($attribute)
+    function remove($attribute)
     {
         $model = $this->_getAttribute($attribute);
 
@@ -242,7 +242,7 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
      * @param int|string $attribute attribute ID or code
      * @return array
      */
-    public function info($attribute)
+    function info($attribute)
     {
         $model = $this->_getAttribute($attribute);
 
@@ -351,7 +351,7 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
      * @param  array $data
      * @return bool
      */
-    public function addOption($attribute, $data)
+    function addOption($attribute, $data)
     {
         $model = $this->_getAttribute($attribute);
 
@@ -408,7 +408,7 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
      * @param  int $optionId option to remove ID
      * @return bool
      */
-    public function removeOption($attribute, $optionId)
+    function removeOption($attribute, $optionId)
     {
         $model = $this->_getAttribute($attribute);
 

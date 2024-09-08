@@ -50,7 +50,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getLinks()
+    function getLinks()
     {
         return $this->_links;
     }
@@ -70,7 +70,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
      * @param string $afterText
      * @return $this
      */
-    public function addLink(
+    function addLink(
         $label,
         $url = '',
         $title = '',
@@ -124,7 +124,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
      * @param string $blockName
      * @return $this
      */
-    public function addLinkBlock($blockName)
+    function addLinkBlock($blockName)
     {
         $block = $this->getLayout()->getBlock($blockName);
         if ($block) {
@@ -140,7 +140,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
      * @param string $blockName
      * @return $this
      */
-    public function removeLinkBlock($blockName)
+    function removeLinkBlock($blockName)
     {
         foreach ($this->_links as $key => $link) {
             if ($link instanceof Mage_Core_Block_Abstract && $link->getNameInLayout() == $blockName) {
@@ -156,7 +156,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
      * @param string $url
      * @return $this
      */
-    public function removeLinkByUrl($url)
+    function removeLinkByUrl($url)
     {
         foreach ($this->_links as $k => $v) {
             if ($v->getUrl() == $url) {
@@ -173,7 +173,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getCacheKeyInfo()
+    function getCacheKeyInfo()
     {
         if (is_null($this->_cacheKeyInfo)) {
             $links = [];
@@ -256,7 +256,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         if (Mage::getSingleton('customer/session')->isLoggedIn()) {
             $this->addModelTags(Mage::getSingleton('customer/session')->getCustomer());

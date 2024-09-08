@@ -52,7 +52,7 @@ class Mage_Review_Model_Resource_Review_Summary extends Mage_Core_Model_Resource
      * @param array $summary
      * @return $this
      */
-    public function reAggregate($summary)
+    function reAggregate($summary)
     {
         $adapter = $this->_getWriteAdapter();
         $select = $adapter->select()

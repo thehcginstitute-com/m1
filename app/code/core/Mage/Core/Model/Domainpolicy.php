@@ -52,7 +52,7 @@ class Mage_Core_Model_Domainpolicy
      * @param array $options
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function __construct($options = [])
+    function __construct($options = [])
     {
         $this->_store = $options['store'] ?? Mage::app()->getStore();
     }
@@ -63,7 +63,7 @@ class Mage_Core_Model_Domainpolicy
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function addDomainPolicyHeader(Varien_Event_Observer $observer)
+    function addDomainPolicyHeader(Varien_Event_Observer $observer)
     {
         $action = $observer->getControllerAction();
         $policy = null;
@@ -87,7 +87,7 @@ class Mage_Core_Model_Domainpolicy
      *
      * @return string|null
      */
-    public function getBackendPolicy()
+    function getBackendPolicy()
     {
         return $this->_getDomainPolicyByCode((int)(string)$this->_store->getConfig(self::XML_DOMAIN_POLICY_BACKEND));
     }
@@ -97,7 +97,7 @@ class Mage_Core_Model_Domainpolicy
      *
      * @return string|null
      */
-    public function getFrontendPolicy()
+    function getFrontendPolicy()
     {
         return $this->_getDomainPolicyByCode((int)(string)$this->_store->getConfig(self::XML_DOMAIN_POLICY_FRONTEND));
     }

@@ -60,7 +60,7 @@ class Mage_Sales_Model_Quote_Address_Total_Collector extends Mage_Sales_Model_Co
      *
      * @param array $options
      */
-    public function __construct($options)
+    function __construct($options)
     {
         if (isset($options['store'])) {
             $this->_store = $options['store'];
@@ -77,7 +77,7 @@ class Mage_Sales_Model_Quote_Address_Total_Collector extends Mage_Sales_Model_Co
      *
      * @return array
      */
-    public function getCollectors()
+    function getCollectors()
     {
         return $this->_collectors;
     }
@@ -87,7 +87,7 @@ class Mage_Sales_Model_Quote_Address_Total_Collector extends Mage_Sales_Model_Co
      *
      * @return array
      */
-    public function getRetrievers()
+    function getRetrievers()
     {
         return $this->_retrievers;
     }

@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Tree extends Mage_Adminhtml_Block_
      *
      * @return string
      */
-    public function getTreeJson()
+    function getTreeJson()
     {
         $helper = Mage::helper('cms/wysiwyg_images');
         $storageRoot = $helper->getStorageRoot();
@@ -48,7 +48,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Tree extends Mage_Adminhtml_Block_
      *
      * @return string
      */
-    public function getTreeLoaderUrl()
+    function getTreeLoaderUrl()
     {
         return $this->getUrl('*/*/treeJson');
     }
@@ -58,7 +58,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Tree extends Mage_Adminhtml_Block_
      *
      * @return string
      */
-    public function getRootNodeName()
+    function getRootNodeName()
     {
         return $this->helper('cms')->__('Storage Root');
     }
@@ -68,7 +68,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Tree extends Mage_Adminhtml_Block_
      *
      * @return string
      */
-    public function getTreeCurrentPath()
+    function getTreeCurrentPath()
     {
         $treePath = '/root';
         if ($path = Mage::registry('storage')->getSession()->getCurrentPath()) {

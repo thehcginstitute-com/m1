@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery extends Varien_Data_Form_Element_Abstract
 {
-    public function getElementHtml()
+    function getElementHtml()
     {
         //$html.= $this->getAfterElementHtml();
         return $this->getContentHtml();
@@ -33,7 +33,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery extends Varien_Da
      *
      * @return string
      */
-    public function getContentHtml()
+    function getContentHtml()
     {
         /** @var Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery_Content $content */
         $content = Mage::getSingleton('core/layout')
@@ -44,7 +44,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery extends Varien_Da
         return $content->toHtml();
     }
 
-    public function getLabel()
+    function getLabel()
     {
         return '';
     }
@@ -55,7 +55,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery extends Varien_Da
      * @param Mage_Eav_Model_Entity_Attribute $attribute
      * @return bool
      */
-    public function canDisplayUseDefault($attribute)
+    function canDisplayUseDefault($attribute)
     {
         if (!$attribute->isScopeGlobal() && $this->getDataObject()->getStoreId()) {
             return true;
@@ -70,7 +70,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery extends Varien_Da
      * @param Mage_Eav_Model_Entity_Attribute $attribute
      * @return bool
      */
-    public function usedDefault($attribute)
+    function usedDefault($attribute)
     {
         $attributeCode = $attribute->getAttributeCode();
         $defaultValue = $this->getDataObject()->getAttributeDefaultValue($attributeCode);
@@ -96,7 +96,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery extends Varien_Da
      * @param Mage_Eav_Model_Entity_Attribute $attribute
      * @return string
      */
-    public function getScopeLabel($attribute)
+    function getScopeLabel($attribute)
     {
         $html = '';
         if (Mage::app()->isSingleStoreMode()) {
@@ -118,7 +118,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery extends Varien_Da
      *
      * @return Mage_Catalog_Model_Product | Mage_Catalog_Model_Category
      */
-    public function getDataObject()
+    function getDataObject()
     {
         return $this->getForm()->getDataObject();
     }
@@ -130,7 +130,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery extends Varien_Da
      * @param Mage_Eav_Model_Entity_Attribute $attribute
      * @return string
      */
-    public function getAttributeFieldName($attribute)
+    function getAttributeFieldName($attribute)
     {
         $name = $attribute->getAttributeCode();
         if ($suffix = $this->getForm()->getFieldNameSuffix()) {
@@ -145,7 +145,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery extends Varien_Da
      * @param Mage_Eav_Model_Entity_Attribute|string $attribute
      * @return bool
      */
-    public function getAttributeReadonly($attribute)
+    function getAttributeReadonly($attribute)
     {
         if (is_object($attribute)) {
             $attribute = $attribute->getAttributeCode();
@@ -158,7 +158,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery extends Varien_Da
         return false;
     }
 
-    public function toHtml()
+    function toHtml()
     {
         return '<tr><td class="value" colspan="3">' . $this->getElementHtml() . '</td></tr>';
     }

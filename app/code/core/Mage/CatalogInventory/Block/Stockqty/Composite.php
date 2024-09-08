@@ -41,7 +41,7 @@ abstract class Mage_CatalogInventory_Block_Stockqty_Composite extends Mage_Catal
      *
      * @return array
      */
-    public function getChildProducts()
+    function getChildProducts()
     {
         if ($this->_childProducts === null) {
             $this->_childProducts = $this->_getChildProducts();
@@ -55,7 +55,7 @@ abstract class Mage_CatalogInventory_Block_Stockqty_Composite extends Mage_Catal
      * @param Mage_Catalog_Model_Product $product
      * @return float
      */
-    public function getProductStockQty($product)
+    function getProductStockQty($product)
     {
         return $product->getStockItem()->getStockQty();
     }
@@ -65,7 +65,7 @@ abstract class Mage_CatalogInventory_Block_Stockqty_Composite extends Mage_Catal
      *
      * @return string
      */
-    public function getDetailsPlaceholderId()
+    function getDetailsPlaceholderId()
     {
         return $this->getPlaceholderId() . '-details';
     }

@@ -36,7 +36,7 @@ class Mage_Catalog_Helper_Output extends Mage_Core_Helper_Abstract
      */
     protected $_templateProcessor = null;
 
-    public function __construct()
+    function __construct()
     {
         Mage::dispatchEvent('catalog_helper_output_construct', ['helper' => $this]);
     }
@@ -60,7 +60,7 @@ class Mage_Catalog_Helper_Output extends Mage_Core_Helper_Abstract
      * @param   object $handler
      * @return  Mage_Catalog_Helper_Output
      */
-    public function addHandler($method, $handler)
+    function addHandler($method, $handler)
     {
         if (!is_object($handler)) {
             return $this;
@@ -81,7 +81,7 @@ class Mage_Catalog_Helper_Output extends Mage_Core_Helper_Abstract
      * @param   string $method
      * @return  array
      */
-    public function getHandlers($method)
+    function getHandlers($method)
     {
         $method = strtolower($method);
         return $this->_handlers[$method] ?? [];
@@ -95,7 +95,7 @@ class Mage_Catalog_Helper_Output extends Mage_Core_Helper_Abstract
      * @param array $params
      * @return mixed
      */
-    public function process($method, $result, $params)
+    function process($method, $result, $params)
     {
         foreach ($this->getHandlers($method) as $handler) {
             if (method_exists($handler, $method)) {
@@ -113,7 +113,7 @@ class Mage_Catalog_Helper_Output extends Mage_Core_Helper_Abstract
      * @param   string $attributeName
      * @return  string
      */
-    public function productAttribute($product, $attributeHtml, $attributeName)
+    function productAttribute($product, $attributeHtml, $attributeName)
     {
         /** @var Mage_Catalog_Model_Resource_Eav_Attribute $attribute */
         $attribute = Mage::getSingleton('eav/config')->getAttribute(Mage_Catalog_Model_Product::ENTITY, $attributeName);
@@ -149,7 +149,7 @@ class Mage_Catalog_Helper_Output extends Mage_Core_Helper_Abstract
      * @param   string $attributeName
      * @return  string
      */
-    public function categoryAttribute($category, $attributeHtml, $attributeName)
+    function categoryAttribute($category, $attributeHtml, $attributeName)
     {
         /** @var Mage_Catalog_Model_Resource_Eav_Attribute $attribute */
         $attribute = Mage::getSingleton('eav/config')->getAttribute(Mage_Catalog_Model_Category::ENTITY, $attributeName);

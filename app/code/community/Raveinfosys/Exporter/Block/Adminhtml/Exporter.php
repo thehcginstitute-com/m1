@@ -1,7 +1,7 @@
 <?php
 class Raveinfosys_Exporter_Block_Adminhtml_Exporter extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-  public function __construct()
+  function __construct()
   {
     $this->_controller = 'adminhtml_exporter';
     $this->_blockGroup = 'exporter';

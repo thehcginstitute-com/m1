@@ -54,7 +54,7 @@ class Mage_CatalogIndex_Model_Resource_Aggregation extends Mage_Core_Model_Resou
      * @param int $storeId
      * @return array
      */
-    public function getCacheData($key, $storeId)
+    function getCacheData($key, $storeId)
     {
         $select = $this->_getReadAdapter()->select()
             ->from(['a' => $this->getMainTable()], 'data')
@@ -78,7 +78,7 @@ class Mage_CatalogIndex_Model_Resource_Aggregation extends Mage_Core_Model_Resou
      * @param int $storeId
      * @return $this
      */
-    public function saveCacheData($data, $key, $tags, $storeId)
+    function saveCacheData($data, $key, $tags, $storeId)
     {
         $data = serialize($data);
         $tags = $this->_getTagIds($tags);
@@ -127,7 +127,7 @@ class Mage_CatalogIndex_Model_Resource_Aggregation extends Mage_Core_Model_Resou
      * @param   int|null|string $storeId
      * @return $this
      */
-    public function clearCacheData($tags, $storeId)
+    function clearCacheData($tags, $storeId)
     {
         $conditions = [];
         if (!$write = $this->_getWriteAdapter()) {
@@ -230,7 +230,7 @@ class Mage_CatalogIndex_Model_Resource_Aggregation extends Mage_Core_Model_Resou
      * @param array $productIds
      * @return array
      */
-    public function getProductCategoryPaths($productIds)
+    function getProductCategoryPaths($productIds)
     {
         $select = $this->_getReadAdapter()->select()
             ->from(['cat' => $this->getTable('catalog/category')], 'path')

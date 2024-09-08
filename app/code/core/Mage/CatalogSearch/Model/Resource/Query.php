@@ -38,7 +38,7 @@ class Mage_CatalogSearch_Model_Resource_Query extends Mage_Core_Model_Resource_D
      * @param string $value
      * @return $this
      */
-    public function loadByQuery(Mage_Core_Model_Abstract $object, $value)
+    function loadByQuery(Mage_Core_Model_Abstract $object, $value)
     {
         $readAdapter = $this->_getReadAdapter();
         $select = $readAdapter->select();
@@ -73,7 +73,7 @@ class Mage_CatalogSearch_Model_Resource_Query extends Mage_Core_Model_Resource_D
      * @param string $value
      * @return $this
      */
-    public function loadByQueryText(Mage_Core_Model_Abstract $object, $value)
+    function loadByQueryText(Mage_Core_Model_Abstract $object, $value)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getMainTable())
@@ -94,7 +94,7 @@ class Mage_CatalogSearch_Model_Resource_Query extends Mage_Core_Model_Resource_D
      * @param null|string $field
      * @inheritDoc
      */
-    public function load(Mage_Core_Model_Abstract $object, $value, $field = null)
+    function load(Mage_Core_Model_Abstract $object, $value, $field = null)
     {
         if (is_numeric($value)) {
             return parent::load($object, $value);
@@ -108,7 +108,7 @@ class Mage_CatalogSearch_Model_Resource_Query extends Mage_Core_Model_Resource_D
      * @param Mage_Core_Model_Abstract $object
      * @return $this
      */
-    public function _beforeSave(Mage_Core_Model_Abstract $object)
+    function _beforeSave(Mage_Core_Model_Abstract $object)
     {
         $object->setUpdatedAt($this->formatDate(Mage::getModel('core/date')->gmtTimestamp()));
         return $this;

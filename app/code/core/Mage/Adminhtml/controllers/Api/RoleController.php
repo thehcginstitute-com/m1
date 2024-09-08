@@ -33,7 +33,7 @@ class Mage_Adminhtml_Api_RoleController extends Mage_Adminhtml_Controller_Action
      *
      * @return Mage_Adminhtml_Controller_Action
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->_setForcedFormKeyActions(['delete', 'save']);
         return parent::preDispatch();
@@ -49,7 +49,7 @@ class Mage_Adminhtml_Api_RoleController extends Mage_Adminhtml_Controller_Action
         return $this;
     }
 
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('System'))
              ->_title($this->__('Web Services'))
@@ -62,7 +62,7 @@ class Mage_Adminhtml_Api_RoleController extends Mage_Adminhtml_Controller_Action
         $this->renderLayout();
     }
 
-    public function roleGridAction()
+    function roleGridAction()
     {
         $this->getResponse()
             ->setBody($this->getLayout()
@@ -70,7 +70,7 @@ class Mage_Adminhtml_Api_RoleController extends Mage_Adminhtml_Controller_Action
             ->toHtml());
     }
 
-    public function editRoleAction()
+    function editRoleAction()
     {
         $this->_title($this->__('System'))
              ->_title($this->__('Web Services'))
@@ -108,7 +108,7 @@ class Mage_Adminhtml_Api_RoleController extends Mage_Adminhtml_Controller_Action
         $this->renderLayout();
     }
 
-    public function deleteAction()
+    function deleteAction()
     {
         $rid = $this->getRequest()->getParam('role_id', false);
 
@@ -135,7 +135,7 @@ class Mage_Adminhtml_Api_RoleController extends Mage_Adminhtml_Controller_Action
         $this->_redirect("*/*/");
     }
 
-    public function saveRoleAction()
+    function saveRoleAction()
     {
         $rid        = $this->getRequest()->getParam('role_id', false);
         $role = Mage::getModel('api/roles')->load($rid);
@@ -201,7 +201,7 @@ class Mage_Adminhtml_Api_RoleController extends Mage_Adminhtml_Controller_Action
         $this->_redirect('*/*/editrole', ['rid' => $rid]);
     }
 
-    public function editrolegridAction()
+    function editrolegridAction()
     {
         $this->getResponse()->setBody($this->getLayout()->createBlock('adminhtml/api_role_grid_user')->toHtml());
     }

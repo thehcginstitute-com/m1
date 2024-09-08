@@ -29,7 +29,7 @@ class Mage_Core_Helper_Url extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getCurrentUrl()
+    function getCurrentUrl()
     {
         $request = Mage::app()->getRequest();
         $port = $request->getServer('SERVER_PORT');
@@ -49,7 +49,7 @@ class Mage_Core_Helper_Url extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getCurrentBase64Url()
+    function getCurrentBase64Url()
     {
         return $this->urlEncode($this->getCurrentUrl());
     }
@@ -60,7 +60,7 @@ class Mage_Core_Helper_Url extends Mage_Core_Helper_Abstract
      * @param null|string $url
      * @return string
      */
-    public function getEncodedUrl($url = null)
+    function getEncodedUrl($url = null)
     {
         if (!$url) {
             $url = $this->getCurrentUrl();
@@ -73,7 +73,7 @@ class Mage_Core_Helper_Url extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getHomeUrl()
+    function getHomeUrl()
     {
         return Mage::getBaseUrl();
     }
@@ -100,7 +100,7 @@ class Mage_Core_Helper_Url extends Mage_Core_Helper_Abstract
      * @param array $param ( 'key' => value )
      * @return string
      */
-    public function addRequestParam($url, $param)
+    function addRequestParam($url, $param)
     {
         $startDelimiter = (strpos($url, '?') === false) ? '?' : '&';
 
@@ -131,7 +131,7 @@ class Mage_Core_Helper_Url extends Mage_Core_Helper_Abstract
      * @param bool $caseSensitive
      * @return string
      */
-    public function removeRequestParam($url, $paramKey, $caseSensitive = false)
+    function removeRequestParam($url, $paramKey, $caseSensitive = false)
     {
         $regExpression = '/\\?[^#]*?(' . preg_quote($paramKey, '/') . '\\=[^#&]*&?)/' . ($caseSensitive ? '' : 'i');
         while (preg_match($regExpression, $url, $mathes) != 0) {
@@ -163,7 +163,7 @@ class Mage_Core_Helper_Url extends Mage_Core_Helper_Abstract
      * @param string $url encode url to Punycode
      * @return string
      */
-    public function encodePunycode($url)
+    function encodePunycode($url)
     {
         $parsedUrl = parse_url($url);
         if (!$this->_isPunycode($parsedUrl['host'])) {
@@ -181,7 +181,7 @@ class Mage_Core_Helper_Url extends Mage_Core_Helper_Abstract
      * @return string
      * @throws Exception
      */
-    public function decodePunycode($url)
+    function decodePunycode($url)
     {
         $parsedUrl = parse_url($url);
         if ($this->_isPunycode($parsedUrl['host'])) {

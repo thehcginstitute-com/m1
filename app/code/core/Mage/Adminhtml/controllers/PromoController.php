@@ -28,7 +28,7 @@ class Mage_Adminhtml_PromoController extends Mage_Adminhtml_Controller_Action
      */
     public const ADMIN_RESOURCE = 'promo';
 
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout();
         $this->_setActiveMenu('promo');

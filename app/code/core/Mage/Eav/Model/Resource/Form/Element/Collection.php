@@ -36,7 +36,7 @@ class Mage_Eav_Model_Resource_Form_Element_Collection extends Mage_Core_Model_Re
      * @param Mage_Eav_Model_Form_Type|int $type
      * @return $this
      */
-    public function addTypeFilter($type)
+    function addTypeFilter($type)
     {
         if ($type instanceof Mage_Eav_Model_Form_Type) {
             $type = $type->getId();
@@ -51,7 +51,7 @@ class Mage_Eav_Model_Resource_Form_Element_Collection extends Mage_Core_Model_Re
      * @param Mage_Eav_Model_Form_Fieldset|int $fieldset
      * @return $this
      */
-    public function addFieldsetFilter($fieldset)
+    function addFieldsetFilter($fieldset)
     {
         if ($fieldset instanceof Mage_Eav_Model_Form_Fieldset) {
             $fieldset = $fieldset->getId();
@@ -67,7 +67,7 @@ class Mage_Eav_Model_Resource_Form_Element_Collection extends Mage_Core_Model_Re
      *
      * @return $this
      */
-    public function addAttributeFilter($attribute)
+    function addAttributeFilter($attribute)
     {
         if ($attribute instanceof Mage_Eav_Model_Entity_Attribute_Abstract) {
             $attribute = $attribute->getId();
@@ -81,7 +81,7 @@ class Mage_Eav_Model_Resource_Form_Element_Collection extends Mage_Core_Model_Re
      *
      * @return $this
      */
-    public function setSortOrder()
+    function setSortOrder()
     {
         $this->setOrder('sort_order', self::SORT_ORDER_ASC);
 
@@ -109,7 +109,7 @@ class Mage_Eav_Model_Resource_Form_Element_Collection extends Mage_Core_Model_Re
      *
      * @inheritDoc
      */
-    public function load($printQuery = false, $logQuery = false)
+    function load($printQuery = false, $logQuery = false)
     {
         if (!$this->isLoaded()) {
             $this->_joinAttributeData();

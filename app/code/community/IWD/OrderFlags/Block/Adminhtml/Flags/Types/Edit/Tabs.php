@@ -8,7 +8,7 @@ class IWD_OrderFlags_Block_Adminhtml_Flags_Types_Edit_Tabs extends Mage_Adminhtm
     /**
      * {@inheritdoc}
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('iwd_orderflags_flag_tabs');

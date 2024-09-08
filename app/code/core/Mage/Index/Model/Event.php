@@ -75,7 +75,7 @@ class Mage_Index_Model_Event extends Mage_Core_Model_Abstract
      * @param Mage_Index_Model_Process $process
      * @return $this
      */
-    public function setProcess($process)
+    function setProcess($process)
     {
         $this->_process = $process;
         return $this;
@@ -86,7 +86,7 @@ class Mage_Index_Model_Event extends Mage_Core_Model_Abstract
      *
      * @return Mage_Index_Model_Process
      */
-    public function getProcess()
+    function getProcess()
     {
         return $this->_process;
     }
@@ -96,7 +96,7 @@ class Mage_Index_Model_Event extends Mage_Core_Model_Abstract
      * @param string $namespace
      * @return $this
      */
-    public function setDataNamespace($namespace)
+    function setDataNamespace($namespace)
     {
         $this->_dataNamespace = $namespace;
         return $this;
@@ -107,7 +107,7 @@ class Mage_Index_Model_Event extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function resetData()
+    function resetData()
     {
         if ($this->_dataNamespace) {
             $data = $this->getNewData(false);
@@ -126,7 +126,7 @@ class Mage_Index_Model_Event extends Mage_Core_Model_Abstract
      * @param string $status
      * @return  $this
      */
-    public function addProcessId($processId, $status = Mage_Index_Model_Process::EVENT_STATUS_NEW)
+    function addProcessId($processId, $status = Mage_Index_Model_Process::EVENT_STATUS_NEW)
     {
         $this->_processIds[$processId] = $status;
         return $this;
@@ -137,7 +137,7 @@ class Mage_Index_Model_Event extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getProcessIds()
+    function getProcessIds()
     {
         return $this->_processIds;
     }
@@ -180,7 +180,7 @@ class Mage_Index_Model_Event extends Mage_Core_Model_Abstract
      * @param array $data
      * @return $this
      */
-    public function mergePreviousData($data)
+    function mergePreviousData($data)
     {
         if (!empty($data['event_id'])) {
             $this->setId($data['event_id']);
@@ -201,7 +201,7 @@ class Mage_Index_Model_Event extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function cleanNewData()
+    function cleanNewData()
     {
         $processIds = $this->getProcessIds();
         if (!is_array($processIds) || empty($processIds)) {
@@ -232,7 +232,7 @@ class Mage_Index_Model_Event extends Mage_Core_Model_Abstract
      * @param bool $useNamespace
      * @return array
      */
-    public function getOldData($useNamespace = true)
+    function getOldData($useNamespace = true)
     {
         return [];
     }
@@ -243,7 +243,7 @@ class Mage_Index_Model_Event extends Mage_Core_Model_Abstract
      * @param bool $useNamespace
      * @return array
      */
-    public function getNewData($useNamespace = true)
+    function getNewData($useNamespace = true)
     {
         $data = $this->_getData('new_data');
         if (is_string($data)) {
@@ -265,7 +265,7 @@ class Mage_Index_Model_Event extends Mage_Core_Model_Abstract
      * @return $this
      * @deprecated since 1.6.2.0
      */
-    public function addOldData($key, $value = null)
+    function addOldData($key, $value = null)
     {
         return $this;
     }
@@ -277,7 +277,7 @@ class Mage_Index_Model_Event extends Mage_Core_Model_Abstract
      * @param null|mixed $value
      * @return $this
      */
-    public function addNewData($key, $value = null)
+    function addNewData($key, $value = null)
     {
         $newData = $this->getNewData(false);
         if (!is_array($key)) {
@@ -301,7 +301,7 @@ class Mage_Index_Model_Event extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getEntity()
+    function getEntity()
     {
         return $this->_getData('entity');
     }
@@ -312,7 +312,7 @@ class Mage_Index_Model_Event extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getType()
+    function getType()
     {
         return $this->_getData('type');
     }

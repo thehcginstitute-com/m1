@@ -42,7 +42,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      * @param   string $varName
      * @return  $this
      */
-    public function setRequestVar($varName)
+    function setRequestVar($varName)
     {
         $this->_requestVar = $varName;
         return $this;
@@ -53,7 +53,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      *
      * @return string
      */
-    public function getRequestVar()
+    function getRequestVar()
     {
         return $this->_requestVar;
     }
@@ -63,7 +63,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      *
      * @return mixed
      */
-    public function getResetValue()
+    function getResetValue()
     {
         return null;
     }
@@ -73,7 +73,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      *
      * @return mixed
      */
-    public function getCleanValue()
+    function getCleanValue()
     {
         return null;
     }
@@ -85,7 +85,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      * @param null $filterBlock deprecated
      * @return $this
      */
-    public function apply(Zend_Controller_Request_Abstract $request, $filterBlock)
+    function apply(Zend_Controller_Request_Abstract $request, $filterBlock)
     {
         return $this;
     }
@@ -95,7 +95,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      *
      * @return int
      */
-    public function getItemsCount()
+    function getItemsCount()
     {
         return count($this->getItems());
     }
@@ -105,7 +105,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      *
      * @return array
      */
-    public function getItems()
+    function getItems()
     {
         if (is_null($this->_items)) {
             $this->_initItems();
@@ -157,7 +157,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      *
      * @return Mage_Catalog_Model_Layer
      */
-    public function getLayer()
+    function getLayer()
     {
         $layer = $this->_getData('layer');
         if (is_null($layer)) {
@@ -210,7 +210,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      * @param   Mage_Eav_Model_Entity_Attribute $attribute
      * @return  $this
      */
-    public function setAttributeModel($attribute)
+    function setAttributeModel($attribute)
     {
         $this->setRequestVar($attribute->getAttributeCode());
         $this->setData('attribute_model', $attribute);
@@ -222,7 +222,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      *
      * @return Mage_Catalog_Model_Resource_Eav_Attribute
      */
-    public function getAttributeModel()
+    function getAttributeModel()
     {
         $attribute = $this->getData('attribute_model');
         if (is_null($attribute)) {
@@ -236,7 +236,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      *
      * @return string
      */
-    public function getName()
+    function getName()
     {
         return $this->getAttributeModel()->getStoreLabel();
     }
@@ -246,7 +246,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         $storeId = $this->_getData('store_id');
         if (is_null($storeId)) {
@@ -261,7 +261,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      * @param int $storeId
      * @return $this
      */
-    public function setStoreId($storeId)
+    function setStoreId($storeId)
     {
         return $this->setData('store_id', $storeId);
     }
@@ -271,7 +271,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      *
      * @return int
      */
-    public function getWebsiteId()
+    function getWebsiteId()
     {
         $websiteId = $this->_getData('website_id');
         if (is_null($websiteId)) {
@@ -286,7 +286,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      * @param int $websiteId
      * @return $this
      */
-    public function setWebsiteId($websiteId)
+    function setWebsiteId($websiteId)
     {
         return $this->setData('website_id', $websiteId);
     }
@@ -296,7 +296,7 @@ abstract class Mage_Catalog_Model_Layer_Filter_Abstract extends Varien_Object
      *
      * @return false|string
      */
-    public function getClearLinkText()
+    function getClearLinkText()
     {
         return false;
     }

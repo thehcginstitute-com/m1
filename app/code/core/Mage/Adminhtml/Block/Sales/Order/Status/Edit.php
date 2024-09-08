@@ -19,7 +19,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Order_Status_Edit extends Mage_Adminhtml_Block_Sales_Order_Status_New
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_mode = 'edit';
@@ -30,7 +30,7 @@ class Mage_Adminhtml_Block_Sales_Order_Status_Edit extends Mage_Adminhtml_Block_
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Edit Order Status');
     }

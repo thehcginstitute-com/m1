@@ -35,7 +35,7 @@ class Mage_Core_Block_Text extends Mage_Core_Block_Abstract
      * @param string $text
      * @return $this
      */
-    public function setText($text)
+    function setText($text)
     {
         $this->setData('text', $text);
         return $this;
@@ -44,7 +44,7 @@ class Mage_Core_Block_Text extends Mage_Core_Block_Abstract
     /**
      * @return string
      */
-    public function getText()
+    function getText()
     {
         return $this->getData('text');
     }
@@ -53,7 +53,7 @@ class Mage_Core_Block_Text extends Mage_Core_Block_Abstract
      * @param string $text
      * @param bool $before
      */
-    public function addText($text, $before = false)
+    function addText($text, $before = false)
     {
         if ($before) {
             $this->setText($text . $this->getText());

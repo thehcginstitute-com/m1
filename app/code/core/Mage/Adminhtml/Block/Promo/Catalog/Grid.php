@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Promo_Catalog_Grid extends Mage_Adminhtml_Block_Widge
      * Initialize grid
      * Set sort settings
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('promo_catalog_grid');
@@ -123,7 +123,7 @@ class Mage_Adminhtml_Block_Promo_Catalog_Grid extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', ['id' => $row->getRuleId()]);
     }

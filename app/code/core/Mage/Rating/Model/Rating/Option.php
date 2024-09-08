@@ -52,7 +52,7 @@ class Mage_Rating_Model_Rating_Option extends Mage_Core_Model_Abstract
      * @return $this
      * @throws Exception
      */
-    public function addVote()
+    function addVote()
     {
         $this->getResource()->addVote($this);
         return $this;
@@ -62,7 +62,7 @@ class Mage_Rating_Model_Rating_Option extends Mage_Core_Model_Abstract
      * @param int $id
      * @return $this
      */
-    public function setId($id)
+    function setId($id)
     {
         $this->setOptionId($id);
         return $this;

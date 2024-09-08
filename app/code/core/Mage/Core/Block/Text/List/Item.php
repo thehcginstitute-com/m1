@@ -27,7 +27,7 @@ class Mage_Core_Block_Text_List_Item extends Mage_Core_Block_Text
      * @param array $innerText
      * @return $this
      */
-    public function setLink($liParams, $innerText)
+    function setLink($liParams, $innerText)
     {
         $this->setLiParams($liParams);
         $this->setInnerText($innerText);

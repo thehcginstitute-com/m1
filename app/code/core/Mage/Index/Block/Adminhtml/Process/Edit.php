@@ -24,7 +24,7 @@ class Mage_Index_Block_Adminhtml_Process_Edit extends Mage_Adminhtml_Block_Widge
     /**
      * Mage_Index_Block_Adminhtml_Process_Edit constructor.
      */
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'process_id';
         $this->_controller = 'adminhtml_process';
@@ -46,7 +46,7 @@ class Mage_Index_Block_Adminhtml_Process_Edit extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl('adminhtml/process/list');
     }
@@ -56,7 +56,7 @@ class Mage_Index_Block_Adminhtml_Process_Edit extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getRunUrl()
+    function getRunUrl()
     {
         return $this->getUrl('adminhtml/process/reindexProcess', [
             'process' => Mage::registry('current_index_process')->getId()
@@ -68,7 +68,7 @@ class Mage_Index_Block_Adminhtml_Process_Edit extends Mage_Adminhtml_Block_Widge
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         $process = Mage::registry('current_index_process');
         if ($process && $process->getId()) {

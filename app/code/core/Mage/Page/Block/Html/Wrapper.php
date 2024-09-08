@@ -67,7 +67,7 @@ class Mage_Page_Block_Html_Wrapper extends Mage_Core_Block_Abstract
      * Wrapper element tag name getter
      * @return string
      */
-    public function getElementTagName()
+    function getElementTagName()
     {
         $tagName = $this->_getData('html_tag_name');
         return $tagName ? $tagName : 'div';
@@ -78,7 +78,7 @@ class Mage_Page_Block_Html_Wrapper extends Mage_Core_Block_Abstract
      * @param string $depends
      * @return $this
      */
-    public function dependsOnChildren($depends = '0')
+    function dependsOnChildren($depends = '0')
     {
         $this->_dependsOnChildren = (bool)(int)$depends;
         return $this;

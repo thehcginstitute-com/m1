@@ -29,7 +29,7 @@ class Mage_Core_Block_Text_List_Link extends Mage_Core_Block_Text
      * @param string $afterText
      * @return $this
      */
-    public function setLink($liParams, $aParams, $innerText, $afterText = '')
+    function setLink($liParams, $aParams, $innerText, $afterText = '')
     {
         $this->setLiParams($liParams);
         $this->setAParams($aParams);

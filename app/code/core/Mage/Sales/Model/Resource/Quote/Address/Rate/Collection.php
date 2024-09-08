@@ -40,7 +40,7 @@ class Mage_Sales_Model_Resource_Quote_Address_Rate_Collection extends Mage_Core_
      * @param int $addressId
      * @return $this
      */
-    public function setAddressFilter($addressId)
+    function setAddressFilter($addressId)
     {
         if ($addressId) {
             $this->addFieldToFilter('address_id', $addressId);
@@ -57,7 +57,7 @@ class Mage_Sales_Model_Resource_Quote_Address_Rate_Collection extends Mage_Core_
      * @param bool $value
      * @return $this
      */
-    public function setFixedOnlyFilter($value)
+    function setFixedOnlyFilter($value)
     {
         $this->_allowFixedOnly = (bool)$value;
         return $this;
@@ -69,7 +69,7 @@ class Mage_Sales_Model_Resource_Quote_Address_Rate_Collection extends Mage_Core_
      * @inheritDoc
      * @throws Exception
      */
-    public function addItem(Varien_Object $rate)
+    function addItem(Varien_Object $rate)
     {
         if ($this->_allowFixedOnly && (!$rate->getCarrierInstance() || !$rate->getCarrierInstance()->isFixed())) {
             return $this;

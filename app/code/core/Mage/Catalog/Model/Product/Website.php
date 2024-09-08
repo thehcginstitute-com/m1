@@ -42,7 +42,7 @@ class Mage_Catalog_Model_Product_Website extends Mage_Core_Model_Abstract
      * @param array $productIds
      * @return $this
      */
-    public function removeProducts($websiteIds, $productIds)
+    function removeProducts($websiteIds, $productIds)
     {
         try {
             $this->_getResource()->removeProducts($websiteIds, $productIds);
@@ -61,7 +61,7 @@ class Mage_Catalog_Model_Product_Website extends Mage_Core_Model_Abstract
      * @param array $productIds
      * @return $this
      */
-    public function addProducts($websiteIds, $productIds)
+    function addProducts($websiteIds, $productIds)
     {
         try {
             $this->_getResource()->addProducts($websiteIds, $productIds);
@@ -80,7 +80,7 @@ class Mage_Catalog_Model_Product_Website extends Mage_Core_Model_Abstract
      * @param int|array $productIds
      * @return array
      */
-    public function getWebsites($productIds)
+    function getWebsites($productIds)
     {
         return $this->_getResource()->getWebsites($productIds);
     }

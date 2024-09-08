@@ -32,7 +32,7 @@ class Mage_Catalog_Model_Api2_Product_Website_Validator_Admin_Website extends Ma
      * @param array $data
      * @return bool
      */
-    public function isValidDataForWebsiteAssignmentToProduct(Mage_Catalog_Model_Product $product, array $data)
+    function isValidDataForWebsiteAssignmentToProduct(Mage_Catalog_Model_Product $product, array $data)
     {
         // Validate website id
         if (!isset($data['website_id']) || !is_numeric($data['website_id'])) {
@@ -168,7 +168,7 @@ class Mage_Catalog_Model_Api2_Product_Website_Validator_Admin_Website extends Ma
      * @param Mage_Catalog_Model_Product $product
      * @return bool
      */
-    public function isWebsiteAssignedToProduct(Mage_Core_Model_Website $website, Mage_Catalog_Model_Product $product)
+    function isWebsiteAssignedToProduct(Mage_Core_Model_Website $website, Mage_Catalog_Model_Product $product)
     {
         if (!in_array($website->getId(), $product->getWebsiteIds())) {
             $this->_addError(sprintf(

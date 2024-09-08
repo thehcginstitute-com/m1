@@ -93,7 +93,7 @@ class Mage_Catalog_Helper_Product_Flat extends Mage_Catalog_Helper_Flat_Abstract
      * @return Mage_Catalog_Model_Product_Flat_Flag
      * @throws Mage_Core_Exception
      */
-    public function getFlag()
+    function getFlag()
     {
         if (is_null($this->_flagObject)) {
             $className = (string)Mage::getConfig()->getNode(self::XML_PATH_FLAT_FLAG);
@@ -112,7 +112,7 @@ class Mage_Catalog_Helper_Product_Flat extends Mage_Catalog_Helper_Flat_Abstract
      *
      * @return bool
      */
-    public function isEnabled($store = null)
+    function isEnabled($store = null)
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_USE_PRODUCT_FLAT);
     }
@@ -123,7 +123,7 @@ class Mage_Catalog_Helper_Product_Flat extends Mage_Catalog_Helper_Flat_Abstract
      * @param null|bool|int|Mage_Core_Model_Store $store Store(id) for which the value is checked
      * @return bool
      */
-    public function isBuilt($store = null)
+    function isBuilt($store = null)
     {
         if ($store !== null) {
             return $this->getFlag()->isStoreBuilt(Mage::app()->getStore($store)->getId());
@@ -136,7 +136,7 @@ class Mage_Catalog_Helper_Product_Flat extends Mage_Catalog_Helper_Flat_Abstract
      *
      * @return bool
      */
-    public function isBuiltAllStores()
+    function isBuiltAllStores()
     {
         $isBuildAll = true;
         foreach (Mage::app()->getStores(false) as $store) {
@@ -150,7 +150,7 @@ class Mage_Catalog_Helper_Product_Flat extends Mage_Catalog_Helper_Flat_Abstract
      *
      * @return int
      */
-    public function isAddFilterableAttributes()
+    function isAddFilterableAttributes()
     {
         return (int) Mage::getConfig()->getNode(self::XML_NODE_ADD_FILTERABLE_ATTRIBUTES);
     }
@@ -160,7 +160,7 @@ class Mage_Catalog_Helper_Product_Flat extends Mage_Catalog_Helper_Flat_Abstract
      *
      * @return int
      */
-    public function isAddChildData()
+    function isAddChildData()
     {
         return (int) Mage::getConfig()->getNode(self::XML_NODE_ADD_CHILD_DATA);
     }
@@ -170,7 +170,7 @@ class Mage_Catalog_Helper_Product_Flat extends Mage_Catalog_Helper_Flat_Abstract
      *
      * @param bool $save
      */
-    public function disableFlatCollection($save = false)
+    function disableFlatCollection($save = false)
     {
         $this->_forceFlatStatus = true;
 
@@ -182,7 +182,7 @@ class Mage_Catalog_Helper_Product_Flat extends Mage_Catalog_Helper_Flat_Abstract
     /**
      * Reset Catalog Product Flat
      */
-    public function resetFlatCollection()
+    function resetFlatCollection()
     {
         if (isset($this->_forceFlatStatusOld)) {
             $this->_forceFlatStatus = $this->_forceFlatStatusOld;
@@ -196,7 +196,7 @@ class Mage_Catalog_Helper_Product_Flat extends Mage_Catalog_Helper_Flat_Abstract
      *
      * @return bool
      */
-    public function isFlatCollectionDisabled()
+    function isFlatCollectionDisabled()
     {
         return $this->_forceFlatStatus;
     }

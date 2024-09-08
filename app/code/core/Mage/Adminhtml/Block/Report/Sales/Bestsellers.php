@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Report_Sales_Bestsellers extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'report_sales_bestsellers';
         $this->_headerText = Mage::helper('sales')->__('Products Bestsellers Report');
@@ -35,13 +35,13 @@ class Mage_Adminhtml_Block_Report_Sales_Bestsellers extends Mage_Adminhtml_Block
         ]);
     }
 
-    public function getFilterUrl()
+    function getFilterUrl()
     {
         $this->getRequest()->setParam('filter', null);
         return $this->getUrl('*/*/bestsellers', ['_current' => true]);
     }
 
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head head-report';
     }

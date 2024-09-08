@@ -36,7 +36,7 @@ class Mage_ImportExport_Helper_Data extends Mage_Core_Helper_Data
      *
      * @return int
      */
-    public function getMaxUploadSize()
+    function getMaxUploadSize()
     {
         return min(ini_get('post_max_size'), ini_get('upload_max_filesize'));
     }
@@ -46,7 +46,7 @@ class Mage_ImportExport_Helper_Data extends Mage_Core_Helper_Data
      *
      * @return array
      */
-    public function getLocalValidPaths()
+    function getLocalValidPaths()
     {
         return Mage::getStoreConfig(self::XML_PATH_EXPORT_LOCAL_VALID_PATH);
     }
@@ -56,7 +56,7 @@ class Mage_ImportExport_Helper_Data extends Mage_Core_Helper_Data
      *
      * @return int
      */
-    public function getBunchSize()
+    function getBunchSize()
     {
         return (int)Mage::getStoreConfig(self::XML_PATH_BUNCH_SIZE);
     }
@@ -66,7 +66,7 @@ class Mage_ImportExport_Helper_Data extends Mage_Core_Helper_Data
      *
      * @return int
      */
-    public function getImportConfigurablePageSize()
+    function getImportConfigurablePageSize()
     {
         return (int)Mage::getStoreConfig(self::XML_PATH_IMPORT_CONFIGURABLE_PAGE_SIZE);
     }

@@ -24,14 +24,14 @@ class Mage_Adminhtml_Block_Report_Sales_Tax_Grid extends Mage_Adminhtml_Block_Re
 {
     protected $_columnGroupBy = 'period';
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setCountTotals(true);
         $this->setCountSubTotals(true);
     }
 
-    public function getResourceCollectionName()
+    function getResourceCollectionName()
     {
         return ($this->getFilterData()->getData('report_type') == 'updated_at_order')
             ? 'tax/report_updatedat_collection'

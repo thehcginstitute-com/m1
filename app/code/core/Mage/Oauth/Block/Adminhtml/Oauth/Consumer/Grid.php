@@ -32,7 +32,7 @@ class Mage_Oauth_Block_Adminhtml_Oauth_Consumer_Grid extends Mage_Adminhtml_Bloc
     /**
      * Construct grid block
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('consumerGrid');
@@ -86,7 +86,7 @@ class Mage_Oauth_Block_Adminhtml_Oauth_Consumer_Grid extends Mage_Adminhtml_Bloc
      *
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/grid', ['_current' => true]);
     }
@@ -97,7 +97,7 @@ class Mage_Oauth_Block_Adminhtml_Oauth_Consumer_Grid extends Mage_Adminhtml_Bloc
      * @param Mage_Oauth_Model_Consumer $row
      * @return string|null
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         if ($this->_editAllow) {
             return $this->getUrl('*/*/edit', ['id' => $row->getId()]);

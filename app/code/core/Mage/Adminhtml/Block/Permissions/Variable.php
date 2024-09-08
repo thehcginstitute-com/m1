@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Permissions_Variable extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'permissions_variable';
         $this->_headerText = Mage::helper('adminhtml')->__('Variables');

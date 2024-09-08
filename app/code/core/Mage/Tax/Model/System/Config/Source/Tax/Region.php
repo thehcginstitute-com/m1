@@ -28,7 +28,7 @@ class Mage_Tax_Model_System_Config_Source_Tax_Region
     /**
      * @param array $arguments
      */
-    public function __construct($arguments = [])
+    function __construct($arguments = [])
     {
         $this->_optionsModel = !empty($arguments['region_model'])
             ? $arguments['region_model'] : Mage::getModel('directory/region');
@@ -41,7 +41,7 @@ class Mage_Tax_Model_System_Config_Source_Tax_Region
      * @param null|string $country
      * @return array
      */
-    public function toOptionArray($noEmpty = false, $country = null)
+    function toOptionArray($noEmpty = false, $country = null)
     {
         $options = $this->_optionsModel->getCollection()
             ->addCountryFilter($country)

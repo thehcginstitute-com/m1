@@ -49,7 +49,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Number extends Mage_Admin
      *
      * @return string
      */
-    public function renderCss()
+    function renderCss()
     {
         return parent::renderCss() . ' a-right';
     }

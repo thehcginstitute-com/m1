@@ -62,7 +62,7 @@ class Mage_Adminhtml_Model_LayoutUpdate_Validator extends Zend_Validate_Abstract
      */
     protected $_protectedExpressions = [];
 
-    public function __construct()
+    function __construct()
     {
         $this->_initMessageTemplates();
         $this->_initValidator();
@@ -73,7 +73,7 @@ class Mage_Adminhtml_Model_LayoutUpdate_Validator extends Zend_Validate_Abstract
      *
      * @return array
      */
-    public function getMessages()
+    function getMessages()
     {
         return $this->_validator->getMessages();
     }
@@ -90,7 +90,7 @@ class Mage_Adminhtml_Model_LayoutUpdate_Validator extends Zend_Validate_Abstract
      * @param Varien_Simplexml_Element|string $value
      * @return bool
      */
-    public function isValid($value)
+    function isValid($value)
     {
         return $this->_validator->isValid($value);
     }

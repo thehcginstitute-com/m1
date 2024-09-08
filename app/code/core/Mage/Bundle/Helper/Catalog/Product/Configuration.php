@@ -32,7 +32,7 @@ class Mage_Bundle_Helper_Catalog_Product_Configuration extends Mage_Core_Helper_
      *
      * @return float
      */
-    public function getSelectionQty($product, $selectionId)
+    function getSelectionQty($product, $selectionId)
     {
         $selectionQty = $product->getCustomOption('selection_qty_' . $selectionId);
         if ($selectionQty) {
@@ -48,7 +48,7 @@ class Mage_Bundle_Helper_Catalog_Product_Configuration extends Mage_Core_Helper_
      * @param Mage_Catalog_Model_Product $selectionProduct
      * @return float
      */
-    public function getSelectionFinalPrice(
+    function getSelectionFinalPrice(
         Mage_Catalog_Model_Product_Configuration_Item_Interface $item,
         $selectionProduct
     ) {
@@ -72,7 +72,7 @@ class Mage_Bundle_Helper_Catalog_Product_Configuration extends Mage_Core_Helper_
      * @param Mage_Catalog_Model_Product_Configuration_Item_Interface $item
      * @return array
      */
-    public function getBundleOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
+    function getBundleOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
     {
         $options = [];
         $product = $item->getProduct();
@@ -135,7 +135,7 @@ class Mage_Bundle_Helper_Catalog_Product_Configuration extends Mage_Core_Helper_
      * @param Mage_Catalog_Model_Product_Configuration_Item_Interface $item
      * @return array
      */
-    public function getOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
+    function getOptions(Mage_Catalog_Model_Product_Configuration_Item_Interface $item)
     {
         return array_merge(
             $this->getBundleOptions($item),

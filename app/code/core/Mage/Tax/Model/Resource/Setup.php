@@ -26,7 +26,7 @@ class Mage_Tax_Model_Resource_Setup extends Mage_Sales_Model_Resource_Setup
      * Convert old Tax data
      * @deprecated since 1.5.0.0
      */
-    public function convertOldTaxData()
+    function convertOldTaxData()
     {
         $oldRules = $this->_loadTableData('tax_rule');
 

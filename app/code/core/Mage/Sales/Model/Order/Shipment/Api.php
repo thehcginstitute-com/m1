@@ -22,7 +22,7 @@
  */
 class Mage_Sales_Model_Order_Shipment_Api extends Mage_Sales_Model_Api_Resource
 {
-    public function __construct()
+    function __construct()
     {
         $this->_attributesMap['shipment'] = ['shipment_id' => 'entity_id'];
         $this->_attributesMap['shipment_item'] = ['item_id' => 'entity_id'];
@@ -36,7 +36,7 @@ class Mage_Sales_Model_Order_Shipment_Api extends Mage_Sales_Model_Api_Resource
      * @param null|object|array $filters
      * @return array
      */
-    public function items($filters = null)
+    function items($filters = null)
     {
         $shipments = [];
         //TODO: add full name logic
@@ -72,7 +72,7 @@ class Mage_Sales_Model_Order_Shipment_Api extends Mage_Sales_Model_Api_Resource
      * @return array
      * @throws Mage_Api_Exception
      */
-    public function info($shipmentIncrementId)
+    function info($shipmentIncrementId)
     {
         $shipment = Mage::getModel('sales/order_shipment')->loadByIncrementId($shipmentIncrementId);
 
@@ -110,7 +110,7 @@ class Mage_Sales_Model_Order_Shipment_Api extends Mage_Sales_Model_Api_Resource
      * @param bool $includeComment
      * @return string
      */
-    public function create(
+    function create(
         $orderIncrementId,
         $itemsQty = [],
         $comment = null,
@@ -165,7 +165,7 @@ class Mage_Sales_Model_Order_Shipment_Api extends Mage_Sales_Model_Api_Resource
      * @param null|float $weight
      * @return int
      */
-    public function addTrack($shipmentIncrementId, $carrier, $title, $trackNumber, $weight = null)
+    function addTrack($shipmentIncrementId, $carrier, $title, $trackNumber, $weight = null)
     {
         $shipment = Mage::getModel('sales/order_shipment')->loadByIncrementId($shipmentIncrementId);
 
@@ -207,7 +207,7 @@ class Mage_Sales_Model_Order_Shipment_Api extends Mage_Sales_Model_Api_Resource
      * @param int $trackId
      * @return bool
      */
-    public function removeTrack($shipmentIncrementId, $trackId)
+    function removeTrack($shipmentIncrementId, $trackId)
     {
         $shipment = Mage::getModel('sales/order_shipment')->loadByIncrementId($shipmentIncrementId);
 
@@ -235,7 +235,7 @@ class Mage_Sales_Model_Order_Shipment_Api extends Mage_Sales_Model_Api_Resource
      * @param string $comment
      * @return bool
      */
-    public function sendInfo($shipmentIncrementId, $comment = '')
+    function sendInfo($shipmentIncrementId, $comment = '')
     {
         $shipment = Mage::getModel('sales/order_shipment')->loadByIncrementId($shipmentIncrementId);
 
@@ -267,7 +267,7 @@ class Mage_Sales_Model_Order_Shipment_Api extends Mage_Sales_Model_Api_Resource
      * @param int $trackId
      * @return mixed
      */
-    public function infoTrack($shipmentIncrementId, $trackId)
+    function infoTrack($shipmentIncrementId, $trackId)
     {
         $shipment = Mage::getModel('sales/order_shipment')->loadByIncrementId($shipmentIncrementId);
 
@@ -297,7 +297,7 @@ class Mage_Sales_Model_Order_Shipment_Api extends Mage_Sales_Model_Api_Resource
      * @param bool $includeInEmail
      * @return bool
      */
-    public function addComment($shipmentIncrementId, $comment, $email = false, $includeInEmail = false)
+    function addComment($shipmentIncrementId, $comment, $email = false, $includeInEmail = false)
     {
         $shipment = Mage::getModel('sales/order_shipment')->loadByIncrementId($shipmentIncrementId);
 
@@ -322,7 +322,7 @@ class Mage_Sales_Model_Order_Shipment_Api extends Mage_Sales_Model_Api_Resource
      * @param string $orderIncrementId
      * @return array
      */
-    public function getCarriers($orderIncrementId)
+    function getCarriers($orderIncrementId)
     {
         $order = Mage::getModel('sales/order')->loadByIncrementId($orderIncrementId);
 

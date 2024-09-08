@@ -32,7 +32,7 @@ class Mage_Catalog_Model_Product_Type_Price
      * @param Mage_Catalog_Model_Product $product
      * @return string|float|int
      */
-    public function getPrice($product)
+    function getPrice($product)
     {
         return $product->getData('price');
     }
@@ -44,7 +44,7 @@ class Mage_Catalog_Model_Product_Type_Price
      * @param float|null $qty
      * @return float
      */
-    public function getBasePrice($product, $qty = null)
+    function getBasePrice($product, $qty = null)
     {
         $price = (float)$product->getPrice();
         return min(
@@ -61,7 +61,7 @@ class Mage_Catalog_Model_Product_Type_Price
      * @param Mage_Catalog_Model_Product $product
      * @return float
      */
-    public function getFinalPrice($qty, $product)
+    function getFinalPrice($qty, $product)
     {
         if (is_null($qty) && !is_null($product->getCalculatedFinalPrice())) {
             return $product->getCalculatedFinalPrice();
@@ -87,7 +87,7 @@ class Mage_Catalog_Model_Product_Type_Price
      * @param float $childProductQty
      * @return float
      */
-    public function getChildFinalPrice($product, $productQty, $childProduct, $childProductQty)
+    function getChildFinalPrice($product, $productQty, $childProduct, $childProductQty)
     {
         return $this->getFinalPrice($childProductQty, $childProduct);
     }
@@ -114,7 +114,7 @@ class Mage_Catalog_Model_Product_Type_Price
      * @param Mage_Catalog_Model_Product $product
      * @return float
      */
-    public function getGroupPrice($product)
+    function getGroupPrice($product)
     {
         $groupPrices = $product->getData('group_price');
 
@@ -171,7 +171,7 @@ class Mage_Catalog_Model_Product_Type_Price
      * @param Mage_Catalog_Model_Product $product
      * @return  float|array
      */
-    public function getTierPrice($qty, $product)
+    function getTierPrice($qty, $product)
     {
         $allGroups = Mage_Customer_Model_Group::CUST_GROUP_ALL;
         $prices = $product->getData('tier_price');
@@ -284,7 +284,7 @@ class Mage_Catalog_Model_Product_Type_Price
      * @param   Mage_Catalog_Model_Product $product
      * @return  int
      */
-    public function getTierPriceCount($product)
+    function getTierPriceCount($product)
     {
         $price = $product->getTierPrice();
         return count($price);
@@ -297,7 +297,7 @@ class Mage_Catalog_Model_Product_Type_Price
      * @param Mage_Catalog_Model_Product $product
      * @return  array|float|string
      */
-    public function getFormatedTierPrice($qty, $product)
+    function getFormatedTierPrice($qty, $product)
     {
         $price = $product->getTierPrice($qty);
         if (is_array($price)) {
@@ -321,7 +321,7 @@ class Mage_Catalog_Model_Product_Type_Price
      * @return string|float
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getFormatedPrice($product)
+    function getFormatedPrice($product)
     {
         return Mage::app()->getStore()->formatPrice($product->getFinalPrice());
     }
@@ -436,7 +436,7 @@ class Mage_Catalog_Model_Product_Type_Price
      *
      * @return bool
      */
-    public function isTierPriceFixed()
+    function isTierPriceFixed()
     {
         return $this->isGroupPriceFixed();
     }
@@ -446,7 +446,7 @@ class Mage_Catalog_Model_Product_Type_Price
      *
      * @return bool
      */
-    public function isGroupPriceFixed()
+    function isGroupPriceFixed()
     {
         return true;
     }

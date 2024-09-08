@@ -175,7 +175,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @todo multi stock
      * @return int
      */
-    public function getStockId()
+    function getStockId()
     {
         return 1;
     }
@@ -185,7 +185,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getProductId()
+    function getProductId()
     {
         return $this->_getData('product_id');
     }
@@ -196,7 +196,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @param   mixed $product
      * @return  $this
      */
-    public function loadByProduct($product)
+    function loadByProduct($product)
     {
         if ($product instanceof Mage_Catalog_Model_Product) {
             $product = $product->getId();
@@ -212,7 +212,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @param   float $qty
      * @return  $this
      */
-    public function subtractQty($qty)
+    function subtractQty($qty)
     {
         if ($this->canSubtractQty()) {
             $this->setQty($this->getQty() - $qty);
@@ -225,7 +225,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function canSubtractQty()
+    function canSubtractQty()
     {
         return $this->getManageStock() && Mage::getStoreConfigFlag(self::XML_PATH_CAN_SUBTRACT);
     }
@@ -236,7 +236,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @param float $qty
      * @return $this
      */
-    public function addQty($qty)
+    function addQty($qty)
     {
         if (!$this->getManageStock()) {
             return $this;
@@ -255,7 +255,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         $storeId = $this->getData('store_id');
         if (is_null($storeId)) {
@@ -271,7 +271,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @param   Mage_Catalog_Model_Product $product
      * @return  $this
      */
-    public function assignProduct(Mage_Catalog_Model_Product $product)
+    function assignProduct(Mage_Catalog_Model_Product $product)
     {
         if (!$this->getId() || !$this->getProductId()) {
             $this->_getResource()->loadByProductId($this, $product->getId());
@@ -292,7 +292,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return float
      */
-    public function getMinQty()
+    function getMinQty()
     {
         return (float)($this->getUseConfigMinQty() ? Mage::getStoreConfig(self::XML_PATH_MIN_QTY)
             : $this->getData('min_qty'));
@@ -303,7 +303,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getCustomerGroupId()
+    function getCustomerGroupId()
     {
         return $this->_customerGroupId;
     }
@@ -314,7 +314,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @param int $value Value of customer group id
      * @return $this
      */
-    public function setCustomerGroupId($value)
+    function setCustomerGroupId($value)
     {
         $this->_customerGroupId = $value;
         return $this;
@@ -325,7 +325,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return float|null
      */
-    public function getMinSaleQty()
+    function getMinSaleQty()
     {
         $customerGroupId = $this->getCustomerGroupId();
         if (!$customerGroupId) {
@@ -350,7 +350,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return float
      */
-    public function getMaxSaleQty()
+    function getMaxSaleQty()
     {
         return (float)($this->getUseConfigMaxSaleQty() ? Mage::getStoreConfig(self::XML_PATH_MAX_SALE_QTY)
             : $this->getData('max_sale_qty'));
@@ -361,7 +361,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return float
      */
-    public function getNotifyStockQty()
+    function getNotifyStockQty()
     {
         if ($this->getUseConfigNotifyStockQty()) {
             return (float) Mage::getStoreConfig(self::XML_PATH_NOTIFY_STOCK_QTY);
@@ -374,7 +374,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function getEnableQtyIncrements()
+    function getEnableQtyIncrements()
     {
         return $this->getUseConfigEnableQtyIncrements()
             ? Mage::getStoreConfigFlag(self::XML_PATH_ENABLE_QTY_INCREMENTS)
@@ -386,7 +386,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return float|false
      */
-    public function getQtyIncrements()
+    function getQtyIncrements()
     {
         if ($this->_qtyIncrements === null) {
             if ($this->getEnableQtyIncrements()) {
@@ -409,7 +409,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
     * @deprecated since 1.7.0.0
     * @return int|false
     */
-    public function getDefaultQtyIncrements()
+    function getDefaultQtyIncrements()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_ENABLE_QTY_INCREMENTS)
             ? (int)Mage::getStoreConfig(self::XML_PATH_QTY_INCREMENTS)
@@ -421,7 +421,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getBackorders()
+    function getBackorders()
     {
         if ($this->getUseConfigBackorders()) {
             return (int) Mage::getStoreConfig(self::XML_PATH_BACKORDERS);
@@ -434,7 +434,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getManageStock()
+    function getManageStock()
     {
         if ($this->getUseConfigManageStock()) {
             return (int) Mage::getStoreConfigFlag(self::XML_PATH_MANAGE_STOCK);
@@ -447,7 +447,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function getCanBackInStock()
+    function getCanBackInStock()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_CAN_BACK_IN_STOCK);
     }
@@ -459,7 +459,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @throws  Mage_Core_Exception
      * @return  bool
      */
-    public function checkQty($qty)
+    function checkQty($qty)
     {
         if (!$this->getManageStock() || Mage::app()->getStore()->isAdmin()) {
             return true;
@@ -484,7 +484,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @param int|float $qty
      * @return int|float
      */
-    public function suggestQty($qty)
+    function suggestQty($qty)
     {
         // We do not manage stock
         if ($qty <= 0 || !$this->getManageStock()) {
@@ -526,7 +526,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @param mixed $origQty original qty of item (not multiplied on parent item qty)
      * @return Varien_Object
      */
-    public function checkQuoteItemQty($qty, $summaryQty, $origQty = 0)
+    function checkQuoteItemQty($qty, $summaryQty, $origQty = 0)
     {
         $result = new Varien_Object();
         $result->setHasError(false);
@@ -678,7 +678,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @param int|float $qty
      * @return Varien_Object
      */
-    public function checkQtyIncrements($qty)
+    function checkQtyIncrements($qty)
     {
         $result = new Varien_Object();
         if ($this->getSuppressCheckQtyIncrements()) {
@@ -713,7 +713,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Resource_Product_Collection $productCollection
      * @return $this
      */
-    public function addCatalogInventoryToProductCollection($productCollection)
+    function addCatalogInventoryToProductCollection($productCollection)
     {
         $this->_getResource()->addCatalogInventoryToProductCollection($productCollection);
         return $this;
@@ -790,7 +790,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @param float|null $qty
      * @return bool true - item in stock | false - item out of stock
      */
-    public function verifyStock($qty = null)
+    function verifyStock($qty = null)
     {
         if ($qty === null) {
             $qty = $this->getQty();
@@ -807,7 +807,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @param float | null $qty
      * @return bool (true - if require, false - if not require)
      */
-    public function verifyNotification($qty = null)
+    function verifyNotification($qty = null)
     {
         if ($qty === null) {
             $qty = $this->getQty();
@@ -820,7 +820,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return bool|int
      */
-    public function getIsInStock()
+    function getIsInStock()
     {
         if (!$this->getManageStock()) {
             return true;
@@ -834,7 +834,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function setProduct($product)
+    function setProduct($product)
     {
         $this->setProductId($product->getId())
             ->setProductName($product->getName())
@@ -854,7 +854,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return Mage_Catalog_Model_Product|null
      */
-    public function getProduct()
+    function getProduct()
     {
         return $this->_productInstance ? $this->_productInstance : $this->_getData('product');
     }
@@ -864,7 +864,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return float
      */
-    public function getStockQty()
+    function getStockQty()
     {
         if (!$this->hasStockQty()) {
             $this->setStockQty(0);  // prevent possible recursive loop
@@ -902,7 +902,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * Reset model data
      * @return $this
      */
-    public function reset()
+    function reset()
     {
         if ($this->_productInstance) {
             $this->_productInstance = null;
@@ -916,7 +916,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @param bool $process
      * @return $this
      */
-    public function setProcessIndexEvents($process = true)
+    function setProcessIndexEvents($process = true)
     {
         $this->_processIndexEvents = $process;
         return $this;
@@ -927,7 +927,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function afterCommitCallback()
+    function afterCommitCallback()
     {
         parent::afterCommitCallback();
 

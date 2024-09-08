@@ -27,7 +27,7 @@ class Mage_Adminhtml_Model_System_Config_Source_Shipping_Allmethods
      * @param bool $isActiveOnlyFlag
      * @return array
      */
-    public function toOptionArray($isActiveOnlyFlag = false)
+    function toOptionArray($isActiveOnlyFlag = false)
     {
         $methods = [['value' => '', 'label' => '']];
         $carriers = Mage::getSingleton('shipping/config')->getAllCarriers();

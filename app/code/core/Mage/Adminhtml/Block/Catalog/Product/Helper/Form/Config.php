@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Config extends Varien_Dat
      *
      * @return string
      */
-    public function getElementHtml()
+    function getElementHtml()
     {
         $value = $this->getValue();
         if ($value == '') {

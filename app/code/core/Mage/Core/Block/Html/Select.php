@@ -37,7 +37,7 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
      *
      * @return array
      */
-    public function getOptions()
+    function getOptions()
     {
         return $this->_options;
     }
@@ -48,7 +48,7 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
      * @param array $options
      * @return $this
      */
-    public function setOptions($options)
+    function setOptions($options)
     {
         $this->_options = $options;
         return $this;
@@ -62,7 +62,7 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
      * @param array  $params HTML attributes
      * @return $this
      */
-    public function addOption($value, $label, $params = [])
+    function addOption($value, $label, $params = [])
     {
         $this->_options[] = ['value' => $value, 'label' => $label, 'params' => $params];
         return $this;
@@ -74,7 +74,7 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
      * @param string $id ID
      * @return $this
      */
-    public function setId($id)
+    function setId($id)
     {
         $this->setData('id', $id);
         return $this;
@@ -86,7 +86,7 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
      * @param string $class Class
      * @return $this
      */
-    public function setClass($class)
+    function setClass($class)
     {
         $this->setData('class', $class);
         return $this;
@@ -98,7 +98,7 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
      * @param string $title Title
      * @return $this
      */
-    public function setTitle($title)
+    function setTitle($title)
     {
         $this->setData('title', $title);
         return $this;
@@ -109,7 +109,7 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
      *
      * @return string
      */
-    public function getId()
+    function getId()
     {
         return $this->getData('id');
     }
@@ -119,7 +119,7 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
      *
      * @return string
      */
-    public function getClass()
+    function getClass()
     {
         return $this->getData('class');
     }
@@ -129,7 +129,7 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
      *
      * @return string
      */
-    public function getTitle()
+    function getTitle()
     {
         return $this->getData('title');
     }
@@ -241,7 +241,7 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
      *
      * @return string
      */
-    public function getHtml()
+    function getHtml()
     {
         return $this->toHtml();
     }
@@ -252,7 +252,7 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
      * @param string $optionValue Value of the option
      * @return string
      */
-    public function calcOptionHash($optionValue)
+    function calcOptionHash($optionValue)
     {
         return sprintf('%u', crc32($this->getName() . $this->getId() . $optionValue));
     }

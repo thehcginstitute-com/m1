@@ -34,7 +34,7 @@ class Mage_Adminhtml_Catalog_Product_Action_AttributeController extends Mage_Adm
         $this->setUsedModuleName('Mage_Catalog');
     }
 
-    public function editAction()
+    function editAction()
     {
         if (!$this->_validateProducts()) {
             return;
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Catalog_Product_Action_AttributeController extends Mage_Adm
     /**
      * Update product attributes
      */
-    public function saveAction()
+    function saveAction()
     {
         if (!$this->_validateProducts()) {
             return;
@@ -225,7 +225,7 @@ class Mage_Adminhtml_Catalog_Product_Action_AttributeController extends Mage_Adm
      * Attributes validation action
      *
      */
-    public function validateAction()
+    function validateAction()
     {
         $response = new Varien_Object();
         $response->setError(false);

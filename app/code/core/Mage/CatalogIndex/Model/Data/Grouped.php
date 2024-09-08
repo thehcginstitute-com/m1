@@ -42,7 +42,7 @@ class Mage_CatalogIndex_Model_Data_Grouped extends Mage_CatalogIndex_Model_Data_
      * @param Mage_Customer_Model_Group $group
      * @return false
      */
-    public function getFinalPrice($product, $store, $group)
+    function getFinalPrice($product, $store, $group)
     {
         return false;
     }
@@ -52,7 +52,7 @@ class Mage_CatalogIndex_Model_Data_Grouped extends Mage_CatalogIndex_Model_Data_
      *
      * @return string
      */
-    public function getTypeCode()
+    function getTypeCode()
     {
         return Mage_Catalog_Model_Product_Type::TYPE_GROUPED;
     }

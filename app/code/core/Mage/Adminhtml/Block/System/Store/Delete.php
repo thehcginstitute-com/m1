@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_System_Store_Delete extends Mage_Adminhtml_Block_Widg
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         $this->_objectId = 'item_id';
         $this->_mode = 'delete';
@@ -51,7 +51,7 @@ class Mage_Adminhtml_Block_System_Store_Delete extends Mage_Adminhtml_Block_Widg
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('adminhtml')->__(
             "Delete %s '%s'",
@@ -66,7 +66,7 @@ class Mage_Adminhtml_Block_System_Store_Delete extends Mage_Adminhtml_Block_Widg
      * @param string $title
      * @return $this
      */
-    public function setStoreTypeTitle($title)
+    function setStoreTypeTitle($title)
     {
         $this->_updateButton('delete', 'label', Mage::helper('adminhtml')->__('Delete %s', $title));
         return $this->setData('store_type_title', $title);
@@ -78,7 +78,7 @@ class Mage_Adminhtml_Block_System_Store_Delete extends Mage_Adminhtml_Block_Widg
      * @param string $url
      * @return $this
      */
-    public function setBackUrl($url)
+    function setBackUrl($url)
     {
         $this->setData('back_url', $url);
         $this->_updateButton('cancel', 'onclick', Mage::helper('core/js')->getSetLocationJs($url));

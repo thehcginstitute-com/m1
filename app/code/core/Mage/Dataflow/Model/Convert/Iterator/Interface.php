@@ -22,5 +22,5 @@
  */
 interface Mage_Dataflow_Model_Convert_Iterator_Interface
 {
-    public function walk();
+    function walk();
 }

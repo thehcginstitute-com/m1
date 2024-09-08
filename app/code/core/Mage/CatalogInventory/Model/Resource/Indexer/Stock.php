@@ -48,7 +48,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock extends Mage_Catalog_Mo
      * @param Mage_Index_Model_Event $event
      * @return $this
      */
-    public function cataloginventoryStockItemSave(Mage_Index_Model_Event $event)
+    function cataloginventoryStockItemSave(Mage_Index_Model_Event $event)
     {
         $data = $event->getNewData();
         if (empty($data['product_id'])) {
@@ -67,7 +67,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock extends Mage_Catalog_Mo
      * @param array $productIds
      * @return $this
      */
-    public function reindexProducts($productIds)
+    function reindexProducts($productIds)
     {
         $adapter = $this->_getWriteAdapter();
         if (!is_array($productIds)) {
@@ -114,7 +114,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock extends Mage_Catalog_Mo
      * @param Mage_Index_Model_Event $event
      * @return $this
      */
-    public function catalogProductDelete(Mage_Index_Model_Event $event)
+    function catalogProductDelete(Mage_Index_Model_Event $event)
     {
         $data = $event->getNewData();
         if (empty($data['reindex_stock_parent_ids'])) {
@@ -148,7 +148,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock extends Mage_Catalog_Mo
      * @param Mage_Index_Model_Event $event
      * @return $this
      */
-    public function catalogProductMassAction(Mage_Index_Model_Event $event)
+    function catalogProductMassAction(Mage_Index_Model_Event $event)
     {
         $data = $event->getNewData();
         if (empty($data['reindex_stock_product_ids'])) {
@@ -219,7 +219,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock extends Mage_Catalog_Mo
      *
      * @return $this
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->useIdxTable(true);
         $this->beginTransaction();
@@ -284,7 +284,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock extends Mage_Catalog_Mo
      * @param int $childId
      * @return array
      */
-    public function getProductParentsByChild($childId)
+    function getProductParentsByChild($childId)
     {
         $write = $this->_getWriteAdapter();
         $select = $write->select()
@@ -304,7 +304,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock extends Mage_Catalog_Mo
      * @param string $table
      * @return string
      */
-    public function getIdxTable($table = null)
+    function getIdxTable($table = null)
     {
         if ($this->useIdxTable()) {
             return $this->getTable('cataloginventory/stock_status_indexer_idx');

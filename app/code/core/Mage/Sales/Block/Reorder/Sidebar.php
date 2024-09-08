@@ -29,7 +29,7 @@ class Mage_Sales_Block_Reorder_Sidebar extends Mage_Core_Block_Template
     /**
      * Init orders and templates
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -42,7 +42,7 @@ class Mage_Sales_Block_Reorder_Sidebar extends Mage_Core_Block_Template
     /**
      * Init customer order for display on front
      */
-    public function initOrders()
+    function initOrders()
     {
         $customerId = $this->getCustomerId() ? $this->getCustomerId()
             : $this->_getCustomerSession()->getCustomer()->getId();
@@ -65,7 +65,7 @@ class Mage_Sales_Block_Reorder_Sidebar extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getItems()
+    function getItems()
     {
         $items = [];
         $order = $this->getLastOrder();
@@ -89,7 +89,7 @@ class Mage_Sales_Block_Reorder_Sidebar extends Mage_Core_Block_Template
      * @param  Mage_Sales_Model_Order_Item $orderItem
      * @return bool
      */
-    public function isItemAvailableForReorder(Mage_Sales_Model_Order_Item $orderItem)
+    function isItemAvailableForReorder(Mage_Sales_Model_Order_Item $orderItem)
     {
         if ($orderItem->getProduct()) {
             return $orderItem->getProduct()->getStockItem()->getIsInStock();
@@ -103,7 +103,7 @@ class Mage_Sales_Block_Reorder_Sidebar extends Mage_Core_Block_Template
      *
      * @return string
      */
-    public function getFormActionUrl()
+    function getFormActionUrl()
     {
         return $this->getUrl('checkout/cart/addgroup', ['_secure' => true]);
     }
@@ -113,7 +113,7 @@ class Mage_Sales_Block_Reorder_Sidebar extends Mage_Core_Block_Template
      *
      * @return Mage_Sales_Model_Order|bool
      */
-    public function getLastOrder()
+    function getLastOrder()
     {
         if (!$this->getOrders()) {
             return false;
@@ -150,7 +150,7 @@ class Mage_Sales_Block_Reorder_Sidebar extends Mage_Core_Block_Template
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         return array_merge(
             parent::getCacheTags(),

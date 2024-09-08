@@ -60,7 +60,7 @@ class Mage_Customer_Model_Flowpassword extends Mage_Core_Model_Abstract
      * @param string $email
      * @return bool
      */
-    public function checkCustomerForgotPasswordFlowEmail($email)
+    function checkCustomerForgotPasswordFlowEmail($email)
     {
         $helper = Mage::helper('customer');
         $checkForgotPasswordFlowTypes = [
@@ -88,7 +88,7 @@ class Mage_Customer_Model_Flowpassword extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function checkCustomerForgotPasswordFlowIp()
+    function checkCustomerForgotPasswordFlowIp()
     {
         $helper        = Mage::helper('customer');
         $validatorData = Mage::getSingleton('customer/session')->getValidatorData();

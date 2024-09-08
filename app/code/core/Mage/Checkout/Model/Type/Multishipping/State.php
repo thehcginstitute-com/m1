@@ -46,7 +46,7 @@ class Mage_Checkout_Model_Type_Multishipping_State extends Varien_Object
      * Init model, steps
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->_steps = [
@@ -80,7 +80,7 @@ class Mage_Checkout_Model_Type_Multishipping_State extends Varien_Object
      *
      * @return Mage_Checkout_Model_Type_Multishipping
      */
-    public function getCheckout()
+    function getCheckout()
     {
         return $this->_checkout;
     }
@@ -90,7 +90,7 @@ class Mage_Checkout_Model_Type_Multishipping_State extends Varien_Object
      *
      * @return array
      */
-    public function getSteps()
+    function getSteps()
     {
         return $this->_steps;
     }
@@ -100,7 +100,7 @@ class Mage_Checkout_Model_Type_Multishipping_State extends Varien_Object
      *
      * @return string
      */
-    public function getActiveStep()
+    function getActiveStep()
     {
         $step = $this->getCheckoutSession()->getCheckoutState();
         if (isset($this->_steps[$step])) {
@@ -113,7 +113,7 @@ class Mage_Checkout_Model_Type_Multishipping_State extends Varien_Object
      * @param string $step
      * @return $this
      */
-    public function setActiveStep($step)
+    function setActiveStep($step)
     {
         if (isset($this->_steps[$step])) {
             $this->getCheckoutSession()->setCheckoutState($step);
@@ -137,7 +137,7 @@ class Mage_Checkout_Model_Type_Multishipping_State extends Varien_Object
      * @param string $step
      * @return $this
      */
-    public function setCompleteStep($step)
+    function setCompleteStep($step)
     {
         if (isset($this->_steps[$step])) {
             $this->getCheckoutSession()->setStepData($step, 'is_complete', true);
@@ -151,7 +151,7 @@ class Mage_Checkout_Model_Type_Multishipping_State extends Varien_Object
      * @param string $step
      * @return bool
      */
-    public function getCompleteStep($step)
+    function getCompleteStep($step)
     {
         if (isset($this->_steps[$step])) {
             return $this->getCheckoutSession()->getStepData($step, 'is_complete');
@@ -165,7 +165,7 @@ class Mage_Checkout_Model_Type_Multishipping_State extends Varien_Object
      * @param string $step
      * @return $this
      */
-    public function unsCompleteStep($step)
+    function unsCompleteStep($step)
     {
         if (isset($this->_steps[$step])) {
             $this->getCheckoutSession()->setStepData($step, 'is_complete', false);
@@ -173,19 +173,19 @@ class Mage_Checkout_Model_Type_Multishipping_State extends Varien_Object
         return $this;
     }
 
-    public function canSelectAddresses()
+    function canSelectAddresses()
     {
     }
 
-    public function canInputShipping()
+    function canInputShipping()
     {
     }
 
-    public function canSeeOverview()
+    function canSeeOverview()
     {
     }
 
-    public function canSuccess()
+    function canSuccess()
     {
     }
 
@@ -194,7 +194,7 @@ class Mage_Checkout_Model_Type_Multishipping_State extends Varien_Object
      *
      * @return Mage_Checkout_Model_Session
      */
-    public function getCheckoutSession()
+    function getCheckoutSession()
     {
         return Mage::getSingleton('checkout/session');
     }

@@ -43,7 +43,7 @@ class Mage_Log_Model_Aggregation extends Mage_Core_Model_Abstract
     /**
      * Run action
      */
-    public function run()
+    function run()
     {
         $this->_lastRecord = $this->_timestamp($this->_round($this->getLastRecordDate()));
         foreach (Mage::app()->getStores(false) as $store) {
@@ -142,7 +142,7 @@ class Mage_Log_Model_Aggregation extends Mage_Core_Model_Abstract
     /**
      * @return false|string
      */
-    public function getLastRecordDate()
+    function getLastRecordDate()
     {
         $result = $this->_getResource()->getLastRecordDate();
         if (!$result) {

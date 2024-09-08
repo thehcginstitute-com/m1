@@ -37,7 +37,7 @@ class Mage_Cms_Model_Resource_Block_Collection extends Mage_Core_Model_Resource_
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->_toOptionArray('block_id', 'title');
     }
@@ -49,7 +49,7 @@ class Mage_Cms_Model_Resource_Block_Collection extends Mage_Core_Model_Resource_
      * @param bool $withAdmin
      * @return $this
      */
-    public function addStoreFilter($store, $withAdmin = true)
+    function addStoreFilter($store, $withAdmin = true)
     {
         if ($store instanceof Mage_Core_Model_Store) {
             $store = [$store->getId()];
@@ -74,7 +74,7 @@ class Mage_Cms_Model_Resource_Block_Collection extends Mage_Core_Model_Resource_
      *
      * @return Varien_Db_Select
      */
-    public function getSelectCountSql()
+    function getSelectCountSql()
     {
         $countSelect = parent::getSelectCountSql();
 

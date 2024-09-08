@@ -8,7 +8,7 @@ class IWD_OrderFlags_Controller_Abstract extends Mage_Adminhtml_Controller_Actio
     /**
      * @return void
      */
-    public function getFormAction()
+    function getFormAction()
     {
         try {
             $result = $this->getForm();

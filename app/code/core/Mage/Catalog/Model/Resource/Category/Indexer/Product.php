@@ -82,7 +82,7 @@ class Mage_Catalog_Model_Resource_Category_Indexer_Product extends Mage_Index_Mo
      * @param Mage_Index_Model_Event $event
      * @return $this
      */
-    public function catalogProductSave(Mage_Index_Model_Event $event)
+    function catalogProductSave(Mage_Index_Model_Event $event)
     {
         $productId = $event->getEntityPk();
         $data      = $event->getNewData();
@@ -136,7 +136,7 @@ class Mage_Catalog_Model_Resource_Category_Indexer_Product extends Mage_Index_Mo
      * @param Mage_Index_Model_Event $event
      * @return $this
      */
-    public function catalogProductMassAction(Mage_Index_Model_Event $event)
+    function catalogProductMassAction(Mage_Index_Model_Event $event)
     {
         $data = $event->getNewData();
 
@@ -209,7 +209,7 @@ class Mage_Catalog_Model_Resource_Category_Indexer_Product extends Mage_Index_Mo
      *
      * @param Mage_Index_Model_Event $event
      */
-    public function catalogCategorySave(Mage_Index_Model_Event $event)
+    function catalogCategorySave(Mage_Index_Model_Event $event)
     {
         $data = $event->getNewData();
 
@@ -797,7 +797,7 @@ class Mage_Catalog_Model_Resource_Category_Indexer_Product extends Mage_Index_Mo
      *
      * @return $this
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->useIdxTable(true);
         $this->beginTransaction();
@@ -1173,7 +1173,7 @@ class Mage_Catalog_Model_Resource_Category_Indexer_Product extends Mage_Index_Mo
      * @param string $table
      * @return string
      */
-    public function getIdxTable($table = null)
+    function getIdxTable($table = null)
     {
         if ($this->useIdxTable()) {
             return $this->getTable('catalog/category_product_indexer_idx');

@@ -30,7 +30,7 @@ class Mage_Review_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $origDetail
      * @return string
      */
-    public function getDetail($origDetail)
+    function getDetail($origDetail)
     {
         return nl2br(Mage::helper('core/string')->truncate($origDetail, 50));
     }
@@ -40,7 +40,7 @@ class Mage_Review_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $origDetail Full detail info
      * @return string
      */
-    public function getDetailHtml($origDetail)
+    function getDetailHtml($origDetail)
     {
         return nl2br(Mage::helper('core/string')->truncate($this->escapeHtml($origDetail), 50));
     }
@@ -48,7 +48,7 @@ class Mage_Review_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * @return bool
      */
-    public function getIsGuestAllowToWrite()
+    function getIsGuestAllowToWrite()
     {
         return Mage::getStoreConfigFlag(self::XML_REVIEW_GUETS_ALLOW);
     }
@@ -58,7 +58,7 @@ class Mage_Review_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getReviewStatuses()
+    function getReviewStatuses()
     {
         return [
             Mage_Review_Model_Review::STATUS_APPROVED     => $this->__('Approved'),
@@ -72,7 +72,7 @@ class Mage_Review_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getReviewStatusesOptionArray()
+    function getReviewStatusesOptionArray()
     {
         $result = [];
         foreach ($this->getReviewStatuses() as $k => $v) {

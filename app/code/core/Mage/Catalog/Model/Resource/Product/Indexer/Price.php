@@ -52,7 +52,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price extends Mage_Index_Model
      * @param int $childId
      * @return array
      */
-    public function getProductParentsByChild($childId)
+    function getProductParentsByChild($childId)
     {
         $write = $this->_getWriteAdapter();
         $select = $write->select()
@@ -74,7 +74,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price extends Mage_Index_Model
      * @param Mage_Index_Model_Event $event
      * @return $this
      */
-    public function catalogProductDelete(Mage_Index_Model_Event $event)
+    function catalogProductDelete(Mage_Index_Model_Event $event)
     {
         $data = $event->getNewData();
         if (empty($data['reindex_price_parent_ids'])) {
@@ -139,7 +139,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price extends Mage_Index_Model
      * @param Mage_Index_Model_Event $event
      * @return $this
      */
-    public function catalogProductSave(Mage_Index_Model_Event $event)
+    function catalogProductSave(Mage_Index_Model_Event $event)
     {
         $productId = $event->getEntityPk();
         $data = $event->getNewData();
@@ -197,7 +197,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price extends Mage_Index_Model
      * @param Mage_Index_Model_Event $event
      * @return $this
      */
-    public function catalogProductMassAction(Mage_Index_Model_Event $event)
+    function catalogProductMassAction(Mage_Index_Model_Event $event)
     {
         $data = $event->getNewData();
         if (empty($data['reindex_price_product_ids'])) {
@@ -240,7 +240,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price extends Mage_Index_Model
      * @param array | int $ids
      * @return $this
      */
-    public function reindexProductIds($ids)
+    function reindexProductIds($ids)
     {
         if (empty($ids)) {
             return $this;
@@ -330,7 +330,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price extends Mage_Index_Model
      *
      * @return array
      */
-    public function getTypeIndexers()
+    function getTypeIndexers()
     {
         if (is_null($this->_indexers)) {
             $this->_indexers = [];
@@ -354,7 +354,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price extends Mage_Index_Model
      *
      * @return $this
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->useIdxTable(true);
         $this->beginTransaction();
@@ -604,7 +604,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price extends Mage_Index_Model
      * @param string $table
      * @return string
      */
-    public function getIdxTable($table = null)
+    function getIdxTable($table = null)
     {
         if ($this->useIdxTable()) {
             return $this->getTable('catalog/product_price_indexer_idx');

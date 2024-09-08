@@ -34,7 +34,7 @@ class Mage_Sales_Model_Resource_Report_Order extends Mage_Sales_Model_Resource_R
      * @param mixed $to
      * @return $this
      */
-    public function aggregate($from = null, $to = null)
+    function aggregate($from = null, $to = null)
     {
         Mage::getResourceModel('sales/report_order_createdat')->aggregate($from, $to);
         Mage::getResourceModel('sales/report_order_updatedat')->aggregate($from, $to);

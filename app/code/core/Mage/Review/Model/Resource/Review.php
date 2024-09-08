@@ -233,7 +233,7 @@ class Mage_Review_Model_Resource_Review extends Mage_Core_Model_Resource_Db_Abst
      * @param Mage_Core_Model_Abstract $object
      * @return $this
      */
-    public function afterDeleteCommit(Mage_Core_Model_Abstract $object)
+    function afterDeleteCommit(Mage_Core_Model_Abstract $object)
     {
         $read_adapter = $this->_getReadAdapter();
         $select = $read_adapter->select()
@@ -274,7 +274,7 @@ class Mage_Review_Model_Resource_Review extends Mage_Core_Model_Resource_Db_Abst
      * @param int $storeId
      * @return int
      */
-    public function getTotalReviews($entityPkValue, $approvedOnly = false, $storeId = 0)
+    function getTotalReviews($entityPkValue, $approvedOnly = false, $storeId = 0)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()
@@ -306,7 +306,7 @@ class Mage_Review_Model_Resource_Review extends Mage_Core_Model_Resource_Db_Abst
      *
      * @param Mage_Core_Model_Abstract|Mage_Review_Model_Review $object
      */
-    public function aggregate($object)
+    function aggregate($object)
     {
         $readAdapter    = $this->_getReadAdapter();
         $writeAdapter   = $this->_getWriteAdapter();
@@ -415,7 +415,7 @@ class Mage_Review_Model_Resource_Review extends Mage_Core_Model_Resource_Db_Abst
      * @param int $reviewId
      * @param int $entityPkValue
      */
-    public function reAggregateReview($reviewId, $entityPkValue)
+    function reAggregateReview($reviewId, $entityPkValue)
     {
         $this->_aggregateRatings($this->_loadVotedRatingIds($reviewId), $entityPkValue);
     }
@@ -426,7 +426,7 @@ class Mage_Review_Model_Resource_Review extends Mage_Core_Model_Resource_Db_Abst
      * @param string $entityCode
      * @return int|bool
      */
-    public function getEntityIdByCode($entityCode)
+    function getEntityIdByCode($entityCode)
     {
         $adapter = $this->_getReadAdapter();
         $select = $adapter->select()
@@ -442,7 +442,7 @@ class Mage_Review_Model_Resource_Review extends Mage_Core_Model_Resource_Db_Abst
      * @param int $productId
      * @return $this
      */
-    public function deleteReviewsByProductId($productId)
+    function deleteReviewsByProductId($productId)
     {
         $this->_getWriteAdapter()->delete($this->_reviewTable, [
             'entity_pk_value=?' => $productId,

@@ -33,7 +33,7 @@ class Mage_Adminhtml_Sales_Order_EditController extends Mage_Adminhtml_Sales_Ord
     /**
      * Start edit order initialization
      */
-    public function startAction()
+    function startAction()
     {
         $this->_getSession()->clear();
         $orderId = $this->getRequest()->getParam('order_id');
@@ -64,7 +64,7 @@ class Mage_Adminhtml_Sales_Order_EditController extends Mage_Adminhtml_Sales_Ord
     /**
      * Index page
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_title($this->__('Sales'))->_title($this->__('Orders'))->_title($this->__('Edit Order'));
         $this->loadLayout();

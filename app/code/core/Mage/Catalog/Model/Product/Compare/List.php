@@ -28,7 +28,7 @@ class Mage_Catalog_Model_Product_Compare_List extends Varien_Object
      * @param int|Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function addProduct($product)
+    function addProduct($product)
     {
         /** @var Mage_Catalog_Model_Product_Compare_Item $item */
         $item = Mage::getModel('catalog/product_compare_item');
@@ -49,7 +49,7 @@ class Mage_Catalog_Model_Product_Compare_List extends Varien_Object
      * @param array $productIds
      * @return $this
      */
-    public function addProducts($productIds)
+    function addProducts($productIds)
     {
         if (is_array($productIds)) {
             foreach ($productIds as $productId) {
@@ -64,7 +64,7 @@ class Mage_Catalog_Model_Product_Compare_List extends Varien_Object
      *
      * @return Mage_Catalog_Model_Resource_Product_Compare_Item_Collection
      */
-    public function getItemCollection()
+    function getItemCollection()
     {
         return Mage::getResourceModel('catalog/product_compare_item_collection');
     }
@@ -75,7 +75,7 @@ class Mage_Catalog_Model_Product_Compare_List extends Varien_Object
      * @param int|Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function removeProduct($product)
+    function removeProduct($product)
     {
         /** @var Mage_Catalog_Model_Product_Compare_Item $item */
         $item = Mage::getModel('catalog/product_compare_item');
@@ -112,7 +112,7 @@ class Mage_Catalog_Model_Product_Compare_List extends Varien_Object
      * @param int $visitorId
      * @return bool
      */
-    public function hasItems($customerId, $visitorId)
+    function hasItems($customerId, $visitorId)
     {
         return Mage::getResourceSingleton('catalog/product_compare_item')
             ->getCount($customerId, $visitorId);

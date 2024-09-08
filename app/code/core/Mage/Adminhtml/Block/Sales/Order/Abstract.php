@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Sales_Order_Abstract extends Mage_Adminhtml_Block_Wid
      * @return Mage_Sales_Model_Order
      * @throws Mage_Core_Exception
      */
-    public function getOrder()
+    function getOrder()
     {
         if ($this->hasOrder()) {
             return $this->getData('order');
@@ -42,7 +42,7 @@ class Mage_Adminhtml_Block_Sales_Order_Abstract extends Mage_Adminhtml_Block_Wid
         Mage::throwException(Mage::helper('sales')->__('Cannot get order instance'));
     }
 
-    public function getPriceDataObject()
+    function getPriceDataObject()
     {
         $obj = $this->getData('price_data_object');
         if (is_null($obj)) {
@@ -57,7 +57,7 @@ class Mage_Adminhtml_Block_Sales_Order_Abstract extends Mage_Adminhtml_Block_Wid
      * @param string $separator
      * @return string
      */
-    public function displayPriceAttribute($code, $strong = false, $separator = '<br/>')
+    function displayPriceAttribute($code, $strong = false, $separator = '<br/>')
     {
         /** @var Mage_Adminhtml_Helper_Sales $helper */
         $helper = $this->helper('adminhtml/sales');
@@ -71,7 +71,7 @@ class Mage_Adminhtml_Block_Sales_Order_Abstract extends Mage_Adminhtml_Block_Wid
      * @param string $separator
      * @return string
      */
-    public function displayPrices($basePrice, $price, $strong = false, $separator = '<br/>')
+    function displayPrices($basePrice, $price, $strong = false, $separator = '<br/>')
     {
         /** @var Mage_Adminhtml_Helper_Sales $helper */
         $helper = $this->helper('adminhtml/sales');
@@ -83,7 +83,7 @@ class Mage_Adminhtml_Block_Sales_Order_Abstract extends Mage_Adminhtml_Block_Wid
      *
      * @return array
      */
-    public function getOrderTotalData()
+    function getOrderTotalData()
     {
         return [];
     }
@@ -93,7 +93,7 @@ class Mage_Adminhtml_Block_Sales_Order_Abstract extends Mage_Adminhtml_Block_Wid
      *
      * @return array
      */
-    public function getOrderInfoData()
+    function getOrderInfoData()
     {
         return [];
     }
@@ -104,7 +104,7 @@ class Mage_Adminhtml_Block_Sales_Order_Abstract extends Mage_Adminhtml_Block_Wid
      * @param Mage_Sales_Model_Order $order
      * @return string
      */
-    public function displayShippingPriceInclTax($order)
+    function displayShippingPriceInclTax($order)
     {
         $shipping = $order->getShippingInclTax();
         if ($shipping) {

@@ -26,7 +26,7 @@ class Mage_Sales_Model_Resource_Report_Refunded_Collection_Refunded extends Mage
      * Initialize custom resource model
      *
      */
-    public function __construct()
+    function __construct()
     {
         $this->setModel('adminhtml/report_item');
         $this->_resource = Mage::getResourceModel('sales/report')->init('sales/refunded_aggregated');

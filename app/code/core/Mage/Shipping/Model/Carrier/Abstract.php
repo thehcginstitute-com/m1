@@ -108,7 +108,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * @param   string $field
      * @return  string|false
      */
-    public function getConfigData($field)
+    function getConfigData($field)
     {
         if (empty($this->_code)) {
             return false;
@@ -123,7 +123,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * @param string $field
      * @return bool
      */
-    public function getConfigFlag($field)
+    function getConfigFlag($field)
     {
         if (empty($this->_code)) {
             return false;
@@ -139,7 +139,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * @param Mage_Shipping_Model_Rate_Request $request
      * @return Mage_Shipping_Model_Rate_Result|bool|null
      */
-    abstract public function collectRates(Mage_Shipping_Model_Rate_Request $request);
+    abstract function collectRates(Mage_Shipping_Model_Rate_Request $request);
 
     /**
      * Do request to shipment
@@ -148,7 +148,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * @param Mage_Shipping_Model_Shipment_Request $request
      * @return Varien_Object
      */
-    public function requestToShipment(Mage_Shipping_Model_Shipment_Request $request)
+    function requestToShipment(Mage_Shipping_Model_Shipment_Request $request)
     {
         return new Varien_Object();
     }
@@ -160,7 +160,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * @param mixed $request
      * @return Varien_Object
      */
-    public function returnOfShipment($request)
+    function returnOfShipment($request)
     {
         return new Varien_Object();
     }
@@ -171,7 +171,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * @param Varien_Object|null $params
      * @return array
      */
-    public function getContainerTypes(Varien_Object $params = null)
+    function getContainerTypes(Varien_Object $params = null)
     {
         return [];
     }
@@ -234,7 +234,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      *
      * @return array
      */
-    public function getCustomizableContainerTypes()
+    function getCustomizableContainerTypes()
     {
         return $this->_customizableContainerTypes;
     }
@@ -245,7 +245,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * @param Varien_Object|null $params
      * @return array
      */
-    public function getDeliveryConfirmationTypes(Varien_Object $params = null)
+    function getDeliveryConfirmationTypes(Varien_Object $params = null)
     {
         return [];
     }
@@ -254,7 +254,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * @param Mage_Shipping_Model_Rate_Request $request
      * @return $this|bool|false|Mage_Core_Model_Abstract
      */
-    public function checkAvailableShipCountries(Mage_Shipping_Model_Rate_Request $request)
+    function checkAvailableShipCountries(Mage_Shipping_Model_Rate_Request $request)
     {
         $speCountriesAllow = $this->getConfigData('sallowspecific');
         /*
@@ -293,7 +293,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * @param Mage_Shipping_Model_Rate_Request $request
      * @return Mage_Shipping_Model_Carrier_Abstract|Mage_Shipping_Model_Rate_Result_Error|bool
      */
-    public function proccessAdditionalValidation(Mage_Shipping_Model_Rate_Request $request)
+    function proccessAdditionalValidation(Mage_Shipping_Model_Rate_Request $request)
     {
         return $this;
     }
@@ -303,7 +303,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      *
      * @return bool
      */
-    public function isActive()
+    function isActive()
     {
         $active = $this->getConfigData('active');
         return $active == 1 || $active == 'true';
@@ -314,7 +314,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      *
      * @return bool
      */
-    public function isFixed()
+    function isFixed()
     {
         return $this->_isFixed;
     }
@@ -324,7 +324,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      *
      * @return bool
      */
-    public function isTrackingAvailable()
+    function isTrackingAvailable()
     {
         return false;
     }
@@ -337,7 +337,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      *
      * @return mixed
      */
-    public function getSortOrder()
+    function getSortOrder()
     {
         return $this->getConfigData('sort_order');
     }
@@ -411,7 +411,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * @param string $method
      * @return float|string
      */
-    public function getMethodPrice($cost, $method = '')
+    function getMethodPrice($cost, $method = '')
     {
         return $method == $this->getConfigData($this->_freeMethod)
             && $this->getConfigFlag('free_shipping_enable')
@@ -426,7 +426,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * @param float $cost
      * @return float final price for shipping method
      */
-    public function getFinalPriceWithHandlingFee($cost)
+    function getFinalPriceWithHandlingFee($cost)
     {
         $handlingFee = (float)$this->getConfigData('handling_fee');
         $handlingType = $this->getConfigData('handling_type');
@@ -483,7 +483,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      *  @param integer $weight Weight in someone measure
      *  @return float Weight in pounds
      */
-    public function convertWeightToLbs($weight)
+    function convertWeightToLbs($weight)
     {
         return $weight;
     }
@@ -494,7 +494,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * @param int $weight
      * @return float
      */
-    public function getTotalNumOfBoxes($weight)
+    function getTotalNumOfBoxes($weight)
     {
         /*
         reset num box first before retrieve again
@@ -514,7 +514,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      *
      * @return bool
      */
-    public function isStateProvinceRequired()
+    function isStateProvinceRequired()
     {
         return false;
     }
@@ -524,7 +524,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      *
      * @return bool
      */
-    public function isCityRequired()
+    function isCityRequired()
     {
         return false;
     }
@@ -535,7 +535,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * @param string|null $countryId
      * @return bool
      */
-    public function isZipCodeRequired($countryId = null)
+    function isZipCodeRequired($countryId = null)
     {
         return false;
     }
@@ -559,7 +559,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      *
      * @return bool
      */
-    public function getDebugFlag()
+    function getDebugFlag()
     {
         return $this->getConfigData('debug');
     }
@@ -569,7 +569,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      *
      * @param mixed $debugData
      */
-    public function debugData($debugData)
+    function debugData($debugData)
     {
         $this->_debug($debugData);
     }
@@ -579,7 +579,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      *
      * @return string
      */
-    public function getCarrierCode()
+    function getCarrierCode()
     {
         return $this->_code;
     }
@@ -590,7 +590,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * @param Varien_Object $params
      * @return array
      */
-    public function getContentTypes(Varien_Object $params)
+    function getContentTypes(Varien_Object $params)
     {
         return [];
     }

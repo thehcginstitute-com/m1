@@ -31,7 +31,7 @@ class Mage_Catalog_Model_Product_Api_V2 extends Mage_Catalog_Model_Product_Api
      * @param string     $identifierType
      * @return array
      */
-    public function info($productId, $store = null, $attributes = null, $identifierType = null)
+    function info($productId, $store = null, $attributes = null, $identifierType = null)
     {
         // make sku flag case-insensitive
         if (!empty($identifierType)) {
@@ -95,7 +95,7 @@ class Mage_Catalog_Model_Product_Api_V2 extends Mage_Catalog_Model_Product_Api
      * @param string $store
      * @return int
      */
-    public function create($type, $set, $sku, $productData, $store = null)
+    function create($type, $set, $sku, $productData, $store = null)
     {
         if (!$type || !$set || !$sku || !is_object($productData)) {
             $this->_fault('data_invalid');
@@ -159,7 +159,7 @@ class Mage_Catalog_Model_Product_Api_V2 extends Mage_Catalog_Model_Product_Api
      * @throws Mage_Api_Exception
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function update($productId, $productData, $store = null, $identifierType = null)
+    function update($productId, $productData, $store = null, $identifierType = null)
     {
         $product = $this->_getProduct($productId, $store, $identifierType);
 
@@ -200,7 +200,7 @@ class Mage_Catalog_Model_Product_Api_V2 extends Mage_Catalog_Model_Product_Api
      * @param string     $identifierType
      * @return true|void
      */
-    public function multiUpdate($productIds, $productData, $store = null, $identifierType = null)
+    function multiUpdate($productIds, $productData, $store = null, $identifierType = null)
     {
         if (count($productIds) != count($productData)) {
             $this->_fault('multi_update_not_match');
@@ -323,7 +323,7 @@ class Mage_Catalog_Model_Product_Api_V2 extends Mage_Catalog_Model_Product_Api
      *                                        otherwise - try to determine identifier type automatically
      * @return bool
      */
-    public function setSpecialPrice(
+    function setSpecialPrice(
         $productId,
         $specialPrice = null,
         $fromDate = null,

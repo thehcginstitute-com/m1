@@ -28,7 +28,7 @@ class Mage_Catalog_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_Catalog_Model_Observer
      */
-    public function storeEdit(Varien_Event_Observer $observer)
+    function storeEdit(Varien_Event_Observer $observer)
     {
         /** @var Mage_Core_Model_Store $store */
         $store = $observer->getEvent()->getStore();
@@ -50,7 +50,7 @@ class Mage_Catalog_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_Catalog_Model_Observer
      */
-    public function storeAdd(Varien_Event_Observer $observer)
+    function storeAdd(Varien_Event_Observer $observer)
     {
         /** @var Mage_Core_Model_Store $store */
         $store = $observer->getEvent()->getStore();
@@ -71,7 +71,7 @@ class Mage_Catalog_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_Catalog_Model_Observer
      */
-    public function storeGroupSave(Varien_Event_Observer $observer)
+    function storeGroupSave(Varien_Event_Observer $observer)
     {
         /** @var Mage_Core_Model_Store_Group $group */
         $group = $observer->getEvent()->getGroup();
@@ -94,7 +94,7 @@ class Mage_Catalog_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function storeDelete(Varien_Event_Observer $observer)
+    function storeDelete(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Helper_Category_Flat $categoryFlatHelper */
         $categoryFlatHelper = Mage::helper('catalog/category_flat');
@@ -111,7 +111,7 @@ class Mage_Catalog_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_Catalog_Model_Observer
      */
-    public function categoryMove(Varien_Event_Observer $observer)
+    function categoryMove(Varien_Event_Observer $observer)
     {
         $categoryId = $observer->getEvent()->getCategoryId();
         $prevParentId = $observer->getEvent()->getPrevParentId();
@@ -130,7 +130,7 @@ class Mage_Catalog_Model_Observer
      * @param   Varien_Event_Observer $observer
      * @return  Mage_Catalog_Model_Observer
      */
-    public function catalogProductImportAfter(Varien_Event_Observer $observer)
+    function catalogProductImportAfter(Varien_Event_Observer $observer)
     {
         Mage::getModel('catalog/url')->refreshRewrites();
         Mage::getResourceSingleton('catalog/category')->refreshProductIndex();
@@ -143,7 +143,7 @@ class Mage_Catalog_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogProductCompareClean(Varien_Event_Observer $observer)
+    function catalogProductCompareClean(Varien_Event_Observer $observer)
     {
         Mage::getModel('catalog/product_compare_item')->clean();
         return $this;
@@ -155,7 +155,7 @@ class Mage_Catalog_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function categorySaveAfter(Varien_Event_Observer $observer)
+    function categorySaveAfter(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Helper_Category_Flat $categoryFlatHelper */
         $categoryFlatHelper = Mage::helper('catalog/category_flat');
@@ -171,7 +171,7 @@ class Mage_Catalog_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function catalogCheckIsUsingStaticUrlsAllowed(Varien_Event_Observer $observer)
+    function catalogCheckIsUsingStaticUrlsAllowed(Varien_Event_Observer $observer)
     {
         $storeId = $observer->getEvent()->getData('store_id');
         $result  = $observer->getEvent()->getData('result');
@@ -183,7 +183,7 @@ class Mage_Catalog_Model_Observer
      *
      * @param Mage_Cron_Model_Schedule $schedule
      */
-    public function reindexProductPrices(Mage_Cron_Model_Schedule $schedule)
+    function reindexProductPrices(Mage_Cron_Model_Schedule $schedule)
     {
         $indexProcess = Mage::getSingleton('index/indexer')->getProcessByCode('catalog_product_price');
         if ($indexProcess) {
@@ -196,7 +196,7 @@ class Mage_Catalog_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function addCatalogToTopmenuItems(Varien_Event_Observer $observer)
+    function addCatalogToTopmenuItems(Varien_Event_Observer $observer)
     {
         $block = $observer->getEvent()->getBlock();
         $block->addCacheTag(Mage_Catalog_Model_Category::CACHE_TAG);
@@ -279,7 +279,7 @@ class Mage_Catalog_Model_Observer
      * @param Varien_Event_Observer $observer
      * @throws Mage_Core_Exception
      */
-    public function checkReservedAttributeCodes(Varien_Event_Observer $observer)
+    function checkReservedAttributeCodes(Varien_Event_Observer $observer)
     {
         /** @var Mage_Catalog_Model_Entity_Attribute $attribute */
         $attribute = $observer->getEvent()->getAttribute();

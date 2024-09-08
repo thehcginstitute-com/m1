@@ -51,7 +51,7 @@ class Mage_Wishlist_Block_Share_Wishlist extends Mage_Wishlist_Block_Abstract
      *
      * @return Mage_Customer_Model_Customer
      */
-    public function getWishlistCustomer()
+    function getWishlistCustomer()
     {
         if (is_null($this->_customer)) {
             $this->_customer = Mage::getModel('customer/customer')
@@ -66,7 +66,7 @@ class Mage_Wishlist_Block_Share_Wishlist extends Mage_Wishlist_Block_Abstract
      *
      * @return string
      */
-    public function getHeader()
+    function getHeader()
     {
         return Mage::helper('wishlist')->__("%s's Wishlist", $this->escapeHtml($this->getWishlistCustomer()->getFirstname()));
     }

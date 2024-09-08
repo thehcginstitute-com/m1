@@ -72,7 +72,7 @@ class Mage_Core_Model_Layout_Validator extends Zend_Validate_Abstract
         self::PROTECTED_ATTR_HELPER_IN_TAG_ACTION_VAR => '//action/*[@helper]',
     ];
 
-    public function __construct()
+    function __construct()
     {
         $this->_initMessageTemplates();
         $this->getDisallowedBlocks();
@@ -104,7 +104,7 @@ class Mage_Core_Model_Layout_Validator extends Zend_Validate_Abstract
     /**
      * @return array
      */
-    public function getDisallowedBlocks()
+    function getDisallowedBlocks()
     {
         if (!count($this->_disallowedBlock)) {
             $disallowedBlockConfig = $this->_getDisallowedBlockConfigValue();
@@ -137,7 +137,7 @@ class Mage_Core_Model_Layout_Validator extends Zend_Validate_Abstract
      * @param Varien_Simplexml_Element|string $value
      * @return bool
      */
-    public function isValid($value)
+    function isValid($value)
     {
         if (is_string($value)) {
             $value = trim($value);
@@ -177,7 +177,7 @@ class Mage_Core_Model_Layout_Validator extends Zend_Validate_Abstract
     /**
      * @return array
      */
-    public function getProtectedExpressions()
+    function getProtectedExpressions()
     {
         return $this->_protectedExpressions;
     }
@@ -187,7 +187,7 @@ class Mage_Core_Model_Layout_Validator extends Zend_Validate_Abstract
      *
      * @return string xPath for validate incorrect path to template
      */
-    public function getXpathValidationExpression()
+    function getXpathValidationExpression()
     {
         return implode(" | ", $this->_disallowedXPathExpressions);
     }
@@ -195,7 +195,7 @@ class Mage_Core_Model_Layout_Validator extends Zend_Validate_Abstract
     /**
      * @return array
      */
-    public function getDisallowedXpathValidationExpression()
+    function getDisallowedXpathValidationExpression()
     {
         return $this->_disallowedXPathExpressions;
     }
@@ -205,7 +205,7 @@ class Mage_Core_Model_Layout_Validator extends Zend_Validate_Abstract
      *
      * @return string xPath for validate incorrect block name
      */
-    public function getXpathBlockValidationExpression()
+    function getXpathBlockValidationExpression()
     {
         if (!$this->_xpathBlockValidationExpression) {
             if (count($this->_disallowedBlock)) {
@@ -229,7 +229,7 @@ class Mage_Core_Model_Layout_Validator extends Zend_Validate_Abstract
      *
      * @param array $templatePaths
      */
-    public function validateTemplatePath(array $templatePaths)
+    function validateTemplatePath(array $templatePaths)
     {
         /** @var Varien_Simplexml_Element $path */
         foreach ($templatePaths as $path) {

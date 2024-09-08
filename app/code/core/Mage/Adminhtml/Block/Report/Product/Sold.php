@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Report_Product_Sold extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'report_product_sold';
         $this->_headerText = Mage::helper('reports')->__('Products Ordered');
@@ -30,7 +30,7 @@ class Mage_Adminhtml_Block_Report_Product_Sold extends Mage_Adminhtml_Block_Widg
         $this->_removeButton('add');
     }
 
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head head-report';
     }

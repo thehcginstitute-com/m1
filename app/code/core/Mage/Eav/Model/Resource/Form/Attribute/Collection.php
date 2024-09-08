@@ -82,7 +82,7 @@ class Mage_Eav_Model_Resource_Form_Attribute_Collection extends Mage_Core_Model_
      * @param Mage_Core_Model_Store|string|int $store
      * @return $this
      */
-    public function setStore($store)
+    function setStore($store)
     {
         $this->_store = Mage::app()->getStore($store);
         return $this;
@@ -93,7 +93,7 @@ class Mage_Eav_Model_Resource_Form_Attribute_Collection extends Mage_Core_Model_
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         if ($this->_store === null) {
             $this->_store = Mage::app()->getStore();
@@ -107,7 +107,7 @@ class Mage_Eav_Model_Resource_Form_Attribute_Collection extends Mage_Core_Model_
      * @param Mage_Eav_Model_Entity_Type|string|int $entityType
      * @return $this
      */
-    public function setEntityType($entityType)
+    function setEntityType($entityType)
     {
         $this->_entityType = Mage::getSingleton('eav/config')->getEntityType($entityType);
         return $this;
@@ -118,7 +118,7 @@ class Mage_Eav_Model_Resource_Form_Attribute_Collection extends Mage_Core_Model_
      *
      * @return Mage_Eav_Model_Entity_Type
      */
-    public function getEntityType()
+    function getEntityType()
     {
         if ($this->_entityType === null) {
             $this->setEntityType($this->_entityTypeCode);
@@ -132,7 +132,7 @@ class Mage_Eav_Model_Resource_Form_Attribute_Collection extends Mage_Core_Model_
      * @param string $code
      * @return $this
      */
-    public function addFormCodeFilter($code)
+    function addFormCodeFilter($code)
     {
         return $this->addFieldToFilter('main_table.form_code', $code);
     }
@@ -143,7 +143,7 @@ class Mage_Eav_Model_Resource_Form_Attribute_Collection extends Mage_Core_Model_
      * @param string $direction
      * @return $this
      */
-    public function setSortOrder($direction = self::SORT_ORDER_ASC)
+    function setSortOrder($direction = self::SORT_ORDER_ASC)
     {
         $this->setOrder('ea.is_user_defined', self::SORT_ORDER_ASC);
         return $this->setOrder('ca.sort_order', $direction);

@@ -56,7 +56,7 @@ class Mage_AdminNotification_Model_Inbox extends Mage_Core_Model_Abstract
      * @param int|null $severity
      * @return array|string|null
      */
-    public function getSeverities($severity = null)
+    function getSeverities($severity = null)
     {
         $severities = [
             self::SEVERITY_CRITICAL => Mage::helper('adminnotification')->__('critical'),
@@ -77,7 +77,7 @@ class Mage_AdminNotification_Model_Inbox extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function loadLatestNotice()
+    function loadLatestNotice()
     {
         $this->setData([]);
         $this->getResource()->loadLatestNotice($this);
@@ -89,7 +89,7 @@ class Mage_AdminNotification_Model_Inbox extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getNoticeStatus()
+    function getNoticeStatus()
     {
         return $this->getResource()->getNoticeStatus($this);
     }
@@ -100,7 +100,7 @@ class Mage_AdminNotification_Model_Inbox extends Mage_Core_Model_Abstract
      * @param array $data
      * @return $this
      */
-    public function parse(array $data)
+    function parse(array $data)
     {
         return $this->getResource()->parse($this, $data);
     }
@@ -115,7 +115,7 @@ class Mage_AdminNotification_Model_Inbox extends Mage_Core_Model_Abstract
      * @param bool $isInternal
      * @return $this
      */
-    public function add($severity, $title, $description, $url = '', $isInternal = true)
+    function add($severity, $title, $description, $url = '', $isInternal = true)
     {
         if (!$this->getSeverities($severity)) {
             Mage::throwException(Mage::helper('adminnotification')->__('Wrong message type'));
@@ -144,7 +144,7 @@ class Mage_AdminNotification_Model_Inbox extends Mage_Core_Model_Abstract
      * @param bool $isInternal
      * @return $this
      */
-    public function addCritical($title, $description, $url = '', $isInternal = true)
+    function addCritical($title, $description, $url = '', $isInternal = true)
     {
         $this->add(self::SEVERITY_CRITICAL, $title, $description, $url, $isInternal);
         return $this;
@@ -159,7 +159,7 @@ class Mage_AdminNotification_Model_Inbox extends Mage_Core_Model_Abstract
      * @param bool $isInternal
      * @return $this
      */
-    public function addMajor($title, $description, $url = '', $isInternal = true)
+    function addMajor($title, $description, $url = '', $isInternal = true)
     {
         $this->add(self::SEVERITY_MAJOR, $title, $description, $url, $isInternal);
         return $this;
@@ -174,7 +174,7 @@ class Mage_AdminNotification_Model_Inbox extends Mage_Core_Model_Abstract
      * @param bool $isInternal
      * @return $this
      */
-    public function addMinor($title, $description, $url = '', $isInternal = true)
+    function addMinor($title, $description, $url = '', $isInternal = true)
     {
         $this->add(self::SEVERITY_MINOR, $title, $description, $url, $isInternal);
         return $this;
@@ -189,7 +189,7 @@ class Mage_AdminNotification_Model_Inbox extends Mage_Core_Model_Abstract
      * @param bool $isInternal
      * @return $this
      */
-    public function addNotice($title, $description, $url = '', $isInternal = true)
+    function addNotice($title, $description, $url = '', $isInternal = true)
     {
         $this->add(self::SEVERITY_NOTICE, $title, $description, $url, $isInternal);
         return $this;

@@ -62,7 +62,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @return array
      */
-    public function getDefaultOperatorInputByType()
+    function getDefaultOperatorInputByType()
     {
         if ($this->_defaultOperatorInputByType === null) {
             parent::getDefaultOperatorInputByType();
@@ -81,7 +81,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      * @param string|int|array $value
      * @return array
      */
-    public function bindArrayOfIds($value)
+    function bindArrayOfIds($value)
     {
         if (!is_array($value)) {
             $value = explode(',', $value);
@@ -98,7 +98,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @return string
      */
-    public function prepareConditionSql()
+    function prepareConditionSql()
     {
         $alias     = 'cpf';
         $attribute = $this->getAttribute();
@@ -120,7 +120,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @param Mage_Rule_Model_Resource_Rule_Condition_SqlBuilder $ruleHelper
      */
-    public function setRuleResourceHelper(Mage_Rule_Model_Resource_Rule_Condition_SqlBuilder $ruleHelper)
+    function setRuleResourceHelper(Mage_Rule_Model_Resource_Rule_Condition_SqlBuilder $ruleHelper)
     {
         $this->_ruleResourceHelper = $ruleHelper;
     }
@@ -130,7 +130,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @return Mage_Rule_Model_Resource_Rule_Condition_SqlBuilder
      */
-    public function getRuleResourceHelper()
+    function getRuleResourceHelper()
     {
         if (!$this->_ruleResourceHelper) {
             $this->_ruleResourceHelper = Mage::getModel('rule/resource_rule_condition_sqlBuilder');
@@ -143,7 +143,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @return Mage_Catalog_Model_Resource_Eav_Attribute
      */
-    public function getAttributeObject()
+    function getAttributeObject()
     {
         try {
             $obj = Mage::getSingleton('eav/config')
@@ -172,7 +172,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @return $this
      */
-    public function loadAttributeOptions()
+    function loadAttributeOptions()
     {
         $productAttributes = Mage::getResourceSingleton('catalog/product')
             ->loadAllAttributes()
@@ -262,7 +262,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      * @param mixed $option
      * @return string
      */
-    public function getValueOption($option = null)
+    function getValueOption($option = null)
     {
         $this->_prepareValueOptions();
         return $this->getData('value_option' . (!is_null($option) ? '/' . $option : ''));
@@ -273,7 +273,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @return array
      */
-    public function getValueSelectOptions()
+    function getValueSelectOptions()
     {
         $this->_prepareValueOptions();
         return $this->getData('value_select_options');
@@ -284,7 +284,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @return string
      */
-    public function getValueAfterElementHtml()
+    function getValueAfterElementHtml()
     {
         $html = '';
 
@@ -310,7 +310,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function getAttributeElement()
+    function getAttributeElement()
     {
         $element = parent::getAttributeElement();
         $element->setShowAsText(true);
@@ -323,7 +323,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      * @param Mage_Catalog_Model_Resource_Product_Collection $productCollection
      * @return $this
      */
-    public function collectValidatedAttributes($productCollection)
+    function collectValidatedAttributes($productCollection)
     {
         $attribute = $this->getAttribute();
         if ($attribute != 'category_ids') {
@@ -345,7 +345,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @return string
      */
-    public function getInputType()
+    function getInputType()
     {
         if ($this->getAttribute() === 'attribute_set_id') {
             return 'select';
@@ -379,7 +379,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @return string
      */
-    public function getValueElementType()
+    function getValueElementType()
     {
         if ($this->getAttribute() === 'attribute_set_id') {
             return 'select';
@@ -408,7 +408,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function getValueElement()
+    function getValueElement()
     {
         $element = parent::getValueElement();
         if (is_object($this->getAttributeObject())) {
@@ -427,7 +427,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @return string
      */
-    public function getValueElementChooserUrl()
+    function getValueElementChooserUrl()
     {
         $url = false;
         switch ($this->getAttribute()) {
@@ -448,7 +448,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @return bool
      */
-    public function getExplicitApply()
+    function getExplicitApply()
     {
         switch ($this->getAttribute()) {
             case 'sku':
@@ -469,7 +469,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @inheritDoc
      */
-    public function loadArray($arr)
+    function loadArray($arr)
     {
         $this->setAttribute($arr['attribute'] ?? false);
         $attribute = $this->getAttributeObject();
@@ -505,7 +505,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      * @param Varien_Object $object
      * @return bool
      */
-    public function validate(Varien_Object $object)
+    function validate(Varien_Object $object)
     {
         $attrCode = $this->getAttribute();
         if (!($object instanceof Mage_Catalog_Model_Product)) {
@@ -569,7 +569,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      *
      * @return string
      */
-    public function getOperatorForValidate()
+    function getOperatorForValidate()
     {
         return $this->correctOperator($this->getOperator(), $this->getInputType());
     }
@@ -582,7 +582,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      * @param string $inputType
      * @return string
      */
-    public function correctOperator($operator, $inputType)
+    function correctOperator($operator, $inputType)
     {
         if ($inputType == 'category') {
             if ($operator == '==') {

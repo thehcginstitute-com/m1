@@ -40,7 +40,7 @@ class Mage_Api2_Model_Multicall
      * @param Mage_Api2_Model_Request $parentCallRequest
      * @return Mage_Api2_Model_Response
      */
-    public function call($parentResourceId, $parentResourceName, Mage_Api2_Model_Request $parentCallRequest)
+    function call($parentResourceId, $parentResourceName, Mage_Api2_Model_Request $parentCallRequest)
     {
         $this->_parentResourceId = $parentResourceId;
         $this->_parentCallRequest = $parentCallRequest;

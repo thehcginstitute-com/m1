@@ -21,7 +21,7 @@ class Fooman_Common_Model_Selftester extends Fooman_Common_Model_Selftester_Abst
      *
      * @return $this
      */
-    public function main ()
+    function main ()
     {
         $this->messages[] = 'Starting ' . get_class($this);
         $failed = false;
@@ -64,7 +64,7 @@ class Fooman_Common_Model_Selftester extends Fooman_Common_Model_Selftester_Abst
      * @return bool
      * @throws Exception
      */
-    public function selfCheckLocation()
+    function selfCheckLocation()
     {
         if (file_exists('app' . DIRECTORY_SEPARATOR . 'Mage.php')) {
             require_once 'app' . DIRECTORY_SEPARATOR . 'Mage.php';
@@ -78,7 +78,7 @@ class Fooman_Common_Model_Selftester extends Fooman_Common_Model_Selftester_Abst
         return true;
     }
 
-    public function shouldFix()
+    function shouldFix()
     {
         return $this->_fix;
     }
@@ -88,7 +88,7 @@ class Fooman_Common_Model_Selftester extends Fooman_Common_Model_Selftester_Abst
      *
      * @return bool
      */
-    public function checkFileLocations()
+    function checkFileLocations()
     {
         $returnVal = true;
         $this->messages[] = "Checking file locations";
@@ -128,7 +128,7 @@ class Fooman_Common_Model_Selftester extends Fooman_Common_Model_Selftester_Abst
      *
      * @return bool
      */
-    public function magentoRewrites ()
+    function magentoRewrites ()
     {
         $returnVal = true;
         $this->messages[] = "Checking rewrites";
@@ -153,7 +153,7 @@ class Fooman_Common_Model_Selftester extends Fooman_Common_Model_Selftester_Abst
      *
      * @return bool
      */
-    public function dbCheck()
+    function dbCheck()
     {
         //we don't use getModel since the common extension might not yet be installed correctly
         $dbCheckModel = new Fooman_Common_Model_Selftester_Db();
@@ -165,7 +165,7 @@ class Fooman_Common_Model_Selftester extends Fooman_Common_Model_Selftester_Abst
      *
      * @return bool
      */
-    public function hasSettings()
+    function hasSettings()
     {
         foreach ($this->_getSettings() as $table => $tableValues) {
 

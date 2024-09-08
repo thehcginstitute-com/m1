@@ -86,7 +86,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      * Mage_Log_Model_Visitor constructor.
      * @param array $data
      */
-    public function __construct(array $data = [])
+    function __construct(array $data = [])
     {
         $this->_httpHelper = !empty($data['http_helper']) ? $data['http_helper'] : Mage::helper('core/http');
         $this->_config = !empty($data['config']) ? $data['config'] : Mage::getConfig();
@@ -130,7 +130,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function initServerData()
+    function initServerData()
     {
         $this->addData([
             'server_addr'           => $this->_httpHelper->getServerAddr(true),
@@ -166,7 +166,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getUrl()
+    function getUrl()
     {
         $url = 'http' . ($this->getHttpSecure() ? 's' : '') . '://';
         $url .= $this->getHttpHost() . $this->getRequestUri();
@@ -176,7 +176,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
     /**
      * @return mixed
      */
-    public function getFirstVisitAt()
+    function getFirstVisitAt()
     {
         if (!$this->hasData('first_visit_at')) {
             $this->setData('first_visit_at', Varien_Date::now());
@@ -187,7 +187,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
     /**
      * @return mixed
      */
-    public function getLastVisitAt()
+    function getLastVisitAt()
     {
         if (!$this->hasData('last_visit_at')) {
             $this->setData('last_visit_at', Varien_Date::now());
@@ -203,7 +203,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  $this
      */
-    public function initByRequest($observer)
+    function initByRequest($observer)
     {
         if ($this->_skipRequestLogging || $this->isModuleIgnored($observer)) {
             return $this;
@@ -247,7 +247,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  $this
      */
-    public function saveByRequest($observer)
+    function saveByRequest($observer)
     {
         if ($this->_skipRequestLogging || $this->isModuleIgnored($observer)) {
             return $this;
@@ -271,7 +271,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  $this
      */
-    public function bindCustomerLogin($observer)
+    function bindCustomerLogin($observer)
     {
         /** @var Mage_Customer_Model_Customer $customer */
         $customer = $observer->getEvent()->getCustomer();
@@ -290,7 +290,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      * @param   Varien_Event_Observer $observer
      * @return  $this
      */
-    public function bindCustomerLogout($observer)
+    function bindCustomerLogout($observer)
     {
         if ($this->getCustomerId() && $customer = $observer->getEvent()->getCustomer()) {
             $this->setDoCustomerLogout(true);
@@ -302,7 +302,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function bindQuoteCreate($observer)
+    function bindQuoteCreate($observer)
     {
         /** @var Mage_Sales_Model_Quote $quote */
         $quote = $observer->getEvent()->getQuote();
@@ -319,7 +319,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function bindQuoteDestroy($observer)
+    function bindQuoteDestroy($observer)
     {
         /** @var Mage_Sales_Model_Quote $quote */
         $quote = $observer->getEvent()->getQuote();
@@ -334,7 +334,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      * @param Varien_Object $data
      * @return $this
      */
-    public function addIpData($data)
+    function addIpData($data)
     {
         $ipData = [];
         $data->setIpData($ipData);
@@ -345,7 +345,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      * @param Varien_Object $data
      * @return $this
      */
-    public function addCustomerData($data)
+    function addCustomerData($data)
     {
         $customerId = $data->getCustomerId();
         if ((int) $customerId <= 0) {
@@ -365,7 +365,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      * @param Varien_Object $data
      * @return $this
      */
-    public function addQuoteData($data)
+    function addQuoteData($data)
     {
         $quoteId = $data->getQuoteId();
         if ((int) $quoteId <= 0) {
@@ -379,7 +379,7 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      * @param Varien_Event_Observer $observer
      * @return bool
      */
-    public function isModuleIgnored($observer)
+    function isModuleIgnored($observer)
     {
         $ignores = $this->_config->getNode('global/ignoredModules/entities')->asArray();
 

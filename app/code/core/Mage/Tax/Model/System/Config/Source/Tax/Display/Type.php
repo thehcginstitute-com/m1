@@ -27,7 +27,7 @@ class Mage_Tax_Model_System_Config_Source_Tax_Display_Type
     /**
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         if (!$this->_options) {
             $this->_options = [];

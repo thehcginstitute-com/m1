@@ -22,7 +22,7 @@
  */
 class Mage_Customer_Block_Newsletter extends Mage_Customer_Block_Account_Dashboard // Mage_Core_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('customer/form/newsletter.phtml');
@@ -31,7 +31,7 @@ class Mage_Customer_Block_Newsletter extends Mage_Customer_Block_Account_Dashboa
     /**
      * @return bool
      */
-    public function getIsSubscribed()
+    function getIsSubscribed()
     {
         return $this->getSubscriptionObject()->isSubscribed();
     }
@@ -39,7 +39,7 @@ class Mage_Customer_Block_Newsletter extends Mage_Customer_Block_Account_Dashboa
     /**
      * @inheritDoc
      */
-    public function getAction()
+    function getAction()
     {
         return $this->getUrl('*/*/save');
     }

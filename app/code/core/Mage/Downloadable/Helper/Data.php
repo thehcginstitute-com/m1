@@ -30,7 +30,7 @@ class Mage_Downloadable_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Downloadable_Model_Link | Mage_Downloadable_Model_Link_Purchased_Item $link
      * @return bool
      */
-    public function getIsShareable($link)
+    function getIsShareable($link)
     {
         $shareable = false;
         switch ($link->getIsShareable()) {
@@ -51,7 +51,7 @@ class Mage_Downloadable_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function getIsPriceWebsiteScope()
+    function getIsPriceWebsiteScope()
     {
         $scope =  (int) Mage::app()->getStore()->getConfig(Mage_Core_Model_Store::XML_PATH_PRICE_SCOPE);
         if ($scope == Mage_Core_Model_Store::PRICE_SCOPE_WEBSITE) {

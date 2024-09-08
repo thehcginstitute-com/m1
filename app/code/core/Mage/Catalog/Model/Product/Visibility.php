@@ -38,7 +38,7 @@ class Mage_Catalog_Model_Product_Visibility extends Varien_Object
      * Initialize object
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setIdFieldName('visibility_id');
@@ -51,7 +51,7 @@ class Mage_Catalog_Model_Product_Visibility extends Varien_Object
      * @param Mage_Catalog_Model_Resource_Product_Collection $collection
      * @return $this
      */
-    public function addVisibleInCatalogFilterToCollection(Mage_Catalog_Model_Resource_Product_Collection $collection)
+    function addVisibleInCatalogFilterToCollection(Mage_Catalog_Model_Resource_Product_Collection $collection)
     {
         $collection->setVisibility($this->getVisibleInCatalogIds());
         return $this;
@@ -63,7 +63,7 @@ class Mage_Catalog_Model_Product_Visibility extends Varien_Object
      * @param Mage_Catalog_Model_Resource_Product_Collection $collection
      * @return $this
      */
-    public function addVisibleInSearchFilterToCollection(Mage_Catalog_Model_Resource_Product_Collection $collection)
+    function addVisibleInSearchFilterToCollection(Mage_Catalog_Model_Resource_Product_Collection $collection)
     {
         $collection->setVisibility($this->getVisibleInSearchIds());
         return $this;
@@ -75,7 +75,7 @@ class Mage_Catalog_Model_Product_Visibility extends Varien_Object
      * @param Mage_Catalog_Model_Resource_Product_Collection $collection
      * @return $this
      */
-    public function addVisibleInSiteFilterToCollection(Mage_Catalog_Model_Resource_Product_Collection $collection)
+    function addVisibleInSiteFilterToCollection(Mage_Catalog_Model_Resource_Product_Collection $collection)
     {
         $collection->setVisibility($this->getVisibleInSiteIds());
         return $this;
@@ -86,7 +86,7 @@ class Mage_Catalog_Model_Product_Visibility extends Varien_Object
      *
      * @return array
      */
-    public function getVisibleInCatalogIds()
+    function getVisibleInCatalogIds()
     {
         return [self::VISIBILITY_IN_CATALOG, self::VISIBILITY_BOTH];
     }
@@ -96,7 +96,7 @@ class Mage_Catalog_Model_Product_Visibility extends Varien_Object
      *
      * @return array
      */
-    public function getVisibleInSearchIds()
+    function getVisibleInSearchIds()
     {
         return [self::VISIBILITY_IN_SEARCH, self::VISIBILITY_BOTH];
     }
@@ -106,7 +106,7 @@ class Mage_Catalog_Model_Product_Visibility extends Varien_Object
      *
      * @return array
      */
-    public function getVisibleInSiteIds()
+    function getVisibleInSiteIds()
     {
         return [self::VISIBILITY_IN_SEARCH, self::VISIBILITY_IN_CATALOG, self::VISIBILITY_BOTH];
     }
@@ -183,7 +183,7 @@ class Mage_Catalog_Model_Product_Visibility extends Varien_Object
      *
      * @return array
      */
-    public function getFlatColums()
+    function getFlatColums()
     {
         $attributeCode = $this->getAttribute()->getAttributeCode();
         $column = [
@@ -209,7 +209,7 @@ class Mage_Catalog_Model_Product_Visibility extends Varien_Object
      *
      * @return array
      */
-    public function getFlatIndexes()
+    function getFlatIndexes()
     {
         return [];
     }
@@ -220,7 +220,7 @@ class Mage_Catalog_Model_Product_Visibility extends Varien_Object
      * @param int $store
      * @return Varien_Db_Select|null
      */
-    public function getFlatUpdateSelect($store)
+    function getFlatUpdateSelect($store)
     {
         return Mage::getResourceSingleton('eav/entity_attribute')
             ->getFlatUpdateSelect($this->getAttribute(), $store);
@@ -232,7 +232,7 @@ class Mage_Catalog_Model_Product_Visibility extends Varien_Object
      * @param Mage_Catalog_Model_Resource_Eav_Attribute $attribute
      * @return Mage_Catalog_Model_Product_Visibility
      */
-    public function setAttribute($attribute)
+    function setAttribute($attribute)
     {
         $this->_attribute = $attribute;
         return $this;
@@ -243,7 +243,7 @@ class Mage_Catalog_Model_Product_Visibility extends Varien_Object
      *
      * @return Mage_Catalog_Model_Resource_Eav_Attribute
      */
-    public function getAttribute()
+    function getAttribute()
     {
         return $this->_attribute;
     }
@@ -256,7 +256,7 @@ class Mage_Catalog_Model_Product_Visibility extends Varien_Object
      * @return Mage_Catalog_Model_Product_Visibility
      * @throws Mage_Core_Exception
      */
-    public function addValueSortToCollection($collection, $dir = 'asc')
+    function addValueSortToCollection($collection, $dir = 'asc')
     {
         $attributeCode  = $this->getAttribute()->getAttributeCode();
         $attributeId    = $this->getAttribute()->getId();

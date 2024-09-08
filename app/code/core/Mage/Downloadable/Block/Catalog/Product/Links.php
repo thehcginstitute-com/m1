@@ -25,7 +25,7 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
     /**
      * @return bool
      */
-    public function getLinksPurchasedSeparately()
+    function getLinksPurchasedSeparately()
     {
         return $this->getProduct()->getLinksPurchasedSeparately();
     }
@@ -33,7 +33,7 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
     /**
      * @return bool
      */
-    public function getLinkSelectionRequired()
+    function getLinkSelectionRequired()
     {
         /** @var Mage_Downloadable_Model_Product_Type $productType */
         $productType = $this->getProduct()->getTypeInstance(true);
@@ -43,7 +43,7 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
     /**
      * @return bool
      */
-    public function hasLinks()
+    function hasLinks()
     {
         /** @var Mage_Downloadable_Model_Product_Type $productType */
         $productType = $this->getProduct()->getTypeInstance(true);
@@ -53,7 +53,7 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
     /**
      * @return array
      */
-    public function getLinks()
+    function getLinks()
     {
         /** @var Mage_Downloadable_Model_Product_Type $productType */
         $productType = $this->getProduct()->getTypeInstance(true);
@@ -65,7 +65,7 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getFormattedLinkPrice($link)
+    function getFormattedLinkPrice($link)
     {
         $price = $link->getPrice();
         $store = $this->getProduct()->getStore();
@@ -107,7 +107,7 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
      * @param float $price
      * @return float
      */
-    public function getCurrencyPrice($price)
+    function getCurrencyPrice($price)
     {
         /** @var Mage_Core_Helper_Data $helper */
         $helper = $this->helper('core');
@@ -118,7 +118,7 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
     /**
      * @return string
      */
-    public function getJsonConfig()
+    function getJsonConfig()
     {
         $config = [];
         $coreHelper = Mage::helper('core');
@@ -134,7 +134,7 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
      * @param Mage_Downloadable_Model_Link $link
      * @return string
      */
-    public function getLinkSamlpeUrl($link)
+    function getLinkSamlpeUrl($link)
     {
         return $this->getUrl('downloadable/download/linkSample', ['link_id' => $link->getId()]);
     }
@@ -144,7 +144,7 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
      *
      * @return string
      */
-    public function getLinksTitle()
+    function getLinksTitle()
     {
         if ($this->getProduct()->getLinksTitle()) {
             return $this->getProduct()->getLinksTitle();
@@ -157,7 +157,7 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
      *
      * @return bool
      */
-    public function getIsOpenInNewWindow()
+    function getIsOpenInNewWindow()
     {
         return Mage::getStoreConfigFlag(Mage_Downloadable_Model_Link::XML_PATH_TARGET_NEW_WINDOW);
     }
@@ -168,7 +168,7 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
      * @param Mage_Downloadable_Model_Link $link
      * @return bool
      */
-    public function getIsLinkChecked($link)
+    function getIsLinkChecked($link)
     {
         $configValue = $this->getProduct()->getPreconfiguredValues()->getLinks();
         if (!$configValue || !is_array($configValue)) {
@@ -184,7 +184,7 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
      * @param Mage_Downloadable_Model_Link $link
      * @return string
      */
-    public function getLinkCheckedValue($link)
+    function getLinkCheckedValue($link)
     {
         return $this->getIsLinkChecked($link) ? 'checked' : '';
     }

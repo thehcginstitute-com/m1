@@ -48,7 +48,7 @@ abstract class Mage_Install_Model_Installer_Db_Abstract
      *
      * @return string
      */
-    public function getModel()
+    function getModel()
     {
         return $this->_configData['db_model'];
     }
@@ -58,7 +58,7 @@ abstract class Mage_Install_Model_Installer_Db_Abstract
      *
      * @return string
      */
-    public function getType()
+    function getType()
     {
         return $this->_configData['db_type'];
     }
@@ -68,7 +68,7 @@ abstract class Mage_Install_Model_Installer_Db_Abstract
      *
      * @param array $config the connection configuration
      */
-    public function setConfig($config)
+    function setConfig($config)
     {
         $this->_configData = $config;
     }
@@ -78,7 +78,7 @@ abstract class Mage_Install_Model_Installer_Db_Abstract
      *
      * @return array
      */
-    public function getConnectionData()
+    function getConnectionData()
     {
         if (!$this->_connectionData) {
             $connectionData = [
@@ -98,7 +98,7 @@ abstract class Mage_Install_Model_Installer_Db_Abstract
      *
      * @return bool
      */
-    public function supportEngine()
+    function supportEngine()
     {
         return true;
     }
@@ -123,7 +123,7 @@ abstract class Mage_Install_Model_Installer_Db_Abstract
      *
      * @return null
      */
-    public function getPdoType()
+    function getPdoType()
     {
         return null;
     }
@@ -133,7 +133,7 @@ abstract class Mage_Install_Model_Installer_Db_Abstract
      *
      * @return array
      */
-    public function getRequiredExtensions()
+    function getRequiredExtensions()
     {
         $extensions = [];
         $configExt = (array)Mage::getConfig()->getNode(sprintf('install/databases/%s/extensions', $this->getModel()));

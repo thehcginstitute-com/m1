@@ -114,7 +114,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @param array $args
      */
-    public function __construct(array $args = [])
+    function __construct(array $args = [])
     {
         $this->_config = Mage::getSingleton('tax/config');
         $this->_app = !empty($args['app']) ? $args['app'] : Mage::app();
@@ -125,7 +125,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return int  $len
      */
-    public function getPostCodeSubStringLength()
+    function getPostCodeSubStringLength()
     {
         $len = (int)$this->_postCodeSubStringLength;
         if ($len <= 0) {
@@ -139,7 +139,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return Mage_Tax_Model_Config
      */
-    public function getConfig()
+    function getConfig()
     {
         return $this->_config;
     }
@@ -149,7 +149,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return  Mage_Tax_Model_Calculation
      */
-    public function getCalculator()
+    function getCalculator()
     {
         if ($this->_calculator === null) {
             $this->_calculator = Mage::getSingleton('tax/calculation');
@@ -164,7 +164,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   null|string $format
      * @return  float|string
      */
-    public function getProductPrice($product, $format = null)
+    function getProductPrice($product, $format = null)
     {
         try {
             $value = $product->getPrice();
@@ -181,7 +181,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  bool
      */
-    public function priceIncludesTax($store = null)
+    function priceIncludesTax($store = null)
     {
         return $this->_config->priceIncludesTax($store) || $this->_config->getNeedUseShippingExcludeTax();
     }
@@ -192,7 +192,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  bool
      */
-    public function applyTaxAfterDiscount($store = null)
+    function applyTaxAfterDiscount($store = null)
     {
         return $this->_config->applyTaxAfterDiscount($store);
     }
@@ -204,7 +204,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return string
      */
-    public function getIncExcText($flag, $store = null)
+    function getIncExcText($flag, $store = null)
     {
         if ($flag) {
             $s = $this->__('Incl. Tax');
@@ -223,7 +223,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return  int
      */
-    public function getPriceDisplayType($store = null)
+    function getPriceDisplayType($store = null)
     {
         return $this->_config->getPriceDisplayType($store);
     }
@@ -235,7 +235,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  false | int
      */
-    public function needPriceConversion($store = null)
+    function needPriceConversion($store = null)
     {
         $res = false;
         if ($this->priceIncludesTax($store)) {
@@ -268,7 +268,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  bool
      */
-    public function displayFullSummary($store = null)
+    function displayFullSummary($store = null)
     {
         return $this->_config->displayCartFullSummary($store);
     }
@@ -279,7 +279,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  bool
      */
-    public function displayZeroTax($store = null)
+    function displayZeroTax($store = null)
     {
         return $this->_config->displayCartZeroTax($store);
     }
@@ -290,7 +290,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  bool
      */
-    public function displayCartPriceInclTax($store = null)
+    function displayCartPriceInclTax($store = null)
     {
         return $this->_config->displayCartPricesInclTax($store);
     }
@@ -301,7 +301,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  bool
      */
-    public function displayCartPriceExclTax($store = null)
+    function displayCartPriceExclTax($store = null)
     {
         return $this->_config->displayCartPricesExclTax($store);
     }
@@ -312,7 +312,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  bool
      */
-    public function displayCartBothPrices($store = null)
+    function displayCartBothPrices($store = null)
     {
         return $this->_config->displayCartPricesBoth($store);
     }
@@ -323,7 +323,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  bool
      */
-    public function displaySalesPriceInclTax($store = null)
+    function displaySalesPriceInclTax($store = null)
     {
         return $this->_config->displaySalesPricesInclTax($store);
     }
@@ -334,7 +334,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  bool
      */
-    public function displaySalesPriceExclTax($store = null)
+    function displaySalesPriceExclTax($store = null)
     {
         return $this->_config->displaySalesPricesExclTax($store);
     }
@@ -345,7 +345,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  bool
      */
-    public function displaySalesBothPrices($store = null)
+    function displaySalesBothPrices($store = null)
     {
         return $this->_config->displaySalesPricesBoth($store);
     }
@@ -356,7 +356,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return bool
      */
-    public function displaySalesSubtotalBoth($store = null)
+    function displaySalesSubtotalBoth($store = null)
     {
         return $this->_config->displaySalesSubtotalBoth($store);
     }
@@ -367,7 +367,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return bool
      */
-    public function displaySalesSubtotalInclTax($store = null)
+    function displaySalesSubtotalInclTax($store = null)
     {
         return $this->_config->displaySalesSubtotalInclTax($store);
     }
@@ -378,7 +378,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return bool
      */
-    public function displaySalesSubtotalExclTax($store = null)
+    function displaySalesSubtotalExclTax($store = null)
     {
         return $this->_config->displaySalesSubtotalExclTax($store);
     }
@@ -389,7 +389,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  bool
      */
-    public function displayTaxColumn($store = null)
+    function displayTaxColumn($store = null)
     {
         return $this->_config->displayCartPricesBoth();
     }
@@ -400,7 +400,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  string
      */
-    public function getPriceFormat($store = null)
+    function getPriceFormat($store = null)
     {
         $this->_app->getLocale()->emulate($store);
         $priceFormat = $this->_app->getLocale()->getJsPriceFormat();
@@ -420,7 +420,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @deprecated after 1.4 - please use getAllRatesByProductClass
      * @return string
      */
-    public function getTaxRatesByProductClass()
+    function getTaxRatesByProductClass()
     {
         return $this->_getAllRatesByProductClass();
     }
@@ -435,7 +435,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return string
      */
-    public function getAllRatesByProductClass($store = null)
+    function getAllRatesByProductClass($store = null)
     {
         return $this->_getAllRatesByProductClass($store);
     }
@@ -478,7 +478,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @return  float
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getPrice(
+    function getPrice(
         $product,
         $price,
         $includingTax = null,
@@ -630,7 +630,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function displayPriceIncludingTax()
+    function displayPriceIncludingTax()
     {
         return $this->getPriceDisplayType() == Mage_Tax_Model_Config::DISPLAY_TYPE_INCLUDING_TAX;
     }
@@ -640,7 +640,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function displayPriceExcludingTax()
+    function displayPriceExcludingTax()
     {
         return $this->getPriceDisplayType() == Mage_Tax_Model_Config::DISPLAY_TYPE_EXCLUDING_TAX;
     }
@@ -651,7 +651,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param int $store
      * @return bool
      */
-    public function displayBothPrices($store = null)
+    function displayBothPrices($store = null)
     {
         return $this->getPriceDisplayType($store) == Mage_Tax_Model_Config::DISPLAY_TYPE_BOTH;
     }
@@ -702,7 +702,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param bool $flag
      * @return string
      */
-    public function getIncExcTaxLabel($flag)
+    function getIncExcTaxLabel($flag)
     {
         $text = $this->getIncExcText($flag);
         return $text ? ' <span class="tax-flag">(' . $text . ')</span>' : '';
@@ -714,7 +714,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return bool
      */
-    public function shippingPriceIncludesTax($store = null)
+    function shippingPriceIncludesTax($store = null)
     {
         return $this->_config->shippingPriceIncludesTax($store);
     }
@@ -725,7 +725,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return int
      */
-    public function getShippingPriceDisplayType($store = null)
+    function getShippingPriceDisplayType($store = null)
     {
         return $this->_config->getShippingPriceDisplayType($store);
     }
@@ -735,7 +735,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function displayShippingPriceIncludingTax()
+    function displayShippingPriceIncludingTax()
     {
         return $this->getShippingPriceDisplayType() == Mage_Tax_Model_Config::DISPLAY_TYPE_INCLUDING_TAX;
     }
@@ -745,7 +745,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function displayShippingPriceExcludingTax()
+    function displayShippingPriceExcludingTax()
     {
         return $this->getShippingPriceDisplayType() == Mage_Tax_Model_Config::DISPLAY_TYPE_EXCLUDING_TAX;
     }
@@ -755,7 +755,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function displayShippingBothPrices()
+    function displayShippingBothPrices()
     {
         return $this->getShippingPriceDisplayType() == Mage_Tax_Model_Config::DISPLAY_TYPE_BOTH;
     }
@@ -766,7 +766,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return int
      */
-    public function getShippingTaxClass($store)
+    function getShippingTaxClass($store)
     {
         return $this->_config->getShippingTaxClass($store);
     }
@@ -781,7 +781,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return float
      */
-    public function getShippingPrice($price, $includingTax = null, $shippingAddress = null, $ctc = null, $store = null)
+    function getShippingPrice($price, $includingTax = null, $shippingAddress = null, $ctc = null, $store = null)
     {
         $pseudoProduct = new Varien_Object();
         $pseudoProduct->setTaxClassId($this->getShippingTaxClass($store));
@@ -811,7 +811,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $taxClassField
      * @return string
      */
-    public function getPriceTaxSql($priceField, $taxClassField)
+    function getPriceTaxSql($priceField, $taxClassField)
     {
         if (!$this->priceIncludesTax() && $this->displayPriceExcludingTax()) {
             return '';
@@ -869,7 +869,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $priceTable
      * @return $this
      */
-    public function joinTaxClass($select, $storeId, $priceTable = 'main_table')
+    function joinTaxClass($select, $storeId, $priceTable = 'main_table')
     {
         $taxClassAttribute = Mage::getModel('eav/entity_attribute')
             ->loadByCode(Mage_Catalog_Model_Product::ENTITY, 'tax_class_id');
@@ -904,7 +904,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param null|string|bool|int|Mage_Core_Model_Store $store
      * @return bool 0|1
      */
-    public function discountTax($store = null)
+    function discountTax($store = null)
     {
         return $this->_config->discountTax($store);
     }
@@ -916,7 +916,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $store
      * @return mixed
      */
-    public function getTaxBasedOn($store = null)
+    function getTaxBasedOn($store = null)
     {
         return Mage::getStoreConfig(Mage_Tax_Model_Config::CONFIG_XML_PATH_BASED_ON, $store);
     }
@@ -927,7 +927,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param null|string|bool|int|Mage_Core_Model_Store $store
      * @return bool
      */
-    public function applyTaxOnCustomPrice($store = null)
+    function applyTaxOnCustomPrice($store = null)
     {
         return ((int)Mage::getStoreConfig(Mage_Tax_Model_Config::CONFIG_XML_PATH_APPLY_ON, $store) == 0);
     }
@@ -938,7 +938,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param null|string|bool|int|Mage_Core_Model_Store $store
      * @return bool
      */
-    public function applyTaxOnOriginalPrice($store = null)
+    function applyTaxOnOriginalPrice($store = null)
     {
         return ((int)Mage::getStoreConfig(Mage_Tax_Model_Config::CONFIG_XML_PATH_APPLY_ON, $store) == 1);
     }
@@ -951,7 +951,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param null|int|string|Mage_Core_Model_Store $store
      * @return string
      */
-    public function getCalculationSequence($store = null)
+    function getCalculationSequence($store = null)
     {
         return $this->_config->getCalculationSequence($store);
     }
@@ -962,7 +962,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   null|int $store
      * @return  string
      */
-    public function getCalculationAgorithm($store = null)
+    function getCalculationAgorithm($store = null)
     {
         return $this->_config->getAlgorithm($store);
     }
@@ -984,7 +984,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Sales_Model_Order $source
      * @return array
      */
-    public function getCalculatedTaxes($source)
+    function getCalculatedTaxes($source)
     {
         if ($this->_getFromRegistry('current_invoice')) {
             $current = $this->_getFromRegistry('current_invoice');
@@ -1098,7 +1098,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Sales_Model_Order $source
      * @return array
      */
-    public function getShippingTax($source)
+    function getShippingTax($source)
     {
         if (Mage::registry('current_invoice')) {
             $current = Mage::registry('current_invoice');
@@ -1132,7 +1132,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isWrongDisplaySettingsIgnored()
+    function isWrongDisplaySettingsIgnored()
     {
         return (bool)$this->_app->getStore()->getConfig(Mage_Tax_Model_Config::XML_PATH_TAX_NOTIFICATION_PRICE_DISPLAY);
     }
@@ -1142,7 +1142,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool
      */
-    public function isWrongDiscountSettingsIgnored()
+    function isWrongDiscountSettingsIgnored()
     {
         return (bool)$this->_app->getStore()->getConfig(Mage_Tax_Model_Config::XML_PATH_TAX_NOTIFICATION_DISCOUNT);
     }
@@ -1156,7 +1156,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
      * @param  null|string|bool|int|Mage_Core_Model_Store $store
      * @return bool
      */
-    public function isCrossBorderTradeEnabled($store = null)
+    function isCrossBorderTradeEnabled($store = null)
     {
         return (bool)$this->_config->crossBorderTradeEnabled($store);
     }

@@ -35,7 +35,7 @@ class Mage_Adminhtml_Block_Catalog_Form_Renderer_Fieldset_Element extends Mage_A
      *
      * @return Mage_Catalog_Model_Product | Mage_Catalog_Model_Category
      */
-    public function getDataObject()
+    function getDataObject()
     {
         return $this->getElement()->getForm()->getDataObject();
     }
@@ -45,7 +45,7 @@ class Mage_Adminhtml_Block_Catalog_Form_Renderer_Fieldset_Element extends Mage_A
      *
      * @return Mage_Catalog_Model_Resource_Eav_Attribute
      */
-    public function getAttribute()
+    function getAttribute()
     {
         return $this->getElement()->getEntityAttribute();
     }
@@ -55,7 +55,7 @@ class Mage_Adminhtml_Block_Catalog_Form_Renderer_Fieldset_Element extends Mage_A
      *
      * @return string
      */
-    public function getAttributeCode()
+    function getAttributeCode()
     {
         return $this->getAttribute()->getAttributeCode();
     }
@@ -65,7 +65,7 @@ class Mage_Adminhtml_Block_Catalog_Form_Renderer_Fieldset_Element extends Mage_A
      *
      * @return bool
      */
-    public function canDisplayUseDefault()
+    function canDisplayUseDefault()
     {
         if ($attribute = $this->getAttribute()) {
             if (!$attribute->isScopeGlobal()
@@ -84,7 +84,7 @@ class Mage_Adminhtml_Block_Catalog_Form_Renderer_Fieldset_Element extends Mage_A
      *
      * @return bool
      */
-    public function usedDefault()
+    function usedDefault()
     {
         $attributeCode = $this->getAttribute()->getAttributeCode();
         $defaultValue = $this->getDataObject()->getAttributeDefaultValue($attributeCode);
@@ -107,7 +107,7 @@ class Mage_Adminhtml_Block_Catalog_Form_Renderer_Fieldset_Element extends Mage_A
      *
      * @return $this
      */
-    public function checkFieldDisable()
+    function checkFieldDisable()
     {
         if ($this->canDisplayUseDefault() && $this->usedDefault()) {
             $this->getElement()->setDisabled(true);
@@ -122,7 +122,7 @@ class Mage_Adminhtml_Block_Catalog_Form_Renderer_Fieldset_Element extends Mage_A
      *
      * @return string
      */
-    public function getScopeLabel()
+    function getScopeLabel()
     {
         $html = '';
         $attribute = $this->getElement()->getEntityAttribute();
@@ -158,7 +158,7 @@ class Mage_Adminhtml_Block_Catalog_Form_Renderer_Fieldset_Element extends Mage_A
      *
      * @return string
      */
-    public function getElementLabelHtml()
+    function getElementLabelHtml()
     {
         $element = $this->getElement();
         $label = $element->getLabel();
@@ -173,7 +173,7 @@ class Mage_Adminhtml_Block_Catalog_Form_Renderer_Fieldset_Element extends Mage_A
      *
      * @return string
      */
-    public function getElementHtml()
+    function getElementHtml()
     {
         return $this->getElement()->getElementHtml();
     }

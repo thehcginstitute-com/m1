@@ -8,7 +8,7 @@ class IWD_OrderFlags_Block_Adminhtml_Flags_Types extends Mage_Adminhtml_Block_Wi
     /**
      * {@inheritdoc}
      */
-    public function __construct()
+    function __construct()
     {
         $this->_blockGroup = 'iwd_orderflags';
         $this->_controller = 'adminhtml_flags_types';

@@ -32,7 +32,7 @@ class Mage_Core_Helper_Translate extends Mage_Core_Helper_Abstract
      * @param string $returnType
      * @return string
      */
-    public function apply($translate, $area, $returnType = 'json')
+    function apply($translate, $area, $returnType = 'json')
     {
         try {
             if ($area) {

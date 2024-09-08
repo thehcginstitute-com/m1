@@ -61,7 +61,7 @@ class Mage_Tax_Model_Sales_Total_Quote_Shipping extends Mage_Sales_Model_Quote_A
     /**
      * Class constructor
      */
-    public function __construct()
+    function __construct()
     {
         $this->setCode('shipping');
         $this->_calculator  = Mage::getSingleton('tax/calculation');
@@ -75,7 +75,7 @@ class Mage_Tax_Model_Sales_Total_Quote_Shipping extends Mage_Sales_Model_Quote_A
      * @param Mage_Sales_Model_Quote_Address $address
      * @return Mage_Tax_Model_Sales_Total_Quote_Shipping
      */
-    public function collect(Mage_Sales_Model_Quote_Address $address)
+    function collect(Mage_Sales_Model_Quote_Address $address)
     {
         parent::collect($address);
         $calc               = $this->_calculator;

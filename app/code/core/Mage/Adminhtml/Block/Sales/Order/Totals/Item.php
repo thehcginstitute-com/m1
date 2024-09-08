@@ -43,7 +43,7 @@ class Mage_Adminhtml_Block_Sales_Order_Totals_Item extends Mage_Adminhtml_Block_
      *
      * @return $this
      */
-    public function initTotals()
+    function initTotals()
     {
         $total = new Varien_Object([
             'code'      => $this->getNameInLayout(),
@@ -66,7 +66,7 @@ class Mage_Adminhtml_Block_Sales_Order_Totals_Item extends Mage_Adminhtml_Block_
      * @param float $amount
      * @return string
      */
-    public function displayPrices($baseAmount, $amount)
+    function displayPrices($baseAmount, $amount)
     {
         /** @var Mage_Adminhtml_Helper_Sales $helper */
         $helper = $this->helper('adminhtml/sales');
@@ -81,7 +81,7 @@ class Mage_Adminhtml_Block_Sales_Order_Totals_Item extends Mage_Adminhtml_Block_
      * @param string $separator
      * @return string
      */
-    public function displayPriceAttribute($code, $strong = false, $separator = '<br/>')
+    function displayPriceAttribute($code, $strong = false, $separator = '<br/>')
     {
         /** @var Mage_Adminhtml_Helper_Sales $helper */
         $helper = $this->helper('adminhtml/sales');
@@ -93,7 +93,7 @@ class Mage_Adminhtml_Block_Sales_Order_Totals_Item extends Mage_Adminhtml_Block_
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getSource()
+    function getSource()
     {
         return $this->getParentBlock()->getSource();
     }

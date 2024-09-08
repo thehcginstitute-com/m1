@@ -32,7 +32,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
     /**
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer()
+    function getCustomer()
     {
         if (!$this->_customer) {
             $this->_customer = Mage::registry('current_customer');
@@ -43,7 +43,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
     /**
      * @return string|void
      */
-    public function getGroupName()
+    function getGroupName()
     {
         if ($groupId = $this->getCustomer()->getGroupId()) {
             return Mage::getModel('customer/group')
@@ -57,7 +57,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
      *
      * @return Mage_Log_Model_Customer
      */
-    public function getCustomerLog()
+    function getCustomerLog()
     {
         if (!$this->_customerLog) {
             $this->_customerLog = Mage::getModel('log/customer')
@@ -71,7 +71,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
      *
      * @return string|null
      */
-    public function getCreateDate()
+    function getCreateDate()
     {
         if (!$this->getCustomer()->getCreatedAt()) {
             return null;
@@ -86,7 +86,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
     /**
      * @return string|null
      */
-    public function getStoreCreateDate()
+    function getStoreCreateDate()
     {
         if (!$this->getCustomer()->getCreatedAt()) {
             return null;
@@ -99,7 +99,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
         return $this->formatDate($date, Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM, true);
     }
 
-    public function getStoreCreateDateTimezone()
+    function getStoreCreateDateTimezone()
     {
         return Mage::app()->getStore($this->getCustomer()->getStoreId())
             ->getConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_TIMEZONE);
@@ -110,7 +110,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
      *
      * @return string
      */
-    public function getLastLoginDate()
+    function getLastLoginDate()
     {
         $date = $this->getCustomerLog()->getLoginAtTimestamp();
         if ($date) {
@@ -122,7 +122,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
     /**
      * @return string
      */
-    public function getStoreLastLoginDate()
+    function getStoreLastLoginDate()
     {
         if ($date = $this->getCustomerLog()->getLoginAtTimestamp()) {
             $date = Mage::app()->getLocale()->storeDate(
@@ -135,7 +135,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
         return Mage::helper('customer')->__('Never');
     }
 
-    public function getStoreLastLoginDateTimezone()
+    function getStoreLastLoginDateTimezone()
     {
         return Mage::app()->getStore($this->getCustomer()->getStoreId())
             ->getConfig(Mage_Core_Model_Locale::XML_PATH_DEFAULT_TIMEZONE);
@@ -144,7 +144,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
     /**
      * @return string
      */
-    public function getCurrentStatus()
+    function getCurrentStatus()
     {
         $log = $this->getCustomerLog();
         if ($log->getLogoutAt()
@@ -159,7 +159,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
     /**
      * @return string
      */
-    public function getIsConfirmedStatus()
+    function getIsConfirmedStatus()
     {
         $this->getCustomer();
         if (!$this->_customer->getConfirmation()) {
@@ -171,12 +171,12 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
         return Mage::helper('customer')->__('Not confirmed, can login');
     }
 
-    public function getCreatedInStore()
+    function getCreatedInStore()
     {
         return Mage::app()->getStore($this->getCustomer()->getStoreId())->getName();
     }
 
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->getCustomer()->getStoreId();
     }
@@ -184,7 +184,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
     /**
      * @return string
      */
-    public function getBillingAddressHtml()
+    function getBillingAddressHtml()
     {
         $html = '';
         if ($address = $this->getCustomer()->getPrimaryBillingAddress()) {
@@ -198,7 +198,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
     /**
      * @return string
      */
-    public function getAccordionHtml()
+    function getAccordionHtml()
     {
         return $this->getChildHtml('accordion');
     }
@@ -206,7 +206,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
     /**
      * @return string
      */
-    public function getSalesHtml()
+    function getSalesHtml()
     {
         return $this->getChildHtml('sales');
     }
@@ -214,7 +214,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
     /**
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('customer')->__('Customer View');
     }
@@ -222,7 +222,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
     /**
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('customer')->__('Customer View');
     }
@@ -230,7 +230,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
     /**
      * @return bool
      */
-    public function canShowTab()
+    function canShowTab()
     {
         if (Mage::registry('current_customer')->getId()) {
             return true;
@@ -241,7 +241,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_View extends Mage_Adminhtml_Block_T
     /**
      * @return bool
      */
-    public function isHidden()
+    function isHidden()
     {
         if (Mage::registry('current_customer')->getId()) {
             return false;

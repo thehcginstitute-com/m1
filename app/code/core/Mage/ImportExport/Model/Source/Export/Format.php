@@ -26,7 +26,7 @@ class Mage_ImportExport_Model_Source_Export_Format
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $formats = Mage_ImportExport_Model_Export::CONFIG_KEY_FORMATS;
         return Mage_ImportExport_Model_Config::getModelsComboOptions($formats);

@@ -16,7 +16,7 @@ class Nwdthemes_Revslider_Model_Slides extends Mage_Core_Model_Abstract {
 	 * Constructor
 	 */
 
-    public function _construct() {
+    function _construct() {
         parent::_construct();
         $this->_init('nwdrevslider/slides');
     }
@@ -28,7 +28,7 @@ class Nwdthemes_Revslider_Model_Slides extends Mage_Core_Model_Abstract {
 	 * @return int new slide id
 	 */
 
-	public function duplicate($slideId) {
+	function duplicate($slideId) {
 
 		$slide = $this->load($slideId);
 

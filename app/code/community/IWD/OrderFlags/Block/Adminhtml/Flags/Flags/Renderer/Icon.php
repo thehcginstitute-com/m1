@@ -9,7 +9,7 @@ class IWD_OrderFlags_Block_Adminhtml_Flags_Flags_Renderer_Icon
     /**
      * {@inheritdoc}
      */
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         /**
          * @var $row IWD_OrderFlags_Model_Flags_Flags

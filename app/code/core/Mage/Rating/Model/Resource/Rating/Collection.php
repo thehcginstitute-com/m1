@@ -40,7 +40,7 @@ class Mage_Rating_Model_Resource_Rating_Collection extends Mage_Core_Model_Resou
      * @param   int|string $entity
      * @return  Mage_Rating_Model_Resource_Rating_Collection
      */
-    public function addEntityFilter($entity)
+    function addEntityFilter($entity)
     {
         $adapter = $this->getConnection();
 
@@ -73,7 +73,7 @@ class Mage_Rating_Model_Resource_Rating_Collection extends Mage_Core_Model_Resou
      * @param   string $dir
      * @return  Mage_Rating_Model_Resource_Rating_Collection
      */
-    public function setPositionOrder($dir = 'ASC')
+    function setPositionOrder($dir = 'ASC')
     {
         $this->setOrder('main_table.position', $dir);
         return $this;
@@ -85,7 +85,7 @@ class Mage_Rating_Model_Resource_Rating_Collection extends Mage_Core_Model_Resou
      * @param int $storeId
      * @return $this
      */
-    public function setStoreFilter($storeId)
+    function setStoreFilter($storeId)
     {
         $adapter = $this->getConnection();
         if (!is_array($storeId)) {
@@ -118,7 +118,7 @@ class Mage_Rating_Model_Resource_Rating_Collection extends Mage_Core_Model_Resou
      *
      * @return $this
      */
-    public function addOptionToItems()
+    function addOptionToItems()
     {
         $arrRatingId = $this->getColumnValues('rating_id');
 
@@ -143,7 +143,7 @@ class Mage_Rating_Model_Resource_Rating_Collection extends Mage_Core_Model_Resou
      * @param int $storeId
      * @return $this
      */
-    public function addEntitySummaryToItem($entityPkValue, $storeId)
+    function addEntitySummaryToItem($entityPkValue, $storeId)
     {
         $arrRatingId = $this->getColumnValues('rating_id');
         if (count($arrRatingId) == 0) {
@@ -206,7 +206,7 @@ class Mage_Rating_Model_Resource_Rating_Collection extends Mage_Core_Model_Resou
      * @param int $storeId
      * @return $this
      */
-    public function addRatingPerStoreName($storeId)
+    function addRatingPerStoreName($storeId)
     {
         $adapter = $this->getConnection();
         $ratingCodeCond = $adapter->getIfNullSql('title.value', 'main_table.rating_code');
@@ -224,7 +224,7 @@ class Mage_Rating_Model_Resource_Rating_Collection extends Mage_Core_Model_Resou
      *
      * @return $this
      */
-    public function addStoresToCollection()
+    function addStoresToCollection()
     {
         if (!$this->_isCollectionLoaded) {
             return $this;

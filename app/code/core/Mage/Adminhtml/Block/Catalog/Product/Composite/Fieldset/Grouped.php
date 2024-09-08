@@ -45,7 +45,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset_Grouped extends Ma
      * @return Mage_Catalog_Model_Product
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!$this->hasData('product')) {
             $this->setData('product', Mage::registry('product'));
@@ -64,7 +64,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset_Grouped extends Ma
      * @return array
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getAssociatedProducts()
+    function getAssociatedProducts()
     {
         $product = $this->getProduct();
         /** @var Mage_Catalog_Model_Product_Type_Grouped $productType */
@@ -85,7 +85,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset_Grouped extends Ma
      * @return Mage_Catalog_Block_Product_View_Type_Grouped
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function setPreconfiguredValue()
+    function setPreconfiguredValue()
     {
         $configValues = $this->getProduct()->getPreconfiguredValues()->getSuperGroup();
         if (is_array($configValues)) {
@@ -105,7 +105,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset_Grouped extends Ma
      * @param Mage_Catalog_Model_Product $product
      * @return bool
      */
-    public function getCanShowProductPrice($product)
+    function getCanShowProductPrice($product)
     {
         return true;
     }
@@ -116,7 +116,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset_Grouped extends Ma
      * @return bool
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getIsLastFieldset()
+    function getIsLastFieldset()
     {
         $isLast = $this->getData('is_last_fieldset');
         if (!$isLast) {
@@ -133,7 +133,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset_Grouped extends Ma
      * @return float
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getCurrencyPrice($price)
+    function getCurrencyPrice($price)
     {
         /** @var Mage_Core_Helper_Data $helper */
         $helper = $this->helper('core');

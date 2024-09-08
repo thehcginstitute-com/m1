@@ -37,7 +37,7 @@ class Mage_Oauth_Model_Resource_Token_Collection extends Mage_Core_Model_Resourc
      *
      * @return $this
      */
-    public function joinConsumerAsApplication()
+    function joinConsumerAsApplication()
     {
         $select = $this->getSelect();
         $select->joinLeft(
@@ -55,7 +55,7 @@ class Mage_Oauth_Model_Resource_Token_Collection extends Mage_Core_Model_Resourc
      * @param int $adminId
      * @return $this
      */
-    public function addFilterByAdminId($adminId)
+    function addFilterByAdminId($adminId)
     {
         $this->addFilter('main_table.admin_id', $adminId);
         return $this;
@@ -67,7 +67,7 @@ class Mage_Oauth_Model_Resource_Token_Collection extends Mage_Core_Model_Resourc
      * @param int $customerId
      * @return $this
      */
-    public function addFilterByCustomerId($customerId)
+    function addFilterByCustomerId($customerId)
     {
         $this->addFilter('main_table.customer_id', $customerId);
         return $this;
@@ -79,7 +79,7 @@ class Mage_Oauth_Model_Resource_Token_Collection extends Mage_Core_Model_Resourc
      * @param int $consumerId
      * @return $this
      */
-    public function addFilterByConsumerId($consumerId)
+    function addFilterByConsumerId($consumerId)
     {
         $this->addFilter('main_table.consumer_id', $consumerId);
         return $this;
@@ -91,7 +91,7 @@ class Mage_Oauth_Model_Resource_Token_Collection extends Mage_Core_Model_Resourc
      * @param string $type
      * @return $this
      */
-    public function addFilterByType($type)
+    function addFilterByType($type)
     {
         $this->addFilter('main_table.type', $type);
         return $this;
@@ -103,7 +103,7 @@ class Mage_Oauth_Model_Resource_Token_Collection extends Mage_Core_Model_Resourc
      * @param array|int $id
      * @return $this
      */
-    public function addFilterById($id)
+    function addFilterById($id)
     {
         $this->addFilter('main_table.entity_id', ['in' => $id], 'public');
         return $this;
@@ -115,7 +115,7 @@ class Mage_Oauth_Model_Resource_Token_Collection extends Mage_Core_Model_Resourc
      * @param bool|int $flag
      * @return $this
      */
-    public function addFilterByRevoked($flag)
+    function addFilterByRevoked($flag)
     {
         $this->addFilter('main_table.revoked', (int) $flag, 'public');
         return $this;

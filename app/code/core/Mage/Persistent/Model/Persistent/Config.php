@@ -41,7 +41,7 @@ class Mage_Persistent_Model_Persistent_Config
      * @param string $path
      * @return $this
      */
-    public function setConfigFilePath($path)
+    function setConfigFilePath($path)
     {
         $this->_configFilePath = $path;
         $this->_xmlConfig = null;
@@ -54,7 +54,7 @@ class Mage_Persistent_Model_Persistent_Config
      * @return Varien_Simplexml_Element
      * @throws Mage_Core_Exception
      */
-    public function getXmlConfig()
+    function getXmlConfig()
     {
         if (is_null($this->_xmlConfig)) {
             $filePath = $this->_configFilePath;
@@ -76,7 +76,7 @@ class Mage_Persistent_Model_Persistent_Config
      *
      * @return array
      */
-    public function collectInstancesToEmulate()
+    function collectInstancesToEmulate()
     {
         $config = $this->getXmlConfig()->asArray();
         return $config['instances'];
@@ -87,7 +87,7 @@ class Mage_Persistent_Model_Persistent_Config
      *
      * @return $this
      */
-    public function fire()
+    function fire()
     {
         foreach ($this->collectInstancesToEmulate() as $type => $elements) {
             if (!is_array($elements)) {
@@ -111,7 +111,7 @@ class Mage_Persistent_Model_Persistent_Config
      * @param Mage_Core_Block_Abstract|false $instance
      * @return $this
      */
-    public function fireOne($info, $instance = false)
+    function fireOne($info, $instance = false)
     {
         if (!$instance
             || (isset($info['block_type']) && !($instance instanceof $info['block_type']))

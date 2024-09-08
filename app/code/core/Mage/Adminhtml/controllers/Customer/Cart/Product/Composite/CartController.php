@@ -84,7 +84,7 @@ class Mage_Adminhtml_Customer_Cart_Product_Composite_CartController extends Mage
      *
      * @return $this
      */
-    public function configureAction()
+    function configureAction()
     {
         $configureResult = new Varien_Object();
         try {
@@ -121,7 +121,7 @@ class Mage_Adminhtml_Customer_Cart_Product_Composite_CartController extends Mage
      *
      * @return $this
      */
-    public function updateAction()
+    function updateAction()
     {
         $updateResult = new Varien_Object();
         try {

@@ -105,7 +105,7 @@ class Mage_Api_Model_Resource_Roles extends Mage_Core_Model_Resource_Db_Abstract
      * @param Mage_Api_Model_Roles $role
      * @return array
      */
-    public function getRoleUsers(Mage_Api_Model_Roles $role)
+    function getRoleUsers(Mage_Api_Model_Roles $role)
     {
         $adapter = $this->_getReadAdapter();
         $select  = $adapter->select()

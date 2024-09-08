@@ -264,7 +264,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      * @param   Mage_Sales_Model_Order_Item $item
      * @return  $this
      */
-    public function setParentItem($item)
+    function setParentItem($item)
     {
         if ($item) {
             $this->_parentItem = $item;
@@ -279,7 +279,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return $this|null
      */
-    public function getParentItem()
+    function getParentItem()
     {
         return $this->_parentItem;
     }
@@ -289,7 +289,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function canInvoice()
+    function canInvoice()
     {
         return $this->getQtyToInvoice() > 0;
     }
@@ -299,7 +299,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function canShip()
+    function canShip()
     {
         return $this->getQtyToShip() > 0;
     }
@@ -309,7 +309,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function canRefund()
+    function canRefund()
     {
         return $this->getQtyToRefund() > 0;
     }
@@ -319,7 +319,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return float|integer
      */
-    public function getQtyToShip()
+    function getQtyToShip()
     {
         if ($this->isDummy(true)) {
             return 0;
@@ -333,7 +333,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return float|integer
      */
-    public function getSimpleQtyToShip()
+    function getSimpleQtyToShip()
     {
         $qty = $this->getQtyOrdered()
             - $this->getQtyShipped()
@@ -347,7 +347,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return float|integer
      */
-    public function getQtyToInvoice()
+    function getQtyToInvoice()
     {
         if ($this->isDummy()) {
             return 0;
@@ -364,7 +364,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return float|integer
      */
-    public function getQtyToRefund()
+    function getQtyToRefund()
     {
         if ($this->isDummy()) {
             return 0;
@@ -377,7 +377,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return float|integer
      */
-    public function getQtyToCancel()
+    function getQtyToCancel()
     {
         if ($this->getProductType() == Mage_Catalog_Model_Product_Type::TYPE_BUNDLE) {
             $qtyToCancel = $this->getQtyToCancelBundle();
@@ -397,7 +397,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return float|integer
      */
-    public function getQtyToCancelBundle()
+    function getQtyToCancelBundle()
     {
         if ($this->isDummy()) {
             $qty = $this->getQtyOrdered()
@@ -414,7 +414,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return float|integer
      */
-    public function getQtyToCancelBundleItem()
+    function getQtyToCancelBundleItem()
     {
         if ($this->isDummy(true)) {
             return min($this->getQtyToInvoice(), $this->getSimpleQtyToShip());
@@ -428,7 +428,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      * @param   Mage_Sales_Model_Order $order
      * @return  $this
      */
-    public function setOrder(Mage_Sales_Model_Order $order)
+    function setOrder(Mage_Sales_Model_Order $order)
     {
         $this->_order = $order;
         $this->setOrderId($order->getId());
@@ -440,7 +440,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         if (is_null($this->_order) && ($orderId = $this->getOrderId())) {
             $order = Mage::getModel('sales/order');
@@ -455,7 +455,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getStatusId()
+    function getStatusId()
     {
         $backordered = (float)$this->getQtyBackordered();
         if (!$backordered && $this->getHasChildren()) {
@@ -519,7 +519,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getStatus()
+    function getStatus()
     {
         return self::getStatusName($this->getStatusId());
     }
@@ -543,7 +543,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function cancel()
+    function cancel()
     {
         if ($this->getStatusId() !== self::STATUS_CANCELED) {
             Mage::dispatchEvent('sales_order_item_cancel', ['item' => $this]);
@@ -588,7 +588,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return float
      */
-    public function getOriginalPrice()
+    function getOriginalPrice()
     {
         $price = $this->getData('original_price');
         if (is_null($price)) {
@@ -603,7 +603,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      * @param   array $options
      * @return  $this
      */
-    public function setProductOptions(array $options)
+    function setProductOptions(array $options)
     {
         $this->setData('product_options', serialize($options));
         return $this;
@@ -614,7 +614,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getProductOptions()
+    function getProductOptions()
     {
         if ($options = $this->_getData('product_options')) {
             return unserialize($options, ['allowed_classes' => false]);
@@ -629,7 +629,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      * @param string $code
      * @return array|null
      */
-    public function getProductOptionByCode($code = null)
+    function getProductOptionByCode($code = null)
     {
         $options = $this->getProductOptions();
         if (is_null($code)) {
@@ -643,7 +643,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return array|null
      */
-    public function getRealProductType()
+    function getRealProductType()
     {
         if ($productType = $this->getProductOptionByCode('real_product_type')) {
             return $productType;
@@ -656,7 +656,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @param Mage_Sales_Model_Order_Item $item
      */
-    public function addChildItem($item)
+    function addChildItem($item)
     {
         if ($item instanceof Mage_Sales_Model_Order_Item) {
             $this->_children[] = $item;
@@ -670,7 +670,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getChildrenItems()
+    function getChildrenItems()
     {
         return $this->_children;
     }
@@ -681,7 +681,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isChildrenCalculated()
+    function isChildrenCalculated()
     {
         if ($parentItem = $this->getParentItem()) {
             $options = $parentItem->getProductOptions();
@@ -701,7 +701,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function getForceApplyDiscountToParentItem()
+    function getForceApplyDiscountToParentItem()
     {
         if ($this->getParentItem()) {
             $product = $this->getParentItem()->getProduct();
@@ -718,7 +718,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isShipSeparately()
+    function isShipSeparately()
     {
         if ($parentItem = $this->getParentItem()) {
             $options = $parentItem->getProductOptions();
@@ -742,7 +742,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      * @param bool $shipment
      * @return bool
      */
-    public function isDummy($shipment = false)
+    function isDummy($shipment = false)
     {
         if ($shipment) {
             if ($this->getHasChildren() && $this->isShipSeparately()) {
@@ -786,7 +786,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return Varien_Object
      */
-    public function getBuyRequest()
+    function getBuyRequest()
     {
         $option = $this->getProductOptionByCode('info_buyRequest');
         if (!$option) {
@@ -802,7 +802,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!$this->getData('product')) {
             $product = Mage::getModel('catalog/product')->setStoreId($this->getStoreId())->load($this->getProductId());

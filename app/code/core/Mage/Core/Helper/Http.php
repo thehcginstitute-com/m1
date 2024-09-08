@@ -37,7 +37,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
      * @param array|null $headers
      * @return array
      */
-    public function authValidate($headers = null)
+    function authValidate($headers = null)
     {
         if (!is_null($headers)) {
             $_SERVER = $headers;
@@ -81,7 +81,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
      *
      * @return never
      */
-    public function authFailed()
+    function authFailed()
     {
         Mage::app()->getResponse()
             ->setHeader('HTTP/1.1', '401 Unauthorized')
@@ -96,7 +96,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getRemoteAddrHeaders()
+    function getRemoteAddrHeaders()
     {
         $headers = [];
         $element = Mage::getConfig()->getNode(self::XML_NODE_REMOTE_ADDR_HEADERS);
@@ -115,7 +115,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
      * @param bool $ipToLong converting IP to long format
      * @return false|string IPv4|long
      */
-    public function getRemoteAddr($ipToLong = false)
+    function getRemoteAddr($ipToLong = false)
     {
         if (is_null($this->_remoteAddr)) {
             $headers = $this->getRemoteAddrHeaders();
@@ -149,7 +149,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
      * @param bool $ipToLong converting IP to long format
      * @return false|string IPv4|long
      */
-    public function getServerAddr($ipToLong = false)
+    function getServerAddr($ipToLong = false)
     {
         $address = $this->_getRequest()->getServer('SERVER_ADDR');
         if (!$address) {
@@ -181,7 +181,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
      * @param bool $clean clean non UTF-8 characters
      * @return string
      */
-    public function getHttpHost($clean = true)
+    function getHttpHost($clean = true)
     {
         return $this->_getHttpCleanValue('HTTP_HOST', $clean);
     }
@@ -192,7 +192,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
      * @param bool $clean clean non UTF-8 characters
      * @return string
      */
-    public function getHttpUserAgent($clean = true)
+    function getHttpUserAgent($clean = true)
     {
         return $this->_getHttpCleanValue('HTTP_USER_AGENT', $clean);
     }
@@ -203,7 +203,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
      * @param bool $clean clean non UTF-8 characters
      * @return string
      */
-    public function getHttpAcceptLanguage($clean = true)
+    function getHttpAcceptLanguage($clean = true)
     {
         return $this->_getHttpCleanValue('HTTP_ACCEPT_LANGUAGE', $clean);
     }
@@ -214,7 +214,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
      * @param bool $clean clean non UTF-8 characters
      * @return string
      */
-    public function getHttpAcceptCharset($clean = true)
+    function getHttpAcceptCharset($clean = true)
     {
         return $this->_getHttpCleanValue('HTTP_ACCEPT_CHARSET', $clean);
     }
@@ -225,7 +225,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
      * @param bool $clean clean non UTF-8 characters
      * @return string
      */
-    public function getHttpReferer($clean = true)
+    function getHttpReferer($clean = true)
     {
         return $this->_getHttpCleanValue('HTTP_REFERER', $clean);
     }
@@ -237,7 +237,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
      * @param bool $clean clean non UTF-8 characters
      * @return string
      */
-    public function getRequestUri($clean = false)
+    function getRequestUri($clean = false)
     {
         $uri = $this->_getRequest()->getRequestUri();
         if ($clean) {
@@ -252,7 +252,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
      * @param string $address
      * @return bool
      */
-    public function validateIpAddr($address)
+    function validateIpAddr($address)
     {
         return preg_match('#^(1?\d{1,2}|2([0-4]\d|5[0-5]))(\.(1?\d{1,2}|2([0-4]\d|5[0-5]))){3}$#', $address);
     }

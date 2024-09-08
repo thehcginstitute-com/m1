@@ -63,7 +63,7 @@ class Mage_SalesRule_Model_Coupon_Massgenerator extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function generateCode()
+    function generateCode()
     {
         $format  = $this->getFormat();
         if (!$format) {
@@ -96,7 +96,7 @@ class Mage_SalesRule_Model_Coupon_Massgenerator extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getDelimiter()
+    function getDelimiter()
     {
         if ($this->getData('delimiter')) {
             return $this->getData('delimiter');
@@ -110,7 +110,7 @@ class Mage_SalesRule_Model_Coupon_Massgenerator extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function generatePool()
+    function generatePool()
     {
         $this->_generatedCount = 0;
         $size = $this->getQty();
@@ -175,7 +175,7 @@ class Mage_SalesRule_Model_Coupon_Massgenerator extends Mage_Core_Model_Abstract
      * @param array $data
      * @return bool
      */
-    public function validateData($data)
+    function validateData($data)
     {
         return !empty($data) && !empty($data['qty']) && !empty($data['rule_id'])
             && !empty($data['length']) && !empty($data['format'])
@@ -188,7 +188,7 @@ class Mage_SalesRule_Model_Coupon_Massgenerator extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getGeneratedCount()
+    function getGeneratedCount()
     {
         return $this->_generatedCount;
     }

@@ -9,7 +9,7 @@ class IWD_AdminCheckout_Model_Observer
      * Check required modules:
      *   - IWD_ALL
      */
-    public function checkRequiredModules()
+    function checkRequiredModules()
     {
         if (Mage::getSingleton('admin/session')->isLoggedIn()) {
             if (!Mage::getConfig()->getModuleConfig('IWD_All')->is('active', 'true')) {
@@ -46,7 +46,7 @@ class IWD_AdminCheckout_Model_Observer
     /**
      * @param Varien_Event_Observer $observer
      */
-    public function initQuoteAddress(Varien_Event_Observer $observer)
+    function initQuoteAddress(Varien_Event_Observer $observer)
     {
         if (!Mage::helper('iwd_admin_checkout')->isCustomCreationProcess()) {
             return;
@@ -94,7 +94,7 @@ class IWD_AdminCheckout_Model_Observer
         }
     }
 
-    public function beforeOrderCreateLoadBlock()
+    function beforeOrderCreateLoadBlock()
     {
         if (!Mage::helper('iwd_admin_checkout')->isCustomCreationProcess()) {
             return;

@@ -2,7 +2,7 @@
 
 class Meetanshi_Defer_Model_Observer extends Mage_Core_Model_Abstract
 {
-    public function httpResponseSendBefore($observer)
+    function httpResponseSendBefore($observer)
     {
         $enable_DeferJs = Mage::helper('defer/data')->isEnable();
 

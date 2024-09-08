@@ -32,7 +32,7 @@ class Mage_Checkout_Block_Cart_Item_Renderer_Grouped extends Mage_Checkout_Block
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getGroupedProduct()
+    function getGroupedProduct()
     {
         $option = $this->getItem()->getOptionByCode('product_type');
         if ($option) {
@@ -46,7 +46,7 @@ class Mage_Checkout_Block_Cart_Item_Renderer_Grouped extends Mage_Checkout_Block
      *
      * @return Mage_Catalog_Helper_Image
      */
-    public function getProductThumbnail()
+    function getProductThumbnail()
     {
         $product = $this->getProduct();
         if (!$product->getData('thumbnail')
@@ -84,7 +84,7 @@ class Mage_Checkout_Block_Cart_Item_Renderer_Grouped extends Mage_Checkout_Block
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         return array_merge(parent::getCacheTags(), $this->getGroupedProduct()->getCacheIdTags());
     }

@@ -28,7 +28,7 @@ class Mage_Admin_Helper_Variable
      */
     protected $_allowedPaths;
 
-    public function __construct()
+    function __construct()
     {
         $this->_allowedPaths = Mage::getResourceModel('admin/variable')->getAllowedPaths();
     }
@@ -37,7 +37,7 @@ class Mage_Admin_Helper_Variable
      * @param string $path
      * @return bool
      */
-    public function isPathAllowed($path)
+    function isPathAllowed($path)
     {
         return isset($this->_allowedPaths[$path]);
     }

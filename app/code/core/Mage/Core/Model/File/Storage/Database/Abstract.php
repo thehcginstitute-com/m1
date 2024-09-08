@@ -29,7 +29,7 @@ abstract class Mage_Core_Model_File_Storage_Database_Abstract extends Mage_Core_
      *
      * @param array $params
      */
-    public function __construct($params = [])
+    function __construct($params = [])
     {
         $connectionName = $params['connection'] ?? null;
         if (empty($connectionName)) {
@@ -44,7 +44,7 @@ abstract class Mage_Core_Model_File_Storage_Database_Abstract extends Mage_Core_
      *
      * @return string
      */
-    public function getConfigConnectionName()
+    function getConfigConnectionName()
     {
         $connectionName = (string) Mage::app()->getConfig()
             ->getNode(Mage_Core_Model_File_Storage::XML_PATH_STORAGE_MEDIA_DATABASE);
@@ -74,7 +74,7 @@ abstract class Mage_Core_Model_File_Storage_Database_Abstract extends Mage_Core_
      *
      * @return $this
      */
-    public function prepareStorage()
+    function prepareStorage()
     {
         $this->_getResource()->createDatabaseScheme();
 
@@ -87,7 +87,7 @@ abstract class Mage_Core_Model_File_Storage_Database_Abstract extends Mage_Core_
      * @param  string $connectionName
      * @return $this
      */
-    public function setConnectionName($connectionName)
+    function setConnectionName($connectionName)
     {
         if (!empty($connectionName)) {
             $this->setData('connection_name', $connectionName);

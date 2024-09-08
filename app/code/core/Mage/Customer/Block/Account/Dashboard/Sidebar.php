@@ -34,7 +34,7 @@ class Mage_Customer_Block_Account_Dashboard_Sidebar extends Mage_Core_Block_Temp
     /**
      * @return string
      */
-    public function getShoppingCartUrl()
+    function getShoppingCartUrl()
     {
         return Mage::getUrl('checkout/cart');
     }
@@ -42,7 +42,7 @@ class Mage_Customer_Block_Account_Dashboard_Sidebar extends Mage_Core_Block_Temp
     /**
      * @return int
      */
-    public function getCartItemsCount()
+    function getCartItemsCount()
     {
         if (!$this->_cartItemsCount) {
             $this->_cartItemsCount = Mage::getModel('sales/quote')
@@ -57,7 +57,7 @@ class Mage_Customer_Block_Account_Dashboard_Sidebar extends Mage_Core_Block_Temp
     /**
      * @return Mage_Wishlist_Model_Resource_Item_Collection
      */
-    public function getWishlist()
+    function getWishlist()
     {
         if (!$this->_wishlist) {
             $this->_wishlist = Mage::getModel('wishlist/wishlist')
@@ -79,7 +79,7 @@ class Mage_Customer_Block_Account_Dashboard_Sidebar extends Mage_Core_Block_Temp
     /**
      * @return int
      */
-    public function getWishlistCount()
+    function getWishlistCount()
     {
         return $this->getWishlist()->getSize();
     }
@@ -88,7 +88,7 @@ class Mage_Customer_Block_Account_Dashboard_Sidebar extends Mage_Core_Block_Temp
      * @param Mage_Wishlist_Model_Item $wishlistItem
      * @return string
      */
-    public function getWishlistAddToCartLink($wishlistItem)
+    function getWishlistAddToCartLink($wishlistItem)
     {
         return Mage::getUrl('wishlist/index/cart', ['item' => $wishlistItem->getId()]);
     }
@@ -97,7 +97,7 @@ class Mage_Customer_Block_Account_Dashboard_Sidebar extends Mage_Core_Block_Temp
      * @return Mage_Catalog_Model_Resource_Product_Compare_Item_Collection
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function getCompareItems()
+    function getCompareItems()
     {
         if (!$this->_compareItems) {
             $this->_compareItems = Mage::getResourceModel('catalog/product_compare_item_collection')
@@ -115,7 +115,7 @@ class Mage_Customer_Block_Account_Dashboard_Sidebar extends Mage_Core_Block_Temp
     /**
      * @return string
      */
-    public function getCompareJsObjectName()
+    function getCompareJsObjectName()
     {
         return "dashboardSidebarCompareJsObject";
     }
@@ -123,7 +123,7 @@ class Mage_Customer_Block_Account_Dashboard_Sidebar extends Mage_Core_Block_Temp
     /**
      * @return string
      */
-    public function getCompareRemoveUrlTemplate()
+    function getCompareRemoveUrlTemplate()
     {
         return $this->getUrl('catalog/product_compare/remove', ['product' => '#{id}']);
     }
@@ -131,7 +131,7 @@ class Mage_Customer_Block_Account_Dashboard_Sidebar extends Mage_Core_Block_Temp
     /**
      * @return string
      */
-    public function getCompareAddUrlTemplate()
+    function getCompareAddUrlTemplate()
     {
         return $this->getUrl('catalog/product_compare/add', ['product' => '#{id}']);
     }
@@ -139,7 +139,7 @@ class Mage_Customer_Block_Account_Dashboard_Sidebar extends Mage_Core_Block_Temp
     /**
      * @return string
      */
-    public function getCompareUrl()
+    function getCompareUrl()
     {
         return $this->getUrl('catalog/product_compare');
     }

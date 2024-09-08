@@ -27,7 +27,7 @@ class Mage_Catalog_Block_Product_View_Attributes extends Mage_Core_Block_Templat
     /**
      * @return mixed|null
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!$this->_product) {
             $this->_product = Mage::registry('product');
@@ -42,7 +42,7 @@ class Mage_Catalog_Block_Product_View_Attributes extends Mage_Core_Block_Templat
      * @param array $excludeAttr
      * @return array
      */
-    public function getAdditionalData(array $excludeAttr = [])
+    function getAdditionalData(array $excludeAttr = [])
     {
         $data = [];
         $product = $this->getProduct();

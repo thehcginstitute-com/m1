@@ -45,7 +45,7 @@ class Mage_Core_Model_Resource_Variable_Collection extends Mage_Core_Model_Resou
      * @param int $storeId
      * @return $this
      */
-    public function setStoreId($storeId)
+    function setStoreId($storeId)
     {
         $this->_storeId = $storeId;
         return $this;
@@ -56,7 +56,7 @@ class Mage_Core_Model_Resource_Variable_Collection extends Mage_Core_Model_Resou
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_storeId;
     }
@@ -66,7 +66,7 @@ class Mage_Core_Model_Resource_Variable_Collection extends Mage_Core_Model_Resou
      *
      * @return $this
      */
-    public function addValuesToResult()
+    function addValuesToResult()
     {
         $this->getSelect()
             ->join(
@@ -83,7 +83,7 @@ class Mage_Core_Model_Resource_Variable_Collection extends Mage_Core_Model_Resou
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->_toOptionArray('code', 'name');
     }

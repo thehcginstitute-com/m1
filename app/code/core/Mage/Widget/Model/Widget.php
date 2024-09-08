@@ -27,7 +27,7 @@ class Mage_Widget_Model_Widget extends Varien_Object
      *
      * @return Varien_Simplexml_Config
      */
-    public function getXmlConfig()
+    function getXmlConfig()
     {
         $cachedXml = Mage::app()->loadCache('widget_config');
         if ($cachedXml) {
@@ -54,7 +54,7 @@ class Mage_Widget_Model_Widget extends Varien_Object
      * @param string $type Widget type
      * @return null|Varien_Simplexml_Element
      */
-    public function getXmlElementByType($type)
+    function getXmlElementByType($type)
     {
         $elements = $this->getXmlConfig()->getXpath('*[@type="' . $type . '"]');
         if (is_array($elements) && isset($elements[0]) && $elements[0] instanceof Varien_Simplexml_Element) {
@@ -69,7 +69,7 @@ class Mage_Widget_Model_Widget extends Varien_Object
      * @param string $type Widget type
      * @return null|Varien_Simplexml_Element
      */
-    public function getConfigAsXml($type)
+    function getConfigAsXml($type)
     {
         return $this->getXmlElementByType($type);
     }
@@ -80,7 +80,7 @@ class Mage_Widget_Model_Widget extends Varien_Object
      * @param string $type Widget type
      * @return Varien_Object
      */
-    public function getConfigAsObject($type)
+    function getConfigAsObject($type)
     {
         $xml = $this->getConfigAsXml($type);
 
@@ -149,7 +149,7 @@ class Mage_Widget_Model_Widget extends Varien_Object
      * @param array $filters Key-value array of filters for widget node properties
      * @return Varien_Simplexml_Element
      */
-    public function getWidgetsXml($filters = [])
+    function getWidgetsXml($filters = [])
     {
         $widgets = $this->getXmlConfig()->getNode();
         $result = clone $widgets;
@@ -180,7 +180,7 @@ class Mage_Widget_Model_Widget extends Varien_Object
      * @param array $filters Key-value array of filters for widget node properties
      * @return array
      */
-    public function getWidgetsArray($filters = [])
+    function getWidgetsArray($filters = [])
     {
         if (!$this->_getData('widgets_array')) {
             $result = [];
@@ -210,7 +210,7 @@ class Mage_Widget_Model_Widget extends Varien_Object
      * @param bool $asIs Return result as widget directive(true) or as placeholder image(false)
      * @return string Widget directive ready to parse
      */
-    public function getWidgetDeclaration($type, $params = [], $asIs = true)
+    function getWidgetDeclaration($type, $params = [], $asIs = true)
     {
         $directive = '{{widget type="' . $type . '"';
 
@@ -255,7 +255,7 @@ class Mage_Widget_Model_Widget extends Varien_Object
      *
      * @return array
      */
-    public function getWidgetsRequiredJsFiles()
+    function getWidgetsRequiredJsFiles()
     {
         $result = [];
         foreach ($this->getWidgetsXml() as $widget) {

@@ -54,7 +54,7 @@ class Mage_Captcha_Helper_Data extends Mage_Core_Helper_Abstract
      * @return bool
      * @since 19.4.19 / 20.0.17
      */
-    public function isEnabled(): bool
+    function isEnabled(): bool
     {
         $path = Mage::app()->getStore()->isAdmin() ? 'admin/captcha/enable' : 'customer/captcha/enable';
         return Mage::getStoreConfigFlag($path);
@@ -66,7 +66,7 @@ class Mage_Captcha_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $formId
      * @return Mage_Captcha_Model_Interface
      */
-    public function getCaptcha($formId)
+    function getCaptcha($formId)
     {
         if (!array_key_exists($formId, $this->_captcha)) {
             $type = $this->getConfigNode('type');
@@ -82,7 +82,7 @@ class Mage_Captcha_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Mage_Core_Model_Store $store
      * @return Mage_Core_Model_Config_Element
      */
-    public function getConfigNode($id, $store = null)
+    function getConfigNode($id, $store = null)
     {
         $areaCode = Mage::app()->getStore($store)->isAdmin() ? 'admin' : 'customer';
         return Mage::getStoreConfig($areaCode . '/captcha/' . $id, $store);
@@ -95,7 +95,7 @@ class Mage_Captcha_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    public function getFonts()
+    function getFonts()
     {
         $node = Mage::getConfig()->getNode(self::XML_PATH_CAPTCHA_FONTS);
         $fonts = [];
@@ -116,7 +116,7 @@ class Mage_Captcha_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $website
      * @return string
      */
-    public function getImgDir($website = null)
+    function getImgDir($website = null)
     {
         $websiteCode = Mage::app()->getWebsite($website)->getCode();
         $captchaDir = Mage::getBaseDir('media') . DS . 'captcha' . DS . $websiteCode . DS;
@@ -131,7 +131,7 @@ class Mage_Captcha_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $website
      * @return string
      */
-    public function getImgUrl($website = null)
+    function getImgUrl($website = null)
     {
         $websiteCode = Mage::app()->getWebsite($website)->getCode();
         return Mage::getBaseUrl('media') . 'captcha' . '/' . $websiteCode . '/';

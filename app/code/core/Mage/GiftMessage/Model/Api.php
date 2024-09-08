@@ -70,7 +70,7 @@ class Mage_GiftMessage_Model_Api extends Mage_Checkout_Model_Api_Resource_Produc
      * @param string $store
      * @return array[]
      */
-    public function setForQuote($quoteId, $giftMessage, $store = null)
+    function setForQuote($quoteId, $giftMessage, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
 
@@ -95,7 +95,7 @@ class Mage_GiftMessage_Model_Api extends Mage_Checkout_Model_Api_Resource_Produc
      * @param string $store
      * @return array
      */
-    public function setForQuoteProduct($quoteId, $productsAndMessages, $store = null)
+    function setForQuoteProduct($quoteId, $productsAndMessages, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
 
@@ -148,7 +148,7 @@ class Mage_GiftMessage_Model_Api extends Mage_Checkout_Model_Api_Resource_Produc
      * @param string $store
      * @return array[]
      */
-    public function setForQuoteItem($quoteItemId, $giftMessage, $store = null)
+    function setForQuoteItem($quoteItemId, $giftMessage, $store = null)
     {
         /** @var Mage_Sales_Model_Quote_Item $quoteItem */
         $quoteItem = Mage::getModel('sales/quote_item')->load($quoteItemId);

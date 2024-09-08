@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Report_Customer_Totals extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'report_customer_totals';
         $this->_headerText = Mage::helper('reports')->__('Customers by Orders Total');
@@ -30,7 +30,7 @@ class Mage_Adminhtml_Block_Report_Customer_Totals extends Mage_Adminhtml_Block_W
         $this->_removeButton('add');
     }
 
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'icon-head head-report';
     }

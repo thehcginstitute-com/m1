@@ -10,7 +10,7 @@
 class Magazento_Orderexport2_Block_Admin_Item_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
 
-    public function __construct()
+    function __construct()
     {
     	$this->_objectId = 'item_id';
         $this->_controller = 'admin_item';
@@ -45,7 +45,7 @@ class Magazento_Orderexport2_Block_Admin_Item_Edit extends Mage_Adminhtml_Block_
         ";
     }
 
-    public function getHeaderText()
+    function getHeaderText()
     {
         if (Mage::registry('orderexport2_item')->getId()) {
             return Mage::helper('orderexport2')->__("Edit profile: #%s", Mage::registry('orderexport2_item')->getId());

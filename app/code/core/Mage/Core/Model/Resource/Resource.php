@@ -84,7 +84,7 @@ class Mage_Core_Model_Resource_Resource extends Mage_Core_Model_Resource_Db_Abst
      * @param string $resName
      * @return bool|string
      */
-    public function getDbVersion($resName)
+    function getDbVersion($resName)
     {
         if (!$this->_getReadAdapter()) {
             return false;
@@ -100,7 +100,7 @@ class Mage_Core_Model_Resource_Resource extends Mage_Core_Model_Resource_Db_Abst
      * @param string $version
      * @return int
      */
-    public function setDbVersion($resName, $version)
+    function setDbVersion($resName, $version)
     {
         $dbModuleInfo = [
             'code'    => $resName,
@@ -126,7 +126,7 @@ class Mage_Core_Model_Resource_Resource extends Mage_Core_Model_Resource_Db_Abst
      * @param string $resName
      * @return string|false
      */
-    public function getDataVersion($resName)
+    function getDataVersion($resName)
     {
         if (!$this->_getReadAdapter()) {
             return false;
@@ -144,7 +144,7 @@ class Mage_Core_Model_Resource_Resource extends Mage_Core_Model_Resource_Db_Abst
      * @param string $version
      * @return $this
      */
-    public function setDataVersion($resName, $version)
+    function setDataVersion($resName, $version)
     {
         $data = [
             'code'          => $resName,

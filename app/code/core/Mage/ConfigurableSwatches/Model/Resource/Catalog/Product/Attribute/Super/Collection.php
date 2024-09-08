@@ -29,7 +29,7 @@ class Mage_ConfigurableSwatches_Model_Resource_Catalog_Product_Attribute_Super_C
      * @param array $parentProductIds
      * @return $this
      */
-    public function addParentProductsFilter(array $parentProductIds)
+    function addParentProductsFilter(array $parentProductIds)
     {
         $this->addFieldToFilter('product_id', ['in' => $parentProductIds]);
         return $this;
@@ -40,7 +40,7 @@ class Mage_ConfigurableSwatches_Model_Resource_Catalog_Product_Attribute_Super_C
      *
      * @return $this
      */
-    public function attachEavAttributes()
+    function attachEavAttributes()
     {
         if ($this->_eavAttributesJoined) {
             return $this;
@@ -61,7 +61,7 @@ class Mage_ConfigurableSwatches_Model_Resource_Catalog_Product_Attribute_Super_C
      * @param int $storeId
      * @return $this
      */
-    public function setStoreId($storeId)
+    function setStoreId($storeId)
     {
         $this->_storeId = $storeId;
         return $this;
@@ -72,7 +72,7 @@ class Mage_ConfigurableSwatches_Model_Resource_Catalog_Product_Attribute_Super_C
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return (int)$this->_storeId;
     }

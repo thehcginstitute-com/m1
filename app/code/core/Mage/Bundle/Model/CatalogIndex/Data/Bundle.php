@@ -40,7 +40,7 @@ class Mage_Bundle_Model_CatalogIndex_Data_Bundle extends Mage_CatalogIndex_Model
      *
      * @return string
      */
-    public function getTypeCode()
+    function getTypeCode()
     {
         return Mage_Catalog_Model_Product_Type::TYPE_BUNDLE;
     }

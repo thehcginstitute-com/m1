@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Comment extends Mage_Adminhtml_Blo
     /**
      * @return string
      */
-    public function getHeaderCssClass()
+    function getHeaderCssClass()
     {
         return 'head-comment';
     }
@@ -35,7 +35,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Comment extends Mage_Adminhtml_Blo
     /**
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Order Comment');
     }
@@ -43,7 +43,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Comment extends Mage_Adminhtml_Blo
     /**
      * @return string
      */
-    public function getCommentNote()
+    function getCommentNote()
     {
         return $this->escapeHtml($this->getQuote()->getCustomerNote());
     }
@@ -51,7 +51,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Comment extends Mage_Adminhtml_Blo
     /**
      * @return bool
      */
-    public function getNoteNotify()
+    function getNoteNotify()
     {
         $notify = $this->getQuote()->getCustomerNoteNotify();
         if (is_null($notify) || $notify) {

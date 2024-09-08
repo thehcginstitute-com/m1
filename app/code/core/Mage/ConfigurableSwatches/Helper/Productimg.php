@@ -59,7 +59,7 @@ class Mage_ConfigurableSwatches_Helper_Productimg extends Mage_Core_Helper_Abstr
      * @param string $type
      * @return Varien_Object|null
      */
-    public function getProductImgByLabel($text, $product, $type = null)
+    function getProductImgByLabel($text, $product, $type = null)
     {
         $this->indexProductImages($product);
 
@@ -87,7 +87,7 @@ class Mage_ConfigurableSwatches_Helper_Productimg extends Mage_Core_Helper_Abstr
      * @param Mage_Catalog_Model_Product $product
      * @param array|null $preValues
      */
-    public function indexProductImages($product, $preValues = null)
+    function indexProductImages($product, $preValues = null)
     {
         if ($product->getTypeId() != Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE) {
             return; // we only index images on configurable products
@@ -169,7 +169,7 @@ class Mage_ConfigurableSwatches_Helper_Productimg extends Mage_Core_Helper_Abstr
      * @param string $fallbackFileExt
      * @return string
      */
-    public function getSwatchUrl(
+    function getSwatchUrl(
         $product,
         $value,
         $width,
@@ -220,7 +220,7 @@ class Mage_ConfigurableSwatches_Helper_Productimg extends Mage_Core_Helper_Abstr
      * @throws Mage_Core_Exception
      * @return string
      */
-    public function getGlobalSwatchUrl(
+    function getGlobalSwatchUrl(
         $object,
         $value,
         $width = self::SWATCH_DEFAULT_WIDTH,
@@ -314,7 +314,7 @@ class Mage_ConfigurableSwatches_Helper_Productimg extends Mage_Core_Helper_Abstr
     /**
      * Cleans out the swatch image cache dir
      */
-    public function clearSwatchesCache()
+    function clearSwatchesCache()
     {
         $directory = Mage::getBaseDir(Mage_Core_Model_Store::URL_TYPE_MEDIA) . DS . self::SWATCH_CACHE_DIR;
         $io = new Varien_Io_File();
@@ -330,7 +330,7 @@ class Mage_ConfigurableSwatches_Helper_Productimg extends Mage_Core_Helper_Abstr
      * @param Varien_Object $image
      * @return bool
      */
-    public function filterImageInGallery($product, $image)
+    function filterImageInGallery($product, $image)
     {
         if (!Mage::helper('configurableswatches')->isEnabled()) {
             return true;

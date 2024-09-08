@@ -95,7 +95,7 @@ class Mage_Checkout_Model_Cart_Payment_Api extends Mage_Checkout_Model_Api_Resou
      * @param int $store
      * @return array
      */
-    public function getPaymentMethodsList($quoteId, $store = null)
+    function getPaymentMethodsList($quoteId, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
         $store = $quote->getStoreId();
@@ -129,7 +129,7 @@ class Mage_Checkout_Model_Cart_Payment_Api extends Mage_Checkout_Model_Api_Resou
      * @param  string|int $store
      * @return bool
      */
-    public function setPaymentMethod($quoteId, $paymentData, $store = null)
+    function setPaymentMethod($quoteId, $paymentData, $store = null)
     {
         $quote = $this->_getQuote($quoteId, $store);
         $store = $quote->getStoreId();

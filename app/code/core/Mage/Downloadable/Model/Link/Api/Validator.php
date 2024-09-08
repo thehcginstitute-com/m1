@@ -70,7 +70,7 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
      *
      * @return array
      */
-    public function getResourceTypes()
+    function getResourceTypes()
     {
         return $this->_types;
     }
@@ -81,7 +81,7 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
      * @param string $type
      * @return bool
      */
-    public function validateType($type)
+    function validateType($type)
     {
         if (!in_array($type, $this->getResourceTypes())) {
             throw new Exception('unknown_resource_type');
@@ -95,7 +95,7 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
      * @param array $resource
      * @param string $resourceType
      */
-    public function validateAttributes(&$resource, $resourceType)
+    function validateAttributes(&$resource, $resourceType)
     {
         $fields = $this->_defaultAttributes[$resourceType];
         $this->_dispatch($resource, $fields);
@@ -109,7 +109,7 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
      * @param array $resource
      * @param string $resourceType
      */
-    public function completeCheck(&$resource, $resourceType)
+    function completeCheck(&$resource, $resourceType)
     {
         if ($resourceType == 'link') {
             if ($resource['type'] == 'file') {
@@ -141,7 +141,7 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
      *
      * @param mixed $var
      */
-    public function validateFileDetails(&$var)
+    function validateFileDetails(&$var)
     {
         if (!isset($var['name']) || !is_string($var['name']) || $var['name'] === '') {
             throw new Exception('no_filename');
@@ -178,7 +178,7 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
      *
      * @param string $var
      */
-    public function validateTitle(&$var)
+    function validateTitle(&$var)
     {
         if (!is_string($var) || $var === '') {
             throw new Exception('no_title');
@@ -190,7 +190,7 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
      *
      * @param float $var
      */
-    public function validatePrice(&$var)
+    function validatePrice(&$var)
     {
         $var = is_numeric($var) ? (float) $var : (float) 0;
     }
@@ -200,7 +200,7 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
      *
      * @param int $var
      */
-    public function validateNumOfDownloads(&$var)
+    function validateNumOfDownloads(&$var)
     {
         $var = is_numeric($var) ? (int) $var : 0;
     }
@@ -210,7 +210,7 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
      *
      * @param int|bool $var
      */
-    public function validateUnlimited(&$var)
+    function validateUnlimited(&$var)
     {
         $var = ((is_numeric($var) && $var >= 0 && $var <= 1) || (is_bool($var))) ? (int) $var : 0;
     }
@@ -220,7 +220,7 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
      *
      * @param int $var
      */
-    public function validateShareable(&$var)
+    function validateShareable(&$var)
     {
         $var = (is_numeric($var) && $var >= 0 && $var <= 2) ? (int) $var : 2;
     }
@@ -230,7 +230,7 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
      *
      * @param array $var
      */
-    public function validateFile(&$var)
+    function validateFile(&$var)
     {
         $var = is_array($var) ? $var : null;
     }
@@ -240,7 +240,7 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
      *
      * @param string $var
      */
-    public function validateUrl(&$var)
+    function validateUrl(&$var)
     {
         if (is_string($var) && strlen($var) > 0) {
             $urlregex = "/^(https?|ftp)\:\/\/([a-z0-9+\!\*\(\)\,\;\?\&\=\$\_\.\-]+(\:[a-z0-9+\!\*\(\)\,\;\?\&\=\$\_\.\-]+)?@)?[a-z0-9\+\$\_\-]+(\.[a-z0-9+\$\_\-]+)*(\:[0-9]{2,5})?(\/([a-z0-9+\$\_\-]\.?)+)*\/?(\?[a-z\+\&\$\_\.\-][a-z0-9\;\:\@\/\&\%\=\+\$\_\.\-]*)?(#[a-z\_\.\-][a-z0-9\+\$\_\.\-]*)?$/i";
@@ -257,7 +257,7 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
      *
      * @param int $var
      */
-    public function validateOrder(&$var)
+    function validateOrder(&$var)
     {
         $var = is_numeric($var) ? (int) $var : 0;
     }
@@ -267,7 +267,7 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
      *
      * @param string $var
      */
-    public function validateUploadType(&$var)
+    function validateUploadType(&$var)
     {
         $var = in_array($var, $this->_uploadTypes) ? $var : 'file';
     }

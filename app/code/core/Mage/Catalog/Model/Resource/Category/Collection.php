@@ -84,7 +84,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      * @param Mage_Core_Model_Resource_Abstract $resource
      * @param array $args
      */
-    public function __construct($resource = null, array $args = [])
+    function __construct($resource = null, array $args = [])
     {
         parent::__construct($resource);
         $this->_factory = !empty($args['factory']) ? $args['factory'] : Mage::getSingleton('catalog/factory');
@@ -108,7 +108,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      * @param int|string|array $categoryIds
      * @return $this
      */
-    public function addIdFilter($categoryIds)
+    function addIdFilter($categoryIds)
     {
         if (is_array($categoryIds)) {
             if (empty($categoryIds)) {
@@ -136,7 +136,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      * @param bool $flag
      * @return $this
      */
-    public function setLoadProductCount($flag)
+    function setLoadProductCount($flag)
     {
         $this->_loadWithProductCount = $flag;
         return $this;
@@ -177,7 +177,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      * @param int $storeId
      * @return $this
      */
-    public function setProductStoreId($storeId)
+    function setProductStoreId($storeId)
     {
         $this->_productStoreId = $storeId;
         return $this;
@@ -188,7 +188,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      *
      * @return int
      */
-    public function getProductStoreId()
+    function getProductStoreId()
     {
         if (is_null($this->_productStoreId)) {
             $this->_productStoreId = Mage_Catalog_Model_Abstract::DEFAULT_STORE_ID;
@@ -203,7 +203,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      * @param bool $logQuery
      * @return $this
      */
-    public function load($printQuery = false, $logQuery = false)
+    function load($printQuery = false, $logQuery = false)
     {
         if ($this->isLoaded()) {
             return $this;
@@ -240,7 +240,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      * @param bool $countAnchor get product count for anchor categories
      * @return $this
      */
-    public function loadProductCount($items, $countRegular = true, $countAnchor = true)
+    function loadProductCount($items, $countRegular = true, $countAnchor = true)
     {
         $anchor     = [];
         $regular    = [];
@@ -327,7 +327,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      * @param string $regexp
      * @return $this
      */
-    public function addPathFilter($regexp)
+    function addPathFilter($regexp)
     {
         $this->addFieldToFilter('path', ['regexp' => $regexp]);
         return $this;
@@ -338,7 +338,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      *
      * @return $this
      */
-    public function joinUrlRewrite()
+    function joinUrlRewrite()
     {
         $this->_factory->getCategoryUrlRewriteHelper()
             ->joinTableToEavCollection($this, $this->_getCurrentStoreId());
@@ -362,7 +362,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      * @param string $parent
      * @return $this
      */
-    public function addParentPathFilter($parent)
+    function addParentPathFilter($parent)
     {
         $this->addFieldToFilter('path', ['like' => "{$parent}/%"]);
         return $this;
@@ -373,7 +373,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      *
      * @return $this
      */
-    public function addStoreFilter()
+    function addStoreFilter()
     {
         $this->setProductStoreId($this->getStoreId());
         return $this;
@@ -384,7 +384,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      *
      * @return $this
      */
-    public function addIsActiveFilter()
+    function addIsActiveFilter()
     {
         $this->addAttributeToFilter('is_active', 1);
         Mage::dispatchEvent(
@@ -399,7 +399,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      *
      * @return $this
      */
-    public function addNameToResult()
+    function addNameToResult()
     {
         $this->addAttributeToSelect('name');
         return $this;
@@ -410,7 +410,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      *
      * @return $this
      */
-    public function addUrlRewriteToResult()
+    function addUrlRewriteToResult()
     {
         $this->joinUrlRewrite();
         return $this;
@@ -422,7 +422,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      * @param array|string $paths
      * @return $this
      */
-    public function addPathsFilter($paths)
+    function addPathsFilter($paths)
     {
         if (!is_array($paths)) {
             $paths = [$paths];
@@ -443,7 +443,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      * @param int|string $level
      * @return $this
      */
-    public function addLevelFilter($level)
+    function addLevelFilter($level)
     {
         $this->addFieldToFilter('level', ['lteq' => $level]);
         return $this;
@@ -454,7 +454,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      *
      * @return $this
      */
-    public function addRootLevelFilter()
+    function addRootLevelFilter()
     {
         $this->addFieldToFilter('path', ['neq' => '1']);
         $this->addLevelFilter(1);
@@ -467,7 +467,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      * @param string $field
      * @return $this
      */
-    public function addOrderField($field)
+    function addOrderField($field)
     {
         $this->setOrder($field, self::SORT_ORDER_ASC);
         return $this;
@@ -479,7 +479,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      * @param bool $flag
      * @return $this
      */
-    public function setDisableFlat($flag)
+    function setDisableFlat($flag)
     {
         $this->_disableFlat = (bool) $flag;
         return $this;
@@ -490,7 +490,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      *
      * @return bool
      */
-    public function getDisableFlat()
+    function getDisableFlat()
     {
         return $this->_disableFlat;
     }
@@ -500,7 +500,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      *
      * @return Mage_Catalog_Model_Category
      */
-    public function getNewEmptyItem()
+    function getNewEmptyItem()
     {
         return new $this->_itemObjectClass(['disable_flat' => $this->getDisableFlat()]);
     }

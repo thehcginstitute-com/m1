@@ -350,7 +350,7 @@ abstract class Mage_Reports_Model_Resource_Report_Abstract extends Mage_Core_Mod
     * @param int|string|Mage_Core_Model_Store|null $store
     * @return string
     */
-    public function getStoreTZOffsetQuery($table, $column, $from = null, $to = null, $store = null)
+    function getStoreTZOffsetQuery($table, $column, $from = null, $to = null, $store = null)
     {
         $column = $this->_getWriteAdapter()->quoteIdentifier($column);
 

@@ -27,7 +27,7 @@ class Mage_Wishlist_Block_Customer_Sidebar extends Mage_Wishlist_Block_Abstract
      *
      * @return string
      */
-    public function getTitle()
+    function getTitle()
     {
         return $this->__('My Wishlist <small>(%d)</small>', $this->getItemCount());
     }
@@ -68,7 +68,7 @@ class Mage_Wishlist_Block_Customer_Sidebar extends Mage_Wishlist_Block_Abstract
      * @deprecated after 1.6.2.0
      * @return bool
      */
-    public function getCanDisplayWishlist()
+    function getCanDisplayWishlist()
     {
         return $this->_getCustomerSession()->isLoggedIn();
     }
@@ -80,7 +80,7 @@ class Mage_Wishlist_Block_Customer_Sidebar extends Mage_Wishlist_Block_Abstract
      * @param  Mage_Wishlist_Model_Item $item
      * @return string
      */
-    public function getRemoveItemUrl($item)
+    function getRemoveItemUrl($item)
     {
         return $this->getItemRemoveUrl($item);
     }
@@ -92,7 +92,7 @@ class Mage_Wishlist_Block_Customer_Sidebar extends Mage_Wishlist_Block_Abstract
      * @param  Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $product
      * @return string
      */
-    public function getAddToCartItemUrl($product)
+    function getAddToCartItemUrl($product)
     {
         return $this->getItemAddToCartUrl($product);
     }
@@ -102,7 +102,7 @@ class Mage_Wishlist_Block_Customer_Sidebar extends Mage_Wishlist_Block_Abstract
      *
      * @return Mage_Wishlist_Model_Resource_Item_Collection
      */
-    public function getWishlistItems()
+    function getWishlistItems()
     {
         if (is_null($this->_collection)) {
             $this->_collection = clone $this->_createWishlistItemCollection();
@@ -118,7 +118,7 @@ class Mage_Wishlist_Block_Customer_Sidebar extends Mage_Wishlist_Block_Abstract
      *
      * @return int
      */
-    public function getItemCount()
+    function getItemCount()
     {
         return $this->_getHelper()->getItemCount();
     }
@@ -128,7 +128,7 @@ class Mage_Wishlist_Block_Customer_Sidebar extends Mage_Wishlist_Block_Abstract
      *
      * @return bool
      */
-    public function hasWishlistItems()
+    function hasWishlistItems()
     {
         return $this->getItemCount() > 0;
     }
@@ -138,7 +138,7 @@ class Mage_Wishlist_Block_Customer_Sidebar extends Mage_Wishlist_Block_Abstract
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         if ($this->getItemCount()) {
             $this->addModelTags($this->_getHelper()->getWishlist());

@@ -28,7 +28,7 @@ class Mage_Core_Model_Observer
      * @param  Varien_Event_Observer $observer
      * @return $this
      */
-    public function addSynchronizeNotification(Varien_Event_Observer $observer)
+    function addSynchronizeNotification(Varien_Event_Observer $observer)
     {
         $adminSession = Mage::getSingleton('admin/session');
         if (!$adminSession->hasSyncProcessStopWatch()) {
@@ -88,7 +88,7 @@ class Mage_Core_Model_Observer
      *
      * @param Mage_Cron_Model_Schedule $schedule
      */
-    public function cleanCache(Mage_Cron_Model_Schedule $schedule)
+    function cleanCache(Mage_Cron_Model_Schedule $schedule)
     {
         Mage::app()->getCache()->clean(Zend_Cache::CLEANING_MODE_OLD);
         Mage::dispatchEvent('core_clean_cache');
@@ -100,7 +100,7 @@ class Mage_Core_Model_Observer
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function cleanCacheByTags(Varien_Event_Observer $observer)
+    function cleanCacheByTags(Varien_Event_Observer $observer)
     {
         /** @var array $tags */
         $tags = $observer->getEvent()->getTags();
@@ -120,7 +120,7 @@ class Mage_Core_Model_Observer
      * @throws Exception
      * @return Mage_Core_Model_Observer
      */
-    public function secureVarProcessing(Varien_Event_Observer $observer)
+    function secureVarProcessing(Varien_Event_Observer $observer)
     {
         if (Mage::registry('varProcessing')) {
             Mage::throwException(Mage::helper('core')->__('Disallowed template variable method.'));

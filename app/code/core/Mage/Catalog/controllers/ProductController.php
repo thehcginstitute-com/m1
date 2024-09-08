@@ -103,7 +103,7 @@ class Mage_Catalog_ProductController extends Mage_Core_Controller_Front_Action
     /**
      * Product view action
      */
-    public function viewAction()
+    function viewAction()
     {
         // Get initial data from request
         $categoryId = (int) $this->getRequest()->getParam('category', false);
@@ -137,7 +137,7 @@ class Mage_Catalog_ProductController extends Mage_Core_Controller_Front_Action
     /**
      * View product gallery action
      */
-    public function galleryAction()
+    function galleryAction()
     {
         if (!$this->_initProduct()) {
             if (isset($_GET['store']) && !$this->getResponse()->isRedirect()) {
@@ -156,7 +156,7 @@ class Mage_Catalog_ProductController extends Mage_Core_Controller_Front_Action
      *
      * @deprecated
      */
-    public function imageAction()
+    function imageAction()
     {
         /*
          * All logic has been cut to avoid possible malicious usage of the method

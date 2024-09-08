@@ -25,7 +25,7 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
     /**
      * Initialize attributes map
      */
-    public function __construct()
+    function __construct()
     {
         $this->_attributesMap = [
             'invoice' => ['invoice_id' => 'entity_id'],
@@ -39,7 +39,7 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
      * @param null|object|array $filters
      * @return array
      */
-    public function items($filters = null)
+    function items($filters = null)
     {
         $invoices = [];
         /** @var Mage_Sales_Model_Resource_Order_Invoice_Collection $invoiceCollection */
@@ -75,7 +75,7 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
      * @return array
      * @throws Mage_Api_Exception
      */
-    public function info($invoiceIncrementId)
+    function info($invoiceIncrementId)
     {
         $invoice = Mage::getModel('sales/order_invoice')->loadByIncrementId($invoiceIncrementId);
 
@@ -115,7 +115,7 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
      * @param bool $includeComment
      * @return string
      */
-    public function create($orderIncrementId, $itemsQty = [], $comment = null, $email = false, $includeComment = false)
+    function create($orderIncrementId, $itemsQty = [], $comment = null, $email = false, $includeComment = false)
     {
         $order = Mage::getModel('sales/order')->loadByIncrementId($orderIncrementId);
 
@@ -171,7 +171,7 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
      * @param bool $includeComment
      * @return bool
      */
-    public function addComment($invoiceIncrementId, $comment, $email = false, $includeComment = false)
+    function addComment($invoiceIncrementId, $comment, $email = false, $includeComment = false)
     {
         $invoice = Mage::getModel('sales/order_invoice')->loadByIncrementId($invoiceIncrementId);
 
@@ -198,7 +198,7 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
      * @param string $invoiceIncrementId
      * @return bool
      */
-    public function capture($invoiceIncrementId)
+    function capture($invoiceIncrementId)
     {
         $invoice = Mage::getModel('sales/order_invoice')->loadByIncrementId($invoiceIncrementId);
 
@@ -235,7 +235,7 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
      * @return bool
      * @throws Mage_Api_Exception
      */
-    public function void($invoiceIncrementId)
+    function void($invoiceIncrementId)
     {
         $invoice = Mage::getModel('sales/order_invoice')->loadByIncrementId($invoiceIncrementId);
 
@@ -271,7 +271,7 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
      * @param string $invoiceIncrementId
      * @return bool
      */
-    public function cancel($invoiceIncrementId)
+    function cancel($invoiceIncrementId)
     {
         $invoice = Mage::getModel('sales/order_invoice')->loadByIncrementId($invoiceIncrementId);
 

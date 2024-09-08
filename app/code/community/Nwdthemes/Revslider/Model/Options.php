@@ -16,7 +16,7 @@ class Nwdthemes_Revslider_Model_Options extends Mage_Core_Model_Abstract {
 	 * Constructor
 	 */
 
-    public function _construct() {
+    function _construct() {
         parent::_construct();
         $this->_init('nwdrevslider/options');
     }
@@ -29,7 +29,7 @@ class Nwdthemes_Revslider_Model_Options extends Mage_Core_Model_Abstract {
 	 * @return string
 	 */
 
-	public function getOption($handle, $default = '') {
+	function getOption($handle, $default = '') {
 		$_item = $this->getCollection()
 			->addFieldToFilter('handle', $handle)
 			->setPageSize(1)
@@ -44,7 +44,7 @@ class Nwdthemes_Revslider_Model_Options extends Mage_Core_Model_Abstract {
 	 * @param string value
 	 */
 
-	public function updateOption($handle, $option = '') {
+	function updateOption($handle, $option = '') {
 		$_item = $this->getCollection()
 			->addFieldToFilter('handle', $handle)
 			->setPageSize(1)

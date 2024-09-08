@@ -8,7 +8,7 @@ class IWD_OrderFlags_Adminhtml_Flags_FlagsController extends Mage_Adminhtml_Cont
     /**
      * @return void
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_initAction();
 
@@ -36,7 +36,7 @@ class IWD_OrderFlags_Adminhtml_Flags_FlagsController extends Mage_Adminhtml_Cont
     /**
      * @return void
      */
-    public function gridAction()
+    function gridAction()
     {
         $this->loadLayout();
         $this->getResponse()->setBody(
@@ -47,7 +47,7 @@ class IWD_OrderFlags_Adminhtml_Flags_FlagsController extends Mage_Adminhtml_Cont
     /**
      * @return void
      */
-    public function newAction()
+    function newAction()
     {
         $this->_initAction();
         $this->prepareDefaultFormData();
@@ -57,7 +57,7 @@ class IWD_OrderFlags_Adminhtml_Flags_FlagsController extends Mage_Adminhtml_Cont
     /**
      * @return void
      */
-    public function editAction()
+    function editAction()
     {
         $this->_initAction();
         $this->prepareFormData();
@@ -109,7 +109,7 @@ class IWD_OrderFlags_Adminhtml_Flags_FlagsController extends Mage_Adminhtml_Cont
     /**
      * @return void
      */
-    public function saveAction()
+    function saveAction()
     {
         try {
             $flag = $this->saveFlag();
@@ -138,7 +138,7 @@ class IWD_OrderFlags_Adminhtml_Flags_FlagsController extends Mage_Adminhtml_Cont
     /**
      * @return void
      */
-    public function deleteAction()
+    function deleteAction()
     {
         try {
             $flag = $this->getFlagObj();
@@ -159,7 +159,7 @@ class IWD_OrderFlags_Adminhtml_Flags_FlagsController extends Mage_Adminhtml_Cont
     /**
      * @return void
      */
-    public function massDeleteAction()
+    function massDeleteAction()
     {
         try {
             $ids = $this->getRequest()->getParam('id', array());

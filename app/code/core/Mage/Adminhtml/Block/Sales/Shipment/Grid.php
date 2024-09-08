@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Shipment_Grid extends Mage_Adminhtml_Block_Widg
     /**
      * Initialization
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_shipment_grid');
@@ -132,7 +132,7 @@ class Mage_Adminhtml_Block_Sales_Shipment_Grid extends Mage_Adminhtml_Block_Widg
      * @param Mage_Sales_Model_Order_Shipment $row
      * @return string|false
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         if (!Mage::getSingleton('admin/session')->isAllowed('sales/order/shipment')) {
             return false;
@@ -169,7 +169,7 @@ class Mage_Adminhtml_Block_Sales_Shipment_Grid extends Mage_Adminhtml_Block_Widg
      *
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/*', ['_current' => true]);
     }

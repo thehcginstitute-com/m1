@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Categories extends Mage_Admi
     /**
      * Specify template to use
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('catalog/product/edit/categories.phtml');
@@ -39,7 +39,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Categories extends Mage_Admi
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         return Mage::registry('current_product');
     }
@@ -49,7 +49,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Categories extends Mage_Admi
      *
      * @return bool
      */
-    public function isReadonly()
+    function isReadonly()
     {
         return $this->getProduct()->getCategoriesReadonly();
     }
@@ -69,7 +69,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Categories extends Mage_Admi
      *
      * @return string
      */
-    public function getIdsString()
+    function getIdsString()
     {
         return implode(',', $this->getCategoryIds());
     }
@@ -79,7 +79,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Categories extends Mage_Admi
      *
      * @return Varien_Data_Tree_Node
      */
-    public function getRootNode()
+    function getRootNode()
     {
         $root = $this->getRoot();
         if ($root && in_array($root->getId(), $this->getCategoryIds())) {
@@ -95,7 +95,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Categories extends Mage_Admi
      * @param int                              $recursionLevel
      * @return Varien_Data_Tree_Node
      */
-    public function getRoot($parentNodeCategory = null, $recursionLevel = 3)
+    function getRoot($parentNodeCategory = null, $recursionLevel = 3)
     {
         if (!is_null($parentNodeCategory) && $parentNodeCategory->getId()) {
             return $this->getNode($parentNodeCategory, $recursionLevel);
@@ -210,7 +210,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Categories extends Mage_Admi
      * @param int $categoryId
      * @return string
      */
-    public function getCategoryChildrenJson($categoryId)
+    function getCategoryChildrenJson($categoryId)
     {
         $category = Mage::getModel('catalog/category')->load($categoryId);
         $node = $this->getRoot($category, 1)->getTree()->getNodeById($categoryId);
@@ -233,7 +233,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Categories extends Mage_Admi
      * @param null $expanded deprecated
      * @return string
      */
-    public function getLoadTreeUrl($expanded = null)
+    function getLoadTreeUrl($expanded = null)
     {
         return $this->getUrl('*/*/categoriesJson', ['_current' => true]);
     }
@@ -244,7 +244,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Categories extends Mage_Admi
      * @param mixed $rootId Root category Id for context
      * @return array
      */
-    public function getSelectedCategoriesPathIds($rootId = false)
+    function getSelectedCategoriesPathIds($rootId = false)
     {
         $ids = [];
         $categoryIds = $this->getCategoryIds();

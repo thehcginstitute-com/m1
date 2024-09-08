@@ -39,7 +39,7 @@ class Mage_Api2_Model_Route_ApiType extends Mage_Api2_Model_Route_Abstract imple
      * @param Zend_Translate|null $translator Translator to use for this instance
      * @param mixed $locale
      */
-    public function __construct(
+    function __construct(
         $route,
         $defaults = [],
         $reqs = [],

@@ -2,7 +2,7 @@
 
 class Raveinfosys_Exporter_Block_Adminhtml_Exporter_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-   public function __construct()
+   function __construct()
    {
         parent::__construct();
         $this->setId('sales_order_export_grid');
@@ -128,12 +128,12 @@ class Raveinfosys_Exporter_Block_Adminhtml_Exporter_Grid extends Mage_Adminhtml_
         return $this;
     }
 	
-	 public function getGridUrl()
+	 function getGridUrl()
 	 {
 	   return $this->getUrl('*/*/grid', array('_current'=>true));
 	 }
 	 
-	 public function getRowUrl($row)
+	 function getRowUrl($row)
      {
       return false;
      }

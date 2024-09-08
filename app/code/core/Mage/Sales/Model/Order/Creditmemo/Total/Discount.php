@@ -24,7 +24,7 @@ class Mage_Sales_Model_Order_Creditmemo_Total_Discount extends Mage_Sales_Model_
      * @param Mage_Sales_Model_Order_Creditmemo $creditmemo
      * @return $this
      */
-    public function collect(Mage_Sales_Model_Order_Creditmemo $creditmemo)
+    function collect(Mage_Sales_Model_Order_Creditmemo $creditmemo)
     {
         $creditmemo->setDiscountAmount(0);
         $creditmemo->setBaseDiscountAmount(0);

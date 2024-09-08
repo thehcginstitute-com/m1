@@ -26,7 +26,7 @@ class Mage_Adminhtml_Tax_ClassController extends Mage_Adminhtml_Controller_Actio
      * save class action
      *
      */
-    public function saveAction()
+    function saveAction()
     {
         if ($postData = $this->getRequest()->getPost()) {
             $model = Mage::getModel('tax/class')->setData($postData);

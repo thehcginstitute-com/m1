@@ -50,7 +50,7 @@ class Mage_Adminhtml_Model_Config extends Varien_Simplexml_Config
      * @param string $storeCode
      * @return Varien_Simplexml_Element
      */
-    public function getSections($sectionCode = null, $websiteCode = null, $storeCode = null)
+    function getSections($sectionCode = null, $websiteCode = null, $storeCode = null)
     {
         if (empty($this->_sections)) {
             $this->_initSectionsAndTabs();
@@ -64,7 +64,7 @@ class Mage_Adminhtml_Model_Config extends Varien_Simplexml_Config
      *
      * @return Varien_Simplexml_Element
      */
-    public function getTabs()
+    function getTabs()
     {
         if (empty($this->_tabs)) {
             $this->_initSectionsAndTabs();
@@ -73,7 +73,7 @@ class Mage_Adminhtml_Model_Config extends Varien_Simplexml_Config
         return $this->_tabs;
     }
 
-    public function __construct()
+    function __construct()
     {
         $this->_cacheChecksum = null;
         $this->setCache(Mage::app()->getCache());
@@ -92,7 +92,7 @@ class Mage_Adminhtml_Model_Config extends Varien_Simplexml_Config
      * @param array|null $tags
      * @return $this|Mage_Adminhtml_Model_Config
      */
-    public function saveCache($tags = null)
+    function saveCache($tags = null)
     {
         if ($this->getCacheSaved()) {
             return $this;
@@ -109,7 +109,7 @@ class Mage_Adminhtml_Model_Config extends Varien_Simplexml_Config
     /**
      * @return bool
      */
-    public function loadCache()
+    function loadCache()
     {
         $xmlString = $this->_loadCache($this->getCacheId());
         $class = Mage::getConfig()->getModelClassName('core/config_base');
@@ -139,7 +139,7 @@ class Mage_Adminhtml_Model_Config extends Varien_Simplexml_Config
      * @param string $storeCode
      * @return Varien_Simplexml_Element|void
      */
-    public function getSection($sectionCode = null, $websiteCode = null, $storeCode = null)
+    function getSection($sectionCode = null, $websiteCode = null, $storeCode = null)
     {
         if ($sectionCode) {
             return  $this->getSections()->$sectionCode;
@@ -157,7 +157,7 @@ class Mage_Adminhtml_Model_Config extends Varien_Simplexml_Config
      * @param bool $isField
      * @return bool
      */
-    public function hasChildren($node, $websiteCode = null, $storeCode = null, $isField = false)
+    function hasChildren($node, $websiteCode = null, $storeCode = null, $isField = false)
     {
         $showTab = false;
         if ($storeCode) {
@@ -205,7 +205,7 @@ class Mage_Adminhtml_Model_Config extends Varien_Simplexml_Config
      * @param Varien_Simplexml_Element $fieldNode
      * @return string
      */
-    public function getAttributeModule($sectionNode = null, $groupNode = null, $fieldNode = null)
+    function getAttributeModule($sectionNode = null, $groupNode = null, $fieldNode = null)
     {
         $moduleName = 'adminhtml';
         if (is_object($sectionNode) && method_exists($sectionNode, 'attributes')) {
@@ -232,7 +232,7 @@ class Mage_Adminhtml_Model_Config extends Varien_Simplexml_Config
      * @param string $fieldName
      * @return string
      */
-    public function getSystemConfigNodeLabel($sectionName, $groupName = null, $fieldName = null)
+    function getSystemConfigNodeLabel($sectionName, $groupName = null, $fieldName = null)
     {
         $sectionName = trim($sectionName, '/');
         $path = '//sections/' . $sectionName;
@@ -263,7 +263,7 @@ class Mage_Adminhtml_Model_Config extends Varien_Simplexml_Config
      *
      * @return array $paths
      */
-    public function getEncryptedNodeEntriesPaths($explodePathToEntities = false)
+    function getEncryptedNodeEntriesPaths($explodePathToEntities = false)
     {
         $paths = [];
         $configSections = $this->getSections();

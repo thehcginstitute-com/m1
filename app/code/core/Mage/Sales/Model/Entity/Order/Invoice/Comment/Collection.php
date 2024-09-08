@@ -31,7 +31,7 @@ class Mage_Sales_Model_Entity_Order_Invoice_Comment_Collection extends Mage_Eav_
      * @param int $invoiceId
      * @return $this
      */
-    public function setInvoiceFilter($invoiceId)
+    function setInvoiceFilter($invoiceId)
     {
         $this->addAttributeToFilter('parent_id', $invoiceId);
         return $this;
@@ -41,7 +41,7 @@ class Mage_Sales_Model_Entity_Order_Invoice_Comment_Collection extends Mage_Eav_
      * @param string $order
      * @return $this
      */
-    public function setCreatedAtOrder($order = 'desc')
+    function setCreatedAtOrder($order = 'desc')
     {
         $this->setOrder('created_at', $order);
         return $this;

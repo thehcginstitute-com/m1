@@ -30,7 +30,7 @@ class Mage_Api2_Block_Adminhtml_Attribute_Tab_Resource extends Mage_Adminhtml_Bl
      */
     protected $_treeModel = false;
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -57,7 +57,7 @@ class Mage_Api2_Block_Adminhtml_Attribute_Tab_Resource extends Mage_Adminhtml_Bl
      *
      * @return string
      */
-    public function getResTreeJson()
+    function getResTreeJson()
     {
         /** @var Mage_Core_Helper_Data $helper */
         $helper = Mage::helper('core');
@@ -69,7 +69,7 @@ class Mage_Api2_Block_Adminhtml_Attribute_Tab_Resource extends Mage_Adminhtml_Bl
      *
      * @return bool
      */
-    public function getEverythingAllowed()
+    function getEverythingAllowed()
     {
         return $this->_treeModel->getEverythingAllowed();
     }
@@ -79,7 +79,7 @@ class Mage_Api2_Block_Adminhtml_Attribute_Tab_Resource extends Mage_Adminhtml_Bl
      *
      * @return bool
      */
-    public function hasEntityOnlyAttributes()
+    function hasEntityOnlyAttributes()
     {
         return $this->_treeModel->getHasEntityOnlyAttributes();
     }
@@ -89,7 +89,7 @@ class Mage_Api2_Block_Adminhtml_Attribute_Tab_Resource extends Mage_Adminhtml_Bl
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return $this->__('ACL Attribute Rules');
     }
@@ -99,7 +99,7 @@ class Mage_Api2_Block_Adminhtml_Attribute_Tab_Resource extends Mage_Adminhtml_Bl
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return $this->getTabLabel();
     }
@@ -109,7 +109,7 @@ class Mage_Api2_Block_Adminhtml_Attribute_Tab_Resource extends Mage_Adminhtml_Bl
      *
      * @return bool
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -119,7 +119,7 @@ class Mage_Api2_Block_Adminhtml_Attribute_Tab_Resource extends Mage_Adminhtml_Bl
      *
      * @return bool
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }

@@ -151,7 +151,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit_Form extends Mage_Adminhtm
      *
      * @return Mage_Core_Model_Email_Template
      */
-    public function getEmailTemplate()
+    function getEmailTemplate()
     {
         return Mage::registry('current_email_template');
     }
@@ -161,7 +161,7 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit_Form extends Mage_Adminhtm
      *
      * @return array
      */
-    public function getVariables()
+    function getVariables()
     {
         $variables = [];
         $variables[] = Mage::getModel('core/source_email_variables')

@@ -28,7 +28,7 @@ class Mage_GiftMessage_Model_Observer extends Varien_Object
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function salesEventConvertQuoteItemToOrderItem(Varien_Event_Observer $observer)
+    function salesEventConvertQuoteItemToOrderItem(Varien_Event_Observer $observer)
     {
         /** @var Mage_Sales_Model_Order_Item $orderItem */
         $orderItem = $observer->getEvent()->getOrderItem();
@@ -52,7 +52,7 @@ class Mage_GiftMessage_Model_Observer extends Varien_Object
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function salesEventConvertQuoteAddressToOrder(Varien_Event_Observer $observer)
+    function salesEventConvertQuoteAddressToOrder(Varien_Event_Observer $observer)
     {
         if ($observer->getEvent()->getAddress()->getGiftMessageId()) {
             $observer->getEvent()->getOrder()
@@ -67,7 +67,7 @@ class Mage_GiftMessage_Model_Observer extends Varien_Object
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function salesEventConvertQuoteToOrder(Varien_Event_Observer $observer)
+    function salesEventConvertQuoteToOrder(Varien_Event_Observer $observer)
     {
         $observer->getEvent()->getOrder()
             ->setGiftMessageId($observer->getEvent()->getQuote()->getGiftMessageId());
@@ -95,7 +95,7 @@ class Mage_GiftMessage_Model_Observer extends Varien_Object
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function checkoutEventCreateGiftMessage(Varien_Event_Observer $observer)
+    function checkoutEventCreateGiftMessage(Varien_Event_Observer $observer)
     {
         $giftMessages = $observer->getEvent()->getRequest()->getParam('giftmessage');
         $quote = $observer->getEvent()->getQuote();
@@ -161,7 +161,7 @@ class Mage_GiftMessage_Model_Observer extends Varien_Object
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function catalogEventProductCollectionAfterLoad(Varien_Event_Observer $observer)
+    function catalogEventProductCollectionAfterLoad(Varien_Event_Observer $observer)
     {
         return $this;
     }
@@ -172,7 +172,7 @@ class Mage_GiftMessage_Model_Observer extends Varien_Object
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function salesEventOrderToQuote(Varien_Event_Observer $observer)
+    function salesEventOrderToQuote(Varien_Event_Observer $observer)
     {
         /** @var Mage_Sales_Model_Order $order */
         $order = $observer->getEvent()->getOrder();
@@ -201,7 +201,7 @@ class Mage_GiftMessage_Model_Observer extends Varien_Object
      * @param Varien_Event_Observer $observer
      * @return $this
      */
-    public function salesEventOrderItemToQuoteItem(Varien_Event_Observer $observer)
+    function salesEventOrderItemToQuoteItem(Varien_Event_Observer $observer)
     {
         /** @var Mage_Sales_Model_Order_Item $orderItem */
         $orderItem = $observer->getEvent()->getOrderItem();

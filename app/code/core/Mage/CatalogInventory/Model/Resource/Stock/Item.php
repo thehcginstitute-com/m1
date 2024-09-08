@@ -34,7 +34,7 @@ class Mage_CatalogInventory_Model_Resource_Stock_Item extends Mage_Core_Model_Re
      * @param int $productId
      * @return $this
      */
-    public function loadByProductId(Mage_CatalogInventory_Model_Stock_Item $item, $productId)
+    function loadByProductId(Mage_CatalogInventory_Model_Stock_Item $item, $productId)
     {
         $select = $this->_getLoadSelect('product_id', $productId, $item)
             ->where('stock_id = :stock_id');
@@ -70,7 +70,7 @@ class Mage_CatalogInventory_Model_Resource_Stock_Item extends Mage_Core_Model_Re
      * @param Mage_Catalog_Model_Resource_Product_Collection $productCollection
      * @return $this
      */
-    public function addCatalogInventoryToProductCollection($productCollection)
+    function addCatalogInventoryToProductCollection($productCollection)
     {
         $adapter = $this->_getReadAdapter();
         $isManageStock = (int)Mage::getStoreConfig(Mage_CatalogInventory_Model_Stock_Item::XML_PATH_MANAGE_STOCK);

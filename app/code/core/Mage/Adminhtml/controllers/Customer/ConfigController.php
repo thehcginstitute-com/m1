@@ -28,7 +28,7 @@ class Mage_Adminhtml_Customer_ConfigController extends Mage_Adminhtml_Controller
      */
     public const ADMIN_RESOURCE = 'customer/config';
 
-    public function indexAction()
+    function indexAction()
     {
         $this->loadLayout();
         $this->_setActiveMenu('customer/config');

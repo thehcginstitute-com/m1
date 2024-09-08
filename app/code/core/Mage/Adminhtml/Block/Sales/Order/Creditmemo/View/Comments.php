@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_View_Comments extends Mage_Adm
      *
      * @return Mage_Sales_Model_Order_Creditmemo
      */
-    public function getCreditmemo()
+    function getCreditmemo()
     {
         return Mage::registry('current_creditmemo');
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_View_Comments extends Mage_Adm
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->getCreditmemo()->getOrder();
     }
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_View_Comments extends Mage_Adm
      *
      * @return Mage_Sales_Model_Order_Creditmemo
      */
-    public function getSource()
+    function getSource()
     {
         return $this->getCreditmemo();
     }

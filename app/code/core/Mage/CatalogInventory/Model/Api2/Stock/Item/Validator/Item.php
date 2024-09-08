@@ -31,7 +31,7 @@ class Mage_CatalogInventory_Model_Api2_Stock_Item_Validator_Item extends Mage_Ap
      * @param array $data
      * @return bool
      */
-    public function isValidSingleItemDataForMultiUpdate(array $data)
+    function isValidSingleItemDataForMultiUpdate(array $data)
     {
         // Validate item id
         if (!isset($data['item_id']) || !is_numeric($data['item_id'])) {

@@ -31,7 +31,7 @@ class Mage_Api_Model_Server_Wsi_Handler extends Mage_Api_Model_Server_Handler_Ab
      * @param array $args
      * @return stdClass
      */
-    public function __call($function, $args)
+    function __call($function, $args)
     {
         $args = $args[0];
 
@@ -80,7 +80,7 @@ class Mage_Api_Model_Server_Wsi_Handler extends Mage_Api_Model_Server_Handler_Ab
      * @param string $apiKey
      * @return stdClass
      */
-    public function login($username, $apiKey = null)
+    function login($username, $apiKey = null)
     {
         if (is_object($username)) {
             $apiKey = $username->apiKey;
@@ -127,7 +127,7 @@ class Mage_Api_Model_Server_Wsi_Handler extends Mage_Api_Model_Server_Handler_Ab
      * @param String $methodName
      * @return array of ReflectionParameter
      */
-    public function getMethodParams($modelName, $methodName)
+    function getMethodParams($modelName, $methodName)
     {
         $method = new ReflectionMethod($modelName, $methodName);
 
@@ -141,7 +141,7 @@ class Mage_Api_Model_Server_Wsi_Handler extends Mage_Api_Model_Server_Handler_Ab
      * @param array $args
      * @return array
      */
-    public function prepareArgs($params, $args)
+    function prepareArgs($params, $args)
     {
         $callArgs = [];
 
@@ -168,7 +168,7 @@ class Mage_Api_Model_Server_Wsi_Handler extends Mage_Api_Model_Server_Handler_Ab
      * @param stdClass $request
      * @return stdClass
      */
-    public function endSession($request)
+    function endSession($request)
     {
         $stdObject = new stdClass();
         $stdObject->result = parent::endSession($request->sessionId);

@@ -62,7 +62,7 @@ class Mage_Persistent_Model_Resource_Session extends Mage_Core_Model_Resource_Db
      * @param int $customerId
      * @return $this
      */
-    public function deleteByCustomerId($customerId)
+    function deleteByCustomerId($customerId)
     {
         $this->_getWriteAdapter()->delete($this->getMainTable(), ['customer_id = ?' => $customerId]);
         return $this;
@@ -74,7 +74,7 @@ class Mage_Persistent_Model_Resource_Session extends Mage_Core_Model_Resource_Db
      * @param string $key
      * @return bool
      */
-    public function isKeyAllowed($key)
+    function isKeyAllowed($key)
     {
         $sameSession = Mage::getModel('persistent/session')->setLoadExpired();
         $sameSession->loadByCookieKey($key);
@@ -88,7 +88,7 @@ class Mage_Persistent_Model_Resource_Session extends Mage_Core_Model_Resource_Db
      * @param  string $expiredBefore
      * @return $this
      */
-    public function deleteExpired($websiteId, $expiredBefore)
+    function deleteExpired($websiteId, $expiredBefore)
     {
         $this->_getWriteAdapter()->delete(
             $this->getMainTable(),

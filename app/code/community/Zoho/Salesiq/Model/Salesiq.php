@@ -13,7 +13,7 @@ class Zoho_Salesiq_Model_Salesiq extends Mage_Core_Model_Abstract {
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return array(
             array('value' => 'all_pages', 'label'=>Mage::helper('salesiq')->__('All Pages')),

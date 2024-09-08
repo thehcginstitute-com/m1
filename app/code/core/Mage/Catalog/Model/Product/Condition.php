@@ -31,7 +31,7 @@ class Mage_Catalog_Model_Product_Condition extends Varien_Object implements Mage
      * @param Mage_Catalog_Model_Resource_Product_Collection $collection
      * @return $this
      */
-    public function applyToCollection($collection)
+    function applyToCollection($collection)
     {
         if ($this->getTable() && $this->getPkFieldName()) {
             $collection->joinTable(
@@ -47,7 +47,7 @@ class Mage_Catalog_Model_Product_Condition extends Varien_Object implements Mage
      * @param Magento_Db_Adapter_Pdo_Mysql $dbAdapter
      * @return string|Varien_Db_Select
      */
-    public function getIdsSelect($dbAdapter)
+    function getIdsSelect($dbAdapter)
     {
         if ($this->getTable() && $this->getPkFieldName()) {
             return $dbAdapter->select()

@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_System_Cache_Edit extends Mage_Adminhtml_Block_Widget
     /**
      * Mage_Adminhtml_Block_System_Cache_Edit constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('system/cache/edit.phtml');
@@ -52,7 +52,7 @@ class Mage_Adminhtml_Block_System_Cache_Edit extends Mage_Adminhtml_Block_Widget
     /**
      * @return string
      */
-    public function getSaveButtonHtml()
+    function getSaveButtonHtml()
     {
         return $this->getChildHtml('save_button');
     }
@@ -60,7 +60,7 @@ class Mage_Adminhtml_Block_System_Cache_Edit extends Mage_Adminhtml_Block_Widget
     /**
      * @return string
      */
-    public function getSaveUrl()
+    function getSaveUrl()
     {
         return $this->getUrl('*/*/save', ['_current' => true]);
     }
@@ -68,7 +68,7 @@ class Mage_Adminhtml_Block_System_Cache_Edit extends Mage_Adminhtml_Block_Widget
     /**
      * @return $this
      */
-    public function initForm()
+    function initForm()
     {
         /** @var Mage_Adminhtml_Block_System_Cache_Form $block */
         $block = $this->getLayout()->createBlock('adminhtml/system_cache_form');
@@ -81,7 +81,7 @@ class Mage_Adminhtml_Block_System_Cache_Edit extends Mage_Adminhtml_Block_Widget
      *
      * @return array
      */
-    public function getCatalogData()
+    function getCatalogData()
     {
         $layeredIsDisabled = false;
         $warning = '';

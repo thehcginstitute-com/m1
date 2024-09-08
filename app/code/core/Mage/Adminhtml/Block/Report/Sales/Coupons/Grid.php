@@ -24,14 +24,14 @@ class Mage_Adminhtml_Block_Report_Sales_Coupons_Grid extends Mage_Adminhtml_Bloc
 {
     protected $_columnGroupBy = 'period';
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setCountTotals(true);
         $this->setCountSubTotals(true);
     }
 
-    public function getResourceCollectionName()
+    function getResourceCollectionName()
     {
         if (($this->getFilterData()->getData('report_type') == 'updated_at_order')) {
             return 'salesrule/report_updatedat_collection';

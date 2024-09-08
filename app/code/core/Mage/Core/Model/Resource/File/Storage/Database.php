@@ -35,7 +35,7 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
      *
      * @return $this
      */
-    public function createDatabaseScheme()
+    function createDatabaseScheme()
     {
         $adapter = $this->_getWriteAdapter();
         $table = $this->getMainTable();
@@ -127,7 +127,7 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
      * @param  string $path
      * @return $this
      */
-    public function loadByFilename(Mage_Core_Model_File_Storage_Database $object, $filename, $path)
+    function loadByFilename(Mage_Core_Model_File_Storage_Database $object, $filename, $path)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -151,7 +151,7 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
      *
      * @return $this
      */
-    public function clearFiles()
+    function clearFiles()
     {
         $adapter = $this->_getWriteAdapter();
         $adapter->delete($this->getMainTable());
@@ -166,7 +166,7 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
      * @param  int $count
      * @return array
      */
-    public function getFiles($offset = 0, $count = 100)
+    function getFiles($offset = 0, $count = 100)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -188,7 +188,7 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
      * @param array|Mage_Core_Model_File_Storage_Database $file
      * @return $this
      */
-    public function saveFile($file)
+    function saveFile($file)
     {
         $adapter = $this->_getWriteAdapter();
 
@@ -216,7 +216,7 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
      * @param  string $newPath
      * @return $this
      */
-    public function renameFile($oldFilename, $oldPath, $newFilename, $newPath)
+    function renameFile($oldFilename, $oldPath, $newFilename, $newPath)
     {
         $adapter    = $this->_getWriteAdapter();
         $dataUpdate = ['filename' => $newFilename, 'directory' => $newPath];
@@ -238,7 +238,7 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
      * @param  string $newPath
      * @return $this
      */
-    public function copyFile($oldFilename, $oldPath, $newFilename, $newPath)
+    function copyFile($oldFilename, $oldPath, $newFilename, $newPath)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -271,7 +271,7 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
      * @param string $path
      * @return bool
      */
-    public function fileExists($filename, $path)
+    function fileExists($filename, $path)
     {
         $adapter = $this->_getReadAdapter();
 
@@ -290,7 +290,7 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
      *
      * @param string $folderName
      */
-    public function deleteFolder($folderName = '')
+    function deleteFolder($folderName = '')
     {
         $folderName = rtrim($folderName, '/');
         if (!strlen($folderName)) {
@@ -310,7 +310,7 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
      * @param string $filename
      * @param string $directory
      */
-    public function deleteFile($filename, $directory)
+    function deleteFile($filename, $directory)
     {
         $adapter = $this->_getWriteAdapter();
 
@@ -326,7 +326,7 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
      * @param string $directory
      * @return mixed
      */
-    public function getDirectoryFiles($directory)
+    function getDirectoryFiles($directory)
     {
         $directory = trim($directory, '/');
         $adapter = $this->_getReadAdapter();

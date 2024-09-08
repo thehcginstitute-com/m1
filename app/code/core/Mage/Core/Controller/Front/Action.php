@@ -51,7 +51,7 @@ class Mage_Core_Controller_Front_Action extends Mage_Core_Controller_Varien_Acti
      *
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         $this->getLayout()->setArea($this->_currentArea);
 
@@ -64,7 +64,7 @@ class Mage_Core_Controller_Front_Action extends Mage_Core_Controller_Varien_Acti
      *
      * @return $this
      */
-    public function postDispatch()
+    function postDispatch()
     {
         parent::postDispatch();
         if (!$this->getFlag('', self::FLAG_NO_START_SESSION)) {
@@ -78,7 +78,7 @@ class Mage_Core_Controller_Front_Action extends Mage_Core_Controller_Varien_Acti
      *
      * @return string
      */
-    public function __()
+    function __()
     {
         $args = func_get_args();
         $expr = new Mage_Core_Model_Translate_Expr(array_shift($args), $this->_getRealModuleName());

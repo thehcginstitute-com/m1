@@ -33,7 +33,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Media extends Mage_Eav_Model_
      * @param Mage_Catalog_Model_Product $object
      * @return $this
      */
-    public function afterLoad($object)
+    function afterLoad($object)
     {
         $attrCode = $this->getAttribute()->getAttributeCode();
         $value = [];
@@ -71,7 +71,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Media extends Mage_Eav_Model_
      * @throws Mage_Core_Exception
      * @return bool
      */
-    public function validate($object)
+    function validate($object)
     {
         if ($this->getAttribute()->getIsRequired()) {
             $value = $object->getData($this->getAttribute()->getAttributeCode());
@@ -96,7 +96,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Media extends Mage_Eav_Model_
      * @return $this|Mage_Eav_Model_Entity_Attribute_Backend_Abstract|void
      * @throws Zend_Json_Exception
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         $attrCode = $this->getAttribute()->getAttributeCode();
         $value = $object->getData($attrCode);
@@ -182,7 +182,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Media extends Mage_Eav_Model_
      * @param string $file
      * @return string
      */
-    public function getRenamedImage($file)
+    function getRenamedImage($file)
     {
         return $this->_renamedImages[$file] ?? $file;
     }
@@ -191,7 +191,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Media extends Mage_Eav_Model_
      * @param Mage_Catalog_Model_Product $object
      * @return Mage_Eav_Model_Entity_Attribute_Backend_Abstract|void
      */
-    public function afterSave($object)
+    function afterSave($object)
     {
         if ($object->getIsDuplicate() == true) {
             $this->duplicate($object);
@@ -267,7 +267,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Media extends Mage_Eav_Model_
      * @return string
      * @throws Mage_Core_Exception
      */
-    public function addImage(
+    function addImage(
         Mage_Catalog_Model_Product $product,
         $file,
         $mediaAttribute = null,
@@ -372,7 +372,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Media extends Mage_Eav_Model_
      * @return array array of parallel arrays with original and renamed files
      * @throws Mage_Core_Exception
      */
-    public function addImagesWithDifferentMediaAttributes(
+    function addImagesWithDifferentMediaAttributes(
         Mage_Catalog_Model_Product $product,
         $fileAndAttributesArray,
         $filePath = '',
@@ -408,7 +408,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Media extends Mage_Eav_Model_
      * @param array $data
      * @return $this
      */
-    public function updateImage(Mage_Catalog_Model_Product $product, $file, $data)
+    function updateImage(Mage_Catalog_Model_Product $product, $file, $data)
     {
         $fieldsMap = [
             'label'    => 'label',
@@ -446,7 +446,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Media extends Mage_Eav_Model_
      * @param string $file
      * @return $this
      */
-    public function removeImage(Mage_Catalog_Model_Product $product, $file)
+    function removeImage(Mage_Catalog_Model_Product $product, $file)
     {
         $attrCode = $this->getAttribute()->getAttributeCode();
 
@@ -474,7 +474,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Media extends Mage_Eav_Model_
      * @param string $file
      * @return array|bool
      */
-    public function getImage(Mage_Catalog_Model_Product $product, $file)
+    function getImage(Mage_Catalog_Model_Product $product, $file)
     {
         $attrCode = $this->getAttribute()->getAttributeCode();
         $mediaGalleryData = $product->getData($attrCode);
@@ -498,7 +498,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Media extends Mage_Eav_Model_
      * @param string|array $mediaAttribute
      * @return $this
      */
-    public function clearMediaAttribute(Mage_Catalog_Model_Product $product, $mediaAttribute)
+    function clearMediaAttribute(Mage_Catalog_Model_Product $product, $mediaAttribute)
     {
         $mediaAttributeCodes = array_keys($product->getMediaAttributes());
 
@@ -523,7 +523,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Media extends Mage_Eav_Model_
      * @param string $value
      * @return $this
      */
-    public function setMediaAttribute(Mage_Catalog_Model_Product $product, $mediaAttribute, $value)
+    function setMediaAttribute(Mage_Catalog_Model_Product $product, $mediaAttribute, $value)
     {
         $mediaAttributeCodes = array_keys($product->getMediaAttributes());
 
@@ -678,7 +678,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Media extends Mage_Eav_Model_
      * @param Mage_Catalog_Model_Product $object
      * @return $this
      */
-    public function duplicate($object)
+    function duplicate($object)
     {
         $attrCode = $this->getAttribute()->getAttributeCode();
         $mediaGalleryData = $object->getData($attrCode);

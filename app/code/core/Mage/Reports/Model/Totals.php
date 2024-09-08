@@ -30,7 +30,7 @@ class Mage_Reports_Model_Totals
      * @param string $to
      * @return Varien_Object
      */
-    public function countTotals($grid, $from, $to)
+    function countTotals($grid, $from, $to)
     {
         $columns = [];
         foreach ($grid->getColumns() as $col) {

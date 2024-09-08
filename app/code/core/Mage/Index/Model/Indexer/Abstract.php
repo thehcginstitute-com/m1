@@ -47,14 +47,14 @@ abstract class Mage_Index_Model_Indexer_Abstract extends Mage_Core_Model_Abstrac
      *
      * @return string
      */
-    abstract public function getName();
+    abstract function getName();
 
     /**
      * Get Indexer description
      *
      * @return string
      */
-    public function getDescription()
+    function getDescription()
     {
         return '';
     }
@@ -79,7 +79,7 @@ abstract class Mage_Index_Model_Indexer_Abstract extends Mage_Core_Model_Abstrac
      * @param Mage_Index_Model_Event $event
      * @return Mage_Index_Model_Indexer_Abstract
      */
-    public function register(Mage_Index_Model_Event $event)
+    function register(Mage_Index_Model_Event $event)
     {
         if ($this->matchEvent($event)) {
             $this->_registerEvent($event);
@@ -93,7 +93,7 @@ abstract class Mage_Index_Model_Indexer_Abstract extends Mage_Core_Model_Abstrac
      * @param   Mage_Index_Model_Event $event
      * @return  Mage_Index_Model_Indexer_Abstract
      */
-    public function processEvent(Mage_Index_Model_Event $event)
+    function processEvent(Mage_Index_Model_Event $event)
     {
         if ($this->matchEvent($event)) {
             $this->_processEvent($event);
@@ -107,7 +107,7 @@ abstract class Mage_Index_Model_Indexer_Abstract extends Mage_Core_Model_Abstrac
      * @param Mage_Index_Model_Event $event
      * @return bool
      */
-    public function matchEvent(Mage_Index_Model_Event $event)
+    function matchEvent(Mage_Index_Model_Event $event)
     {
         $entity = $event->getEntity();
         $type   = $event->getType();
@@ -121,7 +121,7 @@ abstract class Mage_Index_Model_Indexer_Abstract extends Mage_Core_Model_Abstrac
      * @param   string $type
      * @return  bool
      */
-    public function matchEntityAndType($entity, $type)
+    function matchEntityAndType($entity, $type)
     {
         if (isset($this->_matchedEntities[$entity])) {
             if (in_array($type, $this->_matchedEntities[$entity])) {
@@ -134,7 +134,7 @@ abstract class Mage_Index_Model_Indexer_Abstract extends Mage_Core_Model_Abstrac
     /**
      * Rebuild all index data
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->_getResource()->reindexAll();
     }
@@ -146,7 +146,7 @@ abstract class Mage_Index_Model_Indexer_Abstract extends Mage_Core_Model_Abstrac
      * @param   Mage_Index_Model_Event $event
      * @return  Mage_Index_Model_Indexer_Abstract
      */
-    public function callEventHandler(Mage_Index_Model_Event $event)
+    function callEventHandler(Mage_Index_Model_Event $event)
     {
         if ($event->getEntity()) {
             $method = $this->_camelize($event->getEntity() . '_' . $event->getType());
@@ -168,7 +168,7 @@ abstract class Mage_Index_Model_Indexer_Abstract extends Mage_Core_Model_Abstrac
      * @param bool $value
      * @return Mage_Index_Model_Indexer_Abstract
      */
-    public function setAllowTableChanges($value = true)
+    function setAllowTableChanges($value = true)
     {
         $this->_allowTableChanges = $value;
         return $this;
@@ -179,7 +179,7 @@ abstract class Mage_Index_Model_Indexer_Abstract extends Mage_Core_Model_Abstrac
      *
      * @return Mage_Index_Model_Indexer_Abstract
      */
-    public function disableKeys()
+    function disableKeys()
     {
         if (empty($this->_resourceName)) {
             return $this;
@@ -198,7 +198,7 @@ abstract class Mage_Index_Model_Indexer_Abstract extends Mage_Core_Model_Abstrac
      *
      * @return Mage_Index_Model_Indexer_Abstract
      */
-    public function enableKeys()
+    function enableKeys()
     {
         if (empty($this->_resourceName)) {
             return $this;
@@ -217,7 +217,7 @@ abstract class Mage_Index_Model_Indexer_Abstract extends Mage_Core_Model_Abstrac
      *
      * @return bool
      */
-    public function isVisible()
+    function isVisible()
     {
         return $this->_isVisible;
     }

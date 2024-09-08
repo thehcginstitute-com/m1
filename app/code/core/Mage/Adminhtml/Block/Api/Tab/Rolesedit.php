@@ -20,7 +20,7 @@
  */
 class Mage_Adminhtml_Block_Api_Tab_Rolesedit extends Mage_Adminhtml_Block_Widget_Form
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
 
@@ -48,12 +48,12 @@ class Mage_Adminhtml_Block_Api_Tab_Rolesedit extends Mage_Adminhtml_Block_Widget
         //->assign('checkedResources', join(',', $selrids));
     }
 
-    public function getEverythingAllowed()
+    function getEverythingAllowed()
     {
         return in_array('all', $this->getSelectedResources());
     }
 
-    public function getResTreeJson()
+    function getResTreeJson()
     {
         $rid = Mage::app()->getRequest()->getParam('rid', false);
         $resources = Mage::getModel('api/roles')->getResourcesTree();

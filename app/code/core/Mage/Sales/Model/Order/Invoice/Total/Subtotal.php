@@ -26,7 +26,7 @@ class Mage_Sales_Model_Order_Invoice_Total_Subtotal extends Mage_Sales_Model_Ord
      * @param   Mage_Sales_Model_Order_Invoice $invoice
      * @return  Mage_Sales_Model_Order_Invoice_Total_Subtotal
      */
-    public function collect(Mage_Sales_Model_Order_Invoice $invoice)
+    function collect(Mage_Sales_Model_Order_Invoice $invoice)
     {
         $subtotal       = 0;
         $baseSubtotal   = 0;

@@ -31,7 +31,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items extends Mage_Adminhtml_Block
     /**
      * Define block ID
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('sales_order_create_items');
@@ -42,7 +42,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getHeaderText()
+    function getHeaderText()
     {
         return Mage::helper('sales')->__('Items Ordered');
     }
@@ -52,7 +52,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items extends Mage_Adminhtml_Block
      *
      * @return array
      */
-    public function getItems()
+    function getItems()
     {
         return $this->getQuote()->getAllVisibleItems();
     }
@@ -62,7 +62,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items extends Mage_Adminhtml_Block
      *
      * @param array $args
      */
-    public function addButton($args)
+    function addButton($args)
     {
         $this->_buttons[] = $args;
     }
@@ -72,7 +72,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getButtonsHtml()
+    function getButtonsHtml()
     {
         $html = '';
         // Make buttons to be rendered in opposite order of addition. This makes "Add products" the last one.

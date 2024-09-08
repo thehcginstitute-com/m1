@@ -33,7 +33,7 @@ interface Mage_Index_Model_Resource_Helper_Lock_Interface
      * @param string $name
      * @return bool
      */
-    public function setLock($name);
+    function setLock($name);
 
     /**
      * Release lock
@@ -41,7 +41,7 @@ interface Mage_Index_Model_Resource_Helper_Lock_Interface
      * @param string $name
      * @return bool
      */
-    public function releaseLock($name);
+    function releaseLock($name);
 
     /**
      * Is lock exists
@@ -49,11 +49,11 @@ interface Mage_Index_Model_Resource_Helper_Lock_Interface
      * @param string $name
      * @return bool
      */
-    public function isLocked($name);
+    function isLocked($name);
 
     /**
      * @param Varien_Db_Adapter_Interface $adapter
      * @return $this
      */
-    public function setWriteAdapter(Varien_Db_Adapter_Interface $adapter);
+    function setWriteAdapter(Varien_Db_Adapter_Interface $adapter);
 }

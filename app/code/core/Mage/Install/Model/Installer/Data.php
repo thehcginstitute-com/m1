@@ -35,7 +35,7 @@ class Mage_Install_Model_Installer_Data extends Varien_Object
      * @param string $error
      * @return $this
      */
-    public function addError($error)
+    function addError($error)
     {
         $this->_errors[] = $error;
         return $this;
@@ -46,7 +46,7 @@ class Mage_Install_Model_Installer_Data extends Varien_Object
      *
      * @return array
      */
-    public function getErrors()
+    function getErrors()
     {
         return $this->_errors;
     }

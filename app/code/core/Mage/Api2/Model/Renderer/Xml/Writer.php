@@ -33,7 +33,7 @@ class Mage_Api2_Model_Renderer_Xml_Writer extends Zend_Config_Writer_Xml
      *
      * @return string
      */
-    public function render()
+    function render()
     {
         $xml         = new SimpleXMLElement('<' . self::XML_ROOT_NODE . '/>');
         $extends     = $this->_config->getExtends();

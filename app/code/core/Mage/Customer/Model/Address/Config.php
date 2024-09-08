@@ -58,7 +58,7 @@ class Mage_Customer_Model_Address_Config extends Mage_Core_Model_Config_Base
      * @return $this
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function setStore($store)
+    function setStore($store)
     {
         $this->_store = Mage::app()->getStore($store);
         return $this;
@@ -69,7 +69,7 @@ class Mage_Customer_Model_Address_Config extends Mage_Core_Model_Config_Base
      *
      * @return Mage_Core_Model_Store
      */
-    public function getStore()
+    function getStore()
     {
         if (is_null($this->_store)) {
             $this->_store = Mage::app()->getStore();
@@ -81,7 +81,7 @@ class Mage_Customer_Model_Address_Config extends Mage_Core_Model_Config_Base
      * Define node
      *
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct(Mage::getConfig()->getNode()->global->customer->address);
     }
@@ -91,7 +91,7 @@ class Mage_Customer_Model_Address_Config extends Mage_Core_Model_Config_Base
      *
      * @return Varien_Object[]
      */
-    public function getFormats()
+    function getFormats()
     {
         $store = $this->getStore();
         $storeId = $store->getId();
@@ -154,7 +154,7 @@ class Mage_Customer_Model_Address_Config extends Mage_Core_Model_Config_Base
      * @param string $typeCode
      * @return Varien_Object
      */
-    public function getFormatByCode($typeCode)
+    function getFormatByCode($typeCode)
     {
         foreach ($this->getFormats() as $type) {
             if ($type->getCode() == $typeCode) {

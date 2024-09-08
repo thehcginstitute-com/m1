@@ -5,7 +5,7 @@
  */
 class IWD_OrderGrid_Adminhtml_Sales_MassactionController extends IWD_OrderGrid_Controller_Abstract
 {
-    public function updateAction()
+    function updateAction()
     {
         try {
             $this->saveMassaction();

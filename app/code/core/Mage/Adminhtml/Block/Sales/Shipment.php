@@ -21,7 +21,7 @@
  */
 class Mage_Adminhtml_Block_Sales_Shipment extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    public function __construct()
+    function __construct()
     {
         $this->_controller = 'sales_shipment';
         $this->_headerText = Mage::helper('sales')->__('Shipments');

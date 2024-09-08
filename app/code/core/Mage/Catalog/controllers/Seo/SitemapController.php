@@ -27,7 +27,7 @@ class Mage_Catalog_Seo_SitemapController extends Mage_Core_Controller_Front_Acti
      *
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
         if (!Mage::getStoreConfig('catalog/seo/site_map')) {
@@ -41,7 +41,7 @@ class Mage_Catalog_Seo_SitemapController extends Mage_Core_Controller_Front_Acti
      * Display categories listing
      *
      */
-    public function categoryAction()
+    function categoryAction()
     {
         $update = $this->getLayout()->getUpdate();
         $update->addHandle('default');
@@ -58,7 +58,7 @@ class Mage_Catalog_Seo_SitemapController extends Mage_Core_Controller_Front_Acti
      * Display products listing
      *
      */
-    public function productAction()
+    function productAction()
     {
         $this->loadLayout();
         $this->renderLayout();

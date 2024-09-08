@@ -38,7 +38,7 @@ class Mage_Reports_Block_Product_Viewed extends Mage_Reports_Block_Product_Abstr
      *
      * @return int
      */
-    public function getPageSize()
+    function getPageSize()
     {
         if ($this->hasData('page_size')) {
             return $this->getData('page_size');
@@ -49,7 +49,7 @@ class Mage_Reports_Block_Product_Viewed extends Mage_Reports_Block_Product_Abstr
     /**
      * Added predefined ids support
      */
-    public function getCount()
+    function getCount()
     {
         $ids = $this->getProductIds();
         if (!empty($ids)) {
@@ -78,7 +78,7 @@ class Mage_Reports_Block_Product_Viewed extends Mage_Reports_Block_Product_Abstr
      *
      * @return array
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         return array_merge(
             parent::getCacheTags(),

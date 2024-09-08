@@ -8,7 +8,7 @@ class Amasty_Notfound_Helper_Data extends Mage_Core_Helper_Abstract
 {
     const TYPE_THIS    = 1;
 
-    public function getBoolOptions()
+    function getBoolOptions()
     {
 		return array(
 			1 => Mage::helper('cms')->__('Yes'),
@@ -16,7 +16,7 @@ class Amasty_Notfound_Helper_Data extends Mage_Core_Helper_Abstract
 		);
     }
 
-    public function getUrlPath($url)
+    function getUrlPath($url)
     {
         $store = Mage::app()->getStore();
         $storeCode = preg_quote($store->getCode());

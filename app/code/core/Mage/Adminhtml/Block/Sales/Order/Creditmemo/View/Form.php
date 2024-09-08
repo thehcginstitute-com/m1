@@ -27,7 +27,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_View_Form extends Mage_Adminht
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->getCreditmemo()->getOrder();
     }
@@ -37,7 +37,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_View_Form extends Mage_Adminht
      *
      * @return Mage_Sales_Model_Order_Creditmemo
      */
-    public function getSource()
+    function getSource()
     {
         return $this->getCreditmemo();
     }
@@ -47,7 +47,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_View_Form extends Mage_Adminht
      *
      * @return array
      */
-    public function getOrderTotalData()
+    function getOrderTotalData()
     {
         return [
             'grand_total_title' => Mage::helper('sales')->__('Total Refund'),
@@ -59,12 +59,12 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_View_Form extends Mage_Adminht
      *
      * @return Mage_Sales_Model_Order_Creditmemo
      */
-    public function getCreditmemo()
+    function getCreditmemo()
     {
         return Mage::registry('current_creditmemo');
     }
 
-    public function getOrderUrl()
+    function getOrderUrl()
     {
         return $this->getUrl('*/sales_order/view', ['order_id' => $this->getCreditmemo()->getOrderId()]);
     }

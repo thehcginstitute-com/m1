@@ -35,7 +35,7 @@ abstract class Mage_Reports_Model_Resource_Product_Index_Abstract extends Mage_C
      * @param Mage_Reports_Model_Product_Index_Abstract $object
      * @return Mage_Reports_Model_Resource_Product_Index_Abstract
      */
-    public function updateCustomerFromVisitor(Mage_Reports_Model_Product_Index_Abstract $object)
+    function updateCustomerFromVisitor(Mage_Reports_Model_Product_Index_Abstract $object)
     {
         /**
          * Do nothing if customer not logged in
@@ -92,7 +92,7 @@ abstract class Mage_Reports_Model_Resource_Product_Index_Abstract extends Mage_C
      * @param Mage_Reports_Model_Product_Index_Abstract $object
      * @return Mage_Reports_Model_Resource_Product_Index_Abstract
      */
-    public function purgeVisitorByCustomer(Mage_Reports_Model_Product_Index_Abstract $object)
+    function purgeVisitorByCustomer(Mage_Reports_Model_Product_Index_Abstract $object)
     {
         /**
          * Do nothing if customer not logged in
@@ -115,7 +115,7 @@ abstract class Mage_Reports_Model_Resource_Product_Index_Abstract extends Mage_C
      * @return Mage_Reports_Model_Resource_Product_Index_Abstract
      * @throws Mage_Core_Exception
      */
-    public function save(Mage_Core_Model_Abstract  $object)
+    function save(Mage_Core_Model_Abstract  $object)
     {
         if ($object->isDeleted()) {
             return $this->delete($object);
@@ -149,7 +149,7 @@ abstract class Mage_Reports_Model_Resource_Product_Index_Abstract extends Mage_C
      *
      * @return Mage_Reports_Model_Resource_Product_Index_Abstract
      */
-    public function clean()
+    function clean()
     {
         while (true) {
             $select = $this->_getReadAdapter()->select()
@@ -184,7 +184,7 @@ abstract class Mage_Reports_Model_Resource_Product_Index_Abstract extends Mage_C
      * @param array $productIds
      * @return Mage_Reports_Model_Resource_Product_Index_Abstract
      */
-    public function registerIds(Varien_Object $object, $productIds)
+    function registerIds(Varien_Object $object, $productIds)
     {
         $row = [
             'visitor_id'    => $object->getVisitorId(),

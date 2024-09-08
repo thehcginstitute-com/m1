@@ -43,7 +43,7 @@ class Mage_Catalog_Model_Layer extends Varien_Object
      *
      * @return Mage_CatalogIndex_Model_Aggregation
      */
-    public function getAggregator()
+    function getAggregator()
     {
         return Mage::getSingleton('catalogindex/aggregation');
     }
@@ -53,7 +53,7 @@ class Mage_Catalog_Model_Layer extends Varien_Object
      *
      * @return string
      */
-    public function getStateKey()
+    function getStateKey()
     {
         if ($this->_stateKey === null) {
             $this->_stateKey = 'STORE_' . Mage::app()->getStore()->getId()
@@ -70,7 +70,7 @@ class Mage_Catalog_Model_Layer extends Varien_Object
      * @param   array $additionalTags
      * @return  array
      */
-    public function getStateTags(array $additionalTags = [])
+    function getStateTags(array $additionalTags = [])
     {
         $additionalTags = array_merge($additionalTags, [
             Mage_Catalog_Model_Category::CACHE_TAG . $this->getCurrentCategory()->getId()
@@ -84,7 +84,7 @@ class Mage_Catalog_Model_Layer extends Varien_Object
      *
      * @return Mage_Catalog_Model_Resource_Product_Collection
      */
-    public function getProductCollection()
+    function getProductCollection()
     {
         if (isset($this->_productCollections[$this->getCurrentCategory()->getId()])) {
             $collection = $this->_productCollections[$this->getCurrentCategory()->getId()];
@@ -103,7 +103,7 @@ class Mage_Catalog_Model_Layer extends Varien_Object
      * @param Mage_Catalog_Model_Resource_Product_Collection $collection
      * @return $this
      */
-    public function prepareProductCollection($collection)
+    function prepareProductCollection($collection)
     {
         $collection
             ->addAttributeToSelect(Mage::getSingleton('catalog/config')->getProductAttributes())
@@ -123,7 +123,7 @@ class Mage_Catalog_Model_Layer extends Varien_Object
      *
      * @return $this
      */
-    public function apply()
+    function apply()
     {
         $stateSuffix = '';
         foreach ($this->getState()->getFilters() as $filterItem) {
@@ -143,7 +143,7 @@ class Mage_Catalog_Model_Layer extends Varien_Object
      *
      * @return Mage_Catalog_Model_Category
      */
-    public function getCurrentCategory()
+    function getCurrentCategory()
     {
         $category = $this->getData('current_category');
         if (is_null($category)) {
@@ -164,7 +164,7 @@ class Mage_Catalog_Model_Layer extends Varien_Object
      * @param mixed $category
      * @return $this
      */
-    public function setCurrentCategory($category)
+    function setCurrentCategory($category)
     {
         if (is_numeric($category)) {
             $category = Mage::getModel('catalog/category')->load($category);
@@ -188,7 +188,7 @@ class Mage_Catalog_Model_Layer extends Varien_Object
      *
      * @return Mage_Core_Model_Store
      */
-    public function getCurrentStore()
+    function getCurrentStore()
     {
         return Mage::app()->getStore();
     }
@@ -198,7 +198,7 @@ class Mage_Catalog_Model_Layer extends Varien_Object
      *
      * @return Mage_Catalog_Model_Resource_Product_Attribute_Collection|array
      */
-    public function getFilterableAttributes()
+    function getFilterableAttributes()
     {
         $setIds = $this->_getSetIds();
         if (!$setIds) {
@@ -246,7 +246,7 @@ class Mage_Catalog_Model_Layer extends Varien_Object
      *
      * @return Mage_Catalog_Model_Layer_State
      */
-    public function getState()
+    function getState()
     {
         $state = $this->getData('state');
         if (is_null($state)) {

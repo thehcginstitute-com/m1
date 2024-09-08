@@ -58,7 +58,7 @@ class Mage_Bundle_Model_Price_Index extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Product|Mage_Catalog_Model_Product_Condition_Interface|array|int $products
      * @return $this
      */
-    public function reindex($products = null)
+    function reindex($products = null)
     {
         $this->_getResource()->reindex($products);
         return $this;
@@ -70,7 +70,7 @@ class Mage_Bundle_Model_Price_Index extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Resource_Product_Collection $collection
      * @return $this
      */
-    public function addPriceIndexToCollection($collection)
+    function addPriceIndexToCollection($collection)
     {
         $productObjects = [];
         $productIds     = [];
@@ -111,7 +111,7 @@ class Mage_Bundle_Model_Price_Index extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function addPriceIndexToProduct($product)
+    function addPriceIndexToProduct($product)
     {
         $websiteId  = $product->getStore()->getWebsiteId();
         $groupId    = Mage::getSingleton('customer/session')

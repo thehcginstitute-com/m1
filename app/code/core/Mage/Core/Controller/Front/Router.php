@@ -25,7 +25,7 @@ class Mage_Core_Controller_Front_Router
     /**
      * @param Mage_Core_Model_Config_Element $config
      */
-    public function __construct($config)
+    function __construct($config)
     {
         $this->_config = $config;
     }
@@ -33,7 +33,7 @@ class Mage_Core_Controller_Front_Router
     /**
      * @return Mage_Core_Model_Config_Element
      */
-    public function getConfig()
+    function getConfig()
     {
         return $this->_config;
     }
@@ -42,7 +42,7 @@ class Mage_Core_Controller_Front_Router
      * @param Zend_Controller_Router_Interface $router
      * @return $this
      */
-    public function addRoutes(Zend_Controller_Router_Interface $router)
+    function addRoutes(Zend_Controller_Router_Interface $router)
     {
         $frontName = $this->_config->getName();
         $routeMatch = $frontName . '/:controller/:action/*';
@@ -58,7 +58,7 @@ class Mage_Core_Controller_Front_Router
      * @param array $params
      * @return string
      */
-    public function getUrl($params = [])
+    function getUrl($params = [])
     {
         static $reservedKeys = ['module' => 1, 'controller' => 1, 'action' => 1, 'array' => 1];
 

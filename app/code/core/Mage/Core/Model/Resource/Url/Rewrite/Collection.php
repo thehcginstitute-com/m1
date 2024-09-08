@@ -37,7 +37,7 @@ class Mage_Core_Model_Resource_Url_Rewrite_Collection extends Mage_Core_Model_Re
      * @param string|array $tags
      * @return $this
      */
-    public function addTagsFilter($tags)
+    function addTagsFilter($tags)
     {
         $tags = is_array($tags) ? $tags : explode(',', $tags);
 
@@ -61,7 +61,7 @@ class Mage_Core_Model_Resource_Url_Rewrite_Collection extends Mage_Core_Model_Re
      * @param bool $withAdmin
      * @return $this
      */
-    public function addStoreFilter($store, $withAdmin = true)
+    function addStoreFilter($store, $withAdmin = true)
     {
         if (!is_array($store)) {
             $store = [Mage::app()->getStore($store)->getId()];
@@ -81,7 +81,7 @@ class Mage_Core_Model_Resource_Url_Rewrite_Collection extends Mage_Core_Model_Re
      * @param int $productId
      * @return $this
      */
-    public function filterAllByProductId($productId)
+    function filterAllByProductId($productId)
     {
         $this->getSelect()
             ->where('id_path = ?', "product/{$productId}")
@@ -95,7 +95,7 @@ class Mage_Core_Model_Resource_Url_Rewrite_Collection extends Mage_Core_Model_Re
      *
      * @return $this
      */
-    public function filterAllByCategory()
+    function filterAllByCategory()
     {
         $this->getSelect()
             ->where('id_path LIKE ?', "category/%");

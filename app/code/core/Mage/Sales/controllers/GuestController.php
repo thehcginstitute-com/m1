@@ -62,7 +62,7 @@ class Mage_Sales_GuestController extends Mage_Sales_Controller_Abstract
     /**
      * Order view form page
      */
-    public function formAction()
+    function formAction()
     {
         if (Mage::getSingleton('customer/session')->isLoggedIn()) {
             $this->_redirect('customer/account/');
@@ -73,7 +73,7 @@ class Mage_Sales_GuestController extends Mage_Sales_Controller_Abstract
         $this->renderLayout();
     }
 
-    public function printInvoiceAction()
+    function printInvoiceAction()
     {
         if (!$this->_loadValidOrder()) {
             return;
@@ -98,7 +98,7 @@ class Mage_Sales_GuestController extends Mage_Sales_Controller_Abstract
         }
     }
 
-    public function printShipmentAction()
+    function printShipmentAction()
     {
         if (!$this->_loadValidOrder()) {
             return;
@@ -122,7 +122,7 @@ class Mage_Sales_GuestController extends Mage_Sales_Controller_Abstract
         }
     }
 
-    public function printCreditmemoAction()
+    function printCreditmemoAction()
     {
         if (!$this->_loadValidOrder()) {
             return;

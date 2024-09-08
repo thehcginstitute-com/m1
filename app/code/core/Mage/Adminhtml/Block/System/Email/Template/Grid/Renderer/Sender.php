@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_System_Email_Template_Grid_Renderer_Sender extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
 {
-    public function render(Varien_Object $row)
+    function render(Varien_Object $row)
     {
         $str = '';
 

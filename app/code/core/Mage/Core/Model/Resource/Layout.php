@@ -34,7 +34,7 @@ class Mage_Core_Model_Resource_Layout extends Mage_Core_Model_Resource_Db_Abstra
      * @param array $params
      * @return string
      */
-    public function fetchUpdatesByHandle($handle, $params = [])
+    function fetchUpdatesByHandle($handle, $params = [])
     {
         $bind = [
             'store_id'  => Mage::app()->getStore()->getId(),

@@ -26,7 +26,7 @@ class Mage_Sales_Model_Order_Invoice_Total_Cost extends Mage_Sales_Model_Order_I
      * @param Mage_Sales_Model_Order_Invoice $invoice
      * @return $this
      */
-    public function collect(Mage_Sales_Model_Order_Invoice $invoice)
+    function collect(Mage_Sales_Model_Order_Invoice $invoice)
     {
         $baseInvoiceTotalCost = 0;
         foreach ($invoice->getAllItems() as $item) {

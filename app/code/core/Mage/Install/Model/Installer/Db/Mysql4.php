@@ -27,7 +27,7 @@ class Mage_Install_Model_Installer_Db_Mysql4 extends Mage_Install_Model_Installe
      *
      * @return string (string version number | 'undefined')
      */
-    public function getVersion()
+    function getVersion()
     {
         $version  = $this->_getConnection()
             ->fetchOne('SELECT VERSION()');
@@ -44,7 +44,7 @@ class Mage_Install_Model_Installer_Db_Mysql4 extends Mage_Install_Model_Installe
      *
      * @return bool
      */
-    public function supportEngine()
+    function supportEngine()
     {
         $variables  = $this->_getConnection()
             ->fetchPairs('SHOW ENGINES');

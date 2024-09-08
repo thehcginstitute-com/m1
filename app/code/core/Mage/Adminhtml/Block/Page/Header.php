@@ -22,23 +22,23 @@
  */
 class Mage_Adminhtml_Block_Page_Header extends Mage_Adminhtml_Block_Template
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setTemplate('page/header.phtml');
     }
 
-    public function getHomeLink()
+    function getHomeLink()
     {
         return $this->getUrl('adminhtml');
     }
 
-    public function getUser()
+    function getUser()
     {
         return Mage::getSingleton('admin/session')->getUser();
     }
 
-    public function getLogoutLink()
+    function getLogoutLink()
     {
         return $this->getUrl('adminhtml/index/logout');
     }
@@ -48,7 +48,7 @@ class Mage_Adminhtml_Block_Page_Header extends Mage_Adminhtml_Block_Template
      *
      * @return bool
      */
-    public function displayNoscriptNotice()
+    function displayNoscriptNotice()
     {
         return Mage::getStoreConfig('web/browser_capabilities/javascript');
     }

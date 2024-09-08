@@ -39,7 +39,7 @@ class Mage_Core_Controller_Varien_Exception extends Exception
      * @param array $params
      * @return $this
      */
-    public function prepareForward($actionName = null, $controllerName = null, $moduleName = null, array $params = [])
+    function prepareForward($actionName = null, $controllerName = null, $moduleName = null, array $params = [])
     {
         $this->_resultCallback = self::RESULT_FORWARD;
         if ($actionName === null) {
@@ -56,7 +56,7 @@ class Mage_Core_Controller_Varien_Exception extends Exception
      * @param array $arguments
      * @return $this
      */
-    public function prepareRedirect($path, $arguments = [])
+    function prepareRedirect($path, $arguments = [])
     {
         $this->_resultCallback = self::RESULT_REDIRECT;
         $this->_resultCallbackParams = [$path, $arguments];
@@ -69,7 +69,7 @@ class Mage_Core_Controller_Varien_Exception extends Exception
      * @param string $actionName
      * @return $this
      */
-    public function prepareFork($actionName = null)
+    function prepareFork($actionName = null)
     {
         if ($actionName === null) {
             $actionName = $this->_defaultActionName;
@@ -86,7 +86,7 @@ class Mage_Core_Controller_Varien_Exception extends Exception
      * @param bool $value
      * @return $this
      */
-    public function prepareFlag($action, $flag, $value)
+    function prepareFlag($action, $flag, $value)
     {
         $this->_flags[] = [$action, $flag, $value];
         return $this;
@@ -97,7 +97,7 @@ class Mage_Core_Controller_Varien_Exception extends Exception
      *
      * @return array
      */
-    public function getResultFlags()
+    function getResultFlags()
     {
         return $this->_flags;
     }
@@ -107,7 +107,7 @@ class Mage_Core_Controller_Varien_Exception extends Exception
      *
      * @return array
      */
-    public function getResultCallback()
+    function getResultCallback()
     {
         if ($this->_resultCallback === null) {
             $this->prepareFork();

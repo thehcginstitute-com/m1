@@ -19,7 +19,7 @@
 class AddThis_SharingTool_Model_Source_Menuversions
 {
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return array(
             array('value' => '300', 'label'=>'New'),

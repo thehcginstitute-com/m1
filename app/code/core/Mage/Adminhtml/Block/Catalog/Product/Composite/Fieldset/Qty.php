@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset_Qty extends Mage_Core_Block_Template
 {
-    public function _construct()
+    function _construct()
     {
         parent::_construct();
         $this->setIsLastFieldset(true);
@@ -33,7 +33,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset_Qty extends Mage_C
      *
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         if (!$this->hasData('product')) {
             $this->setData('product', Mage::registry('product'));
@@ -46,7 +46,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset_Qty extends Mage_C
      *
      * @return int
      */
-    public function getQtyValue()
+    function getQtyValue()
     {
         $qty = $this->getProduct()->getPreconfiguredValues()->getQty();
         if (!$qty) {

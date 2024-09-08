@@ -58,7 +58,7 @@ class Mage_Eav_Model_Entity_Attribute_Set extends Mage_Core_Model_Abstract
      * @param int $skeletonId
      * @return $this
      */
-    public function initFromSkeleton($skeletonId)
+    function initFromSkeleton($skeletonId)
     {
         $groups = Mage::getModel('eav/entity_attribute_group')
             ->getResourceCollection()
@@ -103,7 +103,7 @@ class Mage_Eav_Model_Entity_Attribute_Set extends Mage_Core_Model_Abstract
      * @param array $data
      * @return $this
      */
-    public function organizeData($data)
+    function organizeData($data)
     {
         $modelGroupArray = [];
         $modelAttributeArray = [];
@@ -177,7 +177,7 @@ class Mage_Eav_Model_Entity_Attribute_Set extends Mage_Core_Model_Abstract
      * @return bool
      * @throws Mage_Core_Exception
      */
-    public function validate()
+    function validate()
     {
         if (!$this->_getResource()->validate($this, $this->getAttributeSetName())) {
             throw Mage::exception(
@@ -197,7 +197,7 @@ class Mage_Eav_Model_Entity_Attribute_Set extends Mage_Core_Model_Abstract
      * @param int $setId
      * @return $this
      */
-    public function addSetInfo($entityType, array $attributes, $setId = null)
+    function addSetInfo($entityType, array $attributes, $setId = null)
     {
         $attributeIds   = [];
         $config         = Mage::getSingleton('eav/config');
@@ -253,7 +253,7 @@ class Mage_Eav_Model_Entity_Attribute_Set extends Mage_Core_Model_Abstract
      * @param int $setId
      * @return int|null
      */
-    public function getDefaultGroupId($setId = null)
+    function getDefaultGroupId($setId = null)
     {
         if ($setId === null) {
             $setId = $this->getId();

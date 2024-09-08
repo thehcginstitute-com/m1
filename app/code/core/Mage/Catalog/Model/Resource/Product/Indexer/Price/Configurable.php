@@ -27,7 +27,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price_Configurable extends Mag
      *
      * @return $this
      */
-    public function reindexAll()
+    function reindexAll()
     {
         $this->useIdxTable(true);
         $this->beginTransaction();
@@ -50,7 +50,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price_Configurable extends Mag
      * @param int|array $entityIds
      * @return $this
      */
-    public function reindexEntity($entityIds)
+    function reindexEntity($entityIds)
     {
         $this->_prepareFinalPriceData($entityIds);
         $this->_applyCustomOption();

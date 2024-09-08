@@ -13,7 +13,7 @@ class Fooman_EmailAttachments_Customer_OrderController extends Mage_Sales_OrderC
 {
 
 
-    public function printAction()
+    function printAction()
     {
         if (!$this->_loadValidOrder()) {
             return;

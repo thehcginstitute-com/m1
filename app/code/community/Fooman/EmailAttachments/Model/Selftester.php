@@ -2,20 +2,20 @@
 class Fooman_EmailAttachments_Model_Selftester extends Fooman_Common_Model_Selftester
 {
 
-    public function _getVersions ()
+    function _getVersions ()
     {
         parent::_getVersions();
         $this->messages[] = "Fooman_EmailAttachments Config version: " . (string) Mage::getConfig()->getModuleConfig('Fooman_EmailAttachments')->version;
     }
 
-    public function _getRewrites ()
+    function _getRewrites ()
     {
         return array(
             array("model","core/email_template_mailer","Fooman_EmailAttachments_Model_Core_Email_Template_Mailer"),
         );
     }
 
-    public function _getFiles ()
+    function _getFiles ()
     {
         return array(
             "app/code/community/Fooman/EmailAttachments/controllers/Customer/OrderController.php",

@@ -25,7 +25,7 @@ class Mage_Checkout_Block_Multishipping_Success extends Mage_Checkout_Block_Mult
     /**
      * @return array|false
      */
-    public function getOrderIds()
+    function getOrderIds()
     {
         $ids = Mage::getSingleton('core/session')->getOrderIds(true);
         if ($ids && is_array($ids)) {
@@ -38,7 +38,7 @@ class Mage_Checkout_Block_Multishipping_Success extends Mage_Checkout_Block_Mult
      * @param int $orderId
      * @return string
      */
-    public function getViewOrderUrl($orderId)
+    function getViewOrderUrl($orderId)
     {
         return $this->getUrl('sales/order/view/', ['order_id' => $orderId, '_secure' => true]);
     }
@@ -46,7 +46,7 @@ class Mage_Checkout_Block_Multishipping_Success extends Mage_Checkout_Block_Mult
     /**
      * @return string
      */
-    public function getContinueUrl()
+    function getContinueUrl()
     {
         return Mage::getBaseUrl();
     }

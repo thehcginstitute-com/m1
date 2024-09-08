@@ -28,7 +28,7 @@ class Mage_Sales_Model_Entity_Order_Attribute_Backend_Billing extends Mage_Eav_M
      * @param Mage_Sales_Model_Order $object
      * @return $this
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         $billingAddressId = $object->getBillingAddressId();
         if (is_null($billingAddressId)) {
@@ -43,7 +43,7 @@ class Mage_Sales_Model_Entity_Order_Attribute_Backend_Billing extends Mage_Eav_M
      * @param Mage_Sales_Model_Order $object
      * @return $this
      */
-    public function afterSave($object)
+    function afterSave($object)
     {
         $billingAddressId = false;
         foreach ($object->getAddressesCollection() as $address) {

@@ -43,7 +43,7 @@ class Mage_Catalog_Model_Design extends Mage_Core_Model_Abstract
      * @param int $calledFrom
      * @return $this
      */
-    public function applyDesign($object, $calledFrom = 0)
+    function applyDesign($object, $calledFrom = 0)
     {
         if ($calledFrom != self::APPLY_FOR_CATEGORY && $calledFrom != self::APPLY_FOR_PRODUCT) {
             return $this;
@@ -78,7 +78,7 @@ class Mage_Catalog_Model_Design extends Mage_Core_Model_Abstract
      * @param string $design
      * @return null|false
      */
-    public function applyCustomDesign($design)
+    function applyCustomDesign($design)
     {
         $designInfo = explode('/', $design);
         if (count($designInfo) != 2) {
@@ -330,7 +330,7 @@ class Mage_Catalog_Model_Design extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Category|Mage_Catalog_Model_Product $object
      * @return Varien_Object
      */
-    public function getDesignSettings($object)
+    function getDesignSettings($object)
     {
         if ($object instanceof Mage_Catalog_Model_Product) {
             $currentCategory = $object->getCategory();

@@ -48,7 +48,7 @@ abstract class Mage_Core_Model_Resource_Helper_Abstract
      *
      * @param string $module
      */
-    public function __construct($module)
+    function __construct($module)
     {
         $this->_modulePrefix = (string)$module;
     }
@@ -114,7 +114,7 @@ abstract class Mage_Core_Model_Resource_Helper_Abstract
      * @param array $options
      * @return string
      */
-    public function escapeLikeValue($value, $options = [])
+    function escapeLikeValue($value, $options = [])
     {
         $value = str_replace('\\', '\\\\', $value);
 
@@ -159,7 +159,7 @@ abstract class Mage_Core_Model_Resource_Helper_Abstract
      *
      * @see escapeLikeValue()
      */
-    abstract public function addLikeEscape($value, $options = []);
+    abstract function addLikeEscape($value, $options = []);
 
     /**
      * Returns case insensitive LIKE construction.
@@ -172,7 +172,7 @@ abstract class Mage_Core_Model_Resource_Helper_Abstract
      *
      * @see escapeLikeValue()
      */
-    public function getCILike($field, $value, $options = [])
+    function getCILike($field, $value, $options = [])
     {
         $quotedField = $this->_getReadAdapter()->quoteIdentifier($field);
         return new Zend_Db_Expr($quotedField . ' LIKE ' . $this->addLikeEscape($value, $options));
@@ -187,7 +187,7 @@ abstract class Mage_Core_Model_Resource_Helper_Abstract
      * @param array $column
      * @return array
      */
-    public function convertOldColumnDefinition($column)
+    function convertOldColumnDefinition($column)
     {
         // Match type and size - e.g. varchar(100) or decimal(12,4) or int
         $matches    = [];

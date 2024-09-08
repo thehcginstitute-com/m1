@@ -24,7 +24,7 @@ class Magazento_Orderexport2_Model_Export
     /*
      * Loads collection for manually selected items
      * */
-    public function loadManualCollection($itemIds) {
+    function loadManualCollection($itemIds) {
         $collection = Mage::getModel('sales/order')->getCollection();
         $collection->addAttributeToFilter('entity_id', array('in' => $itemIds));
         return $collection;
@@ -34,7 +34,7 @@ class Magazento_Orderexport2_Model_Export
     /*
      * Get Order list for selected Profile
      * */
-    public function loadCollection($profile) {
+    function loadCollection($profile) {
         // Set Filters
         $this->path = $profile->getPath();
         $this->fileName = $profile->getFilename();
@@ -60,7 +60,7 @@ class Magazento_Orderexport2_Model_Export
     /*
      * Export Items
      */
-    public function exportItemsForProfile($profileId) {
+    function exportItemsForProfile($profileId) {
         $profile = Mage::getModel('orderexport2/item')->load($profileId);
         $collection   = $this->loadCollection($profile);
 

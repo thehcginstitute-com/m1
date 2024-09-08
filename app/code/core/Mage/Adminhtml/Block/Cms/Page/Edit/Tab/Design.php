@@ -23,7 +23,7 @@ class Mage_Adminhtml_Block_Cms_Page_Edit_Tab_Design extends Mage_Adminhtml_Block
     /**
      * Mage_Adminhtml_Block_Cms_Page_Edit_Tab_Design constructor.
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setShowGlobalIcon(true);
@@ -136,7 +136,7 @@ class Mage_Adminhtml_Block_Cms_Page_Edit_Tab_Design extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return Mage::helper('cms')->__('Design');
     }
@@ -146,7 +146,7 @@ class Mage_Adminhtml_Block_Cms_Page_Edit_Tab_Design extends Mage_Adminhtml_Block
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return Mage::helper('cms')->__('Design');
     }
@@ -156,7 +156,7 @@ class Mage_Adminhtml_Block_Cms_Page_Edit_Tab_Design extends Mage_Adminhtml_Block
      *
      * @return true
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -166,7 +166,7 @@ class Mage_Adminhtml_Block_Cms_Page_Edit_Tab_Design extends Mage_Adminhtml_Block
      *
      * @return false
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }

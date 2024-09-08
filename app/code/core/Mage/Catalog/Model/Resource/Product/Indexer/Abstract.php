@@ -160,7 +160,7 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Abstract extends Mage
      * @param int|array $childIds
      * @return array
      */
-    public function getRelationsByChild($childIds)
+    function getRelationsByChild($childIds)
     {
         $write = $this->_getWriteAdapter();
         $select = $write->select()
@@ -176,7 +176,7 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Abstract extends Mage
      * @param int|array $parentIds
      * @return array
      */
-    public function getRelationsByParent($parentIds)
+    function getRelationsByParent($parentIds)
     {
         if (!is_array($parentIds)) {
             $parentIds = [$parentIds];

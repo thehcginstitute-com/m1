@@ -94,7 +94,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      * @deprecated It Is a not Source model
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [];
     }
@@ -104,7 +104,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      * @throws Mage_Core_Exception
      * @throws Mage_Core_Model_Store_Exception
      */
-    public function send()
+    function send()
     {
         if ($this->isExceedLimit()) {
             Mage::throwException(Mage::helper('sendfriend')->__('You have exceeded limit of %d sends in an hour', $this->getMaxSendsToFriend()));
@@ -162,7 +162,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      *
      * @return bool|array
      */
-    public function validate()
+    function validate()
     {
         $errors = [];
 
@@ -211,7 +211,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      * @param Mage_Core_Model_Cookie $cookie
      * @return $this
      */
-    public function setCookie($cookie)
+    function setCookie($cookie)
     {
         return $this->setData('_cookie', $cookie);
     }
@@ -222,7 +222,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      * @throws Mage_Core_Exception
      * @return Mage_Core_Model_Cookie
      */
-    public function getCookie()
+    function getCookie()
     {
         $cookie = $this->_getData('_cookie');
         if (!$cookie instanceof Mage_Core_Model_Cookie) {
@@ -237,7 +237,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      * @param int $ipAddr the IP address on Long Format
      * @return $this
      */
-    public function setRemoteAddr($ipAddr)
+    function setRemoteAddr($ipAddr)
     {
         $this->setData('_remote_addr', $ipAddr);
         return $this;
@@ -248,7 +248,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getRemoteAddr()
+    function getRemoteAddr()
     {
         return $this->_getData('_remote_addr');
     }
@@ -259,7 +259,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      * @param int $id - website id
      * @return $this
      */
-    public function setWebsiteId($id)
+    function setWebsiteId($id)
     {
         $this->setData('_website_id', $id);
         return $this;
@@ -270,7 +270,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getWebsiteId()
+    function getWebsiteId()
     {
         return $this->_getData('_website_id');
     }
@@ -281,7 +281,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      * @param array $recipients
      * @return $this
      */
-    public function setRecipients($recipients)
+    function setRecipients($recipients)
     {
         // validate array
         if (!is_array($recipients) || !isset($recipients['email'])
@@ -315,7 +315,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      *
      * @return Varien_Object
      */
-    public function getRecipients()
+    function getRecipients()
     {
         $recipients = $this->_getData('_recipients');
         if (!$recipients instanceof Varien_Object) {
@@ -334,7 +334,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function setProduct($product)
+    function setProduct($product)
     {
         return $this->setData('_product', $product);
     }
@@ -345,7 +345,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      * @throws Mage_Core_Exception
      * @return Mage_Catalog_Model_Product
      */
-    public function getProduct()
+    function getProduct()
     {
         $product = $this->_getData('_product');
         if (!$product instanceof Mage_Catalog_Model_Product) {
@@ -360,7 +360,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      * @param array $sender
      * @return $this
      */
-    public function setSender($sender)
+    function setSender($sender)
     {
         if (!is_array($sender)) {
             Mage::helper('sendfriend')->__('Invalid Sender Information');
@@ -375,7 +375,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      * @throws Mage_Core_Exception
      * @return Varien_Object
      */
-    public function getSender()
+    function getSender()
     {
         $sender = $this->_getData('_sender');
         if (!$sender instanceof Varien_Object) {
@@ -393,7 +393,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      * @param int $startTime
      * @return int
      */
-    public function getSendCount($ip = null, $startTime = null)
+    function getSendCount($ip = null, $startTime = null)
     {
         if (is_null($ip)) {
             $ip = $this->getRemoteAddr();
@@ -410,7 +410,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getMaxSendsToFriend()
+    function getMaxSendsToFriend()
     {
         return $this->_getHelper()->getMaxEmailPerPeriod();
     }
@@ -420,7 +420,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getTemplate()
+    function getTemplate()
     {
         return $this->_getHelper()->getEmailTemplate();
     }
@@ -430,7 +430,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      *
      * @return int
      */
-    public function getMaxRecipients()
+    function getMaxRecipients()
     {
         return $this->_getHelper()->getMaxRecipients();
     }
@@ -440,7 +440,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function canEmailToFriend()
+    function canEmailToFriend()
     {
         return $this->_getHelper()->isEnabled();
     }
@@ -450,7 +450,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isExceedLimit()
+    function isExceedLimit()
     {
         return $this->getSentCount() >= $this->getMaxSendsToFriend();
     }
@@ -461,7 +461,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      * @param bool $useCache - flag, is allow to use value of attribute of model if it is processed last time
      * @return int
      */
-    public function getSentCount($useCache = true)
+    function getSentCount($useCache = true)
     {
         if ($useCache && !is_null($this->_sentCount)) {
             return $this->_sentCount;
@@ -553,7 +553,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function register()
+    function register()
     {
         if (!Mage::registry('send_to_friend_model')) {
             Mage::register('send_to_friend_model', $this);

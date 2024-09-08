@@ -41,7 +41,7 @@ class Mage_Directory_Model_Currency_Filter implements Zend_Filter_Interface
      * @param string $code
      * @param int $rate
      */
-    public function __construct($code, $rate = 1)
+    function __construct($code, $rate = 1)
     {
         $this->_currency = Mage::app()->getLocale()->currency($code);
         $this->_rate = $rate;
@@ -52,7 +52,7 @@ class Mage_Directory_Model_Currency_Filter implements Zend_Filter_Interface
      *
      * @param double $rate
      */
-    public function setRate($rate)
+    function setRate($rate)
     {
         $this->_rate = $rate;
     }
@@ -63,7 +63,7 @@ class Mage_Directory_Model_Currency_Filter implements Zend_Filter_Interface
      * @param   double $value
      * @return  string
      */
-    public function filter($value)
+    function filter($value)
     {
         $value = Mage::app()->getLocale()->getNumber($value);
         $value = Mage::app()->getStore()->roundPrice($this->_rate * $value);

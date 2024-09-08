@@ -33,7 +33,7 @@ class Mage_Core_Model_Resource_Email_Template extends Mage_Core_Model_Resource_D
      * @param string $templateCode
      * @return array
      */
-    public function loadByCode($templateCode)
+    function loadByCode($templateCode)
     {
         $select = $this->_getReadAdapter()->select()
             ->from($this->getMainTable())
@@ -52,7 +52,7 @@ class Mage_Core_Model_Resource_Email_Template extends Mage_Core_Model_Resource_D
      * @param Mage_Core_Model_Email_Template $template
      * @return bool
      */
-    public function checkCodeUsage(Mage_Core_Model_Email_Template $template)
+    function checkCodeUsage(Mage_Core_Model_Email_Template $template)
     {
         if ($template->getTemplateActual() != 0 || is_null($template->getTemplateActual())) {
             $select = $this->_getReadAdapter()->select()
@@ -100,7 +100,7 @@ class Mage_Core_Model_Resource_Email_Template extends Mage_Core_Model_Resource_D
      * @param int|string $templateId
      * @return array
      */
-    public function getSystemConfigByPathsAndTemplateId($paths, $templateId)
+    function getSystemConfigByPathsAndTemplateId($paths, $templateId)
     {
         $orWhere = [];
         $pathesCounter = 1;

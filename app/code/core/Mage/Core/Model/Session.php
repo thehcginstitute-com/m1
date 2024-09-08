@@ -38,7 +38,7 @@ class Mage_Core_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * @param array $data
      */
-    public function __construct($data = [])
+    function __construct($data = [])
     {
         $name = $data['name'] ?? null;
         $this->init('core', $name);
@@ -49,7 +49,7 @@ class Mage_Core_Model_Session extends Mage_Core_Model_Session_Abstract
      *
      * @return string A 16 bit unique key for forms
      */
-    public function getFormKey()
+    function getFormKey()
     {
         if (!$this->getData('_form_key')) {
             $this->renewFormKey();
@@ -60,7 +60,7 @@ class Mage_Core_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Creates new Form key
      */
-    public function renewFormKey()
+    function renewFormKey()
     {
         $this->setData('_form_key', Mage::helper('core')->getRandomString(16));
     }
@@ -71,7 +71,7 @@ class Mage_Core_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param string|null $formKey
      * @return bool
      */
-    public function validateFormKey($formKey)
+    function validateFormKey($formKey)
     {
         return ($formKey === $this->getFormKey());
     }

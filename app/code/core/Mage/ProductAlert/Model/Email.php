@@ -80,7 +80,7 @@ class Mage_ProductAlert_Model_Email extends Mage_Core_Model_Abstract
      *
      * @param string $type
      */
-    public function setType($type)
+    function setType($type)
     {
         $this->_type = $type;
     }
@@ -90,7 +90,7 @@ class Mage_ProductAlert_Model_Email extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getType()
+    function getType()
     {
         return $this->_type;
     }
@@ -101,7 +101,7 @@ class Mage_ProductAlert_Model_Email extends Mage_Core_Model_Abstract
      * @param Mage_Core_Model_Website $website
      * @return $this
      */
-    public function setWebsite(Mage_Core_Model_Website $website)
+    function setWebsite(Mage_Core_Model_Website $website)
     {
         $this->_website = $website;
         return $this;
@@ -113,7 +113,7 @@ class Mage_ProductAlert_Model_Email extends Mage_Core_Model_Abstract
      * @param int $websiteId
      * @return $this
      */
-    public function setWebsiteId($websiteId)
+    function setWebsiteId($websiteId)
     {
         $this->_website = Mage::app()->getWebsite($websiteId);
         return $this;
@@ -125,7 +125,7 @@ class Mage_ProductAlert_Model_Email extends Mage_Core_Model_Abstract
      * @param int $customerId
      * @return $this
      */
-    public function setCustomerId($customerId)
+    function setCustomerId($customerId)
     {
         $this->_customer = Mage::getModel('customer/customer')->load($customerId);
         return $this;
@@ -137,7 +137,7 @@ class Mage_ProductAlert_Model_Email extends Mage_Core_Model_Abstract
      * @param Mage_Customer_Model_Customer $customer
      * @return $this
      */
-    public function setCustomer(Mage_Customer_Model_Customer $customer)
+    function setCustomer(Mage_Customer_Model_Customer $customer)
     {
         $this->_customer = $customer;
         return $this;
@@ -148,7 +148,7 @@ class Mage_ProductAlert_Model_Email extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function clean()
+    function clean()
     {
         $this->_customer      = null;
         $this->_priceProducts = [];
@@ -163,7 +163,7 @@ class Mage_ProductAlert_Model_Email extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function addPriceProduct(Mage_Catalog_Model_Product $product)
+    function addPriceProduct(Mage_Catalog_Model_Product $product)
     {
         $this->_priceProducts[$product->getId()] = $product;
         return $this;
@@ -175,7 +175,7 @@ class Mage_ProductAlert_Model_Email extends Mage_Core_Model_Abstract
      * @param Mage_Catalog_Model_Product $product
      * @return $this
      */
-    public function addStockProduct(Mage_Catalog_Model_Product $product)
+    function addStockProduct(Mage_Catalog_Model_Product $product)
     {
         $this->_stockProducts[$product->getId()] = $product;
         return $this;
@@ -214,7 +214,7 @@ class Mage_ProductAlert_Model_Email extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function send()
+    function send()
     {
         if (is_null($this->_website) || is_null($this->_customer)) {
             return false;

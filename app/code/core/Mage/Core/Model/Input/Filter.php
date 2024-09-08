@@ -110,7 +110,7 @@ class Mage_Core_Model_Input_Filter implements Zend_Filter_Interface
      * @param string $placement
      * @return $this
      */
-    public function addFilter($name, $filter, $placement = Zend_Filter::CHAIN_APPEND)
+    function addFilter($name, $filter, $placement = Zend_Filter::CHAIN_APPEND)
     {
         if ($placement == Zend_Filter::CHAIN_PREPEND) {
             array_unshift($this->_filters[$name], $filter);
@@ -126,7 +126,7 @@ class Mage_Core_Model_Input_Filter implements Zend_Filter_Interface
      * @param  array|Zend_Filter_Interface $filter
      * @return $this
      */
-    public function appendFilter(Zend_Filter_Interface $filter)
+    function appendFilter(Zend_Filter_Interface $filter)
     {
         return $this->addFilter($filter, Zend_Filter::CHAIN_APPEND);
     }
@@ -137,7 +137,7 @@ class Mage_Core_Model_Input_Filter implements Zend_Filter_Interface
      * @param  array|Zend_Filter_Interface $filter
      * @return $this
      */
-    public function prependFilter($filter)
+    function prependFilter($filter)
     {
         return $this->addFilter($filter, Zend_Filter::CHAIN_PREPEND);
     }
@@ -155,7 +155,7 @@ class Mage_Core_Model_Input_Filter implements Zend_Filter_Interface
      * @param array $filters
      * @return $this
      */
-    public function addFilters(array $filters)
+    function addFilters(array $filters)
     {
         $this->_filters = array_merge_recursive($this->_filters, $filters);
         return $this;
@@ -167,7 +167,7 @@ class Mage_Core_Model_Input_Filter implements Zend_Filter_Interface
      * @param array $filters
      * @return $this
      */
-    public function setFilters(array $filters)
+    function setFilters(array $filters)
     {
         $this->_filters = $filters;
         return $this;
@@ -179,7 +179,7 @@ class Mage_Core_Model_Input_Filter implements Zend_Filter_Interface
      * @param string|null $name     Get filter for selected name
      * @return array
      */
-    public function getFilters($name = null)
+    function getFilters($name = null)
     {
         if ($name === null) {
             return $this->_filters;
@@ -194,7 +194,7 @@ class Mage_Core_Model_Input_Filter implements Zend_Filter_Interface
      * @param array $data
      * @return array    Return filtered data
      */
-    public function filter($data)
+    function filter($data)
     {
         return $this->_filter($data);
     }

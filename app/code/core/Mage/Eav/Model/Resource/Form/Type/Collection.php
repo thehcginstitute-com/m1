@@ -36,7 +36,7 @@ class Mage_Eav_Model_Resource_Form_Type_Collection extends Mage_Core_Model_Resou
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->_toOptionArray('type_id', 'label');
     }
@@ -47,7 +47,7 @@ class Mage_Eav_Model_Resource_Form_Type_Collection extends Mage_Core_Model_Resou
      * @param Mage_Eav_Model_Entity_Type|int $entity
      * @return $this
      */
-    public function addEntityTypeFilter($entity)
+    function addEntityTypeFilter($entity)
     {
         if ($entity instanceof Mage_Eav_Model_Entity_Type) {
             $entity = $entity->getId();

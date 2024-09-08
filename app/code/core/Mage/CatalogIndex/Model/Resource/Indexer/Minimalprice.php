@@ -34,7 +34,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer_Minimalprice extends Mage_Catalog
      * @param array $conditions
      * @return string
      */
-    public function getMinimalValue($conditions)
+    function getMinimalValue($conditions)
     {
         $select = $this->_getReadAdapter()->select();
         $select->from($this->getTable('catalogindex/price'), 'MIN(value)');
@@ -55,7 +55,7 @@ class Mage_CatalogIndex_Model_Resource_Indexer_Minimalprice extends Mage_Catalog
      * @param int $storeId
      * @param int $attributeId
      */
-    public function cleanup($productId, $storeId = null, $attributeId = null)
+    function cleanup($productId, $storeId = null, $attributeId = null)
     {
         $conditions[] = $this->_getWriteAdapter()->quoteInto("{$this->_entityIdFieldName} = ?", $productId);
 

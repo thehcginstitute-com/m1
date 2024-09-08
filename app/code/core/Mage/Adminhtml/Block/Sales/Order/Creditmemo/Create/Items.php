@@ -78,7 +78,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Items extends Mage_Admi
      *
      * @return Mage_Sales_Model_Order
      */
-    public function getOrder()
+    function getOrder()
     {
         return $this->getCreditmemo()->getOrder();
     }
@@ -88,7 +88,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Items extends Mage_Admi
      *
      * @return Mage_Sales_Model_Order_Creditmemo
      */
-    public function getSource()
+    function getSource()
     {
         return $this->getCreditmemo();
     }
@@ -98,7 +98,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Items extends Mage_Admi
      *
      * @return array
      */
-    public function getOrderTotalData()
+    function getOrderTotalData()
     {
         return [];
     }
@@ -108,7 +108,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Items extends Mage_Admi
      *
      * @return array
      */
-    public function getOrderTotalbarData()
+    function getOrderTotalbarData()
     {
         $totalbarData = [];
         $this->setPriceDataObject($this->getOrder());
@@ -126,12 +126,12 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Items extends Mage_Admi
      *
      * @return Mage_Sales_Model_Order_Creditmemo
      */
-    public function getCreditmemo()
+    function getCreditmemo()
     {
         return Mage::registry('current_creditmemo');
     }
 
-    public function canEditQty()
+    function canEditQty()
     {
         if ($this->getCreditmemo()->getOrder()->getPayment()->canRefund()) {
             return $this->getCreditmemo()->getOrder()->getPayment()->canRefundPartialPerInvoice();
@@ -139,12 +139,12 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Items extends Mage_Admi
         return true;
     }
 
-    public function getUpdateButtonHtml()
+    function getUpdateButtonHtml()
     {
         return $this->getChildHtml('update_button');
     }
 
-    public function getUpdateUrl()
+    function getUpdateUrl()
     {
         return $this->getUrl('*/*/updateQty', [
                 'order_id' => $this->getCreditmemo()->getOrderId(),
@@ -152,7 +152,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Items extends Mage_Admi
         ]);
     }
 
-    public function canReturnToStock()
+    function canReturnToStock()
     {
         $canReturnToStock = Mage::getStoreConfig(Mage_CatalogInventory_Model_Stock_Item::XML_PATH_CAN_SUBTRACT);
         if (Mage::getStoreConfig(Mage_CatalogInventory_Model_Stock_Item::XML_PATH_CAN_SUBTRACT)) {
@@ -166,7 +166,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Items extends Mage_Admi
      * Whether to show 'Return to stock' column in creaditmemo grid
      * @return bool
      */
-    public function canReturnItemsToStock()
+    function canReturnItemsToStock()
     {
         if (is_null($this->_canReturnToStock)) {
             if ($this->_canReturnToStock = Mage::getStoreConfig(Mage_CatalogInventory_Model_Stock_Item::XML_PATH_CAN_SUBTRACT)) {
@@ -185,7 +185,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Items extends Mage_Admi
         return $this->_canReturnToStock;
     }
 
-    public function canSendCreditmemoEmail()
+    function canSendCreditmemoEmail()
     {
         return Mage::helper('sales')->canSendNewCreditmemoEmail($this->getOrder()->getStore()->getId());
     }

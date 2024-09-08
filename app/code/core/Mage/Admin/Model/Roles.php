@@ -56,7 +56,7 @@ class Mage_Admin_Model_Roles extends Mage_Core_Model_Abstract
      *
      * @return $this
      */
-    public function update()
+    function update()
     {
         $this->getResource()->update($this);
         return $this;
@@ -67,7 +67,7 @@ class Mage_Admin_Model_Roles extends Mage_Core_Model_Abstract
      *
      * @return Mage_Admin_Model_Resource_Roles_User_Collection
      */
-    public function getUsersCollection()
+    function getUsersCollection()
     {
         return Mage::getResourceModel('admin/roles_user_collection');
     }
@@ -77,7 +77,7 @@ class Mage_Admin_Model_Roles extends Mage_Core_Model_Abstract
      *
      * @return Varien_Simplexml_Element|array
      */
-    public function getResourcesTree()
+    function getResourcesTree()
     {
         return $this->_buildResourcesArray(null, null, null, null, true);
     }
@@ -87,7 +87,7 @@ class Mage_Admin_Model_Roles extends Mage_Core_Model_Abstract
      *
      * @return Varien_Simplexml_Element|array
      */
-    public function getResourcesList()
+    function getResourcesList()
     {
         return $this->_buildResourcesArray();
     }
@@ -97,7 +97,7 @@ class Mage_Admin_Model_Roles extends Mage_Core_Model_Abstract
      *
      * @return Varien_Simplexml_Element|array
      */
-    public function getResourcesList2D()
+    function getResourcesList2D()
     {
         return $this->_buildResourcesArray(null, null, null, true);
     }
@@ -107,7 +107,7 @@ class Mage_Admin_Model_Roles extends Mage_Core_Model_Abstract
      *
      * @return array|false
      */
-    public function getRoleUsers()
+    function getRoleUsers()
     {
         return $this->getResource()->getRoleUsers($this);
     }

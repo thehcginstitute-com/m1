@@ -50,7 +50,7 @@ class Mage_Catalog_Model_Product_Attribute_Backend_Startdate_Specialprice extend
      * @param Varien_Object $object
      * @return Mage_Catalog_Model_Product_Attribute_Backend_Startdate
      */
-    public function beforeSave($object)
+    function beforeSave($object)
     {
         $startDate = $this->_getValueForSave($object);
         if ($startDate === false) {

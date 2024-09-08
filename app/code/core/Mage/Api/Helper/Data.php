@@ -31,7 +31,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getV2AdapterCode()
+    function getV2AdapterCode()
     {
         return $this->isComplianceWSI() ? 'soap_wsi' : 'soap_v2';
     }
@@ -39,7 +39,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * @return bool
      */
-    public function isComplianceWSI()
+    function isComplianceWSI()
     {
         return Mage::getStoreConfig(self::XML_PATH_API_WSI);
     }
@@ -49,7 +49,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @param Object $obj - Link to Object
      */
-    public function wsiArrayUnpacker(&$obj)
+    function wsiArrayUnpacker(&$obj)
     {
         if (is_object($obj)) {
             $modifiedKeys = $this->clearWsiFootprints($obj);
@@ -81,7 +81,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Object|array $obj - Link to Object
      * @return bool
      */
-    public function v2AssociativeArrayUnpacker(&$obj)
+    function v2AssociativeArrayUnpacker(&$obj)
     {
         if (is_object($obj)
             && property_exists($obj, 'key')
@@ -122,7 +122,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @param Mixed $mixed A link to variable that may contain associative array.
      */
-    public function associativeArrayUnpack(&$mixed)
+    function associativeArrayUnpack(&$mixed)
     {
         if (is_array($mixed)) {
             $tmpArr = [];
@@ -158,7 +158,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
      * @param Object $obj - Link to Object
      * @return array
      */
-    public function clearWsiFootprints(&$obj)
+    function clearWsiFootprints(&$obj)
     {
         $modifiedKeys = [];
 
@@ -183,7 +183,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $mixed - Link to Object
      * @return mixed
      */
-    public function wsiArrayPacker($mixed)
+    function wsiArrayPacker($mixed)
     {
         if (is_array($mixed)) {
             $arrKeys = array_keys($mixed);
@@ -214,7 +214,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
      * @param array $arr - Link to Object
      * @return stdClass
      */
-    public function packArrayToObject(array $arr)
+    function packArrayToObject(array $arr)
     {
         $obj = new stdClass();
         $obj->complexObjectArray = $arr;
@@ -226,7 +226,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @param  array|object $data
      */
-    public function toArray(&$data)
+    function toArray(&$data)
     {
         if (is_object($data)) {
             $data = get_object_vars($data);
@@ -247,7 +247,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
      * @param array $fieldsMap Map of field names in format: array('field_name_in_filter' => 'field_name_in_db')
      * @return array
      */
-    public function parseFilters($filters, $fieldsMap = null)
+    function parseFilters($filters, $fieldsMap = null)
     {
         // if filters are used in SOAP they must be represented in array format to be used for collection filtration
         if (is_object($filters)) {
@@ -325,7 +325,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $conditionOperator
      * @param string $conditionValue
      */
-    public function formatFilterConditionValue($conditionOperator, &$conditionValue)
+    function formatFilterConditionValue($conditionOperator, &$conditionValue)
     {
         if (is_string($conditionOperator) && in_array($conditionOperator, ['in', 'nin', 'finset'])
             && is_string($conditionValue)
@@ -340,7 +340,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string
      */
-    public function getCacheId()
+    function getCacheId()
     {
         return 'wsdl_config_global_' . md5($this->getServiceUrl('*/*/*'));
     }
@@ -354,7 +354,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
      * @return string
      * @throws Zend_Uri_Exception
      */
-    public function getServiceUrl($routePath = null, $routeParams = null, $htmlSpecialChars = false)
+    function getServiceUrl($routePath = null, $routeParams = null, $htmlSpecialChars = false)
     {
         $request = Mage::app()->getRequest();
 

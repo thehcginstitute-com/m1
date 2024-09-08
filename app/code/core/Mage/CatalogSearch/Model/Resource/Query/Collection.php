@@ -44,7 +44,7 @@ class Mage_CatalogSearch_Model_Resource_Query_Collection extends Mage_Core_Model
      * @param mixed $store
      * @return $this
      */
-    public function setStoreId($store)
+    function setStoreId($store)
     {
         if ($store instanceof Mage_Core_Model_Store) {
             $store = $store->getId();
@@ -58,7 +58,7 @@ class Mage_CatalogSearch_Model_Resource_Query_Collection extends Mage_Core_Model
      *
      * @return int|null
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_storeId;
     }
@@ -69,7 +69,7 @@ class Mage_CatalogSearch_Model_Resource_Query_Collection extends Mage_Core_Model
      * @param string $query
      * @return $this
      */
-    public function setQueryFilter($query)
+    function setQueryFilter($query)
     {
         /** @var Mage_Core_Model_Resource_Helper_Mysql4 $helper */
         $helper = Mage::getResourceHelper('core');
@@ -99,7 +99,7 @@ class Mage_CatalogSearch_Model_Resource_Query_Collection extends Mage_Core_Model
      * @param int|array $storeIds
      * @return $this
      */
-    public function setPopularQueryFilter($storeIds = null)
+    function setPopularQueryFilter($storeIds = null)
     {
         $ifSynonymFor = new Zend_Db_Expr($this->getConnection()
             ->getCheckSql("synonym_for IS NOT NULL AND synonym_for != ''", 'synonym_for', 'query_text'));
@@ -130,7 +130,7 @@ class Mage_CatalogSearch_Model_Resource_Query_Collection extends Mage_Core_Model
      *
      * @return $this
      */
-    public function setRecentQueryFilter()
+    function setRecentQueryFilter()
     {
         $this->setOrder('updated_at', 'desc');
         return $this;
@@ -142,7 +142,7 @@ class Mage_CatalogSearch_Model_Resource_Query_Collection extends Mage_Core_Model
      * @param array|int $storeIds
      * @return $this
      */
-    public function addStoreFilter($storeIds)
+    function addStoreFilter($storeIds)
     {
         if (!is_array($storeIds)) {
             $storeIds = [$storeIds];

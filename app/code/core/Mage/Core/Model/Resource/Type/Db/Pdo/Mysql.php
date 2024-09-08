@@ -24,7 +24,7 @@ class Mage_Core_Model_Resource_Type_Db_Pdo_Mysql extends Mage_Core_Model_Resourc
      * @param array $config Connection config
      * @return Varien_Db_Adapter_Pdo_Mysql
      */
-    public function getConnection($config)
+    function getConnection($config)
     {
         $configArr = (array)$config;
         $configArr['profiler'] = !empty($configArr['profiler']) && $configArr['profiler'] !== 'false';

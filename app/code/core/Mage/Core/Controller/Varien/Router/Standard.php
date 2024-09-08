@@ -28,7 +28,7 @@ class Mage_Core_Controller_Varien_Router_Standard extends Mage_Core_Controller_V
      * @param string $configArea
      * @param string $useRouterName
      */
-    public function collectRoutes($configArea, $useRouterName)
+    function collectRoutes($configArea, $useRouterName)
     {
         $routers = [];
         $routersConfigNode = Mage::getConfig()->getNode($configArea . '/routers');
@@ -68,7 +68,7 @@ class Mage_Core_Controller_Varien_Router_Standard extends Mage_Core_Controller_V
         }
     }
 
-    public function fetchDefault()
+    function fetchDefault()
     {
         $this->getFront()->setDefault([
             'module' => 'core',
@@ -106,7 +106,7 @@ class Mage_Core_Controller_Varien_Router_Standard extends Mage_Core_Controller_V
      * @param Mage_Core_Controller_Request_Http $request
      * @inheritDoc
      */
-    public function match(Zend_Controller_Request_Http $request)
+    function match(Zend_Controller_Request_Http $request)
     {
         //checking before even try to find out that current module
         //should use this router
@@ -358,7 +358,7 @@ class Mage_Core_Controller_Varien_Router_Standard extends Mage_Core_Controller_V
      * @param string $routeName
      * @return $this
      */
-    public function addModule($frontName, $moduleNames, $routeName)
+    function addModule($frontName, $moduleNames, $routeName)
     {
         $this->_modules[$frontName] = $moduleNames;
         $this->_routes[$routeName] = $frontName;
@@ -369,7 +369,7 @@ class Mage_Core_Controller_Varien_Router_Standard extends Mage_Core_Controller_V
      * @param string $frontName
      * @return bool|array
      */
-    public function getModuleByFrontName($frontName)
+    function getModuleByFrontName($frontName)
     {
         return $this->_modules[$frontName] ?? false;
     }
@@ -379,7 +379,7 @@ class Mage_Core_Controller_Varien_Router_Standard extends Mage_Core_Controller_V
      * @param string $modules
      * @return bool
      */
-    public function getModuleByName($moduleName, $modules)
+    function getModuleByName($moduleName, $modules)
     {
         foreach ($modules as $module) {
             if ($moduleName === $module || (is_array($module)
@@ -395,7 +395,7 @@ class Mage_Core_Controller_Varien_Router_Standard extends Mage_Core_Controller_V
      * @param string $routeName
      * @return false|string
      */
-    public function getFrontNameByRoute($routeName)
+    function getFrontNameByRoute($routeName)
     {
         return $this->_routes[$routeName] ?? false;
     }
@@ -404,7 +404,7 @@ class Mage_Core_Controller_Varien_Router_Standard extends Mage_Core_Controller_V
      * @param string $frontName
      * @return false|int|string
      */
-    public function getRouteByFrontName($frontName)
+    function getRouteByFrontName($frontName)
     {
         return array_search($frontName, $this->_routes);
     }
@@ -414,7 +414,7 @@ class Mage_Core_Controller_Varien_Router_Standard extends Mage_Core_Controller_V
      * @param string $controller
      * @return string
      */
-    public function getControllerFileName($realModule, $controller)
+    function getControllerFileName($realModule, $controller)
     {
         $parts = explode('_', $realModule);
         $realModule = implode('_', array_splice($parts, 0, 2));
@@ -430,7 +430,7 @@ class Mage_Core_Controller_Varien_Router_Standard extends Mage_Core_Controller_V
      * @param string $fileName
      * @return bool
      */
-    public function validateControllerFileName($fileName)
+    function validateControllerFileName($fileName)
     {
         if ($fileName && is_readable($fileName) && strpos($fileName, '//') === false) {
             return true;
@@ -443,7 +443,7 @@ class Mage_Core_Controller_Varien_Router_Standard extends Mage_Core_Controller_V
      * @param string $controller
      * @return string
      */
-    public function getControllerClassName($realModule, $controller)
+    function getControllerClassName($realModule, $controller)
     {
         return $realModule . '_' . uc_words($controller) . 'Controller';
     }
@@ -452,7 +452,7 @@ class Mage_Core_Controller_Varien_Router_Standard extends Mage_Core_Controller_V
      * @param array $p
      * @return array
      */
-    public function rewrite(array $p)
+    function rewrite(array $p)
     {
         $rewrite = Mage::getConfig()->getNode('global/rewrite');
         if ($module = $rewrite->{$p[0]}) {

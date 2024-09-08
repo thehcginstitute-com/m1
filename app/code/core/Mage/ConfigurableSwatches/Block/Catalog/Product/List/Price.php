@@ -45,7 +45,7 @@ class Mage_ConfigurableSwatches_Block_Catalog_Product_List_Price extends Mage_Co
      *
      * @return string
      */
-    public function getJsonConfig()
+    function getJsonConfig()
     {
         /** @var Mage_Catalog_Helper_Product_Type_Composite $compositeProductHelper */
         $compositeProductHelper = $this->helper('catalog/product_type_composite');

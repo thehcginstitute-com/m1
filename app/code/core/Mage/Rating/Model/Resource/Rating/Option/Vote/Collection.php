@@ -39,7 +39,7 @@ class Mage_Rating_Model_Resource_Rating_Option_Vote_Collection extends Mage_Core
      * @param int $reviewId
      * @return $this
      */
-    public function setReviewFilter($reviewId)
+    function setReviewFilter($reviewId)
     {
         $this->getSelect()
             ->where("main_table.review_id = ?", $reviewId);
@@ -52,7 +52,7 @@ class Mage_Rating_Model_Resource_Rating_Option_Vote_Collection extends Mage_Core
      * @param int $entityId
      * @return $this
      */
-    public function setEntityPkFilter($entityId)
+    function setEntityPkFilter($entityId)
     {
         $this->getSelect()
             ->where("entity_pk_value = ?", $entityId);
@@ -65,7 +65,7 @@ class Mage_Rating_Model_Resource_Rating_Option_Vote_Collection extends Mage_Core
      * @param int $storeId
      * @return $this
      */
-    public function setStoreFilter($storeId)
+    function setStoreFilter($storeId)
     {
         $this->getSelect()
             ->join(
@@ -85,7 +85,7 @@ class Mage_Rating_Model_Resource_Rating_Option_Vote_Collection extends Mage_Core
      * @param int $storeId
      * @return $this
      */
-    public function addRatingInfo($storeId = null)
+    function addRatingInfo($storeId = null)
     {
         $adapter = $this->getConnection();
         $ratingCodeCond = $adapter->getIfNullSql('title.value', 'rating.rating_code');
@@ -130,7 +130,7 @@ class Mage_Rating_Model_Resource_Rating_Option_Vote_Collection extends Mage_Core
      *
      * @return $this
      */
-    public function addOptionInfo()
+    function addOptionInfo()
     {
         $this->getSelect()
             ->join(
@@ -145,7 +145,7 @@ class Mage_Rating_Model_Resource_Rating_Option_Vote_Collection extends Mage_Core
      *
      * @return $this
      */
-    public function addRatingOptions()
+    function addRatingOptions()
     {
         if (!$this->getSize()) {
             return $this;

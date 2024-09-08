@@ -34,7 +34,7 @@ class Mage_Eav_Model_Resource_Entity_Type extends Mage_Core_Model_Resource_Db_Ab
      * @param string $code
      * @return $this
      */
-    public function loadByCode($object, $code)
+    function loadByCode($object, $code)
     {
         return $this->load($object, $code, 'entity_type_code');
     }
@@ -45,7 +45,7 @@ class Mage_Eav_Model_Resource_Entity_Type extends Mage_Core_Model_Resource_Db_Ab
      * @param int $entityTypeId
      * @return string
      */
-    public function getAdditionalAttributeTable($entityTypeId)
+    function getAdditionalAttributeTable($entityTypeId)
     {
         $adapter = $this->_getReadAdapter();
         $bind    = ['entity_type_id' => $entityTypeId];

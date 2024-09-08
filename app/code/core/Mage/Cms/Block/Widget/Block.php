@@ -89,7 +89,7 @@ class Mage_Cms_Block_Widget_Block extends Mage_Core_Block_Template implements Ma
      *
      * @return array
      */
-    public function getCacheKeyInfo()
+    function getCacheKeyInfo()
     {
         $result = parent::getCacheKeyInfo();
         $blockId = $this->getBlockId();
@@ -104,7 +104,7 @@ class Mage_Cms_Block_Widget_Block extends Mage_Core_Block_Template implements Ma
      *
      * @return bool
      */
-    public function isRequestFromAdminArea()
+    function isRequestFromAdminArea()
     {
         return $this->getRequest()->getRouteName() === Mage_Core_Model_App_Area::AREA_ADMINHTML;
     }

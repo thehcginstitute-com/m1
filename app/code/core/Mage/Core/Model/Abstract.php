@@ -143,7 +143,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      *
      * @return string
      */
-    public function getIdFieldName()
+    function getIdFieldName()
     {
         if (!($fieldName = parent::getIdFieldName())) {
             $fieldName = $this->_getResource()->getIdFieldName();
@@ -157,7 +157,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      *
      * @return int|string|null
      */
-    public function getId()
+    function getId()
     {
         $fieldName = $this->getIdFieldName();
         if ($fieldName) {
@@ -173,7 +173,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      * @param   mixed $id
      * @return  $this
      */
-    public function setId($id)
+    function setId($id)
     {
         if ($this->getIdFieldName()) {
             $this->setData($this->getIdFieldName(), $id);
@@ -188,7 +188,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      *
      * @return string
      */
-    public function getResourceName()
+    function getResourceName()
     {
         return $this->_resourceName;
     }
@@ -199,7 +199,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      * @return Mage_Core_Model_Resource_Db_Collection_Abstract
      * @throws Mage_Core_Exception
      */
-    public function getResourceCollection()
+    function getResourceCollection()
     {
         if (empty($this->_resourceCollectionName)) {
             Mage::throwException(Mage::helper('core')->__('Model collection resource name is not defined.'));
@@ -216,7 +216,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      * @return Mage_Core_Model_Resource_Db_Collection_Abstract|false
      * @throws Mage_Core_Exception
      */
-    public function getCollection()
+    function getCollection()
     {
         return $this->getResourceCollection();
     }
@@ -228,7 +228,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      * @param string|null $field
      * @return $this
      */
-    public function load($id, $field = null)
+    function load($id, $field = null)
     {
         $this->_beforeLoad($id, $field);
         $this->_getResource()->load($this, $id, $field);
@@ -284,7 +284,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      *
      * @return $this
      */
-    public function afterLoad()
+    function afterLoad()
     {
         $this->getResource()->afterLoad($this);
         $this->_afterLoad();
@@ -309,7 +309,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      * @return $this
      * @throws Throwable
      */
-    public function save()
+    function save()
     {
         /**
          * Direct deleted items to delete method
@@ -348,7 +348,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      *
      * @return $this
      */
-    public function afterCommitCallback()
+    function afterCommitCallback()
     {
         $this->cleanModelCache();
         Mage::dispatchEvent('model_save_commit_after', ['object' => $this]);
@@ -377,7 +377,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      * @param bool $flag
      * @return bool
      */
-    public function isObjectNew($flag = null)
+    function isObjectNew($flag = null)
     {
         if ($flag !== null) {
             $this->_isObjectNew = $flag;
@@ -406,7 +406,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      *
      * @return array | false
      */
-    public function getCacheTags()
+    function getCacheTags()
     {
         $tags = false;
         if ($this->_cacheTag) {
@@ -432,7 +432,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      *
      * @return array|bool
      */
-    public function getCacheIdTags()
+    function getCacheIdTags()
     {
         $tags = false;
         if ($this->getId() && $this->_cacheTag) {
@@ -453,7 +453,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      *
      * @return $this
      */
-    public function cleanModelCache()
+    function cleanModelCache()
     {
         $tags = $this->getCacheTags();
         if ($tags !== false) {
@@ -480,7 +480,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      * @return $this
      * @throws Throwable
      */
-    public function delete()
+    function delete()
     {
         $this->_getResource()->beginTransaction();
         try {
@@ -554,7 +554,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      *
      * @return Mage_Core_Model_Resource_Db_Abstract
      */
-    public function getResource()
+    function getResource()
     {
         return $this->_getResource();
     }
@@ -562,7 +562,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
     /**
      * @return int
      */
-    public function getEntityId()
+    function getEntityId()
     {
         return $this->_getData('entity_id');
     }
@@ -572,7 +572,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      *
      * @return $this
      */
-    final public function clearInstance()
+    final function clearInstance()
     {
         $this->_clearReferences();
         Mage::dispatchEvent($this->_eventPrefix . '_clear', $this->_getEventData());

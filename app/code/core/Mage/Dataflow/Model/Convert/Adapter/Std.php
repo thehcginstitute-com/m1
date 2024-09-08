@@ -22,7 +22,7 @@
  */
 class Mage_Dataflow_Model_Convert_Adapter_Std extends Mage_Dataflow_Model_Convert_Adapter_Abstract
 {
-    public function load()
+    function load()
     {
         $data = '';
         $stdin = fopen('php://STDIN', 'r');
@@ -33,7 +33,7 @@ class Mage_Dataflow_Model_Convert_Adapter_Std extends Mage_Dataflow_Model_Conver
         return $this;
     }
 
-    public function save()
+    function save()
     {
         echo $this->getData();
         return $this;

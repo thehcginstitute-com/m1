@@ -34,7 +34,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item extends Mage_Core_Model_R
      * @param mixed $product
      * @return bool
      */
-    public function loadByProduct(Mage_Catalog_Model_Product_Compare_Item $object, $product)
+    function loadByProduct(Mage_Catalog_Model_Product_Compare_Item $object, $product)
     {
         $read = $this->_getReadAdapter();
         if ($product instanceof Mage_Catalog_Model_Product) {
@@ -70,7 +70,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item extends Mage_Core_Model_R
      * @param int $visitorId
      * @return int
      */
-    public function getCount($customerId, $visitorId)
+    function getCount($customerId, $visitorId)
     {
         $bind = ['visitore_id' => (int)$visitorId];
         $select = $this->_getReadAdapter()->select()->from($this->getMainTable(), 'COUNT(*)')
@@ -87,7 +87,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item extends Mage_Core_Model_R
      *
      * @return $this
      */
-    public function clean()
+    function clean()
     {
         while (true) {
             $select = $this->_getReadAdapter()->select()
@@ -121,7 +121,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item extends Mage_Core_Model_R
      * @param Mage_Catalog_Model_Product_Compare_Item $object
      * @return $this
      */
-    public function purgeVisitorByCustomer($object)
+    function purgeVisitorByCustomer($object)
     {
         if (!$object->getCustomerId()) {
             return $this;
@@ -144,7 +144,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item extends Mage_Core_Model_R
      * @param Mage_Catalog_Model_Product_Compare_Item $object
      * @return $this
      */
-    public function updateCustomerFromVisitor($object)
+    function updateCustomerFromVisitor($object)
     {
         if (!$object->getCustomerId()) {
             return $this;
@@ -216,7 +216,7 @@ class Mage_Catalog_Model_Resource_Product_Compare_Item extends Mage_Core_Model_R
      * @param int $customerId
      * @return $this
      */
-    public function clearItems($visitorId = null, $customerId = null)
+    function clearItems($visitorId = null, $customerId = null)
     {
         $where = [];
         if ($customerId) {

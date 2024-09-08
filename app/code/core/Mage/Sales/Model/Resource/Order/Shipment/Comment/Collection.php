@@ -46,7 +46,7 @@ class Mage_Sales_Model_Resource_Order_Shipment_Comment_Collection extends Mage_S
      * @param int $shipmentId
      * @return $this
      */
-    public function setShipmentFilter($shipmentId)
+    function setShipmentFilter($shipmentId)
     {
         return $this->setParentFilter($shipmentId);
     }

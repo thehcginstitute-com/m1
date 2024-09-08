@@ -41,7 +41,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
      *
      * @return string
      */
-    public function prepareConditionSql()
+    function prepareConditionSql()
     {
         $wheres = [];
         foreach ($this->getConditions() as $condition) {
@@ -85,7 +85,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
         return clone $model;
     }
 
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setType('rule/condition_combine')
@@ -106,7 +106,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     /**
      * @return $this
      */
-    public function loadAggregatorOptions()
+    function loadAggregatorOptions()
     {
         $this->setAggregatorOption([
             'all' => Mage::helper('rule')->__('ALL'),
@@ -118,7 +118,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     /**
      * @return array
      */
-    public function getAggregatorSelectOptions()
+    function getAggregatorSelectOptions()
     {
         $opt = [];
         foreach ($this->getAggregatorOption() as $k => $v) {
@@ -130,7 +130,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     /**
      * @return string
      */
-    public function getAggregatorName()
+    function getAggregatorName()
     {
         return $this->getAggregatorOption($this->getAggregator());
     }
@@ -138,7 +138,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     /**
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function getAggregatorElement()
+    function getAggregatorElement()
     {
         if (is_null($this->getAggregator())) {
             foreach ($this->getAggregatorOption() as $k => $v) {
@@ -158,7 +158,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     /**
      * @return $this|Mage_Rule_Model_Condition_Abstract
      */
-    public function loadValueOptions()
+    function loadValueOptions()
     {
         $this->setValueOption([
             1 => Mage::helper('rule')->__('TRUE'),
@@ -171,7 +171,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
      * @param Mage_Rule_Model_Condition_Abstract $condition
      * @return $this
      */
-    public function addCondition($condition)
+    function addCondition($condition)
     {
         $condition->setRule($this->getRule());
         $condition->setObject($this->getObject());
@@ -191,7 +191,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     /**
      * @return string
      */
-    public function getValueElementType()
+    function getValueElementType()
     {
         return 'select';
     }
@@ -214,7 +214,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
      * @param array $arrAttributes
      * @return array
      */
-    public function asArray(array $arrAttributes = [])
+    function asArray(array $arrAttributes = [])
     {
         $out = parent::asArray();
         $out['aggregator'] = $this->getAggregator();
@@ -231,7 +231,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
      * @param string $itemKey
      * @return string
      */
-    public function asXml($containerKey = 'conditions', $itemKey = 'condition')
+    function asXml($containerKey = 'conditions', $itemKey = 'condition')
     {
         $xml = "<aggregator>" . $this->getAggregator() . "</aggregator>"
             . "<value>" . $this->getValue() . "</value>"
@@ -248,7 +248,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
      * @param string $key
      * @return $this
      */
-    public function loadArray($arr, $key = 'conditions')
+    function loadArray($arr, $key = 'conditions')
     {
         $this->setAggregator($arr['aggregator'] ?? $arr['attribute'] ?? null)
             ->setValue($arr['value'] ?? $arr['operator'] ?? null);
@@ -273,7 +273,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
      * @param string|SimpleXMLElement $xml
      * @return $this
      */
-    public function loadXml($xml)
+    function loadXml($xml)
     {
         if (is_string($xml)) {
             $xml = simplexml_load_string($xml);
@@ -289,7 +289,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     /**
      * @return string
      */
-    public function asHtml()
+    function asHtml()
     {
         $html = $this->getTypeElement()->getHtml() .
                Mage::helper('rule')->__('If %s of these conditions are %s:', $this->getAggregatorElement()->getHtml(), $this->getValueElement()->getHtml());
@@ -302,7 +302,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     /**
      * @return Varien_Data_Form_Element_Abstract
      */
-    public function getNewChildElement()
+    function getNewChildElement()
     {
         return $this->getForm()->addField($this->getPrefix() . '__' . $this->getId() . '__new_child', 'select', [
             'name' => 'rule[' . $this->getPrefix() . '][' . $this->getId() . '][new_child]',
@@ -314,7 +314,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     /**
      * @return string
      */
-    public function asHtmlRecursive()
+    function asHtmlRecursive()
     {
         $html = $this->asHtml() . '<ul id="' . $this->getPrefix() . '__' . $this->getId() . '__children" class="rule-param-children">';
         foreach ($this->getConditions() as $cond) {
@@ -328,7 +328,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
      * @param string $format
      * @return string
      */
-    public function asString($format = '')
+    function asString($format = '')
     {
         return Mage::helper('rule')->__("If %s of these conditions are %s:", $this->getAggregatorName(), $this->getValueName());
     }
@@ -337,7 +337,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
      * @param int $level
      * @return string
      */
-    public function asStringRecursive($level = 0)
+    function asStringRecursive($level = 0)
     {
         $str = parent::asStringRecursive($level);
         foreach ($this->getConditions() as $cond) {
@@ -350,7 +350,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
      * @param Varien_Object $object
      * @return bool
      */
-    public function validate(Varien_Object $object)
+    function validate(Varien_Object $object)
     {
         if (!$this->getConditions()) {
             return true;
@@ -375,7 +375,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
      * @param string $form
      * @return $this
      */
-    public function setJsFormObject($form)
+    function setJsFormObject($form)
     {
         $this->setData('js_form_object', $form);
         foreach ($this->getConditions() as $condition) {
@@ -389,7 +389,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
      *
      * @return array
      */
-    public function getConditions()
+    function getConditions()
     {
         $key = $this->getPrefix() ? $this->getPrefix() : 'conditions';
         return $this->getData($key);
@@ -401,7 +401,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
      * @param array $conditions
      * @return $this
      */
-    public function setConditions($conditions)
+    function setConditions($conditions)
     {
         $key = $this->getPrefix() ? $this->getPrefix() : 'conditions';
         return $this->setData($key, $conditions);

@@ -69,7 +69,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
      *
      * @return $this
      */
-    public function preDispatch()
+    function preDispatch()
     {
         parent::preDispatch();
 
@@ -141,7 +141,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Index action of Multishipping checkout
      */
-    public function indexAction()
+    function indexAction()
     {
         $this->_getCheckoutSession()->setCartWasUpdated(false);
         $this->_redirect('*/*/addresses');
@@ -150,7 +150,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Multishipping checkout login page
      */
-    public function loginAction()
+    function loginAction()
     {
         if (Mage::getSingleton('customer/session')->isLoggedIn()) {
             $this->_redirect('*/*/');
@@ -170,7 +170,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Multishipping checkout login page
      */
-    public function registerAction()
+    function registerAction()
     {
         if (Mage::getSingleton('customer/session')->isLoggedIn()) {
             $this->_redirectUrl($this->_getHelper()->getMSCheckoutUrl());
@@ -193,7 +193,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Multishipping checkout select address page
      */
-    public function addressesAction()
+    function addressesAction()
     {
         // If customer do not have addresses
         if (!$this->_getCheckout()->getCustomerDefaultShippingAddress()) {
@@ -221,7 +221,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Multishipping checkout process posted addresses
      */
-    public function addressesPostAction()
+    function addressesPostAction()
     {
         if (!$this->_getCheckout()->getCustomerDefaultShippingAddress()) {
             $this->_redirect('*/multishipping_address/newShipping');
@@ -266,7 +266,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Multishipping checkout action to go back to addresses page
      */
-    public function backToAddressesAction()
+    function backToAddressesAction()
     {
         $this->_getState()->setActiveStep(
             Mage_Checkout_Model_Type_Multishipping_State::STEP_SELECT_ADDRESSES
@@ -280,7 +280,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Multishipping checkout remove item action
      */
-    public function removeItemAction()
+    function removeItemAction()
     {
         $itemId     = $this->getRequest()->getParam('id');
         $addressId  = $this->getRequest()->getParam('address');
@@ -310,7 +310,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Multishipping checkout shipping information page
      */
-    public function shippingAction()
+    function shippingAction()
     {
         if (!$this->_validateMinimumAmount()) {
             return;
@@ -333,7 +333,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Multishipping checkout action to go back to shipping
      */
-    public function backToShippingAction()
+    function backToShippingAction()
     {
         $this->_getState()->setActiveStep(
             Mage_Checkout_Model_Type_Multishipping_State::STEP_SHIPPING
@@ -347,7 +347,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Multishipping checkout after the shipping page
      */
-    public function shippingPostAction()
+    function shippingPostAction()
     {
         if ($this->isFormkeyValidationOnCheckoutEnabled() && !$this->_validateFormKey()) {
             $this->_redirect('*/*/shipping');
@@ -377,7 +377,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Multishipping checkout billing information page
      */
-    public function billingAction()
+    function billingAction()
     {
         $collectTotals = false;
         $quote = $this->_getCheckoutSession()->getQuote();
@@ -442,7 +442,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Multishipping checkout action to go back to billing
      */
-    public function backToBillingAction()
+    function backToBillingAction()
     {
         $this->_getState()->setActiveStep(
             Mage_Checkout_Model_Type_Multishipping_State::STEP_BILLING
@@ -456,7 +456,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Multishipping checkout place order page
      */
-    public function overviewAction()
+    function overviewAction()
     {
         if (!$this->_validateMinimumAmount()) {
             return $this;
@@ -499,7 +499,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Multishipping checkout after the overview page
      */
-    public function overviewPostAction()
+    function overviewPostAction()
     {
         if (!$this->_validateFormKey()) {
             $this->_forward('backToAddresses');
@@ -567,7 +567,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Multishipping checkout success page
      */
-    public function successAction()
+    function successAction()
     {
         if (!$this->_getState()->getCompleteStep(Mage_Checkout_Model_Type_Multishipping_State::STEP_OVERVIEW)) {
             $this->_redirect('*/*/addresses');
@@ -584,7 +584,7 @@ class Mage_Checkout_MultishippingController extends Mage_Checkout_Controller_Act
     /**
      * Redirect to login page
      */
-    public function redirectLogin()
+    function redirectLogin()
     {
         $this->setFlag('', 'no-dispatch', true);
         Mage::getSingleton('customer/session')->setBeforeAuthUrl(Mage::getUrl('*/*', ['_secure' => true]));

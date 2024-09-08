@@ -25,7 +25,7 @@ class Mage_Adminhtml_Block_Cms_Block_Edit_Form extends Mage_Adminhtml_Block_Widg
     /**
      * Init form
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('block_form');

@@ -22,7 +22,7 @@
  */
 class Mage_Adminhtml_Block_Review_Product_Grid extends Mage_Adminhtml_Block_Catalog_Product_Grid
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->setId('reviewProductGrid');
@@ -104,7 +104,7 @@ class Mage_Adminhtml_Block_Review_Product_Grid extends Mage_Adminhtml_Block_Cata
     /**
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/productGrid', ['_current' => true]);
     }
@@ -113,7 +113,7 @@ class Mage_Adminhtml_Block_Review_Product_Grid extends Mage_Adminhtml_Block_Cata
      * @param Varien_Object $row
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/jsonProductInfo', ['id' => $row->getId()]);
     }

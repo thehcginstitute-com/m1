@@ -8,7 +8,7 @@ class Amasty_Notfound_Model_Log extends Amasty_Notfound_Model_Abstract
 {
     protected $modelName = 'log';
 
-    public function hasRedirect()
+    function hasRedirect()
     {
         return $this->getResource()->hasRedirect($this->getRequestPath(), $this->getStoreId());
     }

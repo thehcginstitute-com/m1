@@ -26,7 +26,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Adjustments extends Mag
      *
      * @return $this
      */
-    public function initTotals()
+    function initTotals()
     {
         $parent = $this->getParentBlock();
         $this->_source  = $parent->getSource();
@@ -41,7 +41,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Adjustments extends Mag
         return $this;
     }
 
-    public function getSource()
+    function getSource()
     {
         return $this->_source;
     }
@@ -50,7 +50,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Adjustments extends Mag
      * Get credit memo shipping amount depend on configuration settings
      * @return float
      */
-    public function getShippingAmount()
+    function getShippingAmount()
     {
         $config = Mage::getSingleton('tax/config');
         $source = $this->getSource();
@@ -66,7 +66,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Adjustments extends Mag
      * Get label for shipping total based on configuration settings
      * @return string
      */
-    public function getShippingLabel()
+    function getShippingLabel()
     {
         $config = Mage::getSingleton('tax/config');
         $source = $this->getSource();

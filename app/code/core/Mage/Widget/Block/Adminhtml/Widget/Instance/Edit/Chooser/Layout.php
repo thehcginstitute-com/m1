@@ -48,7 +48,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Layout extends Ma
      * @param string $pattern
      * @return $this
      */
-    public function addLayoutHandlePattern($pattern)
+    function addLayoutHandlePattern($pattern)
     {
         $this->_layoutHandlePatterns[] = $pattern;
         return $this;
@@ -59,7 +59,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Layout extends Ma
      *
      * @return array
      */
-    public function getLayoutHandlePatterns()
+    function getLayoutHandlePatterns()
     {
         return $this->_layoutHandlePatterns;
     }
@@ -69,7 +69,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Layout extends Ma
      *
      * @return string
      */
-    public function getArea()
+    function getArea()
     {
         if (!$this->_getData('area')) {
             return Mage_Core_Model_Design_Package::DEFAULT_AREA;
@@ -82,7 +82,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Layout extends Ma
      *
      * @return string
      */
-    public function getPackage()
+    function getPackage()
     {
         if (!$this->_getData('package')) {
             return Mage_Core_Model_Design_Package::DEFAULT_PACKAGE;
@@ -95,7 +95,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Layout extends Ma
      *
      * @return string
      */
-    public function getTheme()
+    function getTheme()
     {
         if (!$this->_getData('theme')) {
             return Mage_Core_Model_Design_Package::DEFAULT_THEME;
@@ -132,7 +132,7 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Layout extends Ma
      * @param string $theme
      * @return array
      */
-    public function getLayoutHandles($area, $package, $theme)
+    function getLayoutHandles($area, $package, $theme)
     {
         if (empty($this->_layoutHandles)) {
             /** @var Mage_Core_Model_Layout_Update $update */

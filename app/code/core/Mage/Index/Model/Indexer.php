@@ -62,7 +62,7 @@ class Mage_Index_Model_Indexer
     /**
      * Class constructor. Initialize index processes based on configuration
      */
-    public function __construct()
+    function __construct()
     {
         $this->getProcessesCollection();
     }
@@ -72,7 +72,7 @@ class Mage_Index_Model_Indexer
      *
      * @return Mage_Index_Model_Resource_Process_Collection
      */
-    public function getProcessesCollection()
+    function getProcessesCollection()
     {
         if (is_null($this->_processesCollection)) {
             $this->_processesCollection = Mage::getResourceModel('index/process_collection');
@@ -86,7 +86,7 @@ class Mage_Index_Model_Indexer
      * @param int $processId
      * @return Mage_Index_Model_Process | false
      */
-    public function getProcessById($processId)
+    function getProcessById($processId)
     {
         foreach ($this->getProcessesCollection() as $process) {
             if ($process->getId() == $processId) {
@@ -102,7 +102,7 @@ class Mage_Index_Model_Indexer
      * @param string $code
      * @return Mage_Index_Model_Process|false
      */
-    public function getProcessByCode($code)
+    function getProcessByCode($code)
     {
         foreach ($this->getProcessesCollection() as $process) {
             if ($process->getIndexerCode() == $code) {
@@ -118,7 +118,7 @@ class Mage_Index_Model_Indexer
      * @param array $codes
      * @return array
      */
-    public function getProcessesCollectionByCodes(array $codes)
+    function getProcessesCollectionByCodes(array $codes)
     {
         $processes = [];
         $this->_errors = [];
@@ -138,7 +138,7 @@ class Mage_Index_Model_Indexer
      *
      * @return bool
      */
-    public function hasErrors()
+    function hasErrors()
     {
         return (bool)count($this->_errors);
     }
@@ -148,7 +148,7 @@ class Mage_Index_Model_Indexer
      *
      * @return array
      */
-    public function getErrors()
+    function getErrors()
     {
         return $this->_errors;
     }
@@ -159,7 +159,7 @@ class Mage_Index_Model_Indexer
      *
      * @return $this
      */
-    public function lockIndexer()
+    function lockIndexer()
     {
         $this->_lockFlag = true;
         return $this;
@@ -171,7 +171,7 @@ class Mage_Index_Model_Indexer
      *
      * @return $this
      */
-    public function unlockIndexer()
+    function unlockIndexer()
     {
         $this->_lockFlag = false;
         return $this;
@@ -183,7 +183,7 @@ class Mage_Index_Model_Indexer
      * @deprecated after 1.6.1.0
      * @return bool
      */
-    public function isLocked()
+    function isLocked()
     {
         return $this->_lockFlag;
     }
@@ -197,7 +197,7 @@ class Mage_Index_Model_Indexer
      * @throws Exception
      * @return  Mage_Index_Model_Indexer
      */
-    public function indexEvents($entity = null, $type = null)
+    function indexEvents($entity = null, $type = null)
     {
         Mage::dispatchEvent('start_index_events' . $this->_getEventTypeName($entity, $type));
 
@@ -234,7 +234,7 @@ class Mage_Index_Model_Indexer
      * @param   Mage_Index_Model_Event $event
      * @return  Mage_Index_Model_Indexer
      */
-    public function indexEvent(Mage_Index_Model_Event $event)
+    function indexEvent(Mage_Index_Model_Event $event)
     {
         $this->_runAll('safeProcessEvent', [$event]);
         return $this;
@@ -246,7 +246,7 @@ class Mage_Index_Model_Indexer
      * @param Mage_Index_Model_Event $event
      * @return $this
      */
-    public function registerEvent(Mage_Index_Model_Event $event)
+    function registerEvent(Mage_Index_Model_Event $event)
     {
         $this->_runAll('register', [$event]);
         return $this;
@@ -261,7 +261,7 @@ class Mage_Index_Model_Indexer
      * @param   bool $doSave
      * @return  Mage_Index_Model_Event
      */
-    public function logEvent(Varien_Object $entity, $entityType, $eventType, $doSave = true)
+    function logEvent(Varien_Object $entity, $entityType, $eventType, $doSave = true)
     {
         $event = Mage::getModel('index/event')
             ->setEntity($entityType)
@@ -286,7 +286,7 @@ class Mage_Index_Model_Indexer
      * @throws Exception
      * @return  Mage_Index_Model_Indexer
      */
-    public function processEntityAction(Varien_Object $entity, $entityType, $eventType)
+    function processEntityAction(Varien_Object $entity, $entityType, $eventType)
     {
         $event = $this->logEvent($entity, $entityType, $eventType, false);
         /**
@@ -441,7 +441,7 @@ class Mage_Index_Model_Indexer
      *
      * @return $this
      */
-    public function allowTableChanges()
+    function allowTableChanges()
     {
         $this->_allowTableChanges = true;
         return $this;
@@ -452,7 +452,7 @@ class Mage_Index_Model_Indexer
      *
      * @return $this
      */
-    public function disallowTableChanges()
+    function disallowTableChanges()
     {
         $this->_allowTableChanges = false;
         return $this;
