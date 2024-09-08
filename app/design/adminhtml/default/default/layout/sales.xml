@@ -650,7 +650,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_report_sales_invoiced>
-
 	<adminhtml_report_sales_refunded>
 		<update handle='report_sales'/>
 		<reference name='content'>
@@ -671,7 +670,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_report_sales_refunded>
-
 	<adminhtml_report_sales_coupons>
 		<update handle='report_sales'/>
 		<reference name='content'>
@@ -697,7 +695,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_report_sales_coupons>
-
 	<adminhtml_report_sales_bestsellers>
 		<update handle='report_sales'/>
 		<reference name='content'>
@@ -722,38 +719,31 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_report_sales_bestsellers>
-
 <!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'Delete the unused «Recurring Profiles» feature': https://github.com/thehcginstitute-com/m1/issues/401 -->
-
-<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-1) 'Delete the unused «Billing Agreements» feature': https://github.com/thehcginstitute-com/m1/issues/400
-2) 'Delete the unused «Recurring Profiles» feature': https://github.com/thehcginstitute-com/m1/issues/401 -->
-
+"Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
+2024-02-21
+1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
+2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
 	<adminhtml_sales_order_status_index>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_status' name='sales_order_status.grid.container'></block>
 		</reference>
 	</adminhtml_sales_order_status_index>
-
 	<adminhtml_sales_order_status_new>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_status_new' name='sales_order_status.new.container'></block>
 		</reference>
 	</adminhtml_sales_order_status_new>
-
 	<adminhtml_sales_order_status_edit>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_status_edit' name='sales_order_status.edit.container'></block>
 		</reference>
 	</adminhtml_sales_order_status_edit>
-
 	<adminhtml_sales_order_status_assign>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_status_assign' name='sales_order_status.assign.container'></block>
 		</reference>
 	</adminhtml_sales_order_status_assign>
-
 	<adminhtml_sales_order_address>
 		<reference name='head'>
 			<block type='adminhtml/template' name='optional_zip_countries' as='optional_zip_countries' template='directory/js/optional_zip_countries.phtml' />
