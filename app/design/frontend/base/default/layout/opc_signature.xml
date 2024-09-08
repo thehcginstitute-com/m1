@@ -3,8 +3,8 @@
 	<onepagecheckout_index_index>
 		<reference name="head">
 			<action method="addItem" ifconfig="opcsignature/general/jquery">
-				<type>skin_js</type>
 				<name>js/signature/jquery-1.7.2.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method="addItem" ifconfig="opcsignature/general/enabled">
 				<type>skin_css</type>
