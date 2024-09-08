@@ -161,16 +161,16 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			<action method="addJs"><name>varien/product_options.js</name></action>
             <action method="addJs"><name>varien/configurable.js</name></action>
             <action method="addItem">
-				<type>js_css</type>
 				<name>calendar/calendar-win2k-1.css</name>
+				<type>js_css</type>
 			</action>
             <action method="addItem">
-				<type>js</type>
 				<name>calendar/calendar.js</name>
+				<type>js</type>
 			</action>
             <action method="addItem">
-				<type>js</type>
 				<name>calendar/calendar-setup.js</name>
+				<type>js</type>
 			</action>
         </reference>
         <reference name="content">
