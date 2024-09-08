@@ -81,7 +81,10 @@
 						<reload_param_name>products_related</reload_param_name>
 					</action>
 					<action method='addColumnInputName'>
-						<input_name>position</input_name>
+<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+						<names>position</names>
 					</action>
 				</reference>
 			</block>
@@ -113,7 +116,10 @@
 						<reload_param_name>products_upsell</reload_param_name>
 					</action>
 					<action method='addColumnInputName'>
-						<input_name>position</input_name>
+<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+						<names>position</names>
 					</action>
 				</reference>
 			</block>
@@ -136,7 +142,10 @@
 						<reload_param_name>products_crosssell</reload_param_name>
 					</action>
 					<action method='addColumnInputName'>
-						<input_name>position</input_name>
+<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+						<names>position</names>
 					</action>
 				</reference>
 			</block>
@@ -165,8 +174,11 @@
 						<reload_param_name>products_grouped</reload_param_name>
 					</action>
 					<action method='addColumnInputName'>
-						<input_name>qty</input_name>
-						<input_name>position</input_name>
+<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+						<names>qty</names>
+						<names>position</names>
 					</action>
 				</reference>
 			</block>
