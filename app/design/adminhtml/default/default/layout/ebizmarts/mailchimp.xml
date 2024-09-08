@@ -66,8 +66,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</reference>
 		<reference name="head">
 			<action method="addItem">
-				<type>js_css</type>
 				<name>prototype/windows/themes/default.css</name>
+				<type>js_css</type>
 			</action>
 			<action method="addCss">
 				<name>lib/prototype/windows/themes/magento.css</name>
