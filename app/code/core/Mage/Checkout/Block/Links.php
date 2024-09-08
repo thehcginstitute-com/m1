@@ -27,7 +27,8 @@ class Mage_Checkout_Block_Links extends Mage_Core_Block_Template
 {
     /**
      * Add shopping cart link to parent block
-     *
+     * 2024-09-08 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-08-2/app/design/frontend/default/mobileshoppe/layout/checkout.xml#L6
      * @return $this
      */
     public function addCartLink()
