@@ -17,8 +17,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
                 <name>scriptaculous/scriptaculous.js</name>
             </action>
             <action method="addItem" ifconfig="mailchimp/emailcatcher/popup_general">
-                <type>js_css</type>
                 <name>prototype/windows/themes/default.css</name>
+                <type>js_css</type>
             </action>
             <action method="addItem" ifconfig="mailchimp/emailcatcher/popup_general">
                 <type>js_css</type>
