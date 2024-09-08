@@ -315,8 +315,8 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 https://github.com/thehcginstitute-com/m1/issues/680 -->
             <action method="addJs"><name>iwd/ordermanager/init.js</name></action>
             <action method="addItem" ifconfig="iwd_ordermanager/edit/enable_custom_amount_new">
-				<type>skin_css</type>
 				<name>iwd/ordermanager/fee.css</name>
+				<type>skin_css</type>
 			</action>
             <action method="addItem" ifconfig="iwd_ordermanager/edit/enable_custom_amount_new">
 				<type>js</type>
