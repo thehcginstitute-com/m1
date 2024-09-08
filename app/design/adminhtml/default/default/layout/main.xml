@@ -124,8 +124,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<type>js_css</type>
 				</action>
                 <action method="addItem">
-					<type>js</type>
 					<name>calendar/calendar.js</name>
+					<type>js</type>
 				</action>
                 <action method="addItem">
 					<type>js</type>
