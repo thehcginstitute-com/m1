@@ -19,8 +19,8 @@
 				<type>skin_js</type>
 			</action>
 			<action method="addItem" ifconfig="opcsignature/general/enabled">
-				<type>skin_js</type>
 				<name>js/signature/signature.js</name>
+				<type>skin_js</type>
 			</action>
 		</reference>
 		<reference name="checkout.onepage.review">
