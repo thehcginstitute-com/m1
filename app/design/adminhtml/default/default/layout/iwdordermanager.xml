@@ -35,7 +35,6 @@ and the template `iwd/orderflags/order/view/info.phtml` of `IWD_OrderFlags`,
 because they are all override the template `sales/order/view/info.phtml`
 of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginstitute-com/m1/issues/327 -->
 	</ordermanager_handle>
-
 	<ordermanager_order_grid_handle>
 		<reference name='head'>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -50,7 +49,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 	</ordermanager_order_grid_handle>
-
 	<ordermanager_log_grid_handle>
 		<reference name='head'>
 			<action method='addCss'><name>iwd/ordermanager/log_grid.css</name></action>
@@ -135,8 +133,6 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 	<adminhtml_sales_order_addcomment>
 		<block type='adminhtml/sales_order_view_history' name='order_history' template='iwd/ordermanager/history/order.phtml' output='toHtml'/>
 	</adminhtml_sales_order_addcomment>
-
-	<!-- invoice -->
 	<ordermanager_invoice_fee_total_handle>
 		<reference name='invoice_totals'>
 			<block type='iwd_ordermanager/sales_order_total_fee' name='iwd_ordermanager_fee' />
@@ -173,8 +169,6 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 			</action>
 		</reference>
 	</adminhtml_sales_invoice_index>
-
-	<!-- shipment -->
 	<adminhtml_sales_order_shipment_view>
 		<update handle='font_awesome_handle'/>
 		<update handle='ordermanager_handle'/>
@@ -201,8 +195,6 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 			</action>
 		</reference>
 	</adminhtml_sales_order_shipment_index>
-
-	<!-- credit memo -->
 	<ordermanager_creditmemo_fee_total_handle>
 		<reference name='creditmemo_totals'>
 			<block type='iwd_ordermanager/sales_order_total_fee' name='iwd_ordermanager_fee' />
@@ -240,19 +232,14 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 			</action>
 		</reference>
 	</adminhtml_sales_order_creditmemo_index>
-
-	<!-- customer orders -->
 	<adminhtml_customer_edit>
 		<update handle='font_awesome_handle'/>
 		<update handle='ordermanager_order_grid_handle'/>
 	</adminhtml_customer_edit>
-
-	<!-- archive orders -->
 	<adminhtml_sales_archive_order_index>
 		<update handle='font_awesome_handle'/>
 		<update handle='ordermanager_order_grid_handle'/>
 	</adminhtml_sales_archive_order_index>
-
 	<IWD_OM_ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE>
 		<block type='adminhtml/catalog_product_composite_fieldset' name='product.composite.fieldset' output='toHtml'>
 			<block name='product.composite.fieldset.options' type='adminhtml/catalog_product_composite_fieldset_options' template='catalog/product/composite/fieldset/options.phtml'>
@@ -282,14 +269,11 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 				   template='catalog/product/composite/fieldset/qty.phtml'/>
 		</block>
 	</IWD_OM_ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE>
-
 	<IWD_OM_PRODUCT_TYPE_configurable>
 		<reference name='product.composite.fieldset'>
 			<block type='adminhtml/catalog_product_composite_fieldset_configurable' name='product.composite.fieldset.configurable' before='product.composite.fieldset.options' template='iwd/ordermanager/catalog/product/composite/fieldset/configurable.phtml'/>
 		</reference>
 	</IWD_OM_PRODUCT_TYPE_configurable>
-
-	<!-- custom fee -->
 	<adminhtml_sales_order_create_load_block_data>
 		<reference name='data'>
 			<block type='iwd_ordermanager/adminhtml_sales_order_create_fee' name='iwd_om_custom_fee' template='iwd/ordermanager/custom/fee.phtml'/>
