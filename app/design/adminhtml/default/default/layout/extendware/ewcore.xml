@@ -70,8 +70,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<type>js_css</type>
 			</action>
             <action method="addItem">
-				<type>js_css</type>
 				<name>prototype/windows/themes/magento.css</name>
+				<type>js_css</type>
 			</action>
             <!--Magento > 1.7.0 --> 
             <action method="addCss"><name>lib/prototype/windows/themes/magento.css</name></action>
