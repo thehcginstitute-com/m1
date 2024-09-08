@@ -147,14 +147,18 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
-                <action method="addJs"><name>prototype/prototype.js</name><group>global</group></action>
-                <action method="addJs"><name>mage/translate.js</name><group>global</group></action>
-                <action method="addJs"><name>lib/ccard.js</name><group>global</group></action>
-                <action method="addJs"><name>prototype/validation.js</name><group>global</group></action>
-                <action method="addJs"><name>varien/js.js</name><group>global</group></action>
+                <action method="addJs"><name>prototype/prototype.js</name></action>
+                <action method="addJs"><name>mage/translate.js</name></action>
+                <action method="addJs"><name>lib/ccard.js</name></action>
+                <action method="addJs"><name>prototype/validation.js</name></action>
+                <action method="addJs"><name>varien/js.js</name></action>
                 <action method="addCss"><name>css/styles.css</name></action>
                 <action method="addCss"><name>css/widgets.css</name></action>
-                <action method="addItem"><type>js</type><name>lib/ds-sleight.js</name><group>global</group><params/><if>lt IE 7</if></action>
+                <action method="addItem">
+					<if>lt IE 7</if>
+					<name>lib/ds-sleight.js</name>
+					<type>js</type>
+				</action>
             </block>
             <block type="core/text_list" name="content" as="content" translate="label">
                 <label>Main Content Area</label>
