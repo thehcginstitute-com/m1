@@ -2,7 +2,10 @@
 <layout version="0.1.0">
     <default>
         <reference name="head">
-            <action method="addItem"><type>skin_css</type><name>override.css</name></action>
+            <action method="addItem">
+				<name>override.css</name>
+				<type>skin_css</type>
+			</action>
             <action method="addItem"><type>skin_css</type><name>form.css</name></action>
             <action method="removeItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name></action>
             <action method="addItem">
