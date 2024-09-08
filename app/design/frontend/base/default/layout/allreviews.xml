@@ -4,8 +4,8 @@
 		<default>
 	        <reference name="head">
 	            <action method="addItem">
-					<type>skin_css</type>
 					<name>ekoim/allreviews/allreviews.css</name>
+					<type>skin_css</type>
 				</action>
 	        </reference>
 		</default>
