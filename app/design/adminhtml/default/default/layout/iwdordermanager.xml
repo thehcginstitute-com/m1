@@ -248,8 +248,8 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
     <adminhtml_sales_order_creditmemo_index>
         <reference name="head">
             <action method="addItem" ifconfig="iwd_ordermanager/iwd_delete_creditmemos/double_confirmation">
-				<type>js</type>
 				<name>iwd/ordermanager/mage/adminhtml/grid.js</name>
+				<type>js</type>
 			</action>
         </reference>
     </adminhtml_sales_order_creditmemo_index>
