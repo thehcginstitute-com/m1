@@ -7,8 +7,8 @@
 				<type>skin_js</type>
 			</action>
 			<action method="addItem" ifconfig="opcsignature/general/enabled">
-				<type>skin_css</type>
 				<name>css/signature/jquery.signaturepad.css</name>
+				<type>skin_css</type>
 			</action>
 			<action method="addItem" ifconfig="opcsignature/general/enabled">
 				<type>skin_js</type>
