@@ -4,7 +4,7 @@
 		<reference name="top.links">
 			<block type="checkout/links" name="checkout_cart_link">
 				<action method="addCartLink"/>
-				<action method="addCheckoutLink"></action>
+				<action method="addCheckoutLink"/>
 			</block>
 		</reference>
 		<reference name="left">
