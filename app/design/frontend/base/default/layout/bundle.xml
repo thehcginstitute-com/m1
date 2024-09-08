@@ -163,8 +163,8 @@ Additional block for bundle product type
         <label>Catalog Product View (Bundle)</label>
         <reference name="head">
             <action method="addItem">
-				<type>skin_js</type>
 				<name>js/bundle.js</name>
+				<type>skin_js</type>
 			</action>
         </reference>
         <reference name="product.info">
