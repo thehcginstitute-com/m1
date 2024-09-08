@@ -73,16 +73,16 @@
         <reference name="head">
             <action method="setTitle" translate="title" module="catalogsearch"><title>Advanced Search</title></action>
             <action method="addItem">
-				<type>js_css</type>
 				<name>calendar/calendar-win2k-1.css</name>
+				<type>js_css</type>
 			</action>
             <action method="addItem">
-				<type>js</type>
 				<name>calendar/calendar.js</name>
+				<type>js</type>
 			</action>
             <action method="addItem">
-				<type>js</type>
 				<name>calendar/calendar-setup.js</name>
+				<type>js</type>
 			</action>
         </reference>
         <reference name="content">
