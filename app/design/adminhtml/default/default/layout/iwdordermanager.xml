@@ -5,11 +5,10 @@
 			<action method='addLinkRel'><rel>stylesheet</rel><href>//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css</href></action>
 		</reference>
 	</font_awesome_handle>
-
 	<ordermanager_handle>
 		<reference name='head'>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>iwd/ordermanager/init.js</name></action>
 			<action method='addJs'><name>iwd/ordermanager/order.js</name></action>
@@ -23,24 +22,24 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addCss'><name>iwd/ordermanager/style.css</name></action>
 			<action method='addCss'><name>iwd/ordermanager/fee.css</name></action>
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'Delete the Braintree support from IWD modules': https://github.com/thehcginstitute-com/m1/issues/360 -->
+"Delete the Braintree support from IWD modules": https://github.com/thehcginstitute-com/m1/issues/360 -->
 		</reference>
 		<reference name='js'>
 			<block type='adminhtml/template' template='iwd/ordermanager/jsinit.phtml' name='create-js'/>
 		</reference>
 <!-- 2024-01-26 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'The template `opcsignature/sales/order/view/info.phtml` of `IWD_OnepageCheckoutSignature_Block_Sales_Order_View_Info`
+"The template `opcsignature/sales/order/view/info.phtml` of `IWD_OnepageCheckoutSignature_Block_Sales_Order_View_Info`
 conflicts with the template `customfield/sales/order/view/info.phtml` of `Webkul_CustomField`,
 the template `iwd/ordermanager/order/view/info.phtml` of `IWD_OrderManager`,
 and the template `iwd/orderflags/order/view/info.phtml` of `IWD_OrderFlags`,
 because they are all override the template `sales/order/view/info.phtml`
-of `Mage_Adminhtml_Block_Sales_Order_View_Info`': https://github.com/thehcginstitute-com/m1/issues/327 -->
+of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginstitute-com/m1/issues/327 -->
 	</ordermanager_handle>
 
 	<ordermanager_order_grid_handle>
 		<reference name='head'>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>iwd/ordermanager/jquery.nicescroll.js</name></action>
 			<action method='addJs'><name>iwd/all/modal.js</name></action>
@@ -56,12 +55,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='head'>
 			<action method='addCss'><name>iwd/ordermanager/log_grid.css</name></action>
 		</reference>
-		<!--<reference name='content'>
-			<block type='iwd_ordermanager/adminhtml_sales_order_grid_init' name='init' template='iwd/ordermanager/grid/init.phtml'/>
-		</reference>-->
 	</ordermanager_log_grid_handle>
-
-	<!-- system -->
 	<adminhtml_system_config_edit>
 		<reference name='head'>
 			<action method='addCss'><name>iwd/ordermanager/system.css</name></action>
@@ -70,13 +64,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block type='core/template' name='iwd_om_system' template='iwd/ordermanager/system/jsinit.phtml'/>
 		</reference>
 	</adminhtml_system_config_edit>
-
-	<!-- order -->
-	<!--<adminhtml_sales_order_grid>
-		<reference name='sales_order.grid'>
-			<block type='iwd_ordermanager/adminhtml_sales_order_grid_init' name='iwd_om.order.grid.jsinit' template='iwd/ordermanager/grid/jsinit.phtml'/>
-		</reference>
-	</adminhtml_sales_order_grid>-->
 	<adminhtml_sales_order_index>
 		<update handle='ordermanager_order_grid_handle'/>
 	</adminhtml_sales_order_index>
@@ -85,7 +72,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<update handle='ordermanager_handle'/>
 		<reference name='head'>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>mage/adminhtml/giftmessage.js</name></action>
 			<action method='addJs'><name>varien/configurable.js</name></action>
@@ -100,14 +87,14 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			/>
 		</reference>
 <!-- 2024-09-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'Replace the contents of unused (overridden) core backend template `sales/order/view/history.phtml`
+"Replace the contents of unused (overridden) core backend template `sales/order/view/history.phtml`
 with the contents of the really used corresponding custom template `iwd/ordermanager/history/order.phtml`
-from `IWD_OrderManager`, and then delete the custom template file': https://github.com/thehcginstitute-com/m1/issues/674 -->
+from `IWD_OrderManager`, and then delete the custom template file": https://github.com/thehcginstitute-com/m1/issues/674 -->
 		<reference name='order_tab_info'>
 <!-- 2024-09-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'Replace the contents of unused (overridden) core backend template `sales/order/view/tab/info.phtml`
+"Replace the contents of unused (overridden) core backend template `sales/order/view/tab/info.phtml`
 with the contents of the really used corresponding custom template `iwd/ordermanager/order/view/tab/info.phtml`
-from `IWD_OrderManager`, and then delete the custom template file': https://github.com/thehcginstitute-com/m1/issues/672 -->
+from `IWD_OrderManager`, and then delete the custom template file": https://github.com/thehcginstitute-com/m1/issues/672 -->
 			<block
 				name='order_items'
 				template='iwd/ordermanager/items/items.phtml'
@@ -311,7 +298,7 @@ from `IWD_OrderManager`, and then delete the custom template file': https://gith
 	<adminhtml_sales_order_create_index>
 		<reference name='head'>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>iwd/ordermanager/init.js</name></action>
 			<action method='addItem' ifconfig='iwd_ordermanager/edit/enable_custom_amount_new'>
