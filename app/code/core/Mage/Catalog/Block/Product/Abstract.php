@@ -543,17 +543,11 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
     }
 
     /**
-     * Add row size depends on page layout
-     *
-     * @param string $pageLayout
-     * @param int $columnCount
-     * @return $this
+     * 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
      */
-    function addColumnCountLayoutDepend($pageLayout, $columnCount)
-    {
-        $this->_columnCountLayoutDepend[$pageLayout] = $columnCount;
-        return $this;
-    }
+    function addColumnCountLayoutDepend(string $layout, int $count):void {$this->_columnCountLayoutDepend[$layout] = $count;}
 
     /**
      * Remove row size depends on page layout
