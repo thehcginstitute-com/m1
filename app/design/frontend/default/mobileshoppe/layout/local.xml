@@ -10,12 +10,12 @@
   
     <reference name="head">
       <action method="addItem">
-		  <type>skin_js</type>
 		  <name>js/respond.min.js</name>
+		  <type>skin_js</type>
 	  </action>
 	<action method="removeItem">
-		<type>skin_css</type>
 		<name>css/print.css</name>
+		<type>skin_css</type>
 	</action>
 	</reference>
     <reference name="header">
