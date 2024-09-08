@@ -1,43 +1,23 @@
 <?xml version='1.0'?>
-<!--
-/**
- * OpenMage
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available at https://opensource.org/license/afl-3-0-php
- *
- * @category    design
- * @package     default_default
- * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @copyright   Copyright (c) 2022 The OpenMage Contributors (https://www.openmage.org)
- * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
--->
-
 <layout>
 	<adminhtml_sales_order_grid>
 		<update handle='formkey'/>
 		<block type='adminhtml/sales_order_grid' name='sales_order.grid' output='toHtml'></block>
 	</adminhtml_sales_order_grid>
-
 	<adminhtml_sales_order_index>
 		<reference name='content'>
 			<block type='adminhtml/sales_order' name='sales_order.grid.container'></block>
 		</reference>
 	</adminhtml_sales_order_index>
-
 	<adminhtml_sales_order_transactions>
 		<block type='adminhtml/sales_transactions_grid' name='sales_transactions.grid' output='toHtml'></block>
 	</adminhtml_sales_order_transactions>
-
 <!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'Delete the unused «Billing Agreements» feature': https://github.com/thehcginstitute-com/m1/issues/400 -->
-
+"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
 	<adminhtml_sales_order_view>
 		<reference name='head'>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>mage/adminhtml/giftmessage.js</name></action>
 			<action method='addJs'><name>mage/adminhtml/giftoptions/tooltip.js</name></action>
@@ -96,11 +76,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_sales_order_view>
-
 	<adminhtml_sales_order_addcomment>
 		<block type='adminhtml/sales_order_view_history' name='order_history' template='sales/order/view/history.phtml' output='toHtml'/>
 	</adminhtml_sales_order_addcomment>
-
 	<adminhtml_sales_order_invoice_new>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_invoice_create' name='sales_invoice_create'>
@@ -114,43 +92,14 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<action method='addColumnRender'><column>name</column><block>adminhtml/sales_items_column_name_grouped</block><template>sales/items/column/name.phtml</template><type>grouped</type></action>
 						<block type='core/text_list' name='order_item_extra_info'></block>
 						<block type='adminhtml/sales_order_totalbar' name='order_totalbar' template='sales/order/totalbar.phtml'></block>
-
 						<block type='adminhtml/sales_order_invoice_totals' name='invoice_totals' template='sales/order/totals.phtml'>
 							<block type='adminhtml/sales_order_totals_tax' name='tax' template='sales/order/totals/tax.phtml' />
-							<!--<block type='adminhtml/sales_order_totals_item' name='footer' template='sales/order/totals/footer.phtml'>
-								<block type='adminhtml/sales_order_totals_item' name='grand' template='sales/order/totals/grand.phtml' />
-								<block type='adminhtml/sales_order_totals_item' name='paid' template='sales/order/totals/paid.phtml' />
-								<block type='adminhtml/sales_order_totals_item' name='refunded' template='sales/order/totals/refunded.phtml' />
-								<block type='adminhtml/sales_order_totals_item' name='due' template='sales/order/totals/due.phtml' />
-							</block>
-							<block type='adminhtml/sales_order_totals_item' name='sales.order.view.totals.main' as='main' template='sales/order/totals/main.phtml'>
-								<block type='adminhtml/sales_order_totals_subtotal' name='subtotal' template='sales/order/totals/subtotal.phtml' />
-								<block type='adminhtml/sales_order_totals_item' name='tax' template='sales/order/totals/item.phtml'>
-									<action method='setSourceField'><value>tax_amount</value></action>
-									<action method='setLabel'><value>Tax</value></action>
-								</block>
-								<block type='adminhtml/sales_order_totals_item' name='shipping' template='sales/order/totals/shipping.phtml' />
-								<block type='adminhtml/sales_order_totals_item' name='discount' template='sales/order/totals/discount.phtml' />
-								<block type='adminhtml/sales_order_totals_item' name='giftcert' template='sales/order/totals/item.phtml'>
-									<action method='setSourceField'><value>giftcert_amount</value></action>
-									<action method='setLabel'><value>Gift Certificate</value></action>
-								</block>
-								<block type='adminhtml/sales_order_totals_item' name='adjustment_positive' template='sales/order/totals/item.phtml'>
-									<action method='setSourceField'><value>adjustment_positive</value></action>
-									<action method='setLabel'><value>Adjustment Refund</value></action>
-								</block>
-								<block type='adminhtml/sales_order_totals_item' name='adjustment_negative' template='sales/order/totals/item.phtml'>
-									<action method='setSourceField'><value>adjustment_negative</value></action>
-									<action method='setLabel'><value>Adjustment Fee</value></action>
-								</block>
-							</block>-->
 						</block>
 					</block>
 				</block>
 			</block>
 		</reference>
 	</adminhtml_sales_order_invoice_new>
-
 	<adminhtml_sales_order_invoice_updateqty>
 		<block type='adminhtml/sales_order_invoice_create_items' name='order_items' template='sales/order/invoice/create/items.phtml'>
 			<action method='addItemRender'><type>default</type><block>adminhtml/sales_items_renderer_default</block><template>sales/order/invoice/create/items/renderer/default.phtml</template></action>
@@ -161,43 +110,14 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block type='adminhtml/sales_order_totalbar' name='order_totalbar' template='sales/order/totalbar.phtml'></block>
 			<block type='adminhtml/sales_order_invoice_totals' name='invoice_totals' template='sales/order/totals.phtml'>
 				<block type='adminhtml/sales_order_totals_tax' name='tax' template='sales/order/totals/tax.phtml' />
-				<!--<block type='adminhtml/sales_order_totals_item' name='footer' template='sales/order/totals/footer.phtml'>
-					<block type='adminhtml/sales_order_totals_item' name='grand' template='sales/order/totals/grand.phtml' />
-					<block type='adminhtml/sales_order_totals_item' name='paid' template='sales/order/totals/paid.phtml' />
-					<block type='adminhtml/sales_order_totals_item' name='refunded' template='sales/order/totals/refunded.phtml' />
-					<block type='adminhtml/sales_order_totals_item' name='due' template='sales/order/totals/due.phtml' />
-				</block>
-				<block type='adminhtml/sales_order_totals_item' name='sales.order.view.totals.main' as='main' template='sales/order/totals/main.phtml'>
-					<block type='adminhtml/sales_order_totals_subtotal' name='subtotal' template='sales/order/totals/subtotal.phtml' />
-					<block type='adminhtml/sales_order_totals_item' name='tax' template='sales/order/totals/item.phtml'>
-						<action method='setSourceField'><value>tax_amount</value></action>
-						<action method='setLabel'><value>Tax</value></action>
-					</block>
-					<block type='adminhtml/sales_order_totals_item' name='shipping' template='sales/order/totals/shipping.phtml' />
-					<block type='adminhtml/sales_order_totals_item' name='discount' template='sales/order/totals/discount.phtml' />
-					<block type='adminhtml/sales_order_totals_item' name='giftcert' template='sales/order/totals/item.phtml'>
-						<action method='setSourceField'><value>giftcert_amount</value></action>
-						<action method='setLabel'><value>Gift Certificate</value></action>
-					</block>
-					<block type='adminhtml/sales_order_totals_item' name='adjustment_positive' template='sales/order/totals/item.phtml'>
-						<action method='setSourceField'><value>adjustment_positive</value></action>
-						<action method='setLabel'><value>Adjustment Refund</value></action>
-					</block>
-					<block type='adminhtml/sales_order_totals_item' name='adjustment_negative' template='sales/order/totals/item.phtml'>
-						<action method='setSourceField'><value>adjustment_negative</value></action>
-						<action method='setLabel'><value>Adjustment Fee</value></action>
-					</block>
-				</block>-->
 			</block>
 		</block>
 	</adminhtml_sales_order_invoice_updateqty>
-
 	<adminhtml_sales_order_invoice_addcomment>
 		<block type='adminhtml/sales_order_invoice_view_comments' name='invoice_comments'>
 			<block type='adminhtml/sales_order_comments_view'  name='order_comments' template='sales/order/comments/view.phtml'></block>
 		</block>
 	</adminhtml_sales_order_invoice_addcomment>
-
 	<adminhtml_sales_order_invoice_view>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_invoice_view' name='sales_invoice_view'>
@@ -217,42 +137,14 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					</block>
 					<block type='adminhtml/sales_order_invoice_totals' name='invoice_totals' template='sales/order/totals.phtml'>
 						<block type='adminhtml/sales_order_totals_tax' name='tax' template='sales/order/totals/tax.phtml' />
-						<!--<block type='adminhtml/sales_order_totals_item' name='footer' template='sales/order/totals/footer.phtml'>
-							<block type='adminhtml/sales_order_totals_item' name='grand' template='sales/order/totals/grand.phtml' />
-							<block type='adminhtml/sales_order_totals_item' name='paid' template='sales/order/totals/paid.phtml' />
-							<block type='adminhtml/sales_order_totals_item' name='refunded' template='sales/order/totals/refunded.phtml' />
-							<block type='adminhtml/sales_order_totals_item' name='due' template='sales/order/totals/due.phtml' />
-						</block>
-						<block type='adminhtml/sales_order_totals_item' name='sales.order.view.totals.main' as='main' template='sales/order/totals/main.phtml'>
-							<block type='adminhtml/sales_order_totals_subtotal' name='subtotal' template='sales/order/totals/subtotal.phtml' />
-							<block type='adminhtml/sales_order_totals_item' name='tax' template='sales/order/totals/item.phtml'>
-								<action method='setSourceField'><value>tax_amount</value></action>
-								<action method='setLabel'><value>Tax</value></action>
-							</block>
-							<block type='adminhtml/sales_order_totals_item' name='shipping' template='sales/order/totals/shipping.phtml' />
-							<block type='adminhtml/sales_order_totals_item' name='discount' template='sales/order/totals/discount.phtml' />
-							<block type='adminhtml/sales_order_totals_item' name='giftcert' template='sales/order/totals/item.phtml'>
-								<action method='setSourceField'><value>giftcert_amount</value></action>
-								<action method='setLabel'><value>Gift Certificate</value></action>
-							</block>
-							<block type='adminhtml/sales_order_totals_item' name='adjustment_positive' template='sales/order/totals/item.phtml'>
-								<action method='setSourceField'><value>adjustment_positive</value></action>
-								<action method='setLabel'><value>Adjustment Refund</value></action>
-							</block>
-							<block type='adminhtml/sales_order_totals_item' name='adjustment_negative' template='sales/order/totals/item.phtml'>
-								<action method='setSourceField'><value>adjustment_negative</value></action>
-								<action method='setLabel'><value>Adjustment Fee</value></action>
-							</block>
-						</block>-->
 					</block>
 				</block>
 			</block>
 		</reference>
 	</adminhtml_sales_order_invoice_view>
-
 	<adminhtml_sales_order_shipment_new>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'Delete the shipment packaging feature because it is unused': https://github.com/thehcginstitute-com/m1/issues/376 -->
+"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
 		<reference name='content'>
 			<block type='adminhtml/sales_order_shipment_create' name='sales_shipment_create'>
 				<block type='adminhtml/sales_order_shipment_create_form' name='form' template='sales/order/shipment/create/form.phtml'>
@@ -266,29 +158,25 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<block type='core/text_list' name='order_item_extra_info'></block>
 					</block>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'Delete the shipment packaging feature because it is unused': https://github.com/thehcginstitute-com/m1/issues/376 -->
+"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
 				</block>
 			</block>
 		</reference>
 	</adminhtml_sales_order_shipment_new>
-
 	<adminhtml_sales_order_shipment_addtrack>
 		<block type='adminhtml/sales_order_shipment_view_tracking' name='shipment_tracking' template='sales/order/shipment/view/tracking.phtml'></block>
 	</adminhtml_sales_order_shipment_addtrack>
-
 	<adminhtml_sales_order_shipment_removetrack>
 		<block type='adminhtml/sales_order_shipment_view_tracking' name='shipment_tracking' template='sales/order/shipment/view/tracking.phtml'></block>
 	</adminhtml_sales_order_shipment_removetrack>
-
 	<adminhtml_sales_order_shipment_addcomment>
 		<block type='adminhtml/sales_order_shipment_view_comments' name='shipment_comments'>
 			<block type='adminhtml/sales_order_comments_view'  name='order_comments' template='sales/order/comments/view.phtml'></block>
 		</block>
 	</adminhtml_sales_order_shipment_addcomment>
-
 	<adminhtml_sales_order_shipment_view>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'Delete the shipment packaging feature because it is unused': https://github.com/thehcginstitute-com/m1/issues/376 -->
+"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
 		<reference name='content'>
 			<block type='adminhtml/sales_order_shipment_view' name='sales_shipment_view'>
 				<block type='adminhtml/sales_order_shipment_view_form' name='form' template='sales/order/shipment/view/form.phtml'>
@@ -306,12 +194,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<action method='setParentType'><type>shipment</type></action>
 					</block>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'Delete the shipment packaging feature because it is unused': https://github.com/thehcginstitute-com/m1/issues/376 -->
+"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
 				</block>
 			</block>
 		</reference>
 	</adminhtml_sales_order_shipment_view>
-
 	<adminhtml_sales_order_creditmemo_new>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_creditmemo_create' name='sales_creditmemo_create'>
@@ -325,27 +212,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<action method='addColumnRender'><column>name</column><block>adminhtml/sales_items_column_name_grouped</block><template>sales/items/column/name.phtml</template><type>grouped</type></action>
 						<block type='core/text_list' name='order_item_extra_info'></block>
 						<block type='adminhtml/sales_order_totalbar' name='order_totalbar' template='sales/order/totalbar.phtml'></block>
-
 						<block type='adminhtml/sales_order_creditmemo_totals' name='creditmemo_totals' template='sales/order/totals.phtml'>
 							<block type='adminhtml/sales_order_creditmemo_create_adjustments' name='adjustments' template='sales/order/creditmemo/create/totals/adjustments.phtml' />
 							<block type='adminhtml/sales_order_totals_tax' name='tax' template='sales/order/totals/tax.phtml' />
-							<!--<block type='adminhtml/sales_order_totals_item' name='footer' template='sales/order/totals/footer.phtml'>
-								<block type='adminhtml/sales_order_totals_item' name='grand' template='sales/order/totals/grand.phtml'>
-									<action method='setGrandTotalTitle'><title>Total Refund</title></action>
-								</block>
-							</block>
-							<block type='adminhtml/sales_order_totals_item' name='sales.order.view.totals.main' as='main' template='sales/order/totals/main.phtml'>
-								<block type='adminhtml/sales_order_totals_subtotal' name='subtotal' template='sales/order/totals/subtotal.phtml' />
-								<block type='adminhtml/sales_order_totals_item' name='tax' template='sales/order/totals/item.phtml'>
-									<action method='setSourceField'><value>tax_amount</value></action>
-									<action method='setLabel'><value>Tax</value></action>
-								</block>
-								<block type='adminhtml/sales_order_totals_item' name='discount' template='sales/order/totals/item.phtml'>
-									<action method='setSourceField'><value>discount_amount</value></action>
-									<action method='setLabel'><value>Discount</value></action>
-								</block>
-								<block type='adminhtml/sales_order_totals_item' name='adjustments' template='sales/order/creditmemo/create/totals/adjustments.phtml' />
-							</block>-->
 						</block>
 						<block type='core/text_list' name='submit_before' />
 						<block type='core/text_list' name='submit_after' />
@@ -354,7 +223,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_sales_order_creditmemo_new>
-
 	<adminhtml_sales_order_creditmemo_updateqty>
 		<block type='adminhtml/sales_order_creditmemo_create_items' name='order_items' template='sales/order/creditmemo/create/items.phtml'>
 			<action method='addItemRender'><type>default</type><block>adminhtml/sales_items_renderer_default</block><template>sales/order/creditmemo/create/items/renderer/default.phtml</template></action>
@@ -363,41 +231,19 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addColumnRender'><column>name</column><block>adminhtml/sales_items_column_name_grouped</block><template>sales/items/column/name.phtml</template><type>grouped</type></action>
 			<block type='core/text_list' name='order_item_extra_info'></block>
 			<block type='adminhtml/sales_order_totalbar' name='order_totalbar' template='sales/order/totalbar.phtml'></block>
-
 			<block type='adminhtml/sales_order_creditmemo_totals' name='creditmemo_totals' template='sales/order/totals.phtml'>
 				<block type='adminhtml/sales_order_creditmemo_create_adjustments' name='adjustments' template='sales/order/creditmemo/create/totals/adjustments.phtml' />
 				<block type='adminhtml/sales_order_totals_tax' name='tax' template='sales/order/totals/tax.phtml' />
-			<!--<block type='adminhtml/sales_order_totals' name='order_totals' template='sales/order/totals.phtml'>
-				<block type='adminhtml/sales_order_totals_item' name='footer' template='sales/order/totals/footer.phtml'>
-					<block type='adminhtml/sales_order_totals_item' name='grand' template='sales/order/totals/grand.phtml'>
-						<action method='setGrandTotalTitle'><title>Total Refund</title></action>
-					</block>
-				</block>
-				<block type='adminhtml/sales_order_totals_item' name='sales.order.view.totals.main' as='main' template='sales/order/totals/main.phtml'>
-					<block type='adminhtml/sales_order_totals_subtotal' name='subtotal' template='sales/order/totals/subtotal.phtml' />
-					<block type='adminhtml/sales_order_totals_item' name='tax' template='sales/order/totals/item.phtml'>
-						<action method='setSourceField'><value>tax_amount</value></action>
-						<action method='setLabel'><value>Tax</value></action>
-					</block>
-					<block type='adminhtml/sales_order_totals_item' name='discount' template='sales/order/totals/item.phtml'>
-						<action method='setSourceField'><value>discount_amount</value></action>
-						<action method='setLabel'><value>Discount</value></action>
-					</block>
-					<block type='adminhtml/sales_order_totals_item' name='adjustments' template='sales/order/creditmemo/create/totals/adjustments.phtml' />
-				</block>-->
 			</block>
-
 			<block type='core/text_list' name='submit_before' />
 			<block type='core/text_list' name='submit_after' />
 		</block>
 	</adminhtml_sales_order_creditmemo_updateqty>
-
 	<adminhtml_sales_order_creditmemo_addcomment>
 		<block type='adminhtml/sales_order_creditmemo_view_comments' name='creditmemo_comments'>
 			<block type='adminhtml/sales_order_comments_view'  name='order_comments' template='sales/order/comments/view.phtml'></block>
 		</block>
 	</adminhtml_sales_order_creditmemo_addcomment>
-
 	<adminhtml_sales_order_creditmemo_view>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_creditmemo_view' name='sales_creditmemo_view'>
@@ -414,49 +260,21 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<block type='adminhtml/sales_order_comments_view' name='order_comments' template='sales/order/comments/view.phtml'>
 						<action method='setParentType'><type>creditmemo</type></action>
 					</block>
-
 					<block type='adminhtml/sales_order_creditmemo_totals' name='creditmemo_totals' template='sales/order/totals.phtml'>
 						<block type='adminhtml/sales_order_totals_tax' name='tax' template='sales/order/totals/tax.phtml' />
-						<!--<block type='adminhtml/sales_order_totals_item' name='footer' template='sales/order/totals/footer.phtml'>
-							<block type='adminhtml/sales_order_totals_item' name='grand' template='sales/order/totals/grand.phtml' />
-							<block type='adminhtml/sales_order_totals_item' name='paid' template='sales/order/totals/paid.phtml' />
-							<block type='adminhtml/sales_order_totals_item' name='refunded' template='sales/order/totals/refunded.phtml' />
-							<block type='adminhtml/sales_order_totals_item' name='due' template='sales/order/totals/due.phtml' />
-						</block>
-						<block type='adminhtml/sales_order_totals_item' name='sales.order.view.totals.main' as='main' template='sales/order/totals/main.phtml'>
-							<block type='adminhtml/sales_order_totals_subtotal' name='subtotal' template='sales/order/totals/subtotal.phtml' />
-							<block type='adminhtml/sales_order_totals_tax' name='tax' template='sales/order/totals/tax.phtml' />
-							<block type='adminhtml/sales_order_totals_item' name='shipping' template='sales/order/totals/shipping.phtml' />
-							<block type='adminhtml/sales_order_totals_item' name='discount' template='sales/order/totals/discount.phtml' />
-							<block type='adminhtml/sales_order_totals_item' name='giftcert' template='sales/order/totals/item.phtml'>
-								<action method='setSourceField'><value>giftcert_amount</value></action>
-								<action method='setLabel'><value>Gift Certificate</value></action>
-							</block>
-							<block type='adminhtml/sales_order_totals_item' name='adjustment_positive' template='sales/order/totals/item.phtml'>
-								<action method='setSourceField'><value>adjustment_positive</value></action>
-								<action method='setLabel'><value>Adjustment Refund</value></action>
-							</block>
-							<block type='adminhtml/sales_order_totals_item' name='adjustment_negative' template='sales/order/totals/item.phtml'>
-								<action method='setSourceField'><value>adjustment_negative</value></action>
-								<action method='setLabel'><value>Adjustment Fee</value></action>
-							</block>
-						</block>-->
 					</block>
 				</block>
 			</block>
 		</reference>
 	</adminhtml_sales_order_creditmemo_view>
-
 	<adminhtml_sales_transactions_index>
 		<reference name='content'>
 			<block type='adminhtml/sales_transactions' name='sales_transactions.grid.container'></block>
 		</reference>
 	</adminhtml_sales_transactions_index>
-
 	<adminhtml_sales_transactions_grid>
 		<block type='adminhtml/sales_transactions_grid' name='sales_transactions.grid' output='toHtml'></block>
 	</adminhtml_sales_transactions_grid>
-
 	<adminhtml_sales_transactions_view>
 		<reference name='content'>
 			<block type='adminhtml/sales_transactions_detail' name='sales_transactions.detail' template='sales/transactions/detail.phtml'>
@@ -465,14 +283,13 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_sales_transactions_view>
-
 	<adminhtml_sales_order_create_index>
 		<reference name='left'>
 			<action method='setIsCollapsed'><value>true</value></action>
 		</reference>
 		<reference name='head'>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>mage/adminhtml/sales.js</name></action>
 			<action method='addJs'><name>mage/adminhtml/giftmessage.js</name></action>
@@ -542,23 +359,19 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_index>
-
 	<adminhtml_sales_order_edit_index>
 		<update handle='adminhtml_sales_order_create_index' />
 	</adminhtml_sales_order_edit_index>
-
 	<adminhtml_sales_order_create_load_block_json>
 		<reference name='root'>
 			<block type='adminhtml/sales_order_create_load' name='content' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_json>
-
 	<adminhtml_sales_order_create_load_block_plain>
 		<reference name='root'>
 			<block type='core/text_list' name='content' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_plain>
-
 	<adminhtml_sales_order_create_load_block_data>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_data' template='sales/order/create/data.phtml' name='data'>
@@ -602,13 +415,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_data>
-
 	<adminhtml_sales_order_create_load_block_header>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_header' name='header' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_header>
-
 	<adminhtml_sales_order_create_load_block_sidebar>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_sidebar' template='sales/order/create/sidebar.phtml' name='sidebar'>
@@ -622,25 +433,21 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar>
-
 	<adminhtml_sales_order_create_load_block_form_account>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_form_account' template='sales/order/create/form/account.phtml' name='form_account' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_form_account>
-
 	<adminhtml_sales_order_create_load_block_shipping_address>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_shipping_address' template='sales/order/create/form/address.phtml' name='shipping_address' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_shipping_address>
-
 	<adminhtml_sales_order_create_load_block_billing_address>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_billing_address' template='sales/order/create/form/address.phtml' name='billing_address' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_billing_address>
-
 	<adminhtml_sales_order_create_load_block_shipping_method>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_shipping_method' template='sales/order/create/abstract.phtml' name='shipping_method'>
@@ -648,7 +455,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_shipping_method>
-
 	<adminhtml_sales_order_create_load_block_billing_method>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_billing_method' template='sales/order/create/abstract.phtml' name='billing_method'>
@@ -656,7 +462,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_billing_method>
-
 	<adminhtml_sales_order_create_load_block_newsletter>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_newsletter' template='sales/order/create/abstract.phtml' name='newsletter'>
@@ -664,7 +469,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_newsletter>
-
 	<adminhtml_sales_order_create_load_block_search>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_search' template='sales/order/create/abstract.phtml' name='search'>
@@ -672,13 +476,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_search>
-
 	<adminhtml_sales_order_create_load_block_search_grid>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_search_grid' name='grid' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_search_grid>
-
 	<adminhtml_sales_order_create_load_block_items>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_items' template='sales/order/create/items.phtml' name='items'>
@@ -691,79 +493,66 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block type='core/text_list' name='order_item_extra_info'></block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_items>
-
 	<adminhtml_sales_order_create_load_block_comment>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_comment' template='sales/order/create/comment.phtml' name='comment' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_comment>
-
 	<adminhtml_sales_order_create_load_block_totals>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_totals' template='sales/order/create/totals.phtml' name='totals' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_totals>
-
 	<adminhtml_sales_order_create_load_block_giftmessage>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_giftmessage' template='sales/order/create/giftmessage.phtml' name='giftmessage' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_giftmessage>
-
 	<adminhtml_sales_order_create_load_block_message>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_messages' name='message' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_message>
-
 	<adminhtml_sales_order_create_load_block_customer_grid>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_customer_grid' name='grid' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_customer_grid>
-
 	<adminhtml_sales_order_create_load_block_sidebar_cart>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_sidebar_cart' template='sales/order/create/sidebar/items.phtml' name='sidebar_cart' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_cart>
-
 	<adminhtml_sales_order_create_load_block_sidebar_wishlist>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_sidebar_wishlist' template='sales/order/create/sidebar/items.phtml' name='sidebar_wishlist' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_wishlist>
-
 	<adminhtml_sales_order_create_load_block_sidebar_reorder>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_sidebar_reorder' template='sales/order/create/sidebar/items.phtml' name='sidebar_reorder' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_reorder>
-
 	<adminhtml_sales_order_create_load_block_sidebar_viewed>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_sidebar_viewed' template='sales/order/create/sidebar/items.phtml' name='sidebar_viewed' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_viewed>
-
 	<adminhtml_sales_order_create_load_block_sidebar_compared>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_sidebar_compared' template='sales/order/create/sidebar/items.phtml' name='sidebar_compared' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_compared>
-
 	<adminhtml_sales_order_create_load_block_sidebar_pviewed>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_sidebar_pviewed' template='sales/order/create/sidebar/items.phtml' name='sidebar_pviewed' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_pviewed>
-
 	<adminhtml_sales_order_create_load_block_sidebar_pcompared>
 		<reference name='content'>
 			<block type='adminhtml/sales_order_create_sidebar_pcompared' template='sales/order/create/sidebar/items.phtml' name='sidebar_pcompared' />
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_pcompared>
-
 	<report_sales>
 		<reference name='messages'>
 			<action method='addNotice' translate='message'>
@@ -771,7 +560,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 	</report_sales>
-
 	<adminhtml_report_sales_sales>
 		<update handle='report_sales'/>
 		<reference name='content'>
@@ -797,7 +585,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_report_sales_sales>
-
 	<adminhtml_report_sales_tax>
 		<update handle='report_sales'/>
 		<reference name='content'>
@@ -823,7 +610,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_report_sales_tax>
-
 	<adminhtml_report_sales_shipping>
 		<update handle='report_sales'/>
 		<reference name='content'>
@@ -844,7 +630,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_report_sales_shipping>
-
 	<adminhtml_report_sales_invoiced>
 		<update handle='report_sales'/>
 		<reference name='content'>
