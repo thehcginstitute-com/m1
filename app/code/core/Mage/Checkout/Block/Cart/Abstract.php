@@ -37,16 +37,13 @@ abstract class Mage_Checkout_Block_Cart_Abstract extends Mage_Core_Block_Templat
 
     /**
      * Add renderer for item product type
-     *
-     * @param   string $productType
-     * @param   string $blockType
-     * @param   string $template
-     * @return  Mage_Checkout_Block_Cart_Abstract
+     * 2024-09-12 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
      */
-    function addItemRender($productType, $blockType, $template)
-    {
-        $this->_itemRenders[$productType] = [
-            'block' => $blockType,
+    function addItemRender(string $type, string $block, string $template):self {
+        $this->_itemRenders[$type] = [
+            'block' => $block,
             'template' => $template,
             'blockInstance' => null
         ];
