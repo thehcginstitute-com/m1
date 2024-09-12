@@ -1,8 +1,8 @@
-<?xml version="1.0"?>
-<layout version="0.1.0">
+<?xml version='1.0'?>
+<layout version='0.1.0'>
 	<catalog_category_default>
-		<reference name="product_list">
-			<action method="addPriceBlockType">
+		<reference name='product_list'>
+			<action method='addPriceBlockType'>
 				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/price.phtml</template>
@@ -10,8 +10,8 @@
 		</reference>
 	</catalog_category_default>
 	<catalog_category_view>
-		<reference name="product_list">
-			<action method="addPriceBlockType">
+		<reference name='product_list'>
+			<action method='addPriceBlockType'>
 				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/price.phtml</template>
@@ -19,8 +19,8 @@
 		</reference>
 	</catalog_category_view>
 	<catalog_category_layered>
-		<reference name="product_list">
-			<action method="addPriceBlockType">
+		<reference name='product_list'>
+			<action method='addPriceBlockType'>
 				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/price.phtml</template>
@@ -28,8 +28,8 @@
 		</reference>
 	</catalog_category_layered>
 	<catalog_product_compare_index>
-		<reference name="catalog.compare.list">
-			<action method="addPriceBlockType">
+		<reference name='catalog.compare.list'>
+			<action method='addPriceBlockType'>
 				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/price.phtml</template>
@@ -37,8 +37,8 @@
 		</reference>
 	</catalog_product_compare_index>
 	<catalogsearch_result_index>
-		<reference name="search_result_list">
-			<action method="addPriceBlockType">
+		<reference name='search_result_list'>
+			<action method='addPriceBlockType'>
 				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/price.phtml</template>
@@ -46,8 +46,8 @@
 		</reference>
 	</catalogsearch_result_index>
 	<catalogsearch_advanced_result>
-		<reference name="search_result_list">
-			<action method="addPriceBlockType">
+		<reference name='search_result_list'>
+			<action method='addPriceBlockType'>
 				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/price.phtml</template>
@@ -57,22 +57,22 @@
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
 	<default>
-		<reference name="cart_sidebar">
-			<action method="addItemRender">
+		<reference name='cart_sidebar'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/checkout_cart_item_renderer</block>
 				<template>checkout/cart/sidebar/default.phtml</template>
 			</action>
 		</reference>
-		<reference name="wishlist_sidebar">
-			<action method="addPriceBlockType">
+		<reference name='wishlist_sidebar'>
+			<action method='addPriceBlockType'>
 				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/price.phtml</template>
 			</action>
 		</reference>
-		<reference name="catalog_product_price_template">
-			<action method="addPriceBlockType">
+		<reference name='catalog_product_price_template'>
+			<action method='addPriceBlockType'>
 				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/price.phtml</template>
@@ -80,8 +80,8 @@
 		</reference>
 	</default>
 	<catalog_product_view>
-		<reference name="catalog.product.related">
-			<action method="addPriceBlockType">
+		<reference name='catalog.product.related'>
+			<action method='addPriceBlockType'>
 				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/price.phtml</template>
@@ -89,21 +89,21 @@
 		</reference>
 	</catalog_product_view>
 	<PRODUCT_TYPE_simple>
-		<reference name="product.info.upsell">
-			<action method="addPriceBlockType">
+		<reference name='product.info.upsell'>
+			<action method='addPriceBlockType'>
 				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/price.phtml</template>
 			</action>
-			<action method="setItemLimit">
+			<action method='setItemLimit'>
 				<type>bundle</type>
 				<limit>4</limit>
 			</action>
 		</reference>
 	</PRODUCT_TYPE_simple>
 	<customer_account>
-		<reference name="cart_sidebar">
-			<action method="addItemRender">
+		<reference name='cart_sidebar'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/checkout_cart_item_renderer</block>
 				<template>checkout/cart/sidebar/default.phtml</template>
@@ -111,15 +111,15 @@
 		</reference>
 	</customer_account>
 	<checkout_cart_index>
-		<reference name="checkout.cart">
-			<action method="addItemRender">
+		<reference name='checkout.cart'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/checkout_cart_item_renderer</block>
 				<template>checkout/cart/item/default.phtml</template>
 			</action>
 		</reference>
-		<reference name="checkout.cart.crosssell">
-			<action method="addPriceBlockType">
+		<reference name='checkout.cart.crosssell'>
+			<action method='addPriceBlockType'>
 				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/price.phtml</template>
@@ -127,8 +127,8 @@
 		</reference>
 	</checkout_cart_index>
 	<checkout_onepage_review>
-		<reference name="root">
-			<action method="addItemRender">
+		<reference name='root'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/checkout_cart_item_renderer</block>
 				<template>checkout/onepage/review/item.phtml</template>
@@ -136,8 +136,8 @@
 		</reference>
 	</checkout_onepage_review>
 	<checkout_multishipping_addresses>
-		<reference name="checkout_addresses">
-			<action method="addItemRender">
+		<reference name='checkout_addresses'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/checkout_cart_item_renderer</block>
 				<template>checkout/multishipping/item/default.phtml</template>
@@ -145,15 +145,15 @@
 		</reference>
 	</checkout_multishipping_addresses>
 	<checkout_multishipping_shipping>
-		<reference name="checkout_shipping">
-			<action method="addItemRender">
+		<reference name='checkout_shipping'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/checkout_cart_item_renderer</block>
 				<template>checkout/multishipping/item/default.phtml</template>
 			</action>
 		</reference>
-		<reference name="checkout_billing_items">
-			<action method="addItemRender">
+		<reference name='checkout_billing_items'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/checkout_cart_item_renderer</block>
 				<template>checkout/multishipping/item/default.phtml</template>
@@ -161,8 +161,8 @@
 		</reference>
 	</checkout_multishipping_shipping>
 	<checkout_multishipping_overview>
-		<reference name="checkout_overview">
-			<action method="addItemRender">
+		<reference name='checkout_overview'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/checkout_cart_item_renderer</block>
 				<template>checkout/multishipping/item/default.phtml</template>
@@ -172,63 +172,63 @@
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 1) "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
 2) "Delete the unused `Mage_PaypalUk` module": https://github.com/thehcginstitute-com/m1/issues/357 -->
-	<PRODUCT_TYPE_bundle translate="label" module="bundle">
+	<PRODUCT_TYPE_bundle translate='label' module='bundle'>
 		<label>Catalog Product View (Bundle)</label>
-		<reference name="head">
-			<action method="addItem">
+		<reference name='head'>
+			<action method='addItem'>
 				<name>js/bundle.js</name>
 				<type>skin_js</type>
 			</action>
 		</reference>
-		<reference name="product.info">
-			<block type="bundle/catalog_product_view_type_bundle" name="product.info.bundle" as="product_type_data"
-				   template="bundle/catalog/product/view/type/bundle.phtml">
-				<action method="addPriceBlockType">
+		<reference name='product.info'>
+			<block type='bundle/catalog_product_view_type_bundle' name='product.info.bundle' as='product_type_data'
+				   template='bundle/catalog/product/view/type/bundle.phtml'>
+				<action method='addPriceBlockType'>
 					<type>bundle</type>
 					<block>bundle/catalog_product_price</block>
 					<template>bundle/catalog/product/price.phtml</template>
 				</action>
-				<block type="bundle/catalog_product_price" name="bundle.prices" as="bundle_prices"
-					   template="bundle/catalog/product/view/price.phtml">
-					<action method="setMAPTemplate">
+				<block type='bundle/catalog_product_price' name='bundle.prices' as='bundle_prices'
+					   template='bundle/catalog/product/view/price.phtml'>
+					<action method='setMAPTemplate'>
 						<tmpl>catalog/product/price_msrp_item.phtml</tmpl>
 					</action>
 				</block>
 			</block>
 		</reference>
-		<reference name="product.info.options.wrapper">
-			<block type="bundle/catalog_product_view_type_bundle" name="product.info.bundle.options" as="type_bundle_options"
-				   template="bundle/catalog/product/view/type/bundle/options.phtml">
-				<action method="addRenderer">
+		<reference name='product.info.options.wrapper'>
+			<block type='bundle/catalog_product_view_type_bundle' name='product.info.bundle.options' as='type_bundle_options'
+				   template='bundle/catalog/product/view/type/bundle/options.phtml'>
+				<action method='addRenderer'>
 					<type>select</type>
 					<block>bundle/catalog_product_view_type_bundle_option_select</block>
 				</action>
-				<action method="addRenderer">
+				<action method='addRenderer'>
 					<type>multi</type>
 					<block>bundle/catalog_product_view_type_bundle_option_multi</block>
 				</action>
-				<action method="addRenderer">
+				<action method='addRenderer'>
 					<type>radio</type>
 					<block>bundle/catalog_product_view_type_bundle_option_radio</block>
 				</action>
-				<action method="addRenderer">
+				<action method='addRenderer'>
 					<type>checkbox</type>
 					<block>bundle/catalog_product_view_type_bundle_option_checkbox</block>
 				</action>
 			</block>
-			<action method="insert">
+			<action method='insert'>
 				<block>product.info.bundle.options</block>
 			</action>
 		</reference>
-		<reference name="product.info.options.wrapper.bottom">
-			<remove name="product.tierprices"/>
-			<block type="bundle/catalog_product_view" name="bundle.tierprices" as="tierprices" before="-"
-				   template="bundle/catalog/product/view/tierprices.phtml"/>
-			<block type="cataloginventory/qtyincrements" name="product.info.qtyincrements" before="-"
-				   template="cataloginventory/qtyincrements.phtml"/>
+		<reference name='product.info.options.wrapper.bottom'>
+			<remove name='product.tierprices'/>
+			<block type='bundle/catalog_product_view' name='bundle.tierprices' as='tierprices' before='-'
+				   template='bundle/catalog/product/view/tierprices.phtml'/>
+			<block type='cataloginventory/qtyincrements' name='product.info.qtyincrements' before='-'
+				   template='cataloginventory/qtyincrements.phtml'/>
 		</reference>
-		<reference name="product.clone_prices">
-			<action method="addPriceBlockType">
+		<reference name='product.clone_prices'>
+			<action method='addPriceBlockType'>
 				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/view/price.phtml</template>
@@ -236,8 +236,8 @@
 		</reference>
 	</PRODUCT_TYPE_bundle>
 	<sales_order_view>
-		<reference name="order_items">
-			<action method="addItemRender">
+		<reference name='order_items'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/items/renderer.phtml</template>
@@ -245,8 +245,8 @@
 		</reference>
 	</sales_order_view>
 	<sales_order_invoice>
-		<reference name="invoice_items">
-			<action method="addItemRender">
+		<reference name='invoice_items'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/invoice/items/renderer.phtml</template>
@@ -254,8 +254,8 @@
 		</reference>
 	</sales_order_invoice>
 	<sales_order_shipment>
-		<reference name="shipment_items">
-			<action method="addItemRender">
+		<reference name='shipment_items'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/shipment/items/renderer.phtml</template>
@@ -263,8 +263,8 @@
 		</reference>
 	</sales_order_shipment>
 	<sales_order_creditmemo>
-		<reference name="creditmemo_items">
-			<action method="addItemRender">
+		<reference name='creditmemo_items'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/creditmemo/items/renderer.phtml</template>
@@ -272,8 +272,8 @@
 		</reference>
 	</sales_order_creditmemo>
 	<sales_order_print>
-		<reference name="sales.order.print">
-			<action method="addItemRender">
+		<reference name='sales.order.print'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/items/renderer.phtml</template>
@@ -281,8 +281,8 @@
 		</reference>
 	</sales_order_print>
 	<sales_order_printinvoice>
-		<reference name="sales.order.print.invoice">
-			<action method="addItemRender">
+		<reference name='sales.order.print.invoice'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/invoice/items/renderer.phtml</template>
@@ -290,8 +290,8 @@
 		</reference>
 	</sales_order_printinvoice>
 	<sales_order_printshipment>
-		<reference name="sales.order.print.shipment">
-			<action method="addItemRender">
+		<reference name='sales.order.print.shipment'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/shipment/items/renderer.phtml</template>
@@ -299,8 +299,8 @@
 		</reference>
 	</sales_order_printshipment>
 	<sales_order_printcreditmemo>
-		<reference name="sales.order.print.creditmemo">
-			<action method="addItemRender">
+		<reference name='sales.order.print.creditmemo'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/creditmemo/items/renderer.phtml</template>
@@ -308,8 +308,8 @@
 		</reference>
 	</sales_order_printcreditmemo>
 	<sales_guest_view>
-		<reference name="order_items">
-			<action method="addItemRender">
+		<reference name='order_items'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/items/renderer.phtml</template>
@@ -317,8 +317,8 @@
 		</reference>
 	</sales_guest_view>
 	<sales_guest_invoice>
-		<reference name="invoice_items">
-			<action method="addItemRender">
+		<reference name='invoice_items'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/invoice/items/renderer.phtml</template>
@@ -326,8 +326,8 @@
 		</reference>
 	</sales_guest_invoice>
 	<sales_guest_shipment>
-		<reference name="shipment_items">
-			<action method="addItemRender">
+		<reference name='shipment_items'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/shipment/items/renderer.phtml</template>
@@ -335,8 +335,8 @@
 		</reference>
 	</sales_guest_shipment>
 	<sales_guest_creditmemo>
-		<reference name="creditmemo_items">
-			<action method="addItemRender">
+		<reference name='creditmemo_items'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/creditmemo/items/renderer.phtml</template>
@@ -344,8 +344,8 @@
 		</reference>
 	</sales_guest_creditmemo>
 	<sales_guest_print>
-		<reference name="sales.order.print">
-			<action method="addItemRender">
+		<reference name='sales.order.print'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/items/renderer.phtml</template>
@@ -353,8 +353,8 @@
 		</reference>
 	</sales_guest_print>
 	<sales_guest_printinvoice>
-		<reference name="sales.order.print.invoice">
-			<action method="addItemRender">
+		<reference name='sales.order.print.invoice'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/invoice/items/renderer.phtml</template>
@@ -362,8 +362,8 @@
 		</reference>
 	</sales_guest_printinvoice>
 	<sales_guest_printshipment>
-		<reference name="sales.order.print.shipment">
-			<action method="addItemRender">
+		<reference name='sales.order.print.shipment'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/shipment/items/renderer.phtml</template>
@@ -371,8 +371,8 @@
 		</reference>
 	</sales_guest_printshipment>
 	<sales_guest_printcreditmemo>
-		<reference name="sales.order.print.creditmemo">
-			<action method="addItemRender">
+		<reference name='sales.order.print.creditmemo'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/creditmemo/items/renderer.phtml</template>
@@ -380,8 +380,8 @@
 		</reference>
 	</sales_guest_printcreditmemo>
 	<sales_email_order_items>
-		<reference name="items">
-			<action method="addItemRender">
+		<reference name='items'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/email/order/items/order/default.phtml</template>
@@ -389,8 +389,8 @@
 		</reference>
 	</sales_email_order_items>
 	<sales_email_order_invoice_items>
-		<reference name="items">
-			<action method="addItemRender">
+		<reference name='items'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/email/order/items/invoice/default.phtml</template>
@@ -398,8 +398,8 @@
 		</reference>
 	</sales_email_order_invoice_items>
 	<sales_email_order_shipment_items>
-		<reference name="items">
-			<action method="addItemRender">
+		<reference name='items'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/email/order/items/shipment/default.phtml</template>
@@ -407,8 +407,8 @@
 		</reference>
 	</sales_email_order_shipment_items>
 	<sales_email_order_creditmemo_items>
-		<reference name="items">
-			<action method="addItemRender">
+		<reference name='items'>
+			<action method='addItemRender'>
 				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/email/order/items/creditmemo/default.phtml</template>
