@@ -398,19 +398,19 @@
 		<remove name='left'/>
 		<block type='checkout/onepage_review_info' name='root' output='toHtml' template='checkout/onepage/review/info.phtml'>
 			<action method='addItemRender'>
-				<type>default</type>
 				<block>checkout/cart_item_renderer</block>
 				<template>checkout/onepage/review/item.phtml</template>
+				<type>default</type>
 			</action>
 			<action method='addItemRender'>
-				<type>grouped</type>
 				<block>checkout/cart_item_renderer_grouped</block>
 				<template>checkout/onepage/review/item.phtml</template>
+				<type>grouped</type>
 			</action>
 			<action method='addItemRender'>
-				<type>configurable</type>
 				<block>checkout/cart_item_renderer_configurable</block>
 				<template>checkout/onepage/review/item.phtml</template>
+				<type>configurable</type>
 			</action>
 			<block type='checkout/cart_totals' name='checkout.onepage.review.info.totals' as='totals'
 				   template='checkout/onepage/review/totals.phtml'/>
