@@ -211,9 +211,9 @@
 	<sales_email_order_creditmemo_items>
 		<reference name='items'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/sales_order_email_items_downloadable</block>
 				<template>downloadable/email/order/items/creditmemo/downloadable.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</sales_email_order_creditmemo_items>
