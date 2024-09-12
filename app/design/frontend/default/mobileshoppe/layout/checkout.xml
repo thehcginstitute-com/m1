@@ -290,24 +290,13 @@
 			</block>
 		</reference>
 	</checkout_multishipping_overview>
-
-	<!--
-	Multi address shipping checkout success
-	-->
-
 	<checkout_multishipping_success translate='label'>
 		<label>Multishipping Checkout Success</label>
 		<update handle='checkout_multishipping'/>
-		<!-- Mage_Checkout -->
 		<reference name='content'>
 			<block type='checkout/multishipping_success' name='checkout_success' template='checkout/multishipping/success.phtml'/>
 		</reference>
 	</checkout_multishipping_success>
-
-	<!--
-	One page checkout main layout
-	-->
-
 	<checkout_onepage_index translate='label'>
 		<label>One Page Checkout</label>
 		<!-- Mage_Checkout -->
