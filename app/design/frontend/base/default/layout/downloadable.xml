@@ -1,21 +1,5 @@
 <?xml version="1.0"?>
-<!--
-/**
- * OpenMage
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available at https://opensource.org/license/afl-3-0-php
- *
- * @category    design
- * @package     base_default
- * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-
--->
 <layout version="0.1.0">
-
 	<customer_account>
 		<reference name="customer_account_navigation">
 			<action method="addLink" translate="label" module="downloadable">
@@ -25,7 +9,6 @@
 			</action>
 		</reference>
 	</customer_account>
-
 	<downloadable_customer_products translate="label">
 		<label>Customer My Account Downloadable Items</label>
 		<update handle="customer_account"/>
@@ -39,7 +22,6 @@
 			</action>
 		</reference>
 	</downloadable_customer_products>
-
 	<checkout_cart_index>
 		<reference name="checkout.cart">
 			<action method="addItemRender">
@@ -49,7 +31,6 @@
 			</action>
 		</reference>
 	</checkout_cart_index>
-
 	<checkout_onepage_review>
 		<reference name="root">
 			<action method="addItemRender">
@@ -59,14 +40,12 @@
 			</action>
 		</reference>
 	</checkout_onepage_review>
-
 	<checkout_onepage_success>
 		<reference name="checkout.success">
 			<block type="downloadable/checkout_success" name="downloadable.checkout.success"
 				   template="downloadable/checkout/success.phtml"/>
 		</reference>
 	</checkout_onepage_success>
-
 	<checkout_multishipping_addresses>
 		<reference name="checkout_addresses">
 			<action method="addItemRender">
@@ -76,7 +55,6 @@
 			</action>
 		</reference>
 	</checkout_multishipping_addresses>
-
 	<checkout_multishipping_shipping>
 		<reference name="checkout_billing_items">
 			<action method="addItemRender">
@@ -86,7 +64,6 @@
 			</action>
 		</reference>
 	</checkout_multishipping_shipping>
-
 	<checkout_multishipping_overview>
 		<reference name="checkout_overview">
 			<action method="addItemRender">
@@ -96,20 +73,15 @@
 			</action>
 		</reference>
 	</checkout_multishipping_overview>
-
 	<checkout_multishipping_success>
 		<reference name="checkout_success">
 			<block type="downloadable/checkout_success" name="downloadable.checkout.success"
 				   template="downloadable/checkout/success.phtml"/>
 		</reference>
 	</checkout_multishipping_success>
-
-	<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 -->
-
-	<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	"Delete the unused `Mage_PaypalUk` module": https://github.com/thehcginstitute-com/m1/issues/357 -->
-
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+1) "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
+2) "Delete the unused `Mage_PaypalUk` module": https://github.com/thehcginstitute-com/m1/issues/357 -->
 	<sales_order_view>
 		<reference name="order_items">
 			<action method="addItemRender">
