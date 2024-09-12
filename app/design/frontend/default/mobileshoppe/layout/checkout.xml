@@ -265,14 +265,14 @@
 					<type>configurable</type>
 				</action>
 				<action method='addRowItemRender'>
-					<type>grouped</type>
 					<block>checkout/cart_item_renderer_grouped</block>
 					<template>checkout/multishipping/overview/item.phtml</template>
+					<type>grouped</type>
 				</action>
 				<action method='addRowItemRender'>
-					<type>configurable</type>
 					<block>checkout/cart_item_renderer_configurable</block>
 					<template>checkout/multishipping/overview/item.phtml</template>
+					<type>configurable</type>
 				</action>
 				<block type='checkout/multishipping_payment_info' name='payment_info'>
 					<action method='setInfoTemplate'>
