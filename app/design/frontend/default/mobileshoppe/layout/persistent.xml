@@ -2,48 +2,48 @@
 <!--
 -->
 <layout version="0.1.0">
-    <customer_logged_out_psc_handle>
-        <reference name="top.links">
-            <action method="addLink" translate="label title" module="persistent"><label helper="persistent/getPersistentName"/><url helper="persistent/getUnsetCookieUrl"/><title helper="persistent/getPersistentName"/><prepare/><urlParams/><position>9</position></action>
-        </reference>
-    </customer_logged_out_psc_handle>
+	<customer_logged_out_psc_handle>
+		<reference name="top.links">
+			<action method="addLink" translate="label title" module="persistent"><label helper="persistent/getPersistentName"/><url helper="persistent/getUnsetCookieUrl"/><title helper="persistent/getPersistentName"/><prepare/><urlParams/><position>9</position></action>
+		</reference>
+	</customer_logged_out_psc_handle>
 
-    <customer_account_login>
-        <reference name="customer_form_login">
+	<customer_account_login>
+		<reference name="customer_form_login">
 <!-- 2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2": https://github.com/thehcginstitute-com/m1/issues/34 -->
-            <action method="setTemplate" ifconfig="persistent/options/enabled">
+			<action method="setTemplate" ifconfig="persistent/options/enabled">
 				<template>persistent/customer/form/login.phtml</template>
 			</action>
-            <block type="persistent/form_remember" name="persistent.remember.me" template="persistent/remember_me.phtml" />
-            <block type="core/template" name="persistent.remember.me.tooltip" template="persistent/remember_me_tooltip.phtml" />
-        </reference>
-    </customer_account_login>
+			<block type="persistent/form_remember" name="persistent.remember.me" template="persistent/remember_me.phtml" />
+			<block type="core/template" name="persistent.remember.me.tooltip" template="persistent/remember_me_tooltip.phtml" />
+		</reference>
+	</customer_account_login>
 
-    <customer_account_create>
-        <reference name="customer_form_register">
+	<customer_account_create>
+		<reference name="customer_form_register">
 <!-- 2024-01-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "`customer/form/register.phtml` is unused because it is always overriden by `persistent/customer/form/register.phtml`":
 https://github.com/thehcginstitute-com/m1/issues/335
 2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2": https://github.com/thehcginstitute-com/m1/issues/34 -->
-            <action method="setTemplate" ifconfig="persistent/options/enabled">
+			<action method="setTemplate" ifconfig="persistent/options/enabled">
 				<template>persistent/customer/form/register.phtml</template>
 			</action>
-            <block type="persistent/form_remember" name="persistent.remember.me" template="persistent/remember_me.phtml" />
-            <block type="core/template" name="persistent.remember.me.tooltip" template="persistent/remember_me_tooltip.phtml" />
-        </reference>
-    </customer_account_create>
+			<block type="persistent/form_remember" name="persistent.remember.me" template="persistent/remember_me.phtml" />
+			<block type="core/template" name="persistent.remember.me.tooltip" template="persistent/remember_me_tooltip.phtml" />
+		</reference>
+	</customer_account_create>
 
-    <checkout_onepage_index>
-        <reference name="checkout.onepage.login">
+	<checkout_onepage_index>
+		<reference name="checkout.onepage.login">
 <!-- 2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2": https://github.com/thehcginstitute-com/m1/issues/34 -->
-            <action method="setTemplate" ifconfig="persistent/options/enabled">
+			<action method="setTemplate" ifconfig="persistent/options/enabled">
 				<template>persistent/checkout/onepage/login.phtml</template>
 			</action>
-            <block type="persistent/form_remember" name="persistent.remember.me" template="persistent/remember_me.phtml" />
-            <block type="core/template" name="persistent.remember.me.tooltip" template="persistent/remember_me_tooltip.phtml" />
-        </reference>
-    </checkout_onepage_index>
+			<block type="persistent/form_remember" name="persistent.remember.me" template="persistent/remember_me.phtml" />
+			<block type="core/template" name="persistent.remember.me.tooltip" template="persistent/remember_me_tooltip.phtml" />
+		</reference>
+	</checkout_onepage_index>
 </layout>
