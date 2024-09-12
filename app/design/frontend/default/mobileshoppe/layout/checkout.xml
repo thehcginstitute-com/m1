@@ -250,19 +250,19 @@
 			<block type='checkout/multishipping_overview' name='checkout_overview'
 				   template='checkout/multishipping/overview.phtml'>
 				<action method='addItemRender'>
-					<type>default</type>
 					<block>checkout/cart_item_renderer</block>
 					<template>checkout/multishipping/item/default.phtml</template>
+					<type>default</type>
 				</action>
 				<action method='addItemRender'>
-					<type>grouped</type>
 					<block>checkout/cart_item_renderer_grouped</block>
 					<template>checkout/multishipping/item/default.phtml</template>
+					<type>grouped</type>
 				</action>
 				<action method='addItemRender'>
-					<type>configurable</type>
 					<block>checkout/cart_item_renderer_configurable</block>
 					<template>checkout/multishipping/item/default.phtml</template>
+					<type>configurable</type>
 				</action>
 				<action method='addRowItemRender'>
 					<type>grouped</type>
