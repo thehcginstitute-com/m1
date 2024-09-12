@@ -299,9 +299,7 @@
 	</checkout_multishipping_success>
 	<checkout_onepage_index translate='label'>
 		<label>One Page Checkout</label>
-		<!-- Mage_Checkout -->
 		<remove name='right'/>
-
 		<reference name='root'>
 			<action method='setTemplate'>
 				<template>page/2columns-left.phtml</template>
@@ -342,7 +340,6 @@
 				</block>
 				<block type='checkout/onepage_payment' name='checkout.onepage.payment' as='payment'
 					   template='checkout/onepage/payment.phtml'>
-					<!--<block type='checkout/onepage_payment_methods' name='checkout.payment.methods' as='methods' template='checkout/onepage/payment/methods.phtml'>-->
 					<block type='checkout/onepage_payment_methods' name='checkout.payment.methods' as='methods'
 						   template='checkout/onepage/payment/info.phtml'>
 						<action method='setMethodFormTemplate'>
@@ -356,16 +353,9 @@
 			</block>
 		</reference>
 	</checkout_onepage_index>
-
-	<!--
-	One page checkout progress block
-	-->
-
 	<checkout_onepage_progress>
-		<!-- Mage_Checkout -->
 		<remove name='right'/>
 		<remove name='left'/>
-
 		<block type='checkout/onepage_progress' name='root' output='toHtml' template='checkout/onepage/progress.phtml'>
 			<block type='checkout/onepage_payment_info' name='payment_info'>
 				<action method='setInfoTemplate'>
@@ -375,14 +365,9 @@
 			</block>
 		</block>
 	</checkout_onepage_progress>
-
-	<!--
-	One page checkout payment methods block
-	-->
 	<checkout_onepage_paymentmethod>
 		<remove name='right'/>
 		<remove name='left'/>
-
 		<block type='checkout/onepage_payment_methods' name='root' output='toHtml'
 			   template='checkout/onepage/payment/methods.phtml'>
 			<action method='setMethodFormTemplate'>
@@ -391,23 +376,13 @@
 			</action>
 		</block>
 	</checkout_onepage_paymentmethod>
-
-
-	<!--
-	One page checkout shipping methods block
-	-->
-
 	<checkout_onepage_shippingmethod>
-		<!-- Mage_Checkout -->
 		<remove name='right'/>
 		<remove name='left'/>
-
 		<block type='checkout/onepage_shipping_method_available' name='root' output='toHtml'
 			   template='checkout/onepage/shipping_method/available.phtml'/>
 	</checkout_onepage_shippingmethod>
-
 	<checkout_onepage_additional>
-		<!-- Mage_Checkout -->
 		<remove name='right'/>
 		<remove name='left'/>
 
