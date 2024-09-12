@@ -1,13 +1,5 @@
 <?xml version='1.0'?>
-<!--
-
--->
 <layout version='0.1.0'>
-
-	<!--
-	Default layout, loads most of the pages
-	-->
-
 	<default>
 		<reference name='top.links'>
 			<block type='wishlist/links' name='wishlist_link'/>
@@ -15,18 +7,11 @@
 				<blockName>wishlist_link</blockName>
 			</action>
 		</reference>
-
-		<!-- Mage_Wishlist -->
 		<reference name='left'>
 			<block type='wishlist/customer_sidebar' name='wishlist_sidebar' as='wishlist' after='cart_sidebar'
 				   template='wishlist/sidebar.phtml'/>
 		</reference>
 	</default>
-
-	<!--
-	Customer account pages, rendered for all tabs in dashboard
-	-->
-
 	<customer_account>
 		<!-- Mage_Wishlist -->
 		<reference name='customer_account_navigation'>
