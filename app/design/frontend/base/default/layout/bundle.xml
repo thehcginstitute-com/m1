@@ -382,36 +382,36 @@
 	<sales_email_order_items>
 		<reference name='items'>
 			<action method='addItemRender'>
-				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/email/order/items/order/default.phtml</template>
+				<type>bundle</type>
 			</action>
 		</reference>
 	</sales_email_order_items>
 	<sales_email_order_invoice_items>
 		<reference name='items'>
 			<action method='addItemRender'>
-				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/email/order/items/invoice/default.phtml</template>
+				<type>bundle</type>
 			</action>
 		</reference>
 	</sales_email_order_invoice_items>
 	<sales_email_order_shipment_items>
 		<reference name='items'>
 			<action method='addItemRender'>
-				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/email/order/items/shipment/default.phtml</template>
+				<type>bundle</type>
 			</action>
 		</reference>
 	</sales_email_order_shipment_items>
 	<sales_email_order_creditmemo_items>
 		<reference name='items'>
 			<action method='addItemRender'>
-				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/email/order/items/creditmemo/default.phtml</template>
+				<type>bundle</type>
 			</action>
 		</reference>
 	</sales_email_order_creditmemo_items>
