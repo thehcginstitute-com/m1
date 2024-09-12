@@ -36,7 +36,6 @@
 			</action>
 		</reference>
 	</catalog_product_compare_index>
-
 	<catalogsearch_result_index>
 		<reference name="search_result_list">
 			<action method="addPriceBlockType">
@@ -46,7 +45,6 @@
 			</action>
 		</reference>
 	</catalogsearch_result_index>
-
 	<catalogsearch_advanced_result>
 		<reference name="search_result_list">
 			<action method="addPriceBlockType">
@@ -56,10 +54,8 @@
 			</action>
 		</reference>
 	</catalogsearch_advanced_result>
-
-	<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
-
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
 	<default>
 		<reference name="cart_sidebar">
 			<action method="addItemRender">
@@ -83,7 +79,6 @@
 			</action>
 		</reference>
 	</default>
-
 	<catalog_product_view>
 		<reference name="catalog.product.related">
 			<action method="addPriceBlockType">
@@ -93,19 +88,7 @@
 			</action>
 		</reference>
 	</catalog_product_view>
-
-	<!--
-	Partof block for simple products
-	-->
-
 	<PRODUCT_TYPE_simple>
-		<!--
-		<reference name="product.info.additional">
-
-			<block type="bundle/catalog_product_list_partof" before="-" name="product.info.partof" as="partof_products" template="bundle/catalog/product/list/partof.phtml">
-				<action method="addPriceBlockType"><type>bundle</type><block>bundle/catalog_product_price</block><template>bundle/catalog/product/price.phtml</template></action>
-			</block>
-		-->
 		<reference name="product.info.upsell">
 			<action method="addPriceBlockType">
 				<type>bundle</type>
@@ -118,11 +101,6 @@
 			</action>
 		</reference>
 	</PRODUCT_TYPE_simple>
-
-	<!--
-	Shopping cart item renderer (sidebar)
-	-->
-
 	<customer_account>
 		<reference name="cart_sidebar">
 			<action method="addItemRender">
@@ -132,11 +110,6 @@
 			</action>
 		</reference>
 	</customer_account>
-
-	<!--
-	Shopping cart item renderer
-	-->
-
 	<checkout_cart_index>
 		<reference name="checkout.cart">
 			<action method="addItemRender">
@@ -153,11 +126,6 @@
 			</action>
 		</reference>
 	</checkout_cart_index>
-
-	<!--
-	Onepage Checkout Review Page
-	-->
-
 	<checkout_onepage_review>
 		<reference name="root">
 			<action method="addItemRender">
@@ -167,7 +135,6 @@
 			</action>
 		</reference>
 	</checkout_onepage_review>
-
 	<checkout_multishipping_addresses>
 		<reference name="checkout_addresses">
 			<action method="addItemRender">
@@ -177,7 +144,6 @@
 			</action>
 		</reference>
 	</checkout_multishipping_addresses>
-
 	<checkout_multishipping_shipping>
 		<reference name="checkout_shipping">
 			<action method="addItemRender">
@@ -194,7 +160,6 @@
 			</action>
 		</reference>
 	</checkout_multishipping_shipping>
-
 	<checkout_multishipping_overview>
 		<reference name="checkout_overview">
 			<action method="addItemRender">
@@ -204,17 +169,9 @@
 			</action>
 		</reference>
 	</checkout_multishipping_overview>
-
-	<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	"Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 -->
-
-	<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	"Delete the unused `Mage_PaypalUk` module": https://github.com/thehcginstitute-com/m1/issues/357 -->
-
-	<!--
-	Additional block for bundle product type
-	-->
-
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+1) "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
+2) "Delete the unused `Mage_PaypalUk` module": https://github.com/thehcginstitute-com/m1/issues/357 -->
 	<PRODUCT_TYPE_bundle translate="label" module="bundle">
 		<label>Catalog Product View (Bundle)</label>
 		<reference name="head">
@@ -278,7 +235,6 @@
 			</action>
 		</reference>
 	</PRODUCT_TYPE_bundle>
-
 	<sales_order_view>
 		<reference name="order_items">
 			<action method="addItemRender">
@@ -288,7 +244,6 @@
 			</action>
 		</reference>
 	</sales_order_view>
-
 	<sales_order_invoice>
 		<reference name="invoice_items">
 			<action method="addItemRender">
@@ -298,7 +253,6 @@
 			</action>
 		</reference>
 	</sales_order_invoice>
-
 	<sales_order_shipment>
 		<reference name="shipment_items">
 			<action method="addItemRender">
@@ -308,7 +262,6 @@
 			</action>
 		</reference>
 	</sales_order_shipment>
-
 	<sales_order_creditmemo>
 		<reference name="creditmemo_items">
 			<action method="addItemRender">
@@ -318,11 +271,6 @@
 			</action>
 		</reference>
 	</sales_order_creditmemo>
-
-	<!--
-	Print pages
-	-->
-
 	<sales_order_print>
 		<reference name="sales.order.print">
 			<action method="addItemRender">
@@ -332,7 +280,6 @@
 			</action>
 		</reference>
 	</sales_order_print>
-
 	<sales_order_printinvoice>
 		<reference name="sales.order.print.invoice">
 			<action method="addItemRender">
@@ -342,7 +289,6 @@
 			</action>
 		</reference>
 	</sales_order_printinvoice>
-
 	<sales_order_printshipment>
 		<reference name="sales.order.print.shipment">
 			<action method="addItemRender">
@@ -352,7 +298,6 @@
 			</action>
 		</reference>
 	</sales_order_printshipment>
-
 	<sales_order_printcreditmemo>
 		<reference name="sales.order.print.creditmemo">
 			<action method="addItemRender">
@@ -362,10 +307,6 @@
 			</action>
 		</reference>
 	</sales_order_printcreditmemo>
-
-	<!--
-	For guests
-	-->
 	<sales_guest_view>
 		<reference name="order_items">
 			<action method="addItemRender">
@@ -375,7 +316,6 @@
 			</action>
 		</reference>
 	</sales_guest_view>
-
 	<sales_guest_invoice>
 		<reference name="invoice_items">
 			<action method="addItemRender">
@@ -385,7 +325,6 @@
 			</action>
 		</reference>
 	</sales_guest_invoice>
-
 	<sales_guest_shipment>
 		<reference name="shipment_items">
 			<action method="addItemRender">
@@ -395,7 +334,6 @@
 			</action>
 		</reference>
 	</sales_guest_shipment>
-
 	<sales_guest_creditmemo>
 		<reference name="creditmemo_items">
 			<action method="addItemRender">
@@ -405,7 +343,6 @@
 			</action>
 		</reference>
 	</sales_guest_creditmemo>
-
 	<sales_guest_print>
 		<reference name="sales.order.print">
 			<action method="addItemRender">
@@ -415,7 +352,6 @@
 			</action>
 		</reference>
 	</sales_guest_print>
-
 	<sales_guest_printinvoice>
 		<reference name="sales.order.print.invoice">
 			<action method="addItemRender">
@@ -425,7 +361,6 @@
 			</action>
 		</reference>
 	</sales_guest_printinvoice>
-
 	<sales_guest_printshipment>
 		<reference name="sales.order.print.shipment">
 			<action method="addItemRender">
@@ -435,7 +370,6 @@
 			</action>
 		</reference>
 	</sales_guest_printshipment>
-
 	<sales_guest_printcreditmemo>
 		<reference name="sales.order.print.creditmemo">
 			<action method="addItemRender">
@@ -445,10 +379,6 @@
 			</action>
 		</reference>
 	</sales_guest_printcreditmemo>
-
-	<!--
-	Emails
-	-->
 	<sales_email_order_items>
 		<reference name="items">
 			<action method="addItemRender">
@@ -458,7 +388,6 @@
 			</action>
 		</reference>
 	</sales_email_order_items>
-
 	<sales_email_order_invoice_items>
 		<reference name="items">
 			<action method="addItemRender">
@@ -468,8 +397,6 @@
 			</action>
 		</reference>
 	</sales_email_order_invoice_items>
-
-
 	<sales_email_order_shipment_items>
 		<reference name="items">
 			<action method="addItemRender">
@@ -479,7 +406,6 @@
 			</action>
 		</reference>
 	</sales_email_order_shipment_items>
-
 	<sales_email_order_creditmemo_items>
 		<reference name="items">
 			<action method="addItemRender">
@@ -489,7 +415,6 @@
 			</action>
 		</reference>
 	</sales_email_order_creditmemo_items>
-
-	<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 -->
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Rss` module": https://github.com/thehcginstitute-com/m1/issues/368 -->
 </layout>
