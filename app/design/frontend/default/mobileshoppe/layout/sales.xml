@@ -404,23 +404,23 @@
 	<sales_email_order_shipment_items>
 		<block type='sales/order_email_shipment_items' name='items' template='email/order/shipment/items.phtml'>
 			<action method='addItemRender'>
-				<type>default</type>
 				<block>sales/order_email_items_default</block>
 				<template>email/order/items/shipment/default.phtml</template>
+				<type>default</type>
 			</action>
 		</block>
 	</sales_email_order_shipment_items>
 	<sales_email_order_creditmemo_items>
 		<block type='sales/order_email_creditmemo_items' name='items' template='email/order/creditmemo/items.phtml'>
 			<action method='addItemRender'>
-				<type>default</type>
 				<block>sales/order_email_items_default</block>
 				<template>email/order/items/creditmemo/default.phtml</template>
+				<type>default</type>
 			</action>
 			<action method='addItemRender'>
-				<type>grouped</type>
 				<block>sales/order_email_items_order_grouped</block>
 				<template>email/order/items/creditmemo/default.phtml</template>
+				<type>grouped</type>
 			</action>
 			<block type='sales/order_creditmemo_totals' name='creditmemo_totals' template='sales/order/totals.phtml'>
 				<action method='setLabelProperties'>
