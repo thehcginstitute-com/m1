@@ -119,7 +119,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_invoice_new>
 	<adminhtml_sales_order_invoice_updateqty>
 		<block type='adminhtml/sales_order_invoice_create_items' name='order_items' template='sales/order/invoice/create/items.phtml'>
-			<action method='addItemRender'><type>default</type><block>adminhtml/sales_items_renderer_default</block><template>sales/order/invoice/create/items/renderer/default.phtml</template></action>
+			<action method='addItemRender'>
+				<block>adminhtml/sales_items_renderer_default</block>
+				<template>sales/order/invoice/create/items/renderer/default.phtml</template>
+				<type>default</type>
+			</action>
 			<action method='addColumnRender'>
 				<block>adminhtml/sales_items_column_qty</block>
 				<column>qty</column>
