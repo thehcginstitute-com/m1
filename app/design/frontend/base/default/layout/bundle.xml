@@ -301,18 +301,18 @@
 	<sales_order_printcreditmemo>
 		<reference name='sales.order.print.creditmemo'>
 			<action method='addItemRender'>
-				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/creditmemo/items/renderer.phtml</template>
+				<type>bundle</type>
 			</action>
 		</reference>
 	</sales_order_printcreditmemo>
 	<sales_guest_view>
 		<reference name='order_items'>
 			<action method='addItemRender'>
-				<type>bundle</type>
 				<block>bundle/sales_order_items_renderer</block>
 				<template>bundle/sales/order/items/renderer.phtml</template>
+				<type>bundle</type>
 			</action>
 		</reference>
 	</sales_guest_view>
