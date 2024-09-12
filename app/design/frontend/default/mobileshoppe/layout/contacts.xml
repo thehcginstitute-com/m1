@@ -1,6 +1,4 @@
 <?xml version='1.0'?>
-<!--
--->
 <layout version='0.1.0'>
 	<default>
 		<reference name='footer_links'>
@@ -12,7 +10,6 @@
 			</action>
 		</reference>
 	</default>
-
 	<contacts_index_index translate='label'>
 		<label>Contact Us Form</label>
 		<reference name='head'>
