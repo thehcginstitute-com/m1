@@ -45,14 +45,13 @@
 		<remove name='top.menu'/>
 		<remove name='footer'/>
 	</oauth_root_handle>
-
 	<oauth_root_handle_simple>
 		<remove name='js_cookie'/>
 		<block type='page/html' name='root' output='toHtml' template='page/empty.phtml'>
 			<block type='page/html_head' name='head' as='head' template='oauth/authorize/head-simple.phtml'>
-				<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
-				https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<action method='addCss'>
 					<name>css/oauth-simple.css</name>
 				</action>
@@ -60,8 +59,6 @@
 			<block type='core/text_list' name='content'/>
 		</block>
 	</oauth_root_handle_simple>
-
-	<!-- Authorization -->
 	<oauth_authorize_index translate='label'>
 		<update handle='oauth_root_handle'/>
 		<label>OAuth authorization for customer</label>
@@ -70,7 +67,6 @@
 			<block type='oauth/authorize_button' name='oauth.authorize.button' template='oauth/authorize/button.phtml'/>
 		</reference>
 	</oauth_authorize_index>
-
 	<oauth_authorize_simple translate='label'>
 		<update handle='oauth_root_handle_simple'/>
 		<remove name='header'/>
@@ -80,9 +76,6 @@
 			<block type='oauth/authorize_button' name='oauth.authorize.button' template='oauth/authorize/button-simple.phtml'/>
 		</reference>
 	</oauth_authorize_simple>
-	<!-- EOF Authorization -->
-
-	<!-- Confirm Authorization -->
 	<oauth_authorize_confirm translate='label'>
 		<update handle='oauth_root_handle'/>
 		<label>Confirm OAuth token authorization</label>
@@ -90,7 +83,6 @@
 			<block type='oauth/authorize_button' name='oauth.authorize.confirm' template='oauth/authorize/confirm.phtml'/>
 		</reference>
 	</oauth_authorize_confirm>
-
 	<oauth_authorize_confirmsimple translate='label'>
 		<update handle='oauth_root_handle_simple'/>
 		<remove name='header'/>
@@ -98,9 +90,6 @@
 			<block type='oauth/authorize_button' name='oauth.authorize.confirm' template='oauth/authorize/confirm-simple.phtml'/>
 		</reference>
 	</oauth_authorize_confirmsimple>
-	<!-- EOF Confirm Authorization -->
-
-	<!-- Reject Authorization -->
 	<oauth_authorize_reject translate='label'>
 		<update handle='oauth_root_handle'/>
 		<label>Reject OAuth token authorization</label>
@@ -108,7 +97,6 @@
 			<block type='oauth/authorize_button' name='oauth.authorize.reject' template='oauth/authorize/reject.phtml'/>
 		</reference>
 	</oauth_authorize_reject>
-
 	<oauth_authorize_rejectsimple translate='label'>
 		<update handle='oauth_root_handle_simple'/>
 		<remove name='header'/>
@@ -116,9 +104,6 @@
 			<block type='oauth/authorize_button' name='oauth.authorize.reject' template='oauth/authorize/reject-simple.phtml'/>
 		</reference>
 	</oauth_authorize_rejectsimple>
-	<!-- EOF Reject Authorization -->
-
-	<!-- My Applications-->
 	<customer_account>
 		<reference name='customer_account_navigation'>
 			<action method='addLink' translate='label' module='oauth'>
@@ -128,7 +113,6 @@
 			</action>
 		</reference>
 	</customer_account>
-
 	<oauth_customer_token_index translate='label'>
 		<label>Customer My Account My OAuth Applications</label>
 		<update handle='customer_account'/>
@@ -136,5 +120,4 @@
 			<block type='oauth/customer_token_list' name='oauth_customer_token_list' template='oauth/customer/token/list.phtml'/>
 		</reference>
 	</oauth_customer_token_index>
-	<!-- EOF My Applications-->
 </layout>
