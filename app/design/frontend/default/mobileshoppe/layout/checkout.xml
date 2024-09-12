@@ -34,14 +34,11 @@
 			<block type='core/template' name='optional_zip_countries' as='optional_zip_countries'
 				   template='directory/js/optional_zip_countries.phtml'/>
 		</reference>
-
 	</default>
-
 	<checkout_cart_index translate='label'>
 		<label>Shopping Cart</label>
 		<remove name='right'/>
 		<remove name='left'/>
-		<!-- Mage_Checkout -->
 		<reference name='root'>
 			<action method='setTemplate'>
 				<template>page/1column.phtml</template>
@@ -71,17 +68,14 @@
 					<template>checkout/cart/item/default.phtml</template>
 					<type>configurable</type>
 				</action>
-
 				<block type='core/text_list' name='checkout.cart.top_methods' as='top_methods' translate='label'>
 					<label>Payment Methods Before Checkout Button</label>
 					<block type='checkout/onepage_link' name='checkout.cart.methods.onepage'
 						   template='checkout/onepage/link.phtml'/>
 				</block>
-
 				<block type='page/html_wrapper' name='checkout.cart.form.before' as='form_before' translate='label'>
 					<label>Shopping Cart Form Before</label>
 				</block>
-
 				<block type='core/text_list' name='checkout.cart.methods' as='methods' translate='label'>
 					<label>Payment Methods After Checkout Button</label>
 					<block type='checkout/onepage_link' name='checkout.cart.methods.onepage'
@@ -89,7 +83,6 @@
 					<block type='checkout/multishipping_link' name='checkout.cart.methods.multishipping'
 						   template='checkout/multishipping/link.phtml'/>
 				</block>
-
 				<block type='checkout/cart_coupon' name='checkout.cart.coupon' as='coupon' template='checkout/cart/coupon.phtml'/>
 				<block type='checkout/cart_shipping' name='checkout.cart.shipping' as='shipping'
 					   template='checkout/cart/shipping.phtml'/>
@@ -103,23 +96,14 @@
 			<label>Additional Product Info</label>
 		</block>
 	</checkout_cart_index>
-
 	<checkout_cart_configure translate='label'>
 		<label>Configure Cart Item</label>
 		<update handle='catalog_product_view'/>
 	</checkout_cart_configure>
-
-	<!--
-	Multi address shipping checkout main layout,
-	will be rendered on all checkout pages
-	-->
-
 	<checkout_multishipping translate='label'>
 		<label>Multishipping Checkout</label>
-		<!-- Mage_Checkout -->
 		<remove name='right'/>
 		<remove name='left'/>
-
 		<reference name='root'>
 			<action method='setTemplate'>
 				<template>page/1column.phtml</template>
@@ -129,52 +113,38 @@
 			<block type='checkout/multishipping_state' name='checkout_state' template='checkout/multishipping/state.phtml'/>
 		</reference>
 	</checkout_multishipping>
-
 	<checkout_multishipping_login>
 		<update handle='customer_account_login'/>
 	</checkout_multishipping_login>
-
 	<checkout_multishipping_register>
 		<update handle='customer_account_create'/>
 	</checkout_multishipping_register>
-
-	<!--
-	Multi address shipping checkout selection of address per item page
-	-->
-
 	<checkout_multishipping_address_select translate='label'>
 		<label>Multishipping Checkout Shipping Address Selection</label>
 		<update handle='checkout_multishipping'/>
-		<!-- Mage_Checkout -->
 		<reference name='content'>
 			<block type='checkout/multishipping_address_select' name='checkout_address_select'
 				   template='checkout/multishipping/address/select.phtml'/>
 		</reference>
 	</checkout_multishipping_address_select>
-
 	<checkout_multishipping_address_selectbilling translate='label'>
 		<label>Multishipping Checkout Billing Address Selection</label>
 		<update handle='checkout_multishipping'/>
-		<!-- Mage_Checkout -->
 		<reference name='content'>
 			<block type='checkout/multishipping_address_select' name='checkout_address_select'
 				   template='checkout/multishipping/address/select.phtml'/>
 		</reference>
 	</checkout_multishipping_address_selectbilling>
-
-
 	<checkout_multishipping_address_newshipping translate='label'>
 		<label>Multishipping Checkout Shipping Address Creation</label>
 		<update handle='checkout_multishipping'/>
 		<update handle='checkout_multishipping_customer_address'/>
 	</checkout_multishipping_address_newshipping>
-
 	<checkout_multishipping_address_newbilling translate='label'>
 		<label>Multishipping Checkout Billing Address Creation</label>
 		<update handle='checkout_multishipping'/>
 		<update handle='checkout_multishipping_customer_address'/>
 	</checkout_multishipping_address_newbilling>
-
 	<checkout_multishipping_address_editshipping translate='label'>
 		<label>Multishipping Checkout Shipping Address Edit Form</label>
 		<update handle='checkout_multishipping'/>
