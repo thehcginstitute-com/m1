@@ -150,33 +150,24 @@
 		<update handle='checkout_multishipping'/>
 		<update handle='checkout_multishipping_customer_address'/>
 	</checkout_multishipping_address_editshipping>
-
 	<checkout_multishipping_address_editaddress>
 		<update handle='checkout_multishipping'/>
 		<update handle='checkout_multishipping_customer_address'/>
 	</checkout_multishipping_address_editaddress>
-
 	<checkout_multishipping_address_editbilling translate='label'>
 		<label>Multishipping Checkout Billing Address Edit Form</label>
 		<update handle='checkout_multishipping'/>
 		<update handle='checkout_multishipping_customer_address'/>
 	</checkout_multishipping_address_editbilling>
-
 	<checkout_multishipping_customer_address translate='label'>
 		<label>Multishipping Checkout Customer Address Edit Form</label>
 		<reference name='content'>
 			<block type='customer/address_edit' name='customer_address_edit' template='customer/address/edit.phtml'/>
 		</reference>
 	</checkout_multishipping_customer_address>
-
-	<!--
-	Multi address shipping checkout address page
-	-->
-
 	<checkout_multishipping_addresses translate='label'>
 		<label>Multishipping Checkout Address (Any) Form</label>
 		<update handle='checkout_multishipping'/>
-		<!-- Mage_Checkout -->
 		<reference name='content'>
 			<block type='checkout/multishipping_addresses' name='checkout_addresses'
 				   template='checkout/multishipping/addresses.phtml'>
@@ -198,15 +189,9 @@
 			</block>
 		</reference>
 	</checkout_multishipping_addresses>
-
-	<!--
-	Multi address shipping checkout shipping information
-	-->
-
 	<checkout_multishipping_shipping translate='label'>
 		<label>Multishipping Checkout Shipping Information Step</label>
 		<update handle='checkout_multishipping'/>
-		<!-- Mage_Checkout -->
 		<reference name='content'>
 			<block type='checkout/multishipping_shipping' name='checkout_shipping'
 				   template='checkout/multishipping/shipping.phtml'>
@@ -225,7 +210,6 @@
 					<block>checkout/cart_item_renderer_configurable</block>
 					<template>checkout/multishipping/item/default.phtml</template>
 				</action>
-
 				<block type='checkout/multishipping_billing_items' name='checkout_billing_items'
 					   template='checkout/multishipping/billing/items.phtml'>
 					<action method='addItemRender'>
@@ -247,40 +231,21 @@
 			</block>
 		</reference>
 	</checkout_multishipping_shipping>
-
-	<!--
-	Multi address shipping checkout billing information
-	-->
-
 	<checkout_multishipping_billing translate='label'>
 		<label>Multishipping Checkout Billing Information Step</label>
 		<update handle='checkout_multishipping'/>
-		<!-- Mage_Checkout -->
 		<reference name='content'>
 			<block type='checkout/multishipping_billing' name='checkout_billing' template='checkout/multishipping/billing.phtml'>
 				<action method='setMethodFormTemplate'>
 					<method>purchaseorder</method>
 					<template>payment/form/purchaseorder.phtml</template>
 				</action>
-
-				<!--<block type='checkout/multishipping_billing_items' name='checkout_billing_items' template='checkout/multishipping/billing/items.phtml'>
-					<action method='addItemRender'><type>default</type><block>checkout/cart_item_renderer</block><template>checkout/multishipping/item/default.phtml</template></action>
-					<action method='addItemRender'><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/multishipping/item/default.phtml</template></action>
-					<action method='addItemRender'><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/multishipping/item/default.phtml</template></action>
-				</block>-->
-
 			</block>
 		</reference>
 	</checkout_multishipping_billing>
-
-	<!--
-	Multi address shipping checkout overview
-	-->
-
 	<checkout_multishipping_overview translate='label'>
 		<label>Multishipping Checkout Overview</label>
 		<update handle='checkout_multishipping'/>
-		<!-- Mage_Checkout -->
 		<reference name='content'>
 			<block type='checkout/multishipping_overview' name='checkout_overview'
 				   template='checkout/multishipping/overview.phtml'>
