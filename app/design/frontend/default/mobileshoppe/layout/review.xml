@@ -82,7 +82,6 @@ https://github.com/thehcginstitute-com/m1/issues/202 -->
 			</block>
 		</reference>
 	</review_product_list>
-
 	<review_product_view translate='label'>
 		<label>Catalog Product Review View</label>
 		<reference name='root'>
@@ -94,7 +93,6 @@ https://github.com/thehcginstitute-com/m1/issues/202 -->
 			<block type='review/view' name='review_view'/>
 		</reference>
 	</review_product_view>
-
 	<review_customer_index translate='label'>
 		<label>Customer My Account Product Reviews</label>
 		<update handle='customer_account'/>
@@ -102,7 +100,6 @@ https://github.com/thehcginstitute-com/m1/issues/202 -->
 			<block type='review/customer_list' name='review_customer_list' template='review/customer/list.phtml'/>
 		</reference>
 	</review_customer_index>
-
 	<review_customer_view translate='label'>
 		<label>Customer My Account Review Details</label>
 		<update handle='customer_account'/>
@@ -110,5 +107,4 @@ https://github.com/thehcginstitute-com/m1/issues/202 -->
 			<block type='review/customer_view' name='customers_review'/>
 		</reference>
 	</review_customer_view>
-
 </layout>
