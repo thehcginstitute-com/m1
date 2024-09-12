@@ -114,8 +114,8 @@
 					<type>multi</type>
 				</action>
 				<action method='addRenderer'>
-					<type>radio</type>
 					<block>bundle/adminhtml_catalog_product_composite_fieldset_options_type_radio</block>
+					<type>radio</type>
 				</action>
 				<action method='addRenderer'>
 					<type>checkbox</type>
