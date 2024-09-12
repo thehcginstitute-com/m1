@@ -196,36 +196,36 @@
 			<block type='checkout/multishipping_shipping' name='checkout_shipping'
 				   template='checkout/multishipping/shipping.phtml'>
 				<action method='addItemRender'>
-					<type>default</type>
 					<block>checkout/cart_item_renderer</block>
 					<template>checkout/multishipping/item/default.phtml</template>
+					<type>default</type>
 				</action>
 				<action method='addItemRender'>
-					<type>grouped</type>
 					<block>checkout/cart_item_renderer_grouped</block>
 					<template>checkout/multishipping/item/default.phtml</template>
+					<type>grouped</type>
 				</action>
 				<action method='addItemRender'>
-					<type>configurable</type>
 					<block>checkout/cart_item_renderer_configurable</block>
 					<template>checkout/multishipping/item/default.phtml</template>
+					<type>configurable</type>
 				</action>
 				<block type='checkout/multishipping_billing_items' name='checkout_billing_items'
 					   template='checkout/multishipping/billing/items.phtml'>
 					<action method='addItemRender'>
-						<type>default</type>
 						<block>checkout/cart_item_renderer</block>
 						<template>checkout/multishipping/item/default.phtml</template>
+						<type>default</type>
 					</action>
 					<action method='addItemRender'>
-						<type>grouped</type>
 						<block>checkout/cart_item_renderer_grouped</block>
 						<template>checkout/multishipping/item/default.phtml</template>
+						<type>grouped</type>
 					</action>
 					<action method='addItemRender'>
-						<type>configurable</type>
 						<block>checkout/cart_item_renderer_configurable</block>
 						<template>checkout/multishipping/item/default.phtml</template>
+						<type>configurable</type>
 					</action>
 				</block>
 			</block>
