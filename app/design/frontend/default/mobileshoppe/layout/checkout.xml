@@ -385,7 +385,6 @@
 	<checkout_onepage_additional>
 		<remove name='right'/>
 		<remove name='left'/>
-
 		<block type='checkout/onepage_shipping_method_additional' name='root' output='toHtml'
 			   template='checkout/onepage/shipping_method/additional.phtml'>
 			<action method='setDontDisplayContainer'>
@@ -393,17 +392,10 @@
 			</action>
 		</block>
 	</checkout_onepage_additional>
-
-	<!--
-	One page checkout order review block
-	-->
-
 	<checkout_onepage_review translate='label'>
 		<label>One Page Checkout Overview</label>
-		<!-- Mage_Checkout -->
 		<remove name='right'/>
 		<remove name='left'/>
-
 		<block type='checkout/onepage_review_info' name='root' output='toHtml' template='checkout/onepage/review/info.phtml'>
 			<action method='addItemRender'>
 				<type>default</type>
@@ -434,7 +426,6 @@
 				   template='checkout/onepage/review/button.phtml'/>
 		</block>
 	</checkout_onepage_review>
-
 	<checkout_onepage_success translate='label'>
 		<label>One Page Checkout Success</label>
 		<reference name='root'>
@@ -457,6 +448,6 @@
 			<block type='checkout/onepage_failure' name='checkout.failure' template='checkout/onepage/failure.phtml'/>
 		</reference>
 	</checkout_onepage_failure>
-	<!-- 2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	"Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2": https://github.com/thehcginstitute-com/m1/issues/34 -->
+<!-- 2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2": https://github.com/thehcginstitute-com/m1/issues/34 -->
 </layout>
