@@ -15,9 +15,9 @@
 	<adminhtml_sales_order_view>
 		<reference name='order_items'>
 			<action method='addItemRender'>
-				<type>bundle</type>
 				<block>bundle/adminhtml_sales_order_view_items_renderer</block>
 				<template>bundle/sales/order/view/items/renderer.phtml</template>
+				<type>bundle</type>
 			</action>
 		</reference>
 	</adminhtml_sales_order_view>
