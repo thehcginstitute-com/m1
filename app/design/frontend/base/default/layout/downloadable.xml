@@ -25,18 +25,18 @@
 	<checkout_cart_index>
 		<reference name='checkout.cart'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/checkout_cart_item_renderer</block>
 				<template>downloadable/checkout/cart/item/default.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</checkout_cart_index>
 	<checkout_onepage_review>
 		<reference name='root'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/checkout_cart_item_renderer</block>
 				<template>downloadable/checkout/onepage/review/item.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</checkout_onepage_review>
