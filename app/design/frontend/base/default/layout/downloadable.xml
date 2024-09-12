@@ -49,18 +49,18 @@
 	<checkout_multishipping_addresses>
 		<reference name='checkout_addresses'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/checkout_cart_item_renderer</block>
 				<template>downloadable/checkout/multishipping/item/downloadable.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</checkout_multishipping_addresses>
 	<checkout_multishipping_shipping>
 		<reference name='checkout_billing_items'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/checkout_cart_item_renderer</block>
 				<template>downloadable/checkout/multishipping/item/downloadable.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</checkout_multishipping_shipping>
