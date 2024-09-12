@@ -148,36 +148,36 @@
 	<sales_guest_invoice>
 		<reference name='invoice_items'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/sales_order_item_renderer_downloadable</block>
 				<template>downloadable/sales/order/invoice/items/renderer/downloadable.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</sales_guest_invoice>
 	<sales_guest_creditmemo>
 		<reference name='creditmemo_items'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/sales_order_item_renderer_downloadable</block>
 				<template>downloadable/sales/order/creditmemo/items/renderer/downloadable.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</sales_guest_creditmemo>
 	<sales_guest_print>
 		<reference name='sales.order.print'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/sales_order_item_renderer_downloadable</block>
 				<template>downloadable/sales/order/items/renderer/downloadable.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</sales_guest_print>
 	<sales_guest_printinvoice>
 		<reference name='sales.order.print.invoice'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/sales_order_item_renderer_downloadable</block>
 				<template>downloadable/sales/order/invoice/items/renderer/downloadable.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</sales_guest_printinvoice>
