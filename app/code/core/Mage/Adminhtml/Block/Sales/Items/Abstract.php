@@ -62,14 +62,11 @@ class Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Tem
 
     /**
      * Add item renderer
-     *
-     * @param string $type
-     * @param string $block
-     * @param string $template
-     * @return $this
+     * 2024-09-12 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
      */
-    function addItemRender($type, $block, $template)
-    {
+    function addItemRender(string $type, string $block, string $template = ''):self {
         $this->_itemRenders[$type] = [
             'block'     => $block,
             'template'  => $template,
