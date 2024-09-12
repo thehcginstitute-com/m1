@@ -1,11 +1,6 @@
 <?xml version='1.0'?>
-<!--
-
--->
 <layout version='0.1.0'>
-
 	<customer_account>
-		<!-- Mage_Review -->
 		<reference name='customer_account_navigation'>
 			<action method='addLink' translate='label' module='review'>
 				<name>reviews</name>
@@ -13,16 +8,8 @@
 				<label>My Product Reviews</label>
 			</action>
 		</reference>
-
 	</customer_account>
-
-	<!--
-	Customer account home dashboard layout
-	-->
-
 	<customer_account_index>
-
-		<!-- Mage_Review -->
 		<reference name='customer_account_dashboard'>
 			<action method='unsetChild'>
 				<name>customer_account_dashboard_info1</name>
@@ -30,27 +17,14 @@
 			<block type='review/customer_recent' name='customer_account_dashboard_info1' as='info1'
 				   template='review/customer/recent.phtml'/>
 		</reference>
-
 	</customer_account_index>
-
-
-	<!--
-	Product reviews page (?)
-	-->
-
 	<reviews>
-		<!-- Mage_Review -->
 		<reference name='root'>
 			<action method='setTemplate'>
 				<template>page/2columns-left.phtml</template>
 			</action>
 		</reference>
 	</reviews>
-
-	<!--
-	Product reviews page
-	-->
-
 	<review_product_list translate='label'>
 		<label>Catalog Product Reviews List</label>
 		<reference name='root'>
@@ -59,9 +33,9 @@
 			</action>
 		</reference>
 		<reference name='head'>
-			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
-			https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'>
 				<name>varien/product.js</name>
 			</action>
