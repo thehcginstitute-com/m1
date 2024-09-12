@@ -85,18 +85,18 @@
 	<sales_order_view>
 		<reference name='order_items'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/sales_order_item_renderer_downloadable</block>
 				<template>downloadable/sales/order/items/renderer/downloadable.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</sales_order_view>
 	<sales_order_invoice>
 		<reference name='invoice_items'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/sales_order_item_renderer_downloadable</block>
 				<template>downloadable/sales/order/invoice/items/renderer/downloadable.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</sales_order_invoice>
