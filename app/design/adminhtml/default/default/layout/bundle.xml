@@ -118,8 +118,8 @@
 					<type>radio</type>
 				</action>
 				<action method='addRenderer'>
-					<type>checkbox</type>
 					<block>bundle/adminhtml_catalog_product_composite_fieldset_options_type_checkbox</block>
+					<type>checkbox</type>
 				</action>
 			</block>
 		</reference>
