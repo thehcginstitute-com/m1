@@ -1,31 +1,14 @@
 <?xml version='1.0'?>
-<!--
-
--->
 <layout version='0.1.0'>
-
-	<!--
-	Default layout, loads most of the pages
-	-->
-
 	<default>
-
-		<!-- Mage_Newsletter -->
 		<reference name='left'>
 			<block type='newsletter/subscribe' name='newsletter' as='newsletter' template='newsletter/subscribe.phtml'/>
 		</reference>
 		<reference name='right'>
 			<block type='newsletter/subscribe' name='newsletter' as='newsletter' template='newsletter/subscribe.phtml'/>
 		</reference>
-
 	</default>
-
-	<!--
-	Customer account pages, rendered for all tabs in dashboard
-	-->
-
 	<customer_account>
-		<!-- Mage_Newsletter -->
 		<reference name='sidebar'>
 			<action method='addLink' translate='label' module='newsletter'>
 				<name>newsletter</name>
@@ -34,7 +17,6 @@
 			</action>
 		</reference>
 	</customer_account>
-
 	<newsletter_manage_index translate='label'>
 		<label>Customer My Account Newsletter Subscriptions</label>
 		<update handle='customer_account'/>
@@ -49,5 +31,4 @@
 			</block>
 		</reference>
 	</newsletter_manage_index>
-
 </layout>
