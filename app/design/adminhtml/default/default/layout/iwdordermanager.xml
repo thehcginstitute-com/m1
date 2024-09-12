@@ -121,9 +121,9 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 		</reference>
 		<reference name='order_items'>
 			<action method='addItemRender'>
-				<type>bundle</type>
 				<block>bundle/adminhtml_sales_order_view_items_renderer</block>
 				<template>iwd/ordermanager/items/renderer/bundle.phtml</template>
+				<type>bundle</type>
 			</action>
 		</reference>
 		<reference name='order_totals'>
