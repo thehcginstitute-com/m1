@@ -55,14 +55,14 @@
 			<block type='sales/order_view' name='sales.order.view'>
 				<block type='sales/order_items' name='order_items' template='sales/order/items.phtml'>
 					<action method='addItemRender'>
-						<type>default</type>
 						<block>sales/order_item_renderer_default</block>
 						<template>sales/order/items/renderer/default.phtml</template>
+						<type>default</type>
 					</action>
 					<action method='addItemRender'>
-						<type>grouped</type>
 						<block>sales/order_item_renderer_grouped</block>
 						<template>sales/order/items/renderer/default.phtml</template>
+						<type>grouped</type>
 					</action>
 					<block type='sales/order_totals' name='order_totals' template='sales/order/totals.phtml'>
 						<action method='setLabelProperties'>
@@ -109,14 +109,14 @@
 			<block type='sales/order_invoice' name='sales.order.invoice'>
 				<block type='sales/order_invoice_items' name='invoice_items' template='sales/order/invoice/items.phtml'>
 					<action method='addItemRender'>
-						<type>default</type>
 						<block>sales/order_item_renderer_default</block>
 						<template>sales/order/invoice/items/renderer/default.phtml</template>
+						<type>default</type>
 					</action>
 					<action method='addItemRender'>
-						<type>grouped</type>
 						<block>sales/order_item_renderer_grouped</block>
 						<template>sales/order/invoice/items/renderer/default.phtml</template>
+						<type>grouped</type>
 					</action>
 					<block type='sales/order_invoice_totals' name='invoice_totals' template='sales/order/totals.phtml'>
 						<action method='setLabelProperties'>
