@@ -710,14 +710,14 @@
 		<reference name='content'>
 			<block type='sales/order_print_invoice' name='sales.order.print.invoice' template='sales/order/print/invoice.phtml'>
 				<action method='addItemRender'>
-					<type>default</type>
 					<block>sales/order_item_renderer_default</block>
 					<template>sales/order/invoice/items/renderer/default.phtml</template>
+					<type>default</type>
 				</action>
 				<action method='addItemRender'>
-					<type>grouped</type>
 					<block>sales/order_item_renderer_grouped</block>
 					<template>sales/order/invoice/items/renderer/default.phtml</template>
+					<type>grouped</type>
 				</action>
 				<block type='sales/order_invoice_totals' name='invoice_totals' template='sales/order/totals.phtml'>
 					<action method='setLabelProperties'>
@@ -737,9 +737,9 @@
 			<block type='sales/order_print_shipment' name='sales.order.print.shipment'
 				   template='sales/order/print/shipment.phtml'>
 				<action method='addItemRender'>
-					<type>default</type>
 					<block>sales/order_item_renderer_default</block>
 					<template>sales/order/shipment/items/renderer/default.phtml</template>
+					<type>default</type>
 				</action>
 			</block>
 		</reference>
@@ -749,14 +749,14 @@
 			<block type='sales/order_print_creditmemo' name='sales.order.print.creditmemo'
 				   template='sales/order/print/creditmemo.phtml'>
 				<action method='addItemRender'>
-					<type>default</type>
 					<block>sales/order_item_renderer_default</block>
 					<template>sales/order/creditmemo/items/renderer/default.phtml</template>
+					<type>default</type>
 				</action>
 				<action method='addItemRender'>
-					<type>grouped</type>
 					<block>sales/order_item_renderer_grouped</block>
 					<template>sales/order/creditmemo/items/renderer/default.phtml</template>
+					<type>grouped</type>
 				</action>
 				<block type='sales/order_creditmemo_totals' name='creditmemo_totals' template='sales/order/totals.phtml'>
 					<action method='setLabelProperties'>
