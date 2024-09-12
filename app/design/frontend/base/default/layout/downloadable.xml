@@ -184,27 +184,27 @@
 	<sales_guest_printcreditmemo>
 		<reference name='sales.order.print.creditmemo'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/sales_order_item_renderer_downloadable</block>
 				<template>downloadable/sales/order/creditmemo/items/renderer/downloadable.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</sales_guest_printcreditmemo>
 	<sales_email_order_items>
 		<reference name='items'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/sales_order_email_items_order_downloadable</block>
 				<template>downloadable/email/order/items/order/downloadable.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</sales_email_order_items>
 	<sales_email_order_invoice_items>
 		<reference name='items'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/sales_order_email_items_downloadable</block>
 				<template>downloadable/email/order/items/invoice/downloadable.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</sales_email_order_invoice_items>
