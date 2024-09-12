@@ -8,40 +8,40 @@
 Default layout, loads most of the pages
 -->
 
-    <default>
+	<default>
 
-        <!-- Mage_Newsletter -->
-        <reference name="left">
-            <block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/subscribe.phtml"/>
-        </reference>
+		<!-- Mage_Newsletter -->
+		<reference name="left">
+			<block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/subscribe.phtml"/>
+		</reference>
 		<reference name="right">
-            <block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/subscribe.phtml"/>
-        </reference>
+			<block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/subscribe.phtml"/>
+		</reference>
 
-    </default>
+	</default>
 
 <!--
 Customer account pages, rendered for all tabs in dashboard
 -->
 
-    <customer_account>
-        <!-- Mage_Newsletter -->
-        <reference name="sidebar">
-            <action method="addLink" translate="label" module="newsletter"><name>newsletter</name><path>newsletter/manage/</path><label>Newsletter Subscriptions</label></action>
-        </reference>
-    </customer_account>
+	<customer_account>
+		<!-- Mage_Newsletter -->
+		<reference name="sidebar">
+			<action method="addLink" translate="label" module="newsletter"><name>newsletter</name><path>newsletter/manage/</path><label>Newsletter Subscriptions</label></action>
+		</reference>
+	</customer_account>
 
-    <newsletter_manage_index translate="label">
-        <label>Customer My Account Newsletter Subscriptions</label>
-        <update handle="customer_account"/>
-        <reference name="my.account.wrapper">
-            <block type="customer/newsletter" name="customer_newsletter">
-                <block type="page/html_wrapper" name="customer.newsletter.form.before" as="form_before" translate="label">
-                    <label>Newsletter Subscription Form Before</label>
-                    <action method="setMayBeInvisible"><value>1</value></action>
-                </block>
-            </block>
-        </reference>
-    </newsletter_manage_index>
+	<newsletter_manage_index translate="label">
+		<label>Customer My Account Newsletter Subscriptions</label>
+		<update handle="customer_account"/>
+		<reference name="my.account.wrapper">
+			<block type="customer/newsletter" name="customer_newsletter">
+				<block type="page/html_wrapper" name="customer.newsletter.form.before" as="form_before" translate="label">
+					<label>Newsletter Subscription Form Before</label>
+					<action method="setMayBeInvisible"><value>1</value></action>
+				</block>
+			</block>
+		</reference>
+	</newsletter_manage_index>
 
 </layout>
