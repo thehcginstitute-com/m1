@@ -138,9 +138,9 @@
 	<checkout_multishipping_addresses>
 		<reference name='checkout_addresses'>
 			<action method='addItemRender'>
-				<type>bundle</type>
 				<block>bundle/checkout_cart_item_renderer</block>
 				<template>checkout/multishipping/item/default.phtml</template>
+				<type>bundle</type>
 			</action>
 		</reference>
 	</checkout_multishipping_addresses>
