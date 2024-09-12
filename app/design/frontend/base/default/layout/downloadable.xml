@@ -67,9 +67,9 @@
 	<checkout_multishipping_overview>
 		<reference name='checkout_overview'>
 			<action method='addItemRender'>
-				<type>downloadable</type>
 				<block>downloadable/checkout_cart_item_renderer</block>
 				<template>downloadable/checkout/multishipping/item/downloadable.phtml</template>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</checkout_multishipping_overview>
