@@ -21,7 +21,11 @@
 	</adminhtml_sales_order_view>
 	<adminhtml_sales_order_invoice_new>
 		<reference name='order_items'>
-			<action method='addItemRender'><type>downloadable</type><block>adminhtml/sales_items_renderer_default</block><template>downloadable/sales/order/invoice/create/items/renderer/downloadable.phtml</template></action>
+			<action method='addItemRender'>
+				<block>adminhtml/sales_items_renderer_default</block>
+				<template>downloadable/sales/order/invoice/create/items/renderer/downloadable.phtml</template>
+				<type>downloadable</type>
+			</action>
 			<action method='addColumnRender'>
 				<block>downloadable/adminhtml_sales_items_column_downloadable_name</block>
 				<column>downloadable</column>
