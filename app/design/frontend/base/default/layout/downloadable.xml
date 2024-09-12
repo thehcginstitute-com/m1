@@ -80,8 +80,8 @@
 		</reference>
 	</checkout_multishipping_success>
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-1) 'Delete the unused `Mage_Paypal` module': https://github.com/thehcginstitute-com/m1/issues/356
-2) 'Delete the unused `Mage_PaypalUk` module': https://github.com/thehcginstitute-com/m1/issues/357 -->
+1) "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356
+2) "Delete the unused `Mage_PaypalUk` module": https://github.com/thehcginstitute-com/m1/issues/357 -->
 	<sales_order_view>
 		<reference name='order_items'>
 			<action method='addItemRender'>
