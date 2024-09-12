@@ -57,19 +57,19 @@
 				</action>
 				<action method='chooseTemplate'/>
 				<action method='addItemRender'>
-					<type>simple</type>
 					<block>checkout/cart_item_renderer</block>
 					<template>checkout/cart/item/default.phtml</template>
+					<type>simple</type>
 				</action>
 				<action method='addItemRender'>
-					<type>grouped</type>
 					<block>checkout/cart_item_renderer_grouped</block>
 					<template>checkout/cart/item/default.phtml</template>
+					<type>grouped</type>
 				</action>
 				<action method='addItemRender'>
-					<type>configurable</type>
 					<block>checkout/cart_item_renderer_configurable</block>
 					<template>checkout/cart/item/default.phtml</template>
+					<type>configurable</type>
 				</action>
 
 				<block type='core/text_list' name='checkout.cart.top_methods' as='top_methods' translate='label'>
