@@ -24,9 +24,9 @@
 	<adminhtml_sales_order_invoice_new>
 		<reference name='order_items'>
 			<action method='addItemRender'>
-				<type>bundle</type>
 				<block>bundle/adminhtml_sales_order_items_renderer</block>
 				<template>bundle/sales/invoice/create/items/renderer.phtml</template>
+				<type>bundle</type>
 			</action>
 		</reference>
 	</adminhtml_sales_order_invoice_new>
