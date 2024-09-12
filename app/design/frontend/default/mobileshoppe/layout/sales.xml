@@ -354,14 +354,14 @@
 	<sales_email_order_items>
 		<block type='sales/order_email_items' name='items' template='email/order/items.phtml'>
 			<action method='addItemRender'>
-				<type>default</type>
 				<block>sales/order_email_items_order_default</block>
 				<template>email/order/items/order/default.phtml</template>
+				<type>default</type>
 			</action>
 			<action method='addItemRender'>
-				<type>grouped</type>
 				<block>sales/order_email_items_order_grouped</block>
 				<template>email/order/items/order/default.phtml</template>
+				<type>grouped</type>
 			</action>
 			<block type='sales/order_totals' name='order_totals' template='sales/order/totals.phtml'>
 				<action method='setLabelProperties'>
