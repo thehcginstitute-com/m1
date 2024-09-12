@@ -164,9 +164,9 @@
 			<block type='sales/order_shipment' name='sales.order.shipment'>
 				<block type='sales/order_shipment_items' name='shipment_items' template='sales/order/shipment/items.phtml'>
 					<action method='addItemRender'>
-						<type>default</type>
 						<block>sales/order_item_renderer_default</block>
 						<template>sales/order/shipment/items/renderer/default.phtml</template>
+						<type>default</type>
 					</action>
 					<block type='sales/order_comments' name='shipment_comments' template='sales/order/comments.phtml'/>
 				</block>
@@ -205,14 +205,14 @@
 			<block type='sales/order_creditmemo' name='sales.order.creditmemo'>
 				<block type='sales/order_creditmemo_items' name='creditmemo_items' template='sales/order/creditmemo/items.phtml'>
 					<action method='addItemRender'>
-						<type>default</type>
 						<block>sales/order_item_renderer_default</block>
 						<template>sales/order/creditmemo/items/renderer/default.phtml</template>
+						<type>default</type>
 					</action>
 					<action method='addItemRender'>
-						<type>grouped</type>
 						<block>sales/order_item_renderer_grouped</block>
 						<template>sales/order/creditmemo/items/renderer/default.phtml</template>
+						<type>grouped</type>
 					</action>
 					<block type='sales/order_creditmemo_totals' name='creditmemo_totals' template='sales/order/totals.phtml'>
 						<action method='setLabelProperties'>
