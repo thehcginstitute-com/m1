@@ -147,9 +147,9 @@
 	<checkout_multishipping_shipping>
 		<reference name='checkout_shipping'>
 			<action method='addItemRender'>
-				<type>bundle</type>
 				<block>bundle/checkout_cart_item_renderer</block>
 				<template>checkout/multishipping/item/default.phtml</template>
+				<type>bundle</type>
 			</action>
 		</reference>
 		<reference name='checkout_billing_items'>
