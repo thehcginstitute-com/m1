@@ -91,7 +91,6 @@
 			</action>
 		</reference>
 	</sales_order_view>
-
 	<sales_order_invoice>
 		<reference name="invoice_items">
 			<action method="addItemRender">
@@ -101,7 +100,6 @@
 			</action>
 		</reference>
 	</sales_order_invoice>
-
 	<sales_order_creditmemo>
 		<reference name="creditmemo_items">
 			<action method="addItemRender">
@@ -111,11 +109,6 @@
 			</action>
 		</reference>
 	</sales_order_creditmemo>
-
-	<!--
-	Print pages
-	-->
-
 	<sales_order_print>
 		<reference name="sales.order.print">
 			<action method="addItemRender">
@@ -125,7 +118,6 @@
 			</action>
 		</reference>
 	</sales_order_print>
-
 	<sales_order_printinvoice>
 		<reference name="sales.order.print.invoice">
 			<action method="addItemRender">
@@ -135,7 +127,6 @@
 			</action>
 		</reference>
 	</sales_order_printinvoice>
-
 	<sales_order_printcreditmemo>
 		<reference name="sales.order.print.creditmemo">
 			<action method="addItemRender">
@@ -145,14 +136,6 @@
 			</action>
 		</reference>
 	</sales_order_printcreditmemo>
-
-	<!--
-	EOF Print pages
-	-->
-
-	<!--
-	For guests
-	-->
 	<sales_guest_view>
 		<reference name="order_items">
 			<action method="addItemRender">
@@ -162,7 +145,6 @@
 			</action>
 		</reference>
 	</sales_guest_view>
-
 	<sales_guest_invoice>
 		<reference name="invoice_items">
 			<action method="addItemRender">
@@ -172,7 +154,6 @@
 			</action>
 		</reference>
 	</sales_guest_invoice>
-
 	<sales_guest_creditmemo>
 		<reference name="creditmemo_items">
 			<action method="addItemRender">
@@ -182,7 +163,6 @@
 			</action>
 		</reference>
 	</sales_guest_creditmemo>
-
 	<sales_guest_print>
 		<reference name="sales.order.print">
 			<action method="addItemRender">
@@ -192,7 +172,6 @@
 			</action>
 		</reference>
 	</sales_guest_print>
-
 	<sales_guest_printinvoice>
 		<reference name="sales.order.print.invoice">
 			<action method="addItemRender">
@@ -202,7 +181,6 @@
 			</action>
 		</reference>
 	</sales_guest_printinvoice>
-
 	<sales_guest_printcreditmemo>
 		<reference name="sales.order.print.creditmemo">
 			<action method="addItemRender">
@@ -212,11 +190,6 @@
 			</action>
 		</reference>
 	</sales_guest_printcreditmemo>
-
-	<!--
-	Emails
-	-->
-
 	<sales_email_order_items>
 		<reference name="items">
 			<action method="addItemRender">
@@ -226,7 +199,6 @@
 			</action>
 		</reference>
 	</sales_email_order_items>
-
 	<sales_email_order_invoice_items>
 		<reference name="items">
 			<action method="addItemRender">
@@ -236,7 +208,6 @@
 			</action>
 		</reference>
 	</sales_email_order_invoice_items>
-
 	<sales_email_order_creditmemo_items>
 		<reference name="items">
 			<action method="addItemRender">
@@ -246,7 +217,6 @@
 			</action>
 		</reference>
 	</sales_email_order_creditmemo_items>
-
 	<PRODUCT_TYPE_downloadable translate="label" module="downloadable">
 		<label>Catalog Product View (Downloadable)</label>
 		<reference name="product.info">
@@ -266,5 +236,4 @@
 			</action>
 		</reference>
 	</PRODUCT_TYPE_downloadable>
-
 </layout>
