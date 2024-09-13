@@ -368,16 +368,11 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 	</PRODUCT_TYPE_virtual>
 	<catalog_product_send translate='label'>
 		<label>Catalog Product Email to a Friend</label>
-		<!-- Mage_Catalog -->
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/2columns-right.phtml</template>
-			</action>
+			<action method='setTemplate'><template>page/2columns-right.phtml</template></action>
 		</reference>
 		<reference name='head'>
-			<action method='addJs'>
-				<name>varien/product.js</name>
-			</action>
+			<action method='addJs'><name>varien/product.js</name></action>
 <!-- 2024-01-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Port the `app/design/frontend/base/default/layout/catalog.xml` 1.9.1.0 → 1.9.4.5 changes
 to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/issues/200 -->
