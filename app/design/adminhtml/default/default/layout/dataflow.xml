@@ -14,41 +14,59 @@
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 -->
-
 <layout>
-
 	<adminhtml_system_convert_gui_run>
 		<remove name="root"/>
 		<block type="adminhtml/page" name="convert_root" output="toHtml" template="page.phtml">
 			<block type="adminhtml/page_head" name="convert_root_head" as="head" template="page/head.phtml">
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-				<action method="addJs"><name>prototype/prototype.js</name></action>
-				<action method="addJs"><name>prototype/validation.js</name></action>
-				<action method="addJs"><name>varien/js.js</name></action>
-				<action method="addJs"><name>mage/translate.js</name></action>
-				<action method="addJs"><name>mage/adminhtml/tools.js</name></action>
+				<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+				https://github.com/thehcginstitute-com/m1/issues/680 -->
+				<action method="addJs">
+					<name>prototype/prototype.js</name>
+				</action>
+				<action method="addJs">
+					<name>prototype/validation.js</name>
+				</action>
+				<action method="addJs">
+					<name>varien/js.js</name>
+				</action>
+				<action method="addJs">
+					<name>mage/translate.js</name>
+				</action>
+				<action method="addJs">
+					<name>mage/adminhtml/tools.js</name>
+				</action>
 			</block>
-			<block type="adminhtml/system_convert_profile_run" name="system_convert_profile_run" template="system/convert/profile/process.phtml" output="toHtml"/>
+			<block type="adminhtml/system_convert_profile_run" name="system_convert_profile_run"
+				template="system/convert/profile/process.phtml" output="toHtml"/>
 		</block>
 	</adminhtml_system_convert_gui_run>
-
 	<adminhtml_system_convert_profile_run>
 		<remove name="root"/>
 		<block type="adminhtml/page" name="convert_root" output="toHtml" template="page.phtml">
 			<block type="adminhtml/page_head" name="convert_root_head" as="head" template="page/head.phtml">
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-				<action method="addJs"><name>prototype/prototype.js</name></action>
-				<action method="addJs"><name>prototype/validation.js</name></action>
-				<action method="addJs"><name>varien/js.js</name></action>
-				<action method="addJs"><name>mage/translate.js</name></action>
-				<action method="addJs"><name>mage/adminhtml/tools.js</name></action>
+				<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+				https://github.com/thehcginstitute-com/m1/issues/680 -->
+				<action method="addJs">
+					<name>prototype/prototype.js</name>
+				</action>
+				<action method="addJs">
+					<name>prototype/validation.js</name>
+				</action>
+				<action method="addJs">
+					<name>varien/js.js</name>
+				</action>
+				<action method="addJs">
+					<name>mage/translate.js</name>
+				</action>
+				<action method="addJs">
+					<name>mage/adminhtml/tools.js</name>
+				</action>
 			</block>
-			<block type="adminhtml/system_convert_profile_run" name="system_convert_profile_run" template="system/convert/profile/process.phtml" output="toHtml"/>
+			<block type="adminhtml/system_convert_profile_run" name="system_convert_profile_run"
+				template="system/convert/profile/process.phtml" output="toHtml"/>
 		</block>
 	</adminhtml_system_convert_profile_run>
-
 </layout>
