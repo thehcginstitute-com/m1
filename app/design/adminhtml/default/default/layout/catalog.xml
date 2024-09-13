@@ -238,16 +238,16 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					type='adminhtml/catalog_product_edit_action_attribute_tab_websites'
 				/>
 				<action method='addTab'>
-					<name>attributes</name>
 					<block>tab_attributes</block>
+					<name>attributes</name>
 				</action>
 				<action method='addTab'>
-					<name>inventory</name>
 					<block>tab_inventory</block>
+					<name>inventory</name>
 				</action>
 				<action method='addTab'>
-					<name>websites</name>
 					<block>tab_websites</block>
+					<name>websites</name>
 				</action>
 			</block>
 		</reference>
