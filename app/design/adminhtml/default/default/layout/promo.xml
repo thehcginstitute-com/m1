@@ -13,7 +13,6 @@
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 -->
-
 <layout>
 	<!-- Catalog Price Rule -->
 	<adminhtml_promo_catalog_index>
@@ -23,27 +22,39 @@
 	</adminhtml_promo_catalog_index>
 	<adminhtml_promo_catalog_edit>
 		<reference name="head">
-			<action method="setCanLoadExtJs"><flag>1</flag></action>
-			<action method="setCanLoadRulesJs"><flag>1</flag></action>
+			<action method="setCanLoadExtJs">
+				<flag>1</flag>
+			</action>
+			<action method="setCanLoadRulesJs">
+				<flag>1</flag>
+			</action>
 		</reference>
 		<reference name="left">
 			<block type="adminhtml/promo_catalog_edit_tabs" name="promo_catalog_edit_tabs">
 				<block type="adminhtml/promo_catalog_edit_tab_main" name="promo_catalog_edit_tab_main"/>
 				<block type="adminhtml/promo_catalog_edit_tab_conditions" name="promo_catalog_edit_tab_conditions"/>
 				<block type="adminhtml/promo_catalog_edit_tab_actions" name="promo_catalog_edit_tab_actions"/>
-				<action method="addTab"><name>main_section</name><block>promo_catalog_edit_tab_main</block></action>
-				<action method="addTab"><name>conditions_section</name><block>promo_catalog_edit_tab_conditions</block></action>
-				<action method="addTab"><name>actions_section</name><block>promo_catalog_edit_tab_actions</block></action>
+				<action method="addTab">
+					<name>main_section</name>
+					<block>promo_catalog_edit_tab_main</block>
+				</action>
+				<action method="addTab">
+					<name>conditions_section</name>
+					<block>promo_catalog_edit_tab_conditions</block>
+				</action>
+				<action method="addTab">
+					<name>actions_section</name>
+					<block>promo_catalog_edit_tab_actions</block>
+				</action>
 			</block>
 		</reference>
 		<reference name="content">
 			<block type="adminhtml/promo_catalog_edit" name="promo_catalog_edit"/>
 		</reference>
 		<reference name="js">
-			<block type="adminhtml/promo_catalog_edit_js" template="promo/js.phtml" />
+			<block type="adminhtml/promo_catalog_edit_js" template="promo/js.phtml"/>
 		</reference>
 	</adminhtml_promo_catalog_edit>
-
 	<!-- Shopping Cart Price Rule -->
 	<adminhtml_promo_quote_index>
 		<reference name="content">
@@ -52,12 +63,16 @@
 	</adminhtml_promo_quote_index>
 	<adminhtml_promo_quote_edit>
 		<reference name="head">
-			<action method="setCanLoadExtJs"><flag>1</flag></action>
-			<action method="setCanLoadRulesJs"><flag>1</flag></action>
+			<action method="setCanLoadExtJs">
+				<flag>1</flag>
+			</action>
+			<action method="setCanLoadRulesJs">
+				<flag>1</flag>
+			</action>
 		</reference>
 		<reference name="left">
 			<block type="adminhtml/promo_quote_edit_tabs" name="promo_quote_edit_tabs">
-				<block type="adminhtml/promo_quote_edit_tab_main" name="promo_quote_edit_tab_main" />
+				<block type="adminhtml/promo_quote_edit_tab_main" name="promo_quote_edit_tab_main"/>
 				<block type="adminhtml/promo_quote_edit_tab_conditions" name="promo_quote_edit_tab_conditions"/>
 				<block type="adminhtml/promo_quote_edit_tab_actions" name="promo_quote_edit_tab_actions"/>
 				<block type="adminhtml/promo_quote_edit_tab_labels" name="promo_quote_edit_tab_labels"/>
@@ -65,11 +80,26 @@
 					<block type="adminhtml/promo_quote_edit_tab_coupons_form" name="promo_quote_edit_tab_coupons_form"/>
 					<block type="adminhtml/promo_quote_edit_tab_coupons_grid" name="promo_quote_edit_tab_coupons_grid"/>
 				</block>
-				<action method="addTab"><name>main_section</name><block>promo_quote_edit_tab_main</block></action>
-				<action method="addTab"><name>conditions_section</name><block>promo_quote_edit_tab_conditions</block></action>
-				<action method="addTab"><name>actions_section</name><block>promo_quote_edit_tab_actions</block></action>
-				<action method="addTab"><name>labels_section</name><block>promo_quote_edit_tab_labels</block></action>
-				<action method="addTab"><name>coupons_section</name><block>promo_quote_edit_tab_coupons</block></action>
+				<action method="addTab">
+					<name>main_section</name>
+					<block>promo_quote_edit_tab_main</block>
+				</action>
+				<action method="addTab">
+					<name>conditions_section</name>
+					<block>promo_quote_edit_tab_conditions</block>
+				</action>
+				<action method="addTab">
+					<name>actions_section</name>
+					<block>promo_quote_edit_tab_actions</block>
+				</action>
+				<action method="addTab">
+					<name>labels_section</name>
+					<block>promo_quote_edit_tab_labels</block>
+				</action>
+				<action method="addTab">
+					<name>coupons_section</name>
+					<block>promo_quote_edit_tab_coupons</block>
+				</action>
 			</block>
 			<block type="adminhtml/template" template="promo/salesrulejs.phtml" name="promo_quote_edit_jsinit"/>
 		</reference>
@@ -78,12 +108,12 @@
 		</reference>
 	</adminhtml_promo_quote_edit>
 	<adminhtml_promo_quote_grid>
-		<remove name="root" />
-		<block type="adminhtml/promo_quote_edit_tab_product" name="promo_quote_grid" output="toHtml" />
+		<remove name="root"/>
+		<block type="adminhtml/promo_quote_edit_tab_product" name="promo_quote_grid" output="toHtml"/>
 	</adminhtml_promo_quote_grid>
 	<adminhtml_promo_quote_couponsgrid>
 		<block type="core/text_list" name="root" output="toHtml">
-			<block type="adminhtml/promo_quote_edit_tab_coupons_grid" name="promo_quote_edit_tab_coupons_grid" />
+			<block type="adminhtml/promo_quote_edit_tab_coupons_grid" name="promo_quote_edit_tab_coupons_grid"/>
 		</block>
 	</adminhtml_promo_quote_couponsgrid>
 </layout>
