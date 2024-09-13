@@ -231,12 +231,8 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 						template='catalog/product/view/price_clone.phtml'
 						type='catalog/product_view'
 					/>
-					<action method='append'>
-						<block>product.info.addtocart</block>
-					</action>
-					<action method='append'>
-						<block>product.info.addto</block>
-					</action>
+					<action method='append'><block>product.info.addtocart</block></action>
+					<action method='append'><block>product.info.addto</block></action>
 				</block>
 				<block as='container1' name='product.info.container1' type='core/template_facade'>
 					<action method='setDataByKey'>
