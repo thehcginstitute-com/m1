@@ -19,12 +19,8 @@
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method='addJs'>
-				<name>mage/adminhtml/giftmessage.js</name>
-			</action>
-			<action method='addJs'>
-				<name>mage/adminhtml/giftoptions/tooltip.js</name>
-			</action>
+			<action method='addJs'><name>mage/adminhtml/giftmessage.js</name></action>
+			<action method='addJs'><name>mage/adminhtml/giftoptions/tooltip.js</name></action>
 		</reference>
 		<reference name='content'>
 			<block name='sales_order_edit' type='adminhtml/sales_order_view'/>
@@ -88,29 +84,23 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<block name='tax' template='sales/order/totals/tax.phtml' type='adminhtml/sales_order_totals_tax'/>
 					</block>
 				</block>
+				<action method='addTab'><block>order_tab_info</block><name>order_info</name></action>
+				<action method='addTab'><block>adminhtml/sales_order_view_tab_invoices</block><name>order_invoices</name></action>
 				<action method='addTab'>
-					<name>order_info</name>
-					<block>order_tab_info</block>
-				</action>
-				<action method='addTab'>
-					<name>order_invoices</name>
-					<block>adminhtml/sales_order_view_tab_invoices</block>
-				</action>
-				<action method='addTab'>
-					<name>order_creditmemos</name>
 					<block>adminhtml/sales_order_view_tab_creditmemos</block>
+					<name>order_creditmemos</name>
 				</action>
 				<action method='addTab'>
-					<name>order_shipments</name>
 					<block>adminhtml/sales_order_view_tab_shipments</block>
+					<name>order_shipments</name>
 				</action>
 				<action method='addTab'>
-					<name>order_history</name>
 					<block>adminhtml/sales_order_view_tab_history</block>
+					<name>order_history</name>
 				</action>
 				<action method='addTab'>
-					<name>order_transactions</name>
 					<block>adminhtml/sales_order_view_tab_transactions</block>
+					<name>order_transactions</name>
 				</action>
 			</block>
 		</reference>
