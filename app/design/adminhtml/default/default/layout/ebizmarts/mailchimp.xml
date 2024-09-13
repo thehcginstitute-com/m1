@@ -1,90 +1,92 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
+<!-- 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Refactor the `<layout>` XML files": https://github.com/thehcginstitute-com/m1/issues/681 -->
 <layout>
 	<adminhtml_mailchimperrors_grid>
-		<update handle="formkey"/>
-		<block name="mailchimp_mailchimperrors.grid"
-			output="toHtml"
-			type="mailchimp/adminhtml_mailchimperrors_grid"/>
+		<update handle='formkey'/>
+		<block name='mailchimp_mailchimperrors.grid'
+			output='toHtml'
+			type='mailchimp/adminhtml_mailchimperrors_grid'/>
 	</adminhtml_mailchimperrors_grid>
 	<adminhtml_mailchimperrors_index>
-		<reference name="content">
-			<block name="mailchimp_mailchimperrors.grid.container"
-				type="mailchimp/adminhtml_mailchimperrors"/>
+		<reference name='content'>
+			<block name='mailchimp_mailchimperrors.grid.container'
+				type='mailchimp/adminhtml_mailchimperrors'/>
 		</reference>
 	</adminhtml_mailchimperrors_index>
 	<adminhtml_mailchimpstores_grid>
-		<update handle="formkey"/>
-		<block name="mailchimp_mailchimpstores.grid"
-			output="toHtml"
-			type="mailchimp/adminhtml_mailchimpstores_grid"/>
+		<update handle='formkey'/>
+		<block name='mailchimp_mailchimpstores.grid'
+			output='toHtml'
+			type='mailchimp/adminhtml_mailchimpstores_grid'/>
 	</adminhtml_mailchimpstores_grid>
 	<adminhtml_mailchimpstores_index>
-		<reference name="content">
-			<block name="mailchimp_mailchimpstores.grid.container"
-				type="mailchimp/adminhtml_mailchimpstores"/>
+		<reference name='content'>
+			<block name='mailchimp_mailchimpstores.grid.container'
+				type='mailchimp/adminhtml_mailchimpstores'/>
 		</reference>
 	</adminhtml_mailchimpstores_index>
 	<adminhtml_mergevars_addmergevar>
-		<reference name="content">
-			<update handle="default"/>
-			<remove name="header"/>
-			<remove name="menu"/>
-			<remove name="footer"/>
-			<remove name="notifications"/>
-			<remove name="global_notices"/>
-			<block name="adminhtml.mailchimp.add"
-				type="mailchimp/adminhtml_mergevars_add"/>
+		<reference name='content'>
+			<update handle='default'/>
+			<remove name='header'/>
+			<remove name='menu'/>
+			<remove name='footer'/>
+			<remove name='notifications'/>
+			<remove name='global_notices'/>
+			<block name='adminhtml.mailchimp.add'
+				type='mailchimp/adminhtml_mergevars_add'/>
 		</reference>
 	</adminhtml_mergevars_addmergevar>
 	<adminhtml_ecommerce_renderresendecom>
-		<reference name="content">
-			<update handle="default"/>
-			<remove name="header"/>
-			<remove name="menu"/>
-			<remove name="footer"/>
-			<remove name="notifications"/>
-			<remove name="global_notices"/>
-			<block name="adminhtml.mailchimp.resend"
-				type="mailchimp/adminhtml_ecommerce_resendecommercedata"></block>
+		<reference name='content'>
+			<update handle='default'/>
+			<remove name='header'/>
+			<remove name='menu'/>
+			<remove name='footer'/>
+			<remove name='notifications'/>
+			<remove name='global_notices'/>
+			<block name='adminhtml.mailchimp.resend'
+				type='mailchimp/adminhtml_ecommerce_resendecommercedata'></block>
 		</reference>
 	</adminhtml_ecommerce_renderresendecom>
 	<adminhtml_system_config_edit>
-		<reference name="head">
+		<reference name='head'>
 			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
 			https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addCss">
+			<action method='addCss'>
 				<name>ebizmarts/mailchimp/css/mailchimp.css</name>
 			</action>
 		</reference>
-		<reference name="head">
+		<reference name='head'>
 			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
 			https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addCss">
+			<action method='addCss'>
 				<name>ebizmarts/mandrill/css/mandrill.css</name>
 			</action>
 		</reference>
 	</adminhtml_system_config_edit>
 	<adminhtml_sales_order_creditmemo_new>
-		<reference name="submit_before">
-			<block name="mailchimp.creditmemo.unsubscribe"
-				template="ebizmarts/mailchimp/sales/order/creditmemo/create/unsubscribe.phtml"
-				type="mailchimp/adminhtml_sales_order_creditmemo_unsubscribe"/>
+		<reference name='submit_before'>
+			<block name='mailchimp.creditmemo.unsubscribe'
+				template='ebizmarts/mailchimp/sales/order/creditmemo/create/unsubscribe.phtml'
+				type='mailchimp/adminhtml_sales_order_creditmemo_unsubscribe'/>
 		</reference>
 	</adminhtml_sales_order_creditmemo_new>
 	<default>
-		<reference name="notifications">
-			<block name="mailchimp_notifications"
-				template="ebizmarts/mailchimp/notifications.phtml"
-				type="mailchimp/adminhtml_notifications"/>
+		<reference name='notifications'>
+			<block name='mailchimp_notifications'
+				template='ebizmarts/mailchimp/notifications.phtml'
+				type='mailchimp/adminhtml_notifications'/>
 		</reference>
-		<reference name="head">
-			<action method="addItem">
+		<reference name='head'>
+			<action method='addItem'>
 				<name>prototype/windows/themes/default.css</name>
 				<type>js_css</type>
 			</action>
-			<action method="addCss">
+			<action method='addCss'>
 				<name>lib/prototype/windows/themes/magento.css</name>
 			</action>
 		</reference>
