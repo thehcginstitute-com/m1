@@ -445,8 +445,8 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 		<reference name='seo.sitemap.links'>
 			<action method='addLink' translate='label title' module='catalog'>
 				<label>Products Sitemap</label>
-				<url helper='catalog/map/getProductUrl'/>
 				<title>Products Sitemap</title>
+				<url helper='catalog/map/getProductUrl'/>
 			</action>
 		</reference>
 	</catalog_seo_sitemap_category>
