@@ -45,8 +45,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 		<reference name='content'>
-			<block name='grid-init' template='iwd/ordergrid/grid/init.phtml'
-				   type='iwd_ordergrid/adminhtml_sales_order_grid_init'/>
+			<block
+				name='grid-init'
+				template='iwd/ordergrid/grid/init.phtml'
+				type='iwd_ordergrid/adminhtml_sales_order_grid_init'
+			/>
 		</reference>
 	</ordergrid_order_grid_handle>
 	<ordergrid_order_totals_handle>
