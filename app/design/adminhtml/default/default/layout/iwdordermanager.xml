@@ -247,9 +247,9 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 		<block type='adminhtml/catalog_product_composite_fieldset' name='product.composite.fieldset' output='toHtml'>
 			<block name='product.composite.fieldset.options' type='adminhtml/catalog_product_composite_fieldset_options' template='catalog/product/composite/fieldset/options.phtml'>
 				<action method='addOptionRenderer'>
-					<type>text</type>
 					<block>catalog/product_view_options_type_text</block>
 					<template>catalog/product/composite/fieldset/options/type/text.phtml</template>
+					<type>text</type>
 				</action>
 				<action method='addOptionRenderer'>
 					<type>file</type>
