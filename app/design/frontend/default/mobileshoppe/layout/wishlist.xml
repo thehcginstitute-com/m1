@@ -95,12 +95,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				   template='wishlist/item/configure/addto.phtml'/>
 		</reference>
 		<reference name='product.info.options.wrapper.bottom'>
-			<action method='unsetChild'>
-				<name>product.info.addto</name>
-			</action>
-			<action method='append'>
-				<block>product.info.addto</block>
-			</action>
+			<action method='unsetChild'><name>product.info.addto</name></action>
+			<action method='append'><block>product.info.addto</block></action>
 		</reference>
 	</wishlist_index_configure>
 	<wishlist_shared_index translate='label'>
