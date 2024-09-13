@@ -81,9 +81,9 @@
 	<default>
 		<reference name='catalog_product_price_template'>
 			<action method='addPriceBlockType'>
-				<type>msrp</type>
 				<block>catalog/product_price</block>
 				<template>catalog/product/price_msrp.phtml</template>
+				<type>msrp</type>
 			</action>
 			<action method='addPriceBlockType'>
 				<type>msrp_item</type>
