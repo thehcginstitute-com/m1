@@ -809,9 +809,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					template='sales/order/create/form/address.phtml'
 					type='adminhtml/sales_order_create_shipping_address'
 				/>
-				<block name='billing_address'
+				<block
+					name='billing_address'
 					template='sales/order/create/form/address.phtml'
-					type='adminhtml/sales_order_create_billing_address'/>
+					type='adminhtml/sales_order_create_billing_address'
+				/>
 				<block name='shipping_method'
 					template='sales/order/create/abstract.phtml'
 					type='adminhtml/sales_order_create_shipping_method'>
