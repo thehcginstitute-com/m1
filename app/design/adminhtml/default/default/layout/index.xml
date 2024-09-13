@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
 <!--
 /**
  * OpenMage
@@ -15,17 +15,17 @@
 -->
 <layout>
 	<default>
-		<reference name="notifications">
-			<block name="index_notifications" template="index/notifications.phtml" type="index/adminhtml_notifications"></block>
+		<reference name='notifications'>
+			<block name='index_notifications' template='index/notifications.phtml' type='index/adminhtml_notifications'></block>
 		</reference>
 	</default>
 	<adminhtml_process_edit>
-		<reference name="content">
-			<block name="process_edit" type="index/adminhtml_process_edit"></block>
+		<reference name='content'>
+			<block name='process_edit' type='index/adminhtml_process_edit'></block>
 		</reference>
-		<reference name="left">
-			<block name="index_edit_tabs" type="index/adminhtml_process_edit_tabs">
-				<action method="addTab">
+		<reference name='left'>
+			<block name='index_edit_tabs' type='index/adminhtml_process_edit_tabs'>
+				<action method='addTab'>
 					<name>main_section</name>
 					<block>index/adminhtml_process_edit_tab_main</block>
 				</action>
@@ -33,8 +33,8 @@
 		</reference>
 	</adminhtml_process_edit>
 	<adminhtml_process_list>
-		<reference name="content">
-			<block name="process" type="index/adminhtml_process"/>
+		<reference name='content'>
+			<block name='process' type='index/adminhtml_process'/>
 		</reference>
 	</adminhtml_process_list>
 </layout>
