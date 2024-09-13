@@ -103,8 +103,10 @@
 	</adminhtml_customer_wishlist>
 	<PRODUCT_TYPE_bundle>
 		<reference name='product.composite.fieldset'>
-			<block type='bundle/adminhtml_catalog_product_composite_fieldset_bundle' before='product.composite.fieldset.options'
-				   name='product.composite.fieldset.bundle' template='bundle/product/composite/fieldset/options/bundle.phtml'>
+			<block before='product.composite.fieldset.options'
+				name='product.composite.fieldset.bundle'
+				template='bundle/product/composite/fieldset/options/bundle.phtml'
+				type='bundle/adminhtml_catalog_product_composite_fieldset_bundle'>
 				<action method='addRenderer'>
 					<block>bundle/adminhtml_catalog_product_composite_fieldset_options_type_select</block>
 					<type>select</type>
