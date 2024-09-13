@@ -64,8 +64,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				   template="iwd/ordergrid/grid/totals.phtml"/>
 		</reference>
 	</ordergrid_order_totals_handle>
-
-	<!-- system -->
 	<adminhtml_system_config_edit>
 		<reference name="head">
 			<action method="addCss">
