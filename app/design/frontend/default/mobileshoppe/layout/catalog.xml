@@ -11,8 +11,12 @@
 			</action>
 		</reference>
 		<reference name='left'>
-			<block before='cart_sidebar' name='catalog.compare.sidebar' template='catalog/product/compare/sidebar.phtml'
-				   type='catalog/product_compare_sidebar'/>
+			<block
+				before='cart_sidebar'
+				name='catalog.compare.sidebar'
+				template='catalog/product/compare/sidebar.phtml'
+				type='catalog/product_compare_sidebar'
+			/>
 		</reference>
 		<block name='catalog_product_price_template' type='catalog/product_price_template'/>
 	</default>
