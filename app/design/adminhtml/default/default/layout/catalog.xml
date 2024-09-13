@@ -207,7 +207,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_catalog_product_configurable_new>
 		<remove name='product_tabs'/>
 		<reference name='left'>
-			<block name='configurable_product_tabs' type='adminhtml/catalog_product_edit_tabs_configurable'></block>
+			<block name='configurable_product_tabs' type='adminhtml/catalog_product_edit_tabs_configurable'/>
 		</reference>
 	</adminhtml_catalog_product_configurable_new>
 	<adminhtml_catalog_product_configurable>
