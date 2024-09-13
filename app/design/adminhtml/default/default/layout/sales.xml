@@ -586,9 +586,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='content' type='adminhtml/sales_order_create'>
 				<block name='form' template='sales/order/create/form.phtml' type='adminhtml/sales_order_create_form'>
 					<block name='message' type='adminhtml/sales_order_create_messages'/>
-					<block name='customer'
+					<block
+						name='customer'
 						template='sales/order/create/abstract.phtml'
-						type='adminhtml/sales_order_create_customer'>
+						type='adminhtml/sales_order_create_customer'
+					>
 						<block name='grid'
 							type='adminhtml/sales_order_create_customer_grid'/>
 					</block>
