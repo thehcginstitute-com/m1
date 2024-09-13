@@ -1003,9 +1003,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_create_load_block_billing_method>
 	<adminhtml_sales_order_create_load_block_newsletter>
 		<reference name='content'>
-			<block name='newsletter'
+			<block
+				name='newsletter'
 				template='sales/order/create/abstract.phtml'
-				type='adminhtml/sales_order_create_newsletter'>
+				type='adminhtml/sales_order_create_newsletter'
+			>
 				<block name='form'
 					template='sales/order/create/newsletter/form.phtml'
 					type='adminhtml/sales_order_create_newsletter_form'/>
