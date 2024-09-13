@@ -7,7 +7,6 @@
 				<position>10</position>
 				<title>My Account</title>
 				<url helper='customer/getAccountUrl'/>
-				<urlParams/>
 			</action>
 		</reference>
 	</default>
