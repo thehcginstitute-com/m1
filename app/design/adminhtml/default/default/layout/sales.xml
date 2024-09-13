@@ -642,9 +642,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 								type='adminhtml/sales_order_create_sidebar_pviewed'
 							/>
 						</block>
-						<block name='form_account'
+						<block
+							name='form_account'
 							template='sales/order/create/form/account.phtml'
-							type='adminhtml/sales_order_create_form_account'/>
+							type='adminhtml/sales_order_create_form_account'
+						/>
 						<block name='shipping_address'
 							template='sales/order/create/form/address.phtml'
 							type='adminhtml/sales_order_create_shipping_address'/>
