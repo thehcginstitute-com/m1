@@ -1,87 +1,74 @@
-<?xml version="1.0"?>
-<!--
-/**
- * OpenMage
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available at https://opensource.org/license/afl-3-0-php
- *
- * @category    design
- * @package     default_default
- * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @copyright   Copyright (c) 2023 The OpenMage Contributors (https://www.openmage.org)
- * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
--->
+<?xml version='1.0'?>
+<!-- 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Refactor the `<layout>` XML files": https://github.com/thehcginstitute-com/m1/issues/681 -->
 <layout>
 	<adminhtml_input_counter_handle>
-		<reference name="head">
+		<reference name='head'>
 			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
 			https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addJs">
+			<action method='addJs'>
 				<name>mage/adminhtml/input-counter.js</name>
 			</action>
 		</reference>
 	</adminhtml_input_counter_handle>
 	<!-- admin acl users edit page -->
 	<adminhtml_permissions_user_edit>
-		<reference name="left">
-			<block name="adminhtml.permissions.user.edit.tabs" type="adminhtml/permissions_user_edit_tabs"/>
+		<reference name='left'>
+			<block name='adminhtml.permissions.user.edit.tabs' type='adminhtml/permissions_user_edit_tabs'/>
 		</reference>
-		<reference name="content">
-			<block name="adminhtml.permissions.user.edit" type="adminhtml/permissions_user_edit"/>
+		<reference name='content'>
+			<block name='adminhtml.permissions.user.edit' type='adminhtml/permissions_user_edit'/>
 		</reference>
-		<reference name="js">
-			<block name="adminhtml.permissions.user.roles.grid.js" template="permissions/user_roles_grid_js.phtml"
-				type="adminhtml/template"/>
+		<reference name='js'>
+			<block name='adminhtml.permissions.user.roles.grid.js' template='permissions/user_roles_grid_js.phtml'
+				type='adminhtml/template'/>
 		</reference>
 	</adminhtml_permissions_user_edit>
 	<!-- admin permissions block edit page -->
 	<adminhtml_permissions_block_edit>
-		<reference name="content">
-			<block name="adminhtml.permissions.block.edit" type="adminhtml/permissions_block_edit"/>
+		<reference name='content'>
+			<block name='adminhtml.permissions.block.edit' type='adminhtml/permissions_block_edit'/>
 		</reference>
 	</adminhtml_permissions_block_edit>
 	<!-- admin permissions variable edit page -->
 	<adminhtml_permissions_variable_edit>
-		<reference name="content">
-			<block name="adminhtml.permissions.variable.edit" type="adminhtml/permissions_variable_edit"/>
+		<reference name='content'>
+			<block name='adminhtml.permissions.variable.edit' type='adminhtml/permissions_variable_edit'/>
 		</reference>
 	</adminhtml_permissions_variable_edit>
 	<!-- admin acl roles grid page -->
 	<adminhtml_permissions_role_index>
-		<reference name="content">
-			<block name="adminhtml.permission.role.index" template="permissions/roles.phtml" type="adminhtml/permissions_roles">
-				<block as="grid" name="adminhtml.permission.role.grid" type="adminhtml/permissions_grid_role"/>
+		<reference name='content'>
+			<block name='adminhtml.permission.role.index' template='permissions/roles.phtml' type='adminhtml/permissions_roles'>
+				<block as='grid' name='adminhtml.permission.role.grid' type='adminhtml/permissions_grid_role'/>
 			</block>
 		</reference>
 	</adminhtml_permissions_role_index>
 	<adminhtml_permissions_role_rolegrid>
-		<remove name="root"/>
-		<block name="adminhtml.permission.role.grid" type="adminhtml/permissions_grid_role"/>
+		<remove name='root'/>
+		<block name='adminhtml.permission.role.grid' type='adminhtml/permissions_grid_role'/>
 	</adminhtml_permissions_role_rolegrid>
 	<!-- admin acl roles edit page -->
 	<adminhtml_permissions_role_editrole>
-		<reference name="left">
-			<block name="adminhtml.permissions.editroles" type="adminhtml/permissions_editroles"/>
+		<reference name='left'>
+			<block name='adminhtml.permissions.editroles' type='adminhtml/permissions_editroles'/>
 		</reference>
 	</adminhtml_permissions_role_editrole>
 	<adminhtml_system_config_edit>
-		<reference name="content">
-			<block as="notification_curl" name="notification_curl" template="notification/curl.phtml"
-				type="adminhtml/notification_curl"/>
+		<reference name='content'>
+			<block as='notification_curl' name='notification_curl' template='notification/curl.phtml'
+				type='adminhtml/notification_curl'/>
 		</reference>
-		<reference name="left">
-			<block before="-" name="adminhtml.system.config.switcher" type="adminhtml/system_config_switcher"/>
+		<reference name='left'>
+			<block before='-' name='adminhtml.system.config.switcher' type='adminhtml/system_config_switcher'/>
 		</reference>
 	</adminhtml_system_config_edit>
 	<adminhtml_dashboard_index>
-		<reference name="content">
-			<block name="dashboard" type="adminhtml/dashboard">
-				<block as="store_switcher" name="store_switcher" template="store/switcher.phtml" type="adminhtml/store_switcher">
-					<action method="setUseConfirm">
+		<reference name='content'>
+			<block name='dashboard' type='adminhtml/dashboard'>
+				<block as='store_switcher' name='store_switcher' template='store/switcher.phtml' type='adminhtml/store_switcher'>
+					<action method='setUseConfirm'>
 						<params>0</params>
 					</action>
 				</block>
@@ -89,18 +76,18 @@
 		</reference>
 	</adminhtml_dashboard_index>
 	<adminhtml_cache_index>
-		<reference name="content">
-			<block name="cache" type="adminhtml/cache"></block>
-			<block name="cache.additional" template="system/cache/additional.phtml" type="adminhtml/cache_additional"></block>
+		<reference name='content'>
+			<block name='cache' type='adminhtml/cache'></block>
+			<block name='cache.additional' template='system/cache/additional.phtml' type='adminhtml/cache_additional'></block>
 		</reference>
 	</adminhtml_cache_index>
 	<adminhtml_catalog_product_attribute_edit>
-		<update handle="adminhtml_input_counter_handle"/>
+		<update handle='adminhtml_input_counter_handle'/>
 	</adminhtml_catalog_product_attribute_edit>
 	<adminhtml_catalog_product_edit>
-		<update handle="adminhtml_input_counter_handle"/>
+		<update handle='adminhtml_input_counter_handle'/>
 	</adminhtml_catalog_product_edit>
 	<adminhtml_system_config_edit>
-		<update handle="adminhtml_input_counter_handle"/>
+		<update handle='adminhtml_input_counter_handle'/>
 	</adminhtml_system_config_edit>
 </layout>
