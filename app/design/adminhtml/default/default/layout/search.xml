@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
 <!--
 /**
  * OpenMage
@@ -13,11 +13,10 @@
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 -->
-
 <layout>
 	<adminhtml_catalog_search_edit>
-		<reference name="content">
-			<block type="adminhtml/catalog_search_edit" name="catalog_search_edit" />
+		<reference name='content'>
+			<block name='catalog_search_edit' type='adminhtml/catalog_search_edit'/>
 		</reference>
 	</adminhtml_catalog_search_edit>
 </layout>
