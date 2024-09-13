@@ -215,8 +215,12 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 					</block>
 					<block as='html_calendar' name='html_calendar' template='page/js/calendar.phtml' type='core/html_calendar'/>
 				</block>
-				<block as='product_options_wrapper_bottom' name='product.info.options.wrapper.bottom' template='catalog/product/view/options/wrapper/bottom.phtml'
-					   translate='label' type='catalog/product_view'>
+				<block
+					as='product_options_wrapper_bottom'
+					name='product.info.options.wrapper.bottom'
+					template='catalog/product/view/options/wrapper/bottom.phtml'
+					translate='label' type='catalog/product_view'
+				>
 					<label>Bottom Block Options Wrapper</label>
 					<action method='insert'>
 						<block>product.tierprices</block>
