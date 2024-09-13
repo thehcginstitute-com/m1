@@ -21,22 +21,10 @@
 				<block name='cms_page_edit_tab_content' type='adminhtml/cms_page_edit_tab_content'/>
 				<block name='cms_page_edit_tab_design' type='adminhtml/cms_page_edit_tab_design'/>
 				<block name='cms_page_edit_tab_meta' type='adminhtml/cms_page_edit_tab_meta'/>
-				<action method='addTab'>
-					<block>cms_page_edit_tab_main</block>
-					<name>main_section</name>
-				</action>
-				<action method='addTab'>
-					<block>cms_page_edit_tab_content</block>
-					<name>content_section</name>
-				</action>
-				<action method='addTab'>
-					<block>cms_page_edit_tab_design</block>
-					<name>design_section</name>
-				</action>
-				<action method='addTab'>
-					<block>cms_page_edit_tab_meta</block>
-					<name>meta_section</name>
-				</action>
+				<action method='addTab'><block>cms_page_edit_tab_main</block><name>main_section</name></action>
+				<action method='addTab'><block>cms_page_edit_tab_content</block><name>content_section</name></action>
+				<action method='addTab'><block>cms_page_edit_tab_design</block><name>design_section</name></action>
+				<action method='addTab'><block>cms_page_edit_tab_meta</block><name>meta_section</name></action>
 			</block>
 		</reference>
 	</adminhtml_cms_page_edit>
