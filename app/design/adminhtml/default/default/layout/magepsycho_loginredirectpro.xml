@@ -1,12 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Refactor the `<layout>` XML files": https://github.com/thehcginstitute-com/m1/issues/681 -->
 <layout>
 	<adminhtml_system_config_edit>
-		<reference name="head">
-			<action method="addItem">
+		<reference name='head'>
+			<action method='addItem'>
 				<name>prototype/windows/themes/default.css</name>
 				<type>js_css</type>
 			</action>
-			<action method="addCss"><css>lib/prototype/windows/themes/magento.css</css></action>
+			<action method='addCss'>
+				<css>lib/prototype/windows/themes/magento.css</css>
+			</action>
 		</reference>
 	</adminhtml_system_config_edit>
 </layout>
