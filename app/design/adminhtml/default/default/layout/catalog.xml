@@ -58,8 +58,8 @@
 			<block type='adminhtml/catalog_product_edit_tab_reviews' name='admin.product.reviews'/>
 		</block>
 	</adminhtml_catalog_product_reviews>
-	<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
 	<adminhtml_catalog_product_tagcustomergrid>
 		<block type='core/text_list' name='root' output='toHtml'>
 			<block type='adminhtml/catalog_product_edit_tab_tag_customer' name='admin.product.tags.customers'/>
@@ -87,9 +87,9 @@
 						<reload_param_name>products_related</reload_param_name>
 					</action>
 					<action method='addColumnInputName'>
-						<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-						"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-						https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<names>position</names>
 					</action>
 				</reference>
@@ -123,9 +123,9 @@
 						<reload_param_name>products_upsell</reload_param_name>
 					</action>
 					<action method='addColumnInputName'>
-						<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-						"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-						https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<names>position</names>
 					</action>
 				</reference>
