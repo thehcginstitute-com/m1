@@ -49,50 +49,17 @@
 			<action method='removeItem'><name>varien/js.js</name><type>js</type></action>
 			<action method='removeItem'><name>mage/adminhtml/hash.js</name><type>js</type></action>
 			<action method='removeItem'><name>mage/adminhtml/events.js</name><type>js</type></action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>mage/adminhtml/loader.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>mage/adminhtml/grid.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>mage/adminhtml/tabs.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>mage/adminhtml/accordion.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>mage/adminhtml/uploader.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>mage/adminhtml/product.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>mage/adminhtml/rules.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>lib/ds-sleight.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>varien/iehover-fix.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>css</type>
-				<name>print.css</name>
-			</action>
+			<action method='removeItem'><name>mage/adminhtml/loader.js</name><type>js</type></action>
+			<action method='removeItem'><name>mage/adminhtml/grid.js</name><type>js</type></action>
+			<action method='removeItem'><name>mage/adminhtml/tabs.js</name><type>js</type></action>
+			<action method='removeItem'><name>mage/adminhtml/accordion.js</name><type>js</type></action>
+			<action method='removeItem'><name>mage/adminhtml/uploader.js</name><type>js</type></action>
+			<action method='removeItem'><name>mage/adminhtml/product.js</name><type>js</type></action>
+			<action method='removeItem'><name>mage/adminhtml/rules.js</name><type>js</type></action>
+			<action method='removeItem'><name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name><type>js</type></action>
+			<action method='removeItem'><name>lib/ds-sleight.js</name><type>js</type></action>
+			<action method='removeItem'><name>varien/iehover-fix.js</name><type>js</type></action>
+			<action method='removeItem'><name>print.css</name><type>css</type></action>
 			<action method='removeItem'>
 				<type>js_css</type>
 				<name>calendar/calendar-win2k-1.css</name>
