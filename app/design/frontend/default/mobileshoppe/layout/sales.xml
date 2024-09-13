@@ -133,9 +133,9 @@
 		</reference>
 		<reference name='sales.order.info'>
 			<action method='addLink' translate='label' module='sales'>
+				<label>Order Information</label>
 				<name>view</name>
 				<path>*/*/view</path>
-				<label>Order Information</label>
 			</action>
 			<action method='addLink' translate='label' module='sales'>
 				<name>invoice</name>
