@@ -8,15 +8,12 @@
 	</adminhtml_mailchimperrors_grid>
 	<adminhtml_mailchimperrors_index>
 		<reference name='content'>
-			<block name='mailchimp_mailchimperrors.grid.container'
-				type='mailchimp/adminhtml_mailchimperrors'/>
+			<block name='mailchimp_mailchimperrors.grid.container' type='mailchimp/adminhtml_mailchimperrors'/>
 		</reference>
 	</adminhtml_mailchimperrors_index>
 	<adminhtml_mailchimpstores_grid>
 		<update handle='formkey'/>
-		<block name='mailchimp_mailchimpstores.grid'
-			output='toHtml'
-			type='mailchimp/adminhtml_mailchimpstores_grid'/>
+		<block name='mailchimp_mailchimpstores.grid' output='toHtml' type='mailchimp/adminhtml_mailchimpstores_grid'/>
 	</adminhtml_mailchimpstores_grid>
 	<adminhtml_mailchimpstores_index>
 		<reference name='content'>
