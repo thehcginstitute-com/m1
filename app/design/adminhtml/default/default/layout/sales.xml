@@ -491,9 +491,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					template='sales/order/creditmemo/view/form.phtml'
 					type='adminhtml/sales_order_creditmemo_view_form'
 				>
-					<block name='order_info'
-						template='sales/order/view/info.phtml'
-						type='adminhtml/sales_order_view_info'></block>
+					<block name='order_info' template='sales/order/view/info.phtml' type='adminhtml/sales_order_view_info'/>
 					<block name='order_payment'
 						type='adminhtml/sales_order_payment'></block>
 					<block name='creditmemo_items'
