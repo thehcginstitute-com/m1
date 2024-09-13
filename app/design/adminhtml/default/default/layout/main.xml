@@ -147,8 +147,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					template='notification/security.phtml'
 					type='adminhtml/notification_security'
 				/>
-				<block as='checkout_formkey' name='checkout_formkey' template='notification/formkey.phtml'
-					type='adminhtml/checkout_formkey'/>
+				<block
+					as='checkout_formkey'
+					name='checkout_formkey'
+					template='notification/formkey.phtml'
+					type='adminhtml/checkout_formkey'
+				/>
 			</block>
 			<block as='breadcrumbs' name='breadcrumbs' type='adminhtml/widget_breadcrumbs'></block>
 			<block as='formkey' name='formkey' template='formkey.phtml' type='core/template'/>
