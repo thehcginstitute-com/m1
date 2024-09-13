@@ -38,8 +38,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 		<reference name='content'>
-			<block name='sales_order_edit'
-				type='adminhtml/sales_order_view'></block>
+			<block name='sales_order_edit' type='adminhtml/sales_order_view'/>
 		</reference>
 		<reference name='left'>
 			<block name='sales_order_tabs'
