@@ -417,9 +417,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							<type>grouped</type>
 						</action>
 						<block name='order_item_extra_info' type='core/text_list'/>
-						<block name='order_totalbar'
-							template='sales/order/totalbar.phtml'
-							type='adminhtml/sales_order_totalbar'></block>
+						<block name='order_totalbar' template='sales/order/totalbar.phtml' type='adminhtml/sales_order_totalbar'/>
 						<block name='creditmemo_totals'
 							template='sales/order/totals.phtml'
 							type='adminhtml/sales_order_creditmemo_totals'>
