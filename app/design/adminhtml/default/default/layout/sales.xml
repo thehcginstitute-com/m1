@@ -1059,9 +1059,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_create_load_block_comment>
 	<adminhtml_sales_order_create_load_block_totals>
 		<reference name='content'>
-			<block name='totals'
-				template='sales/order/create/totals.phtml'
-				type='adminhtml/sales_order_create_totals'/>
+			<block name='totals' template='sales/order/create/totals.phtml' type='adminhtml/sales_order_create_totals'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_totals>
 	<adminhtml_sales_order_create_load_block_giftmessage>
