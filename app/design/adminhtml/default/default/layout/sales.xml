@@ -418,9 +418,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						</action>
 						<block name='order_item_extra_info' type='core/text_list'/>
 						<block name='order_totalbar' template='sales/order/totalbar.phtml' type='adminhtml/sales_order_totalbar'/>
-						<block name='creditmemo_totals'
+						<block
+							name='creditmemo_totals'
 							template='sales/order/totals.phtml'
-							type='adminhtml/sales_order_creditmemo_totals'>
+							type='adminhtml/sales_order_creditmemo_totals'
+						>
 							<block name='adjustments'
 								template='sales/order/creditmemo/create/totals/adjustments.phtml'
 								type='adminhtml/sales_order_creditmemo_create_adjustments'/>
