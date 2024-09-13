@@ -363,12 +363,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						template='sales/order/shipment/create/tracking.phtml'
 						type='adminhtml/sales_order_invoice_create_tracking'
 					/>
-					<block name='order_comments'
+					<block
+						name='order_comments'
 						template='sales/order/comments/view.phtml'
-						type='adminhtml/sales_order_comments_view'>
-						<action method='setParentType'>
-							<type>shipment</type>
-						</action>
+						type='adminhtml/sales_order_comments_view'
+					>
+						<action method='setParentType'><type>shipment</type></action>
 					</block>
 					<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 					"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
