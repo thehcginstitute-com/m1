@@ -57,8 +57,11 @@
 				template='giftmessage/sales/order/create/giftoptions.phtml'
 				type='giftmessage/adminhtml_sales_order_create_giftoptions'
 			>
-				<block name='gift_options_item_data' template='giftmessage/sales/order/create/items.phtml'
-					type='giftmessage/adminhtml_sales_order_create_items'/>
+				<block
+					name='gift_options_item_data'
+					template='giftmessage/sales/order/create/items.phtml'
+					type='giftmessage/adminhtml_sales_order_create_items'
+				/>
 			</block>
 		</reference>
 		<reference name='items_grid'>
