@@ -304,8 +304,11 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 				<block as='options_js' name='product.composite.fieldset.options.js' template='iwd/ordermanager/catalog/product/composite/fieldset/options/js.phtml'
 					type='core/template'/>
 			</block>
-			<block name='product.composite.fieldset.qty' template='catalog/product/composite/fieldset/qty.phtml'
-				type='adminhtml/catalog_product_composite_fieldset_qty'/>
+			<block
+				name='product.composite.fieldset.qty'
+				template='catalog/product/composite/fieldset/qty.phtml'
+				type='adminhtml/catalog_product_composite_fieldset_qty'
+			/>
 		</block>
 	</IWD_OM_ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE>
 	<IWD_OM_PRODUCT_TYPE_configurable>
