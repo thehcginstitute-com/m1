@@ -41,8 +41,11 @@
 		<reference name='content'>
 			<block name='search.result' template='catalogsearch/result.phtml' type='catalogsearch/result'>
 				<block name='search_result_list' template='catalog/product/list.phtml' type='catalog/product_list'>
-					<block name='product_list_toolbar' template='catalog/product/list/toolbar.phtml'
-						   type='catalog/product_list_toolbar'>
+					<block
+						name='product_list_toolbar'
+						template='catalog/product/list/toolbar.phtml'
+						type='catalog/product_list_toolbar'
+					>
 						<block name='product_list_toolbar_pager' type='page/html_pager'/>
 					</block>
 					<action method='addColumnCountLayoutDepend'>
