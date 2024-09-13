@@ -44,8 +44,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 		<reference name='content'>
-			<block name='aoe_scheduler.scheduler'
-				type='aoe_scheduler/adminhtml_scheduler'/>
+			<block name='aoe_scheduler.scheduler' type='aoe_scheduler/adminhtml_scheduler'/>
 		</reference>
 	</adminhtml_scheduler_index>
 	<adminhtml_cron_index>
