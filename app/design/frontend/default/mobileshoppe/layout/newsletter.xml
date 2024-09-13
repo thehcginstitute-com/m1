@@ -11,9 +11,9 @@
 	<customer_account>
 		<reference name='sidebar'>
 			<action method='addLink' translate='label' module='newsletter'>
+				<label>Newsletter Subscriptions</label>
 				<name>newsletter</name>
 				<path>newsletter/manage/</path>
-				<label>Newsletter Subscriptions</label>
 			</action>
 		</reference>
 	</customer_account>
