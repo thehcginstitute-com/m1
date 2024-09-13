@@ -659,9 +659,9 @@
 				<path>*/*/shipment</path>
 			</action>
 			<action method='addLink' translate='label' module='sales'>
+				<label>Refunds</label>
 				<name>creditmemo</name>
 				<path></path>
-				<label>Refunds</label>
 			</action>
 		</reference>
 	</sales_guest_creditmemo>
