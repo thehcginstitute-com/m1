@@ -7,17 +7,16 @@
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method='addJs'>
-				<name>extendware/ewcore/guide.js</name>
-			</action>
-			<action method='addItem'>
-				<name>extendware/ewcore/css/guide.css</name>
-				<type>skin_css</type>
-			</action>
+			<action method='addJs'><name>extendware/ewcore/guide.js</name></action>
+			<action method='addItem'><name>extendware/ewcore/css/guide.css</name><type>skin_css</type></action>
 		</reference>
 		<reference name='js'>
-			<block after='-' name='ewcore_guide'
-				template='extendware/ewcore/page/footer/guide.phtml' type='ewcore/adminhtml_page_footer_guide'/>
+			<block
+				after='-'
+				name='ewcore_guide'
+				template='extendware/ewcore/page/footer/guide.phtml'
+				type='ewcore/adminhtml_page_footer_guide'
+			/>
 			<block after='-' name='ewcore_demo' template='extendware/ewcore/page/footer/demo.phtml' type='core/template'/>
 		</reference>
 	</default>
