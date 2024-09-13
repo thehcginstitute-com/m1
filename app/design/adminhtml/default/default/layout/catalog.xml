@@ -243,8 +243,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='content'>
-			<block name='attribute' template='catalog/product/edit/action/attribute.phtml'
-				   type='adminhtml/catalog_product_edit_action_attribute'/>
+			<block
+				name='attribute'
+				template='catalog/product/edit/action/attribute.phtml'
+				type='adminhtml/catalog_product_edit_action_attribute'
+			/>
 		</reference>
 	</adminhtml_catalog_product_action_attribute_edit>
 	<adminhtml_catalog_product_attribute_edit>
