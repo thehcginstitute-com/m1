@@ -288,9 +288,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<type>select</type>
 				</action>
 				<action method='addOptionRenderer'>
-					<type>date</type>
 					<block>catalog/product_view_options_type_date</block>
 					<template>catalog/product/composite/fieldset/options/type/date.phtml</template>
+					<type>date</type>
 				</action>
 				<block type='core/template' name='product.composite.fieldset.options.js' as='options_js'
 					   template='catalog/product/composite/fieldset/options/js.phtml'/>
