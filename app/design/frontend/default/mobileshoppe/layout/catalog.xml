@@ -327,8 +327,13 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			</block>
 		</reference>
 		<reference name='product.info.options.wrapper'>
-			<block as='options_configurable' before='-'
-				   name='product.info.options.configurable' template='catalog/product/view/type/options/configurable.phtml' type='catalog/product_view_type_configurable'/>
+			<block
+				as='options_configurable'
+				before='-'
+				name='product.info.options.configurable'
+				template='catalog/product/view/type/options/configurable.phtml'
+				type='catalog/product_view_type_configurable'
+			/>
 		</reference>
 	</PRODUCT_TYPE_configurable>
 	<PRODUCT_TYPE_grouped module='catalog' translate='label'>
