@@ -4,12 +4,12 @@
 <layout>
 	<default>
 		<reference name='notifications'>
-			<block name='index_notifications' template='index/notifications.phtml' type='index/adminhtml_notifications'></block>
+			<block name='index_notifications' template='index/notifications.phtml' type='index/adminhtml_notifications'/>
 		</reference>
 	</default>
 	<adminhtml_process_edit>
 		<reference name='content'>
-			<block name='process_edit' type='index/adminhtml_process_edit'></block>
+			<block name='process_edit' type='index/adminhtml_process_edit'/>
 		</reference>
 		<reference name='left'>
 			<block name='index_edit_tabs' type='index/adminhtml_process_edit_tabs'>
