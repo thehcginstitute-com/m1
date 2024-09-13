@@ -21,18 +21,9 @@
 				<block name='promo_catalog_edit_tab_main' type='adminhtml/promo_catalog_edit_tab_main'/>
 				<block name='promo_catalog_edit_tab_conditions' type='adminhtml/promo_catalog_edit_tab_conditions'/>
 				<block name='promo_catalog_edit_tab_actions' type='adminhtml/promo_catalog_edit_tab_actions'/>
-				<action method='addTab'>
-					<name>main_section</name>
-					<block>promo_catalog_edit_tab_main</block>
-				</action>
-				<action method='addTab'>
-					<name>conditions_section</name>
-					<block>promo_catalog_edit_tab_conditions</block>
-				</action>
-				<action method='addTab'>
-					<name>actions_section</name>
-					<block>promo_catalog_edit_tab_actions</block>
-				</action>
+				<action method='addTab'><block>promo_catalog_edit_tab_main</block><name>main_section</name></action>
+				<action method='addTab'><block>promo_catalog_edit_tab_conditions</block><name>conditions_section</name></action>
+				<action method='addTab'><block>promo_catalog_edit_tab_actions</block><name>actions_section</name></action>
 			</block>
 		</reference>
 		<reference name='content'>
@@ -66,26 +57,11 @@
 					<block name='promo_quote_edit_tab_coupons_form' type='adminhtml/promo_quote_edit_tab_coupons_form'/>
 					<block name='promo_quote_edit_tab_coupons_grid' type='adminhtml/promo_quote_edit_tab_coupons_grid'/>
 				</block>
-				<action method='addTab'>
-					<name>main_section</name>
-					<block>promo_quote_edit_tab_main</block>
-				</action>
-				<action method='addTab'>
-					<name>conditions_section</name>
-					<block>promo_quote_edit_tab_conditions</block>
-				</action>
-				<action method='addTab'>
-					<name>actions_section</name>
-					<block>promo_quote_edit_tab_actions</block>
-				</action>
-				<action method='addTab'>
-					<name>labels_section</name>
-					<block>promo_quote_edit_tab_labels</block>
-				</action>
-				<action method='addTab'>
-					<name>coupons_section</name>
-					<block>promo_quote_edit_tab_coupons</block>
-				</action>
+				<action method='addTab'><block>promo_quote_edit_tab_main</block><name>main_section</name></action>
+				<action method='addTab'><block>promo_quote_edit_tab_conditions</block><name>conditions_section</name></action>
+				<action method='addTab'><block>promo_quote_edit_tab_actions</block><name>actions_section</name></action>
+				<action method='addTab'><block>promo_quote_edit_tab_labels</block><name>labels_section</name></action>
+				<action method='addTab'><block>promo_quote_edit_tab_coupons</block><name>coupons_section</name></action>
 			</block>
 			<block name='promo_quote_edit_jsinit' template='promo/salesrulejs.phtml' type='adminhtml/template'/>
 		</reference>
