@@ -92,8 +92,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 	</adminhtml_system_config_edit>
-
-	<!-- order -->
 	<adminhtml_sales_order_grid>
 		<reference name="sales_order.grid">
 			<block type="iwd_ordergrid/adminhtml_sales_order_grid_init" name="iwd_om.order.grid.jsinit"
