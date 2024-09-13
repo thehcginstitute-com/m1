@@ -20,7 +20,7 @@
 	<adminhtml_dashboard_index>
 		<reference name="content">
 			<reference name="dashboard">
-				<block type="dashboardreviews/tab" name="dashboardreviews_tab" />
+				<block name="dashboardreviews_tab" type="dashboardreviews/tab"/>
 			</reference>
 		</reference>
 	</adminhtml_dashboard_index>
