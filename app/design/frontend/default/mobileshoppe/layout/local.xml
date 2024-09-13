@@ -55,18 +55,9 @@
 	</reviews>
 	<review_product_list translate='label'>
 		<reference name='head'>
-			<action method='addItem'>
-				<name>js/galleria-1.2.7.min.js</name>
-				<type>skin_js</type>
-			</action>
-			<action method='addItem'>
-				<name>js/galleria.classic.min.js</name>
-				<type>skin_js</type>
-			</action>
-			<action method='addItem'>
-				<name>css/galleria.classic.css</name>
-				<type>skin_css</type>
-			</action>
+			<action method='addItem'><name>js/galleria-1.2.7.min.js</name><type>skin_js</type></action>
+			<action method='addItem'><name>js/galleria.classic.min.js</name><type>skin_js</type></action>
+			<action method='addItem'><name>css/galleria.classic.css</name><type>skin_css</type></action>
 		</reference>
 	</review_product_list>
 </layout>
