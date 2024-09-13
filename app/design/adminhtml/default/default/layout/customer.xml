@@ -9,9 +9,9 @@
 		<reference name='head'>
 			<block as='optional_zip_countries' name='optional_zip_countries' template='directory/js/optional_zip_countries.phtml'
 				type='adminhtml/template'/>
-			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
-			https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'>
 				<name>mage/adminhtml/product/composite/configure.js</name>
 			</action>
@@ -75,8 +75,8 @@
 			<block name='admin.customer.reviews' type='adminhtml/customer_edit_tab_reviews'/>
 		</block>
 	</adminhtml_customer_productreviews>
-	<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	'Delete the unused `Mage_Tag` module': https://github.com/thehcginstitute-com/m1/issues/372 -->
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'Delete the unused `Mage_Tag` module': https://github.com/thehcginstitute-com/m1/issues/372 -->
 	<adminhtml_customer_newsletter>
 		<block name='root' output='toHtml' type='core/text_list'>
 			<block name='admin.customer.newsletter.grid' type='adminhtml/customer_edit_tab_newsletter_grid'/>
