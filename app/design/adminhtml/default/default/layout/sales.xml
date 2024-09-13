@@ -239,9 +239,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<block name='order_item_extra_info'
 							type='core/text_list'></block>
 					</block>
-					<block name='order_comments'
+					<block
+						name='order_comments'
 						template='sales/order/comments/view.phtml'
-						type='adminhtml/sales_order_comments_view'>
+						type='adminhtml/sales_order_comments_view'
+					>
 						<action method='setParentType'>
 							<type>invoice</type>
 						</action>
