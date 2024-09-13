@@ -39,11 +39,11 @@
 	<adminhtml_catalog_product_edit>
 		<update handle='editor'/>
 		<reference name='content'>
-			<block name='product_edit' type='adminhtml/catalog_product_edit'></block>
+			<block name='product_edit' type='adminhtml/catalog_product_edit'/>
 		</reference>
 		<reference name='left'>
-			<block before='-' name='store_switcher' type='adminhtml/store_switcher'></block>
-			<block name='product_tabs' type='adminhtml/catalog_product_edit_tabs'></block>
+			<block before='-' name='store_switcher' type='adminhtml/store_switcher'/>
+			<block name='product_tabs' type='adminhtml/catalog_product_edit_tabs'/>
 		</reference>
 		<reference name='js'>
 			<block name='catalog_product_js' template='catalog/product/js.phtml' type='adminhtml/catalog_product_edit_js'></block>
