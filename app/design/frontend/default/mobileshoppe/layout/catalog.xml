@@ -499,8 +499,8 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 		<reference name='seo.sitemap.links'>
 			<action method='addLink' translate='label title' module='catalog'>
 				<label>Categories Sitemap</label>
-				<url helper='catalog/map/getCategoryUrl'/>
 				<title>Categories Sitemap</title>
+				<url helper='catalog/map/getCategoryUrl'/>
 			</action>
 		</reference>
 	</catalog_seo_sitemap_product>
