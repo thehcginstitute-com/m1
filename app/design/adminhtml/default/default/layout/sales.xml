@@ -1119,9 +1119,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_create_load_block_sidebar_viewed>
 	<adminhtml_sales_order_create_load_block_sidebar_compared>
 		<reference name='content'>
-			<block name='sidebar_compared'
+			<block
+				name='sidebar_compared'
 				template='sales/order/create/sidebar/items.phtml'
-				type='adminhtml/sales_order_create_sidebar_compared'/>
+				type='adminhtml/sales_order_create_sidebar_compared'
+			/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_compared>
 	<adminhtml_sales_order_create_load_block_sidebar_pviewed>
