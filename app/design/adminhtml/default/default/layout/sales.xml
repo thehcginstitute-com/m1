@@ -836,9 +836,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						type='adminhtml/sales_order_create_billing_method_form'
 					/>
 				</block>
-				<block name='newsletter'
+				<block
+					name='newsletter'
 					template='sales/order/create/abstract.phtml'
-					type='adminhtml/sales_order_create_newsletter'>
+					type='adminhtml/sales_order_create_newsletter'
+				>
 					<block name='form'
 						template='sales/order/create/newsletter/form.phtml'
 						type='adminhtml/sales_order_create_newsletter_form'/>
