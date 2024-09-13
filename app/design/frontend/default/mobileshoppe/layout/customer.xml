@@ -172,9 +172,9 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			<block type='customer/account_navigation' name='customer_account_navigation' before='-'
 				   template='customer/account/navigation.phtml'>
 				<action method='addLink' translate='label' module='customer'>
+					<label>Account Dashboard</label>
 					<name>account</name>
 					<path>customer/account/</path>
-					<label>Account Dashboard</label>
 				</action>
 				<action method='addLink' translate='label' module='customer'>
 					<name>account_edit</name>
