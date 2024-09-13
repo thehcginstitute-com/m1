@@ -24,11 +24,9 @@
 		<reference name='top.links'>
 			<action method='addLink' translate='label title' module='customer'>
 				<label>Patient Portal Log In</label>
-				<url helper='customer/getLoginUrl'/>
-				<title>Patient Portal Log In</title>
-				<prepare/>
-				<urlParams/>
 				<position>100</position>
+				<title>Patient Portal Log In</title>
+				<url helper='customer/getLoginUrl'/>
 			</action>
 		</reference>
 		<remove name='reorder'></remove>
