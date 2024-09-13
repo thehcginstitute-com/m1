@@ -142,19 +142,19 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 					template='catalog/product/view/tabs.phtml'
 					type='catalog/product_view_tabs'
 				>
-					<action method='addTab' module='catalog' translate='title'>
+					<action method='addTab' module='catalog'>
 						<alias>description</alias>
 						<block>catalog/product_view_description</block>
 						<template>catalog/product/view/description.phtml</template>
 						<title>Product Description</title>
 					</action>
-					<action method='addTab' module='catalog' translate='title'>
+					<action method='addTab' module='catalog'>
 						<alias>upsell_products</alias>
 						<block>catalog/product_list_upsell</block>
 						<template>catalog/product/list/upsell.phtml</template>
 						<title>We Also Recommend</title>
 					</action>
-					<action method='addTab' module='catalog' translate='title'>
+					<action method='addTab' module='catalog'>
 						<alias>additional</alias>
 						<block>catalog/product_view_attributes</block>
 						<template>catalog/product/view/attributes.phtml</template>
@@ -409,11 +409,11 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 	<catalog_seo_sitemap_category translate='label'>
 		<label>Catalog Seo Sitemap (Category List)</label>
 		<reference name='head'>
-			<action method='setTitle' module='catalog' translate='title'><title>Site Map</title></action>
+			<action method='setTitle' module='catalog'><title>Site Map</title></action>
 		</reference>
 		<update handle='catalog_seo_sitemap'/>
 		<reference name='seo.sitemap.container'>
-			<action method='setTitle' module='catalog' translate='title'><title>Categories</title></action>
+			<action method='setTitle' module='catalog'><title>Categories</title></action>
 			<block
 				after='pager_top'
 				as='sitemap'
@@ -423,7 +423,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			>
 				<action method='bindPager'><pager>seo.sitemap.pager.top</pager></action>
 				<action method='bindPager'><pager>seo.sitemap.pager.bottom</pager></action>
-				<action method='setItemsTitle' module='catalog' translate='title'><title>categories</title></action>
+				<action method='setItemsTitle' module='catalog'><title>categories</title></action>
 			</block>
 		</reference>
 		<reference name='seo.sitemap.links'>
@@ -467,16 +467,16 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 	<catalog_seo_sitemap_product translate='label'>
 		<label>Catalog Seo Sitemap (Product List)</label>
 		<reference name='head'>
-			<action method='setTitle' module='catalog' translate='title'><title>Site Map</title></action>
+			<action method='setTitle' module='catalog'><title>Site Map</title></action>
 		</reference>
 		<update handle='catalog_seo_sitemap'/>
 		<reference name='seo.sitemap.container'>
-			<action method='setTitle' module='catalog' translate='title'><title>Products</title></action>
+			<action method='setTitle' module='catalog'><title>Products</title></action>
 			<block after='pager_top' as='sitemap' name='seo.sitemap.sitemap' template='catalog/seo/sitemap.phtml'
 				   type='catalog/seo_sitemap_product'>
 				<action method='bindPager'><pager>seo.sitemap.pager.top</pager></action>
 				<action method='bindPager'><pager>seo.sitemap.pager.bottom</pager></action>
-				<action method='setItemsTitle' module='catalog' translate='title'><title>products</title></action>
+				<action method='setItemsTitle' module='catalog'><title>products</title></action>
 			</block>
 		</reference>
 		<reference name='seo.sitemap.links'>

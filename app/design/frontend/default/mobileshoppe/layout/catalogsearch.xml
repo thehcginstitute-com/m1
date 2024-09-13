@@ -67,7 +67,7 @@
 			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
 		</reference>
 		<reference name='head'>
-			<action method='setTitle' module='catalogsearch' translate='title'><title>Advanced Search</title></action>
+			<action method='setTitle' module='catalogsearch'><title>Advanced Search</title></action>
 			<action method='addItem'><name>calendar/calendar-win2k-1.css</name><type>js_css</type></action>
 			<action method='addItem'><name>calendar/calendar.js</name><type>js</type></action>
 			<action method='addItem'><name>calendar/calendar-setup.js</name><type>js</type></action>
@@ -119,7 +119,7 @@
 		<remove name='left'/>
 		<remove name='right'/>
 		<reference name='head'>
-			<action method='setTitle' module='catalogsearch' translate='title'><title>Search Terms</title></action>
+			<action method='setTitle' module='catalogsearch'><title>Search Terms</title></action>
 		</reference>
 		<reference name='root'>
 			<action method='setTemplate'><template>page/1column.phtml</template></action>

@@ -17,7 +17,7 @@
 				   template='downloadable/customer/products/list.phtml'/>
 		</reference>
 		<reference name='root'>
-			<action method='setHeaderTitle' translate='title' module='downloadable'>
+			<action method='setHeaderTitle' module='downloadable'>
 				<title>My Downloadable Products</title>
 			</action>
 		</reference>

@@ -8,7 +8,7 @@
 	<default>
 		<block name='root' output='toHtml' template='page.phtml' type='adminhtml/page'>
 			<block as='head' name='head' template='page/head.phtml' type='adminhtml/page_head'>
-				<action method='setTitle' translate='title'>
+				<action method='setTitle'>
 					<title>OpenMage Admin</title>
 				</action>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro

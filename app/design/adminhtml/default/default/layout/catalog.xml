@@ -4,7 +4,7 @@
 <layout>
 	<adminhtml_catalog_product_index>
 		<reference name='head'>
-			<action method='setTitle' translate='title'>
+			<action method='setTitle'>
 				<title>Catalog</title>
 			</action>
 		</reference>

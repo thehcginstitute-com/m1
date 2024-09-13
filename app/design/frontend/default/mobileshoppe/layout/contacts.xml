@@ -13,7 +13,7 @@
 	<contacts_index_index translate='label'>
 		<label>Contact Us Form</label>
 		<reference name='head'>
-			<action method='setTitle' translate='title' module='contacts'>
+			<action method='setTitle' module='contacts'>
 				<title>Contact Us</title>
 			</action>
 		</reference>
@@ -21,7 +21,7 @@
 			<action method='setTemplate'>
 				<template>page/2columns-left.phtml</template>
 			</action>
-			<action method='setHeaderTitle' translate='title' module='contacts'>
+			<action method='setHeaderTitle' module='contacts'>
 				<title>Contact Us</title>
 			</action>
 		</reference>
