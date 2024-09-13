@@ -528,9 +528,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					>
 						<action method='setParentType'><type>creditmemo</type></action>
 					</block>
-					<block name='creditmemo_totals'
+					<block
+						name='creditmemo_totals'
 						template='sales/order/totals.phtml'
-						type='adminhtml/sales_order_creditmemo_totals'>
+						type='adminhtml/sales_order_creditmemo_totals'
+					>
 						<block name='tax'
 							template='sales/order/totals/tax.phtml'
 							type='adminhtml/sales_order_totals_tax'/>
