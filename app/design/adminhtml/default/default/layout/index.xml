@@ -16,15 +16,15 @@
 <layout>
 	<default>
 		<reference name="notifications">
-			<block type="index/adminhtml_notifications" name="index_notifications" template="index/notifications.phtml"></block>
+			<block name="index_notifications" template="index/notifications.phtml" type="index/adminhtml_notifications"></block>
 		</reference>
 	</default>
 	<adminhtml_process_edit>
 		<reference name="content">
-			<block type="index/adminhtml_process_edit" name="process_edit"></block>
+			<block name="process_edit" type="index/adminhtml_process_edit"></block>
 		</reference>
 		<reference name="left">
-			<block type="index/adminhtml_process_edit_tabs" name="index_edit_tabs">
+			<block name="index_edit_tabs" type="index/adminhtml_process_edit_tabs">
 				<action method="addTab">
 					<name>main_section</name>
 					<block>index/adminhtml_process_edit_tab_main</block>
@@ -34,7 +34,7 @@
 	</adminhtml_process_edit>
 	<adminhtml_process_list>
 		<reference name="content">
-			<block type="index/adminhtml_process" name="process"/>
+			<block name="process" type="index/adminhtml_process"/>
 		</reference>
 	</adminhtml_process_list>
 </layout>
