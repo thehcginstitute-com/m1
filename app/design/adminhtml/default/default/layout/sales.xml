@@ -321,8 +321,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</block>
 	</adminhtml_sales_order_shipment_addcomment>
 	<adminhtml_sales_order_shipment_view>
-		<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-		"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
 		<reference name='content'>
 			<block name='sales_shipment_view'
 				type='adminhtml/sales_order_shipment_view'>
