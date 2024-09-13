@@ -715,9 +715,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 									template='sales/order/create/coupons/form.phtml'
 									type='adminhtml/sales_order_create_coupons'
 								>
-									<block name='form'
+									<block
+										name='form'
 										template='sales/order/create/coupons/form.phtml'
-										type='adminhtml/sales_order_create_coupons_form'/>
+										type='adminhtml/sales_order_create_coupons_form'
+									/>
 								</block>
 							</block>
 						</block>
