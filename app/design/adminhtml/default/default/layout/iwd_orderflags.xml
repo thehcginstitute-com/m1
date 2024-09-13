@@ -3,8 +3,8 @@
 	<font_awesome_handle>
 		<reference name='head'>
 			<action method='addLinkRel'>
-				<rel>stylesheet</rel>
 				<href>//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css</href>
+				<rel>stylesheet</rel>
 			</action>
 		</reference>
 	</font_awesome_handle>
