@@ -16,8 +16,8 @@
 <layout>
 	<adminhtml_system_currencysymbol_index>
 		<reference name="content">
-			<block type="currencysymbol/adminhtml_system_currencysymbol" name="mage.system.currencysymbol"
-				template="currencysymbol/grid.phtml"/>
+			<block name="mage.system.currencysymbol" template="currencysymbol/grid.phtml"
+				type="currencysymbol/adminhtml_system_currencysymbol"/>
 		</reference>
 	</adminhtml_system_currencysymbol_index>
 </layout>
