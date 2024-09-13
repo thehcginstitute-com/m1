@@ -1189,8 +1189,7 @@ Once timezone is changed, the lifetime statistics need to be refreshed.</message
 					</action>
 				</block>
 				<block name='grid.filter.form' type='sales/adminhtml_report_filter_form'>
-					<action method='addReportTypeOption'
-						translate='value'>
+					<action method='addReportTypeOption' translate='value'>
 						<key>created_at_order</key>
 						<value>Order Created Date</value>
 					</action>
