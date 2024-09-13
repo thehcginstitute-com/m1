@@ -307,8 +307,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					type='core/template'
 				/>
 			</block>
-			<block name='product.composite.fieldset.qty' template='catalog/product/composite/fieldset/qty.phtml'
-				   type='adminhtml/catalog_product_composite_fieldset_qty'/>
+			<block
+				name='product.composite.fieldset.qty'
+				template='catalog/product/composite/fieldset/qty.phtml'
+				type='adminhtml/catalog_product_composite_fieldset_qty'
+			/>
 		</block>
 	</ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE>
 	<ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE_ERROR>
