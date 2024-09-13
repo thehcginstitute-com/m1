@@ -109,8 +109,8 @@
 	<adminhtml_customer_wishlist>
 		<reference name='customer.wishlist.edit.tab'>
 			<action method='addProductConfigurationHelper'>
-				<type>downloadable</type>
 				<name>downloadable/catalog_product_configuration</name>
+				<type>downloadable</type>
 			</action>
 		</reference>
 	</adminhtml_customer_wishlist>
