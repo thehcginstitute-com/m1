@@ -873,9 +873,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						</block>
 					</block>
 				</block>
-				<block name='comment'
+				<block
+					name='comment'
 					template='sales/order/create/comment.phtml'
-					type='adminhtml/sales_order_create_comment'/>
+					type='adminhtml/sales_order_create_comment'
+				/>
 				<block name='totals'
 					template='sales/order/create/totals.phtml'
 					type='adminhtml/sales_order_create_totals'/>
