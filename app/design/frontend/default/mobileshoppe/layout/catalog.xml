@@ -150,9 +150,9 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 					</action>
 					<action method='addTab' module='catalog' translate='title'>
 						<alias>upsell_products</alias>
-						<title>We Also Recommend</title>
 						<block>catalog/product_list_upsell</block>
 						<template>catalog/product/list/upsell.phtml</template>
+						<title>We Also Recommend</title>
 					</action>
 					<action method='addTab' module='catalog' translate='title'>
 						<alias>additional</alias>
