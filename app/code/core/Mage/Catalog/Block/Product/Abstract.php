@@ -254,13 +254,11 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
 
 	/**
 	 * Adding customized price template for product type
-	 *
-	 * @param string $type
-	 * @param string $block
-	 * @param string $template
+     * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function addPriceBlockType($type, $block = '', $template = '')
-	{
+	final function addPriceBlockType(string $type, string $block = '', string $template = ''):void {
 		if ($type) {
 			$this->_priceBlockTypes[$type] = [
 				'block' => $block,
