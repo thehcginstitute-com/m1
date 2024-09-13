@@ -1,95 +1,101 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Refactor the `<layout>` XML files": https://github.com/thehcginstitute-com/m1/issues/681 -->
 <layout>
-  <default>
-  <customer_account_index translate="label">
-	<reference name="customer_account_dashboard">
-		<block type="customer/form_edit" name="customer_edit" as="customeredit" template="customer/form/edit.phtml"/>
-	</reference>
-</customer_account_index>
-  
-  
-	<reference name="head">
-	  <action method="addItem">
-		  <name>js/respond.min.js</name>
-		  <type>skin_js</type>
-	  </action>
-	<action method="removeItem">
-		<name>css/print.css</name>
-		<type>skin_css</type>
-	</action>
-	</reference>
-	<reference name="header">
-	  <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
-	  <reference name="top.bar"><action method="unsetChild"><alias>topSearch</alias></action></reference>
-	</reference>
-	<reference name="footer">
-	  <action method="unsetChild">
-		<alias>cms_footer_links</alias>
-	  </action>
-	  <block type="cms/block" name="footer_block">
-		<action method="setBlockId">
-		  <block_id>footer_block</block_id>
-		</action>
-	  </block>
-	</reference>
-  </default>
-  <catalog_product_view>
-	<reference name="head">
-	  <action method="addItem">
-		  <name>js/galleria-1.2.7.min.js</name>
-		  <type>skin_js</type>
-	  </action>
-	  <action method="addItem">
-		  <name>js/galleria.classic.min.js</name>
-		  <type>skin_js</type>
-	  </action>
-	  <action method="addItem">
-		  <name>css/galleria.classic.css</name>
-		  <type>skin_css</type>
-	  </action>
-	</reference>
-	<reference name="root">
-		<action method="setTemplate"><template>page/1column.phtml</template></action>
-	</reference>
-  </catalog_product_view>
-  <cms_index_index>
-	<reference name="head">
-	  <action method="addItem">
-		  <name>js/jquery.flexslider.js</name>
-		  <type>skin_js</type>
-	  </action>
-	</reference>
-  </cms_index_index>
-  <reviews>
-	<reference name="head">
-	  <action method="addItem">
-		<name>js/galleria-1.2.7.min.js</name>
-		<type>skin_js</type>
-	  </action>
-	  <action method="addItem">
-		<name>js/galleria.classic.min.js</name>
-		<type>skin_js</type>
-	  </action>
-	  <action method="addItem">
-		<name>css/galleria.classic.css</name>
-		<type>skin_css</type>
-	  </action>
-	</reference>
-  </reviews>
-  <review_product_list translate="label">
-	<reference name="head">
-	  <action method="addItem">
-		<name>js/galleria-1.2.7.min.js</name>
-		<type>skin_js</type>
-	  </action>
-	  <action method="addItem">
-		<name>js/galleria.classic.min.js</name>
-		<type>skin_js</type>
-	  </action>
-	  <action method="addItem">
-		<name>css/galleria.classic.css</name>
-		<type>skin_css</type>
-	  </action>
-	</reference>
-  </review_product_list>
+	<default>
+		<customer_account_index translate='label'>
+			<reference name='customer_account_dashboard'>
+				<block as='customeredit' name='customer_edit' template='customer/form/edit.phtml' type='customer/form_edit'/>
+			</reference>
+		</customer_account_index>
+		<reference name='head'>
+			<action method='addItem'>
+				<name>js/respond.min.js</name>
+				<type>skin_js</type>
+			</action>
+			<action method='removeItem'>
+				<name>css/print.css</name>
+				<type>skin_css</type>
+			</action>
+		</reference>
+		<reference name='header'>
+			<block as='topSearch' name='top.search' template='catalogsearch/form.mini.phtml' type='core/template'/>
+			<reference name='top.bar'>
+				<action method='unsetChild'>
+					<alias>topSearch</alias>
+				</action>
+			</reference>
+		</reference>
+		<reference name='footer'>
+			<action method='unsetChild'>
+				<alias>cms_footer_links</alias>
+			</action>
+			<block name='footer_block' type='cms/block'>
+				<action method='setBlockId'>
+					<block_id>footer_block</block_id>
+				</action>
+			</block>
+		</reference>
+	</default>
+	<catalog_product_view>
+		<reference name='head'>
+			<action method='addItem'>
+				<name>js/galleria-1.2.7.min.js</name>
+				<type>skin_js</type>
+			</action>
+			<action method='addItem'>
+				<name>js/galleria.classic.min.js</name>
+				<type>skin_js</type>
+			</action>
+			<action method='addItem'>
+				<name>css/galleria.classic.css</name>
+				<type>skin_css</type>
+			</action>
+		</reference>
+		<reference name='root'>
+			<action method='setTemplate'>
+				<template>page/1column.phtml</template>
+			</action>
+		</reference>
+	</catalog_product_view>
+	<cms_index_index>
+		<reference name='head'>
+			<action method='addItem'>
+				<name>js/jquery.flexslider.js</name>
+				<type>skin_js</type>
+			</action>
+		</reference>
+	</cms_index_index>
+	<reviews>
+		<reference name='head'>
+			<action method='addItem'>
+				<name>js/galleria-1.2.7.min.js</name>
+				<type>skin_js</type>
+			</action>
+			<action method='addItem'>
+				<name>js/galleria.classic.min.js</name>
+				<type>skin_js</type>
+			</action>
+			<action method='addItem'>
+				<name>css/galleria.classic.css</name>
+				<type>skin_css</type>
+			</action>
+		</reference>
+	</reviews>
+	<review_product_list translate='label'>
+		<reference name='head'>
+			<action method='addItem'>
+				<name>js/galleria-1.2.7.min.js</name>
+				<type>skin_js</type>
+			</action>
+			<action method='addItem'>
+				<name>js/galleria.classic.min.js</name>
+				<type>skin_js</type>
+			</action>
+			<action method='addItem'>
+				<name>css/galleria.classic.css</name>
+				<type>skin_css</type>
+			</action>
+		</reference>
+	</review_product_list>
 </layout>
