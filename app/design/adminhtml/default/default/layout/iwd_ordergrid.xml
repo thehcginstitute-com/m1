@@ -37,8 +37,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<name>iwd/ordergrid/order_grid.css</name>
 			</action>
 			<action method="addCss" ifconfig="iwd_ordermanager/grid_order/enable">
-				<!-- 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				"Refactor `HemantNegi/jquery.sumoselect`": https://github.com/thehcginstitute-com/m1/issues/576 -->
+<!-- 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Refactor `HemantNegi/jquery.sumoselect`": https://github.com/thehcginstitute-com/m1/issues/576 -->
 				<name>hcg/css/compiled/sumoselect.css</name>
 			</action>
 		</reference>
