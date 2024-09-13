@@ -300,8 +300,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<template>catalog/product/composite/fieldset/options/type/date.phtml</template>
 					<type>date</type>
 				</action>
-				<block as='options_js' name='product.composite.fieldset.options.js' template='catalog/product/composite/fieldset/options/js.phtml'
-					   type='core/template'/>
+				<block
+					as='options_js'
+					name='product.composite.fieldset.options.js'
+					template='catalog/product/composite/fieldset/options/js.phtml'
+					type='core/template'
+				/>
 			</block>
 			<block name='product.composite.fieldset.qty' template='catalog/product/composite/fieldset/qty.phtml'
 				   type='adminhtml/catalog_product_composite_fieldset_qty'/>
