@@ -4,8 +4,11 @@
 <layout>
 	<adminhtml_system_currencysymbol_index>
 		<reference name='content'>
-			<block name='mage.system.currencysymbol' template='currencysymbol/grid.phtml'
-				type='currencysymbol/adminhtml_system_currencysymbol'/>
+			<block
+				name='mage.system.currencysymbol'
+				template='currencysymbol/grid.phtml'
+				type='currencysymbol/adminhtml_system_currencysymbol'
+			/>
 		</reference>
 	</adminhtml_system_currencysymbol_index>
 </layout>
