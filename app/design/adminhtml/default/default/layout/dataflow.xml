@@ -32,8 +32,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<action method='addJs'><name>mage/translate.js</name></action>
 				<action method='addJs'><name>mage/adminhtml/tools.js</name></action>
 			</block>
-			<block name='system_convert_profile_run' output='toHtml'
-				template='system/convert/profile/process.phtml' type='adminhtml/system_convert_profile_run'/>
+			<block
+				name='system_convert_profile_run'
+				output='toHtml'
+				template='system/convert/profile/process.phtml'
+				type='adminhtml/system_convert_profile_run'
+			/>
 		</block>
 	</adminhtml_system_convert_profile_run>
 </layout>
