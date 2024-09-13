@@ -88,8 +88,11 @@
 			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
 		</reference>
 		<reference name='content'>
-			<block name='catalogsearch_advanced_result' template='catalogsearch/advanced/result.phtml'
-				   type='catalogsearch/advanced_result'>
+			<block
+				name='catalogsearch_advanced_result'
+				template='catalogsearch/advanced/result.phtml'
+				type='catalogsearch/advanced_result'
+			>
 				<block name='search_result_list' template='catalog/product/list.phtml' type='catalog/product_list'>
 					<block name='product_list_toolbar' template='catalog/product/list/toolbar.phtml'
 						   type='catalog/product_list_toolbar'>
