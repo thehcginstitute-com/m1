@@ -9,21 +9,11 @@
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
 https://github.com/thehcginstitute-com/m1/issues/680 -->
-				<action method='addJs'>
-					<name>prototype/prototype.js</name>
-				</action>
-				<action method='addJs'>
-					<name>prototype/validation.js</name>
-				</action>
-				<action method='addJs'>
-					<name>varien/js.js</name>
-				</action>
-				<action method='addJs'>
-					<name>mage/translate.js</name>
-				</action>
-				<action method='addJs'>
-					<name>mage/adminhtml/tools.js</name>
-				</action>
+				<action method='addJs'><name>prototype/prototype.js</name></action>
+				<action method='addJs'><name>prototype/validation.js</name></action>
+				<action method='addJs'><name>varien/js.js</name></action>
+				<action method='addJs'><name>mage/translate.js</name></action>
+				<action method='addJs'><name>mage/adminhtml/tools.js</name></action>
 			</block>
 			<block name='system_convert_profile_run' output='toHtml'
 				template='system/convert/profile/process.phtml' type='adminhtml/system_convert_profile_run'/>
