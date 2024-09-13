@@ -240,12 +240,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</newsletter_queue_preview>
 	<alert_preview>
 		<block name='root' output='toHtml' template='alert/template/preview.phtml' type='core/template'>
-			<block as='content' name='content' type='adminhtml/alert_template_preview'></block>
+			<block as='content' name='content' type='adminhtml/alert_template_preview'/>
 		</block>
 	</alert_preview>
 	<systemPreview>
 		<block name='root' output='toHtml' template='system/email/template/preview.phtml' type='core/template'>
-			<block as='content' name='content' type='adminhtml/system_email_template_preview'></block>
+			<block as='content' name='content' type='adminhtml/system_email_template_preview'/>
 		</block>
 	</systemPreview>
 	<adminhtml_dashboard_customersmost>
