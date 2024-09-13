@@ -14,8 +14,8 @@
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='adminhtml/catalog_product' name='products_list'>
-				<block type='adminhtml/store_switcher' name='store_switcher' as='store_switcher'>
+			<block name='products_list' type='adminhtml/catalog_product'>
+				<block as='store_switcher' name='store_switcher' type='adminhtml/store_switcher'>
 					<action method='setUseConfirm'>
 						<params>0</params>
 					</action>
@@ -26,61 +26,61 @@
 	<adminhtml_catalog_product_new>
 		<update handle='editor'/>
 		<reference name='content'>
-			<block type='adminhtml/catalog_product_edit' name='product_edit'></block>
+			<block name='product_edit' type='adminhtml/catalog_product_edit'></block>
 		</reference>
 		<reference name='left'>
-			<block type='adminhtml/catalog_product_edit_tabs' name='product_tabs'></block>
+			<block name='product_tabs' type='adminhtml/catalog_product_edit_tabs'></block>
 		</reference>
 		<reference name='js'>
-			<block type='adminhtml/catalog_product_edit_js' template='catalog/product/js.phtml' name='catalog_product_js'></block>
-			<block type='core/template' template='catalog/wysiwyg/js.phtml'/>
+			<block name='catalog_product_js' template='catalog/product/js.phtml' type='adminhtml/catalog_product_edit_js'></block>
+			<block template='catalog/wysiwyg/js.phtml' type='core/template'/>
 		</reference>
 	</adminhtml_catalog_product_new>
 	<adminhtml_catalog_product_edit>
 		<update handle='editor'/>
 		<reference name='content'>
-			<block type='adminhtml/catalog_product_edit' name='product_edit'></block>
+			<block name='product_edit' type='adminhtml/catalog_product_edit'></block>
 		</reference>
 		<reference name='left'>
-			<block type='adminhtml/store_switcher' name='store_switcher' before='-'></block>
-			<block type='adminhtml/catalog_product_edit_tabs' name='product_tabs'></block>
+			<block before='-' name='store_switcher' type='adminhtml/store_switcher'></block>
+			<block name='product_tabs' type='adminhtml/catalog_product_edit_tabs'></block>
 		</reference>
 		<reference name='js'>
-			<block type='adminhtml/catalog_product_edit_js' template='catalog/product/js.phtml' name='catalog_product_js'></block>
-			<block type='core/template' name='catalog.wysiwyg.js' template='catalog/wysiwyg/js.phtml'/>
+			<block name='catalog_product_js' template='catalog/product/js.phtml' type='adminhtml/catalog_product_edit_js'></block>
+			<block name='catalog.wysiwyg.js' template='catalog/wysiwyg/js.phtml' type='core/template'/>
 		</reference>
 	</adminhtml_catalog_product_edit>
 	<adminhtml_catalog_product_categories>
-		<block type='core/text_list' name='root' output='toHtml'>
-			<block type='adminhtml/catalog_product_edit_tab_categories' name='catalog.product.edit.tab.categories'/>
+		<block name='root' output='toHtml' type='core/text_list'>
+			<block name='catalog.product.edit.tab.categories' type='adminhtml/catalog_product_edit_tab_categories'/>
 		</block>
 	</adminhtml_catalog_product_categories>
 	<adminhtml_catalog_product_reviews>
-		<block type='core/text_list' name='root' output='toHtml'>
-			<block type='adminhtml/catalog_product_edit_tab_reviews' name='admin.product.reviews'/>
+		<block name='root' output='toHtml' type='core/text_list'>
+			<block name='admin.product.reviews' type='adminhtml/catalog_product_edit_tab_reviews'/>
 		</block>
 	</adminhtml_catalog_product_reviews>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
 	<adminhtml_catalog_product_tagcustomergrid>
-		<block type='core/text_list' name='root' output='toHtml'>
-			<block type='adminhtml/catalog_product_edit_tab_tag_customer' name='admin.product.tags.customers'/>
+		<block name='root' output='toHtml' type='core/text_list'>
+			<block name='admin.product.tags.customers' type='adminhtml/catalog_product_edit_tab_tag_customer'/>
 		</block>
 	</adminhtml_catalog_product_tagcustomergrid>
 	<adminhtml_catalog_product_options>
-		<block type='core/text_list' name='root' output='toHtml'>
-			<block type='adminhtml/catalog_product_edit_tab_options' name='admin.product.options'/>
+		<block name='root' output='toHtml' type='core/text_list'>
+			<block name='admin.product.options' type='adminhtml/catalog_product_edit_tab_options'/>
 		</block>
 	</adminhtml_catalog_product_options>
 	<adminhtml_catalog_product_grid>
-		<block type='core/text_list' name='root' output='toHtml'>
-			<block type='adminhtml/catalog_product_grid' name='admin.product.grid'/>
+		<block name='root' output='toHtml' type='core/text_list'>
+			<block name='admin.product.grid' type='adminhtml/catalog_product_grid'/>
 		</block>
 	</adminhtml_catalog_product_grid>
 	<adminhtml_catalog_product_related>
-		<block type='core/text_list' name='root' output='toHtml'>
-			<block type='adminhtml/catalog_product_edit_tab_related' name='catalog.product.edit.tab.related'/>
-			<block type='adminhtml/widget_grid_serializer' name='related_grid_serializer'>
+		<block name='root' output='toHtml' type='core/text_list'>
+			<block name='catalog.product.edit.tab.related' type='adminhtml/catalog_product_edit_tab_related'/>
+			<block name='related_grid_serializer' type='adminhtml/widget_grid_serializer'>
 				<reference name='related_grid_serializer'>
 					<action method='initSerializerBlock'>
 						<grid_block_name>catalog.product.edit.tab.related</grid_block_name>
@@ -99,24 +99,24 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</block>
 	</adminhtml_catalog_product_related>
 	<adminhtml_catalog_product_relatedgrid>
-		<block type='core/text_list' name='root' output='toHtml'>
-			<block type='adminhtml/catalog_product_edit_tab_related' name='catalog.product.edit.tab.related'/>
+		<block name='root' output='toHtml' type='core/text_list'>
+			<block name='catalog.product.edit.tab.related' type='adminhtml/catalog_product_edit_tab_related'/>
 		</block>
 	</adminhtml_catalog_product_relatedgrid>
 	<adminhtml_catalog_product_superconfig>
-		<block type='adminhtml/catalog_product_edit_tab_super_config_grid' name='admin.product.edit.tab.super.config.grid'
-			   output='toHtml'/>
+		<block name='admin.product.edit.tab.super.config.grid' output='toHtml'
+			   type='adminhtml/catalog_product_edit_tab_super_config_grid'/>
 	</adminhtml_catalog_product_superconfig>
 	<adminhtml_catalog_product_alertspricegrid>
-		<block type='adminhtml/catalog_product_edit_tab_alerts_price' name='admin.product.edit.tab.alerts.price' output='toHtml'/>
+		<block name='admin.product.edit.tab.alerts.price' output='toHtml' type='adminhtml/catalog_product_edit_tab_alerts_price'/>
 	</adminhtml_catalog_product_alertspricegrid>
 	<adminhtml_catalog_product_alertsstockgrid>
-		<block type='adminhtml/catalog_product_edit_tab_alerts_stock' name='admin.product.edit.tab.alerts.stock' output='toHtml'/>
+		<block name='admin.product.edit.tab.alerts.stock' output='toHtml' type='adminhtml/catalog_product_edit_tab_alerts_stock'/>
 	</adminhtml_catalog_product_alertsstockgrid>
 	<adminhtml_catalog_product_upsell>
-		<block type='core/text_list' name='root' output='toHtml'>
-			<block type='adminhtml/catalog_product_edit_tab_upsell' name='catalog.product.edit.tab.upsell'/>
-			<block type='adminhtml/widget_grid_serializer' name='upsell_grid_serializer'>
+		<block name='root' output='toHtml' type='core/text_list'>
+			<block name='catalog.product.edit.tab.upsell' type='adminhtml/catalog_product_edit_tab_upsell'/>
+			<block name='upsell_grid_serializer' type='adminhtml/widget_grid_serializer'>
 				<reference name='upsell_grid_serializer'>
 					<action method='initSerializerBlock'>
 						<grid_block_name>catalog.product.edit.tab.upsell</grid_block_name>
@@ -135,14 +135,14 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</block>
 	</adminhtml_catalog_product_upsell>
 	<adminhtml_catalog_product_upsellgrid>
-		<block type='core/text_list' name='root' output='toHtml'>
-			<block type='adminhtml/catalog_product_edit_tab_upsell' name='catalog.product.edit.tab.upsell'/>
+		<block name='root' output='toHtml' type='core/text_list'>
+			<block name='catalog.product.edit.tab.upsell' type='adminhtml/catalog_product_edit_tab_upsell'/>
 		</block>
 	</adminhtml_catalog_product_upsellgrid>
 	<adminhtml_catalog_product_crosssell>
-		<block type='core/text_list' name='root' output='toHtml'>
-			<block type='adminhtml/catalog_product_edit_tab_crosssell' name='catalog.product.edit.tab.crosssell'/>
-			<block type='adminhtml/widget_grid_serializer' name='crosssell_grid_serializer'>
+		<block name='root' output='toHtml' type='core/text_list'>
+			<block name='catalog.product.edit.tab.crosssell' type='adminhtml/catalog_product_edit_tab_crosssell'/>
+			<block name='crosssell_grid_serializer' type='adminhtml/widget_grid_serializer'>
 				<reference name='crosssell_grid_serializer'>
 					<action method='initSerializerBlock'>
 						<grid_block_name>catalog.product.edit.tab.crosssell</grid_block_name>
@@ -161,8 +161,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</block>
 	</adminhtml_catalog_product_crosssell>
 	<adminhtml_catalog_product_crosssellgrid>
-		<block type='core/text_list' name='root' output='toHtml'>
-			<block type='adminhtml/catalog_product_edit_tab_crosssell' name='catalog.product.edit.tab.crosssell'/>
+		<block name='root' output='toHtml' type='core/text_list'>
+			<block name='catalog.product.edit.tab.crosssell' type='adminhtml/catalog_product_edit_tab_crosssell'/>
 		</block>
 	</adminhtml_catalog_product_crosssellgrid>
 	<adminhtml_catalog_product_simple/>
@@ -175,9 +175,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</reference>
 	</adminhtml_catalog_product_grouped>
 	<adminhtml_catalog_product_supergroup>
-		<block type='core/text_list' name='root' output='toHtml'>
-			<block type='adminhtml/catalog_product_edit_tab_super_group' name='catalog.product.edit.tab.super.group'/>
-			<block type='adminhtml/widget_grid_serializer' name='grouped_grid_serializer'>
+		<block name='root' output='toHtml' type='core/text_list'>
+			<block name='catalog.product.edit.tab.super.group' type='adminhtml/catalog_product_edit_tab_super_group'/>
+			<block name='grouped_grid_serializer' type='adminhtml/widget_grid_serializer'>
 				<reference name='grouped_grid_serializer'>
 					<action method='initSerializerBlock'>
 						<grid_block_name>catalog.product.edit.tab.super.group</grid_block_name>
@@ -197,14 +197,14 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</block>
 	</adminhtml_catalog_product_supergroup>
 	<adminhtml_catalog_product_supergroupgridonly>
-		<block type='core/text_list' name='root'>
-			<block type='adminhtml/catalog_product_edit_tab_super_group' name='catalog.product.edit.tab.super.group'/>
+		<block name='root' type='core/text_list'>
+			<block name='catalog.product.edit.tab.super.group' type='adminhtml/catalog_product_edit_tab_super_group'/>
 		</block>
 	</adminhtml_catalog_product_supergroupgridonly>
 	<adminhtml_catalog_product_configurable_new>
 		<remove name='product_tabs'/>
 		<reference name='left'>
-			<block type='adminhtml/catalog_product_edit_tabs_configurable' name='configurable_product_tabs'></block>
+			<block name='configurable_product_tabs' type='adminhtml/catalog_product_edit_tabs_configurable'></block>
 		</reference>
 	</adminhtml_catalog_product_configurable_new>
 	<adminhtml_catalog_product_configurable>
@@ -221,13 +221,13 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_catalog_product_configurable>
 	<adminhtml_catalog_product_action_attribute_edit>
 		<reference name='left'>
-			<block type='adminhtml/store_switcher' name='store_switcher' template='store/switcher.phtml'/>
-			<block type='adminhtml/catalog_product_edit_action_attribute_tabs' name='attributes_tabs'>
-				<block type='adminhtml/catalog_product_edit_action_attribute_tab_attributes' name='tab_attributes'/>
-				<block type='adminhtml/catalog_product_edit_action_attribute_tab_inventory' name='tab_inventory'
-					   template='catalog/product/edit/action/inventory.phtml'/>
-				<block type='adminhtml/catalog_product_edit_action_attribute_tab_websites' name='tab_websites'
-					   template='catalog/product/edit/action/websites.phtml'/>
+			<block name='store_switcher' template='store/switcher.phtml' type='adminhtml/store_switcher'/>
+			<block name='attributes_tabs' type='adminhtml/catalog_product_edit_action_attribute_tabs'>
+				<block name='tab_attributes' type='adminhtml/catalog_product_edit_action_attribute_tab_attributes'/>
+				<block name='tab_inventory' template='catalog/product/edit/action/inventory.phtml'
+					   type='adminhtml/catalog_product_edit_action_attribute_tab_inventory'/>
+				<block name='tab_websites' template='catalog/product/edit/action/websites.phtml'
+					   type='adminhtml/catalog_product_edit_action_attribute_tab_websites'/>
 				<action method='addTab'>
 					<name>attributes</name>
 					<block>tab_attributes</block>
@@ -243,37 +243,37 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='content'>
-			<block type='adminhtml/catalog_product_edit_action_attribute' name='attribute'
-				   template='catalog/product/edit/action/attribute.phtml'/>
+			<block name='attribute' template='catalog/product/edit/action/attribute.phtml'
+				   type='adminhtml/catalog_product_edit_action_attribute'/>
 		</reference>
 	</adminhtml_catalog_product_action_attribute_edit>
 	<adminhtml_catalog_product_attribute_edit>
 		<reference name='left'>
-			<block type='adminhtml/catalog_product_attribute_edit_tabs' name='attribute_edit_tabs'></block>
+			<block name='attribute_edit_tabs' type='adminhtml/catalog_product_attribute_edit_tabs'></block>
 		</reference>
 		<reference name='content'>
-			<block type='adminhtml/catalog_product_attribute_edit' name='attribute_edit_content'></block>
+			<block name='attribute_edit_content' type='adminhtml/catalog_product_attribute_edit'></block>
 		</reference>
 		<reference name='js'>
-			<block type='adminhtml/template' name='attribute_edit_js' template='catalog/product/attribute/js.phtml'></block>
+			<block name='attribute_edit_js' template='catalog/product/attribute/js.phtml' type='adminhtml/template'></block>
 		</reference>
 	</adminhtml_catalog_product_attribute_edit>
 	<adminhtml_catalog_category_edit>
 		<update handle='editor'/>
 		<reference name='left'>
-			<block name='category.tree' type='adminhtml/catalog_category_tree' template='catalog/category/tree.phtml'/>
+			<block name='category.tree' template='catalog/category/tree.phtml' type='adminhtml/catalog_category_tree'/>
 		</reference>
 		<reference name='content'>
-			<block name='category.edit' type='adminhtml/catalog_category_edit' template='catalog/category/edit.phtml'/>
+			<block name='category.edit' template='catalog/category/edit.phtml' type='adminhtml/catalog_category_edit'/>
 		</reference>
 		<reference name='js'>
-			<block type='core/template' template='catalog/wysiwyg/js.phtml' name='catalog.wysiwyg.js'/>
+			<block name='catalog.wysiwyg.js' template='catalog/wysiwyg/js.phtml' type='core/template'/>
 		</reference>
 	</adminhtml_catalog_category_edit>
 	<ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE>
-		<block type='adminhtml/catalog_product_composite_fieldset' name='product.composite.fieldset' output='toHtml'>
-			<block name='product.composite.fieldset.options' type='adminhtml/catalog_product_composite_fieldset_options'
-				   template='catalog/product/composite/fieldset/options.phtml'>
+		<block name='product.composite.fieldset' output='toHtml' type='adminhtml/catalog_product_composite_fieldset'>
+			<block name='product.composite.fieldset.options' template='catalog/product/composite/fieldset/options.phtml'
+				   type='adminhtml/catalog_product_composite_fieldset_options'>
 				<action method='addOptionRenderer'>
 					<block>catalog/product_view_options_type_text</block>
 					<template>catalog/product/composite/fieldset/options/type/text.phtml</template>
@@ -294,29 +294,29 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<template>catalog/product/composite/fieldset/options/type/date.phtml</template>
 					<type>date</type>
 				</action>
-				<block type='core/template' name='product.composite.fieldset.options.js' as='options_js'
-					   template='catalog/product/composite/fieldset/options/js.phtml'/>
+				<block as='options_js' name='product.composite.fieldset.options.js' template='catalog/product/composite/fieldset/options/js.phtml'
+					   type='core/template'/>
 			</block>
-			<block type='adminhtml/catalog_product_composite_fieldset_qty' name='product.composite.fieldset.qty'
-				   template='catalog/product/composite/fieldset/qty.phtml'/>
+			<block name='product.composite.fieldset.qty' template='catalog/product/composite/fieldset/qty.phtml'
+				   type='adminhtml/catalog_product_composite_fieldset_qty'/>
 		</block>
 	</ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE>
 	<ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE_ERROR>
-		<block type='adminhtml/catalog_product_composite_error' name='product.composite.error' output='toHtml'/>
+		<block name='product.composite.error' output='toHtml' type='adminhtml/catalog_product_composite_error'/>
 	</ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE_ERROR>
 	<ADMINHTML_CATALOG_PRODUCT_COMPOSITE_UPDATE_RESULT>
-		<block type='adminhtml/catalog_product_composite_update_result' name='product.composite.update.result' output='toHtml'/>
+		<block name='product.composite.update.result' output='toHtml' type='adminhtml/catalog_product_composite_update_result'/>
 	</ADMINHTML_CATALOG_PRODUCT_COMPOSITE_UPDATE_RESULT>
 	<PRODUCT_TYPE_configurable>
 		<reference name='product.composite.fieldset'>
-			<block type='adminhtml/catalog_product_composite_fieldset_configurable' name='product.composite.fieldset.configurable'
-				   before='product.composite.fieldset.options' template='catalog/product/composite/fieldset/configurable.phtml'/>
+			<block before='product.composite.fieldset.options' name='product.composite.fieldset.configurable'
+				   template='catalog/product/composite/fieldset/configurable.phtml' type='adminhtml/catalog_product_composite_fieldset_configurable'/>
 		</reference>
 	</PRODUCT_TYPE_configurable>
 	<PRODUCT_TYPE_grouped>
 		<reference name='product.composite.fieldset'>
-			<block type='adminhtml/catalog_product_composite_fieldset_grouped' name='product.composite.fieldset.grouped'
-				   before='product.composite.fieldset.options' template='catalog/product/composite/fieldset/grouped.phtml'/>
+			<block before='product.composite.fieldset.options' name='product.composite.fieldset.grouped'
+				   template='catalog/product/composite/fieldset/grouped.phtml' type='adminhtml/catalog_product_composite_fieldset_grouped'/>
 			<remove name='product.composite.fieldset.qty'/>
 		</reference>
 	</PRODUCT_TYPE_grouped>
