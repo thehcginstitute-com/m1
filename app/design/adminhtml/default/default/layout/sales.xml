@@ -378,8 +378,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_shipment_view>
 	<adminhtml_sales_order_creditmemo_new>
 		<reference name='content'>
-			<block name='sales_creditmemo_create'
-				type='adminhtml/sales_order_creditmemo_create'>
+			<block name='sales_creditmemo_create' type='adminhtml/sales_order_creditmemo_create'>
 				<block name='form'
 					template='sales/order/creditmemo/create/form.phtml'
 					type='adminhtml/sales_order_creditmemo_create_form'>
