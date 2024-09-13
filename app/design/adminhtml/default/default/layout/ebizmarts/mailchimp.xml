@@ -2,21 +2,26 @@
 <layout>
 	<adminhtml_mailchimperrors_grid>
 		<update handle="formkey"/>
-		<block type="mailchimp/adminhtml_mailchimperrors_grid"
-			   name="mailchimp_mailchimperrors.grid" output="toHtml"/>
+		<block name="mailchimp_mailchimperrors.grid"
+			output="toHtml"
+			type="mailchimp/adminhtml_mailchimperrors_grid"/>
 	</adminhtml_mailchimperrors_grid>
 	<adminhtml_mailchimperrors_index>
 		<reference name="content">
-			<block type="mailchimp/adminhtml_mailchimperrors" name="mailchimp_mailchimperrors.grid.container"/>
+			<block name="mailchimp_mailchimperrors.grid.container"
+				type="mailchimp/adminhtml_mailchimperrors"/>
 		</reference>
 	</adminhtml_mailchimperrors_index>
 	<adminhtml_mailchimpstores_grid>
 		<update handle="formkey"/>
-		<block type="mailchimp/adminhtml_mailchimpstores_grid" name="mailchimp_mailchimpstores.grid" output="toHtml"/>
+		<block name="mailchimp_mailchimpstores.grid"
+			output="toHtml"
+			type="mailchimp/adminhtml_mailchimpstores_grid"/>
 	</adminhtml_mailchimpstores_grid>
 	<adminhtml_mailchimpstores_index>
 		<reference name="content">
-			<block type="mailchimp/adminhtml_mailchimpstores" name="mailchimp_mailchimpstores.grid.container"/>
+			<block name="mailchimp_mailchimpstores.grid.container"
+				type="mailchimp/adminhtml_mailchimpstores"/>
 		</reference>
 	</adminhtml_mailchimpstores_index>
 	<adminhtml_mergevars_addmergevar>
@@ -27,7 +32,8 @@
 			<remove name="footer"/>
 			<remove name="notifications"/>
 			<remove name="global_notices"/>
-			<block type="mailchimp/adminhtml_mergevars_add" name="adminhtml.mailchimp.add"/>
+			<block name="adminhtml.mailchimp.add"
+				type="mailchimp/adminhtml_mergevars_add"/>
 		</reference>
 	</adminhtml_mergevars_addmergevar>
 	<adminhtml_ecommerce_renderresendecom>
@@ -38,31 +44,40 @@
 			<remove name="footer"/>
 			<remove name="notifications"/>
 			<remove name="global_notices"/>
-			<block type="mailchimp/adminhtml_ecommerce_resendecommercedata" name="adminhtml.mailchimp.resend"></block>
+			<block name="adminhtml.mailchimp.resend"
+				type="mailchimp/adminhtml_ecommerce_resendecommercedata"></block>
 		</reference>
 	</adminhtml_ecommerce_renderresendecom>
 	<adminhtml_system_config_edit>
 		<reference name="head">
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addCss"><name>ebizmarts/mailchimp/css/mailchimp.css</name></action>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method="addCss">
+				<name>ebizmarts/mailchimp/css/mailchimp.css</name>
+			</action>
 		</reference>
 		<reference name="head">
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addCss"><name>ebizmarts/mandrill/css/mandrill.css</name></action>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method="addCss">
+				<name>ebizmarts/mandrill/css/mandrill.css</name>
+			</action>
 		</reference>
 	</adminhtml_system_config_edit>
 	<adminhtml_sales_order_creditmemo_new>
 		<reference name="submit_before">
-			<block type="mailchimp/adminhtml_sales_order_creditmemo_unsubscribe" name="mailchimp.creditmemo.unsubscribe" template="ebizmarts/mailchimp/sales/order/creditmemo/create/unsubscribe.phtml" />
+			<block name="mailchimp.creditmemo.unsubscribe"
+				template="ebizmarts/mailchimp/sales/order/creditmemo/create/unsubscribe.phtml"
+				type="mailchimp/adminhtml_sales_order_creditmemo_unsubscribe"/>
 		</reference>
 	</adminhtml_sales_order_creditmemo_new>
 	<default>
 		<reference name="notifications">
-			<block type="mailchimp/adminhtml_notifications" name="mailchimp_notifications" template="ebizmarts/mailchimp/notifications.phtml"/>
+			<block name="mailchimp_notifications"
+				template="ebizmarts/mailchimp/notifications.phtml"
+				type="mailchimp/adminhtml_notifications"/>
 		</reference>
 		<reference name="head">
 			<action method="addItem">
