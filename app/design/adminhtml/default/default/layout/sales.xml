@@ -973,9 +973,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_create_load_block_billing_address>
 	<adminhtml_sales_order_create_load_block_shipping_method>
 		<reference name='content'>
-			<block name='shipping_method'
+			<block
+				name='shipping_method'
 				template='sales/order/create/abstract.phtml'
-				type='adminhtml/sales_order_create_shipping_method'>
+				type='adminhtml/sales_order_create_shipping_method'
+			>
 				<block name='form'
 					template='sales/order/create/shipping/method/form.phtml'
 					type='adminhtml/sales_order_create_shipping_method_form'/>
