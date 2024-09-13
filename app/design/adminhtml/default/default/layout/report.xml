@@ -1,27 +1,30 @@
 <?xml version='1.0'?>
+<!-- 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Refactor the `<layout>` XML files": https://github.com/thehcginstitute-com/m1/issues/681 -->
 <layout>
 	<adminhtml_report_statistics_index>
 		<reference name='content'>
-			<block type='adminhtml/report_refresh_statistics' template='report/refresh/statistics.phtml'
-				   name='sales.report.refreshstatistics'/>
+			<block name='sales.report.refreshstatistics' template='report/refresh/statistics.phtml'
+				type='adminhtml/report_refresh_statistics'/>
 		</reference>
 	</adminhtml_report_statistics_index>
 	<adminhtml_report_product_viewed>
 		<reference name='messages'>
 			<action method='addNotice' translate='message'>
 				<message>This report depends on timezone configuration. Once timezone is changed, the lifetime statistics need to
-					be refreshed.</message>
+					be refreshed.
+				</message>
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='adminhtml/report_product_viewed' template='report/grid/container.phtml'
-				   name='product.report.grid.container'>
-				<block type='adminhtml/store_switcher' template='report/store/switcher/enhanced.phtml' name='store.switcher'>
+			<block name='product.report.grid.container' template='report/grid/container.phtml'
+				type='adminhtml/report_product_viewed'>
+				<block name='store.switcher' template='report/store/switcher/enhanced.phtml' type='adminhtml/store_switcher'>
 					<action method='setStoreVarName'>
 						<var_name>store_ids</var_name>
 					</action>
 				</block>
-				<block type='adminhtml/report_filter_form' name='grid.filter.form'>
+				<block name='grid.filter.form' type='adminhtml/report_filter_form'>
 					<action method='setFieldVisibility'>
 						<field>report_type</field>
 						<visibility>0</visibility>
