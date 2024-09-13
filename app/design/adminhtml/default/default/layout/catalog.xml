@@ -122,8 +122,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='upsell_grid_serializer' type='adminhtml/widget_grid_serializer'>
 				<reference name='upsell_grid_serializer'>
 					<action method='initSerializerBlock'>
-						<grid_block_name>catalog.product.edit.tab.upsell</grid_block_name>
 						<data_callback>getSelectedUpsellProducts</data_callback>
+						<grid_block_name>catalog.product.edit.tab.upsell</grid_block_name>
 						<hidden_input_name>links[upsell]</hidden_input_name>
 						<reload_param_name>products_upsell</reload_param_name>
 					</action>
