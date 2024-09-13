@@ -580,13 +580,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			/>
 		</reference>
 		<reference name='js'>
-			<block name='create'
-				template='sales/order/create/js.phtml'
-				type='adminhtml/template'/>
+			<block name='create' template='sales/order/create/js.phtml' type='adminhtml/template'/>
 		</reference>
 		<reference name='root'>
-			<block name='content'
-				type='adminhtml/sales_order_create'>
+			<block name='content' type='adminhtml/sales_order_create'>
 				<block name='form'
 					template='sales/order/create/form.phtml'
 					type='adminhtml/sales_order_create_form'>
