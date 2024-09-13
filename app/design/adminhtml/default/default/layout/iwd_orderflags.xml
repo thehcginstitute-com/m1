@@ -47,8 +47,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</orderflags_order_grid_handle>
 	<adminhtml_sales_order_grid>
 		<reference name='sales_order.grid'>
-			<block name='iwd_om.order.grid.jsinit' template='iwd/orderflags/flags/grid/init.phtml'
-				   type='iwd_orderflags/adminhtml_flags_order_grid'/>
+			<block
+				name='iwd_om.order.grid.jsinit'
+				template='iwd/orderflags/flags/grid/init.phtml'
+				type='iwd_orderflags/adminhtml_flags_order_grid'
+			/>
 		</reference>
 	</adminhtml_sales_order_grid>
 	<adminhtml_sales_order_index>
