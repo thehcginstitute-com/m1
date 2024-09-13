@@ -77,7 +77,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_dashboard_index>
 	<adminhtml_cache_index>
 		<reference name='content'>
-			<block name='cache' type='adminhtml/cache'></block>
+			<block name='cache' type='adminhtml/cache'/>
 			<block name='cache.additional' template='system/cache/additional.phtml' type='adminhtml/cache_additional'/>
 		</reference>
 	</adminhtml_cache_index>
