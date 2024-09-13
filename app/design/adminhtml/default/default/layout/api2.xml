@@ -107,8 +107,8 @@
 					type='api2/adminhtml_attribute_tab_resource'
 				/>
 				<action method='addTab'>
-					<id>api2_attribute_section_resources</id>
 					<block>api2.attribute.tab.resource</block>
+					<id>api2_attribute_section_resources</id>
 				</action>
 			</block>
 		</reference>
