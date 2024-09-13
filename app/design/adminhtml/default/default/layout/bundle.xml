@@ -96,8 +96,8 @@
 	<adminhtml_customer_wishlist>
 		<reference name='customer.wishlist.edit.tab'>
 			<action method='addProductConfigurationHelper'>
-				<type>bundle</type>
 				<name>bundle/catalog_product_configuration</name>
+				<type>bundle</type>
 			</action>
 		</reference>
 	</adminhtml_customer_wishlist>
