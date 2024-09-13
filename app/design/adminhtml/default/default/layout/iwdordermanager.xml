@@ -257,9 +257,9 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 					<type>file</type>
 				</action>
 				<action method='addOptionRenderer'>
-					<type>select</type>
 					<block>catalog/product_view_options_type_select</block>
 					<template>catalog/product/composite/fieldset/options/type/select.phtml</template>
+					<type>select</type>
 				</action>
 				<action method='addOptionRenderer'>
 					<type>date</type>
