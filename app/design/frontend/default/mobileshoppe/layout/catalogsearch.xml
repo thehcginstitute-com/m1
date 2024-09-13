@@ -21,8 +21,8 @@
 		<reference name='footer_links'>
 			<action method='addLink' translate='label title' module='catalogsearch' ifconfig='catalog/seo/search_terms'>
 				<label>Search Terms</label>
-				<url helper='catalogsearch/getSearchTermUrl'/>
 				<title>Search Terms</title>
+				<url helper='catalogsearch/getSearchTermUrl'/>
 			</action>
 			<action method='addLink' translate='label title' module='catalogsearch'>
 				<label>Advanced Search</label>
