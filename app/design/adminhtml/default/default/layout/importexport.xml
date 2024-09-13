@@ -1,53 +1,41 @@
-<?xml version="1.0"?>
-<!--
-/**
- * OpenMage
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available at https://opensource.org/license/afl-3-0-php
- *
- * @category    design
- * @package     default_default
- * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
--->
+<?xml version='1.0'?>
+<!-- 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Refactor the `<layout>` XML files": https://github.com/thehcginstitute-com/m1/issues/681 -->
 <layout>
 	<adminhtml_import_index>
-		<reference name="content">
-			<block alias="form_before" name="import.form.before" template="importexport/import/form/before.phtml"
-				type="adminhtml/template"/>
-			<block name="import.form.container" type="importexport/adminhtml_import_edit"/>
-			<block alias="form_after" name="import.form.after" template="importexport/import/form/after.phtml"
-				type="adminhtml/template"/>
+		<reference name='content'>
+			<block alias='form_before' name='import.form.before' template='importexport/import/form/before.phtml'
+				type='adminhtml/template'/>
+			<block name='import.form.container' type='importexport/adminhtml_import_edit'/>
+			<block alias='form_after' name='import.form.after' template='importexport/import/form/after.phtml'
+				type='adminhtml/template'/>
 		</reference>
 	</adminhtml_import_index>
 	<adminhtml_import_validate>
-		<block alias="import_frame_result" name="import.frame.result"
-			output="toHtml" template="importexport/import/frame/result.phtml" type="importexport/adminhtml_import_frame_result"/>
+		<block alias='import_frame_result' name='import.frame.result'
+			output='toHtml' template='importexport/import/frame/result.phtml' type='importexport/adminhtml_import_frame_result'/>
 	</adminhtml_import_validate>
 	<adminhtml_import_start>
-		<block alias="import_frame_result" name="import.frame.result"
-			output="toHtml" template="importexport/import/frame/result.phtml" type="importexport/adminhtml_import_frame_result"/>
+		<block alias='import_frame_result' name='import.frame.result'
+			output='toHtml' template='importexport/import/frame/result.phtml' type='importexport/adminhtml_import_frame_result'/>
 	</adminhtml_import_start>
 	<adminhtml_import_busy>
-		<reference name="content">
-			<block alias="busy" name="busy" template="importexport/busy.phtml" type="core/template"/>
+		<reference name='content'>
+			<block alias='busy' name='busy' template='importexport/busy.phtml' type='core/template'/>
 		</reference>
 	</adminhtml_import_busy>
 	<adminhtml_export_index>
-		<reference name="content">
-			<block alias="form_before" name="export.form.before" template="importexport/export/form/before.phtml"
-				type="adminhtml/template"/>
-			<block name="export.form.container" type="importexport/adminhtml_export_edit"/>
-			<block alias="form_after" name="export.form.after" template="importexport/export/form/after.phtml"
-				type="adminhtml/template"/>
+		<reference name='content'>
+			<block alias='form_before' name='export.form.before' template='importexport/export/form/before.phtml'
+				type='adminhtml/template'/>
+			<block name='export.form.container' type='importexport/adminhtml_export_edit'/>
+			<block alias='form_after' name='export.form.after' template='importexport/export/form/after.phtml'
+				type='adminhtml/template'/>
 		</reference>
 	</adminhtml_export_index>
 	<adminhtml_export_getfilter>
-		<block name="root" type="core/text_list">
-			<block name="export.filter" type="importexport/adminhtml_export_filter"/>
+		<block name='root' type='core/text_list'>
+			<block name='export.filter' type='importexport/adminhtml_export_filter'/>
 		</block>
 	</adminhtml_export_getfilter>
 </layout>
