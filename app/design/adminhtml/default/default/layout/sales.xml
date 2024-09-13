@@ -88,27 +88,27 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				</block>
 				<action method='addTab'>
 					<block>order_tab_info</block>
-					<name>order_info</name>
+					<id>order_info</id>
 				</action>
 				<action method='addTab'>
 					<block>adminhtml/sales_order_view_tab_invoices</block>
-					<name>order_invoices</name>
+					<id>order_invoices</id>
 				</action>
 				<action method='addTab'>
 					<block>adminhtml/sales_order_view_tab_creditmemos</block>
-					<name>order_creditmemos</name>
+					<id>order_creditmemos</id>
 				</action>
 				<action method='addTab'>
 					<block>adminhtml/sales_order_view_tab_shipments</block>
-					<name>order_shipments</name>
+					<id>order_shipments</id>
 				</action>
 				<action method='addTab'>
 					<block>adminhtml/sales_order_view_tab_history</block>
-					<name>order_history</name>
+					<id>order_history</id>
 				</action>
 				<action method='addTab'>
 					<block>adminhtml/sales_order_view_tab_transactions</block>
-					<name>order_transactions</name>
+					<id>order_transactions</id>
 				</action>
 			</block>
 		</reference>
