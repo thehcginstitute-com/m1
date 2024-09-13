@@ -53,8 +53,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_permissions_role_editrole>
 	<adminhtml_system_config_edit>
 		<reference name='content'>
-			<block as='notification_curl' name='notification_curl' template='notification/curl.phtml'
-				type='adminhtml/notification_curl'/>
+			<block
+				as='notification_curl'
+				name='notification_curl'
+				template='notification/curl.phtml'
+				type='adminhtml/notification_curl'
+			/>
 		</reference>
 		<reference name='left'>
 			<block before='-' name='adminhtml.system.config.switcher' type='adminhtml/system_config_switcher'/>
