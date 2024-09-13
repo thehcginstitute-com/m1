@@ -46,7 +46,7 @@
 			<block name='product_tabs' type='adminhtml/catalog_product_edit_tabs'/>
 		</reference>
 		<reference name='js'>
-			<block name='catalog_product_js' template='catalog/product/js.phtml' type='adminhtml/catalog_product_edit_js'></block>
+			<block name='catalog_product_js' template='catalog/product/js.phtml' type='adminhtml/catalog_product_edit_js'/>
 			<block name='catalog.wysiwyg.js' template='catalog/wysiwyg/js.phtml' type='core/template'/>
 		</reference>
 	</adminhtml_catalog_product_edit>
