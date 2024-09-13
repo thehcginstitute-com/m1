@@ -100,13 +100,11 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template
 
     /**
      * Add Link element to HEAD entity
-     *
-     * @param string $rel forward link types
-     * @param string $href URI for linked resource
-     * @return $this
+     * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
      */
-    function addLinkRel($rel, $href)
-    {
+    function addLinkRel(string $rel, string $href):self {
         $this->addItem('link_rel', $href, 'rel="' . $rel . '"');
         return $this;
     }
