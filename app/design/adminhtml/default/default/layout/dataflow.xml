@@ -17,8 +17,8 @@
 <layout>
 	<adminhtml_system_convert_gui_run>
 		<remove name="root"/>
-		<block type="adminhtml/page" name="convert_root" output="toHtml" template="page.phtml">
-			<block type="adminhtml/page_head" name="convert_root_head" as="head" template="page/head.phtml">
+		<block name="convert_root" output="toHtml" template="page.phtml" type="adminhtml/page">
+			<block as="head" name="convert_root_head" template="page/head.phtml" type="adminhtml/page_head">
 				<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 				https://github.com/thehcginstitute-com/m1/issues/680 -->
@@ -38,14 +38,14 @@
 					<name>mage/adminhtml/tools.js</name>
 				</action>
 			</block>
-			<block type="adminhtml/system_convert_profile_run" name="system_convert_profile_run"
-				template="system/convert/profile/process.phtml" output="toHtml"/>
+			<block name="system_convert_profile_run" output="toHtml"
+				template="system/convert/profile/process.phtml" type="adminhtml/system_convert_profile_run"/>
 		</block>
 	</adminhtml_system_convert_gui_run>
 	<adminhtml_system_convert_profile_run>
 		<remove name="root"/>
-		<block type="adminhtml/page" name="convert_root" output="toHtml" template="page.phtml">
-			<block type="adminhtml/page_head" name="convert_root_head" as="head" template="page/head.phtml">
+		<block name="convert_root" output="toHtml" template="page.phtml" type="adminhtml/page">
+			<block as="head" name="convert_root_head" template="page/head.phtml" type="adminhtml/page_head">
 				<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 				https://github.com/thehcginstitute-com/m1/issues/680 -->
@@ -65,8 +65,8 @@
 					<name>mage/adminhtml/tools.js</name>
 				</action>
 			</block>
-			<block type="adminhtml/system_convert_profile_run" name="system_convert_profile_run"
-				template="system/convert/profile/process.phtml" output="toHtml"/>
+			<block name="system_convert_profile_run" output="toHtml"
+				template="system/convert/profile/process.phtml" type="adminhtml/system_convert_profile_run"/>
 		</block>
 	</adminhtml_system_convert_profile_run>
 </layout>
