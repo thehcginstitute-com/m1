@@ -20,7 +20,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<name>iwd/ordergrid/stickytableheaders.js</name>
 			</action>
 <!-- 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'Upgrade `HemantNegi/jquery.sumoselect`': https://github.com/thehcginstitute-com/m1/issues/553 -->
+"Upgrade `HemantNegi/jquery.sumoselect`": https://github.com/thehcginstitute-com/m1/issues/553 -->
 			<action method='addJs' ifconfig='iwd_ordermanager/grid_order/enable'>
 				<name>iwd/ordergrid/jquery.sumoselect.js</name>
 			</action>
