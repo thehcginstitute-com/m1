@@ -697,9 +697,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 								type='adminhtml/sales_order_create_newsletter_form'
 							/>
 						</block>
-						<block name='search'
+						<block
+							name='search'
 							template='sales/order/create/abstract.phtml'
-							type='adminhtml/sales_order_create_search'>
+							type='adminhtml/sales_order_create_search'
+						>
 							<block name='grid'
 								type='adminhtml/sales_order_create_search_grid'/>
 						</block>
