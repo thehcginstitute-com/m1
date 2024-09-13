@@ -2,7 +2,7 @@
 <layout>
 	<iwd_om_custom_fee_order_total_handle>
 		<reference name="order_totals">
-			<block type="iwd_ordermanager/sales_order_total_fee" name="iwd_om_custom_fee_total"/>
+			<block name="iwd_om_custom_fee_total" type="iwd_ordermanager/sales_order_total_fee"/>
 		</reference>
 	</iwd_om_custom_fee_order_total_handle>
 	<sales_order_view>
@@ -22,7 +22,7 @@
 	</sales_guest_print>
 	<iwd_om_custom_fee_invoice_total_handle>
 		<reference name="invoice_totals">
-			<block type="iwd_ordermanager/sales_order_total_fee" name="iwd_om_custom_fee_total"/>
+			<block name="iwd_om_custom_fee_total" type="iwd_ordermanager/sales_order_total_fee"/>
 		</reference>
 	</iwd_om_custom_fee_invoice_total_handle>
 	<sales_order_invoice>
@@ -42,7 +42,7 @@
 	</sales_guest_printinvoice>
 	<iwd_om_custom_fee_creditmemo_total_handle>
 		<reference name="creditmemo_totals">
-			<block type="iwd_ordermanager/sales_order_total_fee" name="iwd_om_custom_fee_total"/>
+			<block name="iwd_om_custom_fee_total" type="iwd_ordermanager/sales_order_total_fee"/>
 		</reference>
 	</iwd_om_custom_fee_creditmemo_total_handle>
 	<sales_order_creditmemo>
