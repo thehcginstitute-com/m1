@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
 <!--
 /**
  * OpenMage
@@ -13,43 +13,41 @@
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 -->
-
 <layout>
 	<adminhtml_newsletter_template_edit>
-		<update handle="editor"/>
-		<reference name="content">
-			<block type="adminhtml/newsletter_template_edit" name="template_edit" template="newsletter/template/edit.phtml" />
+		<update handle='editor'/>
+		<reference name='content'>
+			<block name='template_edit' template='newsletter/template/edit.phtml' type='adminhtml/newsletter_template_edit'/>
 		</reference>
 	</adminhtml_newsletter_template_edit>
-
 	<adminhtml_newsletter_queue_edit>
-		<update handle="editor"/>
-		<reference name="content">
-			<block type="adminhtml/newsletter_queue_edit" name="queue_edit" template="newsletter/queue/edit.phtml" />
+		<update handle='editor'/>
+		<reference name='content'>
+			<block name='queue_edit' template='newsletter/queue/edit.phtml' type='adminhtml/newsletter_queue_edit'/>
 		</reference>
 	</adminhtml_newsletter_queue_edit>
-
 	<adminhtml_newsletter_queue_preview>
-		<reference name="root">
-			<action method="setTemplate"><template>newsletter/preview/iframeswitcher.phtml</template></action>
-			<block type="adminhtml/newsletter_queue_preview_form" name="preview_form" />
-			<block type="adminhtml/store_switcher" name="store_switcher" template="newsletter/preview/store.phtml" />
+		<reference name='root'>
+			<action method='setTemplate'>
+				<template>newsletter/preview/iframeswitcher.phtml</template>
+			</action>
+			<block name='preview_form' type='adminhtml/newsletter_queue_preview_form'/>
+			<block name='store_switcher' template='newsletter/preview/store.phtml' type='adminhtml/store_switcher'/>
 		</reference>
 	</adminhtml_newsletter_queue_preview>
-
 	<adminhtml_newsletter_template_preview>
-		<reference name="root">
-			<action method="setTemplate"><template>newsletter/preview/iframeswitcher.phtml</template></action>
-			<block type="adminhtml/newsletter_template_preview_form" name="preview_form" />
-			<block type="adminhtml/store_switcher" name="store_switcher" template="newsletter/preview/store.phtml" />
+		<reference name='root'>
+			<action method='setTemplate'>
+				<template>newsletter/preview/iframeswitcher.phtml</template>
+			</action>
+			<block name='preview_form' type='adminhtml/newsletter_template_preview_form'/>
+			<block name='store_switcher' template='newsletter/preview/store.phtml' type='adminhtml/store_switcher'/>
 		</reference>
 	</adminhtml_newsletter_template_preview>
-
 	<newsletter_queue_preview>
-		<block type="adminhtml/newsletter_queue_preview" name="preview_template" />
+		<block name='preview_template' type='adminhtml/newsletter_queue_preview'/>
 	</newsletter_queue_preview>
-
 	<newsletter_template_preview>
-		<block type="adminhtml/newsletter_template_preview" name="preview_template" />
+		<block name='preview_template' type='adminhtml/newsletter_template_preview'/>
 	</newsletter_template_preview>
 </layout>
