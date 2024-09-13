@@ -276,8 +276,11 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 	</adminhtml_sales_archive_order_index>
 	<IWD_OM_ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE>
 		<block name='product.composite.fieldset' output='toHtml' type='adminhtml/catalog_product_composite_fieldset'>
-			<block name='product.composite.fieldset.options' template='catalog/product/composite/fieldset/options.phtml'
-				type='adminhtml/catalog_product_composite_fieldset_options'>
+			<block
+				name='product.composite.fieldset.options'
+				template='catalog/product/composite/fieldset/options.phtml'
+				type='adminhtml/catalog_product_composite_fieldset_options'
+			>
 				<action method='addOptionRenderer'>
 					<block>catalog/product_view_options_type_text</block>
 					<template>catalog/product/composite/fieldset/options/type/text.phtml</template>
