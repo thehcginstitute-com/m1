@@ -186,8 +186,12 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 				>
 					<label>Info Column Options Wrapper</label>
 					<block name='options_js' template='catalog/product/view/options/js.phtml' type='core/template'/>
-					<block as='product_options' name='product.info.options' template='catalog/product/view/options.phtml'
-						   type='catalog/product_view_options'>
+					<block
+						as='product_options'
+						name='product.info.options'
+						template='catalog/product/view/options.phtml'
+						type='catalog/product_view_options'
+					>
 						<action method='addOptionRenderer'>
 							<block>catalog/product_view_options_type_text</block>
 							<template>catalog/product/view/options/type/text.phtml</template>
