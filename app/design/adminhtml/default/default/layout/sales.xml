@@ -860,9 +860,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						template='sales/order/create/items/grid.phtml'
 						type='adminhtml/sales_order_create_items_grid'
 					>
-						<block name='coupons'
+						<block
+							name='coupons'
 							template='sales/order/create/coupons/form.phtml'
-							type='adminhtml/sales_order_create_coupons'>
+							type='adminhtml/sales_order_create_coupons'
+						>
 							<block name='form'
 								template='sales/order/create/coupons/form.phtml'
 								type='adminhtml/sales_order_create_coupons_form'/>
