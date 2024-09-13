@@ -1235,9 +1235,11 @@ Once timezone is changed, the lifetime statistics need to be refreshed.</message
 	<adminhtml_report_sales_invoiced>
 		<update handle='report_sales'/>
 		<reference name='content'>
-			<block name='sales.report.grid.container'
+			<block
+				name='sales.report.grid.container'
 				template='report/grid/container.phtml'
-				type='adminhtml/report_sales_invoiced'>
+				type='adminhtml/report_sales_invoiced'
+			>
 				<block name='store.switcher'
 					template='report/store/switcher/enhanced.phtml'
 					type='adminhtml/store_switcher'>
