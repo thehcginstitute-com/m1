@@ -4,8 +4,11 @@
 <layout>
 	<adminhtml_sales_order_create_load_block_data>
 		<reference name='data'>
-			<block name='top.actions' template='iwd/admincheckout/create/top.phtml'
-				type='iwd_admin_checkout/adminhtml_sales_order_create_top'>
+			<block
+				name='top.actions'
+				template='iwd/admincheckout/create/top.phtml'
+				type='iwd_admin_checkout/adminhtml_sales_order_create_top'
+			>
 				<block name='store.switcher'
 					template='iwd/admincheckout/create/store/switcher.phtml' type='iwd_admin_checkout/adminhtml_sales_order_create_store_switcher'>
 					<action method='setStoreVarName'>
