@@ -156,9 +156,9 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 					</action>
 					<action method='addTab' module='catalog' translate='title'>
 						<alias>additional</alias>
-						<title>Additional Information</title>
 						<block>catalog/product_view_attributes</block>
 						<template>catalog/product/view/attributes.phtml</template>
+						<title>Additional Information</title>
 					</action>
 				</block>
 				<block as='product_additional_data' name='product.info.additional' type='catalog/product_view_additional'/>
