@@ -78,7 +78,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_cache_index>
 		<reference name='content'>
 			<block name='cache' type='adminhtml/cache'></block>
-			<block name='cache.additional' template='system/cache/additional.phtml' type='adminhtml/cache_additional'></block>
+			<block name='cache.additional' template='system/cache/additional.phtml' type='adminhtml/cache_additional'/>
 		</reference>
 	</adminhtml_cache_index>
 	<adminhtml_catalog_product_attribute_edit>
