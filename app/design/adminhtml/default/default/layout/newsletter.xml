@@ -16,18 +16,14 @@
 	</adminhtml_newsletter_queue_edit>
 	<adminhtml_newsletter_queue_preview>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>newsletter/preview/iframeswitcher.phtml</template>
-			</action>
+			<action method='setTemplate'><template>newsletter/preview/iframeswitcher.phtml</template></action>
 			<block name='preview_form' type='adminhtml/newsletter_queue_preview_form'/>
 			<block name='store_switcher' template='newsletter/preview/store.phtml' type='adminhtml/store_switcher'/>
 		</reference>
 	</adminhtml_newsletter_queue_preview>
 	<adminhtml_newsletter_template_preview>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>newsletter/preview/iframeswitcher.phtml</template>
-			</action>
+			<action method='setTemplate'><template>newsletter/preview/iframeswitcher.phtml</template></action>
 			<block name='preview_form' type='adminhtml/newsletter_template_preview_form'/>
 			<block name='store_switcher' template='newsletter/preview/store.phtml' type='adminhtml/store_switcher'/>
 		</reference>
