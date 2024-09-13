@@ -1030,9 +1030,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_create_load_block_search_grid>
 	<adminhtml_sales_order_create_load_block_items>
 		<reference name='content'>
-			<block name='items'
-				template='sales/order/create/items.phtml'
-				type='adminhtml/sales_order_create_items'>
+			<block name='items' template='sales/order/create/items.phtml' type='adminhtml/sales_order_create_items'>
 				<block name='items_grid'
 					template='sales/order/create/items/grid.phtml'
 					type='adminhtml/sales_order_create_items_grid'>
