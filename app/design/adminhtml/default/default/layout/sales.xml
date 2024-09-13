@@ -600,9 +600,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							type='adminhtml/sales_order_create_store_select'
 						/>
 					</block>
-					<block name='data'
-						template='sales/order/create/data.phtml'
-						type='adminhtml/sales_order_create_data'>
+					<block name='data' template='sales/order/create/data.phtml' type='adminhtml/sales_order_create_data'>
 						<block name='sidebar'
 							template='sales/order/create/sidebar.phtml'
 							type='adminhtml/sales_order_create_sidebar'>
