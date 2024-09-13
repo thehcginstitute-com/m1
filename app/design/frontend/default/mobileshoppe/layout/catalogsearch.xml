@@ -16,15 +16,15 @@
 	</catalogsearch_advanced_result>
 	<default>
 		<reference name='top.bar'>
-			<block type='core/template' name='top.search' as='topSearch' template='catalogsearch/form.mini.phtml'/>
+			<block as='topSearch' name='top.search' template='catalogsearch/form.mini.phtml' type='core/template'/>
 		</reference>
 		<reference name='footer_links'>
-			<action method='addLink' translate='label title' module='catalogsearch' ifconfig='catalog/seo/search_terms'>
+			<action ifconfig='catalog/seo/search_terms' method='addLink' module='catalogsearch' translate='label title'>
 				<label>Search Terms</label>
 				<title>Search Terms</title>
 				<url helper='catalogsearch/getSearchTermUrl'/>
 			</action>
-			<action method='addLink' translate='label title' module='catalogsearch'>
+			<action method='addLink' module='catalogsearch' translate='label title'>
 				<label>Advanced Search</label>
 				<title>Advanced Search</title>
 				<url helper='catalogsearch/getAdvancedSearchUrl'/>
@@ -40,14 +40,14 @@
 			</action>
 		</reference>
 		<reference name='left'>
-			<block type='catalogsearch/layer' name='catalogsearch.leftnav' after='currency' template='catalog/layer/view.phtml'/>
+			<block after='currency' name='catalogsearch.leftnav' template='catalog/layer/view.phtml' type='catalogsearch/layer'/>
 		</reference>
 		<reference name='content'>
-			<block type='catalogsearch/result' name='search.result' template='catalogsearch/result.phtml'>
-				<block type='catalog/product_list' name='search_result_list' template='catalog/product/list.phtml'>
-					<block type='catalog/product_list_toolbar' name='product_list_toolbar'
-						   template='catalog/product/list/toolbar.phtml'>
-						<block type='page/html_pager' name='product_list_toolbar_pager'/>
+			<block name='search.result' template='catalogsearch/result.phtml' type='catalogsearch/result'>
+				<block name='search_result_list' template='catalog/product/list.phtml' type='catalog/product_list'>
+					<block name='product_list_toolbar' template='catalog/product/list/toolbar.phtml'
+						   type='catalog/product_list_toolbar'>
+						<block name='product_list_toolbar_pager' type='page/html_pager'/>
 					</block>
 					<action method='addColumnCountLayoutDepend'>
 						<count>6</count>
@@ -87,7 +87,7 @@
 			</action>
 		</reference>
 		<reference name='head'>
-			<action method='setTitle' translate='title' module='catalogsearch'>
+			<action method='setTitle' module='catalogsearch' translate='title'>
 				<title>Advanced Search</title>
 			</action>
 			<action method='addItem'>
@@ -104,9 +104,9 @@
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='catalogsearch/advanced_form' name='catalogsearch_advanced_form'
-				   template='catalogsearch/advanced/form.phtml'/>
-			<block type='core/html_calendar' name='html_calendar' as='html_calendar' template='page/js/calendar.phtml'/>
+			<block name='catalogsearch_advanced_form' template='catalogsearch/advanced/form.phtml'
+				   type='catalogsearch/advanced_form'/>
+			<block as='html_calendar' name='html_calendar' template='page/js/calendar.phtml' type='core/html_calendar'/>
 		</reference>
 	</catalogsearch_advanced_index>
 	<catalogsearch_advanced_result translate='label'>
@@ -118,12 +118,12 @@
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='catalogsearch/advanced_result' name='catalogsearch_advanced_result'
-				   template='catalogsearch/advanced/result.phtml'>
-				<block type='catalog/product_list' name='search_result_list' template='catalog/product/list.phtml'>
-					<block type='catalog/product_list_toolbar' name='product_list_toolbar'
-						   template='catalog/product/list/toolbar.phtml'>
-						<block type='page/html_pager' name='product_list_toolbar_pager'/>
+			<block name='catalogsearch_advanced_result' template='catalogsearch/advanced/result.phtml'
+				   type='catalogsearch/advanced_result'>
+				<block name='search_result_list' template='catalog/product/list.phtml' type='catalog/product_list'>
+					<block name='product_list_toolbar' template='catalog/product/list/toolbar.phtml'
+						   type='catalog/product_list_toolbar'>
+						<block name='product_list_toolbar_pager' type='page/html_pager'/>
 					</block>
 					<action method='addColumnCountLayoutDepend'>
 						<count>6</count>
@@ -160,7 +160,7 @@
 		<remove name='right'/>
 		<remove name='left'/>
 		<reference name='head'>
-			<action method='setTitle' translate='title' module='catalogsearch'>
+			<action method='setTitle' module='catalogsearch' translate='title'>
 				<title>Search Terms</title>
 			</action>
 		</reference>
@@ -170,7 +170,7 @@
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='catalogsearch/term' name='seo.searchterm' template='catalogsearch/term.phtml'/>
+			<block name='seo.searchterm' template='catalogsearch/term.phtml' type='catalogsearch/term'/>
 		</reference>
 	</catalogsearch_term_popular>
 </layout>
