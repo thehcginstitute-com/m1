@@ -358,9 +358,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						</action>
 						<block name='order_item_extra_info' type='core/text_list'/>
 					</block>
-					<block name='invoice_tracking'
+					<block
+						name='invoice_tracking'
 						template='sales/order/shipment/create/tracking.phtml'
-						type='adminhtml/sales_order_invoice_create_tracking'></block>
+						type='adminhtml/sales_order_invoice_create_tracking'
+					/>
 					<block name='order_comments'
 						template='sales/order/comments/view.phtml'
 						type='adminhtml/sales_order_comments_view'>
