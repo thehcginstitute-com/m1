@@ -480,9 +480,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_creditmemo_updateqty>
 	<adminhtml_sales_order_creditmemo_addcomment>
 		<block name='creditmemo_comments' type='adminhtml/sales_order_creditmemo_view_comments'>
-			<block name='order_comments'
-				template='sales/order/comments/view.phtml'
-				type='adminhtml/sales_order_comments_view'></block>
+			<block name='order_comments' template='sales/order/comments/view.phtml' type='adminhtml/sales_order_comments_view'/>
 		</block>
 	</adminhtml_sales_order_creditmemo_addcomment>
 	<adminhtml_sales_order_creditmemo_view>
