@@ -4,11 +4,9 @@
 		<reference name='top.links'>
 			<action method='addLink' translate='label title' module='persistent'>
 				<label helper='persistent/getPersistentName'/>
-				<url helper='persistent/getUnsetCookieUrl'/>
-				<title helper='persistent/getPersistentName'/>
-				<prepare/>
-				<urlParams/>
 				<position>9</position>
+				<title helper='persistent/getPersistentName'/>
+				<url helper='persistent/getUnsetCookieUrl'/>
 			</action>
 		</reference>
 	</customer_logged_out_psc_handle>
