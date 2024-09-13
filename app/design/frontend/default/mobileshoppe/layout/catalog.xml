@@ -354,8 +354,12 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 	<PRODUCT_TYPE_virtual module='catalog' translate='label'>
 		<label>Catalog Product View (Virtual)</label>
 		<reference name='product.info'>
-			<block as='product_type_data' name='product.info.virtual' template='catalog/product/view/type/default.phtml'
-				   type='catalog/product_view_type_virtual'>
+			<block
+				as='product_type_data'
+				name='product.info.virtual'
+				template='catalog/product/view/type/default.phtml'
+				type='catalog/product_view_type_virtual'
+			>
 				<block as='product_type_data_extra' name='product.info.virtual.extra' translate='label' type='core/text_list'>
 					<label>Product Extra Info</label>
 				</block>
