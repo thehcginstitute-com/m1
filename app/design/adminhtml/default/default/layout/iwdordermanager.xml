@@ -148,8 +148,12 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 		</reference>
 	</adminhtml_sales_order_view>
 	<adminhtml_sales_order_addcomment>
-		<block name='order_history' output='toHtml' template='iwd/ordermanager/history/order.phtml'
-			type='adminhtml/sales_order_view_history'/>
+		<block
+			name='order_history'
+			output='toHtml'
+			template='iwd/ordermanager/history/order.phtml'
+			type='adminhtml/sales_order_view_history'
+		/>
 	</adminhtml_sales_order_addcomment>
 	<ordermanager_invoice_fee_total_handle>
 		<reference name='invoice_totals'>
