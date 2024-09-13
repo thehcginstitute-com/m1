@@ -389,8 +389,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						template='sales/order/view/info.phtml'
 						type='adminhtml/sales_order_view_info'
 					/>
-					<block name='order_payment'
-						type='adminhtml/sales_order_payment'></block>
+					<block name='order_payment' type='adminhtml/sales_order_payment'/>
 					<block name='order_items'
 						template='sales/order/creditmemo/create/items.phtml'
 						type='adminhtml/sales_order_creditmemo_create_items'>
