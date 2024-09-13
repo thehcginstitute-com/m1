@@ -235,7 +235,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</newsletter_template_preview_switcher>
 	<newsletter_queue_preview>
 		<block name='root' output='toHtml' template='newsletter/queue/preview.phtml' type='core/template'>
-			<block as='content' name='content' type='adminhtml/newsletter_queue_preview'></block>
+			<block as='content' name='content' type='adminhtml/newsletter_queue_preview'/>
 		</block>
 	</newsletter_queue_preview>
 	<alert_preview>
