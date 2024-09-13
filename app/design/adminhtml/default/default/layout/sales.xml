@@ -1092,9 +1092,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_create_load_block_sidebar_cart>
 	<adminhtml_sales_order_create_load_block_sidebar_wishlist>
 		<reference name='content'>
-			<block name='sidebar_wishlist'
+			<block
+				name='sidebar_wishlist'
 				template='sales/order/create/sidebar/items.phtml'
-				type='adminhtml/sales_order_create_sidebar_wishlist'/>
+				type='adminhtml/sales_order_create_sidebar_wishlist'
+			/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_wishlist>
 	<adminhtml_sales_order_create_load_block_sidebar_reorder>
