@@ -313,15 +313,21 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 	</IWD_OM_ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE>
 	<IWD_OM_PRODUCT_TYPE_configurable>
 		<reference name='product.composite.fieldset'>
-			<block before='product.composite.fieldset.options' name='product.composite.fieldset.configurable'
+			<block
+				before='product.composite.fieldset.options'
+				name='product.composite.fieldset.configurable'
 				template='iwd/ordermanager/catalog/product/composite/fieldset/configurable.phtml'
-				type='adminhtml/catalog_product_composite_fieldset_configurable'/>
+				type='adminhtml/catalog_product_composite_fieldset_configurable'
+			/>
 		</reference>
 	</IWD_OM_PRODUCT_TYPE_configurable>
 	<adminhtml_sales_order_create_load_block_data>
 		<reference name='data'>
-			<block name='iwd_om_custom_fee' template='iwd/ordermanager/custom/fee.phtml'
-				type='iwd_ordermanager/adminhtml_sales_order_create_fee'/>
+			<block
+				name='iwd_om_custom_fee'
+				template='iwd/ordermanager/custom/fee.phtml'
+				type='iwd_ordermanager/adminhtml_sales_order_create_fee'
+			/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_data>
 	<adminhtml_sales_order_create_index>
