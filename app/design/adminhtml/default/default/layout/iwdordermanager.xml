@@ -106,9 +106,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<update handle='font_awesome_handle'/>
 		<update handle='ordermanager_handle'/>
 		<reference name='head'>
-			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-			https://github.com/thehcginstitute-com/m1/issues/680 -->
+	<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
+	https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'>
 				<name>mage/adminhtml/giftmessage.js</name>
 			</action>
