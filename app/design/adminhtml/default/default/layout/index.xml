@@ -14,8 +14,8 @@
 		<reference name='left'>
 			<block name='index_edit_tabs' type='index/adminhtml_process_edit_tabs'>
 				<action method='addTab'>
-					<name>main_section</name>
 					<block>index/adminhtml_process_edit_tab_main</block>
+					<name>main_section</name>
 				</action>
 			</block>
 		</reference>
