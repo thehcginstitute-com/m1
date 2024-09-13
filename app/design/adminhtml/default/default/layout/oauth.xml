@@ -85,7 +85,11 @@
 		<update handle='oauth_root_handle'/>
 		<label>OAuth authorization for admin</label>
 		<reference name='content'>
-			<block name='oauth.authorize.form' template='oauth/authorize/form/login.phtml' type='oauth/adminhtml_oauth_authorize'/>
+			<block
+				name='oauth.authorize.form'
+				template='oauth/authorize/form/login.phtml'
+				type='oauth/adminhtml_oauth_authorize'
+			/>
 			<block
 				name='oauth.authorize.button'
 				template='oauth/authorize/button.phtml'
