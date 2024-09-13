@@ -124,8 +124,12 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 		</reference>
 		<reference name='content'>
 			<block name='product.info' template='catalog/product/view.phtml' type='catalog/product_view'>
-				<block as='media' name='product.info.media' template='catalog/product/view/media.phtml'
-					   type='catalog/product_view_media'/>
+				<block
+					as='media'
+					name='product.info.media'
+					template='catalog/product/view/media.phtml'
+					type='catalog/product_view_media'
+				/>
 				<block as='alert_urls' name='alert.urls' translate='label' type='core/text_list'>
 					<label>Alert Urls</label>
 				</block>
