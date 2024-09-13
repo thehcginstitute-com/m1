@@ -90,8 +90,11 @@
 		</reference>
 		<reference name='items_grid'>
 			<block name='popup_window' template='giftmessage/popup.phtml' type='adminhtml/template'>
-				<block name='gift_options_form' template='giftmessage/giftoptionsform.phtml'
-					type='giftmessage/adminhtml_sales_order_create_form'/>
+				<block
+					name='gift_options_form'
+					template='giftmessage/giftoptionsform.phtml'
+					type='giftmessage/adminhtml_sales_order_create_form'
+				/>
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_items>
