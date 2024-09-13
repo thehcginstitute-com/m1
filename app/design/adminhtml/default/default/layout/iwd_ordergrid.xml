@@ -47,16 +47,15 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				   template="iwd/ordergrid/grid/init.phtml"/>
 		</reference>
 	</ordergrid_order_grid_handle>
-
 	<ordergrid_order_totals_handle>
 		<reference name="head">
 			<action method="addCss" ifconfig="iwd_ordermanager/grid_order/order_totals_enable">
 				<name>iwd/ordergrid/totals.css</name>
 			</action>
 			<action method="addJs" ifconfig="iwd_ordermanager/grid_order/order_totals_enable">
-				<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-				https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<name>iwd/ordergrid/totals.js</name>
 			</action>
 		</reference>
