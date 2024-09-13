@@ -86,9 +86,9 @@
 				<type>msrp</type>
 			</action>
 			<action method='addPriceBlockType'>
-				<type>msrp_item</type>
 				<block>catalog/product_price</block>
 				<template>catalog/product/price_msrp_item.phtml</template>
+				<type>msrp_item</type>
 			</action>
 			<action method='addPriceBlockType'>
 				<type>msrp_noform</type>
