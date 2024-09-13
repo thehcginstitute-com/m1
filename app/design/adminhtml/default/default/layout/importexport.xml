@@ -20,8 +20,13 @@
 		</reference>
 	</adminhtml_import_index>
 	<adminhtml_import_validate>
-		<block alias='import_frame_result' name='import.frame.result'
-			output='toHtml' template='importexport/import/frame/result.phtml' type='importexport/adminhtml_import_frame_result'/>
+		<block
+			alias='import_frame_result'
+			name='import.frame.result'
+			output='toHtml'
+			template='importexport/import/frame/result.phtml'
+			type='importexport/adminhtml_import_frame_result'
+		/>
 	</adminhtml_import_validate>
 	<adminhtml_import_start>
 		<block alias='import_frame_result' name='import.frame.result'
