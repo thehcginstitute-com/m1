@@ -761,9 +761,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_create_load_block_plain>
 	<adminhtml_sales_order_create_load_block_data>
 		<reference name='content'>
-			<block name='data'
-				template='sales/order/create/data.phtml'
-				type='adminhtml/sales_order_create_data'>
+			<block name='data' template='sales/order/create/data.phtml' type='adminhtml/sales_order_create_data'>
 				<block name='sidebar'
 					template='sales/order/create/sidebar.phtml'
 					type='adminhtml/sales_order_create_sidebar'>
