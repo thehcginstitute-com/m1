@@ -702,8 +702,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							template='sales/order/create/abstract.phtml'
 							type='adminhtml/sales_order_create_search'
 						>
-							<block name='grid'
-								type='adminhtml/sales_order_create_search_grid'/>
+							<block name='grid' type='adminhtml/sales_order_create_search_grid'/>
 						</block>
 						<block name='items'
 							template='sales/order/create/items.phtml'
