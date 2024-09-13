@@ -162,10 +162,18 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 					</action>
 				</block>
 				<block as='product_additional_data' name='product.info.additional' type='catalog/product_view_additional'/>
-				<block as='addto' name='product.info.addto' template='catalog/product/view/addto.phtml'
-					   type='catalog/product_view'/>
-				<block as='addtocart' name='product.info.addtocart' template='catalog/product/view/addtocart.phtml'
-					   type='catalog/product_view'/>
+				<block
+					as='addto'
+					name='product.info.addto'
+					template='catalog/product/view/addto.phtml'
+					type='catalog/product_view'
+				/>
+				<block
+					as='addtocart'
+					name='product.info.addtocart'
+					template='catalog/product/view/addtocart.phtml'
+					type='catalog/product_view'
+				/>
 				<block as='extrahint' name='product.info.extrahint' translate='label' type='core/text_list'>
 					<label>Product View Extra Hint</label>
 				</block>
