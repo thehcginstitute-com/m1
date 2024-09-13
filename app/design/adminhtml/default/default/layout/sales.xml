@@ -247,9 +247,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							<type>invoice</type>
 						</action>
 					</block>
-					<block name='invoice_totals'
+					<block
+						name='invoice_totals'
 						template='sales/order/totals.phtml'
-						type='adminhtml/sales_order_invoice_totals'>
+						type='adminhtml/sales_order_invoice_totals'
+					>
 						<block name='tax'
 							template='sales/order/totals/tax.phtml'
 							type='adminhtml/sales_order_totals_tax'/>
