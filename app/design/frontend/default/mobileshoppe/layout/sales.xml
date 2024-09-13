@@ -184,9 +184,9 @@
 				<path>*/*/invoice</path>
 			</action>
 			<action method='addLink' translate='label' module='sales'>
+				<label>Shipments</label>
 				<name>shipment</name>
 				<path></path>
-				<label>Shipments</label>
 			</action>
 			<action method='addLink' translate='label' module='sales'>
 				<name>creditmemo</name>
