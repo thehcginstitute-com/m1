@@ -15,9 +15,9 @@
 	<customer_account>
 		<reference name='customer_account_navigation'>
 			<action method='addLink' translate='label' module='wishlist' ifconfig='wishlist/general/active'>
+				<label>My Wishlist</label>
 				<name>wishlist</name>
 				<path>wishlist/</path>
-				<label>My Wishlist</label>
 			</action>
 		</reference>
 	</customer_account>
