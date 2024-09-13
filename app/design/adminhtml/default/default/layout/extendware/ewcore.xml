@@ -14,9 +14,9 @@
 			</action>
 		</reference>
 		<reference name="js">
-			<block type="ewcore/adminhtml_page_footer_guide" name="ewcore_guide"
-				template="extendware/ewcore/page/footer/guide.phtml" after="-"/>
-			<block type="core/template" name="ewcore_demo" template="extendware/ewcore/page/footer/demo.phtml" after="-"/>
+			<block after="-" name="ewcore_guide"
+				template="extendware/ewcore/page/footer/guide.phtml" type="ewcore/adminhtml_page_footer_guide"/>
+			<block after="-" name="ewcore_demo" template="extendware/ewcore/page/footer/demo.phtml" type="core/template"/>
 		</reference>
 	</default>
 	<default>
@@ -39,14 +39,14 @@
 				<type>skin_css</type>
 			</action>
 		</reference>
-		<update handle="admin_menu_highlight_handle" ewifhelper="ewcore/layout/isAdminMenuHighlightingEnabled"/>
+		<update ewifhelper="ewcore/layout/isAdminMenuHighlightingEnabled" handle="admin_menu_highlight_handle"/>
 		<reference name="notifications">
-			<block type="ewcore/adminhtml_notification_toolbar" name="ewcore_notification_toolbar"
-				acl="system/adminnotification/show_toolbar" template="extendware/ewcore/notification/toolbar.phtml"
-				after="notification_toolbar"/>
+			<block acl="system/adminnotification/show_toolbar" after="notification_toolbar"
+				name="ewcore_notification_toolbar" template="extendware/ewcore/notification/toolbar.phtml"
+				type="ewcore/adminhtml_notification_toolbar"/>
 		</reference>
 		<reference name="before_body_end">
-			<block type="ewcore/adminhtml_page_footer_tasks" name="ewcore_page_footer_tasks" after="-"/>
+			<block after="-" name="ewcore_page_footer_tasks" type="ewcore/adminhtml_page_footer_tasks"/>
 		</reference>
 	</default>
 	<admin_menu_highlight_handle>
