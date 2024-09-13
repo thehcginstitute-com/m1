@@ -136,8 +136,12 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 				<action method='setTierPriceTemplate'>
 					<template>catalog/product/view/tierprices.phtml</template>
 				</action>
-				<block as='info_tabs' name='product.info.tabs' template='catalog/product/view/tabs.phtml'
-					   type='catalog/product_view_tabs'>
+				<block
+					as='info_tabs'
+					name='product.info.tabs'
+					template='catalog/product/view/tabs.phtml'
+					type='catalog/product_view_tabs'
+				>
 					<action method='addTab' module='catalog' translate='title'>
 						<alias>description</alias>
 						<title>Product Description</title>
