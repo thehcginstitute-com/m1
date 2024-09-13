@@ -946,9 +946,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_create_load_block_sidebar>
 	<adminhtml_sales_order_create_load_block_form_account>
 		<reference name='content'>
-			<block name='form_account'
+			<block
+				name='form_account'
 				template='sales/order/create/form/account.phtml'
-				type='adminhtml/sales_order_create_form_account'/>
+				type='adminhtml/sales_order_create_form_account'
+			/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_form_account>
 	<adminhtml_sales_order_create_load_block_shipping_address>
