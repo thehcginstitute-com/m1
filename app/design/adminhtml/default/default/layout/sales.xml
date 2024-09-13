@@ -17,13 +17,13 @@
 			output='toHtml'
 			type='adminhtml/sales_transactions_grid'></block>
 	</adminhtml_sales_order_transactions>
-	<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
 	<adminhtml_sales_order_view>
 		<reference name='head'>
-			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-			https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'>
 				<name>mage/adminhtml/giftmessage.js</name>
 			</action>
