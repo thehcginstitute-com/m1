@@ -227,10 +227,16 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='store_switcher' template='store/switcher.phtml' type='adminhtml/store_switcher'/>
 			<block name='attributes_tabs' type='adminhtml/catalog_product_edit_action_attribute_tabs'>
 				<block name='tab_attributes' type='adminhtml/catalog_product_edit_action_attribute_tab_attributes'/>
-				<block name='tab_inventory' template='catalog/product/edit/action/inventory.phtml'
-					   type='adminhtml/catalog_product_edit_action_attribute_tab_inventory'/>
-				<block name='tab_websites' template='catalog/product/edit/action/websites.phtml'
-					   type='adminhtml/catalog_product_edit_action_attribute_tab_websites'/>
+				<block
+					name='tab_inventory'
+					template='catalog/product/edit/action/inventory.phtml'
+					type='adminhtml/catalog_product_edit_action_attribute_tab_inventory'
+				/>
+				<block
+					name='tab_websites'
+					template='catalog/product/edit/action/websites.phtml'
+					type='adminhtml/catalog_product_edit_action_attribute_tab_websites'
+				/>
 				<action method='addTab'>
 					<name>attributes</name>
 					<block>tab_attributes</block>
