@@ -1214,9 +1214,7 @@ Once timezone is changed, the lifetime statistics need to be refreshed.</message
 				template='report/grid/container.phtml'
 				type='adminhtml/report_sales_shipping'
 			>
-				<block name='store.switcher'
-					template='report/store/switcher/enhanced.phtml'
-					type='adminhtml/store_switcher'>
+				<block name='store.switcher' template='report/store/switcher/enhanced.phtml' type='adminhtml/store_switcher'>
 					<action method='setStoreVarName'>
 						<var_name>store_ids</var_name>
 					</action>
