@@ -44,8 +44,12 @@
 	</adminhtml_import_busy>
 	<adminhtml_export_index>
 		<reference name='content'>
-			<block alias='form_before' name='export.form.before' template='importexport/export/form/before.phtml'
-				type='adminhtml/template'/>
+			<block
+				alias='form_before'
+				name='export.form.before'
+				template='importexport/export/form/before.phtml'
+				type='adminhtml/template'
+			/>
 			<block name='export.form.container' type='importexport/adminhtml_export_edit'/>
 			<block alias='form_after' name='export.form.after' template='importexport/export/form/after.phtml'
 				type='adminhtml/template'/>
