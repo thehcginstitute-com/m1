@@ -117,13 +117,12 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
 
     /**
      * Add block to link list
-     *
-     * @param string $blockName
-     * @return $this
+     * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
      */
-    function addLinkBlock($blockName)
-    {
-        $block = $this->getLayout()->getBlock($blockName);
+    function addLinkBlock(string $name):self {
+        $block = $this->getLayout()->getBlock($name);
         if ($block) {
             $position = (int)$block->getPosition();
             $this->_addIntoPosition($block, $position);
