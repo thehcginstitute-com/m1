@@ -467,9 +467,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 	<catalog_seo_sitemap_product translate='label'>
 		<label>Catalog Seo Sitemap (Product List)</label>
 		<reference name='head'>
-			<action method='setTitle' module='catalog' translate='title'>
-				<title>Site Map</title>
-			</action>
+			<action method='setTitle' module='catalog' translate='title'><title>Site Map</title></action>
 		</reference>
 		<update handle='catalog_seo_sitemap'/>
 		<reference name='seo.sitemap.container'>
