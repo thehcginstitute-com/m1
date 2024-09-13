@@ -17,8 +17,7 @@
 	</adminhtml_mailchimpstores_grid>
 	<adminhtml_mailchimpstores_index>
 		<reference name='content'>
-			<block name='mailchimp_mailchimpstores.grid.container'
-				type='mailchimp/adminhtml_mailchimpstores'/>
+			<block name='mailchimp_mailchimpstores.grid.container' type='mailchimp/adminhtml_mailchimpstores'/>
 		</reference>
 	</adminhtml_mailchimpstores_index>
 	<adminhtml_mergevars_addmergevar>
