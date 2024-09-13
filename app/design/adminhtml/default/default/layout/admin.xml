@@ -25,7 +25,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			/>
 		</reference>
 	</adminhtml_permissions_user_edit>
-	<!-- admin permissions block edit page -->
 	<adminhtml_permissions_block_edit>
 		<reference name='content'>
 			<block name='adminhtml.permissions.block.edit' type='adminhtml/permissions_block_edit'/>
