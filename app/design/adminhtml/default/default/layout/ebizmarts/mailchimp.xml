@@ -67,9 +67,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_creditmemo_new>
 	<default>
 		<reference name='notifications'>
-			<block name='mailchimp_notifications'
+			<block
+				name='mailchimp_notifications'
 				template='ebizmarts/mailchimp/notifications.phtml'
-				type='mailchimp/adminhtml_notifications'/>
+				type='mailchimp/adminhtml_notifications'
+			/>
 		</reference>
 		<reference name='head'>
 			<action method='addItem'>
