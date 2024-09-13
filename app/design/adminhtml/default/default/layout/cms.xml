@@ -51,12 +51,18 @@
 		</reference>
 		<reference name='content'>
 			<block name='wysiwyg_images.content' template='cms/browser/content.phtml' type='adminhtml/cms_wysiwyg_images_content'>
-				<block name='wysiwyg_images.uploader' template='media/uploader.phtml'
-					type='adminhtml/cms_wysiwyg_images_content_uploader'>
+				<block
+					name='wysiwyg_images.uploader'
+					template='media/uploader.phtml'
+					type='adminhtml/cms_wysiwyg_images_content_uploader'
+				>
 					<block name='additional_scripts' template='cms/browser/content/uploader.phtml' type='core/template'/>
 				</block>
-				<block name='wysiwyg_images.newfolder' template='cms/browser/content/newfolder.phtml'
-					type='adminhtml/cms_wysiwyg_images_content_newfolder'/>
+				<block
+					name='wysiwyg_images.newfolder'
+					template='cms/browser/content/newfolder.phtml'
+					type='adminhtml/cms_wysiwyg_images_content_newfolder'
+				/>
 			</block>
 		</reference>
 	</adminhtml_cms_wysiwyg_images_index>
