@@ -217,9 +217,9 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 					<block type='catalog/product_view_options' name='product.info.options' as='product_options'
 						   template='catalog/product/view/options.phtml'>
 						<action method='addOptionRenderer'>
-							<type>text</type>
 							<block>catalog/product_view_options_type_text</block>
 							<template>catalog/product/view/options/type/text.phtml</template>
+							<type>text</type>
 						</action>
 						<action method='addOptionRenderer'>
 							<type>file</type>
