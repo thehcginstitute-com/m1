@@ -4,8 +4,8 @@
 		<reference name='footer_links'>
 			<action method='addLink' translate='label title' module='catalog' ifconfig='catalog/seo/site_map'>
 				<label>Site Map</label>
-				<url helper='catalog/map/getCategoryUrl'/>
 				<title>Site Map</title>
+				<url helper='catalog/map/getCategoryUrl'/>
 			</action>
 		</reference>
 		<reference name='left'>
