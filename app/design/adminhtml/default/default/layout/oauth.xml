@@ -68,14 +68,8 @@
 			<action method='removeItem'><name>calendar/calendar-setup.js</name><type>js</type></action>
 			<action method='removeItem'><name>extjs/fix-defer-before.js</name><type>js</type></action>
 			<action method='removeItem'><name>extjs/ext-tree.js</name><type>js</type></action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>extjs/fix-defer.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>extjs/ext-tree-checkbox.js</name>
-			</action>
+			<action method='removeItem'><name>extjs/fix-defer.js</name><type>js</type></action>
+			<action method='removeItem'><name>extjs/ext-tree-checkbox.js</name><type>js</type></action>
 		</reference>
 	</oauth_root_handle>
 	<oauth_root_handle_simple>
