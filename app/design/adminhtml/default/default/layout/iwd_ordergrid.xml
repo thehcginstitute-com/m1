@@ -65,8 +65,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 		<reference name='content'>
-			<block name='order-grid-totals' template='iwd/ordergrid/grid/totals.phtml'
-				   type='iwd_ordergrid/adminhtml_sales_order_grid_totals'/>
+			<block
+				name='order-grid-totals'
+				template='iwd/ordergrid/grid/totals.phtml'
+				type='iwd_ordergrid/adminhtml_sales_order_grid_totals'
+			/>
 		</reference>
 	</ordergrid_order_totals_handle>
 	<adminhtml_system_config_edit>
