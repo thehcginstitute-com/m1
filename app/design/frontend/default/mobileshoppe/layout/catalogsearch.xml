@@ -67,21 +67,10 @@
 			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
 		</reference>
 		<reference name='head'>
-			<action method='setTitle' module='catalogsearch' translate='title'>
-				<title>Advanced Search</title>
-			</action>
-			<action method='addItem'>
-				<name>calendar/calendar-win2k-1.css</name>
-				<type>js_css</type>
-			</action>
-			<action method='addItem'>
-				<name>calendar/calendar.js</name>
-				<type>js</type>
-			</action>
-			<action method='addItem'>
-				<name>calendar/calendar-setup.js</name>
-				<type>js</type>
-			</action>
+			<action method='setTitle' module='catalogsearch' translate='title'><title>Advanced Search</title></action>
+			<action method='addItem'><name>calendar/calendar-win2k-1.css</name><type>js_css</type></action>
+			<action method='addItem'><name>calendar/calendar.js</name><type>js</type></action>
+			<action method='addItem'><name>calendar/calendar-setup.js</name><type>js</type></action>
 		</reference>
 		<reference name='content'>
 			<block name='catalogsearch_advanced_form' template='catalogsearch/advanced/form.phtml'
