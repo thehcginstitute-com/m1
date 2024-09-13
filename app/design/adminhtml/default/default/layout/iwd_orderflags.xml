@@ -27,7 +27,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 		<reference name='js'>
-			<block type='adminhtml/template' template='iwd/orderflags/jsinit.phtml' name='create-js'/>
+			<block name='create-js' template='iwd/orderflags/jsinit.phtml' type='adminhtml/template'/>
 		</reference>
 		<reference name='order_info'>
 			<action method='setTemplate'>
@@ -54,14 +54,14 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='iwd_orderflags/adminhtml_flags_order_grid' name='flags-init'
-				   template='iwd/orderflags/flags/grid/init.phtml'/>
+			<block name='flags-init' template='iwd/orderflags/flags/grid/init.phtml'
+				   type='iwd_orderflags/adminhtml_flags_order_grid'/>
 		</reference>
 	</orderflags_order_grid_handle>
 	<adminhtml_sales_order_grid>
 		<reference name='sales_order.grid'>
-			<block type='iwd_orderflags/adminhtml_flags_order_grid' name='iwd_om.order.grid.jsinit'
-				   template='iwd/orderflags/flags/grid/init.phtml'/>
+			<block name='iwd_om.order.grid.jsinit' template='iwd/orderflags/flags/grid/init.phtml'
+				   type='iwd_orderflags/adminhtml_flags_order_grid'/>
 		</reference>
 	</adminhtml_sales_order_grid>
 	<adminhtml_sales_order_index>
