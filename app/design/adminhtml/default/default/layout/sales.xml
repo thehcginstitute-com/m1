@@ -878,9 +878,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					template='sales/order/create/comment.phtml'
 					type='adminhtml/sales_order_create_comment'
 				/>
-				<block name='totals'
+				<block
+					name='totals'
 					template='sales/order/create/totals.phtml'
-					type='adminhtml/sales_order_create_totals'/>
+					type='adminhtml/sales_order_create_totals'
+				/>
 				<block name='gift_options'
 					template='sales/order/giftoptions.phtml'
 					type='adminhtml/template'>
