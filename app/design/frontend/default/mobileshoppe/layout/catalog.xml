@@ -222,9 +222,9 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 							<type>text</type>
 						</action>
 						<action method='addOptionRenderer'>
-							<type>file</type>
 							<block>catalog/product_view_options_type_file</block>
 							<template>catalog/product/view/options/type/file.phtml</template>
+							<type>file</type>
 						</action>
 						<action method='addOptionRenderer'>
 							<type>select</type>
