@@ -101,29 +101,12 @@
 					>
 						<block name='product_list_toolbar_pager' type='page/html_pager'/>
 					</block>
-					<action method='addColumnCountLayoutDepend'>
-						<count>6</count>
-						<layout>empty</layout>
-					</action>
-					<action method='addColumnCountLayoutDepend'>
-						<count>5</count>
-						<layout>one_column</layout>
-					</action>
-					<action method='addColumnCountLayoutDepend'>
-						<count>4</count>
-						<layout>two_columns_left</layout>
-					</action>
-					<action method='addColumnCountLayoutDepend'>
-						<count>4</count>
-						<layout>two_columns_right</layout>
-					</action>
-					<action method='addColumnCountLayoutDepend'>
-						<count>3</count>
-						<layout>three_columns</layout>
-					</action>
-					<action method='setToolbarBlockName'>
-						<name>product_list_toolbar</name>
-					</action>
+					<action method='addColumnCountLayoutDepend'><count>6</count><layout>empty</layout></action>
+					<action method='addColumnCountLayoutDepend'><count>5</count><layout>one_column</layout></action>
+					<action method='addColumnCountLayoutDepend'><count>4</count><layout>two_columns_left</layout></action>
+					<action method='addColumnCountLayoutDepend'><count>4</count><layout>two_columns_right</layout></action>
+					<action method='addColumnCountLayoutDepend'><count>3</count><layout>three_columns</layout></action>
+					<action method='setToolbarBlockName'><name>product_list_toolbar</name></action>
 				</block>
 				<action method='setListOrders'/>
 				<action method='setListModes'/>
