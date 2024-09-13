@@ -554,9 +554,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				template='sales/transactions/detail.phtml'
 				type='adminhtml/sales_transactions_detail'
 			>
-				<block as='detail_grid'
-					name='sales_transactions.detail.grid'
-					type='adminhtml/sales_transactions_detail_grid'/>
+				<block as='detail_grid' name='sales_transactions.detail.grid' type='adminhtml/sales_transactions_detail_grid'/>
 				<block as='child_grid'
 					name='sales_transactions.child.grid'
 					type='adminhtml/sales_transactions_child_grid'/>
