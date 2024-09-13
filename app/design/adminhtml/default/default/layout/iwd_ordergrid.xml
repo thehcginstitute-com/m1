@@ -88,8 +88,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_system_config_edit>
 	<adminhtml_sales_order_grid>
 		<reference name='sales_order.grid'>
-			<block name='iwd_om.order.grid.jsinit' template='iwd/ordergrid/grid/jsinit.phtml'
-				   type='iwd_ordergrid/adminhtml_sales_order_grid_init'/>
+			<block
+				name='iwd_om.order.grid.jsinit'
+				template='iwd/ordergrid/grid/jsinit.phtml'
+				type='iwd_ordergrid/adminhtml_sales_order_grid_init'
+			/>
 		</reference>
 	</adminhtml_sales_order_grid>
 	<adminhtml_sales_order_index>
