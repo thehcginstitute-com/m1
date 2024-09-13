@@ -452,8 +452,13 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 				type='catalog/seo_sitemap_tree_pager'
 			/>
 			<remove name='seo.sitemap.sitemap'/>
-			<block after='pager_top' as='sitemap' name='seo.sitemap.sitemap_tree' template='catalog/seo/tree.phtml'
-				   type='catalog/seo_sitemap_tree_category'>
+			<block
+				after='pager_top'
+				as='sitemap'
+				name='seo.sitemap.sitemap_tree'
+				template='catalog/seo/tree.phtml'
+				type='catalog/seo_sitemap_tree_category'
+			>
 				<action method='bindPager'>
 					<pager>seo.sitemap.tree.pager.top</pager>
 				</action>
