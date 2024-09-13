@@ -226,7 +226,6 @@
 			<block name='oauth.authorize.reject' template='oauth/authorize/reject-simple.phtml' type='core/template'/>
 		</reference>
 	</adminhtml_oauth_authorize_rejectsimple>
-	<!-- EOF Reject Authorization -->
 	<adminhtml_oauth_authorizedtokens_index>
 		<reference name='content'>
 			<block name='oauth_authorizedTokens' type='oauth/adminhtml_oauth_authorizedTokens'/>
