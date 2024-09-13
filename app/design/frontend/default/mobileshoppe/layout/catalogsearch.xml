@@ -4,16 +4,12 @@
 <layout version='0.1.0'>
 	<catalogsearch_result_index>
 		<reference name='head'>
-			<action method='setRobots'>
-				<value>NOINDEX,NOFOLLOW</value>
-			</action>
+			<action method='setRobots'><value>NOINDEX,NOFOLLOW</value></action>
 		</reference>
 	</catalogsearch_result_index>
 	<catalogsearch_advanced_result>
 		<reference name='head'>
-			<action method='setRobots'>
-				<value>NOINDEX,NOFOLLOW</value>
-			</action>
+			<action method='setRobots'><value>NOINDEX,NOFOLLOW</value></action>
 		</reference>
 	</catalogsearch_advanced_result>
 	<default>
@@ -37,9 +33,7 @@
 		<label>Quick Search Form</label>
 		<update handle='page_two_columns_left'/>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/2columns-left.phtml</template>
-			</action>
+			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
 		</reference>
 		<reference name='left'>
 			<block after='currency' name='catalogsearch.leftnav' template='catalog/layer/view.phtml' type='catalogsearch/layer'/>
