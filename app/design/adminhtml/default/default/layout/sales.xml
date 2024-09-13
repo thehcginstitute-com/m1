@@ -751,8 +751,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_edit_index>
 	<adminhtml_sales_order_create_load_block_json>
 		<reference name='root'>
-			<block name='content'
-				type='adminhtml/sales_order_create_load'/>
+			<block name='content' type='adminhtml/sales_order_create_load'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_json>
 	<adminhtml_sales_order_create_load_block_plain>
