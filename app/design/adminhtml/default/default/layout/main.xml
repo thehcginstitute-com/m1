@@ -12,7 +12,7 @@
 					<title>OpenMage Admin</title>
 				</action>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<action method='addJs'>
 					<name>prototype/prototype.js</name>
@@ -23,77 +23,31 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<type>js</type>
 				</action>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
-				<action method='addJs'>
-					<name>prototype/window.js</name>
-				</action>
-				<action method='addJs'>
-					<name>scriptaculous/builder.js</name>
-				</action>
-				<action method='addJs'>
-					<name>scriptaculous/effects.js</name>
-				</action>
-				<action method='addJs'>
-					<name>scriptaculous/dragdrop.js</name>
-				</action>
-				<action method='addJs'>
-					<name>scriptaculous/controls.js</name>
-				</action>
-				<action method='addJs'>
-					<name>scriptaculous/slider.js</name>
-				</action>
-				<action method='addJs'>
-					<name>lib/ccard.js</name>
-				</action>
-				<action method='addJs'>
-					<name>prototype/validation.js</name>
-				</action>
-				<action method='addJs'>
-					<name>varien/js.js</name>
-				</action>
-				<action method='addJs'>
-					<name>mage/translate.js</name>
-				</action>
-				<action method='addJs'>
-					<name>mage/adminhtml/hash.js</name>
-				</action>
-				<action method='addJs'>
-					<name>mage/adminhtml/events.js</name>
-				</action>
-				<action method='addJs'>
-					<name>mage/adminhtml/loader.js</name>
-				</action>
-				<action method='addJs'>
-					<name>mage/adminhtml/grid.js</name>
-				</action>
-				<action method='addJs'>
-					<name>mage/adminhtml/tabs.js</name>
-				</action>
-				<action method='addJs'>
-					<name>mage/adminhtml/form.js</name>
-				</action>
-				<action method='addJs'>
-					<name>mage/adminhtml/accordion.js</name>
-				</action>
-				<action method='addJs'>
-					<name>mage/adminhtml/tools.js</name>
-				</action>
-				<action method='addJs'>
-					<name>mage/adminhtml/uploader.js</name>
-				</action>
-				<action method='addJs'>
-					<name>mage/adminhtml/product.js</name>
-				</action>
-				<action method='addCss'>
-					<name>reset.css</name>
-				</action>
-				<action method='addCss'>
-					<name>boxes.css</name>
-				</action>
-				<action method='addCss'>
-					<name>custom.css</name>
-				</action>
+				<action method='addJs'><name>prototype/window.js</name></action>
+				<action method='addJs'><name>scriptaculous/builder.js</name></action>
+				<action method='addJs'><name>scriptaculous/effects.js</name></action>
+				<action method='addJs'><name>scriptaculous/dragdrop.js</name></action>
+				<action method='addJs'><name>scriptaculous/controls.js</name></action>
+				<action method='addJs'><name>scriptaculous/slider.js</name></action>
+				<action method='addJs'><name>lib/ccard.js</name></action>
+				<action method='addJs'><name>prototype/validation.js</name></action>
+				<action method='addJs'><name>varien/js.js</name></action>
+				<action method='addJs'><name>mage/translate.js</name></action>
+				<action method='addJs'><name>mage/adminhtml/hash.js</name></action>
+				<action method='addJs'><name>mage/adminhtml/events.js</name></action>
+				<action method='addJs'><name>mage/adminhtml/loader.js</name></action>
+				<action method='addJs'><name>mage/adminhtml/grid.js</name></action>
+				<action method='addJs'><name>mage/adminhtml/tabs.js</name></action>
+				<action method='addJs'><name>mage/adminhtml/form.js</name></action>
+				<action method='addJs'><name>mage/adminhtml/accordion.js</name></action>
+				<action method='addJs'><name>mage/adminhtml/tools.js</name></action>
+				<action method='addJs'><name>mage/adminhtml/uploader.js</name></action>
+				<action method='addJs'><name>mage/adminhtml/product.js</name></action>
+				<action method='addCss'><name>reset.css</name></action>
+				<action method='addCss'><name>boxes.css</name></action>
+				<action method='addCss'><name>custom.css</name></action>
 				<action method='addItem'>
 					<if>lt IE 8</if>
 					<name>iestyles.css</name>
@@ -142,7 +96,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<type>js</type>
 				</action>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<action method='addItem'>
 					<cond>can_load_ext_js</cond>
@@ -237,7 +191,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<flag>1</flag>
 			</action>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'>
 				<name>mage/adminhtml/variables.js</name>
