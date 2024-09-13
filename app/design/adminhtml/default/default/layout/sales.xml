@@ -1054,9 +1054,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_create_load_block_items>
 	<adminhtml_sales_order_create_load_block_comment>
 		<reference name='content'>
-			<block name='comment'
-				template='sales/order/create/comment.phtml'
-				type='adminhtml/sales_order_create_comment'/>
+			<block name='comment' template='sales/order/create/comment.phtml' type='adminhtml/sales_order_create_comment'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_comment>
 	<adminhtml_sales_order_create_load_block_totals>
