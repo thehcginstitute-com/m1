@@ -48,8 +48,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addCss'>
 				<name>iwd/ordermanager/fee.css</name>
 			</action>
-			<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			"Delete the Braintree support from IWD modules": https://github.com/thehcginstitute-com/m1/issues/360 -->
+<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the Braintree support from IWD modules": https://github.com/thehcginstitute-com/m1/issues/360 -->
 		</reference>
 		<reference name='js'>
 			<block name='create-js' template='iwd/ordermanager/jsinit.phtml' type='adminhtml/template'/>
