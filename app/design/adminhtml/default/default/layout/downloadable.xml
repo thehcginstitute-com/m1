@@ -5,8 +5,8 @@
 	<adminhtml_catalog_product_downloadable>
 		<reference name='product_tabs'>
 			<action method='addTab'>
-				<name>downloadable_items</name>
 				<block>downloadable/adminhtml_catalog_product_edit_tab_downloadable</block>
+				<id>downloadable_items</id>
 			</action>
 		</reference>
 	</adminhtml_catalog_product_downloadable>
