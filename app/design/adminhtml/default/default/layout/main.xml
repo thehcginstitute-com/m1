@@ -174,17 +174,13 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<remove name='header'/>
 		<remove name='menu'/>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>popup.phtml</template>
-			</action>
+			<action method='setTemplate'><template>popup.phtml</template></action>
 		</reference>
 	</popup>
 	<overlay_popup>
 		<update handle='popup'/>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>overlay_popup.phtml</template>
-			</action>
+			<action method='setTemplate'><template>overlay_popup.phtml</template></action>
 		</reference>
 	</overlay_popup>
 	<editor>
