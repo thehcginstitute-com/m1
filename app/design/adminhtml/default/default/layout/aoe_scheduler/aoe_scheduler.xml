@@ -57,8 +57,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 		<reference name='content'>
-			<block name='aoe_scheduler.cron'
-				type='aoe_scheduler/adminhtml_cron'/>
+			<block name='aoe_scheduler.cron' type='aoe_scheduler/adminhtml_cron'/>
 		</reference>
 	</adminhtml_cron_index>
 </layout>
