@@ -428,9 +428,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 								template='sales/order/creditmemo/create/totals/adjustments.phtml'
 								type='adminhtml/sales_order_creditmemo_create_adjustments'
 							/>
-							<block name='tax'
-								template='sales/order/totals/tax.phtml'
-								type='adminhtml/sales_order_totals_tax'/>
+							<block name='tax' template='sales/order/totals/tax.phtml' type='adminhtml/sales_order_totals_tax'/>
 						</block>
 						<block name='submit_before'
 							type='core/text_list'/>
