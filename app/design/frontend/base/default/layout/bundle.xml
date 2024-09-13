@@ -73,9 +73,9 @@
 		</reference>
 		<reference name='catalog_product_price_template'>
 			<action method='addPriceBlockType'>
-				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/price.phtml</template>
+				<type>bundle</type>
 			</action>
 		</reference>
 	</default>
