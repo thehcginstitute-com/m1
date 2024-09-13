@@ -98,8 +98,11 @@
 	<adminhtml_api2_attribute_edit>
 		<reference name='left'>
 			<block name='api2.attribute.edit.tabs' type='api2/adminhtml_attribute_tabs'>
-				<block name='api2.attribute.tab.resource' template='api2/attribute/resource.phtml'
-					type='api2/adminhtml_attribute_tab_resource'/>
+				<block
+					name='api2.attribute.tab.resource'
+					template='api2/attribute/resource.phtml'
+					type='api2/adminhtml_attribute_tab_resource'
+				/>
 				<action method='addTab'>
 					<name>api2_attribute_section_resources</name>
 					<block>api2.attribute.tab.resource</block>
