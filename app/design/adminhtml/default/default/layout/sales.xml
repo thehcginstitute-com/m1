@@ -1345,15 +1345,14 @@ Once timezone is changed, the lifetime statistics need to be refreshed.</message
 			</block>
 		</reference>
 	</adminhtml_report_sales_bestsellers>
-	<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	"Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
-	2024-02-21
-	1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
-	2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
+<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
+2024-02-21
+1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
+2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
 	<adminhtml_sales_order_status_index>
 		<reference name='content'>
-			<block name='sales_order_status.grid.container'
-				type='adminhtml/sales_order_status'></block>
+			<block name='sales_order_status.grid.container' type='adminhtml/sales_order_status'/>
 		</reference>
 	</adminhtml_sales_order_status_index>
 	<adminhtml_sales_order_status_new>
