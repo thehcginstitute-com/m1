@@ -1064,9 +1064,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_create_load_block_totals>
 	<adminhtml_sales_order_create_load_block_giftmessage>
 		<reference name='content'>
-			<block name='giftmessage'
+			<block
+				name='giftmessage'
 				template='sales/order/create/giftmessage.phtml'
-				type='adminhtml/sales_order_create_giftmessage'/>
+				type='adminhtml/sales_order_create_giftmessage'
+			/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_giftmessage>
 	<adminhtml_sales_order_create_load_block_message>
