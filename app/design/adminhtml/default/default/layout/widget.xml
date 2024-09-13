@@ -40,7 +40,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='js'>
-			<block name='widget_instance_js' template='widget/instance/js.phtml' type='adminhtml/template'></block>
+			<block name='widget_instance_js' template='widget/instance/js.phtml' type='adminhtml/template'/>
 		</reference>
 	</adminhtml_widget_instance_edit>
 </layout>
