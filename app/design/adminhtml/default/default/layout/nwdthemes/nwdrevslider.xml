@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <layout version="1.0.0">
-
 	<nwdrevslider_common>
 		<reference name="head">
 			<action method="setTemplate">
@@ -146,7 +145,6 @@
 			</action>
 		</reference>
 	</nwdrevslider_common>
-
 	<nwdrevslider_images_common>
 		<reference name="head">
 			<action method="addCss">
@@ -160,9 +158,9 @@
 				<type>js_css</type>
 				<name>prototype/windows/themes/default.css</name>
 			</action>
-			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-			https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method="addJs">
 				<name>extjs/ext-tree.js</name>
 			</action>
@@ -187,11 +185,9 @@
 			</action>
 		</reference>
 	</nwdrevslider_images_common>
-
 	<adminhtml_nwdrevslider_index>
 		<update handle="adminhtml_nwdrevslider_sliders"/>
 	</adminhtml_nwdrevslider_index>
-
 	<adminhtml_nwdrevslider_sliders>
 		<update handle="nwdrevslider_common"/>
 		<reference name="content">
@@ -212,7 +208,6 @@
 			</block>
 		</reference>
 	</adminhtml_nwdrevslider_sliders>
-
 	<adminhtml_nwdrevslider_slider>
 		<update handle="nwdrevslider_common"/>
 		<reference name="content">
@@ -231,7 +226,6 @@
 			</block>
 		</reference>
 	</adminhtml_nwdrevslider_slider>
-
 	<adminhtml_nwdrevslider_slidertemplate>
 		<update handle="nwdrevslider_common"/>
 		<reference name="content">
@@ -250,7 +244,6 @@
 			</block>
 		</reference>
 	</adminhtml_nwdrevslider_slidertemplate>
-
 	<adminhtml_nwdrevslider_slides>
 		<update handle="nwdrevslider_common"/>
 		<update handle="nwdrevslider_images_common"/>
@@ -268,7 +261,6 @@
 			</block>
 		</reference>
 	</adminhtml_nwdrevslider_slides>
-
 	<adminhtml_nwdrevslider_slide>
 		<update handle="nwdrevslider_common"/>
 		<update handle="nwdrevslider_images_common"/>
@@ -289,7 +281,6 @@
 			</block>
 		</reference>
 	</adminhtml_nwdrevslider_slide>
-
 	<adminhtml_images_index>
 		<remove name="footer"/>
 		<remove name="head"/>
@@ -306,17 +297,14 @@
 			</block>
 		</reference>
 	</adminhtml_images_index>
-
 	<adminhtml_images_contents>
 		<block name="wysiwyg_images.files" type="nwdrevslider/adminhtml_images_content_files"
 			   template="cms/browser/content/files.phtml" output="toHtml"/>
 	</adminhtml_images_contents>
-
 	<adminhtml_nwdrevslider_error>
 		<reference name="content">
 			<block type="adminhtml/template" name="slider_error" as="slider_error"
 				   template="nwdthemes/revslider/templates/error.phtml"/>
 		</reference>
 	</adminhtml_nwdrevslider_error>
-
 </layout>
