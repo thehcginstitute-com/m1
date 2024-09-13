@@ -396,9 +396,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 		<remove name='right'/>
 		<remove name='left'/>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/1column.phtml</template>
-			</action>
+			<action method='setTemplate'><template>page/1column.phtml</template></action>
 		</reference>
 		<reference name='content'>
 			<block name='seo.sitemap.container' template='catalog/seo/sitemap/container.phtml' type='page/template_container'>
