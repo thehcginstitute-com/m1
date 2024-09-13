@@ -106,50 +106,50 @@ class Mage_Adminhtml_Block_Widget_Tabs extends Mage_Adminhtml_Block_Widget
 	 * @param   string|array|Varien_Object $tab
 	 * @return  $this
 	 */
-	function addTab(string $tabId, $tab):self {
+	function addTab(string $id, $tab):self {
 		if (is_array($tab)) {
-			$this->_tabs[$tabId] = new Varien_Object($tab);
+			$this->_tabs[$id] = new Varien_Object($tab);
 		} elseif ($tab instanceof Varien_Object) {
-			$this->_tabs[$tabId] = $tab;
-			if (!$this->_tabs[$tabId]->hasTabId()) {
-				$this->_tabs[$tabId]->setTabId($tabId);
+			$this->_tabs[$id] = $tab;
+			if (!$this->_tabs[$id]->hasTabId()) {
+				$this->_tabs[$id]->setTabId($id);
 			}
 		} elseif (is_string($tab)) {
 			if (strpos($tab, '/')) {
-				$this->_tabs[$tabId] = $this->getLayout()->createBlock($tab);
+				$this->_tabs[$id] = $this->getLayout()->createBlock($tab);
 			} elseif ($this->getChild($tab)) {
-				$this->_tabs[$tabId] = $this->getChild($tab);
+				$this->_tabs[$id] = $this->getChild($tab);
 			} else {
-				$this->_tabs[$tabId] = null;
+				$this->_tabs[$id] = null;
 			}
 
-			if (!($this->_tabs[$tabId] instanceof Mage_Adminhtml_Block_Widget_Tab_Interface)) {
+			if (!($this->_tabs[$id] instanceof Mage_Adminhtml_Block_Widget_Tab_Interface)) {
 				throw new Exception(Mage::helper('adminhtml')->__('Wrong tab configuration.'));
 			}
 		} else {
 			throw new Exception(Mage::helper('adminhtml')->__('Wrong tab configuration.'));
 		}
 
-		if (is_null($this->_tabs[$tabId]->getUrl())) {
-			$this->_tabs[$tabId]->setUrl('#');
+		if (is_null($this->_tabs[$id]->getUrl())) {
+			$this->_tabs[$id]->setUrl('#');
 		}
 
-		if (!$this->_tabs[$tabId]->getTitle()) {
-			$this->_tabs[$tabId]->setTitle($this->_tabs[$tabId]->getLabel());
+		if (!$this->_tabs[$id]->getTitle()) {
+			$this->_tabs[$id]->setTitle($this->_tabs[$id]->getLabel());
 		}
 
-		$this->_tabs[$tabId]->setId($tabId);
-		$this->_tabs[$tabId]->setTabId($tabId);
+		$this->_tabs[$id]->setId($id);
+		$this->_tabs[$id]->setTabId($id);
 
-		if ($this->_tabs[$tabId]->getActive() === true) {
-			$this->setActiveTab($tabId);
+		if ($this->_tabs[$id]->getActive() === true) {
+			$this->setActiveTab($id);
 		}
 
 		// For sorting tabs.
-		$this->_tabPositions[$tabId] = $this->_tabPosition;
+		$this->_tabPositions[$id] = $this->_tabPosition;
 		$this->_tabPosition += 100;
-		if ($this->_tabs[$tabId]->getAfter()) {
-			$this->_afterTabIds[$tabId] = $this->_tabs[$tabId]->getAfter();
+		if ($this->_tabs[$id]->getAfter()) {
+			$this->_afterTabIds[$id] = $this->_tabs[$id]->getAfter();
 		}
 
 		return $this;
