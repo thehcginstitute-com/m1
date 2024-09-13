@@ -253,15 +253,12 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Wishlist extends Mage_Adminhtml_Blo
 
 	/**
 	 * Adds product type helper depended on product type (used to show options in item cell)
-	 *
-	 * @param string $productType
-	 * @param string $helperName
-	 *
-	 * @return $this
+     * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function addProductConfigurationHelper($productType, $helperName)
-	{
-		$this->_productHelpers[$productType] = $helperName;
+	final function addProductConfigurationHelper(string $type, string $name):self {
+		$this->_productHelpers[$type] = $name;
 		return $this;
 	}
 
