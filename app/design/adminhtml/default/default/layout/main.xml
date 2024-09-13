@@ -31,14 +31,14 @@ Supported layout update handles (special):
 	Form key for inserting into various forms
 	-->
 	<formkey>
-		<block type="core/template" name="formkey" as="formkey" template="formkey.phtml"/>
+		<block as="formkey" name="formkey" template="formkey.phtml" type="core/template"/>
 	</formkey>
 	<!--
 	Default layout, loads most of the pages
 	-->
 	<default>
-		<block type="adminhtml/page" name="root" output="toHtml" template="page.phtml">
-			<block type="adminhtml/page_head" name="head" as="head" template="page/head.phtml">
+		<block name="root" output="toHtml" template="page.phtml" type="adminhtml/page">
+			<block as="head" name="head" template="page/head.phtml" type="adminhtml/page_head">
 				<action method="setTitle" translate="title">
 					<title>OpenMage Admin</title>
 				</action>
@@ -210,31 +210,31 @@ Supported layout update handles (special):
 					<name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name>
 					<type>js</type>
 				</action>
-				<block type="core/html_calendar" name="head.calendar" as="calendar" template="page/js/calendar.phtml"/>
+				<block as="calendar" name="head.calendar" template="page/js/calendar.phtml" type="core/html_calendar"/>
 			</block>
-			<block type="adminhtml/page_notices" name="global_notices" as="global_notices" template="page/notices.phtml"/>
-			<block type="adminhtml/page_header" name="header" as="header"></block>
-			<block type="adminhtml/page_menu" name="menu" as="menu"></block>
-			<block type="core/text_list" name="notifications" as="notifications">
-				<block type="adminhtml/notification_baseurl" name="notification_baseurl" as="notification_baseurl"
-					template="notification/baseurl.phtml"></block>
-				<block type="adminhtml/cache_notifications" name="cache_notifications"
-					template="system/cache/notifications.phtml"></block>
-				<block type="adminhtml/notification_security" name="notification_security" as="notification_security"
-					template="notification/security.phtml"></block>
-				<block type="adminhtml/checkout_formkey" name="checkout_formkey" as="checkout_formkey"
-					template="notification/formkey.phtml"/>
+			<block as="global_notices" name="global_notices" template="page/notices.phtml" type="adminhtml/page_notices"/>
+			<block as="header" name="header" type="adminhtml/page_header"></block>
+			<block as="menu" name="menu" type="adminhtml/page_menu"></block>
+			<block as="notifications" name="notifications" type="core/text_list">
+				<block as="notification_baseurl" name="notification_baseurl" template="notification/baseurl.phtml"
+					type="adminhtml/notification_baseurl"></block>
+				<block name="cache_notifications" template="system/cache/notifications.phtml"
+					type="adminhtml/cache_notifications"></block>
+				<block as="notification_security" name="notification_security" template="notification/security.phtml"
+					type="adminhtml/notification_security"></block>
+				<block as="checkout_formkey" name="checkout_formkey" template="notification/formkey.phtml"
+					type="adminhtml/checkout_formkey"/>
 			</block>
-			<block type="adminhtml/widget_breadcrumbs" name="breadcrumbs" as="breadcrumbs"></block>
+			<block as="breadcrumbs" name="breadcrumbs" type="adminhtml/widget_breadcrumbs"></block>
 			<!--<update handle="formkey"/> this won't work, see the try/catch and a jammed exception in Mage_Core_Model_Layout::createBlock() -->
-			<block type="core/template" name="formkey" as="formkey" template="formkey.phtml"/>
+			<block as="formkey" name="formkey" template="formkey.phtml" type="core/template"/>
 			<!-- deprecated since 1.7.0.0 see Mage_Page_Block_Js_Translate -->
-			<block type="page/js_translate" name="js_translate" as="js_translate" template="page/js/translate.phtml"/>
-			<block type="core/text_list" name="left" as="left"/>
-			<block type="core/text_list" name="content" as="content"/>
-			<block type="core/messages" name="messages" as="messages"/>
-			<block type="core/text_list" name="js" as="js"/>
-			<block type="adminhtml/page_footer" name="footer" as="footer">
+			<block as="js_translate" name="js_translate" template="page/js/translate.phtml" type="page/js_translate"/>
+			<block as="left" name="left" type="core/text_list"/>
+			<block as="content" name="content" type="core/text_list"/>
+			<block as="messages" name="messages" type="core/messages"/>
+			<block as="js" name="js" type="core/text_list"/>
+			<block as="footer" name="footer" type="adminhtml/page_footer">
 				<action method="setOpenMageProjectUrl">
 					<url>https://www.openmage.org</url>
 				</action>
@@ -242,8 +242,8 @@ Supported layout update handles (special):
 					<url>https://github.com/OpenMage/magento-lts/issues</url>
 				</action>
 			</block>
-			<block type="core/profiler" name="profiler" as="profiler"/>
-			<block type="core/text_list" name="before_body_end" as="before_body_end"/>
+			<block as="profiler" name="profiler" type="core/profiler"/>
+			<block as="before_body_end" name="before_body_end" type="core/text_list"/>
 		</block>
 	</default>
 	<!--
@@ -319,8 +319,8 @@ Supported layout update handles (special):
 	-->
 	<adminhtml_noroute>
 		<reference name="content">
-			<block type="core/text" name="content.noRoute">
-				<action method="setText" translate="text" module="adminhtml">
+			<block name="content.noRoute" type="core/text">
+				<action method="setText" module="adminhtml" translate="text">
 					<text><![CDATA[<h1 class="page-heading">404 Error</h1><p>Page not found.</p>]]></text>
 				</action>
 			</block>
@@ -331,75 +331,75 @@ Supported layout update handles (special):
 	-->
 	<adminhtml_denied>
 		<reference name="content">
-			<block type="adminhtml/denied" name="content.denied" template="access_denied.phtml"/>
+			<block name="content.denied" template="access_denied.phtml" type="adminhtml/denied"/>
 		</reference>
 	</adminhtml_denied>
 	<!--
 	Base preview layout (?)
 	-->
 	<preview>
-		<block type="core/template" name="root" output="toHtml" template="newsletter/template/preview.phtml">
-			<block type="adminhtml/newsletter_template_preview" name="content" as="content"></block>
+		<block name="root" output="toHtml" template="newsletter/template/preview.phtml" type="core/template">
+			<block as="content" name="content" type="adminhtml/newsletter_template_preview"></block>
 		</block>
 	</preview>
 	<newsletter_template_preview>
-		<block type="core/template" name="root" output="toHtml" template="newsletter/template/preview.phtml">
-			<block type="adminhtml/newsletter_template_preview" name="content" as="content"></block>
+		<block name="root" output="toHtml" template="newsletter/template/preview.phtml" type="core/template">
+			<block as="content" name="content" type="adminhtml/newsletter_template_preview"></block>
 		</block>
 	</newsletter_template_preview>
 	<newsletter_template_preview_switcher>
-		<block type="core/template" name="root" output="toHtml" template="newsletter/template/preview/iframeswitcher.phtml">
-			<block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher"/>
-			<block type="adminhtml/newsletter_template_preview_form" name="preview_form"/>
+		<block name="root" output="toHtml" template="newsletter/template/preview/iframeswitcher.phtml" type="core/template">
+			<block as="store_switcher" name="store_switcher" type="adminhtml/store_switcher"/>
+			<block name="preview_form" type="adminhtml/newsletter_template_preview_form"/>
 		</block>
 	</newsletter_template_preview_switcher>
 	<newsletter_queue_preview>
-		<block type="core/template" name="root" output="toHtml" template="newsletter/queue/preview.phtml">
-			<block type="adminhtml/newsletter_queue_preview" name="content" as="content"></block>
+		<block name="root" output="toHtml" template="newsletter/queue/preview.phtml" type="core/template">
+			<block as="content" name="content" type="adminhtml/newsletter_queue_preview"></block>
 		</block>
 	</newsletter_queue_preview>
 	<!--
 	Base customer alerts preview layout (?)
 	-->
 	<alert_preview>
-		<block type="core/template" name="root" output="toHtml" template="alert/template/preview.phtml">
-			<block type="adminhtml/alert_template_preview" name="content" as="content"></block>
+		<block name="root" output="toHtml" template="alert/template/preview.phtml" type="core/template">
+			<block as="content" name="content" type="adminhtml/alert_template_preview"></block>
 		</block>
 	</alert_preview>
 	<!--
 	Base preview layout
 	-->
 	<systemPreview>
-		<block type="core/template" name="root" output="toHtml" template="system/email/template/preview.phtml">
-			<block type="adminhtml/system_email_template_preview" name="content" as="content"></block>
+		<block name="root" output="toHtml" template="system/email/template/preview.phtml" type="core/template">
+			<block as="content" name="content" type="adminhtml/system_email_template_preview"></block>
 		</block>
 	</systemPreview>
 	<adminhtml_dashboard_customersmost>
-		<block type="core/text_list" name="root" output="toHtml">
-			<block type="adminhtml/dashboard_tab_customers_most" name="adminhtml.dashboard.tab.customers.most"/>
+		<block name="root" output="toHtml" type="core/text_list">
+			<block name="adminhtml.dashboard.tab.customers.most" type="adminhtml/dashboard_tab_customers_most"/>
 		</block>
 	</adminhtml_dashboard_customersmost>
 	<adminhtml_dashboard_customersnewest>
-		<block type="core/text_list" name="root" output="toHtml">
-			<block type="adminhtml/dashboard_tab_customers_newest" name="adminhtml.dashboard.tab.customers.newest"/>
+		<block name="root" output="toHtml" type="core/text_list">
+			<block name="adminhtml.dashboard.tab.customers.newest" type="adminhtml/dashboard_tab_customers_newest"/>
 		</block>
 	</adminhtml_dashboard_customersnewest>
 	<adminhtml_dashboard_productsviewed>
-		<block type="core/text_list" name="root" output="toHtml">
-			<block type="adminhtml/dashboard_tab_products_viewed" name="adminhtml.dashboard.tab.products.viewed"/>
+		<block name="root" output="toHtml" type="core/text_list">
+			<block name="adminhtml.dashboard.tab.products.viewed" type="adminhtml/dashboard_tab_products_viewed"/>
 		</block>
 	</adminhtml_dashboard_productsviewed>
 	<adminhtml_index_login>
-		<block type="core/text_list" name="root" output="toHtml">
-			<block type="adminhtml/template" name="content" template="login.phtml">
-				<block type="core/text_list" name="form.additional.info"/>
+		<block name="root" output="toHtml" type="core/text_list">
+			<block name="content" template="login.phtml" type="adminhtml/template">
+				<block name="form.additional.info" type="core/text_list"/>
 			</block>
 		</block>
 	</adminhtml_index_login>
 	<adminhtml_index_forgotpassword>
-		<block type="core/text_list" name="root" output="toHtml">
-			<block type="adminhtml/template" name="content" template="forgotpassword.phtml">
-				<block type="core/text_list" name="form.additional.info"/>
+		<block name="root" output="toHtml" type="core/text_list">
+			<block name="content" template="forgotpassword.phtml" type="adminhtml/template">
+				<block name="form.additional.info" type="core/text_list"/>
 			</block>
 		</block>
 	</adminhtml_index_forgotpassword>
