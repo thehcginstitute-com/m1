@@ -103,22 +103,21 @@ class Mage_Adminhtml_Block_Widget_Tabs extends Mage_Adminhtml_Block_Widget
      * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
-	 * @param   string|array|Varien_Object $tab
-	 * @return  $this
+	 * @param string|array|Varien_Object $block
 	 */
-	function addTab(string $id, $tab):self {
-		if (is_array($tab)) {
-			$this->_tabs[$id] = new Varien_Object($tab);
-		} elseif ($tab instanceof Varien_Object) {
-			$this->_tabs[$id] = $tab;
+	function addTab(string $id, $block):self {
+		if (is_array($block)) {
+			$this->_tabs[$id] = new Varien_Object($block);
+		} elseif ($block instanceof Varien_Object) {
+			$this->_tabs[$id] = $block;
 			if (!$this->_tabs[$id]->hasTabId()) {
 				$this->_tabs[$id]->setTabId($id);
 			}
-		} elseif (is_string($tab)) {
-			if (strpos($tab, '/')) {
-				$this->_tabs[$id] = $this->getLayout()->createBlock($tab);
-			} elseif ($this->getChild($tab)) {
-				$this->_tabs[$id] = $this->getChild($tab);
+		} elseif (is_string($block)) {
+			if (strpos($block, '/')) {
+				$this->_tabs[$id] = $this->getLayout()->createBlock($block);
+			} elseif ($this->getChild($block)) {
+				$this->_tabs[$id] = $this->getChild($block);
 			} else {
 				$this->_tabs[$id] = null;
 			}
