@@ -85,9 +85,7 @@
 		<label>Advanced Search Result</label>
 		<update handle='page_two_columns_left'/>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/2columns-left.phtml</template>
-			</action>
+			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
 		</reference>
 		<reference name='content'>
 			<block name='catalogsearch_advanced_result' template='catalogsearch/advanced/result.phtml'
