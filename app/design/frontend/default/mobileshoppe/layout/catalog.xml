@@ -54,8 +54,13 @@
 			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
 		</reference>
 		<reference name='left'>
-			<block after='currency' before='-' name='catalog.leftnav' template='catalog/layer/view.phtml'
-				   type='catalog/layer_view'/>
+			<block
+				after='currency'
+				before='-'
+				name='catalog.leftnav'
+				template='catalog/layer/view.phtml'
+				type='catalog/layer_view'
+			/>
 		</reference>
 		<reference name='content'>
 			<block name='category.products' template='catalog/category/view.phtml' type='catalog/category_view'>
