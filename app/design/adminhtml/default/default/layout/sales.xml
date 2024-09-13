@@ -1380,8 +1380,7 @@ Once timezone is changed, the lifetime statistics need to be refreshed.</message
 			/>
 		</reference>
 		<reference name='content'>
-			<block name='sales_order_address.form.container'
-				type='adminhtml/sales_order_address'></block>
+			<block name='sales_order_address.form.container' type='adminhtml/sales_order_address'/>
 		</reference>
 	</adminhtml_sales_order_address>
 </layout>
