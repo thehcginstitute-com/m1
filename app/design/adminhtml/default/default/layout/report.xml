@@ -13,7 +13,7 @@
 	</adminhtml_report_statistics_index>
 	<adminhtml_report_product_viewed>
 		<reference name='messages'>
-			<action method='addNotice' translate='message'>
+			<action method='addNotice'>
 				<message>This report depends on timezone configuration. Once timezone is changed, the lifetime statistics need to
 					be refreshed.
 				</message>
