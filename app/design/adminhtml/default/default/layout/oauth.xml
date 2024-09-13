@@ -64,10 +64,7 @@
 			<action method='removeItem'><name>extjs/resources/css/ext-all.css</name><type>js_css</type></action>
 			<action method='removeItem'><name>extjs/resources/css/ytheme-magento.css</name><type>js_css</type></action>
 			<action method='removeItem'><name>menu.css</name><type>skin_css</type></action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>calendar/calendar.js</name>
-			</action>
+			<action method='removeItem'><name>calendar/calendar.js</name><type>js</type></action>
 			<action method='removeItem'>
 				<type>js</type>
 				<name>calendar/calendar-setup.js</name>
