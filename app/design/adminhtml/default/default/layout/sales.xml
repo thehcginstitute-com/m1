@@ -430,10 +430,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							/>
 							<block name='tax' template='sales/order/totals/tax.phtml' type='adminhtml/sales_order_totals_tax'/>
 						</block>
-						<block name='submit_before'
-							type='core/text_list'/>
-						<block name='submit_after'
-							type='core/text_list'/>
+						<block name='submit_before' type='core/text_list'/>
+						<block name='submit_after' type='core/text_list'/>
 					</block>
 				</block>
 			</block>
