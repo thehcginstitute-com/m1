@@ -1193,8 +1193,7 @@ Once timezone is changed, the lifetime statistics need to be refreshed.</message
 						<key>created_at_order</key>
 						<value>Order Created Date</value>
 					</action>
-					<action method='addReportTypeOption'
-						translate='value'>
+					<action method='addReportTypeOption' translate='value'>
 						<key>updated_at_order</key>
 						<value>Order Updated Date</value>
 					</action>
