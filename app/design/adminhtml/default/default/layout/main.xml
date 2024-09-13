@@ -154,7 +154,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					type='adminhtml/checkout_formkey'
 				/>
 			</block>
-			<block as='breadcrumbs' name='breadcrumbs' type='adminhtml/widget_breadcrumbs'></block>
+			<block as='breadcrumbs' name='breadcrumbs' type='adminhtml/widget_breadcrumbs'/>
 			<block as='formkey' name='formkey' template='formkey.phtml' type='core/template'/>
 			<block as='js_translate' name='js_translate' template='page/js/translate.phtml' type='page/js_translate'/>
 			<block as='left' name='left' type='core/text_list'/>
@@ -162,12 +162,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block as='messages' name='messages' type='core/messages'/>
 			<block as='js' name='js' type='core/text_list'/>
 			<block as='footer' name='footer' type='adminhtml/page_footer'>
-				<action method='setOpenMageProjectUrl'>
-					<url>https://www.openmage.org</url>
-				</action>
-				<action method='setReportIssuesUrl'>
-					<url>https://github.com/OpenMage/magento-lts/issues</url>
-				</action>
+				<action method='setOpenMageProjectUrl'><url>https://www.openmage.org</url></action>
+				<action method='setReportIssuesUrl'><url>https://github.com/OpenMage/magento-lts/issues</url></action>
 			</block>
 			<block as='profiler' name='profiler' type='core/profiler'/>
 			<block as='before_body_end' name='before_body_end' type='core/text_list'/>
