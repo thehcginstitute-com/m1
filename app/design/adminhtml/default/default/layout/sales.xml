@@ -423,9 +423,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							template='sales/order/totals.phtml'
 							type='adminhtml/sales_order_creditmemo_totals'
 						>
-							<block name='adjustments'
+							<block
+								name='adjustments'
 								template='sales/order/creditmemo/create/totals/adjustments.phtml'
-								type='adminhtml/sales_order_creditmemo_create_adjustments'/>
+								type='adminhtml/sales_order_creditmemo_create_adjustments'
+							/>
 							<block name='tax'
 								template='sales/order/totals/tax.phtml'
 								type='adminhtml/sales_order_totals_tax'/>
