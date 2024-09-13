@@ -3,9 +3,9 @@
 	<catalog_category_default>
 		<reference name='product_list'>
 			<action method='addPriceBlockType'>
-				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/price.phtml</template>
+				<type>bundle</type>
 			</action>
 		</reference>
 	</catalog_category_default>
