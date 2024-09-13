@@ -4,12 +4,22 @@
 <layout>
 	<default>
 		<reference name='notifications'>
-			<block acl='system/adminnotification/show_toolbar' as='notification_toolbar' name='notification_toolbar'
-				template='notification/toolbar.phtml' type='adminhtml/notification_toolbar'/>
+			<block
+				acl='system/adminnotification/show_toolbar'
+				as='notification_toolbar'
+				name='notification_toolbar'
+				template='notification/toolbar.phtml'
+				type='adminhtml/notification_toolbar'
+			/>
 		</reference>
 		<reference name='notifications'>
-			<block acl='system/adminnotification/show_toolbar' as='notification_window' name='notification_window'
-				template='notification/window.phtml' type='adminhtml/notification_window'/>
+			<block
+				acl='system/adminnotification/show_toolbar'
+				as='notification_window'
+				name='notification_window'
+				template='notification/window.phtml'
+				type='adminhtml/notification_window'
+			/>
 		</reference>
 	</default>
 </layout>
