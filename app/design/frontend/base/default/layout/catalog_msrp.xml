@@ -72,9 +72,9 @@
 	<MAP_price_msrp_wishlist_item>
 		<reference name='catalog_product_price_template'>
 			<action method='addPriceBlockType'>
-				<type>msrp</type>
 				<block>catalog/product_price</block>
 				<template>wishlist/render/item/price_msrp_item.phtml</template>
+				<type>msrp</type>
 			</action>
 		</reference>
 	</MAP_price_msrp_wishlist_item>
