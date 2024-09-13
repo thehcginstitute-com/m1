@@ -2,7 +2,10 @@
 <layout>
 	<adminhtml_catalog_product_downloadable>
 		<reference name='product_tabs'>
-			<action method='addTab'><name>downloadable_items</name><block>downloadable/adminhtml_catalog_product_edit_tab_downloadable</block></action>
+			<action method='addTab'>
+				<name>downloadable_items</name>
+				<block>downloadable/adminhtml_catalog_product_edit_tab_downloadable</block>
+			</action>
 		</reference>
 	</adminhtml_catalog_product_downloadable>
 	<adminhtml_sales_order_view>
@@ -105,12 +108,17 @@
 	</adminhtml_sales_order_creditmemo_view>
 	<adminhtml_customer_wishlist>
 		<reference name='customer.wishlist.edit.tab'>
-			<action method='addProductConfigurationHelper'><type>downloadable</type><name>downloadable/catalog_product_configuration</name></action>
+			<action method='addProductConfigurationHelper'>
+				<type>downloadable</type>
+				<name>downloadable/catalog_product_configuration</name>
+			</action>
 		</reference>
 	</adminhtml_customer_wishlist>
 	<PRODUCT_TYPE_downloadable>
 		<reference name='product.composite.fieldset'>
-			<block type='downloadable/adminhtml_catalog_product_composite_fieldset_downloadable' name='product.composite.fieldset.downloadable' before='product.composite.fieldset.options' template='downloadable/product/composite/fieldset/downloadable.phtml' />
+			<block type='downloadable/adminhtml_catalog_product_composite_fieldset_downloadable'
+				   name='product.composite.fieldset.downloadable' before='product.composite.fieldset.options'
+				   template='downloadable/product/composite/fieldset/downloadable.phtml'/>
 		</reference>
 	</PRODUCT_TYPE_downloadable>
 </layout>
