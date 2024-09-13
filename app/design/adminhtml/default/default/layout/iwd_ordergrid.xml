@@ -13,46 +13,46 @@
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method='addJs' ifconfig='iwd_ordermanager/grid_order/enable'>
+			<action ifconfig='iwd_ordermanager/grid_order/enable' method='addJs'>
 				<name>iwd/ordergrid/jquery-ui-1.10.3.min.js</name>
 			</action>
-			<action method='addJs' ifconfig='iwd_ordermanager/grid_order/enable'>
+			<action ifconfig='iwd_ordermanager/grid_order/enable' method='addJs'>
 				<name>iwd/ordergrid/stickytableheaders.js</name>
 			</action>
 <!-- 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Upgrade `HemantNegi/jquery.sumoselect`": https://github.com/thehcginstitute-com/m1/issues/553 -->
-			<action method='addJs' ifconfig='iwd_ordermanager/grid_order/enable'>
+			<action ifconfig='iwd_ordermanager/grid_order/enable' method='addJs'>
 				<name>iwd/ordergrid/jquery.sumoselect.js</name>
 			</action>
-			<action method='addJs' ifconfig='iwd_ordermanager/grid_order/enable'>
+			<action ifconfig='iwd_ordermanager/grid_order/enable' method='addJs'>
 				<name>iwd/all/modal.js</name>
 			</action>
-			<action method='addJs' ifconfig='iwd_ordermanager/grid_order/enable'>
+			<action ifconfig='iwd_ordermanager/grid_order/enable' method='addJs'>
 				<name>iwd/ordergrid/grid.js</name>
 			</action>
-			<action method='addJs' ifconfig='iwd_ordermanager/grid_order/enable'>
+			<action ifconfig='iwd_ordermanager/grid_order/enable' method='addJs'>
 				<name>iwd/ordergrid/massaction.js</name>
 			</action>
-			<action method='addCss' ifconfig='iwd_ordermanager/grid_order/enable'>
+			<action ifconfig='iwd_ordermanager/grid_order/enable' method='addCss'>
 				<name>iwd/ordergrid/order_grid.css</name>
 			</action>
-			<action method='addCss' ifconfig='iwd_ordermanager/grid_order/enable'>
+			<action ifconfig='iwd_ordermanager/grid_order/enable' method='addCss'>
 <!-- 2024-04-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Refactor `HemantNegi/jquery.sumoselect`": https://github.com/thehcginstitute-com/m1/issues/576 -->
 				<name>hcg/css/compiled/sumoselect.css</name>
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='iwd_ordergrid/adminhtml_sales_order_grid_init' name='grid-init'
-				   template='iwd/ordergrid/grid/init.phtml'/>
+			<block name='grid-init' template='iwd/ordergrid/grid/init.phtml'
+				   type='iwd_ordergrid/adminhtml_sales_order_grid_init'/>
 		</reference>
 	</ordergrid_order_grid_handle>
 	<ordergrid_order_totals_handle>
 		<reference name='head'>
-			<action method='addCss' ifconfig='iwd_ordermanager/grid_order/order_totals_enable'>
+			<action ifconfig='iwd_ordermanager/grid_order/order_totals_enable' method='addCss'>
 				<name>iwd/ordergrid/totals.css</name>
 			</action>
-			<action method='addJs' ifconfig='iwd_ordermanager/grid_order/order_totals_enable'>
+			<action ifconfig='iwd_ordermanager/grid_order/order_totals_enable' method='addJs'>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
@@ -60,8 +60,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='iwd_ordergrid/adminhtml_sales_order_grid_totals' name='order-grid-totals'
-				   template='iwd/ordergrid/grid/totals.phtml'/>
+			<block name='order-grid-totals' template='iwd/ordergrid/grid/totals.phtml'
+				   type='iwd_ordergrid/adminhtml_sales_order_grid_totals'/>
 		</reference>
 	</ordergrid_order_totals_handle>
 	<adminhtml_system_config_edit>
@@ -94,8 +94,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_system_config_edit>
 	<adminhtml_sales_order_grid>
 		<reference name='sales_order.grid'>
-			<block type='iwd_ordergrid/adminhtml_sales_order_grid_init' name='iwd_om.order.grid.jsinit'
-				   template='iwd/ordergrid/grid/jsinit.phtml'/>
+			<block name='iwd_om.order.grid.jsinit' template='iwd/ordergrid/grid/jsinit.phtml'
+				   type='iwd_ordergrid/adminhtml_sales_order_grid_init'/>
 		</reference>
 	</adminhtml_sales_order_grid>
 	<adminhtml_sales_order_index>
