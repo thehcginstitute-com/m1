@@ -40,8 +40,8 @@
 	<catalogsearch_advanced_result>
 		<update handle='MAP_popup'/>
 	</catalogsearch_advanced_result>
-	<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	'Delete the unused `Mage_Tag` module': https://github.com/thehcginstitute-com/m1/issues/372 -->
+<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'Delete the unused `Mage_Tag` module': https://github.com/thehcginstitute-com/m1/issues/372 -->
 	<MAP_popup>
 		<reference name='head'>
 			<action method='addItem' ifconfig='sales/msrp/enabled'>
