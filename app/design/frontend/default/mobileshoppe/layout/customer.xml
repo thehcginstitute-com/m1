@@ -177,9 +177,9 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 					<path>customer/account/</path>
 				</action>
 				<action method='addLink' translate='label' module='customer'>
+					<label>Account Information</label>
 					<name>account_edit</name>
 					<path>customer/account/edit/</path>
-					<label>Account Information</label>
 				</action>
 				<action method='addLink' translate='label' module='customer'>
 					<name>address_book</name>
