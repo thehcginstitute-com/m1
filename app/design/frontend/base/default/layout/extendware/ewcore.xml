@@ -1,98 +1,141 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
+<!-- 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Refactor the `<layout>` XML files": https://github.com/thehcginstitute-com/m1/issues/681 -->
 <layout>
 	<ewcore_core_handle>
-		<reference name="head">
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addJs"><name>extendware/ewcore/core.js</name></action>
+		<reference name='head'>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addJs'>
+				<name>extendware/ewcore/core.js</name>
+			</action>
 		</reference>
 	</ewcore_core_handle>
-	
 	<ewcore_modalbox_handle>
-		<update handle="ewcore_core_handle" ewminify_inherit="1"/>
-		<update handle="ewcore_ajax_handle" ewminify_inherit="1"/>
-		<reference name="head">
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addJs"><name>extendware/ewcore/modalbox.js</name></action>
-			<action method="addCss"><name>extendware/ewcore/css/modalbox.css</name></action>
+		<update ewminify_inherit='1' handle='ewcore_core_handle'/>
+		<update ewminify_inherit='1' handle='ewcore_ajax_handle'/>
+		<reference name='head'>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addJs'>
+				<name>extendware/ewcore/modalbox.js</name>
+			</action>
+			<action method='addCss'>
+				<name>extendware/ewcore/css/modalbox.css</name>
+			</action>
 		</reference>
 	</ewcore_modalbox_handle>
-	
 	<ewcore_ajax_handle>
-		<reference name="head">
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addJs"><name>extendware/ewcore/ajax.js</name></action>
+		<reference name='head'>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addJs'>
+				<name>extendware/ewcore/ajax.js</name>
+			</action>
 		</reference>
 	</ewcore_ajax_handle>
-	
 	<ewcore_center_handle>
-		<reference name="head">
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addJs"><name>extendware/ewcore/center.js</name></action>
+		<reference name='head'>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addJs'>
+				<name>extendware/ewcore/center.js</name>
+			</action>
 		</reference>
 	</ewcore_center_handle>
-	
 	<ewcore_frontend_widget_grid_handle>
-		<reference name="head">
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addJs"><name>mage/adminhtml/tools.js</name></action>
-			<action method="addJs"><name>mage/adminhtml/hash.js</name></action>
-			<action method="addJs"><name>mage/adminhtml/grid.js</name></action>
-			<action method="addJs"><name>mage/adminhtml/events.js</name></action>
-			<action method="addJs"><name>mage/adminhtml/form.js</name></action>
-			<action method="addJs"><name>extendware/ewcore/widget.js</name></action>
-			<action method="addCss"><name>extendware/ewcore/css/widgets.css</name></action>
-			<action method="addCss"><name>extendware/ewcore/css/widgets_rwd.css</name></action>
-			<action method="addItem">
+		<reference name='head'>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addJs'>
+				<name>mage/adminhtml/tools.js</name>
+			</action>
+			<action method='addJs'>
+				<name>mage/adminhtml/hash.js</name>
+			</action>
+			<action method='addJs'>
+				<name>mage/adminhtml/grid.js</name>
+			</action>
+			<action method='addJs'>
+				<name>mage/adminhtml/events.js</name>
+			</action>
+			<action method='addJs'>
+				<name>mage/adminhtml/form.js</name>
+			</action>
+			<action method='addJs'>
+				<name>extendware/ewcore/widget.js</name>
+			</action>
+			<action method='addCss'>
+				<name>extendware/ewcore/css/widgets.css</name>
+			</action>
+			<action method='addCss'>
+				<name>extendware/ewcore/css/widgets_rwd.css</name>
+			</action>
+			<action method='addItem'>
 				<if>lt IE 8</if>
 				<name>extendware/ewcore/css/widgets-ie7less.css</name>
 				<type>skin_css</type>
 			</action>
-			<action method="addCss"><name>extendware/ewcore/css/widgets-custom.css</name></action>
+			<action method='addCss'>
+				<name>extendware/ewcore/css/widgets-custom.css</name>
+			</action>
 		</reference>
 	</ewcore_frontend_widget_grid_handle>
-	
 	<ewcore_frontend_widget_form_handle>
-		<update handle="ewcore_opentip_handle"/>
-		<reference name="head">
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addJs"><name>mage/adminhtml/tools.js</name></action>
-			<action method="addJs"><name>mage/adminhtml/hash.js</name></action>
-			<action method="addJs"><name>mage/adminhtml/events.js</name></action>
-			<action method="addJs"><name>mage/adminhtml/form.js</name></action>
-			<action method="addJs"><name>extendware/ewcore/widget.js</name></action>
-			<action method="addCss"><name>extendware/ewcore/css/widgets.css</name></action>
-			<action method="addItem"><type>skin_js</type><name>extendware/ewcore/js/widgets.js</name></action>
-			<action method="addItem">
+		<update handle='ewcore_opentip_handle'/>
+		<reference name='head'>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addJs'>
+				<name>mage/adminhtml/tools.js</name>
+			</action>
+			<action method='addJs'>
+				<name>mage/adminhtml/hash.js</name>
+			</action>
+			<action method='addJs'>
+				<name>mage/adminhtml/events.js</name>
+			</action>
+			<action method='addJs'>
+				<name>mage/adminhtml/form.js</name>
+			</action>
+			<action method='addJs'>
+				<name>extendware/ewcore/widget.js</name>
+			</action>
+			<action method='addCss'>
+				<name>extendware/ewcore/css/widgets.css</name>
+			</action>
+			<action method='addItem'>
+				<type>skin_js</type>
+				<name>extendware/ewcore/js/widgets.js</name>
+			</action>
+			<action method='addItem'>
 				<if>lt IE 8</if>
 				<name>extendware/ewcore/css/widgets-ie7less.css</name>
 				<type>skin_css</type>
 			</action>
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addCss"><name>extendware/ewcore/css/widgets-custom.css</name></action>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addCss'>
+				<name>extendware/ewcore/css/widgets-custom.css</name>
+			</action>
 		</reference>
 	</ewcore_frontend_widget_form_handle>
-	
 	<ewcore_opentip_handle>
-		<reference name="head">
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addJs"><name>extendware/ewcore/opentip/opentip-prototype-excanvas.min.js</name></action>
-			<action method="addItem">
+		<reference name='head'>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addJs'>
+				<name>extendware/ewcore/opentip/opentip-prototype-excanvas.min.js</name>
+			</action>
+			<action method='addItem'>
 				<name>extendware/ewcore/css/opentip.css</name>
 				<type>skin_css</type>
 			</action>
