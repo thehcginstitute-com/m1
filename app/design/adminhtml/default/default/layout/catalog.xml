@@ -172,8 +172,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_catalog_product_grouped>
 		<reference name='product_tabs'>
 			<action method='addTab'>
-				<name>super</name>
 				<block>adminhtml/catalog_product_edit_tab_super_group</block>
+				<name>super</name>
 			</action>
 		</reference>
 	</adminhtml_catalog_product_grouped>
