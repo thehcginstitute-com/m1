@@ -1367,8 +1367,7 @@ Once timezone is changed, the lifetime statistics need to be refreshed.</message
 	</adminhtml_sales_order_status_edit>
 	<adminhtml_sales_order_status_assign>
 		<reference name='content'>
-			<block name='sales_order_status.assign.container'
-				type='adminhtml/sales_order_status_assign'></block>
+			<block name='sales_order_status.assign.container' type='adminhtml/sales_order_status_assign'/>
 		</reference>
 	</adminhtml_sales_order_status_assign>
 	<adminhtml_sales_order_address>
