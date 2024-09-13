@@ -15,39 +15,17 @@
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method='addJs'>
-				<name>iwd/ordermanager/init.js</name>
-			</action>
-			<action method='addJs'>
-				<name>iwd/ordermanager/order.js</name>
-			</action>
-			<action method='addJs'>
-				<name>iwd/ordermanager/fee.js</name>
-			</action>
-			<action method='addJs'>
-				<name>mage/adminhtml/sales.js</name>
-			</action>
-			<action method='addJs'>
-				<name>iwd/ordermanager/jquery.datetimepicker.min.js</name>
-			</action>
-			<action method='addJs'>
-				<name>iwd/ordermanager/jquery.nicescroll.js</name>
-			</action>
-			<action method='addJs'>
-				<name>iwd/all/modal.js</name>
-			</action>
-			<action method='addCss'>
-				<name>iwd/ordermanager/popup.css</name>
-			</action>
-			<action method='addCss'>
-				<name>iwd/ordermanager/jquery.datetimepicker.css</name>
-			</action>
-			<action method='addCss'>
-				<name>iwd/ordermanager/style.css</name>
-			</action>
-			<action method='addCss'>
-				<name>iwd/ordermanager/fee.css</name>
-			</action>
+			<action method='addJs'><name>iwd/ordermanager/init.js</name></action>
+			<action method='addJs'><name>iwd/ordermanager/order.js</name></action>
+			<action method='addJs'><name>iwd/ordermanager/fee.js</name></action>
+			<action method='addJs'><name>mage/adminhtml/sales.js</name></action>
+			<action method='addJs'><name>iwd/ordermanager/jquery.datetimepicker.min.js</name></action>
+			<action method='addJs'><name>iwd/ordermanager/jquery.nicescroll.js</name></action>
+			<action method='addJs'><name>iwd/all/modal.js</name></action>
+			<action method='addCss'><name>iwd/ordermanager/popup.css</name></action>
+			<action method='addCss'><name>iwd/ordermanager/jquery.datetimepicker.css</name></action>
+			<action method='addCss'><name>iwd/ordermanager/style.css</name></action>
+			<action method='addCss'><name>iwd/ordermanager/fee.css</name></action>
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the Braintree support from IWD modules": https://github.com/thehcginstitute-com/m1/issues/360 -->
 		</reference>
