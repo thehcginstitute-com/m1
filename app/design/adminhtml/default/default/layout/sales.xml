@@ -601,9 +601,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						/>
 					</block>
 					<block name='data' template='sales/order/create/data.phtml' type='adminhtml/sales_order_create_data'>
-						<block name='sidebar'
+						<block
+							name='sidebar'
 							template='sales/order/create/sidebar.phtml'
-							type='adminhtml/sales_order_create_sidebar'>
+							type='adminhtml/sales_order_create_sidebar'
+						>
 							<block name='cart'
 								template='sales/order/create/sidebar/items.phtml'
 								type='adminhtml/sales_order_create_sidebar_cart'/>
