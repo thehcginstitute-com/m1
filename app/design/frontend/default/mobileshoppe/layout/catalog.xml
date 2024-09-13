@@ -232,9 +232,9 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 							<type>select</type>
 						</action>
 						<action method='addOptionRenderer'>
-							<type>date</type>
 							<block>catalog/product_view_options_type_date</block>
 							<template>catalog/product/view/options/type/date.phtml</template>
+							<type>date</type>
 						</action>
 					</block>
 					<block type='core/html_calendar' name='html_calendar' as='html_calendar' template='page/js/calendar.phtml'/>
