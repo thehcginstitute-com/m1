@@ -1,10 +1,12 @@
 <?xml version='1.0'?>
+<!-- 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Refactor the `<layout>` XML files": https://github.com/thehcginstitute-com/m1/issues/681 -->
 <layout>
 	<default>
 		<reference name='head'>
-			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
-			https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'>
 				<name>extendware/ewcore/guide.js</name>
 			</action>
@@ -25,9 +27,9 @@
 				<name>extendware/ewcore/css/general.css</name>
 				<type>skin_css</type>
 			</action>
-			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
-			https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'>
 				<name>extendware/ewcore/adminhtml/general.js</name>
 			</action>
@@ -63,9 +65,9 @@
 	</admin_menu_highlight_handle>
 	<ewcore_chooser>
 		<reference name='head'>
-			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
-			https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'>
 				<name>mage/adminhtml/wysiwyg/widget.js</name>
 			</action>
@@ -75,7 +77,6 @@
 			<action method='addJs'>
 				<name>prototype/window.js</name>
 			</action>
-			<!--Magento < 1.7.0 -->
 			<action method='addItem'>
 				<name>prototype/windows/themes/default.css</name>
 				<type>js_css</type>
@@ -84,15 +85,9 @@
 				<name>prototype/windows/themes/magento.css</name>
 				<type>js_css</type>
 			</action>
-			<!--Magento > 1.7.0 -->
 			<action method='addCss'>
 				<name>lib/prototype/windows/themes/magento.css</name>
 			</action>
 		</reference>
 	</ewcore_chooser>
-	<!-- <adminhtml_cache_index>
-		<reference name='cache.additional'>
-			<block type='ewcore/adminhtml_cache_additional_cache' name='cache.additional.ewcore' template='extendware/ewcore/cache/additional/cache.phtml' />
-		</reference>
-	</adminhtml_cache_index> -->
 </layout>
