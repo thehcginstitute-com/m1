@@ -7,9 +7,7 @@
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method='addJs'>
-				<name>mage/adminhtml/input-counter.js</name>
-			</action>
+			<action method='addJs'><name>mage/adminhtml/input-counter.js</name></action>
 		</reference>
 	</adminhtml_input_counter_handle>
 	<adminhtml_permissions_user_edit>
@@ -20,8 +18,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='adminhtml.permissions.user.edit' type='adminhtml/permissions_user_edit'/>
 		</reference>
 		<reference name='js'>
-			<block name='adminhtml.permissions.user.roles.grid.js' template='permissions/user_roles_grid_js.phtml'
-				type='adminhtml/template'/>
+			<block
+				name='adminhtml.permissions.user.roles.grid.js'
+				template='permissions/user_roles_grid_js.phtml'
+				type='adminhtml/template'
+			/>
 		</reference>
 	</adminhtml_permissions_user_edit>
 	<!-- admin permissions block edit page -->
