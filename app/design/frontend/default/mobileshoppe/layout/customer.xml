@@ -14,11 +14,9 @@
 		<reference name='top.links'>
 			<action method='addLink' translate='label title' module='customer'>
 				<label>Patient Portal Log Out</label>
-				<url helper='customer/getLogoutUrl'/>
-				<title>Patient Portal Log Out</title>
-				<prepare/>
-				<urlParams/>
 				<position>100</position>
+				<title>Patient Portal Log Out</title>
+				<url helper='customer/getLogoutUrl'/>
 			</action>
 		</reference>
 	</customer_logged_in>
