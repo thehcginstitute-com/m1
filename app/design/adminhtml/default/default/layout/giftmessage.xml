@@ -18,8 +18,11 @@
 		</reference>
 		<reference name='order_tab_info'>
 			<block name='popup_window' template='giftmessage/popup.phtml' type='adminhtml/template'>
-				<block name='gift_options_form' template='giftmessage/giftoptionsform.phtml'
-					type='giftmessage/adminhtml_sales_order_view_form'/>
+				<block
+					name='gift_options_form'
+					template='giftmessage/giftoptionsform.phtml'
+					type='giftmessage/adminhtml_sales_order_view_form'
+				/>
 			</block>
 		</reference>
 	</adminhtml_sales_order_view>
