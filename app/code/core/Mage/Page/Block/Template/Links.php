@@ -57,12 +57,9 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
 
     /**
      * Add link to the list
-     *
-     * @param string $label
-     * @param string $url
-     * @param string $title
-     * @param bool $prepare
-     * @param array $urlParams
+     * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
      * @param int $position
      * @param string|array $liParams
      * @param string|array $aParams
@@ -71,11 +68,11 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
      * @return $this
      */
     function addLink(
-        $label,
-        $url = '',
-        $title = '',
-        $prepare = false,
-        $urlParams = [],
+        string $label,
+        string $url = '',
+        string $title = '',
+        bool $prepare = false,
+        array $urlParams = [],
         $position = null,
         $liParams = null,
         $aParams = null,
