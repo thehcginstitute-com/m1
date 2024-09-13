@@ -16,32 +16,38 @@
 <layout>
 	<adminhtml_import_index>
 		<reference name="content">
-			<block type="adminhtml/template" template="importexport/import/form/before.phtml" name="import.form.before" alias="form_before"/>
-			<block type="importexport/adminhtml_import_edit" name="import.form.container"/>
-			<block type="adminhtml/template" template="importexport/import/form/after.phtml" name="import.form.after" alias="form_after"/>
+			<block alias="form_before" name="import.form.before" template="importexport/import/form/before.phtml"
+				type="adminhtml/template"/>
+			<block name="import.form.container" type="importexport/adminhtml_import_edit"/>
+			<block alias="form_after" name="import.form.after" template="importexport/import/form/after.phtml"
+				type="adminhtml/template"/>
 		</reference>
 	</adminhtml_import_index>
 	<adminhtml_import_validate>
-		<block type="importexport/adminhtml_import_frame_result" template="importexport/import/frame/result.phtml" name="import.frame.result" alias="import_frame_result" output="toHtml"/>
+		<block alias="import_frame_result" name="import.frame.result"
+			output="toHtml" template="importexport/import/frame/result.phtml" type="importexport/adminhtml_import_frame_result"/>
 	</adminhtml_import_validate>
 	<adminhtml_import_start>
-		<block type="importexport/adminhtml_import_frame_result" template="importexport/import/frame/result.phtml" name="import.frame.result" alias="import_frame_result" output="toHtml"/>
+		<block alias="import_frame_result" name="import.frame.result"
+			output="toHtml" template="importexport/import/frame/result.phtml" type="importexport/adminhtml_import_frame_result"/>
 	</adminhtml_import_start>
 	<adminhtml_import_busy>
 		<reference name="content">
-			<block type="core/template" template="importexport/busy.phtml" name="busy" alias="busy"/>
+			<block alias="busy" name="busy" template="importexport/busy.phtml" type="core/template"/>
 		</reference>
 	</adminhtml_import_busy>
 	<adminhtml_export_index>
 		<reference name="content">
-			<block type="adminhtml/template" template="importexport/export/form/before.phtml" name="export.form.before" alias="form_before"/>
-			<block type="importexport/adminhtml_export_edit" name="export.form.container"/>
-			<block type="adminhtml/template" template="importexport/export/form/after.phtml" name="export.form.after" alias="form_after"/>
+			<block alias="form_before" name="export.form.before" template="importexport/export/form/before.phtml"
+				type="adminhtml/template"/>
+			<block name="export.form.container" type="importexport/adminhtml_export_edit"/>
+			<block alias="form_after" name="export.form.after" template="importexport/export/form/after.phtml"
+				type="adminhtml/template"/>
 		</reference>
 	</adminhtml_export_index>
 	<adminhtml_export_getfilter>
-		<block type="core/text_list" name="root">
-			<block type="importexport/adminhtml_export_filter" name="export.filter"/>
+		<block name="root" type="core/text_list">
+			<block name="export.filter" type="importexport/adminhtml_export_filter"/>
 		</block>
 	</adminhtml_export_getfilter>
 </layout>
