@@ -2,15 +2,21 @@
 <layout>
 	<adminhtml_catalog_product_index>
 		<reference name='head'>
-			<action method='setTitle' translate='title'><title>Catalog</title></action>
+			<action method='setTitle' translate='title'>
+				<title>Catalog</title>
+			</action>
 		</reference>
 		<reference name='menu'>
-			<action method='setActive'><menupath>catalog/products</menupath></action>
+			<action method='setActive'>
+				<menupath>catalog/products</menupath>
+			</action>
 		</reference>
 		<reference name='content'>
 			<block type='adminhtml/catalog_product' name='products_list'>
 				<block type='adminhtml/store_switcher' name='store_switcher' as='store_switcher'>
-					<action method='setUseConfirm'><params>0</params></action>
+					<action method='setUseConfirm'>
+						<params>0</params>
+					</action>
 				</block>
 			</block>
 		</reference>
@@ -52,8 +58,8 @@
 			<block type='adminhtml/catalog_product_edit_tab_reviews' name='admin.product.reviews'/>
 		</block>
 	</adminhtml_catalog_product_reviews>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
+	<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	"Delete the unused `Mage_Tag` module": https://github.com/thehcginstitute-com/m1/issues/372 -->
 	<adminhtml_catalog_product_tagcustomergrid>
 		<block type='core/text_list' name='root' output='toHtml'>
 			<block type='adminhtml/catalog_product_edit_tab_tag_customer' name='admin.product.tags.customers'/>
@@ -81,9 +87,9 @@
 						<reload_param_name>products_related</reload_param_name>
 					</action>
 					<action method='addColumnInputName'>
-<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
+						<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+						"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+						https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<names>position</names>
 					</action>
 				</reference>
@@ -96,13 +102,14 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</block>
 	</adminhtml_catalog_product_relatedgrid>
 	<adminhtml_catalog_product_superconfig>
-		<block type='adminhtml/catalog_product_edit_tab_super_config_grid' name='admin.product.edit.tab.super.config.grid' output='toHtml' />
+		<block type='adminhtml/catalog_product_edit_tab_super_config_grid' name='admin.product.edit.tab.super.config.grid'
+			   output='toHtml'/>
 	</adminhtml_catalog_product_superconfig>
 	<adminhtml_catalog_product_alertspricegrid>
-		<block type='adminhtml/catalog_product_edit_tab_alerts_price' name='admin.product.edit.tab.alerts.price' output='toHtml' />
+		<block type='adminhtml/catalog_product_edit_tab_alerts_price' name='admin.product.edit.tab.alerts.price' output='toHtml'/>
 	</adminhtml_catalog_product_alertspricegrid>
 	<adminhtml_catalog_product_alertsstockgrid>
-		<block type='adminhtml/catalog_product_edit_tab_alerts_stock' name='admin.product.edit.tab.alerts.stock' output='toHtml' />
+		<block type='adminhtml/catalog_product_edit_tab_alerts_stock' name='admin.product.edit.tab.alerts.stock' output='toHtml'/>
 	</adminhtml_catalog_product_alertsstockgrid>
 	<adminhtml_catalog_product_upsell>
 		<block type='core/text_list' name='root' output='toHtml'>
@@ -116,9 +123,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<reload_param_name>products_upsell</reload_param_name>
 					</action>
 					<action method='addColumnInputName'>
-<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
+						<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+						"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+						https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<names>position</names>
 					</action>
 				</reference>
@@ -142,9 +149,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<reload_param_name>products_crosssell</reload_param_name>
 					</action>
 					<action method='addColumnInputName'>
-<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
+						<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+						"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+						https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<names>position</names>
 					</action>
 				</reference>
@@ -156,15 +163,18 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block type='adminhtml/catalog_product_edit_tab_crosssell' name='catalog.product.edit.tab.crosssell'/>
 		</block>
 	</adminhtml_catalog_product_crosssellgrid>
-	<adminhtml_catalog_product_simple />
+	<adminhtml_catalog_product_simple/>
 	<adminhtml_catalog_product_grouped>
 		<reference name='product_tabs'>
-			<action method='addTab'><name>super</name><block>adminhtml/catalog_product_edit_tab_super_group</block></action>
+			<action method='addTab'>
+				<name>super</name>
+				<block>adminhtml/catalog_product_edit_tab_super_group</block>
+			</action>
 		</reference>
 	</adminhtml_catalog_product_grouped>
 	<adminhtml_catalog_product_supergroup>
 		<block type='core/text_list' name='root' output='toHtml'>
-			<block type='adminhtml/catalog_product_edit_tab_super_group' name='catalog.product.edit.tab.super.group' />
+			<block type='adminhtml/catalog_product_edit_tab_super_group' name='catalog.product.edit.tab.super.group'/>
 			<block type='adminhtml/widget_grid_serializer' name='grouped_grid_serializer'>
 				<reference name='grouped_grid_serializer'>
 					<action method='initSerializerBlock'>
@@ -174,9 +184,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<reload_param_name>products_grouped</reload_param_name>
 					</action>
 					<action method='addColumnInputName'>
-<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
+						<!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+						"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+						https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<names>qty</names>
 						<names>position</names>
 					</action>
@@ -186,7 +196,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_catalog_product_supergroup>
 	<adminhtml_catalog_product_supergroupgridonly>
 		<block type='core/text_list' name='root'>
-			<block type='adminhtml/catalog_product_edit_tab_super_group' name='catalog.product.edit.tab.super.group' />
+			<block type='adminhtml/catalog_product_edit_tab_super_group' name='catalog.product.edit.tab.super.group'/>
 		</block>
 	</adminhtml_catalog_product_supergroupgridonly>
 	<adminhtml_catalog_product_configurable_new>
@@ -197,24 +207,42 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_catalog_product_configurable_new>
 	<adminhtml_catalog_product_configurable>
 		<reference name='product_tabs'>
-			<action method='addTab'><name>configurable</name><block>adminhtml/catalog_product_edit_tab_super_config</block></action>
-			<action method='bindShadowTabs'><first>configurable</first><second>customer_options</second></action>
+			<action method='addTab'>
+				<name>configurable</name>
+				<block>adminhtml/catalog_product_edit_tab_super_config</block>
+			</action>
+			<action method='bindShadowTabs'>
+				<first>configurable</first>
+				<second>customer_options</second>
+			</action>
 		</reference>
 	</adminhtml_catalog_product_configurable>
 	<adminhtml_catalog_product_action_attribute_edit>
 		<reference name='left'>
-			<block type='adminhtml/store_switcher' name='store_switcher' template='store/switcher.phtml' />
+			<block type='adminhtml/store_switcher' name='store_switcher' template='store/switcher.phtml'/>
 			<block type='adminhtml/catalog_product_edit_action_attribute_tabs' name='attributes_tabs'>
 				<block type='adminhtml/catalog_product_edit_action_attribute_tab_attributes' name='tab_attributes'/>
-				<block type='adminhtml/catalog_product_edit_action_attribute_tab_inventory' name='tab_inventory' template='catalog/product/edit/action/inventory.phtml' />
-				<block type='adminhtml/catalog_product_edit_action_attribute_tab_websites' name='tab_websites' template='catalog/product/edit/action/websites.phtml' />
-				<action method='addTab'><name>attributes</name><block>tab_attributes</block></action>
-				<action method='addTab'><name>inventory</name><block>tab_inventory</block></action>
-				<action method='addTab'><name>websites</name><block>tab_websites</block></action>
+				<block type='adminhtml/catalog_product_edit_action_attribute_tab_inventory' name='tab_inventory'
+					   template='catalog/product/edit/action/inventory.phtml'/>
+				<block type='adminhtml/catalog_product_edit_action_attribute_tab_websites' name='tab_websites'
+					   template='catalog/product/edit/action/websites.phtml'/>
+				<action method='addTab'>
+					<name>attributes</name>
+					<block>tab_attributes</block>
+				</action>
+				<action method='addTab'>
+					<name>inventory</name>
+					<block>tab_inventory</block>
+				</action>
+				<action method='addTab'>
+					<name>websites</name>
+					<block>tab_websites</block>
+				</action>
 			</block>
 		</reference>
 		<reference name='content'>
-			<block type='adminhtml/catalog_product_edit_action_attribute' name='attribute' template='catalog/product/edit/action/attribute.phtml' />
+			<block type='adminhtml/catalog_product_edit_action_attribute' name='attribute'
+				   template='catalog/product/edit/action/attribute.phtml'/>
 		</reference>
 	</adminhtml_catalog_product_action_attribute_edit>
 	<adminhtml_catalog_product_attribute_edit>
@@ -231,45 +259,62 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_catalog_category_edit>
 		<update handle='editor'/>
 		<reference name='left'>
-			<block name='category.tree' type='adminhtml/catalog_category_tree' template='catalog/category/tree.phtml' />
+			<block name='category.tree' type='adminhtml/catalog_category_tree' template='catalog/category/tree.phtml'/>
 		</reference>
 		<reference name='content'>
-			<block name='category.edit'  type='adminhtml/catalog_category_edit' template='catalog/category/edit.phtml' />
+			<block name='category.edit' type='adminhtml/catalog_category_edit' template='catalog/category/edit.phtml'/>
 		</reference>
 		<reference name='js'>
-			<block type='core/template' template='catalog/wysiwyg/js.phtml' name='catalog.wysiwyg.js' />
+			<block type='core/template' template='catalog/wysiwyg/js.phtml' name='catalog.wysiwyg.js'/>
 		</reference>
 	</adminhtml_catalog_category_edit>
 	<ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE>
 		<block type='adminhtml/catalog_product_composite_fieldset' name='product.composite.fieldset' output='toHtml'>
-			<block name='product.composite.fieldset.options' type='adminhtml/catalog_product_composite_fieldset_options' template='catalog/product/composite/fieldset/options.phtml'>
+			<block name='product.composite.fieldset.options' type='adminhtml/catalog_product_composite_fieldset_options'
+				   template='catalog/product/composite/fieldset/options.phtml'>
 				<action method='addOptionRenderer'>
 					<block>catalog/product_view_options_type_text</block>
 					<template>catalog/product/composite/fieldset/options/type/text.phtml</template>
 					<type>text</type>
 				</action>
-				<action method='addOptionRenderer'><type>file</type><block>catalog/product_view_options_type_file</block><template>catalog/product/composite/fieldset/options/type/file.phtml</template></action>
-				<action method='addOptionRenderer'><type>select</type><block>catalog/product_view_options_type_select</block><template>catalog/product/composite/fieldset/options/type/select.phtml</template></action>
-				<action method='addOptionRenderer'><type>date</type><block>catalog/product_view_options_type_date</block><template>catalog/product/composite/fieldset/options/type/date.phtml</template></action>
-				<block type='core/template' name='product.composite.fieldset.options.js' as='options_js' template='catalog/product/composite/fieldset/options/js.phtml'/>
+				<action method='addOptionRenderer'>
+					<type>file</type>
+					<block>catalog/product_view_options_type_file</block>
+					<template>catalog/product/composite/fieldset/options/type/file.phtml</template>
+				</action>
+				<action method='addOptionRenderer'>
+					<type>select</type>
+					<block>catalog/product_view_options_type_select</block>
+					<template>catalog/product/composite/fieldset/options/type/select.phtml</template>
+				</action>
+				<action method='addOptionRenderer'>
+					<type>date</type>
+					<block>catalog/product_view_options_type_date</block>
+					<template>catalog/product/composite/fieldset/options/type/date.phtml</template>
+				</action>
+				<block type='core/template' name='product.composite.fieldset.options.js' as='options_js'
+					   template='catalog/product/composite/fieldset/options/js.phtml'/>
 			</block>
-			<block type='adminhtml/catalog_product_composite_fieldset_qty' name='product.composite.fieldset.qty' template='catalog/product/composite/fieldset/qty.phtml'/>
+			<block type='adminhtml/catalog_product_composite_fieldset_qty' name='product.composite.fieldset.qty'
+				   template='catalog/product/composite/fieldset/qty.phtml'/>
 		</block>
 	</ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE>
 	<ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE_ERROR>
-		<block type='adminhtml/catalog_product_composite_error' name='product.composite.error' output='toHtml' />
+		<block type='adminhtml/catalog_product_composite_error' name='product.composite.error' output='toHtml'/>
 	</ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE_ERROR>
 	<ADMINHTML_CATALOG_PRODUCT_COMPOSITE_UPDATE_RESULT>
-		<block type='adminhtml/catalog_product_composite_update_result' name='product.composite.update.result' output='toHtml' />
+		<block type='adminhtml/catalog_product_composite_update_result' name='product.composite.update.result' output='toHtml'/>
 	</ADMINHTML_CATALOG_PRODUCT_COMPOSITE_UPDATE_RESULT>
 	<PRODUCT_TYPE_configurable>
 		<reference name='product.composite.fieldset'>
-			<block type='adminhtml/catalog_product_composite_fieldset_configurable' name='product.composite.fieldset.configurable' before='product.composite.fieldset.options' template='catalog/product/composite/fieldset/configurable.phtml' />
+			<block type='adminhtml/catalog_product_composite_fieldset_configurable' name='product.composite.fieldset.configurable'
+				   before='product.composite.fieldset.options' template='catalog/product/composite/fieldset/configurable.phtml'/>
 		</reference>
 	</PRODUCT_TYPE_configurable>
 	<PRODUCT_TYPE_grouped>
 		<reference name='product.composite.fieldset'>
-			<block type='adminhtml/catalog_product_composite_fieldset_grouped' name='product.composite.fieldset.grouped' before='product.composite.fieldset.options' template='catalog/product/composite/fieldset/grouped.phtml'/>
+			<block type='adminhtml/catalog_product_composite_fieldset_grouped' name='product.composite.fieldset.grouped'
+				   before='product.composite.fieldset.options' template='catalog/product/composite/fieldset/grouped.phtml'/>
 			<remove name='product.composite.fieldset.qty'/>
 		</reference>
 	</PRODUCT_TYPE_grouped>
