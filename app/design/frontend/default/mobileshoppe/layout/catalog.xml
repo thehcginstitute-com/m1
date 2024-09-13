@@ -144,9 +144,9 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 				>
 					<action method='addTab' module='catalog' translate='title'>
 						<alias>description</alias>
-						<title>Product Description</title>
 						<block>catalog/product_view_description</block>
 						<template>catalog/product/view/description.phtml</template>
+						<title>Product Description</title>
 					</action>
 					<action method='addTab' module='catalog' translate='title'>
 						<alias>upsell_products</alias>

@@ -22,40 +22,35 @@
  */
 class Mage_Catalog_Block_Product_View_Tabs extends Mage_Core_Block_Template
 {
-    protected $_tabs = [];
+	protected $_tabs = [];
 
-    /**
-     * Add tab to the container
-     *
-     * @param string $alias
-     * @param string $title
-     * @param string $block
-     * @param string $template
-     * @return false|void
-     */
-    function addTab($alias, $title, $block, $template)
-    {
-        if (!$title || !$block || !$template) {
-            return false;
-        }
+	/**
+	 * Add tab to the container
+     * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @return false|void
+	 */
+	final function addTab(string $alias, string $title, string $block, string $template) {
+		if (!$title || !$block || !$template) {
+			return false;
+		}
+		$this->_tabs[] = [
+			'alias' => $alias,
+			'title' => $title
+		];
+		$this->setChild(
+			$alias,
+			$this->getLayout()->createBlock($block, $alias)
+				->setTemplate($template)
+		);
+	}
 
-        $this->_tabs[] = [
-            'alias' => $alias,
-            'title' => $title
-        ];
-
-        $this->setChild(
-            $alias,
-            $this->getLayout()->createBlock($block, $alias)
-                ->setTemplate($template)
-        );
-    }
-
-    /**
-     * @return array
-     */
-    function getTabs()
-    {
-        return $this->_tabs;
-    }
+	/**
+	 * @return array
+	 */
+	function getTabs()
+	{
+		return $this->_tabs;
+	}
 }
