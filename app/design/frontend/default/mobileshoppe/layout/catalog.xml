@@ -421,15 +421,9 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 				template='catalog/seo/sitemap.phtml'
 				type='catalog/seo_sitemap_category'
 			>
-				<action method='bindPager'>
-					<pager>seo.sitemap.pager.top</pager>
-				</action>
-				<action method='bindPager'>
-					<pager>seo.sitemap.pager.bottom</pager>
-				</action>
-				<action method='setItemsTitle' module='catalog' translate='title'>
-					<title>categories</title>
-				</action>
+				<action method='bindPager'><pager>seo.sitemap.pager.top</pager></action>
+				<action method='bindPager'><pager>seo.sitemap.pager.bottom</pager></action>
+				<action method='setItemsTitle' module='catalog' translate='title'><title>categories</title></action>
 			</block>
 		</reference>
 		<reference name='seo.sitemap.links'>
