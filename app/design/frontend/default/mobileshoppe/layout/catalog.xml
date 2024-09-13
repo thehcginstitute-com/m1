@@ -284,8 +284,12 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			</action>
 		</reference>
 		<reference name='left'>
-			<block before='-' name='catalog.product.related' template='catalog/product/list/related.phtml'
-				   type='catalog/product_list_related'/>
+			<block
+				before='-'
+				name='catalog.product.related'
+				template='catalog/product/list/related.phtml'
+				type='catalog/product_list_related'
+			/>
 		</reference>
 	</catalog_product_view>
 	<PRODUCT_TYPE_simple module='catalog' translate='label'>
