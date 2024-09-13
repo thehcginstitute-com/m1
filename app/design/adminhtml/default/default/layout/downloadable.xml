@@ -116,10 +116,12 @@
 	</adminhtml_customer_wishlist>
 	<PRODUCT_TYPE_downloadable>
 		<reference name='product.composite.fieldset'>
-			<block before='product.composite.fieldset.options'
+			<block
+				before='product.composite.fieldset.options'
 				name='product.composite.fieldset.downloadable'
 				template='downloadable/product/composite/fieldset/downloadable.phtml'
-				type='downloadable/adminhtml_catalog_product_composite_fieldset_downloadable'/>
+				type='downloadable/adminhtml_catalog_product_composite_fieldset_downloadable'
+			/>
 		</reference>
 	</PRODUCT_TYPE_downloadable>
 </layout>
