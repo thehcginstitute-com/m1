@@ -13,14 +13,15 @@
  * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 -->
-
 <layout>
 	<default>
 		<reference name="notifications">
-			<block type="adminhtml/notification_toolbar" name="notification_toolbar" as="notification_toolbar" acl="system/adminnotification/show_toolbar" template="notification/toolbar.phtml" />
+			<block type="adminhtml/notification_toolbar" name="notification_toolbar" as="notification_toolbar"
+				acl="system/adminnotification/show_toolbar" template="notification/toolbar.phtml"/>
 		</reference>
 		<reference name="notifications">
-			<block type="adminhtml/notification_window" name="notification_window" as="notification_window" acl="system/adminnotification/show_toolbar" template="notification/window.phtml" />
+			<block type="adminhtml/notification_window" name="notification_window" as="notification_window"
+				acl="system/adminnotification/show_toolbar" template="notification/window.phtml"/>
 		</reference>
 	</default>
 </layout>
