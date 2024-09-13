@@ -17,12 +17,12 @@
 					type='api2/adminhtml_roles_tab_resources'
 				/>
 				<action method='addTab'>
-					<id>api2_role_section_info</id>
 					<block>adminhtml.role.edit.tab.info</block>
+					<id>api2_role_section_info</id>
 				</action>
 				<action method='addTab'>
-					<id>api2_role_section_resources</id>
 					<block>adminhtml.role.edit.tab.resources</block>
+					<id>api2_role_section_resources</id>
 				</action>
 			</block>
 		</reference>
@@ -46,16 +46,16 @@
 				/>
 				<block name='adminhtml.role.edit.tab.users' type='api2/adminhtml_roles_tab_users'/>
 				<action method='addTab'>
-					<id>api2_role_section_info</id>
 					<block>adminhtml.role.edit.tab.info</block>
+					<id>api2_role_section_info</id>
 				</action>
 				<action method='addTab'>
-					<id>api2_role_section_resources</id>
 					<block>adminhtml.role.edit.tab.resources</block>
+					<id>api2_role_section_resources</id>
 				</action>
 				<action method='addTab'>
-					<id>roleUsersGrid</id>
 					<block>adminhtml.role.edit.tab.users</block>
+					<id>roleUsersGrid</id>
 				</action>
 			</block>
 		</reference>
