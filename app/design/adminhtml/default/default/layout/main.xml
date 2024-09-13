@@ -2,24 +2,18 @@
 <!-- 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Refactor the `<layout>` XML files": https://github.com/thehcginstitute-com/m1/issues/681 -->
 <layout>
-	<!--
-	Form key for inserting into various forms
-	-->
 	<formkey>
 		<block as='formkey' name='formkey' template='formkey.phtml' type='core/template'/>
 	</formkey>
-	<!--
-	Default layout, loads most of the pages
-	-->
 	<default>
 		<block name='root' output='toHtml' template='page.phtml' type='adminhtml/page'>
 			<block as='head' name='head' template='page/head.phtml' type='adminhtml/page_head'>
 				<action method='setTitle' translate='title'>
 					<title>OpenMage Admin</title>
 				</action>
-				<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
-				https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<action method='addJs'>
 					<name>prototype/prototype.js</name>
 				</action>
@@ -28,9 +22,9 @@
 					<name>extjs/fix-defer-before.js</name>
 					<type>js</type>
 				</action>
-				<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
-				https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<action method='addJs'>
 					<name>prototype/window.js</name>
 				</action>
@@ -147,9 +141,9 @@
 					<name>calendar/calendar-setup.js</name>
 					<type>js</type>
 				</action>
-				<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-				'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
-				https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<action method='addItem'>
 					<cond>can_load_ext_js</cond>
 					<name>extjs/ext-tree.js</name>
@@ -201,9 +195,7 @@
 					type='adminhtml/checkout_formkey'/>
 			</block>
 			<block as='breadcrumbs' name='breadcrumbs' type='adminhtml/widget_breadcrumbs'></block>
-			<!--<update handle='formkey'/> this won't work, see the try/catch and a jammed exception in Mage_Core_Model_Layout::createBlock() -->
 			<block as='formkey' name='formkey' template='formkey.phtml' type='core/template'/>
-			<!-- deprecated since 1.7.0.0 see Mage_Page_Block_Js_Translate -->
 			<block as='js_translate' name='js_translate' template='page/js/translate.phtml' type='page/js_translate'/>
 			<block as='left' name='left' type='core/text_list'/>
 			<block as='content' name='content' type='core/text_list'/>
@@ -221,9 +213,6 @@
 			<block as='before_body_end' name='before_body_end' type='core/text_list'/>
 		</block>
 	</default>
-	<!--
-	Layout for pop up windows
-	-->
 	<popup>
 		<update handle='default'/>
 		<remove name='header'/>
@@ -234,9 +223,6 @@
 			</action>
 		</reference>
 	</popup>
-	<!--
-	Layout for overlay pop up windows
-	-->
 	<overlay_popup>
 		<update handle='popup'/>
 		<reference name='root'>
@@ -245,17 +231,14 @@
 			</action>
 		</reference>
 	</overlay_popup>
-	<!--
-	Layout for editor element
-	-->
 	<editor>
 		<reference name='head'>
 			<action method='setCanLoadExtJs'>
 				<flag>1</flag>
 			</action>
-			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
-			https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'>
 				<name>mage/adminhtml/variables.js</name>
 			</action>
@@ -289,9 +272,6 @@
 			</action>
 		</reference>
 	</editor>
-	<!--
-	No page found
-	-->
 	<adminhtml_noroute>
 		<reference name='content'>
 			<block name='content.noRoute' type='core/text'>
@@ -301,17 +281,11 @@
 			</block>
 		</reference>
 	</adminhtml_noroute>
-	<!--
-	Access denied
-	-->
 	<adminhtml_denied>
 		<reference name='content'>
 			<block name='content.denied' template='access_denied.phtml' type='adminhtml/denied'/>
 		</reference>
 	</adminhtml_denied>
-	<!--
-	Base preview layout (?)
-	-->
 	<preview>
 		<block name='root' output='toHtml' template='newsletter/template/preview.phtml' type='core/template'>
 			<block as='content' name='content' type='adminhtml/newsletter_template_preview'></block>
@@ -333,17 +307,11 @@
 			<block as='content' name='content' type='adminhtml/newsletter_queue_preview'></block>
 		</block>
 	</newsletter_queue_preview>
-	<!--
-	Base customer alerts preview layout (?)
-	-->
 	<alert_preview>
 		<block name='root' output='toHtml' template='alert/template/preview.phtml' type='core/template'>
 			<block as='content' name='content' type='adminhtml/alert_template_preview'></block>
 		</block>
 	</alert_preview>
-	<!--
-	Base preview layout
-	-->
 	<systemPreview>
 		<block name='root' output='toHtml' template='system/email/template/preview.phtml' type='core/template'>
 			<block as='content' name='content' type='adminhtml/system_email_template_preview'></block>
@@ -378,9 +346,6 @@
 			</block>
 		</block>
 	</adminhtml_index_forgotpassword>
-	<!--
-	Empty hanle for ajax response etc.
-	-->
 	<empty>
 	</empty>
 </layout>
