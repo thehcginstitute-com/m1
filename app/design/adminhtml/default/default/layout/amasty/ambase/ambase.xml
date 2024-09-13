@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
 <!--
 /**
  * @author Amasty Team
@@ -8,21 +8,21 @@
 -->
 <layout>
 	<adminhtml_system_config_edit>
-		<reference name="head">
-			<action method="addCss">
+		<reference name='head'>
+			<action method='addCss'>
 				<name>css/amasty/ambase/style.css</name>
 			</action>
 			<!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			"Prevent Amasty from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/380 -->
+			'Prevent Amasty from spamming the Magento's backend': https://github.com/thehcginstitute-com/m1/issues/380 -->
 		</reference>
 	</adminhtml_system_config_edit>
 	<adminhtml_ambase_base_ajax>
-		<reference name="root">
-			<action method="setTemplate">
+		<reference name='root'>
+			<action method='setTemplate'>
 				<template>empty.phtml</template>
 			</action>
 		</reference>
 	</adminhtml_ambase_base_ajax>
 	<!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	"Prevent Amasty from spamming the Magento's backend": https://github.com/thehcginstitute-com/m1/issues/380 -->
+	'Prevent Amasty from spamming the Magento's backend': https://github.com/thehcginstitute-com/m1/issues/380 -->
 </layout>
