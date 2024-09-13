@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
 <!--
 /**
  * OpenMage
@@ -15,37 +15,37 @@
 -->
 <layout>
 	<adminhtml_cms_page_index>
-		<reference name="content">
-			<block name="cms_page" type="adminhtml/cms_page"></block>
+		<reference name='content'>
+			<block name='cms_page' type='adminhtml/cms_page'></block>
 		</reference>
 	</adminhtml_cms_page_index>
 	<adminhtml_cms_page_new>
-		<update handle="adminhtml_cms_page_edit"/>
+		<update handle='adminhtml_cms_page_edit'/>
 	</adminhtml_cms_page_new>
 	<adminhtml_cms_page_edit>
-		<update handle="editor"/>
-		<reference name="content">
-			<block name="cms_page_edit" type="adminhtml/cms_page_edit"></block>
+		<update handle='editor'/>
+		<reference name='content'>
+			<block name='cms_page_edit' type='adminhtml/cms_page_edit'></block>
 		</reference>
-		<reference name="left">
-			<block name="cms_page_edit_tabs" type="adminhtml/cms_page_edit_tabs">
-				<block name="cms_page_edit_tab_main" type="adminhtml/cms_page_edit_tab_main"/>
-				<block name="cms_page_edit_tab_content" type="adminhtml/cms_page_edit_tab_content"/>
-				<block name="cms_page_edit_tab_design" type="adminhtml/cms_page_edit_tab_design"/>
-				<block name="cms_page_edit_tab_meta" type="adminhtml/cms_page_edit_tab_meta"/>
-				<action method="addTab">
+		<reference name='left'>
+			<block name='cms_page_edit_tabs' type='adminhtml/cms_page_edit_tabs'>
+				<block name='cms_page_edit_tab_main' type='adminhtml/cms_page_edit_tab_main'/>
+				<block name='cms_page_edit_tab_content' type='adminhtml/cms_page_edit_tab_content'/>
+				<block name='cms_page_edit_tab_design' type='adminhtml/cms_page_edit_tab_design'/>
+				<block name='cms_page_edit_tab_meta' type='adminhtml/cms_page_edit_tab_meta'/>
+				<action method='addTab'>
 					<name>main_section</name>
 					<block>cms_page_edit_tab_main</block>
 				</action>
-				<action method="addTab">
+				<action method='addTab'>
 					<name>content_section</name>
 					<block>cms_page_edit_tab_content</block>
 				</action>
-				<action method="addTab">
+				<action method='addTab'>
 					<name>design_section</name>
 					<block>cms_page_edit_tab_design</block>
 				</action>
-				<action method="addTab">
+				<action method='addTab'>
 					<name>meta_section</name>
 					<block>cms_page_edit_tab_meta</block>
 				</action>
@@ -53,39 +53,39 @@
 		</reference>
 	</adminhtml_cms_page_edit>
 	<adminhtml_cms_block_index>
-		<reference name="content">
-			<block name="cms_block" type="adminhtml/cms_block"></block>
+		<reference name='content'>
+			<block name='cms_block' type='adminhtml/cms_block'></block>
 		</reference>
 	</adminhtml_cms_block_index>
 	<adminhtml_cms_block_new>
-		<update handle="adminhtml_cms_block_edit"/>
+		<update handle='adminhtml_cms_block_edit'/>
 	</adminhtml_cms_block_new>
 	<adminhtml_cms_block_edit>
-		<update handle="editor"/>
-		<reference name="content">
-			<block name="cms_block_edit" type="adminhtml/cms_block_edit"></block>
+		<update handle='editor'/>
+		<reference name='content'>
+			<block name='cms_block_edit' type='adminhtml/cms_block_edit'></block>
 		</reference>
 	</adminhtml_cms_block_edit>
 	<adminhtml_cms_wysiwyg_images_index>
-		<remove name="footer"/>
-		<remove name="head"/>
-		<reference name="left">
-			<block name="wysiwyg_images.js" template="cms/browser/js.phtml" type="adminhtml/cms_wysiwyg_images_content"/>
-			<block name="wysiwyg_images.tree" template="cms/browser/tree.phtml" type="adminhtml/cms_wysiwyg_images_tree"/>
+		<remove name='footer'/>
+		<remove name='head'/>
+		<reference name='left'>
+			<block name='wysiwyg_images.js' template='cms/browser/js.phtml' type='adminhtml/cms_wysiwyg_images_content'/>
+			<block name='wysiwyg_images.tree' template='cms/browser/tree.phtml' type='adminhtml/cms_wysiwyg_images_tree'/>
 		</reference>
-		<reference name="content">
-			<block name="wysiwyg_images.content" template="cms/browser/content.phtml" type="adminhtml/cms_wysiwyg_images_content">
-				<block name="wysiwyg_images.uploader" template="media/uploader.phtml"
-					type="adminhtml/cms_wysiwyg_images_content_uploader">
-					<block name="additional_scripts" template="cms/browser/content/uploader.phtml" type="core/template"/>
+		<reference name='content'>
+			<block name='wysiwyg_images.content' template='cms/browser/content.phtml' type='adminhtml/cms_wysiwyg_images_content'>
+				<block name='wysiwyg_images.uploader' template='media/uploader.phtml'
+					type='adminhtml/cms_wysiwyg_images_content_uploader'>
+					<block name='additional_scripts' template='cms/browser/content/uploader.phtml' type='core/template'/>
 				</block>
-				<block name="wysiwyg_images.newfolder" template="cms/browser/content/newfolder.phtml"
-					type="adminhtml/cms_wysiwyg_images_content_newfolder"/>
+				<block name='wysiwyg_images.newfolder' template='cms/browser/content/newfolder.phtml'
+					type='adminhtml/cms_wysiwyg_images_content_newfolder'/>
 			</block>
 		</reference>
 	</adminhtml_cms_wysiwyg_images_index>
 	<adminhtml_cms_wysiwyg_images_contents>
-		<block name="wysiwyg_images.files" output="toHtml"
-			template="cms/browser/content/files.phtml" type="adminhtml/cms_wysiwyg_images_content_files"/>
+		<block name='wysiwyg_images.files' output='toHtml'
+			template='cms/browser/content/files.phtml' type='adminhtml/cms_wysiwyg_images_content_files'/>
 	</adminhtml_cms_wysiwyg_images_contents>
 </layout>
