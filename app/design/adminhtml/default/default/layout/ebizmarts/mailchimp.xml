@@ -58,9 +58,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_system_config_edit>
 	<adminhtml_sales_order_creditmemo_new>
 		<reference name='submit_before'>
-			<block name='mailchimp.creditmemo.unsubscribe'
+			<block
+				name='mailchimp.creditmemo.unsubscribe'
 				template='ebizmarts/mailchimp/sales/order/creditmemo/create/unsubscribe.phtml'
-				type='mailchimp/adminhtml_sales_order_creditmemo_unsubscribe'/>
+				type='mailchimp/adminhtml_sales_order_creditmemo_unsubscribe'
+			/>
 		</reference>
 	</adminhtml_sales_order_creditmemo_new>
 	<default>
