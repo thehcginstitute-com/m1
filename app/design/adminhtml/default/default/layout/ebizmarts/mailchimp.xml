@@ -34,11 +34,11 @@
 	<adminhtml_ecommerce_renderresendecom>
 		<reference name='content'>
 			<update handle='default'/>
+			<remove name='footer'/>
+			<remove name='global_notices'/>
 			<remove name='header'/>
 			<remove name='menu'/>
-			<remove name='footer'/>
 			<remove name='notifications'/>
-			<remove name='global_notices'/>
 			<block name='adminhtml.mailchimp.resend'
 				type='mailchimp/adminhtml_ecommerce_resendecommercedata'></block>
 		</reference>
