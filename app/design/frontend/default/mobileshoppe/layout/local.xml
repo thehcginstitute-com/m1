@@ -9,14 +9,8 @@
 			</reference>
 		</customer_account_index>
 		<reference name='head'>
-			<action method='addItem'>
-				<name>js/respond.min.js</name>
-				<type>skin_js</type>
-			</action>
-			<action method='removeItem'>
-				<name>css/print.css</name>
-				<type>skin_css</type>
-			</action>
+			<action method='addItem'><name>js/respond.min.js</name><type>skin_js</type></action>
+			<action method='removeItem'><name>css/print.css</name><type>skin_css</type></action>
 		</reference>
 		<reference name='header'>
 			<block as='topSearch' name='top.search' template='catalogsearch/form.mini.phtml' type='core/template'/>
