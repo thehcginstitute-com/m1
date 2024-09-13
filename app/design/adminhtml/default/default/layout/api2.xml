@@ -73,7 +73,6 @@
 		<remove name='root'/>
 		<block name='adminhtml.role.edit.tab.users' output='toHtml' type='api2/adminhtml_roles_tab_users'/>
 	</adminhtml_api2_role_usersgrid>
-	<!-- admin acl users edit page -->
 	<adminhtml_permissions_user_edit>
 		<reference name='adminhtml.permissions.user.edit.tabs'>
 			<block name='adminhtml.permissions.user.edit.tab.roles' type='api2/adminhtml_permissions_user_edit_tab_roles'/>
@@ -88,7 +87,6 @@
 				type='adminhtml/template'/>
 		</reference>
 	</adminhtml_permissions_user_edit>
-	<!-- ACL attributes -->
 	<adminhtml_api2_attribute_index>
 		<reference name='content'>
 			<block name='api2.attribute' type='api2/adminhtml_attribute'/>
@@ -116,5 +114,4 @@
 			</action>
 		</reference>
 	</adminhtml_api2_attribute_edit>
-	<!-- EOF ACL attributes -->
 </layout>
