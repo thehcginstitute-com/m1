@@ -439,8 +439,12 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 		<reference name='seo.sitemap.container'>
 			<remove name='seo.sitemap.pager.top'/>
 			<remove name='seo.sitemap.pager.bottom'/>
-			<block as='pager_top' name='seo.sitemap.tree.pager.top' template='page/html/pager.phtml'
-				   type='catalog/seo_sitemap_tree_pager'/>
+			<block
+				as='pager_top'
+				name='seo.sitemap.tree.pager.top'
+				template='page/html/pager.phtml'
+				type='catalog/seo_sitemap_tree_pager'
+			/>
 			<block as='pager_bottom' name='seo.sitemap.tree.pager.bottom' template='page/html/pager.phtml'
 				   type='catalog/seo_sitemap_tree_pager'/>
 			<remove name='seo.sitemap.sitemap'/>
