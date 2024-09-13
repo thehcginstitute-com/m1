@@ -83,9 +83,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<orderflags_edit_flags_css_handle>
 		<update handle='font_awesome_handle'/>
 		<reference name='head'>
-			<action method='addCss'>
-				<name>iwd/orderflags/flags.css</name>
-			</action>
+			<action method='addCss'><name>iwd/orderflags/flags.css</name></action>
 		</reference>
 	</orderflags_edit_flags_css_handle>
 	<adminhtml_flags_flags_new>
