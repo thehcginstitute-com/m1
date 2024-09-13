@@ -52,8 +52,11 @@
 	</adminhtml_sales_order_create_index>
 	<adminhtml_sales_order_create_load_block_data>
 		<reference name='order_item_extra_info'>
-			<block name='gift_options_link' template='giftmessage/sales/order/create/giftoptions.phtml'
-				type='giftmessage/adminhtml_sales_order_create_giftoptions'>
+			<block
+				name='gift_options_link'
+				template='giftmessage/sales/order/create/giftoptions.phtml'
+				type='giftmessage/adminhtml_sales_order_create_giftoptions'
+			>
 				<block name='gift_options_item_data' template='giftmessage/sales/order/create/items.phtml'
 					type='giftmessage/adminhtml_sales_order_create_items'/>
 			</block>
