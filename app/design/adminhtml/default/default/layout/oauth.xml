@@ -63,10 +63,7 @@
 			<action method='removeItem'><name>calendar/calendar-win2k-1.css</name><type>js_css</type></action>
 			<action method='removeItem'><name>extjs/resources/css/ext-all.css</name><type>js_css</type></action>
 			<action method='removeItem'><name>extjs/resources/css/ytheme-magento.css</name><type>js_css</type></action>
-			<action method='removeItem'>
-				<type>skin_css</type>
-				<name>menu.css</name>
-			</action>
+			<action method='removeItem'><name>menu.css</name><type>skin_css</type></action>
 			<action method='removeItem'>
 				<type>js</type>
 				<name>calendar/calendar.js</name>
