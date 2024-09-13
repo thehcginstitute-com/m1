@@ -124,10 +124,16 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 					<type>grouped</type>
 				</action>
 			</block>
-			<block name='coupon_code_custom_amount' template='iwd/ordermanager/order/view/tab/coupon_code_custom_amount.phtml'
-				type='iwd_ordermanager/adminhtml_sales_order_view_tab_additionalAmount'>
-				<block name='iwd_om_custom_fee' template='iwd/ordermanager/custom/fee.phtml'
-					type='iwd_ordermanager/adminhtml_sales_order_view_tab_fee'/>
+			<block
+				name='coupon_code_custom_amount'
+				template='iwd/ordermanager/order/view/tab/coupon_code_custom_amount.phtml'
+				type='iwd_ordermanager/adminhtml_sales_order_view_tab_additionalAmount'
+			>
+				<block
+					name='iwd_om_custom_fee'
+					template='iwd/ordermanager/custom/fee.phtml'
+					type='iwd_ordermanager/adminhtml_sales_order_view_tab_fee'
+				/>
 			</block>
 		</reference>
 		<reference name='order_items'>
