@@ -15,9 +15,9 @@
 -->
 
 <layout>
-    <adminhtml_catalog_search_edit>
-        <reference name="content">
-            <block type="adminhtml/catalog_search_edit" name="catalog_search_edit" />
-        </reference>
-    </adminhtml_catalog_search_edit>
+	<adminhtml_catalog_search_edit>
+		<reference name="content">
+			<block type="adminhtml/catalog_search_edit" name="catalog_search_edit" />
+		</reference>
+	</adminhtml_catalog_search_edit>
 </layout>
