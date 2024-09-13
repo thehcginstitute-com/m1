@@ -302,9 +302,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</reference>
 	</adminhtml_sales_order_shipment_new>
 	<adminhtml_sales_order_shipment_addtrack>
-		<block name='shipment_tracking'
+		<block
+			name='shipment_tracking'
 			template='sales/order/shipment/view/tracking.phtml'
-			type='adminhtml/sales_order_shipment_view_tracking'/>
+			type='adminhtml/sales_order_shipment_view_tracking'
+		/>
 	</adminhtml_sales_order_shipment_addtrack>
 	<adminhtml_sales_order_shipment_removetrack>
 		<block name='shipment_tracking'
