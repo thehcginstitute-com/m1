@@ -39,8 +39,11 @@
 		<reference name='left'>
 			<block name='adminhtml.role.edit.tabs' type='api2/adminhtml_roles_tabs'>
 				<block name='adminhtml.role.edit.tab.info' type='api2/adminhtml_roles_tab_info'/>
-				<block name='adminhtml.role.edit.tab.resources' template='permissions/rolesedit.phtml'
-					type='api2/adminhtml_roles_tab_resources'/>
+				<block
+					name='adminhtml.role.edit.tab.resources'
+					template='permissions/rolesedit.phtml'
+					type='api2/adminhtml_roles_tab_resources'
+				/>
 				<block name='adminhtml.role.edit.tab.users' type='api2/adminhtml_roles_tab_users'/>
 				<action method='addTab'>
 					<id>api2_role_section_info</id>
