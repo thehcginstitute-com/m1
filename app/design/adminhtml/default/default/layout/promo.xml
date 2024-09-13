@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
 <!--
 /**
  * OpenMage
@@ -16,104 +16,104 @@
 <layout>
 	<!-- Catalog Price Rule -->
 	<adminhtml_promo_catalog_index>
-		<reference name="content">
-			<block name="promo_catalog" type="adminhtml/promo_catalog"/>
+		<reference name='content'>
+			<block name='promo_catalog' type='adminhtml/promo_catalog'/>
 		</reference>
 	</adminhtml_promo_catalog_index>
 	<adminhtml_promo_catalog_edit>
-		<reference name="head">
-			<action method="setCanLoadExtJs">
+		<reference name='head'>
+			<action method='setCanLoadExtJs'>
 				<flag>1</flag>
 			</action>
-			<action method="setCanLoadRulesJs">
+			<action method='setCanLoadRulesJs'>
 				<flag>1</flag>
 			</action>
 		</reference>
-		<reference name="left">
-			<block name="promo_catalog_edit_tabs" type="adminhtml/promo_catalog_edit_tabs">
-				<block name="promo_catalog_edit_tab_main" type="adminhtml/promo_catalog_edit_tab_main"/>
-				<block name="promo_catalog_edit_tab_conditions" type="adminhtml/promo_catalog_edit_tab_conditions"/>
-				<block name="promo_catalog_edit_tab_actions" type="adminhtml/promo_catalog_edit_tab_actions"/>
-				<action method="addTab">
+		<reference name='left'>
+			<block name='promo_catalog_edit_tabs' type='adminhtml/promo_catalog_edit_tabs'>
+				<block name='promo_catalog_edit_tab_main' type='adminhtml/promo_catalog_edit_tab_main'/>
+				<block name='promo_catalog_edit_tab_conditions' type='adminhtml/promo_catalog_edit_tab_conditions'/>
+				<block name='promo_catalog_edit_tab_actions' type='adminhtml/promo_catalog_edit_tab_actions'/>
+				<action method='addTab'>
 					<name>main_section</name>
 					<block>promo_catalog_edit_tab_main</block>
 				</action>
-				<action method="addTab">
+				<action method='addTab'>
 					<name>conditions_section</name>
 					<block>promo_catalog_edit_tab_conditions</block>
 				</action>
-				<action method="addTab">
+				<action method='addTab'>
 					<name>actions_section</name>
 					<block>promo_catalog_edit_tab_actions</block>
 				</action>
 			</block>
 		</reference>
-		<reference name="content">
-			<block name="promo_catalog_edit" type="adminhtml/promo_catalog_edit"/>
+		<reference name='content'>
+			<block name='promo_catalog_edit' type='adminhtml/promo_catalog_edit'/>
 		</reference>
-		<reference name="js">
-			<block template="promo/js.phtml" type="adminhtml/promo_catalog_edit_js"/>
+		<reference name='js'>
+			<block template='promo/js.phtml' type='adminhtml/promo_catalog_edit_js'/>
 		</reference>
 	</adminhtml_promo_catalog_edit>
 	<!-- Shopping Cart Price Rule -->
 	<adminhtml_promo_quote_index>
-		<reference name="content">
-			<block name="promo_quote" type="adminhtml/promo_quote"></block>
+		<reference name='content'>
+			<block name='promo_quote' type='adminhtml/promo_quote'></block>
 		</reference>
 	</adminhtml_promo_quote_index>
 	<adminhtml_promo_quote_edit>
-		<reference name="head">
-			<action method="setCanLoadExtJs">
+		<reference name='head'>
+			<action method='setCanLoadExtJs'>
 				<flag>1</flag>
 			</action>
-			<action method="setCanLoadRulesJs">
+			<action method='setCanLoadRulesJs'>
 				<flag>1</flag>
 			</action>
 		</reference>
-		<reference name="left">
-			<block name="promo_quote_edit_tabs" type="adminhtml/promo_quote_edit_tabs">
-				<block name="promo_quote_edit_tab_main" type="adminhtml/promo_quote_edit_tab_main"/>
-				<block name="promo_quote_edit_tab_conditions" type="adminhtml/promo_quote_edit_tab_conditions"/>
-				<block name="promo_quote_edit_tab_actions" type="adminhtml/promo_quote_edit_tab_actions"/>
-				<block name="promo_quote_edit_tab_labels" type="adminhtml/promo_quote_edit_tab_labels"/>
-				<block name="promo_quote_edit_tab_coupons" type="adminhtml/promo_quote_edit_tab_coupons">
-					<block name="promo_quote_edit_tab_coupons_form" type="adminhtml/promo_quote_edit_tab_coupons_form"/>
-					<block name="promo_quote_edit_tab_coupons_grid" type="adminhtml/promo_quote_edit_tab_coupons_grid"/>
+		<reference name='left'>
+			<block name='promo_quote_edit_tabs' type='adminhtml/promo_quote_edit_tabs'>
+				<block name='promo_quote_edit_tab_main' type='adminhtml/promo_quote_edit_tab_main'/>
+				<block name='promo_quote_edit_tab_conditions' type='adminhtml/promo_quote_edit_tab_conditions'/>
+				<block name='promo_quote_edit_tab_actions' type='adminhtml/promo_quote_edit_tab_actions'/>
+				<block name='promo_quote_edit_tab_labels' type='adminhtml/promo_quote_edit_tab_labels'/>
+				<block name='promo_quote_edit_tab_coupons' type='adminhtml/promo_quote_edit_tab_coupons'>
+					<block name='promo_quote_edit_tab_coupons_form' type='adminhtml/promo_quote_edit_tab_coupons_form'/>
+					<block name='promo_quote_edit_tab_coupons_grid' type='adminhtml/promo_quote_edit_tab_coupons_grid'/>
 				</block>
-				<action method="addTab">
+				<action method='addTab'>
 					<name>main_section</name>
 					<block>promo_quote_edit_tab_main</block>
 				</action>
-				<action method="addTab">
+				<action method='addTab'>
 					<name>conditions_section</name>
 					<block>promo_quote_edit_tab_conditions</block>
 				</action>
-				<action method="addTab">
+				<action method='addTab'>
 					<name>actions_section</name>
 					<block>promo_quote_edit_tab_actions</block>
 				</action>
-				<action method="addTab">
+				<action method='addTab'>
 					<name>labels_section</name>
 					<block>promo_quote_edit_tab_labels</block>
 				</action>
-				<action method="addTab">
+				<action method='addTab'>
 					<name>coupons_section</name>
 					<block>promo_quote_edit_tab_coupons</block>
 				</action>
 			</block>
-			<block name="promo_quote_edit_jsinit" template="promo/salesrulejs.phtml" type="adminhtml/template"/>
+			<block name='promo_quote_edit_jsinit' template='promo/salesrulejs.phtml' type='adminhtml/template'/>
 		</reference>
-		<reference name="content">
-			<block name="promo_quote_edit" type="adminhtml/promo_quote_edit"></block>
+		<reference name='content'>
+			<block name='promo_quote_edit' type='adminhtml/promo_quote_edit'></block>
 		</reference>
 	</adminhtml_promo_quote_edit>
 	<adminhtml_promo_quote_grid>
-		<remove name="root"/>
-		<block name="promo_quote_grid" output="toHtml" type="adminhtml/promo_quote_edit_tab_product"/>
+		<remove name='root'/>
+		<block name='promo_quote_grid' output='toHtml' type='adminhtml/promo_quote_edit_tab_product'/>
 	</adminhtml_promo_quote_grid>
 	<adminhtml_promo_quote_couponsgrid>
-		<block name="root" output="toHtml" type="core/text_list">
-			<block name="promo_quote_edit_tab_coupons_grid" type="adminhtml/promo_quote_edit_tab_coupons_grid"/>
+		<block name='root' output='toHtml' type='core/text_list'>
+			<block name='promo_quote_edit_tab_coupons_grid' type='adminhtml/promo_quote_edit_tab_coupons_grid'/>
 		</block>
 	</adminhtml_promo_quote_couponsgrid>
 </layout>
