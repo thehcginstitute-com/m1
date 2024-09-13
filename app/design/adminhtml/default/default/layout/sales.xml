@@ -1073,14 +1073,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_create_load_block_giftmessage>
 	<adminhtml_sales_order_create_load_block_message>
 		<reference name='content'>
-			<block name='message'
-				type='adminhtml/sales_order_create_messages'/>
+			<block name='message' type='adminhtml/sales_order_create_messages'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_message>
 	<adminhtml_sales_order_create_load_block_customer_grid>
 		<reference name='content'>
-			<block name='grid'
-				type='adminhtml/sales_order_create_customer_grid'/>
+			<block name='grid' type='adminhtml/sales_order_create_customer_grid'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_customer_grid>
 	<adminhtml_sales_order_create_load_block_sidebar_cart>
