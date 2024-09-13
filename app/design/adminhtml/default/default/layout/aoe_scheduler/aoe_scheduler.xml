@@ -1,65 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'Refactor the `<layout>` XML files': https://github.com/thehcginstitute-com/m1/issues/681 -->
 <layout>
 	<adminhtml_timeline_index>
-		<reference name="head">
-			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-			https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addCss">
+		<reference name='head'>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addCss'>
 				<name>aoe_scheduler/StyleSheet/timeline.css</name>
 			</action>
-			<action method="addCss">
+			<action method='addCss'>
 				<name>aoe_scheduler/StyleSheet/bars.css</name>
 			</action>
-			<action method="addItem">
+			<action method='addItem'>
 				<name>aoe_scheduler/JavaScript/jquery-1.6.2.min.js</name>
 				<type>skin_js</type>
 			</action>
-			<action method="addItem">
+			<action method='addItem'>
 				<name>aoe_scheduler/JavaScript/tooltip.js</name>
 				<type>skin_js</type>
 			</action>
-			<action method="addItem">
+			<action method='addItem'>
 				<name>aoe_scheduler/JavaScript/tooltip.dynamic.js</name>
 				<type>skin_js</type>
 			</action>
-			<action method="addItem">
+			<action method='addItem'>
 				<name>aoe_scheduler/JavaScript/common.js</name>
 				<type>skin_js</type>
 			</action>
 		</reference>
-		<reference name="content">
-			<block name="aoe_scheduler.timeline"
-				template="aoe_scheduler/timeline.phtml"
-				type="aoe_scheduler/adminhtml_timeline"/>
+		<reference name='content'>
+			<block name='aoe_scheduler.timeline'
+				template='aoe_scheduler/timeline.phtml'
+				type='aoe_scheduler/adminhtml_timeline'/>
 		</reference>
 	</adminhtml_timeline_index>
 	<adminhtml_scheduler_index>
-		<reference name="head">
-			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-			https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addCss">
+		<reference name='head'>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addCss'>
 				<name>aoe_scheduler/StyleSheet/bars.css</name>
 			</action>
 		</reference>
-		<reference name="content">
-			<block name="aoe_scheduler.scheduler"
-				type="aoe_scheduler/adminhtml_scheduler"/>
+		<reference name='content'>
+			<block name='aoe_scheduler.scheduler'
+				type='aoe_scheduler/adminhtml_scheduler'/>
 		</reference>
 	</adminhtml_scheduler_index>
 	<adminhtml_cron_index>
-		<reference name="head">
-			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-			https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addCss">
+		<reference name='head'>
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addCss'>
 				<name>aoe_scheduler/StyleSheet/bars.css</name>
 			</action>
 		</reference>
-		<reference name="content">
-			<block name="aoe_scheduler.cron"
-				type="aoe_scheduler/adminhtml_cron"/>
+		<reference name='content'>
+			<block name='aoe_scheduler.cron'
+				type='aoe_scheduler/adminhtml_cron'/>
 		</reference>
 	</adminhtml_cron_index>
 </layout>
