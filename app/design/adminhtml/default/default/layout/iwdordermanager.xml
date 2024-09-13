@@ -348,8 +348,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 		<reference name='data'>
-			<block name='iwd_om_custom_fee' template='iwd/ordermanager/custom/fee.phtml'
-				type='iwd_ordermanager/adminhtml_sales_order_create_fee'/>
+			<block
+				name='iwd_om_custom_fee'
+				template='iwd/ordermanager/custom/fee.phtml'
+				type='iwd_ordermanager/adminhtml_sales_order_create_fee'
+			/>
 		</reference>
 	</adminhtml_sales_order_create_index>
 </layout>
