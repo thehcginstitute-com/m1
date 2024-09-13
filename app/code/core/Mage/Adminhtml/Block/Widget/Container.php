@@ -75,16 +75,11 @@ class Mage_Adminhtml_Block_Widget_Container extends Mage_Adminhtml_Block_Templat
 
     /**
      * Public wrapper for protected _addButton method
-     *
-     * @param string $id
-     * @param array $data
-     * @param int $level
-     * @param int $sortOrder
-     * @param string|null $area area, that button should be displayed in ('header', 'footer', null)
-     * @return $this
+     * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
      */
-    function addButton($id, $data, $level = 0, $sortOrder = 0, $area = 'header')
-    {
+    final function addButton(string $id, array $data, int $level = 0, int $sortOrder = 0, ?string $area = 'header'):self {
         return $this->_addButton($id, $data, $level, $sortOrder, $area);
     }
 
