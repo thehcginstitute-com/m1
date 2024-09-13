@@ -36,19 +36,11 @@
 	</adminhtml_oauth_admin_token_grid>
 	<oauth_root_handle>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>empty.phtml</template>
-			</action>
+			<action method='setTemplate'><template>empty.phtml</template></action>
 		</reference>
 		<reference name='head'>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>scriptaculous/controls.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>prototype/window.js</name>
-			</action>
+			<action method='removeItem'><name>scriptaculous/controls.js</name><type>js</type></action>
+			<action method='removeItem'><name>prototype/window.js</name><type>js</type></action>
 			<action method='removeItem'>
 				<type>js</type>
 				<name>scriptaculous/builder.js</name>
