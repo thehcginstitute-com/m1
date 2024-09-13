@@ -733,15 +733,14 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							template='sales/order/create/totals.phtml'
 							type='adminhtml/sales_order_create_totals'
 						/>
-						<block name='gift_options'
-							template='sales/order/giftoptions.phtml'
-							type='adminhtml/template'>
-							<block name='giftmessage'
+						<block name='gift_options' template='sales/order/giftoptions.phtml' type='adminhtml/template'>
+							<block
+								name='giftmessage'
 								template='sales/order/create/giftmessage.phtml'
-								type='adminhtml/sales_order_create_giftmessage'/>
+								type='adminhtml/sales_order_create_giftmessage'
+							/>
 						</block>
-						<block name='order_item_extra_info'
-							type='core/text_list'></block>
+						<block name='order_item_extra_info' type='core/text_list'/>
 					</block>
 				</block>
 			</block>
