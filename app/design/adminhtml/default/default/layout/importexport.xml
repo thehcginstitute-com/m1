@@ -4,8 +4,12 @@
 <layout>
 	<adminhtml_import_index>
 		<reference name='content'>
-			<block alias='form_before' name='import.form.before' template='importexport/import/form/before.phtml'
-				type='adminhtml/template'/>
+			<block
+				alias='form_before'
+				name='import.form.before'
+				template='importexport/import/form/before.phtml'
+				type='adminhtml/template'
+			/>
 			<block name='import.form.container' type='importexport/adminhtml_import_edit'/>
 			<block alias='form_after' name='import.form.after' template='importexport/import/form/after.phtml'
 				type='adminhtml/template'/>
