@@ -561,9 +561,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_transactions_view>
 	<adminhtml_sales_order_create_index>
 		<reference name='left'>
-			<action method='setIsCollapsed'>
-				<value>true</value>
-			</action>
+			<action method='setIsCollapsed'><value>true</value></action>
 		</reference>
 		<reference name='head'>
 			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
