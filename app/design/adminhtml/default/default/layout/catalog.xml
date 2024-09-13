@@ -322,8 +322,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</ADMINHTML_CATALOG_PRODUCT_COMPOSITE_UPDATE_RESULT>
 	<PRODUCT_TYPE_configurable>
 		<reference name='product.composite.fieldset'>
-			<block before='product.composite.fieldset.options' name='product.composite.fieldset.configurable'
-				   template='catalog/product/composite/fieldset/configurable.phtml' type='adminhtml/catalog_product_composite_fieldset_configurable'/>
+			<block
+				before='product.composite.fieldset.options'
+				name='product.composite.fieldset.configurable'
+				template='catalog/product/composite/fieldset/configurable.phtml'
+				type='adminhtml/catalog_product_composite_fieldset_configurable'
+			/>
 		</reference>
 	</PRODUCT_TYPE_configurable>
 	<PRODUCT_TYPE_grouped>
