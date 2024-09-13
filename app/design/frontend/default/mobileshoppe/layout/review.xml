@@ -3,9 +3,9 @@
 	<customer_account>
 		<reference name='customer_account_navigation'>
 			<action method='addLink' translate='label' module='review'>
+				<label>My Product Reviews</label>
 				<name>reviews</name>
 				<path>review/customer</path>
-				<label>My Product Reviews</label>
 			</action>
 		</reference>
 	</customer_account>
