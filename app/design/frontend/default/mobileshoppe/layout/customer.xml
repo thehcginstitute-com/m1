@@ -182,9 +182,9 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 					<path>customer/account/edit/</path>
 				</action>
 				<action method='addLink' translate='label' module='customer'>
+					<label>Address Book</label>
 					<name>address_book</name>
 					<path>customer/address/</path>
-					<label>Address Book</label>
 				</action>
 			</block>
 <!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
