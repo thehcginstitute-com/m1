@@ -4,8 +4,11 @@
 <layout>
 	<adminhtml_report_statistics_index>
 		<reference name='content'>
-			<block name='sales.report.refreshstatistics' template='report/refresh/statistics.phtml'
-				type='adminhtml/report_refresh_statistics'/>
+			<block
+				name='sales.report.refreshstatistics'
+				template='report/refresh/statistics.phtml'
+				type='adminhtml/report_refresh_statistics'
+			/>
 		</reference>
 	</adminhtml_report_statistics_index>
 	<adminhtml_report_product_viewed>
@@ -17,8 +20,11 @@
 			</action>
 		</reference>
 		<reference name='content'>
-			<block name='product.report.grid.container' template='report/grid/container.phtml'
-				type='adminhtml/report_product_viewed'>
+			<block
+				name='product.report.grid.container'
+				template='report/grid/container.phtml'
+				type='adminhtml/report_product_viewed'
+			>
 				<block name='store.switcher' template='report/store/switcher/enhanced.phtml' type='adminhtml/store_switcher'>
 					<action method='setStoreVarName'>
 						<var_name>store_ids</var_name>
