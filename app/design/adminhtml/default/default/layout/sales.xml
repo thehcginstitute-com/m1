@@ -206,11 +206,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_invoice_addcomment>
 	<adminhtml_sales_order_invoice_view>
 		<reference name='content'>
-			<block name='sales_invoice_view'
-				type='adminhtml/sales_order_invoice_view'>
-				<block name='form'
-					template='sales/order/invoice/view/form.phtml'
-					type='adminhtml/sales_order_invoice_view_form'>
+			<block name='sales_invoice_view' type='adminhtml/sales_order_invoice_view'>
+				<block name='form' template='sales/order/invoice/view/form.phtml' type='adminhtml/sales_order_invoice_view_form'>
 					<block name='order_info'
 						template='sales/order/view/info.phtml'
 						type='adminhtml/sales_order_view_info'></block>
