@@ -130,8 +130,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block as='header' name='header' type='adminhtml/page_header'/>
 			<block as='menu' name='menu' type='adminhtml/page_menu'></block>
 			<block as='notifications' name='notifications' type='core/text_list'>
-				<block as='notification_baseurl' name='notification_baseurl' template='notification/baseurl.phtml'
-					type='adminhtml/notification_baseurl'></block>
+				<block
+					as='notification_baseurl'
+					name='notification_baseurl'
+					template='notification/baseurl.phtml'
+					type='adminhtml/notification_baseurl'
+				/>
 				<block name='cache_notifications' template='system/cache/notifications.phtml'
 					type='adminhtml/cache_notifications'></block>
 				<block as='notification_security' name='notification_security' template='notification/security.phtml'
