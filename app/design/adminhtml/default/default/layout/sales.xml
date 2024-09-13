@@ -87,9 +87,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<block name='order_totals'
 						template='sales/order/totals.phtml'
 						type='adminhtml/sales_order_totals'>
-						<block name='tax'
-							template='sales/order/totals/tax.phtml'
-							type='adminhtml/sales_order_totals_tax'/>
+						<block name='tax' template='sales/order/totals/tax.phtml' type='adminhtml/sales_order_totals_tax'/>
 					</block>
 				</block>
 				<action method='addTab'>
