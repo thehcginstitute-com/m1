@@ -38,7 +38,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block
 				acl='system/adminnotification/show_toolbar'
 				after='notification_toolbar'
-				name='ewcore_notification_toolbar' template='extendware/ewcore/notification/toolbar.phtml'
+				name='ewcore_notification_toolbar'
+				template='extendware/ewcore/notification/toolbar.phtml'
 				type='ewcore/adminhtml_notification_toolbar'
 			/>
 		</reference>
