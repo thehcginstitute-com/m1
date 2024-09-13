@@ -63,9 +63,9 @@
 		</reference>
 		<reference name='product.clone_prices'>
 			<action method='addPriceBlockType'>
-				<type>msrp</type>
 				<block>catalog/product_price</block>
 				<template>catalog/product/price_msrp_item.phtml</template>
+				<type>msrp</type>
 			</action>
 		</reference>
 	</MAP_price_msrp_item>
