@@ -237,9 +237,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					template='catalog/product/edit/action/websites.phtml'
 					type='adminhtml/catalog_product_edit_action_attribute_tab_websites'
 				/>
-				<action method='addTab'><block>tab_attributes</block><name>attributes</name></action>
-				<action method='addTab'><block>tab_inventory</block><name>inventory</name></action>
-				<action method='addTab'><block>tab_websites</block><name>websites</name></action>
+				<action method='addTab'><block>tab_attributes</block><id>attributes</id></action>
+				<action method='addTab'><block>tab_inventory</block><id>inventory</id></action>
+				<action method='addTab'><block>tab_websites</block><id>websites</id></action>
 			</block>
 		</reference>
 		<reference name='content'>
