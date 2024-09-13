@@ -2,34 +2,50 @@
 <layout>
 	<adminhtml_sales_order_grid>
 		<update handle='formkey'/>
-		<block type='adminhtml/sales_order_grid' name='sales_order.grid' output='toHtml'></block>
+		<block name='sales_order.grid'
+			output='toHtml'
+			type='adminhtml/sales_order_grid'></block>
 	</adminhtml_sales_order_grid>
 	<adminhtml_sales_order_index>
 		<reference name='content'>
-			<block type='adminhtml/sales_order' name='sales_order.grid.container'></block>
+			<block name='sales_order.grid.container'
+				type='adminhtml/sales_order'></block>
 		</reference>
 	</adminhtml_sales_order_index>
 	<adminhtml_sales_order_transactions>
-		<block type='adminhtml/sales_transactions_grid' name='sales_transactions.grid' output='toHtml'></block>
+		<block name='sales_transactions.grid'
+			output='toHtml'
+			type='adminhtml/sales_transactions_grid'></block>
 	</adminhtml_sales_order_transactions>
-<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
+	<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	"Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
 	<adminhtml_sales_order_view>
 		<reference name='head'>
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method='addJs'><name>mage/adminhtml/giftmessage.js</name></action>
-			<action method='addJs'><name>mage/adminhtml/giftoptions/tooltip.js</name></action>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addJs'>
+				<name>mage/adminhtml/giftmessage.js</name>
+			</action>
+			<action method='addJs'>
+				<name>mage/adminhtml/giftoptions/tooltip.js</name>
+			</action>
 		</reference>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_view' name='sales_order_edit'></block>
+			<block name='sales_order_edit'
+				type='adminhtml/sales_order_view'></block>
 		</reference>
 		<reference name='left'>
-			<block type='adminhtml/sales_order_view_tabs' name='sales_order_tabs'>
-				<block type='adminhtml/sales_order_view_tab_info' name='order_tab_info' template='sales/order/view/tab/info.phtml'>
-					<block type='adminhtml/sales_order_view_messages' name='order_messages'></block>
-					<block type='adminhtml/sales_order_view_info' name='order_info' template='sales/order/view/info.phtml'></block>
+			<block name='sales_order_tabs'
+				type='adminhtml/sales_order_view_tabs'>
+				<block name='order_tab_info'
+					template='sales/order/view/tab/info.phtml'
+					type='adminhtml/sales_order_view_tab_info'>
+					<block name='order_messages'
+						type='adminhtml/sales_order_view_messages'></block>
+					<block name='order_info'
+						template='sales/order/view/info.phtml'
+						type='adminhtml/sales_order_view_info'></block>
 					<block
 						name='order_items'
 						template='sales/order/view/items.phtml'
@@ -56,36 +72,77 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							<template>sales/items/column/name.phtml</template>
 							<type>grouped</type>
 						</action>
-						<block type='core/text_list' name='order_item_extra_info' />
+						<block name='order_item_extra_info'
+							type='core/text_list'/>
 					</block>
-					<block type='adminhtml/sales_order_payment' name='order_payment'/>
-					<block type='adminhtml/sales_order_view_history' name='order_history' template='sales/order/view/history.phtml'></block>
-					<block type='adminhtml/template' name='gift_options' template='sales/order/giftoptions.phtml'>
-						<block type='adminhtml/sales_order_view_giftmessage' name='order_giftmessage' template='sales/order/view/giftmessage.phtml'></block>
+					<block name='order_payment'
+						type='adminhtml/sales_order_payment'/>
+					<block name='order_history'
+						template='sales/order/view/history.phtml'
+						type='adminhtml/sales_order_view_history'></block>
+					<block name='gift_options'
+						template='sales/order/giftoptions.phtml'
+						type='adminhtml/template'>
+						<block name='order_giftmessage'
+							template='sales/order/view/giftmessage.phtml'
+							type='adminhtml/sales_order_view_giftmessage'></block>
 					</block>
-					<block type='adminhtml/sales_order_totals' name='order_totals' template='sales/order/totals.phtml'>
-						<block type='adminhtml/sales_order_totals_tax' name='tax' template='sales/order/totals/tax.phtml' />
+					<block name='order_totals'
+						template='sales/order/totals.phtml'
+						type='adminhtml/sales_order_totals'>
+						<block name='tax'
+							template='sales/order/totals/tax.phtml'
+							type='adminhtml/sales_order_totals_tax'/>
 					</block>
 				</block>
-				<action method='addTab'><name>order_info</name><block>order_tab_info</block></action>
-				<action method='addTab'><name>order_invoices</name><block>adminhtml/sales_order_view_tab_invoices</block></action>
-				<action method='addTab'><name>order_creditmemos</name><block>adminhtml/sales_order_view_tab_creditmemos</block></action>
-				<action method='addTab'><name>order_shipments</name><block>adminhtml/sales_order_view_tab_shipments</block></action>
-				<action method='addTab'><name>order_history</name><block>adminhtml/sales_order_view_tab_history</block></action>
-				<action method='addTab'><name>order_transactions</name><block>adminhtml/sales_order_view_tab_transactions</block></action>
+				<action method='addTab'>
+					<name>order_info</name>
+					<block>order_tab_info</block>
+				</action>
+				<action method='addTab'>
+					<name>order_invoices</name>
+					<block>adminhtml/sales_order_view_tab_invoices</block>
+				</action>
+				<action method='addTab'>
+					<name>order_creditmemos</name>
+					<block>adminhtml/sales_order_view_tab_creditmemos</block>
+				</action>
+				<action method='addTab'>
+					<name>order_shipments</name>
+					<block>adminhtml/sales_order_view_tab_shipments</block>
+				</action>
+				<action method='addTab'>
+					<name>order_history</name>
+					<block>adminhtml/sales_order_view_tab_history</block>
+				</action>
+				<action method='addTab'>
+					<name>order_transactions</name>
+					<block>adminhtml/sales_order_view_tab_transactions</block>
+				</action>
 			</block>
 		</reference>
 	</adminhtml_sales_order_view>
 	<adminhtml_sales_order_addcomment>
-		<block type='adminhtml/sales_order_view_history' name='order_history' template='sales/order/view/history.phtml' output='toHtml'/>
+		<block name='order_history'
+			output='toHtml'
+			template='sales/order/view/history.phtml'
+			type='adminhtml/sales_order_view_history'/>
 	</adminhtml_sales_order_addcomment>
 	<adminhtml_sales_order_invoice_new>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_invoice_create' name='sales_invoice_create'>
-				<block type='adminhtml/sales_order_invoice_create_form' name='form' template='sales/order/invoice/create/form.phtml'>
-					<block type='adminhtml/sales_order_view_info' name='order_info' template='sales/order/view/info.phtml'></block>
-					<block type='adminhtml/sales_order_payment' name='order_payment'></block>
-					<block type='adminhtml/sales_order_invoice_create_items' name='order_items' template='sales/order/invoice/create/items.phtml'>
+			<block name='sales_invoice_create'
+				type='adminhtml/sales_order_invoice_create'>
+				<block name='form'
+					template='sales/order/invoice/create/form.phtml'
+					type='adminhtml/sales_order_invoice_create_form'>
+					<block name='order_info'
+						template='sales/order/view/info.phtml'
+						type='adminhtml/sales_order_view_info'></block>
+					<block name='order_payment'
+						type='adminhtml/sales_order_payment'></block>
+					<block name='order_items'
+						template='sales/order/invoice/create/items.phtml'
+						type='adminhtml/sales_order_invoice_create_items'>
 						<action method='addItemRender'>
 							<block>adminhtml/sales_items_renderer_default</block>
 							<template>sales/order/invoice/create/items/renderer/default.phtml</template>
@@ -107,10 +164,17 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							<template>sales/items/column/name.phtml</template>
 							<type>grouped</type>
 						</action>
-						<block type='core/text_list' name='order_item_extra_info'></block>
-						<block type='adminhtml/sales_order_totalbar' name='order_totalbar' template='sales/order/totalbar.phtml'></block>
-						<block type='adminhtml/sales_order_invoice_totals' name='invoice_totals' template='sales/order/totals.phtml'>
-							<block type='adminhtml/sales_order_totals_tax' name='tax' template='sales/order/totals/tax.phtml' />
+						<block name='order_item_extra_info'
+							type='core/text_list'></block>
+						<block name='order_totalbar'
+							template='sales/order/totalbar.phtml'
+							type='adminhtml/sales_order_totalbar'></block>
+						<block name='invoice_totals'
+							template='sales/order/totals.phtml'
+							type='adminhtml/sales_order_invoice_totals'>
+							<block name='tax'
+								template='sales/order/totals/tax.phtml'
+								type='adminhtml/sales_order_totals_tax'/>
 						</block>
 					</block>
 				</block>
@@ -118,7 +182,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</reference>
 	</adminhtml_sales_order_invoice_new>
 	<adminhtml_sales_order_invoice_updateqty>
-		<block type='adminhtml/sales_order_invoice_create_items' name='order_items' template='sales/order/invoice/create/items.phtml'>
+		<block name='order_items'
+			template='sales/order/invoice/create/items.phtml'
+			type='adminhtml/sales_order_invoice_create_items'>
 			<action method='addItemRender'>
 				<block>adminhtml/sales_items_renderer_default</block>
 				<template>sales/order/invoice/create/items/renderer/default.phtml</template>
@@ -140,26 +206,43 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<template>sales/items/column/name.phtml</template>
 				<type>grouped</type>
 			</action>
-			<block type='core/text_list' name='order_item_extra_info'></block>
-			<block type='adminhtml/sales_order_totalbar' name='order_totalbar' template='sales/order/totalbar.phtml'></block>
-			<block type='adminhtml/sales_order_invoice_totals' name='invoice_totals' template='sales/order/totals.phtml'>
-				<block type='adminhtml/sales_order_totals_tax' name='tax' template='sales/order/totals/tax.phtml' />
+			<block name='order_item_extra_info'
+				type='core/text_list'></block>
+			<block name='order_totalbar'
+				template='sales/order/totalbar.phtml'
+				type='adminhtml/sales_order_totalbar'></block>
+			<block name='invoice_totals'
+				template='sales/order/totals.phtml'
+				type='adminhtml/sales_order_invoice_totals'>
+				<block name='tax'
+					template='sales/order/totals/tax.phtml'
+					type='adminhtml/sales_order_totals_tax'/>
 			</block>
 		</block>
 	</adminhtml_sales_order_invoice_updateqty>
 	<adminhtml_sales_order_invoice_addcomment>
-		<block type='adminhtml/sales_order_invoice_view_comments' name='invoice_comments'>
-			<block type='adminhtml/sales_order_comments_view'  name='order_comments' template='sales/order/comments/view.phtml'></block>
+		<block name='invoice_comments'
+			type='adminhtml/sales_order_invoice_view_comments'>
+			<block name='order_comments'
+				template='sales/order/comments/view.phtml'
+				type='adminhtml/sales_order_comments_view'></block>
 		</block>
 	</adminhtml_sales_order_invoice_addcomment>
 	<adminhtml_sales_order_invoice_view>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_invoice_view' name='sales_invoice_view'>
-				<block type='adminhtml/sales_order_invoice_view_form' name='form' template='sales/order/invoice/view/form.phtml'>
-					<block type='adminhtml/sales_order_view_info' name='order_info' template='sales/order/view/info.phtml'></block>
-					<block type='adminhtml/sales_order_payment' name='order_payment'></block>
-
-					<block type='adminhtml/sales_order_invoice_view_items' name='invoice_items' template='sales/order/invoice/view/items.phtml'>
+			<block name='sales_invoice_view'
+				type='adminhtml/sales_order_invoice_view'>
+				<block name='form'
+					template='sales/order/invoice/view/form.phtml'
+					type='adminhtml/sales_order_invoice_view_form'>
+					<block name='order_info'
+						template='sales/order/view/info.phtml'
+						type='adminhtml/sales_order_view_info'></block>
+					<block name='order_payment'
+						type='adminhtml/sales_order_payment'></block>
+					<block name='invoice_items'
+						template='sales/order/invoice/view/items.phtml'
+						type='adminhtml/sales_order_invoice_view_items'>
 						<action method='addItemRender'>
 							<block>adminhtml/sales_items_renderer_default</block>
 							<template>sales/order/invoice/view/items/renderer/default.phtml</template>
@@ -181,28 +264,47 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							<template>sales/items/column/name.phtml</template>
 							<type>grouped</type>
 						</action>
-						<block type='core/text_list' name='order_item_extra_info'></block>
+						<block name='order_item_extra_info'
+							type='core/text_list'></block>
 					</block>
-					<block type='adminhtml/sales_order_comments_view' name='order_comments' template='sales/order/comments/view.phtml'>
-						<action method='setParentType'><type>invoice</type></action>
+					<block name='order_comments'
+						template='sales/order/comments/view.phtml'
+						type='adminhtml/sales_order_comments_view'>
+						<action method='setParentType'>
+							<type>invoice</type>
+						</action>
 					</block>
-					<block type='adminhtml/sales_order_invoice_totals' name='invoice_totals' template='sales/order/totals.phtml'>
-						<block type='adminhtml/sales_order_totals_tax' name='tax' template='sales/order/totals/tax.phtml' />
+					<block name='invoice_totals'
+						template='sales/order/totals.phtml'
+						type='adminhtml/sales_order_invoice_totals'>
+						<block name='tax'
+							template='sales/order/totals/tax.phtml'
+							type='adminhtml/sales_order_totals_tax'/>
 					</block>
 				</block>
 			</block>
 		</reference>
 	</adminhtml_sales_order_invoice_view>
 	<adminhtml_sales_order_shipment_new>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
+		<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
 		<reference name='content'>
-			<block type='adminhtml/sales_order_shipment_create' name='sales_shipment_create'>
-				<block type='adminhtml/sales_order_shipment_create_form' name='form' template='sales/order/shipment/create/form.phtml'>
-					<block type='adminhtml/sales_order_view_info' name='order_info' template='sales/order/view/info.phtml'></block>
-					<block type='adminhtml/sales_order_payment' name='order_payment'></block>
-					<block type='adminhtml/sales_order_shipment_create_tracking' name='shipment_tracking' template='sales/order/shipment/create/tracking.phtml'></block>
-					<block type='adminhtml/sales_order_shipment_create_items' name='order_items' template='sales/order/shipment/create/items.phtml'>
+			<block name='sales_shipment_create'
+				type='adminhtml/sales_order_shipment_create'>
+				<block name='form'
+					template='sales/order/shipment/create/form.phtml'
+					type='adminhtml/sales_order_shipment_create_form'>
+					<block name='order_info'
+						template='sales/order/view/info.phtml'
+						type='adminhtml/sales_order_view_info'></block>
+					<block name='order_payment'
+						type='adminhtml/sales_order_payment'></block>
+					<block name='shipment_tracking'
+						template='sales/order/shipment/create/tracking.phtml'
+						type='adminhtml/sales_order_shipment_create_tracking'></block>
+					<block name='order_items'
+						template='sales/order/shipment/create/items.phtml'
+						type='adminhtml/sales_order_shipment_create_items'>
 						<action method='addItemRender'>
 							<block>adminhtml/sales_items_renderer_default</block>
 							<template>sales/order/shipment/create/items/renderer/default.phtml</template>
@@ -218,35 +320,53 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							<column>name</column>
 							<template>sales/items/column/name.phtml</template>
 						</action>
-						<block type='core/text_list' name='order_item_extra_info'></block>
+						<block name='order_item_extra_info'
+							type='core/text_list'></block>
 					</block>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
+					<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
 				</block>
 			</block>
 		</reference>
 	</adminhtml_sales_order_shipment_new>
 	<adminhtml_sales_order_shipment_addtrack>
-		<block type='adminhtml/sales_order_shipment_view_tracking' name='shipment_tracking' template='sales/order/shipment/view/tracking.phtml'></block>
+		<block name='shipment_tracking'
+			template='sales/order/shipment/view/tracking.phtml'
+			type='adminhtml/sales_order_shipment_view_tracking'></block>
 	</adminhtml_sales_order_shipment_addtrack>
 	<adminhtml_sales_order_shipment_removetrack>
-		<block type='adminhtml/sales_order_shipment_view_tracking' name='shipment_tracking' template='sales/order/shipment/view/tracking.phtml'></block>
+		<block name='shipment_tracking'
+			template='sales/order/shipment/view/tracking.phtml'
+			type='adminhtml/sales_order_shipment_view_tracking'></block>
 	</adminhtml_sales_order_shipment_removetrack>
 	<adminhtml_sales_order_shipment_addcomment>
-		<block type='adminhtml/sales_order_shipment_view_comments' name='shipment_comments'>
-			<block type='adminhtml/sales_order_comments_view'  name='order_comments' template='sales/order/comments/view.phtml'></block>
+		<block name='shipment_comments'
+			type='adminhtml/sales_order_shipment_view_comments'>
+			<block name='order_comments'
+				template='sales/order/comments/view.phtml'
+				type='adminhtml/sales_order_comments_view'></block>
 		</block>
 	</adminhtml_sales_order_shipment_addcomment>
 	<adminhtml_sales_order_shipment_view>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
+		<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
 		<reference name='content'>
-			<block type='adminhtml/sales_order_shipment_view' name='sales_shipment_view'>
-				<block type='adminhtml/sales_order_shipment_view_form' name='form' template='sales/order/shipment/view/form.phtml'>
-					<block type='adminhtml/sales_order_view_info' name='order_info' template='sales/order/view/info.phtml'></block>
-					<block type='adminhtml/sales_order_payment' name='order_payment'></block>
-					<block type='adminhtml/sales_order_shipment_view_tracking' name='shipment_tracking' template='sales/order/shipment/view/tracking.phtml'></block>
-					<block type='adminhtml/sales_order_shipment_view_items' name='shipment_items' template='sales/order/shipment/view/items.phtml'>
+			<block name='sales_shipment_view'
+				type='adminhtml/sales_order_shipment_view'>
+				<block name='form'
+					template='sales/order/shipment/view/form.phtml'
+					type='adminhtml/sales_order_shipment_view_form'>
+					<block name='order_info'
+						template='sales/order/view/info.phtml'
+						type='adminhtml/sales_order_view_info'></block>
+					<block name='order_payment'
+						type='adminhtml/sales_order_payment'></block>
+					<block name='shipment_tracking'
+						template='sales/order/shipment/view/tracking.phtml'
+						type='adminhtml/sales_order_shipment_view_tracking'></block>
+					<block name='shipment_items'
+						template='sales/order/shipment/view/items.phtml'
+						type='adminhtml/sales_order_shipment_view_items'>
 						<action method='addItemRender'>
 							<block>adminhtml/sales_items_renderer_default</block>
 							<template>sales/order/shipment/view/items/renderer/default.phtml</template>
@@ -262,25 +382,40 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							<column>name</column>
 							<template>sales/items/column/name.phtml</template>
 						</action>
-						<block type='core/text_list' name='order_item_extra_info'></block>
+						<block name='order_item_extra_info'
+							type='core/text_list'></block>
 					</block>
-					<block type='adminhtml/sales_order_invoice_create_tracking' name='invoice_tracking' template='sales/order/shipment/create/tracking.phtml'></block>
-					<block type='adminhtml/sales_order_comments_view'  name='order_comments' template='sales/order/comments/view.phtml'>
-						<action method='setParentType'><type>shipment</type></action>
+					<block name='invoice_tracking'
+						template='sales/order/shipment/create/tracking.phtml'
+						type='adminhtml/sales_order_invoice_create_tracking'></block>
+					<block name='order_comments'
+						template='sales/order/comments/view.phtml'
+						type='adminhtml/sales_order_comments_view'>
+						<action method='setParentType'>
+							<type>shipment</type>
+						</action>
 					</block>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
+					<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+					"Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
 				</block>
 			</block>
 		</reference>
 	</adminhtml_sales_order_shipment_view>
 	<adminhtml_sales_order_creditmemo_new>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_creditmemo_create' name='sales_creditmemo_create'>
-				<block type='adminhtml/sales_order_creditmemo_create_form' name='form' template='sales/order/creditmemo/create/form.phtml'>
-					<block type='adminhtml/sales_order_view_info' name='order_info' template='sales/order/view/info.phtml'></block>
-					<block type='adminhtml/sales_order_payment' name='order_payment'></block>
-					<block type='adminhtml/sales_order_creditmemo_create_items' name='order_items' template='sales/order/creditmemo/create/items.phtml'>
+			<block name='sales_creditmemo_create'
+				type='adminhtml/sales_order_creditmemo_create'>
+				<block name='form'
+					template='sales/order/creditmemo/create/form.phtml'
+					type='adminhtml/sales_order_creditmemo_create_form'>
+					<block name='order_info'
+						template='sales/order/view/info.phtml'
+						type='adminhtml/sales_order_view_info'></block>
+					<block name='order_payment'
+						type='adminhtml/sales_order_payment'></block>
+					<block name='order_items'
+						template='sales/order/creditmemo/create/items.phtml'
+						type='adminhtml/sales_order_creditmemo_create_items'>
 						<action method='addItemRender'>
 							<block>adminhtml/sales_items_renderer_default</block>
 							<template>sales/order/creditmemo/create/items/renderer/default.phtml</template>
@@ -302,21 +437,34 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							<template>sales/items/column/name.phtml</template>
 							<type>grouped</type>
 						</action>
-						<block type='core/text_list' name='order_item_extra_info'></block>
-						<block type='adminhtml/sales_order_totalbar' name='order_totalbar' template='sales/order/totalbar.phtml'></block>
-						<block type='adminhtml/sales_order_creditmemo_totals' name='creditmemo_totals' template='sales/order/totals.phtml'>
-							<block type='adminhtml/sales_order_creditmemo_create_adjustments' name='adjustments' template='sales/order/creditmemo/create/totals/adjustments.phtml' />
-							<block type='adminhtml/sales_order_totals_tax' name='tax' template='sales/order/totals/tax.phtml' />
+						<block name='order_item_extra_info'
+							type='core/text_list'></block>
+						<block name='order_totalbar'
+							template='sales/order/totalbar.phtml'
+							type='adminhtml/sales_order_totalbar'></block>
+						<block name='creditmemo_totals'
+							template='sales/order/totals.phtml'
+							type='adminhtml/sales_order_creditmemo_totals'>
+							<block name='adjustments'
+								template='sales/order/creditmemo/create/totals/adjustments.phtml'
+								type='adminhtml/sales_order_creditmemo_create_adjustments'/>
+							<block name='tax'
+								template='sales/order/totals/tax.phtml'
+								type='adminhtml/sales_order_totals_tax'/>
 						</block>
-						<block type='core/text_list' name='submit_before' />
-						<block type='core/text_list' name='submit_after' />
+						<block name='submit_before'
+							type='core/text_list'/>
+						<block name='submit_after'
+							type='core/text_list'/>
 					</block>
 				</block>
 			</block>
 		</reference>
 	</adminhtml_sales_order_creditmemo_new>
 	<adminhtml_sales_order_creditmemo_updateqty>
-		<block type='adminhtml/sales_order_creditmemo_create_items' name='order_items' template='sales/order/creditmemo/create/items.phtml'>
+		<block name='order_items'
+			template='sales/order/creditmemo/create/items.phtml'
+			type='adminhtml/sales_order_creditmemo_create_items'>
 			<action method='addItemRender'>
 				<block>adminhtml/sales_items_renderer_default</block>
 				<template>sales/order/creditmemo/create/items/renderer/default.phtml</template>
@@ -338,28 +486,50 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<template>sales/items/column/name.phtml</template>
 				<type>grouped</type>
 			</action>
-			<block type='core/text_list' name='order_item_extra_info'></block>
-			<block type='adminhtml/sales_order_totalbar' name='order_totalbar' template='sales/order/totalbar.phtml'></block>
-			<block type='adminhtml/sales_order_creditmemo_totals' name='creditmemo_totals' template='sales/order/totals.phtml'>
-				<block type='adminhtml/sales_order_creditmemo_create_adjustments' name='adjustments' template='sales/order/creditmemo/create/totals/adjustments.phtml' />
-				<block type='adminhtml/sales_order_totals_tax' name='tax' template='sales/order/totals/tax.phtml' />
+			<block name='order_item_extra_info'
+				type='core/text_list'></block>
+			<block name='order_totalbar'
+				template='sales/order/totalbar.phtml'
+				type='adminhtml/sales_order_totalbar'></block>
+			<block name='creditmemo_totals'
+				template='sales/order/totals.phtml'
+				type='adminhtml/sales_order_creditmemo_totals'>
+				<block name='adjustments'
+					template='sales/order/creditmemo/create/totals/adjustments.phtml'
+					type='adminhtml/sales_order_creditmemo_create_adjustments'/>
+				<block name='tax'
+					template='sales/order/totals/tax.phtml'
+					type='adminhtml/sales_order_totals_tax'/>
 			</block>
-			<block type='core/text_list' name='submit_before' />
-			<block type='core/text_list' name='submit_after' />
+			<block name='submit_before'
+				type='core/text_list'/>
+			<block name='submit_after'
+				type='core/text_list'/>
 		</block>
 	</adminhtml_sales_order_creditmemo_updateqty>
 	<adminhtml_sales_order_creditmemo_addcomment>
-		<block type='adminhtml/sales_order_creditmemo_view_comments' name='creditmemo_comments'>
-			<block type='adminhtml/sales_order_comments_view'  name='order_comments' template='sales/order/comments/view.phtml'></block>
+		<block name='creditmemo_comments'
+			type='adminhtml/sales_order_creditmemo_view_comments'>
+			<block name='order_comments'
+				template='sales/order/comments/view.phtml'
+				type='adminhtml/sales_order_comments_view'></block>
 		</block>
 	</adminhtml_sales_order_creditmemo_addcomment>
 	<adminhtml_sales_order_creditmemo_view>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_creditmemo_view' name='sales_creditmemo_view'>
-				<block type='adminhtml/sales_order_creditmemo_view_form' name='form' template='sales/order/creditmemo/view/form.phtml'>
-					<block type='adminhtml/sales_order_view_info' name='order_info' template='sales/order/view/info.phtml'></block>
-					<block type='adminhtml/sales_order_payment' name='order_payment'></block>
-					<block type='adminhtml/sales_order_creditmemo_view_items' name='creditmemo_items' template='sales/order/creditmemo/view/items.phtml'>
+			<block name='sales_creditmemo_view'
+				type='adminhtml/sales_order_creditmemo_view'>
+				<block name='form'
+					template='sales/order/creditmemo/view/form.phtml'
+					type='adminhtml/sales_order_creditmemo_view_form'>
+					<block name='order_info'
+						template='sales/order/view/info.phtml'
+						type='adminhtml/sales_order_view_info'></block>
+					<block name='order_payment'
+						type='adminhtml/sales_order_payment'></block>
+					<block name='creditmemo_items'
+						template='sales/order/creditmemo/view/items.phtml'
+						type='adminhtml/sales_order_creditmemo_view_items'>
 						<action method='addItemRender'>
 							<block>adminhtml/sales_items_renderer_default</block>
 							<template>sales/order/creditmemo/view/items/renderer/default.phtml</template>
@@ -378,15 +548,25 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<action method='addColumnRender'>
 							<block>adminhtml/sales_items_column_name_grouped</block>
 							<column>name</column>
-							<template>sales/items/column/name.phtml</template><type>grouped</type>
+							<template>sales/items/column/name.phtml</template>
+							<type>grouped</type>
 						</action>
-						<block type='core/text_list' name='order_item_extra_info'></block>
+						<block name='order_item_extra_info'
+							type='core/text_list'></block>
 					</block>
-					<block type='adminhtml/sales_order_comments_view' name='order_comments' template='sales/order/comments/view.phtml'>
-						<action method='setParentType'><type>creditmemo</type></action>
+					<block name='order_comments'
+						template='sales/order/comments/view.phtml'
+						type='adminhtml/sales_order_comments_view'>
+						<action method='setParentType'>
+							<type>creditmemo</type>
+						</action>
 					</block>
-					<block type='adminhtml/sales_order_creditmemo_totals' name='creditmemo_totals' template='sales/order/totals.phtml'>
-						<block type='adminhtml/sales_order_totals_tax' name='tax' template='sales/order/totals/tax.phtml' />
+					<block name='creditmemo_totals'
+						template='sales/order/totals.phtml'
+						type='adminhtml/sales_order_creditmemo_totals'>
+						<block name='tax'
+							template='sales/order/totals/tax.phtml'
+							type='adminhtml/sales_order_totals_tax'/>
 					</block>
 				</block>
 			</block>
@@ -394,33 +574,54 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_creditmemo_view>
 	<adminhtml_sales_transactions_index>
 		<reference name='content'>
-			<block type='adminhtml/sales_transactions' name='sales_transactions.grid.container'></block>
+			<block name='sales_transactions.grid.container'
+				type='adminhtml/sales_transactions'></block>
 		</reference>
 	</adminhtml_sales_transactions_index>
 	<adminhtml_sales_transactions_grid>
-		<block type='adminhtml/sales_transactions_grid' name='sales_transactions.grid' output='toHtml'></block>
+		<block name='sales_transactions.grid'
+			output='toHtml'
+			type='adminhtml/sales_transactions_grid'></block>
 	</adminhtml_sales_transactions_grid>
 	<adminhtml_sales_transactions_view>
 		<reference name='content'>
-			<block type='adminhtml/sales_transactions_detail' name='sales_transactions.detail' template='sales/transactions/detail.phtml'>
-				<block type='adminhtml/sales_transactions_detail_grid' name='sales_transactions.detail.grid' as='detail_grid'/>
-				<block type='adminhtml/sales_transactions_child_grid' name='sales_transactions.child.grid' as='child_grid'/>
+			<block name='sales_transactions.detail'
+				template='sales/transactions/detail.phtml'
+				type='adminhtml/sales_transactions_detail'>
+				<block as='detail_grid'
+					name='sales_transactions.detail.grid'
+					type='adminhtml/sales_transactions_detail_grid'/>
+				<block as='child_grid'
+					name='sales_transactions.child.grid'
+					type='adminhtml/sales_transactions_child_grid'/>
 			</block>
 		</reference>
 	</adminhtml_sales_transactions_view>
 	<adminhtml_sales_order_create_index>
 		<reference name='left'>
-			<action method='setIsCollapsed'><value>true</value></action>
+			<action method='setIsCollapsed'>
+				<value>true</value>
+			</action>
 		</reference>
 		<reference name='head'>
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method='addJs'><name>mage/adminhtml/sales.js</name></action>
-			<action method='addJs'><name>mage/adminhtml/giftmessage.js</name></action>
-			<action method='addJs'><name>mage/adminhtml/product/composite/configure.js</name></action>
-			<action method='addJs'><name>varien/configurable.js</name></action>
-			<action method='addJs'><name>mage/adminhtml/giftoptions/tooltip.js</name></action>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addJs'>
+				<name>mage/adminhtml/sales.js</name>
+			</action>
+			<action method='addJs'>
+				<name>mage/adminhtml/giftmessage.js</name>
+			</action>
+			<action method='addJs'>
+				<name>mage/adminhtml/product/composite/configure.js</name>
+			</action>
+			<action method='addJs'>
+				<name>varien/configurable.js</name>
+			</action>
+			<action method='addJs'>
+				<name>mage/adminhtml/giftoptions/tooltip.js</name>
+			</action>
 			<block
 				as='optional_zip_countries'
 				name='optional_zip_countries'
@@ -429,279 +630,489 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			/>
 		</reference>
 		<reference name='js'>
-			<block type='adminhtml/template' template='sales/order/create/js.phtml' name='create' />
+			<block name='create'
+				template='sales/order/create/js.phtml'
+				type='adminhtml/template'/>
 		</reference>
 		<reference name='root'>
-			<block type='adminhtml/sales_order_create' name='content'>
-				<block type='adminhtml/sales_order_create_form' template='sales/order/create/form.phtml' name='form'>
-					<block type='adminhtml/sales_order_create_messages' name='message' />
-					<block type='adminhtml/sales_order_create_customer' template='sales/order/create/abstract.phtml' name='customer'>
-						<block type='adminhtml/sales_order_create_customer_grid' name='grid' />
+			<block name='content'
+				type='adminhtml/sales_order_create'>
+				<block name='form'
+					template='sales/order/create/form.phtml'
+					type='adminhtml/sales_order_create_form'>
+					<block name='message'
+						type='adminhtml/sales_order_create_messages'/>
+					<block name='customer'
+						template='sales/order/create/abstract.phtml'
+						type='adminhtml/sales_order_create_customer'>
+						<block name='grid'
+							type='adminhtml/sales_order_create_customer_grid'/>
 					</block>
-					<block type='adminhtml/sales_order_create_store' template='sales/order/create/abstract.phtml' name='store'>
-						<block type='adminhtml/sales_order_create_store_select' template='sales/order/create/store/select.phtml' name='select' />
+					<block name='store'
+						template='sales/order/create/abstract.phtml'
+						type='adminhtml/sales_order_create_store'>
+						<block name='select'
+							template='sales/order/create/store/select.phtml'
+							type='adminhtml/sales_order_create_store_select'/>
 					</block>
-					<block type='adminhtml/sales_order_create_data' template='sales/order/create/data.phtml' name='data'>
-						<block type='adminhtml/sales_order_create_sidebar' template='sales/order/create/sidebar.phtml' name='sidebar'>
-							<block type='adminhtml/sales_order_create_sidebar_cart' template='sales/order/create/sidebar/items.phtml' name='cart' />
-							<block type='adminhtml/sales_order_create_sidebar_wishlist' template='sales/order/create/sidebar/items.phtml' name='wishlist' />
-							<block type='adminhtml/sales_order_create_sidebar_reorder' template='sales/order/create/sidebar/items.phtml' name='reorder' />
-							<block type='adminhtml/sales_order_create_sidebar_viewed' template='sales/order/create/sidebar/items.phtml' name='viewed' />
-							<block type='adminhtml/sales_order_create_sidebar_compared' template='sales/order/create/sidebar/items.phtml' name='compared' />
-							<block type='adminhtml/sales_order_create_sidebar_pcompared' template='sales/order/create/sidebar/items.phtml' name='pcompared' />
-							<block type='adminhtml/sales_order_create_sidebar_pviewed' template='sales/order/create/sidebar/items.phtml' name='pviewed' />
+					<block name='data'
+						template='sales/order/create/data.phtml'
+						type='adminhtml/sales_order_create_data'>
+						<block name='sidebar'
+							template='sales/order/create/sidebar.phtml'
+							type='adminhtml/sales_order_create_sidebar'>
+							<block name='cart'
+								template='sales/order/create/sidebar/items.phtml'
+								type='adminhtml/sales_order_create_sidebar_cart'/>
+							<block name='wishlist'
+								template='sales/order/create/sidebar/items.phtml'
+								type='adminhtml/sales_order_create_sidebar_wishlist'/>
+							<block name='reorder'
+								template='sales/order/create/sidebar/items.phtml'
+								type='adminhtml/sales_order_create_sidebar_reorder'/>
+							<block name='viewed'
+								template='sales/order/create/sidebar/items.phtml'
+								type='adminhtml/sales_order_create_sidebar_viewed'/>
+							<block name='compared'
+								template='sales/order/create/sidebar/items.phtml'
+								type='adminhtml/sales_order_create_sidebar_compared'/>
+							<block name='pcompared'
+								template='sales/order/create/sidebar/items.phtml'
+								type='adminhtml/sales_order_create_sidebar_pcompared'/>
+							<block name='pviewed'
+								template='sales/order/create/sidebar/items.phtml'
+								type='adminhtml/sales_order_create_sidebar_pviewed'/>
 						</block>
-						<block type='adminhtml/sales_order_create_form_account' template='sales/order/create/form/account.phtml' name='form_account' />
-						<block type='adminhtml/sales_order_create_shipping_address' template='sales/order/create/form/address.phtml' name='shipping_address' />
-						<block type='adminhtml/sales_order_create_billing_address' template='sales/order/create/form/address.phtml' name='billing_address' />
-						<block type='adminhtml/sales_order_create_shipping_method' template='sales/order/create/abstract.phtml' name='shipping_method'>
-							<block type='adminhtml/sales_order_create_shipping_method_form' template='sales/order/create/shipping/method/form.phtml' name='form' />
+						<block name='form_account'
+							template='sales/order/create/form/account.phtml'
+							type='adminhtml/sales_order_create_form_account'/>
+						<block name='shipping_address'
+							template='sales/order/create/form/address.phtml'
+							type='adminhtml/sales_order_create_shipping_address'/>
+						<block name='billing_address'
+							template='sales/order/create/form/address.phtml'
+							type='adminhtml/sales_order_create_billing_address'/>
+						<block name='shipping_method'
+							template='sales/order/create/abstract.phtml'
+							type='adminhtml/sales_order_create_shipping_method'>
+							<block name='form'
+								template='sales/order/create/shipping/method/form.phtml'
+								type='adminhtml/sales_order_create_shipping_method_form'/>
 						</block>
-						<block type='adminhtml/sales_order_create_billing_method' template='sales/order/create/abstract.phtml' name='billing_method'>
-							<block type='adminhtml/sales_order_create_billing_method_form' template='sales/order/create/billing/method/form.phtml' name='form' />
+						<block name='billing_method'
+							template='sales/order/create/abstract.phtml'
+							type='adminhtml/sales_order_create_billing_method'>
+							<block name='form'
+								template='sales/order/create/billing/method/form.phtml'
+								type='adminhtml/sales_order_create_billing_method_form'/>
 						</block>
-						<block type='adminhtml/sales_order_create_newsletter' template='sales/order/create/abstract.phtml' name='newsletter'>
-							<block type='adminhtml/sales_order_create_newsletter_form' template='sales/order/create/newsletter/form.phtml' name='form' />
+						<block name='newsletter'
+							template='sales/order/create/abstract.phtml'
+							type='adminhtml/sales_order_create_newsletter'>
+							<block name='form'
+								template='sales/order/create/newsletter/form.phtml'
+								type='adminhtml/sales_order_create_newsletter_form'/>
 						</block>
-						<block type='adminhtml/sales_order_create_search' template='sales/order/create/abstract.phtml' name='search'>
-							<block type='adminhtml/sales_order_create_search_grid' name='grid' />
+						<block name='search'
+							template='sales/order/create/abstract.phtml'
+							type='adminhtml/sales_order_create_search'>
+							<block name='grid'
+								type='adminhtml/sales_order_create_search_grid'/>
 						</block>
-						<block type='adminhtml/sales_order_create_items' template='sales/order/create/items.phtml' name='items'>
-							<block type='adminhtml/sales_order_create_items_grid' template='sales/order/create/items/grid.phtml' name='items_grid'>
-								<block type='adminhtml/sales_order_create_coupons' template='sales/order/create/coupons/form.phtml' name='coupons'>
-									<block type='adminhtml/sales_order_create_coupons_form' template='sales/order/create/coupons/form.phtml' name='form' />
+						<block name='items'
+							template='sales/order/create/items.phtml'
+							type='adminhtml/sales_order_create_items'>
+							<block name='items_grid'
+								template='sales/order/create/items/grid.phtml'
+								type='adminhtml/sales_order_create_items_grid'>
+								<block name='coupons'
+									template='sales/order/create/coupons/form.phtml'
+									type='adminhtml/sales_order_create_coupons'>
+									<block name='form'
+										template='sales/order/create/coupons/form.phtml'
+										type='adminhtml/sales_order_create_coupons_form'/>
 								</block>
 							</block>
 						</block>
-						<block type='adminhtml/sales_order_create_comment' template='sales/order/create/comment.phtml' name='comment' />
-						<block type='adminhtml/sales_order_create_totals' template='sales/order/create/totals.phtml' name='totals' />
-						<block type='adminhtml/template' name='gift_options' template='sales/order/giftoptions.phtml'>
-							<block type='adminhtml/sales_order_create_giftmessage' template='sales/order/create/giftmessage.phtml' name='giftmessage' />
+						<block name='comment'
+							template='sales/order/create/comment.phtml'
+							type='adminhtml/sales_order_create_comment'/>
+						<block name='totals'
+							template='sales/order/create/totals.phtml'
+							type='adminhtml/sales_order_create_totals'/>
+						<block name='gift_options'
+							template='sales/order/giftoptions.phtml'
+							type='adminhtml/template'>
+							<block name='giftmessage'
+								template='sales/order/create/giftmessage.phtml'
+								type='adminhtml/sales_order_create_giftmessage'/>
 						</block>
-						<block type='core/text_list' name='order_item_extra_info'></block>
+						<block name='order_item_extra_info'
+							type='core/text_list'></block>
 					</block>
 				</block>
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_index>
 	<adminhtml_sales_order_edit_index>
-		<update handle='adminhtml_sales_order_create_index' />
+		<update handle='adminhtml_sales_order_create_index'/>
 	</adminhtml_sales_order_edit_index>
 	<adminhtml_sales_order_create_load_block_json>
 		<reference name='root'>
-			<block type='adminhtml/sales_order_create_load' name='content' />
+			<block name='content'
+				type='adminhtml/sales_order_create_load'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_json>
 	<adminhtml_sales_order_create_load_block_plain>
 		<reference name='root'>
-			<block type='core/text_list' name='content' />
+			<block name='content'
+				type='core/text_list'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_plain>
 	<adminhtml_sales_order_create_load_block_data>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_data' template='sales/order/create/data.phtml' name='data'>
-				<block type='adminhtml/sales_order_create_sidebar' template='sales/order/create/sidebar.phtml' name='sidebar'>
-					<block type='adminhtml/sales_order_create_sidebar_cart' template='sales/order/create/sidebar/items.phtml' name='cart' />
-					<block type='adminhtml/sales_order_create_sidebar_wishlist' template='sales/order/create/sidebar/items.phtml' name='wishlist' />
-					<block type='adminhtml/sales_order_create_sidebar_reorder' template='sales/order/create/sidebar/items.phtml' name='reorder' />
-					<block type='adminhtml/sales_order_create_sidebar_viewed' template='sales/order/create/sidebar/items.phtml' name='viewed' />
-					<block type='adminhtml/sales_order_create_sidebar_compared' template='sales/order/create/sidebar/items.phtml' name='compared' />
-					<block type='adminhtml/sales_order_create_sidebar_pcompared' template='sales/order/create/sidebar/items.phtml' name='pcompared' />
-					<block type='adminhtml/sales_order_create_sidebar_pviewed' template='sales/order/create/sidebar/items.phtml' name='pviewed' />
+			<block name='data'
+				template='sales/order/create/data.phtml'
+				type='adminhtml/sales_order_create_data'>
+				<block name='sidebar'
+					template='sales/order/create/sidebar.phtml'
+					type='adminhtml/sales_order_create_sidebar'>
+					<block name='cart'
+						template='sales/order/create/sidebar/items.phtml'
+						type='adminhtml/sales_order_create_sidebar_cart'/>
+					<block name='wishlist'
+						template='sales/order/create/sidebar/items.phtml'
+						type='adminhtml/sales_order_create_sidebar_wishlist'/>
+					<block name='reorder'
+						template='sales/order/create/sidebar/items.phtml'
+						type='adminhtml/sales_order_create_sidebar_reorder'/>
+					<block name='viewed'
+						template='sales/order/create/sidebar/items.phtml'
+						type='adminhtml/sales_order_create_sidebar_viewed'/>
+					<block name='compared'
+						template='sales/order/create/sidebar/items.phtml'
+						type='adminhtml/sales_order_create_sidebar_compared'/>
+					<block name='pcompared'
+						template='sales/order/create/sidebar/items.phtml'
+						type='adminhtml/sales_order_create_sidebar_pcompared'/>
+					<block name='pviewed'
+						template='sales/order/create/sidebar/items.phtml'
+						type='adminhtml/sales_order_create_sidebar_pviewed'/>
 				</block>
-				<block type='adminhtml/sales_order_create_form_account' template='sales/order/create/form/account.phtml' name='form_account' />
-				<block type='adminhtml/sales_order_create_shipping_address' template='sales/order/create/form/address.phtml' name='shipping_address' />
-				<block type='adminhtml/sales_order_create_billing_address' template='sales/order/create/form/address.phtml' name='billing_address' />
-				<block type='adminhtml/sales_order_create_shipping_method' template='sales/order/create/abstract.phtml' name='shipping_method'>
-					<block type='adminhtml/sales_order_create_shipping_method_form' template='sales/order/create/shipping/method/form.phtml' name='form' />
+				<block name='form_account'
+					template='sales/order/create/form/account.phtml'
+					type='adminhtml/sales_order_create_form_account'/>
+				<block name='shipping_address'
+					template='sales/order/create/form/address.phtml'
+					type='adminhtml/sales_order_create_shipping_address'/>
+				<block name='billing_address'
+					template='sales/order/create/form/address.phtml'
+					type='adminhtml/sales_order_create_billing_address'/>
+				<block name='shipping_method'
+					template='sales/order/create/abstract.phtml'
+					type='adminhtml/sales_order_create_shipping_method'>
+					<block name='form'
+						template='sales/order/create/shipping/method/form.phtml'
+						type='adminhtml/sales_order_create_shipping_method_form'/>
 				</block>
-				<block type='adminhtml/sales_order_create_billing_method' template='sales/order/create/abstract.phtml' name='billing_method'>
-					<block type='adminhtml/sales_order_create_billing_method_form' template='sales/order/create/billing/method/form.phtml' name='form' />
+				<block name='billing_method'
+					template='sales/order/create/abstract.phtml'
+					type='adminhtml/sales_order_create_billing_method'>
+					<block name='form'
+						template='sales/order/create/billing/method/form.phtml'
+						type='adminhtml/sales_order_create_billing_method_form'/>
 				</block>
-				<block type='adminhtml/sales_order_create_newsletter' template='sales/order/create/abstract.phtml' name='newsletter'>
-					<block type='adminhtml/sales_order_create_newsletter_form' template='sales/order/create/newsletter/form.phtml' name='form' />
+				<block name='newsletter'
+					template='sales/order/create/abstract.phtml'
+					type='adminhtml/sales_order_create_newsletter'>
+					<block name='form'
+						template='sales/order/create/newsletter/form.phtml'
+						type='adminhtml/sales_order_create_newsletter_form'/>
 				</block>
-				<block type='adminhtml/sales_order_create_search' template='sales/order/create/abstract.phtml' name='search'>
-					<block type='adminhtml/sales_order_create_search_grid' name='grid' />
+				<block name='search'
+					template='sales/order/create/abstract.phtml'
+					type='adminhtml/sales_order_create_search'>
+					<block name='grid'
+						type='adminhtml/sales_order_create_search_grid'/>
 				</block>
-				<block type='adminhtml/sales_order_create_items' template='sales/order/create/items.phtml' name='items'>
-					<block type='adminhtml/sales_order_create_items_grid' template='sales/order/create/items/grid.phtml' name='items_grid'>
-						<block type='adminhtml/sales_order_create_coupons' template='sales/order/create/coupons/form.phtml' name='coupons'>
-							<block type='adminhtml/sales_order_create_coupons_form' template='sales/order/create/coupons/form.phtml' name='form' />
+				<block name='items'
+					template='sales/order/create/items.phtml'
+					type='adminhtml/sales_order_create_items'>
+					<block name='items_grid'
+						template='sales/order/create/items/grid.phtml'
+						type='adminhtml/sales_order_create_items_grid'>
+						<block name='coupons'
+							template='sales/order/create/coupons/form.phtml'
+							type='adminhtml/sales_order_create_coupons'>
+							<block name='form'
+								template='sales/order/create/coupons/form.phtml'
+								type='adminhtml/sales_order_create_coupons_form'/>
 						</block>
 					</block>
 				</block>
-				<block type='adminhtml/sales_order_create_comment' template='sales/order/create/comment.phtml' name='comment' />
-				<block type='adminhtml/sales_order_create_totals' template='sales/order/create/totals.phtml' name='totals' />
-				<block type='adminhtml/template' name='gift_options' template='sales/order/giftoptions.phtml'>
-					<block type='adminhtml/sales_order_create_giftmessage' template='sales/order/create/giftmessage.phtml' name='giftmessage' />
+				<block name='comment'
+					template='sales/order/create/comment.phtml'
+					type='adminhtml/sales_order_create_comment'/>
+				<block name='totals'
+					template='sales/order/create/totals.phtml'
+					type='adminhtml/sales_order_create_totals'/>
+				<block name='gift_options'
+					template='sales/order/giftoptions.phtml'
+					type='adminhtml/template'>
+					<block name='giftmessage'
+						template='sales/order/create/giftmessage.phtml'
+						type='adminhtml/sales_order_create_giftmessage'/>
 				</block>
-				<block type='core/text_list' name='order_item_extra_info'></block>
+				<block name='order_item_extra_info'
+					type='core/text_list'></block>
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_data>
 	<adminhtml_sales_order_create_load_block_header>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_header' name='header' />
+			<block name='header'
+				type='adminhtml/sales_order_create_header'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_header>
 	<adminhtml_sales_order_create_load_block_sidebar>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_sidebar' template='sales/order/create/sidebar.phtml' name='sidebar'>
-				<block type='adminhtml/sales_order_create_sidebar_cart' template='sales/order/create/sidebar/items.phtml' name='cart' />
-				<block type='adminhtml/sales_order_create_sidebar_wishlist' template='sales/order/create/sidebar/items.phtml' name='wishlist' />
-				<block type='adminhtml/sales_order_create_sidebar_reorder' template='sales/order/create/sidebar/items.phtml' name='reorder' />
-				<block type='adminhtml/sales_order_create_sidebar_viewed' template='sales/order/create/sidebar/items.phtml' name='viewed' />
-				<block type='adminhtml/sales_order_create_sidebar_compared' template='sales/order/create/sidebar/items.phtml' name='compared' />
-				<block type='adminhtml/sales_order_create_sidebar_pcompared' template='sales/order/create/sidebar/items.phtml' name='pcompared' />
-				<block type='adminhtml/sales_order_create_sidebar_pviewed' template='sales/order/create/sidebar/items.phtml' name='pviewed' />
+			<block name='sidebar'
+				template='sales/order/create/sidebar.phtml'
+				type='adminhtml/sales_order_create_sidebar'>
+				<block name='cart'
+					template='sales/order/create/sidebar/items.phtml'
+					type='adminhtml/sales_order_create_sidebar_cart'/>
+				<block name='wishlist'
+					template='sales/order/create/sidebar/items.phtml'
+					type='adminhtml/sales_order_create_sidebar_wishlist'/>
+				<block name='reorder'
+					template='sales/order/create/sidebar/items.phtml'
+					type='adminhtml/sales_order_create_sidebar_reorder'/>
+				<block name='viewed'
+					template='sales/order/create/sidebar/items.phtml'
+					type='adminhtml/sales_order_create_sidebar_viewed'/>
+				<block name='compared'
+					template='sales/order/create/sidebar/items.phtml'
+					type='adminhtml/sales_order_create_sidebar_compared'/>
+				<block name='pcompared'
+					template='sales/order/create/sidebar/items.phtml'
+					type='adminhtml/sales_order_create_sidebar_pcompared'/>
+				<block name='pviewed'
+					template='sales/order/create/sidebar/items.phtml'
+					type='adminhtml/sales_order_create_sidebar_pviewed'/>
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar>
 	<adminhtml_sales_order_create_load_block_form_account>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_form_account' template='sales/order/create/form/account.phtml' name='form_account' />
+			<block name='form_account'
+				template='sales/order/create/form/account.phtml'
+				type='adminhtml/sales_order_create_form_account'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_form_account>
 	<adminhtml_sales_order_create_load_block_shipping_address>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_shipping_address' template='sales/order/create/form/address.phtml' name='shipping_address' />
+			<block name='shipping_address'
+				template='sales/order/create/form/address.phtml'
+				type='adminhtml/sales_order_create_shipping_address'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_shipping_address>
 	<adminhtml_sales_order_create_load_block_billing_address>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_billing_address' template='sales/order/create/form/address.phtml' name='billing_address' />
+			<block name='billing_address'
+				template='sales/order/create/form/address.phtml'
+				type='adminhtml/sales_order_create_billing_address'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_billing_address>
 	<adminhtml_sales_order_create_load_block_shipping_method>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_shipping_method' template='sales/order/create/abstract.phtml' name='shipping_method'>
-				<block type='adminhtml/sales_order_create_shipping_method_form' template='sales/order/create/shipping/method/form.phtml' name='form' />
+			<block name='shipping_method'
+				template='sales/order/create/abstract.phtml'
+				type='adminhtml/sales_order_create_shipping_method'>
+				<block name='form'
+					template='sales/order/create/shipping/method/form.phtml'
+					type='adminhtml/sales_order_create_shipping_method_form'/>
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_shipping_method>
 	<adminhtml_sales_order_create_load_block_billing_method>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_billing_method' template='sales/order/create/abstract.phtml' name='billing_method'>
-				<block type='adminhtml/sales_order_create_billing_method_form' template='sales/order/create/billing/method/form.phtml' name='form' />
+			<block name='billing_method'
+				template='sales/order/create/abstract.phtml'
+				type='adminhtml/sales_order_create_billing_method'>
+				<block name='form'
+					template='sales/order/create/billing/method/form.phtml'
+					type='adminhtml/sales_order_create_billing_method_form'/>
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_billing_method>
 	<adminhtml_sales_order_create_load_block_newsletter>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_newsletter' template='sales/order/create/abstract.phtml' name='newsletter'>
-				<block type='adminhtml/sales_order_create_newsletter_form' template='sales/order/create/newsletter/form.phtml' name='form' />
+			<block name='newsletter'
+				template='sales/order/create/abstract.phtml'
+				type='adminhtml/sales_order_create_newsletter'>
+				<block name='form'
+					template='sales/order/create/newsletter/form.phtml'
+					type='adminhtml/sales_order_create_newsletter_form'/>
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_newsletter>
 	<adminhtml_sales_order_create_load_block_search>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_search' template='sales/order/create/abstract.phtml' name='search'>
-				<block type='adminhtml/sales_order_create_search_grid' name='grid' />
+			<block name='search'
+				template='sales/order/create/abstract.phtml'
+				type='adminhtml/sales_order_create_search'>
+				<block name='grid'
+					type='adminhtml/sales_order_create_search_grid'/>
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_search>
 	<adminhtml_sales_order_create_load_block_search_grid>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_search_grid' name='grid' />
+			<block name='grid'
+				type='adminhtml/sales_order_create_search_grid'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_search_grid>
 	<adminhtml_sales_order_create_load_block_items>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_items' template='sales/order/create/items.phtml' name='items'>
-				<block type='adminhtml/sales_order_create_items_grid' template='sales/order/create/items/grid.phtml' name='items_grid'>
-					<block type='adminhtml/sales_order_create_coupons' template='sales/order/create/coupons/form.phtml' name='coupons'>
-						<block type='adminhtml/sales_order_create_coupons_form' template='sales/order/create/coupons/form.phtml' name='form' />
+			<block name='items'
+				template='sales/order/create/items.phtml'
+				type='adminhtml/sales_order_create_items'>
+				<block name='items_grid'
+					template='sales/order/create/items/grid.phtml'
+					type='adminhtml/sales_order_create_items_grid'>
+					<block name='coupons'
+						template='sales/order/create/coupons/form.phtml'
+						type='adminhtml/sales_order_create_coupons'>
+						<block name='form'
+							template='sales/order/create/coupons/form.phtml'
+							type='adminhtml/sales_order_create_coupons_form'/>
 					</block>
 				</block>
 			</block>
-			<block type='core/text_list' name='order_item_extra_info'></block>
+			<block name='order_item_extra_info'
+				type='core/text_list'></block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_items>
 	<adminhtml_sales_order_create_load_block_comment>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_comment' template='sales/order/create/comment.phtml' name='comment' />
+			<block name='comment'
+				template='sales/order/create/comment.phtml'
+				type='adminhtml/sales_order_create_comment'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_comment>
 	<adminhtml_sales_order_create_load_block_totals>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_totals' template='sales/order/create/totals.phtml' name='totals' />
+			<block name='totals'
+				template='sales/order/create/totals.phtml'
+				type='adminhtml/sales_order_create_totals'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_totals>
 	<adminhtml_sales_order_create_load_block_giftmessage>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_giftmessage' template='sales/order/create/giftmessage.phtml' name='giftmessage' />
+			<block name='giftmessage'
+				template='sales/order/create/giftmessage.phtml'
+				type='adminhtml/sales_order_create_giftmessage'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_giftmessage>
 	<adminhtml_sales_order_create_load_block_message>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_messages' name='message' />
+			<block name='message'
+				type='adminhtml/sales_order_create_messages'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_message>
 	<adminhtml_sales_order_create_load_block_customer_grid>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_customer_grid' name='grid' />
+			<block name='grid'
+				type='adminhtml/sales_order_create_customer_grid'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_customer_grid>
 	<adminhtml_sales_order_create_load_block_sidebar_cart>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_sidebar_cart' template='sales/order/create/sidebar/items.phtml' name='sidebar_cart' />
+			<block name='sidebar_cart'
+				template='sales/order/create/sidebar/items.phtml'
+				type='adminhtml/sales_order_create_sidebar_cart'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_cart>
 	<adminhtml_sales_order_create_load_block_sidebar_wishlist>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_sidebar_wishlist' template='sales/order/create/sidebar/items.phtml' name='sidebar_wishlist' />
+			<block name='sidebar_wishlist'
+				template='sales/order/create/sidebar/items.phtml'
+				type='adminhtml/sales_order_create_sidebar_wishlist'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_wishlist>
 	<adminhtml_sales_order_create_load_block_sidebar_reorder>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_sidebar_reorder' template='sales/order/create/sidebar/items.phtml' name='sidebar_reorder' />
+			<block name='sidebar_reorder'
+				template='sales/order/create/sidebar/items.phtml'
+				type='adminhtml/sales_order_create_sidebar_reorder'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_reorder>
 	<adminhtml_sales_order_create_load_block_sidebar_viewed>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_sidebar_viewed' template='sales/order/create/sidebar/items.phtml' name='sidebar_viewed' />
+			<block name='sidebar_viewed'
+				template='sales/order/create/sidebar/items.phtml'
+				type='adminhtml/sales_order_create_sidebar_viewed'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_viewed>
 	<adminhtml_sales_order_create_load_block_sidebar_compared>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_sidebar_compared' template='sales/order/create/sidebar/items.phtml' name='sidebar_compared' />
+			<block name='sidebar_compared'
+				template='sales/order/create/sidebar/items.phtml'
+				type='adminhtml/sales_order_create_sidebar_compared'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_compared>
 	<adminhtml_sales_order_create_load_block_sidebar_pviewed>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_sidebar_pviewed' template='sales/order/create/sidebar/items.phtml' name='sidebar_pviewed' />
+			<block name='sidebar_pviewed'
+				template='sales/order/create/sidebar/items.phtml'
+				type='adminhtml/sales_order_create_sidebar_pviewed'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_pviewed>
 	<adminhtml_sales_order_create_load_block_sidebar_pcompared>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_create_sidebar_pcompared' template='sales/order/create/sidebar/items.phtml' name='sidebar_pcompared' />
+			<block name='sidebar_pcompared'
+				template='sales/order/create/sidebar/items.phtml'
+				type='adminhtml/sales_order_create_sidebar_pcompared'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_pcompared>
 	<report_sales>
 		<reference name='messages'>
-			<action method='addNotice' translate='message'>
-				<message>This report depends on timezone configuration. Once timezone is changed, the lifetime statistics need to be refreshed.</message>
+			<action method='addNotice'
+				translate='message'>
+				<message>This report depends on timezone configuration. Once timezone is changed, the lifetime statistics need to
+					be refreshed.
+				</message>
 			</action>
 		</reference>
 	</report_sales>
 	<adminhtml_report_sales_sales>
 		<update handle='report_sales'/>
 		<reference name='content'>
-			<block type='adminhtml/report_sales_sales' template='report/grid/container.phtml' name='sales.report.grid.container'>
-				<block type='adminhtml/store_switcher' template='report/store/switcher/enhanced.phtml' name='store.switcher'>
-					<action method='setStoreVarName'><var_name>store_ids</var_name></action>
+			<block name='sales.report.grid.container'
+				template='report/grid/container.phtml'
+				type='adminhtml/report_sales_sales'>
+				<block name='store.switcher'
+					template='report/store/switcher/enhanced.phtml'
+					type='adminhtml/store_switcher'>
+					<action method='setStoreVarName'>
+						<var_name>store_ids</var_name>
+					</action>
 				</block>
-				<block type='sales/adminhtml_report_filter_form_order' name='grid.filter.form'>
-					<action method='addReportTypeOption' translate='value'>
+				<block name='grid.filter.form'
+					type='sales/adminhtml_report_filter_form_order'>
+					<action method='addReportTypeOption'
+						translate='value'>
 						<key>created_at_order</key>
 						<value>Order Created Date</value>
 					</action>
-					<action method='addReportTypeOption' translate='value'>
+					<action method='addReportTypeOption'
+						translate='value'>
 						<key>updated_at_order</key>
 						<value>Order Updated Date</value>
 					</action>
-					<action method='setFieldOption' translate='value'>
+					<action method='setFieldOption'
+						translate='value'>
 						<field>report_type</field>
 						<option>note</option>
 						<value>Order Updated Date report is real-time, does not need statistics refreshing.</value>
@@ -713,20 +1124,30 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_report_sales_tax>
 		<update handle='report_sales'/>
 		<reference name='content'>
-			<block type='adminhtml/report_sales_tax' template='report/grid/container.phtml' name='sales.report.grid.container'>
-				<block type='adminhtml/store_switcher' template='report/store/switcher/enhanced.phtml' name='store.switcher'>
-					<action method='setStoreVarName'><var_name>store_ids</var_name></action>
+			<block name='sales.report.grid.container'
+				template='report/grid/container.phtml'
+				type='adminhtml/report_sales_tax'>
+				<block name='store.switcher'
+					template='report/store/switcher/enhanced.phtml'
+					type='adminhtml/store_switcher'>
+					<action method='setStoreVarName'>
+						<var_name>store_ids</var_name>
+					</action>
 				</block>
-				<block type='sales/adminhtml_report_filter_form' name='grid.filter.form'>
-					<action method='addReportTypeOption' translate='value'>
+				<block name='grid.filter.form'
+					type='sales/adminhtml_report_filter_form'>
+					<action method='addReportTypeOption'
+						translate='value'>
 						<key>created_at_order</key>
 						<value>Order Created Date</value>
 					</action>
-					<action method='addReportTypeOption' translate='value'>
+					<action method='addReportTypeOption'
+						translate='value'>
 						<key>updated_at_order</key>
 						<value>Order Updated Date</value>
 					</action>
-					<action method='setFieldOption' translate='value'>
+					<action method='setFieldOption'
+						translate='value'>
 						<field>report_type</field>
 						<option>note</option>
 						<value>Order Updated Date report is real-time, does not need statistics refreshing.</value>
@@ -738,16 +1159,25 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_report_sales_shipping>
 		<update handle='report_sales'/>
 		<reference name='content'>
-			<block type='adminhtml/report_sales_shipping' template='report/grid/container.phtml' name='sales.report.grid.container'>
-				<block type='adminhtml/store_switcher' template='report/store/switcher/enhanced.phtml' name='store.switcher'>
-					<action method='setStoreVarName'><var_name>store_ids</var_name></action>
+			<block name='sales.report.grid.container'
+				template='report/grid/container.phtml'
+				type='adminhtml/report_sales_shipping'>
+				<block name='store.switcher'
+					template='report/store/switcher/enhanced.phtml'
+					type='adminhtml/store_switcher'>
+					<action method='setStoreVarName'>
+						<var_name>store_ids</var_name>
+					</action>
 				</block>
-				<block type='sales/adminhtml_report_filter_form' name='grid.filter.form'>
-					<action method='addReportTypeOption' translate='value'>
+				<block name='grid.filter.form'
+					type='sales/adminhtml_report_filter_form'>
+					<action method='addReportTypeOption'
+						translate='value'>
 						<key>created_at_order</key>
 						<value>Order Created Date</value>
 					</action>
-					<action method='addReportTypeOption' translate='value'>
+					<action method='addReportTypeOption'
+						translate='value'>
 						<key>created_at_shipment</key>
 						<value>First Invoice Created Date</value>
 					</action>
@@ -758,16 +1188,25 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_report_sales_invoiced>
 		<update handle='report_sales'/>
 		<reference name='content'>
-			<block type='adminhtml/report_sales_invoiced' template='report/grid/container.phtml' name='sales.report.grid.container'>
-				<block type='adminhtml/store_switcher' template='report/store/switcher/enhanced.phtml' name='store.switcher'>
-					<action method='setStoreVarName'><var_name>store_ids</var_name></action>
+			<block name='sales.report.grid.container'
+				template='report/grid/container.phtml'
+				type='adminhtml/report_sales_invoiced'>
+				<block name='store.switcher'
+					template='report/store/switcher/enhanced.phtml'
+					type='adminhtml/store_switcher'>
+					<action method='setStoreVarName'>
+						<var_name>store_ids</var_name>
+					</action>
 				</block>
-				<block type='sales/adminhtml_report_filter_form' name='grid.filter.form'>
-					<action method='addReportTypeOption' translate='value'>
+				<block name='grid.filter.form'
+					type='sales/adminhtml_report_filter_form'>
+					<action method='addReportTypeOption'
+						translate='value'>
 						<key>created_at_order</key>
 						<value>Order Created Date</value>
 					</action>
-					<action method='addReportTypeOption' translate='value'>
+					<action method='addReportTypeOption'
+						translate='value'>
 						<key>created_at_invoice</key>
 						<value>Last Invoice Created Date</value>
 					</action>
@@ -778,16 +1217,25 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_report_sales_refunded>
 		<update handle='report_sales'/>
 		<reference name='content'>
-			<block type='adminhtml/report_sales_refunded' template='report/grid/container.phtml' name='sales.report.grid.container'>
-				<block type='adminhtml/store_switcher' template='report/store/switcher/enhanced.phtml' name='store.switcher'>
-					<action method='setStoreVarName'><var_name>store_ids</var_name></action>
+			<block name='sales.report.grid.container'
+				template='report/grid/container.phtml'
+				type='adminhtml/report_sales_refunded'>
+				<block name='store.switcher'
+					template='report/store/switcher/enhanced.phtml'
+					type='adminhtml/store_switcher'>
+					<action method='setStoreVarName'>
+						<var_name>store_ids</var_name>
+					</action>
 				</block>
-				<block type='sales/adminhtml_report_filter_form' name='grid.filter.form'>
-					<action method='addReportTypeOption' translate='value'>
+				<block name='grid.filter.form'
+					type='sales/adminhtml_report_filter_form'>
+					<action method='addReportTypeOption'
+						translate='value'>
 						<key>created_at_order</key>
 						<value>Order Created Date</value>
 					</action>
-					<action method='addReportTypeOption' translate='value'>
+					<action method='addReportTypeOption'
+						translate='value'>
 						<key>created_at_refunded</key>
 						<value>Last Credit Memo Created Date</value>
 					</action>
@@ -798,20 +1246,30 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_report_sales_coupons>
 		<update handle='report_sales'/>
 		<reference name='content'>
-			<block type='adminhtml/report_sales_coupons' template='report/grid/container.phtml' name='sales.report.grid.container'>
-				<block type='adminhtml/store_switcher' template='report/store/switcher/enhanced.phtml' name='store.switcher'>
-					<action method='setStoreVarName'><var_name>store_ids</var_name></action>
+			<block name='sales.report.grid.container'
+				template='report/grid/container.phtml'
+				type='adminhtml/report_sales_coupons'>
+				<block name='store.switcher'
+					template='report/store/switcher/enhanced.phtml'
+					type='adminhtml/store_switcher'>
+					<action method='setStoreVarName'>
+						<var_name>store_ids</var_name>
+					</action>
 				</block>
-				<block type='sales/adminhtml_report_filter_form_coupon' name='grid.filter.form'>
-					<action method='addReportTypeOption' translate='value'>
+				<block name='grid.filter.form'
+					type='sales/adminhtml_report_filter_form_coupon'>
+					<action method='addReportTypeOption'
+						translate='value'>
 						<key>created_at_order</key>
 						<value>Order Created Date</value>
 					</action>
-					<action method='addReportTypeOption' translate='value'>
+					<action method='addReportTypeOption'
+						translate='value'>
 						<key>updated_at_order</key>
 						<value>Order Updated Date</value>
 					</action>
-					<action method='setFieldOption' translate='value'>
+					<action method='setFieldOption'
+						translate='value'>
 						<field>report_type</field>
 						<option>note</option>
 						<value>Order Updated Date report is real-time, does not need statistics refreshing.</value>
@@ -823,11 +1281,18 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_report_sales_bestsellers>
 		<update handle='report_sales'/>
 		<reference name='content'>
-			<block type='adminhtml/report_sales_bestsellers' template='report/grid/container.phtml' name='sales.report.grid.container'>
-				<block type='adminhtml/store_switcher' template='report/store/switcher/enhanced.phtml' name='store.switcher'>
-					<action method='setStoreVarName'><var_name>store_ids</var_name></action>
+			<block name='sales.report.grid.container'
+				template='report/grid/container.phtml'
+				type='adminhtml/report_sales_bestsellers'>
+				<block name='store.switcher'
+					template='report/store/switcher/enhanced.phtml'
+					type='adminhtml/store_switcher'>
+					<action method='setStoreVarName'>
+						<var_name>store_ids</var_name>
+					</action>
 				</block>
-				<block type='sales/adminhtml_report_filter_form' name='grid.filter.form'>
+				<block name='grid.filter.form'
+					type='sales/adminhtml_report_filter_form'>
 					<action method='setFieldVisibility'>
 						<field>report_type</field>
 						<visibility>0</visibility>
@@ -844,37 +1309,45 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 	</adminhtml_report_sales_bestsellers>
-<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
-2024-02-21
-1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
-2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
+	<!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	"Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401
+	2024-02-21
+	1) "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400
+	2) "Delete the unused «Recurring Profiles» feature": https://github.com/thehcginstitute-com/m1/issues/401 -->
 	<adminhtml_sales_order_status_index>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_status' name='sales_order_status.grid.container'></block>
+			<block name='sales_order_status.grid.container'
+				type='adminhtml/sales_order_status'></block>
 		</reference>
 	</adminhtml_sales_order_status_index>
 	<adminhtml_sales_order_status_new>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_status_new' name='sales_order_status.new.container'></block>
+			<block name='sales_order_status.new.container'
+				type='adminhtml/sales_order_status_new'></block>
 		</reference>
 	</adminhtml_sales_order_status_new>
 	<adminhtml_sales_order_status_edit>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_status_edit' name='sales_order_status.edit.container'></block>
+			<block name='sales_order_status.edit.container'
+				type='adminhtml/sales_order_status_edit'></block>
 		</reference>
 	</adminhtml_sales_order_status_edit>
 	<adminhtml_sales_order_status_assign>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_status_assign' name='sales_order_status.assign.container'></block>
+			<block name='sales_order_status.assign.container'
+				type='adminhtml/sales_order_status_assign'></block>
 		</reference>
 	</adminhtml_sales_order_status_assign>
 	<adminhtml_sales_order_address>
 		<reference name='head'>
-			<block type='adminhtml/template' name='optional_zip_countries' as='optional_zip_countries' template='directory/js/optional_zip_countries.phtml' />
+			<block as='optional_zip_countries'
+				name='optional_zip_countries'
+				template='directory/js/optional_zip_countries.phtml'
+				type='adminhtml/template'/>
 		</reference>
 		<reference name='content'>
-			<block type='adminhtml/sales_order_address' name='sales_order_address.form.container'></block>
+			<block name='sales_order_address.form.container'
+				type='adminhtml/sales_order_address'></block>
 		</reference>
 	</adminhtml_sales_order_address>
 </layout>
