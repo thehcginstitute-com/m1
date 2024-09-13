@@ -785,13 +785,12 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 
     /**
      * Append child block
-     *
+     * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
      * @param   Mage_Core_Block_Abstract|string $block
-     * @param   string $alias
-     * @return  $this
      */
-    function append($block, $alias = '')
-    {
+    function append($block, string $alias = ''):self {
         $this->insert($block, '', true, $alias);
         return $this;
     }
