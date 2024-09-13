@@ -330,8 +330,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					type='adminhtml/sales_order_shipment_view_form'
 				>
 					<block name='order_info' template='sales/order/view/info.phtml' type='adminhtml/sales_order_view_info'/>
-					<block name='order_payment'
-						type='adminhtml/sales_order_payment'></block>
+					<block name='order_payment' type='adminhtml/sales_order_payment'/>
 					<block name='shipment_tracking'
 						template='sales/order/shipment/view/tracking.phtml'
 						type='adminhtml/sales_order_shipment_view_tracking'></block>
