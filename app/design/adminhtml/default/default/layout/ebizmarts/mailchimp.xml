@@ -39,8 +39,7 @@
 			<remove name='header'/>
 			<remove name='menu'/>
 			<remove name='notifications'/>
-			<block name='adminhtml.mailchimp.resend'
-				type='mailchimp/adminhtml_ecommerce_resendecommercedata'></block>
+			<block name='adminhtml.mailchimp.resend' type='mailchimp/adminhtml_ecommerce_resendecommercedata'/>
 		</reference>
 	</adminhtml_ecommerce_renderresendecom>
 	<adminhtml_system_config_edit>
