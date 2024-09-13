@@ -136,8 +136,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					template='notification/baseurl.phtml'
 					type='adminhtml/notification_baseurl'
 				/>
-				<block name='cache_notifications' template='system/cache/notifications.phtml'
-					type='adminhtml/cache_notifications'></block>
+				<block
+					name='cache_notifications'
+					template='system/cache/notifications.phtml'
+					type='adminhtml/cache_notifications'
+				/>
 				<block as='notification_security' name='notification_security' template='notification/security.phtml'
 					type='adminhtml/notification_security'></block>
 				<block as='checkout_formkey' name='checkout_formkey' template='notification/formkey.phtml'
