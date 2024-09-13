@@ -5,8 +5,8 @@
 	<adminhtml_catalog_product_bundle>
 		<reference name='product_tabs'>
 			<action method='addTab'>
-				<name>bundle_items</name>
 				<block>bundle/adminhtml_catalog_product_edit_tab_bundle</block>
+				<id>bundle_items</id>
 			</action>
 			<action method='bindShadowTabs'>
 				<first>bundle_items</first>
