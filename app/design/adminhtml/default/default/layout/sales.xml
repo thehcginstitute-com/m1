@@ -485,11 +485,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_creditmemo_addcomment>
 	<adminhtml_sales_order_creditmemo_view>
 		<reference name='content'>
-			<block name='sales_creditmemo_view'
-				type='adminhtml/sales_order_creditmemo_view'>
-				<block name='form'
+			<block name='sales_creditmemo_view' type='adminhtml/sales_order_creditmemo_view'>
+				<block
+					name='form'
 					template='sales/order/creditmemo/view/form.phtml'
-					type='adminhtml/sales_order_creditmemo_view_form'>
+					type='adminhtml/sales_order_creditmemo_view_form'
+				>
 					<block name='order_info'
 						template='sales/order/view/info.phtml'
 						type='adminhtml/sales_order_view_info'></block>
