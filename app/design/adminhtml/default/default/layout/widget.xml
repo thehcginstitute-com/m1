@@ -35,16 +35,16 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<block name='widget_instance_edit_tab_main' type='widget/adminhtml_widget_instance_edit_tab_main'/>
 				<block name='widget_instance_edit_tab_properties' type='widget/adminhtml_widget_instance_edit_tab_properties'/>
 				<action method='addTab'>
-					<name>settings_section</name>
 					<block>widget_instance_edit_tab_settings</block>
+					<name>settings_section</name>
 				</action>
 				<action method='addTab'>
-					<name>main_section</name>
 					<block>widget_instance_edit_tab_main</block>
+					<name>main_section</name>
 				</action>
 				<action method='addTab'>
-					<name>properties_section</name>
 					<block>widget_instance_edit_tab_properties</block>
+					<name>properties_section</name>
 				</action>
 			</block>
 		</reference>
