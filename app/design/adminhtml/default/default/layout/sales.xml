@@ -611,9 +611,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 								template='sales/order/create/sidebar/items.phtml'
 								type='adminhtml/sales_order_create_sidebar_cart'
 							/>
-							<block name='wishlist'
+							<block
+								name='wishlist'
 								template='sales/order/create/sidebar/items.phtml'
-								type='adminhtml/sales_order_create_sidebar_wishlist'/>
+								type='adminhtml/sales_order_create_sidebar_wishlist'
+							/>
 							<block name='reorder'
 								template='sales/order/create/sidebar/items.phtml'
 								type='adminhtml/sales_order_create_sidebar_reorder'/>
