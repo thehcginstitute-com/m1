@@ -70,14 +70,11 @@ class Mage_Catalog_Block_Product_View_Options extends Mage_Core_Block_Template
 
     /**
      * Add option renderer to renderers array
-     *
-     * @param string $type
-     * @param string $block
-     * @param string $template
-     * @return $this
+     * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
      */
-    function addOptionRenderer($type, $block, $template)
-    {
+    function addOptionRenderer(string $type, string $block, string $template):self {
         $this->_optionRenders[$type] = [
             'block' => $block,
             'template' => $template,
