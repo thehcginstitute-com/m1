@@ -31,9 +31,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 		<reference name='content'>
-			<block name='aoe_scheduler.timeline'
-				template='aoe_scheduler/timeline.phtml'
-				type='aoe_scheduler/adminhtml_timeline'/>
+			<block name='aoe_scheduler.timeline' template='aoe_scheduler/timeline.phtml' type='aoe_scheduler/adminhtml_timeline'/>
 		</reference>
 	</adminhtml_timeline_index>
 	<adminhtml_scheduler_index>
