@@ -22,8 +22,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='left'>
 			<block name='customer_edit_tabs' type='adminhtml/customer_edit_tabs'>
 				<block name='customer_edit_tab_view' template='customer/tab/view.phtml' type='adminhtml/customer_edit_tab_view'>
-					<block before='-' name='sales' template='customer/tab/view/sales.phtml'
-						type='adminhtml/customer_edit_tab_view_sales'/>
+					<block
+						before='-'
+						name='sales'
+						template='customer/tab/view/sales.phtml'
+						type='adminhtml/customer_edit_tab_view_sales'
+					/>
 					<block name='accordion' type='adminhtml/customer_edit_tab_view_accordion'/>
 				</block>
 				<action method='addTab'>
