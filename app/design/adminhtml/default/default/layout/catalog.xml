@@ -104,8 +104,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</block>
 	</adminhtml_catalog_product_relatedgrid>
 	<adminhtml_catalog_product_superconfig>
-		<block name='admin.product.edit.tab.super.config.grid' output='toHtml'
-			   type='adminhtml/catalog_product_edit_tab_super_config_grid'/>
+		<block
+			name='admin.product.edit.tab.super.config.grid'
+			output='toHtml'
+			type='adminhtml/catalog_product_edit_tab_super_config_grid'
+		/>
 	</adminhtml_catalog_product_superconfig>
 	<adminhtml_catalog_product_alertspricegrid>
 		<block name='admin.product.edit.tab.alerts.price' output='toHtml' type='adminhtml/catalog_product_edit_tab_alerts_price'/>
