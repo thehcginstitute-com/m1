@@ -67,11 +67,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						</action>
 						<block name='order_item_extra_info' type='core/text_list'/>
 					</block>
-					<block name='order_payment'
-						type='adminhtml/sales_order_payment'/>
-					<block name='order_history'
+					<block name='order_payment' type='adminhtml/sales_order_payment'/>
+					<block
+						name='order_history'
 						template='sales/order/view/history.phtml'
-						type='adminhtml/sales_order_view_history'></block>
+						type='adminhtml/sales_order_view_history'
+					/>
 					<block name='gift_options'
 						template='sales/order/giftoptions.phtml'
 						type='adminhtml/template'>
