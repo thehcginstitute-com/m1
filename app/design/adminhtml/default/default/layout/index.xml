@@ -15,7 +15,7 @@
 			<block name='index_edit_tabs' type='index/adminhtml_process_edit_tabs'>
 				<action method='addTab'>
 					<block>index/adminhtml_process_edit_tab_main</block>
-					<name>main_section</name>
+					<id>main_section</id>
 				</action>
 			</block>
 		</reference>

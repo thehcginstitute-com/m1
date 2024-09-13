@@ -21,9 +21,9 @@
 				<block name='promo_catalog_edit_tab_main' type='adminhtml/promo_catalog_edit_tab_main'/>
 				<block name='promo_catalog_edit_tab_conditions' type='adminhtml/promo_catalog_edit_tab_conditions'/>
 				<block name='promo_catalog_edit_tab_actions' type='adminhtml/promo_catalog_edit_tab_actions'/>
-				<action method='addTab'><block>promo_catalog_edit_tab_main</block><name>main_section</name></action>
-				<action method='addTab'><block>promo_catalog_edit_tab_conditions</block><name>conditions_section</name></action>
-				<action method='addTab'><block>promo_catalog_edit_tab_actions</block><name>actions_section</name></action>
+				<action method='addTab'><block>promo_catalog_edit_tab_main</block><id>main_section</id></action>
+				<action method='addTab'><block>promo_catalog_edit_tab_conditions</block><id>conditions_section</id></action>
+				<action method='addTab'><block>promo_catalog_edit_tab_actions</block><id>actions_section</id></action>
 			</block>
 		</reference>
 		<reference name='content'>
