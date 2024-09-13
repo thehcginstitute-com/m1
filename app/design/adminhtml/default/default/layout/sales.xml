@@ -993,9 +993,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				template='sales/order/create/abstract.phtml'
 				type='adminhtml/sales_order_create_billing_method'
 			>
-				<block name='form'
+				<block
+					name='form'
 					template='sales/order/create/billing/method/form.phtml'
-					type='adminhtml/sales_order_create_billing_method_form'/>
+					type='adminhtml/sales_order_create_billing_method_form'
+				/>
 			</block>
 		</reference>
 	</adminhtml_sales_order_create_load_block_billing_method>
