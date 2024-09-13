@@ -138,9 +138,9 @@
 				<path>*/*/view</path>
 			</action>
 			<action method='addLink' translate='label' module='sales'>
+				<label>Invoices</label>
 				<name>invoice</name>
 				<path></path>
-				<label>Invoices</label>
 			</action>
 			<action method='addLink' translate='label' module='sales'>
 				<name>shipment</name>
