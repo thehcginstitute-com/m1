@@ -73,8 +73,11 @@
 			<action method='addItem'><name>calendar/calendar-setup.js</name><type>js</type></action>
 		</reference>
 		<reference name='content'>
-			<block name='catalogsearch_advanced_form' template='catalogsearch/advanced/form.phtml'
-				   type='catalogsearch/advanced_form'/>
+			<block
+				name='catalogsearch_advanced_form'
+				template='catalogsearch/advanced/form.phtml'
+				type='catalogsearch/advanced_form'
+			/>
 			<block as='html_calendar' name='html_calendar' template='page/js/calendar.phtml' type='core/html_calendar'/>
 		</reference>
 	</catalogsearch_advanced_index>
