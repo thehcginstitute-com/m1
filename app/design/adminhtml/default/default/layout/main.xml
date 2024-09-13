@@ -127,7 +127,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<block as='calendar' name='head.calendar' template='page/js/calendar.phtml' type='core/html_calendar'/>
 			</block>
 			<block as='global_notices' name='global_notices' template='page/notices.phtml' type='adminhtml/page_notices'/>
-			<block as='header' name='header' type='adminhtml/page_header'></block>
+			<block as='header' name='header' type='adminhtml/page_header'/>
 			<block as='menu' name='menu' type='adminhtml/page_menu'></block>
 			<block as='notifications' name='notifications' type='core/text_list'>
 				<block as='notification_baseurl' name='notification_baseurl' template='notification/baseurl.phtml'
