@@ -331,7 +331,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 "Delete the shipment packaging feature because it is unused": https://github.com/thehcginstitute-com/m1/issues/376 -->
 		<reference name='content'>
 			<block name='sales_shipment_view' type='adminhtml/sales_order_shipment_view'>
-				<block name='form'
+				<block
+					name='form'
 					template='sales/order/shipment/view/form.phtml'
 					type='adminhtml/sales_order_shipment_view_form'
 				>
