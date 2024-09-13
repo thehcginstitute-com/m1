@@ -31,8 +31,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<block name='accordion' type='adminhtml/customer_edit_tab_view_accordion'/>
 				</block>
 				<action method='addTab'>
-					<name>customer_edit_tab_view</name>
 					<block>customer_edit_tab_view</block>
+					<name>customer_edit_tab_view</name>
 				</action>
 			</block>
 		</reference>
