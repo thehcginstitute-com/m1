@@ -545,9 +545,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</reference>
 	</adminhtml_sales_transactions_index>
 	<adminhtml_sales_transactions_grid>
-		<block name='sales_transactions.grid'
-			output='toHtml'
-			type='adminhtml/sales_transactions_grid'></block>
+		<block name='sales_transactions.grid' output='toHtml' type='adminhtml/sales_transactions_grid'/>
 	</adminhtml_sales_transactions_grid>
 	<adminhtml_sales_transactions_view>
 		<reference name='content'>
