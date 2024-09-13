@@ -4,17 +4,17 @@
 <layout version='0.1.0'>
 	<default>
 		<reference name='footer_links'>
-			<action method='addLink' translate='label title' module='catalog' ifconfig='catalog/seo/site_map'>
+			<action ifconfig='catalog/seo/site_map' method='addLink' module='catalog' translate='label title'>
 				<label>Site Map</label>
 				<title>Site Map</title>
 				<url helper='catalog/map/getCategoryUrl'/>
 			</action>
 		</reference>
 		<reference name='left'>
-			<block type='catalog/product_compare_sidebar' before='cart_sidebar' name='catalog.compare.sidebar'
-				   template='catalog/product/compare/sidebar.phtml'/>
+			<block before='cart_sidebar' name='catalog.compare.sidebar' template='catalog/product/compare/sidebar.phtml'
+				   type='catalog/product_compare_sidebar'/>
 		</reference>
-		<block type='catalog/product_price_template' name='catalog_product_price_template'/>
+		<block name='catalog_product_price_template' type='catalog/product_price_template'/>
 	</default>
 	<catalog_category_default translate='label'>
 		<label>Catalog Category (Non-Anchor)</label>
@@ -24,14 +24,14 @@
 			</action>
 		</reference>
 		<reference name='right'>
-			<block type='catalog/navigation' name='catalog.leftnav' after='currency' template='catalog/navigation/left.phtml'/>
+			<block after='currency' name='catalog.leftnav' template='catalog/navigation/left.phtml' type='catalog/navigation'/>
 		</reference>
 		<reference name='content'>
-			<block type='catalog/category_view' name='category.products' template='catalog/category/view.phtml'>
-				<block type='catalog/product_list' name='product_list' template='catalog/product/list.phtml'>
-					<block type='catalog/product_list_toolbar' name='product_list_toolbar'
-						   template='catalog/product/list/toolbar.phtml'>
-						<block type='page/html_pager' name='product_list_toolbar_pager'/>
+			<block name='category.products' template='catalog/category/view.phtml' type='catalog/category_view'>
+				<block name='product_list' template='catalog/product/list.phtml' type='catalog/product_list'>
+					<block name='product_list_toolbar' template='catalog/product/list/toolbar.phtml'
+						   type='catalog/product_list_toolbar'>
+						<block name='product_list_toolbar_pager' type='page/html_pager'/>
 					</block>
 					<action method='addColumnCountLayoutDepend'>
 						<count>6</count>
@@ -68,15 +68,15 @@
 			</action>
 		</reference>
 		<reference name='left'>
-			<block type='catalog/layer_view' name='catalog.leftnav' after='currency' before='-'
-				   template='catalog/layer/view.phtml'/>
+			<block after='currency' before='-' name='catalog.leftnav' template='catalog/layer/view.phtml'
+				   type='catalog/layer_view'/>
 		</reference>
 		<reference name='content'>
-			<block type='catalog/category_view' name='category.products' template='catalog/category/view.phtml'>
-				<block type='catalog/product_list' name='product_list' template='catalog/product/list.phtml'>
-					<block type='catalog/product_list_toolbar' name='product_list_toolbar'
-						   template='catalog/product/list/toolbar.phtml'>
-						<block type='page/html_pager' name='product_list_toolbar_pager'/>
+			<block name='category.products' template='catalog/category/view.phtml' type='catalog/category_view'>
+				<block name='product_list' template='catalog/product/list.phtml' type='catalog/product_list'>
+					<block name='product_list_toolbar' template='catalog/product/list/toolbar.phtml'
+						   type='catalog/product_list_toolbar'>
+						<block name='product_list_toolbar_pager' type='page/html_pager'/>
 					</block>
 					<action method='setColumnCount'>
 						<count>3</count>
@@ -133,7 +133,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='catalog/product_compare_list' name='catalog.compare.list' template='catalog/product/compare/list.phtml'/>
+			<block name='catalog.compare.list' template='catalog/product/compare/list.phtml' type='catalog/product_compare_list'/>
 		</reference>
 	</catalog_product_compare_index>
 	<catalog_product_view translate='label'>
@@ -174,50 +174,50 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='catalog/product_view' name='product.info' template='catalog/product/view.phtml'>
-				<block type='catalog/product_view_media' name='product.info.media' as='media'
-					   template='catalog/product/view/media.phtml'/>
-				<block type='core/text_list' name='alert.urls' as='alert_urls' translate='label'>
+			<block name='product.info' template='catalog/product/view.phtml' type='catalog/product_view'>
+				<block as='media' name='product.info.media' template='catalog/product/view/media.phtml'
+					   type='catalog/product_view_media'/>
+				<block as='alert_urls' name='alert.urls' translate='label' type='core/text_list'>
 					<label>Alert Urls</label>
 				</block>
 				<action method='setTierPriceTemplate'>
 					<template>catalog/product/view/tierprices.phtml</template>
 				</action>
-				<block type='catalog/product_view_tabs' name='product.info.tabs' as='info_tabs'
-					   template='catalog/product/view/tabs.phtml'>
-					<action method='addTab' translate='title' module='catalog'>
+				<block as='info_tabs' name='product.info.tabs' template='catalog/product/view/tabs.phtml'
+					   type='catalog/product_view_tabs'>
+					<action method='addTab' module='catalog' translate='title'>
 						<alias>description</alias>
 						<title>Product Description</title>
 						<block>catalog/product_view_description</block>
 						<template>catalog/product/view/description.phtml</template>
 					</action>
-					<action method='addTab' translate='title' module='catalog'>
+					<action method='addTab' module='catalog' translate='title'>
 						<alias>upsell_products</alias>
 						<title>We Also Recommend</title>
 						<block>catalog/product_list_upsell</block>
 						<template>catalog/product/list/upsell.phtml</template>
 					</action>
-					<action method='addTab' translate='title' module='catalog'>
+					<action method='addTab' module='catalog' translate='title'>
 						<alias>additional</alias>
 						<title>Additional Information</title>
 						<block>catalog/product_view_attributes</block>
 						<template>catalog/product/view/attributes.phtml</template>
 					</action>
 				</block>
-				<block type='catalog/product_view_additional' name='product.info.additional' as='product_additional_data'/>
-				<block type='catalog/product_view' name='product.info.addto' as='addto'
-					   template='catalog/product/view/addto.phtml'/>
-				<block type='catalog/product_view' name='product.info.addtocart' as='addtocart'
-					   template='catalog/product/view/addtocart.phtml'/>
-				<block type='core/text_list' name='product.info.extrahint' as='extrahint' translate='label'>
+				<block as='product_additional_data' name='product.info.additional' type='catalog/product_view_additional'/>
+				<block as='addto' name='product.info.addto' template='catalog/product/view/addto.phtml'
+					   type='catalog/product_view'/>
+				<block as='addtocart' name='product.info.addtocart' template='catalog/product/view/addtocart.phtml'
+					   type='catalog/product_view'/>
+				<block as='extrahint' name='product.info.extrahint' translate='label' type='core/text_list'>
 					<label>Product View Extra Hint</label>
 				</block>
-				<block type='catalog/product_view' name='product.info.options.wrapper' as='product_options_wrapper'
-					   template='catalog/product/view/options/wrapper.phtml' translate='label'>
+				<block as='product_options_wrapper' name='product.info.options.wrapper' template='catalog/product/view/options/wrapper.phtml'
+					   translate='label' type='catalog/product_view'>
 					<label>Info Column Options Wrapper</label>
-					<block type='core/template' name='options_js' template='catalog/product/view/options/js.phtml'/>
-					<block type='catalog/product_view_options' name='product.info.options' as='product_options'
-						   template='catalog/product/view/options.phtml'>
+					<block name='options_js' template='catalog/product/view/options/js.phtml' type='core/template'/>
+					<block as='product_options' name='product.info.options' template='catalog/product/view/options.phtml'
+						   type='catalog/product_view_options'>
 						<action method='addOptionRenderer'>
 							<block>catalog/product_view_options_type_text</block>
 							<template>catalog/product/view/options/type/text.phtml</template>
@@ -239,16 +239,16 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 							<type>date</type>
 						</action>
 					</block>
-					<block type='core/html_calendar' name='html_calendar' as='html_calendar' template='page/js/calendar.phtml'/>
+					<block as='html_calendar' name='html_calendar' template='page/js/calendar.phtml' type='core/html_calendar'/>
 				</block>
-				<block type='catalog/product_view' name='product.info.options.wrapper.bottom' as='product_options_wrapper_bottom'
-					   template='catalog/product/view/options/wrapper/bottom.phtml' translate='label'>
+				<block as='product_options_wrapper_bottom' name='product.info.options.wrapper.bottom' template='catalog/product/view/options/wrapper/bottom.phtml'
+					   translate='label' type='catalog/product_view'>
 					<label>Bottom Block Options Wrapper</label>
 					<action method='insert'>
 						<block>product.tierprices</block>
 					</action>
-					<block type='catalog/product_view' name='product.clone_prices' as='prices'
-						   template='catalog/product/view/price_clone.phtml'/>
+					<block as='prices' name='product.clone_prices' template='catalog/product/view/price_clone.phtml'
+						   type='catalog/product_view'/>
 					<action method='append'>
 						<block>product.info.addtocart</block>
 					</action>
@@ -256,7 +256,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 						<block>product.info.addto</block>
 					</action>
 				</block>
-				<block type='core/template_facade' name='product.info.container1' as='container1'>
+				<block as='container1' name='product.info.container1' type='core/template_facade'>
 					<action method='setDataByKey'>
 						<key>alias_in_layout</key>
 						<value>container1</value>
@@ -272,7 +272,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 						<block>product.info.options.wrapper.bottom</block>
 					</action>
 				</block>
-				<block type='core/template_facade' name='product.info.container2' as='container2'>
+				<block as='container2' name='product.info.container2' type='core/template_facade'>
 					<action method='setDataByKey'>
 						<key>alias_in_layout</key>
 						<value>container2</value>
@@ -314,54 +314,54 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			</action>
 		</reference>
 		<reference name='left'>
-			<block type='catalog/product_list_related' name='catalog.product.related' before='-'
-				   template='catalog/product/list/related.phtml'/>
+			<block before='-' name='catalog.product.related' template='catalog/product/list/related.phtml'
+				   type='catalog/product_list_related'/>
 		</reference>
 	</catalog_product_view>
-	<PRODUCT_TYPE_simple translate='label' module='catalog'>
+	<PRODUCT_TYPE_simple module='catalog' translate='label'>
 		<label>Catalog Product View (Simple)</label>
 		<reference name='product.info'>
-			<block type='catalog/product_view_type_simple' name='product.info.simple' as='product_type_data'
-				   template='catalog/product/view/type/default.phtml'>
-				<block type='core/text_list' name='product.info.simple.extra' as='product_type_data_extra' translate='label'>
+			<block as='product_type_data' name='product.info.simple' template='catalog/product/view/type/default.phtml'
+				   type='catalog/product_view_type_simple'>
+				<block as='product_type_data_extra' name='product.info.simple.extra' translate='label' type='core/text_list'>
 					<label>Product Extra Info</label>
 				</block>
 			</block>
 		</reference>
 	</PRODUCT_TYPE_simple>
-	<PRODUCT_TYPE_configurable translate='label' module='catalog'>
+	<PRODUCT_TYPE_configurable module='catalog' translate='label'>
 		<label>Catalog Product View (Configurable)</label>
 		<reference name='product.info'>
-			<block type='catalog/product_view_type_configurable' name='product.info.configurable' as='product_type_data'
-				   template='catalog/product/view/type/default.phtml'>
-				<block type='core/text_list' name='product.info.configurable.extra' as='product_type_data_extra'
-					   translate='label'>
+			<block as='product_type_data' name='product.info.configurable' template='catalog/product/view/type/default.phtml'
+				   type='catalog/product_view_type_configurable'>
+				<block as='product_type_data_extra' name='product.info.configurable.extra' translate='label'
+					   type='core/text_list'>
 					<label>Product Extra Info</label>
 				</block>
 			</block>
 		</reference>
 		<reference name='product.info.options.wrapper'>
-			<block type='catalog/product_view_type_configurable' name='product.info.options.configurable'
-				   as='options_configurable' before='-' template='catalog/product/view/type/options/configurable.phtml'/>
+			<block as='options_configurable' before='-'
+				   name='product.info.options.configurable' template='catalog/product/view/type/options/configurable.phtml' type='catalog/product_view_type_configurable'/>
 		</reference>
 	</PRODUCT_TYPE_configurable>
-	<PRODUCT_TYPE_grouped translate='label' module='catalog'>
+	<PRODUCT_TYPE_grouped module='catalog' translate='label'>
 		<label>Catalog Product View (Grouped)</label>
 		<reference name='product.info'>
-			<block type='catalog/product_view_type_grouped' name='product.info.grouped' as='product_type_data'
-				   template='catalog/product/view/type/grouped.phtml'>
-				<block type='core/text_list' name='product.info.grouped.extra' as='product_type_data_extra' translate='label'>
+			<block as='product_type_data' name='product.info.grouped' template='catalog/product/view/type/grouped.phtml'
+				   type='catalog/product_view_type_grouped'>
+				<block as='product_type_data_extra' name='product.info.grouped.extra' translate='label' type='core/text_list'>
 					<label>Product Extra Info</label>
 				</block>
 			</block>
 		</reference>
 	</PRODUCT_TYPE_grouped>
-	<PRODUCT_TYPE_virtual translate='label' module='catalog'>
+	<PRODUCT_TYPE_virtual module='catalog' translate='label'>
 		<label>Catalog Product View (Virtual)</label>
 		<reference name='product.info'>
-			<block type='catalog/product_view_type_virtual' name='product.info.virtual' as='product_type_data'
-				   template='catalog/product/view/type/default.phtml'>
-				<block type='core/text_list' name='product.info.virtual.extra' as='product_type_data_extra' translate='label'>
+			<block as='product_type_data' name='product.info.virtual' template='catalog/product/view/type/default.phtml'
+				   type='catalog/product_view_type_virtual'>
+				<block as='product_type_data_extra' name='product.info.virtual.extra' translate='label' type='core/text_list'>
 					<label>Product Extra Info</label>
 				</block>
 			</block>
@@ -387,7 +387,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='catalog/product_send' name='product.send' template='catalog/product/send.phtml'>
+			<block name='product.send' template='catalog/product/send.phtml' type='catalog/product_send'>
 			</block>
 		</reference>
 	</catalog_product_send>
@@ -399,7 +399,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='catalog/product_gallery' name='catalog_product_gallery' template='catalog/product/gallery.phtml'/>
+			<block name='catalog_product_gallery' template='catalog/product/gallery.phtml' type='catalog/product_gallery'/>
 		</reference>
 	</catalog_product_gallery>
 	<catalog_seo_sitemap translate='label'>
@@ -412,40 +412,40 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='page/template_container' name='seo.sitemap.container' template='catalog/seo/sitemap/container.phtml'>
-				<block type='page/template_links' name='seo.sitemap.links' as='links' template='page/template/links.phtml'/>
-				<block type='page/html_pager' name='seo.sitemap.pager.top' as='pager_top' template='page/html/pager.phtml'/>
-				<block type='page/html_pager' name='seo.sitemap.pager.bottom' as='pager_bottom' template='page/html/pager.phtml'/>
+			<block name='seo.sitemap.container' template='catalog/seo/sitemap/container.phtml' type='page/template_container'>
+				<block as='links' name='seo.sitemap.links' template='page/template/links.phtml' type='page/template_links'/>
+				<block as='pager_top' name='seo.sitemap.pager.top' template='page/html/pager.phtml' type='page/html_pager'/>
+				<block as='pager_bottom' name='seo.sitemap.pager.bottom' template='page/html/pager.phtml' type='page/html_pager'/>
 			</block>
 		</reference>
 	</catalog_seo_sitemap>
 	<catalog_seo_sitemap_category translate='label'>
 		<label>Catalog Seo Sitemap (Category List)</label>
 		<reference name='head'>
-			<action method='setTitle' translate='title' module='catalog'>
+			<action method='setTitle' module='catalog' translate='title'>
 				<title>Site Map</title>
 			</action>
 		</reference>
 		<update handle='catalog_seo_sitemap'/>
 		<reference name='seo.sitemap.container'>
-			<action method='setTitle' translate='title' module='catalog'>
+			<action method='setTitle' module='catalog' translate='title'>
 				<title>Categories</title>
 			</action>
-			<block type='catalog/seo_sitemap_category' name='seo.sitemap.sitemap' as='sitemap' after='pager_top'
-				   template='catalog/seo/sitemap.phtml'>
+			<block after='pager_top' as='sitemap' name='seo.sitemap.sitemap' template='catalog/seo/sitemap.phtml'
+				   type='catalog/seo_sitemap_category'>
 				<action method='bindPager'>
 					<pager>seo.sitemap.pager.top</pager>
 				</action>
 				<action method='bindPager'>
 					<pager>seo.sitemap.pager.bottom</pager>
 				</action>
-				<action method='setItemsTitle' translate='title' module='catalog'>
+				<action method='setItemsTitle' module='catalog' translate='title'>
 					<title>categories</title>
 				</action>
 			</block>
 		</reference>
 		<reference name='seo.sitemap.links'>
-			<action method='addLink' translate='label title' module='catalog'>
+			<action method='addLink' module='catalog' translate='label title'>
 				<label>Products Sitemap</label>
 				<title>Products Sitemap</title>
 				<url helper='catalog/map/getProductUrl'/>
@@ -457,13 +457,13 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 		<reference name='seo.sitemap.container'>
 			<remove name='seo.sitemap.pager.top'/>
 			<remove name='seo.sitemap.pager.bottom'/>
-			<block type='catalog/seo_sitemap_tree_pager' name='seo.sitemap.tree.pager.top' as='pager_top'
-				   template='page/html/pager.phtml'/>
-			<block type='catalog/seo_sitemap_tree_pager' name='seo.sitemap.tree.pager.bottom' as='pager_bottom'
-				   template='page/html/pager.phtml'/>
+			<block as='pager_top' name='seo.sitemap.tree.pager.top' template='page/html/pager.phtml'
+				   type='catalog/seo_sitemap_tree_pager'/>
+			<block as='pager_bottom' name='seo.sitemap.tree.pager.bottom' template='page/html/pager.phtml'
+				   type='catalog/seo_sitemap_tree_pager'/>
 			<remove name='seo.sitemap.sitemap'/>
-			<block type='catalog/seo_sitemap_tree_category' name='seo.sitemap.sitemap_tree' as='sitemap' after='pager_top'
-				   template='catalog/seo/tree.phtml'>
+			<block after='pager_top' as='sitemap' name='seo.sitemap.sitemap_tree' template='catalog/seo/tree.phtml'
+				   type='catalog/seo_sitemap_tree_category'>
 				<action method='bindPager'>
 					<pager>seo.sitemap.tree.pager.top</pager>
 				</action>
@@ -476,30 +476,30 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 	<catalog_seo_sitemap_product translate='label'>
 		<label>Catalog Seo Sitemap (Product List)</label>
 		<reference name='head'>
-			<action method='setTitle' translate='title' module='catalog'>
+			<action method='setTitle' module='catalog' translate='title'>
 				<title>Site Map</title>
 			</action>
 		</reference>
 		<update handle='catalog_seo_sitemap'/>
 		<reference name='seo.sitemap.container'>
-			<action method='setTitle' translate='title' module='catalog'>
+			<action method='setTitle' module='catalog' translate='title'>
 				<title>Products</title>
 			</action>
-			<block type='catalog/seo_sitemap_product' name='seo.sitemap.sitemap' as='sitemap' after='pager_top'
-				   template='catalog/seo/sitemap.phtml'>
+			<block after='pager_top' as='sitemap' name='seo.sitemap.sitemap' template='catalog/seo/sitemap.phtml'
+				   type='catalog/seo_sitemap_product'>
 				<action method='bindPager'>
 					<pager>seo.sitemap.pager.top</pager>
 				</action>
 				<action method='bindPager'>
 					<pager>seo.sitemap.pager.bottom</pager>
 				</action>
-				<action method='setItemsTitle' translate='title' module='catalog'>
+				<action method='setItemsTitle' module='catalog' translate='title'>
 					<title>products</title>
 				</action>
 			</block>
 		</reference>
 		<reference name='seo.sitemap.links'>
-			<action method='addLink' translate='label title' module='catalog'>
+			<action method='addLink' module='catalog' translate='label title'>
 				<label>Categories Sitemap</label>
 				<title>Categories Sitemap</title>
 				<url helper='catalog/map/getCategoryUrl'/>
