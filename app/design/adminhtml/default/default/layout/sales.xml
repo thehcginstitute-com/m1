@@ -931,9 +931,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					template='sales/order/create/sidebar/items.phtml'
 					type='adminhtml/sales_order_create_sidebar_compared'
 				/>
-				<block name='pcompared'
+				<block
+					name='pcompared'
 					template='sales/order/create/sidebar/items.phtml'
-					type='adminhtml/sales_order_create_sidebar_pcompared'/>
+					type='adminhtml/sales_order_create_sidebar_pcompared'
+				/>
 				<block name='pviewed'
 					template='sales/order/create/sidebar/items.phtml'
 					type='adminhtml/sales_order_create_sidebar_pviewed'/>
