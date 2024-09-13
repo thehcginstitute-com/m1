@@ -136,10 +136,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 with the contents of the really used corresponding custom template `iwd/ordermanager/history/order.phtml`
 from `IWD_OrderManager`, and then delete the custom template file": https://github.com/thehcginstitute-com/m1/issues/674 -->
 		<reference name='order_tab_info'>
-			<!-- 2024-09-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			"Replace the contents of unused (overridden) core backend template `sales/order/view/tab/info.phtml`
-			with the contents of the really used corresponding custom template `iwd/ordermanager/order/view/tab/info.phtml`
-			from `IWD_OrderManager`, and then delete the custom template file": https://github.com/thehcginstitute-com/m1/issues/672 -->
+<!-- 2024-09-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"Replace the contents of unused (overridden) core backend template `sales/order/view/tab/info.phtml`
+with the contents of the really used corresponding custom template `iwd/ordermanager/order/view/tab/info.phtml`
+from `IWD_OrderManager`, and then delete the custom template file": https://github.com/thehcginstitute-com/m1/issues/672 -->
 			<block
 				name='order_items'
 				template='iwd/ordermanager/items/items.phtml'
