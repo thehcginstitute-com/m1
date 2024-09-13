@@ -58,8 +58,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				   template="iwd/orderflags/flags/grid/init.phtml"/>
 		</reference>
 	</orderflags_order_grid_handle>
-
-	<!-- order -->
 	<adminhtml_sales_order_grid>
 		<reference name="sales_order.grid">
 			<block type="iwd_orderflags/adminhtml_flags_order_grid" name="iwd_om.order.grid.jsinit"
@@ -70,30 +68,24 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<update handle="orderflags_edit_flags_css_handle"/>
 		<update handle="orderflags_order_grid_handle"/>
 	</adminhtml_sales_order_index>
-
-	<!-- customer orders -->
 	<adminhtml_customer_edit>
 		<update handle="font_awesome_handle"/>
 		<update handle="orderflags_order_grid_handle"/>
 		<update handle="orderflags_edit_flags_css_handle"/>
 	</adminhtml_customer_edit>
-
-	<!-- archive orders -->
 	<adminhtml_sales_archive_order_index>
 		<update handle="font_awesome_handle"/>
 		<update handle="orderflags_order_grid_handle"/>
 		<update handle="orderflags_edit_flags_css_handle"/>
 	</adminhtml_sales_archive_order_index>
-
-	<!-- flags -->
 	<orderflags_edit_flags_handle>
 		<reference name="head">
 			<action method="addCss">
 				<name>iwd/orderflags/colpick.css</name>
 			</action>
-			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-			https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method="addJs">
 				<name>iwd/orderflags/colpick.js</name>
 			</action>
