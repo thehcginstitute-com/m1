@@ -48,9 +48,9 @@
 	<catalogsearch_advanced_result>
 		<reference name='search_result_list'>
 			<action method='addPriceBlockType'>
-				<type>bundle</type>
 				<block>bundle/catalog_product_price</block>
 				<template>bundle/catalog/product/price.phtml</template>
+				<type>bundle</type>
 			</action>
 		</reference>
 	</catalogsearch_advanced_result>
