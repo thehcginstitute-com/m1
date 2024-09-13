@@ -102,14 +102,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<update handle="ordergrid_order_grid_handle"/>
 		<update handle="ordergrid_order_totals_handle"/>
 	</adminhtml_sales_order_index>
-
-	<!-- archive orders -->
 	<adminhtml_sales_archive_order_index>
 		<update handle="font_awesome_handle"/>
 		<update handle="ordergrid_order_grid_handle"/>
 	</adminhtml_sales_archive_order_index>
-
-	<!-- customer orders -->
 	<adminhtml_customer_edit>
 		<update handle="font_awesome_handle"/>
 		<update handle="ordergrid_order_grid_handle"/>
