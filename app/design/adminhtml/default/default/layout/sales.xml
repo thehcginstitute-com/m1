@@ -268,9 +268,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				>
 					<block name='order_info' template='sales/order/view/info.phtml' type='adminhtml/sales_order_view_info' />
 					<block name='order_payment' type='adminhtml/sales_order_payment'/>
-					<block name='shipment_tracking'
+					<block
+						name='shipment_tracking'
 						template='sales/order/shipment/create/tracking.phtml'
-						type='adminhtml/sales_order_shipment_create_tracking'></block>
+						type='adminhtml/sales_order_shipment_create_tracking'
+					/>
 					<block name='order_items'
 						template='sales/order/shipment/create/items.phtml'
 						type='adminhtml/sales_order_shipment_create_items'>
