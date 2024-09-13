@@ -310,8 +310,12 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 	<PRODUCT_TYPE_configurable module='catalog' translate='label'>
 		<label>Catalog Product View (Configurable)</label>
 		<reference name='product.info'>
-			<block as='product_type_data' name='product.info.configurable' template='catalog/product/view/type/default.phtml'
-				   type='catalog/product_view_type_configurable'>
+			<block
+				as='product_type_data'
+				name='product.info.configurable'
+				template='catalog/product/view/type/default.phtml'
+				type='catalog/product_view_type_configurable'
+			>
 				<block as='product_type_data_extra' name='product.info.configurable.extra' translate='label'
 					   type='core/text_list'>
 					<label>Product Extra Info</label>
