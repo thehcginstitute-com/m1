@@ -2,26 +2,15 @@
 <layout>
 	<adminhtml_sales_order_grid>
 		<update handle='formkey'/>
-		<block
-			name='sales_order.grid'
-			output='toHtml'
-			type='adminhtml/sales_order_grid'
-		/>
+		<block name='sales_order.grid' output='toHtml' type='adminhtml/sales_order_grid'/>
 	</adminhtml_sales_order_grid>
 	<adminhtml_sales_order_index>
 		<reference name='content'>
-			<block
-				name='sales_order.grid.container'
-				type='adminhtml/sales_order'
-			/>
+			<block name='sales_order.grid.container' type='adminhtml/sales_order'/>
 		</reference>
 	</adminhtml_sales_order_index>
 	<adminhtml_sales_order_transactions>
-		<block
-			name='sales_transactions.grid'
-			output='toHtml'
-			type='adminhtml/sales_transactions_grid'
-		/>
+		<block name='sales_transactions.grid' output='toHtml' type='adminhtml/sales_transactions_grid'/>
 	</adminhtml_sales_order_transactions>
 <!-- 2024-02-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused «Billing Agreements» feature": https://github.com/thehcginstitute-com/m1/issues/400 -->
@@ -76,8 +65,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							<template>sales/items/column/name.phtml</template>
 							<type>grouped</type>
 						</action>
-						<block name='order_item_extra_info'
-							type='core/text_list'/>
+						<block name='order_item_extra_info' type='core/text_list'/>
 					</block>
 					<block name='order_payment'
 						type='adminhtml/sales_order_payment'/>
