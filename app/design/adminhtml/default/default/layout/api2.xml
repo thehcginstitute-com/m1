@@ -80,9 +80,9 @@
 		<reference name='adminhtml.permissions.user.edit.tabs'>
 			<block name='adminhtml.permissions.user.edit.tab.roles' type='api2/adminhtml_permissions_user_edit_tab_roles'/>
 			<action method='addTabAfter'>
-				<id>api2_roles_section</id>
-				<block>adminhtml.permissions.user.edit.tab.roles</block>
 				<after>roles_section</after>
+				<block>adminhtml.permissions.user.edit.tab.roles</block>
+				<id>api2_roles_section</id>
 			</action>
 		</reference>
 		<reference name='js'>
