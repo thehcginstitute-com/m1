@@ -91,8 +91,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<name>order_creditmemos</name>
 				</action>
 				<action method='addTab'>
-					<block>adminhtml/sales_order_view_tab_shipments</block>
-					<name>order_shipments</name>
+					<block>adminhtml/sales_order_view_tab_shipments</block><name>order_shipments</name>
 				</action>
 				<action method='addTab'>
 					<block>adminhtml/sales_order_view_tab_history</block>
@@ -167,9 +166,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</reference>
 	</adminhtml_sales_order_invoice_new>
 	<adminhtml_sales_order_invoice_updateqty>
-		<block name='order_items'
+		<block
+			name='order_items'
 			template='sales/order/invoice/create/items.phtml'
-			type='adminhtml/sales_order_invoice_create_items'>
+			type='adminhtml/sales_order_invoice_create_items'
+		>
 			<action method='addItemRender'>
 				<block>adminhtml/sales_items_renderer_default</block>
 				<template>sales/order/invoice/create/items/renderer/default.phtml</template>
