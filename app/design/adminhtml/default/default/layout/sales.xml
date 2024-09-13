@@ -327,7 +327,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='sales_shipment_view' type='adminhtml/sales_order_shipment_view'>
 				<block name='form'
 					template='sales/order/shipment/view/form.phtml'
-					type='adminhtml/sales_order_shipment_view_form'>
+					type='adminhtml/sales_order_shipment_view_form'
+				>
 					<block name='order_info'
 						template='sales/order/view/info.phtml'
 						type='adminhtml/sales_order_view_info'></block>
