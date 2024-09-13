@@ -379,8 +379,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			<action method='addJs'><name>varien/product_options.js</name></action>
 		</reference>
 		<reference name='content'>
-			<block name='product.send' template='catalog/product/send.phtml' type='catalog/product_send'>
-			</block>
+			<block name='product.send' template='catalog/product/send.phtml' type='catalog/product_send'/>
 		</reference>
 	</catalog_product_send>
 	<catalog_product_gallery translate='label'>
