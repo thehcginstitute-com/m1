@@ -16,7 +16,7 @@
 <layout>
 	<default>
 		<reference name="notifications">
-			<block type="tax/adminhtml_notifications" name="tax_notifications" template="tax/notifications.phtml"></block>
+			<block name="tax_notifications" template="tax/notifications.phtml" type="tax/adminhtml_notifications"></block>
 		</reference>
 	</default>
 </layout>
