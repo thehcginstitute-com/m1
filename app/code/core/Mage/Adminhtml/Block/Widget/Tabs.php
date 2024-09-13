@@ -87,15 +87,14 @@ class Mage_Adminhtml_Block_Widget_Tabs extends Mage_Adminhtml_Block_Widget
 
 	/**
 	 * Add new tab after another
-	 *
-	 * @param   string $tabId new tab Id
-	 * @param   string|array|Varien_Object $tab
-	 * @param   string $afterTabId
+     * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @param   string|array|Varien_Object $block
 	 */
-	function addTabAfter($tabId, $tab, $afterTabId)
-	{
-		$this->addTab($tabId, $tab);
-		$this->_afterTabIds[$tabId] = $afterTabId;
+	final function addTabAfter(string $id, $block, string $after):void {
+		$this->addTab($id, $block);
+		$this->_afterTabIds[$id] = $after;
 	}
 
 	/**
