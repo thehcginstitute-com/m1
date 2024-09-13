@@ -1110,9 +1110,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_create_load_block_sidebar_reorder>
 	<adminhtml_sales_order_create_load_block_sidebar_viewed>
 		<reference name='content'>
-			<block name='sidebar_viewed'
+			<block
+				name='sidebar_viewed'
 				template='sales/order/create/sidebar/items.phtml'
-				type='adminhtml/sales_order_create_sidebar_viewed'/>
+				type='adminhtml/sales_order_create_sidebar_viewed'
+			/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_sidebar_viewed>
 	<adminhtml_sales_order_create_load_block_sidebar_compared>
