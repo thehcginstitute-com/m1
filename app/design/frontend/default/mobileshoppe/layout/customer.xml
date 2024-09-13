@@ -5,7 +5,6 @@
 			<action method='addLink' translate='label title' module='customer'>
 				<label>My Account</label>
 				<position>10</position>
-				<prepare/>
 				<title>My Account</title>
 				<url helper='customer/getAccountUrl'/>
 				<urlParams/>
