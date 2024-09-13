@@ -4,10 +4,16 @@
 <layout>
 	<adminhtml_sales_order_view>
 		<reference name='order_item_extra_info'>
-			<block name='gift_options_link' template='giftmessage/sales/order/view/giftoptions.phtml'
-				type='giftmessage/adminhtml_sales_order_view_giftoptions'>
-				<block name='gift_options_item_data' template='giftmessage/sales/order/view/items.phtml'
-					type='giftmessage/adminhtml_sales_order_view_items'/>
+			<block
+				name='gift_options_link'
+				template='giftmessage/sales/order/view/giftoptions.phtml'
+				type='giftmessage/adminhtml_sales_order_view_giftoptions'
+			>
+				<block
+					name='gift_options_item_data'
+					template='giftmessage/sales/order/view/items.phtml'
+					type='giftmessage/adminhtml_sales_order_view_items'
+				/>
 			</block>
 		</reference>
 		<reference name='order_tab_info'>
