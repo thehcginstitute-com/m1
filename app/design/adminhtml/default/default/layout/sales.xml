@@ -6,7 +6,7 @@
 			name='sales_order.grid'
 			output='toHtml'
 			type='adminhtml/sales_order_grid'
-		></block>
+		/>
 	</adminhtml_sales_order_grid>
 	<adminhtml_sales_order_index>
 		<reference name='content'>
