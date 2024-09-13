@@ -38,8 +38,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addCss'><name>iwd/orderflags/popup.css</name></action>
 		</reference>
 		<reference name='content'>
-			<block name='flags-init' template='iwd/orderflags/flags/grid/init.phtml'
-				   type='iwd_orderflags/adminhtml_flags_order_grid'/>
+			<block
+				name='flags-init'
+				template='iwd/orderflags/flags/grid/init.phtml'
+				type='iwd_orderflags/adminhtml_flags_order_grid'
+			/>
 		</reference>
 	</orderflags_order_grid_handle>
 	<adminhtml_sales_order_grid>
