@@ -312,14 +312,11 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
 
     /**
      * Add renderer for row-level item output
-     *
-     * @param   string $type Product type
-     * @param   string $block Block type
-     * @param   string $template Block template
-     * @return  Mage_Checkout_Block_Multishipping_Overview
+     * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
      */
-    function addRowItemRender($type, $block, $template)
-    {
+    final function addRowItemRender(string $type, string $block, string $template):self {
         $type = $this->_getRowItemType($type);
         parent::addItemRender($this->_getRowItemType($type), $block, $template);
         return $this;
