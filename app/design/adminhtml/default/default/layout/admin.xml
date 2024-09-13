@@ -4,15 +4,14 @@
 <layout>
 	<adminhtml_input_counter_handle>
 		<reference name='head'>
-			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
-			https://github.com/thehcginstitute-com/m1/issues/680 -->
+<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
+https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'>
 				<name>mage/adminhtml/input-counter.js</name>
 			</action>
 		</reference>
 	</adminhtml_input_counter_handle>
-	<!-- admin acl users edit page -->
 	<adminhtml_permissions_user_edit>
 		<reference name='left'>
 			<block name='adminhtml.permissions.user.edit.tabs' type='adminhtml/permissions_user_edit_tabs'/>
@@ -31,13 +30,11 @@
 			<block name='adminhtml.permissions.block.edit' type='adminhtml/permissions_block_edit'/>
 		</reference>
 	</adminhtml_permissions_block_edit>
-	<!-- admin permissions variable edit page -->
 	<adminhtml_permissions_variable_edit>
 		<reference name='content'>
 			<block name='adminhtml.permissions.variable.edit' type='adminhtml/permissions_variable_edit'/>
 		</reference>
 	</adminhtml_permissions_variable_edit>
-	<!-- admin acl roles grid page -->
 	<adminhtml_permissions_role_index>
 		<reference name='content'>
 			<block name='adminhtml.permission.role.index' template='permissions/roles.phtml' type='adminhtml/permissions_roles'>
@@ -49,7 +46,6 @@
 		<remove name='root'/>
 		<block name='adminhtml.permission.role.grid' type='adminhtml/permissions_grid_role'/>
 	</adminhtml_permissions_role_rolegrid>
-	<!-- admin acl roles edit page -->
 	<adminhtml_permissions_role_editrole>
 		<reference name='left'>
 			<block name='adminhtml.permissions.editroles' type='adminhtml/permissions_editroles'/>
