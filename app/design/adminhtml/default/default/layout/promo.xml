@@ -42,7 +42,6 @@
 			<block template='promo/js.phtml' type='adminhtml/promo_catalog_edit_js'/>
 		</reference>
 	</adminhtml_promo_catalog_edit>
-	<!-- Shopping Cart Price Rule -->
 	<adminhtml_promo_quote_index>
 		<reference name='content'>
 			<block name='promo_quote' type='adminhtml/promo_quote'></block>
