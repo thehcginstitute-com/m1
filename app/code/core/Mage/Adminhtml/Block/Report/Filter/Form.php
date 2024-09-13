@@ -87,13 +87,11 @@ class Mage_Adminhtml_Block_Report_Filter_Form extends Mage_Adminhtml_Block_Widge
 
     /**
      * Add report type option
-     *
-     * @param string $key
-     * @param string $value
-     * @return $this
+     * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
      */
-    function addReportTypeOption($key, $value)
-    {
+    final function addReportTypeOption(string $key, string $value):self {
         $this->_reportTypeOptions[$key] = $this->__($value);
         return $this;
     }
