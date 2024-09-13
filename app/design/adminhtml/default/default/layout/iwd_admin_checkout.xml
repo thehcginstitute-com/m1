@@ -38,8 +38,11 @@
 				template='iwd/admincheckout/create/top.phtml'
 				type='iwd_admin_checkout/adminhtml_sales_order_create_top'
 			>
-				<block name='store.switcher'
-					template='iwd/admincheckout/create/store/switcher.phtml' type='iwd_admin_checkout/adminhtml_sales_order_create_store_switcher'>
+				<block
+					name='store.switcher'
+					template='iwd/admincheckout/create/store/switcher.phtml'
+					type='iwd_admin_checkout/adminhtml_sales_order_create_store_switcher'
+				>
 					<action method='setStoreVarName'>
 						<var_name>store_ids</var_name>
 					</action>
