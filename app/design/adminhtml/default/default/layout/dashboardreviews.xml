@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!--
 /**
  * NOTICE OF LICENSE
@@ -18,9 +18,9 @@
 -->
 <layout>
 	<adminhtml_dashboard_index>
-		<reference name="content">
-			<reference name="dashboard">
-				<block name="dashboardreviews_tab" type="dashboardreviews/tab"/>
+		<reference name='content'>
+			<reference name='dashboard'>
+				<block name='dashboardreviews_tab' type='dashboardreviews/tab'/>
 			</reference>
 		</reference>
 	</adminhtml_dashboard_index>
