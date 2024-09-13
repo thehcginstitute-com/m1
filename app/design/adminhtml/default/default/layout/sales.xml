@@ -43,9 +43,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='left'>
 			<block name='sales_order_tabs'
 				type='adminhtml/sales_order_view_tabs'>
-				<block name='order_tab_info'
+				<block
+					name='order_tab_info'
 					template='sales/order/view/tab/info.phtml'
-					type='adminhtml/sales_order_view_tab_info'>
+					type='adminhtml/sales_order_view_tab_info'
+				>
 					<block name='order_messages'
 						type='adminhtml/sales_order_view_messages'></block>
 					<block name='order_info'
