@@ -4,9 +4,7 @@
 <layout>
 	<adminhtml_mailchimperrors_grid>
 		<update handle='formkey'/>
-		<block name='mailchimp_mailchimperrors.grid'
-			output='toHtml'
-			type='mailchimp/adminhtml_mailchimperrors_grid'/>
+		<block name='mailchimp_mailchimperrors.grid' output='toHtml' type='mailchimp/adminhtml_mailchimperrors_grid'/>
 	</adminhtml_mailchimperrors_grid>
 	<adminhtml_mailchimperrors_index>
 		<reference name='content'>
