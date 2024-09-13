@@ -10,43 +10,71 @@
 	</font_awesome_handle>
 	<ordermanager_handle>
 		<reference name='head'>
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method='addJs'><name>iwd/ordermanager/init.js</name></action>
-			<action method='addJs'><name>iwd/ordermanager/order.js</name></action>
-			<action method='addJs'><name>iwd/ordermanager/fee.js</name></action>
-			<action method='addJs'><name>mage/adminhtml/sales.js</name></action>
-			<action method='addJs'><name>iwd/ordermanager/jquery.datetimepicker.min.js</name></action>
-			<action method='addJs'><name>iwd/ordermanager/jquery.nicescroll.js</name></action>
-			<action method='addJs'><name>iwd/all/modal.js</name></action>
-			<action method='addCss'><name>iwd/ordermanager/popup.css</name></action>
-			<action method='addCss'><name>iwd/ordermanager/jquery.datetimepicker.css</name></action>
-			<action method='addCss'><name>iwd/ordermanager/style.css</name></action>
-			<action method='addCss'><name>iwd/ordermanager/fee.css</name></action>
-<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Delete the Braintree support from IWD modules": https://github.com/thehcginstitute-com/m1/issues/360 -->
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addJs'>
+				<name>iwd/ordermanager/init.js</name>
+			</action>
+			<action method='addJs'>
+				<name>iwd/ordermanager/order.js</name>
+			</action>
+			<action method='addJs'>
+				<name>iwd/ordermanager/fee.js</name>
+			</action>
+			<action method='addJs'>
+				<name>mage/adminhtml/sales.js</name>
+			</action>
+			<action method='addJs'>
+				<name>iwd/ordermanager/jquery.datetimepicker.min.js</name>
+			</action>
+			<action method='addJs'>
+				<name>iwd/ordermanager/jquery.nicescroll.js</name>
+			</action>
+			<action method='addJs'>
+				<name>iwd/all/modal.js</name>
+			</action>
+			<action method='addCss'>
+				<name>iwd/ordermanager/popup.css</name>
+			</action>
+			<action method='addCss'>
+				<name>iwd/ordermanager/jquery.datetimepicker.css</name>
+			</action>
+			<action method='addCss'>
+				<name>iwd/ordermanager/style.css</name>
+			</action>
+			<action method='addCss'>
+				<name>iwd/ordermanager/fee.css</name>
+			</action>
+			<!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			"Delete the Braintree support from IWD modules": https://github.com/thehcginstitute-com/m1/issues/360 -->
 		</reference>
 		<reference name='js'>
-			<block type='adminhtml/template' template='iwd/ordermanager/jsinit.phtml' name='create-js'/>
+			<block name='create-js' template='iwd/ordermanager/jsinit.phtml' type='adminhtml/template'/>
 		</reference>
-<!-- 2024-01-26 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The template `opcsignature/sales/order/view/info.phtml` of `IWD_OnepageCheckoutSignature_Block_Sales_Order_View_Info`
-conflicts with the template `customfield/sales/order/view/info.phtml` of `Webkul_CustomField`,
-the template `iwd/ordermanager/order/view/info.phtml` of `IWD_OrderManager`,
-and the template `iwd/orderflags/order/view/info.phtml` of `IWD_OrderFlags`,
-because they are all override the template `sales/order/view/info.phtml`
-of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginstitute-com/m1/issues/327 -->
+		<!-- 2024-01-26 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		"The template `opcsignature/sales/order/view/info.phtml` of `IWD_OnepageCheckoutSignature_Block_Sales_Order_View_Info`
+		conflicts with the template `customfield/sales/order/view/info.phtml` of `Webkul_CustomField`,
+		the template `iwd/ordermanager/order/view/info.phtml` of `IWD_OrderManager`,
+		and the template `iwd/orderflags/order/view/info.phtml` of `IWD_OrderFlags`,
+		because they are all override the template `sales/order/view/info.phtml`
+		of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginstitute-com/m1/issues/327 -->
 	</ordermanager_handle>
 	<ordermanager_order_grid_handle>
 		<reference name='head'>
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method='addJs'><name>iwd/ordermanager/jquery.nicescroll.js</name></action>
-			<action method='addJs'><name>iwd/all/modal.js</name></action>
-			<action method='addCss'><name>iwd/ordermanager/popup.css</name></action>
-			<action method='addItem' ifconfig='iwd_ordermanager/iwd_delete_orders/double_confirmation'>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addJs'>
+				<name>iwd/ordermanager/jquery.nicescroll.js</name>
+			</action>
+			<action method='addJs'>
+				<name>iwd/all/modal.js</name>
+			</action>
+			<action method='addCss'>
+				<name>iwd/ordermanager/popup.css</name>
+			</action>
+			<action ifconfig='iwd_ordermanager/iwd_delete_orders/double_confirmation' method='addItem'>
 				<name>iwd/ordermanager/mage/adminhtml/grid.js</name>
 				<type>js</type>
 			</action>
@@ -54,15 +82,19 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</ordermanager_order_grid_handle>
 	<ordermanager_log_grid_handle>
 		<reference name='head'>
-			<action method='addCss'><name>iwd/ordermanager/log_grid.css</name></action>
+			<action method='addCss'>
+				<name>iwd/ordermanager/log_grid.css</name>
+			</action>
 		</reference>
 	</ordermanager_log_grid_handle>
 	<adminhtml_system_config_edit>
 		<reference name='head'>
-			<action method='addCss'><name>iwd/ordermanager/system.css</name></action>
+			<action method='addCss'>
+				<name>iwd/ordermanager/system.css</name>
+			</action>
 		</reference>
 		<reference name='content'>
-			<block type='core/template' name='iwd_om_system' template='iwd/ordermanager/system/jsinit.phtml'/>
+			<block name='iwd_om_system' template='iwd/ordermanager/system/jsinit.phtml' type='core/template'/>
 		</reference>
 	</adminhtml_system_config_edit>
 	<adminhtml_sales_order_index>
@@ -72,14 +104,24 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<update handle='font_awesome_handle'/>
 		<update handle='ordermanager_handle'/>
 		<reference name='head'>
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method='addJs'><name>mage/adminhtml/giftmessage.js</name></action>
-			<action method='addJs'><name>varien/configurable.js</name></action>
-			<action method='addJs'><name>mage/adminhtml/giftoptions/tooltip.js</name></action>
-			<action method='addJs'><name>iwd/ordermanager/configure.js</name></action>
-			<action method='addJs'><name>mage/directpost.js</name></action>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addJs'>
+				<name>mage/adminhtml/giftmessage.js</name>
+			</action>
+			<action method='addJs'>
+				<name>varien/configurable.js</name>
+			</action>
+			<action method='addJs'>
+				<name>mage/adminhtml/giftoptions/tooltip.js</name>
+			</action>
+			<action method='addJs'>
+				<name>iwd/ordermanager/configure.js</name>
+			</action>
+			<action method='addJs'>
+				<name>mage/directpost.js</name>
+			</action>
 			<block
 				as='optional_zip_countries'
 				name='optional_zip_countries'
@@ -87,15 +129,15 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				type='adminhtml/template'
 			/>
 		</reference>
-<!-- 2024-09-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Replace the contents of unused (overridden) core backend template `sales/order/view/history.phtml`
-with the contents of the really used corresponding custom template `iwd/ordermanager/history/order.phtml`
-from `IWD_OrderManager`, and then delete the custom template file": https://github.com/thehcginstitute-com/m1/issues/674 -->
+		<!-- 2024-09-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		"Replace the contents of unused (overridden) core backend template `sales/order/view/history.phtml`
+		with the contents of the really used corresponding custom template `iwd/ordermanager/history/order.phtml`
+		from `IWD_OrderManager`, and then delete the custom template file": https://github.com/thehcginstitute-com/m1/issues/674 -->
 		<reference name='order_tab_info'>
-<!-- 2024-09-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Replace the contents of unused (overridden) core backend template `sales/order/view/tab/info.phtml`
-with the contents of the really used corresponding custom template `iwd/ordermanager/order/view/tab/info.phtml`
-from `IWD_OrderManager`, and then delete the custom template file": https://github.com/thehcginstitute-com/m1/issues/672 -->
+			<!-- 2024-09-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			"Replace the contents of unused (overridden) core backend template `sales/order/view/tab/info.phtml`
+			with the contents of the really used corresponding custom template `iwd/ordermanager/order/view/tab/info.phtml`
+			from `IWD_OrderManager`, and then delete the custom template file": https://github.com/thehcginstitute-com/m1/issues/672 -->
 			<block
 				name='order_items'
 				template='iwd/ordermanager/items/items.phtml'
@@ -118,8 +160,10 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 					<type>grouped</type>
 				</action>
 			</block>
-			<block type='iwd_ordermanager/adminhtml_sales_order_view_tab_additionalAmount' name='coupon_code_custom_amount' template='iwd/ordermanager/order/view/tab/coupon_code_custom_amount.phtml'>
-				<block type='iwd_ordermanager/adminhtml_sales_order_view_tab_fee' name='iwd_om_custom_fee' template='iwd/ordermanager/custom/fee.phtml'/>
+			<block name='coupon_code_custom_amount' template='iwd/ordermanager/order/view/tab/coupon_code_custom_amount.phtml'
+				type='iwd_ordermanager/adminhtml_sales_order_view_tab_additionalAmount'>
+				<block name='iwd_om_custom_fee' template='iwd/ordermanager/custom/fee.phtml'
+					type='iwd_ordermanager/adminhtml_sales_order_view_tab_fee'/>
 			</block>
 		</reference>
 		<reference name='order_items'>
@@ -130,21 +174,22 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 			</action>
 		</reference>
 		<reference name='order_totals'>
-			<block type='iwd_ordermanager/sales_order_total_fee' name='iwd_ordermanager_fee' />
+			<block name='iwd_ordermanager_fee' type='iwd_ordermanager/sales_order_total_fee'/>
 		</reference>
 	</adminhtml_sales_order_view>
 	<adminhtml_sales_order_addcomment>
-		<block type='adminhtml/sales_order_view_history' name='order_history' template='iwd/ordermanager/history/order.phtml' output='toHtml'/>
+		<block name='order_history' output='toHtml' template='iwd/ordermanager/history/order.phtml'
+			type='adminhtml/sales_order_view_history'/>
 	</adminhtml_sales_order_addcomment>
 	<ordermanager_invoice_fee_total_handle>
 		<reference name='invoice_totals'>
-			<block type='iwd_ordermanager/sales_order_total_fee' name='iwd_ordermanager_fee' />
+			<block name='iwd_ordermanager_fee' type='iwd_ordermanager/sales_order_total_fee'/>
 		</reference>
 	</ordermanager_invoice_fee_total_handle>
 	<adminhtml_sales_order_invoice_view>
 		<update handle='font_awesome_handle'/>
 		<update handle='ordermanager_handle'/>
-		<update handle='ordermanager_invoice_fee_total_handle' />
+		<update handle='ordermanager_invoice_fee_total_handle'/>
 		<reference name='order_comments'>
 			<action method='setTemplate'>
 				<template>iwd/ordermanager/history/comments.phtml</template>
@@ -154,19 +199,20 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 	<adminhtml_sales_order_invoice_new>
 		<update handle='font_awesome_handle'/>
 		<update handle='ordermanager_handle'/>
-		<update handle='ordermanager_invoice_fee_total_handle' />
+		<update handle='ordermanager_invoice_fee_total_handle'/>
 	</adminhtml_sales_order_invoice_new>
 	<adminhtml_sales_order_invoice_addcomment>
-		<block type='adminhtml/sales_order_invoice_view_comments' name='invoice_comments'>
-			<block type='adminhtml/sales_order_comments_view' name='order_comments' template='iwd/ordermanager/history/comments.phtml'/>
+		<block name='invoice_comments' type='adminhtml/sales_order_invoice_view_comments'>
+			<block name='order_comments' template='iwd/ordermanager/history/comments.phtml'
+				type='adminhtml/sales_order_comments_view'/>
 		</block>
 	</adminhtml_sales_order_invoice_addcomment>
 	<adminhtml_sales_order_invoice_updateqty>
-		<update handle='ordermanager_invoice_fee_total_handle' />
+		<update handle='ordermanager_invoice_fee_total_handle'/>
 	</adminhtml_sales_order_invoice_updateqty>
 	<adminhtml_sales_invoice_index>
 		<reference name='head'>
-			<action method='addItem' ifconfig='iwd_ordermanager/iwd_delete_invoices/double_confirmation'>
+			<action ifconfig='iwd_ordermanager/iwd_delete_invoices/double_confirmation' method='addItem'>
 				<name>iwd/ordermanager/mage/adminhtml/grid.js</name>
 				<type>js</type>
 			</action>
@@ -186,13 +232,14 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 		<update handle='ordermanager_handle'/>
 	</adminhtml_sales_order_shipment_new>
 	<adminhtml_sales_order_shipment_addcomment>
-		<block type='adminhtml/sales_order_shipment_view_comments' name='shipment_comments'>
-			<block type='adminhtml/sales_order_comments_view' name='order_comments' template='iwd/ordermanager/history/comments.phtml'/>
+		<block name='shipment_comments' type='adminhtml/sales_order_shipment_view_comments'>
+			<block name='order_comments' template='iwd/ordermanager/history/comments.phtml'
+				type='adminhtml/sales_order_comments_view'/>
 		</block>
 	</adminhtml_sales_order_shipment_addcomment>
 	<adminhtml_sales_order_shipment_index>
 		<reference name='head'>
-			<action method='addItem' ifconfig='iwd_ordermanager/iwd_delete_shipments/double_confirmation'>
+			<action ifconfig='iwd_ordermanager/iwd_delete_shipments/double_confirmation' method='addItem'>
 				<name>iwd/ordermanager/mage/adminhtml/grid.js</name>
 				<type>js</type>
 			</action>
@@ -200,13 +247,13 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 	</adminhtml_sales_order_shipment_index>
 	<ordermanager_creditmemo_fee_total_handle>
 		<reference name='creditmemo_totals'>
-			<block type='iwd_ordermanager/sales_order_total_fee' name='iwd_ordermanager_fee' />
+			<block name='iwd_ordermanager_fee' type='iwd_ordermanager/sales_order_total_fee'/>
 		</reference>
 	</ordermanager_creditmemo_fee_total_handle>
 	<adminhtml_sales_order_creditmemo_view>
 		<update handle='font_awesome_handle'/>
 		<update handle='ordermanager_handle'/>
-		<update handle='ordermanager_creditmemo_fee_total_handle' />
+		<update handle='ordermanager_creditmemo_fee_total_handle'/>
 		<reference name='order_comments'>
 			<action method='setTemplate'>
 				<template>iwd/ordermanager/history/comments.phtml</template>
@@ -216,20 +263,21 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 	<adminhtml_sales_order_creditmemo_new>
 		<update handle='font_awesome_handle'/>
 		<update handle='ordermanager_handle'/>
-		<update handle='ordermanager_creditmemo_fee_total_handle' />
+		<update handle='ordermanager_creditmemo_fee_total_handle'/>
 	</adminhtml_sales_order_creditmemo_new>
 	<adminhtml_sales_order_creditmemo_addcomment>
-		<update handle='ordermanager_creditmemo_fee_total_handle' />
-		<block type='adminhtml/sales_order_creditmemo_view_comments' name='creditmemo_comments'>
-			<block type='adminhtml/sales_order_comments_view' name='order_comments' template='iwd/ordermanager/history/comments.phtml'/>
+		<update handle='ordermanager_creditmemo_fee_total_handle'/>
+		<block name='creditmemo_comments' type='adminhtml/sales_order_creditmemo_view_comments'>
+			<block name='order_comments' template='iwd/ordermanager/history/comments.phtml'
+				type='adminhtml/sales_order_comments_view'/>
 		</block>
 	</adminhtml_sales_order_creditmemo_addcomment>
 	<adminhtml_sales_order_creditmemo_updateqty>
-		<update handle='ordermanager_creditmemo_fee_total_handle' />
+		<update handle='ordermanager_creditmemo_fee_total_handle'/>
 	</adminhtml_sales_order_creditmemo_updateqty>
 	<adminhtml_sales_order_creditmemo_index>
 		<reference name='head'>
-			<action method='addItem' ifconfig='iwd_ordermanager/iwd_delete_creditmemos/double_confirmation'>
+			<action ifconfig='iwd_ordermanager/iwd_delete_creditmemos/double_confirmation' method='addItem'>
 				<name>iwd/ordermanager/mage/adminhtml/grid.js</name>
 				<type>js</type>
 			</action>
@@ -244,8 +292,9 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 		<update handle='ordermanager_order_grid_handle'/>
 	</adminhtml_sales_archive_order_index>
 	<IWD_OM_ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE>
-		<block type='adminhtml/catalog_product_composite_fieldset' name='product.composite.fieldset' output='toHtml'>
-			<block name='product.composite.fieldset.options' type='adminhtml/catalog_product_composite_fieldset_options' template='catalog/product/composite/fieldset/options.phtml'>
+		<block name='product.composite.fieldset' output='toHtml' type='adminhtml/catalog_product_composite_fieldset'>
+			<block name='product.composite.fieldset.options' template='catalog/product/composite/fieldset/options.phtml'
+				type='adminhtml/catalog_product_composite_fieldset_options'>
 				<action method='addOptionRenderer'>
 					<block>catalog/product_view_options_type_text</block>
 					<template>catalog/product/composite/fieldset/options/type/text.phtml</template>
@@ -266,39 +315,46 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 					<template>iwd/ordermanager/catalog/product/composite/fieldset/options/type/date.phtml</template>
 					<type>date</type>
 				</action>
-				<block type='core/template' name='product.composite.fieldset.options.js' as='options_js' template='iwd/ordermanager/catalog/product/composite/fieldset/options/js.phtml'/>
+				<block as='options_js' name='product.composite.fieldset.options.js' template='iwd/ordermanager/catalog/product/composite/fieldset/options/js.phtml'
+					type='core/template'/>
 			</block>
-			<block type='adminhtml/catalog_product_composite_fieldset_qty' name='product.composite.fieldset.qty'
-				   template='catalog/product/composite/fieldset/qty.phtml'/>
+			<block name='product.composite.fieldset.qty' template='catalog/product/composite/fieldset/qty.phtml'
+				type='adminhtml/catalog_product_composite_fieldset_qty'/>
 		</block>
 	</IWD_OM_ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE>
 	<IWD_OM_PRODUCT_TYPE_configurable>
 		<reference name='product.composite.fieldset'>
-			<block type='adminhtml/catalog_product_composite_fieldset_configurable' name='product.composite.fieldset.configurable' before='product.composite.fieldset.options' template='iwd/ordermanager/catalog/product/composite/fieldset/configurable.phtml'/>
+			<block before='product.composite.fieldset.options' name='product.composite.fieldset.configurable'
+				template='iwd/ordermanager/catalog/product/composite/fieldset/configurable.phtml'
+				type='adminhtml/catalog_product_composite_fieldset_configurable'/>
 		</reference>
 	</IWD_OM_PRODUCT_TYPE_configurable>
 	<adminhtml_sales_order_create_load_block_data>
 		<reference name='data'>
-			<block type='iwd_ordermanager/adminhtml_sales_order_create_fee' name='iwd_om_custom_fee' template='iwd/ordermanager/custom/fee.phtml'/>
+			<block name='iwd_om_custom_fee' template='iwd/ordermanager/custom/fee.phtml'
+				type='iwd_ordermanager/adminhtml_sales_order_create_fee'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_data>
 	<adminhtml_sales_order_create_index>
 		<reference name='head'>
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method='addJs'><name>iwd/ordermanager/init.js</name></action>
-			<action method='addItem' ifconfig='iwd_ordermanager/edit/enable_custom_amount_new'>
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<action method='addJs'>
+				<name>iwd/ordermanager/init.js</name>
+			</action>
+			<action ifconfig='iwd_ordermanager/edit/enable_custom_amount_new' method='addItem'>
 				<name>iwd/ordermanager/fee.css</name>
 				<type>skin_css</type>
 			</action>
-			<action method='addItem' ifconfig='iwd_ordermanager/edit/enable_custom_amount_new'>
+			<action ifconfig='iwd_ordermanager/edit/enable_custom_amount_new' method='addItem'>
 				<name>iwd/ordermanager/fee.js</name>
 				<type>js</type>
 			</action>
 		</reference>
 		<reference name='data'>
-			<block type='iwd_ordermanager/adminhtml_sales_order_create_fee' name='iwd_om_custom_fee' template='iwd/ordermanager/custom/fee.phtml'/>
+			<block name='iwd_om_custom_fee' template='iwd/ordermanager/custom/fee.phtml'
+				type='iwd_ordermanager/adminhtml_sales_order_create_fee'/>
 		</reference>
 	</adminhtml_sales_order_create_index>
 </layout>
