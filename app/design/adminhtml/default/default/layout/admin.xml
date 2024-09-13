@@ -28,59 +28,59 @@
 	<!-- admin acl users edit page -->
 	<adminhtml_permissions_user_edit>
 		<reference name="left">
-			<block type="adminhtml/permissions_user_edit_tabs" name="adminhtml.permissions.user.edit.tabs"/>
+			<block name="adminhtml.permissions.user.edit.tabs" type="adminhtml/permissions_user_edit_tabs"/>
 		</reference>
 		<reference name="content">
-			<block type="adminhtml/permissions_user_edit" name="adminhtml.permissions.user.edit"/>
+			<block name="adminhtml.permissions.user.edit" type="adminhtml/permissions_user_edit"/>
 		</reference>
 		<reference name="js">
-			<block type="adminhtml/template" name="adminhtml.permissions.user.roles.grid.js"
-				template="permissions/user_roles_grid_js.phtml"/>
+			<block name="adminhtml.permissions.user.roles.grid.js" template="permissions/user_roles_grid_js.phtml"
+				type="adminhtml/template"/>
 		</reference>
 	</adminhtml_permissions_user_edit>
 	<!-- admin permissions block edit page -->
 	<adminhtml_permissions_block_edit>
 		<reference name="content">
-			<block type="adminhtml/permissions_block_edit" name="adminhtml.permissions.block.edit"/>
+			<block name="adminhtml.permissions.block.edit" type="adminhtml/permissions_block_edit"/>
 		</reference>
 	</adminhtml_permissions_block_edit>
 	<!-- admin permissions variable edit page -->
 	<adminhtml_permissions_variable_edit>
 		<reference name="content">
-			<block type="adminhtml/permissions_variable_edit" name="adminhtml.permissions.variable.edit"/>
+			<block name="adminhtml.permissions.variable.edit" type="adminhtml/permissions_variable_edit"/>
 		</reference>
 	</adminhtml_permissions_variable_edit>
 	<!-- admin acl roles grid page -->
 	<adminhtml_permissions_role_index>
 		<reference name="content">
-			<block type="adminhtml/permissions_roles" name="adminhtml.permission.role.index" template="permissions/roles.phtml">
-				<block type="adminhtml/permissions_grid_role" name="adminhtml.permission.role.grid" as="grid"/>
+			<block name="adminhtml.permission.role.index" template="permissions/roles.phtml" type="adminhtml/permissions_roles">
+				<block as="grid" name="adminhtml.permission.role.grid" type="adminhtml/permissions_grid_role"/>
 			</block>
 		</reference>
 	</adminhtml_permissions_role_index>
 	<adminhtml_permissions_role_rolegrid>
 		<remove name="root"/>
-		<block type="adminhtml/permissions_grid_role" name="adminhtml.permission.role.grid"/>
+		<block name="adminhtml.permission.role.grid" type="adminhtml/permissions_grid_role"/>
 	</adminhtml_permissions_role_rolegrid>
 	<!-- admin acl roles edit page -->
 	<adminhtml_permissions_role_editrole>
 		<reference name="left">
-			<block type="adminhtml/permissions_editroles" name="adminhtml.permissions.editroles"/>
+			<block name="adminhtml.permissions.editroles" type="adminhtml/permissions_editroles"/>
 		</reference>
 	</adminhtml_permissions_role_editrole>
 	<adminhtml_system_config_edit>
 		<reference name="content">
-			<block type="adminhtml/notification_curl" name="notification_curl" as="notification_curl"
-				template="notification/curl.phtml"/>
+			<block as="notification_curl" name="notification_curl" template="notification/curl.phtml"
+				type="adminhtml/notification_curl"/>
 		</reference>
 		<reference name="left">
-			<block type="adminhtml/system_config_switcher" name="adminhtml.system.config.switcher" before="-"/>
+			<block before="-" name="adminhtml.system.config.switcher" type="adminhtml/system_config_switcher"/>
 		</reference>
 	</adminhtml_system_config_edit>
 	<adminhtml_dashboard_index>
 		<reference name="content">
-			<block type="adminhtml/dashboard" name="dashboard">
-				<block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher" template="store/switcher.phtml">
+			<block name="dashboard" type="adminhtml/dashboard">
+				<block as="store_switcher" name="store_switcher" template="store/switcher.phtml" type="adminhtml/store_switcher">
 					<action method="setUseConfirm">
 						<params>0</params>
 					</action>
@@ -90,8 +90,8 @@
 	</adminhtml_dashboard_index>
 	<adminhtml_cache_index>
 		<reference name="content">
-			<block type="adminhtml/cache" name="cache"></block>
-			<block type="adminhtml/cache_additional" name="cache.additional" template="system/cache/additional.phtml"></block>
+			<block name="cache" type="adminhtml/cache"></block>
+			<block name="cache.additional" template="system/cache/additional.phtml" type="adminhtml/cache_additional"></block>
 		</reference>
 	</adminhtml_cache_index>
 	<adminhtml_catalog_product_attribute_edit>
