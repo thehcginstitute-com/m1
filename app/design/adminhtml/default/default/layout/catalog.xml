@@ -213,8 +213,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_catalog_product_configurable>
 		<reference name='product_tabs'>
 			<action method='addTab'>
-				<name>configurable</name>
 				<block>adminhtml/catalog_product_edit_tab_super_config</block>
+				<name>configurable</name>
 			</action>
 			<action method='bindShadowTabs'>
 				<first>configurable</first>
