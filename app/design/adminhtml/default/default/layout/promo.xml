@@ -57,11 +57,11 @@
 					<block name='promo_quote_edit_tab_coupons_form' type='adminhtml/promo_quote_edit_tab_coupons_form'/>
 					<block name='promo_quote_edit_tab_coupons_grid' type='adminhtml/promo_quote_edit_tab_coupons_grid'/>
 				</block>
-				<action method='addTab'><block>promo_quote_edit_tab_main</block><name>main_section</name></action>
-				<action method='addTab'><block>promo_quote_edit_tab_conditions</block><name>conditions_section</name></action>
-				<action method='addTab'><block>promo_quote_edit_tab_actions</block><name>actions_section</name></action>
-				<action method='addTab'><block>promo_quote_edit_tab_labels</block><name>labels_section</name></action>
-				<action method='addTab'><block>promo_quote_edit_tab_coupons</block><name>coupons_section</name></action>
+				<action method='addTab'><block>promo_quote_edit_tab_main</block><id>main_section</id></action>
+				<action method='addTab'><block>promo_quote_edit_tab_conditions</block><id>conditions_section</id></action>
+				<action method='addTab'><block>promo_quote_edit_tab_actions</block><id>actions_section</id></action>
+				<action method='addTab'><block>promo_quote_edit_tab_labels</block><id>labels_section</id></action>
+				<action method='addTab'><block>promo_quote_edit_tab_coupons</block><id>coupons_section</id></action>
 			</block>
 			<block name='promo_quote_edit_jsinit' template='promo/salesrulejs.phtml' type='adminhtml/template'/>
 		</reference>
