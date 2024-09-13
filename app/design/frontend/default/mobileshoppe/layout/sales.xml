@@ -18,9 +18,9 @@
 	<customer_account>
 		<reference name='customer_account_navigation'>
 			<action method='addLink' translate='label' module='sales'>
+				<label>My Orders</label>
 				<name>orders</name>
 				<path>sales/order/history/</path>
-				<label>My Orders</label>
 			</action>
 		</reference>
 	</customer_account>
