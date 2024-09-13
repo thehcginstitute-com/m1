@@ -283,9 +283,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<type>file</type>
 				</action>
 				<action method='addOptionRenderer'>
-					<type>select</type>
 					<block>catalog/product_view_options_type_select</block>
 					<template>catalog/product/composite/fieldset/options/type/select.phtml</template>
+					<type>select</type>
 				</action>
 				<action method='addOptionRenderer'>
 					<type>date</type>
