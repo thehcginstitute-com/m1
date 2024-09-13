@@ -7,17 +7,17 @@
 			<block name='customer_edit' type='adminhtml/customer_edit'></block>
 		</reference>
 		<reference name='head'>
-			<block as='optional_zip_countries' name='optional_zip_countries' template='directory/js/optional_zip_countries.phtml'
-				type='adminhtml/template'/>
+			<block
+				as='optional_zip_countries'
+				name='optional_zip_countries'
+				template='directory/js/optional_zip_countries.phtml'
+				type='adminhtml/template'
+			/>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 'The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments':
 https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method='addJs'>
-				<name>mage/adminhtml/product/composite/configure.js</name>
-			</action>
-			<action method='addJs'>
-				<name>varien/configurable.js</name>
-			</action>
+			<action method='addJs'><name>mage/adminhtml/product/composite/configure.js</name></action>
+			<action method='addJs'><name>varien/configurable.js</name></action>
 		</reference>
 		<reference name='left'>
 			<block name='customer_edit_tabs' type='adminhtml/customer_edit_tabs'>
