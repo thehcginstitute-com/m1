@@ -316,11 +316,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		/>
 	</adminhtml_sales_order_shipment_removetrack>
 	<adminhtml_sales_order_shipment_addcomment>
-		<block name='shipment_comments'
-			type='adminhtml/sales_order_shipment_view_comments'>
-			<block name='order_comments'
-				template='sales/order/comments/view.phtml'
-				type='adminhtml/sales_order_comments_view'></block>
+		<block name='shipment_comments' type='adminhtml/sales_order_shipment_view_comments'>
+			<block name='order_comments' template='sales/order/comments/view.phtml' type='adminhtml/sales_order_comments_view'/>
 		</block>
 	</adminhtml_sales_order_shipment_addcomment>
 	<adminhtml_sales_order_shipment_view>
