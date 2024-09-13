@@ -116,10 +116,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</reference>
 	</adminhtml_sales_order_view>
 	<adminhtml_sales_order_addcomment>
-		<block name='order_history'
+		<block
+			name='order_history'
 			output='toHtml'
 			template='sales/order/view/history.phtml'
-			type='adminhtml/sales_order_view_history'/>
+			type='adminhtml/sales_order_view_history'
+		/>
 	</adminhtml_sales_order_addcomment>
 	<adminhtml_sales_order_invoice_new>
 		<reference name='content'>
