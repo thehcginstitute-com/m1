@@ -1025,8 +1025,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_order_create_load_block_search>
 	<adminhtml_sales_order_create_load_block_search_grid>
 		<reference name='content'>
-			<block name='grid'
-				type='adminhtml/sales_order_create_search_grid'/>
+			<block name='grid' type='adminhtml/sales_order_create_search_grid'/>
 		</reference>
 	</adminhtml_sales_order_create_load_block_search_grid>
 	<adminhtml_sales_order_create_load_block_items>
