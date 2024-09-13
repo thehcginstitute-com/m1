@@ -28,8 +28,7 @@
 			<remove name='footer'/>
 			<remove name='notifications'/>
 			<remove name='global_notices'/>
-			<block name='adminhtml.mailchimp.add'
-				type='mailchimp/adminhtml_mergevars_add'/>
+			<block name='adminhtml.mailchimp.add' type='mailchimp/adminhtml_mergevars_add'/>
 		</reference>
 	</adminhtml_mergevars_addmergevar>
 	<adminhtml_ecommerce_renderresendecom>
