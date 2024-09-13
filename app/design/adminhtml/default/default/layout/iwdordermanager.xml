@@ -262,9 +262,9 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 					<type>select</type>
 				</action>
 				<action method='addOptionRenderer'>
-					<type>date</type>
 					<block>catalog/product_view_options_type_date</block>
 					<template>iwd/ordermanager/catalog/product/composite/fieldset/options/type/date.phtml</template>
+					<type>date</type>
 				</action>
 				<block type='core/template' name='product.composite.fieldset.options.js' as='options_js' template='iwd/ordermanager/catalog/product/composite/fieldset/options/js.phtml'/>
 			</block>
