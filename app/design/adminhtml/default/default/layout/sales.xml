@@ -73,12 +73,16 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						template='sales/order/view/history.phtml'
 						type='adminhtml/sales_order_view_history'
 					/>
-					<block name='gift_options'
+					<block
+						name='gift_options'
 						template='sales/order/giftoptions.phtml'
-						type='adminhtml/template'>
-						<block name='order_giftmessage'
+						type='adminhtml/template'
+					>
+						<block
+							name='order_giftmessage'
 							template='sales/order/view/giftmessage.phtml'
-							type='adminhtml/sales_order_view_giftmessage'></block>
+							type='adminhtml/sales_order_view_giftmessage'
+						/>
 					</block>
 					<block name='order_totals'
 						template='sales/order/totals.phtml'
