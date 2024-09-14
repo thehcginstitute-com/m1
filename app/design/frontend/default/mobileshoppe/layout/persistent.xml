@@ -24,7 +24,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='persistent.remember.me.tooltip' template='persistent/remember_me_tooltip.phtml' type='core/template'/>
 		</reference>
 	</customer_account_login>
-
 	<customer_account_create>
 		<reference name='customer_form_register'>
 <!-- 2024-01-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
