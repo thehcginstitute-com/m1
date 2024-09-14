@@ -47,10 +47,16 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				</action>
 				<block as='items' name='customer.wishlist.items' template='wishlist/item/list.phtml'
 					   type='wishlist/customer_wishlist_items'>
-					<block name='customer.wishlist.item.image' template='wishlist/item/column/image.phtml'
-						   type='wishlist/customer_wishlist_item_column_image'/>
-					<block name='customer.wishlist.item.info' template='wishlist/item/column/info.phtml'
-						   type='wishlist/customer_wishlist_item_column_comment'>
+					<block
+						name='customer.wishlist.item.image'
+						template='wishlist/item/column/image.phtml'
+						   ype='wishlist/customer_wishlist_item_column_image'
+					/>
+					<block
+						name='customer.wishlist.item.info'
+						template='wishlist/item/column/info.phtml'
+						type='wishlist/customer_wishlist_item_column_comment'
+					>
 						<action method='setTitle'>
 							<title>Product Details and Comment</title>
 						</action>
