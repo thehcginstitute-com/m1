@@ -300,14 +300,11 @@ class Mage_Bundle_Block_Catalog_Product_View_Type_Bundle extends Mage_Catalog_Bl
 
 	/**
 	 * Add renderer for an option type, e.g., select, radio button, etc.
-	 *
-	 * @param string $type
-	 * @param string $block
+     * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function addRenderer($type, $block)
-	{
-		$this->_optionRenderers[$type] = $block;
-	}
+	function addRenderer(string $type, string $block):void {$this->_optionRenderers[$type] = $block;}
 
 	/**
 	 * Get option html
