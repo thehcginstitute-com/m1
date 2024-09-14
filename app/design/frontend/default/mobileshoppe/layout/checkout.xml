@@ -437,8 +437,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<checkout_onepage_paymentmethod>
 		<remove name='right'/>
 		<remove name='left'/>
-		<block name='root' output='toHtml' template='checkout/onepage/payment/methods.phtml'
-			   type='checkout/onepage_payment_methods'>
+		<block
+			name='root'
+			output='toHtml'
+			template='checkout/onepage/payment/methods.phtml'
+			type='checkout/onepage_payment_methods'
+		>
 			<action method='setMethodFormTemplate'>
 				<method>purchaseorder</method>
 				<template>payment/form/purchaseorder.phtml</template>
