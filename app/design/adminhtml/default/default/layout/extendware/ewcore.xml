@@ -4,9 +4,6 @@
 <layout>
 	<default>
 		<reference name='head'>
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>extendware/ewcore/guide.js</name></action>
 			<action method='addItem'><name>extendware/ewcore/css/guide.css</name><type>skin_css</type></action>
 		</reference>
@@ -26,9 +23,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<name>extendware/ewcore/css/general.css</name>
 				<type>skin_css</type>
 			</action>
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>extendware/ewcore/adminhtml/general.js</name></action>
 			<action method='addJs'><name>extendware/ewcore/opentip/opentip-native-excanvas.min.js</name></action>
 			<action method='addItem'><name>extendware/ewcore/css/opentip.css</name><type>skin_css</type></action>
@@ -55,9 +49,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</admin_menu_highlight_handle>
 	<ewcore_chooser>
 		<reference name='head'>
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>mage/adminhtml/wysiwyg/widget.js</name></action>
 			<action method='addJs'><name>extendware/ewcore/adminhtml/trim.js</name></action>
 			<action method='addJs'><name>prototype/window.js</name></action>
