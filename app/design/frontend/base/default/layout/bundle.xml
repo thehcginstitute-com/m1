@@ -244,8 +244,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				template='bundle/catalog/product/view/tierprices.phtml'
 				type='bundle/catalog_product_view'
 			/>
-			<block before='-' name='product.info.qtyincrements' template='cataloginventory/qtyincrements.phtml'
-				   type='cataloginventory/qtyincrements'/>
+			<block
+				before='-'
+				name='product.info.qtyincrements'
+				template='cataloginventory/qtyincrements.phtml'
+				type='cataloginventory/qtyincrements'
+			/>
 		</reference>
 		<reference name='product.clone_prices'>
 			<action method='addPriceBlockType'>
