@@ -39,12 +39,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<remove name='right'/>
 		<remove name='left'/>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/1column.phtml</template>
-			</action>
+			<action method='setTemplate'><template>page/1column.phtml</template></action>
 		</reference>
 		<reference name='content'>
-			<block type='customer/form_login' name='customer_form_login' template='customer/form/login.phtml'/>
+			<block name='customer_form_login' template='customer/form/login.phtml' type='customer/form_login'/>
 		</reference>
 	</customer_account_login>
 	<customer_account_logoutsuccess >
@@ -52,12 +50,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<remove name='right'/>
 		<remove name='left'/>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/1column.phtml</template>
-			</action>
+			<action method='setTemplate'><template>page/1column.phtml</template></action>
 		</reference>
 		<reference name='content'>
-			<block type='core/template' name='customer_logout' template='customer/logout.phtml'/>
+			<block name='customer_logout' template='customer/logout.phtml' type='core/template'/>
 		</reference>
 	</customer_account_logoutsuccess>
 	<customer_account_create >
@@ -65,8 +61,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<remove name='right'/>
 		<remove name='left'/>
 		<reference name='head'>
-			<block type='core/template' name='optional_zip_countries' as='optional_zip_countries'
-				   template='directory/js/optional_zip_countries.phtml'/>
+			<block 
+				as='optional_zip_countries'
+				name='optional_zip_countries' template='directory/js/optional_zip_countries.phtml'
+				   type='core/template'/>
 		</reference>
 		<reference name='root'>
 			<action method='setTemplate'>
@@ -77,8 +75,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 <!-- 2024-01-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "`customer/form/register.phtml` is unused because it is always overriden by `persistent/customer/form/register.phtml`":
 https://github.com/thehcginstitute-com/m1/issues/335 -->
-			<block type='customer/form_register' name='customer_form_register'>
-				<block type='page/html_wrapper' name='customer.form.register.fields.before' as='form_fields_before'
+			<block name='customer_form_register' type='customer/form_register'>
+				<block as='form_fields_before' name='customer.form.register.fields.before' type='page/html_wrapper'
 					   >
 					<label>Form Fields Before</label>
 				</block>
@@ -103,7 +101,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='customer/account_forgotpassword' name='forgotPassword' template='customer/form/forgotpassword.phtml'/>
+			<block name='forgotPassword' template='customer/form/forgotpassword.phtml' type='customer/account_forgotpassword'/>
 		</reference>
 	</customer_account_forgotpassword>
 	<customer_account_changeforgotten >
@@ -124,8 +122,8 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='customer/account_changeforgotten' name='changeForgottenPassword'
-				   template='customer/form/resetforgottenpassword.phtml'/>
+			<block name='changeForgottenPassword' template='customer/form/resetforgottenpassword.phtml'
+				   type='customer/account_changeforgotten'/>
 		</reference>
 	</customer_account_changeforgotten>
 	<customer_account_confirmation>
@@ -141,7 +139,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='core/template' name='accountConfirmation' template='customer/form/confirmation.phtml'/>
+			<block name='accountConfirmation' template='customer/form/confirmation.phtml' type='core/template'/>
 		</reference>
 	</customer_account_confirmation>
 	<customer_account_edit >
@@ -153,7 +151,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			</action>
 		</reference>
 		<reference name='my.account.wrapper'>
-			<block type='customer/form_edit' name='customer_edit' template='customer/form/edit.phtml'/>
+			<block name='customer_edit' template='customer/form/edit.phtml' type='customer/form_edit'/>
 		</reference>
 	</customer_account_edit>
 	<customer_account >
@@ -164,7 +162,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='page/html_wrapper' name='my.account.wrapper' >
+			<block name='my.account.wrapper' type='page/html_wrapper' >
 				<label>My Account Wrapper</label>
 				<action method='setElementClass'>
 					<value>my-account</value>
@@ -172,8 +170,8 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			</block>
 		</reference>
 		<reference name='left'>
-			<block type='customer/account_navigation' name='customer_account_navigation' before='-'
-				   template='customer/account/navigation.phtml'>
+			<block before='-' name='customer_account_navigation' template='customer/account/navigation.phtml'
+				   type='customer/account_navigation'>
 				<action method='addLink' module='customer'>
 					<label>Account Dashboard</label>
 					<name>account</name>
@@ -203,19 +201,19 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			</action>
 		</reference>
 		<reference name='my.account.wrapper'>
-			<block type='customer/account_dashboard' name='customer_account_dashboard'
-				   template='customer/account/dashboard.phtml'>
-				<block type='customer/account_dashboard_hello' name='customer_account_dashboard_hello' as='hello'
-					   template='customer/account/dashboard/hello.phtml'/>
-				<block type='core/template' name='customer_account_dashboard_top' as='top'/>
-				<block type='customer/account_dashboard_info' name='customer_account_dashboard_info' as='info'
-					   template='customer/account/dashboard/info.phtml'/>
-				<block type='customer/account_dashboard_newsletter' name='customer_account_dashboard_newsletter' as='newsletter'
-					   template='customer/account/dashboard/newsletter.phtml'/>
-				<block type='customer/account_dashboard_address' name='customer_account_dashboard_address' as='address'
-					   template='customer/account/dashboard/address.phtml'/>
-				<block type='core/template' name='customer_account_dashboard_info1' as='info1'/>
-				<block type='core/template' name='customer_account_dashboard_info2' as='info2'/>
+			<block name='customer_account_dashboard' template='customer/account/dashboard.phtml'
+				   type='customer/account_dashboard'>
+				<block as='hello' name='customer_account_dashboard_hello' template='customer/account/dashboard/hello.phtml'
+					   type='customer/account_dashboard_hello'/>
+				<block as='top' name='customer_account_dashboard_top' type='core/template'/>
+				<block as='info' name='customer_account_dashboard_info' template='customer/account/dashboard/info.phtml'
+					   type='customer/account_dashboard_info'/>
+				<block as='newsletter' name='customer_account_dashboard_newsletter' template='customer/account/dashboard/newsletter.phtml'
+					   type='customer/account_dashboard_newsletter'/>
+				<block as='address' name='customer_account_dashboard_address' template='customer/account/dashboard/address.phtml'
+					   type='customer/account_dashboard_address'/>
+				<block as='info1' name='customer_account_dashboard_info1' type='core/template'/>
+				<block as='info2' name='customer_account_dashboard_info2' type='core/template'/>
 			</block>
 		</reference>
 	</customer_account_index>
@@ -223,7 +221,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 		<label>Customer My Account Address Book</label>
 		<update handle='customer_account'/>
 		<reference name='my.account.wrapper'>
-			<block type='customer/address_book' name='address_book' before='-' template='customer/address/book.phtml'/>
+			<block before='-' name='address_book' template='customer/address/book.phtml' type='customer/address_book'/>
 		</reference>
 	</customer_address_index>
 	<customer_address_form >
@@ -231,11 +229,11 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 		<!-- Mage_Customer -->
 		<update handle='customer_account'/>
 		<reference name='head'>
-			<block type='core/template' name='optional_zip_countries' as='optional_zip_countries'
-				   template='directory/js/optional_zip_countries.phtml'/>
+			<block as='optional_zip_countries' name='optional_zip_countries' template='directory/js/optional_zip_countries.phtml'
+				   type='core/template'/>
 		</reference>
 		<reference name='my.account.wrapper'>
-			<block type='customer/address_edit' name='customer_address_edit' template='customer/address/edit.phtml'/>
+			<block name='customer_address_edit' template='customer/address/edit.phtml' type='customer/address_edit'/>
 		</reference>
 	</customer_address_form>
 </layout>
