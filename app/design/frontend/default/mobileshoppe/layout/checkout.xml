@@ -33,8 +33,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='head'>
-			<block as='optional_zip_countries' name='optional_zip_countries' template='directory/js/optional_zip_countries.phtml'
-				   type='core/template'/>
+			<block
+				as='optional_zip_countries'
+				name='optional_zip_countries'
+				template='directory/js/optional_zip_countries.phtml'
+				type='core/template'
+			/>
 		</reference>
 	</default>
 	<checkout_cart_index >
