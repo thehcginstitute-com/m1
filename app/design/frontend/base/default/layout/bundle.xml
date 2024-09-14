@@ -181,15 +181,15 @@
 			</action>
 		</reference>
 		<reference name='product.info'>
-			<block type='bundle/catalog_product_view_type_bundle' name='product.info.bundle' as='product_type_data'
-				   template='bundle/catalog/product/view/type/bundle.phtml'>
+			<block as='product_type_data' name='product.info.bundle' template='bundle/catalog/product/view/type/bundle.phtml'
+				   type='bundle/catalog_product_view_type_bundle'>
 				<action method='addPriceBlockType'>
 					<block>bundle/catalog_product_price</block>
 					<template>bundle/catalog/product/price.phtml</template>
 					<type>bundle</type>
 				</action>
-				<block type='bundle/catalog_product_price' name='bundle.prices' as='bundle_prices'
-					   template='bundle/catalog/product/view/price.phtml'>
+				<block as='bundle_prices' name='bundle.prices' template='bundle/catalog/product/view/price.phtml'
+					   type='bundle/catalog_product_price'>
 					<action method='setMAPTemplate'>
 						<tmpl>catalog/product/price_msrp_item.phtml</tmpl>
 					</action>
@@ -197,8 +197,8 @@
 			</block>
 		</reference>
 		<reference name='product.info.options.wrapper'>
-			<block type='bundle/catalog_product_view_type_bundle' name='product.info.bundle.options' as='type_bundle_options'
-				   template='bundle/catalog/product/view/type/bundle/options.phtml'>
+			<block as='type_bundle_options' name='product.info.bundle.options' template='bundle/catalog/product/view/type/bundle/options.phtml'
+				   type='bundle/catalog_product_view_type_bundle'>
 				<action method='addRenderer'>
 					<type>select</type>
 					<block>bundle/catalog_product_view_type_bundle_option_select</block>
@@ -222,10 +222,10 @@
 		</reference>
 		<reference name='product.info.options.wrapper.bottom'>
 			<remove name='product.tierprices'/>
-			<block type='bundle/catalog_product_view' name='bundle.tierprices' as='tierprices' before='-'
-				   template='bundle/catalog/product/view/tierprices.phtml'/>
-			<block type='cataloginventory/qtyincrements' name='product.info.qtyincrements' before='-'
-				   template='cataloginventory/qtyincrements.phtml'/>
+			<block as='tierprices' before='-' name='bundle.tierprices' template='bundle/catalog/product/view/tierprices.phtml'
+				   type='bundle/catalog_product_view'/>
+			<block before='-' name='product.info.qtyincrements' template='cataloginventory/qtyincrements.phtml'
+				   type='cataloginventory/qtyincrements'/>
 		</reference>
 		<reference name='product.clone_prices'>
 			<action method='addPriceBlockType'>
