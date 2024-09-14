@@ -15,11 +15,6 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 
 	/**
      * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 */
-	final function getCanLoadRulesJs():bool {return !!$this[self::$CAN_LOAD_RULES_JS];}
-
-	/**
-     * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by Magazento_Orderexport2_Admin_ItemController::editAction()
@@ -50,8 +45,9 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * @used-by Mage_Adminhtml_Catalog_SearchController::editAction()
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/promo.xml#L15
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/promo.xml#L42
+	 * @see https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/main.xml#L108-L112
 	 */
-	final function setCanLoadRulesJs():void {$this[self::$CAN_LOAD_RULES_JS] = true;}
+	final function setCanLoadRulesJs():void {$this['can_load_rules_js'] = true;}
 
 	/**
 	 * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -60,14 +56,6 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * @const string
 	 */
 	private static $CAN_LOAD_EXT_JS = 'can_load_ext_js';
-
-	/**
-	 * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * @used-by self::getCanLoadRulesJs()
-	 * @used-by self::setCanLoadRulesJs()
-	 * @const string
-	 */
-	private static $CAN_LOAD_RULES_JS = 'can_load_rules_js';
 
 	/**
 	 * Initialize template
