@@ -17,7 +17,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<action method='setHtmlClass'>
 							<value>alert-price link-price-alert</value>
 						</action>
-						<action method='setSignupLabel' translate='value'>
+						<action method='setSignupLabel'>
 							<value>Sign up for price alert</value>
 						</action>
 					</block>
@@ -31,7 +31,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<action method='setHtmlClass'>
 							<value>alert-stock link-stock-alert</value>
 						</action>
-						<action method='setSignupLabel' translate='value'>
+						<action method='setSignupLabel'>
 							<value>Sign up to get notified when this product is back in stock</value>
 						</action>
 					</block>
