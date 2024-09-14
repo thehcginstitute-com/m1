@@ -1,33 +1,23 @@
-<?xml version="1.0"?>
-<!--
-/**
- * OpenMage
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available at https://opensource.org/license/afl-3-0-php
- *
- * @category    design
- * @package     base_default
- * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-
--->
-<layout version="0.1.0">
-    <default>
-        <!-- Mage_Reports -->
-        <reference name="right">
-            <block type="reports/product_viewed" before="right.permanent.callout" name="right.reports.product.viewed" template="reports/product_viewed.phtml" />
-            <block type="reports/product_compared" before="right.permanent.callout" name="right.reports.product.compared" template="reports/product_compared.phtml" />
-        </reference>
-    </default>
-
-    <catalog_category_layered_nochildren translate="label">
-        <label>Catalog Category (Without Subcategories)</label>
-        <remove name="right.reports.product.viewed" />
-        <reference name="right">
-            <block type="reports/product_viewed" before="right.permanent.callout" name="left.reports.product.viewed" template="reports/product_viewed.phtml" />
-        </reference>
-    </catalog_category_layered_nochildren>
+<?xml version='1.0'?>
+<!-- 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+<layout>
+	<default>
+		<!-- Mage_Reports -->
+		<reference name='right'>
+			<block before='right.permanent.callout' name='right.reports.product.viewed' template='reports/product_viewed.phtml'
+				type='reports/product_viewed'/>
+			<block before='right.permanent.callout' name='right.reports.product.compared' template='reports/product_compared.phtml'
+				type='reports/product_compared'/>
+		</reference>
+	</default>
+	<catalog_category_layered_nochildren translate='label'>
+		<label>Catalog Category (Without Subcategories)</label>
+		<remove name='right.reports.product.viewed'/>
+		<reference name='right'>
+			<block before='right.permanent.callout' name='left.reports.product.viewed' template='reports/product_viewed.phtml'
+				type='reports/product_viewed'/>
+		</reference>
+	</catalog_category_layered_nochildren>
 </layout>
