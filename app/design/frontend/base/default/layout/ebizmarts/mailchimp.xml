@@ -39,9 +39,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</default>
 	<newsletter_manage_index>
 		<reference name='customer_newsletter'>
-			<block name='customer.form.newsletter.extra'
+			<block
+				name='customer.form.newsletter.extra'
 				template='ebizmarts/mailchimp/customer/newsletter/index.phtml'
-				type='mailchimp/customer_newsletter_index'>
+				type='mailchimp/customer_newsletter_index
+			'>
 				<block name='mailchimp.group.type' type='mailchimp/group_type'/>
 			</block>
 		</reference>
