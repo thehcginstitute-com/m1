@@ -286,8 +286,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</reference>
 	</adminhtml_images_index>
 	<adminhtml_images_contents>
-		<block name='wysiwyg_images.files' output='toHtml'
-			template='cms/browser/content/files.phtml' type='nwdrevslider/adminhtml_images_content_files'/>
+		<block
+			name='wysiwyg_images.files'
+			output='toHtml'
+			template='cms/browser/content/files.phtml'
+			type='nwdrevslider/adminhtml_images_content_files'
+		/>
 	</adminhtml_images_contents>
 	<adminhtml_nwdrevslider_error>
 		<reference name='content'>
