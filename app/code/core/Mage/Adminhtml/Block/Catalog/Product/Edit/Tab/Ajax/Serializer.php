@@ -47,10 +47,10 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Ajax_Serializer extends Mage
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @param string $blockName
 	 */
-	final function initSerializerBlock($blockName, string $getProductFunction, string $hiddenInputName):void {
+	final function initSerializerBlock($blockName, string $callback, string $hiddenInputName):void {
 		if ($block = $this->getLayout()->getBlock($blockName)) {
 			$this->setGridBlock($block)
-				->setProducts(Mage::registry('current_product')->$getProductFunction())
+				->setProducts(Mage::registry('current_product')->$callback())
 				->setInputElementName($hiddenInputName);
 		}
 	}
