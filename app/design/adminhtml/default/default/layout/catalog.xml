@@ -85,7 +85,7 @@
 					<action method='initSerializerBlock'>
 						<grid_block_name>catalog.product.edit.tab.related</grid_block_name>
 						<data_callback>getSelectedRelatedProducts</data_callback>
-						<hidden_input_name>links[related]</hidden_input_name>
+						<hiddenInputName>links[related]</hiddenInputName>
 						<reload_param_name>products_related</reload_param_name>
 					</action>
 					<action method='addColumnInputName'>
@@ -124,7 +124,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<action method='initSerializerBlock'>
 						<data_callback>getSelectedUpsellProducts</data_callback>
 						<grid_block_name>catalog.product.edit.tab.upsell</grid_block_name>
-						<hidden_input_name>links[upsell]</hidden_input_name>
+						<hiddenInputName>links[upsell]</hiddenInputName>
 						<reload_param_name>products_upsell</reload_param_name>
 					</action>
 					<action method='addColumnInputName'>
@@ -150,7 +150,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<action method='initSerializerBlock'>
 						<data_callback>getSelectedCrossSellProducts</data_callback>
 						<grid_block_name>catalog.product.edit.tab.crosssell</grid_block_name>
-						<hidden_input_name>links[crosssell]</hidden_input_name>
+						<hiddenInputName>links[crosssell]</hiddenInputName>
 						<reload_param_name>products_crosssell</reload_param_name>
 					</action>
 					<action method='addColumnInputName'>
@@ -185,7 +185,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<action method='initSerializerBlock'>
 						<data_callback>getSelectedGroupedProducts</data_callback>
 						<grid_block_name>catalog.product.edit.tab.super.group</grid_block_name>
-						<hidden_input_name>links[grouped]</hidden_input_name>
+						<hiddenInputName>links[grouped]</hiddenInputName>
 						<reload_param_name>products_grouped</reload_param_name>
 					</action>
 					<action method='addColumnInputName'>
