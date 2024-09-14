@@ -1,25 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-/**
- * @category   MagePsycho
- * @package    MagePsycho_Loginredirectpro
- * @author     Raj KB <magepsycho@gmail.com>
- * @website    http://www.magepsycho.com
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */
- -->
-<layout version="0.1.0">
-    <default></default>
-    <customer_account_logoutsuccess>
-        <reference name="content">
-			<action method="unsetChild" ifconfig="magepsycho_loginredirectpro/option/active">
-                <name helper="magepsycho_loginredirectpro/unsetCustomerLogoutChildIf" />
-            </action>
-            <block type="magepsycho_loginredirectpro/customer_logout" name="magepsycho_loginredirectpro_customer_logout">
-				<action method="setTemplate" ifconfig="magepsycho_loginredirectpro/option/active">
-                    <template helper="magepsycho_loginredirectpro/switchCustomerLogoutTemplateIf" />
-                </action>
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+<layout>
+	<default></default>
+	<customer_account_logoutsuccess>
+		<reference name='content'>
+			<action ifconfig='magepsycho_loginredirectpro/option/active' method='unsetChild'>
+				<name helper='magepsycho_loginredirectpro/unsetCustomerLogoutChildIf'/>
+			</action>
+			<block name='magepsycho_loginredirectpro_customer_logout' type='magepsycho_loginredirectpro/customer_logout'>
+				<action ifconfig='magepsycho_loginredirectpro/option/active' method='setTemplate'>
+					<template helper='magepsycho_loginredirectpro/switchCustomerLogoutTemplateIf'/>
+				</action>
 			</block>
-        </reference>
-    </customer_account_logoutsuccess>
+		</reference>
+	</customer_account_logoutsuccess>
 </layout>
