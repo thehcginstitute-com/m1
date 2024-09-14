@@ -511,8 +511,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				template='checkout/onepage/agreements.phtml'
 				type='checkout/agreements'
 			/>
-			<block as='button' name='checkout.onepage.review.button' template='checkout/onepage/review/button.phtml'
-				   type='core/template'/>
+			<block
+				as='button'
+				name='checkout.onepage.review.button'
+				template='checkout/onepage/review/button.phtml'
+				type='core/template'
+			/>
 		</block>
 	</checkout_onepage_review>
 	<checkout_onepage_success >
