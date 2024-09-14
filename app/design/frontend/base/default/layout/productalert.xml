@@ -7,8 +7,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='content'>
 			<reference name='product.info'>
 				<reference name='alert.urls'>
-					<block as='productalert_price' name='productalert.price' template='productalert/product/view.phtml'
-						type='productalert/product_view'>
+					<block
+						as='productalert_price'
+						name='productalert.price'
+						template='productalert/product/view.phtml'
+						type='productalert/product_view'
+					>
 						<action method='preparePriceAlertData'/>
 						<action method='setHtmlClass'>
 							<value>alert-price link-price-alert</value>
