@@ -659,9 +659,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</sales_guest_creditmemo>
 	<sales_guest_reorder>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/1column.phtml</template>
-			</action>
+			<action method='setTemplate'><template>page/1column.phtml</template></action>
 		</reference>
 		<reference name='content'>
 			<block name='sales.order.view' type='sales/order_view'/>
