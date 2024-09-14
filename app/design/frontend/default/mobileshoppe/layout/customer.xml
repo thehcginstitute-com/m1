@@ -78,8 +78,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 "`customer/form/register.phtml` is unused because it is always overriden by `persistent/customer/form/register.phtml`":
 https://github.com/thehcginstitute-com/m1/issues/335 -->
 			<block name='customer_form_register' type='customer/form_register'>
-				<block as='form_fields_before' name='customer.form.register.fields.before' type='page/html_wrapper'
-					   >
+				<block as='form_fields_before' name='customer.form.register.fields.before' type='page/html_wrapper'>
 					<label>Form Fields Before</label>
 				</block>
 			</block>
