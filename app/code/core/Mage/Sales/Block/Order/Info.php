@@ -70,13 +70,11 @@ class Mage_Sales_Block_Order_Info extends Mage_Core_Block_Template
 	}
 
 	/**
-	 * @param string $name
-	 * @param string $path
-	 * @param string $label
-	 * @return $this
+     * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function addLink($name, $path, $label)
-	{
+	function addLink(string $name, string $path, string $label):self {
 		$this->_links[$name] = new Varien_Object([
 			'name' => $name,
 			'label' => $label,
