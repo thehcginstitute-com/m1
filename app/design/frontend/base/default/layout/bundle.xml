@@ -208,8 +208,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='product.info.options.wrapper'>
-			<block as='type_bundle_options' name='product.info.bundle.options' template='bundle/catalog/product/view/type/bundle/options.phtml'
-				   type='bundle/catalog_product_view_type_bundle'>
+			<block
+				as='type_bundle_options'
+				name='product.info.bundle.options'
+				template='bundle/catalog/product/view/type/bundle/options.phtml'
+				type='bundle/catalog_product_view_type_bundle'
+			>
 				<action method='addRenderer'>
 					<type>select</type>
 					<block>bundle/catalog_product_view_type_bundle_option_select</block>
