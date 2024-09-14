@@ -16,8 +16,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>Customer My Account Downloadable Items</label>
 		<update handle='customer_account'/>
 		<reference name='my.account.wrapper'>
-			<block name='downloadable_customer_products_list' template='downloadable/customer/products/list.phtml'
-				   type='downloadable/customer_products_list'/>
+			<block
+				name='downloadable_customer_products_list'
+				template='downloadable/customer/products/list.phtml'
+				type='downloadable/customer_products_list'
+			/>
 		</reference>
 		<reference name='root'>
 			<action method='setHeaderTitle' module='downloadable'>
