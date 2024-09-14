@@ -81,7 +81,7 @@
 			<block name='content' type='core/text_list'/>
 		</block>
 	</oauth_root_handle_simple>
-	<adminhtml_oauth_authorize_index translate='label'>
+	<adminhtml_oauth_authorize_index >
 		<update handle='oauth_root_handle'/>
 		<label>OAuth authorization for admin</label>
 		<reference name='content'>
@@ -97,7 +97,7 @@
 			/>
 		</reference>
 	</adminhtml_oauth_authorize_index>
-	<adminhtml_oauth_authorize_simple translate='label'>
+	<adminhtml_oauth_authorize_simple >
 		<update handle='oauth_root_handle_simple'/>
 		<label>OAuth authorization simple for admin</label>
 		<reference name='content'>
@@ -113,28 +113,28 @@
 			/>
 		</reference>
 	</adminhtml_oauth_authorize_simple>
-	<adminhtml_oauth_authorize_confirm translate='label'>
+	<adminhtml_oauth_authorize_confirm >
 		<update handle='oauth_root_handle'/>
 		<label>Confirm token authorization for admin</label>
 		<reference name='content'>
 			<block name='oauth.authorize.confirm' template='oauth/authorize/confirm.phtml' type='core/template'/>
 		</reference>
 	</adminhtml_oauth_authorize_confirm>
-	<adminhtml_oauth_authorize_confirmsimple translate='label'>
+	<adminhtml_oauth_authorize_confirmsimple >
 		<update handle='oauth_root_handle_simple'/>
 		<label>Confirm token authorization Pop Up for admin</label>
 		<reference name='content'>
 			<block name='oauth.authorize.confirm' template='oauth/authorize/confirm-simple.phtml' type='core/template'/>
 		</reference>
 	</adminhtml_oauth_authorize_confirmsimple>
-	<adminhtml_oauth_authorize_reject translate='label'>
+	<adminhtml_oauth_authorize_reject >
 		<update handle='oauth_root_handle'/>
 		<label>Reject token authorization for admin</label>
 		<reference name='content'>
 			<block name='oauth.authorize.reject' template='oauth/authorize/reject.phtml' type='core/template'/>
 		</reference>
 	</adminhtml_oauth_authorize_reject>
-	<adminhtml_oauth_authorize_rejectsimple translate='label'>
+	<adminhtml_oauth_authorize_rejectsimple >
 		<update handle='oauth_root_handle_simple'/>
 		<label>Reject token authorization Pop Up for admin</label>
 		<reference name='content'>

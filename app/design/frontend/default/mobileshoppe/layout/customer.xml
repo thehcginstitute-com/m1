@@ -31,7 +31,7 @@
 		</reference>
 		<remove name='reorder'></remove>
 	</customer_logged_out>
-	<customer_account_login translate='label'>
+	<customer_account_login >
 		<label>Customer Account Login Form</label>
 		<remove name='right'/>
 		<remove name='left'/>
@@ -44,7 +44,7 @@
 			<block type='customer/form_login' name='customer_form_login' template='customer/form/login.phtml'/>
 		</reference>
 	</customer_account_login>
-	<customer_account_logoutsuccess translate='label'>
+	<customer_account_logoutsuccess >
 		<label>Customer Account Logout Success</label>
 		<remove name='right'/>
 		<remove name='left'/>
@@ -57,7 +57,7 @@
 			<block type='core/template' name='customer_logout' template='customer/logout.phtml'/>
 		</reference>
 	</customer_account_logoutsuccess>
-	<customer_account_create translate='label'>
+	<customer_account_create >
 		<label>Customer Account Registration Form</label>
 		<remove name='right'/>
 		<remove name='left'/>
@@ -76,13 +76,13 @@
 https://github.com/thehcginstitute-com/m1/issues/335 -->
 			<block type='customer/form_register' name='customer_form_register'>
 				<block type='page/html_wrapper' name='customer.form.register.fields.before' as='form_fields_before'
-					   translate='label'>
+					   >
 					<label>Form Fields Before</label>
 				</block>
 			</block>
 		</reference>
 	</customer_account_create>
-	<customer_account_forgotpassword translate='label'>
+	<customer_account_forgotpassword >
 		<label>Customer Forgot Password Form</label>
 		<remove name='right'/>
 		<remove name='left'/>
@@ -103,7 +103,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			<block type='customer/account_forgotpassword' name='forgotPassword' template='customer/form/forgotpassword.phtml'/>
 		</reference>
 	</customer_account_forgotpassword>
-	<customer_account_changeforgotten translate='label'>
+	<customer_account_changeforgotten >
 		<label>Reset a Password</label>
 		<remove name='right'/>
 		<remove name='left'/>
@@ -141,7 +141,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			<block type='core/template' name='accountConfirmation' template='customer/form/confirmation.phtml'/>
 		</reference>
 	</customer_account_confirmation>
-	<customer_account_edit translate='label'>
+	<customer_account_edit >
 		<label>Customer Account Edit Form</label>
 		<update handle='customer_account'/>
 		<reference name='root'>
@@ -153,7 +153,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			<block type='customer/form_edit' name='customer_edit' template='customer/form/edit.phtml'/>
 		</reference>
 	</customer_account_edit>
-	<customer_account translate='label'>
+	<customer_account >
 		<label>Customer My Account (All Pages)</label>
 		<reference name='root'>
 			<action method='setTemplate'>
@@ -161,7 +161,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='page/html_wrapper' name='my.account.wrapper' translate='label'>
+			<block type='page/html_wrapper' name='my.account.wrapper' >
 				<label>My Account Wrapper</label>
 				<action method='setElementClass'>
 					<value>my-account</value>
@@ -171,17 +171,17 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 		<reference name='left'>
 			<block type='customer/account_navigation' name='customer_account_navigation' before='-'
 				   template='customer/account/navigation.phtml'>
-				<action method='addLink' translate='label' module='customer'>
+				<action method='addLink' module='customer'>
 					<label>Account Dashboard</label>
 					<name>account</name>
 					<path>customer/account/</path>
 				</action>
-				<action method='addLink' translate='label' module='customer'>
+				<action method='addLink' module='customer'>
 					<label>Account Information</label>
 					<name>account_edit</name>
 					<path>customer/account/edit/</path>
 				</action>
-				<action method='addLink' translate='label' module='customer'>
+				<action method='addLink' module='customer'>
 					<label>Address Book</label>
 					<name>address_book</name>
 					<path>customer/address/</path>
@@ -191,7 +191,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 'Delete the unused `Mage_Tag` module': https://github.com/thehcginstitute-com/m1/issues/372 -->
 		</reference>
 	</customer_account>
-	<customer_account_index translate='label'>
+	<customer_account_index >
 		<label>Customer My Account Dashboard</label>
 		<update handle='customer_account'/>
 		<reference name='root'>
@@ -216,14 +216,14 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			</block>
 		</reference>
 	</customer_account_index>
-	<customer_address_index translate='label'>
+	<customer_address_index >
 		<label>Customer My Account Address Book</label>
 		<update handle='customer_account'/>
 		<reference name='my.account.wrapper'>
 			<block type='customer/address_book' name='address_book' before='-' template='customer/address/book.phtml'/>
 		</reference>
 	</customer_address_index>
-	<customer_address_form translate='label'>
+	<customer_address_form >
 		<label>Customer My Account Address Edit Form</label>
 		<!-- Mage_Customer -->
 		<update handle='customer_account'/>

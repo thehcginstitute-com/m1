@@ -10,19 +10,19 @@
 	</default>
 	<customer_account>
 		<reference name='sidebar'>
-			<action method='addLink' translate='label' module='newsletter'>
+			<action method='addLink' module='newsletter'>
 				<label>Newsletter Subscriptions</label>
 				<name>newsletter</name>
 				<path>newsletter/manage/</path>
 			</action>
 		</reference>
 	</customer_account>
-	<newsletter_manage_index translate='label'>
+	<newsletter_manage_index >
 		<label>Customer My Account Newsletter Subscriptions</label>
 		<update handle='customer_account'/>
 		<reference name='my.account.wrapper'>
 			<block type='customer/newsletter' name='customer_newsletter'>
-				<block type='page/html_wrapper' name='customer.newsletter.form.before' as='form_before' translate='label'>
+				<block type='page/html_wrapper' name='customer.newsletter.form.before' as='form_before' >
 					<label>Newsletter Subscription Form Before</label>
 					<action method='setMayBeInvisible'>
 						<value>1</value>

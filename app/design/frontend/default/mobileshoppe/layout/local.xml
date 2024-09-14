@@ -3,7 +3,7 @@
 "Refactor the `<layout>` XML files": https://github.com/thehcginstitute-com/m1/issues/681 -->
 <layout>
 	<default>
-		<customer_account_index translate='label'>
+		<customer_account_index >
 			<reference name='customer_account_dashboard'>
 				<block as='customeredit' name='customer_edit' template='customer/form/edit.phtml' type='customer/form_edit'/>
 			</reference>
@@ -53,7 +53,7 @@
 			<action method='addItem'><name>css/galleria.classic.css</name><type>skin_css</type></action>
 		</reference>
 	</reviews>
-	<review_product_list translate='label'>
+	<review_product_list >
 		<reference name='head'>
 			<action method='addItem'><name>js/galleria-1.2.7.min.js</name><type>skin_js</type></action>
 			<action method='addItem'><name>js/galleria.classic.min.js</name><type>skin_js</type></action>

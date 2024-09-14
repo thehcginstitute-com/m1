@@ -10,7 +10,7 @@
 			</action>
 		</reference>
 	</default>
-	<contacts_index_index translate='label'>
+	<contacts_index_index >
 		<label>Contact Us Form</label>
 		<reference name='head'>
 			<action method='setTitle' module='contacts'>

@@ -59,7 +59,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block type='core/text_list' name='content'/>
 		</block>
 	</oauth_root_handle_simple>
-	<oauth_authorize_index translate='label'>
+	<oauth_authorize_index >
 		<update handle='oauth_root_handle'/>
 		<label>OAuth authorization for customer</label>
 		<reference name='content'>
@@ -67,7 +67,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block type='oauth/authorize_button' name='oauth.authorize.button' template='oauth/authorize/button.phtml'/>
 		</reference>
 	</oauth_authorize_index>
-	<oauth_authorize_simple translate='label'>
+	<oauth_authorize_simple >
 		<update handle='oauth_root_handle_simple'/>
 		<remove name='header'/>
 		<label>OAuth authorization Pop Up for customer</label>
@@ -76,28 +76,28 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block type='oauth/authorize_button' name='oauth.authorize.button' template='oauth/authorize/button-simple.phtml'/>
 		</reference>
 	</oauth_authorize_simple>
-	<oauth_authorize_confirm translate='label'>
+	<oauth_authorize_confirm >
 		<update handle='oauth_root_handle'/>
 		<label>Confirm OAuth token authorization</label>
 		<reference name='content'>
 			<block type='oauth/authorize_button' name='oauth.authorize.confirm' template='oauth/authorize/confirm.phtml'/>
 		</reference>
 	</oauth_authorize_confirm>
-	<oauth_authorize_confirmsimple translate='label'>
+	<oauth_authorize_confirmsimple >
 		<update handle='oauth_root_handle_simple'/>
 		<remove name='header'/>
 		<reference name='content'>
 			<block type='oauth/authorize_button' name='oauth.authorize.confirm' template='oauth/authorize/confirm-simple.phtml'/>
 		</reference>
 	</oauth_authorize_confirmsimple>
-	<oauth_authorize_reject translate='label'>
+	<oauth_authorize_reject >
 		<update handle='oauth_root_handle'/>
 		<label>Reject OAuth token authorization</label>
 		<reference name='content'>
 			<block type='oauth/authorize_button' name='oauth.authorize.reject' template='oauth/authorize/reject.phtml'/>
 		</reference>
 	</oauth_authorize_reject>
-	<oauth_authorize_rejectsimple translate='label'>
+	<oauth_authorize_rejectsimple >
 		<update handle='oauth_root_handle_simple'/>
 		<remove name='header'/>
 		<reference name='content'>
@@ -106,14 +106,14 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</oauth_authorize_rejectsimple>
 	<customer_account>
 		<reference name='customer_account_navigation'>
-			<action method='addLink' translate='label' module='oauth'>
+			<action method='addLink' module='oauth'>
 				<label>My Applications</label>
 				<name>OAuth Customer Tokens</name>
 				<path>oauth/customer_token</path>
 			</action>
 		</reference>
 	</customer_account>
-	<oauth_customer_token_index translate='label'>
+	<oauth_customer_token_index >
 		<label>Customer My Account My OAuth Applications</label>
 		<update handle='customer_account'/>
 		<reference name='my.account.wrapper'>
