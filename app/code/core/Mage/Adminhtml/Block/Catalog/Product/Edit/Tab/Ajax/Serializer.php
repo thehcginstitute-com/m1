@@ -42,13 +42,14 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Ajax_Serializer extends Mage
 
 	/**
 	 * Initialize grid block under the "Related Products", "Up-sells", "Cross-sells" sections
-	 *
+     * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @param string $blockName
 	 * @param string $getProductFunction
 	 * @param string $inputName
 	 */
-	function initSerializerBlock($blockName, $getProductFunction, $inputName)
-	{
+	final function initSerializerBlock($blockName, $getProductFunction, $inputName):void {
 		if ($block = $this->getLayout()->getBlock($blockName)) {
 			$this->setGridBlock($block)
 				->setProducts(Mage::registry('current_product')->$getProductFunction())

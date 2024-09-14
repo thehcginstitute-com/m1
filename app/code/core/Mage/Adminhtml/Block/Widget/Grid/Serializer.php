@@ -89,19 +89,18 @@ class Mage_Adminhtml_Block_Widget_Grid_Serializer extends Mage_Core_Block_Templa
 
 	/**
 	 * Initialize grid block
-	 *
 	 * Get grid block from layout by specified block name
 	 * Get serialize data to manage it (called specified method, that return data to manage)
 	 * Also use reload param name for saving grid checked boxes states
-	 *
-	 *
+     * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @param Mage_Adminhtml_Block_Widget_Grid | string $grid grid object or grid block name
 	 * @param string $callback block method  to retrieve data to serialize
 	 * @param string $hiddenInputName hidden input name where serialized data will be store
 	 * @param string $reloadParamName name of request parametr that will be used to save setted data while reload grid
 	 */
-	function initSerializerBlock($grid, $callback, $hiddenInputName, $reloadParamName = 'entityCollection')
-	{
+	final function initSerializerBlock($grid, $callback, $hiddenInputName, $reloadParamName = 'entityCollection'):void {
 		if (is_string($grid)) {
 			$grid = $this->getLayout()->getBlock($grid);
 		}
