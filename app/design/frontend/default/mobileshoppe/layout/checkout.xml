@@ -428,8 +428,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<block name='root' output='toHtml' template='checkout/onepage/progress.phtml' type='checkout/onepage_progress'>
 			<block name='payment_info' type='checkout/onepage_payment_info'>
 				<action method='setInfoTemplate'>
-					<method></method>
-					<template></template>
+					<method/>
+					<template/>
 				</action>
 			</block>
 		</block>
