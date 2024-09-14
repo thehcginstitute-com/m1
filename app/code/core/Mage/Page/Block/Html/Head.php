@@ -43,6 +43,8 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by Magazento_Orderexport2_Admin_ItemController::editAction()
 	 * @used-by Mage_Adminhtml_Catalog_SearchController::editAction()
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/promo.xml#L15
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/promo.xml#L42
 	 */
 	final function setCanLoadRulesJs():void {$this['can_load_rules_js'] = true;}
 
