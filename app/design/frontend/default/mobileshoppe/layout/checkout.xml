@@ -462,8 +462,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<checkout_onepage_additional>
 		<remove name='right'/>
 		<remove name='left'/>
-		<block name='root' output='toHtml' template='checkout/onepage/shipping_method/additional.phtml'
-			   type='checkout/onepage_shipping_method_additional'>
+		<block
+			name='root'
+			output='toHtml'
+			template='checkout/onepage/shipping_method/additional.phtml'
+			type='checkout/onepage_shipping_method_additional'
+		>
 			<action method='setDontDisplayContainer'>
 				<param>1</param>
 			</action>
