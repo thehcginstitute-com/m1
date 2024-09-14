@@ -247,8 +247,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						template='nwdthemes/revslider/templates/dialog_preview_slide.phtml'
 						type='adminhtml/template'
 					/>
-					<block as='dialog_preview_slider' name='dialog_preview_slider' template='nwdthemes/revslider/templates/dialog_preview_slider.phtml'
-						type='adminhtml/template'/>
+					<block
+						as='dialog_preview_slider'
+						name='dialog_preview_slider'
+						template='nwdthemes/revslider/templates/dialog_preview_slider.phtml'
+						type='adminhtml/template'
+					/>
 					<block as='video_dialog' name='video_dialog' template='nwdthemes/revslider/system/video_dialog.phtml'
 						type='adminhtml/template'/>
 				</block>
