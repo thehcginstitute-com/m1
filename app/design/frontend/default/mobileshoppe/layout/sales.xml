@@ -42,8 +42,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<label>Order History Info</label>
 				</block>
 			</block>
-			<block name='customer.account.link.back' template='customer/account/link/back.phtml'
-				   type='customer/account_dashboard'/>
+			<block
+				name='customer.account.link.back'
+				template='customer/account/link/back.phtml'
+				type='customer/account_dashboard'
+			/>
 		</reference>
 	</sales_order_history>
 	<sales_order_view >
