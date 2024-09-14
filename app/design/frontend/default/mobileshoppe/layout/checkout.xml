@@ -93,8 +93,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					/>
 				</block>
 				<block as='coupon' name='checkout.cart.coupon' template='checkout/cart/coupon.phtml' type='checkout/cart_coupon'/>
-				<block as='shipping' name='checkout.cart.shipping' template='checkout/cart/shipping.phtml'
-					   type='checkout/cart_shipping'/>
+				<block
+					as='shipping'
+					name='checkout.cart.shipping'
+					template='checkout/cart/shipping.phtml'
+					type='checkout/cart_shipping'
+				/>
 				<block as='crosssell' name='checkout.cart.crosssell' template='checkout/cart/crosssell.phtml'
 					   type='checkout/cart_crosssell'/>
 
