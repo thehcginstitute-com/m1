@@ -344,11 +344,13 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='unsetChildren'></action>
 			<block name='checkout.progress.wrapper' type='page/html_wrapper' >
 				<label>Checkout Progress Wrapper</label>
-				<action method='setElementId'>
-					<value>checkout-progress-wrapper</value>
-				</action>
-				<block before='-' name='checkout.progress' template='checkout/onepage/progress.phtml'
-					   type='checkout/onepage_progress'/>
+				<action method='setElementId'><value>checkout-progress-wrapper</value></action>
+				<block
+					before='-'
+					name='checkout.progress'
+					template='checkout/onepage/progress.phtml'
+					type='checkout/onepage_progress'
+				/>
 			</block>
 		</reference>
 		<reference name='content'>
