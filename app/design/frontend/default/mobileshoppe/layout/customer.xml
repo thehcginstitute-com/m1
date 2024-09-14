@@ -229,11 +229,14 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 	</customer_address_index>
 	<customer_address_form >
 		<label>Customer My Account Address Edit Form</label>
-		<!-- Mage_Customer -->
 		<update handle='customer_account'/>
 		<reference name='head'>
-			<block as='optional_zip_countries' name='optional_zip_countries' template='directory/js/optional_zip_countries.phtml'
-				   type='core/template'/>
+			<block
+				as='optional_zip_countries'
+				name='optional_zip_countries'
+				template='directory/js/optional_zip_countries.phtml'
+				type='core/template'
+			/>
 		</reference>
 		<reference name='my.account.wrapper'>
 			<block name='customer_address_edit' template='customer/address/edit.phtml' type='customer/address_edit'/>
