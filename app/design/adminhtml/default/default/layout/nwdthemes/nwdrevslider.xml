@@ -12,141 +12,126 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				template='nwdthemes/revslider/head/thickbox.phtml'
 				type='adminhtml/template'
 			/>
+			<action method='addItem'><name>css/nwdthemes/revslider/jui/jquery-ui.css</name><type>skin_css</type></action>
+			<action method='addItem'><name>css/nwdthemes/revslider/wp/buttons.css</name><type>skin_css</type></action>
+			<action method='addItem'><name>css/nwdthemes/revslider/wp/common.css</name><type>skin_css</type></action>
+			<action method='addItem'><name>css/nwdthemes/revslider/wp/dashicons.css</name><type>skin_css</type></action>
+			<action method='addItem'><name>css/nwdthemes/revslider/wp/edit.css</name><type>skin_css</type></action>
 			<action method='addItem'>
-				<type>skin_css</type>
-				<name>css/nwdthemes/revslider/jui/jquery-ui.css</name>
-			</action>
-			<action method='addItem'>
-				<type>skin_css</type>
-				<name>css/nwdthemes/revslider/wp/buttons.css</name>
-			</action>
-			<action method='addItem'>
-				<type>skin_css</type>
-				<name>css/nwdthemes/revslider/wp/common.css</name>
-			</action>
-			<action method='addItem'>
-				<type>skin_css</type>
-				<name>css/nwdthemes/revslider/wp/dashicons.css</name>
-			</action>
-			<action method='addItem'>
-				<type>skin_css</type>
-				<name>css/nwdthemes/revslider/wp/edit.css</name>
-			</action>
-			<action method='addItem'>
-				<type>skin_css</type>
 				<name>css/nwdthemes/revslider/wp/forms.css</name>
+				<type>skin_css</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_css</type>
 				<name>css/nwdthemes/revslider/wp/list-tables.css</name>
+				<type>skin_css</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_css</type>
 				<name>css/nwdthemes/revslider/admin.css</name>
+				<type>skin_css</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_css</type>
 				<name>css/nwdthemes/revslider/tipsy.css</name>
+				<type>skin_css</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_css</type>
 				<name>js/nwdthemes/revslider/farbtastic/farbtastic.css</name>
+				<type>skin_css</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_css</type>
 				<name>js/nwdthemes/revslider/codemirror/codemirror.css</name>
+				<type>skin_css</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_css</type>
 				<name>css/nwdthemes/revslider/edit_layers.css</name>
+				<type>skin_css</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_css</type>
 				<name>js/nwdthemes/revslider/thickbox/thickbox.css</name>
+				<type>skin_css</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_css</type>
 				<name>css/nwdthemes/revslider/rs/settings.css</name>
+				<type>skin_css</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_css</type>
 				<name>css/nwdthemes/revslider/revslider.css</name>
+				<type>skin_css</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_css</type>
 				<name>css/nwdthemes/revslider/dynamic.css</name>
-			</action>
-			<action method='addItem'>
 				<type>skin_css</type>
+			</action>
+			<action method='addItem'>
 				<name>css/nwdthemes/revslider/static.css</name>
+				<type>skin_css</type>
 			</action>
 			<action method='addItem'>
-				<type>js</type>
 				<name>nwdthemes/jquery-1.11.0.min.js</name>
+				<type>js</type>
 			</action>
 			<action method='addItem'>
-				<type>js</type>
 				<name>nwdthemes/jquery-migrate-1.2.1.min.js</name>
-			</action>
-			<action method='addItem'>
 				<type>js</type>
+			</action>
+			<action method='addItem'>
 				<name>nwdthemes/jquery.noconflict.js</name>
+				<type>js</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_js</type>
 				<name>js/nwdthemes/revslider/jui/jquery-ui.min.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_js</type>
 				<name>js/nwdthemes/revslider/settings.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_js</type>
 				<name>js/nwdthemes/revslider/admin.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_js</type>
 				<name>js/nwdthemes/revslider/jquery.tipsy.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_js</type>
 				<name>js/nwdthemes/revslider/farbtastic/my-farbtastic.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_js</type>
 				<name>js/nwdthemes/revslider/codemirror/codemirror.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_js</type>
 				<name>js/nwdthemes/revslider/codemirror/css.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_js</type>
 				<name>js/nwdthemes/revslider/dropdownchecklist/ui.dropdownchecklist-1.4-min.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_js</type>
 				<name>js/nwdthemes/revslider/edit_layers.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_js</type>
 				<name>js/nwdthemes/revslider/css_editor.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_js</type>
 				<name>js/nwdthemes/revslider/rev_admin.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_js</type>
 				<name>js/nwdthemes/revslider/rs/jquery.themepunch.tools.min.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_js</type>
 				<name>js/nwdthemes/revslider/thickbox/thickbox.js</name>
+				<type>skin_js</type>
 			</action>
 			<action method='addItem'>
-				<type>skin_js</type>
 				<name>js/nwdthemes/revslider/base64.js</name>
+				<type>skin_js</type>
 			</action>
 		</reference>
 	</nwdrevslider_common>
