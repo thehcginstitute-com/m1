@@ -37,7 +37,7 @@ class Mage_Customer_Block_Account_Navigation extends Mage_Core_Block_Template
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function addLink(string $name, string $label, string $path = '', array $urlParams = []):self {
+	final function addLink(string $name, string $label, string $path = '', array $urlParams = []):self {
 		$this->_links[$name] = new Varien_Object([
 			'name' => $name,
 			'path' => $path,

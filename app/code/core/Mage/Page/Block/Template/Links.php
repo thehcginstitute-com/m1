@@ -69,7 +69,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
 	 * @param string $afterText
 	 * @return $this
 	 */
-	function addLink(
+	final function addLink(
 		string $label,
 		string $url = '',
 		string $title = '',

@@ -45,13 +45,8 @@ class Mage_Adminhtml_Block_Widget_Breadcrumbs extends Mage_Adminhtml_Block_Templ
 	 * @used-by self::__construct()
 	 * @used-by Mage_Adminhtml_Block_Widget::_addBreadcrumb()
 	 * @used-by Mage_Adminhtml_Controller_Action::_addBreadcrumb()
-	 * @param string $label
-	 * @param string|null $title
-	 * @param string|null $url
-	 * @return $this
 	 */
-	function addLink($label, $title = null, $url = null)
-	{
+	final function addLink(string $label, ?string $title = '', ?string $url = ''):self	{
 		if (empty($title)) {
 			$title = $label;
 		}

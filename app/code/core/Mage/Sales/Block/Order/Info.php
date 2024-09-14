@@ -74,7 +74,7 @@ class Mage_Sales_Block_Order_Info extends Mage_Core_Block_Template
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function addLink(string $name, string $path, string $label):self {
+	final function addLink(string $name, string $path, string $label):self {
 		$this->_links[$name] = new Varien_Object([
 			'name' => $name,
 			'label' => $label,
