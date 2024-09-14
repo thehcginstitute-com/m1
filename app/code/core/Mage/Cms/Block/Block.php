@@ -1,10 +1,20 @@
 <?php
-/**
- * @method int getBlockId()
- * @method $this setBlockId(int $int)
- */
-class Mage_Cms_Block_Block extends Mage_Core_Block_Abstract
-{
+class Mage_Cms_Block_Block extends Mage_Core_Block_Abstract {
+	/**
+     * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	final function getBlockId():?string {return $this['block_id'];}
+
+	/**
+     * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 */
+	final function setBlockId(string $v):self {
+		$this['block_id'] = $v;
+		return $this;
+	}
+
 	/**
 	 * Initialize cache
 	 */
