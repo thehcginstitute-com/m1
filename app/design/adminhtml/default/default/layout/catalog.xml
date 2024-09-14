@@ -84,7 +84,7 @@
 				<reference name='related_grid_serializer'>
 					<action method='initSerializerBlock'>
 						<grid_block_name>catalog.product.edit.tab.related</grid_block_name>
-						<data_callback>getSelectedRelatedProducts</data_callback>
+						<callback>getSelectedRelatedProducts</callback>
 						<hiddenInputName>links[related]</hiddenInputName>
 						<reloadParamName>products_related</reloadParamName>
 					</action>
@@ -122,7 +122,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='upsell_grid_serializer' type='adminhtml/widget_grid_serializer'>
 				<reference name='upsell_grid_serializer'>
 					<action method='initSerializerBlock'>
-						<data_callback>getSelectedUpsellProducts</data_callback>
+						<callback>getSelectedUpsellProducts</callback>
 						<grid_block_name>catalog.product.edit.tab.upsell</grid_block_name>
 						<hiddenInputName>links[upsell]</hiddenInputName>
 						<reloadParamName>products_upsell</reloadParamName>
@@ -148,7 +148,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='crosssell_grid_serializer' type='adminhtml/widget_grid_serializer'>
 				<reference name='crosssell_grid_serializer'>
 					<action method='initSerializerBlock'>
-						<data_callback>getSelectedCrossSellProducts</data_callback>
+						<callback>getSelectedCrossSellProducts</callback>
 						<grid_block_name>catalog.product.edit.tab.crosssell</grid_block_name>
 						<hiddenInputName>links[crosssell]</hiddenInputName>
 						<reloadParamName>products_crosssell</reloadParamName>
@@ -183,7 +183,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='grouped_grid_serializer' type='adminhtml/widget_grid_serializer'>
 				<reference name='grouped_grid_serializer'>
 					<action method='initSerializerBlock'>
-						<data_callback>getSelectedGroupedProducts</data_callback>
+						<callback>getSelectedGroupedProducts</callback>
 						<grid_block_name>catalog.product.edit.tab.super.group</grid_block_name>
 						<hiddenInputName>links[grouped]</hiddenInputName>
 						<reloadParamName>products_grouped</reloadParamName>
