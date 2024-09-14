@@ -22,93 +22,93 @@
  */
 class Mage_Customer_Block_Account_Navigation extends Mage_Core_Block_Template
 {
-    /**
-     * @var array
-     */
-    protected $_links = [];
+	/**
+	 * @var array
+	 */
+	protected $_links = [];
 
-    /**
-     * @var bool
-     */
-    protected $_activeLink = false;
+	/**
+	 * @var bool
+	 */
+	protected $_activeLink = false;
 
-    /**
-     * 2024-09-12 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	/**
+	 * 2024-09-12 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
-     */
-    function addLink(string $name, string $path, string $label, array $urlParams = []):self {
-        $this->_links[$name] = new Varien_Object([
-            'name' => $name,
-            'path' => $path,
-            'label' => $label,
-            'url' => $this->getUrl($path, $urlParams),
-        ]);
-        return $this;
-    }
+	 */
+	function addLink(string $name, string $path, string $label, array $urlParams = []):self {
+		$this->_links[$name] = new Varien_Object([
+			'name' => $name,
+			'path' => $path,
+			'label' => $label,
+			'url' => $this->getUrl($path, $urlParams),
+		]);
+		return $this;
+	}
 
-    /**
-     * Remove a link
-     *
-     * @param string $name Name of the link
-     * @return $this
-     */
-    function removeLink($name)
-    {
-        if (isset($this->_links[$name])) {
-            unset($this->_links[$name]);
-        }
-        return $this;
-    }
+	/**
+	 * Remove a link
+	 *
+	 * @param string $name Name of the link
+	 * @return $this
+	 */
+	function removeLink($name)
+	{
+		if (isset($this->_links[$name])) {
+			unset($this->_links[$name]);
+		}
+		return $this;
+	}
 
-    /**
-     * @param string $path
-     * @return $this
-     */
-    function setActive($path)
-    {
-        $this->_activeLink = $this->_completePath($path);
-        return $this;
-    }
+	/**
+	 * @param string $path
+	 * @return $this
+	 */
+	function setActive($path)
+	{
+		$this->_activeLink = $this->_completePath($path);
+		return $this;
+	}
 
-    /**
-     * @return array
-     */
-    function getLinks()
-    {
-        return $this->_links;
-    }
+	/**
+	 * @return array
+	 */
+	function getLinks()
+	{
+		return $this->_links;
+	}
 
-    /**
-     * @param Varien_Object $link
-     * @return bool
-     */
-    function isActive($link)
-    {
-        if (empty($this->_activeLink)) {
-            $this->_activeLink = $this->getAction()->getFullActionName('/');
-        }
-        if ($this->_completePath($link->getPath()) == $this->_activeLink) {
-            return true;
-        }
-        return false;
-    }
+	/**
+	 * @param Varien_Object $link
+	 * @return bool
+	 */
+	function isActive($link)
+	{
+		if (empty($this->_activeLink)) {
+			$this->_activeLink = $this->getAction()->getFullActionName('/');
+		}
+		if ($this->_completePath($link->getPath()) == $this->_activeLink) {
+			return true;
+		}
+		return false;
+	}
 
-    /**
-     * @param string $path
-     * @return string
-     */
-    protected function _completePath($path)
-    {
-        $path = rtrim($path, '/');
-        switch (count(explode('/', $path))) {
-            case 1:
-                $path .= '/index';
-                // no break
+	/**
+	 * @param string $path
+	 * @return string
+	 */
+	protected function _completePath($path)
+	{
+		$path = rtrim($path, '/');
+		switch (count(explode('/', $path))) {
+			case 1:
+				$path .= '/index';
+				// no break
 
-            case 2:
-                $path .= '/index';
-        }
-        return $path;
-    }
+			case 2:
+				$path .= '/index';
+		}
+		return $path;
+	}
 }

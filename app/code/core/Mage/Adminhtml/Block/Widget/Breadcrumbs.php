@@ -22,48 +22,48 @@
  */
 class Mage_Adminhtml_Block_Widget_Breadcrumbs extends Mage_Adminhtml_Block_Template
 {
-    /**
-     * breadcrumbs links
-     *
-     * @var array
-     */
-    protected $_links = [];
+	/**
+	 * breadcrumbs links
+	 *
+	 * @var array
+	 */
+	protected $_links = [];
 
-    /**
-     * Mage_Adminhtml_Block_Widget_Breadcrumbs constructor.
-     */
-    function __construct()
-    {
-        $this->setTemplate('widget/breadcrumbs.phtml');
-        $this->addLink(Mage::helper('adminhtml')->__('Home'), Mage::helper('adminhtml')->__('Home'), $this->getUrl('*'));
-    }
+	/**
+	 * Mage_Adminhtml_Block_Widget_Breadcrumbs constructor.
+	 */
+	function __construct()
+	{
+		$this->setTemplate('widget/breadcrumbs.phtml');
+		$this->addLink(Mage::helper('adminhtml')->__('Home'), Mage::helper('adminhtml')->__('Home'), $this->getUrl('*'));
+	}
 
-    /**
-     * @param string $label
-     * @param string|null $title
-     * @param string|null $url
-     * @return $this
-     */
-    function addLink($label, $title = null, $url = null)
-    {
-        if (empty($title)) {
-            $title = $label;
-        }
-        $this->_links[] = [
-            'label' => $label,
-            'title' => $title,
-            'url'   => $url
-        ];
-        return $this;
-    }
+	/**
+	 * @param string $label
+	 * @param string|null $title
+	 * @param string|null $url
+	 * @return $this
+	 */
+	function addLink($label, $title = null, $url = null)
+	{
+		if (empty($title)) {
+			$title = $label;
+		}
+		$this->_links[] = [
+			'label' => $label,
+			'title' => $title,
+			'url'   => $url
+		];
+		return $this;
+	}
 
-    /**
-     * @inheritDoc
-     */
-    protected function _beforeToHtml()
-    {
-        // TODO - Moved to Beta 2, no breadcrumbs displaying in Beta 1
-        // $this->assign('links', $this->_links);
-        return parent::_beforeToHtml();
-    }
+	/**
+	 * @inheritDoc
+	 */
+	protected function _beforeToHtml()
+	{
+		// TODO - Moved to Beta 2, no breadcrumbs displaying in Beta 1
+		// $this->assign('links', $this->_links);
+		return parent::_beforeToHtml();
+	}
 }
