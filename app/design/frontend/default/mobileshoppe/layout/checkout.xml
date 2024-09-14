@@ -413,8 +413,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						</action>
 					</block>
 				</block>
-				<block as='review' name='checkout.onepage.review' template='checkout/onepage/review.phtml'
-					   type='checkout/onepage_review'/>
+				<block
+					as='review'
+					name='checkout.onepage.review'
+					template='checkout/onepage/review.phtml'
+					type='checkout/onepage_review'
+				/>
 			</block>
 		</reference>
 	</checkout_onepage_index>
