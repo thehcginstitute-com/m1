@@ -8,10 +8,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 because it is unused": https://github.com/thehcginstitute-com/m1/issues/339 -->
 	<checkout_onepage_index>
 		<reference name='checkout.onepage.login'>
-			<!-- 2024-02-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-			'Remove the
-			"MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED` feature
-			 because it is unused": https://github.com/thehcginstitute-com/m1/issues/339 -->
+<!-- 2024-02-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+'Remove the "MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED` feature
+ because it is unused": https://github.com/thehcginstitute-com/m1/issues/339 -->
 			<block name='persistent.remember.me' template='persistent/remember_me.phtml' type='persistent/form_remember'/>
 		</reference>
 	</checkout_onepage_index>
@@ -22,8 +21,11 @@ because it is unused": https://github.com/thehcginstitute-com/m1/issues/339 -->
 			</action>
 		</reference>
 		<reference name='before_body_end'>
-			<block as='storerestrictionpro_addtocart_scripts' name='storerestrictionpro.addtocart.scripts'
-				type='magepsycho_storerestrictionpro/storerestrictionpro'>
+			<block
+				as='storerestrictionpro_addtocart_scripts'
+				name='storerestrictionpro.addtocart.scripts'
+				type='magepsycho_storerestrictionpro/storerestrictionpro'
+			>
 				<action method='setTemplate'>
 					<template>magepsycho/storerestrictionpro/product/view/scripts.phtml</template>
 				</action>
@@ -32,8 +34,11 @@ because it is unused": https://github.com/thehcginstitute-com/m1/issues/339 -->
 	</magepsycho_storerestrictionpro_override_add_to_cart>
 	<magepsycho_storerestrictionpro_override_price>
 		<reference name='before_body_end'>
-			<block as='storerestrictionpro_price_scripts' name='storerestrictionpro.price.scripts'
-				type='magepsycho_storerestrictionpro/storerestrictionpro'>
+			<block
+				as='storerestrictionpro_price_scripts'
+				name='storerestrictionpro.price.scripts'
+				type='magepsycho_storerestrictionpro/storerestrictionpro'
+			>
 				<action method='setTemplate'>
 					<template>magepsycho/storerestrictionpro/checkout/cart/scripts.phtml</template>
 				</action>
