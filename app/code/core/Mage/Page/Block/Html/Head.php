@@ -42,6 +42,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by Magazento_Orderexport2_Admin_ItemController::editAction()
+	 * @used-by Mage_Adminhtml_Catalog_SearchController::editAction()
 	 */
 	final function setCanLoadRulesJs():void {$this['can_load_rules_js'] = true;}
 
