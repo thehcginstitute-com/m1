@@ -452,8 +452,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<checkout_onepage_shippingmethod>
 		<remove name='right'/>
 		<remove name='left'/>
-		<block name='root' output='toHtml' template='checkout/onepage/shipping_method/available.phtml'
-			   type='checkout/onepage_shipping_method_available'/>
+		<block
+			name='root'
+			output='toHtml'
+			template='checkout/onepage/shipping_method/available.phtml'
+			type='checkout/onepage_shipping_method_available'
+		/>
 	</checkout_onepage_shippingmethod>
 	<checkout_onepage_additional>
 		<remove name='right'/>
