@@ -189,10 +189,17 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			</action>
 		</reference>
 		<reference name='my.account.wrapper'>
-			<block name='customer_account_dashboard' template='customer/account/dashboard.phtml'
-				   type='customer/account_dashboard'>
-				<block as='hello' name='customer_account_dashboard_hello' template='customer/account/dashboard/hello.phtml'
-					   type='customer/account_dashboard_hello'/>
+			<block
+				name='customer_account_dashboard'
+				template='customer/account/dashboard.phtml'
+				type='customer/account_dashboard'
+			>
+				<block
+					as='hello'
+					name='customer_account_dashboard_hello'
+					template='customer/account/dashboard/hello.phtml'
+					type='customer/account_dashboard_hello'
+				/>
 				<block as='top' name='customer_account_dashboard_top' type='core/template'/>
 				<block as='info' name='customer_account_dashboard_info' template='customer/account/dashboard/info.phtml'
 					   type='customer/account_dashboard_info'/>
