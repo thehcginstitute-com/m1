@@ -176,9 +176,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</overlay_popup>
 	<editor>
 		<reference name='head'>
-			<action method='setCanLoadExtJs'>
-				<flag>1</flag>
-			</action>
+			<action method='setCanLoadExtJs'/>
 			<action method='addJs'><name>mage/adminhtml/variables.js</name></action>
 			<action method='addJs'><name>mage/adminhtml/wysiwyg/widget.js</name></action>
 			<action method='addJs'><name>lib/uploader/flow.min.js</name></action>

@@ -17,9 +17,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_widget_instance_index>
 	<adminhtml_widget_instance_edit>
 		<reference name='head'>
-			<action method='setCanLoadExtJs'>
-				<flag>1</flag>
-			</action>
+			<action method='setCanLoadExtJs'/>
 			<action method='addJs'><name>mage/adminhtml/wysiwyg/widget.js</name></action>
 			<action method='addItem'><name>prototype/window.js</name><type>js</type></action>
 			<action method='addItem'><name>prototype/windows/themes/default.css</name><type>js_css</type></action>
