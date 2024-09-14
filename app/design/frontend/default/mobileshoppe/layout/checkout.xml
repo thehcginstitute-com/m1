@@ -81,8 +81,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				</block>
 				<block as='methods' name='checkout.cart.methods' type='core/text_list' >
 					<label>Payment Methods After Checkout Button</label>
-					<block name='checkout.cart.methods.onepage' template='checkout/onepage/link.phtml'
-						   type='checkout/onepage_link'/>
+					<block
+						name='checkout.cart.methods.onepage'
+						template='checkout/onepage/link.phtml'
+						type='checkout/onepage_link'
+					/>
 					<block name='checkout.cart.methods.multishipping' template='checkout/multishipping/link.phtml'
 						   type='checkout/multishipping_link'/>
 				</block>
