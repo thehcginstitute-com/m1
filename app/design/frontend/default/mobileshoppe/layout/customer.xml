@@ -113,8 +113,11 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 			<action method='setHeaderTitle' module='customer'><title>Reset a Password</title></action>
 		</reference>
 		<reference name='content'>
-			<block name='changeForgottenPassword' template='customer/form/resetforgottenpassword.phtml'
-				   type='customer/account_changeforgotten'/>
+			<block
+				name='changeForgottenPassword'
+				template='customer/form/resetforgottenpassword.phtml'
+				type='customer/account_changeforgotten'
+			/>
 		</reference>
 	</customer_account_changeforgotten>
 	<customer_account_confirmation>
