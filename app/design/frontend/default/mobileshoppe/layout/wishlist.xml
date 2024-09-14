@@ -34,9 +34,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</customer_account>
 	<customer_account_index>
 		<reference name='right'>
-			<action method='unsetChild'>
-				<name>wishlist</name>
-			</action>
+			<action method='unsetChild'><name>wishlist</name></action>
 		</reference>
 	</customer_account_index>
 	<wishlist_index_index >
