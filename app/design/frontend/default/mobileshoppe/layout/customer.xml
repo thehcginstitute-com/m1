@@ -136,9 +136,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 		<label>Customer Account Edit Form</label>
 		<update handle='customer_account'/>
 		<reference name='root'>
-			<action method='setHeaderTitle' module='customer'>
-				<title>Edit Account Info</title>
-			</action>
+			<action method='setHeaderTitle' module='customer'><title>Edit Account Info</title></action>
 		</reference>
 		<reference name='my.account.wrapper'>
 			<block name='customer_edit' template='customer/form/edit.phtml' type='customer/form_edit'/>
