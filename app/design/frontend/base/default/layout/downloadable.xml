@@ -13,8 +13,8 @@
 		<label>Customer My Account Downloadable Items</label>
 		<update handle='customer_account'/>
 		<reference name='my.account.wrapper'>
-			<block type='downloadable/customer_products_list' name='downloadable_customer_products_list'
-				   template='downloadable/customer/products/list.phtml'/>
+			<block name='downloadable_customer_products_list' template='downloadable/customer/products/list.phtml'
+				   type='downloadable/customer_products_list'/>
 		</reference>
 		<reference name='root'>
 			<action method='setHeaderTitle' module='downloadable'>
@@ -42,8 +42,8 @@
 	</checkout_onepage_review>
 	<checkout_onepage_success>
 		<reference name='checkout.success'>
-			<block type='downloadable/checkout_success' name='downloadable.checkout.success'
-				   template='downloadable/checkout/success.phtml'/>
+			<block name='downloadable.checkout.success' template='downloadable/checkout/success.phtml'
+				   type='downloadable/checkout_success'/>
 		</reference>
 	</checkout_onepage_success>
 	<checkout_multishipping_addresses>
@@ -75,8 +75,8 @@
 	</checkout_multishipping_overview>
 	<checkout_multishipping_success>
 		<reference name='checkout_success'>
-			<block type='downloadable/checkout_success' name='downloadable.checkout.success'
-				   template='downloadable/checkout/success.phtml'/>
+			<block name='downloadable.checkout.success' template='downloadable/checkout/success.phtml'
+				   type='downloadable/checkout_success'/>
 		</reference>
 	</checkout_multishipping_success>
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -220,17 +220,17 @@
 	<PRODUCT_TYPE_downloadable module='downloadable'>
 		<label>Catalog Product View (Downloadable)</label>
 		<reference name='product.info'>
-			<block type='downloadable/catalog_product_view_type' name='product.info.downloadable' as='product_type_data'
-				   template='downloadable/catalog/product/type.phtml'>
-				<block type='downloadable/catalog_product_samples' name='product.info.downloadable.samples' as='samples'
-					   template='downloadable/catalog/product/samples.phtml'/>
-				<block type='cataloginventory/stockqty_default' name='product.info.downloadable.extra'
-					   as='product_type_data_extra' template='cataloginventory/stockqty/default.phtml'/>
+			<block as='product_type_data' name='product.info.downloadable' template='downloadable/catalog/product/type.phtml'
+				   type='downloadable/catalog_product_view_type'>
+				<block as='samples' name='product.info.downloadable.samples' template='downloadable/catalog/product/samples.phtml'
+					   type='downloadable/catalog_product_samples'/>
+				<block as='product_type_data_extra' name='product.info.downloadable.extra'
+					   template='cataloginventory/stockqty/default.phtml' type='cataloginventory/stockqty_default'/>
 			</block>
 		</reference>
 		<reference name='product.info.options.wrapper'>
-			<block type='downloadable/catalog_product_links' name='product.info.downloadable.options'
-				   as='type_downloadable_options' before='-' template='downloadable/catalog/product/links.phtml'/>
+			<block as='type_downloadable_options' before='-'
+				   name='product.info.downloadable.options' template='downloadable/catalog/product/links.phtml' type='downloadable/catalog_product_links'/>
 			<action method='insert'>
 				<block>product.info.downloadable.options</block>
 			</action>
