@@ -3,18 +3,18 @@
 "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
 <layout>
-	<cms_page translate='label'>
+	<cms_page>
 		<label>CMS Pages (All)</label>
 		<reference name='content'>
 			<block name='page_content_heading' template='cms/content_heading.phtml' type='core/template'/>
-			<block name='cms.wrapper' translate='label' type='page/html_wrapper'>
+			<block name='cms.wrapper' type='page/html_wrapper'>
 				<label>CMS Content Wrapper</label>
 				<action method='setElementClass'><value>std</value></action>
 				<block name='cms_page' type='cms/page'/>
 			</block>
 		</reference>
 	</cms_page>
-	<cms_index_index translate='label'>
+	<cms_index_index>
 		<label>CMS Home Page</label>
 	</cms_index_index>
 	<cms_index_defaultindex>
@@ -27,7 +27,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='default_home_page' template='cms/default/home.phtml' type='core/template'/>
 		</reference>
 	</cms_index_defaultindex>
-	<cms_index_noroute translate='label'>
+	<cms_index_noroute>
 		<label>CMS No-Route Page</label>
 	</cms_index_noroute>
 	<cms_index_defaultnoroute>
