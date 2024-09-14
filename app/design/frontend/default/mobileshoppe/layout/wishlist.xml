@@ -7,9 +7,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<default>
 		<reference name='top.links'>
 			<block name='wishlist_link' type='wishlist/links'/>
-			<action method='addLinkBlock'>
-				<name>wishlist_link</name>
-			</action>
+			<action method='addLinkBlock'><name>wishlist_link</name></action>
 		</reference>
 		<reference name='left'>
 			<block
