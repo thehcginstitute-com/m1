@@ -99,9 +99,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					template='checkout/cart/shipping.phtml'
 					type='checkout/cart_shipping'
 				/>
-				<block as='crosssell' name='checkout.cart.crosssell' template='checkout/cart/crosssell.phtml'
-					   type='checkout/cart_crosssell'/>
-
+				<block
+					as='crosssell'
+					name='checkout.cart.crosssell'
+					template='checkout/cart/crosssell.phtml'
+					type='checkout/cart_crosssell'
+				/>
 				<block as='totals' name='checkout.cart.totals' template='checkout/cart/totals.phtml' type='checkout/cart_totals'/>
 			</block>
 		</reference>
