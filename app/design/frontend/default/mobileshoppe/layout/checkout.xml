@@ -276,8 +276,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>Multishipping Checkout Overview</label>
 		<update handle='checkout_multishipping'/>
 		<reference name='content'>
-			<block name='checkout_overview' template='checkout/multishipping/overview.phtml'
-				   type='checkout/multishipping_overview'>
+			<block
+				name='checkout_overview'
+				template='checkout/multishipping/overview.phtml'
+				type='checkout/multishipping_overview'
+			>
 				<action method='addItemRender'>
 					<block>checkout/cart_item_renderer</block>
 					<template>checkout/multishipping/item/default.phtml</template>
