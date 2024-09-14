@@ -44,6 +44,7 @@ class Mage_Adminhtml_Block_Widget_Breadcrumbs extends Mage_Adminhtml_Block_Templ
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by self::__construct()
 	 * @used-by Mage_Adminhtml_Block_Widget::_addBreadcrumb()
+	 * @used-by Mage_Adminhtml_Controller_Action::_addBreadcrumb()
 	 * @param string $label
 	 * @param string|null $title
 	 * @param string|null $url
