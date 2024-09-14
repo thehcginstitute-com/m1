@@ -86,7 +86,7 @@
 						<grid_block_name>catalog.product.edit.tab.related</grid_block_name>
 						<data_callback>getSelectedRelatedProducts</data_callback>
 						<hiddenInputName>links[related]</hiddenInputName>
-						<reload_param_name>products_related</reload_param_name>
+						<reloadParamName>products_related</reloadParamName>
 					</action>
 					<action method='addColumnInputName'>
 <!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -125,7 +125,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<data_callback>getSelectedUpsellProducts</data_callback>
 						<grid_block_name>catalog.product.edit.tab.upsell</grid_block_name>
 						<hiddenInputName>links[upsell]</hiddenInputName>
-						<reload_param_name>products_upsell</reload_param_name>
+						<reloadParamName>products_upsell</reloadParamName>
 					</action>
 					<action method='addColumnInputName'>
 <!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -151,7 +151,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<data_callback>getSelectedCrossSellProducts</data_callback>
 						<grid_block_name>catalog.product.edit.tab.crosssell</grid_block_name>
 						<hiddenInputName>links[crosssell]</hiddenInputName>
-						<reload_param_name>products_crosssell</reload_param_name>
+						<reloadParamName>products_crosssell</reloadParamName>
 					</action>
 					<action method='addColumnInputName'>
 <!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -186,7 +186,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<data_callback>getSelectedGroupedProducts</data_callback>
 						<grid_block_name>catalog.product.edit.tab.super.group</grid_block_name>
 						<hiddenInputName>links[grouped]</hiddenInputName>
-						<reload_param_name>products_grouped</reload_param_name>
+						<reloadParamName>products_grouped</reloadParamName>
 					</action>
 					<action method='addColumnInputName'>
 <!-- 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
