@@ -48,8 +48,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</checkout_onepage_review>
 	<checkout_onepage_success>
 		<reference name='checkout.success'>
-			<block name='downloadable.checkout.success' template='downloadable/checkout/success.phtml'
-				   type='downloadable/checkout_success'/>
+			<block
+				name='downloadable.checkout.success'
+				template='downloadable/checkout/success.phtml'
+				type='downloadable/checkout_success'
+			/>
 		</reference>
 	</checkout_onepage_success>
 	<checkout_multishipping_addresses>
@@ -226,10 +229,18 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<PRODUCT_TYPE_downloadable module='downloadable'>
 		<label>Catalog Product View (Downloadable)</label>
 		<reference name='product.info'>
-			<block as='product_type_data' name='product.info.downloadable' template='downloadable/catalog/product/type.phtml'
-				   type='downloadable/catalog_product_view_type'>
-				<block as='samples' name='product.info.downloadable.samples' template='downloadable/catalog/product/samples.phtml'
-					   type='downloadable/catalog_product_samples'/>
+			<block
+				as='product_type_data'
+				name='product.info.downloadable'
+				template='downloadable/catalog/product/type.phtml'
+				type='downloadable/catalog_product_view_type
+			'>
+				<block
+					as='samples'
+					name='product.info.downloadable.samples'
+					template='downloadable/catalog/product/samples.phtml'
+					type='downloadable/catalog_product_samples'
+				/>
 				<block as='product_type_data_extra' name='product.info.downloadable.extra'
 					   template='cataloginventory/stockqty/default.phtml' type='cataloginventory/stockqty_default'/>
 			</block>
