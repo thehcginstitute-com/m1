@@ -65,9 +65,6 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
 	 * @used-by Mage_Persistent_Model_Observer::emulateAccountLinks()
 	 * @param string|array $liParams
 	 * @param string|array $aParams
-	 * @param string $beforeText
-	 * @param string $afterText
-	 * @return $this
 	 */
 	final function addLink(
 		string $label,
@@ -78,9 +75,9 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
 		int $position = 0,
 		$liParams = null,
 		$aParams = null,
-		$beforeText = '',
-		$afterText = ''
-	) {
+		string $beforeText = '',
+		string $afterText = ''
+	):self {
 		if (is_null($label) || $label === false) {
 			return $this;
 		}
