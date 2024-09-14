@@ -10,6 +10,7 @@ class Mage_Cms_Block_Block extends Mage_Core_Block_Abstract {
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by IWD_OrderManager_Frontend_ConfirmController::_confirm()
+	 * @used-by Mage_Catalog_Block_Category_View::getCmsBlockHtml()
 	 */
 	final function setBlockId(string $v):self {
 		$this['block_id'] = $v;
