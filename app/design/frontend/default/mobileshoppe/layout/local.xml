@@ -27,9 +27,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<alias>cms_footer_links</alias>
 			</action>
 			<block name='footer_block' type='cms/block'>
-				<action method='setBlockId'>
-					<block_id>footer_block</block_id>
-				</action>
+				<action method='setBlockId'><v>footer_block</v></action>
 			</block>
 		</reference>
 	</default>
