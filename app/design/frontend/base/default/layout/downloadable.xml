@@ -250,8 +250,13 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='product.info.options.wrapper'>
-			<block as='type_downloadable_options' before='-'
-				   name='product.info.downloadable.options' template='downloadable/catalog/product/links.phtml' type='downloadable/catalog_product_links'/>
+			<block
+				as='type_downloadable_options'
+				before='-'
+				name='product.info.downloadable.options'
+				template='downloadable/catalog/product/links.phtml'
+				type='downloadable/catalog_product_links'
+			/>
 			<action method='insert'>
 				<block>product.info.downloadable.options</block>
 			</action>
