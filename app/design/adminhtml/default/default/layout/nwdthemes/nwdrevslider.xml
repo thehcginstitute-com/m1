@@ -151,8 +151,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_nwdrevslider_slidertemplate>
 		<update handle='nwdrevslider_common'/>
 		<reference name='content'>
-			<block as='nwdrevslider.masterview' name='nwdrevslider.masterview' template='nwdthemes/revslider/masterview.phtml'
-				type='nwdrevslider/adminhtml_masterview'>
+			<block
+				as='nwdrevslider.masterview'
+				name='nwdrevslider.masterview'
+				template='nwdthemes/revslider/masterview.phtml'
+				type='nwdrevslider/adminhtml_masterview'
+			>
 				<block as='view' name='view' type='nwdrevslider/adminhtml_slider_template_edit'>
 					<block as='slider_toolbox' name='slider_toolbox' template='nwdthemes/revslider/templates/slider_toolbox.phtml'
 						type='adminhtml/template'/>
