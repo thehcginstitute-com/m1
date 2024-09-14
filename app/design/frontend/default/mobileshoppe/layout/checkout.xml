@@ -355,8 +355,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</reference>
 		<reference name='content'>
 			<block name='checkout.onepage' template='checkout/onepage.phtml' type='checkout/onepage'>
-				<block as='login' name='checkout.onepage.login' template='checkout/onepage/login.phtml'
-					   type='checkout/onepage_login'>
+				<block
+					as='login'
+					name='checkout.onepage.login'
+					template='checkout/onepage/login.phtml'
+					type='checkout/onepage_login'
+				>
 					<block as='login_before' name='checkout.onepage.login.before' type='page/html_wrapper'>
 						<label>Login/Registration Before</label>
 						<action method='setMayBeInvisible'>
