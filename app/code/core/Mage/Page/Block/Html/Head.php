@@ -8,6 +8,13 @@
 class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	/**
      * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by app/design/adminhtml/default/default/template/nwdthemes/revslider/page/head.phtml
+	 * @used-by app/design/adminhtml/default/default/template/page/head.phtml
+	 */
+	final function getCanLoadExtJs():bool {return !!$this['can_load_ext_js'];}
+
+	/**
+     * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by Magazento_Orderexport2_Admin_ItemController::editAction()
