@@ -1,17 +1,18 @@
-<?xml version="1.0"?>
-<layout version="0.1.0">
-    
-     <catalog_product_view>
-        <reference name="alert.urls">
-            <block type="sharingtool/share" name="addthis_sharetool" after="-" >
-           		<action method="setTemplate"><template>addthis/sharingtool/share.phtml</template></action>
+<?xml version='1.0'?>
+<!-- 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+<layout>
+	<catalog_product_view>
+		<reference name='alert.urls'>
+			<block after='-' name='addthis_sharetool' type='sharingtool/share'>
+				<action method='setTemplate'><template>addthis/sharingtool/share.phtml</template></action>
 			</block>
-        </reference>
-        <reference name="product.info">		
-            <block type="sharingtool/share" name="addthis_sharetool">
-           		<action method="setTemplate"><template>addthis/sharingtool/share.phtml</template></action> 
-	   		</block>
-        </reference>
-    </catalog_product_view>
-     
+		</reference>
+		<reference name='product.info'>
+			<block name='addthis_sharetool' type='sharingtool/share'>
+				<action method='setTemplate'><template>addthis/sharingtool/share.phtml</template></action>
+			</block>
+		</reference>
+	</catalog_product_view>
 </layout>
