@@ -184,8 +184,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 		<reference name='product.info'>
-			<block as='product_type_data' name='product.info.bundle' template='bundle/catalog/product/view/type/bundle.phtml'
-				   type='bundle/catalog_product_view_type_bundle'>
+			<block
+				as='product_type_data'
+				name='product.info.bundle'
+				template='bundle/catalog/product/view/type/bundle.phtml'
+				type='bundle/catalog_product_view_type_bundle'
+			>
 				<action method='addPriceBlockType'>
 					<block>bundle/catalog_product_price</block>
 					<template>bundle/catalog/product/price.phtml</template>
