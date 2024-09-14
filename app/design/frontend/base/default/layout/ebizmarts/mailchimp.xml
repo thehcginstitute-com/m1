@@ -1,68 +1,60 @@
-<?xml version="1.0"?>
-
-<layout version="0.1.0">
-	<!-- Everywhere -->
-	<default>
-		<reference name="head">
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+<?xml version='1.0'?>
+<!-- 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method="addJs" ifconfig="mailchimp/ecommerce/active">
-				<name>ebizmarts/mailchimp/campaignCatcher.js</name><params>async</params>
+<layout>
+	<default>
+		<reference name='head'>
+			<action ifconfig='mailchimp/ecommerce/active' method='addJs'>
+				<name>ebizmarts/mailchimp/campaignCatcher.js</name>
+				<params>async</params>
 			</action>
-			<action method="addJs" ifconfig="mailchimp/emailcatcher/popup_general">
+			<action ifconfig='mailchimp/emailcatcher/popup_general' method='addJs'>
 				<name>prototype/window.js</name>
 			</action>
-			<action method="addJs" ifconfig="mailchimp/emailcatcher/popup_general">
+			<action ifconfig='mailchimp/emailcatcher/popup_general' method='addJs'>
 				<name>scriptaculous/scriptaculous.js</name>
 			</action>
-			<action method="addItem" ifconfig="mailchimp/emailcatcher/popup_general">
+			<action ifconfig='mailchimp/emailcatcher/popup_general' method='addItem'>
 				<name>prototype/windows/themes/default.css</name>
 				<type>js_css</type>
 			</action>
-			<action method="addItem" ifconfig="mailchimp/emailcatcher/popup_general">
+			<action ifconfig='mailchimp/emailcatcher/popup_general' method='addItem'>
 				<name>ebizmarts/mailchimp/popup.css</name>
 				<type>js_css</type>
 			</action>
-			<block type="core/text" name="addMCJs">
-				<action method="setText">
-					<text helper="mailchimp/getMCJs"></text>
+			<block name='addMCJs' type='core/text'>
+				<action method='setText'>
+					<text helper='mailchimp/getMCJs'></text>
 				</action>
 			</block>
 		</reference>
-		<reference name="content">
-			<block type="mailchimp/popup_emailcatcher" name="emailcatcher"
-				   template="ebizmarts/mailchimp/popup/emailcatcher.phtml"/>
+		<reference name='content'>
+			<block name='emailcatcher' template='ebizmarts/mailchimp/popup/emailcatcher.phtml'
+				type='mailchimp/popup_emailcatcher'/>
 		</reference>
 	</default>
-	<!-- Everywhere -->
-
-	<!-- Customer Account -->
 	<newsletter_manage_index>
-		<reference name="customer_newsletter">
-			<block name="customer.form.newsletter.extra"
-				   type="mailchimp/customer_newsletter_index"
-				   template="ebizmarts/mailchimp/customer/newsletter/index.phtml">
-				<block type="mailchimp/group_type" name="mailchimp.group.type"/>
+		<reference name='customer_newsletter'>
+			<block name='customer.form.newsletter.extra'
+				template='ebizmarts/mailchimp/customer/newsletter/index.phtml'
+				type='mailchimp/customer_newsletter_index'>
+				<block name='mailchimp.group.type' type='mailchimp/group_type'/>
 			</block>
 		</reference>
 	</newsletter_manage_index>
-	<!-- Customer Account -->
-
-	<!-- Checkout -->
 	<checkout_onepage_review>
-		<reference name="checkout.onepage.review.info.items.after">
-			<block type="mailchimp/checkout_subscribe" name="mailchimp.subscribe"
-				   template="ebizmarts/mailchimp/checkout/subscribe.phtml"/>
+		<reference name='checkout.onepage.review.info.items.after'>
+			<block name='mailchimp.subscribe' template='ebizmarts/mailchimp/checkout/subscribe.phtml'
+				type='mailchimp/checkout_subscribe'/>
 		</reference>
 	</checkout_onepage_review>
 	<checkout_onepage_success>
-		<reference name="content">
-			<block type="mailchimp/checkout_success_groups" name="mailchimp.checkout.success"
-				   template="ebizmarts/mailchimp/checkout/success/groups.phtml">
-				<block type="mailchimp/group_type" name="mailchimp.group.type"/>
+		<reference name='content'>
+			<block name='mailchimp.checkout.success' template='ebizmarts/mailchimp/checkout/success/groups.phtml'
+				type='mailchimp/checkout_success_groups'>
+				<block name='mailchimp.group.type' type='mailchimp/group_type'/>
 			</block>
 		</reference>
 	</checkout_onepage_success>
-	<!-- Checkout -->
 </layout>
