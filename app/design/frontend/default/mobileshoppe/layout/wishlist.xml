@@ -2,7 +2,7 @@
 <layout version='0.1.0'>
 	<default>
 		<reference name='top.links'>
-			<block type='wishlist/links' name='wishlist_link'/>
+			<block name='wishlist_link' type='wishlist/links'/>
 			<action method='addLinkBlock'>
 <!-- 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
@@ -11,13 +11,13 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 		<reference name='left'>
-			<block type='wishlist/customer_sidebar' name='wishlist_sidebar' as='wishlist' after='cart_sidebar'
-				   template='wishlist/sidebar.phtml'/>
+			<block after='cart_sidebar' as='wishlist' name='wishlist_sidebar' template='wishlist/sidebar.phtml'
+				   type='wishlist/customer_sidebar'/>
 		</reference>
 	</default>
 	<customer_account>
 		<reference name='customer_account_navigation'>
-			<action method='addLink' module='wishlist' ifconfig='wishlist/general/active'>
+			<action ifconfig='wishlist/general/active' method='addLink' module='wishlist'>
 				<label>My Wishlist</label>
 				<name>wishlist</name>
 				<path>wishlist/</path>
@@ -35,37 +35,37 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>Customer My Account My Wishlist</label>
 		<update handle='customer_account'/>
 		<reference name='my.account.wrapper'>
-			<block type='wishlist/customer_wishlist' name='customer.wishlist' template='wishlist/view.phtml'>
+			<block name='customer.wishlist' template='wishlist/view.phtml' type='wishlist/customer_wishlist'>
 				<action method='setTitle'>
 					<title>My Wishlist</title>
 				</action>
-				<block type='wishlist/customer_wishlist_items' name='customer.wishlist.items' as='items'
-					   template='wishlist/item/list.phtml'>
-					<block type='wishlist/customer_wishlist_item_column_image' name='customer.wishlist.item.image'
-						   template='wishlist/item/column/image.phtml'/>
-					<block type='wishlist/customer_wishlist_item_column_comment' name='customer.wishlist.item.info'
-						   template='wishlist/item/column/info.phtml'>
+				<block as='items' name='customer.wishlist.items' template='wishlist/item/list.phtml'
+					   type='wishlist/customer_wishlist_items'>
+					<block name='customer.wishlist.item.image' template='wishlist/item/column/image.phtml'
+						   type='wishlist/customer_wishlist_item_column_image'/>
+					<block name='customer.wishlist.item.info' template='wishlist/item/column/info.phtml'
+						   type='wishlist/customer_wishlist_item_column_comment'>
 						<action method='setTitle'>
 							<title>Product Details and Comment</title>
 						</action>
 					</block>
-					<block type='wishlist/customer_wishlist_item_column_cart' name='customer.wishlist.item.cart'
-						   template='wishlist/item/column/cart.phtml'>
+					<block name='customer.wishlist.item.cart' template='wishlist/item/column/cart.phtml'
+						   type='wishlist/customer_wishlist_item_column_cart'>
 						<action method='setTitle'>
 							<title>Add to Cart</title>
 						</action>
-						<block type='wishlist/customer_wishlist_item_options' name='customer.wishlist.item.options'/>
+						<block name='customer.wishlist.item.options' type='wishlist/customer_wishlist_item_options'/>
 					</block>
-					<block type='wishlist/customer_wishlist_item_column_remove' name='customer.wishlist.item.remove'
-						   template='wishlist/item/column/remove.phtml'/>
+					<block name='customer.wishlist.item.remove' template='wishlist/item/column/remove.phtml'
+						   type='wishlist/customer_wishlist_item_column_remove'/>
 				</block>
-				<block type='core/text_list' name='customer.wishlist.buttons' as='control_buttons'>
-					<block type='wishlist/customer_wishlist_button' name='customer.wishlist.button.share'
-						   template='wishlist/button/share.phtml'/>
-					<block type='wishlist/customer_wishlist_button' name='customer.wishlist.button.toCart'
-						   template='wishlist/button/tocart.phtml'/>
-					<block type='wishlist/customer_wishlist_button' name='customer.wishlist.button.update'
-						   template='wishlist/button/update.phtml'/>
+				<block as='control_buttons' name='customer.wishlist.buttons' type='core/text_list'>
+					<block name='customer.wishlist.button.share' template='wishlist/button/share.phtml'
+						   type='wishlist/customer_wishlist_button'/>
+					<block name='customer.wishlist.button.toCart' template='wishlist/button/tocart.phtml'
+						   type='wishlist/customer_wishlist_button'/>
+					<block name='customer.wishlist.button.update' template='wishlist/button/update.phtml'
+						   type='wishlist/customer_wishlist_button'/>
 				</block>
 			</block>
 		</reference>
@@ -79,7 +79,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>Customer My Account Wishlist Sharing Form</label>
 		<update handle='customer_account'/>
 		<reference name='my.account.wrapper'>
-			<block type='wishlist/customer_sharing' name='wishlist.sharing' template='wishlist/sharing.phtml'/>
+			<block name='wishlist.sharing' template='wishlist/sharing.phtml' type='wishlist/customer_sharing'/>
 		</reference>
 		<reference name='right'>
 			<action method='unsetChild'>
@@ -91,8 +91,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>Configure Wishlist Item</label>
 		<update handle='catalog_product_view'/>
 		<reference name='product.info'>
-			<block type='wishlist/item_configure' name='product.info.addto' as='addto'
-				   template='wishlist/item/configure/addto.phtml'/>
+			<block as='addto' name='product.info.addto' template='wishlist/item/configure/addto.phtml'
+				   type='wishlist/item_configure'/>
 		</reference>
 		<reference name='product.info.options.wrapper.bottom'>
 			<action method='unsetChild'><name>product.info.addto</name></action>
@@ -102,7 +102,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<wishlist_shared_index >
 		<label>Customer Shared Wishlist View</label>
 		<reference name='content'>
-			<block type='wishlist/share_wishlist' name='customer.wishlist' template='wishlist/shared.phtml'/>
+			<block name='customer.wishlist' template='wishlist/shared.phtml' type='wishlist/share_wishlist'/>
 		</reference>
 	</wishlist_shared_index>
 </layout>
