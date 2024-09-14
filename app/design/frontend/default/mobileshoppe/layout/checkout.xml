@@ -121,9 +121,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<remove name='right'/>
 		<remove name='left'/>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/1column.phtml</template>
-			</action>
+			<action method='setTemplate'><template>page/1column.phtml</template></action>
 		</reference>
 		<reference name='content'>
 			<block name='checkout_state' template='checkout/multishipping/state.phtml' type='checkout/multishipping_state'/>
@@ -139,8 +137,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>Multishipping Checkout Shipping Address Selection</label>
 		<update handle='checkout_multishipping'/>
 		<reference name='content'>
-			<block name='checkout_address_select' template='checkout/multishipping/address/select.phtml'
-				   type='checkout/multishipping_address_select'/>
+			<block
+				name='checkout_address_select'
+				template='checkout/multishipping/address/select.phtml'
+				type='checkout/multishipping_address_select'
+			/>
 		</reference>
 	</checkout_multishipping_address_select>
 	<checkout_multishipping_address_selectbilling >
