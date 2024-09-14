@@ -241,8 +241,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					template='downloadable/catalog/product/samples.phtml'
 					type='downloadable/catalog_product_samples'
 				/>
-				<block as='product_type_data_extra' name='product.info.downloadable.extra'
-					   template='cataloginventory/stockqty/default.phtml' type='cataloginventory/stockqty_default'/>
+				<block
+					as='product_type_data_extra'
+					name='product.info.downloadable.extra'
+					template='cataloginventory/stockqty/default.phtml'
+					type='cataloginventory/stockqty_default'
+				/>
 			</block>
 		</reference>
 		<reference name='product.info.options.wrapper'>
