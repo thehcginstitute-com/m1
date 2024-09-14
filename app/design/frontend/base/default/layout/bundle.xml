@@ -237,8 +237,13 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</reference>
 		<reference name='product.info.options.wrapper.bottom'>
 			<remove name='product.tierprices'/>
-			<block as='tierprices' before='-' name='bundle.tierprices' template='bundle/catalog/product/view/tierprices.phtml'
-				   type='bundle/catalog_product_view'/>
+			<block
+				as='tierprices'
+				before='-'
+				name='bundle.tierprices'
+				template='bundle/catalog/product/view/tierprices.phtml'
+				type='bundle/catalog_product_view'
+			/>
 			<block before='-' name='product.info.qtyincrements' template='cataloginventory/qtyincrements.phtml'
 				   type='cataloginventory/qtyincrements'/>
 		</reference>
