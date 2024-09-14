@@ -29,8 +29,8 @@ abstract class Mage_Catalog_Block_Seo_Sitemap_Abstract extends Mage_Core_Block_T
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @see \Mage_Catalog_Block_Seo_Sitemap_Tree_Category::bindPager()
 	 */
-	function bindPager(string $pagerName):void {
-		$pager = $this->getLayout()->getBlock($pagerName);
+	function bindPager(string $block):void {
+		$pager = $this->getLayout()->getBlock($block);
 		/** @var Mage_Page_Block_Html_Pager $pager */
 		if ($pager) {
 			$pager->setAvailableLimit([50 => 50]);

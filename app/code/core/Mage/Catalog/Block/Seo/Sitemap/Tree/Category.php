@@ -58,10 +58,9 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Category extends Mage_Catalog_Block_Se
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @override
 	 * @see Mage_Catalog_Block_Seo_Sitemap_Abstract::bindPager()
-	 * @param string $pagerName
 	 */
-	function bindPager(string $pagerName):void {
-		$pager = $this->getLayout()->getBlock($pagerName);
+	function bindPager(string $block):void {
+		$pager = $this->getLayout()->getBlock($block);
 		/** @var Mage_Catalog_Block_Seo_Sitemap_Tree_Pager $pager */
 		if ($pager) {
 			$pager->setAvailableLimit([50 => 50]);
