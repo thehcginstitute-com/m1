@@ -42,9 +42,9 @@ class Nwdthemes_Revslider_Adminhtml_NwdrevsliderController extends Mage_Adminhtm
 	 * Check permissions
 	 */
 
-    protected function _isAllowed() {
-        return Mage::getSingleton('admin/session')->isAllowed('nwdthemes/nwdrevslider');
-    }
+	protected function _isAllowed() {
+		return Mage::getSingleton('admin/session')->isAllowed('nwdthemes/nwdrevslider');
+	}
 
 	/**
 	 * Init action
@@ -67,7 +67,7 @@ class Nwdthemes_Revslider_Adminhtml_NwdrevsliderController extends Mage_Adminhtm
 			->_setActiveMenu('nwdthemes/nwdrevslider/nwdrevslider')
 			->_addBreadcrumb(Mage::helper('adminhtml')->__('Revolution Slider'), Mage::helper('adminhtml')->__('Revolution Slider'));
 			
-		$this->getLayout()->getBlock('head')->setCanLoadExtJs(true);
+		$this->getLayout()->getBlock('head')->setCanLoadExtJs();
 	}
 
 	/**
@@ -77,7 +77,7 @@ class Nwdthemes_Revslider_Adminhtml_NwdrevsliderController extends Mage_Adminhtm
 	function indexAction() {
 		if ( ! $this->_checkTablesErrors() )
 		{
-		    $this->slidersAction();
+			$this->slidersAction();
 		}
 		else
 		{
@@ -146,8 +146,8 @@ class Nwdthemes_Revslider_Adminhtml_NwdrevsliderController extends Mage_Adminhtm
 		}
 		else
 		{
-		    Mage::getSingleton('adminhtml/session')->addError($strError);
-		    $this->loadLayout()->_setActiveMenu('nwdthemes/nwdrevslider/nwdrevslider');
+			Mage::getSingleton('adminhtml/session')->addError($strError);
+			$this->loadLayout()->_setActiveMenu('nwdthemes/nwdrevslider/nwdrevslider');
 			$this->_setTitle(Mage::helper('nwdrevslider')->__('Error'));
 			$this->renderLayout();
 		}
