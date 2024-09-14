@@ -60,7 +60,6 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
 	 * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
-	 * @param int $position
 	 * @param string|array $liParams
 	 * @param string|array $aParams
 	 * @param string $beforeText
@@ -73,7 +72,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
 		string $title = '',
 		bool $prepare = false,
 		array $urlParams = [],
-		$position = null,
+		int $position = 0,
 		$liParams = null,
 		$aParams = null,
 		$beforeText = '',
