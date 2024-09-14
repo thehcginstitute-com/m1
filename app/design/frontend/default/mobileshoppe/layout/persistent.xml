@@ -14,11 +14,11 @@
 		<reference name='customer_form_login'>
 <!-- 2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2": https://github.com/thehcginstitute-com/m1/issues/34 -->
-			<action method='setTemplate' ifconfig='persistent/options/enabled'>
+			<action ifconfig='persistent/options/enabled' method='setTemplate'>
 				<template>persistent/customer/form/login.phtml</template>
 			</action>
-			<block type='persistent/form_remember' name='persistent.remember.me' template='persistent/remember_me.phtml'/>
-			<block type='core/template' name='persistent.remember.me.tooltip' template='persistent/remember_me_tooltip.phtml'/>
+			<block name='persistent.remember.me' template='persistent/remember_me.phtml' type='persistent/form_remember'/>
+			<block name='persistent.remember.me.tooltip' template='persistent/remember_me_tooltip.phtml' type='core/template'/>
 		</reference>
 	</customer_account_login>
 
@@ -28,22 +28,22 @@
 "`customer/form/register.phtml` is unused because it is always overriden by `persistent/customer/form/register.phtml`":
 https://github.com/thehcginstitute-com/m1/issues/335
 2024-02-14 "Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2": https://github.com/thehcginstitute-com/m1/issues/34 -->
-			<action method='setTemplate' ifconfig='persistent/options/enabled'>
+			<action ifconfig='persistent/options/enabled' method='setTemplate'>
 				<template>persistent/customer/form/register.phtml</template>
 			</action>
-			<block type='persistent/form_remember' name='persistent.remember.me' template='persistent/remember_me.phtml'/>
-			<block type='core/template' name='persistent.remember.me.tooltip' template='persistent/remember_me_tooltip.phtml'/>
+			<block name='persistent.remember.me' template='persistent/remember_me.phtml' type='persistent/form_remember'/>
+			<block name='persistent.remember.me.tooltip' template='persistent/remember_me_tooltip.phtml' type='core/template'/>
 		</reference>
 	</customer_account_create>
 	<checkout_onepage_index>
 		<reference name='checkout.onepage.login'>
 <!-- 2024-02-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 'Upgrade Magento 1.9.4.5 to OpenMage LTS 19.5.2': https://github.com/thehcginstitute-com/m1/issues/34 -->
-			<action method='setTemplate' ifconfig='persistent/options/enabled'>
+			<action ifconfig='persistent/options/enabled' method='setTemplate'>
 				<template>persistent/checkout/onepage/login.phtml</template>
 			</action>
-			<block type='persistent/form_remember' name='persistent.remember.me' template='persistent/remember_me.phtml'/>
-			<block type='core/template' name='persistent.remember.me.tooltip' template='persistent/remember_me_tooltip.phtml'/>
+			<block name='persistent.remember.me' template='persistent/remember_me.phtml' type='persistent/form_remember'/>
+			<block name='persistent.remember.me.tooltip' template='persistent/remember_me_tooltip.phtml' type='core/template'/>
 		</reference>
 	</checkout_onepage_index>
 </layout>
