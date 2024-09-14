@@ -13,9 +13,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</checkout_onepage_index>
 	<checkout_onepage_reorder>
 		<reference name='right'>
-			<action method='unsetChild'>
-				<name>reorder</name>
-			</action>
+			<action method='unsetChild'><name>reorder</name></action>
 		</reference>
 	</checkout_onepage_reorder>
 	<customer_account>
