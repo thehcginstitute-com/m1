@@ -54,11 +54,11 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * @used-by self::getCanLoadExtJs()
 	 * @used-by self::setCanLoadExtJs()
 	 * @see https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/main.xml#L18
-	 * https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/main.xml#L84
-	 * https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/main.xml#L89
-	 * https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/main.xml#L94
-	 * https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/main.xml#L99
-	 * https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/main.xml#L104
+	 * @see https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/main.xml#L84
+	 * @see https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/main.xml#L89
+	 * @see https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/main.xml#L94
+	 * @see https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/main.xml#L99
+	 * @see https://github.com/thehcginstitute-com/m1/blob/2024-09-14--4/app/design/adminhtml/default/default/layout/main.xml#L104
 	 * @const string
 	 */
 	private static $CAN_LOAD_EXT_JS = 'can_load_ext_js';
