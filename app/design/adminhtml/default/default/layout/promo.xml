@@ -12,9 +12,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_promo_catalog_edit>
 		<reference name='head'>
 			<action method='setCanLoadExtJs'/>
-			<action method='setCanLoadRulesJs'>
-				<flag>1</flag>
-			</action>
+			<action method='setCanLoadRulesJs'/>
 		</reference>
 		<reference name='left'>
 			<block name='promo_catalog_edit_tabs' type='adminhtml/promo_catalog_edit_tabs'>
@@ -41,9 +39,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_promo_quote_edit>
 		<reference name='head'>
 			<action method='setCanLoadExtJs'/>
-			<action method='setCanLoadRulesJs'>
-				<flag>1</flag>
-			</action>
+			<action method='setCanLoadRulesJs'/>
 		</reference>
 		<reference name='left'>
 			<block name='promo_quote_edit_tabs' type='adminhtml/promo_quote_edit_tabs'>
