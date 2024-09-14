@@ -59,8 +59,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</checkout_onepage_review>
 	<checkout_onepage_success>
 		<reference name='content'>
-			<block name='mailchimp.checkout.success' template='ebizmarts/mailchimp/checkout/success/groups.phtml'
-				type='mailchimp/checkout_success_groups'>
+			<block
+				name='mailchimp.checkout.success'
+				template='ebizmarts/mailchimp/checkout/success/groups.phtml'
+				type='mailchimp/checkout_success_groups'
+			>
 				<block name='mailchimp.group.type' type='mailchimp/group_type'/>
 			</block>
 		</reference>
