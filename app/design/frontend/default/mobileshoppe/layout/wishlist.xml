@@ -88,8 +88,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						template='wishlist/button/tocart.phtml'
 						type='wishlist/customer_wishlist_button'
 					/>
-					<block name='customer.wishlist.button.update' template='wishlist/button/update.phtml'
-						   type='wishlist/customer_wishlist_button'/>
+					<block
+						name='customer.wishlist.button.update'
+						template='wishlist/button/update.phtml'
+						type='wishlist/customer_wishlist_button'
+					/>
 				</block>
 			</block>
 		</reference>
