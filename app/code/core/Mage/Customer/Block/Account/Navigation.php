@@ -66,7 +66,7 @@ class Mage_Customer_Block_Account_Navigation extends Mage_Core_Block_Template
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function setActive(string $path):self {
+	final function setActive(string $path):self {
 		$this->_activeLink = $this->_completePath($path);
 		return $this;
 	}
