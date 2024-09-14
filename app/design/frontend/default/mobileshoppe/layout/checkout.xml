@@ -522,9 +522,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<checkout_onepage_success >
 		<label>One Page Checkout Success</label>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/2columns-left.phtml</template>
-			</action>
+			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
 		</reference>
 		<reference name='content'>
 			<block name='checkout.success' template='checkout/success.phtml' type='checkout/onepage_success'/>
@@ -533,9 +531,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<checkout_onepage_failure >
 		<label>One Page Checkout Failure</label>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/2columns-left.phtml</template>
-			</action>
+			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
 		</reference>
 		<reference name='content'>
 			<block name='checkout.failure' template='checkout/onepage/failure.phtml' type='checkout/onepage_failure'/>
