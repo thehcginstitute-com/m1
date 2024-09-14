@@ -319,8 +319,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					type='checkout/agreements'
 				/>
 				<block name='totals' type='checkout/cart_totals'/>
-				<block as='items_after' name='checkout.multishipping.overview.items.after' type='core/text_list'
-					   >
+				<block as='items_after' name='checkout.multishipping.overview.items.after' type='core/text_list'>
 					<label>Overview Items After</label>
 				</block>
 			</block>
