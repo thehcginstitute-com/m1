@@ -1,12 +1,17 @@
 <?xml version='1.0'?>
-<layout version='1.0.0'>
+<!-- 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+<layout>
 	<nwdrevslider_common>
 		<reference name='head'>
-			<action method='setTemplate'>
-				<template>nwdthemes/revslider/page/head.phtml</template>
-			</action>
-			<block type='adminhtml/template' name='thickbox.js' as='thickbox.js'
-				   template='nwdthemes/revslider/head/thickbox.phtml'/>
+			<action method='setTemplate'><template>nwdthemes/revslider/page/head.phtml</template></action>
+			<block
+				as='thickbox.js'
+				name='thickbox.js'
+				template='nwdthemes/revslider/head/thickbox.phtml'
+				type='adminhtml/template'
+			/>
 			<action method='addItem'>
 				<type>skin_css</type>
 				<name>css/nwdthemes/revslider/jui/jquery-ui.css</name>
@@ -158,9 +163,9 @@
 				<type>js_css</type>
 				<name>prototype/windows/themes/default.css</name>
 			</action>
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
+			<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
+			https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'>
 				<name>extjs/ext-tree.js</name>
 			</action>
@@ -191,37 +196,37 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_nwdrevslider_sliders>
 		<update handle='nwdrevslider_common'/>
 		<reference name='content'>
-			<block type='nwdrevslider/adminhtml_masterview' name='nwdrevslider.masterview' as='nwdrevslider.masterview'
-				   template='nwdthemes/revslider/masterview.phtml'>
-				<block type='nwdrevslider/adminhtml_sliders' name='view' as='view' template='nwdthemes/revslider/sliders.phtml'>
-					<block type='adminhtml/template' name='release_log' as='release_log'
-						   template='nwdthemes/revslider/html/release_log.html'/>
-					<block type='nwdrevslider/adminhtml_sliders_list' name='sliders_list' as='sliders_list'
-						   template='nwdthemes/revslider/templates/sliders_list.phtml'/>
-					<block type='nwdrevslider/adminhtml_sliders_list' name='sliders_list_template' as='sliders_list_template'
-						   template='nwdthemes/revslider/templates/sliders_list.phtml'/>
-					<block type='adminhtml/template' name='dialog_preview_slider' as='dialog_preview_slider'
-						   template='nwdthemes/revslider/templates/dialog_preview_slider.phtml'/>
+			<block as='nwdrevslider.masterview' name='nwdrevslider.masterview' template='nwdthemes/revslider/masterview.phtml'
+				type='nwdrevslider/adminhtml_masterview'>
+				<block as='view' name='view' template='nwdthemes/revslider/sliders.phtml' type='nwdrevslider/adminhtml_sliders'>
+					<block as='release_log' name='release_log' template='nwdthemes/revslider/html/release_log.html'
+						type='adminhtml/template'/>
+					<block as='sliders_list' name='sliders_list' template='nwdthemes/revslider/templates/sliders_list.phtml'
+						type='nwdrevslider/adminhtml_sliders_list'/>
+					<block as='sliders_list_template' name='sliders_list_template' template='nwdthemes/revslider/templates/sliders_list.phtml'
+						type='nwdrevslider/adminhtml_sliders_list'/>
+					<block as='dialog_preview_slider' name='dialog_preview_slider' template='nwdthemes/revslider/templates/dialog_preview_slider.phtml'
+						type='adminhtml/template'/>
 				</block>
-				<block type='nwdrevslider/adminhtml_block_template' name='general_settings_dialog' as='general_settings_dialog'
-					   template='nwdthemes/revslider/system/general_settings_dialog.phtml'/>
+				<block as='general_settings_dialog' name='general_settings_dialog' template='nwdthemes/revslider/system/general_settings_dialog.phtml'
+					type='nwdrevslider/adminhtml_block_template'/>
 			</block>
 		</reference>
 	</adminhtml_nwdrevslider_sliders>
 	<adminhtml_nwdrevslider_slider>
 		<update handle='nwdrevslider_common'/>
 		<reference name='content'>
-			<block type='nwdrevslider/adminhtml_masterview' name='nwdrevslider.masterview' as='nwdrevslider.masterview'
-				   template='nwdthemes/revslider/masterview.phtml'>
-				<block type='nwdrevslider/adminhtml_slider_edit' name='view' as='view'>
-					<block type='adminhtml/template' name='slider_toolbox' as='slider_toolbox'
-						   template='nwdthemes/revslider/templates/slider_toolbox.phtml'/>
-					<block type='adminhtml/template' name='slider_api' as='slider_api'
-						   template='nwdthemes/revslider/templates/slider_api.phtml'/>
-					<block type='adminhtml/template' name='slider_css_js' as='slider_css_js'
-						   template='nwdthemes/revslider/templates/slider_css_js.phtml'/>
-					<block type='adminhtml/template' name='dialog_preview_slider' as='dialog_preview_slider'
-						   template='nwdthemes/revslider/templates/dialog_preview_slider.phtml'/>
+			<block as='nwdrevslider.masterview' name='nwdrevslider.masterview' template='nwdthemes/revslider/masterview.phtml'
+				type='nwdrevslider/adminhtml_masterview'>
+				<block as='view' name='view' type='nwdrevslider/adminhtml_slider_edit'>
+					<block as='slider_toolbox' name='slider_toolbox' template='nwdthemes/revslider/templates/slider_toolbox.phtml'
+						type='adminhtml/template'/>
+					<block as='slider_api' name='slider_api' template='nwdthemes/revslider/templates/slider_api.phtml'
+						type='adminhtml/template'/>
+					<block as='slider_css_js' name='slider_css_js' template='nwdthemes/revslider/templates/slider_css_js.phtml'
+						type='adminhtml/template'/>
+					<block as='dialog_preview_slider' name='dialog_preview_slider' template='nwdthemes/revslider/templates/dialog_preview_slider.phtml'
+						type='adminhtml/template'/>
 				</block>
 			</block>
 		</reference>
@@ -229,17 +234,17 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<adminhtml_nwdrevslider_slidertemplate>
 		<update handle='nwdrevslider_common'/>
 		<reference name='content'>
-			<block type='nwdrevslider/adminhtml_masterview' name='nwdrevslider.masterview' as='nwdrevslider.masterview'
-				   template='nwdthemes/revslider/masterview.phtml'>
-				<block type='nwdrevslider/adminhtml_slider_template_edit' name='view' as='view'>
-					<block type='adminhtml/template' name='slider_toolbox' as='slider_toolbox'
-						   template='nwdthemes/revslider/templates/slider_toolbox.phtml'/>
-					<block type='adminhtml/template' name='slider_api' as='slider_api'
-						   template='nwdthemes/revslider/templates/slider_api.phtml'/>
-					<block type='adminhtml/template' name='slider_css_js' as='slider_css_js'
-						   template='nwdthemes/revslider/templates/slider_css_js.phtml'/>
-					<block type='adminhtml/template' name='dialog_preview_slider' as='dialog_preview_slider'
-						   template='nwdthemes/revslider/templates/dialog_preview_slider.phtml'/>
+			<block as='nwdrevslider.masterview' name='nwdrevslider.masterview' template='nwdthemes/revslider/masterview.phtml'
+				type='nwdrevslider/adminhtml_masterview'>
+				<block as='view' name='view' type='nwdrevslider/adminhtml_slider_template_edit'>
+					<block as='slider_toolbox' name='slider_toolbox' template='nwdthemes/revslider/templates/slider_toolbox.phtml'
+						type='adminhtml/template'/>
+					<block as='slider_api' name='slider_api' template='nwdthemes/revslider/templates/slider_api.phtml'
+						type='adminhtml/template'/>
+					<block as='slider_css_js' name='slider_css_js' template='nwdthemes/revslider/templates/slider_css_js.phtml'
+						type='adminhtml/template'/>
+					<block as='dialog_preview_slider' name='dialog_preview_slider' template='nwdthemes/revslider/templates/dialog_preview_slider.phtml'
+						type='adminhtml/template'/>
 				</block>
 			</block>
 		</reference>
@@ -248,15 +253,15 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<update handle='nwdrevslider_common'/>
 		<update handle='nwdrevslider_images_common'/>
 		<reference name='content'>
-			<block type='nwdrevslider/adminhtml_masterview' name='nwdrevslider.masterview' as='nwdrevslider.masterview'
-				   template='nwdthemes/revslider/masterview.phtml'>
-				<block type='nwdrevslider/adminhtml_slides' name='view' as='view'>
-					<block type='adminhtml/template' name='slides_list' as='slides_list'
-						   template='nwdthemes/revslider/templates/slides_list.phtml'/>
-					<block type='adminhtml/template' name='slides_list_posts' as='slides_list_posts'
-						   template='nwdthemes/revslider/templates/slides_list_posts.phtml'/>
-					<block type='adminhtml/template' name='dialog_preview_slide' as='dialog_preview_slide'
-						   template='nwdthemes/revslider/templates/dialog_preview_slide.phtml'/>
+			<block as='nwdrevslider.masterview' name='nwdrevslider.masterview' template='nwdthemes/revslider/masterview.phtml'
+				type='nwdrevslider/adminhtml_masterview'>
+				<block as='view' name='view' type='nwdrevslider/adminhtml_slides'>
+					<block as='slides_list' name='slides_list' template='nwdthemes/revslider/templates/slides_list.phtml'
+						type='adminhtml/template'/>
+					<block as='slides_list_posts' name='slides_list_posts' template='nwdthemes/revslider/templates/slides_list_posts.phtml'
+						type='adminhtml/template'/>
+					<block as='dialog_preview_slide' name='dialog_preview_slide' template='nwdthemes/revslider/templates/dialog_preview_slide.phtml'
+						type='adminhtml/template'/>
 				</block>
 			</block>
 		</reference>
@@ -265,18 +270,18 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<update handle='nwdrevslider_common'/>
 		<update handle='nwdrevslider_images_common'/>
 		<reference name='content'>
-			<block type='nwdrevslider/adminhtml_masterview' name='nwdrevslider.masterview' as='nwdrevslider.masterview'
-				   template='nwdthemes/revslider/masterview.phtml'>
-				<block type='nwdrevslider/adminhtml_slide' name='view' as='view'
-					   template='nwdthemes/revslider/templates/slide.phtml'>
-					<block type='adminhtml/template' name='edit_layers' as='edit_layers'
-						   template='nwdthemes/revslider/templates/edit_layers.phtml'/>
-					<block type='adminhtml/template' name='dialog_preview_slide' as='dialog_preview_slide'
-						   template='nwdthemes/revslider/templates/dialog_preview_slide.phtml'/>
-					<block type='adminhtml/template' name='dialog_preview_slider' as='dialog_preview_slider'
-						   template='nwdthemes/revslider/templates/dialog_preview_slider.phtml'/>
-					<block type='adminhtml/template' name='video_dialog' as='video_dialog'
-						   template='nwdthemes/revslider/system/video_dialog.phtml'/>
+			<block as='nwdrevslider.masterview' name='nwdrevslider.masterview' template='nwdthemes/revslider/masterview.phtml'
+				type='nwdrevslider/adminhtml_masterview'>
+				<block as='view' name='view' template='nwdthemes/revslider/templates/slide.phtml'
+					type='nwdrevslider/adminhtml_slide'>
+					<block as='edit_layers' name='edit_layers' template='nwdthemes/revslider/templates/edit_layers.phtml'
+						type='adminhtml/template'/>
+					<block as='dialog_preview_slide' name='dialog_preview_slide' template='nwdthemes/revslider/templates/dialog_preview_slide.phtml'
+						type='adminhtml/template'/>
+					<block as='dialog_preview_slider' name='dialog_preview_slider' template='nwdthemes/revslider/templates/dialog_preview_slider.phtml'
+						type='adminhtml/template'/>
+					<block as='video_dialog' name='video_dialog' template='nwdthemes/revslider/system/video_dialog.phtml'
+						type='adminhtml/template'/>
 				</block>
 			</block>
 		</reference>
@@ -285,26 +290,26 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<remove name='footer'/>
 		<remove name='head'/>
 		<reference name='left'>
-			<block name='wysiwyg_images.js' type='adminhtml/cms_wysiwyg_images_content' template='cms/browser/js.phtml'/>
-			<block name='wysiwyg_images.tree' type='adminhtml/cms_wysiwyg_images_tree' template='cms/browser/tree.phtml'/>
+			<block name='wysiwyg_images.js' template='cms/browser/js.phtml' type='adminhtml/cms_wysiwyg_images_content'/>
+			<block name='wysiwyg_images.tree' template='cms/browser/tree.phtml' type='adminhtml/cms_wysiwyg_images_tree'/>
 		</reference>
 		<reference name='content'>
-			<block name='wysiwyg_images.content' type='adminhtml/cms_wysiwyg_images_content' template='cms/browser/content.phtml'>
-				<block name='wysiwyg_images.uploader' type='adminhtml/cms_wysiwyg_images_content_uploader'
-					   template='cms/browser/content/uploader.phtml'/>
-				<block name='wysiwyg_images.newfolder' type='adminhtml/cms_wysiwyg_images_content_newfolder'
-					   template='cms/browser/content/newfolder.phtml'/>
+			<block name='wysiwyg_images.content' template='cms/browser/content.phtml' type='adminhtml/cms_wysiwyg_images_content'>
+				<block name='wysiwyg_images.uploader' template='cms/browser/content/uploader.phtml'
+					type='adminhtml/cms_wysiwyg_images_content_uploader'/>
+				<block name='wysiwyg_images.newfolder' template='cms/browser/content/newfolder.phtml'
+					type='adminhtml/cms_wysiwyg_images_content_newfolder'/>
 			</block>
 		</reference>
 	</adminhtml_images_index>
 	<adminhtml_images_contents>
-		<block name='wysiwyg_images.files' type='nwdrevslider/adminhtml_images_content_files'
-			   template='cms/browser/content/files.phtml' output='toHtml'/>
+		<block name='wysiwyg_images.files' output='toHtml'
+			template='cms/browser/content/files.phtml' type='nwdrevslider/adminhtml_images_content_files'/>
 	</adminhtml_images_contents>
 	<adminhtml_nwdrevslider_error>
 		<reference name='content'>
-			<block type='adminhtml/template' name='slider_error' as='slider_error'
-				   template='nwdthemes/revslider/templates/error.phtml'/>
+			<block as='slider_error' name='slider_error' template='nwdthemes/revslider/templates/error.phtml'
+				type='adminhtml/template'/>
 		</reference>
 	</adminhtml_nwdrevslider_error>
 </layout>
