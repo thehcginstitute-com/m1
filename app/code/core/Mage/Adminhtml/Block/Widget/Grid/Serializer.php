@@ -96,11 +96,10 @@ class Mage_Adminhtml_Block_Widget_Grid_Serializer extends Mage_Core_Block_Templa
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @param Mage_Adminhtml_Block_Widget_Grid | string $grid grid object or grid block name
-	 * @param string $callback block method  to retrieve data to serialize
-	 * @param string $hiddenInputName hidden input name where serialized data will be store
-	 * @param string $reloadParamName name of request parametr that will be used to save setted data while reload grid
 	 */
-	final function initSerializerBlock($grid, $callback, $hiddenInputName, $reloadParamName = 'entityCollection'):void {
+	final function initSerializerBlock(
+		$grid, string $callback, string $hiddenInputName, string $reloadParamName = 'entityCollection'
+	):void {
 		if (is_string($grid)) {
 			$grid = $this->getLayout()->getBlock($grid);
 		}
