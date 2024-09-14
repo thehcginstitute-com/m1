@@ -195,8 +195,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<template>bundle/catalog/product/price.phtml</template>
 					<type>bundle</type>
 				</action>
-				<block as='bundle_prices' name='bundle.prices' template='bundle/catalog/product/view/price.phtml'
-					   type='bundle/catalog_product_price'>
+				<block
+					as='bundle_prices'
+					name='bundle.prices'
+					template='bundle/catalog/product/view/price.phtml'
+					type='bundle/catalog_product_price'
+				>
 					<action method='setMAPTemplate'>
 						<tmpl>catalog/product/price_msrp_item.phtml</tmpl>
 					</action>
