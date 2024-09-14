@@ -1,95 +1,113 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<layout version="0.1.0">
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+<layout>
 	<onepagecheckout_index_index>
-		<reference name="head">
-			<action method="addItem" ifconfig="opcsignature/general/jquery">
+		<reference name='head'>
+			<action ifconfig='opcsignature/general/jquery' method='addItem'>
 				<name>js/signature/jquery-1.7.2.js</name>
 				<type>skin_js</type>
 			</action>
-			<action method="addItem" ifconfig="opcsignature/general/enabled">
+			<action ifconfig='opcsignature/general/enabled' method='addItem'>
 				<name>css/signature/jquery.signaturepad.css</name>
 				<type>skin_css</type>
 			</action>
-			<action method="addItem" ifconfig="opcsignature/general/enabled">
+			<action ifconfig='opcsignature/general/enabled' method='addItem'>
 				<name>js/signature/jquery.signaturepad.min.js</name>
 				<type>skin_js</type>
 			</action>
-			<action method="addItem" ifconfig="opcsignature/general/enabled">
+			<action ifconfig='opcsignature/general/enabled' method='addItem'>
 				<name>js/signature/json2.min.js</name>
 				<type>skin_js</type>
 			</action>
-			<action method="addItem" ifconfig="opcsignature/general/enabled">
+			<action ifconfig='opcsignature/general/enabled' method='addItem'>
 				<name>js/signature/signature.js</name>
 				<type>skin_js</type>
 			</action>
 		</reference>
-		<reference name="checkout.onepage.review">
-			<action method="setTemplate"><template>opcsignature/onepagecheckout/review.phtml</template></action>
+		<reference name='checkout.onepage.review'>
+			<action method='setTemplate'>
+				<template>opcsignature/onepagecheckout/review.phtml</template>
+			</action>
 		</reference>
 	</onepagecheckout_index_index>
 	<checkout_onepage_index>
-		<reference name="head">
-			<action method="addItem" ifconfig="opcsignature/general/jquery">
+		<reference name='head'>
+			<action ifconfig='opcsignature/general/jquery' method='addItem'>
 				<name>js/signature/jquery-1.7.2.js</name>
 				<type>skin_js</type>
 			</action>
-			<action method="addItem" ifconfig="opcsignature/general/enabled">
+			<action ifconfig='opcsignature/general/enabled' method='addItem'>
 				<name>css/signature/jquery.signaturepad.css</name>
 				<type>skin_css</type>
 			</action>
-			<action method="addItem" ifconfig="opcsignature/general/enabled">
+			<action ifconfig='opcsignature/general/enabled' method='addItem'>
 				<name>js/signature/jquery.signaturepad.min.js</name>
 				<type>skin_js</type>
 			</action>
-			<action method="addItem" ifconfig="opcsignature/general/enabled">
+			<action ifconfig='opcsignature/general/enabled' method='addItem'>
 				<name>js/signature/json2.min.js</name>
 				<type>skin_js</type>
 			</action>
-			<action method="addItem" ifconfig="opcsignature/general/enabled">
+			<action ifconfig='opcsignature/general/enabled' method='addItem'>
 				<name>js/signature/signature.js</name>
 				<type>skin_js</type>
 			</action>
 		</reference>
 	</checkout_onepage_index>
 	<checkout_multishipping_overview>
-		<reference name="head">
-			<action method="addItem" ifconfig="opcsignature/general/jquery">
+		<reference name='head'>
+			<action ifconfig='opcsignature/general/jquery' method='addItem'>
 				<name>js/signature/jquery-1.7.2.js</name>
 				<type>skin_js</type>
 			</action>
-			<action method="addItem" ifconfig="opcsignature/general/enabled">
+			<action ifconfig='opcsignature/general/enabled' method='addItem'>
 				<name>css/signature/jquery.signaturepad.css</name>
 				<type>skin_css</type>
 			</action>
-			<action method="addItem" ifconfig="opcsignature/general/enabled">
+			<action ifconfig='opcsignature/general/enabled' method='addItem'>
 				<name>js/signature/jquery.signaturepad.min.js</name>
 				<type>skin_js</type>
 			</action>
-			<action method="addItem" ifconfig="opcsignature/general/enabled">
+			<action ifconfig='opcsignature/general/enabled' method='addItem'>
 				<name>js/signature/json2.min.js</name>
 				<type>skin_js</type>
 			</action>
-			<action method="addItem" ifconfig="opcsignature/general/enabled">
+			<action ifconfig='opcsignature/general/enabled' method='addItem'>
 				<name>js/signature/signature.js</name>
 				<type>skin_js</type>
 			</action>
 		</reference>
 	</checkout_multishipping_overview>
 	<checkout_onepage_review>
-		<reference name="root">
-				<block type="opcsignature/signature" name="opcsignature.signature"  output="toHtml" template="opcsignature/standard_signature.phtml">
-					<action method="setChild"><name>agreements</name><block>agreements</block></action>
-				</block>
-			<action method="setChild"><name>agreements</name><block>opcsignature.signature</block></action>
+		<reference name='root'>
+			<block name='opcsignature.signature' output='toHtml' template='opcsignature/standard_signature.phtml'
+				type='opcsignature/signature'>
+				<action method='setChild'>
+					<name>agreements</name>
+					<block>agreements</block>
+				</action>
+			</block>
+			<action method='setChild'>
+				<name>agreements</name>
+				<block>opcsignature.signature</block>
+			</action>
 		</reference>
 	</checkout_onepage_review>
 	<checkout_multishipping_overview>
-		<reference name="checkout_overview">
-				<block type="opcsignature/signature" name="opcsignature.signature"  output="toHtml" template="opcsignature/multiple_signature.phtml">
-					<action method="setChild"><name>agreements</name><block>agreements</block></action>
-				</block>
-			<action method="setChild"><name>agreements</name><block>opcsignature.signature</block></action>
+		<reference name='checkout_overview'>
+			<block name='opcsignature.signature' output='toHtml' template='opcsignature/multiple_signature.phtml'
+				type='opcsignature/signature'>
+				<action method='setChild'>
+					<name>agreements</name>
+					<block>agreements</block>
+				</action>
+			</block>
+			<action method='setChild'>
+				<name>agreements</name>
+				<block>opcsignature.signature</block>
+			</action>
 		</reference>
 	</checkout_multishipping_overview>
 </layout>
-                                                               
