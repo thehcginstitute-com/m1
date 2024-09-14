@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 <!-- 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Refactor the `<layout>` XML files": https://github.com/thehcginstitute-com/m1/issues/681 -->
-<layout version='0.1.0'>
+<layout>
 	<default>
 		<reference name='footer_links'>
 			<action ifconfig='catalog/seo/site_map' method='addLink' module='catalog' translate='label title'>
