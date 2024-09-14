@@ -26,12 +26,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<remove name='js_cookie'/>
 		<block name='root' output='toHtml' template='page/empty.phtml' type='page/html'>
 			<block as='head' name='head' template='oauth/authorize/head-simple.phtml' type='page/html_head'>
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
-				<action method='addCss'>
-					<name>css/oauth-simple.css</name>
-				</action>
+				<action method='addCss'><name>css/oauth-simple.css</name></action>
 			</block>
 			<block name='content' type='core/text_list'/>
 		</block>
