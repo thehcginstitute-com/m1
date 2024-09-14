@@ -12,7 +12,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</reference>
 		<reference name='menu'>
 			<action method='setActive'>
-				<menupath>catalog/products</menupath>
+				<path>catalog/products</path>
 			</action>
 		</reference>
 		<reference name='content'>
