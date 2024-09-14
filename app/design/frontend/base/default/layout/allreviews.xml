@@ -5,17 +5,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 <layout>
 	<default>
 		<reference name='head'>
-			<action method='addItem'>
-				<name>ekoim/allreviews/allreviews.css</name>
-				<type>skin_css</type>
-			</action>
+			<action method='addItem'><name>ekoim/allreviews/allreviews.css</name><type>skin_css</type></action>
 		</reference>
 	</default>
 	<allreviews_index_index>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/1column.phtml</template>
-			</action>
+			<action method='setTemplate'><template>page/1column.phtml</template></action>
 		</reference>
 		<reference name='content'>
 			<block name='all_reviews' template='allreviews/reviews.phtml' type='allreviews/allreviews'/>
