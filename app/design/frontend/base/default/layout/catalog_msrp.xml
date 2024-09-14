@@ -1,5 +1,8 @@
 <?xml version='1.0'?>
-<layout version='0.1.0'>
+<!-- 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+<layout>
 	<catalog_category_default>
 		<update handle='MAP_popup'/>
 	</catalog_category_default>
@@ -40,17 +43,17 @@
 	<catalogsearch_advanced_result>
 		<update handle='MAP_popup'/>
 	</catalogsearch_advanced_result>
-<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-'Delete the unused `Mage_Tag` module': https://github.com/thehcginstitute-com/m1/issues/372 -->
+	<!-- 2024-02-05 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	'Delete the unused `Mage_Tag` module': https://github.com/thehcginstitute-com/m1/issues/372 -->
 	<MAP_popup>
 		<reference name='head'>
-			<action method='addItem' ifconfig='sales/msrp/enabled'>
+			<action ifconfig='sales/msrp/enabled' method='addItem'>
 				<name>js/msrp.js</name>
 				<type>skin_js</type>
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='core/template' template='catalog/msrp/popup.phtml' name='product.tooltip'></block>
+			<block name='product.tooltip' template='catalog/msrp/popup.phtml' type='core/template'></block>
 		</reference>
 	</MAP_popup>
 	<MAP_price_msrp_item>
