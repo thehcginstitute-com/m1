@@ -1,17 +1,23 @@
-<?xml version="1.0"?>
-<layout version="0.1.0">
+<?xml version='1.0'?>
+<!-- 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+<layout>
 	<default>
-		<reference name="head">
-			<action method="addItem">
+		<reference name='head'>
+			<action method='addItem'>
 				<name>override.css</name>
 				<type>skin_css</type>
 			</action>
-			<action method="addItem">
+			<action method='addItem'>
 				<name>form.css</name>
 				<type>skin_css</type>
 			</action>
-			<action method="removeItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name></action>
-			<action method="addItem">
+			<action method='removeItem'>
+				<type>js_css</type>
+				<name>calendar/calendar-win2k-1.css</name>
+			</action>
+			<action method='addItem'>
 				<name>calendar-blue2.css</name>
 				<type>skin_css</type>
 			</action>
