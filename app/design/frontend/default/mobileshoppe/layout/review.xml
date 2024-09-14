@@ -14,40 +14,34 @@
 			<action method='unsetChild'>
 				<name>customer_account_dashboard_info1</name>
 			</action>
-			<block as='info1' name='customer_account_dashboard_info1' template='review/customer/recent.phtml'
-				   type='review/customer_recent'/>
+			<block
+				as='info1'
+				name='customer_account_dashboard_info1'
+				template='review/customer/recent.phtml'
+				type='review/customer_recent'
+			/>
 		</reference>
 	</customer_account_index>
 	<reviews>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/2columns-left.phtml</template>
-			</action>
+			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
 		</reference>
 	</reviews>
 	<review_product_list translate='label'>
 		<label>Catalog Product Reviews List</label>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/2columns-left.phtml</template>
-			</action>
+			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
 		</reference>
 		<reference name='head'>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
-			<action method='addJs'>
-				<name>varien/product.js</name>
-			</action>
+			<action method='addJs'><name>varien/product.js</name></action>
 <!-- 2024-01-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Port the `app/design/frontend/base/default/layout/review.xml` 1.9.1.0 → 1.9.4.5 changes to the `mobileshoppe` design theme":
 https://github.com/thehcginstitute-com/m1/issues/202 -->
-			<action method='addJs'>
-				<name>varien/product_options.js</name>
-			</action>
-			<action method='addJs'>
-				<name>varien/configurable.js</name>
-			</action>
+			<action method='addJs'><name>varien/product_options.js</name></action>
+			<action method='addJs'><name>varien/configurable.js</name></action>
 		</reference>
 		<reference name='content'>
 			<block name='product.info' template='catalog/product/view.phtml' type='review/product_view'>
@@ -63,21 +57,37 @@ https://github.com/thehcginstitute-com/m1/issues/202 -->
 					template='catalog/product/view/addto.phtml'
 					type='catalog/product_view'
 				/>
-				<block as='addtocart' name='product.info.addtocart' template='catalog/product/view/addtocart.phtml'
-					   type='catalog/product_view'>
+				<block
+					as='addtocart'
+					name='product.info.addtocart'
+					template='catalog/product/view/addtocart.phtml'
+					type='catalog/product_view'
+				>
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the unused `Mage_Paypal` module": https://github.com/thehcginstitute-com/m1/issues/356 -->
 				</block>
-				<block as='tierprices' name='product.tierprices' template='catalog/product/view/tierprices.phtml'
-					   type='catalog/product_view'/>
+				<block
+					as='tierprices'
+					name='product.tierprices'
+					template='catalog/product/view/tierprices.phtml'
+					type='catalog/product_view'
+				/>
 				<block as='other' name='product.info.other' template='review/product/view/other.phtml' type='core/template'/>
 				<block name='product_review_list.toolbar' type='page/html_pager'/>
 				<block name='product_review_list.count' template='review/product/view/count.phtml' type='core/template'/>
-				<block as='product_additional_data' name='product.info.product_additional_data' template='review/product/view/list.phtml'
-					   type='review/product_view_list'>
+				<block
+					as='product_additional_data'
+					name='product.info.product_additional_data'
+					template='review/product/view/list.phtml'
+					type='review/product_view_list'
+				>
 					<block as='review_form' name='product.review.form' type='review/form'>
-						<block as='form_fields_before' name='product.review.form.fields.before' translate='label'
-							   type='page/html_wrapper'>
+						<block
+							as='form_fields_before'
+							name='product.review.form.fields.before'
+							translate='label'
+							type='page/html_wrapper'
+						>
 							<label>Review Form Fields Before</label>
 							<action method='setMayBeInvisible'>
 								<value>1</value>
