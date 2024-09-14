@@ -5,43 +5,17 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 <layout>
 	<oauth_root_handle>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/1column.phtml</template>
-			</action>
+			<action method='setTemplate'><template>page/1column.phtml</template></action>
 		</reference>
 		<reference name='head'>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>lib/ccard.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>scriptaculous/controls.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>scriptaculous/builder.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>scriptaculous/dragdrop.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>scriptaculous/controls.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>scriptaculous/slider.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>varien/js.js</name>
-			</action>
-			<action method='removeItem'>
-				<type>js</type>
-				<name>varien/menu.js</name>
-			</action>
+			<action method='removeItem'><name>lib/ccard.js</name><type>js</type></action>
+			<action method='removeItem'><name>scriptaculous/controls.js</name><type>js</type></action>
+			<action method='removeItem'><name>scriptaculous/builder.js</name><type>js</type></action>
+			<action method='removeItem'><name>scriptaculous/dragdrop.js</name><type>js</type></action>
+			<action method='removeItem'><name>scriptaculous/controls.js</name><type>js</type></action>
+			<action method='removeItem'><name>scriptaculous/slider.js</name><type>js</type></action>
+			<action method='removeItem'><name>varien/js.js</name><type>js</type></action>
+			<action method='removeItem'><name>varien/menu.js</name><type>js</type></action>
 		</reference>
 		<remove name='top.links'/>
 		<remove name='top.search'/>
