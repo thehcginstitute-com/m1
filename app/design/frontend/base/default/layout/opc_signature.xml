@@ -80,31 +80,39 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</checkout_multishipping_overview>
 	<checkout_onepage_review>
 		<reference name='root'>
-			<block name='opcsignature.signature' output='toHtml' template='opcsignature/standard_signature.phtml'
-				type='opcsignature/signature'>
+			<block
+				name='opcsignature.signature'
+				output='toHtml'
+				template='opcsignature/standard_signature.phtml'
+				type='opcsignature/signature'
+			>
 				<action method='setChild'>
-					<name>agreements</name>
 					<block>agreements</block>
+					<name>agreements</name>
 				</action>
 			</block>
 			<action method='setChild'>
-				<name>agreements</name>
 				<block>opcsignature.signature</block>
+				<name>agreements</name>
 			</action>
 		</reference>
 	</checkout_onepage_review>
 	<checkout_multishipping_overview>
 		<reference name='checkout_overview'>
-			<block name='opcsignature.signature' output='toHtml' template='opcsignature/multiple_signature.phtml'
-				type='opcsignature/signature'>
+			<block
+				name='opcsignature.signature'
+				output='toHtml'
+				template='opcsignature/multiple_signature.phtml'
+				type='opcsignature/signature'
+			>
 				<action method='setChild'>
-					<name>agreements</name>
 					<block>agreements</block>
+					<name>agreements</name>
 				</action>
 			</block>
 			<action method='setChild'>
-				<name>agreements</name>
 				<block>opcsignature.signature</block>
+				<name>agreements</name>
 			</action>
 		</reference>
 	</checkout_multishipping_overview>
