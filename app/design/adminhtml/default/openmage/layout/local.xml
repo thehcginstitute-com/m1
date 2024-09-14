@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
-    <default>
-        <reference name="head">
-            <action method="addItem">
+	<default>
+		<reference name="head">
+			<action method="addItem">
 				<name>override.css</name>
 				<type>skin_css</type>
 			</action>
-            <action method="addItem">
+			<action method="addItem">
 				<name>form.css</name>
 				<type>skin_css</type>
 			</action>
-            <action method="removeItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name></action>
-            <action method="addItem">
+			<action method="removeItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name></action>
+			<action method="addItem">
 				<name>calendar-blue2.css</name>
 				<type>skin_css</type>
 			</action>
-        </reference>
-    </default>
+		</reference>
+	</default>
 </layout>
