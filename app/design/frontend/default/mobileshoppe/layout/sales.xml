@@ -187,8 +187,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 			<action method='addLink' module='sales'>
 				<label>Shipments</label>
-				<name>shipment</name>
-				<path></path>
+				<name>shipment</name>>
 			</action>
 			<action method='addLink' module='sales'>
 				<label>Refunds</label>
