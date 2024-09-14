@@ -203,8 +203,12 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 				<block as='top' name='customer_account_dashboard_top' type='core/template'/>
 				<block as='info' name='customer_account_dashboard_info' template='customer/account/dashboard/info.phtml'
 					   type='customer/account_dashboard_info'/>
-				<block as='newsletter' name='customer_account_dashboard_newsletter' template='customer/account/dashboard/newsletter.phtml'
-					   type='customer/account_dashboard_newsletter'/>
+				<block
+					as='newsletter'
+					name='customer_account_dashboard_newsletter'
+					template='customer/account/dashboard/newsletter.phtml'
+					type='customer/account_dashboard_newsletter'
+				/>
 				<block as='address' name='customer_account_dashboard_address' template='customer/account/dashboard/address.phtml'
 					   type='customer/account_dashboard_address'/>
 				<block as='info1' name='customer_account_dashboard_info1' type='core/template'/>
