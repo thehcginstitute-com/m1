@@ -1,6 +1,8 @@
 <?xml version='1.0'?>
-<layout version='0.1.0'>
-	<customer_account>
+<layout version='0.1.0'><!-- 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+<layout>	<customer_account>
 		<reference name='customer_account_navigation'>
 			<action method='addLink' module='downloadable'>
 				<label>My Downloadable Products</label>
