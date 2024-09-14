@@ -189,8 +189,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>Multishipping Checkout Address (Any) Form</label>
 		<update handle='checkout_multishipping'/>
 		<reference name='content'>
-			<block name='checkout_addresses' template='checkout/multishipping/addresses.phtml'
-				   type='checkout/multishipping_addresses'>
+			<block
+				name='checkout_addresses'
+				template='checkout/multishipping/addresses.phtml'
+				type='checkout/multishipping_addresses'
+			>
 				<action method='addItemRender'>
 					<block>checkout/cart_item_renderer</block>
 					<template>checkout/multishipping/item/default.phtml</template>
