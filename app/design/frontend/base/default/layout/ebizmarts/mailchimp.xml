@@ -30,8 +30,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='content'>
-			<block name='emailcatcher' template='ebizmarts/mailchimp/popup/emailcatcher.phtml'
-				type='mailchimp/popup_emailcatcher'/>
+			<block
+				name='emailcatcher'
+				template='ebizmarts/mailchimp/popup/emailcatcher.phtml'
+				type='mailchimp/popup_emailcatcher'
+			/>
 		</reference>
 	</default>
 	<newsletter_manage_index>
