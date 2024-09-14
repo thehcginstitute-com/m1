@@ -2,7 +2,7 @@
 <layout version='0.1.0'>
 	<customer_logged_out_psc_handle>
 		<reference name='top.links'>
-			<action method='addLink' translate='label title' module='persistent'>
+			<action method='addLink' module='persistent'>
 				<label helper='persistent/getPersistentName'/>
 				<position>9</position>
 				<title helper='persistent/getPersistentName'/>

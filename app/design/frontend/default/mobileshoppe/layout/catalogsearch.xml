@@ -17,12 +17,12 @@
 			<block as='topSearch' name='top.search' template='catalogsearch/form.mini.phtml' type='core/template'/>
 		</reference>
 		<reference name='footer_links'>
-			<action ifconfig='catalog/seo/search_terms' method='addLink' module='catalogsearch' translate='label title'>
+			<action ifconfig='catalog/seo/search_terms' method='addLink' module='catalogsearch'>
 				<label>Search Terms</label>
 				<title>Search Terms</title>
 				<url helper='catalogsearch/getSearchTermUrl'/>
 			</action>
-			<action method='addLink' module='catalogsearch' translate='label title'>
+			<action method='addLink' module='catalogsearch'>
 				<label>Advanced Search</label>
 				<title>Advanced Search</title>
 				<url helper='catalogsearch/getAdvancedSearchUrl'/>

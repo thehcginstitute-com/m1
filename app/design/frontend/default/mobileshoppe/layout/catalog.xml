@@ -4,7 +4,7 @@
 <layout>
 	<default>
 		<reference name='footer_links'>
-			<action ifconfig='catalog/seo/site_map' method='addLink' module='catalog' translate='label title'>
+			<action ifconfig='catalog/seo/site_map' method='addLink' module='catalog'>
 				<label>Site Map</label>
 				<title>Site Map</title>
 				<url helper='catalog/map/getCategoryUrl'/>
@@ -427,7 +427,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			</block>
 		</reference>
 		<reference name='seo.sitemap.links'>
-			<action method='addLink' module='catalog' translate='label title'>
+			<action method='addLink' module='catalog'>
 				<label>Products Sitemap</label>
 				<title>Products Sitemap</title>
 				<url helper='catalog/map/getProductUrl'/>
@@ -480,7 +480,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			</block>
 		</reference>
 		<reference name='seo.sitemap.links'>
-			<action method='addLink' module='catalog' translate='label title'>
+			<action method='addLink' module='catalog'>
 				<label>Categories Sitemap</label>
 				<title>Categories Sitemap</title>
 				<url helper='catalog/map/getCategoryUrl'/>

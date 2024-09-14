@@ -2,7 +2,7 @@
 <layout version='0.1.0'>
 	<default>
 		<reference name='top.links'>
-			<action method='addLink' translate='label title' module='customer'>
+			<action method='addLink' module='customer'>
 				<label>My Account</label>
 				<position>10</position>
 				<title>My Account</title>
@@ -12,7 +12,7 @@
 	</default>
 	<customer_logged_in>
 		<reference name='top.links'>
-			<action method='addLink' translate='label title' module='customer'>
+			<action method='addLink' module='customer'>
 				<label>Patient Portal Log Out</label>
 				<position>100</position>
 				<title>Patient Portal Log Out</title>
@@ -22,7 +22,7 @@
 	</customer_logged_in>
 	<customer_logged_out>
 		<reference name='top.links'>
-			<action method='addLink' translate='label title' module='customer'>
+			<action method='addLink' module='customer'>
 				<label>Patient Portal Log In</label>
 				<position>100</position>
 				<title>Patient Portal Log In</title>

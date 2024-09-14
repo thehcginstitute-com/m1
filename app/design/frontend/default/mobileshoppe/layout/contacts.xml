@@ -5,7 +5,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 <layout>
 	<default>
 		<reference name='footer_links'>
-			<action ifconfig='contacts/contacts/enabled' method='addLink' module='contacts' translate='label title'>
+			<action ifconfig='contacts/contacts/enabled' method='addLink' module='contacts'>
 				<label>Contact Us</label>
 				<prepare>true</prepare>
 				<title>Contact Us</title>
