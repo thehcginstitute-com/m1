@@ -61,10 +61,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<remove name='right'/>
 		<remove name='left'/>
 		<reference name='head'>
-			<block 
+			<block
 				as='optional_zip_countries'
-				name='optional_zip_countries' template='directory/js/optional_zip_countries.phtml'
-				   type='core/template'/>
+				name='optional_zip_countries'
+				template='directory/js/optional_zip_countries.phtml'
+				type='core/template'
+			/>
 		</reference>
 		<reference name='root'>
 			<action method='setTemplate'>
