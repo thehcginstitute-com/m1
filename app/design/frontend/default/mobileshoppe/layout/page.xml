@@ -79,10 +79,20 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<label>Page Footer</label>
 					<action method='setElementClass'><value>bottom-container</value></action>
 				</block>
-				<block after='footer_block' as='footer_links' name='footer_links' template='page/template/links.phtml'
-					type='page/template_links'/>
-				<block after='footer_block' as='store_switcher' name='store_switcher' template='page/switch/stores.phtml'
-					type='page/switch'/>
+				<block
+					after='footer_block'
+					as='footer_links'
+					name='footer_links'
+					template='page/template/links.phtml'
+					type='page/template_links'
+				/>
+				<block
+					after='footer_block'
+					as='store_switcher'
+					name='store_switcher'
+					template='page/switch/stores.phtml'
+					type='page/switch'
+				/>
 			</block>
 			<block as='before_body_end' name='before_body_end' type='core/text_list'>
 				<label>Page Bottom</label>
