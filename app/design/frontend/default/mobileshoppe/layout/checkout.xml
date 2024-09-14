@@ -312,8 +312,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<template></template>
 					</action>
 				</block>
-				<block as='agreements' name='checkout.multishipping.agreements' template='checkout/multishipping/agreements.phtml'
-					   type='checkout/agreements'/>
+				<block
+					as='agreements'
+					name='checkout.multishipping.agreements'
+					template='checkout/multishipping/agreements.phtml'
+					type='checkout/agreements'
+				/>
 				<block name='totals' type='checkout/cart_totals'/>
 				<block as='items_after' name='checkout.multishipping.overview.items.after' type='core/text_list'
 					   >
