@@ -5,22 +5,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 <layout>
 	<default>
 		<reference name='head'>
-			<action method='addItem'>
-				<name>override.css</name>
-				<type>skin_css</type>
-			</action>
-			<action method='addItem'>
-				<name>form.css</name>
-				<type>skin_css</type>
-			</action>
-			<action method='removeItem'>
-				<type>js_css</type>
-				<name>calendar/calendar-win2k-1.css</name>
-			</action>
-			<action method='addItem'>
-				<name>calendar-blue2.css</name>
-				<type>skin_css</type>
-			</action>
+			<action method='addItem'><name>override.css</name><type>skin_css</type></action>
+			<action method='addItem'><name>form.css</name><type>skin_css</type></action>
+			<action method='removeItem'><name>calendar/calendar-win2k-1.css</name><type>js_css</type></action>
+			<action method='addItem'><name>calendar-blue2.css</name><type>skin_css</type></action>
 		</reference>
 	</default>
 </layout>
