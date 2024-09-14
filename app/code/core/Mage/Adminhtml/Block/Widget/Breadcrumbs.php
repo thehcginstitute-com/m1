@@ -43,6 +43,7 @@ class Mage_Adminhtml_Block_Widget_Breadcrumbs extends Mage_Adminhtml_Block_Templ
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by self::__construct()
+	 * @used-by Mage_Adminhtml_Block_Widget::_addBreadcrumb()
 	 * @param string $label
 	 * @param string|null $title
 	 * @param string|null $url
