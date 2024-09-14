@@ -104,27 +104,13 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>All Pages (Print Version)</label>
 		<block name='root' output='toHtml' template='page/print.phtml' type='page/html'>
 			<block as='head' name='head' type='page/html_head'>
-				<action method='addJs'>
-					<name>prototype/prototype.js</name>
-				</action>
-				<action method='addJs'>
-					<name>mage/translate.js</name>
-				</action>
-				<action method='addJs'>
-					<name>lib/ccard.js</name>
-				</action>
-				<action method='addJs'>
-					<name>prototype/validation.js</name>
-				</action>
-				<action method='addJs'>
-					<name>varien/js.js</name>
-				</action>
-				<action method='addCss'>
-					<name>css/styles.css</name>
-				</action>
-				<action method='addCss'>
-					<name>css/widgets.css</name>
-				</action>
+				<action method='addJs'><name>prototype/prototype.js</name></action>
+				<action method='addJs'><name>mage/translate.js</name></action>
+				<action method='addJs'><name>lib/ccard.js</name></action>
+				<action method='addJs'><name>prototype/validation.js</name></action>
+				<action method='addJs'><name>varien/js.js</name></action>
+				<action method='addCss'><name>css/styles.css</name></action>
+				<action method='addCss'><name>css/widgets.css</name></action>
 				<action method='addItem'>
 					<if>lt IE 7</if>
 					<name>lib/ds-sleight.js</name>
@@ -139,71 +125,41 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<page_empty>
 		<label>All Empty Layout Pages</label>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/empty.phtml</template>
-			</action>
-			<action method='setIsHandle'>
-				<applied>1</applied>
-			</action>
-			<action method='setLayoutCode'>
-				<name>empty</name>
-			</action>
+			<action method='setTemplate'><template>page/empty.phtml</template></action>
+			<action method='setIsHandle'><applied>1</applied></action>
+			<action method='setLayoutCode'><name>empty</name></action>
 		</reference>
 	</page_empty>
 	<page_one_column>
 		<label>All One-Column Layout Pages</label>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/1column.phtml</template>
-			</action>
-			<action method='setIsHandle'>
-				<applied>1</applied>
-			</action>
-			<action method='setLayoutCode'>
-				<name>one_column</name>
-			</action>
+			<action method='setTemplate'><template>page/1column.phtml</template></action>
+			<action method='setIsHandle'><applied>1</applied></action>
+			<action method='setLayoutCode'><name>one_column</name></action>
 		</reference>
 	</page_one_column>
 	<page_two_columns_left>
 		<label>All Two-Column Layout Pages (Left Column)</label>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/2columns-left.phtml</template>
-			</action>
-			<action method='setIsHandle'>
-				<applied>1</applied>
-			</action>
-			<action method='setLayoutCode'>
-				<name>two_columns_left</name>
-			</action>
+			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
+			<action method='setIsHandle'><applied>1</applied></action>
+			<action method='setLayoutCode'><name>two_columns_left</name></action>
 		</reference>
 	</page_two_columns_left>
 	<page_two_columns_right>
 		<label>All Two-Column Layout Pages (Right Column)</label>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/2columns-right.phtml</template>
-			</action>
-			<action method='setIsHandle'>
-				<applied>1</applied>
-			</action>
-			<action method='setLayoutCode'>
-				<name>two_columns_right</name>
-			</action>
+			<action method='setTemplate'><template>page/2columns-right.phtml</template></action>
+			<action method='setIsHandle'><applied>1</applied></action>
+			<action method='setLayoutCode'><name>two_columns_right</name></action>
 		</reference>
 	</page_two_columns_right>
 	<page_three_columns>
 		<label>All Three-Column Layout Pages</label>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/3columns.phtml</template>
-			</action>
-			<action method='setIsHandle'>
-				<applied>1</applied>
-			</action>
-			<action method='setLayoutCode'>
-				<name>three_columns</name>
-			</action>
+			<action method='setTemplate'><template>page/3columns.phtml</template></action>
+			<action method='setIsHandle'><applied>1</applied></action>
+			<action method='setLayoutCode'><name>three_columns</name></action>
 		</reference>
 	</page_three_columns>
 </layout>
