@@ -236,8 +236,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<template>checkout/multishipping/item/default.phtml</template>
 					<type>configurable</type>
 				</action>
-				<block name='checkout_billing_items' template='checkout/multishipping/billing/items.phtml'
-					   type='checkout/multishipping_billing_items'>
+				<block
+					name='checkout_billing_items'
+					template='checkout/multishipping/billing/items.phtml'
+					type='checkout/multishipping_billing_items'
+				>
 					<action method='addItemRender'>
 						<block>checkout/cart_item_renderer</block>
 						<template>checkout/multishipping/item/default.phtml</template>
