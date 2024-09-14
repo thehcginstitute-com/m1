@@ -1,41 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<layout version="0.1.0">
+<?xml version='1.0'?>
+<!-- 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+<layout>
 <!-- 2024-02-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Remove the
-`MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED` feature
- because it is unused": https://github.com/thehcginstitute-com/m1/issues/339 -->
-    <checkout_onepage_index>
-        <reference name="checkout.onepage.login">
-<!-- 2024-02-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"Remove the
-`MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED` feature
- because it is unused": https://github.com/thehcginstitute-com/m1/issues/339 -->
-            <block type="persistent/form_remember" name="persistent.remember.me" template="persistent/remember_me.phtml" />
-        </reference>
-    </checkout_onepage_index>
-    <magepsycho_storerestrictionpro_override_add_to_cart>
-        <reference name="product.info.addtocart">
-            <action method="setTemplate"><template>magepsycho/storerestrictionpro/product/view/addtocart.phtml</template></action>
-        </reference>
-        <reference name="before_body_end">
-            <block type="magepsycho_storerestrictionpro/storerestrictionpro" name="storerestrictionpro.addtocart.scripts" as="storerestrictionpro_addtocart_scripts">
-                <action method="setTemplate">
-                    <template>magepsycho/storerestrictionpro/product/view/scripts.phtml</template>
-                </action>
-            </block>
-        </reference>
-    </magepsycho_storerestrictionpro_override_add_to_cart>
-    <magepsycho_storerestrictionpro_override_price>
-        <reference name="before_body_end">
-            <block type="magepsycho_storerestrictionpro/storerestrictionpro" name="storerestrictionpro.price.scripts" as="storerestrictionpro_price_scripts">
-                <action method="setTemplate">
-                    <template>magepsycho/storerestrictionpro/checkout/cart/scripts.phtml</template>
-                </action>
-            </block>
-        </reference>
-    </magepsycho_storerestrictionpro_override_price>
-    <magepsycho_storerestrictionpro_override_checkout>
-        <remove name="checkout.cart.methods.onepage" />
-        <remove name="checkout.cart.methods.multishipping" />
-    </magepsycho_storerestrictionpro_override_checkout>
+"Remove the `MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED` feature
+because it is unused": https://github.com/thehcginstitute-com/m1/issues/339 -->
+	<checkout_onepage_index>
+		<reference name='checkout.onepage.login'>
+			<!-- 2024-02-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			'Remove the
+			"MagePsycho_Storerestrictionpro_Model_System_Config_Source_Newaccounttypes::NEW_ACCOUNT_REGISTRATION_DISABLED` feature
+			 because it is unused": https://github.com/thehcginstitute-com/m1/issues/339 -->
+			<block name='persistent.remember.me' template='persistent/remember_me.phtml' type='persistent/form_remember'/>
+		</reference>
+	</checkout_onepage_index>
+	<magepsycho_storerestrictionpro_override_add_to_cart>
+		<reference name='product.info.addtocart'>
+			<action method='setTemplate'>
+				<template>magepsycho/storerestrictionpro/product/view/addtocart.phtml</template>
+			</action>
+		</reference>
+		<reference name='before_body_end'>
+			<block as='storerestrictionpro_addtocart_scripts' name='storerestrictionpro.addtocart.scripts'
+				type='magepsycho_storerestrictionpro/storerestrictionpro'>
+				<action method='setTemplate'>
+					<template>magepsycho/storerestrictionpro/product/view/scripts.phtml</template>
+				</action>
+			</block>
+		</reference>
+	</magepsycho_storerestrictionpro_override_add_to_cart>
+	<magepsycho_storerestrictionpro_override_price>
+		<reference name='before_body_end'>
+			<block as='storerestrictionpro_price_scripts' name='storerestrictionpro.price.scripts'
+				type='magepsycho_storerestrictionpro/storerestrictionpro'>
+				<action method='setTemplate'>
+					<template>magepsycho/storerestrictionpro/checkout/cart/scripts.phtml</template>
+				</action>
+			</block>
+		</reference>
+	</magepsycho_storerestrictionpro_override_price>
+	<magepsycho_storerestrictionpro_override_checkout>
+		<remove name='checkout.cart.methods.onepage'/>
+		<remove name='checkout.cart.methods.multishipping'/>
+	</magepsycho_storerestrictionpro_override_checkout>
 </layout>
