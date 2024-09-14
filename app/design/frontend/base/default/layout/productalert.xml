@@ -21,8 +21,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							<value>Sign up for price alert</value>
 						</action>
 					</block>
-					<block as='productalert_stock' name='productalert.stock' template='productalert/product/view.phtml'
-						type='productalert/product_view'>
+					<block
+						as='productalert_stock'
+						name='productalert.stock'
+						template='productalert/product/view.phtml'
+						type='productalert/product_view'
+					>
 						<action method='prepareStockAlertData'/>
 						<action method='setHtmlClass'>
 							<value>alert-stock link-stock-alert</value>
