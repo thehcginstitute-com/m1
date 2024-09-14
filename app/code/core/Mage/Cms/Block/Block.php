@@ -12,6 +12,7 @@ class Mage_Cms_Block_Block extends Mage_Core_Block_Abstract {
 	 * @used-by IWD_OrderManager_Frontend_ConfirmController::_confirm()
 	 * @used-by Mage_Catalog_Block_Category_View::getCmsBlockHtml()
 	 * @used-by Mage_Core_Model_Email_Template_Filter::blockDirective()
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-14/app/design/frontend/default/mobileshoppe/layout/local.xml#L30()
 	 */
 	final function setBlockId(string $v):self {
 		$this['block_id'] = $v;
