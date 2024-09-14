@@ -654,7 +654,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addLink' module='sales'>
 				<label>Refunds</label>
 				<name>creditmemo</name>
-				<path></path>
 			</action>
 		</reference>
 	</sales_guest_creditmemo>
