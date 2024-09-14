@@ -2,7 +2,7 @@
 <layout version='0.1.0'>
 	<default>
 		<reference name='footer_links'>
-			<action method='addLink' translate='label title' module='contacts' ifconfig='contacts/contacts/enabled'>
+			<action ifconfig='contacts/contacts/enabled' method='addLink' module='contacts' translate='label title'>
 				<label>Contact Us</label>
 				<prepare>true</prepare>
 				<title>Contact Us</title>
@@ -26,7 +26,7 @@
 			</action>
 		</reference>
 		<reference name='content'>
-			<block type='core/template' name='contactForm' template='contacts/form.phtml'/>
+			<block name='contactForm' template='contacts/form.phtml' type='core/template'/>
 		</reference>
 	</contacts_index_index>
 </layout>
