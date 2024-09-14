@@ -1,14 +1,9 @@
 <?xml version='1.0'?>
-<layout version='0.1.0'>
+<layout>
 	<default>
 		<reference name='head'>
-			<action method='addCss'>
-				<name>hcg/css/compiled/all.css</name>
-			</action>
-			<action method='addItem'>
-				<type>skin_js</type>
-				<name>hcg/js/main.js</name>
-			</action>
+			<action method='addCss'><name>hcg/css/compiled/all.css</name></action>
+			<action method='addItem'><name>hcg/js/main.js</name><type>skin_js</type></action>
 		</reference>
 	</default>
 </layout>
