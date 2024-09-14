@@ -148,8 +148,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>Multishipping Checkout Billing Address Selection</label>
 		<update handle='checkout_multishipping'/>
 		<reference name='content'>
-			<block name='checkout_address_select' template='checkout/multishipping/address/select.phtml'
-				   type='checkout/multishipping_address_select'/>
+			<block
+				name='checkout_address_select'
+				template='checkout/multishipping/address/select.phtml'
+				type='checkout/multishipping_address_select'
+			/>
 		</reference>
 	</checkout_multishipping_address_selectbilling>
 	<checkout_multishipping_address_newshipping >
