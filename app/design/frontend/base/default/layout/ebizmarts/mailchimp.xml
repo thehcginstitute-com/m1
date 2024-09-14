@@ -50,8 +50,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</newsletter_manage_index>
 	<checkout_onepage_review>
 		<reference name='checkout.onepage.review.info.items.after'>
-			<block name='mailchimp.subscribe' template='ebizmarts/mailchimp/checkout/subscribe.phtml'
-				type='mailchimp/checkout_subscribe'/>
+			<block
+				name='mailchimp.subscribe'
+				template='ebizmarts/mailchimp/checkout/subscribe.phtml'
+				type='mailchimp/checkout_subscribe'
+			/>
 		</reference>
 	</checkout_onepage_review>
 	<checkout_onepage_success>
