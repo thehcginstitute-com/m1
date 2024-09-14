@@ -223,8 +223,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<update handle='nwdrevslider_common'/>
 		<update handle='nwdrevslider_images_common'/>
 		<reference name='content'>
-			<block as='nwdrevslider.masterview' name='nwdrevslider.masterview' template='nwdthemes/revslider/masterview.phtml'
-				type='nwdrevslider/adminhtml_masterview'>
+			<block
+				as='nwdrevslider.masterview'
+				name='nwdrevslider.masterview'
+				template='nwdthemes/revslider/masterview.phtml'
+				type='nwdrevslider/adminhtml_masterview'
+			>
 				<block as='view' name='view' template='nwdthemes/revslider/templates/slide.phtml'
 					type='nwdrevslider/adminhtml_slide'>
 					<block as='edit_layers' name='edit_layers' template='nwdthemes/revslider/templates/edit_layers.phtml'
