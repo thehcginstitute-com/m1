@@ -190,13 +190,25 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<update handle='nwdrevslider_common'/>
 		<update handle='nwdrevslider_images_common'/>
 		<reference name='content'>
-			<block as='nwdrevslider.masterview' name='nwdrevslider.masterview' template='nwdthemes/revslider/masterview.phtml'
-				type='nwdrevslider/adminhtml_masterview'>
+			<block
+				as='nwdrevslider.masterview'
+				name='nwdrevslider.masterview'
+				template='nwdthemes/revslider/masterview.phtml'
+				type='nwdrevslider/adminhtml_masterview'
+			>
 				<block as='view' name='view' type='nwdrevslider/adminhtml_slides'>
-					<block as='slides_list' name='slides_list' template='nwdthemes/revslider/templates/slides_list.phtml'
-						type='adminhtml/template'/>
-					<block as='slides_list_posts' name='slides_list_posts' template='nwdthemes/revslider/templates/slides_list_posts.phtml'
-						type='adminhtml/template'/>
+					<block
+						as='slides_list'
+						name='slides_list'
+						template='nwdthemes/revslider/templates/slides_list.phtml'
+						type='adminhtml/template'
+					/>
+					<block
+						as='slides_list_posts'
+						name='slides_list_posts'
+						template='nwdthemes/revslider/templates/slides_list_posts.phtml'
+						type='adminhtml/template'
+					/>
 					<block as='dialog_preview_slide' name='dialog_preview_slide' template='nwdthemes/revslider/templates/dialog_preview_slide.phtml'
 						type='adminhtml/template'/>
 				</block>
