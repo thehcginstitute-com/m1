@@ -277,8 +277,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					template='cms/browser/content/uploader.phtml'
 					type='adminhtml/cms_wysiwyg_images_content_uploader'
 				/>
-				<block name='wysiwyg_images.newfolder' template='cms/browser/content/newfolder.phtml'
-					type='adminhtml/cms_wysiwyg_images_content_newfolder'/>
+				<block
+					name='wysiwyg_images.newfolder'
+					template='cms/browser/content/newfolder.phtml'
+					type='adminhtml/cms_wysiwyg_images_content_newfolder'
+				/>
 			</block>
 		</reference>
 	</adminhtml_images_index>
