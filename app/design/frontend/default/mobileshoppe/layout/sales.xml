@@ -84,7 +84,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addLink' module='sales'>
 				<label>Order Information</label>
 				<name>view</name>
-				<path></path>
 			</action>
 			<action method='addLink' module='sales'>
 				<label>Invoices</label>
