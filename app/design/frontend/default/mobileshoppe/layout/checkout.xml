@@ -493,16 +493,24 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<template>checkout/onepage/review/item.phtml</template>
 				<type>configurable</type>
 			</action>
-			<block as='totals' name='checkout.onepage.review.info.totals' template='checkout/onepage/review/totals.phtml'
-				   type='checkout/cart_totals'/>
+			<block
+				as='totals'
+				name='checkout.onepage.review.info.totals'
+				template='checkout/onepage/review/totals.phtml'
+				type='checkout/cart_totals'
+			/>
 			<block as='items_before' name='checkout.onepage.review.info.items.before' type='core/text_list' >
 				<label>Items Before</label>
 			</block>
 			<block as='items_after' name='checkout.onepage.review.info.items.after' type='core/text_list' >
 				<label>Items After</label>
 			</block>
-			<block as='agreements' name='checkout.onepage.agreements' template='checkout/onepage/agreements.phtml'
-				   type='checkout/agreements'/>
+			<block
+				as='agreements'
+				name='checkout.onepage.agreements'
+				template='checkout/onepage/agreements.phtml'
+				type='checkout/agreements'
+			/>
 			<block as='button' name='checkout.onepage.review.button' template='checkout/onepage/review/button.phtml'
 				   type='core/template'/>
 		</block>
