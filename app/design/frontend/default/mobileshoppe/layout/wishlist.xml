@@ -61,8 +61,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 							<title>Product Details and Comment</title>
 						</action>
 					</block>
-					<block name='customer.wishlist.item.cart' template='wishlist/item/column/cart.phtml'
-						   type='wishlist/customer_wishlist_item_column_cart'>
+					<block
+						name='customer.wishlist.item.cart'
+						template='wishlist/item/column/cart.phtml'
+						type='wishlist/customer_wishlist_item_column_cart'
+					>
 						<action method='setTitle'>
 							<title>Add to Cart</title>
 						</action>
