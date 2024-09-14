@@ -101,8 +101,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						type='adminhtml/template'
 					/>
 				</block>
-				<block as='general_settings_dialog' name='general_settings_dialog' template='nwdthemes/revslider/system/general_settings_dialog.phtml'
-					type='nwdrevslider/adminhtml_block_template'/>
+				<block
+					as='general_settings_dialog'
+					name='general_settings_dialog'
+					template='nwdthemes/revslider/system/general_settings_dialog.phtml'
+					type='nwdrevslider/adminhtml_block_template'
+				/>
 			</block>
 		</reference>
 	</adminhtml_nwdrevslider_sliders>
