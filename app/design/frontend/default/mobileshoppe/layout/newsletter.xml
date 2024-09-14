@@ -1,11 +1,14 @@
 <?xml version='1.0'?>
-<layout version='0.1.0'>
+<!-- 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+<layout>
 	<default>
 		<reference name='left'>
-			<block type='newsletter/subscribe' name='newsletter' as='newsletter' template='newsletter/subscribe.phtml'/>
+			<block as='newsletter' name='newsletter' template='newsletter/subscribe.phtml' type='newsletter/subscribe'/>
 		</reference>
 		<reference name='right'>
-			<block type='newsletter/subscribe' name='newsletter' as='newsletter' template='newsletter/subscribe.phtml'/>
+			<block as='newsletter' name='newsletter' template='newsletter/subscribe.phtml' type='newsletter/subscribe'/>
 		</reference>
 	</default>
 	<customer_account>
@@ -21,8 +24,8 @@
 		<label>Customer My Account Newsletter Subscriptions</label>
 		<update handle='customer_account'/>
 		<reference name='my.account.wrapper'>
-			<block type='customer/newsletter' name='customer_newsletter'>
-				<block type='page/html_wrapper' name='customer.newsletter.form.before' as='form_before' >
+			<block name='customer_newsletter' type='customer/newsletter'>
+				<block as='form_before' name='customer.newsletter.form.before' type='page/html_wrapper' >
 					<label>Newsletter Subscription Form Before</label>
 					<action method='setMayBeInvisible'>
 						<value>1</value>
