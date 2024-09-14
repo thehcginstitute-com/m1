@@ -27,9 +27,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 		<reference name='checkout.onepage.review'>
-			<action method='setTemplate'>
-				<template>opcsignature/onepagecheckout/review.phtml</template>
-			</action>
+			<action method='setTemplate'><template>opcsignature/onepagecheckout/review.phtml</template></action>
 		</reference>
 	</onepagecheckout_index_index>
 	<checkout_onepage_index>
