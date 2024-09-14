@@ -78,8 +78,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					/>
 				</block>
 				<block as='control_buttons' name='customer.wishlist.buttons' type='core/text_list'>
-					<block name='customer.wishlist.button.share' template='wishlist/button/share.phtml'
-						   type='wishlist/customer_wishlist_button'/>
+					<block
+						name='customer.wishlist.button.share'
+						template='wishlist/button/share.phtml'
+						type='wishlist/customer_wishlist_button'
+					/>
 					<block name='customer.wishlist.button.toCart' template='wishlist/button/tocart.phtml'
 						   type='wishlist/customer_wishlist_button'/>
 					<block name='customer.wishlist.button.update' template='wishlist/button/update.phtml'
