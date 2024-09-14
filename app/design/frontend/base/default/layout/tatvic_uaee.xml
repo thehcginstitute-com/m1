@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<layout version="0.1.0">
-    <default>
-        <reference name="head">
-            <block type="tatvic_uaee/uaee" name="tatvic_google_universial_analytics" template="tatvic/uaee/uaee.phtml" />
-        </reference>
-       
-    </default>
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+<layout>
+	<default>
+		<reference name='head'>
+			<block name='tatvic_google_universial_analytics' template='tatvic/uaee/uaee.phtml' type='tatvic_uaee/uaee'/>
+		</reference>
+	</default>
 </layout>
