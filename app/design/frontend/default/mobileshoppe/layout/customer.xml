@@ -106,17 +106,11 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 		<remove name='right'/>
 		<remove name='left'/>
 		<reference name='head'>
-			<action method='setTitle' module='customer'>
-				<title>Reset a Password</title>
-			</action>
+			<action method='setTitle' module='customer'><title>Reset a Password</title></action>
 		</reference>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/1column.phtml</template>
-			</action>
-			<action method='setHeaderTitle' module='customer'>
-				<title>Reset a Password</title>
-			</action>
+			<action method='setTemplate'><template>page/1column.phtml</template></action>
+			<action method='setHeaderTitle' module='customer'><title>Reset a Password</title></action>
 		</reference>
 		<reference name='content'>
 			<block name='changeForgottenPassword' template='customer/form/resetforgottenpassword.phtml'
