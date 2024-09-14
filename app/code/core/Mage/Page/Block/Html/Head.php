@@ -38,6 +38,14 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	final function setCanLoadExtJs():void {$this['can_load_ext_js'] = true;}
 
 	/**
+     * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @used-by Magazento_Orderexport2_Admin_ItemController::editAction()
+	 */
+	final function setCanLoadRulesJs():void {$this['can_load_rules_js'] = true;}
+
+	/**
 	 * Initialize template
 	 */
 	protected function _construct()

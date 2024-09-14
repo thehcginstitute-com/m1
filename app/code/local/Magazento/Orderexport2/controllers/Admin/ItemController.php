@@ -77,7 +77,7 @@ class Magazento_Orderexport2_Admin_ItemController extends Mage_Adminhtml_Control
 
 		$this->getLayout()->getBlock('head')
 			->setCanLoadExtJs()
-			->setCanLoadRulesJs(true)
+			->setCanLoadRulesJs()
 			->addItem('js', 'magazento_orderexport2/adminhtml/tabs.js');
 
 		$this-> _addBreadcrumb($id ? Mage::helper('orderexport2')->__('Edit Item') : Mage::helper('orderexport2')->__('New Item'), $id ? Mage::helper('orderexport2')->__('Edit Item') : Mage::helper('orderexport2')->__('New Item'))
