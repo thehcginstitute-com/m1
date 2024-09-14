@@ -108,9 +108,6 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
 		</reference>
 		<reference name='head'>
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>varien/product.js</name></action>
 <!-- 2024-01-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Port the `app/design/frontend/base/default/layout/catalog.xml` 1.9.1.0 → 1.9.4.5 changes
