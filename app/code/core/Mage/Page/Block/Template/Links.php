@@ -78,9 +78,6 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
 		string $beforeText = '',
 		string $afterText = ''
 	):self {
-		if (is_null($label) || $label === false) {
-			return $this;
-		}
 		$link = new Varien_Object([
 			'label'         => $label,
 			'url'           => ($prepare ? $this->getUrl($url, (is_array($urlParams) ? $urlParams : [])) : $url),
@@ -90,9 +87,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
 			'before_text'   => $beforeText,
 			'after_text'    => $afterText,
 		]);
-
 		$this->_addIntoPosition($link, $position);
-
 		return $this;
 	}
 
