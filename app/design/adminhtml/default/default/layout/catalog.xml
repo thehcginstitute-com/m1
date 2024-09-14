@@ -83,7 +83,7 @@
 			<block name='related_grid_serializer' type='adminhtml/widget_grid_serializer'>
 				<reference name='related_grid_serializer'>
 					<action method='initSerializerBlock'>
-						<grid_block_name>catalog.product.edit.tab.related</grid_block_name>
+						<grid>catalog.product.edit.tab.related</grid>
 						<callback>getSelectedRelatedProducts</callback>
 						<hiddenInputName>links[related]</hiddenInputName>
 						<reloadParamName>products_related</reloadParamName>
@@ -123,7 +123,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<reference name='upsell_grid_serializer'>
 					<action method='initSerializerBlock'>
 						<callback>getSelectedUpsellProducts</callback>
-						<grid_block_name>catalog.product.edit.tab.upsell</grid_block_name>
+						<grid>catalog.product.edit.tab.upsell</grid>
 						<hiddenInputName>links[upsell]</hiddenInputName>
 						<reloadParamName>products_upsell</reloadParamName>
 					</action>
@@ -149,7 +149,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<reference name='crosssell_grid_serializer'>
 					<action method='initSerializerBlock'>
 						<callback>getSelectedCrossSellProducts</callback>
-						<grid_block_name>catalog.product.edit.tab.crosssell</grid_block_name>
+						<grid>catalog.product.edit.tab.crosssell</grid>
 						<hiddenInputName>links[crosssell]</hiddenInputName>
 						<reloadParamName>products_crosssell</reloadParamName>
 					</action>
@@ -184,7 +184,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<reference name='grouped_grid_serializer'>
 					<action method='initSerializerBlock'>
 						<callback>getSelectedGroupedProducts</callback>
-						<grid_block_name>catalog.product.edit.tab.super.group</grid_block_name>
+						<grid>catalog.product.edit.tab.super.group</grid>
 						<hiddenInputName>links[grouped]</hiddenInputName>
 						<reloadParamName>products_grouped</reloadParamName>
 					</action>

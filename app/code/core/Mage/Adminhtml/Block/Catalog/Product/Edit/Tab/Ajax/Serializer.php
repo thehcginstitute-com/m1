@@ -45,10 +45,10 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Ajax_Serializer extends Mage
      * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
-	 * @param string $blockName
+	 * @param string $grid
 	 */
-	final function initSerializerBlock($blockName, string $callback, string $hiddenInputName):void {
-		if ($block = $this->getLayout()->getBlock($blockName)) {
+	final function initSerializerBlock($grid, string $callback, string $hiddenInputName):void {
+		if ($block = $this->getLayout()->getBlock($grid)) {
 			$this->setGridBlock($block)
 				->setProducts(Mage::registry('current_product')->$callback())
 				->setInputElementName($hiddenInputName);
