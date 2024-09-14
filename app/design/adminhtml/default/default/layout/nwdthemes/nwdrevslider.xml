@@ -120,8 +120,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				type='nwdrevslider/adminhtml_masterview'
 			>
 				<block as='view' name='view' type='nwdrevslider/adminhtml_slider_edit'>
-					<block as='slider_toolbox' name='slider_toolbox' template='nwdthemes/revslider/templates/slider_toolbox.phtml'
-						type='adminhtml/template'/>
+					<block
+						as='slider_toolbox'
+						name='slider_toolbox'
+						template='nwdthemes/revslider/templates/slider_toolbox.phtml'
+						type='adminhtml/template'
+					/>
 					<block as='slider_api' name='slider_api' template='nwdthemes/revslider/templates/slider_api.phtml'
 						type='adminhtml/template'/>
 					<block as='slider_css_js' name='slider_css_js' template='nwdthemes/revslider/templates/slider_css_js.phtml'
