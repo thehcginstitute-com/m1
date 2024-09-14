@@ -97,9 +97,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='right'>
-			<action method='unsetChild'>
-				<name>wishlist_customer_sidebar</name>
-			</action>
+			<action method='unsetChild'><name>wishlist_customer_sidebar</name></action>
 		</reference>
 	</wishlist_index_index>
 	<wishlist_index_share >
@@ -109,17 +107,19 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='wishlist.sharing' template='wishlist/sharing.phtml' type='wishlist/customer_sharing'/>
 		</reference>
 		<reference name='right'>
-			<action method='unsetChild'>
-				<name>wishlist_customer_sidebar</name>
-			</action>
+			<action method='unsetChild'><name>wishlist_customer_sidebar</name></action>
 		</reference>
 	</wishlist_index_share>
 	<wishlist_index_configure >
 		<label>Configure Wishlist Item</label>
 		<update handle='catalog_product_view'/>
 		<reference name='product.info'>
-			<block as='addto' name='product.info.addto' template='wishlist/item/configure/addto.phtml'
-				   type='wishlist/item_configure'/>
+			<block
+				as='addto'
+				name='product.info.addto'
+				template='wishlist/item/configure/addto.phtml'
+				type='wishlist/item_configure'
+			/>
 		</reference>
 		<reference name='product.info.options.wrapper.bottom'>
 			<action method='unsetChild'><name>product.info.addto</name></action>
