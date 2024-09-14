@@ -368,10 +368,18 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						</action>
 					</block>
 				</block>
-				<block as='billing' name='checkout.onepage.billing' template='checkout/onepage/billing.phtml'
-					   type='checkout/onepage_billing'/>
-				<block as='shipping' name='checkout.onepage.shipping' template='checkout/onepage/shipping.phtml'
-					   type='checkout/onepage_shipping'/>
+				<block
+					as='billing'
+					name='checkout.onepage.billing'
+					template='checkout/onepage/billing.phtml'
+					type='checkout/onepage_billing'
+				/>
+				<block
+					as='shipping'
+					name='checkout.onepage.shipping'
+					template='checkout/onepage/shipping.phtml'
+					type='checkout/onepage_shipping'
+				/>
 				<block as='shipping_method' name='checkout.onepage.shipping_method' template='checkout/onepage/shipping_method.phtml'
 					   type='checkout/onepage_shipping_method'>
 					<block as='available' name='checkout.onepage.shipping_method.available'
