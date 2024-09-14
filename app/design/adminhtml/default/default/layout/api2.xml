@@ -32,9 +32,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='adminhtml.roles.buttons' type='api2/adminhtml_roles_buttons'/>
 		</reference>
 		<reference name='head'>
-			<action method='setCanLoadExtJs'>
-				<flag>1</flag>
-			</action>
+			<action method='setCanLoadExtJs'><v>true</v></action>
 		</reference>
 	</adminhtml_api2_role_new>
 	<adminhtml_api2_role_edit>
