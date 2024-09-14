@@ -23,7 +23,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * @used-by Nwdthemes_Revslider_Adminhtml_NwdrevsliderController::_initPage()
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-14--2/app/design/adminhtml/default/default/layout/api2.xml#L35
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-14--2/app/design/adminhtml/default/default/layout/api2.xml#L66
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-14--2/app/design/adminhtml/default/default/layout/api2.xml#L122
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-14--2/app/design/adminhtml/default/default/layout/main.xml#L179
 	 */
 	final function setCanLoadExtJs():void {$this['can_load_ext_js'] = true;}
 
