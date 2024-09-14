@@ -1,52 +1,35 @@
-<?xml version="1.0"?>
-<!--
-/**
- * OpenMage
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available at https://opensource.org/license/afl-3-0-php
- *
- * @category    design
- * @package     base_default
- * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-
--->
-<layout version="0.1.0">
-
-<!--
-Product view
--->
+<?xml version='1.0'?>
+<!-- 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+<layout>
 	<catalog_product_view>
-		<reference name="product.info.extrahint">
-			<block type="cataloginventory/qtyincrements" name="product.info.extrahint.qtyincrements" template="cataloginventory/qtyincrements.phtml"/>
+		<reference name='product.info.extrahint'>
+			<block
+				name='product.info.extrahint.qtyincrements'
+				template='cataloginventory/qtyincrements.phtml'
+				type='cataloginventory/qtyincrements'
+			/>
 		</reference>
 	</catalog_product_view>
-
-<!--
-Additional block dependent on product type
--->
 	<PRODUCT_TYPE_simple>
-		<reference name="product.info.simple.extra">
-			<block type="cataloginventory/stockqty_default" template="cataloginventory/stockqty/default.phtml"/>
+		<reference name='product.info.simple.extra'>
+			<block template='cataloginventory/stockqty/default.phtml' type='cataloginventory/stockqty_default'/>
 		</reference>
 	</PRODUCT_TYPE_simple>
 	<PRODUCT_TYPE_virtual>
-		<reference name="product.info.virtual.extra">
-			<block type="cataloginventory/stockqty_default" template="cataloginventory/stockqty/default.phtml"/>
+		<reference name='product.info.virtual.extra'>
+			<block template='cataloginventory/stockqty/default.phtml' type='cataloginventory/stockqty_default'/>
 		</reference>
 	</PRODUCT_TYPE_virtual>
 	<PRODUCT_TYPE_grouped>
-		<reference name="product.info.grouped.extra">
-			<block type="cataloginventory/stockqty_type_grouped" template="cataloginventory/stockqty/composite.phtml"/>
+		<reference name='product.info.grouped.extra'>
+			<block template='cataloginventory/stockqty/composite.phtml' type='cataloginventory/stockqty_type_grouped'/>
 		</reference>
 	</PRODUCT_TYPE_grouped>
 	<PRODUCT_TYPE_configurable>
-		<reference name="product.info.configurable.extra">
-			<block type="cataloginventory/stockqty_type_configurable" template="cataloginventory/stockqty/composite.phtml"/>
+		<reference name='product.info.configurable.extra'>
+			<block template='cataloginventory/stockqty/composite.phtml' type='cataloginventory/stockqty_type_configurable'/>
 		</reference>
 	</PRODUCT_TYPE_configurable>
-
 </layout>
