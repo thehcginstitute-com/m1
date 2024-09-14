@@ -164,7 +164,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template
 
 	/**
 	 * Remove Item from HEAD entity
-     * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
