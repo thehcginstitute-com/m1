@@ -87,7 +87,7 @@ class Mage_Adminhtml_Block_Widget_Tabs extends Mage_Adminhtml_Block_Widget
 
 	/**
 	 * Add new tab after another
-     * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @param   string|array|Varien_Object $block
@@ -99,7 +99,7 @@ class Mage_Adminhtml_Block_Widget_Tabs extends Mage_Adminhtml_Block_Widget
 
 	/**
 	 * Add new tab
-     * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @param string|array|Varien_Object $block
@@ -396,13 +396,11 @@ class Mage_Adminhtml_Block_Widget_Tabs extends Mage_Adminhtml_Block_Widget
 	/**
 	 * Mark tabs as dependant of each other
 	 * Arbitrary number of tabs can be specified, but at least two
-	 *
-	 * @param string $tabOneId
-	 * @param string $tabTwoId
-	 * @param string $tabNId...
+     * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function bindShadowTabs($tabOneId, $tabTwoId)
-	{
+	function bindShadowTabs(string $first, string $second):void {
 		$tabs = [];
 		$args = func_get_args();
 		if ((!empty($args)) && (count($args) > 1)) {
