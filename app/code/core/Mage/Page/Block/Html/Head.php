@@ -19,6 +19,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * @used-by Mage_Adminhtml_Catalog_ProductController::editAction()
 	 * @used-by Mage_Adminhtml_Permissions_RoleController::editRoleAction()
 	 * @used-by Mage_Adminhtml_System_DesignController::editAction()
+	 * @used-by Mage_Adminhtml_UrlrewriteController::editAction()
 	 */
 	final function setCanLoadExtJs():void {$this['can_load_ext_js'] = true;}
 
