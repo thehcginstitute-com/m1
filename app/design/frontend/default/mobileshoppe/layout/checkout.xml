@@ -86,8 +86,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						template='checkout/onepage/link.phtml'
 						type='checkout/onepage_link'
 					/>
-					<block name='checkout.cart.methods.multishipping' template='checkout/multishipping/link.phtml'
-						   type='checkout/multishipping_link'/>
+					<block
+						name='checkout.cart.methods.multishipping'
+						template='checkout/multishipping/link.phtml'
+						type='checkout/multishipping_link'
+					/>
 				</block>
 				<block as='coupon' name='checkout.cart.coupon' template='checkout/cart/coupon.phtml' type='checkout/cart_coupon'/>
 				<block as='shipping' name='checkout.cart.shipping' template='checkout/cart/shipping.phtml'
