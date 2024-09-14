@@ -1,20 +1,21 @@
-<?xml version="1.0"?>
-<layout version="0.1.0">
-    <adminhtml_exporter_index>
-        <reference name="content">
-            <block type="exporter/adminhtml_exporter" name="exporter" />
-        </reference>
-    </adminhtml_exporter_index>
-
+<?xml version='1.0'?>
+<!-- 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+https://github.com/thehcginstitute-com/m1/issues/680 -->
+<layout>
+	<adminhtml_exporter_index>
+		<reference name='content'>
+			<block name='exporter' type='exporter/adminhtml_exporter'/>
+		</reference>
+	</adminhtml_exporter_index>
 	<adminhtml_exporter_grid>
-        <reference name="root">
-            <block type="exporter/adminhtml_exporter_grid" name="root" output="toHtml"/>
-        </reference>
-    </adminhtml_exporter_grid>
-
+		<reference name='root'>
+			<block name='root' output='toHtml' type='exporter/adminhtml_exporter_grid'/>
+		</reference>
+	</adminhtml_exporter_grid>
 	<adminhtml_importer_index>
-        <reference name="content">
-            <block type="exporter/adminhtml_exporter_edit_tab_form" name="importer" />
-        </reference>
-    </adminhtml_importer_index>
+		<reference name='content'>
+			<block name='importer' type='exporter/adminhtml_exporter_edit_tab_form'/>
+		</reference>
+	</adminhtml_importer_index>
 </layout>
