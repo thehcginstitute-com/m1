@@ -47,8 +47,8 @@
 	</oauth_root_handle>
 	<oauth_root_handle_simple>
 		<remove name='js_cookie'/>
-		<block type='page/html' name='root' output='toHtml' template='page/empty.phtml'>
-			<block type='page/html_head' name='head' as='head' template='oauth/authorize/head-simple.phtml'>
+		<block name='root' output='toHtml' template='page/empty.phtml' type='page/html'>
+			<block as='head' name='head' template='oauth/authorize/head-simple.phtml' type='page/html_head'>
 <!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
@@ -56,15 +56,15 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<name>css/oauth-simple.css</name>
 				</action>
 			</block>
-			<block type='core/text_list' name='content'/>
+			<block name='content' type='core/text_list'/>
 		</block>
 	</oauth_root_handle_simple>
 	<oauth_authorize_index >
 		<update handle='oauth_root_handle'/>
 		<label>OAuth authorization for customer</label>
 		<reference name='content'>
-			<block type='oauth/authorize' name='oauth.authorize.form' template='oauth/authorize/form/login.phtml'/>
-			<block type='oauth/authorize_button' name='oauth.authorize.button' template='oauth/authorize/button.phtml'/>
+			<block name='oauth.authorize.form' template='oauth/authorize/form/login.phtml' type='oauth/authorize'/>
+			<block name='oauth.authorize.button' template='oauth/authorize/button.phtml' type='oauth/authorize_button'/>
 		</reference>
 	</oauth_authorize_index>
 	<oauth_authorize_simple >
@@ -72,36 +72,36 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<remove name='header'/>
 		<label>OAuth authorization Pop Up for customer</label>
 		<reference name='content'>
-			<block type='oauth/authorize' name='oauth.authorize.form' template='oauth/authorize/form/login-simple.phtml'/>
-			<block type='oauth/authorize_button' name='oauth.authorize.button' template='oauth/authorize/button-simple.phtml'/>
+			<block name='oauth.authorize.form' template='oauth/authorize/form/login-simple.phtml' type='oauth/authorize'/>
+			<block name='oauth.authorize.button' template='oauth/authorize/button-simple.phtml' type='oauth/authorize_button'/>
 		</reference>
 	</oauth_authorize_simple>
 	<oauth_authorize_confirm >
 		<update handle='oauth_root_handle'/>
 		<label>Confirm OAuth token authorization</label>
 		<reference name='content'>
-			<block type='oauth/authorize_button' name='oauth.authorize.confirm' template='oauth/authorize/confirm.phtml'/>
+			<block name='oauth.authorize.confirm' template='oauth/authorize/confirm.phtml' type='oauth/authorize_button'/>
 		</reference>
 	</oauth_authorize_confirm>
 	<oauth_authorize_confirmsimple >
 		<update handle='oauth_root_handle_simple'/>
 		<remove name='header'/>
 		<reference name='content'>
-			<block type='oauth/authorize_button' name='oauth.authorize.confirm' template='oauth/authorize/confirm-simple.phtml'/>
+			<block name='oauth.authorize.confirm' template='oauth/authorize/confirm-simple.phtml' type='oauth/authorize_button'/>
 		</reference>
 	</oauth_authorize_confirmsimple>
 	<oauth_authorize_reject >
 		<update handle='oauth_root_handle'/>
 		<label>Reject OAuth token authorization</label>
 		<reference name='content'>
-			<block type='oauth/authorize_button' name='oauth.authorize.reject' template='oauth/authorize/reject.phtml'/>
+			<block name='oauth.authorize.reject' template='oauth/authorize/reject.phtml' type='oauth/authorize_button'/>
 		</reference>
 	</oauth_authorize_reject>
 	<oauth_authorize_rejectsimple >
 		<update handle='oauth_root_handle_simple'/>
 		<remove name='header'/>
 		<reference name='content'>
-			<block type='oauth/authorize_button' name='oauth.authorize.reject' template='oauth/authorize/reject-simple.phtml'/>
+			<block name='oauth.authorize.reject' template='oauth/authorize/reject-simple.phtml' type='oauth/authorize_button'/>
 		</reference>
 	</oauth_authorize_rejectsimple>
 	<customer_account>
@@ -117,7 +117,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>Customer My Account My OAuth Applications</label>
 		<update handle='customer_account'/>
 		<reference name='my.account.wrapper'>
-			<block type='oauth/customer_token_list' name='oauth_customer_token_list' template='oauth/customer/token/list.phtml'/>
+			<block name='oauth_customer_token_list' template='oauth/customer/token/list.phtml' type='oauth/customer_token_list'/>
 		</reference>
 	</oauth_customer_token_index>
 </layout>
