@@ -70,8 +70,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				</action>
 				<block as='top_methods' name='checkout.cart.top_methods' type='core/text_list' >
 					<label>Payment Methods Before Checkout Button</label>
-					<block name='checkout.cart.methods.onepage' template='checkout/onepage/link.phtml'
-						   type='checkout/onepage_link'/>
+					<block
+						name='checkout.cart.methods.onepage'
+						template='checkout/onepage/link.phtml'
+						type='checkout/onepage_link'
+					/>
 				</block>
 				<block as='form_before' name='checkout.cart.form.before' type='page/html_wrapper' >
 					<label>Shopping Cart Form Before</label>
