@@ -8,9 +8,6 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='top.links'>
 			<block name='wishlist_link' type='wishlist/links'/>
 			<action method='addLinkBlock'>
-<!-- 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<name>wishlist_link</name>
 			</action>
 		</reference>
