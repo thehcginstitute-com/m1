@@ -27,8 +27,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<template>checkout/cart/sidebar/default.phtml</template>
 					<type>configurable</type>
 				</action>
-				<block as='extra_actions' module='checkout' name='cart_sidebar.extra_actions'
-					   type='core/text_list'>
+				<block as='extra_actions' module='checkout' name='cart_sidebar.extra_actions' type='core/text_list'>
 					<label>Shopping Cart Sidebar Extra Actions</label>
 				</block>
 			</block>
