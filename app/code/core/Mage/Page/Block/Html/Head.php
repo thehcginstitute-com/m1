@@ -11,7 +11,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * @used-by app/design/adminhtml/default/default/template/nwdthemes/revslider/page/head.phtml
 	 * @used-by app/design/adminhtml/default/default/template/page/head.phtml
 	 */
-	final function getCanLoadExtJs():bool {return !!$this['can_load_ext_js'];}
+	final function getCanLoadExtJs():bool {return !!$this[self::$CAN_LOAD_EXT_JS];}
 
 	/**
      * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -35,7 +35,15 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-14--3/app/design/adminhtml/default/default/layout/promo.xml#L43
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-14--3/app/design/adminhtml/default/default/layout/widget.xml#L20
 	 */
-	final function setCanLoadExtJs():void {$this['can_load_ext_js'] = true;}
+	final function setCanLoadExtJs():void {$this[self::$CAN_LOAD_EXT_JS] = true;}
+
+	/**
+	 * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::getCanLoadExtJs()
+	 * @used-by self::setCanLoadExtJs()
+	 * @const string
+	 */
+	private static $CAN_LOAD_EXT_JS = 'can_load_ext_js';
 
 	/**
      * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
