@@ -71,8 +71,11 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						</action>
 						<block name='customer.wishlist.item.options' type='wishlist/customer_wishlist_item_options'/>
 					</block>
-					<block name='customer.wishlist.item.remove' template='wishlist/item/column/remove.phtml'
-						   type='wishlist/customer_wishlist_item_column_remove'/>
+					<block
+						name='customer.wishlist.item.remove'
+						template='wishlist/item/column/remove.phtml'
+						type='wishlist/customer_wishlist_item_column_remove'
+					/>
 				</block>
 				<block as='control_buttons' name='customer.wishlist.buttons' type='core/text_list'>
 					<block name='customer.wishlist.button.share' template='wishlist/button/share.phtml'
