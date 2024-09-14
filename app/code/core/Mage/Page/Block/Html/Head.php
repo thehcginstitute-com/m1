@@ -10,6 +10,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
      * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @used-by Nwdthemes_Revslider_Adminhtml_NwdrevsliderController::_initPage()
 	 */
 	final function setCanLoadExtJs():void {$this['can_load_ext_js'] = true;}
 
