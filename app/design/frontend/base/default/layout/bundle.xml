@@ -215,20 +215,20 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				type='bundle/catalog_product_view_type_bundle'
 			>
 				<action method='addRenderer'>
-					<type>select</type>
 					<block>bundle/catalog_product_view_type_bundle_option_select</block>
+					<type>select</type>
 				</action>
 				<action method='addRenderer'>
-					<type>multi</type>
 					<block>bundle/catalog_product_view_type_bundle_option_multi</block>
+					<type>multi</type>
 				</action>
 				<action method='addRenderer'>
-					<type>radio</type>
 					<block>bundle/catalog_product_view_type_bundle_option_radio</block>
+					<type>radio</type>
 				</action>
 				<action method='addRenderer'>
-					<type>checkbox</type>
 					<block>bundle/catalog_product_view_type_bundle_option_checkbox</block>
+					<type>checkbox</type>
 				</action>
 			</block>
 			<action method='insert'>
