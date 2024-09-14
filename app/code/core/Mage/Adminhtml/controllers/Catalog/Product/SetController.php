@@ -22,224 +22,224 @@
  */
 class Mage_Adminhtml_Catalog_Product_SetController extends Mage_Adminhtml_Controller_Action
 {
-    /**
-     * ACL resource
-     * @see Mage_Adminhtml_Controller_Action::_isAllowed()
-     */
-    public const ADMIN_RESOURCE = 'catalog/attributes/sets';
+	/**
+	 * ACL resource
+	 * @see Mage_Adminhtml_Controller_Action::_isAllowed()
+	 */
+	public const ADMIN_RESOURCE = 'catalog/attributes/sets';
 
-    function indexAction()
-    {
-        $this->_title($this->__('Catalog'))
-             ->_title($this->__('Attributes'))
-             ->_title($this->__('Manage Attribute Sets'));
+	function indexAction()
+	{
+		$this->_title($this->__('Catalog'))
+			 ->_title($this->__('Attributes'))
+			 ->_title($this->__('Manage Attribute Sets'));
 
-        $this->_setTypeId();
+		$this->_setTypeId();
 
-        $this->loadLayout();
-        $this->_setActiveMenu('catalog/sets');
+		$this->loadLayout();
+		$this->_setActiveMenu('catalog/sets');
 
-        $this->_addBreadcrumb(Mage::helper('catalog')->__('Catalog'), Mage::helper('catalog')->__('Catalog'));
-        $this->_addBreadcrumb(
-            Mage::helper('catalog')->__('Manage Attribute Sets'),
-            Mage::helper('catalog')->__('Manage Attribute Sets')
-        );
+		$this->_addBreadcrumb(Mage::helper('catalog')->__('Catalog'), Mage::helper('catalog')->__('Catalog'));
+		$this->_addBreadcrumb(
+			Mage::helper('catalog')->__('Manage Attribute Sets'),
+			Mage::helper('catalog')->__('Manage Attribute Sets')
+		);
 
-        $this->_addContent($this->getLayout()->createBlock('adminhtml/catalog_product_attribute_set_toolbar_main'));
-        $this->_addContent($this->getLayout()->createBlock('adminhtml/catalog_product_attribute_set_grid'));
+		$this->_addContent($this->getLayout()->createBlock('adminhtml/catalog_product_attribute_set_toolbar_main'));
+		$this->_addContent($this->getLayout()->createBlock('adminhtml/catalog_product_attribute_set_grid'));
 
-        $this->renderLayout();
-    }
+		$this->renderLayout();
+	}
 
-    function editAction()
-    {
-        $this->_title($this->__('Catalog'))
-             ->_title($this->__('Attributes'))
-             ->_title($this->__('Manage Attribute Sets'));
+	function editAction()
+	{
+		$this->_title($this->__('Catalog'))
+			 ->_title($this->__('Attributes'))
+			 ->_title($this->__('Manage Attribute Sets'));
 
-        $this->_setTypeId();
-        $attributeSet = Mage::getModel('eav/entity_attribute_set')
-            ->load($this->getRequest()->getParam('id'));
+		$this->_setTypeId();
+		$attributeSet = Mage::getModel('eav/entity_attribute_set')
+			->load($this->getRequest()->getParam('id'));
 
-        if (!$attributeSet->getId()) {
-            $this->_redirect('*/*/index');
-            return;
-        }
+		if (!$attributeSet->getId()) {
+			$this->_redirect('*/*/index');
+			return;
+		}
 
-        $this->_title($attributeSet->getId() ? $attributeSet->getAttributeSetName() : $this->__('New Set'));
+		$this->_title($attributeSet->getId() ? $attributeSet->getAttributeSetName() : $this->__('New Set'));
 
-        Mage::register('current_attribute_set', $attributeSet);
+		Mage::register('current_attribute_set', $attributeSet);
 
-        $this->loadLayout();
-        $this->_setActiveMenu('catalog/sets');
-        $this->getLayout()->getBlock('head')->setCanLoadExtJs(true);
+		$this->loadLayout();
+		$this->_setActiveMenu('catalog/sets');
+		$this->getLayout()->getBlock('head')->setCanLoadExtJs();
 
-        $this->_addBreadcrumb(Mage::helper('catalog')->__('Catalog'), Mage::helper('catalog')->__('Catalog'));
-        $this->_addBreadcrumb(
-            Mage::helper('catalog')->__('Manage Product Sets'),
-            Mage::helper('catalog')->__('Manage Product Sets')
-        );
+		$this->_addBreadcrumb(Mage::helper('catalog')->__('Catalog'), Mage::helper('catalog')->__('Catalog'));
+		$this->_addBreadcrumb(
+			Mage::helper('catalog')->__('Manage Product Sets'),
+			Mage::helper('catalog')->__('Manage Product Sets')
+		);
 
-        $this->_addContent($this->getLayout()->createBlock('adminhtml/catalog_product_attribute_set_main'));
+		$this->_addContent($this->getLayout()->createBlock('adminhtml/catalog_product_attribute_set_main'));
 
-        $this->renderLayout();
-    }
+		$this->renderLayout();
+	}
 
-    function setGridAction()
-    {
-        $this->_setTypeId();
-        $this->getResponse()->setBody(
-            $this->getLayout()
-                ->createBlock('adminhtml/catalog_product_attribute_set_grid')
-            ->toHtml()
-        );
-    }
+	function setGridAction()
+	{
+		$this->_setTypeId();
+		$this->getResponse()->setBody(
+			$this->getLayout()
+				->createBlock('adminhtml/catalog_product_attribute_set_grid')
+			->toHtml()
+		);
+	}
 
-    /**
-     * Save attribute set action
-     *
-     * [POST] Create attribute set from another set and redirect to edit page
-     * [AJAX] Save attribute set data
-     *
-     */
-    function saveAction()
-    {
-        $entityTypeId   = $this->_getEntityTypeId();
-        $hasError       = false;
-        $attributeSetId = $this->getRequest()->getParam('id', false);
-        $isNewSet       = $this->getRequest()->getParam('gotoEdit', false) == '1';
+	/**
+	 * Save attribute set action
+	 *
+	 * [POST] Create attribute set from another set and redirect to edit page
+	 * [AJAX] Save attribute set data
+	 *
+	 */
+	function saveAction()
+	{
+		$entityTypeId   = $this->_getEntityTypeId();
+		$hasError       = false;
+		$attributeSetId = $this->getRequest()->getParam('id', false);
+		$isNewSet       = $this->getRequest()->getParam('gotoEdit', false) == '1';
 
-        /** @var Mage_Eav_Model_Entity_Attribute_Set $model */
-        $model  = Mage::getModel('eav/entity_attribute_set')
-            ->setEntityTypeId($entityTypeId);
+		/** @var Mage_Eav_Model_Entity_Attribute_Set $model */
+		$model  = Mage::getModel('eav/entity_attribute_set')
+			->setEntityTypeId($entityTypeId);
 
-        /** @var Mage_Adminhtml_Helper_Data $helper */
-        $helper = Mage::helper('adminhtml');
+		/** @var Mage_Adminhtml_Helper_Data $helper */
+		$helper = Mage::helper('adminhtml');
 
-        try {
-            if ($isNewSet) {
-                //filter html tags
-                $name = $helper->stripTags($this->getRequest()->getParam('attribute_set_name'));
-                $model->setAttributeSetName(trim($name));
-            } else {
-                if ($attributeSetId) {
-                    $model->load($attributeSetId);
-                }
-                if (!$model->getId()) {
-                    Mage::throwException(Mage::helper('catalog')->__('This attribute set no longer exists.'));
-                }
-                $data = Mage::helper('core')->jsonDecode($this->getRequest()->getPost('data'));
+		try {
+			if ($isNewSet) {
+				//filter html tags
+				$name = $helper->stripTags($this->getRequest()->getParam('attribute_set_name'));
+				$model->setAttributeSetName(trim($name));
+			} else {
+				if ($attributeSetId) {
+					$model->load($attributeSetId);
+				}
+				if (!$model->getId()) {
+					Mage::throwException(Mage::helper('catalog')->__('This attribute set no longer exists.'));
+				}
+				$data = Mage::helper('core')->jsonDecode($this->getRequest()->getPost('data'));
 
-                //filter html tags
-                $data['attribute_set_name'] = $helper->stripTags($data['attribute_set_name']);
+				//filter html tags
+				$data['attribute_set_name'] = $helper->stripTags($data['attribute_set_name']);
 
-                $model->organizeData($data);
-            }
+				$model->organizeData($data);
+			}
 
-            $model->validate();
-            if ($isNewSet) {
-                $model->save();
-                $model->initFromSkeleton($this->getRequest()->getParam('skeleton_set'));
-            }
-            $model->save();
-            $this->_getSession()->addSuccess(Mage::helper('catalog')->__('The attribute set has been saved.'));
-        } catch (Mage_Core_Exception $e) {
-            $this->_getSession()->addError($e->getMessage());
-            $hasError = true;
-        } catch (Exception $e) {
-            $this->_getSession()->addException(
-                $e,
-                Mage::helper('catalog')->__('An error occurred while saving the attribute set.')
-            );
-            $hasError = true;
-        }
+			$model->validate();
+			if ($isNewSet) {
+				$model->save();
+				$model->initFromSkeleton($this->getRequest()->getParam('skeleton_set'));
+			}
+			$model->save();
+			$this->_getSession()->addSuccess(Mage::helper('catalog')->__('The attribute set has been saved.'));
+		} catch (Mage_Core_Exception $e) {
+			$this->_getSession()->addError($e->getMessage());
+			$hasError = true;
+		} catch (Exception $e) {
+			$this->_getSession()->addException(
+				$e,
+				Mage::helper('catalog')->__('An error occurred while saving the attribute set.')
+			);
+			$hasError = true;
+		}
 
-        if ($isNewSet) {
-            if ($hasError) {
-                $this->_redirect('*/*/add');
-            } else {
-                $this->_redirect('*/*/edit', ['id' => $model->getId()]);
-            }
-        } else {
-            $response = [];
-            if ($hasError) {
-                $this->_initLayoutMessages('adminhtml/session');
-                $response['error']   = 1;
-                $response['message'] = $this->getLayout()->getMessagesBlock()->getGroupedHtml();
-            } else {
-                $response['error']   = 0;
-                $response['url']     = $this->getUrl('*/*/');
-            }
-            $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($response));
-        }
-    }
+		if ($isNewSet) {
+			if ($hasError) {
+				$this->_redirect('*/*/add');
+			} else {
+				$this->_redirect('*/*/edit', ['id' => $model->getId()]);
+			}
+		} else {
+			$response = [];
+			if ($hasError) {
+				$this->_initLayoutMessages('adminhtml/session');
+				$response['error']   = 1;
+				$response['message'] = $this->getLayout()->getMessagesBlock()->getGroupedHtml();
+			} else {
+				$response['error']   = 0;
+				$response['url']     = $this->getUrl('*/*/');
+			}
+			$this->getResponse()->setBody(Mage::helper('core')->jsonEncode($response));
+		}
+	}
 
-    function addAction()
-    {
-        $this->_title($this->__('Catalog'))
-             ->_title($this->__('Attributes'))
-             ->_title($this->__('Manage Attribute Sets'))
-             ->_title($this->__('New Set'));
+	function addAction()
+	{
+		$this->_title($this->__('Catalog'))
+			 ->_title($this->__('Attributes'))
+			 ->_title($this->__('Manage Attribute Sets'))
+			 ->_title($this->__('New Set'));
 
-        $this->_setTypeId();
+		$this->_setTypeId();
 
-        $this->loadLayout();
-        $this->_setActiveMenu('catalog/sets');
+		$this->loadLayout();
+		$this->_setActiveMenu('catalog/sets');
 
-        $this->_addContent($this->getLayout()->createBlock('adminhtml/catalog_product_attribute_set_toolbar_add'));
+		$this->_addContent($this->getLayout()->createBlock('adminhtml/catalog_product_attribute_set_toolbar_add'));
 
-        $this->renderLayout();
-    }
+		$this->renderLayout();
+	}
 
-    function deleteAction()
-    {
-        $setId = $this->getRequest()->getParam('id');
-        try {
-            Mage::getModel('eav/entity_attribute_set')
-                ->setId($setId)
-                ->delete();
+	function deleteAction()
+	{
+		$setId = $this->getRequest()->getParam('id');
+		try {
+			Mage::getModel('eav/entity_attribute_set')
+				->setId($setId)
+				->delete();
 
-            $this->_getSession()->addSuccess($this->__('The attribute set has been removed.'));
-            $this->getResponse()->setRedirect($this->getUrl('*/*/'));
-        } catch (Exception $e) {
-            $this->_getSession()->addError($this->__('An error occurred while deleting this set.'));
-            $this->_redirectReferer();
-        }
-    }
+			$this->_getSession()->addSuccess($this->__('The attribute set has been removed.'));
+			$this->getResponse()->setRedirect($this->getUrl('*/*/'));
+		} catch (Exception $e) {
+			$this->_getSession()->addError($this->__('An error occurred while deleting this set.'));
+			$this->_redirectReferer();
+		}
+	}
 
-    /**
-     * Controller pre-dispatch method
-     *
-     * @return Mage_Adminhtml_Controller_Action
-     */
-    function preDispatch()
-    {
-        $this->_setForcedFormKeyActions('delete');
-        return parent::preDispatch();
-    }
+	/**
+	 * Controller pre-dispatch method
+	 *
+	 * @return Mage_Adminhtml_Controller_Action
+	 */
+	function preDispatch()
+	{
+		$this->_setForcedFormKeyActions('delete');
+		return parent::preDispatch();
+	}
 
-    /**
-     * Define in register catalog_product entity type code as entityType
-     *
-     */
-    protected function _setTypeId()
-    {
-        Mage::register(
-            'entityType',
-            Mage::getModel('catalog/product')->getResource()->getTypeId()
-        );
-    }
+	/**
+	 * Define in register catalog_product entity type code as entityType
+	 *
+	 */
+	protected function _setTypeId()
+	{
+		Mage::register(
+			'entityType',
+			Mage::getModel('catalog/product')->getResource()->getTypeId()
+		);
+	}
 
-    /**
-     * Retrieve catalog product entity type id
-     *
-     * @return int
-     */
-    protected function _getEntityTypeId()
-    {
-        if (is_null(Mage::registry('entityType'))) {
-            $this->_setTypeId();
-        }
-        return Mage::registry('entityType');
-    }
+	/**
+	 * Retrieve catalog product entity type id
+	 *
+	 * @return int
+	 */
+	protected function _getEntityTypeId()
+	{
+		if (is_null(Mage::registry('entityType'))) {
+			$this->_setTypeId();
+		}
+		return Mage::registry('entityType');
+	}
 }

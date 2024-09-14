@@ -13,6 +13,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * @used-by Nwdthemes_Revslider_Adminhtml_NwdrevsliderController::_initPage()
 	 * @used-by Mage_Adminhtml_Api_RoleController::editRoleAction()
 	 * @used-by Mage_Adminhtml_Catalog_Product_ReviewController::newAction()
+	 * @used-by Mage_Adminhtml_Catalog_Product_SetController::editAction()
 	 */
 	final function setCanLoadExtJs():void {$this['can_load_ext_js'] = true;}
 
