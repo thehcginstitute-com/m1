@@ -291,8 +291,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_images_contents>
 	<adminhtml_nwdrevslider_error>
 		<reference name='content'>
-			<block as='slider_error' name='slider_error' template='nwdthemes/revslider/templates/error.phtml'
-				type='adminhtml/template'/>
+			<block
+				as='slider_error'
+				name='slider_error'
+				template='nwdthemes/revslider/templates/error.phtml'
+				type='adminhtml/template'
+			/>
 		</reference>
 	</adminhtml_nwdrevslider_error>
 </layout>
