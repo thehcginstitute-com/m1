@@ -9,10 +9,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='related_grid_serializer' type='admin/widget_grid_serializer'>
 				<reference name='related_grid_serializer'>
 					<action method='initSerializerBlock'>
-						<grid_block_name>related.grid</grid_block_name>
-						<data_callback>getSelectedrelatedProducts</data_callback>
-						<hidden_input_name>links[related]</hidden_input_name>
-						<reload_param_name>products_related</reload_param_name>
+						<grid>related.grid</grid>
+						<callback>getSelectedrelatedProducts</callback>
+						<hiddenInputName>links[related]</hiddenInputName>
+						<reloadParamName>products_related</reloadParamName>
 					</action>
 				</reference>
 			</block>
