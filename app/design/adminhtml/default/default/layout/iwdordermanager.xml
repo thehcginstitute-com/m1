@@ -52,16 +52,12 @@ of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginsti
 	</ordermanager_order_grid_handle>
 	<ordermanager_log_grid_handle>
 		<reference name='head'>
-			<action method='addCss'>
-				<name>iwd/ordermanager/log_grid.css</name>
-			</action>
+			<action method='addCss'><name>iwd/ordermanager/log_grid.css</name></action>
 		</reference>
 	</ordermanager_log_grid_handle>
 	<adminhtml_system_config_edit>
 		<reference name='head'>
-			<action method='addCss'>
-				<name>iwd/ordermanager/system.css</name>
-			</action>
+			<action method='addCss'><name>iwd/ordermanager/system.css</name></action>
 		</reference>
 		<reference name='content'>
 			<block name='iwd_om_system' template='iwd/ordermanager/system/jsinit.phtml' type='core/template'/>
