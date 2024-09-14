@@ -41,9 +41,6 @@ of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginsti
 	</ordermanager_handle>
 	<ordermanager_order_grid_handle>
 		<reference name='head'>
-<!-- 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-"The names of arguments in `<action method='<methodName>'>` calls should match the `methodName`'s arguments":
-https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>iwd/ordermanager/jquery.nicescroll.js</name></action>
 			<action method='addJs'><name>iwd/all/modal.js</name></action>
 			<action method='addCss'><name>iwd/ordermanager/popup.css</name></action>
