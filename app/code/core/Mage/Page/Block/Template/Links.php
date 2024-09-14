@@ -62,6 +62,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by Mage_Checkout_Block_Links::addCartLink()
 	 * @used-by Mage_Checkout_Block_Links::addCheckoutLink()
+	 * @used-by Mage_Persistent_Model_Observer::emulateAccountLinks()
 	 * @param string|array $liParams
 	 * @param string|array $aParams
 	 * @param string $beforeText
