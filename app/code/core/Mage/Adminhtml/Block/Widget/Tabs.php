@@ -400,7 +400,7 @@ class Mage_Adminhtml_Block_Widget_Tabs extends Mage_Adminhtml_Block_Widget
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function bindShadowTabs(string $first, string $second):void {
+	final function bindShadowTabs(string $first, string $second):void {
 		$tabs = [];
 		$args = func_get_args();
 		if ((!empty($args)) && (count($args) > 1)) {

@@ -69,8 +69,12 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
         }
     }
 
-    function chooseTemplate()
-    {
+	/**
+     * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 */
+    final function chooseTemplate():void {
         $itemsCount = $this->getItemsCount() ?: $this->getQuote()->getItemsCount();
         if ($itemsCount) {
             $this->setTemplate($this->getCartTemplate());
