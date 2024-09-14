@@ -321,9 +321,7 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 	</adminhtml_sales_order_create_load_block_data>
 	<adminhtml_sales_order_create_index>
 		<reference name='head'>
-			<action method='addJs'>
-				<name>iwd/ordermanager/init.js</name>
-			</action>
+			<action method='addJs'><name>iwd/ordermanager/init.js</name></action>
 			<action ifconfig='iwd_ordermanager/edit/enable_custom_amount_new' method='addItem'>
 				<name>iwd/ordermanager/fee.css</name>
 				<type>skin_css</type>
