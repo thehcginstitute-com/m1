@@ -392,8 +392,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						template='checkout/onepage/shipping_method/available.phtml'
 						type='checkout/onepage_shipping_method_available'
 					/>
-					<block as='additional' name='checkout.onepage.shipping_method.additional'
-						   template='checkout/onepage/shipping_method/additional.phtml' type='checkout/onepage_shipping_method_additional'/>
+					<block
+						as='additional'
+						name='checkout.onepage.shipping_method.additional'
+						template='checkout/onepage/shipping_method/additional.phtml'
+						type='checkout/onepage_shipping_method_additional'
+					/>
 				</block>
 				<block as='payment' name='checkout.onepage.payment' template='checkout/onepage/payment.phtml'
 					   type='checkout/onepage_payment'>
