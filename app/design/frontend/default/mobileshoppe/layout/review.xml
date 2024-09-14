@@ -53,8 +53,7 @@ https://github.com/thehcginstitute-com/m1/issues/202 -->
 			<block name='product.info' template='catalog/product/view.phtml' type='review/product_view'>
 				<block
 					as='media'
-					name='product.info.media' template='catalog/product/view/media.phtml
-				'
+					name='product.info.media' template='catalog/product/view/media.phtml'
 					type='catalog/product_view_media'>
 					<action method='disableGallery'/>
 				</block>
