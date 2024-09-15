@@ -22,171 +22,171 @@
  */
 class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_Abstract
 {
-    /**
-     * Default MAP renderer type
-     *
-     * @var string
-     */
-    protected $_mapRenderer = 'msrp_noform';
+	/**
+	 * Default MAP renderer type
+	 *
+	 * @var string
+	 */
+	protected $_mapRenderer = 'msrp_noform';
 
-    protected $_columnCount = 4;
+	protected $_columnCount = 4;
 
-    protected $_items;
+	protected $_items;
 
-    protected $_itemCollection;
+	protected $_itemCollection;
 
-    protected $_itemLimits = [];
+	protected $_itemLimits = [];
 
-    /**
-     * @return $this
-     */
-    protected function _prepareData()
-    {
-        $product = Mage::registry('product');
-        /** @var Mage_Catalog_Model_Product $product */
-        $this->_itemCollection = $product->getUpSellProductCollection()
-            ->setPositionOrder()
-            ->addStoreFilter()
-        ;
-        if (Mage::helper('catalog')->isModuleEnabled('Mage_Checkout')) {
-            Mage::getResourceSingleton('checkout/cart')->addExcludeProductFilter(
-                $this->_itemCollection,
-                Mage::getSingleton('checkout/session')->getQuoteId()
-            );
+	/**
+	 * @return $this
+	 */
+	protected function _prepareData()
+	{
+		$product = Mage::registry('product');
+		/** @var Mage_Catalog_Model_Product $product */
+		$this->_itemCollection = $product->getUpSellProductCollection()
+			->setPositionOrder()
+			->addStoreFilter()
+		;
+		if (Mage::helper('catalog')->isModuleEnabled('Mage_Checkout')) {
+			Mage::getResourceSingleton('checkout/cart')->addExcludeProductFilter(
+				$this->_itemCollection,
+				Mage::getSingleton('checkout/session')->getQuoteId()
+			);
 
-            $this->_addProductAttributesAndPrices($this->_itemCollection);
-        }
-        Mage::getSingleton('catalog/product_visibility')->addVisibleInCatalogFilterToCollection($this->_itemCollection);
+			$this->_addProductAttributesAndPrices($this->_itemCollection);
+		}
+		Mage::getSingleton('catalog/product_visibility')->addVisibleInCatalogFilterToCollection($this->_itemCollection);
 
-        if ($this->getItemLimit('upsell') > 0) {
-            $this->_itemCollection->setPageSize($this->getItemLimit('upsell'));
-        }
+		if ($this->getItemLimit('upsell') > 0) {
+			$this->_itemCollection->setPageSize($this->getItemLimit('upsell'));
+		}
 
-        $this->_itemCollection->load();
+		$this->_itemCollection->load();
 
-        /**
-         * Updating collection with desired items
-         */
-        Mage::dispatchEvent('catalog_product_upsell', [
-            'product'       => $product,
-            'collection'    => $this->_itemCollection,
-            'limit'         => $this->getItemLimit()
-        ]);
+		/**
+		 * Updating collection with desired items
+		 */
+		Mage::dispatchEvent('catalog_product_upsell', [
+			'product'       => $product,
+			'collection'    => $this->_itemCollection,
+			'limit'         => $this->getItemLimit()
+		]);
 
-        foreach ($this->_itemCollection as $product) {
-            $product->setDoNotUseCategoryId(true);
-        }
+		foreach ($this->_itemCollection as $product) {
+			$product->setDoNotUseCategoryId(true);
+		}
 
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * @return Mage_Catalog_Block_Product_Abstract
-     */
-    protected function _beforeToHtml()
-    {
-        $this->_prepareData();
-        return parent::_beforeToHtml();
-    }
+	/**
+	 * @return Mage_Catalog_Block_Product_Abstract
+	 */
+	protected function _beforeToHtml()
+	{
+		$this->_prepareData();
+		return parent::_beforeToHtml();
+	}
 
-    /**
-     * @return Mage_Catalog_Model_Resource_Product_Link_Product_Collection
-     */
-    function getItemCollection()
-    {
-        return $this->_itemCollection;
-    }
+	/**
+	 * @return Mage_Catalog_Model_Resource_Product_Link_Product_Collection
+	 */
+	function getItemCollection()
+	{
+		return $this->_itemCollection;
+	}
 
-    /**
-     * @return Mage_Catalog_Model_Product[]
-     */
-    function getItems()
-    {
-        if (is_null($this->_items) && $this->getItemCollection()) {
-            $this->_items = $this->getItemCollection()->getItems();
-        }
-        return $this->_items;
-    }
+	/**
+	 * @return Mage_Catalog_Model_Product[]
+	 */
+	function getItems()
+	{
+		if (is_null($this->_items) && $this->getItemCollection()) {
+			$this->_items = $this->getItemCollection()->getItems();
+		}
+		return $this->_items;
+	}
 
-    /**
-     * @return float
-     */
-    function getRowCount()
-    {
-        return ceil(count($this->getItemCollection()->getItems()) / $this->getColumnCount());
-    }
+	/**
+	 * @return float
+	 */
+	function getRowCount()
+	{
+		return ceil(count($this->getItemCollection()->getItems()) / $this->getColumnCount());
+	}
 
-    /**
-     * @param array $columns
-     * @return $this
-     */
-    function setColumnCount($columns)
-    {
-        if ((int) $columns > 0) {
-            $this->_columnCount = (int) $columns;
-        }
-        return $this;
-    }
+	/**
+	 * @param array $columns
+	 * @return $this
+	 */
+	function setColumnCount($columns)
+	{
+		if ((int) $columns > 0) {
+			$this->_columnCount = (int) $columns;
+		}
+		return $this;
+	}
 
-    /**
-     * @return int
-     */
-    function getColumnCount()
-    {
-        return $this->_columnCount;
-    }
+	/**
+	 * @return int
+	 */
+	function getColumnCount()
+	{
+		return $this->_columnCount;
+	}
 
-    function resetItemsIterator()
-    {
-        $this->getItems();
-        reset($this->_items);
-    }
+	function resetItemsIterator()
+	{
+		$this->getItems();
+		reset($this->_items);
+	}
 
-    /**
-     * @return mixed
-     */
-    function getIterableItem()
-    {
-        $item = current($this->_items);
-        next($this->_items);
-        return $item;
-    }
+	/**
+	 * @return mixed
+	 */
+	function getIterableItem()
+	{
+		$item = current($this->_items);
+		next($this->_items);
+		return $item;
+	}
 
-    /**
-     * Set how many items we need to show in upsell block
-     * Notice: this parametr will be also applied
-     *
-     * @param string $type
-     * @param int $limit
-     * @return $this
-     */
-    function setItemLimit($type, $limit)
-    {
-        if ((int) $limit > 0) {
-            $this->_itemLimits[$type] = (int) $limit;
-        }
-        return $this;
-    }
+	/**
+	 * Set how many items we need to show in upsell block
+	 * Notice: this parametr will be also applied
+	 *
+	 * @param string $type
+	 * @param int $limit
+	 * @return $this
+	 */
+	function setItemLimit($type, $limit)
+	{
+		if ((int) $limit > 0) {
+			$this->_itemLimits[$type] = (int) $limit;
+		}
+		return $this;
+	}
 
-    /**
-     * @param string $type
-     * @return array|int|mixed
-     */
-    function getItemLimit($type = '')
-    {
-        if ($type == '') {
-            return $this->_itemLimits;
-        }
-        return $this->_itemLimits[$type] ?? 0;
-    }
+	/**
+	 * @param string $type
+	 * @return array|int|mixed
+	 */
+	function getItemLimit($type = '')
+	{
+		if ($type == '') {
+			return $this->_itemLimits;
+		}
+		return $this->_itemLimits[$type] ?? 0;
+	}
 
-    /**
-     * Get tags array for saving cache
-     *
-     * @return array
-     */
-    function getCacheTags()
-    {
-        return array_merge(parent::getCacheTags(), $this->getItemsTags($this->getItems()));
-    }
+	/**
+	 * Get tags array for saving cache
+	 *
+	 * @return array
+	 */
+	function getCacheTags()
+	{
+		return array_merge(parent::getCacheTags(), $this->getItemsTags($this->getItems()));
+	}
 }
