@@ -34,12 +34,9 @@ class Mage_ImportExport_Block_Adminhtml_Export_Filter extends Mage_Adminhtml_Blo
 	/**
 	 * Set grid parameters.
 	 */
-	function __construct()
-	{
+	function __construct() {
 		parent::__construct();
-
 		$this->_helper = Mage::helper('importexport');
-
 		$this->setRowClickCallback(null);
 		$this->setId('export_filter_grid');
 		$this->setDefaultSort('frontend_label');
