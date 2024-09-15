@@ -342,7 +342,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='unsetChildren'></action>
 			<block name='checkout.progress.wrapper' type='page/html_wrapper' >
 				<label>Checkout Progress Wrapper</label>
-				<action method='setElementId'><value>checkout-progress-wrapper</value></action>
+				<action method='setElementId'><v>checkout-progress-wrapper</v></action>
 				<block
 					before='-'
 					name='checkout.progress'
