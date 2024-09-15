@@ -8,6 +8,8 @@ class Mage_Captcha_Block_Captcha extends Mage_Core_Block_Template {
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by Mage_Captcha_Adminhtml_RefreshController::refreshAction()
+	 * @used-by Mage_Captcha_RefreshController::indexAction()
 	 */
 	final function setFormId(string $v):void {$this[self::$FORM_ID] = $v;}
 
