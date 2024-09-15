@@ -6,7 +6,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 <layout>
 	<customer_account>
 		<reference name='customer_account_navigation'>
-			<action method='addLink' module='downloadable'>
+			<action method='addLink'>
 				<label>My Downloadable Products</label>
 				<name>downloadable_products</name>
 				<path>downloadable/customer/products</path>
