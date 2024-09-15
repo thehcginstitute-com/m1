@@ -21,7 +21,7 @@ class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template {
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function setDataByKeyFromRegistry(string $k, string $rk):void {
+	final function setDataByKeyFromRegistry(string $k, string $rk):void {
 		if ($o = Mage::registry($rk)) {
 			$this->setDataByKey($k, $o[$k]);
 		}
