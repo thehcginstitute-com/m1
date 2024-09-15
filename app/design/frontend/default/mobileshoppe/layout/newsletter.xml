@@ -14,7 +14,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</default>
 	<customer_account>
 		<reference name='sidebar'>
-			<action method='addLink' module='newsletter'>
+			<action method='addLink'>
 				<label>Newsletter Subscriptions</label>
 				<name>newsletter</name>
 				<path>newsletter/manage/</path>
