@@ -8,6 +8,7 @@
 class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract {
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16/app/design/frontend/default/mobileshoppe/layout/checkout.xml#L54
 	 */
 	function setCartTemplate(string $v):void {$this[self::$CART_TEMPLATE] = $v;}
 
