@@ -225,7 +225,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 		</reference>
 	</sales_email_order_creditmemo_items>
-	<PRODUCT_TYPE_downloadable module='downloadable'>
+	<PRODUCT_TYPE_downloadable>
 		<label>Catalog Product View (Downloadable)</label>
 		<reference name='product.info'>
 			<block
