@@ -1,19 +1,5 @@
 <?php
 /**
- * OpenMage
- *
- * This source file is subject to the Open Software License (OSL 3.0)
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available at https://opensource.org/license/osl-3-0-php
- *
- * @category   Mage
- * @package    Mage_Core
- * @copyright  Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @copyright  Copyright (c) 2020 The OpenMage Contributors (https://www.openmage.org)
- * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */
-
-/**
  * Block, that can get data from layout or from registry.
  * Can compare its data values by specified keys
  *
@@ -21,21 +7,13 @@
  * @package    Mage_Core
  * @author     Magento Core Team <core@magentocommerce.com>
  */
-class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template
-{
+class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template {
 	/**
-	 * Just set data, like Varien_Object
-	 *
-	 * This method is to be used in layout.
-	 * In layout it can be understood better, than setSomeKeyBlahBlah()
-	 *
-	 * @param string $key
-	 * @param string $value
+     * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function setDataByKey($key, $value)
-	{
-		$this->_data[$key] = $value;
-	}
+	final function setDataByKey(string $k, string $v):void {$this->_data[$k] = $v;}
 
 	/**
 	 * Also set data, but take the value from registry by registry key

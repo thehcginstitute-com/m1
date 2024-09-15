@@ -231,10 +231,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 					<action method='append'><block>product.info.addto</block></action>
 				</block>
 				<block as='container1' name='product.info.container1' type='core/template_facade'>
-					<action method='setDataByKey'>
-						<key>alias_in_layout</key>
-						<value>container1</value>
-					</action>
+					<action method='setDataByKey'><k>alias_in_layout</k><v>container1</v></action>
 					<action method='setDataByKeyFromRegistry'>
 						<key>options_container</key>
 						<key_in_registry>product</key_in_registry>
@@ -243,10 +240,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 					<action method='append'><block>product.info.options.wrapper.bottom</block></action>
 				</block>
 				<block as='container2' name='product.info.container2' type='core/template_facade'>
-					<action method='setDataByKey'>
-						<key>alias_in_layout</key>
-						<value>container2</value>
-					</action>
+					<action method='setDataByKey'><k>alias_in_layout</k><v>container2</v></action>
 					<action method='setDataByKeyFromRegistry'>
 						<key>options_container</key>
 						<key_in_registry>product</key_in_registry>
