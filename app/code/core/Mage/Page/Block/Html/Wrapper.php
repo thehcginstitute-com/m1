@@ -48,6 +48,11 @@ class Mage_Page_Block_Html_Wrapper extends Mage_Core_Block_Abstract {
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--3/app/design/frontend/default/mobileshoppe/layout/cms.xml#L13
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--3/app/design/frontend/default/mobileshoppe/layout/customer.xml#L156
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--3/app/design/frontend/default/mobileshoppe/layout/page.xml#L59
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--3/app/design/frontend/default/mobileshoppe/layout/page.xml#L64
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--3/app/design/frontend/default/mobileshoppe/layout/page.xml#L81
 	 */
 	final function setElementClass(string $v):void {$this[self::$ELEMENT_CLASS] = $v;}
 
