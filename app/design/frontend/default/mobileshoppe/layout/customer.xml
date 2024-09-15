@@ -153,9 +153,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 		<reference name='content'>
 			<block name='my.account.wrapper' type='page/html_wrapper' >
 				<label>My Account Wrapper</label>
-				<action method='setElementClass'>
-					<value>my-account</value>
-				</action>
+				<action method='setElementClass'><value>my-account</value></action>
 			</block>
 		</reference>
 		<reference name='left'>
