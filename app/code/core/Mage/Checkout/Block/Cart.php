@@ -13,10 +13,9 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract {
 	 * @used-by Mage_Core_Block_Template::getCacheKeyInfo()
 	 * @used-by Mage_Core_Block_Template::getTemplateFile()
 	 */
-	function getTemplate():string {return $this->getItemsCount() || $this->getQuote()->getItemsCount()
-		? 'checkout/cart.phtml'
-		: 'checkout/cart/noItems.phtml'
-	;}
+	function getTemplate():string {return sprintf('checkout/cart%s.phtml',
+		$this->getItemsCount() || $this->getQuote()->getItemsCount() ? '' : '/noItems'
+	);}
 
 	/**
 	 * Prepare cart items URLs
@@ -58,7 +57,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract {
 			}
 		}
 	}
-	
+
 	/**
 	 * @return bool
 	 */
