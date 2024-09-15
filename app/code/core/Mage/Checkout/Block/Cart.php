@@ -75,7 +75,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract {
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
 	final function chooseTemplate():void {$this->setTemplate($this[
-		($this->getItemsCount() ?: $this->getQuote()->getItemsCount()) ? self::$CART_TEMPLATE : self::$EMPTY_TEMPLATE
+		$this->getItemsCount() || $this->getQuote()->getItemsCount() ? self::$CART_TEMPLATE : self::$EMPTY_TEMPLATE
 	]);}
 
 	/**
