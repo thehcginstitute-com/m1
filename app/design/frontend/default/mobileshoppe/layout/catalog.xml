@@ -6,7 +6,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 <layout>
 	<default>
 		<reference name='footer_links'>
-			<action ifconfig='catalog/seo/site_map' method='addLink' module='catalog'>
+			<action ifconfig='catalog/seo/site_map' method='addLink'>
 				<label>Site Map</label>
 				<title>Site Map</title>
 				<url helper='catalog/map/getCategoryUrl'/>
