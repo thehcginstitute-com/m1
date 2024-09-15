@@ -74,14 +74,9 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract {
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	final function chooseTemplate():void {
-		$itemsCount = $this->getItemsCount() ?: $this->getQuote()->getItemsCount();
-		if ($itemsCount) {
-			$this->setTemplate($this[self::$CART_TEMPLATE]);
-		} else {
-			$this->setTemplate($this[self::$EMPTY_TEMPLATE]);
-		}
-	}
+	final function chooseTemplate():void {$this->setTemplate($this[
+		($this->getItemsCount() ?: $this->getQuote()->getItemsCount()) ? self::$CART_TEMPLATE : self::$EMPTY_TEMPLATE
+	]);}
 
 	/**
 	 * @return bool
