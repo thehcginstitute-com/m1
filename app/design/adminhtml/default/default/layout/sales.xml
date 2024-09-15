@@ -1325,18 +1325,9 @@ Once timezone is changed, the lifetime statistics need to be refreshed.</message
 					</action>
 				</block>
 				<block name='grid.filter.form' type='sales/adminhtml_report_filter_form'>
-					<action method='setFieldVisibility'>
-						<field>report_type</field>
-						<visibility>0</visibility>
-					</action>
-					<action method='setFieldVisibility'>
-						<field>show_order_statuses</field>
-						<visibility>0</visibility>
-					</action>
-					<action method='setFieldVisibility'>
-						<field>order_statuses</field>
-						<visibility>0</visibility>
-					</action>
+					<action method='setInvisible'><field>order_statuses</field></action>
+					<action method='setInvisible'><field>report_type</field></action>
+					<action method='setInvisible'><field>show_order_statuses</field></action>
 				</block>
 			</block>
 		</reference>

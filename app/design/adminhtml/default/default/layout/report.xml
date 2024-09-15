@@ -33,10 +33,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					</action>
 				</block>
 				<block name='grid.filter.form' type='adminhtml/report_filter_form'>
-					<action method='setFieldVisibility'>
-						<field>report_type</field>
-						<visibility>0</visibility>
-					</action>
+					<action method='setInvisible'><field>report_type</field></action>
 				</block>
 			</block>
 		</reference>

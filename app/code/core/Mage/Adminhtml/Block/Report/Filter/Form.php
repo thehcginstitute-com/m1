@@ -38,15 +38,11 @@ class Mage_Adminhtml_Block_Report_Filter_Form extends Mage_Adminhtml_Block_Widge
 	protected $_fieldOptions = [];
 
 	/**
-	 * Set field visibility
-	 *
-	 * @param string $fieldId Field id
-	 * @param bool $visibility Field visibility
+     * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function setFieldVisibility($fieldId, $visibility)
-	{
-		$this->_fieldVisibility[$fieldId] = (bool)$visibility;
-	}
+	final function setInvisible(string $field) {$this->_fieldVisibility[$field] = false;}
 
 	/**
 	 * Get field visibility
