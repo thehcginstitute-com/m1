@@ -906,6 +906,7 @@ class Mage_Adminhtml_Block_Widget_Grid extends Mage_Adminhtml_Block_Widget
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid::setDefaultGridParams()
 	 * @used-by Mage_Adminhtml_Block_Dashboard_Grid::__construct()
+	 * @used-by Mage_ImportExport_Block_Adminhtml_Export_Filter::__construct()
 	 */
 	final function setDefaultLimit(int $v):void {$this->_defaultLimit = $v;}
 
