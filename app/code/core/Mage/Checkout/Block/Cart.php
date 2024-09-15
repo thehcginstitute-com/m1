@@ -6,8 +6,7 @@
  * @method int getItemsCount()
  * @method Mage_Sales_Model_Quote_Item[] getCustomItems()
  */
-class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
-{
+class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract {
 	/**
 	 * Prepare cart items URLs
 	 *
