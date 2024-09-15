@@ -4,7 +4,7 @@
 2) "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 https://github.com/thehcginstitute-com/m1/issues/680 -->
 <layout>
-	<default module='page'>
+	<default>
 		<label>All Pages</label>
 		<block name='root' output='toHtml' template='page/2columns-left.phtml' type='page/html'>
 			<block as='head' name='head' type='page/html_head'>
@@ -101,7 +101,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		</block>
 		<block name='core_profiler' output='toHtml' type='core/profiler'/>
 	</default>
-	<print module='page'>
+	<print>
 		<label>All Pages (Print Version)</label>
 		<block name='root' output='toHtml' template='page/print.phtml' type='page/html'>
 			<block as='head' name='head' type='page/html_head'>
