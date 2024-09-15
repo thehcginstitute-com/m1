@@ -904,6 +904,7 @@ class Mage_Adminhtml_Block_Widget_Grid extends Mage_Adminhtml_Block_Widget
      * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @used-by IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid::setDefaultGridParams()
 	 */
 	final function setDefaultLimit(int $v):void {$this->_defaultLimit = $v;}
 
