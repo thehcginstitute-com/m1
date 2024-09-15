@@ -1,12 +1,24 @@
 <?php
 /**
- * @method string getCartTemplate()
  * @method string getEmptyTemplate()
  * @method $this setIsWishlistActive(bool $value)
  * @method int getItemsCount()
  * @method Mage_Sales_Model_Quote_Item[] getCustomItems()
  */
 class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract {
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	function setCartTemplate(string $v):void {$this[self::$CART_TEMPLATE] = $v;}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::chooseTemplate()
+	 * @used-by self::setCartTemplate()
+	 * @const string
+	 */
+	private static $CART_TEMPLATE = 'cart_template';
+
 	/**
 	 * Prepare cart items URLs
 	 *
@@ -56,7 +68,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract {
 	final function chooseTemplate():void {
 		$itemsCount = $this->getItemsCount() ?: $this->getQuote()->getItemsCount();
 		if ($itemsCount) {
-			$this->setTemplate($this->getCartTemplate());
+			$this->setTemplate($this[self::$CART_TEMPLATE]);
 		} else {
 			$this->setTemplate($this->getEmptyTemplate());
 		}
