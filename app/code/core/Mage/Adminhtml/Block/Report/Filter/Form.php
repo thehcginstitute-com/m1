@@ -64,25 +64,15 @@ class Mage_Adminhtml_Block_Report_Filter_Form extends Mage_Adminhtml_Block_Widge
 	}
 
 	/**
-	 * Set field option(s)
-	 *
-	 * @param string $fieldId Field id
-	 * @param mixed $option Field option name
-	 * @param mixed $value Field option value
+     * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function setFieldOption($fieldId, $option, $value = null)
-	{
-		if (is_array($option)) {
-			$options = $option;
-		} else {
-			$options = [$option => $value];
+	final function setFieldOption(string $f, string $k, string $v):void {
+		if (!array_key_exists($f, $this->_fieldOptions)) {
+			$this->_fieldOptions[$f] = [];
 		}
-		if (!array_key_exists($fieldId, $this->_fieldOptions)) {
-			$this->_fieldOptions[$fieldId] = [];
-		}
-		foreach ($options as $k => $v) {
-			$this->_fieldOptions[$fieldId][$k] = $v;
-		}
+		$this->_fieldOptions[$f][$k] = $v;
 	}
 
 	/**
