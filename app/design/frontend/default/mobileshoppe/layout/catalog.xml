@@ -138,19 +138,19 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 					template='catalog/product/view/tabs.phtml'
 					type='catalog/product_view_tabs'
 				>
-					<action method='addTab' module='catalog'>
+					<action method='addTab'>
 						<alias>description</alias>
 						<block>catalog/product_view_description</block>
 						<template>catalog/product/view/description.phtml</template>
 						<title>Product Description</title>
 					</action>
-					<action method='addTab' module='catalog'>
+					<action method='addTab'>
 						<alias>upsell_products</alias>
 						<block>catalog/product_list_upsell</block>
 						<template>catalog/product/list/upsell.phtml</template>
 						<title>We Also Recommend</title>
 					</action>
-					<action method='addTab' module='catalog'>
+					<action method='addTab'>
 						<alias>additional</alias>
 						<block>catalog/product_view_attributes</block>
 						<template>catalog/product/view/attributes.phtml</template>
@@ -274,7 +274,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			/>
 		</reference>
 	</catalog_product_view>
-	<PRODUCT_TYPE_simple module='catalog' >
+	<PRODUCT_TYPE_simple >
 		<label>Catalog Product View (Simple)</label>
 		<reference name='product.info'>
 			<block
@@ -289,7 +289,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			</block>
 		</reference>
 	</PRODUCT_TYPE_simple>
-	<PRODUCT_TYPE_configurable module='catalog' >
+	<PRODUCT_TYPE_configurable >
 		<label>Catalog Product View (Configurable)</label>
 		<reference name='product.info'>
 			<block
@@ -318,7 +318,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			/>
 		</reference>
 	</PRODUCT_TYPE_configurable>
-	<PRODUCT_TYPE_grouped module='catalog' >
+	<PRODUCT_TYPE_grouped >
 		<label>Catalog Product View (Grouped)</label>
 		<reference name='product.info'>
 			<block
@@ -333,7 +333,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			</block>
 		</reference>
 	</PRODUCT_TYPE_grouped>
-	<PRODUCT_TYPE_virtual module='catalog' >
+	<PRODUCT_TYPE_virtual >
 		<label>Catalog Product View (Virtual)</label>
 		<reference name='product.info'>
 			<block
@@ -391,11 +391,11 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 	<catalog_seo_sitemap_category >
 		<label>Catalog Seo Sitemap (Category List)</label>
 		<reference name='head'>
-			<action method='setTitle' module='catalog'><title>Site Map</title></action>
+			<action method='setTitle'><title>Site Map</title></action>
 		</reference>
 		<update handle='catalog_seo_sitemap'/>
 		<reference name='seo.sitemap.container'>
-			<action method='setTitle' module='catalog'><title>Categories</title></action>
+			<action method='setTitle'><title>Categories</title></action>
 			<block
 				after='pager_top'
 				as='sitemap'
@@ -405,11 +405,11 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			>
 				<action method='bindPager'><block>seo.sitemap.pager.top</block></action>
 				<action method='bindPager'><block>seo.sitemap.pager.bottom</block></action>
-				<action method='setItemsTitle' module='catalog'><title>categories</title></action>
+				<action method='setItemsTitle'><title>categories</title></action>
 			</block>
 		</reference>
 		<reference name='seo.sitemap.links'>
-			<action method='addLink' module='catalog'>
+			<action method='addLink'>
 				<label>Products Sitemap</label>
 				<title>Products Sitemap</title>
 				<url helper='catalog/map/getProductUrl'/>
@@ -449,20 +449,20 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 	<catalog_seo_sitemap_product >
 		<label>Catalog Seo Sitemap (Product List)</label>
 		<reference name='head'>
-			<action method='setTitle' module='catalog'><title>Site Map</title></action>
+			<action method='setTitle'><title>Site Map</title></action>
 		</reference>
 		<update handle='catalog_seo_sitemap'/>
 		<reference name='seo.sitemap.container'>
-			<action method='setTitle' module='catalog'><title>Products</title></action>
+			<action method='setTitle'><title>Products</title></action>
 			<block after='pager_top' as='sitemap' name='seo.sitemap.sitemap' template='catalog/seo/sitemap.phtml'
 				   type='catalog/seo_sitemap_product'>
 				<action method='bindPager'><block>seo.sitemap.pager.top</block></action>
 				<action method='bindPager'><block>seo.sitemap.pager.bottom</block></action>
-				<action method='setItemsTitle' module='catalog'><title>products</title></action>
+				<action method='setItemsTitle'><title>products</title></action>
 			</block>
 		</reference>
 		<reference name='seo.sitemap.links'>
-			<action method='addLink' module='catalog'>
+			<action method='addLink'>
 				<label>Categories Sitemap</label>
 				<title>Categories Sitemap</title>
 				<url helper='catalog/map/getCategoryUrl'/>
