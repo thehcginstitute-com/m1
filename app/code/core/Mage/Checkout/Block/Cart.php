@@ -1,6 +1,5 @@
 <?php
 /**
- * @method string getEmptyTemplate()
  * @method $this setIsWishlistActive(bool $value)
  * @method int getItemsCount()
  * @method Mage_Sales_Model_Quote_Item[] getCustomItems()
