@@ -19,7 +19,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</checkout_onepage_reorder>
 	<customer_account>
 		<reference name='customer_account_navigation'>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>My Orders</label>
 				<name>orders</name>
 				<path>sales/order/history/</path>
@@ -82,21 +82,21 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='sales.order.info'>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Order Information</label>
 				<name>view</name>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Invoices</label>
 				<name>invoice</name>
 				<path>*/*/invoice</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Shipments</label>
 				<name>shipment</name>
 				<path>*/*/shipment</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Refunds</label>
 				<name>creditmemo</name>
 				<path>*/*/creditmemo</path>
@@ -136,21 +136,21 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='sales.order.info'>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Order Information</label>
 				<name>view</name>
 				<path>*/*/view</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Invoices</label>
 				<name>invoice</name>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Shipments</label>
 				<name>shipment</name>
 				<path>*/*/shipment</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Refunds</label>
 				<name>creditmemo</name>
 				<path>*/*/creditmemo</path>
@@ -176,21 +176,21 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='sales.order.info'>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Order Information</label>
 				<name>view</name>
 				<path>*/*/view</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Invoices</label>
 				<name>invoice</name>
 				<path>*/*/invoice</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Shipments</label>
 				<name>shipment</name>>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Refunds</label>
 				<name>creditmemo</name>
 				<path>*/*/creditmemo</path>
@@ -230,22 +230,22 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='sales.order.info'>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Order Information</label>
 				<name>view</name>
 				<path>*/*/view</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Invoices</label>
 				<name>invoice</name>
 				<path>*/*/invoice</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Shipments</label>
 				<name>shipment</name>
 				<path>*/*/shipment</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Refunds</label>
 				<name>creditmemo</name>
 			</action>
@@ -481,21 +481,21 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='sales.order.info'>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Order Information</label>
 				<name>view</name>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Invoices</label>
 				<name>invoice</name>
 				<path>*/*/invoice</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Shipments</label>
 				<name>shipment</name>
 				<path>*/*/shipment</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Refunds</label>
 				<name>creditmemo</name>
 				<path>*/*/creditmemo</path>
@@ -537,21 +537,21 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='sales.order.info'>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Order Information</label>
 				<name>view</name>
 				<path>*/*/view</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Invoices</label>
 				<name>invoice</name>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Shipments</label>
 				<name>shipment</name>
 				<path>*/*/shipment</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Refunds</label>
 				<name>creditmemo</name>
 				<path>*/*/creditmemo</path>
@@ -579,21 +579,21 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='sales.order.info'>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Order Information</label>
 				<name>view</name>
 				<path>*/*/view</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Invoices</label>
 				<name>invoice</name>
 				<path>*/*/invoice</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Shipments</label>
 				<name>shipment</name>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Refunds</label>
 				<name>creditmemo</name>
 				<path>*/*/creditmemo</path>
@@ -637,22 +637,22 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='sales.order.info'>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Order Information</label>
 				<name>view</name>
 				<path>*/*/view</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Invoices</label>
 				<name>invoice</name>
 				<path>*/*/invoice</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Shipments</label>
 				<name>shipment</name>
 				<path>*/*/shipment</path>
 			</action>
-			<action method='addLink' module='sales'>
+			<action method='addLink'>
 				<label>Refunds</label>
 				<name>creditmemo</name>
 			</action>
