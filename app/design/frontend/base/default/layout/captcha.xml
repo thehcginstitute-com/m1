@@ -11,7 +11,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<reference name='head'>
 						<action ifconfig='customer/captcha/enable' method='addJs'><name>mage/captcha.js</name></action>
 					</reference>
-					<action method='setFormId'><formId>user_login</formId></action>
+					<action method='setFormId'><v>user_login</v></action>
 					<action method='setImgWidth'><width>230</width></action>
 					<action method='setImgHeight'><width>50</width></action>
 				</block>
@@ -25,7 +25,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<reference name='head'>
 						<action ifconfig='customer/captcha/enable' method='addJs'><name>mage/captcha.js</name></action>
 					</reference>
-					<action method='setFormId'><formId>user_forgotpassword</formId></action>
+					<action method='setFormId'><v>user_forgotpassword</v></action>
 					<action method='setImgWidth'><width>230</width></action>
 					<action method='setImgHeight'><width>50</width></action>
 				</block>
@@ -39,7 +39,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<reference name='head'>
 						<action ifconfig='customer/captcha/enable' method='addJs'><name>mage/captcha.js</name></action>
 					</reference>
-					<action method='setFormId'><formId>user_create</formId></action>
+					<action method='setFormId'><v>user_create</v></action>
 					<action method='setImgWidth'><width>230</width></action>
 					<action method='setImgHeight'><width>50</width></action>
 				</block>
@@ -53,7 +53,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<reference name='head'>
 						<action ifconfig='customer/captcha/enable' method='addJs'><name>mage/captcha.js</name></action>
 					</reference>
-					<action method='setFormId'><formId>user_login</formId></action>
+					<action method='setFormId'><v>user_login</v></action>
 					<action method='setImgWidth'><width>230</width></action>
 					<action method='setImgHeight'><width>50</width></action>
 				</block>
@@ -65,7 +65,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<reference name='head'>
 						<action ifconfig='customer/captcha/enable' method='addJs'><name>mage/captcha.js</name></action>
 					</reference>
-					<action method='setFormId'><formId>guest_checkout</formId></action>
+					<action method='setFormId'><v>guest_checkout</v></action>
 					<action method='setImgWidth'><width>230</width></action>
 					<action method='setImgHeight'><width>50</width></action>
 				</block>
@@ -73,7 +73,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<reference name='head'>
 						<action ifconfig='customer/captcha/enable' method='addJs'><name>mage/captcha.js</name></action>
 					</reference>
-					<action method='setFormId'><formId>register_during_checkout</formId></action>
+					<action method='setFormId'><v>register_during_checkout</v></action>
 					<action method='setImgWidth'><width>230</width></action>
 					<action method='setImgHeight'><width>50</width></action>
 				</block>
@@ -87,7 +87,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<reference name='head'>
 						<action ifconfig='customer/captcha/enable' method='addJs'><name>mage/captcha.js</name></action>
 					</reference>
-					<action method='setFormId'><formId>wishlist_sharing</formId></action>
+					<action method='setFormId'><v>wishlist_sharing</v></action>
 					<action method='setImgWidth'><width>230</width></action>
 					<action method='setImgHeight'><width>50</width></action>
 				</block>
@@ -101,7 +101,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<reference name='head'>
 						<action ifconfig='customer/captcha/enable' method='addJs'><name>mage/captcha.js</name></action>
 					</reference>
-					<action method='setFormId'><formId>sendfriend_send</formId></action>
+					<action method='setFormId'><v>sendfriend_send</v></action>
 					<action method='setImgWidth'><width>230</width></action>
 					<action method='setImgHeight'><width>50</width></action>
 				</block>
