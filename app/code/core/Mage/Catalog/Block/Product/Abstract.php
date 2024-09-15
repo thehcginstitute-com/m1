@@ -525,20 +525,34 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
 	 */
 	function getColumnCount()
 	{
-		if (!$this->_getData('column_count')) {
+		if (!$this->_getData(self::$COLUMN_COUNT)) {
 			$pageLayout = $this->getPageLayout();
 			if ($pageLayout && $this->getColumnCountLayoutDepend($pageLayout->getCode())) {
 				$this->setData(
-					'column_count',
+					self::$COLUMN_COUNT,
 					$this->getColumnCountLayoutDepend($pageLayout->getCode())
 				);
 			} else {
-				$this->setData('column_count', $this->_defaultColumnCount);
+				$this->setData(self::$COLUMN_COUNT, $this->_defaultColumnCount);
 			}
 		}
-
-		return (int) $this->_getData('column_count');
+		return (int) $this->_getData(self::$COLUMN_COUNT);
 	}
+
+	/**
+     * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 */
+	function setColumnCount(int $v):void {$this[self::$COLUMN_COUNT] = $v;}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::getColumnCount()
+	 * @used-by self::setColumnCount()
+	 * @const string
+	 */
+	private static $COLUMN_COUNT = 'column_count';
 
 	/**
 	 * 2024-09-08 Dmitrii Fediuk https://upwork.com/fl/mage2pro
