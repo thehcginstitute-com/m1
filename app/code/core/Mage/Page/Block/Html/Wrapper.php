@@ -55,6 +55,7 @@ class Mage_Page_Block_Html_Wrapper extends Mage_Core_Block_Abstract {
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--4/app/design/frontend/default/mobileshoppe/layout/checkout.xml#L345
 	 */
 	final function setElementId(string $v):void {$this[self::$ELEMENT_ID] = $v;}
 
