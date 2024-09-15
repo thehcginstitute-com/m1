@@ -13,6 +13,12 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract {
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16/app/design/frontend/default/mobileshoppe/layout/checkout.xml#L55
+	 */
+	function setEmptyTemplate(string $v):void {$this[self::$EMPTY_TEMPLATE] = $v;}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by self::chooseTemplate()
 	 * @used-by self::setCartTemplate()
 	 * @const string
