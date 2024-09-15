@@ -115,14 +115,11 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
 	}
 
 	/**
-	 * @param string $title
-	 * @return $this
+     * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function setHeaderTitle($title)
-	{
-		$this->_title = $title;
-		return $this;
-	}
+	final function setHeaderTitle(string $v):void {$this->_title = $v;}
 
 	/**
 	 * @return string
