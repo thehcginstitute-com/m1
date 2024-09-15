@@ -232,19 +232,13 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 				</block>
 				<block as='container1' name='product.info.container1' type='core/template_facade'>
 					<action method='setDataByKey'><k>alias_in_layout</k><v>container1</v></action>
-					<action method='setDataByKeyFromRegistry'>
-						<key>options_container</key>
-						<key_in_registry>product</key_in_registry>
-					</action>
+					<action method='setDataByKeyFromRegistry'><k>options_container</k><rk>product</rk></action>
 					<action method='append'><block>product.info.options.wrapper</block></action>
 					<action method='append'><block>product.info.options.wrapper.bottom</block></action>
 				</block>
 				<block as='container2' name='product.info.container2' type='core/template_facade'>
 					<action method='setDataByKey'><k>alias_in_layout</k><v>container2</v></action>
-					<action method='setDataByKeyFromRegistry'>
-						<key>options_container</key>
-						<key_in_registry>product</key_in_registry>
-					</action>
+					<action method='setDataByKeyFromRegistry'><k>options_container</k><rk>product</rk></action>
 					<action method='append'><block>product.info.options.wrapper</block></action>
 					<action method='append'><block>product.info.options.wrapper.bottom</block></action>
 				</block>

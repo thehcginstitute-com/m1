@@ -17,18 +17,14 @@ class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template {
 
 	/**
 	 * Also set data, but take the value from registry by registry key
-	 *
-	 * @param string $key
-	 * @param string $registryKey
+     * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function setDataByKeyFromRegistry($key, $registryKey)
-	{
-		$registryItem = Mage::registry($registryKey);
-		if (empty($registryItem)) {
-			return;
+	function setDataByKeyFromRegistry(string $k, string $rk):void {
+		if ($o = Mage::registry($rk)) {
+			$this->setDataByKey($k, $o[$k]);
 		}
-		$value = $registryItem->getData($key);
-		$this->setDataByKey($key, $value);
 	}
 
 	/**
