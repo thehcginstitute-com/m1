@@ -10,6 +10,16 @@ class Mage_Captcha_Block_Captcha extends Mage_Core_Block_Template {
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by Mage_Captcha_Adminhtml_RefreshController::refreshAction()
 	 * @used-by Mage_Captcha_RefreshController::indexAction()
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--5/app/design/adminhtml/default/default/layout/captcha.xml#L10
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--5/app/design/adminhtml/default/default/layout/captcha.xml#L19
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--5/app/design/frontend/base/default/layout/captcha.xml#L14
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--5/app/design/frontend/base/default/layout/captcha.xml#L28
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--5/app/design/frontend/base/default/layout/captcha.xml#L42
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--5/app/design/frontend/base/default/layout/captcha.xml#L56
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--5/app/design/frontend/base/default/layout/captcha.xml#L68
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--5/app/design/frontend/base/default/layout/captcha.xml#L76
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--5/app/design/frontend/base/default/layout/captcha.xml#L90
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--5/app/design/frontend/base/default/layout/captcha.xml#L104
 	 */
 	final function setFormId(string $v):void {$this[self::$FORM_ID] = $v;}
 
