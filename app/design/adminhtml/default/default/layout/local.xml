@@ -6,12 +6,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 <layout>
 	<adminhtml_sales_order_index>
 		<reference name='sales_order.grid'>
-			<action method='setDefaultLimit'><limit>200</limit></action>
+			<action method='setDefaultLimit'><v>200</v></action>
 		</reference>
 	</adminhtml_sales_order_index>
 	<adminhtml_sales_order_grid>
 		<reference name='sales_order.grid'>
-			<action method='setDefaultLimit'><limit>200</limit></action>
+			<action method='setDefaultLimit'><v>200</v></action>
 		</reference>
 	</adminhtml_sales_order_grid>
 </layout>
