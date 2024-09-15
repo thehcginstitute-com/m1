@@ -79,7 +79,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</oauth_authorize_rejectsimple>
 	<customer_account>
 		<reference name='customer_account_navigation'>
-			<action method='addLink' module='oauth'>
+			<action method='addLink'>
 				<label>My Applications</label>
 				<name>OAuth Customer Tokens</name>
 				<path>oauth/customer_token</path>
