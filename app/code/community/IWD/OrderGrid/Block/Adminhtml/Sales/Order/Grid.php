@@ -35,18 +35,14 @@ class IWD_OrderGrid_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_Bloc
 		return Mage::getStoreConfig(self::XPATH_IS_SAVE_GRID_PARAMS);
 	}
 
-	protected function setDefaultGridParams()
-	{
+	protected function setDefaultGridParams() {
 		if ($this->isSaveGridParams()) {
 			$limit = $this->getGirdLimit();
 			$this->setDefaultLimit($limit);
-
 			$sort = $this->getGirdSort();
 			$this->setDefaultSort($sort);
-
 			$dir = $this->getGirdDir();
 			$this->setDefaultDir($dir);
-
 			$filter = $this->getGirdFilter();
 			$this->setDefaultFilter($filter);
 		}
