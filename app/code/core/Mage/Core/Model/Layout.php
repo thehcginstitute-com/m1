@@ -342,9 +342,6 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
 			}
 
 			Mage::helper('core/security')->validateAgainstBlockMethodBlacklist($block, $method, $args);
-			if ('addItemRender' === $method) {
-				xdebug_break();
-			}
 			$this->_translateLayoutNode($node, $args);
 			# 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			# 1) "`Mage_Core_Model_Layout::_generateAction()` ignores the names of the `method`'s arguments":
