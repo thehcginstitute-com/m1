@@ -7,31 +7,16 @@
 class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract {
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16/app/design/frontend/default/mobileshoppe/layout/checkout.xml#L54
+	 * @override
+	 * @see Mage_Core_Block_Template::getTemplate()
+	 * @used-by Mage_Core_Block_Template::_toHtml()
+	 * @used-by Mage_Core_Block_Template::getCacheKeyInfo()
+	 * @used-by Mage_Core_Block_Template::getTemplateFile()
 	 */
-	function setCartTemplate(string $v):void {$this[self::$CART_TEMPLATE] = $v;}
-
-	/**
-	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16/app/design/frontend/default/mobileshoppe/layout/checkout.xml#L55
-	 */
-	function setEmptyTemplate(string $v):void {$this[self::$EMPTY_TEMPLATE] = $v;}
-
-	/**
-	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * @used-by self::chooseTemplate()
-	 * @used-by self::setCartTemplate()
-	 * @const string
-	 */
-	private static $CART_TEMPLATE = 'cart_template';
-
-	/**
-	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * @used-by self::chooseTemplate()
-	 * @used-by self::setEmptyTemplate()
-	 * @const string
-	 */
-	private static $EMPTY_TEMPLATE = 'empty_template';
+	function getTemplate():string {return $this->getItemsCount() || $this->getQuote()->getItemsCount()
+		? 'checkout/cart.phtml'
+		: 'checkout/cart/noItems.phtml'
+	;}
 
 	/**
 	 * Prepare cart items URLs
@@ -73,16 +58,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract {
 			}
 		}
 	}
-
-	/**
-	 * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
-	 * https://github.com/thehcginstitute-com/m1/issues/680
-	 */
-	final function chooseTemplate():void {$this->setTemplate($this[
-		$this->getItemsCount() || $this->getQuote()->getItemsCount() ? self::$CART_TEMPLATE : self::$EMPTY_TEMPLATE
-	]);}
-
+	
 	/**
 	 * @return bool
 	 */
