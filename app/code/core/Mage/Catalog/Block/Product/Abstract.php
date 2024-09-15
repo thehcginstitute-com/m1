@@ -543,6 +543,8 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
      * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @see Mage_Catalog_Block_Product_List_Upsell::setColumnCount()
+	 * @see Mage_Bundle_Block_Catalog_Product_List_Partof::setColumnCount()
 	 */
 	function setColumnCount(int $v):void {$this[self::$COLUMN_COUNT] = $v;}
 

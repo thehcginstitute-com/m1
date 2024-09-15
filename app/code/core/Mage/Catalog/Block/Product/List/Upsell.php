@@ -123,7 +123,7 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
 	 * @override
 	 * @see Mage_Catalog_Block_Product_Abstract::setColumnCount()
 	 */
-	function setColumnCount(int $v):void {$this->_columnCount = $v;}
+	final function setColumnCount(int $v):void {$this->_columnCount = $v;}
 
 	/**
 	 * @return int

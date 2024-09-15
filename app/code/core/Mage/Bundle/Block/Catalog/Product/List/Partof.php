@@ -94,17 +94,14 @@ class Mage_Bundle_Block_Catalog_Product_List_Partof extends Mage_Catalog_Block_P
         return ceil($this->getItemCollection()->getSize() / $this->getColumnCount());
     }
 
-    /**
-     * @param array $columns
-     * @return $this
-     */
-    function setColumnCount($columns)
-    {
-        if ((int) $columns > 0) {
-            $this->_columnCount = (int) $columns;
-        }
-        return $this;
-    }
+	/**
+     * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @override
+	 * @see Mage_Catalog_Block_Product_Abstract::setColumnCount()
+	 */
+	final function setColumnCount(int $v):void {$this->_columnCount = $v;}
 
     /**
      * @return int
