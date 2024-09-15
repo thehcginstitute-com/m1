@@ -21,6 +21,14 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract {
 	private static $CART_TEMPLATE = 'cart_template';
 
 	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::chooseTemplate()
+	 * @used-by self::setEmptyTemplate()
+	 * @const string
+	 */
+	private static $EMPTY_TEMPLATE = 'empty_template';
+
+	/**
 	 * Prepare cart items URLs
 	 *
 	 * @deprecated after 1.7.0.2
@@ -71,7 +79,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract {
 		if ($itemsCount) {
 			$this->setTemplate($this[self::$CART_TEMPLATE]);
 		} else {
-			$this->setTemplate($this->getEmptyTemplate());
+			$this->setTemplate($this[self::$EMPTY_TEMPLATE]);
 		}
 	}
 
