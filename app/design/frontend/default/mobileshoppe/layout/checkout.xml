@@ -52,7 +52,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='content'>
 			<block name='checkout.cart' type='checkout/cart'>
 				<action method='setCartTemplate'><v>checkout/cart.phtml</v></action>
-				<action method='setEmptyTemplate'><value>checkout/cart/noItems.phtml</value></action>
+				<action method='setEmptyTemplate'><v>checkout/cart/noItems.phtml</v></action>
 				<action method='chooseTemplate'/>
 				<action method='addItemRender'>
 					<block>checkout/cart_item_renderer</block>
