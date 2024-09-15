@@ -10,7 +10,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='page_content_heading' template='cms/content_heading.phtml' type='core/template'/>
 			<block name='cms.wrapper' type='page/html_wrapper'>
 				<label>CMS Content Wrapper</label>
-				<action method='setElementClass'><value>std</value></action>
+				<action method='setElementClass'><v>std</v></action>
 				<block name='cms_page' type='cms/page'/>
 			</block>
 		</reference>

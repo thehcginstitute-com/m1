@@ -56,12 +56,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<block as='topLinks' name='top.links' type='page/template_links'/>
 				<block as='topBar' name='top.bar' type='page/html_wrapper'>
 					<label>Breadcrumbs</label>
-					<action method='setElementClass'><value>top-bar</value></action>
+					<action method='setElementClass'><v>top-bar</v></action>
 					<block as='breadcrumbs' name='breadcrumbs' type='page/html_breadcrumbs'/>
 				</block>
 				<block as='topContainer' name='top.container' type='page/html_wrapper'>
 					<label>Page Header</label>
-					<action method='setElementClass'><value>top-container</value></action>
+					<action method='setElementClass'><v>top-container</v></action>
 				</block>
 			</block>
 			<block as='left' name='left' type='core/text_list'>
@@ -78,7 +78,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block as='footer' name='footer' template='page/html/footer.phtml' type='page/html_footer'>
 				<block as='bottomContainer' name='bottom.container' type='page/html_wrapper'>
 					<label>Page Footer</label>
-					<action method='setElementClass'><value>bottom-container</value></action>
+					<action method='setElementClass'><v>bottom-container</v></action>
 				</block>
 				<block
 					after='footer_block'
