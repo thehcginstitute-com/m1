@@ -53,6 +53,11 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
+	function getBodyClass():string {return $this->_getData('body_class');}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
 	function getCurrentUrl():string	{return $this->_urls['current'];}
 
 	/**
@@ -146,11 +151,6 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 		}
 		return $this;
 	}
-
-	/**
-	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 */
-	function getBodyClass():string {return $this->_getData('body_class');}
 
 	/**
 	 * Processing block html after rendering
