@@ -142,6 +142,8 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template 
 
 	/**
 	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--9/app/design/adminhtml/default/default/layout/iwd_admin_checkout.xml#L19
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--9/app/design/adminhtml/default/default/layout/iwd_admin_checkout.xml#L46
 	 */
 	final function k_store_ids():void {$this->_storeVarName = 'store_ids';}
 
