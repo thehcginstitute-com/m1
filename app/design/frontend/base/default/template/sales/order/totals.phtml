@@ -2,8 +2,8 @@
 # 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 use Mage_Sales_Block_Order_Totals as B;
 /** @var B $this */ $b = $this; /** @var B $b */
-foreach ($b->getTotals() as $_code => $_total): ?>
-	<?php if ($_total->getBlockName()): ?>
+foreach ($b->getTotals() as $_code => $_total) {
+	if ($_total->getBlockName()): ?>
 		<?= $b->getChildHtml($_total->getBlockName(), false); ?>
 	<?php else: ?>
 	<tr class="<?= $_code?>">
@@ -22,5 +22,5 @@ foreach ($b->getTotals() as $_code => $_total): ?>
 			<?php endif ?>
 		</td>
 	</tr>
-	<?php endif ?>
-<?php endforeach ?>
+	<?php endif;
+}
