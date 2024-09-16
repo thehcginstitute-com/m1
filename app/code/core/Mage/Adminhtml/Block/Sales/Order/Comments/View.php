@@ -37,6 +37,9 @@ class Mage_Adminhtml_Block_Sales_Order_Comments_View extends Mage_Adminhtml_Bloc
      * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--5/app/design/adminhtml/default/default/layout/sales.xml#L251
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--5/app/design/adminhtml/default/default/layout/sales.xml#L377
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--5/app/design/adminhtml/default/default/layout/sales.xml#L535
 	 */
 	final function setParentType(string $v):void {$this->_parentType = $v;}
 
