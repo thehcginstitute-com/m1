@@ -305,10 +305,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<type>configurable</type>
 				</action>
 				<block name='payment_info' type='checkout/multishipping_payment_info'>
-					<action method='setInfoTemplate'>
-						<method/>
-						<template/>
-					</action>
+					<action method='setInfoTemplate'/>
 				</block>
 				<block
 					as='agreements'
@@ -425,10 +422,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<remove name='left'/>
 		<block name='root' output='toHtml' template='checkout/onepage/progress.phtml' type='checkout/onepage_progress'>
 			<block name='payment_info' type='checkout/onepage_payment_info'>
-				<action method='setInfoTemplate'>
-					<method/>
-					<template/>
-				</action>
+				<action method='setInfoTemplate'/>
 			</block>
 		</block>
 	</checkout_onepage_progress>
