@@ -31,46 +31,46 @@
  */
 class Mage_Core_Block_Text extends Mage_Core_Block_Abstract
 {
-    /**
-     * @param string $text
-     * @return $this
-     */
-    function setText($text)
-    {
-        $this->setData('text', $text);
-        return $this;
-    }
+	/**
+	 * @param string $text
+	 * @return $this
+	 */
+	function setText($text)
+	{
+		$this->setData('text', $text);
+		return $this;
+	}
 
-    /**
-     * @return string
-     */
-    function getText()
-    {
-        return $this->getData('text');
-    }
+	/**
+	 * @return string
+	 */
+	function getText()
+	{
+		return $this->getData('text');
+	}
 
-    /**
-     * @param string $text
-     * @param bool $before
-     */
-    function addText($text, $before = false)
-    {
-        if ($before) {
-            $this->setText($text . $this->getText());
-        } else {
-            $this->setText($this->getText() . $text);
-        }
-    }
+	/**
+	 * @param string $text
+	 * @param bool $before
+	 */
+	function addText($text, $before = false)
+	{
+		if ($before) {
+			$this->setText($text . $this->getText());
+		} else {
+			$this->setText($this->getText() . $text);
+		}
+	}
 
-    /**
-     * @return string
-     */
-    protected function _toHtml()
-    {
-        if (!$this->_beforeToHtml()) {
-            return '';
-        }
+	/**
+	 * @return string
+	 */
+	protected function _toHtml()
+	{
+		if (!$this->_beforeToHtml()) {
+			return '';
+		}
 
-        return $this->getText();
-    }
+		return $this->getText();
+	}
 }
