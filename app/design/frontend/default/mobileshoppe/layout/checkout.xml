@@ -264,8 +264,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='content'>
 			<block name='checkout_billing' template='checkout/multishipping/billing.phtml' type='checkout/multishipping_billing'>
 				<action method='setMethodFormTemplate'>
-					<method>purchaseorder</method>
-					<template>payment/form/purchaseorder.phtml</template>
+					<m>purchaseorder</m>
+					<t>payment/form/purchaseorder.phtml</t>
 				</action>
 			</block>
 		</reference>
@@ -401,8 +401,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						type='checkout/onepage_payment_methods'
 					>
 						<action method='setMethodFormTemplate'>
-							<method>purchaseorder</method>
-							<template>payment/form/purchaseorder.phtml</template>
+							<m>purchaseorder</m>
+							<t>payment/form/purchaseorder.phtml</t>
 						</action>
 					</block>
 				</block>
@@ -434,8 +434,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			type='checkout/onepage_payment_methods'
 		>
 			<action method='setMethodFormTemplate'>
-				<method>purchaseorder</method>
-				<template>payment/form/purchaseorder.phtml</template>
+				<m>purchaseorder</m>
+				<t>payment/form/purchaseorder.phtml</t>
 			</action>
 		</block>
 	</checkout_onepage_paymentmethod>
