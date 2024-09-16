@@ -21,7 +21,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</default>
 	<customer_account>
 		<reference name='customer_account_navigation'>
-			<action ifconfig='wishlist/general/active' method='addLink' module='wishlist'>
+			<action ifconfig='wishlist/general/active' method='addLink'>
 				<label>My Wishlist</label>
 				<name>wishlist</name>
 				<path>wishlist/</path>
