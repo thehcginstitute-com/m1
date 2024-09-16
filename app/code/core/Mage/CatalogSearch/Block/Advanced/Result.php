@@ -45,12 +45,7 @@ class Mage_CatalogSearch_Block_Advanced_Result extends Mage_Core_Block_Template 
 	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17/app/design/frontend/default/mobileshoppe/layout/catalogsearch.xml#L113
 	 */
-	final function setListModes():void {
-		$this->getChild('search_result_list')
-			->setModes([
-				'grid' => Mage::helper('catalogsearch')->__('Grid'),
-				'list' => Mage::helper('catalogsearch')->__('List')]);
-	}
+	final function setListModes():void {$this->getChild('search_result_list')->setModes(['grid' => 'Grid', 'list' => 'List']);}
 
 	/**
 	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
