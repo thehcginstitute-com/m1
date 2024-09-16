@@ -33,7 +33,8 @@ class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract {
 	function applyTemplate($pageLayout = null) {
 		if ($pageLayout === null) {
 			$pageLayout = $this->getCurrentPageLayout();
-		} else {
+		}
+		else {
 			$pageLayout = $this->_getConfig()->getPageLayout($pageLayout);
 		}
 		if (!$pageLayout) {
