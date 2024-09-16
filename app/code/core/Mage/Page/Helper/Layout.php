@@ -1,5 +1,6 @@
 <?php
 use Mage_Page_Block_Html as Root;
+use Varien_Object as _DO;
 class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract {
 	protected $_moduleName = 'Mage_Page';
 
@@ -50,20 +51,17 @@ class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract {
 
 	/**
 	 * Retrieve current applied page layout
-	 *
-	 * @return Varien_Object|false
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @return _DO|false
 	 */
 	function getCurrentPageLayout() {
 		$root = $this->getLayout()->getBlock('root'); /** @var ?Root $root */
 		if ($root && ($lc = $root->getLayoutCode())) { /** @var ?string $lc */
 			return $this->_getConfig()->getPageLayout($lc);
 		}
-		// All loaded handles
-		$handles = $this->getLayout()->getUpdate()->getHandles();
-		// Handles used in page layouts
-		$pageLayoutHandles = $this->_getConfig()->getPageLayoutHandles();
-		// Applied page layout handles
-		$appliedHandles = array_intersect($handles, $pageLayoutHandles);
+		$handles = $this->getLayout()->getUpdate()->getHandles(); // All loaded handles
+		$pageLayoutHandles = $this->_getConfig()->getPageLayoutHandles(); // Handles used in page layouts
+		$appliedHandles = array_intersect($handles, $pageLayoutHandles); // Applied page layout handles
 		if (empty($appliedHandles)) {
 			return false;
 		}
