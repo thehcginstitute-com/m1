@@ -99,7 +99,7 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	final function setTemplate(string $v):self {$this->_template = $v; return $this;}
+	final function setTemplate(string $v = ''):self {$this->_template = $v; return $this;}
 
 	/**
 	 * Get absolute path to template
