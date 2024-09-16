@@ -53,8 +53,7 @@ class Mage_Bundle_Block_Catalog_Product_Price extends Mage_Catalog_Block_Product
 	 *
 	 * @return string
 	 */
-	protected function _toHtml()
-	{
+	protected function _toHtml() {
 		$product = $this->getProduct();
 		if ($this->_mapTemplate && Mage::helper('catalog')->canApplyMsrp($product)
 				&& $product->getPriceType() != Mage_Bundle_Model_Product_Price::PRICE_TYPE_DYNAMIC
@@ -75,10 +74,8 @@ class Mage_Bundle_Block_Catalog_Product_Price extends Mage_Catalog_Block_Product
 				->setIdSuffix($this->getIdSuffix())
 				->setProduct($product)
 				->toHtml();
-
 			return $realPriceHtml . $html;
 		}
-
 		return parent::_toHtml();
 	}
 
