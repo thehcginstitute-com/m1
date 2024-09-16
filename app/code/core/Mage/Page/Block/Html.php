@@ -166,14 +166,12 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 
 	/**
 	 * Processing block html after rendering
-	 *
-	 * @param   string $html
-	 * @return  string
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @override
+	 * @see Mage_Core_Block_Abstract::_afterToHtml()
+	 * @param string $html
 	 */
-	protected function _afterToHtml($html)
-	{
-		return $this->_afterCacheUrl($html);
-	}
+	protected function _afterToHtml($html):string {return $this->_afterCacheUrl($html);}
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
