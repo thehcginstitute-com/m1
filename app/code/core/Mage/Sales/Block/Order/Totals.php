@@ -1,6 +1,7 @@
 <?php
 /**
  * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * @see Mage_Adminhtml_Block_Sales_Totals
  * @see Mage_Sales_Block_Order_Creditmemo_Totals
  * @see Mage_Sales_Block_Order_Invoice_Totals
  */
