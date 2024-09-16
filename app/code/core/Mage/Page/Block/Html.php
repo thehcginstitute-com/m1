@@ -148,6 +148,10 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--15/app/design/frontend/default/mobileshoppe/layout/page.xml#L130
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--15/app/design/frontend/default/mobileshoppe/layout/page.xml#L138
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--15/app/design/frontend/default/mobileshoppe/layout/page.xml#L146
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--15/app/design/frontend/default/mobileshoppe/layout/page.xml#L154
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--15/app/design/frontend/default/mobileshoppe/layout/page.xml#L163
 	 */
 	final function setLayoutCode(string $v):void {$this[self::$LAYOUT_CODE] = $v;}
 
