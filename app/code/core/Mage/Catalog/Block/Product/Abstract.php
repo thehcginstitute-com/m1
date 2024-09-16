@@ -325,6 +325,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
      * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--12/app/design/frontend/default/mobileshoppe/layout/catalog.xml#L123
 	 */
 	final function setTierPriceTemplate(string $v):void {$this[self::$TIER_PRICE_TEMPLATE] = $v;}
 
