@@ -317,6 +317,11 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
 	}
 
 	/**
+	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	final function getTierPriceTemplate():string {return $this[self::$TIER_PRICE_TEMPLATE] ?: $this->_tierPriceDefaultTemplate;}
+
+	/**
      * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
@@ -325,21 +330,11 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
 
 	/**
 	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::getTierPriceTemplate()
+	 * @used-by self::ыetTierPriceTemplate()
 	 * @const string
 	 */
 	private static $TIER_PRICE_TEMPLATE = 'tier_price_template';
-
-	/**
-	 * Return tier price template
-	 *
-	 * @return mixed|string
-	 */
-	function getTierPriceTemplate() {
-		if (!$this->hasData(self::$TIER_PRICE_TEMPLATE)) {
-			return $this->_tierPriceDefaultTemplate;
-		}
-		return $this->getData(self::$TIER_PRICE_TEMPLATE);
-	}
 
 	/**
 	 * Returns product tier price block html
