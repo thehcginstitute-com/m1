@@ -134,12 +134,9 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	final function setHeaderTitle(string $v):void {$this->_title = $v;}
 
 	/**
-	 * @return string
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
-	function getHeaderTitle()
-	{
-		return $this->_title;
-	}
+	function getHeaderTitle():string {return $this->_title;}
 
 	/**
 	 * Add CSS class to page body tag
