@@ -8,6 +8,7 @@ class Mage_Bundle_Block_Catalog_Product_Price extends Mage_Catalog_Block_Product
 	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--2/app/design/frontend/base/default/layout/bundle.xml#L202
 	 */
 	final function setMAPTemplate(string $v):void {$this->_mapTemplate = $v;}
 
