@@ -6,6 +6,26 @@
  */
 class Mage_Sales_Block_Order_Totals extends Mage_Core_Block_Template {
 	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	final function getLabelProperties():?string {return $this[self::$LABEL_PROPERTIES];}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 */
+	final function setLabelProperties(string $v):void {$this[self::$LABEL_PROPERTIES] = $v;}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::getLabelProperties()
+	 * @used-by self::setLabelProperties()
+	 * @const string
+	 */
+	private static $LABEL_PROPERTIES = 'label_properties';
+
+	/**
 	 * Associated array of totals
 	 * array(
 	 *  $totalCode => $totalObject
