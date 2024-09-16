@@ -1,5 +1,5 @@
 <?php
-# 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro	
+# 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 class Mage_Sales_Block_Order_Invoice_Totals extends Mage_Sales_Block_Order_Totals {
 	protected $_invoice = null;
 
