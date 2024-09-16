@@ -120,6 +120,9 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 		</reference>
 		<reference name='content'>
 			<block name='product.info' template='catalog/product/view.phtml' type='catalog/product_view'>
+				<action method='setTierPriceTemplate'>
+					<template>catalog/product/view/tierprices.phtml</template>
+				</action>
 				<block
 					as='media'
 					name='product.info.media'
@@ -129,9 +132,6 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 				<block as='alert_urls' name='alert.urls' type='core/text_list'>
 					<label>Alert Urls</label>
 				</block>
-				<action method='setTierPriceTemplate'>
-					<template>catalog/product/view/tierprices.phtml</template>
-				</action>
 				<block
 					as='info_tabs'
 					name='product.info.tabs'
