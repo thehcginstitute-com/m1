@@ -1,4 +1,8 @@
 <?php
+/**
+ * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * @see Mage_Sales_Block_Order_Invoice_Totals
+ */
 class Mage_Sales_Block_Order_Totals extends Mage_Core_Block_Template {
 	/**
 	 * Associated array of totals
