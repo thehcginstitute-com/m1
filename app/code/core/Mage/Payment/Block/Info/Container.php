@@ -22,59 +22,59 @@
  */
 class Mage_Payment_Block_Info_Container extends Mage_Core_Block_Template
 {
-    /**
-     * Add payment info block to layout
-     *
-     * @inheritDoc
-     */
-    protected function _prepareLayout()
-    {
-        if ($info = $this->getPaymentInfo()) {
-            $this->setChild(
-                $this->_getInfoBlockName(),
-                Mage::helper('payment')->getInfoBlock($info)
-            );
-        }
-        return parent::_prepareLayout();
-    }
+	/**
+	 * Add payment info block to layout
+	 *
+	 * @inheritDoc
+	 */
+	protected function _prepareLayout()
+	{
+		if ($info = $this->getPaymentInfo()) {
+			$this->setChild(
+				$this->_getInfoBlockName(),
+				Mage::helper('payment')->getInfoBlock($info)
+			);
+		}
+		return parent::_prepareLayout();
+	}
 
-    /**
-     * Retrieve info block name
-     *
-     * @return false|string
-     */
-    protected function _getInfoBlockName()
-    {
-        if ($info = $this->getPaymentInfo()) {
-            return 'payment.info.' . $info->getMethodInstance()->getCode();
-        }
-        return false;
-    }
+	/**
+	 * Retrieve info block name
+	 *
+	 * @return false|string
+	 */
+	protected function _getInfoBlockName()
+	{
+		if ($info = $this->getPaymentInfo()) {
+			return 'payment.info.' . $info->getMethodInstance()->getCode();
+		}
+		return false;
+	}
 
-    /**
-     * Retrieve payment info model
-     *
-     * @return Mage_Payment_Model_Info|false
-     */
-    function getPaymentInfo()
-    {
-        return false;
-    }
+	/**
+	 * Retrieve payment info model
+	 *
+	 * @return Mage_Payment_Model_Info|false
+	 */
+	function getPaymentInfo()
+	{
+		return false;
+	}
 
-    /**
-     * Declare info block template
-     *
-     * @param   string $method
-     * @param   string $template
-     * @return  Mage_Payment_Block_Info_Container
-     */
-    function setInfoTemplate($method = '', $template = '')
-    {
-        if ($info = $this->getPaymentInfo()) {
-            if ($info->getMethodInstance()->getCode() == $method) {
-                $this->getChild($this->_getInfoBlockName())->setTemplate($template);
-            }
-        }
-        return $this;
-    }
+	/**
+	 * Declare info block template
+	 *
+	 * @param   string $method
+	 * @param   string $template
+	 * @return  Mage_Payment_Block_Info_Container
+	 */
+	function setInfoTemplate($method = '', $template = '')
+	{
+		if ($info = $this->getPaymentInfo()) {
+			if ($info->getMethodInstance()->getCode() == $method) {
+				$this->getChild($this->_getInfoBlockName())->setTemplate($template);
+			}
+		}
+		return $this;
+	}
 }
