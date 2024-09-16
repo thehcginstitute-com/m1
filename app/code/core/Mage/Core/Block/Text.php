@@ -20,6 +20,7 @@ class Mage_Core_Block_Text extends Mage_Core_Block_Abstract {
 	 * @used-by Mage_Core_Block_Text_List::_toHtml()
 	 * @used-by Mage_Core_Block_Text_List_Item::_toHtml()
 	 * @used-by Mage_Core_Block_Text_List_Link::_toHtml()
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--11/app/design/adminhtml/default/default/layout/main.xml#L195-L197
 	 */
 	function setText(string $v):void {$this['text'] = $v;}
 
