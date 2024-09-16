@@ -1,4 +1,5 @@
 <?php
+use Mage_Page_Block_Html as Root;
 class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract {
 	protected $_moduleName = 'Mage_Page';
 
@@ -40,9 +41,9 @@ class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract {
 		if (!$pageLayout) {
 			return $this;
 		}
-		if ($this->getLayout()->getBlock('root') && !$this->getLayout()->getBlock('root')->getIsHandle()) {
-			// If not applied handle
-			$this->getLayout()->getBlock('root')->setTemplate($pageLayout->getTemplate());
+		$root = $this->getLayout()->getBlock('root'); /** @var Root $root */
+		if ($root && !$root->getIsHandle()) {
+			$root->setTemplate($pageLayout->getTemplate()); // If not applied handle
 		}
 		return $this;
 	}
