@@ -19,9 +19,21 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	}
 
 	/**
+	 * Add CSS class to page body tag
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
-	function getBaseUrl():string {return $this->_urls['base'];}
+	function addBodyClass(string $className):self {
+		$className = preg_replace('#[^a-z0-9]+#', '-', strtolower($className));
+		$class = $this->getBodyClass() ? $this->getBodyClass() . ' ' . $className : $className;
+		$this->setBodyClass($class);
+		return $this;
+	}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by Mage_Page_Helper_Layout::applyTemplate()
+	 */
+	final function canUseACustomTemplate():bool {return $this->_canUseACustomTemplate;}
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -31,7 +43,22 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
+	function getBaseUrl():string {return $this->_urls['base'];}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
 	function getCurrentUrl():string	{return $this->_urls['current'];}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	function getHeaderTitle():string {return $this->_title;}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	function getPrintLogoText():string {return Mage::getStoreConfig('sales/identity/address');}
 
 	/**
 	 * Print Logo URL (Conf -> Sales -> Invoice and Packing Slip Design)
@@ -66,17 +93,6 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 */
-	function getPrintLogoText():string {return Mage::getStoreConfig('sales/identity/address');}
-
-	/**
-	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * @used-by Mage_Page_Helper_Layout::applyTemplate()
-	 */
-	final function canUseACustomTemplate():bool {return $this->_canUseACustomTemplate;}
-
-	/**
-	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--10/app/design/frontend/default/mobileshoppe/layout/page.xml#L129
@@ -101,22 +117,6 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--6/app/design/frontend/default/mobileshoppe/layout/customer.xml#L140
 	 */
 	final function setHeaderTitle(string $v):void {$this->_title = $v;}
-
-	/**
-	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 */
-	function getHeaderTitle():string {return $this->_title;}
-
-	/**
-	 * Add CSS class to page body tag
-	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 */
-	function addBodyClass(string $className):self {
-		$className = preg_replace('#[^a-z0-9]+#', '-', strtolower($className));
-		$class = $this->getBodyClass() ? $this->getBodyClass() . ' ' . $className : $className;
-		$this->setBodyClass($class);
-		return $this;
-	}
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
