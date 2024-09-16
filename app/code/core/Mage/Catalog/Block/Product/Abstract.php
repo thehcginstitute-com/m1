@@ -579,6 +579,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
 	 * @used-by Mage_Catalog_Block_Product_Abstract::getColumnCount()
 	 * @used-by Mage_Catalog_CategoryController::_applyCustomDesignSettings()
 	 * @used-by Mage_Catalog_Model_Design::_extractSettings()
+	 * @used-by Mage_Catalog_Model_Design::_mergeSettings()
 	 * @used-by Mage_Catalog_ProductController::_applyCustomDesignSettings()
 	 */
 	function getPageLayout():?_DO {
