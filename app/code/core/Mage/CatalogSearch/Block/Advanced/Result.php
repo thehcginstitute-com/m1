@@ -1,29 +1,8 @@
 <?php
 /**
- * OpenMage
- *
- * This source file is subject to the Open Software License (OSL 3.0)
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available at https://opensource.org/license/osl-3-0-php
- *
- * @category   Mage
- * @package    Mage_CatalogSearch
- * @copyright  Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @copyright  Copyright (c) 2020-2022 The OpenMage Contributors (https://www.openmage.org)
- * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */
-
-/**
- * Advanced search result
- *
- * @category   Mage
- * @package    Mage_CatalogSearch
- * @author     Magento Core Team <core@magentocommerce.com>
- *
  * @method setResultCount(int $value)
  */
-class Mage_CatalogSearch_Block_Advanced_Result extends Mage_Core_Block_Template
-{
+class Mage_CatalogSearch_Block_Advanced_Result extends Mage_Core_Block_Template {
 	/**
 	 * @inheritDoc
 	 */
