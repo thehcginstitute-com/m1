@@ -55,25 +55,20 @@ class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract {
 	 */
 	function getCurrentPageLayout() {
 		$root = $this->getLayout()->getBlock('root'); /** @var ?Root $root */
-		if ($root && $root->getLayoutCode()) {
-			return $this->_getConfig()->getPageLayout($root->getLayoutCode());
+		if ($root && ($lc = $root->getLayoutCode())) { /** @var ?string $lc */
+			return $this->_getConfig()->getPageLayout($lc);
 		}
-
 		// All loaded handles
 		$handles = $this->getLayout()->getUpdate()->getHandles();
 		// Handles used in page layouts
 		$pageLayoutHandles = $this->_getConfig()->getPageLayoutHandles();
 		// Applied page layout handles
 		$appliedHandles = array_intersect($handles, $pageLayoutHandles);
-
 		if (empty($appliedHandles)) {
 			return false;
 		}
-
 		$currentHandle = array_pop($appliedHandles);
-
 		$layoutCode = array_search($currentHandle, $pageLayoutHandles, true);
-
 		return $this->_getConfig()->getPageLayout($layoutCode);
 	}
 
