@@ -96,7 +96,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 		</reference>
 		<reference name='root'>
 			<action method='setTemplate'><template>page/1column.phtml</template></action>
-			<action method='setHeaderTitle'><title>Password forgotten</title></action>
+			<action method='setHeaderTitle'><v>Password forgotten</v></action>
 		</reference>
 		<reference name='content'>
 			<block name='forgotPassword' template='customer/form/forgotpassword.phtml' type='customer/account_forgotpassword'/>
@@ -111,7 +111,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 		</reference>
 		<reference name='root'>
 			<action method='setTemplate'><template>page/1column.phtml</template></action>
-			<action method='setHeaderTitle'><title>Reset a Password</title></action>
+			<action method='setHeaderTitle'><v>Reset a Password</v></action>
 		</reference>
 		<reference name='content'>
 			<block
@@ -127,7 +127,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 
 		<reference name='root'>
 			<action method='setTemplate'><template>page/1column.phtml</template></action>
-			<action method='setHeaderTitle'><title>Send confirmation link</title></action>
+			<action method='setHeaderTitle'><v>Send confirmation link</v></action>
 		</reference>
 		<reference name='content'>
 			<block name='accountConfirmation' template='customer/form/confirmation.phtml' type='core/template'/>
@@ -137,7 +137,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 		<label>Customer Account Edit Form</label>
 		<update handle='customer_account'/>
 		<reference name='root'>
-			<action method='setHeaderTitle'><title>Edit Account Info</title></action>
+			<action method='setHeaderTitle'><v>Edit Account Info</v></action>
 		</reference>
 		<reference name='my.account.wrapper'>
 			<block name='customer_edit' template='customer/form/edit.phtml' type='customer/form_edit'/>
