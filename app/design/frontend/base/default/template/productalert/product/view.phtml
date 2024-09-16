@@ -1,7 +1,10 @@
-<?php /* @var Mage_ProductAlert_Block_Product_View $this */?>
-<p class="<?= $this[$this::$HTML_CLASS] ?>">
+<?php
+# 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+use Mage_ProductAlert_Block_Product_View as B; /** @var B $this */ $b = $this; /** @var B $b */
+?>
+<p class="<?= $b[$this::$HTML_CLASS] ?>">
 	<a
-		href="<?= $this->escapeHtml($this->getSignupUrl()) ?>"
-		title="<?= $this->escapeHtml($this[$this::$SIGNUP_LABEL]); ?>"
-	><?= $this->escapeHtml($this[$this::$SIGNUP_LABEL]); ?></a>
+		href="<?= $b->escapeHtml($b->getSignupUrl()) ?>"
+		title="<?= $b->escapeHtml($b[$this::$SIGNUP_LABEL]); ?>"
+	><?= $b->escapeHtml($b[$this::$SIGNUP_LABEL]); ?></a>
 </p>
