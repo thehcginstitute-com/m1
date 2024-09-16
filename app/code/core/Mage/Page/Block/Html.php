@@ -58,6 +58,16 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
+	function getLang():string {
+		if (!$this->hasData('lang')) {
+			$this->setData('lang', substr(Mage::app()->getLocale()->getLocaleCode(), 0, 2));
+		}
+		return $this->getData('lang');
+	}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
 	function getPrintLogoText():string {return Mage::getStoreConfig('sales/identity/address');}
 
 	/**
@@ -117,16 +127,6 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--6/app/design/frontend/default/mobileshoppe/layout/customer.xml#L140
 	 */
 	final function setHeaderTitle(string $v):void {$this->_title = $v;}
-
-	/**
-	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 */
-	function getLang():string {
-		if (!$this->hasData('lang')) {
-			$this->setData('lang', substr(Mage::app()->getLocale()->getLocaleCode(), 0, 2));
-		}
-		return $this->getData('lang');
-	}
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
