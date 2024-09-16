@@ -10,8 +10,7 @@ class Mage_Captcha_Block_Captcha_Zend extends Mage_Core_Block_Template {
 	 * @used-by app/design/frontend/base/default/template/captcha/zend.phtml
 	 */
 	final function getImgHeight():int {return $this[Mage_Captcha_Block_Captcha::IMG_HEIGHT];}
-
-
+	
 	protected $_template = 'captcha/zend.phtml';
 
 	/**
