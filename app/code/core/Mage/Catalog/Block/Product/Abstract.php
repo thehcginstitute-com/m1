@@ -597,10 +597,8 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
 	 *
 	 * @return Varien_Object
 	 */
-	function getPageLayout()
-	{
-		/** @var Mage_Page_Helper_Layout $helper */
-		$helper = $this->helper('page/layout');
+	function getPageLayout() {
+		$helper = $this->helper('page/layout'); /** @var Mage_Page_Helper_Layout $helper */
 		return $helper->getCurrentPageLayout();
 	}
 
