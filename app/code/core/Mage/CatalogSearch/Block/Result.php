@@ -81,15 +81,10 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17/app/design/frontend/default/mobileshoppe/layout/catalogsearch.xml#L60
 	 */
 	final function setListOrders():void {
-		$category = Mage::getSingleton('catalog/layer')
-			->getCurrentCategory();
-		/** @var Mage_Catalog_Model_Category $category */
+		$category = Mage::getSingleton('catalog/layer')->getCurrentCategory(); /** @var Mage_Catalog_Model_Category $category */
 		$availableOrders = $category->getAvailableSortByOptions();
 		unset($availableOrders['position']);
-		$availableOrders = array_merge([
-			'relevance' => $this->__('Relevance')
-		], $availableOrders);
-
+		$availableOrders = array_merge(['relevance' => $this->__('Relevance')], $availableOrders);
 		$this->getListBlock()
 			->setAvailableOrders($availableOrders)
 			->setDefaultDirection('desc')
