@@ -26,7 +26,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</customer_account_index>
 	<reviews>
 		<reference name='root'>
-			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
+			<action method='v'><template>page/2columns-left.phtml</template></action>
 		</reference>
 	</reviews>
 	<review_product_list>
