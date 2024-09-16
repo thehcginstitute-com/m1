@@ -42,6 +42,8 @@ class Mage_Adminhtml_Block_Sales_Order_Comments_View extends Mage_Adminhtml_Bloc
 
 	/**
 	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::canSendCommentEmail()
+	 * @used-by self::setParentType()
 	 * @var string
 	 */
 	private $_parentType = '';
