@@ -9,15 +9,13 @@
  * @method string getAfterText()
  * @method $this setAfterText(string $value)
  */
-class Mage_Core_Block_Text extends Mage_Core_Block_Abstract
-{
+class Mage_Core_Block_Text extends Mage_Core_Block_Abstract {
 	/**
 	 * @param string $text
 	 * @return $this
 	 */
-	function setText($text)
-	{
-		$this->setData('text', $text);
+	function setText(string $v):self {
+		$this['text'] = $v;
 		return $this;
 	}
 
