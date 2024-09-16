@@ -8,6 +8,7 @@
 class Mage_Sales_Block_Order_Totals extends Mage_Core_Block_Template {
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by app/design/adminhtml/default/default/template/sales/order/totals.phtml
 	 * @used-by app/design/frontend/base/default/template/sales/order/totals.phtml
 	 */
 	final function getLabelProperties():?string {return $this[self::$LABEL_PROPERTIES];}
