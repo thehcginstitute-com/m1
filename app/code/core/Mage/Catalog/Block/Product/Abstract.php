@@ -578,6 +578,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by Mage_Catalog_Block_Product_Abstract::getColumnCount()
 	 * @used-by Mage_Catalog_CategoryController::_applyCustomDesignSettings()
+	 * @used-by Mage_Catalog_Model_Design::_extractSettings()
 	 * @used-by Mage_Catalog_ProductController::_applyCustomDesignSettings()
 	 */
 	function getPageLayout():?_DO {
