@@ -158,9 +158,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<page_three_columns>
 		<label>All Three-Column Layout Pages</label>
 		<reference name='root'>
-			<action method='setTemplate'><v>page/3columns.phtml</v></action>
-			<action method='setIsHandle'><applied>1</applied></action>
+			<action method='preventCustomTemplates'/>
 			<action method='setLayoutCode'><v>three_columns</v></action>
+			<action method='setTemplate'><v>page/3columns.phtml</v></action>
 		</reference>
 	</page_three_columns>
 </layout>
