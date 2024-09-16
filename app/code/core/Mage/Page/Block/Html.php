@@ -24,12 +24,9 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	function getBaseUrl():string {return $this->_urls['base'];}
 
 	/**
-	 * @return string
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
-	function getBaseSecureUrl()
-	{
-		return $this->_urls['baseSecure'];
-	}
+	function getBaseSecureUrl():string {return $this->_urls['baseSecure'];}
 
 	/**
 	 * @return string
