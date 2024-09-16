@@ -1,7 +1,6 @@
 <?php
 /**
  * @method string getLayoutCode()
- * @method bool getIsHandle()
  * @method $this setBodyClass(string $value)
  */
 class Mage_Page_Block_Html extends Mage_Core_Block_Template {
