@@ -29,12 +29,9 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	function getBaseSecureUrl():string {return $this->_urls['baseSecure'];}
 
 	/**
-	 * @return string
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
-	function getCurrentUrl()
-	{
-		return $this->_urls['current'];
-	}
+	function getCurrentUrl():string	{return $this->_urls['current'];}
 
 	/**
 	 *  Print Logo URL (Conf -> Sales -> Invoice and Packing Slip Design)
