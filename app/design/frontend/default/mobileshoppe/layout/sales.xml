@@ -342,7 +342,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</action>
 			<block name='order_totals' template='sales/order/totals.phtml' type='sales/order_totals'>
 				<action method='setLabelProperties'><v>colspan='3' align='right' style='padding:3px 9px'</v></action>
-				<action method='setValueProperties'><value>align='right' style='padding:3px 9px'</value></action>
+				<action method='setValueProperties'><v>align='right' style='padding:3px 9px'</v></action>
 				<block name='tax' template='tax/order/tax.phtml' type='tax/sales_order_tax'>
 					<action method='setIsPlaneMode'>
 						<value>1</value>
