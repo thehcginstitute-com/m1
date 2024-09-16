@@ -99,11 +99,8 @@ class Mage_Page_Block_Html_Wrapper extends Mage_Core_Block_Abstract {
 	/**
 	 * Whether the wrapper element should be eventually rendered
 	 * If it becomes "invisible", the behaviour will be somewhat similar to core/text_list
-	 *
-	 * @return bool
 	 */
-	protected function _isInvisible()
-	{
+	protected function _isInvisible():bool {
 		if (!$this->hasMayBeInvisible()) {
 			return false;
 		}
