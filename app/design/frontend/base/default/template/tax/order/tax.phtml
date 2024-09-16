@@ -35,9 +35,8 @@ if ($this->displayFullSummary()): ?>
 		<?php $hasItemsInTaxSection = 1 ?>
 		<?php endforeach ?>
 	<?php endforeach ?>
-<?php endif ?>
-
-<?php if ($this->displayFullSummary() && $hasItemsInTaxSection && !$this->getIsPlaneMode()): ?>
+<?php endif
+if ($this->displayFullSummary() && $hasItemsInTaxSection && !$this->getIsPlaneMode()): ?>
 <tr class="summary-total" onclick="expandDetails(this, '.summary-details-<?= $taxIter;?>')">
 <?php elseif ($this->displayFullSummary() && $hasItemsInTaxSection && $this->getIsPlaneMode()): ?>
 <tr class="show-details">
