@@ -4,9 +4,6 @@
  * @method $this setBodyClass(string $value)
  */
 class Mage_Page_Block_Html extends Mage_Core_Block_Template {
-	protected $_urls = [];
-	protected $_title = '';
-
 	function __construct() {
 		parent::__construct();
 		$this->_urls = [
@@ -202,4 +199,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	{
 		return $this->_afterCacheUrl($html);
 	}
+
+	protected $_urls = [];
+	protected $_title = '';
 }
