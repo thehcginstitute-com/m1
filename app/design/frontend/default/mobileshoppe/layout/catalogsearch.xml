@@ -6,12 +6,12 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 <layout>
 	<catalogsearch_result_index>
 		<reference name='head'>
-			<action method='setRobots'><value>NOINDEX,NOFOLLOW</value></action>
+			<action method='disableCrawling'/>
 		</reference>
 	</catalogsearch_result_index>
 	<catalogsearch_advanced_result>
 		<reference name='head'>
-			<action method='setRobots'><value>NOINDEX,NOFOLLOW</value></action>
+			<action method='disableCrawling'/>
 		</reference>
 	</catalogsearch_advanced_result>
 	<default>
