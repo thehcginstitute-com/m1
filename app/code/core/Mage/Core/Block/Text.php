@@ -18,6 +18,7 @@ class Mage_Core_Block_Text extends Mage_Core_Block_Abstract {
 	 * @used-by Mage_Core_Block_Text_List_Item::_toHtml()
 	 * @used-by Mage_Core_Block_Text_List_Link::_toHtml()
 	 * @used-by Mage_Core_Block_Text_List::_toHtml()
+	 * @used-by self::addText()
 	 */
 	function setText(string $v):void {$this['text'] = $v;}
 
