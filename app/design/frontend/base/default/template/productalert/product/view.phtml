@@ -1,6 +1,6 @@
 <?php
 # 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-use Mage_ProductAlert_Block_Product_View as B; /** @var B $this */ $b = $this; /** @var B $b */
-echo df_tag('p', $b[$this::$HTML_CLASS],
-	df_tag('a', ['href' => $b->getSignupUrl(), 'title' => $l = $b[$this::$SIGNUP_LABEL]], $l)
+use Mage_ProductAlert_Block_Product_View as B; /** @var B $this */
+echo df_tag('p', $this[$this::$HTML_CLASS],
+	df_tag('a', ['href' => $this->getSignupUrl(), 'title' => $l = $this[$this::$SIGNUP_LABEL]], $l)
 );
