@@ -25,11 +25,11 @@ class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract {
 	}
 
 	/**
-	 * Apply page layout template
-	 * (for old design packages)
+	 * Apply page layout template (for old design packages)
 	 * @used-by Mage_Catalog_CategoryController::viewAction()
 	 * @used-by Mage_Catalog_Helper_Product_View::initProductLayout()
 	 * @used-by Mage_Cms_Helper_Page::_renderPage()
+	 * @used-by Mage_Review_ProductController::_initProductLayout()
 	 */
 	function applyTemplate(?string $pageLayout = null):self {
 		if ($pageLayout === null) {
