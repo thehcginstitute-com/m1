@@ -290,23 +290,26 @@ class Mage_Tax_Block_Sales_Order_Tax extends Mage_Core_Block_Template
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::_addTax()
+	 * @used-by self::_initGrandTotal()
+	 * @used-by self::_initShipping()
+	 * @used-by self::_initSubtotal()
+	 * @used-by self::getLabelProperties()
+	 * @used-by self::getValueProperties()
+	 * @used-by self::initTotals()
 	 * @return TotalsC|TotalsI|TotalsO
 	 */
 	function getParentBlock():TotalsO {return parent::getParentBlock();}
 
 	/**
-	 * @return mixed
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by app/design/frontend/base/default/template/tax/order/tax.phtml
 	 */
-	function getLabelProperties()
-	{
-		return $this->getParentBlock()->getLabelProperties();
-	}
+	final function getLabelProperties():?string {return $this->getParentBlock()->getLabelProperties();}
 
 	/**
-	 * @return mixed
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by app/design/frontend/base/default/template/tax/order/tax.phtml
 	 */
-	function getValueProperties()
-	{
-		return $this->getParentBlock()->getValueProperties();
-	}
+	final function getValueProperties():?string {return $this->getParentBlock()->getValueProperties();}
 }

@@ -16,6 +16,14 @@ class Mage_Sales_Block_Order_Totals extends Mage_Core_Block_Template {
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by Mage_Tax_Block_Sales_Order_Tax::getValueProperties()
+	 * @used-by app/design/adminhtml/default/default/template/sales/order/totals.phtml
+	 * @used-by app/design/frontend/base/default/template/sales/order/totals.phtml
+	 */
+	final function getValueProperties():?string {return $this[self::$VALUE_PROPERTIES];}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L73
@@ -43,6 +51,14 @@ class Mage_Sales_Block_Order_Totals extends Mage_Core_Block_Template {
 	 * @const string
 	 */
 	private static $LABEL_PROPERTIES = 'label_properties';
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::getValueProperties()
+	 * @used-by self::setValueProperties()
+	 * @const string
+	 */
+	private static $VALUE_PROPERTIES = 'value_properties';
 
 	/**
 	 * Associated array of totals
