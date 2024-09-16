@@ -1,5 +1,5 @@
 <?php
-# 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro	
+# 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template {
 	/**
 	 * @var array
@@ -141,14 +141,9 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template 
 	}
 
 	/**
-	 * @param string $varName
-	 * @return $this
+	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
-	function setStoreVarName($varName)
-	{
-		$this->_storeVarName = $varName;
-		return $this;
-	}
+	final function k_store_ids():void {$this->_storeVarName = 'store_ids';}
 
 	/**
 	 * @return mixed
