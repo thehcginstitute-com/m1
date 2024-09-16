@@ -581,6 +581,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
 	 * @used-by Mage_Catalog_Model_Design::_extractSettings()
 	 * @used-by Mage_Catalog_Model_Design::_mergeSettings()
 	 * @used-by Mage_Catalog_ProductController::_applyCustomDesignSettings()
+	 * @used-by Mage_Review_ProductController::_initProductLayout()
 	 */
 	function getPageLayout():?_DO {
 		$helper = $this->helper('page/layout'); /** @var Mage_Page_Helper_Layout $helper */
