@@ -74,8 +74,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<action ifconfig='customer/captcha/enable' method='addJs'><name>mage/captcha.js</name></action>
 					</reference>
 					<action method='setFormId'><v>register_during_checkout</v></action>
-					<action method='setImgWidth'><v>230</v></action>
 					<action method='setImgHeight'><v>50</v></action>
+					<action method='setImgWidth'><v>230</v></action>
 				</block>
 			</block>
 		</reference>
@@ -88,8 +88,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<action ifconfig='customer/captcha/enable' method='addJs'><name>mage/captcha.js</name></action>
 					</reference>
 					<action method='setFormId'><v>wishlist_sharing</v></action>
-					<action method='setImgWidth'><v>230</v></action>
 					<action method='setImgHeight'><v>50</v></action>
+					<action method='setImgWidth'><v>230</v></action>
 				</block>
 			</block>
 		</reference>
@@ -102,8 +102,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						<action ifconfig='customer/captcha/enable' method='addJs'><name>mage/captcha.js</name></action>
 					</reference>
 					<action method='setFormId'><v>sendfriend_send</v></action>
-					<action method='setImgWidth'><v>230</v></action>
 					<action method='setImgHeight'><v>50</v></action>
+					<action method='setImgWidth'><v>230</v></action>
 				</block>
 			</block>
 		</reference>
