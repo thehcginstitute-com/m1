@@ -41,6 +41,7 @@ class Mage_Captcha_Block_Captcha extends Mage_Core_Block_Abstract {
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by self::setImgHeight()
+	 * @used-by Mage_Captcha_Block_Captcha_Zend::getImgHeight()
 	 */
 	const IMG_HEIGHT = 'img_height';
 

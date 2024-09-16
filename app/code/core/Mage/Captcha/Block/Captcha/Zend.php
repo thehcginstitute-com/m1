@@ -3,8 +3,13 @@
  * @method string getFormId()
  * @method bool getIsAjax()
  */
-class Mage_Captcha_Block_Captcha_Zend extends Mage_Core_Block_Template
-{
+class Mage_Captcha_Block_Captcha_Zend extends Mage_Core_Block_Template {
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	final function getImgHeight():int {return $this[Mage_Captcha_Block_Captcha::IMG_HEIGHT];}
+
+
 	protected $_template = 'captcha/zend.phtml';
 
 	/**
