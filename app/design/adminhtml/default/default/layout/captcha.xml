@@ -8,7 +8,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='form.additional.info'>
 			<block name='captcha' type='captcha/captcha'>
 				<action method='setFormId'><v>backend_login</v></action>
-				<action method='setImgWidth'><width>226</width></action>
+				<action method='setImgWidth'><v>226</v></action>
 				<action method='setImgHeight'><v>50</v></action>
 			</block>
 		</reference>
@@ -17,7 +17,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='form.additional.info'>
 			<block name='captcha' type='captcha/captcha'>
 				<action method='setFormId'><v>backend_forgotpassword</v></action>
-				<action method='setImgWidth'><width>226</width></action>
+				<action method='setImgWidth'><v>226</v></action>
 				<action method='setImgHeight'><v>50</v></action>
 			</block>
 		</reference>
