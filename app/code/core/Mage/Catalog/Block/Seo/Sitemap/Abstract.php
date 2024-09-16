@@ -36,6 +36,8 @@ abstract class Mage_Catalog_Block_Seo_Sitemap_Abstract extends Mage_Core_Block_T
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--12/app/design/frontend/default/mobileshoppe/layout/catalog.xml#L405
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--12/app/design/frontend/default/mobileshoppe/layout/catalog.xml#L463
 	 */
 	final function setItemsTitle(string $v):void {$this->_itemsTitle = $v;}
 
