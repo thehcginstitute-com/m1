@@ -358,7 +358,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				>
 					<block as='login_before' name='checkout.onepage.login.before' type='page/html_wrapper'>
 						<label>Login/Registration Before</label>
-						<action method='setMayBeInvisible'/>
+						<action method='markAsPotentiallyInvisible'/>
 					</block>
 				</block>
 				<block

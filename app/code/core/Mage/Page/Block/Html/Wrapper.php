@@ -97,11 +97,16 @@ class Mage_Page_Block_Html_Wrapper extends Mage_Core_Block_Abstract {
 	}
 
 	/**
+	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	final function markAsPotentiallyInvisible():void {$this->_potentiallyInvisible = true;}
+
+	/**
 	 * Whether the wrapper element should be eventually rendered.
 	 * If it becomes "invisible", the behaviour will be somewhat similar to `core/text_list`.
 	 */
 	protected function _isInvisible():bool {
-		if (!$this->hasMayBeInvisible()) {
+		if (!$this->_potentiallyInvisible) {
 			return false;
 		}
 		foreach ($this->_children as $child) {
@@ -111,4 +116,12 @@ class Mage_Page_Block_Html_Wrapper extends Mage_Core_Block_Abstract {
 		}
 		return true;
 	}
+
+	/**
+	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::_isInvisible()
+	 * @used-by self::markAsPotentiallyInvisible()
+	 * @var bool
+	 */
+	private $_potentiallyInvisible = false;
 }

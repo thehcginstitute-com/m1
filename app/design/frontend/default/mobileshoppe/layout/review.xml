@@ -83,7 +83,7 @@ https://github.com/thehcginstitute-com/m1/issues/202 -->
 					<block as='review_form' name='product.review.form' type='review/form'>
 						<block as='form_fields_before' name='product.review.form.fields.before' type='page/html_wrapper'>
 							<label>Review Form Fields Before</label>
-							<action method='setMayBeInvisible'/>
+							<action method='markAsPotentiallyInvisible'/>
 						</block>
 					</block>
 				</block>
