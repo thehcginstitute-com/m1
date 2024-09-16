@@ -23,9 +23,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='create-js' template='iwd/orderflags/jsinit.phtml' type='adminhtml/template'/>
 		</reference>
 		<reference name='order_info'>
-			<action method='setTemplate'>
-				<template>iwd/orderflags/order/view/info.phtml</template>
-			</action>
+			<action method='setTemplate'><v>iwd/orderflags/order/view/info.phtml</v></action>
 		</reference>
 	</orderflags_handle>
 	<orderflags_order_grid_handle>
