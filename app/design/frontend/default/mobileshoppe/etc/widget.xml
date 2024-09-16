@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
-<!--
--->
+<!-- 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro -->
 <widgets>
 	<new_products>
 		<parameters>
@@ -47,7 +46,6 @@
 			</right_column>
 		</supported_blocks>
 	</new_products>
-
 	<recently_viewed>
 		<parameters>
 			<template>
@@ -93,7 +91,6 @@
 			</right_column>
 		</supported_blocks>
 	</recently_viewed>
-
 	<recently_compared>
 		<parameters>
 			<template>
