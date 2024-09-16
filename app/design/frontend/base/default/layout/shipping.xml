@@ -6,7 +6,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 <layout>
 	<shipping_tracking_ajax>
 		<reference name='root'>
-			<action method='setTemplate'><template/></action>
+			<action method='setTemplate'/>
 		</reference>
 		<reference name='content'>
 			<block name='shipping.tracking.ajax' template='shipping/tracking/ajax.phtml' type='shipping/tracking_ajax'/>
