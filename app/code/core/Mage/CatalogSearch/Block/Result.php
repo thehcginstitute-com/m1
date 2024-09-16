@@ -77,9 +77,8 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
 	}
 
 	/**
-	 * Set search available list orders
-	 *
-	 * @return $this
+	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17/app/design/frontend/default/mobileshoppe/layout/catalogsearch.xml#L60
 	 */
 	final function setListOrders():void {
 		$category = Mage::getSingleton('catalog/layer')
