@@ -53,12 +53,10 @@ class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract {
 	 *
 	 * @return Varien_Object|false
 	 */
-	function getCurrentPageLayout()
-	{
-		if ($this->getLayout()->getBlock('root') &&
-			$this->getLayout()->getBlock('root')->getLayoutCode()
-		) {
-			return $this->_getConfig()->getPageLayout($this->getLayout()->getBlock('root')->getLayoutCode());
+	function getCurrentPageLayout() {
+		$root = $this->getLayout()->getBlock('root'); /** @var ?Root $root */
+		if ($root && $root->getLayoutCode()) {
+			return $this->_getConfig()->getPageLayout($root->getLayoutCode());
 		}
 
 		// All loaded handles
