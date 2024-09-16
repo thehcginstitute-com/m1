@@ -5,6 +5,12 @@
 class Mage_ProductAlert_Block_Product_View extends Mage_Core_Block_Template {
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	function setHtmlClass(string $v):void {$this[self::$HTML_CLASS] = $v;}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by app/design/frontend/base/default/template/productalert/product/view.phtml
 	 * @const string
 	 */
 	private static $HTML_CLASS = 'html_class';

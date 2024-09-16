@@ -15,9 +15,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						type='productalert/product_view'
 					>
 						<action method='preparePriceAlertData'/>
-						<action method='setHtmlClass'>
-							<value>alert-price link-price-alert</value>
-						</action>
+						<action method='setHtmlClass'><v>alert-price link-price-alert</v></action>
 						<action method='setSignupLabel'>
 							<value>Sign up for price alert</value>
 						</action>
@@ -29,9 +27,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						type='productalert/product_view'
 					>
 						<action method='prepareStockAlertData'/>
-						<action method='setHtmlClass'>
-							<value>alert-stock link-stock-alert</value>
-						</action>
+						<action method='setHtmlClass'><v>alert-stock link-stock-alert</v></action>
 						<action method='setSignupLabel'>
 							<value>Sign up to get notified when this product is back in stock</value>
 						</action>
