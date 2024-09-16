@@ -51,8 +51,11 @@ class Mage_CatalogSearch_Block_Advanced_Result extends Mage_Core_Block_Template 
 
 	/**
 	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17/app/design/frontend/default/mobileshoppe/layout/catalogsearch.xml#L114
 	 */
-	function setListCollection():void {$this->getChild('search_result_list')->setCollection($this->_getProductCollection());}
+	final function setListCollection():void {
+		$this->getChild('search_result_list')->setCollection($this->_getProductCollection());
+	}
 
 	/**
 	 * @return Mage_CatalogSearch_Model_Resource_Advanced_Collection
