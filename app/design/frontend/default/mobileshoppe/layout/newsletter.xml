@@ -28,9 +28,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='customer_newsletter' type='customer/newsletter'>
 				<block as='form_before' name='customer.newsletter.form.before' type='page/html_wrapper'>
 					<label>Newsletter Subscription Form Before</label>
-					<action method='setMayBeInvisible'>
-						<value>1</value>
-					</action>
+					<action method='setMayBeInvisible'><value>1</value></action>
 				</block>
 			</block>
 		</reference>
