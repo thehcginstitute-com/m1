@@ -33,8 +33,7 @@ class Mage_Adminhtml_Block_Sales_Order_Comments_View extends Mage_Adminhtml_Bloc
 		return $this->getUrl('*/*/addComment', ['id' => $this->getEntity()->getId()]);
 	}
 
-	function canSendCommentEmail()
-	{
+	function canSendCommentEmail() {
 		switch ($this->getParentType()) {
 			case 'invoice':
 				return Mage::helper('sales')->canSendInvoiceCommentEmail(
@@ -49,7 +48,6 @@ class Mage_Adminhtml_Block_Sales_Order_Comments_View extends Mage_Adminhtml_Bloc
 					$this->getEntity()->getOrder()->getStore()->getId()
 				);
 		}
-
 		return true;
 	}
 
