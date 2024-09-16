@@ -66,13 +66,11 @@ class Mage_Payment_Block_Info_Container extends Mage_Core_Block_Template
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function setInfoTemplate(string $method = '', string $template = ''):self
-	{
+	final function setInfoTemplate():void {
 		if ($info = $this->getPaymentInfo()) {
-			if ($info->getMethodInstance()->getCode() == $method) {
-				$this->getChild($this->_getInfoBlockName())->setTemplate($template);
+			if ($info->getMethodInstance()->getCode() == '') {
+				$this->getChild($this->_getInfoBlockName())->setTemplate('');
 			}
 		}
-		return $this;
 	}
 }
