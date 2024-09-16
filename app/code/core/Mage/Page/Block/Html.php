@@ -65,12 +65,9 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	}
 
 	/**
-	 * @return string
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
-	function getPrintLogoText()
-	{
-		return Mage::getStoreConfig('sales/identity/address');
-	}
+	function getPrintLogoText():string {return Mage::getStoreConfig('sales/identity/address');}
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
