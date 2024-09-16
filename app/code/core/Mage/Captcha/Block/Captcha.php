@@ -30,13 +30,8 @@ class Mage_Captcha_Block_Captcha extends Mage_Core_Block_Template {
 	 * @const string
 	 */
 	private static $FORM_ID = 'form_id';
-
-	/**
-	 * Renders captcha HTML (if required)
-	 *
-	 * @return string
-	 */
-	protected function _toHtml() {
+	
+	protected function _toHtml():string {
 		if (Mage::helper('captcha')->isEnabled()) {
 			$blockPath = Mage::helper('captcha')->getCaptcha($this->getFormId())->getBlockName();
 			$block = $this->getLayout()->createBlock($blockPath);
