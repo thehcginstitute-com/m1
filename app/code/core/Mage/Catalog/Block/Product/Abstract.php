@@ -577,6 +577,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
 	 * Retrieve current page layout
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by Mage_Catalog_Block_Product_Abstract::getColumnCount()
+	 * @used-by Mage_Catalog_CategoryController::_applyCustomDesignSettings()
 	 */
 	function getPageLayout():?_DO {
 		$helper = $this->helper('page/layout'); /** @var Mage_Page_Helper_Layout $helper */
