@@ -26,9 +26,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					>
 						<action method='prepareStockAlertData'/>
 						<action method='setHtmlClass'><v>alert-stock link-stock-alert</v></action>
-						<action method='setSignupLabel'>
-							<v>Sign up to get notified when this product is back in stock</v>
-						</action>
+						<action method='setSignupLabel'><v>Sign up to get notified when this product is back in stock</v></action>
 					</block>
 				</reference>
 			</reference>
