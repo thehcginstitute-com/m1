@@ -119,6 +119,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--10/app/design/frontend/default/mobileshoppe/layout/page.xml#L137
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--10/app/design/frontend/default/mobileshoppe/layout/page.xml#L145
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--10/app/design/frontend/default/mobileshoppe/layout/page.xml#L153
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--10/app/design/frontend/default/mobileshoppe/layout/page.xml#L161
 	 */
 	final function preventCustomTemplates():void {$this->_canUseACustomTemplate = false;}
 
