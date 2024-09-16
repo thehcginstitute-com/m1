@@ -52,6 +52,7 @@ class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract {
 	/**
 	 * Retrieve current applied page layout
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::applyTemplate()
 	 * @used-by Mage_Catalog_Block_Product_Abstract::getPageLayout()
 	 * @return _DO|false
 	 */
