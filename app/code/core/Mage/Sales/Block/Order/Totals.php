@@ -48,21 +48,21 @@ class Mage_Sales_Block_Order_Totals extends Mage_Core_Block_Template {
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L73
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L124
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L216
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L269
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L297
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L334
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L356
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L381
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L411
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L454
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L507
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L605
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L660
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L688
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L725
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L74
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L123
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L213
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L264
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L290
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L325
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L345
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L368
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L396
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L437
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L488
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L584
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L637
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L663
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--13/app/design/frontend/default/mobileshoppe/layout/sales.xml#L698
 	 */
 	final function setValueProperties(string $v):void {$this[self::$VALUE_PROPERTIES] = $v;}
 
