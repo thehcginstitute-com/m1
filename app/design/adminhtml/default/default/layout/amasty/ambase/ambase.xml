@@ -13,7 +13,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_system_config_edit>
 	<adminhtml_ambase_base_ajax>
 		<reference name='root'>
-			<action method='setTemplate'><template>empty.phtml</template></action>
+			<action method='setTemplate'><v>empty.phtml</v></action>
 		</reference>
 	</adminhtml_ambase_base_ajax>
 <!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
