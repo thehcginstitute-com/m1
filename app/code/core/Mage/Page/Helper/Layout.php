@@ -63,9 +63,7 @@ class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract
 		}
 		if ($this->getLayout()->getBlock('root') && !$this->getLayout()->getBlock('root')->getIsHandle()) {
 			// If not applied handle
-			$this->getLayout()
-					->getBlock('root')
-					->setTemplate($pageLayout->getTemplate());
+			$this->getLayout()->getBlock('root')->setTemplate($pageLayout->getTemplate());
 		}
 		return $this;
 	}
