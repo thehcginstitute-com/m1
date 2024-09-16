@@ -33,6 +33,19 @@ class Mage_Adminhtml_Block_Sales_Order_Comments_View extends Mage_Adminhtml_Bloc
 		return $this->getUrl('*/*/addComment', ['id' => $this->getEntity()->getId()]);
 	}
 
+	/**
+     * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 */
+	final function setParentType(string $v):void {$this->_parentType = $v;}
+
+	/**
+	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @var string
+	 */
+	private $_parentType = '';
+
 	function canSendCommentEmail() {
 		switch ($this->getParentType()) {
 			case 'invoice':
