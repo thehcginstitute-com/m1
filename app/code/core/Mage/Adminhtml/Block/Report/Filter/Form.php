@@ -76,6 +76,18 @@ class Mage_Adminhtml_Block_Report_Filter_Form extends Mage_Adminhtml_Block_Widge
 	 * 2024-09-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--8/app/design/adminhtml/default/default/layout/sales.xml#L1159
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--8/app/design/adminhtml/default/default/layout/sales.xml#L1160
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--8/app/design/adminhtml/default/default/layout/sales.xml#L1178
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--8/app/design/adminhtml/default/default/layout/sales.xml#L1179
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--8/app/design/adminhtml/default/default/layout/sales.xml#L1201
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--8/app/design/adminhtml/default/default/layout/sales.xml#L1202
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--8/app/design/adminhtml/default/default/layout/sales.xml#L1219
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--8/app/design/adminhtml/default/default/layout/sales.xml#L1220
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--8/app/design/adminhtml/default/default/layout/sales.xml#L1237
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--8/app/design/adminhtml/default/default/layout/sales.xml#L1238
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--8/app/design/adminhtml/default/default/layout/sales.xml#L1255
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--8/app/design/adminhtml/default/default/layout/sales.xml#L1256
 	 */
 	final function addReportTypeOption(string $k, string $v):void {$this->_reportTypeOptions[$k] = $v;}
 
