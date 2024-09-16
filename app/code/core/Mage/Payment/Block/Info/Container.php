@@ -67,10 +67,8 @@ class Mage_Payment_Block_Info_Container extends Mage_Core_Block_Template
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
 	final function setInfoTemplate():void {
-		if ($info = $this->getPaymentInfo()) {
-			if ($info->getMethodInstance()->getCode() == '') {
-				$this->getChild($this->_getInfoBlockName())->setTemplate('');
-			}
+		if (($i = $this->getPaymentInfo()) && !$i->getMethodInstance()->getCode()) {
+			$this->getChild($this->_getInfoBlockName())->setTemplate('');
 		}
 	}
 }
