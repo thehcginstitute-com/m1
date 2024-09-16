@@ -34,18 +34,15 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	function getCurrentUrl():string	{return $this->_urls['current'];}
 
 	/**
-	 *  Print Logo URL (Conf -> Sales -> Invoice and Packing Slip Design)
-	 *
-	 *  @return   string
+	 * Print Logo URL (Conf -> Sales -> Invoice and Packing Slip Design)
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
-	function getPrintLogoUrl()
-	{
+	function getPrintLogoUrl():string {
 		// load html logo
 		$logo = Mage::getStoreConfig('sales/identity/logo_html');
 		if (!empty($logo)) {
 			$logo = 'sales/store/logo_html/' . $logo;
 		}
-
 		// load default logo
 		if (empty($logo)) {
 			$logo = Mage::getStoreConfig('sales/identity/logo');
@@ -58,14 +55,12 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 				}
 			}
 		}
-
 		// buld url
 		if (!empty($logo)) {
 			$logo = Mage::getStoreConfig(Mage_Core_Model_Store::XML_PATH_UNSECURE_BASE_MEDIA_URL) . $logo;
 		} else {
 			$logo = '';
 		}
-
 		return $logo;
 	}
 
