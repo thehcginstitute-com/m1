@@ -156,11 +156,7 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	final function setItemLimit(string $type, int $limit):void {
-		if ((int) $limit > 0) {
-			$this->_itemLimits[$type] = (int) $limit;
-		}
-	}
+	final function setItemLimit(string $type, int $v):void {$this->_itemLimits[$type] = $v;}
 
 	/**
 	 * @param string $type
