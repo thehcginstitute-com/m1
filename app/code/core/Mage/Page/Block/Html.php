@@ -1,6 +1,6 @@
 <?php
 /**
- * @method string getLayoutCode()
+ * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
  * @method $this setBodyClass(string $value)
  */
 class Mage_Page_Block_Html extends Mage_Core_Block_Template {
@@ -137,6 +137,26 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--6/app/design/frontend/default/mobileshoppe/layout/customer.xml#L140
 	 */
 	final function setHeaderTitle(string $v):void {$this->_title = $v;}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	final function getLayoutCode():?string {return $this[self::$LAYOUT_CODE];}
+
+	/**
+     * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 */
+	final function setLayoutCode(string $v):void {$this[self::$LAYOUT_CODE] = $v;}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::getLayoutCode()
+	 * @used-by self::setLayoutCode()
+	 * @const string
+	 */
+	private static $LAYOUT_CODE = 'layout_code';
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
