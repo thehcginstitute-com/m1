@@ -306,8 +306,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				</action>
 				<block name='payment_info' type='checkout/multishipping_payment_info'>
 					<action method='setInfoTemplate'>
-						<method></method>
-						<template></template>
+						<method/>
+						<template/>
 					</action>
 				</block>
 				<block
