@@ -12,20 +12,6 @@ class Mage_Bundle_Block_Catalog_Product_Price extends Mage_Catalog_Block_Product
 	final function setMAPTemplate(string $v):void {$this->_mapTemplate = $v;}
 
 	/**
-	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * @used-by self::_toHtml()
-	 */
-	private function getMAPTemplate():?string {return $this->_mapTemplate;}
-
-	/**
-	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * @used-by self::getMAPTemplate()
-	 * @used-by self::setMAPTemplate()
-	 * @var ?string
-	 */
-	private $_mapTemplate;
-
-	/**
 	 * @return bool
 	 */
 	function isRatesGraterThenZero()
@@ -70,7 +56,7 @@ class Mage_Bundle_Block_Catalog_Product_Price extends Mage_Catalog_Block_Product
 	protected function _toHtml()
 	{
 		$product = $this->getProduct();
-		if ($this->getMAPTemplate() && Mage::helper('catalog')->canApplyMsrp($product)
+		if ($this->_mapTemplate && Mage::helper('catalog')->canApplyMsrp($product)
 				&& $product->getPriceType() != Mage_Bundle_Model_Product_Price::PRICE_TYPE_DYNAMIC
 		) {
 			$hiddenPriceHtml = parent::_toHtml();
@@ -83,7 +69,7 @@ class Mage_Bundle_Block_Catalog_Product_Price extends Mage_Catalog_Block_Product
 			$product->setAddToCartUrl($addToCartUrl);
 			$html = $this->getLayout()
 				->createBlock('catalog/product_price')
-				->setTemplate($this->getMAPTemplate())
+				->setTemplate($this->_mapTemplate)
 				->setRealPriceHtml($hiddenPriceHtml)
 				->setPriceElementIdPrefix('bundle-price-')
 				->setIdSuffix($this->getIdSuffix())
@@ -95,4 +81,12 @@ class Mage_Bundle_Block_Catalog_Product_Price extends Mage_Catalog_Block_Product
 
 		return parent::_toHtml();
 	}
+
+	/**
+	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::_toHtml()
+	 * @used-by self::setMAPTemplate()
+	 * @var string
+	 */
+	private $_mapTemplate = '';
 }
