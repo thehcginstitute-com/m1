@@ -62,13 +62,11 @@ class Mage_Payment_Block_Info_Container extends Mage_Core_Block_Template
 	}
 
 	/**
-	 * Declare info block template
-	 *
-	 * @param   string $method
-	 * @param   string $template
-	 * @return  Mage_Payment_Block_Info_Container
+     * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function setInfoTemplate($method = '', $template = '')
+	function setInfoTemplate(string $method = '', string $template = ''):self
 	{
 		if ($info = $this->getPaymentInfo()) {
 			if ($info->getMethodInstance()->getCode() == $method) {
