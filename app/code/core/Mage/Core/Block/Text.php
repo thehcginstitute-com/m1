@@ -15,6 +15,7 @@ class Mage_Core_Block_Text extends Mage_Core_Block_Abstract {
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset::_toHtml()
+	 * @used-by Mage_Core_Block_Text_List_Item::_toHtml()
 	 */
 	function setText(string $v):void {$this['text'] = $v;}
 
