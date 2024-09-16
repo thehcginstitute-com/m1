@@ -140,6 +140,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by Mage_Page_Helper_Layout::getCurrentPageLayout()
 	 */
 	final function getLayoutCode():?string {return $this[self::$LAYOUT_CODE];}
 
