@@ -532,7 +532,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						template='sales/order/comments/view.phtml'
 						type='adminhtml/sales_order_comments_view'
 					>
-						<action method='setParentType'><type>creditmemo</type></action>
+						<action method='setParentType'><v>creditmemo</v></action>
 					</block>
 					<block
 						name='creditmemo_totals'
