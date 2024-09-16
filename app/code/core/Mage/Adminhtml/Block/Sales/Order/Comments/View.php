@@ -49,7 +49,7 @@ class Mage_Adminhtml_Block_Sales_Order_Comments_View extends Mage_Adminhtml_Bloc
 	private $_parentType = '';
 
 	function canSendCommentEmail() {
-		switch ($this->getParentType()) {
+		switch ($this->_parentType) {
 			case 'invoice':
 				return Mage::helper('sales')->canSendInvoiceCommentEmail(
 					$this->getEntity()->getOrder()->getStore()->getId()
