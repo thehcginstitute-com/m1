@@ -1,5 +1,8 @@
 <?php
 # 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+use Mage_Sales_Block_Order_Creditmemo_Totals as TotalsC;
+use Mage_Sales_Block_Order_Invoice_Totals as TotalsI;
+use Mage_Sales_Block_Order_Totals as TotalsO;
 class Mage_Tax_Block_Sales_Order_Tax extends Mage_Core_Block_Template
 {
 	/**
@@ -284,6 +287,12 @@ class Mage_Tax_Block_Sales_Order_Tax extends Mage_Core_Block_Template
 	{
 		return $this->_order;
 	}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @return TotalsC|TotalsI|TotalsO
+	 */
+	function getParentBlock():TotalsO {return parent::getParentBlock();}
 
 	/**
 	 * @return mixed
