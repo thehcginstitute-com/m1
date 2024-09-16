@@ -13,7 +13,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					</reference>
 					<action method='setFormId'><v>user_login</v></action>
 					<action method='setImgWidth'><width>230</width></action>
-					<action method='setImgHeight'><width>50</width></action>
+					<action method='setImgHeight'><v>50</v></action>
 				</block>
 			</block>
 		</reference>
@@ -27,7 +27,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					</reference>
 					<action method='setFormId'><v>user_forgotpassword</v></action>
 					<action method='setImgWidth'><width>230</width></action>
-					<action method='setImgHeight'><width>50</width></action>
+					<action method='setImgHeight'><v>50</v></action>
 				</block>
 			</block>
 		</reference>
@@ -41,7 +41,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					</reference>
 					<action method='setFormId'><v>user_create</v></action>
 					<action method='setImgWidth'><width>230</width></action>
-					<action method='setImgHeight'><width>50</width></action>
+					<action method='setImgHeight'><v>50</v></action>
 				</block>
 			</block>
 		</reference>
@@ -55,7 +55,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					</reference>
 					<action method='setFormId'><v>user_login</v></action>
 					<action method='setImgWidth'><width>230</width></action>
-					<action method='setImgHeight'><width>50</width></action>
+					<action method='setImgHeight'><v>50</v></action>
 				</block>
 			</block>
 		</reference>
@@ -67,7 +67,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					</reference>
 					<action method='setFormId'><v>guest_checkout</v></action>
 					<action method='setImgWidth'><width>230</width></action>
-					<action method='setImgHeight'><width>50</width></action>
+					<action method='setImgHeight'><v>50</v></action>
 				</block>
 				<block name='captcha.register.during.checkout' type='captcha/captcha'>
 					<reference name='head'>
@@ -75,7 +75,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					</reference>
 					<action method='setFormId'><v>register_during_checkout</v></action>
 					<action method='setImgWidth'><width>230</width></action>
-					<action method='setImgHeight'><width>50</width></action>
+					<action method='setImgHeight'><v>50</v></action>
 				</block>
 			</block>
 		</reference>
@@ -89,7 +89,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					</reference>
 					<action method='setFormId'><v>wishlist_sharing</v></action>
 					<action method='setImgWidth'><width>230</width></action>
-					<action method='setImgHeight'><width>50</width></action>
+					<action method='setImgHeight'><v>50</v></action>
 				</block>
 			</block>
 		</reference>
@@ -103,7 +103,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					</reference>
 					<action method='setFormId'><v>sendfriend_send</v></action>
 					<action method='setImgWidth'><width>230</width></action>
-					<action method='setImgHeight'><width>50</width></action>
+					<action method='setImgHeight'><v>50</v></action>
 				</block>
 			</block>
 		</reference>

@@ -25,12 +25,29 @@ class Mage_Captcha_Block_Captcha extends Mage_Core_Block_Abstract {
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	final function setImgHeight(int $v):void {$this[self::IMG_HEIGHT] = $v;}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::setImgHeight()
+	 */
+	const IMG_HEIGHT = 'img_height';
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by self::getFormId()
 	 * @used-by self::setFormId()
 	 * @const string
 	 */
 	private static $FORM_ID = 'form_id';
 
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @override
+	 * @see Mage_Core_Block_Abstract::_toHtml()
+	 * @used-by Mage_Core_Block_Abstract::toHtml()
+	 */
 	protected function _toHtml():string {
 		if (Mage::helper('captcha')->isEnabled()) {
 			$blockPath = Mage::helper('captcha')->getCaptcha($this->getFormId())->getBlockName();
