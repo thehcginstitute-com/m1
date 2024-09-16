@@ -109,12 +109,9 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 
 	/**
 	 * Add CSS class to page body tag
-	 *
-	 * @param string $className
-	 * @return $this
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
-	function addBodyClass($className)
-	{
+	function addBodyClass(string $className):self {
 		$className = preg_replace('#[^a-z0-9]+#', '-', strtolower($className));
 		$class = $this->getBodyClass() ? $this->getBodyClass() . ' ' . $className : $className;
 		$this->setBodyClass($class);
