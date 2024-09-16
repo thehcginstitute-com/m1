@@ -88,14 +88,6 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * @used-by self::canUseACustomTemplate()
-	 * @used-by self::preventCustomTemplates()
-	 * @var bool
-	 */
-	private $_canUseACustomTemplate = true;
-
-	/**
-	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by Mage_Customer_Block_Account::__construct()
@@ -183,6 +175,23 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 		return $this->_afterCacheUrl($html);
 	}
 
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @var string[]
+	 */
 	protected $_urls = [];
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @var string
+	 */
 	protected $_title = '';
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::canUseACustomTemplate()
+	 * @used-by self::preventCustomTemplates()
+	 * @var bool
+	 */
+	private $_canUseACustomTemplate = true;
 }
