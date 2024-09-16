@@ -108,8 +108,7 @@ class Mage_Cms_Helper_Page extends Mage_Core_Helper_Abstract
 		}
 
 		if ($page->getRootTemplate()) {
-			$action->getLayout()->helper('page/layout')
-				->applyTemplate($page->getRootTemplate());
+			$action->getLayout()->helper('page/layout')->applyTemplate($page->getRootTemplate());
 		}
 
 		/* @TODO: Move catalog and checkout storage types to appropriate modules */

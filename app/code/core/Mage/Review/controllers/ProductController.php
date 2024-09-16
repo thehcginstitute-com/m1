@@ -290,8 +290,7 @@ class Mage_Review_ProductController extends Mage_Core_Controller_Front_Action
 
 		$this->loadLayoutUpdates();
 		if ($product->getPageLayout()) {
-			$this->getLayout()->helper('page/layout')
-				->applyTemplate($product->getPageLayout());
+			$this->getLayout()->helper('page/layout')->applyTemplate($product->getPageLayout());
 		}
 		$customLayout = $product->getCustomLayoutUpdate();
 		if ($customLayout) {
