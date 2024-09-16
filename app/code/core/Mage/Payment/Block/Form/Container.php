@@ -77,11 +77,9 @@ class Mage_Payment_Block_Form_Container extends Mage_Core_Block_Template
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	final function setMethodFormTemplate(string $method = '', string $template = ''):void {
-		if (!empty($method) && !empty($template)) {
-			if ($block = $this->getChild('payment.method.' . $method)) {
-				$block->setTemplate($template);
-			}
+	final function setMethodFormTemplate(string $m, string $t):void {
+		if ($block = $this->getChild('payment.method.' . $m)) {
+			$block->setTemplate($t);
 		}
 	}
 
