@@ -260,10 +260,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 		</reference>
 		<reference name='upsell_products'>
 			<action method='setColumnCount'><v>5</v></action>
-			<action method='setItemLimit'>
-				<limit>5</limit>
-				<type>upsell</type>
-			</action>
+			<action method='setItemLimit'><limit>5</limit><type>upsell</type></action>
 		</reference>
 		<reference name='left'>
 			<block

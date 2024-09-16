@@ -99,10 +99,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<template>bundle/catalog/product/price.phtml</template>
 				<type>bundle</type>
 			</action>
-			<action method='setItemLimit'>
-				<limit>4</limit>
-				<type>bundle</type>
-			</action>
+			<action method='setItemLimit'><limit>4</limit><type>bundle</type></action>
 		</reference>
 	</PRODUCT_TYPE_simple>
 	<customer_account>
