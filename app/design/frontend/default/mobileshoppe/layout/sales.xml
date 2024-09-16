@@ -660,9 +660,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				</action>
 				<block name='invoice_totals' template='sales/order/totals.phtml' type='sales/order_invoice_totals'>
 					<action method='setLabelProperties'><v>colspan='4' class='a-right'</v></action>
-					<action method='setValueProperties'>
-						<value>class='last a-right'</value>
-					</action>
+					<action method='setValueProperties'><value>class='last a-right'</value></action>
 					<block name='tax' template='tax/order/tax.phtml' type='tax/sales_order_tax'/>
 				</block>
 			</block>
