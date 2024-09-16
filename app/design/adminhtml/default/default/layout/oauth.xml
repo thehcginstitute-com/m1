@@ -38,7 +38,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_oauth_admin_token_grid>
 	<oauth_root_handle>
 		<reference name='root'>
-			<action method='setTemplate'><template>empty.phtml</template></action>
+			<action method='setTemplate'><v>empty.phtml</v></action>
 		</reference>
 		<reference name='head'>
 			<action method='removeItem'><name>calendar/calendar-setup.js</name><type>js</type></action>
