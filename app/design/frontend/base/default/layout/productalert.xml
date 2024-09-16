@@ -16,9 +16,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					>
 						<action method='preparePriceAlertData'/>
 						<action method='setHtmlClass'><v>alert-price link-price-alert</v></action>
-						<action method='setSignupLabel'>
-							<value>Sign up for price alert</value>
-						</action>
+						<action method='setSignupLabel'><value>Sign up for price alert</value></action>
 					</block>
 					<block
 						as='productalert_stock'
