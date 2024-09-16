@@ -510,6 +510,11 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	}
 
 	/**
+	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	final function disableCrawling():void {$this['robots'] = 'NOINDEX,NOFOLLOW';}
+
+	/**
 	 * Retrieve URL to robots file
 	 *
 	 * @return string
