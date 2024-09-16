@@ -1235,10 +1235,7 @@ Once timezone is changed, the lifetime statistics need to be refreshed.</message
 				</block>
 				<block name='grid.filter.form' type='sales/adminhtml_report_filter_form'>
 					<action method='addReportTypeOption'><k>created_at_order</k><v>Order Created Date</v></action>
-					<action method='addReportTypeOption'>
-						<key>created_at_refunded</key>
-						<value>Last Credit Memo Created Date</value>
-					</action>
+					<action method='addReportTypeOption'><k>created_at_refunded</k><v>Last Credit Memo Created Date</v></action>
 				</block>
 			</block>
 		</reference>
