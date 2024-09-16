@@ -22,133 +22,133 @@
  */
 class Mage_Adminhtml_Block_Page_Footer extends Mage_Adminhtml_Block_Template
 {
-    public const LOCALE_CACHE_LIFETIME = 7200;
-    public const LOCALE_CACHE_KEY      = 'footer_locale';
-    public const LOCALE_CACHE_TAG      = 'adminhtml';
+	public const LOCALE_CACHE_LIFETIME = 7200;
+	public const LOCALE_CACHE_KEY      = 'footer_locale';
+	public const LOCALE_CACHE_TAG      = 'adminhtml';
 
-    protected function _construct()
-    {
-        $this->setTemplate('page/footer.phtml');
-        $this->setShowProfiler(true);
-    }
+	protected function _construct()
+	{
+		$this->setTemplate('page/footer.phtml');
+		$this->setShowProfiler(true);
+	}
 
-    /**
-     * @return string
-     */
-    function getChangeLocaleUrl()
-    {
-        return $this->getUrl('adminhtml/index/changeLocale');
-    }
+	/**
+	 * @return string
+	 */
+	function getChangeLocaleUrl()
+	{
+		return $this->getUrl('adminhtml/index/changeLocale');
+	}
 
-    /**
-     * @return string
-     */
-    function getUrlForReferer()
-    {
-        return $this->getUrlEncoded('*/*/*', ['_current' => true]);
-    }
+	/**
+	 * @return string
+	 */
+	function getUrlForReferer()
+	{
+		return $this->getUrlEncoded('*/*/*', ['_current' => true]);
+	}
 
-    /**
-     * @return string
-     */
-    function getRefererParamName()
-    {
-        return Mage_Core_Controller_Varien_Action::PARAM_NAME_URL_ENCODED;
-    }
+	/**
+	 * @return string
+	 */
+	function getRefererParamName()
+	{
+		return Mage_Core_Controller_Varien_Action::PARAM_NAME_URL_ENCODED;
+	}
 
-    /**
-     * @return string
-     */
-    function getLanguageSelect()
-    {
-        $locale  = Mage::app()->getLocale();
-        $cacheId = self::LOCALE_CACHE_KEY . $locale->getLocaleCode();
-        $html    = Mage::app()->loadCache($cacheId);
+	/**
+	 * @return string
+	 */
+	function getLanguageSelect()
+	{
+		$locale  = Mage::app()->getLocale();
+		$cacheId = self::LOCALE_CACHE_KEY . $locale->getLocaleCode();
+		$html    = Mage::app()->loadCache($cacheId);
 
-        if (!$html) {
-            $html = $this->getLayout()->createBlock('adminhtml/html_select')
-                ->setName('locale')
-                ->setId('interface_locale')
-                ->setTitle(Mage::helper('page')->__('Interface Language'))
-                ->setExtraParams('style="width:200px"')
-                ->setValue($locale->getLocaleCode())
-                ->setOptions($locale->getTranslatedOptionLocales())
-                ->getHtml();
-            Mage::app()->saveCache($html, $cacheId, [self::LOCALE_CACHE_TAG], self::LOCALE_CACHE_LIFETIME);
-        }
+		if (!$html) {
+			$html = $this->getLayout()->createBlock('adminhtml/html_select')
+				->setName('locale')
+				->setId('interface_locale')
+				->setTitle(Mage::helper('page')->__('Interface Language'))
+				->setExtraParams('style="width:200px"')
+				->setValue($locale->getLocaleCode())
+				->setOptions($locale->getTranslatedOptionLocales())
+				->getHtml();
+			Mage::app()->saveCache($html, $cacheId, [self::LOCALE_CACHE_TAG], self::LOCALE_CACHE_LIFETIME);
+		}
 
-        return $html;
-    }
+		return $html;
+	}
 
-    /**
-     * @param string $url
-     * @return $this
-     * @deprecated see setReportIssuesUrl()
-     */
-    function setBugreportUrl(string $url)
-    {
-        return $this->setReportIssuesUrl($url);
-    }
+	/**
+	 * @param string $url
+	 * @return $this
+	 * @deprecated see setReportIssuesUrl()
+	 */
+	function setBugreportUrl(string $url)
+	{
+		return $this->setReportIssuesUrl($url);
+	}
 
-    /**
-     * @return string
-     * @deprecated see getReportIssuesUrl()
-     */
-    function getBugreportUrl(): string
-    {
-        return $this->getReportIssuesUrl();
-    }
+	/**
+	 * @return string
+	 * @deprecated see getReportIssuesUrl()
+	 */
+	function getBugreportUrl(): string
+	{
+		return $this->getReportIssuesUrl();
+	}
 
-    /**
-     * @param string $url
-     * @return $this
-     */
-    function setReportIssuesUrl(string $url)
-    {
-        return $this->setData('report_issues_url', $url);
-    }
+	/**
+	 * @param string $url
+	 * @return $this
+	 */
+	function setReportIssuesUrl(string $url)
+	{
+		return $this->setData('report_issues_url', $url);
+	}
 
-    /**
-     * @return string
-     */
-    function getReportIssuesUrl(): string
-    {
-        return (string) $this->_getData('report_issues_url');
-    }
+	/**
+	 * @return string
+	 */
+	function getReportIssuesUrl(): string
+	{
+		return (string) $this->_getData('report_issues_url');
+	}
 
-    /**
-     * @param string $url
-     * @return $this
-     * @deprecated see setOpenMageProjectUrl()
-     */
-    function setConnectWithMagentoUrl(string $url)
-    {
-        return $this->setOpenMageProjectUrl($url);
-    }
+	/**
+	 * @param string $url
+	 * @return $this
+	 * @deprecated see setOpenMageProjectUrl()
+	 */
+	function setConnectWithMagentoUrl(string $url)
+	{
+		return $this->setOpenMageProjectUrl($url);
+	}
 
-    /**
-     * @return string
-     * @deprecated see getOpenMageProjectUrl()
-     */
-    function getConnectWithMagentoUrl(): string
-    {
-        return $this->getOpenMageProjectUrl();
-    }
+	/**
+	 * @return string
+	 * @deprecated see getOpenMageProjectUrl()
+	 */
+	function getConnectWithMagentoUrl(): string
+	{
+		return $this->getOpenMageProjectUrl();
+	}
 
-    /**
-     * @param string $url
-     * @return $this
-     */
-    function setOpenMageProjectUrl(string $url)
-    {
-        return $this->setData('openmage_project_url', $url);
-    }
+	/**
+	 * @param string $url
+	 * @return $this
+	 */
+	function setOpenMageProjectUrl(string $url)
+	{
+		return $this->setData('openmage_project_url', $url);
+	}
 
-    /**
-     * @return string
-     */
-    function getOpenMageProjectUrl(): string
-    {
-        return (string) $this->_getData('openmage_project_url');
-    }
+	/**
+	 * @return string
+	 */
+	function getOpenMageProjectUrl(): string
+	{
+		return (string) $this->_getData('openmage_project_url');
+	}
 }
