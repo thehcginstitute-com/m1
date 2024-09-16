@@ -49,11 +49,10 @@ class Mage_CatalogSearch_Block_Advanced_Result extends Mage_Core_Block_Template 
 				'list' => Mage::helper('catalogsearch')->__('List')]);
 	}
 
-	function setListCollection()
-	{
-		$this->getChild('search_result_list')
-		   ->setCollection($this->_getProductCollection());
-	}
+	/**
+	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	function setListCollection():void {$this->getChild('search_result_list')->setCollection($this->_getProductCollection());}
 
 	/**
 	 * @return Mage_CatalogSearch_Model_Resource_Advanced_Collection
