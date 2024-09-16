@@ -38,6 +38,11 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
+	function getAbsoluteFooter():string	{return Mage::getStoreConfig('design/footer/absolute_footer');}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
 	function getBaseSecureUrl():string {return $this->_urls['baseSecure'];}
 
 	/**
@@ -146,11 +151,6 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
 	function getBodyClass():string {return $this->_getData('body_class');}
-
-	/**
-	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 */
-	function getAbsoluteFooter():string	{return Mage::getStoreConfig('design/footer/absolute_footer');}
 
 	/**
 	 * Processing block html after rendering
