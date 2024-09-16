@@ -27,11 +27,9 @@ class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract {
 	/**
 	 * Apply page layout template
 	 * (for old design packages)
-	 *
-	 * @param string $pageLayout
-	 * @return $this
+	 * @used-by Mage_Catalog_CategoryController::viewAction()
 	 */
-	function applyTemplate($pageLayout = null) {
+	function applyTemplate(?string $pageLayout = null):self {
 		if ($pageLayout === null) {
 			$pageLayout = $this->getCurrentPageLayout();
 		}
