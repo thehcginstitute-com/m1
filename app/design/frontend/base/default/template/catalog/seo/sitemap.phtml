@@ -1,18 +1,20 @@
 <?php
-/**
- * @see Mage_Catalog_Block_Seo_Sitemap_
- */
+use Mage_Catalog_Block_Seo_Sitemap_Abstract as SA;
+use Mage_Catalog_Block_Seo_Sitemap_Category as SC;
+use Mage_Catalog_Block_Seo_Sitemap_Product as SP;
+/** @var SA|SC|SP $this */ $b = $this; /** @var SA|SC|SP $b */
+
 ?>
-<?php $_items = $this->getCollection(); ?>
+<?php $_items = $b->getCollection(); ?>
 <?php if($_items->getSize()): ?>
 	<ul class="sitemap">
 		<?php foreach ($_items as $_item): ?>
-			<li><a href="<?= $this->getItemUrl($_item) ?>"><?= $this->escapeHtml($_item->name) ?></a></li>
+			<li><a href="<?= $b->getItemUrl($_item) ?>"><?= $b->escapeHtml($_item->name) ?></a></li>
 		<?php endforeach ?>
 	</ul>
 <?php else: ?>
 	<p class="note-msg">
-		<?= $this->__('There are no %s available.', $this->getItemsTitle()); ?>
+		<?= $b->__('There are no %s available.', $b->getItemsTitle()); ?>
 	</p>
 	<script type="text/javascript">
 		if ($('sitemap_top_links') != undefined) {

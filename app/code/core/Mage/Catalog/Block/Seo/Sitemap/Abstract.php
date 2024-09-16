@@ -1,6 +1,5 @@
 <?php
-abstract class Mage_Catalog_Block_Seo_Sitemap_Abstract extends Mage_Core_Block_Template
-{
+abstract class Mage_Catalog_Block_Seo_Sitemap_Abstract extends Mage_Core_Block_Template {
 	/**
 	 * Init pager
 	 * 2024-09-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -26,8 +25,9 @@ abstract class Mage_Catalog_Block_Seo_Sitemap_Abstract extends Mage_Core_Block_T
 	 * @param Mage_Catalog_Block_Seo_Sitemap_Abstract $item
 	 * @return string
 	 */
-	function getItemUrl($item)
-	{
-		return $item->getUrl();
-	}
+	function getItemUrl($item) {return $item->getUrl();}
+
+	final function setItemsTitle(string $v):void {}
+
+
 }
