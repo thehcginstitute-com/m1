@@ -1,19 +1,19 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
 <!-- 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro -->
 <widgets>
 	<new_products>
 		<parameters>
 			<template>
 				<values>
-					<list_default translate="label">
+					<list_default translate='label'>
 						<value>catalog/product/widget/new/column/new_default_list.phtml</value>
 						<label>New Products Images and Names Template</label>
 					</list_default>
-					<list_names translate="label">
+					<list_names translate='label'>
 						<value>catalog/product/widget/new/column/new_names_list.phtml</value>
 						<label>New Products Names Only Template</label>
 					</list_names>
-					<list_images translate="label">
+					<list_images translate='label'>
 						<value>catalog/product/widget/new/column/new_images_list.phtml</value>
 						<label>New Products Images Only Template</label>
 					</list_images>
@@ -50,15 +50,15 @@
 		<parameters>
 			<template>
 				<values>
-					<list_default translate="label">
+					<list_default translate='label'>
 						<value>reports/widget/viewed/column/viewed_default_list.phtml</value>
 						<label>Viewed Products Images and Names Template</label>
 					</list_default>
-					<list_names translate="label">
+					<list_names translate='label'>
 						<value>reports/widget/viewed/column/viewed_names_list.phtml</value>
 						<label>Viewed Products Names Only Template</label>
 					</list_names>
-					<list_images translate="label">
+					<list_images translate='label'>
 						<value>reports/widget/viewed/column/viewed_images_list.phtml</value>
 						<label>Viewed Products Images Only Template</label>
 					</list_images>
@@ -95,15 +95,15 @@
 		<parameters>
 			<template>
 				<values>
-					<list_default translate="label">
+					<list_default translate='label'>
 						<value>reports/widget/compared/column/compared_default_list.phtml</value>
 						<label>Compared Products Images and Names Template</label>
 					</list_default>
-					<list_names translate="label">
+					<list_names translate='label'>
 						<value>reports/widget/compared/column/compared_names_list.phtml</value>
 						<label>Compared Product Names Only Template</label>
 					</list_names>
-					<list_images translate="label">
+					<list_images translate='label'>
 						<value>reports/widget/compared/column/compared_images_list.phtml</value>
 						<label>Compared Product Images Only Template</label>
 					</list_images>
