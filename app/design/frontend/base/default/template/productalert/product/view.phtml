@@ -1,5 +1,5 @@
 <?php
 # 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 use Mage_ProductAlert_Block_Product_View as B; /** @var B $this */ $b = $this; /** @var B $b */
-$l = $b->escapeHtml($b[$this::$SIGNUP_LABEL]); /** @var string $l */
+$l = $b[$this::$SIGNUP_LABEL]; /** @var string $l */
 echo df_tag('p', $b[$this::$HTML_CLASS], df_tag('a', ['href' => $b->getSignupUrl(), 'title' => $l], $l));
