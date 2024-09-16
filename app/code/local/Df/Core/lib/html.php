@@ -6,6 +6,7 @@ use Df\Core\Html\Tag;
  * It can be useful for attrivutes like `class`.
  * 2016-05-30 From now on $attrs could be a string. It is the same as ['class' => $attrs].
  * 2024-03-03 "Port `df_tag()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/448
+ * @used-by app/design/frontend/base/default/template/productalert/product/view.phtml
  * @param string|array(string => string|string[]|int|null) $attrs [optional]
  * @param string|string[] $content [optional]
  * @param bool|null $multiline [optional]
