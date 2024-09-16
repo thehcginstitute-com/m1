@@ -5,15 +5,15 @@
 		<parameters>
 			<template>
 				<values>
-					<list_default translate='label'>
+					<list_default>
 						<value>catalog/product/widget/new/column/new_default_list.phtml</value>
 						<label>New Products Images and Names Template</label>
 					</list_default>
-					<list_names translate='label'>
+					<list_names>
 						<value>catalog/product/widget/new/column/new_names_list.phtml</value>
 						<label>New Products Names Only Template</label>
 					</list_names>
-					<list_images translate='label'>
+					<list_images>
 						<value>catalog/product/widget/new/column/new_images_list.phtml</value>
 						<label>New Products Images Only Template</label>
 					</list_images>
@@ -50,15 +50,15 @@
 		<parameters>
 			<template>
 				<values>
-					<list_default translate='label'>
+					<list_default>
 						<value>reports/widget/viewed/column/viewed_default_list.phtml</value>
 						<label>Viewed Products Images and Names Template</label>
 					</list_default>
-					<list_names translate='label'>
+					<list_names>
 						<value>reports/widget/viewed/column/viewed_names_list.phtml</value>
 						<label>Viewed Products Names Only Template</label>
 					</list_names>
-					<list_images translate='label'>
+					<list_images>
 						<value>reports/widget/viewed/column/viewed_images_list.phtml</value>
 						<label>Viewed Products Images Only Template</label>
 					</list_images>
@@ -95,15 +95,15 @@
 		<parameters>
 			<template>
 				<values>
-					<list_default translate='label'>
+					<list_default>
 						<value>reports/widget/compared/column/compared_default_list.phtml</value>
 						<label>Compared Products Images and Names Template</label>
 					</list_default>
-					<list_names translate='label'>
+					<list_names>
 						<value>reports/widget/compared/column/compared_names_list.phtml</value>
 						<label>Compared Product Names Only Template</label>
 					</list_names>
-					<list_images translate='label'>
+					<list_images>
 						<value>reports/widget/compared/column/compared_images_list.phtml</value>
 						<label>Compared Product Images Only Template</label>
 					</list_images>
