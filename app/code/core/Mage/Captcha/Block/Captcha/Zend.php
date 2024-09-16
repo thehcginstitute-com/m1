@@ -11,6 +11,13 @@ class Mage_Captcha_Block_Captcha_Zend extends Mage_Core_Block_Template {
 	 */
 	final function getImgHeight():int {return $this[Mage_Captcha_Block_Captcha::IMG_HEIGHT];}
 
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by app/design/adminhtml/default/default/template/captcha/zend.phtml
+	 * @used-by app/design/frontend/base/default/template/captcha/zend.phtml
+	 */
+	final function getImgWidth():int {return $this[Mage_Captcha_Block_Captcha::IMG_WIDTH];}
+
 	protected $_template = 'captcha/zend.phtml';
 
 	/**
