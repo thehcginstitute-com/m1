@@ -127,7 +127,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>All Empty Layout Pages</label>
 		<reference name='root'>
 			<action method='setTemplate'><template>page/empty.phtml</template></action>
-			<action method='setIsHandle'><applied>1</applied></action>
+			<action method='preventCustomTemplates'/>
 			<action method='setLayoutCode'><name>empty</name></action>
 		</reference>
 	</page_empty>
@@ -135,7 +135,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>All One-Column Layout Pages</label>
 		<reference name='root'>
 			<action method='setTemplate'><template>page/1column.phtml</template></action>
-			<action method='setIsHandle'><applied>1</applied></action>
+			<action method='preventCustomTemplates'/>
 			<action method='setLayoutCode'><name>one_column</name></action>
 		</reference>
 	</page_one_column>
@@ -143,7 +143,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>All Two-Column Layout Pages (Left Column)</label>
 		<reference name='root'>
 			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
-			<action method='setIsHandle'><applied>1</applied></action>
+			<action method='preventCustomTemplates'/>
 			<action method='setLayoutCode'><name>two_columns_left</name></action>
 		</reference>
 	</page_two_columns_left>
@@ -151,7 +151,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>All Two-Column Layout Pages (Right Column)</label>
 		<reference name='root'>
 			<action method='setTemplate'><template>page/2columns-right.phtml</template></action>
-			<action method='setIsHandle'><applied>1</applied></action>
+			<action method='preventCustomTemplates'/>
 			<action method='setLayoutCode'><name>two_columns_right</name></action>
 		</reference>
 	</page_two_columns_right>

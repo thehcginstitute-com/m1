@@ -95,6 +95,27 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by Mage_Page_Helper_Layout::applyTemplate()
+	 */
+	final function canUseACustomTemplate():bool {return $this->_canUseACustomTemplate;}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 */
+	final function preventCustomTemplates():void {$this->_canUseACustomTemplate = false;}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::canUseACustomTemplate()
+	 * @used-by self::preventCustomTemplates()
+	 * @var bool
+	 */
+	private $_canUseACustomTemplate = true;
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by Mage_Customer_Block_Account::__construct()

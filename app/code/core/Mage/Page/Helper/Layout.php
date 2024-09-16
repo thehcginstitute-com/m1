@@ -42,7 +42,7 @@ class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract {
 			return $this;
 		}
 		$root = $this->getLayout()->getBlock('root'); /** @var Root $root */
-		if ($root && !$root->getIsHandle()) {
+		if ($root && $root->canUseACustomTemplate()) {
 			$root->setTemplate($pageLayout->getTemplate()); // If not applied handle
 		}
 		return $this;
