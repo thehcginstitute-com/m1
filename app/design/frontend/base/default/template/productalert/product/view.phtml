@@ -2,6 +2,6 @@
 <p class="<?= $this[$this::$HTML_CLASS] ?>">
 	<a
 		href="<?= $this->escapeHtml($this->getSignupUrl()) ?>"
-		title="<?= $this->escapeHtml($this->__($this[$this::$SIGNUP_LABEL])); ?>"
-	><?= $this->escapeHtml($this->__($this->getSignupLabel())); ?></a>
+		title="<?= $this->escapeHtml($this[$this::$SIGNUP_LABEL]); ?>"
+	><?= $this->escapeHtml($this[$this::$SIGNUP_LABEL]); ?></a>
 </p>
