@@ -133,12 +133,10 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	}
 
 	/**
-	 * @param string $theme
-	 * @return $this
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @throws Mage_Core_Exception
 	 */
-	function setTheme($theme)
-	{
+	function setTheme(string $theme):self {
 		$arr = explode('/', $theme);
 		if (isset($arr[1])) {
 			Mage::getDesign()->setPackageName($arr[0])->setTheme($arr[1]);
@@ -149,16 +147,13 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	}
 
 	/**
-	 * @return string
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
-	function getBodyClass()
-	{
-		return $this->_getData('body_class');
-	}
+	function getBodyClass():string {return $this->_getData('body_class');}
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 */ 
+	 */
 	function getAbsoluteFooter():string	{return Mage::getStoreConfig('design/footer/absolute_footer');}
 
 	/**
