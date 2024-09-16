@@ -52,27 +52,21 @@ class Mage_Page_Helper_Layout extends Mage_Core_Helper_Abstract
 	 * @param string $pageLayout
 	 * @return $this
 	 */
-	function applyTemplate($pageLayout = null)
-	{
+	function applyTemplate($pageLayout = null) {
 		if ($pageLayout === null) {
 			$pageLayout = $this->getCurrentPageLayout();
 		} else {
 			$pageLayout = $this->_getConfig()->getPageLayout($pageLayout);
 		}
-
 		if (!$pageLayout) {
 			return $this;
 		}
-
-		if ($this->getLayout()->getBlock('root') &&
-			!$this->getLayout()->getBlock('root')->getIsHandle()
-		) {
+		if ($this->getLayout()->getBlock('root') && !$this->getLayout()->getBlock('root')->getIsHandle()) {
 			// If not applied handle
 			$this->getLayout()
 					->getBlock('root')
 					->setTemplate($pageLayout->getTemplate());
 		}
-
 		return $this;
 	}
 
