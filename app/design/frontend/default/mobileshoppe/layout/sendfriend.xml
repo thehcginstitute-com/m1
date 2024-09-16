@@ -7,7 +7,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<sendfriend_product_send>
 		<label>Catalog Product Email to a Friend</label>
 		<reference name='root'>
-			<action method='setTemplate'><template>page/2columns-left.phtml</template></action>
+			<action method='setTemplate'><v>page/2columns-left.phtml</v></action>
 		</reference>
 		<reference name='head'>
 			<action method='addJs'><name>varien/product.js</name></action>
