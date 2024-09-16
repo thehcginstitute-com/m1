@@ -14,11 +14,12 @@ class Mage_Core_Block_Text extends Mage_Core_Block_Abstract {
      * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @used-by self::addText()
+	 * @used-by Amasty_Notfound_Block_Adminhtml_Log_Edit_Form::_prepareForm()
 	 * @used-by Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset::_toHtml()
+	 * @used-by Mage_Core_Block_Text_List::_toHtml()
 	 * @used-by Mage_Core_Block_Text_List_Item::_toHtml()
 	 * @used-by Mage_Core_Block_Text_List_Link::_toHtml()
-	 * @used-by Mage_Core_Block_Text_List::_toHtml()
-	 * @used-by self::addText()
 	 */
 	function setText(string $v):void {$this['text'] = $v;}
 
