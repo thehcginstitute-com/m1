@@ -145,6 +145,13 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template 
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--9/app/design/adminhtml/default/default/layout/iwd_admin_checkout.xml#L19
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--9/app/design/adminhtml/default/default/layout/iwd_admin_checkout.xml#L46
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--9/app/design/adminhtml/default/default/layout/report.xml#L31
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--9/app/design/adminhtml/default/default/layout/sales.xml#L1156
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--9/app/design/adminhtml/default/default/layout/sales.xml#L1175
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--9/app/design/adminhtml/default/default/layout/sales.xml#L1198
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--9/app/design/adminhtml/default/default/layout/sales.xml#L1216
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--9/app/design/adminhtml/default/default/layout/sales.xml#L1234
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--9/app/design/adminhtml/default/default/layout/sales.xml#L1252
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--9/app/design/adminhtml/default/default/layout/sales.xml#L1275
 	 */
 	final function k_store_ids():void {$this->_storeVarName = 'store_ids';}
 
