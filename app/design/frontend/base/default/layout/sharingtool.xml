@@ -7,7 +7,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<catalog_product_view>
 		<reference name='alert.urls'>
 			<block after='-' name='addthis_sharetool' type='sharingtool/share'>
-				<action method='setTemplate'><template>addthis/sharingtool/share.phtml</template></action>
+				<action method='setTemplate'><v>addthis/sharingtool/share.phtml</v></action>
 			</block>
 		</reference>
 		<reference name='product.info'>
