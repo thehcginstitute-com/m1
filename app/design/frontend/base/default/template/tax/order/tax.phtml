@@ -1,11 +1,12 @@
 <?php # 2024-02-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Delete the unused `Mage_Weee` module": https://github.com/thehcginstitute-com/m1/issues/377
-$_order  = $this->getOrder();
-$_source = $this->getSource();
+use Mage_Tax_Block_Sales_Order_Tax as B; /** @var B $this */ $b = $this; /** @var B $b */
+$_order  = $b->getOrder();
+$_source = $b->getSource();
 $_fullInfo = $_order->getFullTaxInfo();
 global $taxIter; $taxIter++;
 $hasItemsInTaxSection = 0;
-if ($this->displayFullSummary()): ?>
+if ($b->displayFullSummary()): ?>
 <?php $isTop = 1; ?>
 	<?php if ($_fullInfo) foreach ($_fullInfo as $info): ?>
 		<?php if (isset($info['hidden']) && $info['hidden']) continue; ?>
@@ -16,16 +17,16 @@ if ($this->displayFullSummary()): ?>
 			$isFirst    = 1;
 		?>
 		<?php foreach ($rates as $rate): ?>
-		<tr class="summary-details-<?= $taxIter; ?> summary-details<?php if ($isTop): echo ' summary-details-first'; endif ?>"<?php if (!$this->getIsPlaneMode()): ?> style="display:none;"<?php endif ?>>
-			<td <?= $this->getLabelProperties()?>>
-				<?= $this->escapeHtml($rate['title']); ?>
+		<tr class="summary-details-<?= $taxIter; ?> summary-details<?php if ($isTop): echo ' summary-details-first'; endif ?>"<?php if (!$b->getIsPlaneMode()): ?> style="display:none;"<?php endif ?>>
+			<td <?= $b->getLabelProperties()?>>
+				<?= $b->escapeHtml($rate['title']); ?>
 				<?php if (!is_null($rate['percent'])): ?>
 					(<?= (float)$rate['percent']; ?>%)
 				<?php endif ?>
 				<br />
 			</td>
 			<?php if ($isFirst): ?>
-				<td <?= $this->getValueProperties()?> rowspan="<?= count($rates); ?>">
+				<td <?= $b->getValueProperties()?> rowspan="<?= count($rates); ?>">
 					<?= $_order->formatPrice($amount); ?>
 				</td>
 			<?php endif ?>
@@ -36,19 +37,19 @@ if ($this->displayFullSummary()): ?>
 		<?php endforeach ?>
 	<?php endforeach ?>
 <?php endif;
-if ($this->displayFullSummary() && $hasItemsInTaxSection && !$this->getIsPlaneMode()): ?>
+if ($b->displayFullSummary() && $hasItemsInTaxSection && !$b->getIsPlaneMode()): ?>
 <tr class="summary-total" onclick="expandDetails(this, '.summary-details-<?= $taxIter;?>')">
-<?php elseif ($this->displayFullSummary() && $hasItemsInTaxSection && $this->getIsPlaneMode()): ?>
+<?php elseif ($b->displayFullSummary() && $hasItemsInTaxSection && $b->getIsPlaneMode()): ?>
 <tr class="show-details">
 <?php else: ?>
 <tr>
 <?php endif ?>
-	<td <?= $this->getLabelProperties()?>>
-		<?php if ($this->displayFullSummary() && !$this->getIsPlaneMode()): ?>
-			<div class="summary-collapse"><?= $this->__('Tax'); ?></div>
+	<td <?= $b->getLabelProperties()?>>
+		<?php if ($b->displayFullSummary() && !$b->getIsPlaneMode()): ?>
+			<div class="summary-collapse"><?= $b->__('Tax'); ?></div>
 		<?php else: ?>
-			<?= $this->__('Tax'); ?>
+			<?= $b->__('Tax'); ?>
 		<?php endif ?>
 	</td>
-	<td <?= $this->getValueProperties()?>><?= $_order->formatPrice($_source->getTaxAmount()) ?></td>
+	<td <?= $b->getValueProperties()?>><?= $_order->formatPrice($_source->getTaxAmount()) ?></td>
 </tr>
