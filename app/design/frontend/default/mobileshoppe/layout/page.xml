@@ -160,7 +160,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='root'>
 			<action method='setTemplate'><template>page/3columns.phtml</template></action>
 			<action method='setIsHandle'><applied>1</applied></action>
-			<action method='setLayoutCode'><name>three_columns</name></action>
+			<action method='setLayoutCode'><v>three_columns</v></action>
 		</reference>
 	</page_three_columns>
 </layout>
