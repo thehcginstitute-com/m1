@@ -3,7 +3,6 @@ use Mage_Catalog_Block_Seo_Sitemap_Abstract as SA;
 use Mage_Catalog_Block_Seo_Sitemap_Category as SC;
 use Mage_Catalog_Block_Seo_Sitemap_Product as SP;
 /** @var SA|SC|SP $this */ $b = $this; /** @var SA|SC|SP $b */
-
 ?>
 <?php $_items = $b->getCollection(); ?>
 <?php if($_items->getSize()): ?>
@@ -14,7 +13,7 @@ use Mage_Catalog_Block_Seo_Sitemap_Product as SP;
 	</ul>
 <?php else: ?>
 	<p class="note-msg">
-		<?= $b->__('There are no %s available.', $b->getItemsTitle()); ?>
+		<?= $b->__('There are no %s available.', $this->getItemsTitle()); ?>
 	</p>
 	<script type="text/javascript">
 		if ($('sitemap_top_links') != undefined) {

@@ -27,7 +27,23 @@ abstract class Mage_Catalog_Block_Seo_Sitemap_Abstract extends Mage_Core_Block_T
 	 */
 	function getItemUrl($item) {return $item->getUrl();}
 
-	final function setItemsTitle(string $v):void {}
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by app/design/frontend/base/default/template/catalog/seo/sitemap.phtml
+	 * @used-by app/design/frontend/base/default/template/catalog/seo/tree.phtml
+	 */
+	final protected function getItemsTitle():string {return $this->_itemsTitle;}
 
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	final function setItemsTitle(string $v):void {$this->_itemsTitle = $v;}
 
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::getItemsTitle()
+	 * @used-by self::setItemsTitle()
+	 * @var string
+	 */
+	private $_itemsTitle;
 }

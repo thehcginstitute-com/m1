@@ -402,7 +402,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			>
 				<action method='bindPager'><block>seo.sitemap.pager.top</block></action>
 				<action method='bindPager'><block>seo.sitemap.pager.bottom</block></action>
-				<action method='setItemsTitle'><title>categories</title></action>
+				<action method='setItemsTitle'><v>categories</v></action>
 			</block>
 		</reference>
 		<reference name='seo.sitemap.links'>
@@ -460,7 +460,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 			>
 				<action method='bindPager'><block>seo.sitemap.pager.top</block></action>
 				<action method='bindPager'><block>seo.sitemap.pager.bottom</block></action>
-				<action method='setItemsTitle'><title>products</title></action>
+				<action method='setItemsTitle'><v>products</v></action>
 			</block>
 		</reference>
 		<reference name='seo.sitemap.links'>
