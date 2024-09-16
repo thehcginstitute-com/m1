@@ -1,6 +1,6 @@
 <?php
-class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Totals extends Mage_Adminhtml_Block_Sales_Totals
-{
+# 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Totals extends Mage_Adminhtml_Block_Sales_Totals {
     protected $_creditmemo;
 
     function getCreditmemo()
