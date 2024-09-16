@@ -122,10 +122,9 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	}
 
 	/**
-	 * @return string
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
-	function getLang()
-	{
+	function getLang():string {
 		if (!$this->hasData('lang')) {
 			$this->setData('lang', substr(Mage::app()->getLocale()->getLocaleCode(), 0, 2));
 		}
