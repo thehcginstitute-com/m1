@@ -121,6 +121,12 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
 	 * @used-by Mage_Customer_Block_Account::__construct()
 	 * @used-by Mage_Sales_Block_Order_Details::__construct()
 	 * @used-by Mage_Sales_Block_Order_History::__construct()
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--6/app/design/frontend/base/default/layout/downloadable.xml#L27
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--6/app/design/frontend/default/mobileshoppe/layout/contacts.xml#L24
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--6/app/design/frontend/default/mobileshoppe/layout/customer.xml#L99
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--6/app/design/frontend/default/mobileshoppe/layout/customer.xml#L114
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--6/app/design/frontend/default/mobileshoppe/layout/customer.xml#L130
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--6/app/design/frontend/default/mobileshoppe/layout/customer.xml#L140
 	 */
 	final function setHeaderTitle(string $v):void {$this->_title = $v;}
 
