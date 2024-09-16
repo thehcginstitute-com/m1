@@ -511,6 +511,8 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 
 	/**
 	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--6/app/design/frontend/default/mobileshoppe/layout/catalogsearch.xml#L9
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-17--6/app/design/frontend/default/mobileshoppe/layout/catalogsearch.xml#L14
 	 */
 	final function disableCrawling():void {$this['robots'] = 'NOINDEX,NOFOLLOW';}
 
