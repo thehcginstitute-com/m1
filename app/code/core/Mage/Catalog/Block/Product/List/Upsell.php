@@ -158,7 +158,7 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--11/app/design/frontend/base/default/layout/bundle.xml#L102
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-16--11/app/design/frontend/default/mobileshoppe/layout/catalog.xml#L263
 	 */
-	final function setItemLimit(string $type, int $v):void {$this->_itemLimits[$type] = $v;}
+	final function setItemLimit(string $t, int $v):void {$this->_itemLimits[$t] = $v;}
 
 	/**
 	 * @param string $type
