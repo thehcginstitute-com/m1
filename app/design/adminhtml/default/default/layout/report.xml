@@ -28,9 +28,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				type='adminhtml/report_product_viewed'
 			>
 				<block name='store.switcher' template='report/store/switcher/enhanced.phtml' type='adminhtml/store_switcher'>
-					<action method='setStoreVarName'>
-						<var_name>store_ids</var_name>
-					</action>
+					<action method='setStoreVarName'><var_name>store_ids</var_name></action>
 				</block>
 				<block name='grid.filter.form' type='adminhtml/report_filter_form'>
 					<action method='setInvisible'><field>report_type</field></action>
