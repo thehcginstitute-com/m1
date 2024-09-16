@@ -78,8 +78,8 @@ class Mage_Payment_Block_Form_Container extends Mage_Core_Block_Template
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
 	final function setMethodFormTemplate(string $m, string $t):void {
-		if ($block = $this->getChild('payment.method.' . $m)) {
-			$block->setTemplate($t);
+		if ($b = $this->getChild("payment.method.{$m}")) {
+			$b->setTemplate($t);
 		}
 	}
 
