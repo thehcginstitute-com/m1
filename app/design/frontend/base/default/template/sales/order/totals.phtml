@@ -1,27 +1,24 @@
 <?php
 # 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-/**
- * @var $this Mage_Sales_Block_Order_Totals
- * @see Mage_Sales_Block_Order_Totals
- */
-?>
-<?php foreach ($this->getTotals() as $_code => $_total): ?>
+use Mage_Sales_Block_Order_Totals as B;
+/** @var B $this */ $b = $this; /** @var B $b */
+foreach ($b->getTotals() as $_code => $_total): ?>
 	<?php if ($_total->getBlockName()): ?>
-		<?= $this->getChildHtml($_total->getBlockName(), false); ?>
+		<?= $b->getChildHtml($_total->getBlockName(), false); ?>
 	<?php else: ?>
 	<tr class="<?= $_code?>">
-		<td <?= $this->getLabelProperties()?>>
+		<td <?= $b->getLabelProperties()?>>
 			<?php if ($_total->getStrong()):?>
-			<strong><?= $this->escapeHtml($_total->getLabel());?></strong>
+			<strong><?= $b->escapeHtml($_total->getLabel());?></strong>
 			<?php else: ?>
-			<?= $this->escapeHtml($_total->getLabel());?>
+			<?= $b->escapeHtml($_total->getLabel());?>
 			<?php endif ?>
 		</td>
-		<td <?= $this->getValueProperties()?>>
+		<td <?= $b->getValueProperties()?>>
 			<?php if ($_total->getStrong()):?>
-			<strong><?= $this->formatValue($_total) ?></strong>
+			<strong><?= $b->formatValue($_total) ?></strong>
 			<?php else: ?>
-			<?= $this->formatValue($_total) ?>
+			<?= $b->formatValue($_total) ?>
 			<?php endif ?>
 		</td>
 	</tr>
