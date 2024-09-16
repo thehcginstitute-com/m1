@@ -408,7 +408,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<type>grouped</type>
 			</action>
 			<block name='creditmemo_totals' template='sales/order/totals.phtml' type='sales/order_creditmemo_totals'>
-				<action method='setLabelProperties'><value>colspan='3' align='right' style='padding:3px 9px'</value></action>
+				<action method='setLabelProperties'><v>colspan='3' align='right' style='padding:3px 9px'</v></action>
 				<action method='setValueProperties'>
 					<value>align='right' style='padding:3px 9px'</value>
 				</action>
