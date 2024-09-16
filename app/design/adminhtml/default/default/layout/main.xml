@@ -193,7 +193,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='content'>
 			<block name='content.noRoute' type='core/text'>
 				<action method='setText'>
-					<text><![CDATA[<h1 class='page-heading'>404 Error</h1><p>Page not found.</p>]]></text>
+					<v><![CDATA[<h1 class='page-heading'>404 Error</h1><p>Page not found.</p>]]></v>
 				</action>
 			</block>
 		</reference>
