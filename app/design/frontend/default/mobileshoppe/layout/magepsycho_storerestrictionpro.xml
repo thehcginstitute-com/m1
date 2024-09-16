@@ -36,9 +36,7 @@ because it is unused": https://github.com/thehcginstitute-com/m1/issues/339 -->
 				name='storerestrictionpro.price.scripts'
 				type='magepsycho_storerestrictionpro/storerestrictionpro'
 			>
-				<action method='setTemplate'>
-					<template>magepsycho/storerestrictionpro/checkout/cart/scripts.phtml</template>
-				</action>
+				<action method='setTemplate'><v>magepsycho/storerestrictionpro/checkout/cart/scripts.phtml</v></action>
 			</block>
 		</reference>
 	</magepsycho_storerestrictionpro_override_price>
