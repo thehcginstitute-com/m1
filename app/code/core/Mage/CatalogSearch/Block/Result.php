@@ -81,8 +81,7 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
 	 *
 	 * @return $this
 	 */
-	function setListOrders()
-	{
+	final function setListOrders():void {
 		$category = Mage::getSingleton('catalog/layer')
 			->getCurrentCategory();
 		/** @var Mage_Catalog_Model_Category $category */
@@ -96,8 +95,6 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
 			->setAvailableOrders($availableOrders)
 			->setDefaultDirection('desc')
 			->setSortBy('relevance');
-
-		return $this;
 	}
 
 	/**

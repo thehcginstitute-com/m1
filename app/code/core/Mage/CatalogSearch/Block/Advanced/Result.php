@@ -25,8 +25,7 @@ class Mage_CatalogSearch_Block_Advanced_Result extends Mage_Core_Block_Template 
 		return parent::_prepareLayout();
 	}
 
-	function setListOrders()
-	{
+	final function setListOrders():void {
 		$category = Mage::getSingleton('catalog/layer')
 			->getCurrentCategory();
 		/** @var Mage_Catalog_Model_Category $category */
