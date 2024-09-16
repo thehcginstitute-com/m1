@@ -331,9 +331,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<label>One Page Checkout</label>
 		<remove name='right'/>
 		<reference name='root'>
-			<action method='setTemplate'>
-				<template>page/2columns-left.phtml</template>
-			</action>
+			<action method='setTemplate'><v>page/2columns-left.phtml</v></action>
 		</reference>
 		<reference name='left'>
 			<action method='unsetChildren'></action>
