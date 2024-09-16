@@ -331,7 +331,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
 	/**
 	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by self::getTierPriceTemplate()
-	 * @used-by self::ыetTierPriceTemplate()
+	 * @used-by self::setTierPriceTemplate()
 	 * @const string
 	 */
 	private static $TIER_PRICE_TEMPLATE = 'tier_price_template';
