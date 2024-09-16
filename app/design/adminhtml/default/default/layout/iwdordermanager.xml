@@ -154,9 +154,7 @@ from `IWD_OrderManager`, and then delete the custom template file": https://gith
 		<update handle='ordermanager_handle'/>
 		<update handle='ordermanager_invoice_fee_total_handle'/>
 		<reference name='order_comments'>
-			<action method='setTemplate'>
-				<template>iwd/ordermanager/history/comments.phtml</template>
-			</action>
+			<action method='setTemplate'><v>iwd/ordermanager/history/comments.phtml</v></action>
 		</reference>
 	</adminhtml_sales_order_invoice_view>
 	<adminhtml_sales_order_invoice_new>
