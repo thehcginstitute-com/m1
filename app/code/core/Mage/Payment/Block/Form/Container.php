@@ -73,20 +73,16 @@ class Mage_Payment_Block_Form_Container extends Mage_Core_Block_Template
 	}
 
 	/**
-	 * Declare template for payment method form block
-	 *
-	 * @param   string $method
-	 * @param   string $template
-	 * @return  $this
+     * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function setMethodFormTemplate($method = '', $template = '')
-	{
+	final function setMethodFormTemplate(string $method = '', string $template = ''):void {
 		if (!empty($method) && !empty($template)) {
 			if ($block = $this->getChild('payment.method.' . $method)) {
 				$block->setTemplate($template);
 			}
 		}
-		return $this;
 	}
 
 	/**
