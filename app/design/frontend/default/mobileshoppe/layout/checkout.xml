@@ -119,7 +119,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<remove name='right'/>
 		<remove name='left'/>
 		<reference name='root'>
-			<action method='setTemplate'><template>page/1column.phtml</template></action>
+			<action method='setTemplate'><v>page/1column.phtml</v></action>
 		</reference>
 		<reference name='content'>
 			<block name='checkout_state' template='checkout/multishipping/state.phtml' type='checkout/multishipping_state'/>
