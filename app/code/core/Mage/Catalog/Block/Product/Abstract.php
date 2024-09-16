@@ -1,5 +1,5 @@
 <?php
-# 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro	
+# 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 use Varien_Object as _DO;
 abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Template
 {
@@ -575,10 +575,10 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
 
 	/**
 	 * Retrieve current page layout
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by Mage_Catalog_Block_Product_Abstract::getColumnCount()
-	 * @return Varien_Object
 	 */
-	function getPageLayout() {
+	function getPageLayout():?_DO {
 		$helper = $this->helper('page/layout'); /** @var Mage_Page_Helper_Layout $helper */
 		return $helper->getCurrentPageLayout();
 	}
