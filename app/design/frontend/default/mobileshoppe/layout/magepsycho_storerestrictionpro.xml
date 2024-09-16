@@ -25,9 +25,7 @@ because it is unused": https://github.com/thehcginstitute-com/m1/issues/339 -->
 				name='storerestrictionpro.addtocart.scripts'
 				type='magepsycho_storerestrictionpro/storerestrictionpro'
 			>
-				<action method='setTemplate'>
-					<template>magepsycho/storerestrictionpro/product/view/scripts.phtml</template>
-				</action>
+				<action method='setTemplate'><v>magepsycho/storerestrictionpro/product/view/scripts.phtml</v></action>
 			</block>
 		</reference>
 	</magepsycho_storerestrictionpro_override_add_to_cart>
