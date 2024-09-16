@@ -136,7 +136,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='root'>
 			<action method='preventCustomTemplates'/>
 			<action method='setLayoutCode'><v>one_column</v></action>
-			<action method='setTemplate'><template>page/1column.phtml</template></action>
+			<action method='setTemplate'><v>page/1column.phtml</v></action>
 		</reference>
 	</page_one_column>
 	<page_two_columns_left>
