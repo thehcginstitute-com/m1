@@ -100,8 +100,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<type>bundle</type>
 			</action>
 			<action method='setItemLimit'>
-				<type>bundle</type>
 				<limit>4</limit>
+				<type>bundle</type>
 			</action>
 		</reference>
 	</PRODUCT_TYPE_simple>
