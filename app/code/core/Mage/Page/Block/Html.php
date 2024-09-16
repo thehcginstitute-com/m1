@@ -21,10 +21,7 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	/**
 	 * @return string
 	 */
-	function getBaseUrl()
-	{
-		return $this->_urls['base'];
-	}
+	function getBaseUrl():string {return $this->_urls['base'];}
 
 	/**
 	 * @return string
