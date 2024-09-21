@@ -14,7 +14,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<update ewminify_inherit='1' handle='ewcore_ajax_handle'/>
 		<reference name='head'>
 			<action method='addJs'><name>extendware/ewcore/modalbox.js</name></action>
-			<action method='addCss'><name>extendware/ewcore/css/modalbox.css</name></action>
+			<action method='addCss'><v>extendware/ewcore/css/modalbox.css</v></action>
 		</reference>
 	</ewcore_modalbox_handle>
 	<ewcore_ajax_handle>
