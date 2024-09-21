@@ -67,9 +67,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='content'>
 			<block name='dashboard' type='adminhtml/dashboard'>
 				<block as='store_switcher' name='store_switcher' template='store/switcher.phtml' type='adminhtml/store_switcher'>
-					<action method='setUseConfirm'>
-						<params>0</params>
-					</action>
+					<action method='setUseConfirm'><params>0</params></action>
 				</block>
 			</block>
 		</reference>
