@@ -248,7 +248,7 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 				</action>
 				<action method='deleteChildConditionally'>
 					<child>container2</child>
-					<method>notAllTheSame</method>
+					<method>propertiesHaveDifferentValues</method>
 					<params>alias_in_layout</params>
 					<params>options_container</params>
 				</action>
