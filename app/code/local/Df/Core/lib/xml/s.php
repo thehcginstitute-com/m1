@@ -1,6 +1,6 @@
 <?php
 use Df\Xml\X;
-use Magento\Framework\Simplexml\Element as MX;
+use Varien_Simplexml_Element as MX;
 use SimpleXMLElement as CX;
 
 /**
