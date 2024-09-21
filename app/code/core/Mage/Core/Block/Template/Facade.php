@@ -33,10 +33,6 @@ class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template {
 	 * @used-by Mage_Core_Block_Abstract::unsetCallChild()
 	 */
 	function ifEquals(string ...$conditionKeys):bool {
-		if (!is_array($conditionKeys)) {
-			$conditionKeys = func_get_args();
-		}
-		// evaluate conditions (equality)
 		if (!empty($conditionKeys)) {
 			foreach ($conditionKeys as $key) {
 				if (!isset($this->_data[$key])) {
