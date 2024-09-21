@@ -53,14 +53,14 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>mage/adminhtml/events.js</name></action>
 			<action method='addJs'><name>mage/adminhtml/form.js</name></action>
 			<action method='addJs'><name>extendware/ewcore/widget.js</name></action>
-			<action method='addCss'><name>extendware/ewcore/css/widgets.css</name></action>
+			<action method='addCss'><v>extendware/ewcore/css/widgets.css</v></action>
 			<action method='addItem'><type>skin_js</type><name>extendware/ewcore/js/widgets.js</name></action>
 			<action method='addItem'>
 				<if>lt IE 8</if>
 				<name>extendware/ewcore/css/widgets-ie7less.css</name>
 				<type>skin_css</type>
 			</action>
-			<action method='addCss'><name>extendware/ewcore/css/widgets-custom.css</name></action>
+			<action method='addCss'><v>extendware/ewcore/css/widgets-custom.css</v></action>
 		</reference>
 	</ewcore_frontend_widget_form_handle>
 	<ewcore_opentip_handle>
