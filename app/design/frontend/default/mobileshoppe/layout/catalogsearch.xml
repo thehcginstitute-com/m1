@@ -55,7 +55,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<action method='addColumnCountLayoutDepend'><count>4</count><layout>two_columns_left</layout></action>
 					<action method='addColumnCountLayoutDepend'><count>4</count><layout>two_columns_right</layout></action>
 					<action method='addColumnCountLayoutDepend'><count>3</count><layout>three_columns</layout></action>
-					<action method='setToolbarBlockName'><name>product_list_toolbar</name></action>
+					<action method='setToolbarBlockName'><v>product_list_toolbar</v></action>
 				</block>
 				<action method='setListOrders'/>
 				<action method='setListModes'/>
@@ -107,7 +107,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<action method='addColumnCountLayoutDepend'><count>4</count><layout>two_columns_left</layout></action>
 					<action method='addColumnCountLayoutDepend'><count>4</count><layout>two_columns_right</layout></action>
 					<action method='addColumnCountLayoutDepend'><count>3</count><layout>three_columns</layout></action>
-					<action method='setToolbarBlockName'><name>product_list_toolbar</name></action>
+					<action method='setToolbarBlockName'><v>product_list_toolbar</v></action>
 				</block>
 				<action method='setListOrders'/>
 				<action method='setListModes'/>
