@@ -519,9 +519,9 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	 * Unset all children blocks
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by app/design/adminhtml/default/default/template/empty.phtml
-	 * https://github.com/thehcginstitute-com/m1/blob/2024-09-21--11/app/design/frontend/default/mobileshoppe/layout/checkout.xml#L337
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--11/app/design/frontend/default/mobileshoppe/layout/checkout.xml#L337
 	 */
-	function unsetChildren():void {$this->_children = []; $this->_sortedChildren = [];}
+	final function unsetChildren():void {$this->_children = []; $this->_sortedChildren = [];}
 
 	/**
 	 * Retrieve child block by name
