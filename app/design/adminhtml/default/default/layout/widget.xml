@@ -21,7 +21,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>mage/adminhtml/wysiwyg/widget.js</name></action>
 			<action method='addItem'><name>prototype/window.js</name><type>js</type></action>
 			<action method='addItem'><name>prototype/windows/themes/default.css</name><type>js_css</type></action>
-			<action method='addCss'><name>lib/prototype/windows/themes/magento.css</name></action>
+			<action method='addCss'><v>lib/prototype/windows/themes/magento.css</v></action>
 		</reference>
 		<reference name='content'>
 			<block name='widget_instance_edit' type='widget/adminhtml_widget_instance_edit'/>
