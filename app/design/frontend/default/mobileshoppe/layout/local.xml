@@ -17,9 +17,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='header'>
 			<block as='topSearch' name='top.search' template='catalogsearch/form.mini.phtml' type='core/template'/>
 			<reference name='top.bar'>
-				<action method='unsetChild'>
-					<alias>topSearch</alias>
-				</action>
+				<action method='unsetChild'><alias>topSearch</alias></action>
 			</reference>
 		</reference>
 		<reference name='footer'>
