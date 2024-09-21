@@ -31,7 +31,7 @@ class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template {
 	 * Check if data values by specified keys are equal
 	 * $conditionKeys can be array or arbitrary set of params (func_get_args())
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * @used-by Mage_Core_Block_Abstract::unsetCallChild()
+	 * @used-by Mage_Core_Block_Abstract::deleteChildConditionally()
 	 */
 	function allTheSame(string ...$kk):bool {return 1 === count(array_unique(dfa($this->_data, $kk)));}
 }

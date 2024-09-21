@@ -505,13 +505,15 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	 * - then it will be $params1, $params2, $params3
 	 *
 	 * It is no difference anyway, because they will be transformed in appropriate way.
-	 *
-	 * @param mixed $result
+	 * 
+     * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function unsetCallChild(string $child, string $method, bool $if, array $params):void {
+	final function deleteChildConditionally(string $child, string $method, bool $predicate, array $params):void {
 		if ($childB = $this->getChild($child)) {
 			Mage::helper('core/security')->validateAgainstBlockMethodBlacklist($childB, $method, $params);
-			if ($if == call_user_func_array([&$childB, $method], $params)) {
+			if ($predicate == call_user_func_array([&$childB, $method], $params)) {
 				$this->unsetChild($child);
 			}
 		}

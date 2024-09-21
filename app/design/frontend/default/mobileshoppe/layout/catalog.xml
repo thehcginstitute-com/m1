@@ -240,14 +240,14 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 					<action method='append'><block>product.info.options.wrapper</block></action>
 					<action method='append'><block>product.info.options.wrapper.bottom</block></action>
 				</block>
-				<action method='unsetCallChild'>
+				<action method='deleteChildConditionally'>
 					<child>container1</child>
 					<if>false</if>
 					<params>alias_in_layout</params>
 					<params>options_container</params>
 					<method>allTheSame</method>
 				</action>
-				<action method='unsetCallChild'>
+				<action method='deleteChildConditionally'>
 					<child>container2</child>
 					<if>false</if>
 					<params>alias_in_layout</params>
