@@ -490,6 +490,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
      * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @param string[] $params
 	 */
 	final function deleteChildConditionally(string $child, string $method, bool $predicate, array $params):void {
 		if ($b = $this->getChild($child)) { /** @var BA|BF $b */
