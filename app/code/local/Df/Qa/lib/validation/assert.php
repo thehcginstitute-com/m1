@@ -56,20 +56,6 @@ use Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": h
  */
 function df_assert($cond,  ...$a) {return $cond ?: df_error( ...$a);}
 
-/**
- * @used-by df_currency_base()
- * @used-by df_file_name()
- * @used-by df_json_decode()
- * @param string $v
- * @param int $sl [optional]
- * @return string
- * @throws E
- */
-function df_assert_sne($v, $sl = 0) {
-	$sl++;
-	# The previous code `if (!$v)` was wrong because it rejected the '0' string.
-	return !df_es($v) ? $v : Q::raiseErrorVariable(__FUNCTION__, [Q::NES], $sl);
-}
 
 /**
  * 2016-08-09
