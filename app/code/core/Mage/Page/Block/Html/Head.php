@@ -78,7 +78,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by Mage_Adminhtml_Block_System_Email_Template_Edit_Form::_prepareLayout()
 	 */
-	final function addCss(string $name, string $params = ''):self {$this->addItem('skin_css', $name, $params); return $this;}
+	final function addCss(string $v, string $p = ''):self {$this->addItem('skin_css', $v, $p); return $this;}
 
 	/**
 	 * Add JavaScript file to HEAD entity
@@ -147,6 +147,8 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 *  - skin_js
 	 *  - skin_css
 	 *  - rss
+	 *
+	 * @used-by self::addCss()
 	 *
 	 * @param string $type
 	 * @param string $name
