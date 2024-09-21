@@ -459,7 +459,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21/app/design/frontend/default/mobileshoppe/layout/catalogsearch.xml#L123
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21/app/design/frontend/default/mobileshoppe/layout/contacts.xml#L20
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21/app/design/frontend/default/mobileshoppe/layout/customer.xml#L91
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21/STUB
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21/app/design/frontend/default/mobileshoppe/layout/customer.xml#L106
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21/STUB
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21/STUB
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21/STUB
