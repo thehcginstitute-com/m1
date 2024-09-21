@@ -506,18 +506,11 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	 *
 	 * It is no difference anyway, because they will be transformed in appropriate way.
 	 *
-	 * @param string $callback
 	 * @param mixed $result
-	 * @param array $params
-	 * @return $this
 	 */
-	function unsetCallChild(string $child, $callback, $result, $params) {
+	function unsetCallChild(string $child, string $method, $result, array $params):void {
 		$childB = $this->getChild($child);
 		if ($childB) {
-			$args = func_get_args();
-			$alias = array_shift($args);
-			$callback = array_shift($args);
-			$result = (string)array_shift($args);
 			if (!is_array($params)) {
 				$params = $args;
 			}
@@ -526,7 +519,6 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 				$this->unsetChild($alias);
 			}
 		}
-		return $this;
 	}
 
 	/**
