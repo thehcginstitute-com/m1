@@ -7,8 +7,7 @@ use Mage_Page_Block_Template_Container as B; /** @var B $this */ $b = $this; /**
 	<div id="sitemap_top_links">
 		<?= $b->getChildHtml('links') ?>
 	</div>
-	<?= $b->getChildHtml('pager_top') ?>
-	<?= $b->getChildHtml('sitemap') ?>
-	<?= $b->getChildHtml('links') ?>
-	<?= $b->getChildHtml('pager_bottom') ?>
+	<?= df_cc_n(
+		$b->getChildHtml('pager_top'), $b->getChildHtml('sitemap'), $b->getChildHtml('links'), $b->getChildHtml('pager_bottom')
+	); ?>
 </div>
