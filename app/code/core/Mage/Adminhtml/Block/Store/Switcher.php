@@ -37,6 +37,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template 
      * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @used-by self::__construct()
 	 * @used-by Mage_Adminhtml_Block_Report_Product_Downloads::_prepareLayout()
 	 * @used-by Mage_Adminhtml_Block_Report_Product_Lowstock::_prepareLayout()
 	 * @used-by Mage_Adminhtml_Block_Report_Shopcart_Abandoned::_prepareLayout()
