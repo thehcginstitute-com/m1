@@ -21,9 +21,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</reference>
 		</reference>
 		<reference name='footer'>
-			<action method='unsetChild'>
-				<alias>cms_footer_links</alias>
-			</action>
+			<action method='unsetChild'><alias>cms_footer_links</alias></action>
 			<block name='footer_block' type='cms/block'>
 				<action method='setBlockId'><v>footer_block</v></action>
 			</block>
