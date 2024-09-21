@@ -45,6 +45,16 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Column extends Mage_Wishlist_Bl
 
 	/**
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	final function getTitle():?string {return $this[self::$TITLE];}
+
+	/**
+	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	final function setTitle(string $v):void {$this[self::$TITLE] = $v;}
+
+	/**
+	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by self::getTitle()
 	 * @const string
 	 */
