@@ -490,13 +490,13 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
      * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
-	 * @param string[] $params
+	 * @param string[] $args
 	 */
-	final function deleteChildConditionally(string $child, string $method, array $params):void {
+	final function deleteChildConditionally(string $child, string $method, array $args):void {
 		if ($b = $this->getChild($child)) { /** @var BA|BF $b */
-			Mage::helper('core/security')->validateAgainstBlockMethodBlacklist($b, $method, $params);
+			Mage::helper('core/security')->validateAgainstBlockMethodBlacklist($b, $method, $args);
 			/** @uses Mage_Core_Block_Template_Facade::propertiesHaveDifferentValues() */
-			if (call_user_func_array([$b, $method], $params)) {
+			if (call_user_func_array([$b, $method], $args)) {
 				$this->unsetChild($child);
 			}
 		}
