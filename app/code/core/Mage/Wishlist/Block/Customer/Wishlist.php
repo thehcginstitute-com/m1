@@ -152,4 +152,24 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
 		$qty = $this->getQty($item);
 		return $qty ? $qty : 1;
 	}
+
+	/**
+	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	final function getTitle():?string {return $this[self::$TITLE];}
+
+	/**
+	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 */
+	final function setTitle(string $v):void {$this[self::$TITLE] = $v;}
+
+	/**
+	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::getTitle()
+	 * @used-by self::setTitle()
+	 * @const string
+	 */
+	private static $TITLE = 'title';
 }
