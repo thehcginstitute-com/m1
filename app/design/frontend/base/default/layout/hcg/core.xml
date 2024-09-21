@@ -2,7 +2,7 @@
 <layout>
 	<default>
 		<reference name='head'>
-			<action method='addCss'><name>hcg/css/compiled/all.css</name></action>
+			<action method='addCss'><v>hcg/css/compiled/all.css</v></action>
 			<action method='addItem'><name>hcg/js/main.js</name><type>skin_js</type></action>
 		</reference>
 	</default>
