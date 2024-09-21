@@ -146,6 +146,14 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
 	}
 
 	/**
+	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::getToolbarBlockName()
+	 * @used-by self::setToolbarBlockName()
+	 * @const string
+	 */
+	private static $TOOLBAR_BLOCK_NAME = 'toolbar_block_name';
+
+	/**
 	 * Retrieve Toolbar block
 	 *
 	 * @return Mage_Catalog_Block_Product_List_Toolbar|Mage_Core_Block_Abstract
