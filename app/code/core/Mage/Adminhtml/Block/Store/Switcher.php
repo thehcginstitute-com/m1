@@ -29,6 +29,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template 
 
 	/**
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by app/design/adminhtml/default/default/template/store/switcher.phtml
 	 */
 	final function getUseConfirm():bool {return $this[self::$USE_CONFIRM];}
 
