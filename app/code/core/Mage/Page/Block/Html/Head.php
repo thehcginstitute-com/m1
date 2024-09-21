@@ -73,14 +73,14 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 
 	/**
 	 * Add CSS file to HEAD entity
-     * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @used-by Mage_Adminhtml_Block_System_Email_Template_Edit_Form::_prepareLayout()
 	 * @param bool $before
 	 * @return $this
 	 */
-	final function addCss(string $name, string $params = "", string $referenceName = "*", $before = null)
-	{
+	final function addCss(string $name, string $params = "", string $referenceName = "*", $before = null) {
 		$this->addItem('skin_css', $name, $params, null, null, $referenceName, $before);
 		return $this;
 	}
@@ -447,7 +447,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	}
 
 	/**
-     * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21/app/design/adminhtml/default/default/layout/catalog.xml#L9
