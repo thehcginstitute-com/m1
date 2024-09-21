@@ -459,6 +459,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by Mage_Adminhtml_Block_Catalog_Category_Edit_Form::removeAdditionalButton()
+	 * @used-by Mage_Adminhtml_Block_Urlrewrite_Edit::getButtonsHtml()
 	 */
 	function unsetChild(string $alias):void {
 		if (isset($this->_children[$alias])) {
