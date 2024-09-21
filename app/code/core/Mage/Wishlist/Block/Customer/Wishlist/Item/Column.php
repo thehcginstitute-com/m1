@@ -6,8 +6,7 @@
  * @see Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Image
  * @see Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Remove
  */
-class Mage_Wishlist_Block_Customer_Wishlist_Item_Column extends Mage_Wishlist_Block_Abstract
-{
+class Mage_Wishlist_Block_Customer_Wishlist_Item_Column extends Mage_Wishlist_Block_Abstract {
 	/**
 	 * Checks whether column should be shown in table
 	 *
