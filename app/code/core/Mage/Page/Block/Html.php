@@ -43,27 +43,30 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template {
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
-	function getBaseSecureUrl():string {return $this->_urls['baseSecure'];}
+	final function getBaseSecureUrl():string {return $this->_urls['baseSecure'];}
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
-	function getBaseUrl():string {return $this->_urls['base'];}
+	final function getBaseUrl():string {return $this->_urls['base'];}
+
+	/**
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 2024-09-21
+	 * «Mage_Page_Block_Html::getBodyClass(): Return value must be of type string, null returned»:
+	 * https://github.com/thehcginstitute-com/m1/issues/682
+	 */
+	final function getBodyClass():string {return df_ets($this->_getData('body_class'));}
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
-	function getBodyClass():string {return $this->_getData('body_class');}
+	final function getCurrentUrl():string	{return $this->_urls['current'];}
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 */
-	function getCurrentUrl():string	{return $this->_urls['current'];}
-
-	/**
-	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 */
-	function getHeaderTitle():string {return $this->_title;}
+	final function getHeaderTitle():string {return $this->_title;}
 
 	/**
 	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro

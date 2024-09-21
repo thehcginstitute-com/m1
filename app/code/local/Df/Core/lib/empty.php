@@ -60,6 +60,7 @@ function df_etn($v) {return $v ?: null;}
  * 2024-01-10 "Port `df_ets` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/171
  * @used-by df_log_l()
  * @used-by df_region_name()
+ * @used-by Mage_Page_Block_Html::getBodyClass() (https://github.com/thehcginstitute-com/m1/issues/682)
  * @param mixed $v
  * @return mixed|string
  */
