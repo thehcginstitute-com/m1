@@ -34,7 +34,7 @@ class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template {
 	 * @param string[] $conditionKeys
 	 * @return bool
 	 */
-	function ifEquals($conditionKeys) {
+	function ifEquals(string ...$conditionKeys) {
 		if (!is_array($conditionKeys)) {
 			$conditionKeys = func_get_args();
 		}
