@@ -492,7 +492,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @param string[] $params
 	 */
-	final function deleteChildConditionally(string $child, string $method, bool $predicate, array $params):void {
+	final function deleteChildConditionally(string $child, string $method, array $params):void {
 		if ($b = $this->getChild($child)) { /** @var BA|BF $b */
 			Mage::helper('core/security')->validateAgainstBlockMethodBlacklist($b, $method, $params);
 			/** @uses Mage_Core_Block_Template_Facade::propertiesHaveDifferentValues() */
