@@ -16,6 +16,7 @@
  * @used-by IWD_OrderManager_Adminhtml_Sales_AddressController::format() (https://github.com/thehcginstitute-com/m1/issues/533)
  * @used-by IWD_OrderManager_Model_Order_Edit::updateOrderItems() (https://github.com/thehcginstitute-com/m1/issues/533)
  * @used-by IWD_OrderManager_Model_Order_Items::editItems() (https://github.com/thehcginstitute-com/m1/issues/533)
+ * @used-by Mage_Core_Block_Template_Facade::allTheSame() (https://github.com/thehcginstitute-com/m1/issues/680)
  * @used-by app/design/frontend/base/default/template/richpanel/head.phtml
  * @param array(int|string => mixed) $a
  * @param string|string[]|int|null $k
