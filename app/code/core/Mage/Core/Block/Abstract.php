@@ -458,9 +458,9 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
      * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @used-by self::deleteChildConditionally()
 	 * @used-by Mage_Adminhtml_Block_Catalog_Category_Edit_Form::removeAdditionalButton()
 	 * @used-by Mage_Adminhtml_Block_Urlrewrite_Edit::getButtonsHtml()
-	 * @used-by Mage_Core_Block_Abstract::deleteChildConditionally()
 	 */
 	function unsetChild(string $alias):void {
 		if (isset($this->_children[$alias])) {
