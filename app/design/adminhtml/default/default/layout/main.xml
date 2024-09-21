@@ -55,7 +55,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<name>ie7.css</name>
 					<type>skin_css</type>
 				</action>
-				<action method='addCss'><v>print.css</v><p>media='print'</p></action>
+				<action method='addCss'><v>print.css</v><printOnly>true</printOnly></action>
 				<action method='addItem'>
 					<if>lt IE 7</if>
 					<name>lib/ds-sleight.js</name>
