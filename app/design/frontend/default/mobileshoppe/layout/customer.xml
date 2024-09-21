@@ -88,9 +88,7 @@ https://github.com/thehcginstitute-com/m1/issues/335 -->
 		<remove name='right'/>
 		<remove name='left'/>
 		<reference name='head'>
-			<action method='setTitle'>
-				<title>Forgot Your Password</title>
-			</action>
+			<action method='setTitle'><title>Forgot Your Password</title></action>
 		</reference>
 		<reference name='root'>
 			<action method='setTemplate'><v>page/1column.phtml</v></action>
