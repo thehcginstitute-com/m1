@@ -3,8 +3,29 @@ use Df\Core\Exception as DFE;
 use Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 
 /**
+ * @used-by \Df\Xml\X::importArray()
+ */
+function df_assert_array(array $a):array {return $a;}
+
+/**
+ * 2017-02-18
+ * @used-by df_clean_keys()
+ * @return array(string => mixed)
+ * @throws DFE
+ */
+function df_assert_assoc(array $a):array {return df_is_assoc($a) ? $a : df_error('The array should be associative.');}
+
+/**
+ * 2024-05-21 "Implement `df_assert_count()`": https://github.com/mage2pro/core/issues/380
+ * 2024-05-23 @deprecated It is unused.
+ * @see df_assert_eq()
+ */
+function df_assert_count($expected, array $a, $m = null):array {/** @var int $v */ return $expected === ($v = count($a)) ? $a :
+	df_error($m ?: "The array should have $expected} elements, but it has $v.", ['array' => $a])
+;}
+
+/**
  * 2017-01-14 Отныне функция возвращает $v: это позволяет нам значительно сократить код вызова функции.
- * 2024-05-16 "Port `df_assert_in()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/613
  * @used-by df_assert_address_type()
  * @used-by df_date_from_timestamp_14()
  * @param string|float|int|bool|null $v
