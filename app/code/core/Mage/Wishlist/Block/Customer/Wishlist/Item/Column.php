@@ -9,21 +9,15 @@
 class Mage_Wishlist_Block_Customer_Wishlist_Item_Column extends Mage_Wishlist_Block_Abstract {
 	/**
 	 * Checks whether column should be shown in table
-	 *
 	 * @return true
 	 */
-	function isEnabled()
-	{
-		return true;
-	}
+	function isEnabled(){return true; }
 
 	/**
 	 * Retrieve block html
-	 *
 	 * @return string
 	 */
-	protected function _toHtml()
-	{
+	protected function _toHtml() {
 		if ($this->isEnabled()) {
 			return parent::_toHtml();
 		}
@@ -32,22 +26,16 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Column extends Mage_Wishlist_Bl
 
 	/**
 	 * Retrieve child blocks html
-	 *
 	 * @param string $name
 	 * @param Mage_Core_Block_Abstract $child
 	 */
-	protected function _beforeChildToHtml($name, $child)
-	{
-		$child->setItem($this->getItem());
-	}
+	protected function _beforeChildToHtml($name, $child) {$child->setItem($this->getItem());}
 
 	/**
 	 * Retrieve column related javascript code
-	 *
 	 * @return string
 	 */
-	function getJs()
-	{
+	function getJs() {
 		$js = '';
 		foreach ($this->getSortedChildBlocks() as $child) {
 			$js .= $child->getJs();
