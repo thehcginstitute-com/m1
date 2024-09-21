@@ -1,25 +1,6 @@
 <?php
-/**
- * OpenMage
- *
- * This source file is subject to the Open Software License (OSL 3.0)
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available at https://opensource.org/license/osl-3-0-php
- *
- * @category   Mage
- * @package    Mage_Core
- * @copyright  Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @copyright  Copyright (c) 2016-2022 The OpenMage Contributors (https://www.openmage.org)
- * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */
-
-/**
- * Layout model
- *
- * @category   Mage
- * @package    Mage_Core
- * @author     Magento Core Team <core@magentocommerce.com>
- */
+# 2024-09-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+use Mage_Core_Model_Layout_Element as LE;
 class Mage_Core_Model_Layout extends Varien_Simplexml_Config
 {
 	/**
@@ -280,10 +261,8 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
 	 * 2024-09-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "Refactor `Mage_Core_Model_Layout::_generateAction()`": https://github.com/thehcginstitute-com/m1/issues/684
 	 * @used-by self::generateBlocks()
-	 * @param Varien_Simplexml_Element $node
-	 * @param Mage_Core_Model_Layout_Element|Varien_Simplexml_Element $parent
 	 */
-	private function _generateAction($node, $parent):void {
+	private function _generateAction(LE $node, LE $parent):void {
 		if (isset($node['ifconfig']) && ($configPath = (string)$node['ifconfig'])) {
 			if (!Mage::getStoreConfigFlag($configPath)) {
 				return;
