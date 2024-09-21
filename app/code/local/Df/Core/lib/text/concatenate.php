@@ -31,6 +31,7 @@ function df_cc_br(...$a):string {return df_ccc("<br>", dfa_flatten($a));}
  * @used-by df_xml_prettify()
  * @used-by df_zf_http_last_req()
  * @used-by dfp_error_message()
+ * @used-by app/design/frontend/base/default/template/catalog/seo/sitemap/container.phtml
  * @param string|string[] $a
  * @return string
  */
