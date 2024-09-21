@@ -68,7 +68,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='setTemplate'><v>page/2columns-left.phtml</v></action>
 		</reference>
 		<reference name='head'>
-			<action method='setTitle'><title>Advanced Search</title></action>
+			<action method='setTitle'><v>Advanced Search</v></action>
 			<action method='addItem'><name>calendar/calendar-win2k-1.css</name><type>js_css</type></action>
 			<action method='addItem'><name>calendar/calendar.js</name><type>js</type></action>
 			<action method='addItem'><name>calendar/calendar-setup.js</name><type>js</type></action>
