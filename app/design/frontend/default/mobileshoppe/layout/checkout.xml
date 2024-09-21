@@ -334,7 +334,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='setTemplate'><v>page/2columns-left.phtml</v></action>
 		</reference>
 		<reference name='left'>
-			<action method='unsetChildren'></action>
+			<action method='unsetChildren'/>
 			<block name='checkout.progress.wrapper' type='page/html_wrapper' >
 				<label>Checkout Progress Wrapper</label>
 				<action method='setElementId'><v>checkout-progress-wrapper</v></action>
