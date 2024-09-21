@@ -38,7 +38,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<update handle='customer_account'/>
 		<reference name='my.account.wrapper'>
 			<block name='customer.wishlist' template='wishlist/view.phtml' type='wishlist/customer_wishlist'>
-				<action method='setTitle'><title>My Wishlist</title></action>
+				<action method='setTitle'><v>My Wishlist</v></action>
 				<block as='items' name='customer.wishlist.items' template='wishlist/item/list.phtml'
 					   type='wishlist/customer_wishlist_items'>
 					<block
