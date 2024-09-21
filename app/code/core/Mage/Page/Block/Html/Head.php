@@ -448,10 +448,9 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	}
 
 	/**
-	 * Set title element text
-	 *
-	 * @param string $title
-	 * @return $this
+     * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
 	function setTitle(string $title):self
 	{
