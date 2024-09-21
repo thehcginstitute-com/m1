@@ -27,7 +27,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_scheduler_index>
 	<adminhtml_cron_index>
 		<reference name='head'>
-			<action method='addCss'><name>aoe_scheduler/StyleSheet/bars.css</name></action>
+			<action method='addCss'><v>aoe_scheduler/StyleSheet/bars.css</v></action>
 		</reference>
 		<reference name='content'>
 			<block name='aoe_scheduler.cron' type='aoe_scheduler/adminhtml_cron'/>
