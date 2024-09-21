@@ -455,12 +455,11 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 
 	/**
 	 * Unset child block
-	 *
-	 * @param  string $alias
-	 * @return $this
+     * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function unsetChild($alias)
-	{
+	function unsetChild(string $alias):void {
 		if (isset($this->_children[$alias])) {
 			$block = $this->_children[$alias];
 			$name = $block->getNameInLayout();
@@ -470,8 +469,6 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 				unset($this->_sortedChildren[$key]);
 			}
 		}
-
-		return $this;
 	}
 
 	/**

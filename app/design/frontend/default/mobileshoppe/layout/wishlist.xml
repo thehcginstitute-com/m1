@@ -30,7 +30,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</customer_account>
 	<customer_account_index>
 		<reference name='right'>
-			<action method='unsetChild'><name>wishlist</name></action>
+			<action method='unsetChild'><alias>wishlist</alias></action>
 		</reference>
 	</customer_account_index>
 	<wishlist_index_index >
@@ -87,7 +87,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			</block>
 		</reference>
 		<reference name='right'>
-			<action method='unsetChild'><name>wishlist_customer_sidebar</name></action>
+			<action method='unsetChild'><alias>wishlist_customer_sidebar</alias></action>
 		</reference>
 	</wishlist_index_index>
 	<wishlist_index_share >
@@ -97,7 +97,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<block name='wishlist.sharing' template='wishlist/sharing.phtml' type='wishlist/customer_sharing'/>
 		</reference>
 		<reference name='right'>
-			<action method='unsetChild'><name>wishlist_customer_sidebar</name></action>
+			<action method='unsetChild'><alias>wishlist_customer_sidebar</alias></action>
 		</reference>
 	</wishlist_index_share>
 	<wishlist_index_configure >
@@ -112,7 +112,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			/>
 		</reference>
 		<reference name='product.info.options.wrapper.bottom'>
-			<action method='unsetChild'><name>product.info.addto</name></action>
+			<action method='unsetChild'><alias>product.info.addto</alias></action>
 			<action method='append'><block>product.info.addto</block></action>
 		</reference>
 	</wishlist_index_configure>

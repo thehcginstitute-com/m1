@@ -15,7 +15,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</customer_account>
 	<customer_account_index>
 		<reference name='customer_account_dashboard'>
-			<action method='unsetChild'><name>customer_account_dashboard_info1</name></action>
+			<action method='unsetChild'><alias>customer_account_dashboard_info1</alias></action>
 			<block
 				as='info1'
 				name='customer_account_dashboard_info1'
