@@ -79,7 +79,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * @used-by Mage_Adminhtml_Block_System_Email_Template_Edit_Form::_prepareLayout()
 	 * @param bool $before
 	 */
-	final function addCss(string $name, string $params = "", string $referenceName = "*", $before = null):self {
+	final function addCss(string $name, string $params = '', string $referenceName = '*', $before = null):self {
 		$this->addItem('skin_css', $name, $params, null, null, $referenceName, $before);
 		return $this;
 	}
