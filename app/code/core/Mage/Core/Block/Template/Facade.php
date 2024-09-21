@@ -9,7 +9,7 @@
  */
 class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template {
 	/**
-     * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
@@ -17,7 +17,7 @@ class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template {
 
 	/**
 	 * Also set data, but take the value from registry by registry key
-     * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 2024-09-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
