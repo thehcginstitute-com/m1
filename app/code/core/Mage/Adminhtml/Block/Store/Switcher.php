@@ -28,6 +28,14 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template 
 	}
 
 	/**
+	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::getUseConfirm()
+	 * @used-by self::setUseConfirm()
+	 * @const string
+	 */
+	private static $USE_CONFIRM = 'use_confirm';
+
+	/**
 	 * @return Mage_Core_Model_Resource_Website_Collection
 	 * @throws Mage_Core_Exception
 	 * @deprecated
