@@ -263,6 +263,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
 	 * @used-by self::generateBlocks()
 	 */
 	private function _generateAction(LE $node, LE $parent):void {
+		$nodeA = df_xml_parse_a($node);
 		if (isset($node['ifconfig']) && ($configPath = (string)$node['ifconfig'])) {
 			if (!Mage::getStoreConfigFlag($configPath)) {
 				return;

@@ -58,6 +58,7 @@ function df_xml_parse($x, bool $throw = true):?X {/** @var ?X $r */
  *		"response": "000",
  * 		<...>
  *	}
+ * @used-by Mage_Core_Model_Layout::_generateAction() (https://github.com/thehcginstitute-com/m1/issues/684)
  * @param string|X $x
  * @return array(string => mixed)
  * @throws E
