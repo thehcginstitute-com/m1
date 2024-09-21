@@ -6,7 +6,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 <layout>
 	<adminhtml_catalog_product_index>
 		<reference name='head'>
-			<action method='setTitle'><title>Catalog</title></action>
+			<action method='setTitle'><v>Catalog</v></action>
 		</reference>
 		<reference name='menu'>
 			<action method='setActive'>
