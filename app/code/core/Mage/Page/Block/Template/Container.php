@@ -4,6 +4,7 @@ class Mage_Page_Block_Template_Container extends Mage_Core_Block_Template {
 	/**
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by app/design/frontend/base/default/template/page/template/container.phtml
+	 * @used-by app/design/frontend/base/default/template/catalog/seo/sitemap/container.phtml
 	 */
 	final function getTitle():?string {return $this[self::$TITLE];}
 
