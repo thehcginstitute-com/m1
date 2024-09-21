@@ -29,6 +29,18 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template 
 
 	/**
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 */
+	final function getUseConfirm():bool {return $this[self::$USE_CONFIRM];}
+
+	/**
+     * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 */
+	final function setUseConfirm(bool $v):void {$this[self::$USE_CONFIRM] = $v;}
+
+	/**
+	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by self::getUseConfirm()
 	 * @used-by self::setUseConfirm()
 	 * @const string
