@@ -36,7 +36,8 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template 
      * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
-	 * @used-by
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--7/app/design/adminhtml/default/default/layout/admin.xml#L70
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--7/app/design/adminhtml/default/default/layout/catalog.xml#L19
 	 */
 	final function doNotConfirm():void {$this->_needConfirm = false;}
 
