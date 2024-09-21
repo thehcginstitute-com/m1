@@ -281,8 +281,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
 	 * @param Mage_Core_Model_Layout_Element|Varien_Simplexml_Element $parent
 	 * @return $this
 	 */
-	protected function _generateAction($node, $parent)
-	{
+	protected function _generateAction($node, $parent) {
 		if (isset($node['ifconfig']) && ($configPath = (string)$node['ifconfig'])) {
 			if (!Mage::getStoreConfigFlag($configPath)) {
 				return $this;
