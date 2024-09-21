@@ -1,4 +1,5 @@
 <?php
+namespace Df\Core\Text;
 # 2021-12-12
 final class Marker {
 	/**
