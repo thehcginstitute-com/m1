@@ -1,19 +1,7 @@
 <?php
-/**
- * OpenMage
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available at https://opensource.org/license/afl-3-0-php
- *
- * @category    design
- * @package     default_default
- * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @copyright   Copyright (c) 2021-2022 The OpenMage Contributors (https://www.openmage.org)
- * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-?>
-<?php $_websiteCollection = $this->getWebsiteCollection() ?>
+# 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+use Mage_Adminhtml_Block_Catalog_Category_Tree as B; /** @var B $this */ $b = $this; /** @var B $b */
+$_websiteCollection = $this->getWebsiteCollection() ?>
 <?php if ($_websiteCollection->getSize()): ?>
 <div id="store_switcher_container">
 <p class="switcher"><label for="store_switcher"><?php echo $this->__('Choose Store View:') ?></label>
