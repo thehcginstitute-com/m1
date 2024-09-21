@@ -278,6 +278,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
 
 	/**
 	 * 2024-09-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "Refactor `Mage_Core_Model_Layout::_generateAction()`": https://github.com/thehcginstitute-com/m1/issues/684
 	 * @used-by self::generateBlocks()
 	 * @param Varien_Simplexml_Element $node
 	 * @param Mage_Core_Model_Layout_Element|Varien_Simplexml_Element $parent
