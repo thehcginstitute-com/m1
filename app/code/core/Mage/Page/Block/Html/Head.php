@@ -452,9 +452,8 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
-	function setTitle(string $title):self
-	{
-		$this->_data['title'] = Mage::getStoreConfig('design/head/title_prefix') . ' ' . $title
+	function setTitle(string $v):self {
+		$this->_data['title'] = Mage::getStoreConfig('design/head/title_prefix') . ' ' . $v
 			. ' ' . Mage::getStoreConfig('design/head/title_suffix');
 		return $this;
 	}
