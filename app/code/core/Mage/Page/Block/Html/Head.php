@@ -73,14 +73,13 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 
 	/**
 	 * Add CSS file to HEAD entity
-	 *
-	 * @param string $name
-	 * @param string $params
-	 * @param string $referenceName
+     * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
+	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @param bool $before
 	 * @return $this
 	 */
-	function addCss($name, $params = "", $referenceName = "*", $before = null)
+	final function addCss(string $name, string $params = "", string $referenceName = "*", $before = null)
 	{
 		$this->addItem('skin_css', $name, $params, null, null, $referenceName, $before);
 		return $this;
