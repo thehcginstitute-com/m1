@@ -243,13 +243,13 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 				<action method='deleteChildConditionally'>
 					<args>alias_in_layout</args>
 					<args>options_container</args>
-					<child>container1</child>
+					<childAlias>container1</childAlias>
 					<method>propertiesHaveDifferentValues</method>
 				</action>
 				<action method='deleteChildConditionally'>
 					<args>alias_in_layout</args>
 					<args>options_container</args>
-					<child>container2</child>
+					<childAlias>container2</childAlias>
 					<method>propertiesHaveDifferentValues</method>
 				</action>
 			</block>

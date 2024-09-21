@@ -494,12 +494,12 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--9/app/design/frontend/default/mobileshoppe/layout/catalog.xml#L249
 	 * @param string[] $args
 	 */
-	final function deleteChildConditionally(string $child, string $method, array $args):void {
-		if ($b = $this->getChild($child)) { /** @var BA|BF $b */
+	final function deleteChildConditionally(string $childAlias, string $method, array $args):void {
+		if ($b = $this->getChild($childAlias)) { /** @var BA|BF $b */
 			Mage::helper('core/security')->validateAgainstBlockMethodBlacklist($b, $method, $args);
 			/** @uses Mage_Core_Block_Template_Facade::propertiesHaveDifferentValues() */
 			if (call_user_func_array([$b, $method], $args)) {
-				$this->unsetChild($child);
+				$this->unsetChild($childAlias);
 			}
 		}
 	}
