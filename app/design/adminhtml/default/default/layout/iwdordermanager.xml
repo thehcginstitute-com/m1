@@ -43,7 +43,7 @@ of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginsti
 		<reference name='head'>
 			<action method='addJs'><name>iwd/ordermanager/jquery.nicescroll.js</name></action>
 			<action method='addJs'><name>iwd/all/modal.js</name></action>
-			<action method='addCss'><name>iwd/ordermanager/popup.css</name></action>
+			<action method='addCss'><v>iwd/ordermanager/popup.css</v></action>
 			<action ifconfig='iwd_ordermanager/iwd_delete_orders/double_confirmation' method='addItem'>
 				<name>iwd/ordermanager/mage/adminhtml/grid.js</name>
 				<type>js</type>
@@ -52,7 +52,7 @@ of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginsti
 	</ordermanager_order_grid_handle>
 	<ordermanager_log_grid_handle>
 		<reference name='head'>
-			<action method='addCss'><name>iwd/ordermanager/log_grid.css</name></action>
+			<action method='addCss'><v>iwd/ordermanager/log_grid.css</v></action>
 		</reference>
 	</ordermanager_log_grid_handle>
 	<adminhtml_system_config_edit>
