@@ -78,7 +78,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<remove name='js_cookie'/>
 		<block name='root' output='toHtml' template='empty.phtml' type='adminhtml/page'>
 			<block as='head' name='head' template='oauth/authorize/head-simple.phtml' type='adminhtml/page_head'>
-				<action method='addCss'><name>oauth-simple.css</name></action>
+				<action method='addCss'><v>oauth-simple.css</v></action>
 			</block>
 			<block name='content' type='core/text_list'/>
 		</block>

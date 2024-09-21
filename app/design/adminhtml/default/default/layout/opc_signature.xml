@@ -6,7 +6,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 <layout>
 	<adminhtml_sales_order_view>
 		<reference name='head'>
-			 <action method='addCss'><name>signature/jquery.signaturepad.css</name></action>	
+			 <action method='addCss'><v>signature/jquery.signaturepad.css</v></action>
 		</reference>
 <!-- 2024-01-26 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The template `opcsignature/sales/order/view/info.phtml` of `IWD_OnepageCheckoutSignature_Block_Sales_Order_View_Info`
