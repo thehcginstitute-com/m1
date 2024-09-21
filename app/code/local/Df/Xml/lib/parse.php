@@ -10,7 +10,7 @@ use Throwable as T;
  * @used-by df_xml_parse_a()
  * @used-by df_xml_prettify()
  * @used-by df_xml_x()
- * @param string|X $x
+ * @param X|string $x
  * @throws E
  */
 function df_xml_parse($x, bool $throw = true):?X {/** @var ?X $r */
