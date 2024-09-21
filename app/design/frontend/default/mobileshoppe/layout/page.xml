@@ -107,8 +107,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<action method='addJs'><name>lib/ccard.js</name></action>
 				<action method='addJs'><name>prototype/validation.js</name></action>
 				<action method='addJs'><name>varien/js.js</name></action>
-				<action method='addCss'><name>css/styles.css</name></action>
-				<action method='addCss'><name>css/widgets.css</name></action>
+				<action method='addCss'><v>css/styles.css</v></action>
+				<action method='addCss'><v>css/widgets.css</v></action>
 				<action method='addItem'>
 					<if>lt IE 7</if>
 					<name>lib/ds-sleight.js</name>
