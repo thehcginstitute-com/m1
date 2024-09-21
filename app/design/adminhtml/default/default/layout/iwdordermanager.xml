@@ -57,7 +57,7 @@ of `Mage_Adminhtml_Block_Sales_Order_View_Info`": https://github.com/thehcginsti
 	</ordermanager_log_grid_handle>
 	<adminhtml_system_config_edit>
 		<reference name='head'>
-			<action method='addCss'><name>iwd/ordermanager/system.css</name></action>
+			<action method='addCss'><v>iwd/ordermanager/system.css</v></action>
 		</reference>
 		<reference name='content'>
 			<block name='iwd_om_system' template='iwd/ordermanager/system/jsinit.phtml' type='core/template'/>
