@@ -468,10 +468,10 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/app/design/frontend/default/mobileshoppe/layout/review.xml#L18
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/app/design/frontend/default/mobileshoppe/layout/sales.xml#L17
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/app/design/frontend/default/mobileshoppe/layout/sales.xml#L31
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/app/design/frontend/default/mobileshoppe/layout/wishlist.xml#L33
-	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/app/design/frontend/default/mobileshoppe/layout/wishlist.xml#L90
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/app/design/frontend/default/mobileshoppe/layout/wishlist.xml#L100
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/app/design/frontend/default/mobileshoppe/layout/wishlist.xml#L115
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/app/design/frontend/default/mobileshoppe/layout/wishlist.xml#L33
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/app/design/frontend/default/mobileshoppe/layout/wishlist.xml#L90
 	 */
 	function unsetChild(string $alias):void {
 		if (isset($this->_children[$alias])) {
