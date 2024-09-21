@@ -511,7 +511,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	function unsetCallChild(string $child, string $method, bool $if, array $params):void {
 		if ($childB = $this->getChild($child)) {
 			Mage::helper('core/security')->validateAgainstBlockMethodBlacklist($childB, $method, $params);
-			if ($if == call_user_func_array([&$childB, $method], $params)) {
+			if ($if == call_user_func([&$childB, $method], $params)) {
 				$this->unsetChild($child);
 			}
 		}
