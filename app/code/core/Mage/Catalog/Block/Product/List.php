@@ -13,8 +13,7 @@
  * @method $this setSortBy(string $value)
  * @method bool getShowRootCategory()
  */
-class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstract
-{
+class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstract {
 	/**
 	 * Default toolbar block name
 	 *
