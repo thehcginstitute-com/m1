@@ -1,5 +1,11 @@
 <?php
-# 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+/**
+ * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+ * @see Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Cart
+ * @see Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Comment
+ * @see Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Image
+ * @see Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Remove
+ */
 class Mage_Wishlist_Block_Customer_Wishlist_Item_Column extends Mage_Wishlist_Block_Abstract
 {
 	/**
