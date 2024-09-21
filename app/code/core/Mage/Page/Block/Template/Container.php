@@ -25,6 +25,7 @@ class Mage_Page_Block_Template_Container extends Mage_Core_Block_Template {
 	/**
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by self::getTitle()
+	 * @used-by self::setTitle()
 	 * @const string
 	 */
 	private static $TITLE = 'title';

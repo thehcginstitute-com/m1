@@ -56,6 +56,7 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Column extends Mage_Wishlist_Bl
 	/**
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by self::getTitle()
+	 * @used-by self::setTitle()
 	 * @const string
 	 */
 	private static $TITLE = 'title';
