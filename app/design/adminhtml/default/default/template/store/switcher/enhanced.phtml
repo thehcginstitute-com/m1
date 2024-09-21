@@ -88,7 +88,13 @@ varienStore.prototype = {
 	}
 }
 
-var varienStoreSwitcher = new varienStore('store_switcher_container', 'store_switcher', '<?= $this->getSwitchUrl() ?>', <?= $this->getUseAjax() ?>, <?= $this->getUseConfirm() ?>);
+var varienStoreSwitcher = new varienStore(
+	'store_switcher_container'
+	, 'store_switcher'
+	, '<?= $this->getSwitchUrl() ?>'
+	, <?= $this->getUseAjax() ?>
+	, <?= $this->getUseConfirm() ?>
+);
 //]]>
 </script>
 <?php endif ?>
