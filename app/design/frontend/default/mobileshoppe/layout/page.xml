@@ -28,10 +28,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 					<type>skin_css</type>
 				</action>
 				<action method='addCss'><name>css/widgets.css</name></action>
-				<action method='addCss'>
-					<name>css/print.css</name>
-					<params>media='print'</params>
-				</action>
+				<action method='addCss'><name>css/print.css</name><params>media='print'</params></action>
 				<action method='addItem'>
 					<if>lt IE 7</if>
 					<name>lib/ds-sleight.js</name>
