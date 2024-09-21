@@ -56,7 +56,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</nwdrevslider_common>
 	<nwdrevslider_images_common>
 		<reference name='head'>
-			<action method='addCss'><name>lib/prototype/windows/themes/magento.css</name></action>
+			<action method='addCss'><v>lib/prototype/windows/themes/magento.css</v></action>
 			<action method='addItem'><name>extjs/resources/css/ext-all.css</name><type>js_css</type></action>
 			<action method='addItem'><name>prototype/windows/themes/default.css</name><type>js_css</type></action>
 			<action method='addJs'><name>extjs/ext-tree.js</name></action>
