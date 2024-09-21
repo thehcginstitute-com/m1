@@ -2,7 +2,7 @@
 <layout>
 	<default>
 		<reference name='head'>
-			<action method='addCss'><name>hcg/css/compiled/all.css</name></action>
+			<action method='addCss'><v>hcg/css/compiled/all.css</v></action>
 		</reference>
 	</default>
 </layout>
