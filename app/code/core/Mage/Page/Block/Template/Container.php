@@ -10,7 +10,7 @@ class Mage_Page_Block_Template_Container extends Mage_Core_Block_Template {
 
 	/**
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * @used-by
+	 * @used-by app/design/frontend/default/mobileshoppe/layout/catalog.xml:393
 	 */
 	final function setTitle(string $v):void {$this[self::$TITLE] = $v;}
 
