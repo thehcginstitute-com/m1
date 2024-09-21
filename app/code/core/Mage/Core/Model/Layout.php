@@ -277,6 +277,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
 	}
 
 	/**
+	 * 2024-09-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @param Varien_Simplexml_Element $node
 	 * @param Mage_Core_Model_Layout_Element|Varien_Simplexml_Element $parent
 	 * @return $this
@@ -287,24 +288,20 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
 				return $this;
 			}
 		}
-
 		$method = (string)$node['method'];
 		if (!empty($node['block'])) {
 			$parentName = (string)$node['block'];
 		} else {
 			$parentName = $parent->getBlockName();
 		}
-
 		$_profilerKey = 'BLOCK ACTION: ' . $parentName . ' -> ' . $method;
 		Varien_Profiler::start($_profilerKey);
-
 		if (!empty($parentName)) {
 			$block = $this->getBlock($parentName);
 		}
 		if (!empty($block)) {
 			$args = (array)$node->children();
 			unset($args['@attributes']);
-
 			foreach ($args as $key => $arg) {
 				if (($arg instanceof Mage_Core_Model_Layout_Element)) {
 					if (isset($arg['helper'])) {
@@ -314,7 +311,8 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
 						$arg = $arg->asArray();
 						unset($arg['@']);
 						$args[$key] = call_user_func_array([Mage::helper($helperName), $helperMethod], $arg);
-					} else {
+					}
+					else {
 						/**
 						 * if there is no helper we hope that this is assoc array
 						 */
@@ -332,14 +330,12 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
 					}
 				}
 			}
-
 			if (isset($node['json'])) {
 				$json = explode(' ', (string)$node['json']);
 				foreach ($json as $arg) {
 					$args[$arg] = Mage::helper('core')->jsonDecode($args[$arg]);
 				}
 			}
-
 			Mage::helper('core/security')->validateAgainstBlockMethodBlacklist($block, $method, $args);
 			$this->_translateLayoutNode($node, $args);
 			# 2024-09-07 Dmitrii Fediuk https://upwork.com/fl/mage2pro
@@ -350,9 +346,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
 			# https://github.com/thehcginstitute-com/m1/blob/2024-09-06/app/code/core/Mage/Core/Model/Layout.php#L347
 			df_call($block, $method, $args);
 		}
-
 		Varien_Profiler::stop($_profilerKey);
-
 		return $this;
 	}
 
