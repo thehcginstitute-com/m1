@@ -22,7 +22,6 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template 
 	{
 		parent::__construct();
 		$this->setTemplate('store/switcher.phtml');
-		$this->setUseConfirm(true);
 		$this->setUseAjax(true);
 		$this->setDefaultStoreName($this->__('All Store Views'));
 	}
@@ -31,23 +30,23 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template 
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by app/design/adminhtml/default/default/template/store/switcher.phtml
 	 */
-	final function getUseConfirm():bool {return $this[self::$USE_CONFIRM];}
+	final function getUseConfirm():bool {return $this->_needConfirm;}
 
 	/**
      * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
-	 * @used-by self::__construct()
+	 * @used-by
 	 */
-	final function setUseConfirm(bool $v):void {$this[self::$USE_CONFIRM] = $v;}
+	final function doNotConfirm():void {$this->_needConfirm = false;}
 
 	/**
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::doNotConfirm()
 	 * @used-by self::getUseConfirm()
-	 * @used-by self::setUseConfirm()
 	 * @const string
 	 */
-	private static $USE_CONFIRM = 'use_confirm';
+	private $_needConfirm = true;
 
 	/**
 	 * @return Mage_Core_Model_Resource_Website_Collection
