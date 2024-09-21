@@ -21,7 +21,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<action method='addJs'><name>varien/menu.js</name></action>
 				<action method='addJs'><name>mage/translate.js</name></action>
 				<action method='addJs'><name>mage/cookies.js</name></action>
-				<action method='addCss'><name>css/styles.css</name></action>
+				<action method='addCss'><v>css/styles.css</v></action>
 				<action method='addItem'>
 					<if>lt IE 8</if>
 					<name>css/styles-ie.css</name>
