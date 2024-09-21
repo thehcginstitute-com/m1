@@ -39,7 +39,7 @@ function df_xml_parse($x, bool $throw = true):?X {/** @var ?X $r */
 
 /**
  * 2018-12-19
- * @uses \Magento\Framework\Simplexml\Element::asArray() returns XML tag's attributes
+ * @uses Varien_Simplexml_Element::asArray() returns XML tag's attributes
  * inside an `@` key, e.g:
  *	<authorizationResponse reportGroup="1272532" customerId="admin@mage2.pro">
  *		<litleTxnId>82924701437133501</litleTxnId>
