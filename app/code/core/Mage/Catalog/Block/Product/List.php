@@ -148,6 +148,8 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
      * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @used-by https://github.com/thehcginstitute-com/m1/tree/2024-09-21--6/app/design/frontend/default/mobileshoppe/layout/catalog.xml#L48
+	 * @used-by https://github.com/thehcginstitute-com/m1/tree/2024-09-21--6/app/design/frontend/default/mobileshoppe/layout/catalog.xml#L83
 	 */
 	final function setToolbarBlockName(string $v):void {$this[self::$TOOLBAR_BLOCK_NAME] = $v;}
 
