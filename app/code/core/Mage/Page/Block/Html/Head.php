@@ -77,12 +77,8 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by Mage_Adminhtml_Block_System_Email_Template_Edit_Form::_prepareLayout()
-	 * @param bool $before
 	 */
-	final function addCss(string $name, string $params = '', string $referenceName = '*', $before = null):self {
-		$this->addItem('skin_css', $name, $params, null, null, $referenceName, $before);
-		return $this;
-	}
+	final function addCss(string $name, string $params = ''):self {$this->addItem('skin_css', $name, $params); return $this;}
 
 	/**
 	 * Add JavaScript file to HEAD entity
