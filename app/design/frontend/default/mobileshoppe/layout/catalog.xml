@@ -242,17 +242,15 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 				</block>
 				<action method='deleteChildConditionally'>
 					<child>container1</child>
-					<method>allTheSame</method>
+					<method>notAllTheSame</method>
 					<params>alias_in_layout</params>
 					<params>options_container</params>
-					<predicate>false</predicate>
 				</action>
 				<action method='deleteChildConditionally'>
 					<child>container2</child>
-					<method>allTheSame</method>
+					<method>notAllTheSame</method>
 					<params>alias_in_layout</params>
 					<params>options_container</params>
-					<predicate>false</predicate>
 				</action>
 			</block>
 		</reference>
