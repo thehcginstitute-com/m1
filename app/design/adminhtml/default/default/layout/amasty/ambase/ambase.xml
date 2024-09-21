@@ -6,7 +6,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 <layout>
 	<adminhtml_system_config_edit>
 		<reference name='head'>
-			<action method='addCss'><name>css/amasty/ambase/style.css</name></action>
+			<action method='addCss'><v>css/amasty/ambase/style.css</v></action>
 <!-- 2024-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 'Prevent Amasty from spamming the Magento's backend': https://github.com/thehcginstitute-com/m1/issues/380 -->
 		</reference>
