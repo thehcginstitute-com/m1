@@ -16,8 +16,8 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='head'>
 			<action method='addJs'><name>iwd/orderflags/jquery.nicescroll.js</name></action>
 			<action method='addJs'><name>iwd/all/modal.js</name></action>
-			<action method='addCss'><name>iwd/orderflags/popup.css</name></action>
-			<action method='addCss'><name>iwd/orderflags/style.css</name></action>
+			<action method='addCss'><v>iwd/orderflags/popup.css</v></action>
+			<action method='addCss'><v>iwd/orderflags/style.css</v></action>
 		</reference>
 		<reference name='js'>
 			<block name='create-js' template='iwd/orderflags/jsinit.phtml' type='adminhtml/template'/>
