@@ -22,38 +22,38 @@
  */
 class Mage_Adminhtml_Block_Report_Product_Lowstock extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    function __construct()
-    {
-        $this->_controller = 'report_product_lowstock';
-        $this->_headerText = Mage::helper('reports')->__('Low stock');
-        parent::__construct();
-        $this->_removeButton('add');
-    }
+	function __construct()
+	{
+		$this->_controller = 'report_product_lowstock';
+		$this->_headerText = Mage::helper('reports')->__('Low stock');
+		parent::__construct();
+		$this->_removeButton('add');
+	}
 
-    protected function _prepareLayout()
-    {
-        $this->setChild(
-            'store_switcher',
-            $this->getLayout()->createBlock('adminhtml/store_switcher')
-                ->setUseConfirm(false)
-                ->setSwitchUrl($this->getUrl('*/*/*', ['store' => null]))
-                ->setTemplate('report/store/switcher.phtml')
-        );
-        return parent::_prepareLayout();
-    }
+	protected function _prepareLayout()
+	{
+		$this->setChild(
+			'store_switcher',
+			$this->getLayout()->createBlock('adminhtml/store_switcher')
+				->setUseConfirm(false)
+				->setSwitchUrl($this->getUrl('*/*/*', ['store' => null]))
+				->setTemplate('report/store/switcher.phtml')
+		);
+		return parent::_prepareLayout();
+	}
 
-    function getStoreSwitcherHtml()
-    {
-        return Mage::app()->isSingleStoreMode() ? '' : $this->getChildHtml('store_switcher');
-    }
+	function getStoreSwitcherHtml()
+	{
+		return Mage::app()->isSingleStoreMode() ? '' : $this->getChildHtml('store_switcher');
+	}
 
-    function getGridHtml()
-    {
-        return $this->getStoreSwitcherHtml() . parent::getGridHtml();
-    }
+	function getGridHtml()
+	{
+		return $this->getStoreSwitcherHtml() . parent::getGridHtml();
+	}
 
-    function getHeaderCssClass()
-    {
-        return 'icon-head head-report';
-    }
+	function getHeaderCssClass()
+	{
+		return 'icon-head head-report';
+	}
 }
