@@ -16,9 +16,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<reference name='content'>
 			<block name='products_list' type='adminhtml/catalog_product'>
 				<block as='store_switcher' name='store_switcher' type='adminhtml/store_switcher'>
-					<action method='setUseConfirm'>
-						<params>0</params>
-					</action>
+					<action method='setUseConfirm'><params>0</params></action>
 				</block>
 			</block>
 		</reference>
