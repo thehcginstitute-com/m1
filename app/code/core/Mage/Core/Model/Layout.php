@@ -278,11 +278,12 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
 
 	/**
 	 * 2024-09-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * @used-by self::generateBlocks()
 	 * @param Varien_Simplexml_Element $node
 	 * @param Mage_Core_Model_Layout_Element|Varien_Simplexml_Element $parent
 	 * @return $this
 	 */
-	protected function _generateAction($node, $parent) {
+	private function _generateAction($node, $parent) {
 		if (isset($node['ifconfig']) && ($configPath = (string)$node['ifconfig'])) {
 			if (!Mage::getStoreConfigFlag($configPath)) {
 				return $this;
