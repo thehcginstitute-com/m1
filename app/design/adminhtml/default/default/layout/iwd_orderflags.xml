@@ -66,9 +66,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_archive_order_index>
 	<orderflags_edit_flags_handle>
 		<reference name='head'>
-			<action method='addCss'>
-				<name>iwd/orderflags/colpick.css</name>
-			</action>
+			<action method='addCss'><name>iwd/orderflags/colpick.css</name></action>
 			<action method='addJs'><name>iwd/orderflags/colpick.js</name></action>
 			<action method='addJs'><name>iwd/orderflags/flags.js</name></action>
 		</reference>
