@@ -9,6 +9,7 @@ function df_assert_array(array $a):array {return $a;}
 
 /**
  * 2017-02-18
+ * 2024-04-01 "Port `df_assert_assoc()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/544
  * @used-by df_clean_keys()
  * @return array(string => mixed)
  * @throws DFE
