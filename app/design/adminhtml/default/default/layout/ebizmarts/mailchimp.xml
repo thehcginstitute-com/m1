@@ -46,10 +46,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_ecommerce_renderresendecom>
 	<adminhtml_system_config_edit>
 		<reference name='head'>
-			<action method='addCss'><name>ebizmarts/mailchimp/css/mailchimp.css</name></action>
+			<action method='addCss'><v>ebizmarts/mailchimp/css/mailchimp.css</v></action>
 		</reference>
 		<reference name='head'>
-			<action method='addCss'><name>ebizmarts/mandrill/css/mandrill.css</name></action>
+			<action method='addCss'><v>ebizmarts/mandrill/css/mandrill.css</v></action>
 		</reference>
 	</adminhtml_system_config_edit>
 	<adminhtml_sales_order_creditmemo_new>
