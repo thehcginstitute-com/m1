@@ -95,7 +95,7 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
 	}
 
 	/**
-     * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 2024-09-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
