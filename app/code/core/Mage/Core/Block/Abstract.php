@@ -1,28 +1,9 @@
 <?php
-/**
- * OpenMage
- *
- * This source file is subject to the Open Software License (OSL 3.0)
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available at https://opensource.org/license/osl-3-0-php
- *
- * @category   Mage
- * @package    Mage_Core
- * @copyright  Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
- * @copyright  Copyright (c) 2019-2023 The OpenMage Contributors (https://www.openmage.org)
- * @license    https://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */
+# 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+use Mage_Core_Block_Abstract as BA;
+use Mage_Core_Block_Template_Facade as BF;
 
 /**
- * Base Content Block class
- *
- * For block generation you must define Data source class, data source class method,
- * parameters array and block template
- *
- * @category   Mage
- * @package    Mage_Core
- * @author     Magento Core Team <core@magentocommerce.com>
- *
  * @method $this setAdditionalHtml(string $value)
  * @method $this setBlockParams(array $value)
  * @method $this setCacheLifetime(int|false $value)
@@ -511,7 +492,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 */
 	final function deleteChildConditionally(string $child, string $method, bool $predicate, array $params):void {
-		if ($childB = $this->getChild($child)) {
+		if ($childB = $this->getChild($child)) { /** @var BA|BF $childB */
 			Mage::helper('core/security')->validateAgainstBlockMethodBlacklist($childB, $method, $params);
 			/** @uses Mage_Core_Block_Template_Facade::allTheSame() */
 			if ($predicate == call_user_func_array([&$childB, $method], $params)) {
