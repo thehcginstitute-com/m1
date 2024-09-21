@@ -58,9 +58,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 						template='wishlist/item/column/cart.phtml'
 						type='wishlist/customer_wishlist_item_column_cart'
 					>
-						<action method='setTitle'>
-							<title>Add to Cart</title>
-						</action>
+						<action method='setTitle'><title>Add to Cart</title></action>
 						<block name='customer.wishlist.item.options' type='wishlist/customer_wishlist_item_options'/>
 					</block>
 					<block
