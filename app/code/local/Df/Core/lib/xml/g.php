@@ -35,9 +35,6 @@ use Df\Xml\X;
  * 2022-11-15
  * 1) https://github.com/mage2pro/core/blob/2.0.0/Xml/G.php?ts=4
  * 2) $skipHeader is not used currently.
- * @used-by \Df\API\Client::reqXml()
- * @used-by \Df\Framework\W\Result\Xml::__toString()
- * @used-by \Dfe\SecurePay\Refund::process()
  * @param array(string => mixed) $contents [optional]
  * @param array(string => mixed) $p [optional]
  */
@@ -51,9 +48,6 @@ function df_xml_g(string $tag, array $contents = [], array $atts = [], bool $ski
 }
 
 /**
- * @used-by \Dfe\SecurePay\Refund::process()
- * @used-by \Dfe\Vantiv\Charge::pCharge()
- * @used-by \Dfe\Vantiv\Test\CaseT\Charge::t04()
  * @param array(string => string) $attr [optional]
  * @param array(string => mixed) $contents [optional]
  */
