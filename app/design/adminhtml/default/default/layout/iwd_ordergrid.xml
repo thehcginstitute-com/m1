@@ -70,9 +70,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</ordergrid_order_totals_handle>
 	<adminhtml_system_config_edit>
 		<reference name='head'>
-			<action method='addCss'><name>iwd/ordergrid/jquery-ui.css</name></action>
-			<action method='addCss'><name>iwd/ordergrid/ui.multiselect.css</name></action>
-			<action method='addCss'><name>iwd/ordergrid/system.css</name></action>
+			<action method='addCss'><v>iwd/ordergrid/jquery-ui.css</v></action>
+			<action method='addCss'><v>iwd/ordergrid/ui.multiselect.css</v></action>
+			<action method='addCss'><v>iwd/ordergrid/system.css</v></action>
 			<action method='addJs'><name>iwd/ordergrid/jquery-ui-1.10.3.min.js</name></action>
 			<action method='addJs'><name>iwd/ordergrid/ui.multiselect.js</name></action>
 			<action method='addJs'><name>iwd/ordergrid/colpick.js</name></action>
