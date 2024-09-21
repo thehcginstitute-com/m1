@@ -21,10 +21,10 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>iwd/ordermanager/jquery.datetimepicker.min.js</name></action>
 			<action method='addJs'><name>iwd/ordermanager/jquery.nicescroll.js</name></action>
 			<action method='addJs'><name>iwd/all/modal.js</name></action>
-			<action method='addCss'><name>iwd/ordermanager/popup.css</name></action>
-			<action method='addCss'><name>iwd/ordermanager/jquery.datetimepicker.css</name></action>
-			<action method='addCss'><name>iwd/ordermanager/style.css</name></action>
-			<action method='addCss'><name>iwd/ordermanager/fee.css</name></action>
+			<action method='addCss'><v>iwd/ordermanager/popup.css</v></action>
+			<action method='addCss'><v>iwd/ordermanager/jquery.datetimepicker.css</v></action>
+			<action method='addCss'><v>iwd/ordermanager/style.css</v></action>
+			<action method='addCss'><v>iwd/ordermanager/fee.css</v></action>
 <!-- 2024-02-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Delete the Braintree support from IWD modules": https://github.com/thehcginstitute-com/m1/issues/360 -->
 		</reference>
