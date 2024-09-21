@@ -52,6 +52,8 @@ class Mage_Wishlist_Block_Customer_Wishlist_Item_Column extends Mage_Wishlist_Bl
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--5/app/design/frontend/default/mobileshoppe/layout/wishlist.xml#L54
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--5/app/design/frontend/default/mobileshoppe/layout/wishlist.xml#L61
 	 */
 	final function setTitle(string $v):void {$this[self::$TITLE] = $v;}
 
