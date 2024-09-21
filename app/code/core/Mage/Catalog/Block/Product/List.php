@@ -8,7 +8,6 @@
  * @method $this setDefaultDirection(string $value)
  * @method array getModes()
  * @method $this setModes(array $value)
- * @method string getToolbarBlockName()
  * @method string getSortBy()
  * @method $this setSortBy(string $value)
  * @method bool getShowRootCategory()
@@ -154,7 +153,7 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
 
 	/**
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-	 * @used-by self::getToolbarBlockName()
+	 * @used-by self::getToolbarBlock()
 	 * @used-by self::setToolbarBlockName()
 	 * @const string
 	 */
@@ -165,9 +164,8 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
 	 *
 	 * @return Mage_Catalog_Block_Product_List_Toolbar|Mage_Core_Block_Abstract
 	 */
-	function getToolbarBlock()
-	{
-		if ($blockName = $this->getToolbarBlockName()) {
+	function getToolbarBlock() {
+		if ($blockName = $this[self::$TOOLBAR_BLOCK_NAME]) {
 			if ($block = $this->getLayout()->getBlock($blockName)) {
 				return $block;
 			}
