@@ -10,7 +10,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<default>
 		<block name='root' output='toHtml' template='page.phtml' type='adminhtml/page'>
 			<block as='head' name='head' template='page/head.phtml' type='adminhtml/page_head'>
-				<action method='setTitle'><title>OpenMage Admin</title></action>
+				<action method='setTitle'><v>OpenMage Admin</v></action>
 				<action method='addJs'><name>prototype/prototype.js</name></action>
 				<action method='addItem'>
 					<cond>can_load_ext_js</cond>
