@@ -33,5 +33,5 @@ class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template {
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by Mage_Core_Block_Abstract::deleteChildConditionally()
 	 */
-	function notAllTheSame(string ...$kk):bool {return 1 === count(array_unique(dfa($this->_data, $kk)));}
+	function propertiesHaveDifferentValues(string ...$kk):bool {return 1 < count(array_unique(dfa($this->_data, $kk)));}
 }
