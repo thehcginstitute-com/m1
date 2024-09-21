@@ -37,9 +37,9 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 				<action method='addJs'><name>mage/adminhtml/tools.js</name></action>
 				<action method='addJs'><name>mage/adminhtml/uploader.js</name></action>
 				<action method='addJs'><name>mage/adminhtml/product.js</name></action>
-				<action method='addCss'><name>reset.css</name></action>
-				<action method='addCss'><name>boxes.css</name></action>
-				<action method='addCss'><name>custom.css</name></action>
+				<action method='addCss'><v>reset.css</v></action>
+				<action method='addCss'><v>boxes.css</v></action>
+				<action method='addCss'><v>custom.css</v></action>
 				<action method='addItem'>
 					<if>lt IE 8</if>
 					<name>iestyles.css</name>
