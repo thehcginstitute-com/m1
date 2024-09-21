@@ -120,7 +120,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 		<remove name='left'/>
 		<remove name='right'/>
 		<reference name='head'>
-			<action method='setTitle'><title>Search Terms</title></action>
+			<action method='setTitle'><v>Search Terms</v></action>
 		</reference>
 		<reference name='root'>
 			<action method='setTemplate'><v>page/1column.phtml</v></action>
