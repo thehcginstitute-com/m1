@@ -31,7 +31,7 @@ class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template {
 	 * Check if data values by specified keys are equal
 	 * $conditionKeys can be array or arbitrary set of params (func_get_args())
 	 *
-	 * @param array $conditionKeys
+	 * @param string[] $conditionKeys
 	 * @return bool
 	 */
 	function ifEquals($conditionKeys) {
