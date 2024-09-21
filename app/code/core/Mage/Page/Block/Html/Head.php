@@ -453,7 +453,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template {
 	 * @param string $title
 	 * @return $this
 	 */
-	function setTitle($title)
+	function setTitle(string $title):self
 	{
 		$this->_data['title'] = Mage::getStoreConfig('design/head/title_prefix') . ' ' . $title
 			. ' ' . Mage::getStoreConfig('design/head/title_suffix');
