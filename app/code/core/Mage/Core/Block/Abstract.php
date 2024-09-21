@@ -508,15 +508,11 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	 *
 	 * @param mixed $result
 	 */
-	function unsetCallChild(string $child, string $method, $result, array $params):void {
-		$childB = $this->getChild($child);
-		if ($childB) {
-			if (!is_array($params)) {
-				$params = $args;
-			}
-			Mage::helper('core/security')->validateAgainstBlockMethodBlacklist($childB, $callback, $params);
-			if ($result == call_user_func_array([&$childB, $callback], $params)) {
-				$this->unsetChild($alias);
+	function unsetCallChild(string $child, string $method, bool $if, array $params):void {
+		if ($childB = $this->getChild($child)) {
+			Mage::helper('core/security')->validateAgainstBlockMethodBlacklist($childB, $method, $params);
+			if ($if == call_user_func_array([&$childB, $method], $params)) {
+				$this->unsetChild($child);
 			}
 		}
 	}

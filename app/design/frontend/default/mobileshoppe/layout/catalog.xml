@@ -242,14 +242,14 @@ to the `mobileshoppe` design theme": https://github.com/thehcginstitute-com/m1/i
 				</block>
 				<action method='unsetCallChild'>
 					<child>container1</child>
-					<if>0</if>
+					<if>false</if>
 					<key>alias_in_layout</key>
 					<key>options_container</key>
 					<method>ifEquals</method>
 				</action>
 				<action method='unsetCallChild'>
 					<child>container2</child>
-					<if>0</if>
+					<if>false</if>
 					<key>alias_in_layout</key>
 					<key>options_container</key>
 					<method>ifEquals</method>
