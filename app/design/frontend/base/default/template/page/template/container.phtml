@@ -1,10 +1,6 @@
 <?php
 # 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
-/**
- * @see Mage_Page_Block_Template_Container
- */
+use Mage_Page_Block_Template_Container as B; /** @var B $this */ $b = $this; /** @var B $b */
 ?>
-<div class="page-title">
-    <h1><?php echo $this->getTitle() ?></h1>
-</div>
-<?php echo $this->getChildHtml() ?>
+<div class="page-title"><h1><?= $b->getTitle() ?></h1></div>
+<?= $b->getChildHtml() ?>
