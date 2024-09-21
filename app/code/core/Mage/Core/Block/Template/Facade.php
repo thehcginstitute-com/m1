@@ -33,15 +33,15 @@ class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template {
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by Mage_Core_Block_Abstract::unsetCallChild()
 	 */
-	function ifEquals(string ...$conditionKeys):bool {
-		if (!empty($conditionKeys)) {
-			foreach ($conditionKeys as $key) {
+	function ifEquals(string ...$kk):bool {
+		if (!empty($kk)) {
+			foreach ($kk as $key) {
 				if (!isset($this->_data[$key])) {
 					return false;
 				}
 			}
 			$lastValue = $this->_data[$key];
-			foreach ($conditionKeys as $key) {
+			foreach ($kk as $key) {
 				if ($this->_data[$key] !== $lastValue) {
 					return false;
 				}
