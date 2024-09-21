@@ -1,4 +1,6 @@
 <?php
+use Df\Core\Helper\Text as T;
+
 /**
  * @see df_bts_yn()
  * @used-by \Df\Qa\Dumper::dump()
@@ -64,6 +66,14 @@ function df_string($v):string {
 	}
 	return strval($v);
 }
+
+/**
+ * @used-by df_quote_double()
+ * @used-by df_quote_russian()
+ * @used-by df_quote_single()
+ * @used-by \Df\Core\Text\Regex::isSubjectMultiline()
+ */
+function df_t():T {return T::s();}
 
 /**
  * 2024-05-14 "Port `df_string_debug()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/608
