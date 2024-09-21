@@ -506,16 +506,14 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	 *
 	 * It is no difference anyway, because they will be transformed in appropriate way.
 	 *
-	 * @param string $alias
 	 * @param string $callback
 	 * @param mixed $result
 	 * @param array $params
 	 * @return $this
 	 */
-	function unsetCallChild($alias, $callback, $result, $params)
-	{
-		$child = $this->getChild($alias);
-		if ($child) {
+	function unsetCallChild(string $child, $callback, $result, $params) {
+		$childB = $this->getChild($child);
+		if ($childB) {
 			$args = func_get_args();
 			$alias = array_shift($args);
 			$callback = array_shift($args);
@@ -523,9 +521,8 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 			if (!is_array($params)) {
 				$params = $args;
 			}
-
-			Mage::helper('core/security')->validateAgainstBlockMethodBlacklist($child, $callback, $params);
-			if ($result == call_user_func_array([&$child, $callback], $params)) {
+			Mage::helper('core/security')->validateAgainstBlockMethodBlacklist($childB, $callback, $params);
+			if ($result == call_user_func_array([&$childB, $callback], $params)) {
 				$this->unsetChild($alias);
 			}
 		}
