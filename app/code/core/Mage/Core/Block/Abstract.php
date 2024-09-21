@@ -462,6 +462,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	 * @used-by Mage_Adminhtml_Block_Catalog_Category_Edit_Form::removeAdditionalButton()
 	 * @used-by Mage_Adminhtml_Block_Urlrewrite_Edit::getButtonsHtml()
 	 * @used-by Mage_Oauth_Adminhtml_Oauth_AuthorizeController::_initForm()
+	 * @used-by Mage_Oauth_AuthorizeController::_initForm()
 	 */
 	function unsetChild(string $alias):void {
 		if (isset($this->_children[$alias])) {
