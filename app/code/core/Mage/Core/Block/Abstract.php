@@ -465,6 +465,13 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	 * @used-by Mage_Oauth_AuthorizeController::_initForm()
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/app/design/frontend/default/mobileshoppe/layout/local.xml#L20
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/app/design/frontend/default/mobileshoppe/layout/local.xml#L24
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/app/design/frontend/default/mobileshoppe/layout/review.xml#L18
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/STUB
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/STUB
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/STUB
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/STUB
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/STUB
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/STUB
 	 */
 	function unsetChild(string $alias):void {
 		if (isset($this->_children[$alias])) {
