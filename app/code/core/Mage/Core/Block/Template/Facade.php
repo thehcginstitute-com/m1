@@ -35,5 +35,5 @@ class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template {
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--9/app/design/frontend/default/mobileshoppe/layout/catalog.xml#L247
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--9/app/design/frontend/default/mobileshoppe/layout/catalog.xml#L253
 	 */
-	function propertiesHaveDifferentValues(string ...$kk):bool {return 1 < count(array_unique(dfa($this->_data, $kk)));}
+	final function propertiesHaveDifferentValues(string ...$kk):bool {return 1 < count(array_unique(dfa($this->_data, $kk)));}
 }
