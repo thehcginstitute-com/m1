@@ -33,20 +33,5 @@ class Mage_Core_Block_Template_Facade extends Mage_Core_Block_Template {
 	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * @used-by Mage_Core_Block_Abstract::unsetCallChild()
 	 */
-	function ifEquals(string ...$kk):bool {
-		if (!empty($kk)) {
-			foreach ($kk as $key) {
-				if (!isset($this->_data[$key])) {
-					return false;
-				}
-			}
-			$lastValue = $this->_data[$key];
-			foreach ($kk as $key) {
-				if ($this->_data[$key] !== $lastValue) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
+	function allTheSame(string ...$kk):bool {return 1 === count(array_unique(dfa($this->_data, $kk)));}
 }
