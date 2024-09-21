@@ -39,6 +39,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template 
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by Mage_Adminhtml_Block_Report_Product_Downloads::_prepareLayout()
 	 * @used-by Mage_Adminhtml_Block_Report_Product_Lowstock::_prepareLayout()
+	 * @used-by Mage_Adminhtml_Block_Report_Shopcart_Abandoned::_prepareLayout()
 	 */
 	final function setUseConfirm(bool $v):self {$this[self::$USE_CONFIRM] = $v; return $this;}
 
