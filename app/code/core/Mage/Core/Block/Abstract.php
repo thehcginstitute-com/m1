@@ -487,7 +487,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	 *
 	 * It is no difference anyway, because they will be transformed in appropriate way.
 	 *
-     * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+	 * 2024-09-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--9/app/design/frontend/default/mobileshoppe/layout/catalog.xml#L243
