@@ -38,6 +38,7 @@ class Mage_Adminhtml_Block_Store_Switcher extends Mage_Adminhtml_Block_Template 
 	 * "The names of arguments in `<action method="<methodName>">` calls should match the `methodName`'s arguments":
 	 * https://github.com/thehcginstitute-com/m1/issues/680
 	 * @used-by Mage_Adminhtml_Block_Report_Product_Downloads::_prepareLayout()
+	 * @used-by Mage_Adminhtml_Block_Report_Product_Lowstock::_prepareLayout()
 	 */
 	final function setUseConfirm(bool $v):self {$this[self::$USE_CONFIRM] = $v; return $this;}
 
