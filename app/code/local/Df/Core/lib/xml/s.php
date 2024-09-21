@@ -13,7 +13,6 @@ function df_xml_header(string $enc = 'UTF-8', string $v = '1.0'):string {return 
 
 /**
  * 2016-09-01
- * @used-by \Dfe\SecurePay\Refund::process()
  * @uses \Df\Xml\X::asNiceXml() не сохраняет заголовок XML.
  * @param string|X $x
  */
