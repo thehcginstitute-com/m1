@@ -23,15 +23,7 @@ function df_xml_parse($x, bool $throw = true):?X {/** @var ?X $r */
 		try {$r = new X($x);}
 		catch (T $t) {
 			if ($throw) {
-				df_error(
-					"Failed to parse an XML document:\n"
-					. "«%s»\n"
-					. "********************\n"
-					. "%s\n"
-					. "********************\n"
-					, df_xts($t)
-					, df_trim($x)
-				);
+				df_error('Failed to parse XML', ['error' => df_xts($t), 'xml' => df_trim($x)]);
 			}
 		}
 	}
