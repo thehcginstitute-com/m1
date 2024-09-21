@@ -1,7 +1,6 @@
 <?php
 use Df\Core\Exception as E;
 use Df\Xml\X;
-use SimpleXMLElement as SX;
 use Throwable as T;
 
 /**
@@ -17,9 +16,6 @@ use Throwable as T;
 function df_xml_parse($x, bool $throw = true):?X {/** @var ?X $r */
 	if ($x instanceof X) {
 		$r = $x;
-	}
-	elseif ($x instanceof SX) {
-		$r = new X($x);
 	}
 	else {
 		df_param_sne($x, 0);
