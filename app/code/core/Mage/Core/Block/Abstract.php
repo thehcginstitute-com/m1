@@ -463,6 +463,8 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
 	 * @used-by Mage_Adminhtml_Block_Urlrewrite_Edit::getButtonsHtml()
 	 * @used-by Mage_Oauth_Adminhtml_Oauth_AuthorizeController::_initForm()
 	 * @used-by Mage_Oauth_AuthorizeController::_initForm()
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/app/design/frontend/default/mobileshoppe/layout/local.xml#L20
+	 * @used-by https://github.com/thehcginstitute-com/m1/blob/2024-09-21--10/app/design/frontend/default/mobileshoppe/layout/local.xml#L24
 	 */
 	function unsetChild(string $alias):void {
 		if (isset($this->_children[$alias])) {
