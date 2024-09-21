@@ -31,7 +31,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 			<action method='addJs'><name>iwd/orderflags/jquery.nicescroll.js</name></action>
 			<action method='addJs'><name>iwd/all/modal.js</name></action>
 			<action method='addJs'><name>iwd/orderflags/flags-order-grid.js</name></action>
-			<action method='addCss'><name>iwd/orderflags/popup.css</name></action>
+			<action method='addCss'><v>iwd/orderflags/popup.css</v></action>
 		</reference>
 		<reference name='content'>
 			<block
@@ -66,7 +66,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	</adminhtml_sales_archive_order_index>
 	<orderflags_edit_flags_handle>
 		<reference name='head'>
-			<action method='addCss'><name>iwd/orderflags/colpick.css</name></action>
+			<action method='addCss'><v>iwd/orderflags/colpick.css</v></action>
 			<action method='addJs'><name>iwd/orderflags/colpick.js</name></action>
 			<action method='addJs'><name>iwd/orderflags/flags.js</name></action>
 		</reference>
@@ -74,7 +74,7 @@ https://github.com/thehcginstitute-com/m1/issues/680 -->
 	<orderflags_edit_flags_css_handle>
 		<update handle='font_awesome_handle'/>
 		<reference name='head'>
-			<action method='addCss'><name>iwd/orderflags/flags.css</name></action>
+			<action method='addCss'><v>iwd/orderflags/flags.css</v></action>
 		</reference>
 	</orderflags_edit_flags_css_handle>
 	<adminhtml_flags_flags_new>
