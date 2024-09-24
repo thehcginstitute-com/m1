@@ -18,7 +18,7 @@ function df_explode_multiple(array $delimiters, string $s):array {
  * 2016-09-03 Another implementation: df_explode_multiple(['/', DS], $path)
  * @used-by df_store_code_from_url()
  * @used-by df_url_trim_index()
- * @used-by \Df\Qa\Trace\Frame::url()
+ * @used-by Df\Qa\Trace\Frame::url()
  * @return string[]
  */
 function df_explode_path(string $p):array {return df_explode_xpath(df_path_n($p));}
