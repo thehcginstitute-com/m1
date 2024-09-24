@@ -11,7 +11,7 @@ function df_c(...$a):string {return implode(dfa_flatten($a));}
  * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax rejects arrays: https://3v4l.org/jFdPm
  * @see df_ccc()
  * @used-by df_js_data()
- * @used-by \Df\Qa\Trace\Formatter::p()
+ * @used-by Df\Qa\Trace\Formatter::p()
  * @param string|string[] ...$a
  */
 function df_cc(string $glue, ...$a):string {return implode($glue, dfa_flatten($a));}
@@ -50,7 +50,7 @@ function df_cc_s(...$a):string {return df_ccc(' ', dfa_flatten($a));}
  * @used-by df_report_prefix()
  * @used-by df_sentry()
  * @used-by df_url_bp()
- * @used-by \Df\Qa\Trace\Formatter::p()
+ * @used-by Df\Qa\Trace\Formatter::p()
  * @param string|string[] ...$a
  */
 function df_ccc(string $glue, ...$a):string {return implode($glue, df_clean(dfa_flatten($a)));}
