@@ -7,7 +7,6 @@
  * @used-by \Df\Qa\Dumper::dumpArray()
  * @used-by \Df\Qa\Dumper::dumpObject()
  * @used-by \Df\Qa\Dumper::dumpObject()
- * @used-by \Df\Typography\Css::render()
  * @param string|iterable $v
  */
 function df_tab($v):string {return !is_iterable($v) ? df_tab(df_explode_n($v)) :
