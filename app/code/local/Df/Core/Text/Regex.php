@@ -13,8 +13,7 @@ final class Regex extends \Df\Core\O {
 	 * @throws \Exception
 	 * @return string|string[]|null|bool
 	 */
-	function match() {return \dfc($this, function () {
-		/** @var string|null|bool $r */
+	function match() {return dfc($this, function() {/** @var string|null|bool $r */
 		/** @var int|bool $matchResult */ /** @var string[] $matches */
 		# Собачка нужна, чтобы подавить warning.
 		$matchResult = @preg_match($this->getPattern(), $this->getSubject(), $matches);
@@ -30,13 +29,15 @@ final class Regex extends \Df\Core\O {
 				# 	результат: Array([0] => К)
 				# 2015-03-23 Добавил поддержку нескольких пар круглых скобок.
 				$r = count($matches) < 3 ? df_last($matches) : df_tail($matches);
-			} else {
+			}
+			else {
 				if ($this->needThrowOnNotMatch()) {
 					$this->throwNotMatch();
 				}
 				$r = null;
 			}
-		} else {
+		}
+		else {
 			if ($this[self::$P__THROW_ON_ERROR]) {
 				$this->throwInternalError();
 			}
@@ -47,7 +48,7 @@ final class Regex extends \Df\Core\O {
 
 	/** @return int|null|bool */
 	function matchInt() {/** @var string|int|null|bool $r */
-		if ($this->test() && \df_is_int($r = $this->match())) {
+		if ($this->test() && df_is_int($r = $this->match())) {
 			$r = (int)$r;
 		}
 		elseif ($this->needThrowOnNotMatch()) {
@@ -63,9 +64,7 @@ final class Regex extends \Df\Core\O {
 	 * @used-by df_preg_test()
 	 * @used-by self::matchInt()
 	 */
-	function test():bool {return \dfc($this, function () {
-		return !is_null($this->match()) && (false !== $this->match());
-	});}
+	function test():bool {return dfc($this, function() {return !is_null($this->match()) && (false !== $this->match());});}
 
 	/**
 	 * @used-by self::match()
@@ -85,7 +84,7 @@ final class Regex extends \Df\Core\O {
 	 * @used-by self::throwInternalError()
 	 * @used-by self::throwNotMatch()
 	 */
-	private function getReportFilePath():bool {return \df_cc_path(BP, 'var', 'log', $this->getReportFileName());}
+	private function getReportFilePath():bool {return df_cc_path(BP, 'var', 'log', $this->getReportFileName());}
 
 	/**
 	 * @used-by self::getSubjectReportPart()
@@ -112,32 +111,25 @@ final class Regex extends \Df\Core\O {
 	 * @used-by self::throwInternalError()
 	 * @used-by self::throwNotMatch()
 	 */
-	private function getSubjectReportPart():string {return \dfc($this, function () {
-		return
-			!$this->isSubjectTooLongToReport()
-				? $this->getSubject()
-				: df_cc_n(array_slice($this->getSubjectSplitted(), 0, $this->getSubjectMaxLinesToReport()));
-	});}
+	private function getSubjectReportPart():string {return dfc($this, function() {return
+		!$this->isSubjectTooLongToReport()
+		? $this->getSubject()
+		: df_cc_n(array_slice($this->getSubjectSplitted(), 0, $this->getSubjectMaxLinesToReport()))
+	;});}
 
 	/**
 	 * @used-by self::getSubjectReportPart()
 	 * @used-by self::isSubjectTooLongToReport()
 	 * @return string[]
 	 */
-	private function getSubjectSplitted():array {return \dfc($this, function () {
-		return df_explode_n($this->getSubject());
-	});}
+	private function getSubjectSplitted():array {return dfc($this, function() {return df_explode_n($this->getSubject());});}
 
 	/**
 	 * @used-by self::isSubjectTooLongToReport()
 	 * @used-by self::throwInternalError()
 	 * @used-by self::throwNotMatch()
 	 */
-	private function isSubjectMultiline():bool {return \dfc($this, function () {
-		return df_t()->isMultiline(
-			$this->getSubject()
-		);
-	});}
+	private function isSubjectMultiline():bool {return dfc($this, function() {return df_is_multiline($this->getSubject());});}
 
 	/**
 	 * @used-by self::getSubjectReportPart()
@@ -145,10 +137,9 @@ final class Regex extends \Df\Core\O {
 	 * @used-by self::throwInternalError()
 	 * @used-by self::throwNotMatch()
 	 */
-	private function isSubjectTooLongToReport():bool {return \dfc($this, function () {
-		return
-			$this->isSubjectMultiline() && $this->getSubjectMaxLinesToReport() < count($this->getSubjectSplitted());
-	});}
+	private function isSubjectTooLongToReport():bool {return dfc($this, function() {return
+		$this->isSubjectMultiline() && $this->getSubjectMaxLinesToReport() < count($this->getSubjectSplitted())
+	;});}
 
 	/**
 	 * @used-by self::match()
@@ -177,7 +168,7 @@ final class Regex extends \Df\Core\O {
 			 * 		df_preg_test('/(?:\D+|<\d+>)*[!?]/', 'foobar foobar foobar');
 			 * https://php.net/manual/function.preg-last-error.php
 			 */
-			$textCode = \dfa(self::getErrorCodeMap(), $numericCode); /** @var string|null $textCode */
+			$textCode = dfa(self::getErrorCodeMap(), $numericCode); /** @var string|null $textCode */
 			$errorCodeForUser = ' ' . ($textCode ? $textCode : 'с кодом ' . $numericCode);
 		}
 		/** @var string $m */
@@ -189,24 +180,22 @@ final class Regex extends \Df\Core\O {
 		}
 		elseif (!$this->isSubjectTooLongToReport()) {
 			$m =
-				"При применении регулярного выражения «{$this->getPattern()}»"
-				." произошёл сбой{$errorCodeForUser}."
+				"При применении регулярного выражения «{$this->getPattern()}» произошёл сбой{$errorCodeForUser}."
 				."\nТекст, к которому применялось регулярное выражение:"
 				."\nНАЧАЛО ТЕКСТА:\n{$this->getSubject()}\nКОНЕЦ ТЕКСТА"
 			;
 		}
 		else {
-			\df_report($this->getReportFileName(), $this->getSubject());
+			df_report($this->getReportFileName(), $this->getSubject());
 			$m =
-				"При применении регулярного выражения «{$this->getPattern()}»"
-				." произошёл сбой{$errorCodeForUser}."
+				"При применении регулярного выражения «{$this->getPattern()}» произошёл сбой{$errorCodeForUser}."
 				."\nТекст, к которому применялось регулярное выражение,"
 				." смотрите в файле {$this->getReportFilePath()}."
 				."\nПервые {$this->getSubjectMaxLinesToReport()} строк текста:"
 				."\nНАЧАЛО:\n{$this->getSubjectReportPart()}\nКОНЕЦ"
 			;
 		}
-		\df_error($m);
+		df_error($m);
 	}
 
 	/**
@@ -225,7 +214,7 @@ final class Regex extends \Df\Core\O {
 			;
 		}
 		else {
-			\df_report($this->getReportFileName(), $this->getSubject());
+			df_report($this->getReportFileName(), $this->getSubject());
 			$m =
 				"Текст не отвечает регулярному выражению «{$this->getPattern()}»."
 				."\nТекст смотрите в файле {$this->getReportFilePath()}."
@@ -233,7 +222,7 @@ final class Regex extends \Df\Core\O {
 				."\nНАЧАЛО:\n{$this->getSubjectReportPart()}\nКОНЕЦ"
 			;
 		}
-		\df_error($m);
+		df_error($m);
 	}
 
 	/** @var string */
@@ -281,12 +270,9 @@ final class Regex extends \Df\Core\O {
 	 * @used-by self::throwInternalError()
 	 * @return array(int => string)
 	 */
-	private static function getErrorCodeMap():array {return \dfcf(function () {
-		return array_filter(
-			df_map_kr(function ($s, $n) {
-				return
-					[$n, !df_ends_with($s, '_ERROR') ? null : $s];
-			}, get_defined_constants(true)['pcre'])
-		);
-	});}
+	private static function getErrorCodeMap():array {return dfcf(function() {return array_filter(
+		df_map_kr(function($s, $n) {return
+			[$n, !df_ends_with($s, '_ERROR') ? null : $s]
+		;}, get_defined_constants(true)['pcre'])
+	);});}
 }
