@@ -5,14 +5,6 @@ use Throwable as Th; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": 
  * 2020-02-04
  * @used-by dfp_card_format_last4()
  * @used-by dfp_methods()
- * @used-by \Df\Config\Source\LetterCase::map()
- * @used-by \Dfe\GoogleFont\Font\Variant\Preview::text()
- * @used-by \Dfe\ZohoBI\Source\Organization::fetch()
- * @used-by \Dfe\AllPay\Block\Info\BankCard::eci()
- * @used-by \Dfe\AllPay\W\Event\Offline::expirationS()
- * @used-by \Dfe\CheckoutCom\Response::messageC()
- * @used-by \Dfe\Sift\Payload\Promotion\Discount::desc()
- * @used-by \Dfe\Stripe\Facade\Charge::refundAdjustments()
  */
 function df_desc(string $s1, string $s2):string {return df_es($s1) ? $s2 : (df_es($s2) || $s2 === $s1 ? $s1 : "$s1 ($s2)");}
 
