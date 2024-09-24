@@ -1,10 +1,10 @@
 <?php
-use Magento\Framework\Simplexml\Element as MX;
 use SimpleXMLElement as X;
+use Varien_Simplexml_Element as MX;
 
 /**
  * 2016-09-01 The result does not include the XML header. @see df_xml_header()
- * @see \Magento\Framework\Simplexml\Element::asNiceXml()
+ * @see Varien_Simplexml_Element::asNiceXml()
  * @used-by df_xml_assert_leaf()
  * @used-by df_xml_children()
  * @used-by df_xml_parse_header()
@@ -36,7 +36,7 @@ function df_xml_s($x, int $level = 0):string {/** @var string $r */
 				/**
 				 * 2021-12-16
 				 * The previous code was: `$this->xmlentities($xs)`
-				 * @see \Magento\Framework\Simplexml\Element::xmlentities()
+				 * @see Varien_Simplexml_Element::xmlentities()
 				 */
 				: '>' . df_cdata_raw_if_needed($xs) . "</{$x->getName()}>$nl"
 			;
@@ -47,7 +47,7 @@ function df_xml_s($x, int $level = 0):string {/** @var string $r */
 				/**
 				 * 2021-12-16
 				 * The previous code was: `$this->xmlentities($xs)`
-				 * @see \Magento\Framework\Simplexml\Element::xmlentities()
+				 * @see Varien_Simplexml_Element::xmlentities()
 				 */
 				$r .= df_cdata_raw_if_needed($xs);
 			}
