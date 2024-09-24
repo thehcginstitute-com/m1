@@ -30,23 +30,6 @@ function df_is_th($v):bool {return $v instanceof T;}
 function df_is_x($v):bool {return $v instanceof X;}
 
 /**
- * Эта функция используется, как правило, при отключенном режиме разработчика.
- * @see mageCoreErrorHandler():
-		if (Mage::getIsDeveloperMode()) {
-			throw new Exception($errorMessage);
-		}
- 		else {
-			Mage::log($errorMessage, Zend_Log::ERR);
-		}
- * @param bool $isOperationSuccessfull [optional]
- */
-function df_throw_last_error($isOperationSuccessfull = false) {
-	if (!$isOperationSuccessfull) {
-		\Df\Qa\Failure\Error::throwLast();
-	}
-}
-
-/**
  * 2023-08-03
  * 2024-02-03 "Port `df_xf()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/344
  * @used-by df_lx()

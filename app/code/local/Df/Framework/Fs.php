@@ -1,5 +1,6 @@
 <?php
 namespace Df\Framework;
+use Throwable as T;
 final class Fs {
 	/**
 	 * @used-by df_mkdir()
@@ -29,12 +30,11 @@ final class Fs {
 	 */
 	private static function chmod($path) {
 		try {
-			$r = chmod($path, 0777);
-			df_throw_last_error($r);
+			chmod($path, 0777);
 		}
-		catch (\Exception $e) {
+		catch (T $t) {
 			/** @var bool $isPermissionDenied */
-			$isPermissionDenied = \df_contains($e->getMessage(), 'Permission denied');
+			$isPermissionDenied = \df_contains($t->getMessage(), 'Permission denied');
 			df_error(
 				$isPermissionDenied
 					? "Операционная система запретила интерпретатору PHP {operation} «{path}»."
@@ -44,7 +44,7 @@ final class Fs {
 				, [
 					'{operation}' => is_dir($path) ? 'запись в папку' : 'запись файла'
 					, '{path}' => $path
-					, '{message}' => $e->getMessage()
+					, '{message}' => $t->getMessage()
 				]
 			);
 		}
@@ -56,17 +56,16 @@ final class Fs {
 	 */
 	private static function mkdir($dir) {
 		try {
-			$r = mkdir($dir, 0777, $recursive = true);
-			df_throw_last_error($r);
+			mkdir($dir, 0777, true);
 		}
-		catch (\Exception $e) {
+		catch (T $t) {
 			/** @var bool $isPermissionDenied */
-			$isPermissionDenied = \df_contains($e->getMessage(), 'Permission denied');
+			$isPermissionDenied = \df_contains($t->getMessage(), 'Permission denied');
 			df_error(
 				$isPermissionDenied
 					? "Операционная система запретила интерпретатору PHP создание папки «{$dir}»."
 					: "Не удалось создать папку «{$dir}»."
-					. "\nДиагностическое сообщение интерпретатора PHP: «{$e->getMessage()}»."
+					. "\nДиагностическое сообщение интерпретатора PHP: «{$t->getMessage()}»."
 			);
 		}
 	}
