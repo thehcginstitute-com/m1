@@ -6,7 +6,7 @@
  * 1.2) `callable` can be nullable: https://github.com/mage2pro/core/issues/174#user-content-callable
  * 2) "Port `df_bt_filter_head()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/637
  * @used-by df_caller_entry()
- * @used-by \Df\Qa\Trace::__construct()
+ * @used-by Df\Qa\Trace::__construct()
  * @param array(array(string => string|int)) $r
  */
 function df_bt_filter_head(array $bt, array $skip = [], ?callable $f = null):array {
