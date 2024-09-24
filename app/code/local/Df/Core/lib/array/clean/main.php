@@ -75,7 +75,7 @@ function df_clean_keys(array $a, ...$remove):array {
  * @used-by df_clean()
  * @used-by df_clean_r()
  * @used-by df_xml_atts
- * @used-by \Df\Core\Html\Tag::__construct()
+ * @used-by Df\Core\Html\Tag::__construct()
  */
 function df_clean_r(array $r, array $k = [], bool $req = true):array {/** @var mixed[] $r */
 	/** 2020-02-05 @see array_unique() does not work correctly here, even with the @see SORT_REGULAR flag. */
