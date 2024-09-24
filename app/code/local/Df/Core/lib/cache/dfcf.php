@@ -35,6 +35,8 @@ use Df\Core\RAM;
  * @used-by df_table()
  * @used-by dfac()
  * @used-by hcg_mc_store_id() (https://github.com/thehcginstitute-com/m1/issues/524)
+ * @used-by Df\Core\Text\Regex::getErrorCodeMap()
+ * @used-by Df\Qa\Trace\Formatter::p()
  * @return mixed
  */
 function dfcf(Closure $f, array $a = [], array $tags = [], bool $unique = true, int $offset = 0) {
