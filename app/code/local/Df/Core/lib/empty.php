@@ -10,7 +10,8 @@
  * @used-by df_report()
  * @used-by df_result_sne()
  * @used-by df_xml_s()
- * @used-by \HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation::renameLinkByName()
+ * @used-by Df\Xml\G::importString()
+ * @used-by HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation::renameLinkByName()
  * @param mixed $v
  */
 function df_es($v):bool {return '' === $v;}
