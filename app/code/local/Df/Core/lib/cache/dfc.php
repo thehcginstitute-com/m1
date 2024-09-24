@@ -25,10 +25,14 @@ use Df\Core\RAM;
  * Today I have noticed that you can use a void-result $f with dfc(): https://3v4l.org/CYJ1X
  * So I removed df_once().
  * 3) The methods which use dfc() with a void-result $f:
- * ---
- * @used-by dfaoc()
+ * @used-by \Df\Framework\Form\Element\Select2::setRenderer()
+ * @used-by \Df\Framework\Plugin\Data\Form\Element\AbstractElement::afterSetForm()
+ * @used-by \Df\Sso\Button::_prepareLayout()
+ * 2024-06-03 We need to support PHP ≥ 7.1: https://github.com/mage2pro/core/issues/368
+ * @see df_no_rec()
  * @see df_prop()
  * @see dfaoc()
+ * @used-by dfaoc()
  * @used-by HCG\MailChimp\Tags::customer() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @used-by HCG\MailChimp\Tags::o() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @used-by HCG\MailChimp\Tags\ProcessMergeFields::customer() (https://github.com/thehcginstitute-com/m1/issues/589)
