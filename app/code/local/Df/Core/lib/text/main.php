@@ -22,52 +22,6 @@ function df_bts(bool $v):string {return $v ? 'true' : 'false';}
 function df_contains($haystack, $n) {return false !== strpos($haystack, $n);}
 
 /**
- * Иногда я для разработки использую заплатку ядра для xDebug —
- * отключаю set_error_handler для режима разработчика.
- *
- * Так вот, xDebug при обработке фатальных сбоев (в том числе и E_RECOVERABLE_ERROR),
- * выводит на экран диагностическое сообщение, и после этого останавливает работу интерпретатора.
- *
- * Конечно, если у нас сбой типов E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING,
- * E_COMPILE_ERROR, E_COMPILE_WARNING, то и set_error_handler не поможет
- * (не обрабатывает эти типы сбоев, согласно официальной документации PHP).
- *
- * Однако сбои типа E_RECOVERABLE_ERROR обработик сбоев Magento,
- * установленный посредством set_error_handler, переводит в исключительние ситуации.
- *
- * xDebug же при E_RECOVERABLE_ERROR останавивает работу интерпретатора, что нехорошо.
- *
- * Поэтому для функций, которые могут привести к E_RECOVERABLE_ERROR,
- * пишем обёртки, которые вместо E_RECOVERABLE_ERROR возбуждают исключительную ситуацию.
- * Одна из таких функций — df_string.
- *
- * 2024-03-05 "Port `df_string()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/462
- *
- * @used-by df_type()
- * @param mixed $v
- */
-function df_string($v):string {
-	if (is_object($v)) {
-		/**
-		 * 2016-09-04
-		 * К сожалению, нельзя здесь для проверки публичности метода использовать @see is_callable(),
-		 * потому что наличие @see Varien_Object::__call() приводит к тому, что `is_callable` всегда возвращает `true`.
-		 * @uses method_exists(), в отличие от `is_callable`, не гарантирует публичную доступность метода:
-		 * т.е. метод может у класса быть, но вызывать его всё равно извне класса нельзя,
-		 * потому что он имеет доступность `private` или `protected`.
-		 * Пока эта проблема никак не решена.
-		 */
-		if (!method_exists($v, '__toString')) {
-			df_error('The developer wrongly treats an object of the class %s as a string.', get_class($v));
-		}
-	}
-	elseif (is_array($v)) {
-		df_error('The developer wrongly treats an array as a string.');
-	}
-	return strval($v);
-}
-
-/**
  * @used-by df_quote_double()
  * @used-by df_quote_russian()
  * @used-by df_quote_single()

@@ -12,10 +12,10 @@
  * 6) Поэтому для функций, которые могут привести к `E_RECOVERABLE_ERROR`, пишем обёртки,
  * которые вместо `E_RECOVERABLE_ERROR` возбуждают исключительную ситуацию.
  * 7) Одна из таких функций — df_string.
+ * 2024-03-05 "Port `df_string()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/462
  * @see df_dump()
  * @see df_is_stringable()
  * @used-by df_type()
- * @used-by \Df\Framework\W\Result\Json::prepare()
  * @used-by \Df\Qa\Dumper::dumpObject()
  * @used-by \Df\Xml\G::importString()
  * @param mixed $v
