@@ -6,10 +6,6 @@ use Throwable as Th; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": 
 /**
  * 2017-01-14
  * @used-by df_xml_s_simple()
- * @used-by \Dfe\GoogleFont\Font\Variant\Preview::box()
- * @used-by \Dfe\GoogleFont\Fonts\Png::colorAllocateAlpha()
- * @used-by \Dfe\GoogleFont\Fonts\Png::image()
- * @used-by \Dfe\GoogleFont\Fonts\Sprite::draw()
  * @param mixed $v
  * @param string|Th $m [optional]
  * @return mixed
