@@ -16,7 +16,7 @@ function df_bt_entry_class(array $e):string {return dfa($e, 'class', '');}
  * @used-by df_log_l()
  * @used-by df_bt_entry_is_phtml()
  * @used-by df_caller_module()
- * @used-by \Df\Qa\Trace::__construct()
+ * @used-by Df\Qa\Trace::__construct()
  */
 function df_bt_entry_file(array $e):string {return
 	/**
