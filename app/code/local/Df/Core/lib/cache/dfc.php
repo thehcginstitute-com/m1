@@ -29,8 +29,8 @@ use Df\Core\RAM;
  * @used-by dfaoc()
  * @see df_prop()
  * @see dfaoc()
- * @used-by \HCG\MailChimp\Tags::customer() (https://github.com/thehcginstitute-com/m1/issues/589)
- * @used-by \HCG\MailChimp\Tags::o() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by HCG\MailChimp\Tags::customer() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by HCG\MailChimp\Tags::o() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @used-by HCG\MailChimp\Tags\ProcessMergeFields::customer() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param object $o
  * @param bool $unique
