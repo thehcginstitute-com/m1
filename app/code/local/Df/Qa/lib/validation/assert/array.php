@@ -29,8 +29,6 @@ function df_assert_count($expected, array $a, $m = null):array {/** @var int $v 
  * 2017-01-14 Отныне функция возвращает $v: это позволяет нам значительно сократить код вызова функции.
  * @used-by df_assert_address_type()
  * @used-by df_date_from_timestamp_14()
- * @used-by \Dfe\Zoho\App::title()
- * @used-by \Dfe\Omise\W\Event\Charge\Complete::isPending()
  * @param string|float|int|bool|null $v
  * @param array(string|float|int|bool|null) $a
  * @param string|T $m [optional]
