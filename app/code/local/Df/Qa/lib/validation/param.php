@@ -8,8 +8,6 @@ use Df\Qa\Method as Q;
  * @used-by df_date_from_db()
  * @used-by df_eav_update()
  * @used-by df_fs_delete()
- * @used-by df_xml_children()
- * @used-by df_xml_parse()
  * @used-by dfa_deep()
  * @used-by dfa_deep_unset()
  * @used-by \Df\Core\Html\Tag::openTagWithAttributesAsText()
