@@ -165,9 +165,6 @@ function df_trim_text_left_right(string $s, string $left, string $right):string 
  * @used-by df_trim_text_left_right()
  * @used-by df_trim_text_right()
  * @used-by dfe_portal_stripe_customers()
- * @used-by \Df\Framework\Form\Element\Fieldset::nameFull()
- * @used-by \Dfe\Oro\Test\Basic::t02_orders_stripe()
- * @used-by \Dfe\TwitterTimeline\Block::_toHtml()
  * @param string|string[] $s
  * @param string|string[] $trim
  * @return string|string[]
