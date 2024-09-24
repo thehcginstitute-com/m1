@@ -1,6 +1,7 @@
 <?php
 /**
  * @used-by df_call() (https://github.com/mage2pro/core/issues/435)
+ * @used-by df_module_enabled()
  * @param mixed $v
  */
 function df_bool($v):bool {
