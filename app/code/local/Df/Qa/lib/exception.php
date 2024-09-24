@@ -86,7 +86,6 @@ function df_xf(T $t):T {while ($t->getPrevious()) {$t = $t->getPrevious();} retu
  * @used-by HCG\MailChimp\Batch\GetBatchResponse::p() (https://github.com/thehcginstitute-com/m1/issues/524)
  * @used-by Mage_Adminhtml_CustomerController::validateAction()
  * @param X|string $e
- * @return string
  */
 function df_xts($t):string {return df_path_rel_g(
 	!df_is_th($t) ? $t : ($t instanceof DFE ? $t->message() : $t->getMessage())
