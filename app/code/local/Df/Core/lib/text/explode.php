@@ -3,7 +3,6 @@
  * 2016-03-25 «charge.dispute.funds_reinstated» => [charge, dispute, funds, reinstated]
  * @used-by df_explode_class()
  * @used-by df_fe_name_short()
- * @used-by \Df\Payment\W\F::c()
  * @param string[] $delimiters
  * @return string[]
  */
@@ -19,8 +18,6 @@ function df_explode_multiple(array $delimiters, string $s):array {
  * 2016-09-03 Another implementation: df_explode_multiple(['/', DS], $path)
  * @used-by df_store_code_from_url()
  * @used-by df_url_trim_index()
- * @used-by \Df\Config\Comment::groupPath()
- * @used-by \Df\Config\Source::pathA()
  * @used-by \Df\Qa\Trace\Frame::url()
  * @return string[]
  */
