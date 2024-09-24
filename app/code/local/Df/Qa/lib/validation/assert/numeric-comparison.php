@@ -24,7 +24,7 @@ function df_assert_between($v, $min, $max, bool $inclusive = true) {
  * @used-by df_error_create()
  * @used-by df_module_name_by_path()
  * @used-by df_vector_sum()
- * @used-by \Df\Qa\Trace\Frame::url()
+ * @used-by Df\Qa\Trace\Frame::url()
  * @param string|int|float|bool $expected
  * @param string|int|float|bool $v
  * @param string|Th|null $m [optional]
@@ -82,7 +82,7 @@ function df_assert_le($highBound, $v, $m = null) {return $highBound >= $v ? $v :
 
 /**
  * @used-by df_num_calendar_days_by_num_working_days()
- * @used-by \Df\Qa\Trace\Frame::methodParameter()
+ * @used-by Df\Qa\Trace\Frame::methodParameter()
  * @param int|float $highBound
  * @param int|float $v
  * @param string|Th|null $m [optional]
