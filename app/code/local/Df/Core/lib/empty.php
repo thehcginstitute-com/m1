@@ -85,7 +85,7 @@ function df_fnes($v):bool {return is_null($v) || '' === $v || false === $v;}
  * 2024-03-23 "Port `df_ftn()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/STUB
  * @used-by df_fetch_one()
  * @used-by Mage_Page_Helper_Layout::getCurrentPageLayout()
- * @used-by \HCG\MailChimp\Tags::address() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by HCG\MailChimp\Tags::address() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param mixed|false $v
  * @return mixed|null
  */
@@ -125,8 +125,8 @@ function df_nes($v):bool {return is_null($v) || '' === $v;}
  * @see df_fts()
  * @used-by df_starts_with()
  * @used-by df_trim()
- * @used-by \Df\Qa\Trace\Frame::class_()
- * @used-by \Df\Qa\Trace\Frame::function_()
+ * @used-by Df\Qa\Trace\Frame::class_()
+ * @used-by Df\Qa\Trace\Frame::function_()
  * @param mixed|null $v
  * @return mixed
  */
