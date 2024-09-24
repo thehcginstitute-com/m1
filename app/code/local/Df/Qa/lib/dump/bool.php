@@ -1,7 +1,7 @@
 <?php
 /**
  * @see df_bts_yn()
- * @used-by \Df\Qa\Dumper::dump()
+ * @used-by Df\Qa\Dumper::dump()
  */
 function df_bts(bool $v):string {return $v ? 'true' : 'false';}
 
