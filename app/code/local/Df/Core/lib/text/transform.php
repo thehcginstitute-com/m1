@@ -27,7 +27,6 @@ function df_strtolower(...$a) {return df_call_a($a, function(string $s):string {
  * 2016-05-19
  * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax rejects arrays: https://3v4l.org/jFdPm
  * @see df_lcfirst
- * @used-by \Dfe\Stripe\Block\Multishipping::cardholder()
  * @param string|string[] ...$a
  * @return string|string[]
  */
