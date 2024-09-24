@@ -57,7 +57,6 @@ function df_explode_url(string $url):array {return explode('/', $url);}
  * @used-by dfa_deep()
  * @used-by dfa_deep_set()
  * @used-by dfa_deep_unset()
- * @used-by \Df\Config\Backend::value()
  * @param string|string[] $p
  * @return string[]
  */
