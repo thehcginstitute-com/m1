@@ -20,7 +20,7 @@ use Df\Qa\Dumper;
  * @used-by dfa_assert_keys()
  * @used-by dfc()
  * @used-by dfs_con()
- * @used-by \Df\Zf\Validate::message()
+ * @used-by Df\Zf\Validate::message()
  * @param mixed $v
  */
 function df_dump($v):string {return Dumper::i()->dump($v);}
@@ -28,6 +28,6 @@ function df_dump($v):string {return Dumper::i()->dump($v);}
 /**
  * 2023-08-04
  * @used-by df_log_l()
- * @used-by \Df\Qa\Failure\Exception::postface()
+ * @used-by Df\Qa\Failure\Exception::postface()
  */
 function df_dump_ds($v):string {return df_json_dont_sort(function() use($v):string {return df_dump($v);});}
