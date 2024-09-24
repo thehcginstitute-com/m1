@@ -4,7 +4,7 @@ use SimpleXMLElement as X;
 
 /**
  * 2018-12-19
- * @see \Magento\Framework\Simplexml\Element::asArray() returns XML tag's attributes
+ * @see \Varien_Simplexml_Element::asArray() returns XML tag's attributes
  * inside an `@` key, e.g:
  *	<authorizationResponse reportGroup="1272532" customerId="admin@mage2.pro">
  *		<litleTxnId>82924701437133501</litleTxnId>
@@ -23,7 +23,6 @@ use SimpleXMLElement as X;
  *		"response": "000",
  * 		<...>
  *	}
- * @used-by \Dfe\Vantiv\API\Client::_construct()
  * @param X|string $x
  * @return array(string => mixed)
  */
