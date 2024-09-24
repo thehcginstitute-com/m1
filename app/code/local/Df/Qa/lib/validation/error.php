@@ -135,7 +135,7 @@ function df_error(...$a):void {
  * @used-by df_customer()
  * @used-by df_error()
  * @used-by df_error_html()
- * @used-by \HCG\MailChimp\Tags::attCustomer() (https://github.com/thehcginstitute-com/m1/issues/589)
+ * @used-by HCG\MailChimp\Tags::attCustomer() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param mixed ...$a
  */
 function df_error_create(...$a):DFE {/** @var DFE $r */
