@@ -3,7 +3,6 @@ use Closure as F;
 use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 /**
  * 2016-02-09 Осуществляет ленивое ветвление только для первой ветки.
- * @used-by df_leaf()
  * @used-by df_request()
  * @param bool $cond
  * @param mixed|callable $onTrue
