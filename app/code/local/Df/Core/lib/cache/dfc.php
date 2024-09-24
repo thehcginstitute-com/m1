@@ -127,11 +127,9 @@ function dfc($o, Closure $f, array $a = [], $unique = true, $offset = 0) {
  * @used-by df_table()
  * @used-by dfac()
  * @used-by hcg_mc_store_id() (https://github.com/thehcginstitute-com/m1/issues/524)
- * @param bool $unique
- * @param int $offset
  * @return mixed
  */
-function dfcf(Closure $f, array $a = [], array $tags = [], $unique = true, $offset = 0) {
+function dfcf(Closure $f, array $a = [], array $tags = [], bool $unique = true, int $offset = 0) {
 	/**
 	 * 2021-10-05
 	 * I do not use @see df_bt() to make the implementation faster. An implementation via df_bt() is:
