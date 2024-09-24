@@ -12,12 +12,12 @@
  * @used-by df_xml_prettify()
  * @used-by df_zf_http_last_req()
  * @used-by dfp_error_message()
- * @used-by \Df\Core\Html\Tag::content()
- * @used-by \Df\Core\Text\Regex::getSubjectReportPart()
- * @used-by \Df\Qa\Dumper::dumpArrayElements()
- * @used-by \Df\Qa\Method::raiseErrorParam()
- * @used-by \Df\Qa\Method::raiseErrorResult()
- * @used-by \Df\Qa\Method::raiseErrorVariable()
+ * @used-by Df\Core\Html\Tag::content()
+ * @used-by Df\Core\Text\Regex::getSubjectReportPart()
+ * @used-by Df\Qa\Dumper::dumpArrayElements()
+ * @used-by Df\Qa\Method::raiseErrorParam()
+ * @used-by Df\Qa\Method::raiseErrorResult()
+ * @used-by Df\Qa\Method::raiseErrorVariable()
  * @param string|array(string) ...$a
  */
 function df_cc_n(...$a):string {return df_ccc("\n", ...$a);}
