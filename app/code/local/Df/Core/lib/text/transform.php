@@ -39,9 +39,7 @@ function df_strtoupper(...$a) {return df_call_a($a, function(string $s):string {
  * @used-by df_assert_gd()
  * @used-by df_cc_class_uc()
  * @used-by df_underscore_to_camel()
- * @used-by \Df\Config\Source\LetterCase::apply()
  * @used-by \Df\Qa\Trace\Frame::url()
- * @used-by \Dfe\TwoCheckout\LineItem::build()
  * @param string|string[] ...$a
  * @return string|string[]
  */
@@ -55,7 +53,6 @@ function df_ucfirst(...$a) {return df_call_a(function(string $s):string {return
  * https://php.net/manual/function.mb-convert-case.php#refsect1-function.mb-convert-case-parameters
  * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax rejects arrays: https://3v4l.org/jFdPm
  * @see df_ucfirst
- * @used-by \Df\Config\Source\LetterCase::apply()
  * @param string|string[] ...$a
  * @return string|string[]
  */
