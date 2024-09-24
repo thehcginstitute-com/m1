@@ -10,7 +10,7 @@ use Df\Qa\Method as Q;
  * @used-by df_fs_delete()
  * @used-by dfa_deep()
  * @used-by dfa_deep_unset()
- * @used-by \Df\Core\Html\Tag::openTagWithAttributesAsText()
+ * @used-by Df\Core\Html\Tag::openTagWithAttributesAsText()
  * @throws DFE
  */
 function df_param_sne(string $v, int $ord, int $sl = 0):string {$sl++;
