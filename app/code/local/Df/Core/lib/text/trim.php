@@ -3,17 +3,10 @@
 # 1) [Magento 2.4.6] «Class "Zend_Filter_StringTrim" not found»: https://github.com/mage2pro/core/issues/216
 # 2) "The Zend Framework 1 dependency has been removed from Magento 2 ≥ 2.4.6 since 2022-12-09": https://mage2.pro/t/6366
 # 2023-07-14 «Replace Zend Framework 2 with Laminas»: https://github.com/mage2pro/core/issues/219
-use Laminas\Filter\StringTrim as Trim;
+use Zend_Filter_StringTrim as Trim;
 /**
  * 2017-06-09
  * @used-by df_oqi_desc()
- * @used-by \Df\Payment\Charge::text()
- * @used-by \Df\Sentry\Serializer::chop()
- * @used-by \Dfe\IPay88\Charge::pCharge()
- * @used-by \Dfe\Qiwi\Charge::pBill()
- * @used-by \Dfe\TwoCheckout\LineItem::adjustText()
- * @used-by \Dfe\YandexKassa\Charge::pTaxLeaf()
- * @used-by \Dfe\YandexKassa\Result::attributes()
  */
 function df_chop(string $s, int $max = 0):string {return !$max || (mb_strlen($s = df_trim($s)) <= $max) ? $s :
 	df_trim_right(mb_substr($s, 0, $max - 1)) . '…'
@@ -39,18 +32,9 @@ function df_chop(string $s, int $max = 0):string {return !$max || (mb_strlen($s 
  * @used-by df_trim()
  * @used-by df_trim_ds()
  * @used-by df_xml_x()
- * @used-by \Df\Config\Source\LetterCase::apply()
  * @used-by \Df\Core\Html\Tag::content()
- * @used-by \Df\Framework\Form\Element::uidSt()
  * @used-by \Df\Qa\Dumper::dumpS()
  * @used-by \Df\Qa\Failure::sections()
- * @used-by \Dfe\Portal\Block\Content::getTemplate()
- * @used-by \Dfe\Portal\Controller\Index\Index::execute()
- * @used-by \Dfe\Portal\Router::match()
- * @used-by \Dfe\TwitterTimeline\Block::_toHtml()
- * @used-by \Dfe\TwoCheckout\Address::line()
- * @used-by \Dfe\TwoCheckout\Method::_refund()
- * @used-by \Inkifi\Core\Plugin\Catalog\Block\Product\View::afterSetLayout()
  * @param string|string[] $s
  * @param string $charlist [optional]
  * @param bool|mixed|Closure $throw [optional]
@@ -92,8 +76,6 @@ function df_trim($s, $charlist = null, $throw = false) {return df_try(function()
  * Пусть пока будет так. Потом, если потребуется, добавлю дополнительную обработку спецсимволов Unicode.
  * 2017-08-18 Today I have noticed that $charlist = null does not work for @uses ltrim()
  * @used-by df_trim_ds_left()
- * @used-by \Df\Config\Settings::phpNameToKey()
- * @used-by \Dfe\PostFinance\W\Event::cardNumber()
  */
 function df_trim_left(string $s, string $charlist = ''):string {return ltrim($s, $charlist ?: " \t\n\r\0\x0B");}
 
