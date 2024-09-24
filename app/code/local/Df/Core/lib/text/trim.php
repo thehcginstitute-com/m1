@@ -32,9 +32,9 @@ function df_chop(string $s, int $max = 0):string {return !$max || (mb_strlen($s 
  * @used-by df_trim()
  * @used-by df_trim_ds()
  * @used-by df_xml_x()
- * @used-by \Df\Core\Html\Tag::content()
- * @used-by \Df\Qa\Dumper::dumpS()
- * @used-by \Df\Qa\Failure::sections()
+ * @used-by Df\Core\Html\Tag::content()
+ * @used-by Df\Qa\Dumper::dumpS()
+ * @used-by Df\Qa\Failure::sections()
  * @param string|string[] $s
  * @param string $charlist [optional]
  * @param bool|mixed|Closure $throw [optional]
@@ -134,8 +134,8 @@ function df_trim_text_a(string $s, array $trimA, callable $f):string {
  * @used-by df_trim_text_left_right()
  * @used-by dfpm_code_short()
  * @used-by dfsm_code_short()
- * @used-by \Df\Framework\Request::extra()
- * @used-by \Df\Qa\Trace\Frame::__toString()
+ * @used-by Df\Framework\Request::extra()
+ * @used-by Df\Qa\Trace\Frame::__toString()
  * @param string|string[] $s
  * @param string|string[] $trim
  * @return string|string[]
@@ -149,7 +149,7 @@ function df_trim_text_left($s, $trim) {return is_array($s) ? df_map(__FUNCTION__
 /**
  * 2021-12-12
  * @used-by df_trim_text()
- * @used-by \Df\Core\Text\Marker::unmark()
+ * @used-by Df\Core\Text\Marker::unmark()
  */
 function df_trim_text_left_right(string $s, string $left, string $right):string {return df_trim_text_right(
 	df_trim_text_left($s, $left), $right
