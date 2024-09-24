@@ -4,7 +4,7 @@
  * 2024-01-10 "Port `df_cc_method` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/163
  * @used-by df_caller_m()
  * @used-by df_rest_action()
- * @used-by \Df\Qa\Trace\Frame::method()
+ * @used-by Df\Qa\Trace\Frame::method()
  * @param string|object|null|array(object|string)|array(string = string) $a1
  * @param string|null $a2 [optional]
  */
