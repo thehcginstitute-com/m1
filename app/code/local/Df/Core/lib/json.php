@@ -7,7 +7,7 @@ use Df\Core\Json as J;
  * Видел решение здесь: http://stackoverflow.com/a/6041773
  * Но оно меня не устроило. И без собаки будет Warning.
  * @used-by df_check_json_complex()
- * @used-by \Df\Qa\Dumper::dumpS()
+ * @used-by Df\Qa\Dumper::dumpS()
  * @param mixed $v
  */
 function df_check_json($v):bool {return !is_null(@json_decode($v));}
@@ -100,8 +100,8 @@ function df_json_dont_sort(F $f) {/** @var mixed $r */
  * @used-by df_oi_add()
  * @used-by df_widget()
  * @used-by dfp_container_add()
- * @used-by \Df\Core\O::j()
- * @used-by \Df\Qa\Dumper::dumpArray()
+ * @used-by Df\Core\O::j()
+ * @used-by Df\Qa\Dumper::dumpArray()
  * @used-by vendor/wolfautoparts.com/filter/view/frontend/templates/sidebar.phtml
  * @param mixed $v
  */
@@ -111,7 +111,7 @@ function df_json_encode($v, int $flags = 0):string {return json_encode(df_json_s
 
 /**
  * 2020-02-15
- * @used-by \Df\Qa\Dumper::dumpObject()
+ * @used-by Df\Qa\Dumper::dumpObject()
  * @param mixed $v
  */
 function df_json_encode_partial($v):string {return df_json_encode($v, JSON_PARTIAL_OUTPUT_ON_ERROR);}
@@ -128,7 +128,7 @@ function df_json_file_read(string $p) {return df_json_decode(df_contents($p));}
 
 /**
  * 2017-07-05
- * @used-by \Df\Qa\Dumper::dumpS()
+ * @used-by Df\Qa\Dumper::dumpS()
  * @param string|array(string => mixed) $j
  */
 function df_json_prettify($j):string {return df_json_encode(df_json_decode($j));}
