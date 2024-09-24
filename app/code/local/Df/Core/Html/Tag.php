@@ -1,6 +1,5 @@
 <?php
 namespace Df\Core\Html;
-# 2024-03-03 "Port `Df\Core\Html\Tag` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/449
 final class Tag {
 	/**
 	 * 2022-11-21
@@ -8,7 +7,7 @@ final class Tag {
 	 * @param array(string => string) $attrs [optional]
 	 * @param string|string[] $content [optional]
 	 * @param bool|null $multiline [optional]
-	 */	
+	 */
 	function __construct(string $tag, array $attrs = [], $content = '', $multiline = null) {
 		$this->_tag = strtolower($tag);
 		/**
@@ -38,10 +37,10 @@ final class Tag {
 		 * It allows me to simplify @see self::openTagWithAttributesAsText()
 		 */
 		$this->_attrs = df_clean_r($attrs, [false]);
-		$this->_content = $content;	
+		$this->_content = $content;
 		$this->_multiline = !is_null($multiline) ? $multiline : 1 < count($attrs);
 	}
-	
+
 	/** @used-by df_tag() */
 	function render():string {return
 		"<{$this->openTagWithAttributesAsText()}"
@@ -52,15 +51,15 @@ final class Tag {
 	/** @used-by self::render() */
 	private function content():string {return dfc($this, function() {
 		$c = df_trim(df_cc_n($this->_content), "\n"); /** @var string $c */
-		return $this->tagIs('pre', 'code') || !df_contains($c, "\n") ? $c : "\n" . df_tab_multiline($c) . "\n";
+		return $this->tagIs('pre', 'code') || !df_is_multiline($c) ? $c : "\n" . df_tab($c) . "\n";
 	});}
-	
+
 	/** @used-by self::render() */
 	private function openTagWithAttributesAsText():string {return df_cc_s(
 		$this->_tag
 		,$this->_multiline ? "\n" : null
 		,call_user_func(
-			$this->_multiline ? 'df_tab_multiline' : 'df_nop'
+			$this->_multiline ? 'df_tab' : 'df_nop'
 			,implode(
 				$this->_multiline ? "\n" :  ' '
 				/**
