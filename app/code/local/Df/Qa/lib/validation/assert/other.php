@@ -20,7 +20,7 @@ function df_assert_nef($v, $m = null) {return false !== $v ? $v : df_error($m ?:
  * @used-by df_file_name()
  * @used-by df_json_decode()
  * @used-by df_xml_x()
- * @used-by \Df\Xml\G::addAttributes()
+ * @used-by Df\Xml\G::addAttributes()
  * @throws DFE
  */
 function df_assert_sne(string $v, int $sl = 0):string {
