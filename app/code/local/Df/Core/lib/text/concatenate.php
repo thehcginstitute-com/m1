@@ -30,19 +30,8 @@ function df_cc_br(...$a):string {return df_ccc("<br>", dfa_flatten($a));}
  * @used-by df_cli_cmd()
  * @used-by df_log_l()
  * @used-by dfe_modules_info()
- * @used-by \Dfe\Square\Block\Info::prepare()
- * @used-by \Dfe\Stripe\Block\Multishipping::cardholder()
- * @used-by \Frugue\Shipping\Header::_toHtml()
- * @used-by \Hotlink\Brightpearl\Model\Api\Transport::_submit() (tradefurniturecompany.co.uk, https://github.com/tradefurniturecompany/site/issues/122)
- * @used-by \Inkifi\Mediaclip\API\Client::headers()
- * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
- * @used-by \KingPalm\B2B\Block\Registration::e()
- * @used-by \KingPalm\B2B\Block\Registration::region()
- * @used-by \KingPalm\B2B\Observer\RegisterSuccess::execute()
- * @used-by \TFC\GoogleShopping\Att\Price::format() (tradefurniturecompany.co.uk, https://github.com/tradefurniturecompany/google-shopping/issues/6)
  * @used-by app/code/WeltPixel/QuickCart/view/frontend/templates/checkout/cart/item/price/sidebar.phtml (https://github.com/cabinetsbay/site/issues/145)
  * @used-by vendor/cabinetsbay/core/view/frontend/templates/Magento/Tax/item/price/unit.phtml (https://github.com/cabinetsbay/site/issues/143)
- * @used-by \Wolf\Filter\Block\Navigation::hDropdowns()
  * @param string|string[] ...$a
  */
 function df_cc_s(...$a):string {return df_ccc(' ', dfa_flatten($a));}
