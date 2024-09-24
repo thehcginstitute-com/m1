@@ -13,8 +13,8 @@
  * @used-by df_modules_my()
  * @used-by dfe_modules_log()
  * @used-by dfp_methods()
- * @used-by \Df\Qa\Dumper::dumpArrayElements()
- * @used-by \Df\Qa\Trace\Formatter::p()
+ * @used-by Df\Qa\Dumper::dumpArrayElements()
+ * @used-by Df\Qa\Trace\Formatter::p()
  * @param callable|iterable $a1
  * @param callable|iterable $a2
  * @return array(int|string => mixed)
