@@ -57,7 +57,7 @@ function dfa_deep(array $a, $path = '', $d = null) {/** @var mixed|null $r */ /*
 /**
  * 2015-12-07
  * 2024-01-10 "Port `dfa_deep_set` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/156
- * @used-by \Df\Core\O::offsetSet()
+ * @used-by Df\Core\O::offsetSet()
  * @param array(string => mixed) $array
  * @param string|string[] $path
  * @param mixed $value
@@ -85,7 +85,7 @@ function dfa_deep_set(array &$array, $path, $value):array {
  * 2024-01-10 "Port `dfa_deep_unset` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/157
  * @see dfa_unset()
  * @used-by dfa_deep_unset()
- * @used-by \Df\Core\O::offsetUnset()
+ * @used-by Df\Core\O::offsetUnset()
  * @param array(string => mixed) $a
  * @param string|string[] $path
  */
