@@ -24,7 +24,7 @@ function df_new(string $c, ...$a) {return new $c(...$a);}
  * В отличие от @see df_new_om(), она не использует Object Manager.
  * 2022-10-31 `object` as a return type is not supported by PHP < 7.2: https://3v4l.org/dAmcs
  * @used-by dfs_con()
- * @used-by \Df\Zf\Validate\StringT\Parser::getZendValidator()
+ * @used-by Df\Zf\Validate\StringT\Parser::getZendValidator()
  * @param mixed ...$a
  * @return object
  */
