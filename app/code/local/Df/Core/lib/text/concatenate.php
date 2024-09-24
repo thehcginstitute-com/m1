@@ -11,20 +11,14 @@ function df_c(...$a):string {return implode(dfa_flatten($a));}
  * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax rejects arrays: https://3v4l.org/jFdPm
  * @see df_ccc()
  * @used-by df_js_data()
- * @used-by \Alignet\Paymecheckout\Model\Client\Classic\Order\DataGetter::userCodePayme() (innomuebles.com, https://github.com/innomuebles/m2/issues/17)
  * @used-by \Df\Qa\Trace\Formatter::p()
- * @used-by \Dfe\Sift\API\Facade\GetDecisions::path()
  * @param string|string[] ...$a
  */
 function df_cc(string $glue, ...$a):string {return implode($glue, dfa_flatten($a));}
 
 /**
  * 2016-08-13
- * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax rejects arrays: https://3v4l.org/jFdPm
- * @used-by \Df\Payment\Settings::messageFailure()
- * @used-by \Dfe\AllPay\Choice::title()
- * @used-by \Dfe\Square\API\Validator::short()
- * @used-by \Stock2Shop\OrderExport\Observer\OrderSaveAfter::execute()
+ * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax rejects arrays: https://3v4l.org/jFdPm)
  * @param string|string[] ...$a
  */
 function df_cc_br(...$a):string {return df_ccc("<br>", dfa_flatten($a));}
