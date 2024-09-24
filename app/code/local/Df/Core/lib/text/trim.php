@@ -150,7 +150,6 @@ function df_trim_text_left($s, $trim) {return is_array($s) ? df_map(__FUNCTION__
  * 2021-12-12
  * @used-by df_trim_text()
  * @used-by \Df\Core\Text\Marker::unmark()
- * @used-by \Dfe\TwitterTimeline\Block::_toHtml()
  */
 function df_trim_text_left_right(string $s, string $left, string $right):string {return df_trim_text_right(
 	df_trim_text_left($s, $left), $right
