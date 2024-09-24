@@ -16,7 +16,7 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by df_try()
  * @used-by df_xts()
  * @used-by df_xtsd()
- * @used-by \Df\Core\Exception::__construct()
+ * @used-by Df\Core\Exception::__construct()
  */
 function df_is_th($v):bool {return $v instanceof T;}
 
@@ -33,14 +33,14 @@ function df_is_x($v):bool {return $v instanceof X;}
  * 2023-08-03
  * 2024-02-03 "Port `df_xf()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/344
  * @used-by df_lx()
- * @used-by \Df\Core\Exception::__construct()
+ * @used-by Df\Core\Exception::__construct()
  */
 function df_th2x(T $t):X {return df_is_x($t) ? $t : new X(df_xts($t), $t->getCode(), $t);}
 
 /**
  * 2016-07-18
  * 2024-02-03 "Port `df_xf()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/343
- * @used-by \Df\Qa\Failure\Exception::trace()
+ * @used-by Df\Qa\Failure\Exception::trace()
  */
 function df_xf(T $t):T {while ($t->getPrevious()) {$t = $t->getPrevious();} return $t;}
 
