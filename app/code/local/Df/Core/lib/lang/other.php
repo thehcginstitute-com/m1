@@ -5,7 +5,7 @@
  * @see dfc()
  * @see dfcf()
  * @used-by df_sprintf_strict()
- * @used-by \Df\Qa\Failure\Error::log()
+ * @used-by Df\Qa\Failure\Error::log()
  */
 function df_no_rec(Closure $f):void {
 	static $inProcess = []; /** @var bool[] $inProcess */
@@ -18,7 +18,7 @@ function df_no_rec(Closure $f):void {
 }
 
 /**
- * @used-by \Df\Core\Html\Tag::openTagWithAttributesAsText()
+ * @used-by Df\Core\Html\Tag::openTagWithAttributesAsText()
  * @param mixed $v
  * @return mixed
  */
