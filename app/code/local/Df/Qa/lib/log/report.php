@@ -8,7 +8,7 @@
  * 2020-02-14 If $append is `true`, then $m will be written on a new line.
  * @used-by df_bt_log()
  * @used-by df_log_l()
- * @used-by \Df\Qa\Failure\Error::log()
+ * @used-by Df\Qa\Failure\Error::log()
  * @param string $f
  * @param string $m
  * @param bool $append [optional]
