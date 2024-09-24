@@ -12,9 +12,8 @@
  * @used-by df_xml_s()
  * @used-by \HetNieuweWeb_CustomerNavigation_Block_Customer_Account_Navigation::renameLinkByName()
  * @param mixed $v
- * @return bool
  */
-function df_es($v) {return '' === $v;}
+function df_es($v):bool {return '' === $v;}
 
 /**
  * 2017-04-26
