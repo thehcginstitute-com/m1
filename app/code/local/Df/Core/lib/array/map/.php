@@ -33,7 +33,7 @@ use Df\Core\Exception as DFE;
  * @used-by df_tab()
  * @used-by df_trim_text_left()
  * @used-by df_xml_atts
- * @used-by \Df\Xml\A::p()
+ * @used-by Df\Xml\A::p()
  * @param callable|iterable $a1
  * @param callable|iterable $a2
  * @param mixed|mixed[] $pAppend [optional]
