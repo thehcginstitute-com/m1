@@ -1,17 +1,28 @@
 <?php
+use Df\Core\Helper\Text as T;
+use Magento\Framework\Phrase as P;
 /**
- * @param string|string[] $text
+ * 2015-11-22
+ * 2022-10-31 @deprecated It is unused.
+ * @param string|string[]|P|P[] $s
  * @return string|string[]
  */
-function df_quote($text) {
-	$quotes =['«', '»']; /** @var string[] $quotes */
-	/**
-	 * 2016-11-13
-	 * Обратите внимание на красоту решения: мы «склеиваем кавычки»,
-	 * используя в качестве промежуточного звена исходную строку.
-	 * @param string $text
-	 * @return string
-	 */
-	$f = function($text) use($quotes) {return implode($text, $quotes);};
-	return !is_array($text) ? $f($text) : array_map($f, $text);
-}
+function df_quote_double($s) {return df_t()->quote($s, T::QUOTE__DOUBLE);}
+
+/**
+ * @used-by df_csv_pretty_quote()
+ * @used-by \Df\Config\Backend::label()
+ * @used-by \Df\Framework\Validator\Currency::message()
+ * @param string|string[]|P|P[] $s
+ * @return string|string[]
+ */
+function df_quote_russian($s) {return df_t()->quote($s, T::QUOTE__RUSSIAN);}
+
+/**
+ * @used-by df_ejs()
+ * @used-by \Df\Typography\Font::css()
+ * @used-by \Dfe\Frontend\Block\ProductView\Css::customCss()
+ * @param string|string[]|P|P[] $s
+ * @return string|string[]
+ */
+function df_quote_single($s) {return df_t()->quote($s, T::QUOTE__SINGLE);}

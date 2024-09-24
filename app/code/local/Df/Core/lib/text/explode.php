@@ -3,6 +3,7 @@
  * 2016-03-25 «charge.dispute.funds_reinstated» => [charge, dispute, funds, reinstated]
  * @used-by df_explode_class()
  * @used-by df_fe_name_short()
+ * @used-by \Df\Payment\W\F::c()
  * @param string[] $delimiters
  * @return string[]
  */
@@ -15,19 +16,11 @@ function df_explode_multiple(array $delimiters, string $s):array {
 }
 
 /**
- * 2018-04-24 I have added @uses trim() today.
- * @used-by df_module_enum()
- * @used-by df_parse_colon()
- * @used-by df_tab_multiline()
- * @used-by df_zf_http_last_req()
- * @return string[]
- */
-function df_explode_n(string $s):array {return explode("\n", df_normalize(df_trim($s)));}
-
-/**
  * 2016-09-03 Another implementation: df_explode_multiple(['/', DS], $path)
  * @used-by df_store_code_from_url()
  * @used-by df_url_trim_index()
+ * @used-by \Df\Config\Comment::groupPath()
+ * @used-by \Df\Config\Source::pathA()
  * @used-by \Df\Qa\Trace\Frame::url()
  * @return string[]
  */
@@ -40,6 +33,8 @@ function df_explode_path(string $p):array {return df_explode_xpath(df_path_n($p)
  * @used-by df_magento_version_remote()
  * @used-by df_phone_explode()
  * @used-by df_webserver()
+ * @used-by \Dfe\AmazonLogin\Customer::nameA()
+ * @used-by \Df\Framework\Form\Element::getClassDfOnly()
  * @return string[]
  */
 function df_explode_space(string $s):array {return
@@ -54,6 +49,7 @@ function df_explode_space(string $s):array {return
 ;}
 
 /**
+ * @used-by \TFC\Core\Router::match() (tradefurniturecompany.co.uk, https://github.com/tradefurniturecompany/core/issues/40)
  * @return string[]
  */
 function df_explode_url(string $url):array {return explode('/', $url);}
@@ -67,6 +63,7 @@ function df_explode_url(string $url):array {return explode('/', $url);}
  * @used-by dfa_deep()
  * @used-by dfa_deep_set()
  * @used-by dfa_deep_unset()
+ * @used-by \Df\Config\Backend::value()
  * @param string|string[] $p
  * @return string[]
  */

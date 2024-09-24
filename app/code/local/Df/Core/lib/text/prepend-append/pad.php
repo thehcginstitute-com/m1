@@ -1,22 +1,11 @@
 <?php
 /**
- * 2016-03-08 It adds the $tail suffix to the $s string if the suffix is absent in $s.
- * @used-by df_cc_path_t()
- * @used-by df_file_ext_add()
- */
-function df_append(string $s, string $tail):string {return df_ends_with($s, $tail) ? $s : $s . $tail;}
-
-/**
  * Аналог @see str_pad() для Unicode: http://stackoverflow.com/a/14773638
  * @used-by df_kv()
+ * @used-by df_pad0()
  * @used-by \Dfe\Moip\CardFormatter::label()
- * @param string $phrase
- * @param int $length
- * @param string $pattern
- * @param int $position
- * @return string
  */
-function df_pad($phrase, $length, $pattern = ' ', $position = STR_PAD_RIGHT) {/** @var string $r */
+function df_pad(string $phrase, int $length, string $pattern = ' ', int $position = STR_PAD_RIGHT):string {/** @var string $r */
 	$encoding = 'UTF-8'; /** @var string $encoding */
 	$input_length = mb_strlen($phrase, $encoding); /** @var int $input_length */
 	$pad_string_length = mb_strlen($pattern, $encoding); /** @var int $pad_string_length */
@@ -53,21 +42,3 @@ function df_pad($phrase, $length, $pattern = ' ', $position = STR_PAD_RIGHT) {/*
 	}
 	return $r;
 }
-
-/**
- * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax will reject arrays: https://3v4l.org/jFdPm
- * @used-by df_tab_multiline()
- * @param string|string[] $a
- * @return string|string[]|array(string => string)
- * @param string $s
- * @return string
- */
-function df_tab(...$a) {return df_call_a(function($s) {return "\t" . $s;}, $a);}
-
-/**
- * @used-by \Df\Qa\Dumper::dumpArray()
- * @used-by \Df\Qa\Dumper::dumpObject()
- * @param string $s
- * @return string
- */
-function df_tab_multiline($s) {return df_cc_n(df_tab(df_explode_n($s)));}

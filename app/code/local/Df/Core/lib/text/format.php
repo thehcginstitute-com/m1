@@ -1,10 +1,25 @@
 <?php
 use Throwable as Th; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 
+/**  
+ * 2020-02-04
+ * @used-by dfp_card_format_last4()
+ * @used-by dfp_methods()
+ * @used-by \Df\Config\Source\LetterCase::map()
+ * @used-by \Dfe\GoogleFont\Font\Variant\Preview::text()
+ * @used-by \Dfe\ZohoBI\Source\Organization::fetch()
+ * @used-by \Dfe\AllPay\Block\Info\BankCard::eci()
+ * @used-by \Dfe\AllPay\W\Event\Offline::expirationS()
+ * @used-by \Dfe\CheckoutCom\Response::messageC()
+ * @used-by \Dfe\Sift\Payload\Promotion\Discount::desc()
+ * @used-by \Dfe\Stripe\Facade\Charge::refundAdjustments()
+ */
+function df_desc(string $s1, string $s2):string {return df_es($s1) ? $s2 : (df_es($s2) || $s2 === $s1 ? $s1 : "$s1 ($s2)");}
+
 /**
- * 2024-02-03 "Port `df_format()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/346
+ * @used-by df_checkout_error()
  * @used-by df_error_create()
- * @used-by \Df\Core\Exception::comment()
+ * @used-by \Df\Payment\W\Exception::__construct()
  * @param mixed ...$a
  */
 function df_format(...$a):string { /** @var string $r */
@@ -27,21 +42,6 @@ function df_format(...$a):string { /** @var string $r */
 }
 
 /**
- * 2017-07-09
- * @used-by \Df\Qa\Failure\Error::preface()
- * @used-by \Df\Qa\Trace\Formatter::frame()
- * @used-by IWD_OrderManager_Adminhtml_Sales_AddressController::format() (https://github.com/thehcginstitute-com/m1/issues/533)
- * @param array(string => string) $a
- * @param int $pad
- * @return string
- */
-function df_kv(array $a, $pad = 0) {return df_cc_n(df_map_k(df_clean($a), function($k, $v) use($pad) {return
-	(!$pad ? "$k: " : df_pad("$k:", $pad))
-	.(is_array($v) || (is_object($v) && !method_exists($v, '__toString')) ? "\n" . df_json_encode($v) : $v)
-;}));}
-
-/**
- * 2024-02-03 "Port `df_sprintf()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/349
  * @used-by df_format()
  * @param string|mixed[] $s
  * @throws Th
@@ -64,7 +64,6 @@ function df_sprintf($s):string {/** @var string $r */ /** @var mixed[] $args */
 }
 
 /**
- * 2024-02-03 "Port `df_sprintf_strict()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/350
  * @used-by df_sprintf()
  * @param string|mixed[] $s
  * @throws Th
@@ -86,16 +85,22 @@ function df_sprintf_strict($s):string {/** @var string $r */ /** @var mixed[] $a
 		try {$r = vsprintf($s, df_tail($args));}
 		# 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 		catch (Th $th) {
-			static $inProcess = false; /** @var bool $inProcess */
-			if (!$inProcess) {
-				$inProcess = true;
+			/**
+			 * 2024-03-03
+			 * The previous (wrong) code:
+			 * 		static $inProcess = false;
+			 * 		if (!$inProcess) {
+			 * https://github.com/mage2pro/core/blob/10.6.0/Core/lib/text/format.php#L118-L119
+			 * https://3v4l.org/a6oIr
+			 */
+			df_no_rec(function() use($s, $th, $args):void {
 				df_error(
 					'df_sprintf_strict failed: «{message}».'
 					. "\nPattern: {$s}."
 					. "\nParameters:\n{params}."
-					,['{message}' => df_xts($th), '{params}' => print_r(df_tail($args), true)]
+					,['{message}' => df_xts($th), '{params}' => df_dump(df_tail($args))]
 				);
-			}
+			});
 		}
 	}
 	return $r;
@@ -105,12 +110,14 @@ function df_sprintf_strict($s):string {/** @var string $r */ /** @var mixed[] $a
  * 2016-03-09 Замещает переменные в тексте.
  * 2016-08-07 Сегодня разработал аналогичные функции для JavaScript: df.string.template() и df.t().
  * @used-by df_file_name()
- * @param string $s
+ * @used-by \Dfe\GingerPaymentsBase\Block\Info::btInstructions()
+ * @used-by \Df\Payment\Charge::text()
+ * @used-by \Df\Payment\Settings::messageFailure()
+ * @used-by \Dfe\SalesSequence\Plugin\Model\Manager::affix()
  * @param array(string => string) $variables
  * @param string|callable|null $onUnknown
- * @return string
  */
-function df_var($s, array $variables, $onUnknown = null) {return preg_replace_callback(
+function df_var(string $s, array $variables, $onUnknown = null):string {return preg_replace_callback(
 	'#\{([^\}]*)\}#ui', function($m) use($variables, $onUnknown) {return
 		dfa($variables, dfa($m, 1, ''), $onUnknown)
 	;}, $s
