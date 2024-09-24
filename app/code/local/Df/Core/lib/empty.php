@@ -17,6 +17,13 @@
 function df_es($v):bool {return '' === $v;}
 
 /**
+ * 2024-04-14
+ * @used-by df_tag_if_ne()
+ * @param mixed $v
+ */
+function df_est($v):bool {return df_es(df_trim($v));}
+
+/**
  * 2017-04-26
  * @used-by df_caller_entry()
  * @used-by df_ci_get()
