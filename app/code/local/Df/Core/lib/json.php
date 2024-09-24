@@ -7,6 +7,7 @@ use Df\Core\Json as J;
  * Видел решение здесь: http://stackoverflow.com/a/6041773
  * Но оно меня не устроило. И без собаки будет Warning.
  * @used-by df_check_json_complex()
+ * @used-by \Df\Qa\Dumper::dumpS()
  * @param mixed $v
  */
 function df_check_json($v):bool {return !is_null(@json_decode($v));}
@@ -36,7 +37,6 @@ function df_check_json_complex($v):bool {return is_string($v) && df_starts_with(
  * @used-by df_package()
  * @used-by df_request_body_json()
  * @used-by df_test_file_lj()
- * @used-by dfp_container_get()
  * @used-by app/design/frontend/MageSuper/magestylish/Cart2Quote_Quotation/templates/email/proposal/items/quote/bundle.phtml (canadasatellite.ca, https://github.com/canadasatellite-ca/site/issues/68)
  * @used-by app/design/frontend/MageSuper/magestylish/Cart2Quote_Quotation/templates/email/quote/items/quote/bundle.phtml (canadasatellite.ca, https://github.com/canadasatellite-ca/site/issues/67)
  * @param string|null $s
@@ -97,12 +97,11 @@ function df_json_dont_sort(F $f) {/** @var mixed $r */
  * @used-by df_js_x()
  * @used-by df_json_encode_partial()
  * @used-by df_json_prettify()
- * @used-by df_kv()
- * @used-by df_kv_table()
  * @used-by df_oi_add()
  * @used-by df_widget()
  * @used-by dfp_container_add()
- * @used-by dfw_encode()
+ * @used-by \Df\Core\O::j()
+ * @used-by \Df\Qa\Dumper::dumpArray()
  * @used-by vendor/wolfautoparts.com/filter/view/frontend/templates/sidebar.phtml
  * @param mixed $v
  */
@@ -129,6 +128,7 @@ function df_json_file_read(string $p) {return df_json_decode(df_contents($p));}
 
 /**
  * 2017-07-05
+ * @used-by \Df\Qa\Dumper::dumpS()
  * @param string|array(string => mixed) $j
  */
 function df_json_prettify($j):string {return df_json_encode(df_json_decode($j));}
