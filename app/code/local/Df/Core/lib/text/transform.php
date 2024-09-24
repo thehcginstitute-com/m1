@@ -39,7 +39,7 @@ function df_strtoupper(...$a) {return df_call_a($a, function(string $s):string {
  * @used-by df_assert_gd()
  * @used-by df_cc_class_uc()
  * @used-by df_underscore_to_camel()
- * @used-by \Df\Qa\Trace\Frame::url()
+ * @used-by Df\Qa\Trace\Frame::url()
  * @param string|string[] ...$a
  * @return string|string[]
  */
