@@ -26,6 +26,7 @@ function df_est($v):bool {return df_es(df_trim($v));}
 /**
  * 2017-04-26
  * @used-by df_caller_entry()
+ * @used-by df_caller_entry_m()
  * @used-by df_ci_get()
  * @used-by df_error_create()
  * @used-by df_fe_fc()
@@ -35,12 +36,12 @@ function df_est($v):bool {return df_es(df_trim($v));}
  * @used-by df_package()
  * @used-by df_primary_key()
  * @used-by df_trd()
+ * @used-by Df\Xml\G::importString()
  * @used-by HCG\MailChimp\Batch\ProcessEachResponseFile::p() (https://github.com/thehcginstitute-com/m1/issues/572)
  * @used-by Mage_Sales_Model_Order::queueNewOrderEmail() (https://github.com/thehcginstitute-com/m1/issues/538)
  * @param mixed|null $v
- * @return array
  */
-function df_eta($v) {
+function df_eta($v):array {
 	if (!is_array($v)) {
 		df_assert(empty($v));
 		$v = [];
