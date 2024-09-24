@@ -22,9 +22,9 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by df_product_att()
  * @used-by df_xml_x()
  * @used-by df_zuri()
- * @used-by \Df\Qa\Trace\Formatter::p()
- * @used-by \Df\Qa\Trace\Frame::methodR()
- * @used-by \Df\Xml\G::addChild()
+ * @used-by Df\Qa\Trace\Formatter::p()
+ * @used-by Df\Qa\Trace\Frame::methodR()
+ * @used-by Df\Xml\G::addChild()
  * @param F|T|bool|mixed $onE [optional]
  * @return mixed
  * @throws T
