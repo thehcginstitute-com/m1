@@ -67,7 +67,7 @@ function df_xf(T $t):T {while ($t->getPrevious()) {$t = $t->getPrevious();} retu
  * @used-by df_lxts()
  * @used-by df_message_error()
  * @used-by df_sprintf_strict()
- * @used-by df_xml_parse()
+ * @used-by df_xml_x()
  * @used-by Mage_Adminhtml_CustomerController::validateAction()
  * @used-by \Df\Qa\Failure\Error::check()
  * @used-by \Df\Qa\Failure\Error::log()
