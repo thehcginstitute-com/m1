@@ -3,7 +3,6 @@ use Df\Core\Exception as DFE;
 use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 
 /**
- * 2024-03-16 "Port `df_error` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/487
  * @used-by df_address_is_billing()
  * @used-by df_ar()
  * @used-by df_assert()
@@ -18,7 +17,6 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by df_assert_https()
  * @used-by df_assert_in()
  * @used-by df_assert_le()
- * @used-by df_assert_leaf()
  * @used-by df_assert_lt()
  * @used-by df_assert_ne()
  * @used-by df_assert_nef()
@@ -33,6 +31,7 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by df_contents()
  * @used-by df_country()
  * @used-by df_country_ctn()
+ * @used-by df_customer()
  * @used-by df_date_from_db()
  * @used-by df_fe_m()
  * @used-by df_file_name()
@@ -40,7 +39,6 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by df_int()
  * @used-by df_invoice_by_trans()
  * @used-by df_json_decode()
- * @used-by df_leaf_sne()
  * @used-by df_load()
  * @used-by df_mail_shipment()
  * @used-by df_module_file()
@@ -61,11 +59,9 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by df_route()
  * @used-by df_sentry_m()
  * @used-by df_sprintf_strict()
- * @used-by df_string()
  * @used-by df_subscriber()
  * @used-by df_try()
- * @used-by df_xml_children()
- * @used-by df_xml_parse()
+ * @used-by df_xml_x()
  * @used-by dfa_assert_keys()
  * @used-by dfaf()
  * @used-by dfc()
@@ -76,10 +72,17 @@ use Throwable as T; # 2023-08-02 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by dfpex_args()
  * @used-by dfpm()
  * @used-by dfs_con()
+ * @used-by Df\Core\Helper\Text::quote()
+ * @used-by Df\Core\Text\Regex::throwInternalError()
+ * @used-by Df\Core\Text\Regex::throwNotMatch()
  * @used-by Df\Qa\Method::throwException()
+ * @used-by Df\Qa\Method::throwException()
+ * @used-by Df\Qa\Trace\Frame::methodParameter()
+ * @used-by Df\Xml\G::addChild()
+ * @used-by Df\Xml\G::importString()
  * @used-by Mage_Eav_Model_Attribute_Data_Abstract::_applyInputFilter()
  * @used-by Varien_Data_Form_Filter_Date::inputFilter()
- * @param string|string[]|array(string => mixed)|mixed|T|null ...$a
+ * @param string|string[]|array(string => mixed)|mixed|T|Phrase|null ...$a
  * @throws DFE
  */
 function df_error(...$a):void {
