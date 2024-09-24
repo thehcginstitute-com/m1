@@ -1,8 +1,5 @@
 <?php
-use Df\Xml\X;
-
 /**
- * @see Varien_Simplexml_Element::asNiceXml() не добавляет к документу заголовок XML: его надо добавить вручную.
  * 2015-02-27
  * Для конвертации объекта класса @see SimpleXMLElement в строку
  * надо использовать именно метод @uses SimpleXMLElement::asXML(),
@@ -35,25 +32,14 @@ use Df\Xml\X;
  * 2022-11-15
  * 1) https://github.com/mage2pro/core/blob/2.0.0/Xml/G.php?ts=4
  * 2) $skipHeader is not used currently.
+ * @used-by \Df\API\Client::reqXml()
+ * @used-by \Df\Framework\W\Result\Xml::__toString()
+ * @used-by \Dfe\SecurePay\Refund::process()
  * @param array(string => mixed) $contents [optional]
  * @param array(string => mixed) $p [optional]
  */
-function df_xml_g(string $tag, array $contents = [], array $atts = [], bool $skipHeader = false):string {
-	$h = $skipHeader ? '' : df_xml_header(); /** @var string $h */
-	$x = df_xml_parse(df_cc_n($h, "<{$tag}/>")); /** @var X $x */
-	$x->addAttributes($atts);
-	$x->importArray($contents);
+function df_xml_g(string $tag, array $contents = [], array $atts = [], bool $skipHeader = false):string {return str_replace(
 	# Символ 0xB (вертикальная табуляция) допустим в UTF-8, но недопустим в XML: http://stackoverflow.com/a/10095901
-	return str_replace("\x0B", "&#x0B;", $skipHeader ? $x->asXMLPart() : df_cc_n($h, $x->asNiceXml()));
-}
-
-/**
- * @param array(string => string) $attr [optional]
- * @param array(string => mixed) $contents [optional]
- */
-function df_xml_node(string $tag, array $attr = [], array $contents = []):X {
-	$r = df_xml_parse("<{$tag}/>"); /** @var X $r */
-	$r->addAttributes($attr);
-	$r->importArray($contents);
-	return $r;
-}
+	# 2024-09-22 The result of `df_xml_s()` does not include the XML header.
+	"\x0B", "&#x0B;", df_cc_n($skipHeader ? '' : df_xml_header(), df_xml_go($tag, $contents, $atts))
+);}
