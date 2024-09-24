@@ -63,7 +63,6 @@ function df_explode_camel(...$a):array {return df_call_a(function(string $n):arr
  * 		refund_issuED => RefundIssued
  * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax rejects arrays: https://3v4l.org/jFdPm
  * @see df_camel_to_underscore()
- * @used-by \Dfe\TwoCheckout\Handler::p()
  * @param string|string[] ...$a
  * @return string|string[]
  */
