@@ -4,7 +4,7 @@ use Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": h
 
 /**
  * @used-by df_wishlist_item_candidates()
- * @used-by \Df\Xml\G::importArray()
+ * @used-by Df\Xml\G::importArray()
  */
 function df_assert_array(array $a):array {return $a;}
 
