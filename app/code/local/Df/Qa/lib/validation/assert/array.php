@@ -3,13 +3,15 @@ use Df\Core\Exception as DFE;
 use Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 
 /**
+ * @used-by df_wishlist_item_candidates()
+ * @used-by \Dfe\GoogleFont\Fonts\Sprite::datumPoints()
  * @used-by \Df\Xml\G::importArray()
+ * @used-by \Dfe\FacebookLogin\Customer::responseJson()
  */
 function df_assert_array(array $a):array {return $a;}
 
 /**
  * 2017-02-18
- * 2024-04-01 "Port `df_assert_assoc()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/544
  * @used-by df_clean_keys()
  * @return array(string => mixed)
  * @throws DFE
@@ -29,6 +31,8 @@ function df_assert_count($expected, array $a, $m = null):array {/** @var int $v 
  * 2017-01-14 Отныне функция возвращает $v: это позволяет нам значительно сократить код вызова функции.
  * @used-by df_assert_address_type()
  * @used-by df_date_from_timestamp_14()
+ * @used-by \Dfe\Zoho\App::title()
+ * @used-by \Dfe\Omise\W\Event\Charge\Complete::isPending()
  * @param string|float|int|bool|null $v
  * @param array(string|float|int|bool|null) $a
  * @param string|T $m [optional]
