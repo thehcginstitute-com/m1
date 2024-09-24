@@ -63,7 +63,7 @@ function df_nat($v, bool $allow0 = false):int {/** @var int $r */
  * @used-by df_hour()
  * @used-by df_month()
  * @used-by df_year()
- * @used-by \Df\Qa\Failure\Error::type()
+ * @used-by Df\Qa\Failure\Error::type()
  * @param mixed $v
  * @throws DFE
  */
