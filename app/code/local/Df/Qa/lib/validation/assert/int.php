@@ -48,8 +48,6 @@ function df_int_simple(array $v):array {return array_map('intval', $v);}
  * @see df_is_nat()
  * @used-by df_idn()
  * @used-by df_nat0()
- * @used-by \Df\Config\O::nat()
- * @used-by \Df\Config\Settings::nat()
  * @param mixed $v
  * @throws DFE
  */
