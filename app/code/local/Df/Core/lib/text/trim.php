@@ -135,13 +135,7 @@ function df_trim_text_a(string $s, array $trimA, callable $f):string {
  * @used-by dfpm_code_short()
  * @used-by dfsm_code_short()
  * @used-by \Df\Framework\Request::extra()
- * @used-by \Df\PaypalClone\Signer::_sign()
  * @used-by \Df\Qa\Trace\Frame::__toString()
- * @used-by \Dfe\Qiwi\W\Event::pid()
- * @used-by \Dfe\Stripe\Facade\Token::trimmed()
- * @used-by \Dfe\TwitterTimeline\Block::_toHtml()
- * @used-by \Dfe\Zoho\App::title()
- * @used-by \CabinetsBay\Catalog\B\Category::images() (https://github.com/cabinetsbay/catalog/issues/2)
  * @param string|string[] $s
  * @param string|string[] $trim
  * @return string|string[]
