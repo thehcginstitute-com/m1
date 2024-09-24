@@ -29,7 +29,7 @@
  * @used-by df_sentry_module()
  * @used-by df_widget()
  * @used-by dfpm_title()
- * @used-by \Df\Core\Session::__construct()
+ * @used-by Df\Core\Session::__construct()
  * @param string|object|null $c [optional]
  */
 function df_module_name($c = null, string $d = '_'):string {return dfcf(
