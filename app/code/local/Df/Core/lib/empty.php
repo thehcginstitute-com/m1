@@ -103,15 +103,23 @@ function df_fts($v) {return false === $v ? '' : $v;}
 /**
  * 2016-08-04
  * @see df_es()
+ * @used-by df_cache_get_simple()
+ * @used-by df_cfg_empty()
+ * @used-by df_deployment_cfg()
+ * @used-by df_float()
+ * @used-by df_js_x()
+ * @used-by df_json_decode()
+ * @used-by df_metadata()
+ * @used-by df_oi()
+ * @used-by df_request()
  * @used-by dfa()
  * @used-by dfa_deep()
  * @used-by dfa_strict()
  * @used-by dfad()
  * @used-by dftr()
  * @param mixed $v
- * @return bool
  */
-function df_nes($v) {return is_null($v) || '' === $v;}
+function df_nes($v):bool {return is_null($v) || '' === $v;}
 
 /**
  * @param mixed|null $v
