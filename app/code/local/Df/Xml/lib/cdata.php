@@ -4,7 +4,6 @@ use Df\Core\Text\Marker as M;
 /**
  * @see df_needs_cdata()
  * @used-by df_clean_xml()
- * @used-by \Dfe\SecurePay\Refund::process()
  */
 function df_cdata(string $s):string {return df_cdata_m()->mark($s);}
 
