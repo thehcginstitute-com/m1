@@ -3,7 +3,7 @@ use Df\Core\Exception as DFE;
 use Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 
 /**
- * @used-by \Df\Xml\X::importArray()
+ * @used-by \Df\Xml\G::importArray()
  */
 function df_assert_array(array $a):array {return $a;}
 
