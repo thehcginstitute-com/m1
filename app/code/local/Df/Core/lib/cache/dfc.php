@@ -33,11 +33,9 @@ use Df\Core\RAM;
  * @used-by HCG\MailChimp\Tags::o() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @used-by HCG\MailChimp\Tags\ProcessMergeFields::customer() (https://github.com/thehcginstitute-com/m1/issues/589)
  * @param object $o
- * @param bool $unique
- * @param int $offset
  * @return mixed
  */
-function dfc($o, Closure $f, array $a = [], $unique = true, $offset = 0) {
+function dfc($o, Closure $f, array $a = [], bool $unique = true, int $offset = 0) {
 	/**
 	 * 2021-10-05
 	 * I do not use @see df_bt() to make the implementation faster. An implementation via df_bt() is:
