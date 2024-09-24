@@ -30,11 +30,10 @@ use Df\Core\Exception as DFE;
  * @used-by df_mail()
  * @used-by df_prices()
  * @used-by df_qty()
+ * @used-by df_tab()
  * @used-by df_trim_text_left()
- * @used-by https://github.com/tradefurniturecompany/report/blob/1.0.3/view/frontend/templates/index.phtml#L25
- * @used-by vendor/cabinetsbay/catalog/view/frontend/templates/category/l2/l3/filters.phtml (https://github.com/cabinetsbay/catalog/issues/18)
- * @used-by vendor/cabinetsbay/catalog/view/frontend/templates/products/not-empty.phtml (https://github.com/cabinetsbay/catalog/issues/38)
- * @used-by vendor/mage2pro/color/view/frontend/templates/index.phtml
+ * @used-by df_xml_atts
+ * @used-by \Df\Xml\A::p()
  * @param callable|iterable $a1
  * @param callable|iterable $a2
  * @param mixed|mixed[] $pAppend [optional]
