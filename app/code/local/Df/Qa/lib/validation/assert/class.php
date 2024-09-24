@@ -32,7 +32,6 @@ function df_ar($v, $c = null, $m = null) {return dfcf(function($v, $c = null, $m
 /**
  * 2016-08-03
  * @used-by df_ar()
- * @used-by \Df\Config\Backend\Serialized::entityC()
  * @param string|Th $m [optional]
  * @throws DFE
  */
