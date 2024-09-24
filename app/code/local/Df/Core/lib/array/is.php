@@ -57,3 +57,11 @@ if (!function_exists('array_is_list')) {
  * @param array(int|string => mixed)|mixed $a
  */
 function df_is_assoc($a):bool {return is_array($a) && (!$a || !array_is_list($a));}
+
+/**
+ * 2023-07-25
+ * @uses is_object()
+ * @used-by \Df\Qa\Dumper::dumpArray()
+ * @param iterable $a
+ */
+function dfa_has_objects($a):bool {return !!df_find($a, 'is_object', [], [], 0, true);}
