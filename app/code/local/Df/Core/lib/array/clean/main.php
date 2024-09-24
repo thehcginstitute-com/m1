@@ -74,6 +74,7 @@ function df_clean_keys(array $a, ...$remove):array {
  * 2024-03-03 "Port `df_clean_r()` from `mage2pro/core`": https://github.com/thehcginstitute-com/m1/issues/450
  * @used-by df_clean()
  * @used-by df_clean_r()
+ * @used-by df_xml_atts
  * @used-by \Df\Core\Html\Tag::__construct()
  */
 function df_clean_r(array $r, array $k = [], bool $req = true):array {/** @var mixed[] $r */
