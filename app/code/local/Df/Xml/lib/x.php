@@ -11,8 +11,8 @@ use Throwable as T;
  * @used-by df_xml2a()
  * @used-by df_xml_prettify()
  * @used-by df_xml_x()
- * @used-by \Df\Xml\A::p()
- * @used-by \Df\Xml\G::__construct()
+ * @used-by Df\Xml\A::p()
+ * @used-by Df\Xml\G::__construct()
  * @param X|string $x
  * @param F|T|bool|mixed $onE
  * @throws E
