@@ -8,8 +8,8 @@ use Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": h
  * @used-by df_bt_s()
  * @used-by df_caller_entry()
  * @used-by dfs_con()
- * @used-by \Df\Qa\Failure\Exception::trace()
- * @used-by \Df\Qa\Method::caller()
+ * @used-by Df\Qa\Failure\Exception::trace()
+ * @used-by Df\Qa\Method::caller()
  * @param T|int|null|array(array(string => string|int)) $p [optional]
  * @return array(array(string => mixed))
  */
