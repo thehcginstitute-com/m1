@@ -1,5 +1,4 @@
 <?php
-use Magento\Framework\File\Csv;
 /**
  * 2015-02-07
  * 2020-08-13
@@ -8,19 +7,9 @@ use Magento\Framework\File\Csv;
  * 2022-11-26 We can not declare the argument as `string ...$a` because such a syntax rejects arrays: https://3v4l.org/jFdPm
  * @see df_csv()
  * @used-by df_oro_get_list()
- * @used-by \Dfe\AlphaCommerceHub\Charge::pCharge()
- * @used-by \Dfe\CheckoutCom\Method::disableEvent()
- * @used-by \Dfe\FacebookLogin\Customer::r()
  * @param string|string[] ...$a
  */
 function df_csv(...$a):string {return implode(',', df_args($a));}
-
-/**
- * 2017-06-21
- * @used-by df_intl_dic_read()  
- * @used-by df_module_csv2()
- */
-function df_csv_o():Csv {return df_new_om(Csv::class);}
 
 /**
  * 2015-02-07
@@ -28,14 +17,6 @@ function df_csv_o():Csv {return df_new_om(Csv::class);}
  * @used-by df_csv_parse_int()
  * @used-by df_days_off()
  * @used-by df_fe_fc_csv()
- * @used-by \BlushMe\Checkout\Block\Extra::items()
- * @used-by \Df\Config\Settings::csv()
- * @used-by \Df\Framework\Validator\Currency::__construct()
- * @used-by \Df\Payment\Method::amountFactor()
- * @used-by \Df\Payment\Method::canUseForCountryP()
- * @used-by \Dfe\CheckoutCom\Handler::isInitiatedByMyself()
- * @used-by \Dfe\CheckoutCom\Method::disableEvent()
- * @used-by \Wolf\Filter\Block\Navigation::hDropdowns()
  * @param string|null $s
  * @return string[]
  */
